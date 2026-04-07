@@ -1,131 +1,6 @@
 {
   "components": {
     "schemas": {
-      "AccountsGroup": {
-        "description": "Group represents a group account.",
-        "properties": {
-          "gid": {
-            "description": "Group ID for the account.",
-            "format": "int32",
-            "type": "integer"
-          },
-          "groupname": {
-            "description": "Name of the group.",
-            "type": "string"
-          },
-          "members": {
-            "description": "Members of the group.",
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          }
-        },
-        "type": "object"
-      },
-      "AccountsUser": {
-        "description": "User represents a user account.",
-        "properties": {
-          "gid": {
-            "description": "Primary group ID for the account.",
-            "format": "int32",
-            "type": "integer"
-          },
-          "groupName": {
-            "description": "Primary group name for the account.",
-            "type": "string"
-          },
-          "homeDir": {
-            "description": "Home directory for the account.",
-            "type": "string"
-          },
-          "shell": {
-            "description": "Login shell for the account.",
-            "type": "string"
-          },
-          "uid": {
-            "description": "User ID for the account.",
-            "format": "int32",
-            "type": "integer"
-          },
-          "username": {
-            "description": "Username for the account.",
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "CertificatesAdditionalEntry": {
-        "description": "AdditionalEntry represents a single certificate.",
-        "properties": {
-          "content": {
-            "description": "PEM-encoded certificate content.",
-            "type": "string"
-          },
-          "name": {
-            "description": "Name of the certificate file.",
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "CustomOverlayAccounts": {
-        "description": "Accounts specifies user/group configuration.",
-        "properties": {
-          "groups": {
-            "description": "Group entries to add.",
-            "items": {
-              "$ref": "#/components/schemas/AccountsGroup"
-            },
-            "type": "array"
-          },
-          "runAs": {
-            "description": "Run-as user configuration.",
-            "type": "string"
-          },
-          "users": {
-            "description": "User entries to add.",
-            "items": {
-              "$ref": "#/components/schemas/AccountsUser"
-            },
-            "type": "array"
-          }
-        },
-        "type": "object"
-      },
-      "CustomOverlayCertificates": {
-        "description": "Certificates specifies additional certificate configuration.",
-        "properties": {
-          "additional": {
-            "description": "Additional certificates to include.",
-            "items": {
-              "$ref": "#/components/schemas/CertificatesAdditionalEntry"
-            },
-            "type": "array"
-          },
-          "providers": {
-            "description": "Ceritificate providers via packages.",
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          }
-        },
-        "type": "object"
-      },
-      "CustomOverlayImageContents": {
-        "description": "ImageContents specifies additional image content.",
-        "properties": {
-          "packages": {
-            "description": "Packages to append to the image.",
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          }
-        },
-        "type": "object"
-      },
       "chainguard.capabilities.Capability": {
         "default": "UNKNOWN",
         "description": "Capability is an enumeration of the Chainguard IAM capabilities.\n\n - CAP_TENANT_VULN_REPORTS_LIST: TODO(colin): deprecate this cap once the legacy endpoint is removed\n - CAP_REPO_BLOBS_GET: repo.blobs.get is a capability required to pull container images.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with images vs pulling the image itself.\n - CAP_APK_BLOBS_GET: apk.blobs.get is a capability required to pull APKs.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with APKs vs pulling the APK itself.\n - CAP_BUILD_REPORT_LIST: Custom Image Build\n - CAP_LIBRARIES_ENTITLEMENTS_CREATE: Global libraries capabilities\n - CAP_LIBRARIES_PYTHON_LIST: Ecosystems specific capabilities\n - CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE: Rebuilder API capabilities\n - CAP_REGISTRY_ENTITLEMENTS_LIST: Registry Entitlements\n - CAP_REGISTRY_SETTINGS_LIST: Registry Settings\n - CAP_REGISTRY_DEPLOYMENTS_CREATE: Registry Deployments\n - CAP_POLICY_GATES_POLICY_CREATE: Policy Gates\n - CAP_TERMS_ACCEPT: Terms\n - CAP_GULFSTREAM: This is orthogonal enough that we should leave\nit somewhat separate, so add new capabilities above.\nTODO(mattmoor): Think about whether we can encode specific\ncontroller capabilities into our access control here?\ne.g. could each logical controller/webhook be its own\ncapability?",
@@ -258,13 +133,13 @@
         ],
         "type": "string"
       },
-      "chainguard.platform.iam.v2alpha1.AccountAssociation": {
+      "chainguard.platform.iam.v2beta1.AccountAssociation": {
         "description": "AccountAssociation represents cloud provider account associations for a group.",
         "properties": {
           "amazon": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.AccountAssociation.Amazon"
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.AccountAssociation.Amazon"
               }
             ],
             "description": "Amazon account association metadata."
@@ -272,7 +147,7 @@
           "azure": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.AccountAssociation.Azure"
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.AccountAssociation.Azure"
               }
             ],
             "description": "Azure tenant and client association metadata."
@@ -280,7 +155,7 @@
           "chainguard": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.AccountAssociation.Chainguard"
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.AccountAssociation.Chainguard"
               }
             ],
             "description": "Chainguard service principal bindings."
@@ -298,7 +173,7 @@
           "github": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.AccountAssociation.GitHub"
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.AccountAssociation.GitHub"
               }
             ],
             "description": "GitHub App Installation association metadata."
@@ -306,7 +181,7 @@
           "google": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.AccountAssociation.Google"
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.AccountAssociation.Google"
               }
             ],
             "description": "Google Cloud project association metadata."
@@ -332,7 +207,7 @@
         ],
         "type": "object"
       },
-      "chainguard.platform.iam.v2alpha1.AccountAssociation.Amazon": {
+      "chainguard.platform.iam.v2beta1.AccountAssociation.Amazon": {
         "description": "Amazon account association.",
         "properties": {
           "account": {
@@ -345,7 +220,7 @@
         ],
         "type": "object"
       },
-      "chainguard.platform.iam.v2alpha1.AccountAssociation.Azure": {
+      "chainguard.platform.iam.v2beta1.AccountAssociation.Azure": {
         "description": "Azure tenant and client association.",
         "properties": {
           "clientIds": {
@@ -366,7 +241,7 @@
         ],
         "type": "object"
       },
-      "chainguard.platform.iam.v2alpha1.AccountAssociation.Chainguard": {
+      "chainguard.platform.iam.v2beta1.AccountAssociation.Chainguard": {
         "description": "Chainguard service principal bindings.",
         "properties": {
           "serviceBindings": {
@@ -382,7 +257,7 @@
         ],
         "type": "object"
       },
-      "chainguard.platform.iam.v2alpha1.AccountAssociation.GitHub": {
+      "chainguard.platform.iam.v2beta1.AccountAssociation.GitHub": {
         "description": "GitHub App Installation association.",
         "properties": {
           "appId": {
@@ -408,7 +283,7 @@
         },
         "type": "object"
       },
-      "chainguard.platform.iam.v2alpha1.AccountAssociation.Google": {
+      "chainguard.platform.iam.v2beta1.AccountAssociation.Google": {
         "description": "Google Cloud project association.",
         "properties": {
           "projectId": {
@@ -426,7 +301,7 @@
         ],
         "type": "object"
       },
-      "chainguard.platform.iam.v2alpha1.Group": {
+      "chainguard.platform.iam.v2beta1.Group": {
         "description": "Group represents an IAM group (organization or folder).",
         "properties": {
           "createTime": {
@@ -473,7 +348,7 @@
         ],
         "type": "object"
       },
-      "chainguard.platform.iam.v2alpha1.GroupInvite": {
+      "chainguard.platform.iam.v2beta1.GroupInvite": {
         "description": "GroupInvite represents a group invite code.",
         "properties": {
           "code": {
@@ -526,13 +401,13 @@
         ],
         "type": "object"
       },
-      "chainguard.platform.iam.v2alpha1.Identity": {
+      "chainguard.platform.iam.v2beta1.Identity": {
         "description": "Identity represents an IAM identity.",
         "properties": {
           "awsIdentity": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.Identity.AWSIdentity"
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.Identity.AWSIdentity"
               }
             ],
             "description": "AWS IAM identity configuration."
@@ -540,7 +415,7 @@
           "claimMatch": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.Identity.ClaimMatch"
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.Identity.ClaimMatch"
               }
             ],
             "description": "OIDC claim matching configuration."
@@ -589,7 +464,7 @@
           "servicePrincipal": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.ServicePrincipal"
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.ServicePrincipal"
               }
             ],
             "description": "Chainguard service principal."
@@ -597,7 +472,7 @@
           "staticKeys": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.Identity.StaticKeys"
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.Identity.StaticKeys"
               }
             ],
             "description": "Static OIDC keys configuration."
@@ -619,7 +494,7 @@
         ],
         "type": "object"
       },
-      "chainguard.platform.iam.v2alpha1.Identity.AWSIdentity": {
+      "chainguard.platform.iam.v2beta1.Identity.AWSIdentity": {
         "description": "AWSIdentity matches AWS IAM users and roles.",
         "properties": {
           "arn": {
@@ -648,7 +523,7 @@
         ],
         "type": "object"
       },
-      "chainguard.platform.iam.v2alpha1.Identity.ClaimMatch": {
+      "chainguard.platform.iam.v2beta1.Identity.ClaimMatch": {
         "description": "ClaimMatch checks the third party IdP token's claims against configured patterns.",
         "properties": {
           "audience": {
@@ -692,7 +567,7 @@
         },
         "type": "object"
       },
-      "chainguard.platform.iam.v2alpha1.Identity.StaticKeys": {
+      "chainguard.platform.iam.v2beta1.Identity.StaticKeys": {
         "description": "StaticKeys uses pre-registered verification keys for providers without an online issuer.\nNote: Identities using static keys will expire (maximum 365 days).",
         "properties": {
           "expirationTime": {
@@ -720,7 +595,7 @@
         ],
         "type": "object"
       },
-      "chainguard.platform.iam.v2alpha1.IdentityProvider": {
+      "chainguard.platform.iam.v2beta1.IdentityProvider": {
         "description": "IdentityProvider represents the configuration parameters necessary for performing\nauthentication with an upstream identity provider.",
         "properties": {
           "createTime": {
@@ -744,7 +619,7 @@
           "oidc": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.IdentityProvider.OIDC"
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.IdentityProvider.OIDC"
               }
             ],
             "description": "Defines the parameters necessary for authenticating with the OIDC flow."
@@ -767,7 +642,7 @@
         ],
         "type": "object"
       },
-      "chainguard.platform.iam.v2alpha1.IdentityProvider.OIDC": {
+      "chainguard.platform.iam.v2beta1.IdentityProvider.OIDC": {
         "description": "Configuration parameters for performing an OIDC token exchange.",
         "properties": {
           "additionalScopes": {
@@ -797,13 +672,13 @@
         ],
         "type": "object"
       },
-      "chainguard.platform.iam.v2alpha1.ListAccountAssociationsResponse": {
+      "chainguard.platform.iam.v2beta1.ListAccountAssociationsResponse": {
         "description": "ListAccountAssociationsResponse is the response message for ListAccountAssociations.",
         "properties": {
           "accountAssociations": {
             "description": "Account associations matching the filter criteria.",
             "items": {
-              "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.AccountAssociation"
+              "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.AccountAssociation"
             },
             "type": "array"
           },
@@ -824,13 +699,13 @@
         },
         "type": "object"
       },
-      "chainguard.platform.iam.v2alpha1.ListGroupInvitesResponse": {
+      "chainguard.platform.iam.v2beta1.ListGroupInvitesResponse": {
         "description": "ListGroupInvitesResponse is the response message for ListGroupInvites.",
         "properties": {
           "groupInvites": {
             "description": "Group invites matching the filter criteria.",
             "items": {
-              "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.GroupInvite"
+              "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.GroupInvite"
             },
             "type": "array"
           },
@@ -851,13 +726,13 @@
         },
         "type": "object"
       },
-      "chainguard.platform.iam.v2alpha1.ListGroupsResponse": {
+      "chainguard.platform.iam.v2beta1.ListGroupsResponse": {
         "description": "ListGroupsResponse is the response message for ListGroups.",
         "properties": {
           "groups": {
             "description": "Groups matching the filter criteria.",
             "items": {
-              "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.Group"
+              "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.Group"
             },
             "type": "array"
           },
@@ -878,13 +753,13 @@
         },
         "type": "object"
       },
-      "chainguard.platform.iam.v2alpha1.ListIdentitiesResponse": {
+      "chainguard.platform.iam.v2beta1.ListIdentitiesResponse": {
         "description": "ListIdentitiesResponse is the response message for ListIdentities.",
         "properties": {
           "identities": {
             "description": "Identities matching the filter criteria.",
             "items": {
-              "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.Identity"
+              "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.Identity"
             },
             "type": "array"
           },
@@ -905,12 +780,12 @@
         },
         "type": "object"
       },
-      "chainguard.platform.iam.v2alpha1.ListIdentityProvidersResponse": {
+      "chainguard.platform.iam.v2beta1.ListIdentityProvidersResponse": {
         "properties": {
           "identityProviders": {
             "description": "Identity providers matching the filter criteria.",
             "items": {
-              "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.IdentityProvider"
+              "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.IdentityProvider"
             },
             "type": "array"
           },
@@ -932,7 +807,7 @@
         "title": "ListIdentityProvidersResponse is the response message for ListIdentityProviders",
         "type": "object"
       },
-      "chainguard.platform.iam.v2alpha1.ListRoleBindingsResponse": {
+      "chainguard.platform.iam.v2beta1.ListRoleBindingsResponse": {
         "description": "ListRoleBindingsResponse is the response message for ListRoleBindings.",
         "properties": {
           "nextPageToken": {
@@ -942,7 +817,7 @@
           "roleBindings": {
             "description": "Role bindings matching the filter criteria.",
             "items": {
-              "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.RoleBinding"
+              "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.RoleBinding"
             },
             "type": "array"
           },
@@ -959,7 +834,7 @@
         },
         "type": "object"
       },
-      "chainguard.platform.iam.v2alpha1.ListRolesResponse": {
+      "chainguard.platform.iam.v2beta1.ListRolesResponse": {
         "description": "ListRolesResponse is the response message for ListRoles.",
         "properties": {
           "nextPageToken": {
@@ -969,7 +844,7 @@
           "roles": {
             "description": "Roles matching the filter criteria.",
             "items": {
-              "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.Role"
+              "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.Role"
             },
             "type": "array"
           },
@@ -986,7 +861,7 @@
         },
         "type": "object"
       },
-      "chainguard.platform.iam.v2alpha1.Role": {
+      "chainguard.platform.iam.v2beta1.Role": {
         "description": "Role represents an IAM role with a set of capabilities.",
         "properties": {
           "capabilities": {
@@ -1027,7 +902,7 @@
         ],
         "type": "object"
       },
-      "chainguard.platform.iam.v2alpha1.RoleBinding": {
+      "chainguard.platform.iam.v2beta1.RoleBinding": {
         "description": "RoleBinding represents an IAM role binding.\nA role binding associates an identity with a role within a group scope.",
         "properties": {
           "createTime": {
@@ -1039,7 +914,7 @@
           "group": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.RoleBindingGroup"
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.RoleBindingGroup"
               }
             ],
             "description": "The group where this role binding applies.\nFully hydrated with group details.",
@@ -1048,7 +923,7 @@
           "identity": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.RoleBindingIdentity"
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.RoleBindingIdentity"
               }
             ],
             "description": "The identity that is granted the role.\nFully hydrated with identity details.",
@@ -1061,7 +936,7 @@
           "role": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.RoleBindingRole"
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.RoleBindingRole"
               }
             ],
             "description": "The role that is granted to the identity.\nFully hydrated with role details.",
@@ -1079,7 +954,7 @@
         },
         "type": "object"
       },
-      "chainguard.platform.iam.v2alpha1.RoleBindingGroup": {
+      "chainguard.platform.iam.v2beta1.RoleBindingGroup": {
         "description": "RoleBindingGroup contains group details for a role binding.\nThis is a simplified view of Group for role binding display.",
         "properties": {
           "description": {
@@ -1100,7 +975,7 @@
         },
         "type": "object"
       },
-      "chainguard.platform.iam.v2alpha1.RoleBindingIdentity": {
+      "chainguard.platform.iam.v2beta1.RoleBindingIdentity": {
         "description": "RoleBindingIdentity contains identity details for a role binding.\nThis is a simplified view of Identity for role binding display.",
         "properties": {
           "description": {
@@ -1136,7 +1011,7 @@
         },
         "type": "object"
       },
-      "chainguard.platform.iam.v2alpha1.RoleBindingRole": {
+      "chainguard.platform.iam.v2beta1.RoleBindingRole": {
         "description": "RoleBindingRole contains role details for a role binding.\nThis is a simplified view of Role for role binding display.",
         "properties": {
           "description": {
@@ -1157,7 +1032,7 @@
         },
         "type": "object"
       },
-      "chainguard.platform.iam.v2alpha1.ServicePrincipal": {
+      "chainguard.platform.iam.v2beta1.ServicePrincipal": {
         "default": "SERVICE_PRINCIPAL_UNSPECIFIED",
         "description": "ServicePrincipal represents a Chainguard service that can assume an identity.\n\n - SERVICE_PRINCIPAL_UNSPECIFIED: Unknown/unspecified service principal.\n - SERVICE_PRINCIPAL_COSIGNED: Cosigned service for image signing.\n - SERVICE_PRINCIPAL_INGESTER: Ingester service for data ingestion.\n - SERVICE_PRINCIPAL_CATALOG_SYNCER: Catalog syncer service for synchronizing image catalogs.\n - SERVICE_PRINCIPAL_APKO_BUILDER: APKO builder service for building images.\n - SERVICE_PRINCIPAL_ENTITLEMENT_SYNCER: Entitlement syncer service for synchronizing entitlements.\n - SERVICE_PRINCIPAL_TENANT_SCANNER: Tenant scanner service for scanning tenant resources.\n - SERVICE_PRINCIPAL_SEDIMENTOLOGY: Sedimentology service for data analysis.",
         "enum": [
@@ -1172,7 +1047,425 @@
         ],
         "type": "string"
       },
-      "chainguard.platform.vulnerabilities.v2alpha1.Advisory": {
+      "chainguard.platform.registry.v2beta1.CatalogTier": {
+        "default": "CATALOG_TIER_UNSPECIFIED",
+        "description": "CatalogTier represents the catalog tier classification for repositories.\n\n - CATALOG_TIER_UNSPECIFIED: Unknown or unspecified tier.\n - CATALOG_TIER_APPLICATION: Application images tier.\n - CATALOG_TIER_BASE: Base images tier.\n - CATALOG_TIER_FIPS: FIPS-compliant images tier.\n - CATALOG_TIER_AI: AI/ML images tier.\n - CATALOG_TIER_DEVTOOLS: Developer tools images tier.",
+        "enum": [
+          "CATALOG_TIER_UNSPECIFIED",
+          "CATALOG_TIER_APPLICATION",
+          "CATALOG_TIER_BASE",
+          "CATALOG_TIER_FIPS",
+          "CATALOG_TIER_AI",
+          "CATALOG_TIER_DEVTOOLS"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.registry.v2beta1.CustomOverlay": {
+        "description": "CustomOverlay contains apko image configuration customizations.",
+        "properties": {
+          "accounts": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay.Accounts"
+              }
+            ],
+            "description": "Account customizations applied during rebuilds.",
+            "readOnly": true
+          },
+          "annotations": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "OCI annotations to add to the image.",
+            "readOnly": true,
+            "type": "object"
+          },
+          "certificates": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay.Certificates"
+              }
+            ],
+            "description": "Custom certificates to include in the image.",
+            "readOnly": true
+          },
+          "contents": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay.ImageContents"
+              }
+            ],
+            "description": "Additional packages to include in the image.",
+            "readOnly": true
+          },
+          "environment": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "Environment variables to set in the image.",
+            "readOnly": true,
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.v2beta1.CustomOverlay.Accounts": {
+        "description": "Accounts specifies user/group configuration.",
+        "properties": {
+          "groups": {
+            "description": "Group entries to add.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay.Accounts.Group"
+            },
+            "type": "array"
+          },
+          "runAs": {
+            "description": "Run-as user configuration.",
+            "type": "string"
+          },
+          "users": {
+            "description": "User entries to add.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay.Accounts.User"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.v2beta1.CustomOverlay.Accounts.Group": {
+        "description": "Group represents a group account.",
+        "properties": {
+          "gid": {
+            "description": "Group ID for the account.",
+            "format": "int32",
+            "type": "integer"
+          },
+          "groupname": {
+            "description": "Name of the group.",
+            "type": "string"
+          },
+          "members": {
+            "description": "Members of the group.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.v2beta1.CustomOverlay.Accounts.User": {
+        "description": "User represents a user account.",
+        "properties": {
+          "gid": {
+            "description": "Primary group ID for the account.",
+            "format": "int32",
+            "type": "integer"
+          },
+          "groupName": {
+            "description": "Primary group name for the account.",
+            "type": "string"
+          },
+          "homeDir": {
+            "description": "Home directory for the account.",
+            "type": "string"
+          },
+          "shell": {
+            "description": "Login shell for the account.",
+            "type": "string"
+          },
+          "uid": {
+            "description": "User ID for the account.",
+            "format": "int32",
+            "type": "integer"
+          },
+          "username": {
+            "description": "Username for the account.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.v2beta1.CustomOverlay.Certificates": {
+        "description": "Certificates specifies additional certificate configuration.",
+        "properties": {
+          "additional": {
+            "description": "Additional certificates to include.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay.Certificates.AdditionalEntry"
+            },
+            "type": "array"
+          },
+          "providers": {
+            "description": "Ceritificate providers via packages.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.v2beta1.CustomOverlay.Certificates.AdditionalEntry": {
+        "description": "AdditionalEntry represents a single certificate.",
+        "properties": {
+          "content": {
+            "description": "PEM-encoded certificate content.",
+            "type": "string"
+          },
+          "name": {
+            "description": "Name of the certificate file.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.v2beta1.CustomOverlay.ImageContents": {
+        "description": "ImageContents specifies additional image content.",
+        "properties": {
+          "packages": {
+            "description": "Packages to append to the image.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.v2beta1.ListReposResponse": {
+        "description": "ListReposResponse is the response message for ListRepos.",
+        "properties": {
+          "nextPageToken": {
+            "description": "Token for retrieving the next page of results.\nEmpty if no more results.",
+            "type": "string"
+          },
+          "repos": {
+            "description": "Repositories matching the filter criteria.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.Repo"
+            },
+            "type": "array"
+          },
+          "skipped": {
+            "description": "Number of results that were skipped.\nAccumulates across paginated requests.",
+            "format": "int32",
+            "type": "integer"
+          },
+          "totalCount": {
+            "description": "Total number of repositories matching the filter.\nOptional, provided for UI pagination.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.v2beta1.ListTagsResponse": {
+        "description": "ListTagsResponse is the response to ListTags, with pagination.",
+        "properties": {
+          "nextPageToken": {
+            "description": "Token for retrieving the next page of results.\nEmpty if no more results.",
+            "type": "string"
+          },
+          "skipped": {
+            "description": "Number of results that were skipped.\nAccumulates across paginated requests.",
+            "format": "int32",
+            "type": "integer"
+          },
+          "tags": {
+            "description": "Tags matching the filter criteria.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.Tag"
+            },
+            "type": "array"
+          },
+          "totalCount": {
+            "description": "Total number of results matching the filter.\nOptional, provided for UI pagination.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.v2beta1.Repo": {
+        "description": "Repo represents a container image repository.",
+        "properties": {
+          "activeTags": {
+            "description": "Actively maintained tags in this repository.",
+            "items": {
+              "type": "string"
+            },
+            "readOnly": true,
+            "type": "array"
+          },
+          "aliases": {
+            "description": "List of equivalent image names/aliases.",
+            "items": {
+              "type": "string"
+            },
+            "readOnly": true,
+            "type": "array"
+          },
+          "bundles": {
+            "description": "Sales grouping labels for the repository.",
+            "items": {
+              "type": "string"
+            },
+            "readOnly": true,
+            "type": "array"
+          },
+          "catalogTier": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CatalogTier"
+              }
+            ],
+            "description": "Catalog tier this repository belongs to.",
+            "readOnly": true
+          },
+          "createTime": {
+            "description": "When the repository was created.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "customOverlay": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay"
+              }
+            ],
+            "description": "Custom apko image configuration overlay.",
+            "readOnly": true
+          },
+          "description": {
+            "description": "Optional description of the repository.",
+            "type": "string"
+          },
+          "name": {
+            "description": "Human-readable name of the repository.",
+            "type": "string"
+          },
+          "readme": {
+            "description": "Raw Markdown content describing the repository.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "sync_config": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.SyncConfig"
+              }
+            ],
+            "description": "Repository sync configuration for image mirroring.",
+            "readOnly": true
+          },
+          "uid": {
+            "description": "Unique identifier for the repository (UIDP).\nGenerated by server.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "updateTime": {
+            "description": "When the repository was last updated.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "type": "object"
+      },
+      "chainguard.platform.registry.v2beta1.SyncConfig": {
+        "description": "SyncConfig contains repository synchronization settings.",
+        "properties": {
+          "amazon": {
+            "description": "AWS ECR destination repository.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "apkoOverlay": {
+            "description": "Apko overlay configuration name.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "azure": {
+            "description": "Azure ACR destination repository.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "expirationTime": {
+            "description": "When the catalog syncer should stop syncing.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "google": {
+            "description": "GCP Artifact Registry destination repository.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "gracePeriod": {
+            "description": "Whether EOL grace period is enabled.",
+            "readOnly": true,
+            "type": "boolean"
+          },
+          "source": {
+            "description": "Source repository UIDP to sync from.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "uniqueTags": {
+            "description": "Whether exported tags will be uniquely labeled.",
+            "readOnly": true,
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.v2beta1.Tag": {
+        "description": "Tag is a container image tag that points to a specific digest of an image manifest.",
+        "properties": {
+          "bundles": {
+            "description": "A list of tags/labels for sales purposes.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "deprecated": {
+            "description": "Flag for if the tag is deprecated.",
+            "type": "boolean"
+          },
+          "digest": {
+            "description": "The digest of the manifest with this tag.",
+            "type": "string"
+          },
+          "name": {
+            "description": "The name of the Tag.",
+            "type": "string"
+          },
+          "uid": {
+            "description": "The unique dentifier of this Tag, a UIDP under a Repo.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "updateTime": {
+            "description": "When this tag was last updated.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "digest"
+        ],
+        "type": "object"
+      },
+      "chainguard.platform.vulnerabilities.v2beta1.Advisory": {
         "description": "Advisory is a security advisory the defines the relationship between a vulnerability and artifact.",
         "properties": {
           "advisoryId": {
@@ -1230,7 +1523,7 @@
           "events": {
             "description": "Advisory events associated with this advisory (detected, fixed, etc).",
             "items": {
-              "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2alpha1.AdvisoryEvent"
+              "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent"
             },
             "type": "array"
           },
@@ -1262,13 +1555,13 @@
         ],
         "type": "object"
       },
-      "chainguard.platform.vulnerabilities.v2alpha1.AdvisoryEvent": {
+      "chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent": {
         "description": "AdvisoryEvent represents a change in state during the lifecycle of an advisory.",
         "properties": {
           "analysisNotPlanned": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2alpha1.AdvisoryEvent.AnalysisNotPlanned"
+                "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.AnalysisNotPlanned"
               }
             ],
             "description": "Analysis of the vulnerability is not planned."
@@ -1276,14 +1569,6 @@
           "author": {
             "description": "The person or service account who created this event.",
             "type": "string"
-          },
-          "componentLocationChanged": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2alpha1.AdvisoryEvent.ComponentLocationChanged"
-              }
-            ],
-            "description": "The component's filesystem location has changed between APK rebuilds."
           },
           "createTime": {
             "description": "The creation time of the event.",
@@ -1294,7 +1579,7 @@
           "detection": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2alpha1.AdvisoryEvent.Detection"
+                "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.Detection"
               }
             ],
             "description": "Vulnerability detected by a scanner."
@@ -1302,7 +1587,7 @@
           "falsePositiveDetermination": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2alpha1.AdvisoryEvent.FalsePositiveDetermination"
+                "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.FalsePositiveDetermination"
               }
             ],
             "description": "The vulnerability is determined not to affect the artifact."
@@ -1315,7 +1600,7 @@
           "fixNotPlanned": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2alpha1.AdvisoryEvent.FixNotPlanned"
+                "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.FixNotPlanned"
               }
             ],
             "description": "No fix is planned for this vulnerability."
@@ -1323,7 +1608,7 @@
           "fixed": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2alpha1.AdvisoryEvent.Fixed"
+                "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.Fixed"
               }
             ],
             "description": "The version at which a vulnerability is fixed."
@@ -1335,7 +1620,7 @@
           "patched": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2alpha1.AdvisoryEvent.Patched"
+                "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.Patched"
               }
             ],
             "description": "A patch has been applied to the given versions to address the vulnerability."
@@ -1343,7 +1628,7 @@
           "pendingUpstreamFix": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2alpha1.AdvisoryEvent.PendingUpstreamFix"
+                "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.PendingUpstreamFix"
               }
             ],
             "description": "A fix is pending on the upstream repository."
@@ -1351,7 +1636,7 @@
           "reviewState": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2alpha1.ReviewState"
+                "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2beta1.ReviewState"
               }
             ],
             "description": "The state of review for the event."
@@ -1363,7 +1648,7 @@
           "truePositiveDetermination": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2alpha1.AdvisoryEvent.TruePositiveDetermination"
+                "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.TruePositiveDetermination"
               }
             ],
             "description": "The vulnerability has been determined to actively affect the artifact."
@@ -1380,7 +1665,7 @@
         ],
         "type": "object"
       },
-      "chainguard.platform.vulnerabilities.v2alpha1.AdvisoryEvent.AnalysisNotPlanned": {
+      "chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.AnalysisNotPlanned": {
         "description": "No analysis of the vulnerability is planned for the matched artifact.",
         "properties": {
           "note": {
@@ -1390,31 +1675,13 @@
         },
         "type": "object"
       },
-      "chainguard.platform.vulnerabilities.v2alpha1.AdvisoryEvent.ComponentLocationChanged": {
-        "description": "The component's filesystem location has changed between APK rebuilds.",
-        "properties": {
-          "newLocation": {
-            "description": "The new filesystem location of the component.",
-            "type": "string"
-          },
-          "note": {
-            "description": "Additional textual comments about the location change.",
-            "type": "string"
-          },
-          "previousLocation": {
-            "description": "The previous filesystem location of the component.",
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "chainguard.platform.vulnerabilities.v2alpha1.AdvisoryEvent.Detection": {
+      "chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.Detection": {
         "description": "Detection and acknowledgement of a vulnerability via scanner, NVD API, or manually.",
         "properties": {
           "manual": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2alpha1.AdvisoryEvent.Detection.Manual"
+                "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.Detection.Manual"
               }
             ],
             "description": "The vulnerability was detected manually."
@@ -1422,7 +1689,7 @@
           "nvdapi": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2alpha1.AdvisoryEvent.Detection.NVDAPI"
+                "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.Detection.NVDAPI"
               }
             ],
             "description": "The vulnerability was detected via the NVD API."
@@ -1430,7 +1697,7 @@
           "scanv1": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2alpha1.AdvisoryEvent.Detection.ScanV1"
+                "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.Detection.ScanV1"
               }
             ],
             "description": "The vulnerability was detected by a scanner."
@@ -1438,11 +1705,11 @@
         },
         "type": "object"
       },
-      "chainguard.platform.vulnerabilities.v2alpha1.AdvisoryEvent.Detection.Manual": {
+      "chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.Detection.Manual": {
         "description": "The vulnerability was detected manually.",
         "type": "object"
       },
-      "chainguard.platform.vulnerabilities.v2alpha1.AdvisoryEvent.Detection.NVDAPI": {
+      "chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.Detection.NVDAPI": {
         "description": "The vulnerability as detected via the NVD API.",
         "properties": {
           "cpeFound": {
@@ -1456,7 +1723,7 @@
         },
         "type": "object"
       },
-      "chainguard.platform.vulnerabilities.v2alpha1.AdvisoryEvent.Detection.ScanV1": {
+      "chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.Detection.ScanV1": {
         "description": "The vulnerability was detected by a scanner, with the given match data.",
         "properties": {
           "component": {
@@ -1490,7 +1757,7 @@
         },
         "type": "object"
       },
-      "chainguard.platform.vulnerabilities.v2alpha1.AdvisoryEvent.FalsePositiveDetermination": {
+      "chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.FalsePositiveDetermination": {
         "description": "The vulnerability has been determined to not affect the matched artifact,\nwith reason and additional justification.",
         "properties": {
           "note": {
@@ -1500,7 +1767,7 @@
           "type": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2alpha1.AdvisoryEvent.FalsePositiveDetermination.Type"
+                "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.FalsePositiveDetermination.Type"
               }
             ],
             "description": "The type of false positive this vulnerability was determined to be."
@@ -1508,7 +1775,7 @@
         },
         "type": "object"
       },
-      "chainguard.platform.vulnerabilities.v2alpha1.AdvisoryEvent.FalsePositiveDetermination.Type": {
+      "chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.FalsePositiveDetermination.Type": {
         "default": "TYPE_UNSPECIFIED",
         "description": "The type of false positive this vulnerability was determined to be.\n\n - TYPE_UNSPECIFIED: The unset false positive type. This value is typically not valid for interactions\nwith the API.\n - TYPE_VULNERABILITY_RECORD_ANALYSIS_CONTESTED: Indicates that the distro maintainers view the vulnerability record itself\nto be describing a behavior that is not a security concern or that\nmisattributes security fault to the software in the distro package.\n\nVEX compatibility note: this type should be mapped to the\n\"vulnerable_code_not_present\" justification.\n - TYPE_COMPONENT_VULNERABILITY_MISMATCH: Indicates that the component referred to by the vulnerability record is not\nthe component found in the distribution package. (For example, perhaps a\nvulnerability scanner found a vulnerability for a package with the same name,\nbut for a different language ecosystem.)\n\nVEX compatibility note: this type should be mapped to the\n\"component_not_present\" justification.\n - TYPE_VULNERABLE_CODE_VERSION_NOT_USED: Indicates that the vulnerability was correctly matched to the component, except\nthat the version(s) of the component referred to by the vulnerability record have\nnever been present in a release of the distribution package.\n\nVEX compatibility note: this type should be mapped to the\n\"vulnerable_code_not_present\" justification.\n - TYPE_VULNERABLE_CODE_NOT_INCLUDED_IN_PACKAGE: Indicates that the vulnerable code (e.g. a particular function) may have been\navailable for use or retrieved during the package build process but ultimately\nwas not included in the distro package.\n\nVEX compatibility note: this type should be mapped to the\n\"vulnerable_code_not_present\" justification.\n - TYPE_VULNERABLE_CODE_NOT_IN_EXECUTION_PATH: Indicates that the vulnerable code (e.g. a particular function) is present in\nthe package, but it is impossible for this code to be executed in the package.\n\nVEX compatibility note: this type should be mapped to the\n\"vulnerable_code_not_in_execute_path\" justification.\n - TYPE_VULNERABLE_CODE_CANNOT_BE_CONTROLLED_BY_ADVERSARY: Indicates that the vulnerable code is present and able to be executed, but\nnot in a way that can be exploited by an adversary.\n\nVEX compatibility note: this type should be mapped to the\n\"vulnerable_code_cannot_be_controlled_by_adversary\" justification.\n - TYPE_INLINE_MITIGATIONS_EXIST: Indicates that the vulnerable code is present and able to be exploited by an\nadversary, but that the vulnerability is mitigated by other code in the package.\n\nVEX compatibility note: this type should be mapped to the\n\"inline_mitigations_already_exist\" justification.",
         "enum": [
@@ -1523,7 +1790,7 @@
         ],
         "type": "string"
       },
-      "chainguard.platform.vulnerabilities.v2alpha1.AdvisoryEvent.FixNotPlanned": {
+      "chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.FixNotPlanned": {
         "description": "A fix is not planned for the vulnerability in the matched artifact.",
         "properties": {
           "note": {
@@ -1533,7 +1800,7 @@
         },
         "type": "object"
       },
-      "chainguard.platform.vulnerabilities.v2alpha1.AdvisoryEvent.Fixed": {
+      "chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.Fixed": {
         "description": "The vulnerability has been fixed at the given version.",
         "properties": {
           "fixedVersion": {
@@ -1547,7 +1814,7 @@
         },
         "type": "object"
       },
-      "chainguard.platform.vulnerabilities.v2alpha1.AdvisoryEvent.Patched": {
+      "chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.Patched": {
         "description": "The vulnerability has been patched at the given versions of the artifact.",
         "properties": {
           "note": {
@@ -1564,7 +1831,7 @@
         },
         "type": "object"
       },
-      "chainguard.platform.vulnerabilities.v2alpha1.AdvisoryEvent.PendingUpstreamFix": {
+      "chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.PendingUpstreamFix": {
         "description": "A fix is pending on the upstream repository.",
         "properties": {
           "note": {
@@ -1574,7 +1841,7 @@
         },
         "type": "object"
       },
-      "chainguard.platform.vulnerabilities.v2alpha1.AdvisoryEvent.TruePositiveDetermination": {
+      "chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.TruePositiveDetermination": {
         "description": "The vulnerability has been determined to affect the matched artifact.",
         "properties": {
           "note": {
@@ -1584,13 +1851,13 @@
         },
         "type": "object"
       },
-      "chainguard.platform.vulnerabilities.v2alpha1.ListAdvisoriesResponse": {
+      "chainguard.platform.vulnerabilities.v2beta1.ListAdvisoriesResponse": {
         "description": "ListAdvisoriesResponse is the response to ListAdvisories.",
         "properties": {
           "advisories": {
             "description": "Advisories matching the filter criteria.",
             "items": {
-              "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2alpha1.Advisory"
+              "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2beta1.Advisory"
             },
             "type": "array"
           },
@@ -1611,7 +1878,7 @@
         },
         "type": "object"
       },
-      "chainguard.platform.vulnerabilities.v2alpha1.ReviewState": {
+      "chainguard.platform.vulnerabilities.v2beta1.ReviewState": {
         "default": "REVIEW_STATE_UNSPECIFIED",
         "description": "- REVIEW_STATE_UNSPECIFIED: Unknown/unspecified review status. This is not a valid status for an event.\n - REVIEW_STATE_PENDING: The event is pending review.\n - REVIEW_STATE_APPROVED: The event has been approved. This is a terminal state.\n - REVIEW_STATE_REQUEST_CHANGES: Changes have been requested by a reviewer.\n - REVIEW_STATE_REJECTED: The event has been rejected. This is a terminal state.",
         "enum": [
@@ -1650,300 +1917,16 @@
           }
         },
         "type": "object"
-      },
-      "protobufAny": {
-        "additionalProperties": {},
-        "properties": {
-          "@type": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "rpcStatus": {
-        "properties": {
-          "code": {
-            "format": "int32",
-            "type": "integer"
-          },
-          "details": {
-            "items": {
-              "$ref": "#/components/schemas/protobufAny"
-            },
-            "type": "array"
-          },
-          "message": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "v2alpha1CatalogTier": {
-        "default": "CATALOG_TIER_UNSPECIFIED",
-        "description": "CatalogTier represents the catalog tier classification for repositories.\n\n - CATALOG_TIER_UNSPECIFIED: Unknown or unspecified tier.\n - CATALOG_TIER_APPLICATION: Application images tier.\n - CATALOG_TIER_BASE: Base images tier.\n - CATALOG_TIER_FIPS: FIPS-compliant images tier.\n - CATALOG_TIER_AI: AI/ML images tier.\n - CATALOG_TIER_DEVTOOLS: Developer tools images tier.",
-        "enum": [
-          "CATALOG_TIER_UNSPECIFIED",
-          "CATALOG_TIER_APPLICATION",
-          "CATALOG_TIER_BASE",
-          "CATALOG_TIER_FIPS",
-          "CATALOG_TIER_AI",
-          "CATALOG_TIER_DEVTOOLS"
-        ],
-        "type": "string"
-      },
-      "v2alpha1CustomOverlay": {
-        "description": "CustomOverlay contains apko image configuration customizations.",
-        "properties": {
-          "accounts": {
-            "$ref": "#/components/schemas/CustomOverlayAccounts"
-          },
-          "annotations": {
-            "additionalProperties": {
-              "type": "string"
-            },
-            "description": "OCI annotations to add to the image.",
-            "readOnly": true,
-            "type": "object"
-          },
-          "certificates": {
-            "$ref": "#/components/schemas/CustomOverlayCertificates"
-          },
-          "contents": {
-            "$ref": "#/components/schemas/CustomOverlayImageContents"
-          },
-          "environment": {
-            "additionalProperties": {
-              "type": "string"
-            },
-            "description": "Environment variables to set in the image.",
-            "readOnly": true,
-            "type": "object"
-          }
-        },
-        "type": "object"
-      },
-      "v2alpha1ListReposResponse": {
-        "description": "ListReposResponse is the response message for ListRepos.",
-        "properties": {
-          "nextPageToken": {
-            "description": "Token for retrieving the next page of results.\nEmpty if no more results.",
-            "type": "string"
-          },
-          "repos": {
-            "description": "Repositories matching the filter criteria.",
-            "items": {
-              "$ref": "#/components/schemas/v2alpha1Repo"
-            },
-            "type": "array"
-          },
-          "skipped": {
-            "description": "Number of results that were skipped.\nAccumulates across paginated requests.",
-            "format": "int32",
-            "type": "integer"
-          },
-          "totalCount": {
-            "description": "Total number of repositories matching the filter.\nOptional, provided for UI pagination.",
-            "format": "int64",
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "v2alpha1ListTagsResponse": {
-        "description": "ListTagsResponse is the response to ListTags, with pagination.",
-        "properties": {
-          "nextPageToken": {
-            "description": "Token for retrieving the next page of results.\nEmpty if no more results.",
-            "type": "string"
-          },
-          "skipped": {
-            "description": "Number of results that were skipped.\nAccumulates across paginated requests.",
-            "format": "int32",
-            "type": "integer"
-          },
-          "tags": {
-            "description": "Tags matching the filter criteria.",
-            "items": {
-              "$ref": "#/components/schemas/v2alpha1Tag"
-            },
-            "type": "array"
-          },
-          "totalCount": {
-            "description": "Total number of results matching the filter.\nOptional, provided for UI pagination.",
-            "format": "int64",
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "v2alpha1Repo": {
-        "description": "Repo represents a container image repository.",
-        "properties": {
-          "activeTags": {
-            "description": "Actively maintained tags in this repository.",
-            "items": {
-              "type": "string"
-            },
-            "readOnly": true,
-            "type": "array"
-          },
-          "aliases": {
-            "description": "List of equivalent image names/aliases.",
-            "items": {
-              "type": "string"
-            },
-            "readOnly": true,
-            "type": "array"
-          },
-          "bundles": {
-            "description": "Sales grouping labels for the repository.",
-            "items": {
-              "type": "string"
-            },
-            "readOnly": true,
-            "type": "array"
-          },
-          "catalogTier": {
-            "$ref": "#/components/schemas/v2alpha1CatalogTier"
-          },
-          "createTime": {
-            "description": "When the repository was created.",
-            "format": "date-time",
-            "readOnly": true,
-            "type": "string"
-          },
-          "customOverlay": {
-            "$ref": "#/components/schemas/v2alpha1CustomOverlay"
-          },
-          "description": {
-            "description": "Optional description of the repository.",
-            "type": "string"
-          },
-          "name": {
-            "description": "Human-readable name of the repository.",
-            "type": "string"
-          },
-          "readme": {
-            "description": "Raw Markdown content describing the repository.",
-            "readOnly": true,
-            "type": "string"
-          },
-          "sync_config": {
-            "$ref": "#/components/schemas/v2alpha1SyncConfig"
-          },
-          "uid": {
-            "description": "Unique identifier for the repository (UIDP).\nGenerated by server.",
-            "readOnly": true,
-            "type": "string"
-          },
-          "updateTime": {
-            "description": "When the repository was last updated.",
-            "format": "date-time",
-            "readOnly": true,
-            "type": "string"
-          }
-        },
-        "required": [
-          "name"
-        ],
-        "type": "object"
-      },
-      "v2alpha1SyncConfig": {
-        "description": "SyncConfig contains repository synchronization settings.",
-        "properties": {
-          "amazon": {
-            "description": "AWS ECR destination repository.",
-            "readOnly": true,
-            "type": "string"
-          },
-          "apkoOverlay": {
-            "description": "Apko overlay configuration name.",
-            "readOnly": true,
-            "type": "string"
-          },
-          "azure": {
-            "description": "Azure ACR destination repository.",
-            "readOnly": true,
-            "type": "string"
-          },
-          "expirationTime": {
-            "description": "When the catalog syncer should stop syncing.",
-            "format": "date-time",
-            "readOnly": true,
-            "type": "string"
-          },
-          "google": {
-            "description": "GCP Artifact Registry destination repository.",
-            "readOnly": true,
-            "type": "string"
-          },
-          "gracePeriod": {
-            "description": "Whether EOL grace period is enabled.",
-            "readOnly": true,
-            "type": "boolean"
-          },
-          "source": {
-            "description": "Source repository UIDP to sync from.",
-            "readOnly": true,
-            "type": "string"
-          },
-          "uniqueTags": {
-            "description": "Whether exported tags will be uniquely labeled.",
-            "readOnly": true,
-            "type": "boolean"
-          }
-        },
-        "type": "object"
-      },
-      "v2alpha1Tag": {
-        "description": "Tag is a container image tag that points to a specific digest of an image manifest.",
-        "properties": {
-          "bundles": {
-            "description": "A list of tags/labels for sales purposes.",
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "deprecated": {
-            "description": "Flag for if the tag is deprecated.",
-            "type": "boolean"
-          },
-          "digest": {
-            "description": "The digest of the manifest with this tag.",
-            "type": "string"
-          },
-          "name": {
-            "description": "The name of the Tag.",
-            "type": "string"
-          },
-          "uid": {
-            "description": "The unique dentifier of this Tag, a UIDP under a Repo.",
-            "readOnly": true,
-            "type": "string"
-          },
-          "updateTime": {
-            "description": "When this tag was last updated.",
-            "format": "date-time",
-            "readOnly": true,
-            "type": "string"
-          }
-        },
-        "required": [
-          "name",
-          "digest"
-        ],
-        "type": "object"
       }
     }
   },
   "info": {
-    "title": "Chainguard API v2alpha1",
-    "version": "v2alpha1"
+    "title": "Chainguard API v2beta1",
+    "version": "v2beta1"
   },
   "openapi": "3.0.3",
   "paths": {
-    "/iam/v2alpha1/accountAssociations": {
+    "/iam/v2beta1/accountAssociations": {
       "get": {
         "description": "ListAccountAssociations returns account associations with pagination support.",
         "operationId": "AccountAssociationsService_ListAccountAssociations",
@@ -2039,7 +2022,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.ListAccountAssociationsResponse"
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.ListAccountAssociationsResponse"
                 }
               }
             },
@@ -2062,7 +2045,7 @@
         ]
       }
     },
-    "/iam/v2alpha1/accountAssociations/{accountAssociation.uid}": {
+    "/iam/v2beta1/accountAssociations/{accountAssociation.uid}": {
       "patch": {
         "description": "UpdateAccountAssociation updates an account association's fields.",
         "operationId": "AccountAssociationsService_UpdateAccountAssociation",
@@ -2086,7 +2069,7 @@
                   "amazon": {
                     "allOf": [
                       {
-                        "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.AccountAssociation.Amazon"
+                        "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.AccountAssociation.Amazon"
                       }
                     ],
                     "description": "Amazon account association metadata."
@@ -2094,7 +2077,7 @@
                   "azure": {
                     "allOf": [
                       {
-                        "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.AccountAssociation.Azure"
+                        "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.AccountAssociation.Azure"
                       }
                     ],
                     "description": "Azure tenant and client association metadata."
@@ -2102,7 +2085,7 @@
                   "chainguard": {
                     "allOf": [
                       {
-                        "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.AccountAssociation.Chainguard"
+                        "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.AccountAssociation.Chainguard"
                       }
                     ],
                     "description": "Chainguard service principal bindings."
@@ -2120,7 +2103,7 @@
                   "github": {
                     "allOf": [
                       {
-                        "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.AccountAssociation.GitHub"
+                        "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.AccountAssociation.GitHub"
                       }
                     ],
                     "description": "GitHub App Installation association metadata."
@@ -2128,7 +2111,7 @@
                   "google": {
                     "allOf": [
                       {
-                        "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.AccountAssociation.Google"
+                        "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.AccountAssociation.Google"
                       }
                     ],
                     "description": "Google Cloud project association metadata."
@@ -2161,7 +2144,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.AccountAssociation"
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.AccountAssociation"
                 }
               }
             },
@@ -2184,7 +2167,7 @@
         ]
       }
     },
-    "/iam/v2alpha1/accountAssociations/{parent}": {
+    "/iam/v2beta1/accountAssociations/{parent}": {
       "post": {
         "description": "CreateAccountAssociation creates a new account association under a parent group.",
         "operationId": "AccountAssociationsService_CreateAccountAssociation",
@@ -2204,7 +2187,7 @@
           "content": {
             "*/*": {
               "schema": {
-                "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.AccountAssociation"
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.AccountAssociation"
               }
             }
           },
@@ -2217,7 +2200,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.AccountAssociation"
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.AccountAssociation"
                 }
               }
             },
@@ -2240,7 +2223,7 @@
         ]
       }
     },
-    "/iam/v2alpha1/accountAssociations/{uid}": {
+    "/iam/v2beta1/accountAssociations/{uid}": {
       "delete": {
         "description": "DeleteAccountAssociation deletes an account association by UID.\nIdempotent: returns success if the account association does not exist (AIP-135).",
         "operationId": "AccountAssociationsService_DeleteAccountAssociation",
@@ -2303,7 +2286,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.AccountAssociation"
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.AccountAssociation"
                 }
               }
             },
@@ -2326,7 +2309,7 @@
         ]
       }
     },
-    "/iam/v2alpha1/groupInvites": {
+    "/iam/v2beta1/groupInvites": {
       "get": {
         "description": "ListGroupInvites returns group invites based on filter criteria with pagination support.",
         "operationId": "GroupInvitesService_ListGroupInvites",
@@ -2422,7 +2405,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.ListGroupInvitesResponse"
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.ListGroupInvitesResponse"
                 }
               }
             },
@@ -2445,7 +2428,7 @@
         ]
       }
     },
-    "/iam/v2alpha1/groupInvites/{parent}": {
+    "/iam/v2beta1/groupInvites/{parent}": {
       "post": {
         "description": "CreateGroupInvite creates a new group invite under a parent group.",
         "operationId": "GroupInvitesService_CreateGroupInvite",
@@ -2465,7 +2448,7 @@
           "content": {
             "*/*": {
               "schema": {
-                "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.GroupInvite"
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.GroupInvite"
               }
             }
           },
@@ -2478,7 +2461,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.GroupInvite"
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.GroupInvite"
                 }
               }
             },
@@ -2501,7 +2484,7 @@
         ]
       }
     },
-    "/iam/v2alpha1/groupInvites/{uid}": {
+    "/iam/v2beta1/groupInvites/{uid}": {
       "delete": {
         "description": "DeleteGroupInvite deletes a group invite by UID.",
         "operationId": "GroupInvitesService_DeleteGroupInvite",
@@ -2564,7 +2547,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.GroupInvite"
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.GroupInvite"
                 }
               }
             },
@@ -2587,7 +2570,7 @@
         ]
       }
     },
-    "/iam/v2alpha1/groups": {
+    "/iam/v2beta1/groups": {
       "get": {
         "description": "ListGroups returns groups based on filter criteria with pagination support.",
         "operationId": "GroupsService_ListGroups",
@@ -2683,7 +2666,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.ListGroupsResponse"
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.ListGroupsResponse"
                 }
               }
             },
@@ -2706,7 +2689,7 @@
         ]
       }
     },
-    "/iam/v2alpha1/groups/{group.uid}": {
+    "/iam/v2beta1/groups/{group.uid}": {
       "patch": {
         "description": "UpdateGroup updates the given Group according to the provided field mask.\nThe fully populated Group is returned.",
         "operationId": "GroupsService_UpdateGroup",
@@ -2778,7 +2761,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.Group"
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.Group"
                 }
               }
             },
@@ -2801,7 +2784,7 @@
         ]
       }
     },
-    "/iam/v2alpha1/groups/{parent}": {
+    "/iam/v2beta1/groups/{parent}": {
       "post": {
         "description": "CreateGroup creates a new group (organization or folder).",
         "operationId": "GroupsService_CreateGroup",
@@ -2821,7 +2804,7 @@
           "content": {
             "*/*": {
               "schema": {
-                "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.Group"
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.Group"
               }
             }
           },
@@ -2834,7 +2817,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.Group"
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.Group"
                 }
               }
             },
@@ -2857,7 +2840,7 @@
         ]
       }
     },
-    "/iam/v2alpha1/groups/{uid}": {
+    "/iam/v2beta1/groups/{uid}": {
       "delete": {
         "description": "DeleteGroup deletes a group by UID.\nFails if the group has child repos, child groups, or other child IAM resources.",
         "operationId": "GroupsService_DeleteGroup",
@@ -2920,7 +2903,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.Group"
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.Group"
                 }
               }
             },
@@ -2943,7 +2926,7 @@
         ]
       }
     },
-    "/iam/v2alpha1/identities": {
+    "/iam/v2beta1/identities": {
       "get": {
         "description": "ListIdentities returns identities based on filter criteria with pagination support.",
         "operationId": "IdentitiesService_ListIdentities",
@@ -3055,7 +3038,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.ListIdentitiesResponse"
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.ListIdentitiesResponse"
                 }
               }
             },
@@ -3078,7 +3061,7 @@
         ]
       }
     },
-    "/iam/v2alpha1/identities/{identity.uid}": {
+    "/iam/v2beta1/identities/{identity.uid}": {
       "patch": {
         "description": "UpdateIdentity updates the given Identity according to the provided field mask.\nThe fully populated Identity is returned.",
         "operationId": "IdentitiesService_UpdateIdentity",
@@ -3102,7 +3085,7 @@
                   "awsIdentity": {
                     "allOf": [
                       {
-                        "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.Identity.AWSIdentity"
+                        "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.Identity.AWSIdentity"
                       }
                     ],
                     "description": "AWS IAM identity configuration."
@@ -3110,7 +3093,7 @@
                   "claimMatch": {
                     "allOf": [
                       {
-                        "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.Identity.ClaimMatch"
+                        "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.Identity.ClaimMatch"
                       }
                     ],
                     "description": "OIDC claim matching configuration."
@@ -3159,7 +3142,7 @@
                   "servicePrincipal": {
                     "allOf": [
                       {
-                        "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.ServicePrincipal"
+                        "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.ServicePrincipal"
                       }
                     ],
                     "description": "Chainguard service principal."
@@ -3167,7 +3150,7 @@
                   "staticKeys": {
                     "allOf": [
                       {
-                        "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.Identity.StaticKeys"
+                        "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.Identity.StaticKeys"
                       }
                     ],
                     "description": "Static OIDC keys configuration."
@@ -3196,7 +3179,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.Identity"
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.Identity"
                 }
               }
             },
@@ -3219,7 +3202,7 @@
         ]
       }
     },
-    "/iam/v2alpha1/identities/{parent}": {
+    "/iam/v2beta1/identities/{parent}": {
       "post": {
         "description": "CreateIdentity creates a new identity under a parent group.",
         "operationId": "IdentitiesService_CreateIdentity",
@@ -3239,7 +3222,7 @@
           "content": {
             "*/*": {
               "schema": {
-                "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.Identity"
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.Identity"
               }
             }
           },
@@ -3252,7 +3235,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.Identity"
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.Identity"
                 }
               }
             },
@@ -3275,7 +3258,7 @@
         ]
       }
     },
-    "/iam/v2alpha1/identities/{uid}": {
+    "/iam/v2beta1/identities/{uid}": {
       "delete": {
         "description": "DeleteIdentity deletes an identity by UID.",
         "operationId": "IdentitiesService_DeleteIdentity",
@@ -3338,7 +3321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.Identity"
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.Identity"
                 }
               }
             },
@@ -3361,7 +3344,7 @@
         ]
       }
     },
-    "/iam/v2alpha1/identityProviders": {
+    "/iam/v2beta1/identityProviders": {
       "get": {
         "description": "ListIdentityProviders returns identity providers based on filter criteria with pagination support.",
         "operationId": "IdentityProvidersService_ListIdentityProviders",
@@ -3457,7 +3440,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.ListIdentityProvidersResponse"
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.ListIdentityProvidersResponse"
                 }
               }
             },
@@ -3480,7 +3463,7 @@
         ]
       }
     },
-    "/iam/v2alpha1/identityProviders/{identityProvider.uid}": {
+    "/iam/v2beta1/identityProviders/{identityProvider.uid}": {
       "patch": {
         "description": "UpdateIdentityProvider updates an identity provider.",
         "operationId": "IdentityProvidersService_UpdateIdentityProvider",
@@ -3522,7 +3505,7 @@
                   "oidc": {
                     "allOf": [
                       {
-                        "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.IdentityProvider.OIDC"
+                        "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.IdentityProvider.OIDC"
                       }
                     ],
                     "description": "Defines the parameters necessary for authenticating with the OIDC flow."
@@ -3552,7 +3535,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.IdentityProvider"
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.IdentityProvider"
                 }
               }
             },
@@ -3575,7 +3558,7 @@
         ]
       }
     },
-    "/iam/v2alpha1/identityProviders/{parent}": {
+    "/iam/v2beta1/identityProviders/{parent}": {
       "post": {
         "description": "CreateIdentityProvider creates a new identity provider.",
         "operationId": "IdentityProvidersService_CreateIdentityProvider",
@@ -3595,7 +3578,7 @@
           "content": {
             "*/*": {
               "schema": {
-                "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.IdentityProvider"
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.IdentityProvider"
               }
             }
           },
@@ -3608,7 +3591,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.IdentityProvider"
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.IdentityProvider"
                 }
               }
             },
@@ -3631,7 +3614,7 @@
         ]
       }
     },
-    "/iam/v2alpha1/identityProviders/{uid}": {
+    "/iam/v2beta1/identityProviders/{uid}": {
       "delete": {
         "description": "DeleteIdentityProvider deletes an identity provider by UID.",
         "operationId": "IdentityProvidersService_DeleteIdentityProvider",
@@ -3694,7 +3677,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.IdentityProvider"
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.IdentityProvider"
                 }
               }
             },
@@ -3717,7 +3700,7 @@
         ]
       }
     },
-    "/iam/v2alpha1/roleBindings": {
+    "/iam/v2beta1/roleBindings": {
       "get": {
         "description": "ListRoleBindings returns role bindings based on filter criteria with pagination support.",
         "operationId": "RoleBindingsService_ListRoleBindings",
@@ -3829,7 +3812,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.ListRoleBindingsResponse"
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.ListRoleBindingsResponse"
                 }
               }
             },
@@ -3852,7 +3835,7 @@
         ]
       }
     },
-    "/iam/v2alpha1/roleBindings/{parent}": {
+    "/iam/v2beta1/roleBindings/{parent}": {
       "post": {
         "description": "CreateRoleBinding creates a new role binding.\nAssociates an identity with a role within a group scope.",
         "operationId": "RoleBindingsService_CreateRoleBinding",
@@ -3872,7 +3855,7 @@
           "content": {
             "*/*": {
               "schema": {
-                "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.RoleBinding"
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.RoleBinding"
               }
             }
           },
@@ -3885,7 +3868,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.RoleBinding"
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.RoleBinding"
                 }
               }
             },
@@ -3908,7 +3891,7 @@
         ]
       }
     },
-    "/iam/v2alpha1/roleBindings/{roleBinding.uid}": {
+    "/iam/v2beta1/roleBindings/{roleBinding.uid}": {
       "patch": {
         "description": "UpdateRoleBinding updates the given role binding according to the provided field mask.\nThe fully populated RoleBinding is returned.",
         "operationId": "RoleBindingsService_UpdateRoleBinding",
@@ -3938,7 +3921,7 @@
                   "group": {
                     "allOf": [
                       {
-                        "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.RoleBindingGroup"
+                        "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.RoleBindingGroup"
                       }
                     ],
                     "description": "The group where this role binding applies.\nFully hydrated with group details.",
@@ -3947,7 +3930,7 @@
                   "identity": {
                     "allOf": [
                       {
-                        "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.RoleBindingIdentity"
+                        "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.RoleBindingIdentity"
                       }
                     ],
                     "description": "The identity that is granted the role.\nFully hydrated with identity details.",
@@ -3960,7 +3943,7 @@
                   "role": {
                     "allOf": [
                       {
-                        "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.RoleBindingRole"
+                        "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.RoleBindingRole"
                       }
                     ],
                     "description": "The role that is granted to the identity.\nFully hydrated with role details.",
@@ -3985,7 +3968,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.RoleBinding"
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.RoleBinding"
                 }
               }
             },
@@ -4008,7 +3991,7 @@
         ]
       }
     },
-    "/iam/v2alpha1/roleBindings/{uid}": {
+    "/iam/v2beta1/roleBindings/{uid}": {
       "delete": {
         "description": "DeleteRoleBinding deletes a role binding by UID.\nIdempotent: returns success if the role binding does not exist (AIP-135).",
         "operationId": "RoleBindingsService_DeleteRoleBinding",
@@ -4071,7 +4054,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.RoleBinding"
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.RoleBinding"
                 }
               }
             },
@@ -4094,7 +4077,7 @@
         ]
       }
     },
-    "/iam/v2alpha1/roles": {
+    "/iam/v2beta1/roles": {
       "get": {
         "description": "ListRoles returns roles based on filter criteria with pagination support.",
         "operationId": "RolesService_ListRoles",
@@ -4190,7 +4173,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.ListRolesResponse"
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.ListRolesResponse"
                 }
               }
             },
@@ -4213,7 +4196,7 @@
         ]
       }
     },
-    "/iam/v2alpha1/roles/{parent}": {
+    "/iam/v2beta1/roles/{parent}": {
       "post": {
         "description": "CreateRole creates a new custom role.",
         "operationId": "RolesService_CreateRole",
@@ -4233,7 +4216,7 @@
           "content": {
             "*/*": {
               "schema": {
-                "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.Role"
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.Role"
               }
             }
           },
@@ -4246,7 +4229,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.Role"
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.Role"
                 }
               }
             },
@@ -4269,7 +4252,7 @@
         ]
       }
     },
-    "/iam/v2alpha1/roles/{role.uid}": {
+    "/iam/v2beta1/roles/{role.uid}": {
       "patch": {
         "description": "UpdateRole updates the given Role according to the provided field mask.\nThe fully populated Role is returned.",
         "operationId": "RolesService_UpdateRole",
@@ -4335,7 +4318,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.Role"
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.Role"
                 }
               }
             },
@@ -4358,7 +4341,7 @@
         ]
       }
     },
-    "/iam/v2alpha1/roles/{uid}": {
+    "/iam/v2beta1/roles/{uid}": {
       "delete": {
         "description": "DeleteRole deletes a custom role by UID.\nFails if the role is bound to any identities.\nManaged (root-level) roles cannot be deleted.",
         "operationId": "RolesService_DeleteRole",
@@ -4421,7 +4404,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.Role"
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.Role"
                 }
               }
             },
@@ -4444,7 +4427,7 @@
         ]
       }
     },
-    "/registry/v2alpha1/repos": {
+    "/registry/v2beta1/repos": {
       "get": {
         "description": "ListRepos returns repositories based on filter criteria with pagination support.",
         "operationId": "ReposService_ListRepos",
@@ -4548,7 +4531,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/v2alpha1ListReposResponse"
+                  "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.ListReposResponse"
                 }
               }
             },
@@ -4558,7 +4541,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/rpcStatus"
+                  "$ref": "#/components/schemas/google.rpc.Status"
                 }
               }
             },
@@ -4571,7 +4554,7 @@
         ]
       }
     },
-    "/registry/v2alpha1/repos/{uid}": {
+    "/registry/v2beta1/repos/{uid}": {
       "get": {
         "description": "GetRepo retrieves a single repository by UID.",
         "operationId": "ReposService_GetRepo",
@@ -4592,7 +4575,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/v2alpha1Repo"
+                  "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.Repo"
                 }
               }
             },
@@ -4602,7 +4585,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/rpcStatus"
+                  "$ref": "#/components/schemas/google.rpc.Status"
                 }
               }
             },
@@ -4615,7 +4598,7 @@
         ]
       }
     },
-    "/registry/v2alpha1/tags": {
+    "/registry/v2beta1/tags": {
       "get": {
         "description": "ListTags returns tags based on filter criteria with pagination support.",
         "operationId": "TagsService_ListTags",
@@ -4752,7 +4735,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/v2alpha1ListTagsResponse"
+                  "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.ListTagsResponse"
                 }
               }
             },
@@ -4762,7 +4745,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/rpcStatus"
+                  "$ref": "#/components/schemas/google.rpc.Status"
                 }
               }
             },
@@ -4775,7 +4758,7 @@
         ]
       }
     },
-    "/registry/v2alpha1/tags/{uid}": {
+    "/registry/v2beta1/tags/{uid}": {
       "get": {
         "description": "GetTag retrieves a single tag by UID.",
         "operationId": "TagsService_GetTag",
@@ -4796,7 +4779,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/v2alpha1Tag"
+                  "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.Tag"
                 }
               }
             },
@@ -4806,7 +4789,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/rpcStatus"
+                  "$ref": "#/components/schemas/google.rpc.Status"
                 }
               }
             },
@@ -4819,7 +4802,7 @@
         ]
       }
     },
-    "/vulnerabilities/v2alpha1/advisories": {
+    "/vulnerabilities/v2beta1/advisories": {
       "get": {
         "description": "ListAdvisories returns advisories based on filter criteria with pagination support.",
         "operationId": "AdvisoriesService_ListAdvisories",
@@ -5026,7 +5009,7 @@
             }
           },
           {
-            "description": "event_types filters by event type\nWhen specified, only advisories containing at least one event of any of the provided\ntypes will be returned.\n\n - EVENT_TYPE_FILTER_UNSPECIFIED: Default/unspecified\n - EVENT_TYPE_FILTER_DETECTION: Detection event\n - EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION: True positive determination\n - EVENT_TYPE_FILTER_FIXED: Fixed event\n - EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION: False positive determination\n - EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED: Analysis not planned\n - EVENT_TYPE_FILTER_FIX_NOT_PLANNED: Fix not planned\n - EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX: Pending upstream fix\n - EVENT_TYPE_FILTER_PATCHED: Patched event\n - EVENT_TYPE_FILTER_COMPONENT_LOCATION_CHANGED: Component location changed event",
+            "description": "event_types filters by event type\nWhen specified, only advisories containing at least one event of any of the provided\ntypes will be returned.\n\n - EVENT_TYPE_FILTER_UNSPECIFIED: Default/unspecified\n - EVENT_TYPE_FILTER_DETECTION: Detection event\n - EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION: True positive determination\n - EVENT_TYPE_FILTER_FIXED: Fixed event\n - EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION: False positive determination\n - EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED: Analysis not planned\n - EVENT_TYPE_FILTER_FIX_NOT_PLANNED: Fix not planned\n - EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX: Pending upstream fix\n - EVENT_TYPE_FILTER_PATCHED: Patched event",
             "in": "query",
             "name": "eventTypes",
             "schema": {
@@ -5040,8 +5023,7 @@
                   "EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED",
                   "EVENT_TYPE_FILTER_FIX_NOT_PLANNED",
                   "EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX",
-                  "EVENT_TYPE_FILTER_PATCHED",
-                  "EVENT_TYPE_FILTER_COMPONENT_LOCATION_CHANGED"
+                  "EVENT_TYPE_FILTER_PATCHED"
                 ],
                 "type": "string"
               },
@@ -5049,7 +5031,7 @@
             }
           },
           {
-            "description": "latest_event_type filters out advisories where the _most recent approved event_ is\nof the given type. This is useful to find advisories which are currently detected,\nfixed, patched, etc.\n\n - EVENT_TYPE_FILTER_UNSPECIFIED: Default/unspecified\n - EVENT_TYPE_FILTER_DETECTION: Detection event\n - EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION: True positive determination\n - EVENT_TYPE_FILTER_FIXED: Fixed event\n - EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION: False positive determination\n - EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED: Analysis not planned\n - EVENT_TYPE_FILTER_FIX_NOT_PLANNED: Fix not planned\n - EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX: Pending upstream fix\n - EVENT_TYPE_FILTER_PATCHED: Patched event\n - EVENT_TYPE_FILTER_COMPONENT_LOCATION_CHANGED: Component location changed event",
+            "description": "latest_event_type filters out advisories where the _most recent approved event_ is\nof the given type. This is useful to find advisories which are currently detected,\nfixed, patched, etc.\n\n - EVENT_TYPE_FILTER_UNSPECIFIED: Default/unspecified\n - EVENT_TYPE_FILTER_DETECTION: Detection event\n - EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION: True positive determination\n - EVENT_TYPE_FILTER_FIXED: Fixed event\n - EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION: False positive determination\n - EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED: Analysis not planned\n - EVENT_TYPE_FILTER_FIX_NOT_PLANNED: Fix not planned\n - EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX: Pending upstream fix\n - EVENT_TYPE_FILTER_PATCHED: Patched event",
             "in": "query",
             "name": "latestEventType",
             "schema": {
@@ -5063,8 +5045,7 @@
                 "EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED",
                 "EVENT_TYPE_FILTER_FIX_NOT_PLANNED",
                 "EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX",
-                "EVENT_TYPE_FILTER_PATCHED",
-                "EVENT_TYPE_FILTER_COMPONENT_LOCATION_CHANGED"
+                "EVENT_TYPE_FILTER_PATCHED"
               ],
               "type": "string"
             }
@@ -5117,7 +5098,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2alpha1.ListAdvisoriesResponse"
+                  "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2beta1.ListAdvisoriesResponse"
                 }
               }
             },
@@ -5140,7 +5121,7 @@
         ]
       }
     },
-    "/vulnerabilities/v2alpha1/advisories/{uid}": {
+    "/vulnerabilities/v2beta1/advisories/{uid}": {
       "get": {
         "description": "GetAdvisory retrieves a single advisory by UID.",
         "operationId": "AdvisoriesService_GetAdvisory",
@@ -5161,7 +5142,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2alpha1.Advisory"
+                  "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2beta1.Advisory"
                 }
               }
             },

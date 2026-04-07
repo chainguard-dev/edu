@@ -128,7 +128,7 @@
       },
       "chainguard.capabilities.Capability": {
         "default": "UNKNOWN",
-        "description": "Capability is an enumeration of the Chainguard IAM capabilities.\n\n - CAP_TENANT_VULN_REPORTS_LIST: TODO(colin): deprecate this cap once the legacy endpoint is removed\n - CAP_REPO_BLOBS_GET: repo.blobs.get is a capability required to pull container images.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with images vs pulling the image itself.\n - CAP_APK_BLOBS_GET: apk.blobs.get is a capability required to pull APKs.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with APKs vs pulling the APK itself.\n - CAP_BUILD_REPORT_LIST: Custom Image Build\n - CAP_LIBRARIES_ENTITLEMENTS_CREATE: Global libraries capabilities\n - CAP_LIBRARIES_PYTHON_LIST: Ecosystems specific capabilities\n - CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE: Rebuilder API capabilities\n - CAP_REGISTRY_ENTITLEMENTS_LIST: Registry Entitlements\n - CAP_REGISTRY_SETTINGS_LIST: Registry Settings\n - CAP_REGISTRY_DEPLOYMENTS_CREATE: Registry Deployments\n - CAP_POLICY_GATES_POLICY_CREATE: Policy Gates\n - CAP_GULFSTREAM: This is orthogonal enough that we should leave\nit somewhat separate, so add new capabilities above.\nTODO(mattmoor): Think about whether we can encode specific\ncontroller capabilities into our access control here?\ne.g. could each logical controller/webhook be its own\ncapability?",
+        "description": "Capability is an enumeration of the Chainguard IAM capabilities.\n\n - CAP_TENANT_VULN_REPORTS_LIST: TODO(colin): deprecate this cap once the legacy endpoint is removed\n - CAP_REPO_BLOBS_GET: repo.blobs.get is a capability required to pull container images.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with images vs pulling the image itself.\n - CAP_APK_BLOBS_GET: apk.blobs.get is a capability required to pull APKs.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with APKs vs pulling the APK itself.\n - CAP_BUILD_REPORT_LIST: Custom Image Build\n - CAP_LIBRARIES_ENTITLEMENTS_CREATE: Global libraries capabilities\n - CAP_LIBRARIES_PYTHON_LIST: Ecosystems specific capabilities\n - CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE: Rebuilder API capabilities\n - CAP_REGISTRY_ENTITLEMENTS_LIST: Registry Entitlements\n - CAP_REGISTRY_SETTINGS_LIST: Registry Settings\n - CAP_REGISTRY_DEPLOYMENTS_CREATE: Registry Deployments\n - CAP_POLICY_GATES_POLICY_CREATE: Policy Gates\n - CAP_TERMS_ACCEPT: Terms\n - CAP_GULFSTREAM: This is orthogonal enough that we should leave\nit somewhat separate, so add new capabilities above.\nTODO(mattmoor): Think about whether we can encode specific\ncontroller capabilities into our access control here?\ne.g. could each logical controller/webhook be its own\ncapability?",
         "enum": [
           "UNKNOWN",
           "CAP_INTERNAL",
@@ -252,6 +252,8 @@
           "CAP_POLICY_GATES_BINDING_LIST",
           "CAP_POLICY_GATES_BINDING_DELETE",
           "CAP_PACKAGES_ENTITLEMENTS_LIST",
+          "CAP_TERMS_ACCEPT",
+          "CAP_TERMS_LIST",
           "CAP_GULFSTREAM"
         ],
         "type": "string"
@@ -1975,6 +1977,48 @@
           "singleUse": {
             "description": "single_use indicates whether or not the invite will be deleted after a user joins the group.",
             "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.Terms.AcceptTermsBody": {
+        "properties": {
+          "documentIds": {
+            "description": "document_ids are the IDs of the documents being accepted.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.TermsDocumentStatus": {
+        "description": "TermsDocumentStatus records an acceptance event for a single document.",
+        "properties": {
+          "acceptedAt": {
+            "description": "accepted_at is when the document was accepted.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "acceptedBy": {
+            "description": "accepted_by is the identity (subject) that accepted the document.",
+            "type": "string"
+          },
+          "docId": {
+            "description": "doc_id is the stable identifier for the accepted document.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.TermsList": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.iam.TermsDocumentStatus"
+            },
+            "type": "array"
           }
         },
         "type": "object"
@@ -3983,6 +4027,14 @@
               }
             ],
             "description": "policy is the libraries policy for this entitlement."
+          },
+          "source": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.Source"
+              }
+            ],
+            "description": "source indicates how this entitlement was provisioned."
           }
         },
         "type": "object"
@@ -4153,6 +4205,16 @@
           "POLICY_UNKNOWN",
           "POLICY_CHAINGUARD",
           "POLICY_CHAINGUARD_AND_UPSTREAM"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.libraries.Source": {
+        "default": "SOURCE_UNKNOWN",
+        "description": "Source indicates how an entitlement was created.\n\n - SOURCE_UNKNOWN: default; treat as SOURCE_TRIAL for backwards compatibility\n - SOURCE_TRIAL: self-service trial entitlement\n - SOURCE_SFDC: created or managed via Salesforce",
+        "enum": [
+          "SOURCE_UNKNOWN",
+          "SOURCE_TRIAL",
+          "SOURCE_SFDC"
         ],
         "type": "string"
       },
@@ -7535,6 +7597,9 @@
             "title": "author is the person who created this event",
             "type": "string"
           },
+          "componentLocationChanged": {
+            "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v1.AdvisoryEvent.ComponentLocationChanged"
+          },
           "detection": {
             "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v1.AdvisoryEvent.Detection"
           },
@@ -7761,6 +7826,9 @@
             "title": "author is the person who created this event",
             "type": "string"
           },
+          "componentLocationChanged": {
+            "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v1.AdvisoryEvent.ComponentLocationChanged"
+          },
           "detection": {
             "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v1.AdvisoryEvent.Detection"
           },
@@ -7817,6 +7885,20 @@
       "chainguard.platform.vulnerabilities.v1.AdvisoryEvent.AnalysisNotPlanned": {
         "properties": {
           "note": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.vulnerabilities.v1.AdvisoryEvent.ComponentLocationChanged": {
+        "properties": {
+          "newLocation": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          },
+          "previousLocation": {
             "type": "string"
           }
         },
@@ -7989,7 +8071,7 @@
       },
       "chainguard.platform.vulnerabilities.v1.EventTypeFilter": {
         "default": "EVENT_TYPE_FILTER_UNSPECIFIED",
-        "description": "- EVENT_TYPE_FILTER_UNSPECIFIED: Default/unspecified\n - EVENT_TYPE_FILTER_DETECTION: Detection event\n - EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION: True positive determination\n - EVENT_TYPE_FILTER_FIXED: Fixed event\n - EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION: False positive determination\n - EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED: Analysis not planned\n - EVENT_TYPE_FILTER_FIX_NOT_PLANNED: Fix not planned\n - EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX: Pending upstream fix\n - EVENT_TYPE_FILTER_PATCHED: Patched event",
+        "description": "- EVENT_TYPE_FILTER_UNSPECIFIED: Default/unspecified\n - EVENT_TYPE_FILTER_DETECTION: Detection event\n - EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION: True positive determination\n - EVENT_TYPE_FILTER_FIXED: Fixed event\n - EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION: False positive determination\n - EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED: Analysis not planned\n - EVENT_TYPE_FILTER_FIX_NOT_PLANNED: Fix not planned\n - EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX: Pending upstream fix\n - EVENT_TYPE_FILTER_PATCHED: Patched event\n - EVENT_TYPE_FILTER_COMPONENT_LOCATION_CHANGED: Component location changed event",
         "enum": [
           "EVENT_TYPE_FILTER_UNSPECIFIED",
           "EVENT_TYPE_FILTER_DETECTION",
@@ -7999,7 +8081,8 @@
           "EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED",
           "EVENT_TYPE_FILTER_FIX_NOT_PLANNED",
           "EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX",
-          "EVENT_TYPE_FILTER_PATCHED"
+          "EVENT_TYPE_FILTER_PATCHED",
+          "EVENT_TYPE_FILTER_COMPONENT_LOCATION_CHANGED"
         ],
         "title": "EventTypeFilter represents the event types that can be used for filtering\nThese map to the event type values used in the system",
         "type": "string"
@@ -8140,6 +8223,14 @@
             "description": "The person or service account who created this event.",
             "type": "string"
           },
+          "componentLocationChanged": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2alpha1.AdvisoryEvent.ComponentLocationChanged"
+              }
+            ],
+            "description": "The component's filesystem location has changed between APK rebuilds."
+          },
           "createTime": {
             "description": "The creation time of the event.",
             "format": "date-time",
@@ -8240,6 +8331,24 @@
         "properties": {
           "note": {
             "description": "Textual comments about why analysis is not planned for the vulnerability.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.vulnerabilities.v2alpha1.AdvisoryEvent.ComponentLocationChanged": {
+        "description": "The component's filesystem location has changed between APK rebuilds.",
+        "properties": {
+          "newLocation": {
+            "description": "The new filesystem location of the component.",
+            "type": "string"
+          },
+          "note": {
+            "description": "Additional textual comments about the location change.",
+            "type": "string"
+          },
+          "previousLocation": {
+            "description": "The previous filesystem location of the component.",
             "type": "string"
           }
         },
@@ -8423,7 +8532,7 @@
       },
       "chainguard.platform.vulnerabilities.v2alpha1.EventTypeFilter": {
         "default": "EVENT_TYPE_FILTER_UNSPECIFIED",
-        "description": "- EVENT_TYPE_FILTER_UNSPECIFIED: Default/unspecified\n - EVENT_TYPE_FILTER_DETECTION: Detection event\n - EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION: True positive determination\n - EVENT_TYPE_FILTER_FIXED: Fixed event\n - EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION: False positive determination\n - EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED: Analysis not planned\n - EVENT_TYPE_FILTER_FIX_NOT_PLANNED: Fix not planned\n - EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX: Pending upstream fix\n - EVENT_TYPE_FILTER_PATCHED: Patched event",
+        "description": "- EVENT_TYPE_FILTER_UNSPECIFIED: Default/unspecified\n - EVENT_TYPE_FILTER_DETECTION: Detection event\n - EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION: True positive determination\n - EVENT_TYPE_FILTER_FIXED: Fixed event\n - EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION: False positive determination\n - EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED: Analysis not planned\n - EVENT_TYPE_FILTER_FIX_NOT_PLANNED: Fix not planned\n - EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX: Pending upstream fix\n - EVENT_TYPE_FILTER_PATCHED: Patched event\n - EVENT_TYPE_FILTER_COMPONENT_LOCATION_CHANGED: Component location changed event",
         "enum": [
           "EVENT_TYPE_FILTER_UNSPECIFIED",
           "EVENT_TYPE_FILTER_DETECTION",
@@ -8433,7 +8542,8 @@
           "EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED",
           "EVENT_TYPE_FILTER_FIX_NOT_PLANNED",
           "EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX",
-          "EVENT_TYPE_FILTER_PATCHED"
+          "EVENT_TYPE_FILTER_PATCHED",
+          "EVENT_TYPE_FILTER_COMPONENT_LOCATION_CHANGED"
         ],
         "title": "EventTypeFilter represents the event types that can be used for filtering\nThese map to the event type values used in the system",
         "type": "string"
@@ -11891,6 +12001,103 @@
         "summary": "Create",
         "tags": [
           "Roles"
+        ]
+      }
+    },
+    "/iam/v1/terms/{group}": {
+      "get": {
+        "description": "ListAccepted returns the legal documents that the group has accepted.",
+        "operationId": "Terms_ListAccepted",
+        "parameters": [
+          {
+            "description": "group is the UIDP of the org to list documents for.",
+            "in": "path",
+            "name": "group",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.TermsList"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Accepted",
+        "tags": [
+          "Terms"
+        ]
+      },
+      "post": {
+        "description": "AcceptTerms records that the group has accepted one or more legal\ndocuments. Called by chainctl after the user completes the acceptance flow.",
+        "operationId": "Terms_AcceptTerms",
+        "parameters": [
+          {
+            "description": "group is the UIDP of the org on whose behalf legal docs are being accepted.",
+            "in": "path",
+            "name": "group",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.iam.Terms.AcceptTermsBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Accept Terms",
+        "tags": [
+          "Terms"
         ]
       }
     },
@@ -17260,6 +17467,20 @@
               ],
               "type": "string"
             }
+          },
+          {
+            "description": "source indicates how this entitlement is being provisioned.\n\n - SOURCE_UNKNOWN: default; treat as SOURCE_TRIAL for backwards compatibility\n - SOURCE_TRIAL: self-service trial entitlement\n - SOURCE_SFDC: created or managed via Salesforce",
+            "in": "query",
+            "name": "source",
+            "schema": {
+              "default": "SOURCE_UNKNOWN",
+              "enum": [
+                "SOURCE_UNKNOWN",
+                "SOURCE_TRIAL",
+                "SOURCE_SFDC"
+              ],
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -21865,7 +22086,7 @@
             }
           },
           {
-            "description": "event_types filters by event type\nWhen specified, only advisories containing at least one event of any of the provided\ntypes will be returned.\n\n - EVENT_TYPE_FILTER_UNSPECIFIED: Default/unspecified\n - EVENT_TYPE_FILTER_DETECTION: Detection event\n - EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION: True positive determination\n - EVENT_TYPE_FILTER_FIXED: Fixed event\n - EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION: False positive determination\n - EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED: Analysis not planned\n - EVENT_TYPE_FILTER_FIX_NOT_PLANNED: Fix not planned\n - EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX: Pending upstream fix\n - EVENT_TYPE_FILTER_PATCHED: Patched event",
+            "description": "event_types filters by event type\nWhen specified, only advisories containing at least one event of any of the provided\ntypes will be returned.\n\n - EVENT_TYPE_FILTER_UNSPECIFIED: Default/unspecified\n - EVENT_TYPE_FILTER_DETECTION: Detection event\n - EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION: True positive determination\n - EVENT_TYPE_FILTER_FIXED: Fixed event\n - EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION: False positive determination\n - EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED: Analysis not planned\n - EVENT_TYPE_FILTER_FIX_NOT_PLANNED: Fix not planned\n - EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX: Pending upstream fix\n - EVENT_TYPE_FILTER_PATCHED: Patched event\n - EVENT_TYPE_FILTER_COMPONENT_LOCATION_CHANGED: Component location changed event",
             "in": "query",
             "name": "eventTypes",
             "schema": {
@@ -21879,7 +22100,8 @@
                   "EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED",
                   "EVENT_TYPE_FILTER_FIX_NOT_PLANNED",
                   "EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX",
-                  "EVENT_TYPE_FILTER_PATCHED"
+                  "EVENT_TYPE_FILTER_PATCHED",
+                  "EVENT_TYPE_FILTER_COMPONENT_LOCATION_CHANGED"
                 ],
                 "type": "string"
               },
@@ -21920,7 +22142,7 @@
             }
           },
           {
-            "description": "latest_event_type filters out advisories where the _most recent approved event_ is\nof the given type. This is useful to find advisories which are currently detected,\nfixed, patched, etc.\n\n - EVENT_TYPE_FILTER_UNSPECIFIED: Default/unspecified\n - EVENT_TYPE_FILTER_DETECTION: Detection event\n - EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION: True positive determination\n - EVENT_TYPE_FILTER_FIXED: Fixed event\n - EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION: False positive determination\n - EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED: Analysis not planned\n - EVENT_TYPE_FILTER_FIX_NOT_PLANNED: Fix not planned\n - EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX: Pending upstream fix\n - EVENT_TYPE_FILTER_PATCHED: Patched event",
+            "description": "latest_event_type filters out advisories where the _most recent approved event_ is\nof the given type. This is useful to find advisories which are currently detected,\nfixed, patched, etc.\n\n - EVENT_TYPE_FILTER_UNSPECIFIED: Default/unspecified\n - EVENT_TYPE_FILTER_DETECTION: Detection event\n - EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION: True positive determination\n - EVENT_TYPE_FILTER_FIXED: Fixed event\n - EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION: False positive determination\n - EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED: Analysis not planned\n - EVENT_TYPE_FILTER_FIX_NOT_PLANNED: Fix not planned\n - EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX: Pending upstream fix\n - EVENT_TYPE_FILTER_PATCHED: Patched event\n - EVENT_TYPE_FILTER_COMPONENT_LOCATION_CHANGED: Component location changed event",
             "in": "query",
             "name": "latestEventType",
             "schema": {
@@ -21934,7 +22156,8 @@
                 "EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED",
                 "EVENT_TYPE_FILTER_FIX_NOT_PLANNED",
                 "EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX",
-                "EVENT_TYPE_FILTER_PATCHED"
+                "EVENT_TYPE_FILTER_PATCHED",
+                "EVENT_TYPE_FILTER_COMPONENT_LOCATION_CHANGED"
               ],
               "type": "string"
             }
@@ -22467,7 +22690,7 @@
             }
           },
           {
-            "description": "event_types filters by event type\nWhen specified, only advisories containing at least one event of any of the provided\ntypes will be returned.\n\n - EVENT_TYPE_FILTER_UNSPECIFIED: Default/unspecified\n - EVENT_TYPE_FILTER_DETECTION: Detection event\n - EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION: True positive determination\n - EVENT_TYPE_FILTER_FIXED: Fixed event\n - EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION: False positive determination\n - EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED: Analysis not planned\n - EVENT_TYPE_FILTER_FIX_NOT_PLANNED: Fix not planned\n - EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX: Pending upstream fix\n - EVENT_TYPE_FILTER_PATCHED: Patched event",
+            "description": "event_types filters by event type\nWhen specified, only advisories containing at least one event of any of the provided\ntypes will be returned.\n\n - EVENT_TYPE_FILTER_UNSPECIFIED: Default/unspecified\n - EVENT_TYPE_FILTER_DETECTION: Detection event\n - EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION: True positive determination\n - EVENT_TYPE_FILTER_FIXED: Fixed event\n - EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION: False positive determination\n - EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED: Analysis not planned\n - EVENT_TYPE_FILTER_FIX_NOT_PLANNED: Fix not planned\n - EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX: Pending upstream fix\n - EVENT_TYPE_FILTER_PATCHED: Patched event\n - EVENT_TYPE_FILTER_COMPONENT_LOCATION_CHANGED: Component location changed event",
             "in": "query",
             "name": "eventTypes",
             "schema": {
@@ -22481,7 +22704,8 @@
                   "EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED",
                   "EVENT_TYPE_FILTER_FIX_NOT_PLANNED",
                   "EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX",
-                  "EVENT_TYPE_FILTER_PATCHED"
+                  "EVENT_TYPE_FILTER_PATCHED",
+                  "EVENT_TYPE_FILTER_COMPONENT_LOCATION_CHANGED"
                 ],
                 "type": "string"
               },
@@ -22489,7 +22713,7 @@
             }
           },
           {
-            "description": "latest_event_type filters out advisories where the _most recent approved event_ is\nof the given type. This is useful to find advisories which are currently detected,\nfixed, patched, etc.\n\n - EVENT_TYPE_FILTER_UNSPECIFIED: Default/unspecified\n - EVENT_TYPE_FILTER_DETECTION: Detection event\n - EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION: True positive determination\n - EVENT_TYPE_FILTER_FIXED: Fixed event\n - EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION: False positive determination\n - EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED: Analysis not planned\n - EVENT_TYPE_FILTER_FIX_NOT_PLANNED: Fix not planned\n - EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX: Pending upstream fix\n - EVENT_TYPE_FILTER_PATCHED: Patched event",
+            "description": "latest_event_type filters out advisories where the _most recent approved event_ is\nof the given type. This is useful to find advisories which are currently detected,\nfixed, patched, etc.\n\n - EVENT_TYPE_FILTER_UNSPECIFIED: Default/unspecified\n - EVENT_TYPE_FILTER_DETECTION: Detection event\n - EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION: True positive determination\n - EVENT_TYPE_FILTER_FIXED: Fixed event\n - EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION: False positive determination\n - EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED: Analysis not planned\n - EVENT_TYPE_FILTER_FIX_NOT_PLANNED: Fix not planned\n - EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX: Pending upstream fix\n - EVENT_TYPE_FILTER_PATCHED: Patched event\n - EVENT_TYPE_FILTER_COMPONENT_LOCATION_CHANGED: Component location changed event",
             "in": "query",
             "name": "latestEventType",
             "schema": {
@@ -22503,7 +22727,8 @@
                 "EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED",
                 "EVENT_TYPE_FILTER_FIX_NOT_PLANNED",
                 "EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX",
-                "EVENT_TYPE_FILTER_PATCHED"
+                "EVENT_TYPE_FILTER_PATCHED",
+                "EVENT_TYPE_FILTER_COMPONENT_LOCATION_CHANGED"
               ],
               "type": "string"
             }
@@ -23015,40 +23240,10 @@
       "name": "RolesService"
     },
     {
-      "name": "AccountAssociationsService"
-    },
-    {
-      "name": "GroupInvitesService"
-    },
-    {
-      "name": "GroupsService"
-    },
-    {
-      "name": "IdentitiesService"
-    },
-    {
-      "name": "IdentityProvidersService"
-    },
-    {
-      "name": "RoleBindingsService"
-    },
-    {
-      "name": "RolesService"
-    },
-    {
       "name": "ReposService"
     },
     {
       "name": "TagsService"
-    },
-    {
-      "name": "ReposService"
-    },
-    {
-      "name": "TagsService"
-    },
-    {
-      "name": "AdvisoriesService"
     },
     {
       "name": "AdvisoriesService"
@@ -23061,10 +23256,6 @@
     },
     {
       "name": "Auth"
-    },
-    {
-      "description": "Ecosystem Entitlements API",
-      "name": "EcosystemsEntitlements"
     },
     {
       "description": "Event Identities API",
@@ -23094,6 +23285,9 @@
     },
     {
       "name": "RoleBindings"
+    },
+    {
+      "name": "Terms"
     },
     {
       "name": "Artifacts"

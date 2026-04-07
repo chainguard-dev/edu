@@ -11,4 +11,4 @@ toc: false
 weight: 010
 ---
 
-{{< openapi spec-url="/api-v2alpha1.json" >}}
+{{< openapi spec-url="/api-v2beta1.json" >}}
