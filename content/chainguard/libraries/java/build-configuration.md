@@ -90,6 +90,15 @@ rm -rf ~/.m2/repository
 
 ### Step 2: Configure access 
 
+Before running a new build you must configure access to the Chainguard Libraries
+for Java. There are two options for configuring Maven to use Chainguard
+Libraries:
+
+* Repository manager — routes all artifact requests through your organization's
+  Artifactory, Nexus, or Cloudsmith instance
+* Direct access — configures Chainguard Libraries directly in
+  `~/.m2/settings.xml`, without a repository manager
+
 #### Configure access with a repository manager
 
 Before running a new build you must configure access to Chainguard Libraries
@@ -481,10 +490,22 @@ well](#remove-maven-caches).
 ### Step 2: Change Gradle configuration
 
 Before running a new build you must configure access to the Chainguard Libraries
-for Java. If the administrator for your organization’s repository manager
-created a new repository or virtual repository or group repository, you must
-update your Gradle configuration. Artifact download in Gradle can be configured
-in an [`init`
+for Java. There are three options for configuring Gradle to use Chainguard
+Libraries:
+
+* Repository manager — routes all artifact requests through your organization's
+  Artifactory, Nexus, or Cloudsmith instance
+* Direct access — configures Chainguard Libraries as a repository in your build
+  file, without a repository manager
+* An [`init`
+script](https://docs.gradle.org/current/userguide/init_scripts.html#sec:using_an_init_script)
+— applies the repository configuration globally to all Gradle projects on a
+machine
+
+If the administrator for your organization’s repository manager created a new
+repository or virtual repository or group repository, you must update your
+Gradle configuration. Artifact download in Gradle can be configured in an
+[`init`
 script](https://docs.gradle.org/current/userguide/init_scripts.html#sec:using_an_init_script)
 using the repositories definition. Each project can also [declare
 repositories](https://docs.gradle.org/current/userguide/declaring_repositories_basics.html)
