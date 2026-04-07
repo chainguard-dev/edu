@@ -282,27 +282,6 @@ jobs:
         
         echo "✓ Bundle uploaded to GCS"
 
-    - name: Commit and push changes
-      env:
-        EVENT_NAME: ${{ github.event_name }}
-      run: |
-        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions[bot]"
-
-        # Check if there are changes
-        if git diff --quiet; then
-          echo "No changes to commit"
-        else
-          git add static/downloads/chainguard-ai-docs.*
-          git add static/downloads/checksums.txt
-          git commit -m "Update AI documentation bundle [skip ci]
-
-        Sources downloaded from GCS bucket: academy-all-docs
-        Triggered by: $EVENT_NAME
-        " || echo "No changes to commit"
-          git push
-        fi
-
     - name: Update GitHub Release
       if: github.ref == 'refs/heads/main'
       env:
