@@ -76,7 +76,7 @@ with username and password from a pull token as detailed in
 [Apache Maven](https://maven.apache.org/) is the most widely used build tool in
 the Java ecosystem. Dependencies are declared in a `pom.xml` file and resolved from remote repositories.
 
-### Remove Maven caches
+### Step 1: Remove Maven caches
 
 Maven caches downloaded artifacts in a local repository. When adopting Chainguard Libraries
 for Java you must delete that local cache so that libraries are re-downloaded
@@ -88,7 +88,9 @@ following command to delete it:
 rm -rf ~/.m2/repository
 ```
 
-### Configure access via a repository manager
+### Step 2: Configure access 
+
+#### Configure access with a repository manager
 
 Before running a new build you must configure access to Chainguard Libraries
 for Java. If your organization uses a repository manager, configure a global mirror in `~/.m2/settings.xml` that routes all artifact requests through it. 
@@ -158,7 +160,7 @@ activated profile.
 </settings>
 ```
 
-#### Setting credentials for the server
+**Setting credentials for the server**
 
 If your repository manager requires authentication, you must specify credentials
 for the server. The `id` value in the server element must match the `id` value
@@ -206,7 +208,7 @@ If the administrator only re-configured the existing repository group or virtual
 repository, you can trigger a build to initiate use of Chainguard Libraries for
 Java.
 
-### Configure direct access
+#### Configure direct access
 
 If you are not using a repository manager at your organization, you can
 configure access to the Chainguard Libraries for Java repository directly.
@@ -294,7 +296,10 @@ details must remain within the settings file.
 
 ### Minimal example project
 
-Use the following steps to create a minimal example project for Maven with Chainguard Libraries for Java.
+Use the following steps to create a minimal example project for Maven with Chainguard Libraries for Java. For testing purposes, you can use direct access and environment variables as
+detailed in the [access documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials). 
+
+**1. Create a new Maven project**
 
 ```bash
 mvn archetype:generate \
@@ -305,6 +310,10 @@ mvn archetype:generate \
   -DinteractiveMode=false
 cd maven-example
 ```
+
+This command generates a new Maven project from the `archetype` template, sets the group ID and artifact ID, creates a full project structure, and then moves into the generated project directory.
+
+**2. Add a dependency to pom.xml**
 
 Add a dependency on `com.google.guava:guava` to the `<dependencies>` section of
 `pom.xml`. Open the file and insert the following before the closing
@@ -318,9 +327,7 @@ Add a dependency on `com.google.guava:guava` to the `<dependencies>` section of
 </dependency>
 ```
 
-For testing purposes, you can use direct access and environment variables as
-detailed in the [access documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials). 
-
+**3. Configure credentials**
 
 Once the environment variables are set, configure credentials in `~/.m2/settings.xml`:
 
@@ -390,6 +397,8 @@ cat > ~/.m2/settings.xml << EOF
 </settings>
 EOF
 ```
+
+**4. Build the project**
 
 Then build the project:
 
@@ -657,7 +666,7 @@ desired packages for further testing.
 [Bazel](https://bazel.build/) is a fast, scalable, and extensible build tool
 commonly used in large-scale projects.
 
-### Remove Bazel caches
+### Step 1: Remove Bazel caches
 
 Bazel uses a cache to store downloaded artifacts. When adopting Chainguard
 Libraries for Java, you must delete this cache to ensure that libraries are
@@ -673,7 +682,9 @@ The [Bazel documentation on output
 directories](https://bazel.build/remote/output-directories) contains further
 details.
 
-### Change Bazel configuration
+### Step 2: Change Bazel configuration
+
+#### Using a repository manager 
 
 Before running a new build, you must configure access to Chainguard Libraries
 for Java. If the administrator for your organization’s repository manager
@@ -721,6 +732,8 @@ Example URLs for repository managers:
 * Cloudsmith: https://dl.cloudsmith.io/basic/exampleorg/java-all/maven/
 * JFrog Artifactory: https://example.jfrog.io/artifactory/java-all/
 * Sonatype Nexus: https://repo.example.com:8443/repository/java-all/
+
+#### Using direct access
 
 If your organization does not use a repository manager, you can configure the
 Chainguard Libraries for Java repository directly, and include the Maven Central
