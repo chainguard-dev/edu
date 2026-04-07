@@ -38,11 +38,9 @@ Supported label types and their colors:
 | Label | Color |
 |---|---|
 | `Breaking Change` | Red |
-| `Security Advisory` | Red |
-| `Deprecation` | Orange |
+| `Update` | Brand aqua |
 | `New Feature` | Brand purple |
-| `Enhancement` | Brand aqua |
-| `Bug Fix` | Green |
+| `Deprecation` | Orange |
 
 ---
 
@@ -119,7 +117,7 @@ Based on the entry structure used in the static changelog, here is a proposed sc
 |---|---|---|
 | `id` | string | Unique identifier; used to generate anchor links |
 | `date` | string (ISO 8601) | Date of the change |
-| `change_type` | string (enum) | One of: `breaking-change`, `security-advisory`, `deprecation`, `new-feature`, `enhancement`, `bug-fix` |
+| `change_type` | string (enum) | One of: `breaking-change`, `update`, `new-feature`, `deprecation` |
 | `title` | string | Short entry title (used as the heading) |
 | `description` | string | One or two sentences describing the change and any required action |
 | `affects` | string | Optional. What products, images, or users are affected |

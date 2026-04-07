@@ -14,25 +14,17 @@
     background-color: #c0392b;
   }
 
-  &--security-advisory {
-    background-color: #c0392b;
-  }
-
-  &--deprecation {
-    background-color: #e67e22;
+  &--update {
+    background-color: var(--primary-2);
+    color: var(--primary-3);
   }
 
   &--new-feature {
     background-color: var(--primary-1);
   }
 
-  &--enhancement {
-    background-color: var(--primary-2);
-    color: var(--primary-3);
-  }
-
-  &--bug-fix {
-    background-color: #27ae60;
+  &--deprecation {
+    background-color: #e67e22;
   }
 
   & + h4 {
