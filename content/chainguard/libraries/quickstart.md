@@ -114,3 +114,7 @@ chainctl libraries verify /path/to/artifact
 ```
 
 Learn more in [Chainguard Libraries verification](/chainguard/libraries/verification/).
+
+## FAQs
+
+See the [Chainguard Libraries FAQ page](/chainguard/libraries/faq/) for common questions and issues.
