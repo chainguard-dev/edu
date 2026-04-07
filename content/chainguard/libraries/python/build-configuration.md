@@ -460,8 +460,10 @@ dependency to `flask` version `2.0.0` results in the use of version `2.0.0+cgr.1
 
 ### Minimal example project 
 
-Use the following steps to create a minimal example project for uv with Chainguard Libraries for Python.
-For testing purposes, you can use direct access and environment variables as detailed in the [access documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials). 
+Use the following steps to create a minimal example project for uv with
+Chainguard Libraries for Python. For testing purposes, you can use direct access
+and environment variables as detailed in the [access
+documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials). 
 
 **1. Configure credentials**
 
@@ -475,16 +477,21 @@ password ${CHAINGUARD_PYTHON_TOKEN}
 EOF
 chmod 600 ~/.netrc
 ```
-> **Note**: The `machine libraries.cgr.dev` entry is shared across ecosystems. Make sure your entry is using a pull token with Python entitlement.
+> **Note**: The `machine libraries.cgr.dev` entry is shared across ecosystems.
+> Make sure your entry is using a pull token with Python entitlement.
 
-Configure the global uv index in `~/.config/uv/uv.toml`. Create the file then open
-it in a text editor such as `nano`:
+In this example, the global uv index is set to the Chainguard Python repository
+without embedded credentials, allowing uv to authenticate automatically using
+`.netrc`. 
+
+Create the global index file `~/.config/uv/uv.toml` then open it in a text
+editor such as `nano`:
 
 ```bash
 mkdir -p ~/.config/uv
 nano ~/.config/uv/uv.toml
 ```
-Update the file to include the following:
+Update it to include the following:
 
 ```toml
 [[index]]
