@@ -59,6 +59,7 @@ jobs:
 
     - name: Checkout edu repository
       uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      # persist-credentials left enabled — this workflow needs git push
 
     - name: Authenticate to Google Cloud
       uses: step-security/google-github-auth@57c51210cb4d85d8a5d39dc4c576c79bd693f914 # v3.0.1
@@ -307,20 +308,14 @@ jobs:
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        # Org ruleset prevents tag deletion, so we update the existing release
-        # by replacing its assets rather than deleting and recreating it.
+        # Org ruleset makes releases immutable (can't delete assets).
+        # Use --clobber to overwrite existing assets in place.
+        TAG="ai-docs-bundle"
 
-        if gh release view ai-docs > /dev/null 2>&1; then
-          echo "Updating existing ai-docs release..."
+        if gh release view "$TAG" > /dev/null 2>&1; then
+          echo "Updating existing $TAG release..."
 
-          # Delete old assets so we can upload fresh ones
-          for asset in chainguard-ai-docs.tar.gz chainguard-ai-docs.md chainguard-ai-docs.zip \
-                       image-catalog.json checksums.txt mcp-server.py mcp-requirements.txt; do
-            gh release delete-asset ai-docs "$asset" -y 2>/dev/null || true
-          done
-
-          # Upload new assets
-          gh release upload ai-docs \
+          gh release upload "$TAG" --clobber \
             static/downloads/chainguard-ai-docs.tar.gz \
             static/downloads/chainguard-ai-docs.md \
             static/downloads/chainguard-ai-docs.zip \
@@ -329,10 +324,10 @@ jobs:
             scripts/mcp-server.py \
             scripts/mcp-requirements.txt
 
-          echo "✓ Release assets updated"
+          echo "Release assets updated"
         else
-          echo "Creating new ai-docs release..."
-          gh release create ai-docs \
+          echo "Creating new $TAG release..."
+          gh release create "$TAG" \
             static/downloads/chainguard-ai-docs.tar.gz \
             static/downloads/chainguard-ai-docs.md \
             static/downloads/chainguard-ai-docs.zip \
@@ -340,41 +335,6 @@ jobs:
             static/downloads/checksums.txt \
             scripts/mcp-server.py \
             scripts/mcp-requirements.txt \
-            --title "AI Documentation Bundle - Latest" \
-            --notes "Chainguard AI documentation bundle for use with AI coding assistants.
-
-        ## Download
-
-        \`\`\`bash
-        # Download the markdown file directly
-        curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs/chainguard-ai-docs.md
-
-        # Or download the compressed bundle
-        curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs/chainguard-ai-docs.tar.gz
-        tar -xzf chainguard-ai-docs.tar.gz
-        \`\`\`
-
-        ## MCP Server (standalone)
-
-        \`\`\`bash
-        # Download the MCP server and requirements
-        curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs/mcp-server.py
-        curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs/mcp-requirements.txt
-        pip install -r mcp-requirements.txt
-
-        # Run with docs and catalog in the current directory
-        DOCS_PATH=chainguard-ai-docs.md CATALOG_PATH=image-catalog.json python3 mcp-server.py
-        \`\`\`
-
-        ## Container Distribution
-
-        \`\`\`bash
-        # Pull the container image
-        docker pull ghcr.io/chainguard-dev/ai-docs:latest
-
-        # Extract documentation to current directory
-        docker run --rm -v \$(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract /output
-        \`\`\`
-
-        Generated: $(date -u '+%Y-%m-%d %H:%M UTC')"
+            --title "AI Documentation Bundle" \
+            --notes "Chainguard AI documentation bundle for use with AI coding assistants."
         fi
