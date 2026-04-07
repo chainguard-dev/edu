@@ -34,21 +34,21 @@ Before getting started:
 
 * If you're not yet a Chainguard user, you must [create an
       account](https://console.chainguard.dev/auth/login).
-* Ensure you have access to Chainguard Libraries.
-    * Chainguard Libraries are available to Catalog Starter and Free tier users,
-      and trial users. 
-    * Run the following command to create an entitlement for libraries: 
-```bash
-chainctl libraries entitlements create --ecosystems=JAVASCRIPT
-```
-The available `ecosystems` are `JAVASCRIPT`, `JAVA`, and `PYTHON`.
-
 * [Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) and
   log in:
 
    ```bash
    chainctl auth login
    ```
+* Entitle access for yourself to Chainguard Libraries.
+    * Chainguard Libraries are available to Catalog Starter and Free tier users,
+      and trial users. 
+    * Run the following command to create an entitlement for libraries:
+    
+```bash
+chainctl libraries entitlements create --ecosystems=JAVASCRIPT
+```
+The available `ecosystems` are `JAVASCRIPT`, `JAVA`, and `PYTHON`.
 
 ## Step 1: Choose your access method
 
