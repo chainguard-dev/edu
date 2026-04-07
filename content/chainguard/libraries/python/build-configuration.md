@@ -167,7 +167,7 @@ Update this configuration file with the following, replacing `<repository-url>`
 with the URL provided by your repository manager including the `simple/`
 context:
 
-```
+```pip.conf
 [global]
 index-url = <repository-url>
 ```
