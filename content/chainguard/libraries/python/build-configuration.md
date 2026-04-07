@@ -24,7 +24,7 @@ The configuration for the use of Chainguard Libraries depends on how you've set 
 
 These changes must be performed on all workstations of individual developers and other engineers running relevant application builds. They must also be performed on any build tool such as Jenkins, TeamCity, GitHub Actions, or other infrastructure that draws in dependencies.
 
-## Retrieving authentication credentials
+## Step 1: Retrieve authentication credentials
 
 To configure any build tool, you must first access credentials from your
 organization's repository manager or for direct access.
@@ -122,7 +122,7 @@ Configuration for multiple index use and authentication varies for each
 packaging tool. Typically Python tools include support for
 [.netrc](/chainguard/libraries/access/#netrc).
 
-## Configuring build tools
+## Step 2: Configure your build tools
 
 Once you have credentials and the index URL from your organization's repository
 manager, you're ready to set up specific build tools for local development or
@@ -145,12 +145,14 @@ for installing Python packages. In this section, we use the credentials from
 your organization's repository manager to configure `pip` to ingest dependencies
 from Chainguard Libraries.
 
-First, let's clear your local `pip` cache to ensure that packages are sourced
+First, clear your local `pip` cache to ensure that packages are sourced
 from Chainguard Libraries for Python:
 
 ```shell
 pip cache purge
 ```
+
+#### Using a repository manager
 
 To update `pip` to use our repository manager's URL globally, create or edit
 your `~/.pip/pip.conf` file. You may need to create the `~/.pip` folder as
@@ -165,7 +167,7 @@ Update this configuration file with the following, replacing `<repository-url>`
 with the URL provided by your repository manager including the `simple/`
 context:
 
-```
+```pip.conf
 [global]
 index-url = <repository-url>
 ```
@@ -185,6 +187,8 @@ Note the different syntax for `index-url` in the two files.
 Refer to the official documentation for [configuring authentication with
 pip](https://pip.pypa.io/en/stable/topics/authentication/) if you are not using
 [.netrc for authentication](/chainguard/libraries/access/#netrc).
+
+#### Using direct access
 
 When using [direct access](#direct-access) to the Chainguard Libraries for
 Python repository with `pip`, you must ensure the following are set in your
@@ -250,6 +254,8 @@ poetry cache clear --all pypi
 poetry cache clear --all python-all
 ```
 
+#### Using a repository manager
+
 Set up HTTP authentication to the repository `python-all` on your repository
 manager with the username `example` and the password `secret` in your project
 directory:
@@ -297,6 +303,8 @@ Proceed to build your project:
 ```shell
 poetry build
 ```
+
+#### Using direct access
 
 For [direct access](#direct-access) to Chainguard Libraries for Python with
 Poetry, use your username `CG_PULLTOKEN_USERNAME` and password
@@ -359,6 +367,8 @@ information about your project build, dependencies, versions, and other aspects.
 written in Rust. It uses PyPI by default, but also [supports the use of
 alternative package indexes](https://docs.astral.sh/uv/configuration/indexes/).
 
+#### Using a repository manager 
+
 To update your global configuration to use your organization's repository
 manager with `uv`, create or edit the `~/.config/uv/uv.toml` configuration file.
 You may also need to create the `~/.config/uv/` folder first. For example:
@@ -392,6 +402,8 @@ indexes](https://docs.astral.sh/uv/guides/integration/alternative-indexes/) if
 you are not using [.netrc for
 authentication](/chainguard/libraries/access/#netrc).
 
+#### Using direct access
+
 For [direct access](#direct-access) to Chainguard Libraries for Python with
 uv, use `.netrc` or your username `CG_PULLTOKEN_USERNAME` and password
 `CG_PULLTOKEN_PASSWORD` values from the pull token creation and the URL with the
@@ -412,6 +424,8 @@ Example for `uv.toml`:
 [[index]]
 url = "https://CG_PULLTOKEN_USERNAME:CG_PULLTOKEN_PASSWORD@libraries.cgr.dev/python/simple/"
 ```
+
+#### Multiple indexes
 
 In order to install Python libraries from multiple repositories with Chainguard
 Libraries for Python as the priority, `uv` supports [searching across multiple
@@ -457,3 +471,124 @@ index-strategy = "unsafe-best-match"
 
 Run a build to observe the resolved packages. For example, the declared
 dependency to `flask` version `2.0.0` results in the use of version `2.0.0+cgr.1`.
+
+### Minimal example project 
+
+Use the following steps to create a minimal example project for uv with
+Chainguard Libraries for Python. For testing purposes, you can use direct access
+and environment variables as detailed in the [access
+documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials). 
+
+**1. Configure credentials**
+
+Once the environment variables are set, configure credentials in `~/.netrc`:
+
+```bash
+cat >> ~/.netrc << EOF
+machine libraries.cgr.dev
+login ${CHAINGUARD_PYTHON_IDENTITY_ID}
+password ${CHAINGUARD_PYTHON_TOKEN}
+EOF
+chmod 600 ~/.netrc
+```
+> **Note**: The `machine libraries.cgr.dev` entry is shared across ecosystems.
+> Make sure your entry is using a pull token with Python entitlement.
+
+In this example, the global uv index is set to the Chainguard Python repositories
+without embedded credentials, allowing uv to authenticate automatically using
+`.netrc`. 
+
+Create the global index file `~/.config/uv/uv.toml` then open it in a text
+editor such as `nano`:
+
+```bash
+mkdir -p ~/.config/uv
+nano ~/.config/uv/uv.toml
+```
+Update it to include the remediated and standard Chainguard indexes:
+
+```toml
+[[index]]
+url = "https://libraries.cgr.dev/python-remediated/simple/"
+authenticate = "always"
+
+[[index]]
+url = "https://libraries.cgr.dev/python/simple/"
+authenticate = "always"
+```
+
+**2. Initialize a new project**
+
+This command creates a new directory, moves to the new directory, then initializes it with uv:
+
+```bash
+mkdir uv-example && cd $_
+uv init
+```
+
+**3. Edit pyproject.toml**
+
+Open `pyproject.toml` with a text editor, such as `nano`:
+
+```bash
+nano pyproject.toml
+```
+
+Add `flask==2.0.0` to the `dependencies` list in the `[project]` section, and add the following index configurations for the Python libraries to the end of the file:
+
+```toml
+[project]
+name = "uv-example"
+version = "0.1.0"
+requires-python = ">=3.9"
+dependencies = [
+    "flask==2.0.0",
+]
+
+[tool.uv]
+index-strategy = "unsafe-best-match"
+# This allows uv to search across multiple indexes to find remediated versions of Python libraries
+
+[[tool.uv.index]]
+name = "cgr-pr"
+url = "https://libraries.cgr.dev/python-remediated/simple"
+authenticate = "always"
+
+[[tool.uv.index]]
+name = "cgr-p"
+url = "https://libraries.cgr.dev/python/simple"
+authenticate = "always"
+```
+
+**4. Build the project**
+
+Build the project and sync dependencies:
+
+```bash
+uv sync
+```
+
+Following this, confirm the patched Chainguard version of flask was resolved:
+
+```bash
+uv pip list | grep flask
+```
+
+The output should show `flask 2.0.0+cgr.1`, confirming the remediated version was installed.
+
+#### Verify the project works as expected
+
+To verify the installed packages were built by Chainguard, use `chainctl`:
+
+```bash
+chainctl libraries verify --detailed .venv/
+```
+
+A successfully verified project produces output similar to the following:
+
+```bash
+  - flask
+    Status: Verified as built from source
+    Details: Version: 2.0.0+cgr.1 (verified via per-package SBOM - built from source by Chainguard)
+    Python package: flask==2.0.0+cgr.1
+```
