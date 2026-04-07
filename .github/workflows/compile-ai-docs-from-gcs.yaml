@@ -284,6 +284,7 @@ jobs:
 
     - name: Update GitHub Release
       if: github.ref == 'refs/heads/main'
+      continue-on-error: true  # Org ruleset makes release assets immutable; container/GCS are primary distribution
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
