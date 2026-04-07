@@ -15,6 +15,7 @@ module.exports = {
         './content/**/*.md',
       ],
       safelist: [
+        /^changelog-label/,
         'lazyloaded',
         'table',
         'thead',
