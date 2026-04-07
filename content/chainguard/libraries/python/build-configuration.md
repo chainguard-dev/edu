@@ -494,7 +494,7 @@ chmod 600 ~/.netrc
 > **Note**: The `machine libraries.cgr.dev` entry is shared across ecosystems.
 > Make sure your entry is using a pull token with Python entitlement.
 
-In this example, the global uv index is set to the Chainguard Python repository
+In this example, the global uv index is set to the Chainguard Python repositories
 without embedded credentials, allowing uv to authenticate automatically using
 `.netrc`. 
 
@@ -505,15 +505,19 @@ editor such as `nano`:
 mkdir -p ~/.config/uv
 nano ~/.config/uv/uv.toml
 ```
-Update it to include the following:
+Update it to include the remediated and standard Chainguard indexes:
 
 ```toml
+[[index]]
+url = "https://libraries.cgr.dev/python-remediated/simple/"
+authenticate = "always"
+
 [[index]]
 url = "https://libraries.cgr.dev/python/simple/"
 authenticate = "always"
 ```
 
-**2. Initiatilze a new project**
+**2. Initialize a new project**
 
 This command creates a new directory, moves to the new directory, then initializes it with uv:
 
@@ -569,6 +573,14 @@ Build the project and sync dependencies:
 uv sync
 ```
 
+Following this, confirm the patched Chainguard version of flask was resolved:
+
+```bash
+uv pip list | grep flask
+```
+
+The output should show `flask 2.0.0+cgr.1`, confirming the remediated version was installed.
+
 #### Verify the project works as expected
 
 To verify the installed packages were built by Chainguard, use `chainctl`:
@@ -578,12 +590,10 @@ chainctl libraries verify --detailed .venv/
 ```
 
 A successfully verified project produces output similar to the following:
+
 ```bash
-Verified packages: 5 of 7
-Details: Python packages: 5 of 6 packages verified via per-package SBOMs (83.3%)
-...
   - flask
     Status: Verified as built from source
-    Details: Version: 2.0.0 (verified via per-package SBOM - built from source by Chainguard)
-    Python package: flask==2.0.0
+    Details: Version: 2.0.0+cgr.1 (verified via per-package SBOM - built from source by Chainguard)
+    Python package: flask==2.0.0+cgr.1
 ```
