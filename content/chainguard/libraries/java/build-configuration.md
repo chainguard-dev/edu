@@ -76,7 +76,7 @@ with username and password from a pull token as detailed in
 [Apache Maven](https://maven.apache.org/) is the most widely used build tool in
 the Java ecosystem. Dependencies are declared in a `pom.xml` file and resolved from remote repositories.
 
-### Remove Maven caches
+### Step 1: Remove Maven caches
 
 Maven caches downloaded artifacts in a local repository. When adopting Chainguard Libraries
 for Java you must delete that local cache so that libraries are re-downloaded
@@ -88,7 +88,18 @@ following command to delete it:
 rm -rf ~/.m2/repository
 ```
 
-### Configure access via a repository manager
+### Step 2: Configure access 
+
+Before running a new build you must configure access to the Chainguard Libraries
+for Java. There are two options for configuring Maven to use Chainguard
+Libraries:
+
+* Repository manager — routes all artifact requests through your organization's
+  Artifactory, Nexus, or Cloudsmith instance
+* Direct access — configures Chainguard Libraries directly in
+  `~/.m2/settings.xml`, without a repository manager
+
+#### Configure access with a repository manager
 
 Before running a new build you must configure access to Chainguard Libraries
 for Java. If your organization uses a repository manager, configure a global mirror in `~/.m2/settings.xml` that routes all artifact requests through it. 
@@ -158,7 +169,7 @@ activated profile.
 </settings>
 ```
 
-#### Setting credentials for the server
+**Setting credentials for the server**
 
 If your repository manager requires authentication, you must specify credentials
 for the server. The `id` value in the server element must match the `id` value
@@ -206,7 +217,7 @@ If the administrator only re-configured the existing repository group or virtual
 repository, you can trigger a build to initiate use of Chainguard Libraries for
 Java.
 
-### Configure direct access
+#### Configure direct access
 
 If you are not using a repository manager at your organization, you can
 configure access to the Chainguard Libraries for Java repository directly.
@@ -294,7 +305,19 @@ details must remain within the settings file.
 
 ### Minimal example project
 
-Use the following steps to create a minimal example project for Maven with Chainguard Libraries for Java.
+Use the following steps to create a minimal example project for Maven with Chainguard Libraries for Java. For testing purposes, you can use direct access and environment variables as
+detailed in the [access documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials). 
+
+**1. Remove the Maven cache**
+
+Remove the Maven cache as described in the [Remove Maven
+caches](#step-1-remove-maven-caches) section.
+
+**2. Create a new Maven project**
+
+This command generates a new Maven project from the `archetype` template, sets
+the group ID and artifact ID, creates a full project structure, and then moves
+into the generated project directory:
 
 ```bash
 mvn archetype:generate \
@@ -305,6 +328,8 @@ mvn archetype:generate \
   -DinteractiveMode=false
 cd maven-example
 ```
+
+**3. Add a dependency to pom.xml**
 
 Add a dependency on `com.google.guava:guava` to the `<dependencies>` section of
 `pom.xml`. Open the file and insert the following before the closing
@@ -318,9 +343,7 @@ Add a dependency on `com.google.guava:guava` to the `<dependencies>` section of
 </dependency>
 ```
 
-For testing purposes, you can use direct access and environment variables as
-detailed in the [access documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials). 
-
+**4. Configure credentials**
 
 Once the environment variables are set, configure credentials in `~/.m2/settings.xml`:
 
@@ -391,6 +414,8 @@ cat > ~/.m2/settings.xml << EOF
 EOF
 ```
 
+**5. Build the project**
+
 Then build the project:
 
 ```bash
@@ -435,14 +460,16 @@ desired packages for further testing.
 [Gradle](https://gradle.org/) is a commonly used build tool in the Java
 ecosystem.
 
-### Remove Gradle caches
+### Step 1: Remove Gradle caches
 
 Gradle uses a local cache of libraries. When adopting Chainguard Libraries for
-Java you must delete that local cache so that libraries are downloaded again. By
-default the cache is located in a hidden `.gradle/.cache` directory in your
-users home directory. Use the following command to delete it:
+Java you must delete that local cache so that libraries
+are downloaded again. By default the cache is located in a hidden
+`~/.gradle/caches` directory in your user's home directory. 
 
-```shell
+Use the following command to delete it:
+
+```bash
 rm -rf ~/.gradle/caches/
 ```
 
@@ -457,25 +484,43 @@ repositories {
 }
 ```
 
-If this configuration is used, ensure to [delete the local Maven repository as
+If this configuration is used, ensure you [delete the local Maven repository as
 well](#remove-maven-caches). 
 
-### Change Gradle configuration
+### Step 2: Change Gradle configuration
 
 Before running a new build you must configure access to the Chainguard Libraries
-for Java. If the administrator for your organization’s repository manager
-created a new repository or virtual repository or group repository, you must
-update your Gradle configuration. Artifact download in Gradle can be configured
-in an [`init`
+for Java. There are three options for configuring Gradle to use Chainguard
+Libraries:
+
+* Repository manager — routes all artifact requests through your organization's
+  Artifactory, Nexus, or Cloudsmith instance
+* Direct access — configures Chainguard Libraries as a repository in your build
+  file, without a repository manager
+* An [`init`
+script](https://docs.gradle.org/current/userguide/init_scripts.html#sec:using_an_init_script)
+— applies the repository configuration globally to all Gradle projects on a
+machine
+
+If the administrator for your organization’s repository manager created a new
+repository or virtual repository or group repository, you must update your
+Gradle configuration. Artifact download in Gradle can be configured in an
+[`init`
 script](https://docs.gradle.org/current/userguide/init_scripts.html#sec:using_an_init_script)
 using the repositories definition. Each project can also [declare
 repositories](https://docs.gradle.org/current/userguide/declaring_repositories_basics.html)
 separately.
 
+#### Using a repository manager 
+
 A typical setup removes the direct reference to Maven Central `mavenCentral()`
 and any other repositories, and adds a replacement definition with the URL of the
 repository group or virtual repository from your repository manager
 `https://repo.example.com/group/` and any applicable authentication details.
+
+Open `app/build.gradle` and update the `repositories` block to include the
+following repository. Ensure it is located above the `mavenCentral` repository
+and any other repositories:
 
 ```groovy
 repositories {
@@ -488,6 +533,8 @@ repositories {
     }
 }
 ```
+> **Note**: Do not store credentials directly in build files; use environment
+>variables or local Gradle properties instead.
 
 Example URLs for repository managers:
 
@@ -495,43 +542,36 @@ Example URLs for repository managers:
 * JFrog Artifactory: `https://example.jfrog.io/artifactory/java-all/`
 * Sonatype Nexus: `https://repo.example.com:8443/repository/java-all/`
 
+
+#### Direct access to Chainguard Libraries
+
 If your organization does not use a repository manager you can configure the
 Chainguard Libraries for Java repository with the credentials from [Chainguard
-Libraries access](/chainguard/libraries/access/) replacing the placeholders
-`CHAINGUARD_JAVA_IDENTITY_ID` and `CHAINGUARD_JAVA_TOKEN`. Ensure that the
-Chainguard repository is located above the `mavenCentral` repository and any
-other repositories:
+Libraries access](/chainguard/libraries/access/). The following `repositories` block demonstrates
+the recommended method of using [environment
+variables](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials)
+for your pull token credentials. 
+
+Open `app/build.gradle` and update the `repositories` block to include the
+Chainguard repository. Ensure it is located above the `mavenCentral` repository
+and any other repositories:
 
 ```groovy
 repositories {
     maven {
         url = uri("https://libraries.cgr.dev/java/")
         credentials {
-            username = "CHAINGUARD_JAVA_IDENTITY_ID"
-            password = "CHAINGUARD_JAVA_TOKEN"
+            username = providers.environmentVariable("CHAINGUARD_JAVA_IDENTITY_ID").orNull
+            password = providers.environmentVariable("CHAINGUARD_JAVA_TOKEN").orNull
         }
     }
     mavenCentral()
 }
 ```
 
-Alternatively configure [environment
-variables](/chainguard/libraries/access/#env) and access the values:
+#### Using an init script
 
-```groovy
-repositories {
-    maven {
-        url = uri("https://libraries.cgr.dev/java/")
-        credentials {
-            username = "$System.env.CHAINGUARD_JAVA_IDENTITY_ID"
-            password = "$System.env.CHAINGUARD_JAVA_TOKEN"
-        }
-    }
-    mavenCentral()
-}
-```
-
-The following listing shows a valid `init.gradle` file. It wraps the
+The following listing shows a valid `init.gradle` file that applies the repository configuration globally using `~/.gradle/init.gradle`. It wraps the
 `repositories` element with `allprojects` so that the scope of the file affects
 all projects built locally with Gradle. It also allows for downloads for plugins
 and build scripts from the remote URL using `buildscript`. Lastly the example
@@ -559,6 +599,94 @@ allprojects {
 }
 ```
 
+### Minimal example project
+
+Use the following steps to create a minimal example project for Gradle with Chainguard Libraries for Java. For testing purposes, you can use direct access and environment variables as
+detailed in the [access documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials). 
+
+**1. Clear the cache**
+
+Clear the Gradle cache as described in the [Remove Gradle caches](#step-1-remove-gradle-caches) section.
+
+**2. Create the example project**
+
+Create a project directory and navigate to it:
+
+```bash
+mkdir gradle-example && cd $_
+gradle init --type java-application --dsl groovy \
+  --project-name gradle-example \
+  --package com.example \
+  --no-incubating \
+  --no-split-project
+```
+
+**3. Edit app/build.gradle**
+
+Open `app/build.gradle` in a text editor. For example, to open it in `nano`:
+
+```bash
+nano app/build.gradle
+```
+
+Edit the `repositories` block in `app/build.gradle` to point to Chainguard and use the environment variables for your pull token credentials:
+
+```app/build.gradle
+repositories {
+    maven {
+        url = 'https://libraries.cgr.dev/java/'
+        credentials {
+            username = providers.environmentVariable("CHAINGUARD_JAVA_IDENTITY_ID").orNull
+            password = providers.environmentVariable("CHAINGUARD_JAVA_TOKEN").orNull
+        }
+    }
+    mavenCentral()
+}
+```
+
+**4. Build the project**
+
+Run the following command:
+
+```bash
+./gradlew app:assemble
+```
+
+The project generated in this example includes `com.google.guava:guava` as a dependency via the
+version catalog in `gradle/libs.versions.toml`, so guava is downloaded from
+Chainguard Libraries as part of the build. 
+
+Following the build, you can find the guava jar declared in the version catalog at:
+
+```
+~/.gradle/caches/modules-2/files-2.1/com.google.guava
+```
+
+#### Verify the project works as expected
+
+To verify the artifact was built by Chainguard, use `chainctl`. In this example,
+we first use `find` to locate the jar:
+
+```bash
+find ~/.gradle/caches/modules-2/files-2.1/com.google.guava/guava -name "*.jar" | sort
+```
+
+Then copy the exact path to the jar and verify it with `chainctl`: 
+
+```bash
+chainctl libraries verify --parent your-org /full/path/to/guava-<version>.jar
+```
+
+A successfully verified artifact produces output similar to the following:
+
+```bash
+Artifact: ~/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/33.5.0-jre/.../guava-33.5.0-jre.jar
+Verification Coverage: 100.00%
+```
+
+Adjust the repository URL to use your repository manager and add any other
+desired packages for further testing.
+
 <a id="bazel"></a>
 
 ## Bazel
@@ -566,7 +694,7 @@ allprojects {
 [Bazel](https://bazel.build/) is a fast, scalable, and extensible build tool
 commonly used in large-scale projects.
 
-### Remove Bazel caches
+### Step 1: Remove Bazel caches
 
 Bazel uses a cache to store downloaded artifacts. When adopting Chainguard
 Libraries for Java, you must delete this cache to ensure that libraries are
@@ -582,7 +710,9 @@ The [Bazel documentation on output
 directories](https://bazel.build/remote/output-directories) contains further
 details.
 
-### Change Bazel configuration
+### Step 2: Change Bazel configuration
+
+#### Using a repository manager 
 
 Before running a new build, you must configure access to Chainguard Libraries
 for Java. If the administrator for your organization’s repository manager
@@ -630,6 +760,8 @@ Example URLs for repository managers:
 * Cloudsmith: https://dl.cloudsmith.io/basic/exampleorg/java-all/maven/
 * JFrog Artifactory: https://example.jfrog.io/artifactory/java-all/
 * Sonatype Nexus: https://repo.example.com:8443/repository/java-all/
+
+#### Using direct access
 
 If your organization does not use a repository manager, you can configure the
 Chainguard Libraries for Java repository directly, and include the Maven Central
