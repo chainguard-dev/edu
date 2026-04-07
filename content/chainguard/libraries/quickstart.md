@@ -53,9 +53,11 @@ There are two ways to access Chainguard Libraries:
 - **Direct access**: Configure authentication directly in each project's build configuration.
     - This option is faster to set up initially, but requires per-project and per-workstation configuration. This increases the risk of credentials being committed to source control or going stale. For production use, an artifact manager is strongly recommended.
 
+Learn more about these options in [Chainguard Libraries access](/chainguard/libraries/access/).
+
 ### Step 2: Create a pull token
 
-Pull tokens are required for authentication. You can create one using `chainctl`:
+[Pull tokens](/chainguard/libraries/access/#creating-pull-tokens-for-libraries) are required for authentication. You can create one using `chainctl`:
 
 ```bash
 chainctl auth pull-token --repository=java --parent=example --ttl=8670h
