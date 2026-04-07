@@ -463,7 +463,7 @@ dependency to `flask` version `2.0.0` results in the use of version `2.0.0+cgr.1
 Use the following steps to create a minimal example project for uv with Chainguard Libraries for Python.
 For testing purposes, you can use direct access and environment variables as detailed in the [access documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials). 
 
-**1. Configure credentials in .netrc**
+**1. Configure credentials**
 
 Once the environment variables are set, configure credentials in `~/.netrc`:
 
@@ -474,6 +474,22 @@ login ${CHAINGUARD_PYTHON_IDENTITY_ID}
 password ${CHAINGUARD_PYTHON_TOKEN}
 EOF
 chmod 600 ~/.netrc
+```
+> **Note**: The `machine libraries.cgr.dev` entry is shared across ecosystems. Make sure your entry is using a pull token with Python entitlement.
+
+Configure the global uv index in `~/.config/uv/uv.toml`. Create the file then open
+it in a text editor such as `nano`:
+
+```bash
+mkdir -p ~/.config/uv
+nano ~/.config/uv/uv.toml
+```
+Update the file to include the following:
+
+```toml
+[[index]]
+url = "https://libraries.cgr.dev/python/simple/"
+authenticate = "always"
 ```
 
 **2. Initiatilze a new project**
@@ -487,7 +503,7 @@ uv init
 
 **3. Edit pyproject.toml**
 
-Open `pyproject.toml` with a text editor. The following command opens it with `nano`:
+Open `pyproject.toml` with a text editor, such as `nano`:
 
 ```bash
 nano pyproject.toml
@@ -532,16 +548,17 @@ Build the project and sync dependencies:
 uv sync
 ```
 
-Following the build, verify that the patched Chainguard version of flask was resolved. Chainguard serves `flask 2.0.0+cgr.1` rather than the upstream `2.0.0`:
-
-```bash
-uv pip list | grep flask
-```
-
 #### Verify the project works as expected
 
 To verify the installed packages were built by Chainguard, use `chainctl`:
 
 ```bash
 chainctl libraries verify --detailed .venv/
+```
+
+A successfully verified project produces output similar to the following:
+```bash
+Artifact: .venv/
+Verification Coverage: 71.43%
+Verified packages: 5 of 7
 ```
