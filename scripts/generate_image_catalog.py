@@ -49,19 +49,27 @@ def extract_images_from_docs(docs_path: str) -> Dict[str, Dict[str, Any]]:
 
     section_content = content[container_section.end():]
 
-    # Stop at the next ## heading (or end of file)
-    next_section = re.search(r"\n## ", section_content)
-    if next_section:
-        section_content = section_content[: next_section.start()]
-
-    # Extract each image name from ### headings
+    # Image READMEs contain their own ## headings, so we can't use ## as a
+    # section boundary. Instead, use the IMAGE_SEPARATOR markers that
+    # compile_docs.py inserts between images, and extract ### names from
+    # the text between the section header and the first separator (plus
+    # all separator-delimited blocks).
+    # Each image entry starts with "### image-name\n" followed by its README
+    # content (which may contain ## headings), then "<!-- IMAGE_SEPARATOR -->".
     for match in re.finditer(r"\n### ([a-z0-9][\-a-z0-9]*)\n", section_content):
         name = match.group(1)
-        images[name] = {
-            "name": name,
-            "registry_ref": f"cgr.dev/chainguard/{name}",
-            "has_documentation": True,
-        }
+        # Only include entries that are followed by IMAGE_SEPARATOR
+        # (i.e., actual image entries, not random ### headings in content)
+        rest = section_content[match.end():]
+        next_h3 = re.search(r"\n### [a-z]", rest)
+        next_sep = rest.find("<!-- IMAGE_SEPARATOR -->")
+        # If there's a separator before the next ### heading, this is a real image
+        if next_sep != -1 and (next_h3 is None or next_sep < next_h3.start()):
+            images[name] = {
+                "name": name,
+                "registry_ref": f"cgr.dev/chainguard/{name}",
+                "has_documentation": True,
+            }
 
     return images
 
