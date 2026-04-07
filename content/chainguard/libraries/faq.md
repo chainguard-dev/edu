@@ -37,13 +37,15 @@ Levels for Software Artifacts (SLSA) website](https://slsa.dev/).
 The following examples are issues, attacks, and compromises that affect stages
 of the software supply chain for libraries across different language ecosystems:
 
-### Malicious GlueStack packages
+{{< details "Malicious GlueStack packages" >}}
 
 * This May 2025 attack uploaded compromised packages to PyPI and npm that enable remote shell access and uploading files to compromised machines
 * Chainguard Libraries would have protected against this attack. First, the packages have invalid upstream source URLs so there was no source repository. In the case of the lone exception (a package with a valid source repository link), no code was present for Chainguard to build a valid package.
 - [The Hacker News](https://thehackernews.com/2025/06/new-supply-chain-malware-operation-hits.html) blog post on the attack
 
-### Ultralytics Python project
+{{< /details >}}
+
+{{< details "Ultralytics Python project" >}}
 
 * Attackers compromised the GitHub Actions workflows for the Ultralytics repository, injecting malware
   into PyPI package releases.
@@ -53,7 +55,9 @@ of the software supply chain for libraries across different language ecosystems:
 * See also [PyPI attack analysis](https://blog.pypi.org/posts/2024-12-11-ultralytics-attack-analysis/) and
   [bleepingcomputer blog post](https://www.bleepingcomputer.com/news/security/ultralytics-ai-model-hijacked-to-infect-thousands-with-cryptominer/).
 
-### Lottie Player
+{{< /details >}}
+
+{{< details "Lottie Player" >}}
 
 * Hackers gained access to the NPM registry by compromising a developer authentication token.
 * Token used to upload a compromised version of Lottie Player.
@@ -61,7 +65,9 @@ of the software supply chain for libraries across different language ecosystems:
 * Chainguard Libraries would have prevented this attack by building the project from clean source. No source code was modified by attackers during this incident.
 * See also [npm package Lottie-Player compromised in supply chain attack, Nov 2024](https://www.infosecurity-magazine.com/news/npm-package-lottieplayer-supply/).
 
-### MavenGate
+{{< /details >}}
+
+{{< details "MavenGate" >}}
 
 * MavenGate is a proof of concept for exploiting abandoned Java library domains.
 * Vulnerabilities in Maven dependency management allow unauthorized package replacements.
@@ -75,7 +81,9 @@ of the software supply chain for libraries across different language ecosystems:
   and [Sonatype's take as Maven Central
   operator](https://www.sonatype.com/sonatypes-ongoing-commitment-to-maven-central).
 
-### XZ Utils backdoor
+{{< /details >}}
+
+{{< details "XZ Utils backdoor" >}}
 
 * Example of a supply chain attack leveraging social engineering by a patient actor
 * Sophisticated backdoor that had remote code execution capability and the potential to affect many systems
@@ -90,7 +98,9 @@ of the software supply chain for libraries across different language ecosystems:
 * See also [Wikipedia article](https://en.wikipedia.org/wiki/XZ_Utils_backdoor)
   and [official page from the XZ data compression](https://tukaani.org/xz-backdoor/).
 
-### Other examples and resources
+{{< /details >}}
+
+{{< details "Other examples and resources" >}}
 
 The following links provide details for other software supply chain attacks.
 Depending on the exact details some of these attacks and approaches are
@@ -110,6 +120,9 @@ prevented by use of Chainguard Libraries.
 
 Find pointers to further resources in the [Software supply chain reading
 list](https://github.com/chainguard-dev/ssc-reading-list).
+
+{{< /details >}}
+
 
 ## Why do the Chainguard library checksums differ from those published by upstream repositories?
 
@@ -148,6 +161,53 @@ available](https://www.sonatype.com/blog/are-unnecessary-vulnerabilities-polluti
 and, by adopting those newer versions in your application, you can remediate most
 CVEs. Chainguard Libraries for Java includes those newest versions and adds the
 build and distribution channel security.
+
+## What’s the difference between malware‑hardened libraries and CVE remediation?
+
+Malware‑hardened libraries are the baseline Chainguard Libraries experience:
+Chainguard rebuilds open source Java, JavaScript, and Python dependencies from
+upstream source in the [Chainguard Factory](/chainguard/factory/), a controlled,
+SLSA‑aligned build environment, and publishes them to hardened registries for
+customers to consume. This closes off most supply chain malware vectors compared
+to pulling directly from public registries like Maven Central, npm, and PyPI.
+
+[CVE remediation](/chainguard/libraries/cve-remediation/) is an additional
+feature (currently focused on a subset of Python libraries) where Chainguard
+backports High and Critical vulnerability fixes from newer upstream releases to
+older versions that customers are still using, particularly when upstream
+maintainers no longer ship patches for those older versions. Remediated versions
+are:
+- Published in a separate Python index (e.g.,
+  https://libraries.cgr.dev/python-remediated/simple/).
+- Given a local version suffix like +cgr.N (for example, 2.0.0+cgr.1) so
+  dependency resolvers can distinguish them from non‑remediated upstream
+  versions while still preferring the remediated build during resolution.
+
+## Why might I still see 404s with fallback enabled for Chainguard Libraries for JavaScript?
+
+For JavaScript, Chainguard offers the [Chainguard
+Repository](/chainguard/chainguard-repository/) as a unified, managed endpoint
+at `https://libraries.cgr.dev/javascript/`. This single endpoint:
+- Serves Chainguard‑built packages first, rebuilt from source.
+- Optionally falls back to upstream npm for packages or versions that are not
+  yet available from Chainguard.
+- Applies security controls on the upstream fallback, including a cooldown
+  window and malware detection that blocks packages associated with known
+  malware IDs from public OSV feeds.
+
+Because of those controls, you can still see 404s or failed fetches even when
+fallback is enabled, for example when:
+
+- A package or version is blocked by malware detection and therefore
+  intentionally not served from upstream.
+- A recently published version is still in the cooldown period, so the
+  repository will not yet proxy it from npm.
+- The requested package/version truly does not exist in either Chainguard’s
+  catalog or upstream.
+
+Fallback respects security policies first, then mirrors safe content from npm.
+For customers, this can surface as a 404 from the Chainguard endpoint even
+though a version appears in the public registry.
 
 ## What are Chibbies?
 
