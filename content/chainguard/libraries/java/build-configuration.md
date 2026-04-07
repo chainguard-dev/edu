@@ -440,7 +440,7 @@ ecosystem.
 Gradle uses a local cache of libraries. When adopting Chainguard Libraries for
 Java you must delete that local cache so that libraries
 are downloaded again. By default the cache is located in a hidden
-`~/.gradle/caches` directory in your users home directory. 
+`~/.gradle/caches` directory in your user's home directory. 
 
 Use the following command to delete it:
 
@@ -481,8 +481,9 @@ and any other repositories, and adds a replacement definition with the URL of th
 repository group or virtual repository from your repository manager
 `https://repo.example.com/group/` and any applicable authentication details.
 
-Open `app/build.gradle` and update the `repositories` block to include the following repository. Ensure it is located above the `mavenCentral` repository and any
-other repositories:
+Open `app/build.gradle` and update the `repositories` block to include the
+following repository. Ensure it is located above the `mavenCentral` repository
+and any other repositories:
 
 ```groovy
 repositories {
@@ -495,7 +496,7 @@ repositories {
     }
 }
 ```
->Note: Do not store credentials directly in build files; use environment
+> **Note**: Do not store credentials directly in build files; use environment
 >variables or local Gradle properties instead.
 
 Example URLs for repository managers:
@@ -566,17 +567,16 @@ allprojects {
 Use the following steps to create a minimal example project for Gradle with Chainguard Libraries for Java. For testing purposes, you can use direct access and environment variables as
 detailed in the [access documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials). 
 
-**Step 1: Clear the cache**
+**1. Clear the cache**
 
 Clear the Gradle cache as described in the [Remove Gradle caches](#step-1-remove-gradle-caches) section.
 
-**Step 2: Create the example project**
+**2. Create the example project**
 
-Run the following command:
+Create a project directory and navigate to it:
 
 ```bash
-mkdir gradle-example
-cd gradle-example
+mkdir gradle-example && cd $_
 gradle init --type java-application --dsl groovy \
   --project-name gradle-example \
   --package com.example \
@@ -584,11 +584,17 @@ gradle init --type java-application --dsl groovy \
   --no-split-project
 ```
 
-**Step 3: Edit app/build.gradle**
+**3. Edit app/build.gradle**
+
+Open `app/build.gradle` in a text editor. For example, to open it in `nano`:
+
+```bash
+nano app/build.gradle
+```
 
 Edit the `repositories` block in `app/build.gradle` to point to Chainguard and use the environment variables for your pull token credentials:
 
-```groovy
+```app/build.gradle
 repositories {
     maven {
         url = 'https://libraries.cgr.dev/java/'
@@ -601,7 +607,7 @@ repositories {
 }
 ```
 
-**Step 4: Build the project**
+**4. Build the project**
 
 Run the following command:
 
@@ -613,9 +619,9 @@ The project generated in this example includes `com.google.guava:guava` as a dep
 version catalog in `gradle/libs.versions.toml`, so guava is downloaded from
 Chainguard Libraries as part of the build. 
 
-Following the build, find the guava jar declared in the version catalog at:
+Following the build, you can find the guava jar declared in the version catalog at:
 
-```bash
+```
 ~/.gradle/caches/modules-2/files-2.1/com.google.guava
 ```
 
