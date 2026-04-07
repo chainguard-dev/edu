@@ -183,69 +183,13 @@ jobs:
         cd static/downloads
         
         # Use a fixed tag for the latest release
-        TAG="ai-docs"
+        TAG="ai-docs-bundle"
         
-        # Delete old assets from existing release (org ruleset blocks tag deletion)
-        for asset in chainguard-ai-docs.tar.gz chainguard-ai-docs.tar.gz.bundle \
-                     chainguard-ai-docs.md.bundle checksums.txt; do
-          gh release delete-asset "$TAG" "$asset" -y 2>/dev/null || true
-        done
+        # Org ruleset makes releases immutable (can't delete assets).
+        # Use --clobber to overwrite existing assets in place.
 
-        # Create release notes
-        cat > release-notes.md << 'EOF'
-        # AI Documentation Bundle (Public)
-        
-        This release contains the compiled Chainguard public documentation bundle for use with AI assistants.
-        
-        ## Download Options
-        
-        | File | Description | Size |
-        |------|-------------|------|
-        | [chainguard-ai-docs.tar.gz](https://github.com/chainguard-dev/edu/releases/download/ai-docs/chainguard-ai-docs.tar.gz) | Compressed bundle | ~1.7MB |
-        
-        ## Contents
-        - Complete public documentation from the edu repository
-        - Tutorials, guides, and reference documentation
-        - Compiled into a single markdown file for AI assistant consumption
-        
-        ## Verification
-        
-        To verify the signatures:
-        
-        ```bash
-        # Download files
-        curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs/chainguard-ai-docs.tar.gz
-        curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs/chainguard-ai-docs.tar.gz.sig
-        curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs/chainguard-ai-docs.tar.gz.crt
-        
-        # Verify tarball
-        cosign verify-blob \
-          --certificate chainguard-ai-docs.tar.gz.crt \
-          --signature chainguard-ai-docs.tar.gz.sig \
-          --certificate-identity-regexp ".*github.com/chainguard-dev/edu.*" \
-          --certificate-oidc-issuer https://token.actions.githubusercontent.com \
-          chainguard-ai-docs.tar.gz
-        ```
-        
-        ## Usage with AI Assistants
-        
-        1. Download and extract the bundle
-        2. Open your AI assistant (Claude, ChatGPT, etc.)
-        3. Upload or paste the markdown file
-        4. Start asking questions about Chainguard!
-        
-        ## Checksums
-        
-        ```
-        $(cat checksums.txt)
-        ```
-        
-        _Last updated: $(date -u +"%Y-%m-%d %H:%M:%S UTC")_
-        EOF
-        
-        # Upload assets to existing release, or create new if first time
         if gh release view "$TAG" > /dev/null 2>&1; then
-          gh release upload "$TAG" \
+          gh release upload "$TAG" --clobber \
             chainguard-ai-docs.tar.gz \
             chainguard-ai-docs.tar.gz.bundle \
             chainguard-ai-docs.md.bundle \
@@ -253,8 +197,7 @@ jobs:
         else
           gh release create "$TAG" \
             --title "AI Documentation Bundle - Latest" \
-            --notes-file release-notes.md \
-            --latest \
+            --notes "Chainguard AI documentation bundle for use with AI coding assistants." \
             chainguard-ai-docs.tar.gz \
             chainguard-ai-docs.tar.gz.bundle \
             chainguard-ai-docs.md.bundle \
