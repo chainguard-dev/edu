@@ -44,7 +44,7 @@ Before getting started:
     * Chainguard Libraries are available to Catalog Starter and Free tier users,
       and trial users. 
     * Run the following command to create an entitlement for libraries:
-    
+
 ```bash
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT
 ```
@@ -120,6 +120,8 @@ and
         - `https://libraries.cgr.dev/python-remediated` with the simple index at
           `https://libraries.cgr.dev/python-remediated/simple` for libraries
           with [CVE remediation](/chainguard/libraries/cve-remediation/)
+
+Check out a [minimal example project for uv](/chainguard/libraries/python/build-configuration/#minimal-example-project).
 
 > In addition to malware-resistance, Chainguard Libraries for Python includes
 > CVE remediation for select libraries. These patched versions help reduce known
