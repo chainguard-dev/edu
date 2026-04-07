@@ -34,7 +34,7 @@ Before getting started:
 
 * Ensure you have access to Chainguard Libraries.
     * Chainguard Libraries are available to Catalog Starter and Free tier users, and trial users.
-    * If you're not yet a Chainguard user, you must create an account.
+    * If you're not yet a Chainguard user, you must [create an account](https://console.chainguard.dev/auth/login).
 * [Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) and log in:
 
    ```bash
@@ -60,7 +60,7 @@ Learn more about these options in [Chainguard Libraries access](/chainguard/libr
 [Pull tokens](/chainguard/libraries/access/#creating-pull-tokens-for-libraries) are required for authentication. You can create one using `chainctl`:
 
 ```bash
-chainctl auth pull-token --repository=java --parent=example --ttl=8670h
+chainctl auth pull-token --repository=java --parent=example --ttl=720h
 ```
 
 - Replace `java` with `python` or `javascript` depending on your ecosystem.
