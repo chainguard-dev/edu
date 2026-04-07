@@ -558,11 +558,6 @@ authenticate = "always"
 name = "cgr-p"
 url = "https://libraries.cgr.dev/python/simple"
 authenticate = "always"
-
-[[tool.uv.index]]
-name = "pypi"
-url = "https://pypi.org/simple/"
-default = true
 ```
 
 **4. Build the project**
