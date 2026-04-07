@@ -24,7 +24,7 @@ The configuration for the use of Chainguard Libraries depends on how you've set 
 
 These changes must be performed on all workstations of individual developers and other engineers running relevant application builds. They must also be performed on any build tool such as Jenkins, TeamCity, GitHub Actions, or other infrastructure that draws in dependencies.
 
-## Retrieving authentication credentials
+## Step 1: Retrieve authentication credentials
 
 To configure any build tool, you must first access credentials from your
 organization's repository manager or for direct access.
@@ -122,7 +122,7 @@ Configuration for multiple index use and authentication varies for each
 packaging tool. Typically Python tools include support for
 [.netrc](/chainguard/libraries/access/#netrc).
 
-## Configuring build tools
+## Step 2: Configure your build tools
 
 Once you have credentials and the index URL from your organization's repository
 manager, you're ready to set up specific build tools for local development or
@@ -145,12 +145,14 @@ for installing Python packages. In this section, we use the credentials from
 your organization's repository manager to configure `pip` to ingest dependencies
 from Chainguard Libraries.
 
-First, let's clear your local `pip` cache to ensure that packages are sourced
+First, clear your local `pip` cache to ensure that packages are sourced
 from Chainguard Libraries for Python:
 
 ```shell
 pip cache purge
 ```
+
+#### Using a repository manager
 
 To update `pip` to use our repository manager's URL globally, create or edit
 your `~/.pip/pip.conf` file. You may need to create the `~/.pip` folder as
@@ -185,6 +187,8 @@ Note the different syntax for `index-url` in the two files.
 Refer to the official documentation for [configuring authentication with
 pip](https://pip.pypa.io/en/stable/topics/authentication/) if you are not using
 [.netrc for authentication](/chainguard/libraries/access/#netrc).
+
+#### Using direct access
 
 When using [direct access](#direct-access) to the Chainguard Libraries for
 Python repository with `pip`, you must ensure the following are set in your
@@ -250,6 +254,8 @@ poetry cache clear --all pypi
 poetry cache clear --all python-all
 ```
 
+#### Using a repository manager
+
 Set up HTTP authentication to the repository `python-all` on your repository
 manager with the username `example` and the password `secret` in your project
 directory:
@@ -297,6 +303,8 @@ Proceed to build your project:
 ```shell
 poetry build
 ```
+
+#### Using direct access
 
 For [direct access](#direct-access) to Chainguard Libraries for Python with
 Poetry, use your username `CG_PULLTOKEN_USERNAME` and password
@@ -359,6 +367,8 @@ information about your project build, dependencies, versions, and other aspects.
 written in Rust. It uses PyPI by default, but also [supports the use of
 alternative package indexes](https://docs.astral.sh/uv/configuration/indexes/).
 
+#### Using a repository manager 
+
 To update your global configuration to use your organization's repository
 manager with `uv`, create or edit the `~/.config/uv/uv.toml` configuration file.
 You may also need to create the `~/.config/uv/` folder first. For example:
@@ -392,6 +402,8 @@ indexes](https://docs.astral.sh/uv/guides/integration/alternative-indexes/) if
 you are not using [.netrc for
 authentication](/chainguard/libraries/access/#netrc).
 
+#### Using direct access
+
 For [direct access](#direct-access) to Chainguard Libraries for Python with
 uv, use `.netrc` or your username `CG_PULLTOKEN_USERNAME` and password
 `CG_PULLTOKEN_PASSWORD` values from the pull token creation and the URL with the
@@ -412,6 +424,8 @@ Example for `uv.toml`:
 [[index]]
 url = "https://CG_PULLTOKEN_USERNAME:CG_PULLTOKEN_PASSWORD@libraries.cgr.dev/python/simple/"
 ```
+
+#### Multiple indexes
 
 In order to install Python libraries from multiple repositories with Chainguard
 Libraries for Python as the priority, `uv` supports [searching across multiple
