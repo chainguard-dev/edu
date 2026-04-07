@@ -53,7 +53,7 @@ There are two ways to access Chainguard Libraries:
 - **Direct access**: Configure authentication directly in each project's build configuration.
     - This option is faster to set up initially, but requires per-project and per-workstation configuration. This increases the risk of credentials being committed to source control or going stale. For production use, an artifact manager is strongly recommended.
 
-## Step 2: Create a pull token
+### Step 2: Create a pull token
 
 Pull tokens are required for authentication. You can create one using `chainctl`:
 
@@ -70,7 +70,7 @@ they won't be shown again.
 
 You can also [create pull tokens via the Chainguard Console](/chainguard/libraries/access/#creating-pull-tokens-with-the-chainguard-console) under **Overview > Manage pull tokens > Create access token**. 
 
-## Step 3: Configure Your Build Tools
+### Step 3: Configure your build tools
 
 Once you have a pull token, you can configure your build tool. Configuration steps vary by build tool and ecosystem. See the ecosystem-specific documentation pages for instructions. 
 
@@ -103,7 +103,7 @@ See minimal example projects for [npm](/chainguard/libraries/javascript/build-co
 > default. Upstream packages are proxied directly from npm and are not rebuilt or authored by Chainguard as part of our Libraries product. The cooldown period and malware scanning provide a supplemental baseline of protection to your own security practices, but you are solely responsible for independently evaluating and validating all upstream artifacts before use in your environment.
 
 
-## Step 4: Verify Your Libraries
+### Step 4: Verify your libraries
 
 After setup, you can verify that your dependencies are sourced from Chainguard using:
 
