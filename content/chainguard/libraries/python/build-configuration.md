@@ -457,3 +457,91 @@ index-strategy = "unsafe-best-match"
 
 Run a build to observe the resolved packages. For example, the declared
 dependency to `flask` version `2.0.0` results in the use of version `2.0.0+cgr.1`.
+
+### Minimal example project 
+
+Use the following steps to create a minimal example project for uv with Chainguard Libraries for Python.
+For testing purposes, you can use direct access and environment variables as detailed in the [access documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials). 
+
+**1. Configure credentials in .netrc**
+
+Once the environment variables are set, configure credentials in `~/.netrc`:
+
+```bash
+cat >> ~/.netrc << EOF
+machine libraries.cgr.dev
+login ${CHAINGUARD_PYTHON_IDENTITY_ID}
+password ${CHAINGUARD_PYTHON_TOKEN}
+EOF
+chmod 600 ~/.netrc
+```
+
+**2. Initiatilze a new project**
+
+This command creates a new directory, moves to the new directory, then initializes it with uv:
+
+```bash
+mkdir uv-example && cd $_
+uv init
+```
+
+**3. Edit pyproject.toml**
+
+Open `pyproject.toml` with a text editor. The following command opens it with `nano`:
+
+```bash
+nano pyproject.toml
+```
+
+Add `flask==2.0.0` to the `dependencies` list in the `[project]` section, and add the following index configurations for the Python libraries to the end of the file:
+
+```toml
+[project]
+name = "uv-example"
+version = "0.1.0"
+requires-python = ">=3.9"
+dependencies = [
+    "flask==2.0.0",
+]
+
+[tool.uv]
+index-strategy = "unsafe-best-match"
+# This allows uv to search across multiple indexes to find remediated versions of Python libraries
+
+[[tool.uv.index]]
+name = "cgr-pr"
+url = "https://libraries.cgr.dev/python-remediated/simple"
+authenticate = "always"
+
+[[tool.uv.index]]
+name = "cgr-p"
+url = "https://libraries.cgr.dev/python/simple"
+authenticate = "always"
+
+[[tool.uv.index]]
+name = "pypi"
+url = "https://pypi.org/simple/"
+default = true
+```
+
+**4. Build the project**
+
+Build the project and sync dependencies:
+
+```bash
+uv sync
+```
+
+Following the build, verify that the patched Chainguard version of flask was resolved. Chainguard serves `flask 2.0.0+cgr.1` rather than the upstream `2.0.0`:
+
+```bash
+uv pip list | grep flask
+```
+
+#### Verify the project works as expected
+
+To verify the installed packages were built by Chainguard, use `chainctl`:
+
+```bash
+chainctl libraries verify --detailed .venv/
+```
