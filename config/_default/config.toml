@@ -20,7 +20,8 @@ disableLanguages = ["de", "nl"]
 # add redirects/headers
 [outputs]
 home = ["HTML", "RSS", "ALIASES", "REDIRECTS", "HEADERS", "TXT", "FULLTXT", "AIMETADATA", "AISITEMAP", "CONCEPTS"]
-section = ["HTML", "RSS", "SITEMAP"]
+section = ["HTML", "RSS", "SITEMAP", "MD"]
+page = ["HTML", "MD"]
 # remove .{ext} from text/netlify
 [mediaTypes."text/netlify"]
 suffixes = [""]
@@ -51,6 +52,14 @@ isHTML = false
 isPlainText = true
 noUgly = true
 rel  = "sitemap"
+# add output format for individual .md pages
+[mediaTypes."text/markdown"]
+suffixes = ["md"]
+
+[outputFormats.MD]
+mediaType = "text/markdown"
+baseName = "index"
+isPlainText = true
 # add output format for llms.txt
 [outputFormats.TXT]
 mediaType = "text/plain"
