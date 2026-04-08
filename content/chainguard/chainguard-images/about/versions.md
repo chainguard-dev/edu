@@ -289,8 +289,8 @@ You can view tag statuses in the Chainguard Console. In the Console under
 If you use Chainguard Production Containers, it is also possible to view the
 statuses of different tag versions for an image. Click into an image to see the
 statuses alongside tag versions. If a tag is no longer being actively
-maintained, it displays in gray text and a **pause** icon appears next to its
-name.
+maintained, it displays in gray text and an icon appears next to its
+name to indicate that it's inactive.
 
 >**Note**: This feature is not applicable to customers who use [Unique
 >tags](/chainguard/chainguard-images/features/unique-tags/).
