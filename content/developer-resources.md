@@ -75,7 +75,7 @@ docker run --rm -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract 
 ```bash
 # Verify the container image signature with Cosign
 cosign verify ghcr.io/chainguard-dev/ai-docs:latest \
-  --certificate-identity-regexp ".*" \
+  --certificate-identity-regexp ".*github.com/chainguard-dev/edu.*" \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com
 ```
 

@@ -48,8 +48,8 @@ We ensure content hasn't been tampered with:
 
 - **SHA-256 Checksums**: For all files in the bundle
 - **Signed Checksums**: The checksum file itself is signed
-- **Build Provenance**: SLSA Level 3 attestations
-- **Immutable Artifacts**: Released versions never change
+- **Build Provenance**: GitHub Actions workflow attestations
+- **Container Signing**: Images signed by immutable digest with Cosign
 
 ## Compilation Process
 
@@ -65,7 +65,7 @@ Documentation is compiled from these official repositories:
 
 - **GitHub Actions**: Secure, ephemeral build environment
 - **Resource Limits**: CPU and memory constraints enforced
-- **No Network Access**: During compilation phase
+- **Restricted Egress**: Network access limited to required endpoints via [StepSecurity Harden Runner](https://github.com/step-security/harden-runner)
 - **Minimal Permissions**: Only required repository access
 
 ### What Gets Filtered
@@ -106,9 +106,9 @@ tar -xzf chainguard-ai-docs.tar.gz
 
 ## Build Frequency
 
-- **Automatic Builds**: Daily at 2 AM UTC
-- **On-Demand**: When documentation changes
-- **Releases**: Weekly signed releases
+- **Scheduled Builds**: Weekly on Sundays at 2 AM UTC
+- **On-Demand**: Triggered by documentation changes or cross-repo updates via `repository_dispatch`
+- **Container Distribution**: Updated container pushed to GHCR on each build
 
 ## Security Reporting
 
