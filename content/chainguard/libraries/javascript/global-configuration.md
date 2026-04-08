@@ -210,9 +210,8 @@ To prevent this:
    remote repository, within in the **Advanced** tab:
     - **Enable Bypass HEAD Requests** — prevents Artifactory from sending HEAD
       requests that may not be handled correctly by redirect-based registries.
-    - **Enable Lenient Host Authentication** — allows Artifactory to follow
-      redirects across hosts (required since downloads redirect from
-      `libraries.cgr.dev` to `*.r2.cloudflarestorage.com`).
+    - **Disable Lenient Host Authentication** — disabling this setting ensures
+      credentials are not forwarded across the redirect. 
     - **Enable Cookie Management** - this setting is optional, but recommended
       by JFrog for remote repositories that involve redirects.
 2. Clear the corrupted cached tarballs: in Artifactory, right-click the
