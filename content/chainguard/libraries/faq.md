@@ -209,6 +209,24 @@ Fallback respects security policies first, then mirrors safe content from npm.
 For customers, this can surface as a 404 from the Chainguard endpoint even
 though a version appears in the public registry.
 
+## Why do I get a “package not found” error from Chainguard Libraries or the Chainguard Repository?
+
+When you see a 404 / package not found from a Chainguard Libraries endpoint (for example https://libraries.cgr.dev/javascript or a Python index), it usually falls into one of these categories:
+
+- The package/version is in security cooldown.
+    - With the [Chainguard Repository](/chainguard/chainguard-repository/overview/) for Chainguard JavaScript libraries, Chainguard can delay serving new upstream npm versions using a cooldown window. This gives time for malware detection and security review before exposing new releases through the repository. 
+    - If this is a routine upgrade, wait until the cooldown period passes or pin to an earlier version that’s already available. If this is a security or production fix, contact Chainguard support or your account team to discuss an override or priority handling.
+- The package/version is blocked due to malware.
+    - When fallback to upstream npm is enabled, Chainguard applies malware detection based on public OSV malware feeds. Packages or versions associated with known malware IDs are blocked and not served at all, even via fallback.
+    - Choose a different version (for example, an earlier safe version or a patched release) and update your dependency.
+- The package/version hasn’t been built yet and is being added.
+    - For Java, JavaScript, and Python, Chainguard Libraries uses automated systems that add new, commonly used, or customer‑requested packages and versions to the index over time.
+    - You will see a 404 the first time you request a rarely used or new package/version from a Chainguard index. The request can trigger internal work to rebuild the package from source and add it to the Libraries index, subject to policy and feasibility. If you continue to see 404s over the next day, share the ecosystem, package name, and version with Chainguard support or your account team so they can confirm whether it can be added and provide an ETA.
+- The package name or registry configuration is incorrect.
+    - For JavaScript, verify your registry URL is the Chainguard endpoint (for example https://libraries.cgr.dev/javascript/) and that your `.npmrc` / tool configuration points to the correct virtual/aggregated repo if you’re using an artifact manager.
+    - For Python or Java, confirm you’re targeting the correct index or repository (for example, main vs. remediated Python index) and that your artifact manager is configured to proxy Chainguard as documented in the relevant global configuration guides.
+    - If additional troubleshootoing is needed: Confirm the package and version exist in the upstream registry (npm, PyPI, Maven Central), then check the Chainguard Console to see whether the library/version already appears in the Libraries catalog or remediated catalogs. If the version is missing or time‑sensitive (production incident, security fix), open a ticket or contact your Chainguard account team with the exact coordinates so they can confirm whether it’s cooldown, malware block, or not yet built, and advise on next steps.
+
 ## What are Chibbies?
 
 Chibbies is the internal codename for the Chainguard Libraries. It evolved from
