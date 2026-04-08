@@ -62,6 +62,8 @@ Libraries for JavaScript repository at `https://libraries.cgr.dev/javascript/`
 requires authentication with username and password from a pull token as detailed
 in [access documentation](/chainguard/libraries/access/#pull-token).
 
+See the minimal example projects on this page for demonstrations using direct access for each build tool.
+
 > Note: Direct access requires per-project and per-workstation configuration.
 For organizations with multiple teams, proxying through an artifact manager is
 recommended. See the [global
@@ -117,6 +119,7 @@ therefore an update to the lock file. The lock file also encodes the checksum
 values in the `integrity` field and the download URL in the `resolved` field for
 each module.
 
+### Using a repository manager
 To change a project to use Chainguard Libraries for JavaScript, set the registry
 URL to point to your repository manager in your user `.npmrc` file: 
 
@@ -298,6 +301,8 @@ Any dependency or dependency version changes require another install and
 therefore an update to the lock file. The lock file also encodes the checksum
 values in the `integrity` field and other information for each module.
 
+### Using a repository manager 
+
 To change a project to use Chainguard Libraries for JavaScript, set the registry
 URL to point to your repository manager in your user `.npmrc` file: 
 
@@ -429,6 +434,8 @@ version `22.20.0` or even a higher version once available and `yarn` is run.
 Any dependency or dependency version changes require another install and
 therefore an update to the lock file. The lock file also encodes the checksum
 values in the `checksum` field.
+
+### Using a repository manager
 
 To change a project to use Chainguard Libraries for JavaScript, set the registry
 URL to point to your repository manager in your project `.yarnrc.yml` file: 
@@ -684,6 +691,8 @@ compatible newer releases under semantic versioning. For example, `^22.18.0` for
 
 Any dependency or version changes require running `bun install` again, which
 updates the lockfile.
+
+### Using a repository manager 
 
 To switch a project to use Chainguard Libraries for JavaScript, point Bun at
 your repository manager. Add the [registry
