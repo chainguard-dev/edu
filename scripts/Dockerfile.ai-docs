@@ -26,8 +26,6 @@ USER nonroot
 # Copy documentation and verification files
 # These will be added during the build process
 COPY chainguard-ai-docs.md /docs/
-COPY chainguard-ai-docs.md.sig /docs/
-COPY chainguard-ai-docs.md.crt /docs/
 COPY image-catalog.json /docs/
 COPY checksums.txt /docs/
 COPY verification.sh /docs/

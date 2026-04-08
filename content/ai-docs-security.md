@@ -91,14 +91,12 @@ Example patterns we redact:
 ```bash
 # 1. Download files
 curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-bundle/chainguard-ai-docs.tar.gz
-curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-bundle/chainguard-ai-docs.tar.gz.sig
-curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-bundle/chainguard-ai-docs.tar.gz.crt
+curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-bundle/chainguard-ai-docs.tar.gz.bundle
 
-# 2. Verify signature
+# 2. Verify signature (using cosign v3 bundle format)
 cosign verify-blob \
-  --certificate chainguard-ai-docs.tar.gz.crt \
-  --signature chainguard-ai-docs.tar.gz.sig \
-  --certificate-identity "https://github.com/chainguard-dev/edu/.github/workflows/compile-public-docs.yml@refs/heads/main" \
+  --bundle chainguard-ai-docs.tar.gz.bundle \
+  --certificate-identity-regexp ".*github.com/chainguard-dev/edu.*" \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com \
   chainguard-ai-docs.tar.gz
 
