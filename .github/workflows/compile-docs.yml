@@ -98,7 +98,7 @@ jobs:
       run: |
         cd edu
         # Install security tools
-        pip install bandit safety
+        pip install bandit==1.9.4 safety==3.7.0
         
         # Scan for security issues
         bandit -r scripts/compile_docs.py -f json -o bandit-report.json || true
@@ -182,11 +182,6 @@ jobs:
           --yes \
           --bundle=checksums.txt.bundle
 
-        # Create placeholder .sig/.crt files for backward compatibility
-        # (verification.sh and some tools still expect these)
-        touch chainguard-complete-docs.md.sig chainguard-complete-docs.md.crt
-        touch checksums.txt.sig checksums.txt.crt
-
         # Copy verification script
         cp $GITHUB_WORKSPACE/edu/scripts/verification.sh .
         
@@ -194,12 +189,8 @@ jobs:
         tar -czf chainguard-ai-docs.tar.gz \
           chainguard-complete-docs.md \
           chainguard-complete-docs.md.bundle \
-          chainguard-complete-docs.md.sig \
-          chainguard-complete-docs.md.crt \
           checksums.txt \
           checksums.txt.bundle \
-          checksums.txt.sig \
-          checksums.txt.crt \
           verification.sh
 
         # Sign the bundle (bundle format for cosign v3)
@@ -225,8 +216,6 @@ jobs:
 
         # Copy necessary files for container build (rename to match Dockerfile expectations)
         cp "$TEMP_BUILD_DIR/chainguard-complete-docs.md" scripts/chainguard-ai-docs.md
-        cp "$TEMP_BUILD_DIR/chainguard-complete-docs.md.sig" scripts/chainguard-ai-docs.md.sig
-        cp "$TEMP_BUILD_DIR/chainguard-complete-docs.md.crt" scripts/chainguard-ai-docs.md.crt
         cp "$TEMP_BUILD_DIR/checksums.txt" scripts/checksums.txt
         # verification.sh is already in scripts/ directory
 
@@ -234,13 +223,16 @@ jobs:
         docker build -f scripts/Dockerfile.ai-docs -t "ghcr.io/$REPO_OWNER/ai-docs:latest" scripts/
         docker tag "ghcr.io/$REPO_OWNER/ai-docs:latest" "ghcr.io/$REPO_OWNER/ai-docs:$COMMIT_SHA"
 
-        # Push images
-        docker push "ghcr.io/$REPO_OWNER/ai-docs:latest"
+        # Push images and capture digest for signing
+        DIGEST=$(docker push "ghcr.io/$REPO_OWNER/ai-docs:latest" | grep -oP 'sha256:[a-f0-9]+')
+        if [ -z "$DIGEST" ]; then
+          echo "ERROR: Failed to capture image digest from docker push"
+          exit 1
+        fi
         docker push "ghcr.io/$REPO_OWNER/ai-docs:$COMMIT_SHA"
 
-        # Sign container image with cosign
-        cosign sign --yes "ghcr.io/$REPO_OWNER/ai-docs:latest"
-        cosign sign --yes "ghcr.io/$REPO_OWNER/ai-docs:$COMMIT_SHA"
+        # Sign container image by immutable digest
+        cosign sign --yes "ghcr.io/$REPO_OWNER/ai-docs@$DIGEST"
 
     - name: Scan for sensitive data
       run: |
