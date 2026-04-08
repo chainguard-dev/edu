@@ -24,6 +24,8 @@ The configuration for the use of Chainguard Libraries depends on how you've set 
 
 These changes must be performed on all workstations of individual developers and other engineers running relevant application builds. They must also be performed on any build tool such as Jenkins, TeamCity, GitHub Actions, or other infrastructure that draws in dependencies.
 
+See the [minimal example projects](#minimal-example-projects) on this page for demonstrations using uv and pip.
+
 ## Step 1: Retrieve authentication credentials
 
 To configure any build tool, you must first access credentials from your
@@ -121,6 +123,8 @@ Note that there are multiple repositories:
 Configuration for multiple index use and authentication varies for each
 packaging tool. Typically Python tools include support for
 [.netrc](/chainguard/libraries/access/#netrc).
+
+See examples using `pip` and `uv` under [Minimal example projects](#minimal-example-projects).
 
 ## Step 2: Configure your build tools
 
@@ -228,6 +232,8 @@ If you are using `pip` and prefer to pull from multiple repositories while
 prioritizing Chainguard Libraries for Python, we recommend using a repository
 manager. Alternatively, other Python package managers, detailed in the following
 sections, provide support for index priority resolution behavior.
+
+See a demonstration using `pip` under [Minimal example projects](#pip-minimal).
 
 <a id="poetry"></a>
 
@@ -425,6 +431,8 @@ Example for `uv.toml`:
 url = "https://CG_PULLTOKEN_USERNAME:CG_PULLTOKEN_PASSWORD@libraries.cgr.dev/python/simple/"
 ```
 
+See a demonstration using `uv` under [Minimal example projects](#uv-minimal).
+
 #### Multiple indexes
 
 In order to install Python libraries from multiple repositories with Chainguard
@@ -472,7 +480,11 @@ index-strategy = "unsafe-best-match"
 Run a build to observe the resolved packages. For example, the declared
 dependency to `flask` version `2.0.0` results in the use of version `2.0.0+cgr.1`.
 
-### Minimal example project 
+## Minimal example projects
+
+<a id="uv-minimal"></a>
+
+### uv
 
 Use the following steps to create a minimal example project for uv with
 Chainguard Libraries for Python. For testing purposes, you can use direct access
@@ -592,3 +604,85 @@ A successfully verified project produces output similar to the following:
     Details: Version: 2.0.0+cgr.1 (verified via per-package SBOM - built from source by Chainguard)
     Python package: flask==2.0.0+cgr.1
 ```
+
+<a id="pip-minimal"></a>
+
+### pip
+
+Use the following steps to create a minimal example project for pip with Chainguard Libraries for Python.
+For testing purposes, you can use direct access and environment variables as detailed in the [access
+documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials).  
+
+
+**1. Update your configuration to point to Chainguard**
+
+Once the environment variables are set, update `~/.pip/pip.conf` to point to Chainguard Libraries. 
+
+You may need to create the `~/.pip` directory first:
+
+```bash
+mkdir -p ~/.pip
+nano ~/.pip/pip.conf
+```
+
+In `~/.pip/pip.conf`, add the following:
+
+```pip.conf
+[global]
+index-url = https://CHAINGUARD_PYTHON_IDENTITY_ID_SAFE:CHAINGUARD_PYTHON_TOKEN@libraries.cgr.dev/python/simple/
+```
+
+> **Note**: Replace any `/` in your `CHAINGUARD_PYTHON_IDENTITY_ID`'s value with `_` in the URL. The password value remains unchanged.
+
+**2. Create a virtual environment**
+
+Create a new directory, navigate to it, and create and activate a virtual environment:
+
+```bash
+mkdir pip-example && cd $_
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+**3. Add and install dependencies**
+
+Create a `requirements.txt` file:
+
+```bash
+nano requirements.txt
+```
+
+In the `requirements.txt`, add the following:
+
+```
+flask==2.0.0
+```
+
+Run the following command to install the dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+#### Verify the project works as expected
+
+To verify the installed packages were built by Chainguard, use `chainctl`:
+
+```bash
+chainctl libraries verify --detailed .venv/
+```
+
+A successfully verified project produces output similar to the following:
+
+```bash
+Artifact: .venv/
+Verification Coverage: 55.56%
+Verified packages: 5 of 9
+...
+  - flask
+    Status: Verified as built from source
+    Details: Version: 2.0.0 (verified via per-package SBOM - built from source by Chainguard)
+    Python package: flask==2.0.0
+```
+
+Adjust the index URL to use your repository manager and add any other desired packages for further testing.
