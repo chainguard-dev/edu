@@ -54,6 +54,7 @@ jobs:
           rekor.sigstore.dev:443
           sts.googleapis.com:443
           storage.googleapis.com:443
+          timestamp.sigstore.dev:443
           tuf-repo-cdn.sigstore.dev:443
           uploads.github.com:443
 
@@ -95,7 +96,7 @@ jobs:
         # Validate tar archive has no path traversal before extracting
         validate_tar() {
           local archive="$1"
-          if tar -tzf "$archive" | grep -qE '(^\./?\.\.|^/)'; then
+          if tar -tzf "$archive" | grep -qE '(^\./?\.\.|^/|\.\.)'; then
             echo "ERROR: Archive $archive contains path traversal entries"
             exit 1
           fi
@@ -209,6 +210,10 @@ jobs:
         echo "AI documentation bundle created:"
         ls -lh chainguard-ai-docs.*
 
+    - name: Install cosign
+      if: github.ref == 'refs/heads/main'
+      uses: sigstore/cosign-installer@cad07c2e89fa2edd6e2d7bab4c1aa38e53f76003 # v4.1.1
+
     - name: Login to GHCR
       if: github.ref == 'refs/heads/main'
       uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9 # v3.7.0
@@ -233,18 +238,20 @@ jobs:
         sha256sum chainguard-ai-docs.md image-catalog.json > checksums.txt
         cd ..
 
-        # Create placeholder signature files if they don't exist
-        # (These will be properly signed in a future phase)
-        touch scripts/chainguard-ai-docs.md.sig
-        touch scripts/chainguard-ai-docs.md.crt
-
         # Build container with GitHub Container Registry
         docker build -f scripts/Dockerfile.ai-docs -t "ghcr.io/$REPO_OWNER/ai-docs:latest" scripts/
         docker tag "ghcr.io/$REPO_OWNER/ai-docs:latest" "ghcr.io/$REPO_OWNER/ai-docs:$COMMIT_SHA"
 
-        # Push images
-        docker push "ghcr.io/$REPO_OWNER/ai-docs:latest"
+        # Push images and capture digest for signing
+        DIGEST=$(docker push "ghcr.io/$REPO_OWNER/ai-docs:latest" | grep -oP 'sha256:[a-f0-9]+')
+        if [ -z "$DIGEST" ]; then
+          echo "ERROR: Failed to capture image digest from docker push"
+          exit 1
+        fi
         docker push "ghcr.io/$REPO_OWNER/ai-docs:$COMMIT_SHA"
+
+        # Sign container image by immutable digest
+        cosign sign --yes "ghcr.io/$REPO_OWNER/ai-docs@$DIGEST"
 
     - name: Upload bundle back to GCS for distribution
       env:

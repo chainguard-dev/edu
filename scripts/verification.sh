@@ -1,6 +1,7 @@
 #!/bin/bash
 # Chainguard AI Documentation Verification Script
 # This script verifies the integrity and authenticity of the AI documentation bundle
+# using cosign v3 bundle format (.bundle files)
 
 set -euo pipefail
 
@@ -43,9 +44,9 @@ print_status "success" "cosign is installed"
 # Check if required files exist
 FILES_TO_CHECK=(
     "$BUNDLE_NAME"
-    "${BUNDLE_NAME}.sig"
-    "${BUNDLE_NAME}.pem"
-    "checksums.sha256"
+    "${BUNDLE_NAME}.bundle"
+    "checksums.txt"
+    "checksums.txt.bundle"
 )
 
 for file in "${FILES_TO_CHECK[@]}"; do
@@ -58,46 +59,37 @@ print_status "success" "All required files present"
 
 # Verify checksums
 print_status "info" "Verifying checksums..."
-if sha256sum -c checksums.sha256 > /dev/null 2>&1; then
+if sha256sum -c checksums.txt > /dev/null 2>&1; then
     print_status "success" "Checksums verified"
 else
     print_status "error" "Checksum verification failed"
     exit 1
 fi
 
-# Verify cosign signature
-print_status "info" "Verifying cosign signature..."
+# Verify cosign signature on documentation bundle
+print_status "info" "Verifying documentation signature..."
 if cosign verify-blob \
-    --certificate "${BUNDLE_NAME}.pem" \
-    --signature "${BUNDLE_NAME}.sig" \
+    --bundle "${BUNDLE_NAME}.bundle" \
     --certificate-identity-regexp "$EXPECTED_IDENTITY_PATTERN" \
     --certificate-oidc-issuer "$EXPECTED_ISSUER" \
     "$BUNDLE_NAME" > /dev/null 2>&1; then
-    print_status "success" "Signature verified"
+    print_status "success" "Documentation signature verified"
 else
-    print_status "error" "Signature verification failed"
+    print_status "error" "Documentation signature verification failed"
     exit 1
 fi
 
-# Extract certificate details
-print_status "info" "Certificate details:"
-echo "  Issuer: $(openssl x509 -in "${BUNDLE_NAME}.pem" -noout -issuer | cut -d'=' -f2-)"
-echo "  Subject: $(openssl x509 -in "${BUNDLE_NAME}.pem" -noout -subject | cut -d'=' -f2-)"
-echo "  Valid from: $(openssl x509 -in "${BUNDLE_NAME}.pem" -noout -startdate | cut -d'=' -f2)"
-echo "  Valid to: $(openssl x509 -in "${BUNDLE_NAME}.pem" -noout -enddate | cut -d'=' -f2)"
-
-# Check Rekor transparency log
-print_status "info" "Checking Rekor transparency log..."
+# Verify cosign signature on checksums
+print_status "info" "Verifying checksums signature..."
 if cosign verify-blob \
-    --certificate "${BUNDLE_NAME}.pem" \
-    --signature "${BUNDLE_NAME}.sig" \
+    --bundle "checksums.txt.bundle" \
     --certificate-identity-regexp "$EXPECTED_IDENTITY_PATTERN" \
     --certificate-oidc-issuer "$EXPECTED_ISSUER" \
-    --rekor-url https://rekor.sigstore.dev \
-    "$BUNDLE_NAME" 2>&1 | grep -q "Verified OK"; then
-    print_status "success" "Transparency log entry verified"
+    checksums.txt > /dev/null 2>&1; then
+    print_status "success" "Checksums signature verified"
 else
-    print_status "warning" "Could not verify transparency log entry"
+    print_status "error" "Checksums signature verification failed"
+    exit 1
 fi
 
 # Final summary

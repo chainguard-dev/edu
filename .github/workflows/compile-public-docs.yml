@@ -156,11 +156,6 @@ jobs:
           --yes \
           --bundle=chainguard-ai-docs.md.bundle
 
-        # Create placeholder .sig/.crt files for backward compatibility
-        # (Dockerfile and some tools still expect these)
-        touch chainguard-ai-docs.tar.gz.sig chainguard-ai-docs.tar.gz.crt
-        touch chainguard-ai-docs.md.sig chainguard-ai-docs.md.crt
-
         echo "Artifacts signed successfully"
 
     - name: Scan for sensitive data
@@ -223,8 +218,6 @@ jobs:
 
         # Copy necessary files for container build
         cp chainguard-ai-docs.md ../../scripts/
-        cp chainguard-ai-docs.md.sig ../../scripts/
-        cp chainguard-ai-docs.md.crt ../../scripts/
         cp checksums.txt ../../scripts/
 
         cd ../../scripts
@@ -233,13 +226,16 @@ jobs:
         docker build -f Dockerfile.ai-docs -t "ghcr.io/$REPO_OWNER/ai-docs:latest" .
         docker tag "ghcr.io/$REPO_OWNER/ai-docs:latest" "ghcr.io/$REPO_OWNER/ai-docs:$COMMIT_SHA"
 
-        # Push images
-        docker push "ghcr.io/$REPO_OWNER/ai-docs:latest"
+        # Push images and capture digest for signing
+        DIGEST=$(docker push "ghcr.io/$REPO_OWNER/ai-docs:latest" | grep -oP 'sha256:[a-f0-9]+')
+        if [ -z "$DIGEST" ]; then
+          echo "ERROR: Failed to capture image digest from docker push"
+          exit 1
+        fi
         docker push "ghcr.io/$REPO_OWNER/ai-docs:$COMMIT_SHA"
 
-        # Sign container image with cosign
-        cosign sign --yes "ghcr.io/$REPO_OWNER/ai-docs:latest"
-        cosign sign --yes "ghcr.io/$REPO_OWNER/ai-docs:$COMMIT_SHA"
+        # Sign container image by immutable digest
+        cosign sign --yes "ghcr.io/$REPO_OWNER/ai-docs@$DIGEST"
 
     - name: Upload artifacts
       uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
@@ -247,7 +243,5 @@ jobs:
         name: chainguard-ai-docs
         path: |
           static/downloads/chainguard-ai-docs.tar.gz
-          static/downloads/chainguard-ai-docs.tar.gz.sig
-          static/downloads/chainguard-ai-docs.tar.gz.crt
           static/downloads/checksums.txt
         retention-days: 90
