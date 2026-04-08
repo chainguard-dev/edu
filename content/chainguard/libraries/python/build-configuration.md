@@ -629,7 +629,7 @@ In `~/.pip/pip.conf`, add the following:
 
 ```pip.conf
 [global]
-index-url = https://CHAINGUARD_PYTHON_IDENTITY_ID_SAFE:CHAINGUARD_PYTHON_TOKEN@libraries.cgr.dev/python/simple/
+index-url = https://CHAINGUARD_PYTHON_IDENTITY_ID:CHAINGUARD_PYTHON_TOKEN@libraries.cgr.dev/python/simple/
 ```
 
 > **Note**: Replace any `/` in your `CHAINGUARD_PYTHON_IDENTITY_ID`'s value with `_` in the URL. The password value remains unchanged.
