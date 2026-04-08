@@ -106,7 +106,7 @@ This will display the "I love FOSS!" message along with some ASCII art:
 [Syft](https://github.com/anchore/syft) is a tool that allows us to create SBOMs. If you don't already have Syft, use the following instructions to install this utility.
 
 {{< details "How to Install Syft" >}}
-{{< blurb/install_syft >}}
+{{% blurb/install_syft %}}
 {{< /details >}}
 
 Once you have Syft installed, you can generate an SBOM with the `syft` command, passing in the target image as an argument. For example, the following will use Syft to generate a list of packages present in the official `python` image on Docker Hub:
@@ -121,7 +121,7 @@ Now let's generate an SBOM for `example-image`, the image we built in the previo
 syft $DH_USERNAME/example-image:latest -o spdx-json > example-image.spdx.json
 ```
 {{< details "What is SPDX?" >}}
-{{< blurb/spdx >}}
+{{% blurb/spdx %}}
 {{< /details >}}
 
 If you take a look at the contents of the file, you will find our installed package, `cowsay`, represented alongside the other packages already in our base image, `wolfi-base`. You can also check that `cowsay` is detected by Syft with the following:

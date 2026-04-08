@@ -32,7 +32,7 @@
 <script type="module" src="{{ $rumble.Permalink }}" integrity="{{ $rumble.Data.Integrity }}"></script>
 
 {{ $scss := resources.Get "/scss/rumble.scss" }}
-{{ $rumble_style := $scss | resources.ToCSS }}
+{{ $rumble_style := $scss | css.Sass }}
 {{ $rumble_style := $rumble_style | minify }}
 
 <link rel="stylesheet" href="{{ $rumble_style.Permalink }}" />
