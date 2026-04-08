@@ -24,7 +24,7 @@ The configuration for the use of Chainguard Libraries depends on how you've set 
 
 These changes must be performed on all workstations of individual developers and other engineers running relevant application builds. They must also be performed on any build tool such as Jenkins, TeamCity, GitHub Actions, or other infrastructure that draws in dependencies.
 
-See the [minimal example projects](#minimal-example-projects) on this page for demonstrations using uv and pip.
+See the [minimal example projects](#minimal-example-projects) on this page for demonstrations using `uv` and `pip`.
 
 ## Step 1: Retrieve authentication credentials
 
@@ -124,7 +124,7 @@ Configuration for multiple index use and authentication varies for each
 packaging tool. Typically Python tools include support for
 [.netrc](/chainguard/libraries/access/#netrc).
 
-See examples using `pip` and `uv` under [Minimal example projects](#minimal-example-projects).
+See examples using `uv` and `pip` under [Minimal example projects](#minimal-example-projects).
 
 ## Step 2: Configure your build tools
 
