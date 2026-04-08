@@ -674,7 +674,7 @@ chainctl libraries verify --detailed .venv/
 
 A successfully verified project produces output similar to the following:
 
-```bash
+```output
 Artifact: .venv/
 Verification Coverage: 55.56%
 Verified packages: 5 of 9
