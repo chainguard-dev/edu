@@ -6,7 +6,8 @@ enableEmoji = false
 enableGitInfo = false
 enableRobotsTXT = true
 languageCode = "en-US"
-paginate = 7
+[pagination]
+  pagerSize = 7
 rssLimit = 10
 ignoreErrors = ["image-not-found"]
 # googleAnalytics = 'G-05CPR1LJPR' # Handled by GTM now
@@ -129,9 +130,13 @@ notAlternative = true
   [[module.mounts]]
     source = "node_modules/@hyas/doks/data"
     target = "data"
+  # Hugo 0.152+ gives first-listed mount priority for duplicate files.
+  # Exclude theme layouts that the project overrides in layouts/, otherwise
+  # the theme version silently wins. Update this list when adding new overrides.
   [[module.mounts]]
     source = "node_modules/@hyas/doks/layouts"
     target = "layouts"
+    excludeFiles = ["index.html", "index.redirects", "_default/_markup/render-heading.html", "_default/_markup/render-image.html", "_default/baseof.html", "_default/list.html", "404.html", "partials/footer/footer.html", "partials/footer/script-footer.html", "partials/head/script-header.html", "partials/head/seo.html", "partials/header/header.html", "partials/sidebar/auto-collapsible-menu.html", "partials/sidebar/docs-toc.html", "partials/sidebar/nav-bottom.html", "shortcodes/alert.html"]
   [[module.mounts]]
     source = "node_modules/@hyas/doks/static"
     target = "static"
