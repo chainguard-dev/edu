@@ -652,7 +652,7 @@ Create a `requirements.txt` file:
 nano requirements.txt
 ```
 
-In the `requirements.txt`, add the following:
+In the `requirements.txt` file, add the following:
 
 ```
 flask==2.0.0
