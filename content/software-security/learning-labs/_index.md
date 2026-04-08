@@ -23,6 +23,8 @@ commands, links to specific sections in the video, and pointers to more
 resources:
 
 - [{{<icon "play-circle-fill">}} Software supply chain attacks and Chainguard Libraries - March 2026](/software-security/learning-labs/ll202603/)
+- [{{<icon "play-circle-fill">}} AI-assisted migration to Chainguard Containers - February 2026](https://www.youtube.com/watch?v=JUPBtq3DyUw&list=PLLjvkjPNmuZmvi2ZDXicVAWAC_mg2Jpgn)
+- [{{<icon "play-circle-fill">}} AI with hardened containers and libraries - January 2026](https://www.youtube.com/watch?v=hkoj-dm-5z8&list=PLLjvkjPNmuZmvi2ZDXicVAWAC_mg2Jpgn)
 - [{{<icon "play-circle-fill">}} Shipping Safer Container Runtimes in 2026 - December 2025](/software-security/learning-labs/ll202512/)
 - [{{<icon "play-circle-fill">}} Chainguard OS on Raspberry Pi - November 2025](/software-security/learning-labs/ll202511/)
 - [{{<icon "play-circle-fill">}} Chainguard Libraries for JavaScript and CVE Remediation for Python Libraries - October 2025](/software-security/learning-labs/ll202510/)
