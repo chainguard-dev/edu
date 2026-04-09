@@ -86,6 +86,10 @@ jobs:
       run: |
         terraform init
 
+        # TODO: Remove this after one successful apply.
+        # Clears broken MCP service from state so Terraform can recreate it.
+        terraform state rm 'google_cloud_run_v2_service.mcp-server["us-central1"]' || true
+
         terraform plan
 
         terraform apply -auto-approve
