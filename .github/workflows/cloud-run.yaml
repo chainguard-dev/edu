@@ -85,11 +85,6 @@ jobs:
       working-directory: ./iac
       run: |
         terraform init
-
-        # TODO: Remove after one successful apply.
-        # Forget IAM binding from state — moved to compile workflow.
-        terraform state rm 'google_cloud_run_v2_service_iam_member.mcp-server-is-unauthenticated["us-central1"]' || true
-
         terraform plan
         terraform apply -auto-approve
 
