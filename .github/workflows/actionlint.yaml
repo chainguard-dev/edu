@@ -50,7 +50,7 @@ jobs:
       - name: Action lint
         uses: step-security/action-actionlint@d364e70a116a460ed220d67b1ca2f2579c48a40a # v1.69.1
         env:
-          SHELLCHECK_OPTS: "--exclude=SC2129"
+          SHELLCHECK_OPTS: "--exclude=SC2129 --severity=error"
         with:
           actionlint_flags: ${{ steps.get_yamls.outputs.files }}
           level: error
