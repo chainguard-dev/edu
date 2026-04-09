@@ -435,7 +435,11 @@ chainctl iam ids rm --expired --parent=example
 
 <a id="entitlement"></a>
 
-## Verify entitlement
+## Manage library entitlement
+
+You can create, verify, list, and remove entitlement using [`chainctl libraries entitlement`](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlement/).
+
+### Verify entitlement
 
 You can verify entitlements for your organization `example` with the following
 command:
@@ -459,9 +463,7 @@ Ecosystem Library Entitlements for example (45a0...764595)
 Contact your Chainguard account owner for confirmation or adjustments if
 necessary.
 
-<!-- Removed for now until we decide where this info should live. It is only accessible
-for administrators (so Chainguard internal), but they might also be an audience to
-read the docs - so TBD
+### Create entitlement
 
 As administrator you can create entitlements:
 
@@ -469,13 +471,14 @@ As administrator you can create entitlements:
 chainctl libraries entitlements create --ecosystems=java,python --parent=example
 ```
 
-Use the` --parent` option to specify the organization or select the organization
+Use the `--parent` option to specify the organization or select the organization
 when running the command.
 
-With the ID from listing the entitlements detailed in the preceding section, you
-can also remove a Chainguard Libraries entitlement:
+### Remove entitlement
+
+You can delete an ecosystem library entitlement from your organization:
 
 ```shell
-chainctl libraries entitlements rm ENTITLEMENT_ID
+chainctl libraries entitlements delete --ecosystem=LANGUAGE --parent=example
 ```
--->
+

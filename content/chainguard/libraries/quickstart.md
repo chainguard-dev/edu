@@ -1,5 +1,5 @@
 ---
-title: "Quick Start for Chainguard Libraries"
+title: "Quick start for Chainguard Libraries"
 linktitle: "Quick Start"
 description: "Learn how to get started with Chainguard Libraries"
 type: "article"
@@ -49,6 +49,8 @@ Before getting started:
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT
 ```
 The available `ecosystems` are `JAVASCRIPT`, `JAVA`, and `PYTHON`.
+
+Learn more about this command in the [chainctl documentation](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements/).
 
 ## Step 1: Choose your access method
 
