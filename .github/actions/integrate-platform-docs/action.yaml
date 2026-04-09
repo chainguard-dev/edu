@@ -1,4 +1,5 @@
 name: Integrate Platform Docs
+description: Download and integrate platform docs from GCS into the academy content directory
 
 inputs:
   storage_bucket:
