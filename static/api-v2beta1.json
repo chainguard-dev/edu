@@ -176,7 +176,7 @@
                 "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.AccountAssociation.GitHub"
               }
             ],
-            "description": "GitHub App Installation association metadata."
+            "description": "github holds GitHub App installation associations for this group."
           },
           "google": {
             "allOf": [
@@ -258,29 +258,47 @@
         "type": "object"
       },
       "chainguard.platform.iam.v2beta1.AccountAssociation.GitHub": {
-        "description": "GitHub App Installation association.",
+        "description": "GitHub holds GitHub App installation associations for a group.",
         "properties": {
-          "appId": {
-            "description": "GitHub App ID.",
-            "format": "int64",
-            "readOnly": true,
-            "type": "string"
-          },
-          "host": {
-            "description": "GitHub hostname (empty means github.com).",
-            "readOnly": true,
-            "type": "string"
-          },
+          "appInstallations": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.AccountAssociation.GitHubAppInstallations"
+            },
+            "description": "app_installations maps app_id to the set of installations\nfor that app associated with this group.",
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.v2beta1.AccountAssociation.GitHubAppInstallations": {
+        "description": "GitHubAppInstallations holds the installations for a single GitHub App.",
+        "properties": {
+          "installations": {
+            "description": "installations is the list of GitHub App installations.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.AccountAssociation.GitHubInstallation"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.v2beta1.AccountAssociation.GitHubInstallation": {
+        "description": "GitHubInstallation is a single GitHub App installation.",
+        "properties": {
           "installationId": {
-            "description": "GitHub App Installation ID.",
+            "description": "installation_id is the GitHub App installation ID.",
             "format": "int64",
             "type": "string"
           },
           "name": {
-            "description": "GitHub user/org name (non-authoritative).",
+            "description": "name is the GitHub user/org name this installation belongs to.\nNon-authoritative: stored for convenience only.",
             "type": "string"
           }
         },
+        "required": [
+          "installationId"
+        ],
         "type": "object"
       },
       "chainguard.platform.iam.v2beta1.AccountAssociation.Google": {
@@ -2106,7 +2124,7 @@
                         "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.AccountAssociation.GitHub"
                       }
                     ],
-                    "description": "GitHub App Installation association metadata."
+                    "description": "github holds GitHub App installation associations for this group."
                   },
                   "google": {
                     "allOf": [

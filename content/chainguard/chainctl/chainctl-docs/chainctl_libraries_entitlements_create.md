@@ -1,26 +1,28 @@
 ---
 date: 2026-04-08T14:06:08Z
-title: "chainctl config view"
-slug: chainctl_config_view
-url: /chainguard/chainctl/chainctl-docs/chainctl_config_view/
+title: "chainctl libraries entitlements create"
+slug: chainctl_libraries_entitlements_create
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl config view
+## chainctl libraries entitlements create
 
-View the current chainctl config.
+Create ecosystem library entitlements for an organization.
 
 ```
-chainctl config view [--diff] [flags]
+chainctl libraries entitlements create --parent=PARENT --ecosystems=LANGUAGE1,LANGUAGE2,... [--output=json|table] [flags]
 ```
 
 ### Options
 
 ```
-      --diff   Show the difference between the local config file and the active configuration.
+      --ecosystems strings   The language ecosystems to entitle to the parent org.
+      --parent string        The name or id of the org to create an entitlement for.
+      --policy string        The policy to apply to the entitlement (e.g. chainguard, chainguard_and_upstream). (default "chainguard")
 ```
 
 ### Options inherited from parent commands
@@ -40,5 +42,5 @@ chainctl config view [--diff] [flags]
 
 ### SEE ALSO
 
-* [chainctl config](/chainguard/chainctl/chainctl-docs/chainctl_config/)	 - Local config file commands for chainctl.
+* [chainctl libraries entitlements](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements/)	 - Manage entitlements to language ecosystem libraries.
 
