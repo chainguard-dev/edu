@@ -177,8 +177,8 @@ repository:
 1. Select *Npm* as the **Package type**.
 1. Set the **Repository Key** to `javascript-chainguard`.
 1. Set the **URL** to `https://libraries.cgr.dev/javascript/`.
-1. Set **User Name** and **Password / Access Token** to the [values as retrieved
-   with chainctl](/chainguard/libraries/access/).
+1. Set **Password / Access Token** to the [token value retrieved
+   with chainctl](/chainguard/libraries/access/). Leave the user name field empty.
 1. Click **Create Remote Repository**.
 
 Combine the two repositories in a new virtual repository:
@@ -214,6 +214,7 @@ To prevent this:
       credentials are not forwarded across the redirect. 
     - **Enable Cookie Management** - this setting is optional, but recommended
       by JFrog for remote repositories that involve redirects.
+   - Leave the **User name** field empty - only use the Password / Access token field for authentication.
 2. Clear the corrupted cached tarballs: in Artifactory, right-click the
    `javascript-chainguard` repository and click **Zap Caches**, then re-run your
    install.
@@ -235,7 +236,7 @@ for accessing the repository:
 1. Copy the generated token value to use as the password for authentication.
 1. Click **Generate Settings**.
 1. Copy the value from a **url** field. They are all identical. For example,
-   `https://exampleorg.jfrog.io/artifactory/javascript-all/` with `exampleorg`
+   `https://exampleorg.jfrog.io/artifactory/api/npm/javascript-all/` with `exampleorg`
    replaced with the name of your organization.
 
 Use the URL of the virtual repository in the [build
