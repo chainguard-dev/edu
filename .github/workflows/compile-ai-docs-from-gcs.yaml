@@ -42,6 +42,7 @@ jobs:
         egress-policy: block
         allowed-endpoints: >
           api.github.com:443
+          *.pkg.dev:443
           *.r2.cloudflarestorage.com:443
           apk.cgr.dev:443
           cgr.dev:443
