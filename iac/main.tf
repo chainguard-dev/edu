@@ -67,6 +67,66 @@ resource "google_cloud_run_v2_service_iam_member" "public-services-are-unauthent
   member   = "allUsers"
 }
 
+resource "google_cloud_run_v2_service" "mcp-server" {
+  for_each = module.networking.regional-networks
+
+  project  = var.project_id
+  name     = "mcp-server"
+  location = each.key
+  ingress  = "INGRESS_TRAFFIC_ALL"
+
+  launch_stage = "BETA"
+
+  template {
+    vpc_access {
+      network_interfaces {
+        network    = each.value.network
+        subnetwork = each.value.subnet
+      }
+      egress = "ALL_TRAFFIC"
+    }
+
+    service_account = google_service_account.chainguard-academy.email
+
+    containers {
+      image   = var.mcp_image
+      command = ["/usr/local/bin/serve-mcp-http"]
+
+      ports {
+        container_port = 8080
+      }
+
+      resources {
+        limits = {
+          memory = "512Mi"
+          cpu    = "1"
+        }
+      }
+    }
+
+    scaling {
+      min_instance_count = 0
+      max_instance_count = 3
+    }
+  }
+
+  lifecycle {
+    ignore_changes = [
+      template[0].containers[0].image,
+    ]
+  }
+}
+
+resource "google_cloud_run_v2_service_iam_member" "mcp-server-is-unauthenticated" {
+  for_each = google_cloud_run_v2_service.mcp-server
+
+  project  = var.project_id
+  location = each.key
+  name     = each.value.name
+  role     = "roles/run.invoker"
+  member   = "allUsers"
+}
+
 resource "google_dns_managed_zone" "edu-zone" {
   project     = var.project_id
   name        = "edu-chainguard-dev"
@@ -94,6 +154,9 @@ module "serverless-gclb" {
   public-services = {
     "edu.chainguard.dev" = {
       name = var.name
+    }
+    "mcp.edu.chainguard.dev" = {
+      name = "mcp-server"
     }
   }
 }

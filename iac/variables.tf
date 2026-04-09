@@ -17,3 +17,9 @@ variable "image" {
   description = "The container image to deploy."
   type        = string
 }
+
+variable "mcp_image" {
+  description = "The container image for the MCP HTTP server. Managed by CI after initial creation."
+  type        = string
+  default     = "ghcr.io/chainguard-dev/ai-docs:latest"
+}
