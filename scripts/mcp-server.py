@@ -7,6 +7,7 @@ access to Chainguard documentation including container images, security info,
 and tooling guides.
 """
 
+import argparse
 import json
 import logging
 import os
@@ -594,11 +595,32 @@ async def call_tool(name: str, arguments: Any) -> List[TextContent]:
         )]
 
 
-async def main():
-    """Run the MCP server."""
-    logger.info("Starting Chainguard AI Docs MCP Server")
+def parse_args():
+    """Parse command-line arguments with env var fallbacks."""
+    parser = argparse.ArgumentParser(description="Chainguard AI Documentation MCP Server")
+    parser.add_argument(
+        "--transport",
+        choices=["stdio", "http"],
+        default=os.getenv("MCP_TRANSPORT", "stdio"),
+        help="Transport mode (default: stdio, env: MCP_TRANSPORT)",
+    )
+    parser.add_argument(
+        "--host",
+        default=os.getenv("MCP_HOST", "0.0.0.0"),
+        help="HTTP server host (default: 0.0.0.0, env: MCP_HOST)",
+    )
+    parser.add_argument(
+        "--port",
+        type=int,
+        default=int(os.getenv("MCP_PORT", "8080")),
+        help="HTTP server port (default: 8080, env: MCP_PORT)",
+    )
+    return parser.parse_args()
 
-    # Run with stdio transport (for Claude Desktop, etc.)
+
+async def main_stdio():
+    """Run the MCP server with stdio transport."""
+    logger.info("Starting Chainguard AI Docs MCP Server (stdio)")
     async with mcp.server.stdio.stdio_server() as (read_stream, write_stream):
         await app.run(
             read_stream,
@@ -607,6 +629,21 @@ async def main():
         )
 
 
+def main_http(host: str, port: int):
+    """Run the MCP server with Streamable HTTP transport."""
+    import uvicorn
+
+    logger.info(f"Starting Chainguard AI Docs MCP Server (http) on {host}:{port}")
+    starlette_app = app.streamable_http_app()
+    uvicorn.run(starlette_app, host=host, port=port)
+
+
 if __name__ == "__main__":
     import asyncio
-    asyncio.run(main())
+
+    args = parse_args()
+
+    if args.transport == "http":
+        main_http(args.host, args.port)
+    else:
+        asyncio.run(main_stdio())
