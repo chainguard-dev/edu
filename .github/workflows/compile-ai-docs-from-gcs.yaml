@@ -281,6 +281,7 @@ jobs:
       run: |
         gcloud run services update mcp-server \
           --image "$REGISTRY_URL/$PROJECT_ID/$REPOSITORY/ai-docs:$COMMIT_SHA" \
+          --command "/usr/local/bin/serve-mcp-http" \
           --region us-central1 \
           --project "$PROJECT_ID"
 
