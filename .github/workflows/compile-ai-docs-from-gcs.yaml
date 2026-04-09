@@ -258,16 +258,31 @@ jobs:
         # Sign container image by immutable digest
         cosign sign --yes "ghcr.io/$REPO_OWNER/ai-docs@$DIGEST"
 
+    - name: Push container image to Artifact Registry
+      if: github.ref == 'refs/heads/main'
+      env:
+        REGISTRY_URL: ${{ secrets.REGISTRY_URL }}
+        PROJECT_ID: ${{ secrets.PROJECT_ID }}
+        REPOSITORY: ${{ secrets.REPOSITORY }}
+        COMMIT_SHA: ${{ github.sha }}
+      run: |
+        gcloud auth configure-docker "${REGISTRY_URL%%/*}" --quiet
+        AR_IMAGE="$REGISTRY_URL/$PROJECT_ID/$REPOSITORY/ai-docs"
+        docker tag "ghcr.io/${{ github.repository_owner }}/ai-docs:$COMMIT_SHA" "$AR_IMAGE:$COMMIT_SHA"
+        docker push "$AR_IMAGE:$COMMIT_SHA" || { echo "ERROR: Failed to push to Artifact Registry"; exit 1; }
+
     - name: Deploy MCP server to Cloud Run
       if: github.ref == 'refs/heads/main'
       env:
-        REPO_OWNER: ${{ github.repository_owner }}
+        REGISTRY_URL: ${{ secrets.REGISTRY_URL }}
+        PROJECT_ID: ${{ secrets.PROJECT_ID }}
+        REPOSITORY: ${{ secrets.REPOSITORY }}
         COMMIT_SHA: ${{ github.sha }}
       run: |
         gcloud run services update mcp-server \
-          --image "ghcr.io/$REPO_OWNER/ai-docs:$COMMIT_SHA" \
+          --image "$REGISTRY_URL/$PROJECT_ID/$REPOSITORY/ai-docs:$COMMIT_SHA" \
           --region us-central1 \
-          --project chainguard-academy
+          --project "$PROJECT_ID"
 
     - name: Upload bundle back to GCS for distribution
       env:
