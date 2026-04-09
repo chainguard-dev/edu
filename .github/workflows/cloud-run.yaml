@@ -87,9 +87,11 @@ jobs:
         terraform init
 
         # TODO: Remove this after one successful apply.
-        # Imports existing MCP service into state so Terraform can manage it.
-        terraform import 'google_cloud_run_v2_service.mcp-server["us-central1"]' \
-          "projects/$TF_VAR_project_id/locations/us-central1/services/mcp-server" || true
+        # Clears broken MCP service from state so Terraform can recreate it.
+        terraform state rm 'google_cloud_run_v2_service.mcp-server["us-central1"]' || true
+        # Delete the broken service from GCP so Terraform can create it fresh.
+        gcloud run services delete mcp-server \
+          --region us-central1 --project "$TF_VAR_project_id" --quiet || true
 
         terraform plan
 
