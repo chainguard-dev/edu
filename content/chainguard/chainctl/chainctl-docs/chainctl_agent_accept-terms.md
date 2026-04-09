@@ -1,26 +1,30 @@
 ---
 date: 2026-04-08T14:06:08Z
-title: "chainctl config view"
-slug: chainctl_config_view
-url: /chainguard/chainctl/chainctl-docs/chainctl_config_view/
+title: "chainctl agent accept-terms"
+slug: chainctl_agent_accept-terms
+url: /chainguard/chainctl/chainctl-docs/chainctl_agent_accept-terms/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl config view
+## chainctl agent accept-terms
 
-View the current chainctl config.
+Accept required legal terms.
+
+### Synopsis
+
+Presents the legal agreement prompt for the given group.
 
 ```
-chainctl config view [--diff] [flags]
+chainctl agent accept-terms [flags]
 ```
 
 ### Options
 
 ```
-      --diff   Show the difference between the local config file and the active configuration.
+      --group string   UIDP of the group to accept terms for
 ```
 
 ### Options inherited from parent commands
@@ -40,5 +44,5 @@ chainctl config view [--diff] [flags]
 
 ### SEE ALSO
 
-* [chainctl config](/chainguard/chainctl/chainctl-docs/chainctl_config/)	 - Local config file commands for chainctl.
+* [chainctl agent](/chainguard/chainctl/chainctl-docs/chainctl_agent/)	 - Agent-powered commands.
 

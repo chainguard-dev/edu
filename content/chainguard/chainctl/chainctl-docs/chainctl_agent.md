@@ -1,27 +1,17 @@
 ---
 date: 2026-04-08T14:06:08Z
-title: "chainctl config view"
-slug: chainctl_config_view
-url: /chainguard/chainctl/chainctl-docs/chainctl_config_view/
+title: "chainctl agent"
+slug: chainctl_agent
+url: /chainguard/chainctl/chainctl-docs/chainctl_agent/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl config view
+## chainctl agent
 
-View the current chainctl config.
-
-```
-chainctl config view [--diff] [flags]
-```
-
-### Options
-
-```
-      --diff   Show the difference between the local config file and the active configuration.
-```
+Agent-powered commands.
 
 ### Options inherited from parent commands
 
@@ -40,5 +30,6 @@ chainctl config view [--diff] [flags]
 
 ### SEE ALSO
 
-* [chainctl config](/chainguard/chainctl/chainctl-docs/chainctl_config/)	 - Local config file commands for chainctl.
+* [chainctl](/chainguard/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
+* [chainctl agent accept-terms](/chainguard/chainctl/chainctl-docs/chainctl_agent_accept-terms/)	 - Accept required legal terms.
 
