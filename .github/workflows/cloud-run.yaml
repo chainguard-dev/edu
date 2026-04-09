@@ -85,16 +85,7 @@ jobs:
       working-directory: ./iac
       run: |
         terraform init
-
-        # TODO: Remove this after one successful apply.
-        # Clears broken MCP service from state so Terraform can recreate it.
-        terraform state rm 'google_cloud_run_v2_service.mcp-server["us-central1"]' || true
-        # Delete the broken service from GCP so Terraform can create it fresh.
-        gcloud run services delete mcp-server \
-          --region us-central1 --project "$TF_VAR_project_id" --quiet || true
-
         terraform plan
-
         terraform apply -auto-approve
 
     - name: Post failure notice to Slack
