@@ -55,6 +55,7 @@ jobs:
           objects.githubusercontent.com:443
           pypi.org:443
           raw.githubusercontent.com:443
+          release-assets.githubusercontent.com:443
           rekor.sigstore.dev:443
           run.googleapis.com:443
           sts.googleapis.com:443
