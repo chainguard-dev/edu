@@ -452,10 +452,17 @@ async def call_tool(name: str, arguments: Any) -> List[TextContent]:
             text="Error: Documentation not loaded. Please check server logs."
         )]
 
+    # Input length limits to prevent CPU DoS on string operations
+    MAX_INPUT_LEN = 500
+    MAX_RESULTS_CAP = 20
+
     try:
         if name == "search_docs":
-            query = arguments.get("query", "")
-            max_results = arguments.get("max_results", 5)
+            query = arguments.get("query", "")[:MAX_INPUT_LEN]
+            try:
+                max_results = min(int(arguments.get("max_results", 5)), MAX_RESULTS_CAP)
+            except (ValueError, TypeError):
+                max_results = 5
 
             results = docs_index.search(query, max_results)
 
@@ -474,7 +481,7 @@ async def call_tool(name: str, arguments: Any) -> List[TextContent]:
             return [TextContent(type="text", text=response)]
 
         elif name == "get_image_docs":
-            image_name = arguments.get("image_name", "")
+            image_name = arguments.get("image_name", "")[:MAX_INPUT_LEN]
             docs = docs_index.get_image_docs(image_name)
 
             if docs:
@@ -489,7 +496,8 @@ async def call_tool(name: str, arguments: Any) -> List[TextContent]:
                 )]
 
         elif name == "list_images":
-            filter_term = arguments.get("filter")
+            raw_filter = arguments.get("filter")
+            filter_term = raw_filter[:MAX_INPUT_LEN] if raw_filter else None
 
             # Use catalog if available for richer results
             if catalog.available:
@@ -524,7 +532,7 @@ async def call_tool(name: str, arguments: Any) -> List[TextContent]:
             return [TextContent(type="text", text=security_docs)]
 
         elif name == "get_tool_docs":
-            tool_name = arguments.get("tool_name", "")
+            tool_name = arguments.get("tool_name", "")[:MAX_INPUT_LEN]
             docs = docs_index.get_tool_docs(tool_name)
 
             if docs:
@@ -539,7 +547,7 @@ async def call_tool(name: str, arguments: Any) -> List[TextContent]:
                 )]
 
         elif name == "find_package_equivalent":
-            package = arguments.get("package", "")
+            package = arguments.get("package", "")[:MAX_INPUT_LEN]
             distro = arguments.get("distro")
             if not catalog.available:
                 return [TextContent(
@@ -567,7 +575,7 @@ async def call_tool(name: str, arguments: Any) -> List[TextContent]:
                 )]
 
         elif name == "check_image_freshness":
-            image_name = arguments.get("image_name", "")
+            image_name = arguments.get("image_name", "")[:MAX_INPUT_LEN]
             result = catalog.check_live_image(image_name)
 
             response = f"# Image Check: {image_name}\n\n"
@@ -588,10 +596,10 @@ async def call_tool(name: str, arguments: Any) -> List[TextContent]:
             )]
 
     except Exception as e:
-        logger.error(f"Error handling tool call {name}: {e}")
+        logger.error(f"Error handling tool call {name}: {e}", exc_info=True)
         return [TextContent(
             type="text",
-            text=f"Error: {str(e)}"
+            text="An internal error occurred. Please try again or adjust your query."
         )]
 
 
