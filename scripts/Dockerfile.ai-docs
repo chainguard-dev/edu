@@ -35,6 +35,7 @@ COPY extract.sh /usr/local/bin/extract
 COPY verify.sh /usr/local/bin/verify
 COPY list-contents.sh /usr/local/bin/list-contents
 COPY serve-mcp.sh /usr/local/bin/serve-mcp
+COPY serve-mcp-http.sh /usr/local/bin/serve-mcp-http
 COPY mcp-server.py /usr/local/bin/mcp-server.py
 
 USER root
@@ -42,8 +43,12 @@ RUN chmod +x /usr/local/bin/extract \
              /usr/local/bin/verify \
              /usr/local/bin/list-contents \
              /usr/local/bin/serve-mcp \
+             /usr/local/bin/serve-mcp-http \
              /usr/local/bin/mcp-server.py
 USER nonroot
+
+# Expose HTTP transport port
+EXPOSE 8080
 
 # Default command shows usage
 CMD ["/usr/local/bin/list-contents"]

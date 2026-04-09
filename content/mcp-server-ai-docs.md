@@ -254,6 +254,66 @@ To use this with Claude Desktop, update your configuration to point to the local
 }
 ```
 
+## Remote / Hosted Server (HTTP Transport)
+
+The MCP server also supports Streamable HTTP transport, which enables remote or hosted deployments — no Docker required on the client side. This is useful for cloud-hosted setups (for example, Google Cloud Run) where a single server instance serves multiple users over HTTP.
+
+### Running in HTTP Mode
+
+#### Standalone
+
+```bash
+python3 mcp-server.py --transport http --port 8080
+```
+
+The server will start on `http://0.0.0.0:8080` with the MCP endpoint at `/mcp`.
+
+You can also configure via environment variables:
+
+```bash
+MCP_TRANSPORT=http MCP_PORT=8080 python3 mcp-server.py
+```
+
+#### Docker
+
+```bash
+docker run --rm -p 8080:8080 ghcr.io/chainguard-dev/ai-docs:latest serve-mcp-http
+```
+
+### Claude Desktop Configuration (Remote)
+
+To connect Claude Desktop to a remote MCP server, use the `url` field instead of `command`:
+
+```json
+{
+  "mcpServers": {
+    "chainguard-docs": {
+      "url": "http://localhost:8080/mcp"
+    }
+  }
+}
+```
+
+For a Cloud Run or other hosted deployment, replace `localhost:8080` with your service URL:
+
+```json
+{
+  "mcpServers": {
+    "chainguard-docs": {
+      "url": "https://your-cloud-run-service.run.app/mcp"
+    }
+  }
+}
+```
+
+### CLI Flags
+
+| Flag | Env Var | Default | Description |
+|---|---|---|---|
+| `--transport` | `MCP_TRANSPORT` | `stdio` | Transport mode: `stdio` or `http` |
+| `--host` | `MCP_HOST` | `0.0.0.0` | HTTP server bind address |
+| `--port` | `MCP_PORT` | `8080` | HTTP server port |
+
 ## Alternative: Static Documentation
 
 If you don't need MCP server functionality, you can download the documentation as a single markdown file from the [GitHub release](https://github.com/chainguard-dev/edu/releases/tag/ai-docs-bundle), or extract it from the container:
