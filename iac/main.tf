@@ -90,8 +90,7 @@ resource "google_cloud_run_v2_service" "mcp-server" {
     service_account = google_service_account.chainguard-academy.email
 
     containers {
-      image   = var.mcp_image
-      command = ["/usr/local/bin/serve-mcp-http"]
+      image = var.mcp_image
 
       ports {
         container_port = 8080
@@ -114,6 +113,7 @@ resource "google_cloud_run_v2_service" "mcp-server" {
   lifecycle {
     ignore_changes = [
       template[0].containers[0].image,
+      template[0].containers[0].command,
     ]
   }
 }
