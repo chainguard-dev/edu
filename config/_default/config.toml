@@ -19,7 +19,7 @@ disableLanguages = ["de", "nl"]
 # defaultContentLanguageInSubdir = true
 # add redirects/headers
 [outputs]
-home = ["HTML", "RSS", "ALIASES", "REDIRECTS", "HEADERS", "TXT", "FULLTXT", "AIMETADATA", "AISITEMAP", "CONCEPTS"]
+home = ["HTML", "RSS", "ALIASES", "REDIRECTS", "HEADERS", "TXT", "FULLTXT", "AIMETADATA", "AISITEMAP", "CONCEPTS", "SITEMAP"]
 section = ["HTML", "RSS", "SITEMAP", "MD"]
 page = ["HTML", "MD"]
 # remove .{ext} from text/netlify
