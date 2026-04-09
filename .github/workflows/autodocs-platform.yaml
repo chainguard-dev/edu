@@ -39,7 +39,7 @@ jobs:
         service_account: "github-chainguard-academy@chainguard-academy.iam.gserviceaccount.com"
         workload_identity_provider: "projects/456977358484/locations/global/workloadIdentityPools/chainguard-academy/providers/chainguard-edu"
 
-    - uses: ./.github/workflows/integrate-platform-docs
+    - uses: ./.github/actions/integrate-platform-docs
       with:
         project_id: "${{ secrets.PROJECT_ID }}"
         storage_bucket: "${{ secrets.STORAGE_BUCKET }}"
@@ -79,7 +79,7 @@ jobs:
         token: ${{ steps.octo-sts.outputs.token }}
         commit-message: Update Images Reference
         title: "[AutoDocs] Update Platform Docs"
-        body: "Platform docs ${{needs.check-new-docs.outputs.latest}} autocommit"
+        body: "Platform docs autocommit"
         signoff: true
         labels: |
           documentation
