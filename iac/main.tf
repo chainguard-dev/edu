@@ -118,15 +118,6 @@ resource "google_cloud_run_v2_service" "mcp-server" {
   }
 }
 
-resource "google_cloud_run_v2_service_iam_member" "mcp-server-is-unauthenticated" {
-  for_each = google_cloud_run_v2_service.mcp-server
-
-  project  = var.project_id
-  location = each.key
-  name     = each.value.name
-  role     = "roles/run.invoker"
-  member   = "allUsers"
-}
 
 resource "google_dns_managed_zone" "edu-zone" {
   project     = var.project_id

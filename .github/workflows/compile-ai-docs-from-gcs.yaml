@@ -285,6 +285,13 @@ jobs:
           --region us-central1 \
           --project "$PROJECT_ID"
 
+        # Allow unauthenticated access (CI terraform SA lacks setIamPolicy)
+        gcloud run services add-iam-policy-binding mcp-server \
+          --region us-central1 \
+          --member "allUsers" \
+          --role "roles/run.invoker" \
+          --project "$PROJECT_ID" || true
+
     - name: Upload bundle back to GCS for distribution
       env:
         COMMIT_SHA: ${{ github.sha }}
