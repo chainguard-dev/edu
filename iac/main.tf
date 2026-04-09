@@ -75,7 +75,8 @@ resource "google_cloud_run_v2_service" "mcp-server" {
   location = each.key
   ingress  = "INGRESS_TRAFFIC_ALL"
 
-  launch_stage = "BETA"
+  launch_stage          = "BETA"
+  deletion_protection   = false
 
   template {
     vpc_access {
