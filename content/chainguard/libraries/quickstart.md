@@ -98,29 +98,29 @@ pages for instructions.
 
 ### Java 
 
-* **[Repository manager](/chainguard/libraries/java/global-configuration/)
-  (recommended)**: Configure your repository manager or build tool to use
+* [Repository manager](/chainguard/libraries/java/global-configuration/)
+  **(recommended)**: Configure your repository manager or build tool to use
   `https://libraries.cgr.dev/java/` as the first repository for artifact
   resolution, falling back to Maven Central for unavailable libraries. 
-* [Direct access](/chainguard/libraries/java/build-configuration/):
-      Configure your tool to retrieve artifacts directly from the Chainguard
-      Libraries for Java repository at `https://libraries.cgr.dev/java/`. Use
-      direct access for small teams or evaluations, or when you have an existing
-      repository configuration you can't change yet.
+* [Direct access](/chainguard/libraries/java/build-configuration/): Configure
+  your tool to retrieve artifacts directly from the Chainguard Libraries for
+  Java repository at `https://libraries.cgr.dev/java/`. Use direct access for
+  small teams or evaluations, or when you have an existing repository
+  configuration you can't change yet.
   
 Check out minimal example projects for
 [Maven](/chainguard/libraries/java/build-configuration/#minimal-example-project)
 and
-[Gradle](/chainguard/libraries/java/build-configuration/#minimal-example-project-1).
+[Gradle](/chainguard/libraries/java/build-configuration/#minimal-example-project-1) to understand how to use these repositories.
 
 ### Python
 
-* **[Repository manager](/chainguard/libraries/python/global-configuration/)
-  (recommended)**: Add Chainguard Libraries as a remote repository in your
+* [Repository manager](/chainguard/libraries/python/global-configuration/)
+  **(recommended)**: Add Chainguard Libraries as a remote repository in your
   repository manager, alongside PyPI as a fallback. 
 * [Direct access](/chainguard/libraries/python/build-configuration/): Configure
-      your tool to retrieve artifacts directly from the Chainguard Libraries for
-      Python. 
+  your tool to retrieve artifacts directly from the Chainguard Libraries for
+  Python. 
 
 Note that there are multiple repositories:
 * `https://libraries.cgr.dev/python/` with the simple index at
@@ -130,7 +130,7 @@ Note that there are multiple repositories:
   remediation](/chainguard/libraries/cve-remediation/)
 
 Check out minimal example projects for
-[uv](/chainguard/libraries/python/build-configuration/#uv-minimal) and [pip](/chainguard/libraries/python/build-configuration/#pip-minimal).
+[uv](/chainguard/libraries/python/build-configuration/#uv-minimal) and [pip](/chainguard/libraries/python/build-configuration/#pip-minimal) to understand how to use these repositories.
 
 > In addition to malware-resistance, Chainguard Libraries for Python includes
 > CVE remediation for select libraries. These patched versions help reduce known
@@ -140,14 +140,12 @@ Check out minimal example projects for
 
 ### JavaScript
 
-* **[Repository
+* [Repository
   manager](/chainguard/libraries/javascript/global-configuration/)
-  (recommended)**: Add the Chainguard Libraries registry as a remote repository
+  **(recommended)**: Add the Chainguard Libraries registry as a remote repository
   and configure it as the first choice for package resolution, with npm as a
   fallback only where necessary. 
-* [Direct access](/chainguard/libraries/javascript/build-configuration/):
-      Configure your `.npmrc` to use `https://libraries.cgr.dev/javascript/` as
-      the registry. 
+* [Direct access](/chainguard/libraries/javascript/build-configuration/): Configure your `.npmrc` to use `https://libraries.cgr.dev/javascript/` as the registry. 
 
 > **Note on upstream fallback for JavaScript**: The npm upstream fallback is
 > available as an opt-in setting for both repository manager or direct access
@@ -156,8 +154,8 @@ Check out minimal example projects for
 > Libraries product. The cooldown period and malware scanning provide a
 > supplemental baseline of protection to your own security practices, but you
 > are solely responsible for independently evaluating and validating all
-> upstream artifacts before use in your environment. 
-> Learn more about upstream
+> upstream artifacts before use in your environment.  
+> <br>Learn more about upstream
 > fallback policy and controls in the [JavaScript
 > overview](/chainguard/libraries/javascript/overview/#upstream-fallback-policy-and-controls).
 
@@ -168,7 +166,7 @@ Check out minimal example projects for
 [Yarn
 Classic](/chainguard/libraries/javascript/build-configuration/#minimal-example-project-3),
 and
-[Bun](/chainguard/libraries/javascript/build-configuration/#minimal-example-project-4).
+[Bun](/chainguard/libraries/javascript/build-configuration/#minimal-example-project-4) to understand how to use these repositories.
 
 ## Step 4: Verify your libraries
 
