@@ -54,4 +54,5 @@ jobs:
         with:
           actionlint_flags: ${{ steps.get_yamls.outputs.files }}
           level: error
-          fail_on_error: true
+          filter_mode: nofilter
+          fail_level: error
