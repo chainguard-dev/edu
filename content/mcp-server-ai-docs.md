@@ -294,13 +294,13 @@ To connect Claude Desktop to a remote MCP server, use the `url` field instead of
 }
 ```
 
-For a Cloud Run or other hosted deployment, replace `localhost:8080` with your service URL:
+The Chainguard-hosted MCP server is available at `mcp.edu.chainguard.dev` — no Docker or local setup required:
 
 ```json
 {
   "mcpServers": {
     "chainguard-docs": {
-      "url": "https://your-cloud-run-service.run.app/mcp"
+      "url": "https://mcp.edu.chainguard.dev/mcp"
     }
   }
 }

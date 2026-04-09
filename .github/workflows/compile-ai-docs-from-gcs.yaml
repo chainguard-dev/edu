@@ -3,10 +3,10 @@ name: Compile AI Documentation Bundle from GCS
 on:
   schedule:
     - cron: '0 2 * * 0'  # Weekly on Sundays at 2 AM
-  
+
   repository_dispatch:
     types: [ai-docs-source-updated]
-  
+
   workflow_dispatch:
     inputs:
       create_release:
@@ -17,6 +17,10 @@ on:
         options:
           - 'true'
           - 'false'
+
+concurrency:
+  group: compile-ai-docs-${{ github.ref }}
+  cancel-in-progress: false
 
 permissions:
   contents: write  # For creating/updating releases
@@ -52,6 +56,7 @@ jobs:
           pypi.org:443
           raw.githubusercontent.com:443
           rekor.sigstore.dev:443
+          run.googleapis.com:443
           sts.googleapis.com:443
           storage.googleapis.com:443
           timestamp.sigstore.dev:443
@@ -248,10 +253,21 @@ jobs:
           echo "ERROR: Failed to capture image digest from docker push"
           exit 1
         fi
-        docker push "ghcr.io/$REPO_OWNER/ai-docs:$COMMIT_SHA"
+        docker push "ghcr.io/$REPO_OWNER/ai-docs:$COMMIT_SHA" || { echo "ERROR: Failed to push SHA-tagged image"; exit 1; }
 
         # Sign container image by immutable digest
         cosign sign --yes "ghcr.io/$REPO_OWNER/ai-docs@$DIGEST"
+
+    - name: Deploy MCP server to Cloud Run
+      if: github.ref == 'refs/heads/main'
+      env:
+        REPO_OWNER: ${{ github.repository_owner }}
+        COMMIT_SHA: ${{ github.sha }}
+      run: |
+        gcloud run services update mcp-server \
+          --image "ghcr.io/$REPO_OWNER/ai-docs:$COMMIT_SHA" \
+          --region us-central1 \
+          --project chainguard-academy
 
     - name: Upload bundle back to GCS for distribution
       env:
