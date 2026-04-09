@@ -56,3 +56,4 @@ jobs:
           level: error
           filter_mode: nofilter
           fail_level: error
+          reporter: github-check
