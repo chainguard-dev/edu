@@ -435,13 +435,13 @@ chainctl iam ids rm --expired --parent=example
 
 <a id="entitlement"></a>
 
-## Manage library entitlement
+## Manage library entitlements
 
-You can create, list, and remove entitlements using [`chainctl libraries entitlement`](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlement/).
+You can create, list, and remove entitlements using [`chainctl libraries entitlements`](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlement/).
 
-### Create entitlement
+### Create entitlements
 
-As administrator you can create entitlements for one or more ecosystems:
+As administrator you can use [`chainctl libraries entitlements create`](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) for one or more ecosystems:
 
 ```shell
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT,JAVA,PYTHON --parent=example
@@ -455,6 +455,9 @@ To enable upstream fallback for JavaScript, use the `--policy` flag:
 ```bash
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM --parent=example
 ```
+
+To update the policy on an existing entitlement, rerun the `create` command with the new `--policy` value.
+
 
 ### List entitlements
 
@@ -476,9 +479,9 @@ Ecosystem Library Entitlements for example (45a0...p7q)
  45a0c61a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q/56789abc67890 | PYTHON     | POLICY_CHAINGUARD
 ```
 
-### Remove entitlement
+### Remove entitlements
 
-You can delete an ecosystem library entitlement for a specific ecosystem from your organization:
+You can delete an ecosystem library entitlement for a specific ecosystem from your organization with [`chainctl libraries entitlements delete`](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/): 
 
 ```shell
 chainctl libraries entitlements delete --ecosystem=JAVASCRIPT --parent=example
