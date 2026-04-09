@@ -2,12 +2,11 @@ name: Integrate Platform Docs
 
 inputs:
   storage_bucket:
-    type: string
     required: true
     description: "Name of GCS bucket for static files"
   project_id:
-    type: string
     required: true
+    description: "GCP project ID"
 
 runs:
   using: composite
