@@ -43,14 +43,14 @@ Before getting started:
 * Entitle access for yourself to Chainguard Libraries.
     * Chainguard Libraries are available to Catalog Starter and Free tier users,
       and trial users. 
-    * Run the following command to create an entitlement for libraries:
+    * Run the following [chainctl libraries](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements/) command to create an entitlement for libraries:
 
 ```bash
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT
 ```
 The available `ecosystems` are `JAVASCRIPT`, `JAVA`, and `PYTHON`.
 
-Learn more about this command in the [chainctl documentation](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements/).
+Alternatively, you can create an entitlement and pull token in the Chainguard Console: While viewing a library ecosystem page, follow the prompts to create an access token.
 
 ## Step 1: Choose your access method
 
@@ -119,11 +119,13 @@ chainctl auth pull-token --repository=java --parent=example.com --ttl=720h
 - The default TTL is `720h` (30 days); the maximum is `8760h` (365 days).
 
 The command returns a username and password for basic authentication. Store
-these securely, as they won't be shown again.
+these securely, as they won't be shown again. 
 
 You can also [create pull tokens via the Chainguard
 Console](/chainguard/libraries/access/#creating-pull-tokens-with-the-chainguard-console)
 under **Overview > Manage pull tokens > Create access token**. 
+
+Learn more about pull tokens, and using environment variables for pull token credentials, in the [Libraries Access documentation](/chainguard/libraries/access/).
 
 ## Step 3: Configure your build tools
 
