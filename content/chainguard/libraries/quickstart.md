@@ -50,25 +50,25 @@ chainctl libraries entitlements create --ecosystems=JAVASCRIPT
 ```
 The available `ecosystems` are `JAVASCRIPT`, `JAVA`, and `PYTHON`.
 
-Alternatively, you can create an entitlement and pull token in the Chainguard Console: While viewing a library ecosystem page, follow the prompts to create an access token.
+Alternatively, you can create an entitlement and pull token in the Chainguard Console: while viewing a library ecosystem page, follow the prompts to create an access token.
 
 ## Step 1: Choose your access method
 
-There are two ways to access Chainguard Libraries: Using an [artifact manager](#artifact-manager-recommended) (recommended), or [direct access](#direct-access).
+There are two ways to access Chainguard Libraries: using an [artifact manager](#artifact-manager-recommended) (recommended), or [direct access](#direct-access).
 
 ### Artifact manager (recommended)
 
-Configure credentials once in a tool like JFrog Artifactory, Sonatype Nexus, or Cloudsmith. All projects and developers automatically inherit the configuration. This centralizes policy, logging, and fallback behavior, and is the safest approach for organizations with multiple teams and applications.
+Configure credentials once in a tool like JFrog Artifactory, Sonatype Nexus, or Cloudsmith. This centralizes policy, logging, and fallback behavior, and is the safest approach for organizations with multiple teams and applications.
 
 Note that built-in [configurable upstream fallback](/libraries/javascript/overview/#upstream-fallback-policy-and-controls) is available for Chainguard Libraries for JavaScript via the Chainguard Repository, but not yet available for Chainguard Libraries for Python or Java. Before configuring your repository manager, consider how you want to handle packages that aren't available in the Chainguard registry:
 
 **Python and Java fallback approach**
 
-* Option 1 - Chainguard only (**recommended**): Configure your repository manager to
+* **Chainguard registry only (recommended)**: Configure your repository manager to
   use the Chainguard registry as the only upstream source. If a package isn't
   available in the Chainguard registry, your build will fail until coverage is
   added.
-* Option 2 - Chainguard with public registry fallback: Configure your repository
+* **Chainguard with public registry fallback**: Configure your repository
 manager to fall back to Maven Central or PyPI for packages not available in the
 Chainguard registry. This prevents build failures due to missing packages, but
 packages sourced from public registries are **not** covered by Chainguard's
@@ -97,8 +97,8 @@ Configure authentication directly in each project's build configuration.
 
 This option is faster to set up initially, but requires per-project and
 per-workstation configuration. This increases the risk of credentials being
-committed to source control or going stale. For production use, an artifact
-manager is strongly recommended.
+committed to source control or going stale. For production use, Chainguard
+strongly recommends using an artifact manager.
 
 Learn how to set up direct access in the build configuration documentation for
 [Python](/chainguard/libraries/python/build-configuration/),
