@@ -640,9 +640,24 @@ async def main_stdio():
 def main_http(host: str, port: int):
     """Run the MCP server with Streamable HTTP transport."""
     import uvicorn
+    from contextlib import asynccontextmanager
+    from mcp.server.streamable_http_manager import StreamableHTTPSessionManager
+    from starlette.applications import Starlette
+    from starlette.routing import Mount
 
     logger.info(f"Starting Chainguard AI Docs MCP Server (http) on {host}:{port}")
-    starlette_app = app.streamable_http_app()
+
+    session_manager = StreamableHTTPSessionManager(app=app)
+
+    @asynccontextmanager
+    async def lifespan(app):
+        async with session_manager.run():
+            yield
+
+    starlette_app = Starlette(
+        lifespan=lifespan,
+        routes=[Mount("/mcp", app=session_manager.handle_request)],
+    )
     uvicorn.run(starlette_app, host=host, port=port)
 
 
