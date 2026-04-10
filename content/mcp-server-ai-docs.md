@@ -5,7 +5,7 @@ lead: "Model Context Protocol server for Chainguard documentation"
 description: "Access Chainguard documentation through MCP for AI assistants and automation"
 type: "article"
 date: 2026-01-02T21:00:00+00:00
-lastmod: 2026-03-30T00:00:00+00:00
+lastmod: 2026-04-10T00:00:00+00:00
 draft: false
 images: []
 weight: 600
@@ -42,29 +42,52 @@ The Chainguard AI Documentation MCP (Model Context Protocol) server enables AI a
 
 ### Prerequisites
 
-- Docker installed
-- MCP-compatible client (Claude Desktop, Cursor, etc.)
+- MCP-compatible client (Claude Desktop, Cursor, Claude Code, or other MCP-compatible tools)
 
-### Pull the Container
+### Hosted Server (Recommended)
+
+The fastest way to get started — no Docker or local setup required. Chainguard hosts a public MCP server at `mcp.edu.chainguard.dev`.
+
+Add this to your MCP client configuration:
+
+```json
+{
+  "mcpServers": {
+    "chainguard-docs": {
+      "url": "https://mcp.edu.chainguard.dev/mcp/"
+    }
+  }
+}
+```
+
+For **Claude Desktop**, the configuration file is located at:
+
+* **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+* **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
+For **Claude Code**, add the server from the command line:
+
+```bash
+claude mcp add chainguard-docs --transport http https://mcp.edu.chainguard.dev/mcp/
+```
+
+After adding this configuration, restart your MCP client. The Chainguard documentation tools will be available in your conversations.
+
+### Local Docker Setup
+
+If you prefer to run the MCP server locally, you can use the container image:
 
 ```bash
 docker pull ghcr.io/chainguard-dev/ai-docs:latest
 ```
 
-### Run the MCP Server
+Run in stdio mode for MCP clients that support local processes:
 
 ```bash
 docker run --rm -i ghcr.io/chainguard-dev/ai-docs:latest serve-mcp
 ```
 
-The server runs in stdio mode and communicates via standard input/output, making it compatible with MCP clients.
-
-## Claude Desktop Configuration
-
-To use this MCP server with Claude Desktop, add it to your configuration file:
-
-* **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-* **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+Claude Desktop configuration for the local Docker setup:
 
 ```json
 {
@@ -82,8 +105,6 @@ To use this MCP server with Claude Desktop, add it to your configuration file:
   }
 }
 ```
-
-After adding this configuration, restart Claude Desktop. The Chainguard documentation tools will be available in your conversations.
 
 ## Available Tools
 
@@ -254,13 +275,11 @@ To use this with Claude Desktop, update your configuration to point to the local
 }
 ```
 
-## Remote / Hosted Server (HTTP Transport)
+## Self-Hosting with HTTP Transport
 
-The MCP server also supports Streamable HTTP transport, which enables remote or hosted deployments — no Docker required on the client side. This is useful for cloud-hosted setups (for example, Google Cloud Run) where a single server instance serves multiple users over HTTP.
+You can also self-host the MCP server using Streamable HTTP transport. This is useful for running your own instance behind a firewall or with custom configuration.
 
-### Running in HTTP Mode
-
-#### Standalone
+### Standalone
 
 ```bash
 python3 mcp-server.py --transport http --port 8080
@@ -274,37 +293,13 @@ You can also configure via environment variables:
 MCP_TRANSPORT=http MCP_PORT=8080 python3 mcp-server.py
 ```
 
-#### Docker
+### Docker
 
 ```bash
 docker run --rm -p 8080:8080 ghcr.io/chainguard-dev/ai-docs:latest serve-mcp-http
 ```
 
-### Claude Desktop Configuration (Remote)
-
-To connect Claude Desktop to a remote MCP server, use the `url` field instead of `command`:
-
-```json
-{
-  "mcpServers": {
-    "chainguard-docs": {
-      "url": "http://localhost:8080/mcp"
-    }
-  }
-}
-```
-
-The Chainguard-hosted MCP server is available at `mcp.edu.chainguard.dev` — no Docker or local setup required:
-
-```json
-{
-  "mcpServers": {
-    "chainguard-docs": {
-      "url": "https://mcp.edu.chainguard.dev/mcp"
-    }
-  }
-}
-```
+Then configure your MCP client to connect to `http://localhost:8080/mcp/`.
 
 ### CLI Flags
 
@@ -340,14 +335,26 @@ Following Chainguard's security-first approach:
 ### Server Not Appearing in Claude Desktop
 
 1. Check that the configuration file path is correct
-2. Ensure Docker is running
-3. Restart Claude Desktop after configuration changes
-4. Check Claude Desktop logs for error messages
+2. Restart Claude Desktop after configuration changes
+3. Check Claude Desktop logs for error messages
+4. If using Docker locally, ensure Docker is running
 
 ### Connection Issues
 
+Test the hosted server:
+
 ```bash
-# Test the server manually
+curl -X POST https://mcp.edu.chainguard.dev/mcp/ \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"test","version":"1.0"}}}'
+```
+
+You should receive a JSON response with the server's capabilities.
+
+To test a local Docker server:
+
+```bash
 docker run --rm -i ghcr.io/chainguard-dev/ai-docs:latest serve-mcp
 ```
 
@@ -355,13 +362,11 @@ The server should start and display startup messages.
 
 ### Documentation Out of Date
 
-Pull the latest container image:
+The hosted server at `mcp.edu.chainguard.dev` is updated automatically. If using Docker locally, pull the latest image:
 
 ```bash
 docker pull ghcr.io/chainguard-dev/ai-docs:latest
 ```
-
-The documentation is automatically updated weekly.
 
 ## Resources
 
