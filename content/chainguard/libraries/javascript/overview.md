@@ -180,6 +180,7 @@ When fallback is enabled, upstream npm packages are subject to a default 7-day c
 If a package version is requested and falls within the cooldown period, the package manager will output a 404 error. The package becomes available once it has passed the cooldown period and cleared malware scanning.
 
 ### How package resolution works
+
 When you request a JavaScript package from the Chainguard Repository, the following logic applies:
 * **Chainguard-built package available**: The package is served directly from Chainguard's rebuilt artifact store, complete with SBOM, provenance, and signatures.
 * **Package not yet built by Chainguard**: If upstream fallback is enabled, the repository checks whether the package has passed the cooldown period and malware scan.
@@ -187,3 +188,5 @@ When you request a JavaScript package from the Chainguard Repository, the follow
     * **After the cooldown period**: The package is checked against malware scanning. If it passes, it is proxied from the npm Registry.
 * **Malware detected**: Any package version with a known malware identifier (MAL ID) is blocked and never served, whether it originates from Chainguard builds or the npm upstream. Malware scanning runs on all packages, including those proxied from npm.
     * Malware scanning checks all packages against the Open Source Vulnerabilities (OSV) database, which includes the OpenSSF Malicious Packages feed among other sources. Any package version flagged with a known MAL ID is blocked before it can be served. This covers reported malicious packages across the npm ecosystem; packages with unreported or novel malware may not be detected by scanning alone, which is why building from verified source remains the primary defense.
+
+> **Note**: Chainguard Repository for JavaScript is not a full mirror of npm. With fallback enabled, Chainguard does not guarantee that evey package and version on npm will be available. Packages can be delayed by cooldown or permanently blocked by malware policies.
