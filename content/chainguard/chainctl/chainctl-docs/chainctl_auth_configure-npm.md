@@ -1,5 +1,5 @@
 ---
-date: 2026-04-08T14:06:08Z
+date: 2026-04-09T16:48:39Z
 title: "chainctl auth configure-npm"
 slug: chainctl_auth_configure-npm
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_configure-npm/
