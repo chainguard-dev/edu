@@ -59,7 +59,7 @@ jobs:
           release-assets.githubusercontent.com:443
           rekor.sigstore.dev:443
           run.googleapis.com:443
-          *.run.googleapis.com:443
+          us-central1-run.googleapis.com:443
           sts.googleapis.com:443
           storage.googleapis.com:443
           timestamp.sigstore.dev:443
