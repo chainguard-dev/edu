@@ -1,33 +1,26 @@
 ---
 date: 2026-04-09T16:48:39Z
-title: "chainctl iam roles delete"
-slug: chainctl_iam_roles_delete
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_roles_delete/
+title: "chainctl libraries entitlements list"
+slug: chainctl_libraries_entitlements_list
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam roles delete
+## chainctl libraries entitlements list
 
-Delete a custom IAM role.
-
-```
-chainctl iam roles delete ROLE_NAME|ROLE_ID [--yes] [--output=id|json|table]
-```
-
-### Examples
+List entitlements of an organization.
 
 ```
-  # Delete a role by ID
-  chainctl iam roles delete 3ed98fc...
+chainctl libraries entitlements list --parent=PARENT [--output=json|table] [flags]
 ```
 
 ### Options
 
 ```
-  -y, --yes   Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+      --parent string   The name or id of the org to list an entitlements for.
 ```
 
 ### Options inherited from parent commands
@@ -47,5 +40,5 @@ chainctl iam roles delete ROLE_NAME|ROLE_ID [--yes] [--output=id|json|table]
 
 ### SEE ALSO
 
-* [chainctl iam roles](/chainguard/chainctl/chainctl-docs/chainctl_iam_roles/)	 - IAM role resource interactions.
+* [chainctl libraries entitlements](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements/)	 - Manage entitlements to language ecosystem libraries.
 

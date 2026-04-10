@@ -1,5 +1,5 @@
 ---
-date: 2026-04-08T14:06:08Z
+date: 2026-04-09T16:48:39Z
 title: "chainctl libraries entitlements"
 slug: chainctl_libraries_entitlements
 url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements/
@@ -33,4 +33,5 @@ Manage entitlements to language ecosystem libraries.
 * [chainctl libraries](/chainguard/chainctl/chainctl-docs/chainctl_libraries/)	 - Ecosystem library related commands.
 * [chainctl libraries entitlements create](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/)	 - Create ecosystem library entitlements for an organization.
 * [chainctl libraries entitlements delete](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_delete/)	 - Delete an ecosystem library entitlement from an organization.
+* [chainctl libraries entitlements list](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_list/)	 - List entitlements of an organization.
 
