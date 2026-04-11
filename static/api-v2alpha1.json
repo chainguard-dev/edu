@@ -128,7 +128,7 @@
       },
       "chainguard.capabilities.Capability": {
         "default": "UNKNOWN",
-        "description": "Capability is an enumeration of the Chainguard IAM capabilities.\n\n - CAP_TENANT_VULN_REPORTS_LIST: TODO(colin): deprecate this cap once the legacy endpoint is removed\n - CAP_REPO_BLOBS_GET: repo.blobs.get is a capability required to pull container images.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with images vs pulling the image itself.\n - CAP_APK_BLOBS_GET: apk.blobs.get is a capability required to pull APKs.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with APKs vs pulling the APK itself.\n - CAP_BUILD_REPORT_LIST: Custom Image Build\n - CAP_LIBRARIES_ENTITLEMENTS_CREATE: Global libraries capabilities\n - CAP_LIBRARIES_PYTHON_LIST: Ecosystems specific capabilities\n - CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE: Rebuilder API capabilities\n - CAP_REGISTRY_ENTITLEMENTS_LIST: Registry Entitlements\n - CAP_REGISTRY_SETTINGS_LIST: Registry Settings\n - CAP_REGISTRY_DEPLOYMENTS_CREATE: Registry Deployments\n - CAP_POLICY_GATES_POLICY_CREATE: Policy Gates\n - CAP_TERMS_ACCEPT: Terms\n - CAP_GULFSTREAM: This is orthogonal enough that we should leave\nit somewhat separate, so add new capabilities above.\nTODO(mattmoor): Think about whether we can encode specific\ncontroller capabilities into our access control here?\ne.g. could each logical controller/webhook be its own\ncapability?",
+        "description": "Capability is an enumeration of the Chainguard IAM capabilities.\n\n - CAP_TENANT_VULN_REPORTS_LIST: TODO(colin): deprecate this cap once the legacy endpoint is removed\n - CAP_REPO_BLOBS_GET: repo.blobs.get is a capability required to pull container images.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with images vs pulling the image itself.\n - CAP_APK_BLOBS_GET: apk.blobs.get is a capability required to pull APKs.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with APKs vs pulling the APK itself.\n - CAP_BUILD_REPORT_LIST: Custom Image Build\n - CAP_LIBRARIES_ENTITLEMENTS_CREATE: Global libraries capabilities\n - CAP_LIBRARIES_PYTHON_LIST: Ecosystems specific capabilities\n - CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE: Rebuilder API capabilities\n - CAP_REGISTRY_ENTITLEMENTS_LIST: Registry Entitlements\n - CAP_REGISTRY_SETTINGS_LIST: Registry Settings\n - CAP_REGISTRY_DEPLOYMENTS_CREATE: Registry Deployments\n - CAP_POLICY_GATES_POLICY_CREATE: Policy Gates\n - CAP_TERMS_ACCEPT: Terms\n - CAP_GULFSTREAM: This is orthogonal enough that we should leave\nit somewhat separate, so add new capabilities above.\nTODO(mattmoor): Think about whether we can encode specific\ncontroller capabilities into our access control here?\ne.g. could each logical controller/webhook be its own\ncapability?\n - CAP_GUARDENER_DFC_CONVERT: Guardener",
         "enum": [
           "UNKNOWN",
           "CAP_INTERNAL",
@@ -254,7 +254,8 @@
           "CAP_PACKAGES_ENTITLEMENTS_LIST",
           "CAP_TERMS_ACCEPT",
           "CAP_TERMS_LIST",
-          "CAP_GULFSTREAM"
+          "CAP_GULFSTREAM",
+          "CAP_GUARDENER_DFC_CONVERT"
         ],
         "type": "string"
       },
@@ -1177,7 +1178,7 @@
       },
       "chainguard.platform.iam.v2alpha1.ServicePrincipal": {
         "default": "SERVICE_PRINCIPAL_UNSPECIFIED",
-        "description": "ServicePrincipal represents a Chainguard service that can assume an identity.\n\n - SERVICE_PRINCIPAL_UNSPECIFIED: Unknown/unspecified service principal.\n - SERVICE_PRINCIPAL_COSIGNED: Cosigned service for image signing.\n - SERVICE_PRINCIPAL_INGESTER: Ingester service for data ingestion.\n - SERVICE_PRINCIPAL_CATALOG_SYNCER: Catalog syncer service for synchronizing image catalogs.\n - SERVICE_PRINCIPAL_APKO_BUILDER: APKO builder service for building images.\n - SERVICE_PRINCIPAL_ENTITLEMENT_SYNCER: Entitlement syncer service for synchronizing entitlements.\n - SERVICE_PRINCIPAL_TENANT_SCANNER: Tenant scanner service for scanning tenant resources.\n - SERVICE_PRINCIPAL_SEDIMENTOLOGY: Sedimentology service for data analysis.",
+        "description": "ServicePrincipal represents a Chainguard service that can assume an identity.\n\n - SERVICE_PRINCIPAL_UNSPECIFIED: Unknown/unspecified service principal.\n - SERVICE_PRINCIPAL_COSIGNED: Cosigned service for image signing.\n - SERVICE_PRINCIPAL_INGESTER: Ingester service for data ingestion.\n - SERVICE_PRINCIPAL_CATALOG_SYNCER: Catalog syncer service for synchronizing image catalogs.\n - SERVICE_PRINCIPAL_APKO_BUILDER: APKO builder service for building images.\n - SERVICE_PRINCIPAL_ENTITLEMENT_SYNCER: Entitlement syncer service for synchronizing entitlements.\n - SERVICE_PRINCIPAL_TENANT_SCANNER: Tenant scanner service for scanning tenant resources.\n - SERVICE_PRINCIPAL_SEDIMENTOLOGY: Sedimentology service for data analysis.\n - SERVICE_PRINCIPAL_SKILLUP: Skillup service for fixing repository skill violations.\n - SERVICE_PRINCIPAL_MATERIALIZER: Materializer service for materializing solutions from problem statements.",
         "enum": [
           "SERVICE_PRINCIPAL_UNSPECIFIED",
           "SERVICE_PRINCIPAL_COSIGNED",
@@ -1186,7 +1187,9 @@
           "SERVICE_PRINCIPAL_APKO_BUILDER",
           "SERVICE_PRINCIPAL_ENTITLEMENT_SYNCER",
           "SERVICE_PRINCIPAL_TENANT_SCANNER",
-          "SERVICE_PRINCIPAL_SEDIMENTOLOGY"
+          "SERVICE_PRINCIPAL_SEDIMENTOLOGY",
+          "SERVICE_PRINCIPAL_SKILLUP",
+          "SERVICE_PRINCIPAL_MATERIALIZER"
         ],
         "type": "string"
       },
