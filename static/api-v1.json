@@ -1570,7 +1570,9 @@
           "APKO_BUILDER",
           "ENTITLEMENT_SYNCER",
           "TENANT_SCANNER",
-          "SEDIMENTOLOGY"
+          "SEDIMENTOLOGY",
+          "SKILLUP",
+          "MATERIALIZER"
         ],
         "type": "string"
       },
@@ -2080,20 +2082,20 @@
       "chainguard.platform.matcher.MatchImageRequest": {
         "properties": {
           "arch": {
-            "title": "arch is the architecture (e.g., \"amd64\", \"arm64\")",
+            "title": "arch is the architecture (\"x86_64\")",
             "type": "string"
           },
           "count": {
             "format": "int32",
-            "title": "top_n is the maximum number of recommendations to return (default: 10)",
+            "title": "count is the maximum number of recommendations to return (default: 10)",
             "type": "integer"
           },
           "distName": {
-            "title": "dist_name is the distribution name (e.g., \"debian\", \"ubuntu\", \"alpine\", \"wolfi\")",
+            "title": "dist_name is the distribution name (\"debian\", \"ubuntu\", \"alpine\", \"redhat\", \"suse\", \"amazon-linux\")",
             "type": "string"
           },
           "distVersion": {
-            "title": "dist_version is the distribution version (e.g., \"1.2.3\", \"2.0-r2\")",
+            "title": "dist_version is the distribution version (e.g., \"13\", \"24.04\", \"3.22\", \"10\", \"16.0\", \"2023\")",
             "type": "string"
           },
           "parentId": {
@@ -2106,7 +2108,7 @@
                 "$ref": "#/components/schemas/chainguard.platform.matcher.SBOM"
               }
             ],
-            "title": "sbom is the SBOM data"
+            "title": "sbom is the SBOM components"
           },
           "threshold": {
             "format": "double",
@@ -2153,7 +2155,6 @@
             "items": {
               "type": "string"
             },
-            "title": "TODO do we want to remove this, as it isn't in image_recommendation.proto",
             "type": "array"
           },
           "name": {
@@ -2173,7 +2174,7 @@
             "items": {
               "$ref": "#/components/schemas/chainguard.platform.matcher.SBOMComponent"
             },
-            "title": "individaul sbom entries",
+            "title": "individaul sbom components",
             "type": "array"
           }
         },
@@ -8121,7 +8122,7 @@
     },
     "/image-recommendation/v1/match": {
       "post": {
-        "description": "MatchImage takes an sbom and returns a list of chainguard\nimages ranked by sbom similarity",
+        "description": "MatchImage takes a list of SBOM components and returns a list of Chainguard\nimages ranked by similarity to original SBOM components",
         "operationId": "ImageMatcher_MatchImage",
         "requestBody": {
           "content": {

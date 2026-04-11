@@ -1,5 +1,5 @@
 ---
-date: 2026-04-09T16:48:39Z
+date: 2026-04-10T21:08:14Z
 title: "chainctl images helm values"
 slug: chainctl_images_helm_values
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_helm_values/
