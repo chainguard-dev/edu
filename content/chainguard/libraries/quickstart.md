@@ -43,32 +43,67 @@ Before getting started:
 * Entitle access for yourself to Chainguard Libraries.
     * Chainguard Libraries are available to Catalog Starter and Free tier users,
       and trial users. 
-    * Run the following command to create an entitlement for libraries:
+    * Run the following [chainctl libraries](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements/) command to create an entitlement for libraries:
 
 ```bash
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT
 ```
 The available `ecosystems` are `JAVASCRIPT`, `JAVA`, and `PYTHON`.
 
-Learn more about this command in the [chainctl documentation](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements/).
+Alternatively, you can create an entitlement and pull token in the Chainguard Console: while viewing a library ecosystem page, follow the prompts to create an access token.
 
 ## Step 1: Choose your access method
 
-There are two ways to access Chainguard Libraries:
+There are two ways to access Chainguard Libraries: using an [artifact manager](#artifact-manager-recommended) (recommended), or [direct access](#direct-access).
 
-- **Artifact manager (recommended)**: Configure credentials once in a tool like
- JFrog Artifactory, Sonatype Nexus, or Cloudsmith. All projects and developers automatically inherit the configuration. This centralizes policy, logging, and fallback behavior.
-    - This option is the safest approach for organizations with multiple teams and applications.
+### Artifact manager (recommended)
 
-- **Direct access**: Configure authentication directly in each project's build
-  configuration.
-    - This option is faster to set up initially, but requires per-project and
-      per-workstation configuration. This increases the risk of credentials
-      being committed to source control or going stale. For production use, an
-      artifact manager is strongly recommended.
+Configure credentials once in a tool like JFrog Artifactory, Sonatype Nexus, or Cloudsmith. This centralizes policy, logging, and fallback behavior, and is the safest approach for organizations with multiple teams and applications.
 
-Learn more about these options in [Chainguard Libraries
-access](/chainguard/libraries/access/).
+Note that built-in [configurable upstream fallback](/libraries/javascript/overview/#upstream-fallback-policy-and-controls) is available for Chainguard Libraries for JavaScript via the Chainguard Repository, but not yet available for Chainguard Libraries for Python or Java. Before configuring your repository manager, consider how you want to handle packages that aren't available in the Chainguard registry:
+
+**Python and Java fallback approach**
+
+* **Chainguard registry only (recommended)**: Configure your repository manager to
+  use the Chainguard registry as the only upstream source. If a package isn't
+  available in the Chainguard registry, your build will fail until coverage is
+  added. Alternatively, you may be able to use a version or alternative library that Chainguard has already built.
+* **Chainguard with public registry fallback**: Configure your repository
+manager to fall back to Maven Central or PyPI for packages not available in the
+Chainguard registry. This prevents build failures due to missing packages, but
+packages sourced from public registries are **not** covered by Chainguard's
+malware-resistance guarantees. If you choose this option, we strongly recommend
+configuring a quarantine or cooldown period on your fallback repository so that
+newly published or updated packages are not immediately available to developers.
+Chainguard has no control over malware protection for packages sourced from
+public registries.
+
+**JavaScript fallback approach**
+
+For JavaScript, use the Chainguard Repository's [built-in npm
+fallback](/chainguard/libraries/javascript/overview/#upstream-fallback-policy-and-controls)
+instead of configuring a public registry fallback in your artifact manager. The
+Chainguard Repository handles fallback safely, ensuring you receive the last
+known safe version of a package rather than the latest available on npm. Note
+that the repository does not host the entire npm catalog and may block or delay
+some upstream packages. 
+
+If you configure your own npm fallback in your artifact manager, it bypasses
+this protection.
+
+### Direct access
+
+Configure authentication directly in each project's build configuration.
+
+This option is faster to set up initially, but requires per-project and
+per-workstation configuration. This increases the risk of credentials being
+committed to source control or going stale. For production use, Chainguard
+strongly recommends using an artifact manager.
+
+Learn how to set up direct access in the build configuration documentation for
+[Python](/chainguard/libraries/python/build-configuration/),
+[JavaScript](/chainguard/libraries/javascript/build-configuration/), and
+[Java](/chainguard/libraries/java/build-configuration/). 
 
 ## Step 2: Create a pull token
 
@@ -84,11 +119,13 @@ chainctl auth pull-token --repository=java --parent=example.com --ttl=720h
 - The default TTL is `720h` (30 days); the maximum is `8760h` (365 days).
 
 The command returns a username and password for basic authentication. Store
-these securely, as they won't be shown again.
+these securely, as they won't be shown again. 
 
 You can also [create pull tokens via the Chainguard
 Console](/chainguard/libraries/access/#creating-pull-tokens-with-the-chainguard-console)
 under **Overview > Manage pull tokens > Create access token**. 
+
+Learn more about pull tokens, and using environment variables for pull token credentials, in the [Libraries Access documentation](/chainguard/libraries/access/).
 
 ## Step 3: Configure your build tools
 
@@ -146,6 +183,8 @@ Check out minimal example projects for
   and configure it as the first choice for package resolution, with npm as a
   fallback only where necessary. 
 * [Direct access](/chainguard/libraries/javascript/build-configuration/): Configure your `.npmrc` to use `https://libraries.cgr.dev/javascript/` as the registry. 
+
+<a id="upstream-note"></a>
 
 > **Note on upstream fallback for JavaScript**: The npm upstream fallback is
 > available as an opt-in setting for both repository manager or direct access
