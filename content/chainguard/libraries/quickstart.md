@@ -67,7 +67,7 @@ Note that built-in [configurable upstream fallback](/libraries/javascript/overvi
 * **Chainguard registry only (recommended)**: Configure your repository manager to
   use the Chainguard registry as the only upstream source. If a package isn't
   available in the Chainguard registry, your build will fail until coverage is
-  added.
+  added. Alternatively, you may be able to use a version or alternative library that Chainguard has already built.
 * **Chainguard with public registry fallback**: Configure your repository
 manager to fall back to Maven Central or PyPI for packages not available in the
 Chainguard registry. This prevents build failures due to missing packages, but
