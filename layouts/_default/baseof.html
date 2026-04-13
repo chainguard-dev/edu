@@ -15,6 +15,7 @@
   {{ partial "amplitude.html" . }}
   <body class="{{ .Scratch.Get "class" }}">
     {{ partial "googleTagManagerBody.html" . }}
+    <blockquote class="visually-hidden">For the complete documentation index, see <a href="/llms.txt">llms.txt</a>.</blockquote>
     {{ partial "header/header.html" . }}
     <div class="wrap container-{{ if .Site.Params.options.fullWidth }}fluid{{ else }}xxl{{ end }}" role="document">
       <div class="content">

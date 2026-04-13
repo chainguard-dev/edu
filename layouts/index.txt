@@ -20,6 +20,12 @@
 - [{{ .Title }}]({{ .Permalink | replaceRE "/$" ".md" }}){{ with .Description }}: {{ . }}{{ end }}
 {{ end }}
 
+## Compliance
+
+{{ range where .Site.RegularPages "Section" "compliance" -}}
+- [{{ .Title }}]({{ .Permalink | replaceRE "/$" ".md" }}){{ with .Description }}: {{ . }}{{ end }}
+{{ end }}
+
 ## API Reference
 
 - [Chainguard API (Combined)](https://edu.chainguard.dev/api.json): OpenAPI spec for all Chainguard API versions (JSON)
