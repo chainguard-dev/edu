@@ -437,7 +437,7 @@ chainctl iam ids rm --expired --parent=example
 
 ## Manage library entitlements
 
-You can create, list, and remove entitlements using [`chainctl libraries entitlements`](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlement/).
+You can create, list, and remove entitlements using [`chainctl libraries entitlements`](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements/).
 
 ### Create entitlements
 
