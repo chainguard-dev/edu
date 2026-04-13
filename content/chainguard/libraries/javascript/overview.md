@@ -158,8 +158,18 @@ Repository](/chainguard/chainguard-repository/overview/). By default, the endpoi
 only Chainguard-built packages. When fallback is enabled, upstream packages are
 subject to additional security controls before being served.
 
-To enable or change upstream fallback configuration, contact your Chainguard
-account team or Chainguard support.
+### Enable the upstream repository
+
+To enable or change upstream fallback configuration, use the [`chainctl
+libraries entitlements`
+command](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/).
+
+The following command creates or updates an entitlement to Chainguard Libraries
+for JavaScript and adds the npm upstream fallback policy:
+
+```bash
+chainctl libraries entitlements create --parent=example.com --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM
+```
 
 ### Fallback options
 The following options are available:
