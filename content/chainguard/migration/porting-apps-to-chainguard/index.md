@@ -21,7 +21,7 @@ toc: true
 ### Porting Key Points
 
 * Chainguard's distroless Containers have no shell or package manager by default. This is great for security, but sometimes you need these things, especially in builder images. For those cases we have `-dev` variants (such as `cgr.dev/chainguard/python:latest-dev`) which do include a shell and package manager.
-* Chainguard Containers typically don't run as root, so a `USER root` statement may be required before installing software.
+* Chainguard Containers typically don't run as root, so a `USER root` statement may be required before installing software. This should be a temporary escalation only; after completing any root-level operations, you should create and switch to a dedicated non-root user (for example, using `addgroup` and `adduser`) or use the image's built-in non-root user. Leaving the container running as root defeats the security purpose of using minimal images.
 * The `-dev` variants and `wolfi-base` / `chainguard-base` use BusyBox by default, so any `groupadd` or `useradd` commands will need to be ported to `addgroup` and `adduser`.
 * The [Free tier](/chainguard/chainguard-images/about/images-categories/#starter-containers) of Containers provides `:latest` and `:latest-dev` versions. Our paid Production Containers offer tags for major and minor versions.
 * We use apk tooling, so `apt install` commands will become `apk add`.
@@ -29,7 +29,7 @@ toc: true
 * In some cases, the entrypoint in Chainguard Containers can be different from equivalent container images based on other distros, which can lead to unexpected behavior. You should always check the image's specific documentation to understand how the entrypoint works.
 * When needed, Chainguard recommends using a Base Container like `chainguard-base` or a `-dev` variant to install an application's OS-level dependencies.
 * Although `-dev` variants are still more secure than most popular container images based on other distros, for increased security on production environments we recommend combining them with a distroless variant in a multi-stage build.
----
+
 
 ## The Sample Application
 
