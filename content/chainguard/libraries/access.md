@@ -437,23 +437,20 @@ chainctl iam ids rm --expired --parent=example
 
 ## Manage library entitlements
 
-You can create, list, and remove entitlements using [`chainctl libraries entitlements`](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlement/).
+You can create, list, and remove entitlements using [`chainctl libraries entitlements`](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements/).
 
 ### Create entitlements
 
 As administrator you can use [`chainctl libraries entitlements create`](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) for one or more ecosystems:
 
 ```shell
-chainctl libraries entitlements create --ecosystems=JAVASCRIPT,JAVA,PYTHON --parent=example.com
+chainctl libraries entitlements create --ecosystems=JAVASCRIPT,JAVA,PYTHON
 ```
-
-Use the `--parent` option to specify the organization, or omit it to select the organization
-interactively.
 
 To enable upstream fallback for JavaScript, use the `--policy` flag:
 
 ```bash
-chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM --parent=example.com
+chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM
 ```
 
 To update the policy on an existing entitlement, rerun the `create` command with the new `--policy` value.
@@ -464,7 +461,7 @@ To update the policy on an existing entitlement, rerun the `create` command with
 You can verify entitlements for your organization `example.com` to verify which ecosystems are enabled and what policies are configured:
 
 ```shell
-chainctl libraries entitlements list --parent=example.com
+chainctl libraries entitlements list
 ```
 
 The output includes the ecosystem and configured policy in the table:
