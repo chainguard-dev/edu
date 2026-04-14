@@ -34,6 +34,8 @@ There are a number of built-in roles in Chainguard's IAM model that customers ca
 
 `console_viewer` is a role that has read-only access and **cannot** pull images. It is designed for teams that need visibility into the Chainguard Console without any image pull access. A console viewer can browse the Console — viewing organizations, roles, and group information — but has no `registry.pull` or `apk.pull` permissions. This makes it a safe option for inviting developers, auditors, or stakeholders who need awareness of your organization's setup without the ability to pull images or APK packages.
 
+`limited_owner` is a special role designed for [Catalog Starter](/chainguard/chainguard-images/about/catalog-starter/) users, combining the capabilities of the `viewer` role with pull token creation permissions. It does not allow users to invite others to the organization or access paid features like Custom Assembly.
+
 The remaining roles are for more specialized functions. For example, `registry.pull`, `registry.push`, and `registry.pull_token_creator` relate to administering a registry of Chainguard products.
 
 The `owner`, `editor`, and `viewer` roles are useful for user profiles that require broad, but clearly defined capabilities. The registry, container, and library roles have limited permissions, allowing them to manage only one specific Chainguard resource. These specialized, resource-specific roles grant minimal required access.
