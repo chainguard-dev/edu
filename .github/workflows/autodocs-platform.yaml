@@ -22,7 +22,7 @@ jobs:
 
     steps:
     - name: 'Github Actions Runner'
-      uses: step-security/harden-runner@fe104658747b27e96e4f7e80cd0a94068e53901d # v2.16.1
+      uses: step-security/harden-runner@f808768d1510423e83855289c910610ca9b43176 # v2.17.0
       with:
         egress-policy: audit
 
@@ -30,7 +30,7 @@ jobs:
       uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
     - name: 'Setup gitsign'
-      uses: chainguard-dev/actions/setup-gitsign@f45211d3e8f9d2676c6b8cdd6a765435e06c819d # v1.6.13
+      uses: chainguard-dev/actions/setup-gitsign@de68b87302e6266db5fb5220246f8aa46fe94b67 # v1.6.14
 
     - name: Authenticate to Google Cloud
       id: auth
@@ -73,7 +73,7 @@ jobs:
         identity: edu
 
     - name: Create a PR
-      uses: peter-evans/create-pull-request@c0f553fe549906ede9cf27b5156039d195d2ece0 # v8.1.0
+      uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
       id: cpr
       with:
         token: ${{ steps.octo-sts.outputs.token }}
