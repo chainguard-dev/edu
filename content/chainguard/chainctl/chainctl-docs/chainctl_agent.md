@@ -1,5 +1,5 @@
 ---
-date: 2026-04-13T16:24:49Z
+date: 2026-04-14T15:07:40Z
 title: "chainctl agent"
 slug: chainctl_agent
 url: /chainguard/chainctl/chainctl-docs/chainctl_agent/
