@@ -894,6 +894,14 @@
             "description": "id, The group UIDP under which this group resides.",
             "type": "string"
           },
+          "kind": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.OrgKind"
+              }
+            ],
+            "description": "kind is the organization kind. For root groups this is their own kind;\nfor subgroups it is inherited from the root group."
+          },
           "name": {
             "description": "name, human readable name of group.",
             "type": "string"
@@ -1085,6 +1093,14 @@
           "description": {
             "description": "description, human readable of group.",
             "type": "string"
+          },
+          "kind": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.OrgKind"
+              }
+            ],
+            "description": "kind is the organization kind. For root groups this is their own kind;\nfor subgroups it is inherited from the root group."
           },
           "name": {
             "description": "name, human readable name of group.",
@@ -1409,6 +1425,18 @@
           }
         },
         "type": "object"
+      },
+      "chainguard.platform.iam.OrgKind": {
+        "default": "ORG_KIND_UNSPECIFIED",
+        "description": "OrgKind is the kind of organization the group belongs to.\n\n - ORG_KIND_STARTER: Free catalog starter organizations.\n - ORG_KIND_CUSTOMER: Paid customer organizations.\n - ORG_KIND_DEV: Personal developer organizations.\n - ORG_KIND_INFRA: Organizations that are used for infrastructure or automation.",
+        "enum": [
+          "ORG_KIND_UNSPECIFIED",
+          "ORG_KIND_STARTER",
+          "ORG_KIND_CUSTOMER",
+          "ORG_KIND_DEV",
+          "ORG_KIND_INFRA"
+        ],
+        "type": "string"
       },
       "chainguard.platform.iam.Role": {
         "properties": {
