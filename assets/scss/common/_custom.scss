@@ -249,7 +249,7 @@ h2[id^="chainctl"] {
     display: flex;
     align-items: center;
     gap: 12px;
-    color: inherit;
+    text-decoration: none;
 }
 
 .pills-icon {
@@ -257,8 +257,8 @@ h2[id^="chainctl"] {
     padding: 4px;
     width: 28px !important;
     height: 28px !important;
-    border: 2px solid var(--pills-icon);
-    border-radius: 99px;
+    border: 1px solid var(--pills-icon);
+    border-radius: 4px;
     cursor: pointer;
     // Be under search overlay
     z-index: -1;
@@ -1201,8 +1201,8 @@ header .search-container {
     color: var(--tooltip-container-color) !important;
     border: none;
     padding: 0 8px;
-    height: 44px;
-    width: 44px;
+    height: 36px;
+    width: 36px;
 }
 
 .tooltip-container:hover .tooltip {
@@ -1443,6 +1443,7 @@ header .search-container {
 .docs-content.docs-content a:not(.tag),
 .card-link.card-link.card-link.card-link {
     color: var(--article-link-color);
+    text-decoration: underline;
 }
 
 [data-dark-mode] .docs-content.docs-content {

@@ -115,7 +115,7 @@ Alternatively, you can use the token for direct access from a build tool as
 discussed in [Build
 configuration](/chainguard/libraries/java/build-configuration/).
 
-<a id="manual">
+<a id="manual"></a>
 
 ## Manual access
 
