@@ -1833,6 +1833,11 @@
       "chainguard.platform.libraries.Entitlement": {
         "description": "Entitlement maps an org to an library ecosystem they are entitled to pull.",
         "properties": {
+          "cooldownDays": {
+            "description": "cooldown_days is the number of days an upstream package version must have\nbeen published before it is served. 0 means use the system default (7 days).\nMust be between 3 and 3650 when set.",
+            "format": "int32",
+            "type": "integer"
+          },
           "ecosystem": {
             "allOf": [
               {
@@ -8568,6 +8573,15 @@
                 "SOURCE_SFDC"
               ],
               "type": "string"
+            }
+          },
+          {
+            "description": "cooldown_days is the number of days an upstream package version must have\nbeen published before it is served. 0 means use the system default (7 days).\nMust be between 3 and 3650 when set.",
+            "in": "query",
+            "name": "cooldownDays",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
             }
           }
         ],
