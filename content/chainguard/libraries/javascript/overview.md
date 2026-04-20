@@ -168,7 +168,7 @@ The following command creates or updates an entitlement to Chainguard Libraries
 for JavaScript and adds the npm upstream fallback policy:
 
 ```bash
-chainctl libraries entitlements create --parent=example.com --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM
+chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM
 ```
 
 ### Fallback options
