@@ -894,6 +894,14 @@
             "description": "id, The group UIDP under which this group resides.",
             "type": "string"
           },
+          "kind": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.OrgKind"
+              }
+            ],
+            "description": "kind is the organization kind. For root groups this is their own kind;\nfor subgroups it is inherited from the root group."
+          },
           "name": {
             "description": "name, human readable name of group.",
             "type": "string"
@@ -1085,6 +1093,14 @@
           "description": {
             "description": "description, human readable of group.",
             "type": "string"
+          },
+          "kind": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.OrgKind"
+              }
+            ],
+            "description": "kind is the organization kind. For root groups this is their own kind;\nfor subgroups it is inherited from the root group."
           },
           "name": {
             "description": "name, human readable name of group.",
@@ -1409,6 +1425,18 @@
           }
         },
         "type": "object"
+      },
+      "chainguard.platform.iam.OrgKind": {
+        "default": "ORG_KIND_UNSPECIFIED",
+        "description": "OrgKind is the kind of organization the group belongs to.\n\n - ORG_KIND_STARTER: Free catalog starter organizations.\n - ORG_KIND_CUSTOMER: Paid customer organizations.\n - ORG_KIND_DEV: Personal developer organizations.\n - ORG_KIND_INFRA: Organizations that are used for infrastructure or automation.",
+        "enum": [
+          "ORG_KIND_UNSPECIFIED",
+          "ORG_KIND_STARTER",
+          "ORG_KIND_CUSTOMER",
+          "ORG_KIND_DEV",
+          "ORG_KIND_INFRA"
+        ],
+        "type": "string"
       },
       "chainguard.platform.iam.Role": {
         "properties": {
@@ -1805,6 +1833,11 @@
       "chainguard.platform.libraries.Entitlement": {
         "description": "Entitlement maps an org to an library ecosystem they are entitled to pull.",
         "properties": {
+          "cooldownDays": {
+            "description": "cooldown_days is the number of days an upstream package version must have\nbeen published before it is served. 0 means use the system default (7 days).\nMust be between 3 and 3650 when set.",
+            "format": "int32",
+            "type": "integer"
+          },
           "ecosystem": {
             "allOf": [
               {
@@ -8540,6 +8573,15 @@
                 "SOURCE_SFDC"
               ],
               "type": "string"
+            }
+          },
+          {
+            "description": "cooldown_days is the number of days an upstream package version must have\nbeen published before it is served. 0 means use the system default (7 days).\nMust be between 3 and 3650 when set.",
+            "in": "query",
+            "name": "cooldownDays",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
             }
           }
         ],

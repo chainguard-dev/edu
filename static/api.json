@@ -3,7 +3,7 @@
     "schemas": {
       "chainguard.capabilities.Capability": {
         "default": "UNKNOWN",
-        "description": "Capability is an enumeration of the Chainguard IAM capabilities.\n\n - CAP_TENANT_VULN_REPORTS_LIST: TODO(colin): deprecate this cap once the legacy endpoint is removed\n - CAP_REPO_BLOBS_GET: repo.blobs.get is a capability required to pull container images.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with images vs pulling the image itself.\n - CAP_APK_BLOBS_GET: apk.blobs.get is a capability required to pull APKs.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with APKs vs pulling the APK itself.\n - CAP_BUILD_REPORT_LIST: Custom Image Build\n - CAP_LIBRARIES_ENTITLEMENTS_CREATE: Global libraries capabilities\n - CAP_LIBRARIES_PYTHON_LIST: Ecosystems specific capabilities\n - CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE: Rebuilder API capabilities\n - CAP_REGISTRY_ENTITLEMENTS_LIST: Registry Entitlements\n - CAP_REGISTRY_SETTINGS_LIST: Registry Settings\n - CAP_REGISTRY_DEPLOYMENTS_CREATE: Registry Deployments\n - CAP_POLICY_GATES_POLICY_CREATE: Policy Gates\n - CAP_TERMS_ACCEPT: Terms\n - CAP_GULFSTREAM: This is orthogonal enough that we should leave\nit somewhat separate, so add new capabilities above.\nTODO(mattmoor): Think about whether we can encode specific\ncontroller capabilities into our access control here?\ne.g. could each logical controller/webhook be its own\ncapability?\n - CAP_GUARDENER_DFC_CONVERT: Guardener",
+        "description": "Capability is an enumeration of the Chainguard IAM capabilities.\n\n - CAP_TENANT_VULN_REPORTS_LIST: TODO(colin): deprecate this cap once the legacy endpoint is removed\n - CAP_REPO_BLOBS_GET: repo.blobs.get is a capability required to pull container images.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with images vs pulling the image itself.\n - CAP_APK_BLOBS_GET: apk.blobs.get is a capability required to pull APKs.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with APKs vs pulling the APK itself.\n - CAP_BUILD_REPORT_LIST: Custom Image Build\n - CAP_LIBRARIES_ENTITLEMENTS_CREATE: Global libraries capabilities\n - CAP_LIBRARIES_PYTHON_LIST: Ecosystems specific capabilities\n - CAP_LIBRARIES_CACHE_INVALIDATE: Cache invalidation capability for the libraries cache (covers all ecosystems).\nGranted to org owners and account admins; not to regular developer members.\n - CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE: Rebuilder API capabilities\n - CAP_REGISTRY_ENTITLEMENTS_LIST: Registry Entitlements\n - CAP_REGISTRY_SETTINGS_LIST: Registry Settings\n - CAP_REGISTRY_DEPLOYMENTS_CREATE: Registry Deployments\n - CAP_POLICY_GATES_POLICY_CREATE: Policy Gates\n - CAP_TERMS_ACCEPT: Terms\n - CAP_GULFSTREAM: This is orthogonal enough that we should leave\nit somewhat separate, so add new capabilities above.\nTODO(mattmoor): Think about whether we can encode specific\ncontroller capabilities into our access control here?\ne.g. could each logical controller/webhook be its own\ncapability?\n - CAP_GUARDENER_DFC_CONVERT: Guardener\n - CAP_MCP_TOOL_CALL: MCP tool calls",
         "enum": [
           "UNKNOWN",
           "CAP_INTERNAL",
@@ -93,6 +93,7 @@
           "CAP_LIBRARIES_JAVA_CREATE",
           "CAP_LIBRARIES_JAVASCRIPT_LIST",
           "CAP_LIBRARIES_JAVASCRIPT_CREATE",
+          "CAP_LIBRARIES_CACHE_INVALIDATE",
           "CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE",
           "CAP_LIBRARIES_REBUILDER_REQUESTS_LIST",
           "CAP_LIBRARIES_REBUILDER_REQUESTS_CANCEL",
@@ -130,7 +131,8 @@
           "CAP_TERMS_ACCEPT",
           "CAP_TERMS_LIST",
           "CAP_GULFSTREAM",
-          "CAP_GUARDENER_DFC_CONVERT"
+          "CAP_GUARDENER_DFC_CONVERT",
+          "CAP_MCP_TOOL_CALL"
         ],
         "type": "string"
       },
@@ -1027,6 +1029,14 @@
             "description": "id, The group UIDP under which this group resides.",
             "type": "string"
           },
+          "kind": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.OrgKind"
+              }
+            ],
+            "description": "kind is the organization kind. For root groups this is their own kind;\nfor subgroups it is inherited from the root group."
+          },
           "name": {
             "description": "name, human readable name of group.",
             "type": "string"
@@ -1218,6 +1228,14 @@
           "description": {
             "description": "description, human readable of group.",
             "type": "string"
+          },
+          "kind": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.OrgKind"
+              }
+            ],
+            "description": "kind is the organization kind. For root groups this is their own kind;\nfor subgroups it is inherited from the root group."
           },
           "name": {
             "description": "name, human readable name of group.",
@@ -1542,6 +1560,18 @@
           }
         },
         "type": "object"
+      },
+      "chainguard.platform.iam.OrgKind": {
+        "default": "ORG_KIND_UNSPECIFIED",
+        "description": "OrgKind is the kind of organization the group belongs to.\n\n - ORG_KIND_STARTER: Free catalog starter organizations.\n - ORG_KIND_CUSTOMER: Paid customer organizations.\n - ORG_KIND_DEV: Personal developer organizations.\n - ORG_KIND_INFRA: Organizations that are used for infrastructure or automation.",
+        "enum": [
+          "ORG_KIND_UNSPECIFIED",
+          "ORG_KIND_STARTER",
+          "ORG_KIND_CUSTOMER",
+          "ORG_KIND_DEV",
+          "ORG_KIND_INFRA"
+        ],
+        "type": "string"
       },
       "chainguard.platform.iam.Role": {
         "properties": {
@@ -2003,6 +2033,14 @@
           "description": {
             "description": "Optional description of the group's purpose.",
             "type": "string"
+          },
+          "kind": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.OrgKind"
+              }
+            ],
+            "description": "The organization kind. Required when creating a verified root group.\nFor subgroups, kind is inherited from the root group and cannot be set."
           },
           "name": {
             "description": "Human-readable name of the group.\nMust be 3-63 characters.",
@@ -2551,6 +2589,18 @@
         },
         "type": "object"
       },
+      "chainguard.platform.iam.v2beta1.OrgKind": {
+        "default": "ORG_KIND_UNSPECIFIED",
+        "description": "OrgKind is the kind of organization the group belongs to.\n\n - ORG_KIND_UNSPECIFIED: Organization kind is not yet set.\n - ORG_KIND_STARTER: Free catalog starter organizations.\n - ORG_KIND_CUSTOMER: Paid customer organizations.\n - ORG_KIND_DEV: Personal developer organizations.\n - ORG_KIND_INFRA: Organizations that are used for infrastructure or automation.",
+        "enum": [
+          "ORG_KIND_UNSPECIFIED",
+          "ORG_KIND_STARTER",
+          "ORG_KIND_CUSTOMER",
+          "ORG_KIND_DEV",
+          "ORG_KIND_INFRA"
+        ],
+        "type": "string"
+      },
       "chainguard.platform.iam.v2beta1.Role": {
         "description": "Role represents an IAM role with a set of capabilities.",
         "properties": {
@@ -2872,6 +2922,11 @@
       "chainguard.platform.libraries.Entitlement": {
         "description": "Entitlement maps an org to an library ecosystem they are entitled to pull.",
         "properties": {
+          "cooldownDays": {
+            "description": "cooldown_days is the number of days an upstream package version must have\nbeen published before it is served. 0 means use the system default (7 days).\nMust be between 3 and 3650 when set.",
+            "format": "int32",
+            "type": "integer"
+          },
           "ecosystem": {
             "allOf": [
               {
@@ -10868,6 +10923,14 @@
                     "description": "Optional description of the group's purpose.",
                     "type": "string"
                   },
+                  "kind": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.OrgKind"
+                      }
+                    ],
+                    "description": "The organization kind. Required when creating a verified root group.\nFor subgroups, kind is inherited from the root group and cannot be set."
+                  },
                   "name": {
                     "description": "Human-readable name of the group.\nMust be 3-63 characters.",
                     "type": "string"
@@ -12952,6 +13015,15 @@
                 "SOURCE_SFDC"
               ],
               "type": "string"
+            }
+          },
+          {
+            "description": "cooldown_days is the number of days an upstream package version must have\nbeen published before it is served. 0 means use the system default (7 days).\nMust be between 3 and 3650 when set.",
+            "in": "query",
+            "name": "cooldownDays",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
             }
           }
         ],

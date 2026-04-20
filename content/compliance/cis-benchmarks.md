@@ -60,6 +60,19 @@ The Benchmark will then go into individual recommendations relating to the tool 
 Regarding this last bullet, [CIS Controls](https://www.cisecurity.org/controls) are more high-level recommendations than Benchmarks. CIS Benchmarks are best practices for specific tools, while CIS Controls are more simplified general recommendations that can be applied to a variety of technologies.
 
 
+## Chainguard Containers and the CIS Docker Benchmark
+
+Section 4 of the CIS Docker Benchmark — **"Container Images and Build File Configuration"** — is the section most relevant to Chainguard Containers. Chainguard container images are generally conformant with Section 4, with a few caveats:
+
+- **Benchmark 4.5 (Content Trust)**: Chainguard does not use [Docker Content Trust](https://docs.docker.com/engine/security/trust/). Instead, all images are signed with [Cosign](https://docs.sigstore.dev/cosign/signing/overview/), which is more robust and accomplishes the same security objective. Because the benchmark prescribes Docker Content Trust specifically, whether Cosign satisfies this requirement in a formal audit is at the auditor's discretion.
+- **Benchmark 4.6 (HEALTHCHECK)**: Chainguard images do not include [Docker `HEALTHCHECK`](https://docs.docker.com/reference/dockerfile/#healthcheck) instructions. Docker health checks are not compatible with Kubernetes, where health checking is handled at the orchestration layer. Chainguard Containers do not meet this benchmark.
+- **Build-time recommendations (e.g., 4.9)**: Some benchmarks apply to how images are built rather than to the base image itself. Chainguard base images follow these recommendations internally, but compliance of any downstream image depends on the practices you follow when extending them.
+
+For all other Section 4 benchmarks, the security properties they describe (minimal footprint, non-root execution, trusted base images, and reduced attack surface) are core to what Chainguard Containers provide.
+
+If you have specific compliance questions or need documentation for an audit, [contact Chainguard](https://www.chainguard.dev/contact).
+
+
 ## Learn more
 
 By implementing CIS benchmarks, organizations not only improve their security against evolving cyber threats but also align with regulatory standards, ensuring compliance and minimizing risks. To explore the full range of benchmarks and start implementing these best practices, visit the [CIS website](https://www.cisecurity.org/cis-benchmarks) today.
