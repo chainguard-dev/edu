@@ -24,22 +24,31 @@ and development tools to retrieve the required libraries.
 
 If your organization uses the [upstream fallback](/chainguard/libraries/javascript/overview/#upstream-fallback-policy-and-controls)
 feature of Chainguard Repository, you can configure your repository manager
-with a single upstream pointed at `https://libraries.cgr.dev/javascript/`. The
-Chainguard Repository handles fallback and policy; your repository manager
-handles local caching and access control.
+with a single upstream pointed at `https://libraries.cgr.dev/javascript/`. This
+is the recommended setup. The Chainguard Repository handles fallback and policy
+enforcement; your repository manager handles local caching and access control.
+Chainguard will also retrieve packages from the public npm registry on your
+behalf when upstream fallback is enabled. This includes protections such as
+malware scanning and a configurable cooldown period for newly published
+packages.
 
 At a high level, adopting the use of Chainguard Libraries consists of the following steps:
 
-* Add `https://libraries.cgr.dev/javascript/` as a remote repository in your repository manager.
-* Configure it as the single upstream source for JavaScript package retrieval.
-* Additional steps depend on the desired insights and can include the following optional measures:
-    * Remove all cached libraries in the proxy repository of the npm Registry. This
-  step allows you to validate which libraries are not available from Chainguard
-  Libraries and proceed with potential next steps with Chainguard and your own
-  development efforts. 
-    * Remove any repositories that are no longer desired or necessary. Depending on
-  your library requirements this step can result in removal of some proxy
-  repositories or even removal of all proxy repositories. 
+* Configure your environment to use `https://libraries.cgr.dev/javascript/`
+  as the single upstream source for JavaScript package retrieval. This can be done
+  either:
+    * As a remote repository in your repository manager, or
+    * Directly in your JavaScript build configuration (for example, npm,
+      pnpm, or yarn).
+* Additional steps depend on your visibility and validation goals and can include the following optional measures:
+    * Remove all cached libraries in existing proxy repositories. This step
+      allows you to validate which libraries are not available from
+      Chainguard Libraries and ensures they are retrieved through
+      Chainguard for evaluation.
+    * Remove any repositories that are no longer desired or necessary.
+      Depending on your library requirements, this step can result in
+      removal of some proxy repositories or simplification of your
+      repository configuration.
 
 Adopting the use of a repository manager is the recommended approach to minimize complexity. If your organization does not use a repository manager, refer to the [direct access documentation](/chainguard/libraries/javascript/build-configuration/) for build tools.
 
@@ -47,14 +56,13 @@ Adopting the use of a repository manager is the recommended approach to minimize
 If upstream fallback is not enabled, or you prefer to manage your own fallback
 ordering, configure `https://libraries.cgr.dev/javascript/` as a remote repository
 alongside your npm upstream, and combine them in a virtual or group repository
-with Chainguard as the first priority. The per-tool instructions on this page follow
-this pattern.
+with Chainguard as the first priority. 
 
 <a name="cloudsmith"></a>
 
 ## Cloudsmith
 
-[Cloudsmith](https://cloudsmith.com/) supports npm registries repositories for
+[Cloudsmith](https://cloudsmith.com/) supports npm registries for
 proxying and hosting. Refer to the [npm registry
 documentation](https://help.cloudsmith.io/docs/npm-registry) and the [npm
 Upstream
@@ -64,10 +72,12 @@ by defining multiple upstream repositories.
 
 ### Initial configuration
 
-Use the following steps to add a repository with the npm registry and the
-Chainguard Libraries for JavaScript repository as npm upstream repositories.
+Use the following steps to configure a repository with the Chainguard Libraries for 
+JavaScript repository as an upstream.
 
-Configure a *javascript-all* repository:
+Configure a *javascript-all* repository. This repository acts as a single access point 
+for JavaScript packages and may also include private packages or additional upstream 
+sources, depending on your configuration.
 
 1. Log in as a user with administrator privileges.
 1. Select the **Repositories** tab near the top of the screen.
@@ -79,23 +89,10 @@ Configure a *javascript-all* repository:
    infrastructure.
 1. Click **+ Create Repository**.
 
-Configure an upstream proxy for the npm registry:
-
-1. Click the name of the new *javascript-all* repository on the repositories
-   page to configure it.
-1. Access the **Upstreams** tab and click **+ Add Upstream Proxy**.
-1. Configure an upstream proxy with the format **npm** and the following details:
-1. Configure another upstream proxy with the following details
-    * **Name** *javascript-public*
-    * **Priority** *2*
-    * **Upstream URL** `https://registry.npmjs.org/`
-    * **Mode** *Cache and Proxy*
-1. Click **Create Upstream Proxy**.
-
 Configure an upstream proxy for the Chainguard Libraries for JavaScript
 repository:
 
-1. Click the name of the new *javascript-chainguard* repository on the
+1. Click the name of the new *javascript-all* repository on the
    repositories page to configure it.
 1. Access the **Upstreams** tab and click **+ Add Upstream Proxy**.
 1. Configure an upstream proxy with the format **npm** and the following details:
@@ -107,9 +104,14 @@ repository:
       access](/chainguard/libraries/access/) in **Authentication Settings**
 1. Click **Create Upstream Proxy**.
 
+If you are manually managing fallback, you can add an additional upstream
+proxy for the public npm registry with a lower priority than
+`javascript-chainguard`.
+
 Use this setup for initial testing with Chainguard Libraries for JavaScript. For
 production usage, add the `javascript-chainguard` upstream proxy to your production
 repository.
+
 
 ### Build tool access
 
@@ -154,21 +156,12 @@ for more information.
 
 ### Initial configuration
 
-Use the following steps to add the npm Registry and the Chainguard Libraries for
-JavaScript repository as remote repositories and combine them as a virtual
-repository:
+Use the following steps to add Chainguard Libraries for
+JavaScript as a remote repository:
 
 1. Log in as a user with administrator privileges.
 1. Click **Administration** in the top navigation bar.
 1. Select **Repositories** in the left hand navigation.
-
-Configure a remote repository for the npm Registry:
-
-1. Click **Create a Repository** and choose the **Remote** option.
-1. Select **Npm** as the **Package type**.
-1. Set the **Repository Key** to *javascript-public*.
-1. Set the **URL** to `https://registry.npmjs.org`.
-1. Click **Create Remote Repository**.
 
 Configure a remote repository for the Chainguard Libraries for JavaScript
 repository:
@@ -181,17 +174,18 @@ repository:
    with chainctl](/chainguard/libraries/access/).
 1. Click **Create Remote Repository**.
 
-Combine the two repositories in a new virtual repository:
+Create a virtual repository, or add the remote repository to an existing
+virtual repository used for npm packages. A virtual repository may also include private npm packages or 
+additional upstream sources, depending on your configuration.
 
-1. Click **Create a Repository** and choose the **Virtual** option.
-1. Select **Npm** as the **Package type**.
-1. Set the **Repository Key** to *javascript-all*.
-1. Scroll down to the **Repositories** section.
-1. Add the *javascript-chainguard* and *javascript-public* repositories. Ensure
-   the *javascript-chainguard* repository is the first in the displayed list.
-   Use the icon on the right of the repository name to drag and drop
-   repositories into the desired position.
+1. Click **Create a Repository** → **Virtual**.
+1. Select **Npm**.
+1. Set key to *javascript-all*.
+1. Add `javascript-chainguard`.
 1. Click **Create Virtual Repository**.
+
+If you are manually managing fallback, you can configure an additional npm
+remote repository with lower priority.
 
 Use this setup for initial testing with Chainguard Libraries for JavaScript. For
 production usage add the `javascript-chainguard` repository to your production
@@ -250,30 +244,19 @@ all libraries retrieved from Chainguard.
 [Sonatype Nexus
 Repository](https://www.sonatype.com/products/sonatype-nexus-repository) allows
 for merging multiple remote repositories as a repository group. The below
-instructions for  are based on the [Nexus documentation for
+instructions are based on the [Nexus documentation for
 npm](https://help.sonatype.com/en/npm-registry.html).
 
 ### Initial configuration
 
-For initial testing and adoption it is advised to create a separate proxy
-repository for the npm registry, a separate proxy repository Chainguard
-Libraries for JavaScript repository, and a separate repository group:
+For initial testing and adoption it is advised to create a separate proxy repository 
+for the Chainguard Libraries for JavaScript repository, and include it in a repository group:
 
 1. Log in as a user with administrator privileges.
 1. Access the **Server administration** and configuration section with the gear
    icon in the top navigation bar.
 
-Configure a remote repository for the npm Registry:
-
-1. Select **Repository - Repositories** in the left hand navigation.
-1. Click **Create repository**.
-1. Select the **npm (proxy)** recipe.
-1. Provide a new name *javascript-public*.
-1. In the **Proxy - Remote storage** input add the URL
-   `https://registry.npmjs.org/`.
-1. Click **Create repository**.
-
-Configure a remote repository for the Chainguard Libraries for JavaScript
+Configure a proxy repository for the Chainguard Libraries for JavaScript
 repository:
 
 1. Select **Repository - Repositories** in the left hand navigation.
@@ -287,16 +270,23 @@ repository:
    chainctl](/chainguard/libraries/access/).
 1. Click **Create repository**. 
 
-Combine a new repository group and add the two repositories:
+Create a repository group, or add to an existing repository group:
 
 1. Select **Repository - Repositories** in the left hand navigation.
 1. Click **Create repository**.
 1. Select the **npm (group)** recipe.
 1. Provide a new name *javascript-all*.
-1. In the section **Group - Member repositories**, move the new repositories
-   `javascript-public` and `javascript-chainguard` to the right and move the
-   `javascript-chainguard` repository to the top of the list with the arrow
-   control.
+1. In the section **Group - Member repositories**, move the new repository
+   `javascript-chainguard` to the right to include it in the group. Position 
+   `javascript-chainguard` at the top of the list using the arrow controls.
+
+Repository groups can include multiple repositories, such as hosted
+repositories for private packages or additional proxy repositories. In a
+typical configuration, the Chainguard repository is placed first to ensure
+packages are retrieved through Chainguard when available.
+
+If you are manually managing fallback, you can configure an additional npm
+proxy repository and add it to the group after *javascript-chainguard*.
 
 ### Build tool access
 
