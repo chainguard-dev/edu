@@ -53,7 +53,7 @@ information.
 ### Considerations for fallback approach
 
 Before configuring your repo manager, consider how you want to handle packages that aren't
-yet available in the Chainguard libraries repository. If you configure a fallback to PyPI, packages sourced from that registry are not covered by Chainguard's
+yet available in the Chainguard Libraries repository. If you configure a fallback to PyPI, packages sourced from that registry are not covered by Chainguard's
 malware-resistance guarantees. See the [fallback approaches](/chainguard/libraries/quickstart/#artifact-manager-recommended) described in the Chainguard Libraries quick start for guidance on choosing the right approach for your environment.
 
 <a id="cloudsmith"></a>

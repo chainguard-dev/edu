@@ -21,7 +21,7 @@ this pattern.
 
 Chainguard Libraries are rebuilt from verified source in an isolated build
 environment, making them malware-resistant by design. If the source can't be
-verified, the package doesn't appear in the Chainguard libraries repository. They are
+verified, the package doesn't appear in the Chainguard Libraries repository. They are
 drop-in replacements for the Python, Java, and JavaScript packages your
 engineers already use, with no breaking changes.
 
@@ -60,17 +60,17 @@ There are two ways to access Chainguard Libraries: using an [artifact manager](#
 
 Configure credentials once in a tool like JFrog Artifactory, Sonatype Nexus, or Cloudsmith. This centralizes policy, logging, and fallback behavior, and is the safest approach for organizations with multiple teams and applications.
 
-Note that built-in [configurable upstream fallback](/libraries/javascript/overview/#upstream-fallback-policy-and-controls) is available for Chainguard Libraries for JavaScript via the Chainguard Repository, but not yet available for Chainguard Libraries for Python or Java. Before configuring your repository manager, consider how you want to handle packages that aren't available in the Chainguard libraries repository:
+Note that built-in [configurable upstream fallback](/libraries/javascript/overview/#upstream-fallback-policy-and-controls) is available for Chainguard Libraries for JavaScript via the Chainguard Repository, but not yet available for Chainguard Libraries for Python or Java. Before configuring your repository manager, consider how you want to handle packages that aren't available in the Chainguard Libraries repository:
 
 **Python and Java fallback approach**
 
 * **Chainguard only (recommended)**: Configure your repository manager to
-  use the Chainguard libraries repository as the only upstream source. If a package isn't
+  use the Chainguard Libraries repository as the only upstream source. If a package isn't
   available in the Chainguard repository, your build will fail until coverage is
   added. Alternatively, you may be able to use a version or alternative library that Chainguard has already built.
 * **Chainguard with public registry fallback**: Configure your repository
 manager to fall back to Maven Central or PyPI for packages not available in the
-Chainguard libraries repository. This prevents build failures due to missing packages, but
+Chainguard Libraries repository. This prevents build failures due to missing packages, but
 packages sourced from public registries are **not** covered by Chainguard's
 malware-resistance guarantees. If you choose this option, we strongly recommend
 configuring a quarantine or cooldown period on your fallback repository so that
