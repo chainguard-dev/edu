@@ -46,7 +46,7 @@ optional measures:
 
 Adopting the use of a repository manager is the recommended approach, however if
 your organization does not use a repository manager, you can still use
-Chainguard Libraries. All access to the Chainguard libraries repository is then
+Chainguard Libraries. All access to the Chainguard Libraries repository is then
 distributed across all your build platforms and therefore more complex to
 configure and control. Refer to the [direct access documentation for build
 tools](/chainguard/libraries/java/build-configuration/#direct-access) for more
@@ -55,7 +55,7 @@ information.
 ### Considerations for fallback approach
 
 Before configuring your repo manager, consider how you want to handle packages that aren't
-yet available in the Chainguard registry. If you configure a fallback to Maven Central, packages sourced from that registry are not covered by Chainguard's
+yet available in the Chainguard Libraries repository. If you configure a fallback to Maven Central, packages sourced from that registry are not covered by Chainguard's
 malware-resistance guarantees. See the [fallback approaches](/chainguard/libraries/quickstart/#artifact-manager-recommended) described in the Chainguard Libraries quick start for guidance on choosing the right approach for your environment.
 
 <a name="cloudsmith"></a>
