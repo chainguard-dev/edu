@@ -37,11 +37,12 @@ jobs:
     
     steps:
     - name: Harden Runner
-      uses: step-security/harden-runner@fe104658747b27e96e4f7e80cd0a94068e53901d # v2.16.1
+      uses: step-security/harden-runner@f808768d1510423e83855289c910610ca9b43176 # v2.17.0
       with:
         egress-policy: block
         allowed-endpoints: >
           api.github.com:443
+          *.pkg.dev:443
           *.r2.cloudflarestorage.com:443
           apk.cgr.dev:443
           cgr.dev:443
@@ -55,8 +56,10 @@ jobs:
           objects.githubusercontent.com:443
           pypi.org:443
           raw.githubusercontent.com:443
+          release-assets.githubusercontent.com:443
           rekor.sigstore.dev:443
           run.googleapis.com:443
+          us-central1-run.googleapis.com:443
           sts.googleapis.com:443
           storage.googleapis.com:443
           timestamp.sigstore.dev:443
@@ -221,7 +224,7 @@ jobs:
 
     - name: Login to GHCR
       if: github.ref == 'refs/heads/main'
-      uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9 # v3.7.0
+      uses: docker/login-action@4907a6ddec9925e35a0a9e82d7399ccc52663121 # v4.1.0
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
@@ -258,16 +261,39 @@ jobs:
         # Sign container image by immutable digest
         cosign sign --yes "ghcr.io/$REPO_OWNER/ai-docs@$DIGEST"
 
+    - name: Push container image to Artifact Registry
+      if: github.ref == 'refs/heads/main'
+      env:
+        REGISTRY_URL: ${{ secrets.REGISTRY_URL }}
+        PROJECT_ID: ${{ secrets.PROJECT_ID }}
+        REPOSITORY: ${{ secrets.REPOSITORY }}
+        COMMIT_SHA: ${{ github.sha }}
+      run: |
+        gcloud auth configure-docker "${REGISTRY_URL%%/*}" --quiet
+        AR_IMAGE="$REGISTRY_URL/$PROJECT_ID/$REPOSITORY/ai-docs"
+        docker tag "ghcr.io/${{ github.repository_owner }}/ai-docs:$COMMIT_SHA" "$AR_IMAGE:$COMMIT_SHA"
+        docker push "$AR_IMAGE:$COMMIT_SHA" || { echo "ERROR: Failed to push to Artifact Registry"; exit 1; }
+
     - name: Deploy MCP server to Cloud Run
       if: github.ref == 'refs/heads/main'
       env:
-        REPO_OWNER: ${{ github.repository_owner }}
+        REGISTRY_URL: ${{ secrets.REGISTRY_URL }}
+        PROJECT_ID: ${{ secrets.PROJECT_ID }}
+        REPOSITORY: ${{ secrets.REPOSITORY }}
         COMMIT_SHA: ${{ github.sha }}
       run: |
         gcloud run services update mcp-server \
-          --image "ghcr.io/$REPO_OWNER/ai-docs:$COMMIT_SHA" \
+          --image "$REGISTRY_URL/$PROJECT_ID/$REPOSITORY/ai-docs:$COMMIT_SHA" \
+          --command "/usr/local/bin/serve-mcp-http" \
           --region us-central1 \
-          --project chainguard-academy
+          --project "$PROJECT_ID"
+
+        # Allow unauthenticated access (CI terraform SA lacks setIamPolicy)
+        gcloud run services add-iam-policy-binding mcp-server \
+          --region us-central1 \
+          --member "allUsers" \
+          --role "roles/run.invoker" \
+          --project "$PROJECT_ID" || true
 
     - name: Upload bundle back to GCS for distribution
       env:

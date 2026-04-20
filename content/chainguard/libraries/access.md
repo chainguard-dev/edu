@@ -435,47 +435,55 @@ chainctl iam ids rm --expired --parent=example
 
 <a id="entitlement"></a>
 
-## Verify entitlement
+## Manage library entitlements
 
-You can verify entitlements for your organization `example` with the following
-command:
+You can create, list, and remove entitlements using [`chainctl libraries entitlements`](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements/).
+
+### Create entitlements
+
+As administrator you can use [`chainctl libraries entitlements create`](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) for one or more ecosystems:
+
+```shell
+chainctl libraries entitlements create --ecosystems=JAVASCRIPT,JAVA,PYTHON --parent=example
+```
+
+Use the `--parent` option to specify the organization, or omit it to select the organization
+when running the command.
+
+To enable upstream fallback for JavaScript, use the `--policy` flag:
+
+```bash
+chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM --parent=example
+```
+
+To update the policy on an existing entitlement, rerun the `create` command with the new `--policy` value.
+
+
+### List entitlements
+
+You can verify entitlements for your organization `example` to verify which ecosystems are enabled and what policies are configured:
 
 ```shell
 chainctl libraries entitlements list --parent=example
 ```
 
-The output must include the desired ecosystem in the table:
+The output includes the ecosystem and configured policy in the table:
 
 ```output
-Ecosystem Library Entitlements for example (45a0...764595)
+Ecosystem Library Entitlements for example (45a0...p7q)
 
-                             ID                             | ECOSYSTEM
-------------------------------------------------------------+------------
-  45a...................................................2cf | JAVASCRIPT
-  45a....................................................e1 | JAVA
-  45a....................................................x6 | PYTHON
+                            ID                             | ECOSYSTEM  |             POLICY
+-----------------------------------------------------------|------------|--------------------------------
+ 45a0c61a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q/12345abc67890 | JAVASCRIPT | POLICY_CHAINGUARD_AND_UPSTREAM
+ 45a0c61a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q/45678abc67890 | JAVA       | POLICY_CHAINGUARD
+ 45a0c61a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q/56789abc67890 | PYTHON     | POLICY_CHAINGUARD
 ```
 
-Contact your Chainguard account owner for confirmation or adjustments if
-necessary.
+### Remove entitlements
 
-<!-- Removed for now until we decide where this info should live. It is only accessible
-for administrators (so Chainguard internal), but they might also be an audience to
-read the docs - so TBD
-
-As administrator you can create entitlements:
+You can delete an ecosystem library entitlement for a specific ecosystem from your organization with [`chainctl libraries entitlements delete`](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/): 
 
 ```shell
-chainctl libraries entitlements create --ecosystems=java,python --parent=example
+chainctl libraries entitlements delete --ecosystem=JAVASCRIPT --parent=example
 ```
 
-Use the` --parent` option to specify the organization or select the organization
-when running the command.
-
-With the ID from listing the entitlements detailed in the preceding section, you
-can also remove a Chainguard Libraries entitlement:
-
-```shell
-chainctl libraries entitlements rm ENTITLEMENT_ID
-```
--->

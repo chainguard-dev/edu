@@ -75,7 +75,8 @@ resource "google_cloud_run_v2_service" "mcp-server" {
   location = each.key
   ingress  = "INGRESS_TRAFFIC_ALL"
 
-  launch_stage = "BETA"
+  launch_stage          = "BETA"
+  deletion_protection   = false
 
   template {
     vpc_access {
@@ -89,8 +90,7 @@ resource "google_cloud_run_v2_service" "mcp-server" {
     service_account = google_service_account.chainguard-academy.email
 
     containers {
-      image   = var.mcp_image
-      command = ["/usr/local/bin/serve-mcp-http"]
+      image = var.mcp_image
 
       ports {
         container_port = 8080
@@ -113,19 +113,11 @@ resource "google_cloud_run_v2_service" "mcp-server" {
   lifecycle {
     ignore_changes = [
       template[0].containers[0].image,
+      template[0].containers[0].command,
     ]
   }
 }
 
-resource "google_cloud_run_v2_service_iam_member" "mcp-server-is-unauthenticated" {
-  for_each = google_cloud_run_v2_service.mcp-server
-
-  project  = var.project_id
-  location = each.key
-  name     = each.value.name
-  role     = "roles/run.invoker"
-  member   = "allUsers"
-}
 
 resource "google_dns_managed_zone" "edu-zone" {
   project     = var.project_id

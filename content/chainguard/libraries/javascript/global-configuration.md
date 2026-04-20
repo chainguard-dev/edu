@@ -53,10 +53,17 @@ At a high level, adopting the use of Chainguard Libraries consists of the follow
 Adopting the use of a repository manager is the recommended approach to minimize complexity. If your organization does not use a repository manager, refer to the [direct access documentation](/chainguard/libraries/javascript/build-configuration/) for build tools.
 
 ### Manually managing fallback
-If upstream fallback is not enabled, or you prefer to manage your own fallback
-ordering, configure `https://libraries.cgr.dev/javascript/` as a remote repository
-alongside your npm upstream, and combine them in a virtual or group repository
-with Chainguard as the first priority. 
+Chainguard recommends using the Chainguard Repository's built-in [upstream
+fallback](/chainguard/libraries/javascript/overview/#upstream-fallback-policy-and-controls)
+rather than configuring a public registry fallback in your repo manager.
+Configuring your own fallback bypasses the protection that the Chainguard
+Repository provides.
+
+However, if upstream fallback is not enabled or you prefer to manage your own fallback
+ordering: you can configure `https://libraries.cgr.dev/javascript/` as a remote
+repository alongside your npm upstream, and combine them in a virtual or group
+repository with Chainguard as the first priority. The per-tool instructions on
+this page follow this pattern.
 
 <a name="cloudsmith"></a>
 

@@ -24,7 +24,6 @@ x-csp: &csp >-
     https://platform.twitter.com
     https://syndication.twitter.com
     https://visualization-ui.chainguard.app
-    https://terminal.inky.wtf
     www.google.com
     https://hcaptcha.com
     https://*.hcaptcha.com
