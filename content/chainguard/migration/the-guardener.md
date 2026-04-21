@@ -63,6 +63,8 @@ Your organization's group ID is the value that appears in the `ID` column of thi
 
 You can also retrieve the ID in the Chainguard Console. After logging into the Console, [navigate to **Settings**](https://console.chainguard.dev/org/$ORGANIZATION$/settings/general) where you'll find the ID under **Organization UID**.
 
+Once you have your organization's group ID, you'll use it in the following `chainctl` commands by passing it to the `--group-id` flag. 
+
 
 ## Usage examples
 
