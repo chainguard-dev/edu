@@ -10,9 +10,9 @@ draft: false
 weight: 010
 ---
 
-AI coding agents write and install dependencies faster than any security team can review them manually. Every pip install, npm install, or docker pull an agent kicks off is a trust decision being made on your behalf against public registries. 
+AI coding agents write code and install dependencies faster than any security team can review them manually. Every `pip install`, `npm install`, or `docker pull` an agent kicks off is a trust decision being made on your behalf against public registries. 
 
-The [Chainguard and Cursor partnership](https://www.chainguard.dev/partners/cursor) is a clean division of labor: Cursor is where your developers and agents plan, write, and review code. Chainguard is where developers reach for open source artifacts: Python, Java, and JavaScript libraries plus 2,300+ container images, all rebuilt from verifiable sources in the Chainguard Factory. 
+The [Chainguard and Cursor partnership](https://www.chainguard.dev/partners/cursor) follows a clear separation of responsibilities: Cursor is where your developers and agents plan, write, and review code. Chainguard is where developers reach for open source artifacts: Python, Java, and JavaScript libraries plus 2,300+ container images, all rebuilt from verifiable sources in the Chainguard Factory. 
 
 This page explains how to start using Chainguard artifacts in Cursor.
 
@@ -21,27 +21,29 @@ This page explains how to start using Chainguard artifacts in Cursor.
 Before you begin, you'll need:
 * A [Cursor](https://cursor.com/) account
 * A [Chainguard account](https://console.enforce.dev/) and organization 
-* [chainctl installed and authenticated](/chainguard/administration/how-to-install-chainctl/)
+* [`chainctl` installed and authenticated](/chainguard/administration/how-to-install-chainctl/)
     * Chainguard authentication should be configured in the environment where Cursor runs commands.
 
 ## Migrate a project to use Chainguard
 
 The fastest way to get started is to tell Cursor what you want and let it handle the migration. Open a project in Cursor, then in the chat, use a prompt like:
 
-```
+```prompt
 I'd like to migrate this project to use Chainguard images and libraries. My Chainguard org is <your-org>.
 ```
 Cursor will update your Dockerfiles to reference Chainguard container images and reconfigure your build files to pull dependencies from Chainguard Libraries.
 
 ### Using Chainguard container images
-Chainguard provides thousands of minimal, CVE-free container images at cgr.dev. When Cursor updates a Dockerfile, it will reference images like:
+Chainguard provides thousands of minimal, CVE-free container images. When Cursor updates a Dockerfile to use Chainguard images, it will reference the images like the following example:
 
 ```dockerfile
 FROM cgr.dev/chainguard/python:latest-dev AS builder
 FROM cgr.dev/chainguard/python:latest
 ```
 
-You can browse available images and their tags in the [Chainguard Images directory](https://images.chainguard.dev/). Learn more about Chainguard image variants in [Chainguard’s container variants docs](/chainguard/chainguard-images/about/differences-development-production/).
+You can browse available images and their tags in the [Chainguard Images directory](https://images.chainguard.dev/). 
+
+This Dockerfile references both the `python` image's `latest` and `latest-dev` variants. Learn more about Chainguard image variants in [Chainguard’s container variants docs](/chainguard/chainguard-images/about/differences-development-production/).
 
 ### Using Chainguard libraries
 
@@ -60,5 +62,5 @@ If you see a 401 or 403 when running `npm install`, `pip install`, or a Maven bu
 
 ### Image not found / tag doesn't exist
 If Cursor references an image tag that doesn't exist:
-* Check available tags for the image in the [Chainguard Images directory](https://images.chainguard.dev/).
+* Check available tags for the image in the [Chainguard Images directory](https://images.chainguard.dev/). Ensure that you have access to the tag.
 * Use `latest` or `latest-dev` as a reliable starting point. Image digests are also available for production use.
