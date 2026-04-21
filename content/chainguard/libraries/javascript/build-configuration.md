@@ -214,7 +214,7 @@ directory:
 chainctl auth configure-npm --pull-token
 ```
 
-[This command](/chainguard/chainctl/chainctl-docs/chainctl_auth_configure-npm/) creates a pull token (valid for 30 days by default) scoped to your organization and writes a project-level `.npmrc` with the registry URL and base64-encoded credentials. It also prints the equivalent `npm config set` commands for use in CI or other environments where you need to configure `.npmrc` manually.
+[This command](/chainguard/chainctl/chainctl-docs/chainctl_auth_configure-npm/) creates a pull token (valid for 30 days by default) scoped to your organization and writes a project-level `.npmrc` with the registry URL and base64-encoded credentials. It also prints the equivalent `npm config set` commands for use in CI or other environments where you need to configure `.npmrc` manually. If this command returns an error, ensure that you are using the [latest version of `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
 
 #### Verify authentication with npm ping
 
@@ -353,7 +353,7 @@ directory:
 chainctl auth configure-npm --pull-token
 ```
 
-[This command](/chainguard/chainctl/chainctl-docs/chainctl_auth_configure-npm/) creates a pull token (valid for 30 days by default) scoped to your organization and writes a project-level `.npmrc` with the registry URL and base64-encoded credentials. 
+[This command](/chainguard/chainctl/chainctl-docs/chainctl_auth_configure-npm/) creates a pull token (valid for 30 days by default) scoped to your organization and writes a project-level `.npmrc` with the registry URL and base64-encoded credentials. If this command returns an error, ensure that you are using the [latest version of `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
 
 Add dependencies for your project into the `package.json` file to test retrieval
 from Chainguard Libraries, build the project, and list the dependencies:
