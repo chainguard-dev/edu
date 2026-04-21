@@ -24,7 +24,7 @@ You interact with it through `chainctl agent dockerfile` commands. The AI runs s
 
 ## Prerequisites
 
-While The Guardener is in beta, your organization will need to join the waitlist. We’ll notify you once registration becomes available. You can sign up for the waitlist on the [The Guardener landing page](https://www.chainguard.dev/guardener).
+While The Guardener is in beta, your organization will need to join the waitlist. We’ll notify you once registration becomes available. You can sign up for the waitlist on [The Guardener landing page](https://www.chainguard.dev/guardener).
 
 Additionally, you will need the following in order to use The Guardener:
 
@@ -40,6 +40,25 @@ chainctl iam organizations list -o table
 
 chainctl iam role-bindings create --parent <group-id> --identity <identity> --role <role-with-repo.create>
 ```
+
+### Retrieving your organization's group ID
+
+The Guardener needs to know which Chainguard organization to reference when migrating Dockerfiles. For this reason, you must include your organization's group ID value in the `chainctl` commands you use to interact with the tool.
+
+Note that the group ID is **not** the name of your organization; it is a 40-character string used to identify your organization.
+
+To retrieve your organization's group ID value, run the following command:
+
+```shell
+chainctl iam organizations list -o table
+```
+```output
+                    ID                    |      NAME      |          DESCRIPTION          
+------------------------------------------|----------------|-------------------------------------
+ EXAMPLE05850c357EXAMPLE6e10d007c9EXAMPLE | example.com    | This is an example organization.
+```
+
+Your organization's group ID is the value that appears in the `ID` column of this command's output.
 
 
 ## Usage examples
