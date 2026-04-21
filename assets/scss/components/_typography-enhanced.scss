@@ -237,7 +237,7 @@ table {
 // Strong emphasis
 strong, b {
     font-weight: $font-semibold;
-    color: var(--body-color);
+    color: inherit;
 }
 
 // Emphasized text
