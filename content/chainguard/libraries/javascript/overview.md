@@ -150,6 +150,24 @@ Verified OK
 The `--certificate-oidc-issuer` and `--certificate-identity-regexp` flags confirm 
 the attestation was signed by Chainguard. 
 
+### Retrieve SBOMs
+
+Chainguard Libraries for JavaScript also include Software Bills of Materials (SBOMs) in SPDX format. 
+
+To check whether an SBOM is available for a package, use npm show with the dist.sboms field:
+
+```bash
+npm show PACKAGE@VERSION dist.sboms
+```
+
+To retrieve the SBOM directly:
+
+```bash
+curl -H "Authorization: Bearer $(chainctl auth token --audience=libraries.cgr.dev)" https://libraries.cgr.dev/javascript/-/npm/v1/sbom/spdx/PACKAGE@VERSION
+```
+
+Replace `PACKAGE` and `VERSION` with the package name and version (for example, `react-router` and `7.11.0`).
+
 ## Upstream fallback policy and controls
 
 Chainguard Libraries for JavaScript supports an optional built-in fallback to
