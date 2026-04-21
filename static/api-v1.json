@@ -914,6 +914,14 @@
             "description": "resource_limits indicate the maximum number of resources allowed for this group by type.",
             "type": "object"
           },
+          "status": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.OrgStatus"
+              }
+            ],
+            "description": "status is the provisioning status of the organization."
+          },
           "verified": {
             "title": "verified means we've verified the owners of this organization. Restrictions include:\n- Only organizations (root groups) can be verified\n- Property can only be set by manually by Chainguardians\n- If verified is set, the organizations name field must be globally unique\n- If verified is set the organizations name should be a domain name",
             "type": "boolean"
@@ -1113,6 +1121,14 @@
             },
             "description": "resource_limits indicate the maximum number of resources allowed for this group by type.",
             "type": "object"
+          },
+          "status": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.OrgStatus"
+              }
+            ],
+            "description": "status is the provisioning status of the organization."
           },
           "verified": {
             "title": "verified means we've verified the owners of this organization. Restrictions include:\n- Only organizations (root groups) can be verified\n- Property can only be set by manually by Chainguardians\n- If verified is set, the organizations name field must be globally unique\n- If verified is set the organizations name should be a domain name",
@@ -1435,6 +1451,16 @@
           "ORG_KIND_CUSTOMER",
           "ORG_KIND_DEV",
           "ORG_KIND_INFRA"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.iam.OrgStatus": {
+        "default": "ORG_STATUS_UNSPECIFIED",
+        "description": "OrgStatus is the provisioning status of an organization.\n\n - ORG_STATUS_UNSPECIFIED: Organization status is not yet set.\n - ORG_STATUS_INITIALIZING: The organization is awaiting provisioning setup by a reconciler.\n - ORG_STATUS_READY: The organization is fully provisioned and ready to use.",
+        "enum": [
+          "ORG_STATUS_UNSPECIFIED",
+          "ORG_STATUS_INITIALIZING",
+          "ORG_STATUS_READY"
         ],
         "type": "string"
       },
@@ -12843,6 +12869,9 @@
   ],
   "tags": [
     {
+      "name": "PingService"
+    },
+    {
       "name": "SecurityAdvisory"
     },
     {
@@ -12905,9 +12934,6 @@
     {
       "description": "Packages Entitlements API",
       "name": "PackagesEntitlements"
-    },
-    {
-      "name": "PingService"
     },
     {
       "name": "Policies"
