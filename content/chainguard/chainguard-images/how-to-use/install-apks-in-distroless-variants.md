@@ -15,7 +15,7 @@ weight: 080
 toc: true
 ---
 
-This page documents workflows for installing APK packages in [distroless variants](/software-security/videos/distroless/) of Chainguard container images, such as most builds tagged `:latest`. We copy a filesystem from a distroless container image to a build image, install APKs to it using chroot, then copy the modified filesystem back to the distroless image in the final step.
+This page documents workflows for installing APK packages in [distroless variants](/chainguard/chainguard-images/about/getting-started-distroless/) of Chainguard container images, such as most builds tagged `:latest`. We copy a filesystem from a distroless container image to a build image, install APKs to it using `chroot`, then copy the modified filesystem back to the distroless image in the final step.
 
 ## Overview: Installing packages in distroless containers
 
@@ -36,7 +36,7 @@ Why not just directly copy individual APK files to a distroless image? If you’
 - You will also need to know the locations of all relevant files and configurations in order to copy these resources manually.
 - This method can be verbose in cases where you need many packages or where packages install many files.
 
-The chroot approach typically registers installed packages correctly, making them detectable by scanners, and that's a factor in our recommendation, which is the method we covered in detail in this page.
+The chroot approach typically registers installed packages correctly, making them visible to scanners—one of the key reasons we recommend it.
 
 Here are three options that you may be considering and our thoughts about them before we focus solely on chroot:
 
@@ -61,7 +61,7 @@ This workflow allows you to install APKs to a distroless image during a Dockerfi
 
 In short, we pull a distroless image, replicate its file structure as a folder on the build image, install APKs to that file structure, build our artifacts on the build image, then put the customized file structure and artifacts into the distroless image.
 
-### What You Need to Know
+### Considerations
 
 - You should build with the \`--no-cache\` flag enabled to ensure the latest remediated binaries are used and \`–pull\` to pull the most recent images.
 - Images built using this approach should be rebuilt periodically, even when reference base & build images did not change, to get updates of custom packages.
@@ -263,7 +263,7 @@ Build the binary:
 
 ``RUN gcc test.c `pkg-config --cflags --libs libcurl` -o dynamic-binary``
 
-We now have the binary we’ll run in the final image,. Next, we take steps to add runtime dependency APKs. We’ll first copy the entire filesystem of our reference distroless runtime image (here labeled “base”) pulled above to a directory on our build image. We will then install APKs to this directory. In the final step, this directory will be used as the filesystem in our assembled output image.
+We now have the binary we’ll run in the final image. Next, we take steps to add runtime dependency APKs. We’ll first copy the entire filesystem of our reference distroless runtime image (here labeled “base”) pulled above to a directory on our build image. We will then install APKs to this directory. In the final step, this directory will be used as the filesystem in our assembled output image.
 
 Copy the filesystem of our reference image (“base”)to a directory on our build image:
 
