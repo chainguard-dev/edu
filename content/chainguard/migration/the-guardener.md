@@ -43,7 +43,7 @@ chainctl iam role-bindings create --parent <group-id> --identity <identity> --ro
 
 ### Retrieving your organization's group ID
 
-The Guardener needs to know which Chainguard organization to reference when migrating Dockerfiles. For this reason, you must include your organization's group ID value in the `chainctl` commands you use to interact with the tool.
+The Guardener needs to know which Chainguard organization to reference when migrating Dockerfiles. For this reason, you must include your organization's group ID value (also known as the organization UID) in the `chainctl` commands you use to interact with the tool.
 
 Note that the group ID is **not** the name of your organization; it is a 40-character string used to identify your organization.
 
@@ -52,6 +52,7 @@ To retrieve your organization's group ID value, run the following command:
 ```shell
 chainctl iam organizations list -o table
 ```
+
 ```output
                     ID                    |      NAME      |          DESCRIPTION          
 ------------------------------------------|----------------|-------------------------------------
@@ -59,6 +60,8 @@ chainctl iam organizations list -o table
 ```
 
 Your organization's group ID is the value that appears in the `ID` column of this command's output.
+
+You can also retrieve the ID in the Chainguard Console. After logging into the Console, [navigate to **Settings**](https://console.chainguard.dev/org/$ORGANIZATION$/settings/general) where you'll find the ID under **Organization UID**.
 
 
 ## Usage examples
