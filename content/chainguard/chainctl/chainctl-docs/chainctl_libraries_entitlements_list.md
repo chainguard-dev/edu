@@ -1,5 +1,5 @@
 ---
-date: 2026-04-20T19:01:44Z
+date: 2026-04-21T23:22:01Z
 title: "chainctl libraries entitlements list"
 slug: chainctl_libraries_entitlements_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_list/
