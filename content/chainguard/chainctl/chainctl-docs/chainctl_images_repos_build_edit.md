@@ -1,5 +1,5 @@
 ---
-date: 2026-04-20T19:01:44Z
+date: 2026-04-21T23:22:01Z
 title: "chainctl images repos build edit"
 slug: chainctl_images_repos_build_edit
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_edit/
@@ -35,7 +35,7 @@ How it works:
 
 You customize the image by editing a YAML configuration manifest. The command
 opens your editor with the current repository configuration (or a template for
-new repositories). To skip the interactive editor, use the --filename flag to
+new repositories). To skip the interactive editor, use the --file flag to
 provide a pre-written configuration file.
 
 After editing, the command displays a diff of your changes for review. Upon

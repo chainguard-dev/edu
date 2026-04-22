@@ -3327,6 +3327,42 @@
         "title": "Deployment configuration for a repository",
         "type": "object"
       },
+      "chainguard.platform.registry.EntitledImage": {
+        "description": "EntitledImage is an image that an organization is currently entitled to access.",
+        "properties": {
+          "catalogTier": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.CatalogTier"
+              }
+            ],
+            "description": "The catalog tier of the image."
+          },
+          "expirationTime": {
+            "description": "When access to this image expires. Unset means no expiration.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "id": {
+            "description": "The catalog image repository UIDP.",
+            "type": "string"
+          },
+          "name": {
+            "description": "Human-readable image name.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.Entitlement.Type"
+              }
+            ],
+            "description": "The entitlement type that granted access to this image."
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.registry.Entitlement": {
         "description": "Entitlement contains information about what an organization is entitled to.",
         "properties": {
@@ -3519,6 +3555,40 @@
           "TAG_INACTIVE"
         ],
         "type": "string"
+      },
+      "chainguard.platform.registry.GetEffectiveEntitlementsResponse": {
+        "properties": {
+          "activeImages": {
+            "description": "Images the organization is currently entitled to, deduplicated\nacross entitlements with the latest expiration retained.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.EntitledImage"
+            },
+            "type": "array"
+          },
+          "activeTiers": {
+            "description": "Catalog tiers with unlimited (AYCE) access.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.CatalogTier"
+            },
+            "type": "array"
+          },
+          "plan": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.Plan"
+              }
+            ],
+            "description": "The resolved entitlement plan for the organization."
+          },
+          "quota": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.ImageQuota"
+            },
+            "description": "Aggregated quota usage per tier. Keys are CatalogTier string names.\n\nTODO: int32 max_total_images = 5;",
+            "type": "object"
+          }
+        },
+        "type": "object"
       },
       "chainguard.platform.registry.GetFeaturesResponse": {
         "properties": {
@@ -3815,6 +3885,17 @@
           }
         },
         "type": "object"
+      },
+      "chainguard.platform.registry.Plan": {
+        "default": "PLAN_UNSPECIFIED",
+        "description": "Plan describes the entitlement plan for an organization.",
+        "enum": [
+          "PLAN_UNSPECIFIED",
+          "PER_IMAGE",
+          "CATALOG",
+          "STARTER"
+        ],
+        "type": "string"
       },
       "chainguard.platform.registry.RawSbom": {
         "description": "The service for this request is deprecated.",
@@ -9898,6 +9979,49 @@
           }
         },
         "summary": "List Entitlement Images",
+        "tags": [
+          "RegistryEntitlements"
+        ]
+      }
+    },
+    "/registry/v1/entitlements/{parent}:effective": {
+      "get": {
+        "description": "GetEffectiveEntitlements returns the summarized effective entitlement state\nfor an organization, including plan, active tiers, entitled images, and quotas.",
+        "operationId": "Entitlements_GetEffectiveEntitlements",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.registry.GetEffectiveEntitlementsResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Effective Entitlements",
         "tags": [
           "RegistryEntitlements"
         ]
