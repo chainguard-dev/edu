@@ -15,7 +15,7 @@ weight: 035
 toc: true
 ---
 
-Chainguard EKS add-ons are hardened, minimal container images for the foundational software components that power Amazon Elastic Kubernetes Service (EKS) clusters. Available through [AWS Marketplace](https://aws.amazon.com/marketplace) with FIPS-validated variants, they serve as drop-in replacements for AWS default add-ons, providing zero known CVEs and optional FIPS 140-3 validated cryptography without requiring custom image builds or manifest overrides.
+Chainguard EKS add-ons are hardened, minimal container images for the foundational software components that power Amazon Elastic Kubernetes Service (EKS) clusters. Available through [AWS Marketplace](https://aws.amazon.com/marketplace), they serve as FIPS-validated drop-in replacements for AWS default add-ons, providing zero known CVEs and FIPS 140-3 validated cryptography without requiring custom image builds or manifest overrides.
 
 
 ## What are EKS add-ons?
@@ -29,7 +29,7 @@ For a full explanation of how EKS add-ons work (including how to install, config
 
 ## Available Chainguard EKS add-ons
 
-Chainguard provides hardened images for five widely used EKS add-ons. All are available in both standard and FIPS-validated variants.
+Chainguard provides hardened images for five widely used EKS add-ons. All are FIPS-validated.
 
 | Add-on | Description |
 |--------|-------------|
@@ -50,7 +50,7 @@ Chainguard rebuilds each add-on using its minimal, hardened container image appr
 
 ### FIPS 140-3 validated cryptography
 
-For organizations operating under FedRAMP, NIST, or other compliance frameworks that require FIPS-validated cryptography, existing options create additional developer toil to maintain the image. Chainguard EKS add-ons are the only available option that provides FIPS 140-3 validated variants for core EKS cluster infrastructure. No other provider offers FIPS-validated replacements for these components.
+For organizations operating under FedRAMP, NIST, or other compliance frameworks that require FIPS-validated cryptography, existing options create additional developer toil to maintain the image. Chainguard EKS add-ons are the only available option that provides FIPS 140-3 validated cryptography for core EKS cluster infrastructure. No other provider offers FIPS-validated replacements for these components.
 
 To learn more about how Chainguard approaches FIPS, refer to the [Chainguard FIPS documentation](/chainguard/fips/).
 
@@ -86,10 +86,10 @@ Chainguard EKS add-ons are listed in AWS Marketplace and can be found within the
 
 1. In the AWS Console, navigate to your EKS cluster and open the **Add-ons** tab.
 2. Search for the Chainguard add-on you want to install.
-3. Select the desired variant (standard or FIPS) and subscribe.
+3. Subscribe.
 
 ### Deploy with Helm
 
-Once subscribed, deployment follows the standard EKS Helm workflow. No new tooling, no Chainguard account, and no changes to your existing Kubernetes manifests are required.
+Once subscribed, deployment follows the standard EKS Helm workflow, and you can deploy the add-ons with AWS CLI or in your GitOps workflows. Unlike a standalone Helm chart, which is self-managed, EKS will automatically handle lifecycle management of your add-ons. No new tooling, no Chainguard account, and no changes to your existing Kubernetes manifests are required. 
 
 For step-by-step installation guidance, refer to the deployment instructions included with each add-on listing in AWS Marketplace.
