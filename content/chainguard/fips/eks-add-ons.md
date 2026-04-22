@@ -29,7 +29,7 @@ For a full explanation of how EKS add-ons work (including how to install, config
 
 ## Available Chainguard EKS add-ons
 
-Chainguard provides hardened images for six widely used EKS add-ons. All are available in both standard and FIPS-validated variants.
+Chainguard provides hardened images for five widely used EKS add-ons. All are available in both standard and FIPS-validated variants.
 
 | Add-on | Description |
 |--------|-------------|
@@ -38,20 +38,19 @@ Chainguard provides hardened images for six widely used EKS add-ons. All are ava
 | **Amazon VPC CNI** | Connects pods to the AWS VPC network backbone |
 | **Amazon EBS CSI Driver** | Enables persistent block storage volumes backed by Amazon EBS |
 | **Amazon EFS CSI Driver** | Enables shared, persistent file storage backed by Amazon EFS |
-| **AWS Load Balancer Controller** | Routes external traffic into the cluster through AWS Application and Network Load Balancers |
 
 
 ## Why use Chainguard EKS add-ons?
 
 ### Zero known CVEs
 
-AWS's default EKS add-on images ship with known CVEs. Because customers do not own the upstream source code, they aren't able to patch these vulnerabilities.
+Default EKS add-on images ship with known CVEs. Because customers do not own the upstream source code, they aren't able to patch these vulnerabilities.
 
 Chainguard rebuilds each add-on using its minimal, hardened container image approach, removing unnecessary packages and dependencies that are the most common source of CVEs. Like Chainguard Containers, Chainguard EKS add-ons are rebuilt continuously to incorporate available security patches, keeping the known CVE count at or near zero.
 
 ### FIPS 140-3 validated cryptography
 
-For organizations operating under FedRAMP, NIST, or other compliance frameworks that require FIPS-validated cryptography, AWS's default add-ons do not qualify. Chainguard EKS add-ons are the only available option that provides FIPS 140-3 validated variants for core EKS cluster infrastructure. No other provider offers FIPS-validated replacements for these components.
+For organizations operating under FedRAMP, NIST, or other compliance frameworks that require FIPS-validated cryptography, existing options create additional developer toil to maintain the image. Chainguard EKS add-ons are the only available option that provides FIPS 140-3 validated variants for core EKS cluster infrastructure. No other provider offers FIPS-validated replacements for these components.
 
 To learn more about how Chainguard approaches FIPS, refer to the [Chainguard FIPS documentation](/chainguard/fips/).
 
