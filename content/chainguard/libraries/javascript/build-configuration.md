@@ -72,6 +72,23 @@ guides.
 
 <a id="npm"></a>
 
+## Updating lockfile hashes for existing projects
+
+If you are migrating an existing JavaScript project to Chainguard Libraries,
+your lockfile contains integrity hashes generated against the npm registry.
+Because Chainguard rebuilds packages from verified source, these hashes differ
+from Chainguard's checksums and must be updated before reinstalling.
+
+Use the following command to update hashes in place across all supported lockfile formats (`package-lock.json`, `yarn.lock`,
+`pnpm-lock.yaml`, `bun.lock) without regenerating the lockfile from scratch:
+
+```bash
+chainctl libraries update-hashes
+```
+
+After running the command, ensure your `.npmrc` is configured with Chainguard
+credentials, then reinstall to apply the updated hashes. The command will output a "Next steps" section that includes the tool-specific command for reinstalling.
+
 ## npm
 
 [npm](https://www.npmjs.com/) is the default package manager for Node.js, widely
@@ -144,8 +161,13 @@ Example URLs:
 * Sonatype Nexus: https://repo.example.com:8443/repository/javascript-all/
 * Direct access: https://libraries.cgr.dev/javascript/
 
-To change the packages, remove the `node_modules` directory and the
-`package-lock.json` file and run the `npm install` command again. 
+To apply the registry changes, remove the `node_modules` directory and the
+`package-lock.json` file and run the `npm install` command again. This re-fetches all
+packages from Chainguard and regenerates the lockfile with updated hashes.
+
+If you are migrating an existing project and want to preserve your current
+lockfile, use [`chainctl libraries update-hashes`](#updating-lockfile-hashes-for-existing-projects)
+to update only the integrity hashes in place instead.
 
 Now you can proceed with your development and testing. 
 
@@ -323,8 +345,13 @@ Example URLs:
 * Sonatype Nexus: https://repo.example.com:8443/repository/javascript-all/
 * Direct access: https://libraries.cgr.dev/javascript/
 
-To change the packages, remove the `node_modules` directory and the
-`pnpm-lock.yaml` file and run the `pnpm install` command again. 
+To apply the registry change, remove the `node_modules` directory and the
+`pnpm-lock.yaml` file and run the `pnpm install` command again. This re-fetches all
+packages from Chainguard and regenerates the lockfile with updated hashes.
+
+If you are migrating an existing project and want to preserve your current
+lockfile, use [`chainctl libraries update-hashes`](#updating-lockfile-hashes-for-existing-projects)
+to update only the integrity hashes in place instead.
 
 Now you can proceed with your development and testing. 
 
@@ -444,8 +471,13 @@ Example URLs:
 * Sonatype Nexus: https://repo.example.com:8443/repository/javascript-all
 * Direct access: https://libraries.cgr.dev/javascript
 
-To change the packages, run the `yarn` command again. This forces an update of
+To apply the registry change, run the `yarn` command again. This forces an update of
 all packages from the new registry and regeneration of the lock file.
+
+If you are migrating an existing project and want to preserve your current
+lockfile, use [`chainctl libraries update-hashes`](#updating-lockfile-hashes-for-existing-projects)
+to update only the integrity hashes in place instead.
+
 
 Now you can proceed with your development and testing. 
 
@@ -572,11 +604,15 @@ Refer to the [`.yarnrc`
 documentation](https://classic.yarnpkg.com/lang/en/docs/yarnrc/) for more
 details.
 
-To change the packages, remove the `node_modules` directory and the `yarn.lock`
+To apply the registry change, remove the `node_modules` directory and the `yarn.lock`
 file and run the `yarn` command again. This forces a new download of all
 packages from the new registry and regeneration of the lock file. Alternatively,
 you can run `yarn upgrade` to update all dependencies to their latest allowed
 versions and regenerate the lock file.
+
+If you are migrating an existing project and want to preserve your current
+lockfile, use [`chainctl libraries update-hashes`](#updating-lockfile-hashes-for-existing-projects)
+to update only the integrity hashes in place instead.
 
 Now you can proceed with your development and testing. 
 
