@@ -101,6 +101,9 @@
           "CAP_LIBRARIES_REBUILDER_ARTIFACTS_INVALIDATE",
           "CAP_LIBRARIES_REBUILDER_EXCLUSIONS_MANAGE",
           "CAP_LIBRARIES_REBUILDER_BUILDS_READ",
+          "CAP_LIBRARIES_REBUILDER_BUILDS_TOKENS_FETCH",
+          "CAP_LIBRARIES_REBUILDER_BUILDS_UNTRUSTED",
+          "CAP_LIBRARIES_REBUILDER_REMEDIATED_ARTIFACTS_READ",
           "CAP_REGISTRY_ENTITLEMENTS_LIST",
           "CAP_REGISTRY_ENTITLEMENTS_CREATE",
           "CAP_REGISTRY_ENTITLEMENTS_DELETE",
@@ -1164,14 +1167,15 @@
       },
       "chainguard.platform.registry.v2beta1.CatalogTier": {
         "default": "CATALOG_TIER_UNSPECIFIED",
-        "description": "CatalogTier represents the catalog tier classification for repositories.\n\n - CATALOG_TIER_UNSPECIFIED: Unknown or unspecified tier.\n - CATALOG_TIER_APPLICATION: Application images tier.\n - CATALOG_TIER_BASE: Base images tier.\n - CATALOG_TIER_FIPS: FIPS-compliant images tier.\n - CATALOG_TIER_AI: AI/ML images tier.\n - CATALOG_TIER_DEVTOOLS: Developer tools images tier.",
+        "description": "CatalogTier represents the catalog tier classification for repositories.\n\n - CATALOG_TIER_UNSPECIFIED: Unknown or unspecified tier.\n - CATALOG_TIER_APPLICATION: Application images tier.\n - CATALOG_TIER_BASE: Base images tier.\n - CATALOG_TIER_FIPS: FIPS-compliant images tier.\n - CATALOG_TIER_AI: AI/ML images tier.\n - CATALOG_TIER_DEVTOOLS: Developer tools images tier.\n - CATALOG_TIER_COMMERCIAL: Commercial images tier.",
         "enum": [
           "CATALOG_TIER_UNSPECIFIED",
           "CATALOG_TIER_APPLICATION",
           "CATALOG_TIER_BASE",
           "CATALOG_TIER_FIPS",
           "CATALOG_TIER_AI",
-          "CATALOG_TIER_DEVTOOLS"
+          "CATALOG_TIER_DEVTOOLS",
+          "CATALOG_TIER_COMMERCIAL"
         ],
         "type": "string"
       },
