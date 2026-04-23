@@ -207,6 +207,11 @@ Classic](/chainguard/libraries/javascript/build-configuration/#minimal-example-p
 and
 [Bun](/chainguard/libraries/javascript/build-configuration/#minimal-example-project-4) to understand how to use these repositories.
 
+> **Migrating an existing Python or JavaScript project?** If you have an
+> existing lockfile with upstream hashes, use `chainctl libraries update-hashes`
+> to update checksums to Chainguard's automatically, without regenerating your
+> lockfile from scratch.
+
 ## Step 4: Verify your libraries
 
 After setup, you can verify that your dependencies are sourced from Chainguard using:

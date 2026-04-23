@@ -321,7 +321,7 @@ Because Chainguard rebuilds Python packages from source rather than mirroring up
 - Tools such as `pip`, `Poetry`, and `uv` generate lock files that include SHA-256 hashes
 - Repository managers such as JFrog Artifactory or Sonatype Nexus may have cached upstream PyPI wheels and continue serving them instead of Chainguard versions, even after you have reconfigured to use Chainguard Libraries
 
-Resolving these issues requires two steps: [clearing cached artifacts](#clearing-caches-before-migration) at every layer of your build pipeline, and [regenerating lock files or requirements files](#resolving-checksum-mismatches) so they reflect Chainguard's checksums.
+Resolving these issues requires two steps: [clearing cached artifacts](#clearing-caches-before-migration) at every layer of your build pipeline, and [updating lock files or requirements files](#updating-lockfile-hashes) so they reflect Chainguard's checksums.
 
 ### Clearing caches before migration
 
@@ -357,7 +357,34 @@ Cached Docker image layers may reuse upstream dependencies even after reconfigur
 docker build --no-cache
 ```
 
-### Resolving checksum mismatches
+### Updating lockfile hashes
+
+> Note: `chainctl libraries update-hashes` does not currently support authentication through a repository manager. You will need to [configure direct access](/chainguard/libraries/python/build-configuration/#direct-access) credentials before running the command, or [update the lockfiles manually](#update-lockfiles-manually).
+
+The `chainctl libraries update-hashes` command automates lockfile hash updates for all supported Python lockfile formats. Rather than manually regenerating lock files with each tool, you can run the command directly against your existing lockfile to update hashes to Chainguard checksums while preserving your locked dependency versions, without re-resolving your dependency graph.
+
+Supported formats include `requirements.txt` (pip-tools `--hash` style), `poetry.lock`, `uv.lock`, `pdm.lock`, `Pipfile.lock`, and `pylock.toml`.
+
+Run the command in your project directory to auto-detect the lockfile:
+
+```bash
+chainctl libraries update-hashes
+```
+
+Or specify a lockfile path directly:
+
+```bash
+chainctl libraries update-hashes path/to/requirements.txt
+```
+
+By default, Chainguard hashes are appended alongside existing upstream hashes. After updating the lockfiles, to switch your environment to use Chainguard packages, configure your tool to use the Chainguard index and reinstall. The `chainctl libraries update-hashes` command will output
+a "Next steps" section that includes the tool-specific command for reinstalling. 
+
+#### Update lockfiles manually
+
+If you are using a repository manager, and do not want to use direct access temporarily while updating lockfiles, you can use the following instructions to update your lockfiles: 
+
+{{< details "Manually updating lockfiles" >}}
 
 Before regenerating lock files, ensure your tool is configured to use Chainguard as the package index by following the [global configuration](/chainguard/libraries/python/global-configuration/) or [direct access](/chainguard/libraries/python/build-configuration/#direct-access) documentation.
 
@@ -410,6 +437,8 @@ Poetry 2.x:
 Repository managers such as JFrog Artifactory or Sonatype Nexus may continue serving cached PyPI artifacts even after the upstream index is changed. Clear the cache or invalidate the artifact to ensure the Chainguard-built package is fetched. 
 
 Before regenerating lock files, ensure your tool is configured to use Chainguard as the package index by following the [global configuration](/chainguard/libraries/python/global-configuration/) or [direct access](/chainguard/libraries/python/build-configuration/#direct-access) documentation.
+
+{{< /details >}}
 
 >**Note:** While hash mismatches are expected for some tooling and
 configurations while migrating to Chainguard, you can verify the authenticity and provenance of Chainguard
