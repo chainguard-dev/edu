@@ -321,7 +321,7 @@ Because Chainguard rebuilds Python packages from source rather than mirroring up
 - Tools such as `pip`, `Poetry`, and `uv` generate lock files that include SHA-256 hashes
 - Repository managers such as JFrog Artifactory or Sonatype Nexus may have cached upstream PyPI wheels and continue serving them instead of Chainguard versions, even after you have reconfigured to use Chainguard Libraries
 
-Resolving these issues requires two steps: [clearing cached artifacts](#clearing-caches-before-migration) at every layer of your build pipeline, and [updating lock files or requirements files](#resolving-checksum-mismatches) so they reflect Chainguard's checksums.
+Resolving these issues requires two steps: [clearing cached artifacts](#clearing-caches-before-migration) at every layer of your build pipeline, and [updating lock files or requirements files](#updating-lockfile-hashes) so they reflect Chainguard's checksums.
 
 ### Clearing caches before migration
 
@@ -359,7 +359,7 @@ docker build --no-cache
 
 ### Updating lockfile hashes
 
-> Note: `chainctl libraries update-hashes` does not currently support authentication through a repository manager. You will need to configure direct access credentials before running the command.
+> Note: `chainctl libraries update-hashes` does not currently support authentication through a repository manager. You will need to configure direct access credentials before running the command, or [update the lockfiles manually](#update-lockfiles-manually).
 
 The `chainctl libraries update-hashes` command automates lockfile hash updates for all supported Python lockfile formats. Rather than manually regenerating lock files with each tool, you can run the command directly against your existing lockfile to update hashes to Chainguard checksums while preserving the file's format and structure.
 
@@ -378,6 +378,8 @@ chainctl libraries update-hashes path/to/requirements.txt
 ```
 
 By default, Chainguard hashes are appended alongside existing upstream hashes. After updating the lockfiles, to switch your environment to use Chainguard packages, configure your tool to use the Chainguard index and reinstall. See the [Build configuration](/chainguard/libraries/python/build-configuration/#step-2-configure-your-build-tools) page for instructions specific to each build tool.
+
+#### Update lockfiles manually
 
 If you are using a repository manager, you can use the following instructions to update your lockfiles: 
 
