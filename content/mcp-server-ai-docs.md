@@ -242,14 +242,14 @@ latest, latest-dev, 3.13, 3.13-dev, ...
 
 ## Standalone Installation (without Docker)
 
-The MCP server is also available as a standalone Python script. These files are static snapshots from the [archived GitHub release](https://github.com/chainguard-dev/edu/releases/tag/ai-docs-bundle) and are not automatically updated. For current documentation, use the container distribution above.
+The MCP server is also available as a standalone Python script from the [latest GitHub release](https://github.com/chainguard-dev/edu/releases/latest):
 
 ```bash
 # Download the MCP server, requirements, docs, and catalog
-curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-bundle/mcp-server.py
-curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-bundle/mcp-requirements.txt
-curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-bundle/chainguard-ai-docs.md
-curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-bundle/image-catalog.json
+curl -LO https://github.com/chainguard-dev/edu/releases/latest/download/mcp-server.py
+curl -LO https://github.com/chainguard-dev/edu/releases/latest/download/mcp-requirements.txt
+curl -LO https://github.com/chainguard-dev/edu/releases/latest/download/chainguard-ai-docs.md
+curl -LO https://github.com/chainguard-dev/edu/releases/latest/download/image-catalog.json
 
 # Install dependencies
 pip install -r mcp-requirements.txt

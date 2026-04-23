@@ -88,12 +88,10 @@ Example patterns we redact:
 
 ### Direct Download Verification
 
-> **Note:** The assets in this release are static and not updated automatically. These verification steps apply to the archived snapshot. For current documentation, use the container distribution.
-
 ```bash
 # 1. Download files
-curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-bundle/chainguard-ai-docs.tar.gz
-curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-bundle/chainguard-ai-docs.tar.gz.bundle
+curl -LO https://github.com/chainguard-dev/edu/releases/latest/download/chainguard-ai-docs.tar.gz
+curl -LO https://github.com/chainguard-dev/edu/releases/latest/download/chainguard-ai-docs.tar.gz.bundle
 
 # 2. Verify signature (using cosign v3 bundle format)
 cosign verify-blob \

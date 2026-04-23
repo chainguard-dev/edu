@@ -170,35 +170,6 @@ jobs:
         
         echo "Security scan passed - no secrets detected"
 
-    - name: Create release
-      if: (github.event_name == 'workflow_dispatch' && github.event.inputs.create_release == 'true') || github.event_name == 'push'
-      continue-on-error: true  # Org ruleset makes release assets immutable; container/GCS are primary distribution
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        cd static/downloads
-        
-        # Use a fixed tag for the latest release
-        TAG="ai-docs-bundle"
-        
-        # Org ruleset makes releases immutable (can't delete assets).
-        # Use --clobber to overwrite existing assets in place.
-
-        if gh release view "$TAG" > /dev/null 2>&1; then
-          gh release upload "$TAG" --clobber \
-            chainguard-ai-docs.tar.gz \
-            chainguard-ai-docs.tar.gz.bundle \
-            chainguard-ai-docs.md.bundle \
-            checksums.txt
-        else
-          gh release create "$TAG" \
-            --title "AI Documentation Bundle - Latest" \
-            --notes "Chainguard AI documentation bundle for use with AI coding assistants." \
-            chainguard-ai-docs.tar.gz \
-            chainguard-ai-docs.tar.gz.bundle \
-            chainguard-ai-docs.md.bundle \
-            checksums.txt
-        fi
 
     - name: Login to GHCR
       if: github.ref == 'refs/heads/main'
