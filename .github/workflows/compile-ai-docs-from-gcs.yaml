@@ -331,39 +331,51 @@ jobs:
         
         echo "✓ Bundle uploaded to GCS"
 
-    - name: Update GitHub Release
+    - name: Sign bundle files
       if: github.ref == 'refs/heads/main'
-      continue-on-error: true  # Org ruleset makes release assets immutable; container/GCS are primary distribution
+      run: |
+        cd static/downloads
+        cosign sign-blob chainguard-ai-docs.tar.gz \
+          --yes \
+          --bundle=chainguard-ai-docs.tar.gz.bundle
+        cosign sign-blob chainguard-ai-docs.md \
+          --yes \
+          --bundle=chainguard-ai-docs.md.bundle
+        echo "Bundle files signed"
+
+    - name: Create GitHub Release
+      if: github.ref == 'refs/heads/main'
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        # Org ruleset makes releases immutable (can't delete assets).
-        # Use --clobber to overwrite existing assets in place.
-        TAG="ai-docs-bundle"
+        TAG="ai-docs-$(date -u +%Y%m%d-%H%M%S)"
 
-        if gh release view "$TAG" > /dev/null 2>&1; then
-          echo "Updating existing $TAG release..."
+        gh release create "$TAG" \
+          --title "AI Documentation Bundle $TAG" \
+          --notes "Chainguard AI documentation bundle for use with AI coding assistants." \
+          --latest \
+          static/downloads/chainguard-ai-docs.tar.gz \
+          static/downloads/chainguard-ai-docs.tar.gz.bundle \
+          static/downloads/chainguard-ai-docs.md \
+          static/downloads/chainguard-ai-docs.md.bundle \
+          static/downloads/chainguard-ai-docs.zip \
+          static/downloads/image-catalog.json \
+          static/downloads/checksums.txt \
+          scripts/mcp-server.py \
+          scripts/mcp-requirements.txt
 
-          gh release upload "$TAG" --clobber \
-            static/downloads/chainguard-ai-docs.tar.gz \
-            static/downloads/chainguard-ai-docs.md \
-            static/downloads/chainguard-ai-docs.zip \
-            static/downloads/image-catalog.json \
-            static/downloads/checksums.txt \
-            scripts/mcp-server.py \
-            scripts/mcp-requirements.txt
+        echo "Release $TAG created"
 
-          echo "Release assets updated"
-        else
-          echo "Creating new $TAG release..."
-          gh release create "$TAG" \
-            static/downloads/chainguard-ai-docs.tar.gz \
-            static/downloads/chainguard-ai-docs.md \
-            static/downloads/chainguard-ai-docs.zip \
-            static/downloads/image-catalog.json \
-            static/downloads/checksums.txt \
-            scripts/mcp-server.py \
-            scripts/mcp-requirements.txt \
-            --title "AI Documentation Bundle" \
-            --notes "Chainguard AI documentation bundle for use with AI coding assistants."
-        fi
+    - name: Clean up old releases
+      if: github.ref == 'refs/heads/main'
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        # Keep only the 10 most recent dated releases; delete older ones
+        gh release list --limit 100 --json tagName,createdAt \
+          | jq -r '[.[] | select(.tagName | test("^ai-docs-[0-9]{8}-[0-9]{6}$"))] | sort_by(.createdAt) | reverse | .[10:] | .[].tagName' \
+          | while read -r tag; do
+              echo "Deleting old release: $tag"
+              gh release delete "$tag" --yes --cleanup-tag
+            done
+        echo "Release cleanup complete"
