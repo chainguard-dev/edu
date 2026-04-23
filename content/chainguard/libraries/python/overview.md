@@ -359,7 +359,7 @@ docker build --no-cache
 
 ### Updating lockfile hashes
 
-> Note: `chainctl libraries update-hashes` does not currently support authentication through a repository manager. You will need to configure direct access credentials before running the command, or [update the lockfiles manually](#update-lockfiles-manually).
+> Note: `chainctl libraries update-hashes` does not currently support authentication through a repository manager. You will need to [configure direct access](/chainguard/libraries/python/build-configuration/#direct-access) credentials before running the command, or [update the lockfiles manually](#update-lockfiles-manually).
 
 The `chainctl libraries update-hashes` command automates lockfile hash updates for all supported Python lockfile formats. Rather than manually regenerating lock files with each tool, you can run the command directly against your existing lockfile to update hashes to Chainguard checksums while preserving the file's format and structure.
 

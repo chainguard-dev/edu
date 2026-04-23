@@ -74,7 +74,7 @@ guides.
 
 ## Updating lockfile hashes for existing projects
 
-> **Note**: `chainctl libraries update-hashes` does not currently support authentication through a repository manager. You will need to configure direct access credentials before running the command.
+> **Note**: `chainctl libraries update-hashes` does not currently support authentication through a repository manager. You will need to configure [direct access](#direct-access) credentials before running the command.
 
 If you are migrating an existing JavaScript project to Chainguard Libraries,
 your lockfile contains integrity hashes generated against the npm registry.
@@ -82,7 +82,7 @@ Because Chainguard rebuilds packages from verified source, these hashes differ
 from Chainguard's checksums and must be updated before reinstalling.
 
 Use the following command to update hashes in place across all supported lockfile formats (`package-lock.json`, `yarn.lock`,
-`pnpm-lock.yaml`, `bun.lock) without regenerating the lockfile from scratch:
+`pnpm-lock.yaml`, `bun.lock`) without regenerating the lockfile from scratch:
 
 ```bash
 chainctl libraries update-hashes
