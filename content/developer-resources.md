@@ -42,9 +42,11 @@ Choose your preferred distribution method:
 
 ### GitHub Release
 
+> **Note:** The assets in this release are static and not updated automatically. For current documentation, use the container distribution below.
+
 | Format | Description | Verification |
 |--------|-------------|-------------|
-| [Latest Release](https://github.com/chainguard-dev/edu/releases/tag/ai-docs-bundle) | Cryptographically signed documentation bundle (~1.7MB) | Includes Cosign signatures and certificates |
+| [Archived Bundle](https://github.com/chainguard-dev/edu/releases/tag/ai-docs-bundle) | Static documentation bundle snapshot with Cosign signatures | Includes Cosign signatures and certificates |
 
 ### Container Distribution
 
@@ -119,18 +121,15 @@ Add to your `claude_desktop_config.json`:
 - Searchable and queryable documentation
 - Perfect for automated workflows
 - Works with Claude Desktop, Cursor, and other MCP-compatible tools
-- Also available as a [standalone Python script](https://github.com/chainguard-dev/edu/releases/tag/ai-docs-bundle) (no Docker required)
+- Also available as a [standalone Python script (static snapshot)](https://github.com/chainguard-dev/edu/releases/tag/ai-docs-bundle) (no Docker required)
 
 [**Full MCP Server Documentation →**](/mcp-server-ai-docs/)
 
 ### Quick Start
 
 ```bash
-# Download the documentation bundle from GitHub releases
-curl -LO https://github.com/chainguard-dev/edu/releases/download/ai-docs-bundle/chainguard-ai-docs.tar.gz
-
-# Extract the markdown file
-tar -xzf chainguard-ai-docs.tar.gz
+# Extract current documentation from the container image
+docker run --rm -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract /output
 
 # The extracted file 'chainguard-ai-docs.md' is ready to use with your AI assistant
 ```
