@@ -70,18 +70,15 @@ recommended. See the [global
 configuration](/chainguard/libraries/javascript/global-configuration/) for setup
 guides.
 
-<a id="npm"></a>
-
 ## Updating lockfile hashes for existing projects
 
 > **Note**: `chainctl libraries update-hashes` does not currently support authentication through a repository manager. You will need to configure [direct access](#direct-access) credentials before running the command.
 
 If you are migrating an existing JavaScript project to Chainguard Libraries,
-your lockfile contains integrity hashes generated against the npm registry.
-Because Chainguard rebuilds packages from verified source, these hashes differ
-from Chainguard's checksums and must be updated before reinstalling.
+your lockfile likely contains integrity hashes generated against the npm
+registry. Because Chainguard rebuilds packages in a secured build environment rather than distributing upstream artifacts directly, the resulting checksums differ even for identical package versions; they must be updated before reinstalling.
 
-Use the following command to update hashes in place across all supported lockfile formats (`package-lock.json`, `yarn.lock`,
+Use the following command, in the directory containing the lockfile, to update hashes in place across all supported lockfile formats (`package-lock.json`, `yarn.lock`,
 `pnpm-lock.yaml`, `bun.lock`) without regenerating the lockfile from scratch:
 
 ```bash
@@ -89,7 +86,7 @@ chainctl libraries update-hashes
 ```
 
 After running the command, ensure your `.npmrc` is configured with Chainguard
-credentials, then reinstall to apply the updated hashes. The command will output
+credentials, then reinstall to apply the updated hashes. The `chainctl libraries update-hashes` command will output
 a "Next steps" section that includes the tool-specific command for reinstalling.
 
 > **Note:** If your organization uses the [Chainguard Repository with upstream
@@ -99,7 +96,9 @@ a "Next steps" section that includes the tool-specific command for reinstalling.
 > `registry.npmjs.org` in your lockfile after running `chainctl libraries
 > update-hashes`. These packages are not automatically redirected to route
 > through Chainguard. To fully migrate these packages, update their resolved
-> URLs to use `libraries.cgr.dev/javascript-upstream/` manually
+> URLs to use `libraries.cgr.dev/javascript-upstream/` manually.
+
+<a id="npm"></a>
 
 ## npm
 

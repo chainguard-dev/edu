@@ -491,8 +491,8 @@ Chainguard Libraries for Python. For testing purposes, you can use direct access
 and environment variables as detailed in the [access
 documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials). 
 
-> **Migrating an existing project?** If you have an existing `uv.lock` with
-> upstream hashes, use [`chainctl libraries update-hashes`](/chainguard/chainctl/chainctl-docs/chainctl_libraries_update-hashes/)
+> **Migrating an existing project?** If you have an existing uv lockfile with
+> upstream hashes, use [`chainctl libraries update-hashes`](/chainguard/libraries/python/overview/#updating-lockfile-hashes)
 > to update hashes in place rather than starting from scratch.
 
 **1. Configure credentials**
@@ -617,8 +617,8 @@ Use the following steps to create a minimal example project for pip with Chaingu
 For testing purposes, you can use direct access and environment variables as detailed in the [access
 documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials).  
 
-> **Migrating an existing project?** If you have an existing `requirements.txt` with
-> upstream hashes, use [`chainctl libraries update-hashes`](/chainguard/chainctl/chainctl-docs/chainctl_libraries_update-hashes/)
+> **Migrating an existing project?** If you have an existing pip lockfile with
+> upstream hashes, use [`chainctl libraries update-hashes`](/chainguard/libraries/python/overview/#updating-lockfile-hashes)
 > to update hashes in place rather than starting from scratch.
 
 **1. Update your configuration to point to Chainguard**
