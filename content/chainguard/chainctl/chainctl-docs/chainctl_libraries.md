@@ -1,5 +1,5 @@
 ---
-date: 2026-04-21T23:22:01Z
+date: 2026-04-23T19:31:15Z
 title: "chainctl libraries"
 slug: chainctl_libraries
 url: /chainguard/chainctl/chainctl-docs/chainctl_libraries/
@@ -32,5 +32,6 @@ Ecosystem library related commands.
 
 * [chainctl](/chainguard/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
 * [chainctl libraries entitlements](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements/)	 - Manage entitlements to language ecosystem libraries.
+* [chainctl libraries update-hashes](/chainguard/chainctl/chainctl-docs/chainctl_libraries_update-hashes/)	 - Update lockfile integrity hashes with Chainguard Libraries checksums
 * [chainctl libraries verify](/chainguard/chainctl/chainctl-docs/chainctl_libraries_verify/)	 - A tool to analyze the use of Chainguard Libraries in various artifacts
 

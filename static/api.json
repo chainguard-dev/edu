@@ -107,6 +107,7 @@
           "CAP_REGISTRY_ENTITLEMENTS_LIST",
           "CAP_REGISTRY_ENTITLEMENTS_CREATE",
           "CAP_REGISTRY_ENTITLEMENTS_DELETE",
+          "CAP_REGISTRY_ENTITLEMENTS_IMAGES_ADD",
           "CAP_REGISTRY_SETTINGS_LIST",
           "CAP_REGISTRY_SETTINGS_UPDATE",
           "CAP_SIGSTORE_CREATE",
@@ -3852,6 +3853,18 @@
         ],
         "type": "string"
       },
+      "chainguard.platform.registry.AddEntitlementImagesResponse": {
+        "properties": {
+          "images": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.EntitledImage"
+            },
+            "title": "The images that were added. Excludes requested images that were\nfound on",
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.registry.Apko.BuildImageBody": {
         "properties": {
           "config": {
@@ -4597,6 +4610,22 @@
         },
         "type": "object"
       },
+      "chainguard.platform.registry.Entitlements.AddEntitlementImagesBody": {
+        "properties": {
+          "id": {
+            "description": "The exact id of the entitlement to add images to.",
+            "type": "string"
+          },
+          "imageNames": {
+            "description": "Catalog image names to add (e.g., \"nginx\", \"redis\").\nResolved against the catalog by exact name match.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.registry.EolGracePeriodStatus": {
         "default": "GRACE_NOT_ELIGIBLE",
         "enum": [
@@ -4693,6 +4722,11 @@
             },
             "type": "array"
           },
+          "maxTotalImages": {
+            "description": "Maximum number of images that can be entitled to this organization.\nA value of -1 means this organization has no maximum quota enforced.",
+            "format": "int32",
+            "type": "integer"
+          },
           "plan": {
             "allOf": [
               {
@@ -4705,7 +4739,7 @@
             "additionalProperties": {
               "$ref": "#/components/schemas/chainguard.platform.registry.ImageQuota"
             },
-            "description": "Aggregated quota usage per tier. Keys are CatalogTier string names.\n\nTODO: int32 max_total_images = 5;",
+            "description": "Aggregated quota usage per tier. Keys are CatalogTier string names.",
             "type": "object"
           }
         },
@@ -14495,6 +14529,61 @@
           }
         },
         "summary": "List Entitlement Images",
+        "tags": [
+          "RegistryEntitlements"
+        ]
+      }
+    },
+    "/registry/v1/entitlements/{parent}:addImages": {
+      "post": {
+        "description": "AddEntitlementImages adds catalog images to an organization's entitlements.\nImages are specified by name and resolved against the catalog.\nThe backend selects an eligible entitlement with matching tier capacity,\npreferring the newest, unless an explicit entitlement_id is provided.",
+        "operationId": "Entitlements_AddEntitlementImages",
+        "parameters": [
+          {
+            "description": "The organization to add images to. The newest eligible entitlement\nwith matching tier capacity is selected.",
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.registry.Entitlements.AddEntitlementImagesBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.registry.AddEntitlementImagesResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Add Entitlement Images",
         "tags": [
           "RegistryEntitlements"
         ]

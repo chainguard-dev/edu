@@ -1,5 +1,5 @@
 ---
-date: 2026-04-21T23:22:01Z
+date: 2026-04-23T19:31:15Z
 title: "chainctl images repos build apply"
 slug: chainctl_images_repos_build_apply
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_apply/
@@ -16,7 +16,7 @@ Apply a build config
 ### Synopsis
 
 
-Apply a pre-written YAML configuration file and/or custom certificates to customize a Chainguard image.
+Apply a pre-written YAML configuration file and/or custom certificates to customize one or more Chainguard images.
 
 You can use Custom Assembly to customize any image you are entitled to by
 adding packages from Chainguard's repository, setting environment variables,
@@ -28,8 +28,8 @@ This command applies Custom Assembly configurations without opening an interacti
 editor. Use this for automated workflows, CI/CD pipelines, or when you have
 configuration files managed in version control.
 
-Finally, you can create variants by choosing to save the customized configuration
-as a new repository instead of modifying the existing one.
+You can create variants by choosing to save the customized configuration as a
+new repository instead of modifying the existing one (single-repo only).
 
 How it works:
 
@@ -46,6 +46,21 @@ The command validates the resulting configuration and displays a diff comparing
 it to the current repository configuration (or an empty baseline for new
 repositories). After reviewing the diff, you confirm the changes. The command
 then updates the repository configuration and starts a custom build automatically.
+
+Batch mode:
+
+Apply the same config to multiple repos by passing --repo multiple times, or by using a wildcard pattern. Supported syntax: * matches any string, ? matches a single character, [abc] matches a character class:
+
+  - --repo=nginx --repo=redis   Target explicit repos
+  - --repo="nginx*"             Match repos whose name starts with "nginx"
+  - --repo="*"                  Match all repos under the group
+  - --repo="*fips*"             Match repos containing "fips" in the name
+
+In batch mode the command shows per-repo diffs, then asks for a single confirmation before applying all matched repos in parallel (up to 10 concurrent). Results are printed as a summary at the end. --save-as is not available in batch mode.
+
+Dry-run mode:
+
+Pass --dry-run to preview changes without applying them. No confirmation is requested and no changes are made. Exits with a non-zero code if changes would be applied, suitable for CI drift detection.
 
 Customizable sections:
 
@@ -89,7 +104,10 @@ chainctl images repos build apply [flags]
 
 ```
 
-# Apply configuration from a file
+# Apply configuration from a file (interactive repo selection)
+chainctl images repos build apply --file=config.yaml
+
+# Apply to a specific repository
 chainctl images repos build apply --repo=my-custom-python --file=config.yaml
 
 # Apply and save as a new repository
@@ -98,26 +116,39 @@ chainctl images repos build apply --repo=my-custom-python --file=config.yaml --s
 # Apply with automatic confirmation (for CI/CD)
 chainctl images repos build apply --repo=my-custom-python --file=config.yaml --yes
 
-# Apply to interactively selected repository
-chainctl images repos build apply --file=config.yaml
-
 # Add only custom certificates (no config file needed)
 chainctl images repos build apply --repo=my-custom-python --with-certificates=ca1.pem --with-certificates=ca2.pem
 
 # Add custom certificates alongside a config file
 chainctl images repos build apply --repo=my-custom-python --file=config.yaml --with-certificates=ca1.pem --with-certificates=ca2.pem
 
-# Combine file-based config with certificates (for CI/CD)
-chainctl images repos build apply --file=config.yaml --with-certificates=internal-ca.pem --yes
+# Apply to all repos under a group (batch mode)
+chainctl images repos build apply --parent=my-org --repo="*" --file=config.yaml
+
+# Apply to repos matching a wildcard pattern (batch mode)
+chainctl images repos build apply --parent=my-org --repo="nginx*" --file=config.yaml
+
+# Apply to multiple explicit repos (batch mode)
+chainctl images repos build apply --repo=nginx --repo=nginx-fips --file=config.yaml
+
+# Batch apply with automatic confirmation (for CI/CD)
+chainctl images repos build apply --parent=my-org --repo="*" --file=config.yaml --yes
+
+# Dry-run: preview changes without applying (exits 1 if diff detected)
+chainctl images repos build apply --repo=my-custom-python --file=config.yaml --dry-run
+
+# Dry-run across all repos (useful for CI drift detection)
+chainctl images repos build apply --parent=my-org --repo="*" --file=config.yaml --dry-run
 
 ```
 
 ### Options
 
 ```
+      --dry-run                     Print the diff without applying changes. Exits with a non-zero code if changes would be made.
   -f, --file string                 The name of the file containing the build config.
       --parent string               The name or id of the parent location to apply build config.
-      --repo string                 The name or id of the repo to apply build config.
+      --repo stringArray            The name or id of the repo to apply build config. Supports wildcards (*, ?, [abc]). Can be specified multiple times.
       --save-as string              Create a new repo with the edited configuration instead of updating the existing one.
       --with-certificates strings   Comma separated list of files to read the custom certificates from.
   -y, --yes                         Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
