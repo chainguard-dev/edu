@@ -211,7 +211,9 @@ chainctl libraries verify ~/.m2/repository/net/logstash/logback/logstash-logback
 To integrate this into your build pipeline, add the verification step after
 dependency resolution and before the packaging phase. 
 
-### Analyze an npm tarball
+### Analyze JavaScript packages
+
+#### Analyze an npm tarball
 
 Verify an npm package tarball to confirm it was built by Chainguard:
 
@@ -224,7 +226,29 @@ and `9.0.0`)
 
 Verification uses SLSA provenance attestations. `chainctl` computes a SHA-512 digest of the tarball locally, fetches the signed attestation bundle, and uses `cosign` to confirm that the signature is valid, the certificate chains to the Sigstore root, the signer identity matches the Chainguard JavaScript builder, and the digest matches what was attested at build time.
 
-Verification currently operates on individual npm tarballs. 
+#### Verify a `node_modules` directory
+
+Verify npm packages installed in a `node_modules` directory:
+
+```sh
+chainctl libraries verify ./node_modules
+```
+
+This requires npm v7 or later, which writes an embedded lockfile (`.package-lock.json`) inside `node_modules`. The verifier reads each package's name, version, and integrity hash from that lockfile and checks them against Chainguard's attestations.
+
+If `.package-lock.json` is not present, the directory is not recognized as an npm tree and verification will not run.
+
+#### Verify a container image
+
+Verify JavaScript packages inside a container image:
+
+```sh
+chainctl libraries verify IMAGE:TAG
+```
+
+The verifier scans image layers for `node_modules` directories and applies the same lockfile-based verification as above. Coverage is reported as the percentage of JavaScript packages in the image that are confirmed Chainguard-rebuilt libraries.
+
+This requires the image to have been built with npm v7 or later. Images built with earlier npm versions, or where `.package-lock.json` was removed during the build, cannot be verified this way.
 
 ### Other bundled artifact formats
 
