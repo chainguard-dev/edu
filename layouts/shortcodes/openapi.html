@@ -1,30 +1,6 @@
-<div id="app"></div>
-<script
-  src="https://unpkg.com/@scalar/api-reference@1.48.7/dist/browser/standalone.js"
-  integrity="sha256-nxQi3+zE0a7YpvrjEpdHacaBuLtNjqFRZl/KbWrfGzA="
-  crossorigin="anonymous"
-></script>
-<script>
-  const scalarApp = Scalar.createApiReference("#app", {
-    agent: {
-      disabled: true,
-    },
-    mcp: {
-      disabled: true,
-    },
-    hideSearch: true,
-    telemetry: false,
-    showDeveloperTools: "never",
-    hideClientButton: true,
-    hideTestRequestButton: true,
-    hiddenClients: true,
-    hideDarkModeToggle: true,
-    darkMode: localStorage.getItem("theme") === "dark",
-    theme: "none",
-    withDefaultFonts: false,
-    url: '{{ .Get "spec-url"}}',
-  });
-</script>
+<div id="app" data-spec-url="{{ .Get "spec-url" }}"></div>
+{{ $css := resources.Get "css/vendor/scalar/style.css" | fingerprint "sha512" -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
 <style>
   .scalar-app ul {
     padding-left: 0;
