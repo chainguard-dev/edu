@@ -154,7 +154,7 @@ more versions. The Chainguard approach is as follows:
 
 Chainguard Containers use *floating tags*. This means that a container image's
 tag always points to the most recent build or version within a version stream,
-rather than a fixed, immutable image. For example, `python:3.19` will always
+rather than a fixed, immutable image. For example, `python:3.13` will always
 point to the latest version of that version stream (`3.13.9`, as of this
 writing), even if older tags like `3.13.8` and `3.13.7` are available.
 
