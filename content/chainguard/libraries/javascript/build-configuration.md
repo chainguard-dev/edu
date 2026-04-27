@@ -196,7 +196,7 @@ with a specific prefix to a different registry:
 ```
 # .npmrc
 registry=https://libraries.cgr.dev/javascript/
-//libraries.cgr.dev/javascript/:_auth={$token}
+//libraries.cgr.dev/javascript/:_auth=${token}
 
 @your-org:registry=https://registry.npmjs.org/
 ```
