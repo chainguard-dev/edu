@@ -292,6 +292,7 @@
       },
       "chainguard.platform.advisory.Severity.Type": {
         "default": "UNSPECIFIED",
+        "description": "- UNSPECIFIED: The \"unset\" value.\n - CVSS_V2: CVSS v2\n - CVSS_V3: CVSS \u003e= 3.0 and \u003c 4.0\n - CVSS_V4: CVSS \u003e= 4.0 and \u003c 5.0",
         "enum": [
           "UNSPECIFIED",
           "CVSS_V2",
@@ -299,7 +300,6 @@
           "CVSS_V4",
           "UBUNTU"
         ],
-        "title": "- UNSPECIFIED: The \"unset\" value.\n - CVSS_V2: CVSS v2\n - CVSS_V3: CVSS \u003e= 3.0 and \u003c 4.0\n - CVSS_V4: CVSS \u003e= 4.0 and \u003c 5.0",
         "type": "string"
       },
       "chainguard.platform.advisory.TruePositiveDetermination": {
@@ -2739,6 +2739,11 @@
             },
             "title": "The images that were added. Excludes requested images that were\nfound on",
             "type": "array"
+          },
+          "parent": {
+            "description": "The customer org UIDP that received the images. Set by the backend\nto the resolved parent of the target entitlement, regardless of\nwhether the request selected by parent or by entitlement id. Used\nas the CloudEvents subject for downstream subscribers.",
+            "readOnly": true,
+            "type": "string"
           }
         },
         "type": "object"
@@ -4729,6 +4734,7 @@
       },
       "chainguard.platform.tenant.ComponentGraph.Edge.Type": {
         "default": "UNKNOWN",
+        "description": "- GENERATED_FROM: and so on...; for inspiration, see https://spdx.github.io/spdx-spec/v2.3/relationships-between-SPDX-elements/",
         "enum": [
           "UNKNOWN",
           "DESCRIBES",
@@ -4736,7 +4742,6 @@
           "DEPENDS_ON",
           "GENERATED_FROM"
         ],
-        "title": "- GENERATED_FROM: and so on...; for inspiration, see https://spdx.github.io/spdx-spec/v2.3/relationships-between-SPDX-elements/",
         "type": "string"
       },
       "chainguard.platform.tenant.ComponentGraph.Node": {
@@ -4882,12 +4887,12 @@
       },
       "chainguard.platform.tenant.Sbom2.Source": {
         "default": "UNKNOWN",
+        "description": "Type",
         "enum": [
           "UNKNOWN",
           "INGESTED",
           "GENERATED"
         ],
-        "title": "Type",
         "type": "string"
       },
       "chainguard.platform.tenant.Scanner": {
@@ -5568,6 +5573,7 @@
       },
       "chainguard.platform.vulnerabilities.v1.ReviewStatus": {
         "default": "UNKNOWN",
+        "description": "ReviewStatus represents the possible states of review for an advisory event",
         "enum": [
           "UNKNOWN",
           "PENDING",
@@ -5575,7 +5581,6 @@
           "REQUEST_CHANGES",
           "REJECTED"
         ],
-        "title": "ReviewStatus represents the possible states of review for an advisory event",
         "type": "string"
       },
       "google.protobuf.Any": {
