@@ -159,6 +159,10 @@ notAlternative = true
     source = "node_modules/mermaid"
     target = "assets/js/vendor/mermaid"
   [[module.mounts]]
+    source = "node_modules/@scalar/api-reference/dist"
+    target = "assets/css/vendor/scalar"
+    includeFiles = ["/style.css"]
+  [[module.mounts]]
     source = "assets"
     target = "assets"
   [[module.mounts]]
