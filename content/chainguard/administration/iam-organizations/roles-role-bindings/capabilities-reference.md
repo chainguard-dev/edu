@@ -5,7 +5,7 @@ lead: "Reference for Chainguard's built-in roles and their specific capabilities
 description: "A resource documenting the capabilities and permissions of Chainguard's built-in IAM roles."
 type: "article"
 date: 2025-08-14T00:00:00Z
-lastmod: 2025-08-14T00:00:00Z
+lastmod: 2026-04-13T00:00:00Z
 draft: false
 tags: ["IAM", "Reference", "Product"]
 images: []
@@ -35,6 +35,7 @@ This guide outlines the following built-in roles provided by Chainguard:
     * `owner` - Full administrative access with all capabilities
     * `editor` - Limited administrative access with mostly read permissions and event management
     * `viewer` - Read-only access across all resources and **can** pull images
+    * `limited_owner` - Read access across all resources with ability to create identities and role bindings, and pull images
     * `console_viewer` - Read-only access across all resources and **cannot** pull images, without blob access or the ability to manage event subscriptions
 * **Registry and Container Roles:**
     * `registry.pull` - Container image access
@@ -50,7 +51,7 @@ This guide outlines the following built-in roles provided by Chainguard:
 
 The administrative roles are useful for user profiles that require broad, but clearly defined capabilities. The registry, container, and library roles have limited permissions, allowing them to manage only one specific Chainguard resource. These specialized, resource-specific roles grant minimal required access.
 
-For example, the `apk.pull` role only grants `list` access for APK packages and groups. This means identities with this role can pull the organization's APK packages and retrieve information about the organization, but won't have general access to the organization's [Chainguard registry](/chainguard/chainguard-images/chainguard-registry/overview/) access.
+For example, the `apk.pull` role only grants `list` access for APK packages and groups. This means identities with this role can pull the organization's APK packages and retrieve information about the organization, but won't have general access to the organization's [Chainguard registry](/chainguard/chainguard-images/chainguard-registry/overview/) resources.
 
 
 ## Chainguard Role Capabilities
@@ -62,38 +63,40 @@ The following table maps Chainguard resources to the built-in roles that have pe
 
 | Resource | Purpose | Roles with access to this resource |
 |------------|---------|---------------------------|
-| `account_associations` | Link cloud provider accounts to organization | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `apk` | Manage APK packages in the registry | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`apk.pull` (list)</li></ul> |
-| `build_report` | Access detailed build and scan reports for images and packages | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `group_invites` | Send and manage invitations to join Chainguard organization | <ul><li>`owner` (create, delete, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `groups` | Manage organization and hierarchical structures | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`libraries.java.pull_token_creator` (list)</li><li>`libraries.python.pull_token_creator` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li></ul> |
-| `identity` | Create and manage user identities, service accounts, and pull tokens | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull_token_creator` (create)</li><li>`libraries.java.pull_token_creator` (create)</li><li>`libraries.python.pull_token_creator` (create)</li><li>`libraries.javascript.pull_token_creator` (create)</li></ul> |
-| `identity_providers` | Configure [custom identity providers](/chainguard/administration/custom-idps/custom-idps/) (OIDC, SAML) for authentication | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `libraries.artifacts` | View Chainguard Library artifact metadata and information | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `libraries.entitlements` | Manage access permissions for Chainguard Libraries | <ul><li>`owner` (create, delete, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`console_viewer` (list)</li><li>`libraries.java.pull` (list)</li><li>`libraries.python.pull` (list)</li><li>`libraries.javascript.pull` (list)</li><li>`libraries.java.pull_token_creator` (list)</li><li>`libraries.python.pull_token_creator` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li></ul> |
+| `account_associations` | Link cloud provider accounts to organization | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `apk` | Manage APK packages in the registry | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`apk.pull` (list)</li></ul> |
+| `apk.blobs` | Download APK package binary content | <ul><li>`owner` (get)</li><li>`editor` (get)</li><li>`viewer` (get)</li><li>`limited_owner` (get)</li></ul> |
+| `build_report` | Access detailed build and scan reports for images and packages | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `group_invites` | Send and manage invitations to join Chainguard organization | <ul><li>`owner` (create, delete, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `groups` | Manage organization and hierarchical structures | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`libraries.java.pull_token_creator` (list)</li><li>`libraries.python.pull_token_creator` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li></ul> |
+| `identity` | Create and manage user identities, service accounts, and pull tokens | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (create, list)</li><li>`console_viewer` (list)</li><li>`registry.pull_token_creator` (create)</li><li>`libraries.java.pull_token_creator` (create)</li><li>`libraries.python.pull_token_creator` (create)</li><li>`libraries.javascript.pull_token_creator` (create)</li></ul> |
+| `identity_providers` | Configure [custom identity providers](/chainguard/administration/custom-idps/custom-idps/) (OIDC, SAML) for authentication | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `libraries.artifacts` | View Chainguard Library artifact metadata and information | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `libraries.entitlements` | Manage access permissions for Chainguard Libraries | <ul><li>`owner` (create, delete, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`libraries.java.pull` (list)</li><li>`libraries.python.pull` (list)</li><li>`libraries.javascript.pull` (list)</li><li>`libraries.java.pull_token_creator` (list)</li><li>`libraries.python.pull_token_creator` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li></ul> |
 | `libraries.java` | Access [Chainguard Libraries for Java](/chainguard/libraries/java/overview/) | <ul><li>`owner` (list)</li><li>`libraries.java.pull` (list)</li><li>`libraries.java.pull_token_creator` (list)</li></ul> |
 | `libraries.javascript` | Access Chainguard Libraries for JavaScript | <ul><li>`owner` (list)</li><li>`libraries.javascript.pull` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li></ul> |
 | `libraries.python` | Access [Chainguard Libraries for Python](/chainguard/libraries/python/overview/) | <ul><li>`owner` (list)</li><li>`libraries.python.pull` (list)</li><li>`libraries.python.pull_token_creator` (list)</li></ul> |
-| `manifest` | Access and manage container image manifests | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`libraries.javascript.pull_token_creator` (create, delete, list, update)</li></ul> |
-| `manifest.metadata` | View container image manifest metadata and attestations | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li></ul> |
-| `record_signatures` | View cryptographic signature verification records | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li></ul> |
-| `registry.entitlements` | View registry access entitlements and permissions | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `repo` | Create and manage container repositories (including [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/) resources) | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`libraries.javascript.pull_token_creator` (create, delete, list, update)</li></ul> |
-| `role_bindings` | [Assign roles to identities](/chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/#managing-role-bindings) (users and service accounts) | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull_token_creator` (create)</li><li>`libraries.java.pull_token_creator` (create)</li><li>`libraries.python.pull_token_creator` (create)</li><li>`libraries.javascript.pull_token_creator` (create)</li></ul> |
-| `roles` | Create, modify, and manage [custom Chainguard IAM roles](/chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/) | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`libraries.java.pull_token_creator` (list)</li><li>`libraries.python.pull_token_creator` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li></ul> |
-| `sboms` | Access Software Bill of Materials for packages and images | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li></ul> |
-| `subscriptions` | Manage [CloudEvent](/chainguard/administration/cloudevents/events-reference/) subscriptions for notifications and automation | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (create, delete, list, update)</li><li>`viewer` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `tag` | Manage Chainguard container image tags | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li></ul> |
-| `version` | View version information across all resources and assets | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `manifest` | Access and manage container image manifests | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`libraries.javascript.pull_token_creator` (create, delete, list, update)</li></ul> |
+| `manifest.metadata` | View container image manifest metadata and attestations | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li></ul> |
+| `record_signatures` | View cryptographic signature verification records | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li></ul> |
+| `registry.entitlements` | View registry access entitlements and permissions | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `repo` | Create and manage container repositories (including [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/) resources) | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`libraries.javascript.pull_token_creator` (create, delete, list, update)</li></ul> |
+| `repo.blobs` | Download container image binary content | <ul><li>`owner` (get)</li><li>`editor` (get)</li><li>`viewer` (get)</li><li>`limited_owner` (get)</li></ul> |
+| `role_bindings` | [Assign roles to identities](/chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/#managing-role-bindings) (users and service accounts) | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (create, list)</li><li>`console_viewer` (list)</li><li>`registry.pull_token_creator` (create)</li><li>`libraries.java.pull_token_creator` (create)</li><li>`libraries.python.pull_token_creator` (create)</li><li>`libraries.javascript.pull_token_creator` (create)</li></ul> |
+| `roles` | Create, modify, and manage [custom Chainguard IAM roles](/chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/) | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`libraries.java.pull_token_creator` (list)</li><li>`libraries.python.pull_token_creator` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li></ul> |
+| `sboms` | Access Software Bill of Materials for packages and images | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li></ul> |
+| `subscriptions` | Manage [CloudEvent](/chainguard/administration/cloudevents/events-reference/) subscriptions for notifications and automation | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (create, delete, list, update)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `tag` | Manage Chainguard container image tags | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li></ul> |
+| `version` | View version information across all resources and assets | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
 | `vuln` | Create vulnerability reports and assessments | <ul><li>`owner` (create)</li></ul> |
-| `vuln_report` | Manage detailed vulnerability assessments for specific resources | <ul><li>`owner` (create, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `vuln_reports` | View high-level vulnerability report summaries | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li></ul> |
+| `vuln_report` | Manage detailed vulnerability assessments for specific resources | <ul><li>`owner` (create, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `vuln_reports` | View high-level vulnerability report summaries | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li></ul> |
 
 </div>
 
 ## Role Capabilities Comparison
 
-The following table compares the general abilities of the twelve built-in roles described in the [previous summary](#built-in-roles-summary):
+The following table compares the general abilities of the built-in roles described in the [previous summary](#built-in-roles-summary):
 
 <div style="overflow-x: auto;">
 
@@ -102,6 +105,7 @@ The following table compares the general abilities of the twelve built-in roles 
 | `owner` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | `editor` | ✅ | ✅ | ✅ | ✕ | ✕ | ✕ |
 | `viewer` | ✅ | ✅ | ✅ | ✕ | ✕ | ✕ |
+| `limited_owner` | ✅ | ✅ | ✅ | ✅ | ✅ | ✕ |
 | `console_viewer` | ✕ | ✅ | ✅ | ✕ | ✕ | ✕ |
 | `registry.pull` | ✅ | ✅ | ✅ | ✕ | ✕ | ✕ |
 | `registry.pull_token_creator` | ✅ | ✅ | ✅ | ✅ | ✅ | ✕ |
@@ -118,7 +122,7 @@ The following table compares the general abilities of the twelve built-in roles 
 **Notes**
 - **Pull Images/List Tags/Repos/View SBOMs**: These capabilities refer to container registry operations relating to the `manifest`, `repo`, `tag`, and `sboms` resources
 - **APK Pull**: The `apk.pull` role is specialized for APK package management, not container operations
-- +- **Console Viewer**: Has the same broad `list` access as `editor`, but cannot pull blobs (`apk.blobs`, `repo.blobs`) and cannot create, update, or delete event subscriptions. This makes it a safe role for inviting team members who need Console visibility without the ability to pull images or APKs.
+- **Console Viewer**: Has the same broad `list` access as `editor`, but cannot pull blobs (`apk.blobs`, `repo.blobs`) and cannot create, update, or delete event subscriptions. This makes it a safe role for inviting team members who need Console visibility without the ability to pull images or APKs.
 
 ### Pull token creator roles
 
@@ -133,7 +137,7 @@ For example, the `libraries.*.pull_token_creator` roles are focused on their res
 
 These roles are able to create pull tokens because of the `identity.create` capability. However, none of these roles have the `identity.list` capability, meaning that they aren't able to view the pull tokens they've created. 
 
-The reason for this is that Chainguard doesn't distinguish pull token identities from other [assumable identities](/chainguard/administration/assumable-ids/assumable-ids/) at the IAM level. If these roles also had the `identity.list` capability, they would be able to view **all** the identities in that scope. By not including `identity.list` among their capabilities, the pull token creator roles have a more limited, as intended.
+The reason for this is that Chainguard doesn't distinguish pull token identities from other [assumable identities](/chainguard/administration/assumable-ids/assumable-ids/) at the IAM level. If these roles also had the `identity.list` capability, they would be able to view **all** the identities in that scope. By not including `identity.list` among their capabilities, the pull token creator roles have a more limited scope, as intended.
 
 ## Learn More
 

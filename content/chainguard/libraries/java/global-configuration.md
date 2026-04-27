@@ -52,6 +52,12 @@ configure and control. Refer to the [direct access documentation for build
 tools](/chainguard/libraries/java/build-configuration/#direct-access) for more
 information.
 
+### Considerations for fallback approach
+
+Before configuring your repo manager, consider how you want to handle packages that aren't
+yet available in the Chainguard registry. If you configure a fallback to Maven Central, packages sourced from that registry are not covered by Chainguard's
+malware-resistance guarantees. See the [fallback approaches](/chainguard/libraries/quickstart/#artifact-manager-recommended) described in the Chainguard Libraries quick start for guidance on choosing the right approach for your environment.
+
 <a name="cloudsmith"></a>
 
 ## Cloudsmith

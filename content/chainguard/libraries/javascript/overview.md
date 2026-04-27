@@ -156,8 +156,18 @@ Repository](/chainguard/chainguard-repository/overview/). By default, the endpoi
 only Chainguard-built packages. When the upstream fallback is enabled, upstream packages are
 subject to additional security controls before being served.
 
-To enable or change upstream fallback configuration, contact your Chainguard
-account team or Chainguard support.
+### Enable the upstream repository
+
+To enable or change upstream fallback configuration, use the [`chainctl
+libraries entitlements`
+command](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/).
+
+The following command creates or updates an entitlement to Chainguard Libraries
+for JavaScript and adds the npm upstream fallback policy:
+
+```bash
+chainctl libraries entitlements create --parent=example.com --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM
+```
 
 ### Fallback options
 The following options are available:
@@ -178,6 +188,7 @@ When fallback is enabled, upstream npm packages are subject to a default 7-day c
 If a package version is requested and falls within the cooldown period, the package manager will output a 404 error. The package becomes available once it has passed the cooldown period and cleared malware scanning.
 
 ### How package resolution works
+
 When you request a JavaScript package from the Chainguard Repository, the following logic applies:
 * **Chainguard-built package available**: The package is served directly from Chainguard's rebuilt artifact store, complete with SBOM, provenance, and signatures.
 * **Package not yet built by Chainguard**: If upstream fallback is enabled, the repository checks whether the package has passed the cooldown period and malware scan.

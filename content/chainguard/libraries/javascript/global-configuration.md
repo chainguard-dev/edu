@@ -60,7 +60,7 @@ Configuring your own fallback bypasses the protection that the Chainguard
 Repository provides.
 
 However, if upstream fallback is not enabled or you prefer to manage your own fallback
-ordering, you can configure `https://libraries.cgr.dev/javascript/` as a remote
+ordering: you can configure `https://libraries.cgr.dev/javascript/` as a remote
 repository alongside your npm upstream, and combine them in a virtual or group
 repository with Chainguard as the first priority. The per-tool instructions on
 this page follow this pattern.

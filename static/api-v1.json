@@ -543,6 +543,21 @@
         },
         "type": "object"
       },
+      "chainguard.platform.auth.HeadlessSession": {
+        "properties": {
+          "ecdhPublicKey": {
+            "description": "When establishing a headless session, the client must first provide\ntheir ECDH public key. The server will then generate an ephemeral\nECHD keypair and use the client's public key to establish a symmetric\nkey.\n\nThis symmetric key will be used to encrypt the idtoken and stored the\nencrypted idtoken in the database for a short period, as well as\nreturning it to the client.\n\nAfter the idtoken is encrypted, the server will discard both the shared\nsymmetric key and the ephemeral ECDH private key. The server ECDH will\nbe sent back to the client.\n\nThe client, with their private key, can use this public key to\nestablish the same symmetric key, which can be used to decrypt\nthe idtoken.\n\nechd_public_key is the client's ECDH public key.",
+            "format": "byte",
+            "type": "string"
+          },
+          "encryptedIdtoken": {
+            "description": "encrypted_idtoken is the encrypted idtoken.",
+            "format": "byte",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.auth.RegistrationRequest": {
         "properties": {
           "code": {
@@ -713,10 +728,10 @@
           "github": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.iam.AccountAssociations.GitHubInstallation"
+                "$ref": "#/components/schemas/chainguard.platform.iam.AccountAssociations.GitHub"
               }
             ],
-            "description": "github holds information associating a GitHub installation with the group.\nNote: this AccountAssociation type is EXPERIMENTAL."
+            "description": "github holds GitHub App installation associations for this group."
           },
           "google": {
             "allOf": [
@@ -774,26 +789,41 @@
         },
         "type": "object"
       },
-      "chainguard.platform.iam.AccountAssociations.GitHubInstallation": {
+      "chainguard.platform.iam.AccountAssociations.GitHub": {
+        "description": "GitHub holds GitHub App installation associations for a group.",
         "properties": {
-          "appId": {
-            "description": "GitHub App ID. Output only.",
-            "format": "int64",
-            "readOnly": true,
-            "type": "string"
-          },
-          "host": {
-            "description": "GitHub hostname app is associated with. Output only.",
-            "readOnly": true,
-            "type": "string"
-          },
+          "appInstallations": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/chainguard.platform.iam.AccountAssociations.GitHubAppInstallations"
+            },
+            "description": "app_installations maps app_id to the set of installations\nfor that app associated with this group.",
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.AccountAssociations.GitHubAppInstallations": {
+        "description": "GitHubAppInstallations holds the installations for a single GitHub App.",
+        "properties": {
+          "installations": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.iam.AccountAssociations.GitHubInstallation"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.AccountAssociations.GitHubInstallation": {
+        "description": "GitHubInstallation is a single GitHub App installation.",
+        "properties": {
           "installationId": {
-            "description": "GitHub App Installation ID. Takes precedence over name.",
+            "description": "installation_id is the GitHub App installation ID.",
             "format": "int64",
             "type": "string"
           },
           "name": {
-            "description": "GitHub user/org name the installation is installed on.",
+            "description": "name is the GitHub user/org name this installation belongs to.\nNon-authoritative: stored for convenience only.",
             "type": "string"
           }
         },
@@ -864,6 +894,14 @@
             "description": "id, The group UIDP under which this group resides.",
             "type": "string"
           },
+          "kind": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.OrgKind"
+              }
+            ],
+            "description": "kind is the organization kind. For root groups this is their own kind;\nfor subgroups it is inherited from the root group."
+          },
           "name": {
             "description": "name, human readable name of group.",
             "type": "string"
@@ -914,10 +952,10 @@
           "github": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.iam.AccountAssociations.GitHubInstallation"
+                "$ref": "#/components/schemas/chainguard.platform.iam.AccountAssociations.GitHub"
               }
             ],
-            "description": "github holds information associating a GitHub installation with the group.\nNote: this AccountAssociation type is EXPERIMENTAL."
+            "description": "github holds GitHub App installation associations for this group."
           },
           "google": {
             "allOf": [
@@ -957,10 +995,10 @@
           "github": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.iam.AccountAssociations.GitHubInstallation"
+                "$ref": "#/components/schemas/chainguard.platform.iam.AccountAssociations.GitHub"
               }
             ],
-            "description": "github holds information associating a GitHub installation with the group.\nNote: this AccountAssociation type is EXPERIMENTAL."
+            "description": "github holds GitHub App installation associations for this group."
           },
           "google": {
             "allOf": [
@@ -1055,6 +1093,14 @@
           "description": {
             "description": "description, human readable of group.",
             "type": "string"
+          },
+          "kind": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.OrgKind"
+              }
+            ],
+            "description": "kind is the organization kind. For root groups this is their own kind;\nfor subgroups it is inherited from the root group."
           },
           "name": {
             "description": "name, human readable name of group.",
@@ -1380,6 +1426,18 @@
         },
         "type": "object"
       },
+      "chainguard.platform.iam.OrgKind": {
+        "default": "ORG_KIND_UNSPECIFIED",
+        "description": "OrgKind is the kind of organization the group belongs to.\n\n - ORG_KIND_STARTER: Free catalog starter organizations.\n - ORG_KIND_CUSTOMER: Paid customer organizations.\n - ORG_KIND_DEV: Personal developer organizations.\n - ORG_KIND_INFRA: Organizations that are used for infrastructure or automation.",
+        "enum": [
+          "ORG_KIND_UNSPECIFIED",
+          "ORG_KIND_STARTER",
+          "ORG_KIND_CUSTOMER",
+          "ORG_KIND_DEV",
+          "ORG_KIND_INFRA"
+        ],
+        "type": "string"
+      },
       "chainguard.platform.iam.Role": {
         "properties": {
           "capabilities": {
@@ -1555,7 +1613,9 @@
           "APKO_BUILDER",
           "ENTITLEMENT_SYNCER",
           "TENANT_SCANNER",
-          "SEDIMENTOLOGY"
+          "SEDIMENTOLOGY",
+          "SKILLUP",
+          "MATERIALIZER"
         ],
         "type": "string"
       },
@@ -2065,20 +2125,20 @@
       "chainguard.platform.matcher.MatchImageRequest": {
         "properties": {
           "arch": {
-            "title": "arch is the architecture (e.g., \"amd64\", \"arm64\")",
+            "title": "arch is the architecture (\"x86_64\")",
             "type": "string"
           },
           "count": {
             "format": "int32",
-            "title": "top_n is the maximum number of recommendations to return (default: 10)",
+            "title": "count is the maximum number of recommendations to return (default: 10)",
             "type": "integer"
           },
           "distName": {
-            "title": "dist_name is the distribution name (e.g., \"debian\", \"ubuntu\", \"alpine\", \"wolfi\")",
+            "title": "dist_name is the distribution name (\"debian\", \"ubuntu\", \"alpine\", \"redhat\", \"suse\", \"amazon-linux\")",
             "type": "string"
           },
           "distVersion": {
-            "title": "dist_version is the distribution version (e.g., \"1.2.3\", \"2.0-r2\")",
+            "title": "dist_version is the distribution version (e.g., \"13\", \"24.04\", \"3.22\", \"10\", \"16.0\", \"2023\")",
             "type": "string"
           },
           "parentId": {
@@ -2091,7 +2151,7 @@
                 "$ref": "#/components/schemas/chainguard.platform.matcher.SBOM"
               }
             ],
-            "title": "sbom is the SBOM data"
+            "title": "sbom is the SBOM components"
           },
           "threshold": {
             "format": "double",
@@ -2138,7 +2198,6 @@
             "items": {
               "type": "string"
             },
-            "title": "TODO do we want to remove this, as it isn't in image_recommendation.proto",
             "type": "array"
           },
           "name": {
@@ -2158,7 +2217,7 @@
             "items": {
               "$ref": "#/components/schemas/chainguard.platform.matcher.SBOMComponent"
             },
-            "title": "individaul sbom entries",
+            "title": "individaul sbom components",
             "type": "array"
           }
         },
@@ -2341,6 +2400,34 @@
             "description": "start date of the notification.",
             "format": "date-time",
             "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.oidc.RawToken": {
+        "properties": {
+          "expiry": {
+            "description": "(optional) Expiry time of the token.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "refreshToken": {
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.oidc.TokenPair": {
+        "description": "ExchangeRefreshToken returns a pair of token, in order to allow\nrefresh token to also be rotated.",
+        "properties": {
+          "refreshToken": {
+            "$ref": "#/components/schemas/chainguard.platform.oidc.RawToken"
+          },
+          "token": {
+            "$ref": "#/components/schemas/chainguard.platform.oidc.RawToken"
           }
         },
         "type": "object"
@@ -8106,7 +8193,7 @@
     },
     "/image-recommendation/v1/match": {
       "post": {
-        "description": "MatchImage takes an sbom and returns a list of chainguard\nimages ranked by sbom similarity",
+        "description": "MatchImage takes a list of SBOM components and returns a list of Chainguard\nimages ranked by similarity to original SBOM components",
         "operationId": "ImageMatcher_MatchImage",
         "requestBody": {
           "content": {
@@ -11841,6 +11928,293 @@
         ]
       }
     },
+    "/sts/exchange": {
+      "get": {
+        "operationId": "SecurityTokenService_Exchange2",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "aud",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          {
+            "description": "Deprecated: use scopes instead",
+            "in": "query",
+            "name": "scope",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "identity",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "List of capabilities to request for the token.",
+            "in": "query",
+            "name": "cap",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          {
+            "description": "Empty or the UIDP of the custom identity provider.",
+            "in": "query",
+            "name": "identityProvider",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "One or more group scopes to restrict the returned token to.\nIf scope and scopes are both provided, the union of their values is\nconsidered, after deduplication.\n\nThe returned token will include role bindings for the requested scopes,\nif any exist, that are either granted directly at that scope or inherited from\nits ancestors. That is, a role binding granted at a \"lower\" scope in the ancestry\napplies to all descendants of that scope.\n\nFor example, given a role binding on group `foo` with id `foo/rb-id-1`\nand a role binding on group `foo/bar` with id `foo/bar/rb-id-2`:\n - given scopes = [foo, foo/bar] =\u003e {foo: [foo/rb-id-1], foo/bar: [foo/bar/rb-id-2]}\n - given scopes = [foo/bar] =\u003e {foo/bar: [foo/rb-id-1, foo/bar/rb-id-2]}",
+            "in": "query",
+            "name": "scopes",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.oidc.RawToken"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Exchange2",
+        "tags": [
+          "SecurityTokenService"
+        ]
+      },
+      "post": {
+        "operationId": "SecurityTokenService_Exchange",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "aud",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          {
+            "description": "Deprecated: use scopes instead",
+            "in": "query",
+            "name": "scope",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "identity",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "List of capabilities to request for the token.",
+            "in": "query",
+            "name": "cap",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          {
+            "description": "Empty or the UIDP of the custom identity provider.",
+            "in": "query",
+            "name": "identityProvider",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "One or more group scopes to restrict the returned token to.\nIf scope and scopes are both provided, the union of their values is\nconsidered, after deduplication.\n\nThe returned token will include role bindings for the requested scopes,\nif any exist, that are either granted directly at that scope or inherited from\nits ancestors. That is, a role binding granted at a \"lower\" scope in the ancestry\napplies to all descendants of that scope.\n\nFor example, given a role binding on group `foo` with id `foo/rb-id-1`\nand a role binding on group `foo/bar` with id `foo/bar/rb-id-2`:\n - given scopes = [foo, foo/bar] =\u003e {foo: [foo/rb-id-1], foo/bar: [foo/bar/rb-id-2]}\n - given scopes = [foo/bar] =\u003e {foo/bar: [foo/rb-id-1, foo/bar/rb-id-2]}",
+            "in": "query",
+            "name": "scopes",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.oidc.RawToken"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Exchange",
+        "tags": [
+          "SecurityTokenService"
+        ]
+      }
+    },
+    "/sts/exchange_refresh_token": {
+      "post": {
+        "operationId": "SecurityTokenService_ExchangeRefreshToken",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "aud",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          {
+            "description": "Deprecated: use scopes instead",
+            "in": "query",
+            "name": "scope",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "List of capabilities to request for the token.",
+            "in": "query",
+            "name": "cap",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          {
+            "description": "One or more group scopes to restrict the returned token to.\nIf scope and scopes are both provided, the union of their values is\nconsidered, after deduplication.\n\nThe returned token will include role bindings for the requested scopes,\nif any exist, that are either granted directly at that scope or inherited from\nits ancestors. That is, a role binding granted at a \"lower\" scope in the ancestry\napplies to all descendants of that scope.\n\nFor example, given a role binding on group `foo` with id `foo/rb-id-1`\nand a role binding on group `foo/bar` with id `foo/bar/rb-id-2`:\n - given scopes = [foo, foo/bar] =\u003e {foo: [foo/rb-id-1], foo/bar: [foo/bar/rb-id-2]}\n - given scopes = [foo/bar] =\u003e {foo/bar: [foo/rb-id-1, foo/bar/rb-id-2]}",
+            "in": "query",
+            "name": "scopes",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.oidc.TokenPair"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Exchange Refresh Token",
+        "tags": [
+          "SecurityTokenService"
+        ]
+      }
+    },
+    "/sts/headless_sessions": {
+      "get": {
+        "operationId": "Auth_GetHeadlessSession",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "code",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.auth.HeadlessSession"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Headless Session",
+        "tags": [
+          "Auth"
+        ]
+      }
+    },
     "/vulnerabilities/v1/advisories": {
       "get": {
         "operationId": "Advisories_List",
@@ -12510,6 +12884,9 @@
     },
     {
       "name": "Notifications"
+    },
+    {
+      "name": "SecurityTokenService"
     },
     {
       "description": "Packages Entitlements API",

@@ -146,7 +146,7 @@ Time is critical. One common bottleneck occurs when allocating large chunks of m
 | ---------------------------- | ------------- | ------------- |
 | Memory Allocations Benchmark | 102.25 sec	| 51.01 sec 	|
 
-This table highlights how excessive memory allocations can cause musl (used by Alpine) to perform up to **2x slower** than glibc (used by Wolfi). A memory-intensive application needs to be wary of performance issues when migrating to the musl-alpine ecosystem. Technical details on why memory allocation (`malloc`) is slow can be found in this [musl discussion thread](https://musl.openwall.narkive.com/J9ymcXt2/what-s-wrong-with-s-malloc).
+This table highlights how excessive memory allocations can cause musl (used by Alpine) to perform up to **2x slower** than glibc (used by Wolfi). A memory-intensive application needs to be wary of performance issues when migrating to the musl-alpine ecosystem.
 
 Apart from memory allocations, multi-threading has also been problematic for musl, as shown in various [GitHub issues](https://github.com/rust-lang/rust/issues/70108). glibc provides a thread-safe system, while musl is not thread-safe. The POSIX standard only requires stream operations to be atomic; there are no requirements on thread safety, so musl does not provide additional thread-safe features. This means unexpected behavior or race conditions can occur during multiple threads.
 

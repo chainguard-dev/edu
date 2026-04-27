@@ -3,7 +3,7 @@
     "schemas": {
       "chainguard.capabilities.Capability": {
         "default": "UNKNOWN",
-        "description": "Capability is an enumeration of the Chainguard IAM capabilities.\n\n - CAP_TENANT_VULN_REPORTS_LIST: TODO(colin): deprecate this cap once the legacy endpoint is removed\n - CAP_REPO_BLOBS_GET: repo.blobs.get is a capability required to pull container images.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with images vs pulling the image itself.\n - CAP_APK_BLOBS_GET: apk.blobs.get is a capability required to pull APKs.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with APKs vs pulling the APK itself.\n - CAP_BUILD_REPORT_LIST: Custom Image Build\n - CAP_LIBRARIES_ENTITLEMENTS_CREATE: Global libraries capabilities\n - CAP_LIBRARIES_PYTHON_LIST: Ecosystems specific capabilities\n - CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE: Rebuilder API capabilities\n - CAP_REGISTRY_ENTITLEMENTS_LIST: Registry Entitlements\n - CAP_REGISTRY_SETTINGS_LIST: Registry Settings\n - CAP_REGISTRY_DEPLOYMENTS_CREATE: Registry Deployments\n - CAP_POLICY_GATES_POLICY_CREATE: Policy Gates\n - CAP_TERMS_ACCEPT: Terms\n - CAP_GULFSTREAM: This is orthogonal enough that we should leave\nit somewhat separate, so add new capabilities above.\nTODO(mattmoor): Think about whether we can encode specific\ncontroller capabilities into our access control here?\ne.g. could each logical controller/webhook be its own\ncapability?",
+        "description": "Capability is an enumeration of the Chainguard IAM capabilities.\n\n - CAP_TENANT_VULN_REPORTS_LIST: TODO(colin): deprecate this cap once the legacy endpoint is removed\n - CAP_REPO_BLOBS_GET: repo.blobs.get is a capability required to pull container images.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with images vs pulling the image itself.\n - CAP_APK_BLOBS_GET: apk.blobs.get is a capability required to pull APKs.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with APKs vs pulling the APK itself.\n - CAP_BUILD_REPORT_LIST: Custom Image Build\n - CAP_LIBRARIES_ENTITLEMENTS_CREATE: Global libraries capabilities\n - CAP_LIBRARIES_PYTHON_LIST: Ecosystems specific capabilities\n - CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE: Rebuilder API capabilities\n - CAP_REGISTRY_ENTITLEMENTS_LIST: Registry Entitlements\n - CAP_REGISTRY_SETTINGS_LIST: Registry Settings\n - CAP_REGISTRY_DEPLOYMENTS_CREATE: Registry Deployments\n - CAP_POLICY_GATES_POLICY_CREATE: Policy Gates\n - CAP_TERMS_ACCEPT: Terms\n - CAP_GULFSTREAM: This is orthogonal enough that we should leave\nit somewhat separate, so add new capabilities above.\nTODO(mattmoor): Think about whether we can encode specific\ncontroller capabilities into our access control here?\ne.g. could each logical controller/webhook be its own\ncapability?\n - CAP_GUARDENER_DFC_CONVERT: Guardener\n - CAP_MCP_TOOL_CALL: MCP tool calls",
         "enum": [
           "UNKNOWN",
           "CAP_INTERNAL",
@@ -129,9 +129,26 @@
           "CAP_PACKAGES_ENTITLEMENTS_LIST",
           "CAP_TERMS_ACCEPT",
           "CAP_TERMS_LIST",
-          "CAP_GULFSTREAM"
+          "CAP_GULFSTREAM",
+          "CAP_GUARDENER_DFC_CONVERT",
+          "CAP_MCP_TOOL_CALL"
         ],
         "type": "string"
+      },
+      "chainguard.platform.auth.HeadlessSession": {
+        "properties": {
+          "ecdhPublicKey": {
+            "description": "When establishing a headless session, the client must first provide\ntheir ECDH public key. The server will then generate an ephemeral\nECHD keypair and use the client's public key to establish a symmetric\nkey.\n\nThis symmetric key will be used to encrypt the idtoken and stored the\nencrypted idtoken in the database for a short period, as well as\nreturning it to the client.\n\nAfter the idtoken is encrypted, the server will discard both the shared\nsymmetric key and the ephemeral ECDH private key. The server ECDH will\nbe sent back to the client.\n\nThe client, with their private key, can use this public key to\nestablish the same symmetric key, which can be used to decrypt\nthe idtoken.\n\nechd_public_key is the client's ECDH public key.",
+            "format": "byte",
+            "type": "string"
+          },
+          "encryptedIdtoken": {
+            "description": "encrypted_idtoken is the encrypted idtoken.",
+            "format": "byte",
+            "type": "string"
+          }
+        },
+        "type": "object"
       },
       "chainguard.platform.iam.v2beta1.AccountAssociation": {
         "description": "AccountAssociation represents cloud provider account associations for a group.",
@@ -176,7 +193,7 @@
                 "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.AccountAssociation.GitHub"
               }
             ],
-            "description": "GitHub App Installation association metadata."
+            "description": "github holds GitHub App installation associations for this group."
           },
           "google": {
             "allOf": [
@@ -258,29 +275,47 @@
         "type": "object"
       },
       "chainguard.platform.iam.v2beta1.AccountAssociation.GitHub": {
-        "description": "GitHub App Installation association.",
+        "description": "GitHub holds GitHub App installation associations for a group.",
         "properties": {
-          "appId": {
-            "description": "GitHub App ID.",
-            "format": "int64",
-            "readOnly": true,
-            "type": "string"
-          },
-          "host": {
-            "description": "GitHub hostname (empty means github.com).",
-            "readOnly": true,
-            "type": "string"
-          },
+          "appInstallations": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.AccountAssociation.GitHubAppInstallations"
+            },
+            "description": "app_installations maps app_id to the set of installations\nfor that app associated with this group.",
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.v2beta1.AccountAssociation.GitHubAppInstallations": {
+        "description": "GitHubAppInstallations holds the installations for a single GitHub App.",
+        "properties": {
+          "installations": {
+            "description": "installations is the list of GitHub App installations.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.AccountAssociation.GitHubInstallation"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.v2beta1.AccountAssociation.GitHubInstallation": {
+        "description": "GitHubInstallation is a single GitHub App installation.",
+        "properties": {
           "installationId": {
-            "description": "GitHub App Installation ID.",
+            "description": "installation_id is the GitHub App installation ID.",
             "format": "int64",
             "type": "string"
           },
           "name": {
-            "description": "GitHub user/org name (non-authoritative).",
+            "description": "name is the GitHub user/org name this installation belongs to.\nNon-authoritative: stored for convenience only.",
             "type": "string"
           }
         },
+        "required": [
+          "installationId"
+        ],
         "type": "object"
       },
       "chainguard.platform.iam.v2beta1.AccountAssociation.Google": {
@@ -313,6 +348,14 @@
           "description": {
             "description": "Optional description of the group's purpose.",
             "type": "string"
+          },
+          "kind": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.OrgKind"
+              }
+            ],
+            "description": "The organization kind. Required when creating a verified root group.\nFor subgroups, kind is inherited from the root group and cannot be set."
           },
           "name": {
             "description": "Human-readable name of the group.\nMust be 3-63 characters.",
@@ -861,6 +904,18 @@
         },
         "type": "object"
       },
+      "chainguard.platform.iam.v2beta1.OrgKind": {
+        "default": "ORG_KIND_UNSPECIFIED",
+        "description": "OrgKind is the kind of organization the group belongs to.\n\n - ORG_KIND_UNSPECIFIED: Organization kind is not yet set.\n - ORG_KIND_STARTER: Free catalog starter organizations.\n - ORG_KIND_CUSTOMER: Paid customer organizations.\n - ORG_KIND_DEV: Personal developer organizations.\n - ORG_KIND_INFRA: Organizations that are used for infrastructure or automation.",
+        "enum": [
+          "ORG_KIND_UNSPECIFIED",
+          "ORG_KIND_STARTER",
+          "ORG_KIND_CUSTOMER",
+          "ORG_KIND_DEV",
+          "ORG_KIND_INFRA"
+        ],
+        "type": "string"
+      },
       "chainguard.platform.iam.v2beta1.Role": {
         "description": "Role represents an IAM role with a set of capabilities.",
         "properties": {
@@ -1034,7 +1089,7 @@
       },
       "chainguard.platform.iam.v2beta1.ServicePrincipal": {
         "default": "SERVICE_PRINCIPAL_UNSPECIFIED",
-        "description": "ServicePrincipal represents a Chainguard service that can assume an identity.\n\n - SERVICE_PRINCIPAL_UNSPECIFIED: Unknown/unspecified service principal.\n - SERVICE_PRINCIPAL_COSIGNED: Cosigned service for image signing.\n - SERVICE_PRINCIPAL_INGESTER: Ingester service for data ingestion.\n - SERVICE_PRINCIPAL_CATALOG_SYNCER: Catalog syncer service for synchronizing image catalogs.\n - SERVICE_PRINCIPAL_APKO_BUILDER: APKO builder service for building images.\n - SERVICE_PRINCIPAL_ENTITLEMENT_SYNCER: Entitlement syncer service for synchronizing entitlements.\n - SERVICE_PRINCIPAL_TENANT_SCANNER: Tenant scanner service for scanning tenant resources.\n - SERVICE_PRINCIPAL_SEDIMENTOLOGY: Sedimentology service for data analysis.",
+        "description": "ServicePrincipal represents a Chainguard service that can assume an identity.\n\n - SERVICE_PRINCIPAL_UNSPECIFIED: Unknown/unspecified service principal.\n - SERVICE_PRINCIPAL_COSIGNED: Cosigned service for image signing.\n - SERVICE_PRINCIPAL_INGESTER: Ingester service for data ingestion.\n - SERVICE_PRINCIPAL_CATALOG_SYNCER: Catalog syncer service for synchronizing image catalogs.\n - SERVICE_PRINCIPAL_APKO_BUILDER: APKO builder service for building images.\n - SERVICE_PRINCIPAL_ENTITLEMENT_SYNCER: Entitlement syncer service for synchronizing entitlements.\n - SERVICE_PRINCIPAL_TENANT_SCANNER: Tenant scanner service for scanning tenant resources.\n - SERVICE_PRINCIPAL_SEDIMENTOLOGY: Sedimentology service for data analysis.\n - SERVICE_PRINCIPAL_SKILLUP: Skillup service for fixing repository skill violations.\n - SERVICE_PRINCIPAL_MATERIALIZER: Materializer service for materializing solutions from problem statements.",
         "enum": [
           "SERVICE_PRINCIPAL_UNSPECIFIED",
           "SERVICE_PRINCIPAL_COSIGNED",
@@ -1043,9 +1098,39 @@
           "SERVICE_PRINCIPAL_APKO_BUILDER",
           "SERVICE_PRINCIPAL_ENTITLEMENT_SYNCER",
           "SERVICE_PRINCIPAL_TENANT_SCANNER",
-          "SERVICE_PRINCIPAL_SEDIMENTOLOGY"
+          "SERVICE_PRINCIPAL_SEDIMENTOLOGY",
+          "SERVICE_PRINCIPAL_SKILLUP",
+          "SERVICE_PRINCIPAL_MATERIALIZER"
         ],
         "type": "string"
+      },
+      "chainguard.platform.oidc.RawToken": {
+        "properties": {
+          "expiry": {
+            "description": "(optional) Expiry time of the token.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "refreshToken": {
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.oidc.TokenPair": {
+        "description": "ExchangeRefreshToken returns a pair of token, in order to allow\nrefresh token to also be rotated.",
+        "properties": {
+          "refreshToken": {
+            "$ref": "#/components/schemas/chainguard.platform.oidc.RawToken"
+          },
+          "token": {
+            "$ref": "#/components/schemas/chainguard.platform.oidc.RawToken"
+          }
+        },
+        "type": "object"
       },
       "chainguard.platform.registry.v2beta1.CatalogTier": {
         "default": "CATALOG_TIER_UNSPECIFIED",
@@ -2106,7 +2191,7 @@
                         "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.AccountAssociation.GitHub"
                       }
                     ],
-                    "description": "GitHub App Installation association metadata."
+                    "description": "github holds GitHub App installation associations for this group."
                   },
                   "google": {
                     "allOf": [
@@ -2719,6 +2804,14 @@
                   "description": {
                     "description": "Optional description of the group's purpose.",
                     "type": "string"
+                  },
+                  "kind": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.OrgKind"
+                      }
+                    ],
+                    "description": "The organization kind. Required when creating a verified root group.\nFor subgroups, kind is inherited from the root group and cannot be set."
                   },
                   "name": {
                     "description": "Human-readable name of the group.\nMust be 3-63 characters.",
@@ -4802,6 +4895,293 @@
         ]
       }
     },
+    "/sts/exchange": {
+      "get": {
+        "operationId": "SecurityTokenService_Exchange2",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "aud",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          {
+            "description": "Deprecated: use scopes instead",
+            "in": "query",
+            "name": "scope",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "identity",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "List of capabilities to request for the token.",
+            "in": "query",
+            "name": "cap",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          {
+            "description": "Empty or the UIDP of the custom identity provider.",
+            "in": "query",
+            "name": "identityProvider",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "One or more group scopes to restrict the returned token to.\nIf scope and scopes are both provided, the union of their values is\nconsidered, after deduplication.\n\nThe returned token will include role bindings for the requested scopes,\nif any exist, that are either granted directly at that scope or inherited from\nits ancestors. That is, a role binding granted at a \"lower\" scope in the ancestry\napplies to all descendants of that scope.\n\nFor example, given a role binding on group `foo` with id `foo/rb-id-1`\nand a role binding on group `foo/bar` with id `foo/bar/rb-id-2`:\n - given scopes = [foo, foo/bar] =\u003e {foo: [foo/rb-id-1], foo/bar: [foo/bar/rb-id-2]}\n - given scopes = [foo/bar] =\u003e {foo/bar: [foo/rb-id-1, foo/bar/rb-id-2]}",
+            "in": "query",
+            "name": "scopes",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.oidc.RawToken"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Exchange2",
+        "tags": [
+          "SecurityTokenService"
+        ]
+      },
+      "post": {
+        "operationId": "SecurityTokenService_Exchange",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "aud",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          {
+            "description": "Deprecated: use scopes instead",
+            "in": "query",
+            "name": "scope",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "identity",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "List of capabilities to request for the token.",
+            "in": "query",
+            "name": "cap",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          {
+            "description": "Empty or the UIDP of the custom identity provider.",
+            "in": "query",
+            "name": "identityProvider",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "One or more group scopes to restrict the returned token to.\nIf scope and scopes are both provided, the union of their values is\nconsidered, after deduplication.\n\nThe returned token will include role bindings for the requested scopes,\nif any exist, that are either granted directly at that scope or inherited from\nits ancestors. That is, a role binding granted at a \"lower\" scope in the ancestry\napplies to all descendants of that scope.\n\nFor example, given a role binding on group `foo` with id `foo/rb-id-1`\nand a role binding on group `foo/bar` with id `foo/bar/rb-id-2`:\n - given scopes = [foo, foo/bar] =\u003e {foo: [foo/rb-id-1], foo/bar: [foo/bar/rb-id-2]}\n - given scopes = [foo/bar] =\u003e {foo/bar: [foo/rb-id-1, foo/bar/rb-id-2]}",
+            "in": "query",
+            "name": "scopes",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.oidc.RawToken"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Exchange",
+        "tags": [
+          "SecurityTokenService"
+        ]
+      }
+    },
+    "/sts/exchange_refresh_token": {
+      "post": {
+        "operationId": "SecurityTokenService_ExchangeRefreshToken",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "aud",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          {
+            "description": "Deprecated: use scopes instead",
+            "in": "query",
+            "name": "scope",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "List of capabilities to request for the token.",
+            "in": "query",
+            "name": "cap",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          {
+            "description": "One or more group scopes to restrict the returned token to.\nIf scope and scopes are both provided, the union of their values is\nconsidered, after deduplication.\n\nThe returned token will include role bindings for the requested scopes,\nif any exist, that are either granted directly at that scope or inherited from\nits ancestors. That is, a role binding granted at a \"lower\" scope in the ancestry\napplies to all descendants of that scope.\n\nFor example, given a role binding on group `foo` with id `foo/rb-id-1`\nand a role binding on group `foo/bar` with id `foo/bar/rb-id-2`:\n - given scopes = [foo, foo/bar] =\u003e {foo: [foo/rb-id-1], foo/bar: [foo/bar/rb-id-2]}\n - given scopes = [foo/bar] =\u003e {foo/bar: [foo/rb-id-1, foo/bar/rb-id-2]}",
+            "in": "query",
+            "name": "scopes",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.oidc.TokenPair"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Exchange Refresh Token",
+        "tags": [
+          "SecurityTokenService"
+        ]
+      }
+    },
+    "/sts/headless_sessions": {
+      "get": {
+        "operationId": "Auth_GetHeadlessSession",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "code",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.auth.HeadlessSession"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Headless Session",
+        "tags": [
+          "Auth"
+        ]
+      }
+    },
     "/vulnerabilities/v2beta1/advisories": {
       "get": {
         "description": "ListAdvisories returns advisories based on filter criteria with pagination support.",
@@ -5201,6 +5581,12 @@
     },
     {
       "name": "AdvisoriesService"
+    },
+    {
+      "name": "Auth"
+    },
+    {
+      "name": "SecurityTokenService"
     }
   ]
 }
