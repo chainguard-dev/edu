@@ -213,11 +213,12 @@ dependency resolution and before the packaging phase.
 
 ### Analyze JavaScript packages
 
-The `chainctl libraries verify` command supports the following JavaScript package managers for cache and store directory scanning:
+`chainctl libraries verify` can scan local package manager caches and stores
+to confirm that your installed JavaScript packages were built by Chainguard. It supports the following JavaScript package managers:
 
 - pnpm store: auto-detected by `v10/index/` or `v11/index/` structure (pnpm v10 and v11 supported)
 - npm cache: auto-detected by `_cacache/index-v5/` structure
-- Yarn Classic: v1.x
+- Yarn Classic: v1.x, requires `yarn:` prefix
 
 #### Analyze an npm tarball
 
@@ -231,6 +232,46 @@ and `VERSION` with the package name and version (for example, `@eslint-js`
 and `9.0.0`)
 
 Verification uses SLSA provenance attestations. `chainctl` computes a SHA-512 digest of the tarball locally, fetches the signed attestation bundle, and uses `cosign` to confirm that the signature is valid, the certificate chains to the Sigstore root, the signer identity matches the Chainguard JavaScript builder, and the digest matches what was attested at build time.
+
+#### Verify an npm cache
+
+Verify your npm cache:
+
+```sh
+chainctl libraries verify "$(npm config get cache)"
+```
+
+#### Verify a pnpm store
+
+Verify your pnpm store:
+
+```sh
+chainctl libraries verify "$(pnpm store path)"
+```
+
+pnpm v9 and earlier are not supported. Verification works by comparing
+the tarball hash recorded in your local store against the hash in Chainguard's
+signed SLSA attestation. pnpm v10 records this hash in the index file path;
+pnpm v9 does not. Without it, `chainctl` can confirm that Chainguard offers a
+package but cannot confirm that your local copy is the Chainguard build.
+
+#### Verify a Yarn Classic cache
+
+Verify a Yarn Classic (v1) cache:
+
+```sh
+chainctl libraries verify yarn:
+```
+
+To specify a non-default cache location:
+
+```sh
+chainctl libraries verify yarn:~/Library/Caches/Yarn/v6
+```
+
+Unlike npm and pnpm, Yarn Classic requires the `yarn:` prefix because its
+cache directory layout cannot be reliably auto-detected.
+
 
 #### Verify a `node_modules` directory
 
