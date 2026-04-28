@@ -38,7 +38,7 @@ policies for both Chainguard-built and upstream packages.
 
 The main public repository for JavaScript packages is the [npm
 Registry](https://npmjs.com/). Launched in 2010, the npm Registry has grown to
-become the largest software registry in the world, hosting over two million
+become the largest software registry in the world, hosting over three million
 packages. It serves as the central hub for open source JavaScript libraries,
 tools, and frameworks, supporting a vibrant and rapidly evolving ecosystem. The
 registry is widely used by developers for both client-side and server-side
