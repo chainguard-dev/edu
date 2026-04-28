@@ -27,7 +27,7 @@ feature of Chainguard Repository, you can configure your repository manager
 with a single upstream pointed at `https://libraries.cgr.dev/javascript/`. This
 is the recommended setup. The Chainguard Repository handles fallback and policy
 enforcement; your repository manager handles local caching and access control.
-Chainguard will also retrieve packages from the public npm registry on your
+Chainguard also retrieves packages from the public npm Registry on your
 behalf when upstream fallback is enabled. This includes protections such as
 malware scanning and a cooldown period for newly published
 packages.
