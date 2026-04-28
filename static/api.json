@@ -2375,6 +2375,13 @@
       "chainguard.platform.iam.v2beta1.Identity.StaticKeys": {
         "description": "StaticKeys uses pre-registered verification keys for providers without an online issuer.\nNote: Identities using static keys will expire (maximum 365 days).",
         "properties": {
+          "audiences": {
+            "description": "Accepted OIDC token audiences for this identity.\nWhen set, only these values are checked and the global allowed\naudiences are bypassed entirely.\nWhen empty, falls back to the global allowed audiences.\nCurrently only a single audience is supported — callers must specify\nexactly one value. The field is repeated for forward compatibility.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
           "expirationTime": {
             "description": "When the issuer_keys expire.\nDefaults to / Maximum of 365 days after creation.",
             "format": "date-time",
