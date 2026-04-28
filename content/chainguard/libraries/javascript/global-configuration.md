@@ -29,7 +29,7 @@ is the recommended setup. The Chainguard Repository handles fallback and policy
 enforcement; your repository manager handles local caching and access control.
 Chainguard will also retrieve packages from the public npm registry on your
 behalf when upstream fallback is enabled. This includes protections such as
-malware scanning and a configurable cooldown period for newly published
+malware scanning and a cooldown period for newly published
 packages.
 
 At a high level, adopting the use of Chainguard Libraries consists of the following steps:
@@ -60,7 +60,7 @@ Configuring your own fallback bypasses the protection that the Chainguard
 Repository provides.
 
 However, if upstream fallback is not enabled or you prefer to manage your own fallback
-ordering: you can configure `https://libraries.cgr.dev/javascript/` as a remote
+ordering, you can configure `https://libraries.cgr.dev/javascript/` as a remote
 repository alongside your npm upstream, and combine them in a virtual or group
 repository with Chainguard as the first priority. The per-tool instructions on
 this page follow this pattern.
