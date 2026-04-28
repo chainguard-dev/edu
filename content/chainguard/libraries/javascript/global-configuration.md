@@ -29,7 +29,7 @@ is the recommended setup. The Chainguard Repository handles fallback and policy
 enforcement; your repository manager handles local caching and access control.
 Chainguard will also retrieve packages from the public npm registry on your
 behalf when upstream fallback is enabled. This includes protections such as
-malware scanning and a cooldown period for newly published
+malware detection and a cooldown period for newly published
 packages.
 
 At a high level, adopting the use of Chainguard Libraries consists of the following steps:

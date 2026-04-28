@@ -10,9 +10,9 @@ draft: false
 weight: 010
 ---
 
-The Chainguard Repository is a single, policy-managed experience for pulling artifacts that Chainguard builds and distributes. It gives your organization one place to pull open source artifacts, configure security policies that govern how they are consumed, and monitor coverage and policy enforcement across your environment.
+The Chainguard Repository is a single, policy-managed experience for pulling artifacts that Chainguard either builds or distributes. It gives your organization one place to pull open source artifacts, configure security policies that govern how they are consumed, and monitor coverage and policy enforcement across your environment.
 
-All artifacts served through the Chainguard Repository are either rebuilt by Chainguard from verifiable source in a SLSA L2-compliant build environment, or sourced from upstream public registries, with protection by configurable policies. As Chainguard builds more artifacts from source, your organization's risk shrinks automatically without any changes to your configuration or developer workflows.
+All artifacts served through the Chainguard Repository are either rebuilt by Chainguard from verifiable source in a SLSA L2-compliant build environment, or sourced from upstream public registries with configurable policy controls. As Chainguard builds more artifacts from source, your organization's risk shrinks automatically without any changes to your configuration or developer workflows.
 
 ## Artifact types
 
@@ -37,12 +37,12 @@ See each artifact type's documentation for authentication and configuration deta
 
 The Chainguard Repository includes a policy engine that lets you define rules governing which artifacts can be consumed and under what conditions. Policies can be configured in the Chainguard Console or with `chainctl`, and are enforced automatically across your environment.
 
-For language dependencies, policies apply to both Chainguard-built packages and upstream packages served via the optional fallback to public registries (npm). Available policies include:
+For language dependencies, policies apply to both Chainguard-built packages and upstream packages served via the optional fallback to public registries. Available policies include:
 
 * **Upstream fallback**: Control whether packages not yet built by Chainguard can be sourced from the upstream public registry.  
 * **Cooldown**: Block newly published upstream packages for a defined period before they can be pulled, giving the security community time to detect threats. A 7-day cooldown is set by default when the upstream repository is enabled. 
 
-All packages, whether Chainguard-built or sourced from upstream, are also scanned for malware before being served. Any package with a detected malware identifier is blocked.
+All upstream packages are checked against public malware identifier feeds, and any package with a known malware idenitifier is blocked before being served.
 
 
 ## **Management**
