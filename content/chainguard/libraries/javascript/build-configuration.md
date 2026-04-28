@@ -276,7 +276,7 @@ coreutils versions included in most operating systems.
 
 **Example .npmrc file**
 
-```.npmrc
+```
 registry=https://libraries.cgr.dev/javascript/
 //libraries.cgr.dev/javascript/:_auth=aWRlbnRpdHktaWQ6dG9rZW4=
 ```
