@@ -256,7 +256,7 @@ chainctl auth configure-npm
 
 Alternatively, you can configure the `.npmrc` file manually:
 
-{{< details "Configure .npmcr manually" >}}
+{{< details "Configure .npmrc manually" >}}
 The following steps configure registry
 access with authentication in the `.npmrc` file in the current project
 directory:
