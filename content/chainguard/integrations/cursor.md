@@ -82,6 +82,6 @@ If Cursor references an image tag that doesn't exist:
 ### Package not found / build fails after migration
 
 If your build fails because a package is unavailable from Chainguard:
-- **JavaScript**: The Chainguard Repository includes a configurable upstream fallback for npm packages; [enable fallback]((/chainguard/libraries/javascript/overview/#upstream-fallback-policy-and-controls)) if you want to pull from upstream when a package isn't available from Chainguard. 
+- **JavaScript**: The Chainguard Repository includes a configurable upstream fallback for npm packages; [enable fallback](/chainguard/libraries/javascript/overview/#upstream-fallback-policy-and-controls) if you want to pull from upstream when a package isn't available from Chainguard. 
 - **Python**: To enable fallback to PyPI for unavailable packages, add `extra-index-url = https://pypi.org/simple/` to your `pip.conf` or `pyproject.toml`.
 - **Java**: To enable upstream fallback, add `mavenCentral()` after the Chainguard Libraries for Java repository in your Gradle configuration, or add Maven Central as a second `repository` entry in your `pom.xml`.
