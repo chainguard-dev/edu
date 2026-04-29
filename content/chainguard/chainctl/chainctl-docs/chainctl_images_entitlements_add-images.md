@@ -1,20 +1,35 @@
 ---
 date: 2026-04-28T21:11:38Z
-title: "chainctl iam account-associations check azure"
-slug: chainctl_iam_account-associations_check_azure
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_check_azure/
+title: "chainctl images entitlements add-images"
+slug: chainctl_images_entitlements_add-images
+url: /chainguard/chainctl/chainctl-docs/chainctl_images_entitlements_add-images/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam account-associations check azure
+## chainctl images entitlements add-images
 
-Checks that the given location has been properly configured for OIDC federation with AZURE
+Add catalog images to an organization's entitlements.
+
+### Synopsis
+
+Add catalog images to an organization's entitlements by name.
+
+Images are resolved against the catalog by exact name match. By default
+the server picks the newest active entitlement with matching tier
+capacity. Use --entitlement-uidp to target a specific entitlement.
 
 ```
-chainctl iam account-associations check azure ORGANIZATION_NAME|ORGANIZATION_ID|FOLDER_NAME|FOLDER_ID [flags]
+chainctl images entitlements add-images [--parent=PARENT | --entitlement-uidp=UIDP] IMAGE_NAME [IMAGE_NAME ...] [flags]
+```
+
+### Options
+
+```
+      --entitlement-uidp string   Target a specific entitlement by UIDP instead of selecting by --parent.
+      --parent string             The name or id of the org whose newest eligible entitlement should receive the images.
 ```
 
 ### Options inherited from parent commands
@@ -34,5 +49,5 @@ chainctl iam account-associations check azure ORGANIZATION_NAME|ORGANIZATION_ID|
 
 ### SEE ALSO
 
-* [chainctl iam account-associations check](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_check/)	 - Check the OIDC federation configurations for cloud providers.
+* [chainctl images entitlements](/chainguard/chainctl/chainctl-docs/chainctl_images_entitlements/)	 - Manage entitlements to registry repositories.
 
