@@ -256,7 +256,7 @@ When upstream fallback is enabled, users with the Owner role can configure the c
 ```bash
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM --cooldown-days=3
 ```
-The default cooldown period is 7 days. Setting `--cooldown-days=0` disables the cooldown. Note that shorter cooldown periods reduce friction for new versions but increase the risk of pulling malicious or compromised upstream packages before the broader ecosystem can detect and report them.
+The default cooldown period is 7 days. Note that shorter cooldown periods increase the risk of pulling malicious or compromised upstream packages before the broader ecosystem can detect and report them.
 
 > **Upstream fallback best practices**
 > Upstream packages are proxied directly from npm and are not rebuilt or authored by Chainguard as part of our Libraries product. The cooldown period and malware scanning provide a supplemental baseline of protection to your own security practices, but you are solely responsible for independently evaluating and validating all upstream artifacts before use in your environment.
@@ -271,7 +271,7 @@ Malware detection is continuous. If a version that was previously cached is late
 #### Cooldown period
 When fallback is enabled, upstream npm packages are subject to cooldown period from their publication date before the Chainguard Repository will serve them. The cooldown applies to Chainguard-built packages and upstream npm packages served through the fallback.
 
-This unified cooldown is an additional layer of security on top of malware scanning. It provides a window for the security community to identify and report malicious packages before your builds can pull them, and it prevents installs from failing when a Chainguard-built package depends on an upstream transitive that is still in its cooldown window.
+This global cooldown is an additional layer of security on top of malware scanning. It provides a window for the security community to identify and report malicious packages before your builds can pull them, and it prevents installs from failing when a Chainguard-built package depends on an upstream transitive that is still in its cooldown window.
 
 If a package version is requested and falls within the cooldown period, the package manager will output a 404 error. The package becomes available once it has passed the cooldown period and cleared malware scanning.
 
