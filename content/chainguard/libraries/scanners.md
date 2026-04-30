@@ -238,7 +238,7 @@ Software
 Artifacts](/chainguard/chainguard-images/staying-secure/working-with-scanners/trivy-tutorial/)
 as well as the [official documentation](https://trivy.dev/docs/latest/).
 
-## AWS Inspector
+## Amazon Inspector
 
 Chainguard Libraries for Python is supported by Amazon Inspector’s enhanced
 scanning for Amazon ECR. This integration brings high-impact CVE remediation
