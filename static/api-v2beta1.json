@@ -528,6 +528,10 @@
         },
         "type": "object"
       },
+      "chainguard.platform.iam.v2beta1.GroupsService.RequestGroupAccessBody": {
+        "description": "RequestGroupAccessRequest is the request message for RequestGroupAccess.",
+        "type": "object"
+      },
       "chainguard.platform.iam.v2beta1.Identity": {
         "description": "Identity represents an IAM identity.",
         "properties": {
@@ -995,6 +999,20 @@
         },
         "type": "object"
       },
+      "chainguard.platform.iam.v2beta1.LookupGroupResponse": {
+        "description": "LookupGroupResponse is the response message for LookupGroup.",
+        "properties": {
+          "group": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.Group"
+              }
+            ],
+            "description": "The group matching the caller's email domain from their token."
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.iam.v2beta1.OrgKind": {
         "default": "ORG_KIND_UNSPECIFIED",
         "description": "OrgKind is the kind of organization the group belongs to.\n\n - ORG_KIND_UNSPECIFIED: Organization kind is not yet set.\n - ORG_KIND_STARTER: Free catalog starter organizations.\n - ORG_KIND_CUSTOMER: Paid customer organizations.\n - ORG_KIND_DEV: Personal developer organizations.\n - ORG_KIND_INFRA: Organizations that are used for infrastructure or automation.",
@@ -1017,6 +1035,10 @@
           "ORG_STATUS_SUSPENDED"
         ],
         "type": "string"
+      },
+      "chainguard.platform.iam.v2beta1.RequestGroupAccessResponse": {
+        "description": "RequestGroupAccessResponse is the response message for RequestGroupAccess.\nIt is intentionally empty; the access request is delivered out of band.",
+        "type": "object"
       },
       "chainguard.platform.iam.v2beta1.Role": {
         "description": "Role represents an IAM role with a set of capabilities.",
@@ -2298,6 +2320,48 @@
         "tags": [
           "SubscriptionsService"
         ]
+      },
+      "get": {
+        "description": "GetSubscription retrieves a single event subscription by UID.\nNote: CAP_EVENTS_SUBSCRIPTION_LIST is intentionally reused for this\nsingle-resource read. There is no separate read-one capability; granting\nlist access implicitly grants get access. This is a deliberate design\nchoice for simplicity at the beta stage and may be revisited before GA.",
+        "operationId": "SubscriptionsService_GetSubscription",
+        "parameters": [
+          {
+            "description": "UID of the subscription to retrieve.",
+            "in": "path",
+            "name": "uid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.events.v2beta1.Subscription"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Subscription",
+        "tags": [
+          "SubscriptionsService"
+        ]
       }
     },
     "/iam/v2beta1/accountAssociations": {
@@ -3175,6 +3239,61 @@
         ]
       }
     },
+    "/iam/v2beta1/groups/{groupUid}:requestGroupAccess": {
+      "post": {
+        "description": "Returns NOT_FOUND when the supplied group_uid does not resolve to the\nverified root group matching the caller's email domain — either because\nno such group exists, the group_uid is wrong, or the caller is not on a\ntrusted upstream identity provider. Like LookupGroup, these cases are\nintentionally collapsed.\n\nReturns RESOURCE_EXHAUSTED (HTTP 429) when the same caller has recently\nrequested access to the same group; callers should surface a \"request\nalready sent\" message rather than retrying.\n\nReturns INVALID_ARGUMENT when group_uid is empty.",
+        "operationId": "GroupsService_RequestGroupAccess",
+        "parameters": [
+          {
+            "description": "UID of the group to request access to. Must be the UID of a verified\nroot group whose name matches the email domain on the caller's token;\nthe server revalidates this on every call.",
+            "in": "path",
+            "name": "groupUid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.GroupsService.RequestGroupAccessBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.RequestGroupAccessResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Request Group Access",
+        "tags": [
+          "GroupsService"
+        ]
+      }
+    },
     "/iam/v2beta1/groups/{parent}": {
       "post": {
         "description": "CreateGroup creates a new group (organization or folder).",
@@ -3312,6 +3431,38 @@
           }
         },
         "summary": "Get Group",
+        "tags": [
+          "GroupsService"
+        ]
+      }
+    },
+    "/iam/v2beta1/groups:lookupGroup": {
+      "get": {
+        "description": "Returns NOT_FOUND when:\n  * no verified root group matches the caller's email domain;\n  * the caller's token is not from a trusted upstream identity provider; or\n  * the caller's email domain is on the blocked-domains list (free email,\n    known competitor, etc.).\n\nThese cases are intentionally collapsed into a single response so callers\ncannot distinguish \"no such org\" from \"you're not allowed to know.\"",
+        "operationId": "GroupsService_LookupGroup",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.LookupGroupResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Lookup Group",
         "tags": [
           "GroupsService"
         ]
