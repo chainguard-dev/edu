@@ -13,7 +13,7 @@ toc: false
 
 ## AI-Ready Documentation Bundle
 
-This page provides compiled Chainguard documentation optimized for use with AI coding assistants like Claude, ChatGPT, GitHub Copilot, and others. Choose between our cryptographically signed direct downloads or our secure container distribution.
+This page provides compiled Chainguard documentation optimized for use with AI coding assistants like Claude, ChatGPT, GitHub Copilot, and others. Access it through our secure container image or as a standalone Python MCP server.
 
 ### What's Included
 
@@ -39,12 +39,6 @@ Choose your preferred distribution method:
   <strong>Container Distribution Recommended</strong><br>
   For enhanced security and verification, we recommend using the Chainguard container image. It includes built-in verification, runs as non-root, and is built on our secure <code>wolfi-base</code> image.
 </div>
-
-### GitHub Release
-
-| Format | Description | Verification |
-|--------|-------------|-------------|
-| [Latest Release](https://github.com/chainguard-dev/edu/releases/latest) | Cryptographically signed documentation bundle | Includes Cosign signatures and certificates |
 
 ### Container Distribution
 
@@ -119,7 +113,7 @@ Add to your `claude_desktop_config.json`:
 - Searchable and queryable documentation
 - Perfect for automated workflows
 - Works with Claude Desktop, Cursor, and other MCP-compatible tools
-- Also available as a [standalone Python script](https://github.com/chainguard-dev/edu/releases/latest) (no Docker required)
+- Also available as a [standalone Python script](/mcp-server-ai-docs/#standalone-installation-without-docker) (no Docker required)
 
 [**Full MCP Server Documentation →**](/mcp-server-ai-docs/)
 
@@ -137,7 +131,7 @@ docker run --rm -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract 
 <div style="border: 2px solid #4CAF50; padding: 20px; border-radius: 8px; margin: 20px 0;">
   <h4>Available Security Features</h4>
   <ul>
-    <li>Signed releases with Sigstore/Cosign</li>
+    <li>Container image signed with Sigstore/Cosign</li>
     <li>Container distribution via GitHub Container Registry</li>
     <li>Automated updates via GitHub Actions</li>
     <li>Security scanning with gitleaks</li>

@@ -86,22 +86,14 @@ Example patterns we redact:
 
 ## Verification Guide
 
-### Direct Download Verification
+### Container Image Verification
+
+Verify the container image signature before pulling documentation:
 
 ```bash
-# 1. Download files
-curl -LO https://github.com/chainguard-dev/edu/releases/latest/download/chainguard-ai-docs.tar.gz
-curl -LO https://github.com/chainguard-dev/edu/releases/latest/download/chainguard-ai-docs.tar.gz.bundle
-
-# 2. Verify signature (using cosign v3 bundle format)
-cosign verify-blob \
-  --bundle chainguard-ai-docs.tar.gz.bundle \
+cosign verify ghcr.io/chainguard-dev/ai-docs:latest \
   --certificate-identity-regexp ".*github.com/chainguard-dev/edu.*" \
-  --certificate-oidc-issuer https://token.actions.githubusercontent.com \
-  chainguard-ai-docs.tar.gz
-
-# 3. Extract contents
-tar -xzf chainguard-ai-docs.tar.gz
+  --certificate-oidc-issuer https://token.actions.githubusercontent.com
 ```
 
 ## Build Frequency
