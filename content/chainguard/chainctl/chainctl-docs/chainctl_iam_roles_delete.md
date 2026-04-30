@@ -1,5 +1,5 @@
 ---
-date: 2026-04-28T21:11:38Z
+date: 2026-04-29T18:42:53Z
 title: "chainctl iam roles delete"
 slug: chainctl_iam_roles_delete
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_roles_delete/

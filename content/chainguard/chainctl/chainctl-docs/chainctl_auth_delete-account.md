@@ -1,5 +1,5 @@
 ---
-date: 2026-04-28T21:11:38Z
+date: 2026-04-29T18:42:53Z
 title: "chainctl auth delete-account"
 slug: chainctl_auth_delete-account
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_delete-account/
