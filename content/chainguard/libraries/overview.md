@@ -99,6 +99,15 @@ Chainguard Libraries is available for the following library ecosystems:
 * Python and the larger ecosystem with
   [Chainguard Libraries for Python](/chainguard/libraries/python/overview/)
 
+## Library version support
+
+When a library version reaches end of life (EOL) upstream, Chainguard Libraries continues to build packages and provide security fixes for that version for six months beyond the upstream EOL date.
+
+After that six-month window closes, Chainguard Libraries will:
+- No longer build new packages that require the EOL version
+- No longer provide security fixes for packages built against the EOL version
+- Continue to serve previously built packages
+
 ## Other resources
 
 * [Chainguard Libraries product page](https://www.chainguard.dev/libraries)
