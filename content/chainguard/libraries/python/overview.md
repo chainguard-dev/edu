@@ -147,6 +147,14 @@ must configure your package manager to pull NVIDIA components from an
 upstream source such as NVIDIA's index at https://pypi.nvidia.com, or from PyPI 
 where NVIDIA publishes them directly.
 
+## Python version support
+
+Python 3.9 reached upstream EOL on October 31, 2025. Chainguard Libraries' extended support window for Python 3.9 ends on May 15, 2026. After this date, no new Python 3.9 packages will be built, and existing Python 3.9 packages will no longer receive security updates.
+
+To continue receiving up-to-date, secure packages from Chainguard Libraries, we strongly recommend migrating to a supported Python version. Currently supported versions are Python 3.10 and later.
+
+Learn about Chainguard's library version support in the [Libraries overview](/chainguard/libraries/overview/#library-version-support).
+
 ## Runtime and build requirements
 
 The runtime requirements for Python artifacts available from Chainguard
