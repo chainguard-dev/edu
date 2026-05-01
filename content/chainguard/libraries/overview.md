@@ -106,7 +106,7 @@ When a library version reaches end of life (EOL) upstream, Chainguard Libraries 
 After that six-month window closes, Chainguard Libraries will:
 - No longer build new packages that require the EOL version
 - No longer provide security fixes for packages built against the EOL version
-- Continue to serve previously built packages, but these will not receive updates
+- Continue to serve previously built packages
 
 ## Other resources
 
