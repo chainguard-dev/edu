@@ -149,19 +149,11 @@ where NVIDIA publishes them directly.
 
 ## Python version support
 
-When a Python version reaches [end of life (EOL) upstream](https://devguide.python.org/versions/), Chainguard Libraries continues to build packages and provide security fixes for that version for six months beyond the upstream EOL date.
-
-After that six-month window closes, Chainguard Libraries will:
-- No longer build new packages that require the EOL Python version
-- No longer provide security fixes for packages built against the EOL Python version
-- Continue to serve previously built packages, but these will not receive updates
-
-### Python 3.9 EOL
-
 Python 3.9 reached upstream EOL on October 31, 2025. Chainguard Libraries' extended support window for Python 3.9 ends on May 15, 2026. After this date, no new Python 3.9 packages will be built, and existing Python 3.9 packages will no longer receive security updates.
 
 To continue receiving up-to-date, secure packages from Chainguard Libraries, we strongly recommend migrating to a supported Python version. Currently supported versions are Python 3.10 and later.
 
+Learn about Chainguard's library version support in the [Libraries overview](/chainguard/libraries/overview/#library-version-support).
 
 ## Runtime and build requirements
 
