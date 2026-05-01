@@ -848,12 +848,26 @@
       "chainguard.platform.events.v2beta1.ListSubscriptionsResponse": {
         "description": "ListSubscriptionsResponse is the response message for ListSubscriptions.",
         "properties": {
+          "nextPageToken": {
+            "description": "Token for retrieving the next page of results.\nEmpty if no more results.",
+            "type": "string"
+          },
+          "skipped": {
+            "description": "Number of results that were skipped.\nAccumulates across paginated requests.",
+            "format": "int32",
+            "type": "integer"
+          },
           "subscriptions": {
             "description": "Subscriptions matching the filter criteria.",
             "items": {
               "$ref": "#/components/schemas/chainguard.platform.events.v2beta1.Subscription"
             },
             "type": "array"
+          },
+          "totalCount": {
+            "description": "Total number of subscriptions matching the filter.\nOptional, provided for UI pagination.",
+            "format": "int64",
+            "type": "string"
           }
         },
         "type": "object"
@@ -8679,6 +8693,40 @@
                 "type": "string"
               },
               "type": "array"
+            }
+          },
+          {
+            "description": "Maximum number of results to return per page.\nDefault: 50, Maximum: 200.",
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Page token from a previous List response for pagination.\nOpaque token with 3-day expiration.",
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Order results by field. Format: \"field [asc|desc]\"\nDefault: ascending by primary key.\nNote: Changing order_by between pages invalidates the page token.",
+            "in": "query",
+            "name": "orderBy",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Number of results to skip before returning.\nUsed for random-access pagination (jumping to arbitrary pages).\nCan be combined with page_token to skip from cursor position.\nMust be non-negative.",
+            "in": "query",
+            "name": "skip",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
             }
           }
         ],
