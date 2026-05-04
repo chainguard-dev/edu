@@ -99,7 +99,32 @@ Chainguard Libraries is available for the following library ecosystems:
 * Python and the larger ecosystem with
   [Chainguard Libraries for Python](/chainguard/libraries/python/overview/)
 
-## Library version support
+## Chainguard criteria for building a library
+
+Chainguard Libraries includes thousands of Java, JavaScript, and Python libraries, and coverage is continuously growing as we add more packages and versions over time. Chainguard aims to build libraries that are relevant to our customers and that support broader software supply chain security goals. However, it is not always feasible or safe to rebuild and redistribute every package from public registries such as Maven Central, npm, or PyPI.
+
+### Licensing and source availability
+
+Chainguard Libraries are rebuilt from upstream source code, not mirrored binaries from public registries. For a library to be in scope:
+
+* Source code must be available and verifiable
+    * The project’s source must be available in a source code manager (such as GitHub or GitLab). Packages that do not provide a valid or verifiable source URL cannot be rebuilt in the Chainguard Factory and are out of scope.
+* Licensing must allow rebuild and redistribution
+    * The project must be licensed in a way that allows Chainguard to rebuild and redistribute it to customers.
+
+### Library version support
+
+Chainguard builds libraries using supported language toolchains in our hardened build environment. We do not aim to replicate all historical runtime environments exactly, but we do attempt to preserve runtime compatibility where it is safe to do so. For older or EOL projects, our ability to build and remediate issues is constrained by runtime compatibility and by upstream maintenance practices.
+
+Our current minimum supported toolchains are:
+
+* **Python**: Python 3.10 and higher.
+* **Java**: Java 8 and higher.
+* **JavaScript**: Any supported, non-EOL version of Node.js. 
+
+These requirements don’t exclude older libraries; we still attempt to rebuild them using our supported toolchains.
+
+### EOL version support
 
 When a library version reaches end of life (EOL) upstream, Chainguard Libraries continues to build packages and provide security fixes for that version for six months beyond the upstream EOL date.
 
