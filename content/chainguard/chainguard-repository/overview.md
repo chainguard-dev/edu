@@ -40,7 +40,9 @@ The Chainguard Repository includes a policy engine that lets you define rules go
 For language dependencies, policies apply to both Chainguard-built packages and upstream packages served via the optional fallback to public registries. Available policies include:
 
 * **Upstream fallback**: Control whether packages not yet built by Chainguard can be sourced from the upstream public registry.  
-* **Cooldown**: Block newly published upstream packages for a defined period before they can be pulled, giving the security community time to detect threats. A 7-day cooldown is set by default when the upstream repository is enabled. 
+* **Cooldown**: When upstream fallback is enabled, block newly published package versions for a defined period before they can be pulled, giving the security community time to detect threats. The cooldown is configurable (0 to 3650 days) with a default of 7 days. 
+
+> **Note**: Chainguard recommends a 7-day cooldown when enabling upstream fallback, to block a large share of malicious packages identified shortly after publication. Shorter cooldown periods increase the risk of pulling malicious or compromised upstream packages before the broader ecosystem can detect and report them.
 
 All upstream packages are checked against public malware identifier feeds, and any package with a known malware idenitifier is blocked before being served.
 
