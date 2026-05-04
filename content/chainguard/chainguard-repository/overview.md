@@ -40,14 +40,14 @@ The Chainguard Repository includes a policy engine that lets you define rules go
 For language dependencies, policies apply to both Chainguard-built packages and upstream packages served via the optional fallback to public registries (npm). Available policies include:
 
 * **Upstream fallback** — Control whether packages not yet built by Chainguard can be sourced from the upstream public registry.  
-* **Cooldown** — When upstream fallback is enabled, block newly published package versions (Chainguard-built and upstream) for a defined period before they can be pulled, giving the security community time to detect threats. The cooldown is configurable (0 to 3650 days) with a default o 7 days. 
+* **Cooldown** — When upstream fallback is enabled, block newly published package versions for a defined period before they can be pulled, giving the security community time to detect threats. The cooldown is configurable (0 to 3650 days) with a default of 7 days. The cooldown is applied globally across all packages to prevent dependency resolution errors.
 
-> **Note**: A 7-day cooldown blocks a large share of malicious packages identified shortly after publication. Shorter cooldown periods increase the risk of pulling malicious or compromised upstream packages before the broader ecosystem can detect and report them.
+> **Note**: Chainguard recommends a 7-day cooldown when enabling upstream fallback, to block a large share of malicious packages identified shortly after publication. Shorter cooldown periods increase the risk of pulling malicious or compromised upstream packages before the broader ecosystem can detect and report them.
 
-All packages — whether Chainguard-built or sourced from upstream — are also scanned for malware before being served. Any package version with a detected malware identifier is blocked, including previously cached upstream versions that are later added to the malware block list.
+All upstream packages are checked against public malware identifier feeds, and any package with a known malware idenitifier is blocked before being served.
 
 
-## **Console**
+## **Management**
 
 The Chainguard Console is the central interface for configuring policies and monitoring artifact activity across your organization. Learn more in [Using the Chainguard Console](/chainguard/chainguard-images/how-to-use/images-directory/).
 

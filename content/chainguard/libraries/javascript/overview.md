@@ -269,16 +269,18 @@ All packages served from the upstream fallback are scanned for malware before be
 Malware detection is continuous. If a version that was previously cached is later identified as malicious, it is added to the block list and will be blocked on subsequent requests.
 
 #### Cooldown period
-When fallback is enabled, upstream npm packages are subject to cooldown period from their publication date before the Chainguard Repository will serve them. The cooldown applies to Chainguard-built packages and upstream npm packages served through the fallback.
+When fallback is enabled, upstream npm packages are subject to a cooldown period from their publication date before the Chainguard Repository will serve them. The cooldown applies globally across Chainguard-built packages and upstream npm packages served through the fallback.
 
-This global cooldown is an additional layer of security on top of malware scanning. It provides a window for the security community to identify and report malicious packages before your builds can pull them, and it prevents installs from failing when a Chainguard-built package depends on an upstream transitive that is still in its cooldown window.
+The cooldown is an additional layer of security that provides a window for the security community to identify and report malicious packages before your builds can pull them. 
+
+The cooldown applies globally across Chainguard-built packages and upstream npm packages served through the fallback. This prevents installs from failing when a Chainguard-built package depends on an upstream dependency that is still under the cooldown window.
 
 If a package version is requested and falls within the cooldown period, the package manager will output a 404 error. The package becomes available once it has passed the cooldown period and cleared malware scanning.
 
 ### How package resolution works
 
 When you request a JavaScript package from the Chainguard Repository, the following logic applies:
-* **Chainguard-built package available and outside cooldown**: The package is served directly from Chainguard's rebuilt artifact store, complete with SBOM, provenance, and signatures, subject to the configured cooldown.
+* **Chainguard-built package available**: The package is served directly from Chainguard's rebuilt artifact store, complete with SBOM, provenance, and signatures, subject to the configured cooldown.
 * **Package not yet built by Chainguard**: If upstream fallback is enabled, the repository checks whether the package has passed the cooldown period and malware scan.
     * **Within the cooldown period**: The request returns an error. This prevents newly published packages — which carry higher malware risk — from being served immediately.
     * **After the cooldown period**: If upstream fallback is enabled and the version is outside the cooldown window and passes malware scanning, the repository pulls the version through from the npm registry, serves it to the client, and caches it in the upstream mirror for future requests.
