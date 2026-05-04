@@ -252,8 +252,7 @@ chainctl libraries verify "$(pnpm store path)"
 pnpm v9 and earlier are not supported. Verification works by comparing
 the tarball hash recorded in your local store against the hash in Chainguard's
 signed SLSA attestation. pnpm v10 records this hash in the index file path;
-pnpm v9 does not. Without it, `chainctl` can confirm that Chainguard offers a
-package but cannot confirm that your local copy is the Chainguard build.
+pnpm v9 does not. 
 
 #### Verify a Yarn Classic cache
 
