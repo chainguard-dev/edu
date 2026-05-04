@@ -8,22 +8,13 @@ on:
     types: [ai-docs-source-updated]
 
   workflow_dispatch:
-    inputs:
-      create_release:
-        description: 'Create a GitHub release with the bundle'
-        required: false
-        default: 'false'
-        type: choice
-        options:
-          - 'true'
-          - 'false'
 
 concurrency:
   group: compile-ai-docs-${{ github.ref }}
   cancel-in-progress: false
 
 permissions:
-  contents: write  # For creating/updating releases
+  contents: read
   id-token: write  # For GCP workload identity federation
   packages: write  # For pushing to GHCR
   # TODO: Split into separate compile (read-only) and publish (write) jobs
@@ -54,9 +45,9 @@ jobs:
           iamcredentials.googleapis.com:443
           oauth2.googleapis.com:443
           objects.githubusercontent.com:443
+          release-assets.githubusercontent.com:443
           pypi.org:443
           raw.githubusercontent.com:443
-          release-assets.githubusercontent.com:443
           rekor.sigstore.dev:443
           run.googleapis.com:443
           us-central1-run.googleapis.com:443
@@ -64,7 +55,6 @@ jobs:
           storage.googleapis.com:443
           timestamp.sigstore.dev:443
           tuf-repo-cdn.sigstore.dev:443
-          uploads.github.com:443
 
     - name: Checkout edu repository
       uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -295,42 +285,6 @@ jobs:
           --role "roles/run.invoker" \
           --project "$PROJECT_ID" || true
 
-    - name: Upload bundle back to GCS for distribution
-      env:
-        COMMIT_SHA: ${{ github.sha }}
-        EVENT_NAME: ${{ github.event_name }}
-      run: |
-        echo "Uploading compiled bundle to GCS..."
-        
-        # Upload the compiled bundle for easy distribution
-        gcloud storage cp static/downloads/chainguard-ai-docs.tar.gz \
-          gs://academy-all-docs/compiled/chainguard-ai-docs.tar.gz \
-          --project=chainguard-academy
-        
-        # Upload checksums
-        gcloud storage cp static/downloads/checksums.txt \
-          gs://academy-all-docs/compiled/checksums.txt \
-          --project=chainguard-academy
-        
-        # Create and upload compilation metadata
-        python3 -c "
-        import json, datetime, os
-        meta = {
-            'compiled_at': datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ'),
-            'commit': os.environ['COMMIT_SHA'],
-            'triggered_by': os.environ['EVENT_NAME'],
-            'file_size': str(os.path.getsize('static/downloads/chainguard-ai-docs.md'))
-        }
-        with open('/tmp/compilation-metadata.json', 'w') as f:
-            json.dump(meta, f, indent=2)
-        "
-        
-        gcloud storage cp /tmp/compilation-metadata.json \
-          gs://academy-all-docs/compiled/metadata.json \
-          --project=chainguard-academy
-        
-        echo "✓ Bundle uploaded to GCS"
-
     - name: Sign bundle files
       if: github.ref == 'refs/heads/main'
       run: |
@@ -343,39 +297,48 @@ jobs:
           --bundle=chainguard-ai-docs.md.bundle
         echo "Bundle files signed"
 
-    - name: Create GitHub Release
-      if: github.ref == 'refs/heads/main'
+    - name: Upload bundle back to GCS for distribution
       env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        COMMIT_SHA: ${{ github.sha }}
+        EVENT_NAME: ${{ github.event_name }}
       run: |
-        TAG="ai-docs-$(date -u +%Y%m%d-%H%M%S)"
+        echo "Uploading compiled bundle to GCS..."
 
-        gh release create "$TAG" \
-          --title "AI Documentation Bundle $TAG" \
-          --notes "Chainguard AI documentation bundle for use with AI coding assistants." \
-          --latest \
-          static/downloads/chainguard-ai-docs.tar.gz \
-          static/downloads/chainguard-ai-docs.tar.gz.bundle \
-          static/downloads/chainguard-ai-docs.md \
-          static/downloads/chainguard-ai-docs.md.bundle \
-          static/downloads/chainguard-ai-docs.zip \
-          static/downloads/image-catalog.json \
-          static/downloads/checksums.txt \
-          scripts/mcp-server.py \
-          scripts/mcp-requirements.txt
+        # Upload the compiled bundle for easy distribution
+        gcloud storage cp static/downloads/chainguard-ai-docs.tar.gz \
+          gs://academy-all-docs/compiled/chainguard-ai-docs.tar.gz \
+          --project=chainguard-academy
 
-        echo "Release $TAG created"
+        # Upload checksums
+        gcloud storage cp static/downloads/checksums.txt \
+          gs://academy-all-docs/compiled/checksums.txt \
+          --project=chainguard-academy
 
-    - name: Clean up old releases
-      if: github.ref == 'refs/heads/main'
-      env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        # Keep only the 10 most recent dated releases; delete older ones
-        gh release list --limit 100 --json tagName,createdAt \
-          | jq -r '[.[] | select(.tagName | test("^ai-docs-[0-9]{8}-[0-9]{6}$"))] | sort_by(.createdAt) | reverse | .[10:] | .[].tagName' \
-          | while read -r tag; do
-              echo "Deleting old release: $tag"
-              gh release delete "$tag" --yes --cleanup-tag
-            done
-        echo "Release cleanup complete"
+        # Upload cosign bundle files for artifact verification (only present on main branch builds)
+        if [ -f "static/downloads/chainguard-ai-docs.tar.gz.bundle" ]; then
+          gcloud storage cp static/downloads/chainguard-ai-docs.tar.gz.bundle \
+            gs://academy-all-docs/compiled/chainguard-ai-docs.tar.gz.bundle \
+            --project=chainguard-academy
+          gcloud storage cp static/downloads/chainguard-ai-docs.md.bundle \
+            gs://academy-all-docs/compiled/chainguard-ai-docs.md.bundle \
+            --project=chainguard-academy
+        fi
+
+        # Create and upload compilation metadata
+        python3 -c "
+        import json, datetime, os
+        meta = {
+            'compiled_at': datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ'),
+            'commit': os.environ['COMMIT_SHA'],
+            'triggered_by': os.environ['EVENT_NAME'],
+            'file_size': str(os.path.getsize('static/downloads/chainguard-ai-docs.md'))
+        }
+        with open('/tmp/compilation-metadata.json', 'w') as f:
+            json.dump(meta, f, indent=2)
+        "
+
+        gcloud storage cp /tmp/compilation-metadata.json \
+          gs://academy-all-docs/compiled/metadata.json \
+          --project=chainguard-academy
+
+        echo "✓ Bundle uploaded to GCS"

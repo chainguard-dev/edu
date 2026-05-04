@@ -17,17 +17,16 @@ toc: true
 The configuration for the use of Chainguard Libraries depends on your build
 tools, continuous integration, and continuous deployment setups.
 
-At a high level adopting the use of Chainguard Libraries consists of the
+At a high level, adopting Chainguard Libraries consists of the
 following steps:
 
 * Remove local caches on workstations and CI/CD pipelines. This step ensures that
-  any libraries that were already sourced from other repositories are requested
-  again and the version from Chainguard Libraries is used instead of other
-  binaries.
+  any libraries that were already sourced from upstream repositories are requested
+  again, and the version from Chainguard Libraries is used instead.
 * Change configuration to access Chainguard Libraries via your repository
   manager after the changes from the [global
   configuration](/chainguard/libraries/javascript/global-configuration/) are
-  implemented.
+  implemented, or via direct access.
 
 These changes must be performed on all workstations of individual developers and
 other engineers running relevant application builds. They must also be performed
@@ -226,6 +225,11 @@ and all other packages should resolve to `libraries.cgr.dev/javascript`.
 
 ### Minimal example project
 
+For testing purposes, you can use direct access and environment variables as
+detailed in the [access documentation](/chainguard/libraries/access/#env). 
+
+**1. Create a JavaScript project**
+
 Use the following steps to create a minimal example project for npm with
 Chainguard Libraries for JavaScript.
 
@@ -235,21 +239,49 @@ cd npm-example
 npm init -y
 ```
 
-For testing purposes, you can use direct access and environment variables as
-detailed in the [access documentation](/chainguard/libraries/access/#env). 
+**2. Configure the .npmrc file**
 
-Once
-the environment variables are set, run the following command to configure registry
+Once the environment variables are set, configure the `.npmrc` file. 
+
+Run the following command to configure registry
 access and authentication in the `.npmrc` file in the current project
 directory:
 
 ```shell
-chainctl auth configure-npm --pull-token
+chainctl auth configure-npm
 ```
 
-[This command](/chainguard/chainctl/chainctl-docs/chainctl_auth_configure-npm/) creates a pull token (valid for 30 days by default) scoped to your organization and writes a project-level `.npmrc` with the registry URL and base64-encoded credentials. It also prints the equivalent `npm config set` commands for use in CI or other environments where you need to configure `.npmrc` manually. If this command returns an error, ensure that you are using the [latest version of `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
+[This command](/chainguard/chainctl/chainctl-docs/chainctl_auth_configure-npm/) writes a project-level `.npmrc` with the registry URL and base64-encoded credentials. It also prints the equivalent `npm config set` commands for use in CI or other environments where you need to configure `.npmrc` manually. If this command returns an error, ensure that you are using the [latest version of `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
 
-#### Verify authentication with npm ping
+Alternatively, you can configure the `.npmrc` file manually:
+
+{{< details "Configure .npmrc manually" >}}
+The following steps configure registry
+access with authentication in the `.npmrc` file in the current project
+directory:
+
+```shell
+export token=$(echo -n "${CHAINGUARD_JAVASCRIPT_IDENTITY_ID}:${CHAINGUARD_JAVASCRIPT_TOKEN}" | base64 -w 0)
+
+npm config set registry https://libraries.cgr.dev/javascript/ --location=project
+npm config set //libraries.cgr.dev/javascript/:_auth "${token}" --location=project
+```
+
+Note that the trailing slash in the registry URL is required, and that setting
+`username` and `_password` instead of `auth` with a token does not work with
+npm. The `-w 0` option for `base64` is required and supported by the GNU
+coreutils versions included in most operating systems.
+{{< /details >}}
+
+**Example .npmrc file**
+
+```
+registry=https://libraries.cgr.dev/javascript/
+//libraries.cgr.dev/javascript/:_auth=aWRlbnRpdHktaWQ6dG9rZW4=
+```
+The value of `auth` is the base64 encoding of `identity-id:token`, including the `/` character in the username.
+
+**3. Verify authentication with npm ping**
 
 Before installing packages, you can verify that authentication is configured correctly by running:
 
@@ -265,7 +297,7 @@ npm notice PONG 1065ms
 
 The PONG response confirms that your credentials are valid and the registry is reachable. If the command fails, check that the .npmrc file exists in the current directory and that your token has not expired.
 
-#### Add dependencies for the project
+**4. Add dependencies and build the project**
 
 Add dependencies for your project into the `package.json` file to test retrieval
 from Chainguard Libraries, build the project, and list the dependencies:

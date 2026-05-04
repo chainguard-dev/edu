@@ -1,20 +1,35 @@
 ---
 date: 2026-04-30T18:48:24Z
-title: "chainctl auth logout"
-slug: chainctl_auth_logout
-url: /chainguard/chainctl/chainctl-docs/chainctl_auth_logout/
+title: "chainctl images entitlements add-images"
+slug: chainctl_images_entitlements_add-images
+url: /chainguard/chainctl/chainctl-docs/chainctl_images_entitlements_add-images/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl auth logout
+## chainctl images entitlements add-images
 
-Logout from the Chainguard platform.
+Add catalog images to an organization's entitlements.
+
+### Synopsis
+
+Add catalog images to an organization's entitlements by name.
+
+Images are resolved against the catalog by exact name match. By default
+the server picks the newest active entitlement with matching tier
+capacity. Use --entitlement-uidp to target a specific entitlement.
 
 ```
-chainctl auth logout [--audience=AUDIENCE]
+chainctl images entitlements add-images [--parent=PARENT | --entitlement-uidp=UIDP] IMAGE_NAME [IMAGE_NAME ...] [flags]
+```
+
+### Options
+
+```
+      --entitlement-uidp string   Target a specific entitlement by UIDP instead of selecting by --parent.
+      --parent string             The name or id of the org whose newest eligible entitlement should receive the images.
 ```
 
 ### Options inherited from parent commands
@@ -34,5 +49,5 @@ chainctl auth logout [--audience=AUDIENCE]
 
 ### SEE ALSO
 
-* [chainctl auth](/chainguard/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
+* [chainctl images entitlements](/chainguard/chainctl/chainctl-docs/chainctl_images_entitlements/)	 - Manage entitlements to registry repositories.
 

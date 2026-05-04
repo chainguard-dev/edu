@@ -1,5 +1,5 @@
 ---
-date: 2026-04-27T18:56:16Z
+date: 2026-04-30T18:48:24Z
 title: "chainctl images list"
 slug: chainctl_images_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_list/
@@ -14,12 +14,13 @@ toc: true
 List tagged images from Chainguard registries.
 
 ```
-chainctl images list [--repo=REPO_NAME] [--public | --parent=PARENT_NAME|PARENT_ID] [--updated-within=DURATION] [--show-dates] [--show-epochs] [--show-referrers] [--output=csv|id|json|table|terse|tree|wide]
+chainctl images list [--repo=REPO_NAME] [--public | --parent=PARENT_NAME|PARENT_ID] [--updated-within=DURATION] [--show-dates] [--show-epochs] [--show-referrers] [--active-only] [--output=csv|id|json|table|terse|tree|wide]
 ```
 
 ### Options
 
 ```
+      --active-only               Whether to only show active tags.
       --parent string             The name or id of the parent location to list image repos.
       --public                    List repos from the public Chainguard registry.
       --recursive                 Search repositories recursively through all descendants instead of just children

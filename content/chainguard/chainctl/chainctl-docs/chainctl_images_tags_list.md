@@ -1,5 +1,5 @@
 ---
-date: 2026-04-27T18:56:16Z
+date: 2026-04-30T18:48:24Z
 title: "chainctl images tags list"
 slug: chainctl_images_tags_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_tags_list/
@@ -14,12 +14,13 @@ toc: true
 List tags from repositories using --parent, --public, or --repo flags.
 
 ```
-chainctl images tags list [--repo=REPO_NAME] [--public | --parent=PARENT_NAME|PARENT_ID] [--updated-within=DURATION] [--show-dates] [--show-epochs] [--show-referrers] [--output=id|json|table]
+chainctl images tags list [--repo=REPO_NAME] [--public | --parent=PARENT_NAME|PARENT_ID] [--updated-within=DURATION] [--show-dates] [--show-epochs] [--show-referrers] [--active-only] [--output=id|json|table]
 ```
 
 ### Options
 
 ```
+      --active-only               Whether to only show active tags.
       --all                       Return all tags that match the digest of the specified image reference.
       --parent string             The name or id of the parent location to list image repos.
       --public                    List repos from the public Chainguard registry.
