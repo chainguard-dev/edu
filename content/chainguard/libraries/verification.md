@@ -211,7 +211,16 @@ chainctl libraries verify ~/.m2/repository/net/logstash/logback/logstash-logback
 To integrate this into your build pipeline, add the verification step after
 dependency resolution and before the packaging phase. 
 
-### Analyze an npm tarball
+### Analyze JavaScript packages
+
+`chainctl libraries verify` can scan local package manager caches and stores
+to confirm that your installed JavaScript packages were built by Chainguard. It supports the following JavaScript package managers:
+
+- pnpm store: auto-detected by `v10/index/` or `v11/index/` structure (pnpm v10 and v11 supported)
+- npm cache: auto-detected by `_cacache/index-v5/` structure
+- Yarn Classic: v1.x, requires `yarn:` prefix
+
+#### Analyze an npm tarball
 
 Verify an npm package tarball to confirm it was built by Chainguard:
 
@@ -224,7 +233,66 @@ and `9.0.0`)
 
 Verification uses SLSA provenance attestations. `chainctl` computes a SHA-512 digest of the tarball locally, fetches the signed attestation bundle, and uses `cosign` to confirm that the signature is valid, the certificate chains to the Sigstore root, the signer identity matches the Chainguard JavaScript builder, and the digest matches what was attested at build time.
 
-Verification currently operates on individual npm tarballs. 
+#### Verify an npm cache
+
+Verify your npm cache:
+
+```sh
+chainctl libraries verify "$(npm config get cache)"
+```
+
+#### Verify a pnpm store
+
+Verify your pnpm store:
+
+```sh
+chainctl libraries verify "$(pnpm store path)"
+```
+
+pnpm v9 and earlier are not supported. Verification works by comparing
+the tarball hash recorded in your local store against the hash in Chainguard's
+signed SLSA attestation. pnpm v10 records this hash in the index file path;
+pnpm v9 does not. 
+
+#### Verify a Yarn Classic cache
+
+Verify a Yarn Classic (v1) cache:
+
+```sh
+chainctl libraries verify yarn:
+```
+
+To specify a non-default cache location:
+
+```sh
+chainctl libraries verify yarn:~/Library/Caches/Yarn/v6
+```
+
+Unlike npm and pnpm, Yarn Classic requires the `yarn:` prefix because its
+cache directory layout cannot be reliably auto-detected.
+
+
+#### Verify a `node_modules` directory
+
+Verify npm packages installed in a `node_modules` directory:
+
+```sh
+chainctl libraries verify ./node_modules
+```
+
+If `.package-lock.json` is not present, the directory is not recognized as an npm tree and verification will not run.
+
+#### Verify a container image
+
+Verify JavaScript packages inside a container image:
+
+```sh
+chainctl libraries verify IMAGE:TAG
+```
+
+Coverage is reported as the percentage of JavaScript packages in the image that are confirmed Chainguard-rebuilt libraries.
+
+Images built with npm versions earlier than v7, or where `.package-lock.json` was removed during the build, cannot be verified this way.
 
 ### Other bundled artifact formats
 
