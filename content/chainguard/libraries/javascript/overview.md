@@ -245,7 +245,7 @@ chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUA
 ### Fallback options
 The following options are available:
 * **No upstream fallback (default)**: Only Chainguard-built packages are served.
-* **Upstream fallback enabled with cooldown**: Upstream packages are available after passing a cooldown period and malware scan. The same cooldown period is also enforced for Chainguard-built packages when the upstream repository is enabled, so dependency trees resolve consistently across both sources.
+* **Upstream fallback enabled with cooldown**: Upstream packages are available after passing a cooldown period and malware scan. 
 
 #### Configuring the cooldown period
 
@@ -268,9 +268,7 @@ Malware detection is continuous. If a version that was previously cached is late
 
 #### Cooldown period
 
-When fallback is enabled, upstream npm packages are subject to a cooldown period from their publication date before the Chainguard Repository will serve them. The cooldown applies globally across Chainguard-built packages and upstream npm packages served through the fallback. The cooldown is an additional layer of security that provides a window for the security community to identify and report malicious packages before your builds can pull them. 
-
-The cooldown applies globally across Chainguard-built packages and upstream npm packages served through the fallback. This prevents installs from failing when a Chainguard-built package depends on an upstream dependency that is still under the cooldown window.
+When fallback is enabled, upstream npm packages are subject to a cooldown period from their publication date before the Chainguard Repository will serve them. The cooldown is an additional layer of security that provides a window for the security community to identify and report malicious packages before your builds can pull them. 
 
 If a package version is requested and falls within the cooldown period, the package manager will output a 404 error. The package becomes available once it has passed the cooldown period and cleared malware scanning.
 
