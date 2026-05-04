@@ -17,17 +17,16 @@ toc: true
 The configuration for the use of Chainguard Libraries depends on your build
 tools, continuous integration, and continuous deployment setups.
 
-At a high level adopting the use of Chainguard Libraries consists of the
+At a high level, adopting Chainguard Libraries consists of the
 following steps:
 
 * Remove local caches on workstations and CI/CD pipelines. This step ensures that
-  any libraries that were already sourced from other repositories are requested
-  again and the version from Chainguard Libraries is used instead of other
-  binaries.
+  any libraries that were already sourced from upstream repositories are requested
+  again, and the version from Chainguard Libraries is used instead.
 * Change configuration to access Chainguard Libraries via your repository
   manager after the changes from the [global
   configuration](/chainguard/libraries/javascript/global-configuration/) are
-  implemented.
+  implemented, or via direct access.
 
 These changes must be performed on all workstations of individual developers and
 other engineers running relevant application builds. They must also be performed
