@@ -27,9 +27,9 @@ around [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript),
 others.
 
 Chainguard Libraries for JavaScript provides access to a growing collection of
-popular Javascript packages rebuilt from source. New releases of common packages
-requested by customer builds are added to the index by an automated system.
-These libraries are distributed through the [Chainguard
+popular Javascript packages rebuilt from source. New releases of packages
+requested by customers are built and added to the index by an automated system.
+These libraries can also be consumed through the [Chainguard
 Repository](/chainguard/libraries/chainguard-repository/), which provides a
 single endpoint for package retrieval and supports configurable security
 policies for both Chainguard-built and upstream packages.
@@ -38,7 +38,7 @@ policies for both Chainguard-built and upstream packages.
 
 The main public repository for JavaScript packages is the [npm
 Registry](https://npmjs.com/). Launched in 2010, the npm Registry has grown to
-become the largest software registry in the world, hosting over two million
+become the largest software registry in the world, hosting over three million
 packages. It serves as the central hub for open source JavaScript libraries,
 tools, and frameworks, supporting a vibrant and rapidly evolving ecosystem. The
 registry is widely used by developers for both client-side and server-side
@@ -52,15 +52,13 @@ Berry](https://yarnpkg.com/), and uses the npm repository format. Chainguard
 Libraries for JavaScript covers many of the open source artifacts found in the 
 npm Registry.
 
-You can [use your repository
+You can use Chainguard Libraries for Javascript with [your repository
 manager](/chainguard/libraries/javascript/global-configuration/), such as JFrog
-Artifactory or Sonatype Nexus, as a single source of truth, pulling packages
-from Chainguard Libraries for JavaScript and from public software repositories
-like the npm Registry.
+Artifactory or Sonatype Nexus.
 
 ## Runtime requirements
 
-The runtime requirements for JavaScript packages available from Chainguard
+The runtime requirements for packages available from Chainguard
 Libraries for JavaScript are identical to the requirements of the original
 upstream project. For example, if a package retrieved from the npm Registry
 requires Node.JS v22 or higher, the same Node.JS v22 requirement applies to the
@@ -80,14 +78,14 @@ https://libraries.cgr.dev/javascript/
 
 The URL does not expose a browsable directory structure.
 
-The Chainguard Libraries for JavaScript repository is exposed through the Chainguard Repository endpoint for JavaScript libraries. It uses the npm repository protocol and serves both libraries that Chainguard has rebuilt from verifiable source and, when configured, packages proxied from the public npm registry under configurable policy controls. All packages served through this endpoint are subject to Chainguard security controls such as malware scanning and optional cooldown periods for newly published upstream versions.
+The Chainguard Libraries for JavaScript repository is exposed through the Chainguard Repository endpoint for JavaScript libraries. It uses the npm repository protocol and serves both libraries that Chainguard has rebuilt from verifiable source and, when configured, packages proxied from the public npm registry under configurable policy controls. All packages served through this endpoint are subject to Chainguard security controls such as malware scanning and a configurable cooldown period for newly published upstream versions.
 
 Even with upstream fallback enabled, the repository does not include every package from npm. Packages may be unavailable when:
 
 * No verifiable source code is available. For example, malicious or proprietary packages where Chainguard cannot validate the source.
-* The package is blocked by Chainguard or your organization’s policies. For example, packages flagged as malware or packages currently within a configured cooldown period.
+* The package is blocked by Chainguard or your organization’s policies. For example, packages flagged as malware or packages currently within the configurable cooldown period.
 
-We recommend configuring this repository (or a repository manager that proxies it) as the primary registry for all JavaScript dependency resolution. This ensures your builds always prefer Chainguard‑built libraries first and automatically fall back to policy‑protected upstream packages when a Chainguard build is not yet available.
+We recommend configuring the Chainguard Repository (or a repository manager that proxies it) as the primary registry for all JavaScript dependency resolution. This ensures your builds always prefer Chainguard‑built libraries first and automatically fall back to policy‑protected upstream packages when a Chainguard build is not yet available.
 
 You can continue to use additional registries alongside Chainguard for needs outside this scope, such as your own private or scoped packages from npm or another internal registry.
 
@@ -228,7 +226,7 @@ Replace `PACKAGE` and `VERSION` with the package name and version (for example, 
 Chainguard Libraries for JavaScript supports an optional built-in fallback to
 the upstream npm Registry, managed through the [Chainguard
 Repository](/chainguard/chainguard-repository/overview/). By default, the endpoint serves
-only Chainguard-built packages. When fallback is enabled, upstream packages are
+only Chainguard-built packages. When the upstream fallback is enabled, upstream packages are
 subject to additional security controls before being served.
 
 ### Enable the upstream repository
@@ -258,7 +256,7 @@ The following options are available:
 All packages served from the upstream fallback are scanned for malware before being made available. Any package version with a detected malware identifier (MAL ID) from the public OSV feed is blocked and will not be served.
 
 #### Cooldown period
-When fallback is enabled, upstream npm packages are subject to a default 7-day cooldown from their publication date before the Chainguard Repository will serve them. The cooldown is an additional layer of security on top of malware scanning. It provides a window for the security community to identify and report malicious packages before your builds can pull them.
+When fallback is enabled, upstream npm packages are subject to a default 7-day cooldown from their publication date before the Chainguard Repository will serve them. The cooldown is an additional layer of security on top of malware scanning. It provides a window for the security community to identify and report malicious packages before your builds can pull them. 
 
 If a package version is requested and falls within the cooldown period, the package manager will output a 404 error. The package becomes available once it has passed the cooldown period and cleared malware scanning.
 
@@ -270,6 +268,6 @@ When you request a JavaScript package from the Chainguard Repository, the follow
     * **Within the cooldown period**: The request returns an error. This prevents newly published packages — which carry higher malware risk — from being served immediately.
     * **After the cooldown period**: The package is checked against malware scanning. If it passes, it is proxied from the npm Registry.
 * **Malware detected**: Any package version with a known malware identifier (MAL ID) is blocked and never served, whether it originates from Chainguard builds or the npm upstream. Malware scanning runs on all packages, including those proxied from npm.
-    * Malware scanning checks all packages against the [Open Source Vulnerabilities (OSV) database](https://osv.dev/), which includes the OpenSSF Malicious Packages feed among other sources. Any package version flagged with a known MAL ID is blocked before it can be served. This covers reported malicious packages across the npm ecosystem; packages with unreported or novel malware may not be detected by scanning alone, which is why building from verified source remains the primary defense.
+    * Malware scanning checks all packages against the Open Source Vulnerabilities (OSV) database, which includes the OpenSSF Malicious Packages feed among other sources. Any package version flagged with a malware identifier is blocked. This covers reported malicious packages across the npm ecosystem.
 
-> **Note**: Chainguard Repository for JavaScript is not a full mirror of npm. With fallback enabled, Chainguard does not guarantee that evey package and version on npm will be available. Packages can be delayed by cooldown or permanently blocked by malware policies.
+> **Note**: Chainguard Repository for JavaScript is not a full mirror of npm by design. Packages are screened for malware before being made available. Some packages may be delayed by the cooldown period or permanently blocked if flagged as malicious.
