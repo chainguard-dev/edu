@@ -1,17 +1,38 @@
 ---
 date: 2026-05-04T16:59:58Z
-title: "chainctl libraries entitlements"
-slug: chainctl_libraries_entitlements
-url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements/
+title: "chainctl starter request-access"
+slug: chainctl_starter_request-access
+url: /chainguard/chainctl/chainctl-docs/chainctl_starter_request-access/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl libraries entitlements
+## chainctl starter request-access
 
-Manage entitlements to language ecosystem libraries.
+Request access to a catalog starter organization.
+
+### Synopsis
+
+Request access to an existing catalog starter organization.
+
+If a catalog starter organization for your email domain already exists, this
+command sends an access request to the organization's owners. They can
+choose whether to invite you; if they do, you will receive an email with
+instructions to join.
+
+You must be authenticated as a Chainguard identity (e.g. via 'chainctl auth
+login') before running this command. The candidate organization is derived
+from the email domain on your authenticated session.
+
+For privacy, this command intentionally returns the same response whether or
+not a matching organization exists. If your domain has no associated starter
+organization, no request is sent and no error is reported.
+
+```
+chainctl starter request-access [flags]
+```
 
 ### Options inherited from parent commands
 
@@ -30,8 +51,5 @@ Manage entitlements to language ecosystem libraries.
 
 ### SEE ALSO
 
-* [chainctl libraries](/chainguard/chainctl/chainctl-docs/chainctl_libraries/)	 - Ecosystem library related commands.
-* [chainctl libraries entitlements create](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/)	 - Create ecosystem library entitlements for an organization.
-* [chainctl libraries entitlements delete](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_delete/)	 - Delete an ecosystem library entitlement from an organization.
-* [chainctl libraries entitlements list](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_list/)	 - List entitlements of an organization.
+* [chainctl starter](/chainguard/chainctl/chainctl-docs/chainctl_starter/)	 - Manage catalog starter organizations
 

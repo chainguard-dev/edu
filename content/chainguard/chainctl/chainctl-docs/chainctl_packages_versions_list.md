@@ -1,5 +1,5 @@
 ---
-date: 2026-04-30T18:48:24Z
+date: 2026-05-04T16:59:58Z
 title: "chainctl packages versions list"
 slug: chainctl_packages_versions_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_packages_versions_list/
@@ -11,10 +11,29 @@ toc: true
 ---
 ## chainctl packages versions list
 
-List package version data from Chainguard repositories.
+List version stream data for a managed package.
+
+### Synopsis
+
+List version stream data for a managed package.
+
+PACKAGE_NAME is the name of a Chainguard-managed version stream, not an arbitrary apk
+package name. Examples include 'bazel', 'airflow', 'python-3.13', and 'actions-runner'.
+For arbitrary apk packages such as 'bash' or 'curl', use 'apk info' or 'apk search'
+inside a Chainguard image instead.
 
 ```
 chainctl packages versions list PACKAGE_NAME [--show-eol] [--show-active] [--show-fips] [--include-inactive] [--output=csv|json|table|wide]
+```
+
+### Examples
+
+```
+  # List version data for the bazel version stream
+  chainctl packages versions list bazel
+
+  # List a specific minor stream
+  chainctl packages versions list python-3.13
 ```
 
 ### Options

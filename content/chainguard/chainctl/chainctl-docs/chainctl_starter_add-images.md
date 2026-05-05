@@ -1,17 +1,32 @@
 ---
 date: 2026-05-04T16:59:58Z
-title: "chainctl libraries entitlements"
-slug: chainctl_libraries_entitlements
-url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements/
+title: "chainctl starter add-images"
+slug: chainctl_starter_add-images
+url: /chainguard/chainctl/chainctl-docs/chainctl_starter_add-images/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl libraries entitlements
+## chainctl starter add-images
 
-Manage entitlements to language ecosystem libraries.
+Add catalog images to your catalog starter organization.
+
+### Synopsis
+
+Add catalog images to your catalog starter organization.
+
+The target organization is the single verified kind=starter org the
+caller's identity is bound to — auto-discovered, no flags needed.
+
+Images are resolved against the catalog by exact name match. The server
+picks the active starter entitlement that has remaining capacity. The
+total cap across all starter images is enforced by the server.
+
+```
+chainctl starter add-images IMAGE_NAME [IMAGE_NAME ...] [flags]
+```
 
 ### Options inherited from parent commands
 
@@ -30,8 +45,5 @@ Manage entitlements to language ecosystem libraries.
 
 ### SEE ALSO
 
-* [chainctl libraries](/chainguard/chainctl/chainctl-docs/chainctl_libraries/)	 - Ecosystem library related commands.
-* [chainctl libraries entitlements create](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/)	 - Create ecosystem library entitlements for an organization.
-* [chainctl libraries entitlements delete](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_delete/)	 - Delete an ecosystem library entitlement from an organization.
-* [chainctl libraries entitlements list](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_list/)	 - List entitlements of an organization.
+* [chainctl starter](/chainguard/chainctl/chainctl-docs/chainctl_starter/)	 - Manage catalog starter organizations
 
