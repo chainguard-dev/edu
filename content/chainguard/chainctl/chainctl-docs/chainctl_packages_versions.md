@@ -1,5 +1,5 @@
 ---
-date: 2026-04-30T18:48:24Z
+date: 2026-05-04T16:59:58Z
 title: "chainctl packages versions"
 slug: chainctl_packages_versions
 url: /chainguard/chainctl/chainctl-docs/chainctl_packages_versions/
@@ -31,5 +31,5 @@ Package version related commands for the Chainguard platform.
 ### SEE ALSO
 
 * [chainctl packages](/chainguard/chainctl/chainctl-docs/chainctl_packages/)	 - Interact with Chainguard packages
-* [chainctl packages versions list](/chainguard/chainctl/chainctl-docs/chainctl_packages_versions_list/)	 - List package version data from Chainguard repositories.
+* [chainctl packages versions list](/chainguard/chainctl/chainctl-docs/chainctl_packages_versions_list/)	 - List version stream data for a managed package.
 

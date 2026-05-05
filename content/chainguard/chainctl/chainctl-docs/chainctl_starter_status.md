@@ -1,35 +1,33 @@
 ---
-date: 2026-04-30T18:48:24Z
-title: "chainctl images entitlements add-images"
-slug: chainctl_images_entitlements_add-images
-url: /chainguard/chainctl/chainctl-docs/chainctl_images_entitlements_add-images/
+date: 2026-05-04T16:59:58Z
+title: "chainctl starter status"
+slug: chainctl_starter_status
+url: /chainguard/chainctl/chainctl-docs/chainctl_starter_status/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl images entitlements add-images
+## chainctl starter status
 
-Add catalog images to an organization's entitlements.
+Show catalog starter organization status, quota, and image readiness.
 
 ### Synopsis
 
-Add catalog images to an organization's entitlements by name.
+Show the status of your catalog starter organization.
 
-Images are resolved against the catalog by exact name match. By default
-the server picks the newest active entitlement with matching tier
-capacity. Use --entitlement-uidp to target a specific entitlement.
+Reports the registry path, account provisioning status, image quota
+usage, and per-image readiness — INITIALIZING until the catalog
+syncer has both created the repo and mirrored at least one tag, READY
+afterwards.
+
+Use this command to check whether a newly-added image is pullable yet,
+or to confirm your starter org has finished provisioning before
+running 'chainctl starter add-images'.
 
 ```
-chainctl images entitlements add-images [--parent=PARENT | --entitlement-uidp=UIDP] IMAGE_NAME [IMAGE_NAME ...] [flags]
-```
-
-### Options
-
-```
-      --entitlement-uidp string   Target a specific entitlement by UIDP instead of selecting by --parent.
-      --parent string             The name or id of the org whose newest eligible entitlement should receive the images.
+chainctl starter status [flags]
 ```
 
 ### Options inherited from parent commands
@@ -49,5 +47,5 @@ chainctl images entitlements add-images [--parent=PARENT | --entitlement-uidp=UI
 
 ### SEE ALSO
 
-* [chainctl images entitlements](/chainguard/chainctl/chainctl-docs/chainctl_images_entitlements/)	 - Manage entitlements to registry repositories.
+* [chainctl starter](/chainguard/chainctl/chainctl-docs/chainctl_starter/)	 - Manage catalog starter organizations
 
