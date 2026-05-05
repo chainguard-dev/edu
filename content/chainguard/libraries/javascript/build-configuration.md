@@ -752,6 +752,8 @@ cat > .npmrc << 'EOF'
 registry=https://libraries.cgr.dev/javascript/
 //libraries.cgr.dev/javascript/:_auth="$token"
 //libraries.cgr.dev/javascript/:always-auth=true
+//libraries.cgr.dev/javascript-upstream/:_auth="$token"
+//libraries.cgr.dev/javascript-upstream/:always-auth=true
 EOF
 ```
 
