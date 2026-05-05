@@ -122,7 +122,7 @@ Our current minimum supported toolchains are:
 * **Java**: Java 8 and higher.
 * **JavaScript**: Any supported, non-EOL version of Node.js. 
 
-These requirements don’t exclude older libraries; we still attempt to rebuild them using our supported toolchains.
+We will attempt to rebuild any libraries that meet the [licensing and source availability criteria](#licensing-and-source-availability) using the supported toolchains.
 
 ### EOL version support
 
