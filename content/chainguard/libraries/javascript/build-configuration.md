@@ -148,7 +148,7 @@ therefore an update to the lock file. The lock file also encodes the checksum
 values in the `integrity` field and the download URL in the `resolved` field for
 each module.
 
-**Point registry to Chainguard**
+**Direct access: Point registry to Chainguard**
 
 To change a project to use Chainguard Libraries for JavaScript, set the registry
 URL to point to Chainguard in your user `.npmrc` file: 
@@ -391,7 +391,7 @@ Any dependency or dependency version changes require another install and
 therefore an update to the lock file. The lock file also encodes the checksum
 values in the `integrity` field and other information for each module.
 
-**Point registry to Chainguard**
+**Direct access: Point registry to Chainguard**
 
 To change a project to use Chainguard Libraries for JavaScript, set the registry
 URL to point to Chainguard in your user `.npmrc` file: 
