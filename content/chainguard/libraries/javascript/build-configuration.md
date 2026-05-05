@@ -188,7 +188,16 @@ Example URLs:
 
 To apply the registry changes, remove the `node_modules` directory and the
 `package-lock.json` file and run the `npm install` command again. This re-fetches all
-packages from Chainguard and regenerates the lockfile with updated hashes.
+packages from Chainguard and regenerates the lockfile with updated hashes:
+
+```bash
+rm -rf node_modules package-lock.json
+npm install
+```
+
+As an alternative to deleting the lock file, you can [run `chainctl libraries update-hashes`](#update-lockfile-hashes) to update hashes in place.
+
+**Clear caches**
 
 If you encounter stale or corrupted package data, clear the cache with:
 
@@ -433,6 +442,16 @@ Example URLs:
 To apply the registry change, remove the `node_modules` directory and the
 `pnpm-lock.yaml` file and run the `pnpm install` command again. This re-fetches all
 packages from Chainguard and regenerates the lockfile with updated hashes.
+
+```bash
+rm -rf node_modules pnpm-lock.yaml
+pnpm install
+```
+
+As an alternative to deleting the lock file, you can [run `chainctl libraries update-hashes`](#update-lockfile-hashes-1) to update hashes in place.
+
+
+**Clear pnpmn caches**
 
 pnpm has three separate layers of cached data. If you encounter stale or corrupted package data, you can clear all of these caches:
 
@@ -788,7 +807,14 @@ details.
 
 To apply the registry change, remove the `node_modules` directory and the `yarn.lock`
 file and run the `yarn` command again. This forces a new download of all
-packages from the new registry and regeneration of the lock file. Alternatively,
+packages from the new registry and regeneration of the lock file:
+
+```bash
+rm -rf node_modules yarn.lock
+yarn install
+```
+
+Alternatively,
 you can run `yarn upgrade` to update all dependencies to their latest allowed
 versions and regenerate the lock file.
 
