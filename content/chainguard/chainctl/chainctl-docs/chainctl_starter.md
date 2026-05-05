@@ -1,17 +1,17 @@
 ---
 date: 2026-05-04T16:59:58Z
-title: "chainctl libraries entitlements"
-slug: chainctl_libraries_entitlements
-url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements/
+title: "chainctl starter"
+slug: chainctl_starter
+url: /chainguard/chainctl/chainctl-docs/chainctl_starter/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl libraries entitlements
+## chainctl starter
 
-Manage entitlements to language ecosystem libraries.
+Manage catalog starter organizations
 
 ### Options inherited from parent commands
 
@@ -30,8 +30,9 @@ Manage entitlements to language ecosystem libraries.
 
 ### SEE ALSO
 
-* [chainctl libraries](/chainguard/chainctl/chainctl-docs/chainctl_libraries/)	 - Ecosystem library related commands.
-* [chainctl libraries entitlements create](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/)	 - Create ecosystem library entitlements for an organization.
-* [chainctl libraries entitlements delete](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_delete/)	 - Delete an ecosystem library entitlement from an organization.
-* [chainctl libraries entitlements list](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_list/)	 - List entitlements of an organization.
+* [chainctl](/chainguard/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
+* [chainctl starter add-images](/chainguard/chainctl/chainctl-docs/chainctl_starter_add-images/)	 - Add catalog images to your catalog starter organization.
+* [chainctl starter init](/chainguard/chainctl/chainctl-docs/chainctl_starter_init/)	 - Initialize a new catalog starter organization.
+* [chainctl starter request-access](/chainguard/chainctl/chainctl-docs/chainctl_starter_request-access/)	 - Request access to a catalog starter organization.
+* [chainctl starter status](/chainguard/chainctl/chainctl-docs/chainctl_starter_status/)	 - Show catalog starter organization status, quota, and image readiness.
 

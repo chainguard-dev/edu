@@ -1096,6 +1096,10 @@
         },
         "type": "object"
       },
+      "chainguard.platform.iam.Groups.RequestGroupAccessBody": {
+        "description": "RequestGroupAccessRequest is the request message for RequestGroupAccess.",
+        "type": "object"
+      },
       "chainguard.platform.iam.Groups.UpdateBody": {
         "properties": {
           "description": {
@@ -1442,6 +1446,20 @@
         },
         "type": "object"
       },
+      "chainguard.platform.iam.LookupGroupResponse": {
+        "description": "LookupGroupResponse is the response message for LookupGroup.",
+        "properties": {
+          "group": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.Group"
+              }
+            ],
+            "description": "The group matching the caller's email domain from their token."
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.iam.OrgKind": {
         "default": "ORG_KIND_UNSPECIFIED",
         "description": "OrgKind is the kind of organization the group belongs to.\n\n - ORG_KIND_STARTER: Free catalog starter organizations.\n - ORG_KIND_CUSTOMER: Paid customer organizations.\n - ORG_KIND_DEV: Personal developer organizations.\n - ORG_KIND_INFRA: Organizations that are used for infrastructure or automation.",
@@ -1464,6 +1482,10 @@
           "ORG_STATUS_SUSPENDED"
         ],
         "type": "string"
+      },
+      "chainguard.platform.iam.RequestGroupAccessResponse": {
+        "description": "RequestGroupAccessResponse is the response message for RequestGroupAccess.\nIt is intentionally empty; the access request is delivered out of band.",
+        "type": "object"
       },
       "chainguard.platform.iam.Role": {
         "properties": {
@@ -1861,7 +1883,7 @@
         "description": "Entitlement maps an org to an library ecosystem they are entitled to pull.",
         "properties": {
           "cooldownDays": {
-            "description": "cooldown_days is the number of days an upstream package version must have\nbeen published before it is served. 0 means use the system default (7 days).\nMust be between 3 and 3650 when set.",
+            "description": "cooldown_days is the number of days an upstream package version must have\nbeen published before it is served. 0 means no cooldown is enforced; a\npositive value sets the cooldown to that many days. Negative values are\nrejected. Must be \u003c= 3650. The system default (when no entitlement\nspecifies a value) is 7 days.",
             "format": "int32",
             "type": "integer"
           },
@@ -4778,6 +4800,30 @@
         ],
         "type": "string"
       },
+      "chainguard.platform.skills.Entitlements.CreateBody": {
+        "type": "object"
+      },
+      "chainguard.platform.skills.SkillEntitlement": {
+        "description": "SkillEntitlement records that an org is entitled to publish and pull\nskill artifacts via skills.cgr.dev.",
+        "properties": {
+          "id": {
+            "description": "id is the uidp of the entitlement, a child of the org group.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.skills.SkillEntitlementList": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.skills.SkillEntitlement"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.tenant.ComponentGraph": {
         "properties": {
           "edges": {
@@ -7063,6 +7109,61 @@
         ]
       }
     },
+    "/iam/v1/groups/{groupId}:requestGroupAccess": {
+      "post": {
+        "description": "RequestGroupAccess sends an access request from the caller to the owners\nof the given verified root group. See the v2beta1 GroupsService.RequestGroupAccess\nfor full semantics.",
+        "operationId": "Groups_RequestGroupAccess",
+        "parameters": [
+          {
+            "description": "group_id is the UIDP of the group to request access to. Must be the\ngroup whose name matches the email domain on the caller's token; the\nserver revalidates this on every call.",
+            "in": "path",
+            "name": "groupId",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.iam.Groups.RequestGroupAccessBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.RequestGroupAccessResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Request Group Access",
+        "tags": [
+          "Groups"
+        ]
+      }
+    },
     "/iam/v1/groups/{id}": {
       "delete": {
         "operationId": "Groups_Delete",
@@ -7208,6 +7309,38 @@
           }
         },
         "summary": "Create",
+        "tags": [
+          "Groups"
+        ]
+      }
+    },
+    "/iam/v1/groups:lookupGroup": {
+      "get": {
+        "description": "LookupGroup returns the verified root group whose name matches the email\ndomain on the caller's token, when the token comes from a trusted upstream\nidentity provider that performs its own email verification.\nSee the v2beta1 GroupsService.LookupGroup for full semantics.",
+        "operationId": "Groups_LookupGroup",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.LookupGroupResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Lookup Group",
         "tags": [
           "Groups"
         ]
@@ -8798,7 +8931,7 @@
             }
           },
           {
-            "description": "cooldown_days is the number of days an upstream package version must have\nbeen published before it is served. 0 means use the system default (7 days).\nMust be between 3 and 3650 when set.",
+            "description": "cooldown_days is the number of days an upstream package version must have\nbeen published before it is served. 0 means no cooldown is enforced; a\npositive value sets the cooldown to that many days. Negative values are\nrejected. Must be \u003c= 3650. The system default (when no entitlement\nspecifies a value) is 7 days.",
             "in": "query",
             "name": "cooldownDays",
             "schema": {
@@ -12316,6 +12449,144 @@
         ]
       }
     },
+    "/skills/v1/entitlements": {
+      "get": {
+        "operationId": "Entitlements_List",
+        "parameters": [
+          {
+            "description": "parent_id is the org group to list entitlements for. Required.",
+            "in": "query",
+            "name": "parentId",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.skills.SkillEntitlementList"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List",
+        "tags": [
+          "SkillsEntitlements"
+        ]
+      }
+    },
+    "/skills/v1/entitlements/{id}": {
+      "delete": {
+        "operationId": "Entitlements_Delete",
+        "parameters": [
+          {
+            "description": "id is the exact uidp of the entitlement to delete.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Delete",
+        "tags": [
+          "SkillsEntitlements"
+        ]
+      }
+    },
+    "/skills/v1/entitlements/{parentId}": {
+      "post": {
+        "operationId": "Entitlements_Create",
+        "parameters": [
+          {
+            "description": "parent_id is the org group to create the entitlement for.",
+            "in": "path",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.skills.Entitlements.CreateBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.skills.SkillEntitlement"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create",
+        "tags": [
+          "SkillsEntitlements"
+        ]
+      }
+    },
     "/sts/exchange": {
       "get": {
         "operationId": "SecurityTokenService_Exchange2",
@@ -13301,6 +13572,10 @@
     },
     {
       "name": "Vulnerabilities"
+    },
+    {
+      "description": "Skills Entitlements API",
+      "name": "SkillsEntitlements"
     },
     {
       "name": "Advisories"
