@@ -202,6 +202,8 @@ To verify the cache is empty:
 npm cache verify
 ```
 
+### Update lockfile hashes
+
 If you are migrating an existing project and want to preserve your current
 lockfile, use [`chainctl libraries update-hashes`](#updating-lockfile-hashes-for-existing-projects)
 to update only the integrity hashes in place instead.
@@ -464,6 +466,8 @@ Use the path returned by `pnpm store path` and delete it via File Explorer or `r
 
 {{< /details >}}
 
+### Update lockfile hashes
+
 If you are migrating an existing project and want to preserve your current
 lockfile, use [`chainctl libraries update-hashes`](#updating-lockfile-hashes-for-existing-projects)
 to update only the integrity hashes in place instead.
@@ -607,6 +611,8 @@ If you encounter stale or corrupted package data, clear the cache with:
 ```bash
 yarn cache clean --all
 ```
+
+### Update lockfile hashes
 
 If you are migrating an existing project and want to preserve your current
 lockfile, use [`chainctl libraries update-hashes`](#updating-lockfile-hashes-for-existing-projects)
@@ -771,6 +777,8 @@ If you encounter stale or corrupted package data, clear the cache with:
 ```bash
 yarn cache clean
 ```
+
+### Update lockfile hashes
 
 If you are migrating an existing project and want to preserve your current
 lockfile, use [`chainctl libraries update-hashes`](#updating-lockfile-hashes-for-existing-projects)
