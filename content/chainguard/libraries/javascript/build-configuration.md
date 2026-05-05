@@ -180,9 +180,9 @@ configuring authentication.
 
 Example URLs:
 
-* JFrog Artifactory: https://example.jfrog.io/artifactory/javascript-all/
-* Sonatype Nexus: https://repo.example.com:8443/repository/javascript-all/
-* Direct access: https://libraries.cgr.dev/javascript/
+* JFrog Artifactory: `https://example.jfrog.io/artifactory/javascript-all/`
+* Sonatype Nexus: `https://repo.example.com:8443/repository/javascript-all/`
+* Direct access: `https://libraries.cgr.dev/javascript/`
 
 ### Apply registry changes
 
@@ -422,9 +422,9 @@ configuring authentication.
 
 Example URLs:
 
-* JFrog Artifactory: https://example.jfrog.io/artifactory/javascript-all/
-* Sonatype Nexus: https://repo.example.com:8443/repository/javascript-all/
-* Direct access: https://libraries.cgr.dev/javascript/
+* JFrog Artifactory: `https://example.jfrog.io/artifactory/javascript-all/`
+* Sonatype Nexus: `https://repo.example.com:8443/repository/javascript-all/`
+* Direct access: `https://libraries.cgr.dev/javascript/`
 
 ### Apply registry changes
 
@@ -593,9 +593,9 @@ more details such as authentication support.
 
 Example URLs:
 
-* JFrog Artifactory: https://example.jfrog.io/artifactory/javascript-all
-* Sonatype Nexus: https://repo.example.com:8443/repository/javascript-all
-* Direct access: https://libraries.cgr.dev/javascript
+* JFrog Artifactory: `https://example.jfrog.io/artifactory/javascript-all`
+* Sonatype Nexus: `https://repo.example.com:8443/repository/javascript-all`
+* Direct access: `https://libraries.cgr.dev/javascript`
 
 ### Apply registry changes
 
@@ -715,7 +715,7 @@ each module.
 
 **Direct access: Point registry to Chainguard**
 
-To change a project to use Chainguard Libraries for JavaScript, first set export your pull token as base64-encoded environment variables:
+To change a project to use Chainguard Libraries for JavaScript, first export your pull token as base64-encoded environment variables:
 
 ```bash
 export token=$(echo -n "${CHAINGUARD_JAVASCRIPT_IDENTITY_ID}:${CHAINGUARD_JAVASCRIPT_TOKEN}" | base64 -w 0)
@@ -744,9 +744,9 @@ EOF
 
 Example URLs:
 
-* JFrog Artifactory: https://example.jfrog.io/artifactory/javascript-all
-* Sonatype Nexus: https://repo.example.com:8443/repository/javascript-all
-* Direct access: https://libraries.cgr.dev/javascript
+* JFrog Artifactory: `https://example.jfrog.io/artifactory/javascript-all`
+* Sonatype Nexus: `https://repo.example.com:8443/repository/javascript-all`
+* Direct access: `https://libraries.cgr.dev/javascript`
 
 
 ### Apply registry changes
@@ -841,6 +841,8 @@ other desired packages for further testing.
 package manager designed as an alternative to Node.js tooling. It provides an
 integrated package manager that is compatible with the npm ecosystem.
 
+**Declare dependencies in package.json**
+
 With Bun you declare dependencies in a `package.json` file just like
 [npm](#npm). The following snippet shows a minimal example:
 
@@ -903,6 +905,8 @@ Example registry URLs:
 * JFrog Artifactory: https://example.jfrog.io/artifactory/javascript-all/
 * Sonatype Nexus: https://repo.example.com:8443/repository/javascript-all/
 * Direct access: https://libraries.cgr.dev/javascript/
+
+### Apply registry changes
 
 To apply the registry change to an existing project, remove `node_modules` and
 the `bun.lock` file and run:
