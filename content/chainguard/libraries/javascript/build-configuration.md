@@ -106,6 +106,8 @@ used for managing JavaScript dependencies and scripts. It allows developers to
 install, share, and manage packages for their projects. For more details, see
 the [npm documentation](https://docs.npmjs.com/).
 
+**Declare dependencies in package.json**
+
 With npm, you declare JavaScript package dependencies in a `package.json` file
 and separated into development and runtime dependencies. The following snippet
 shows a minimal example with a couple of dependencies each:
@@ -146,7 +148,18 @@ therefore an update to the lock file. The lock file also encodes the checksum
 values in the `integrity` field and the download URL in the `resolved` field for
 each module.
 
+**Point registry to Chainguard**
+
+To change a project to use Chainguard Libraries for JavaScript, set the registry
+URL to point to Chainguard in your user `.npmrc` file: 
+
+```bash
+npm config set registry https://libraries.cgr.dev/javascript/
+```
+
+
 ### Using a repository manager
+
 To change a project to use Chainguard Libraries for JavaScript, set the registry
 URL to point to your repository manager in your user `.npmrc` file: 
 
@@ -171,9 +184,23 @@ Example URLs:
 * Sonatype Nexus: https://repo.example.com:8443/repository/javascript-all/
 * Direct access: https://libraries.cgr.dev/javascript/
 
+#### Apply registry changes
+
 To apply the registry changes, remove the `node_modules` directory and the
 `package-lock.json` file and run the `npm install` command again. This re-fetches all
 packages from Chainguard and regenerates the lockfile with updated hashes.
+
+If you encounter stale or corrupted package data, clear the cache with:
+
+```bash
+npm cache clean --force
+```
+
+To verify the cache is empty:
+
+```bash
+npm cache verify
+```
 
 If you are migrating an existing project and want to preserve your current
 lockfile, use [`chainctl libraries update-hashes`](#updating-lockfile-hashes-for-existing-projects)
@@ -323,6 +350,8 @@ other desired packages for further testing.
 JavaScript, designed as an alternative to npm and Yarn. For
 more information, see the [pnpm documentation](https://pnpm.io/motivation).
 
+**Declare dependencies in package.json**
+
 With pnpm, you declare JavaScript package dependencies in a `package.json` file
 and separated into development and runtime dependencies. The following snippet
 shows a minimal example with a couple of dependencies each:
@@ -362,6 +391,15 @@ Any dependency or dependency version changes require another install and
 therefore an update to the lock file. The lock file also encodes the checksum
 values in the `integrity` field and other information for each module.
 
+**Point registry to Chainguard**
+
+To change a project to use Chainguard Libraries for JavaScript, set the registry
+URL to point to Chainguard in your user `.npmrc` file: 
+
+```bash
+pnpm config set registry https://libraries.cgr.dev/javascript/
+```
+
 ### Using a repository manager 
 
 To change a project to use Chainguard Libraries for JavaScript, set the registry
@@ -388,9 +426,43 @@ Example URLs:
 * Sonatype Nexus: https://repo.example.com:8443/repository/javascript-all/
 * Direct access: https://libraries.cgr.dev/javascript/
 
+#### Apply registry changes
+
 To apply the registry change, remove the `node_modules` directory and the
 `pnpm-lock.yaml` file and run the `pnpm install` command again. This re-fetches all
 packages from Chainguard and regenerates the lockfile with updated hashes.
+
+pnpm has two separate layers of cached data. If you encounter stale or corrupted package data, you can clear both of these caches:
+
+{{< details "Clear pnpm caches" >}}
+
+There is an [experimental command](https://pnpm.io/cli/cache-delete) to delete the metadata cache:
+
+```bash
+pnpm cache delete
+```
+
+To find and manually remove the full store:
+
+```bash
+pnpm store path
+```
+
+Then delete the directory that command outputs: 
+
+On macOS/Linux - 
+
+```bash
+rm -rf "$(pnpm store path)"
+```
+
+On Windows - 
+
+Use the path returned by `pnpm store path` and delete it via File Explorer or `rmdir`.
+
+> Note: pnpm prune removes unused tarballs but does not remove packument metadata. If you are seeing 404 errors after switching to or updating the Chainguard registry endpoint, use the commands above rather than pnpm prune.
+
+{{< /details >}}
 
 If you are migrating an existing project and want to preserve your current
 lockfile, use [`chainctl libraries update-hashes`](#updating-lockfile-hashes-for-existing-projects)
@@ -457,6 +529,8 @@ This section applies to modern versions of Yarn, also known as Yarn Berry, with
 versions 2.x and higher. If you are using Yarn 1.x refer to the [Yarn Classic
 section](#yarn-classic).
 
+**Declare dependencies in package.json**
+
 With Yarn, you declare JavaScript package dependencies in a `package.json` file
 and separated into different scoped dependencies such as development and runtime
 dependencies. The following block shows a minimal example with `react` and
@@ -490,6 +564,15 @@ Any dependency or dependency version changes require another install and
 therefore an update to the lock file. The lock file also encodes the checksum
 values in the `checksum` field.
 
+**Direct access: Point registry to Chainguard**
+
+To change a project to use Chainguard Libraries for JavaScript, set the registry
+URL to point to Chainguard in your user `.yarnrc` file: 
+
+```bash
+yarn config set npmRegistryServer https://libraries.cgr.dev/javascript/
+```
+
 ### Using a repository manager
 
 To change a project to use Chainguard Libraries for JavaScript, set the registry
@@ -514,13 +597,20 @@ Example URLs:
 * Sonatype Nexus: https://repo.example.com:8443/repository/javascript-all
 * Direct access: https://libraries.cgr.dev/javascript
 
+#### Apply registry changes
+
 To apply the registry change, run the `yarn` command again. This forces an update of
 all packages from the new registry and regeneration of the lock file.
+
+If you encounter stale or corrupted package data, clear the cache with:
+
+```bash
+yarn cache clean --all
+```
 
 If you are migrating an existing project and want to preserve your current
 lockfile, use [`chainctl libraries update-hashes`](#updating-lockfile-hashes-for-existing-projects)
 to update only the integrity hashes in place instead.
-
 
 Now you can proceed with your development and testing. 
 
@@ -623,6 +713,26 @@ therefore an update to the lock file. The lock file also encodes the checksum
 values in the `integrity` field and the download URL in the `resolved` field for
 each module.
 
+**Direct access: Point registry to Chainguard**
+
+To change a project to use Chainguard Libraries for JavaScript, first set export your pull token as base64-encoded environment variables:
+
+```bash
+export token=$(echo -n "${CHAINGUARD_JAVASCRIPT_IDENTITY_ID}:${CHAINGUARD_JAVASCRIPT_TOKEN}" | base64 -w 0)
+```
+
+Then, set auth and set the registry URL to point to Chainguard in your user `.npmrc` file: 
+
+```bash
+cat > .npmrc << 'EOF'
+registry=https://libraries.cgr.dev/javascript/
+//libraries.cgr.dev/javascript/:_auth="$token"
+//libraries.cgr.dev/javascript/:always-auth=true
+EOF
+```
+
+### Using a repo manager
+
 To change a project to use Chainguard Libraries for JavaScript, set the registry
 URL to point to your repository manager in your `.npmrc` file:
 
@@ -638,6 +748,9 @@ Example URLs:
 * Sonatype Nexus: https://repo.example.com:8443/repository/javascript-all
 * Direct access: https://libraries.cgr.dev/javascript
 
+
+#### Apply registry changes
+
 Note that you can also use the `yarn config set registry` command to set the
 registry in the `.yarnrc` file, however this approach does not support
 authentication as typically required for repository managers as well as for
@@ -652,6 +765,12 @@ file and run the `yarn` command again. This forces a new download of all
 packages from the new registry and regeneration of the lock file. Alternatively,
 you can run `yarn upgrade` to update all dependencies to their latest allowed
 versions and regenerate the lock file.
+
+If you encounter stale or corrupted package data, clear the cache with:
+
+```bash
+yarn cache clean
+```
 
 If you are migrating an existing project and want to preserve your current
 lockfile, use [`chainctl libraries update-hashes`](#updating-lockfile-hashes-for-existing-projects)
