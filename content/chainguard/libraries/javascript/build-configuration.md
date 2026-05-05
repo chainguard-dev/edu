@@ -434,15 +434,27 @@ To apply the registry change, remove the `node_modules` directory and the
 `pnpm-lock.yaml` file and run the `pnpm install` command again. This re-fetches all
 packages from Chainguard and regenerates the lockfile with updated hashes.
 
-pnpm has two separate layers of cached data. If you encounter stale or corrupted package data, you can clear both of these caches:
+pnpm has three separate layers of cached data. If you encounter stale or corrupted package data, you can clear all of these caches:
 
 {{< details "Clear pnpm caches" >}}
+
+**Metadata (packuments)**
 
 There is an [experimental command](https://pnpm.io/cli/cache-delete) to delete the metadata cache:
 
 ```bash
 pnpm cache delete
 ```
+
+**HTTP cache**
+
+pnpm maintains a separate HTTP cache at `~/.cache/pnpm` (or `$XDG_CACHE_HOME/pnpm` if that variable is set). Delete it with:
+
+```bash
+rm -rf "${XDG_CACHE_HOME:-$HOME/.cache}/pnpm"
+```
+
+**Content-addressable store (tarballs)**
 
 To find and manually remove the full store:
 
@@ -610,6 +622,12 @@ If you encounter stale or corrupted package data, clear the cache with:
 
 ```bash
 yarn cache clean --all
+```
+
+If you're seeing checksum mismatch errors rather than stale data, you can control Yarn's behavior via the [`checksumBehavior` setting](https://yarnpkg.com/configuration/yarnrc#checksumBehavior) in `.yarnrc.yml`. Setting it to `reset` causes Yarn to purge and re-fetch any cache entry whose checksum doesn't match, without clearing the entire cache:
+
+```yaml
+checksumBehavior: reset
 ```
 
 ### Update lockfile hashes
