@@ -184,7 +184,7 @@ Example URLs:
 * Sonatype Nexus: https://repo.example.com:8443/repository/javascript-all/
 * Direct access: https://libraries.cgr.dev/javascript/
 
-#### Apply registry changes
+### Apply registry changes
 
 To apply the registry changes, remove the `node_modules` directory and the
 `package-lock.json` file and run the `npm install` command again. This re-fetches all
@@ -426,7 +426,7 @@ Example URLs:
 * Sonatype Nexus: https://repo.example.com:8443/repository/javascript-all/
 * Direct access: https://libraries.cgr.dev/javascript/
 
-#### Apply registry changes
+### Apply registry changes
 
 To apply the registry change, remove the `node_modules` directory and the
 `pnpm-lock.yaml` file and run the `pnpm install` command again. This re-fetches all
@@ -597,7 +597,7 @@ Example URLs:
 * Sonatype Nexus: https://repo.example.com:8443/repository/javascript-all
 * Direct access: https://libraries.cgr.dev/javascript
 
-#### Apply registry changes
+### Apply registry changes
 
 To apply the registry change, run the `yarn` command again. This forces an update of
 all packages from the new registry and regeneration of the lock file.
@@ -749,7 +749,7 @@ Example URLs:
 * Direct access: https://libraries.cgr.dev/javascript
 
 
-#### Apply registry changes
+### Apply registry changes
 
 Note that you can also use the `yarn config set registry` command to set the
 registry in the `.yarnrc` file, however this approach does not support
