@@ -300,6 +300,49 @@ Use this setup for initial testing with Chainguard Libraries for Java. For
 production usage add the `java-chainguard` repository to your production virtual
 repository.
 
+### Validate the remote repository
+
+After creating the `java-chainguard` remote repository, validate that Artifactory is successfully proxying through to Chainguard before proceeding. Because Artifactory falls back to Maven Central when a connection to a remote repository fails, a misconfigured repository may silently resolve packages from Mavel Central rather than Chainguard — and the build will succeed without any visible error.
+
+Common sources of misconfiguration include invalid or expired credentials, or an incorrect or incomplete repository URL. The Artifactory **Test** button on the repository configuration screen is not a reliable indicator; it may fail for a correctly configured repository, and may pass for an incorrectly configured one. Instead, use the following steps to verify that fetching an artifact through Artifactory produces the same checksum as fetching it directly from `libraries.cgr.dev`.
+
+1. Fetch the artifact directly from Chainguard and compute its checksum. This example uses `junit-4.13.2.jar`. You can substitute any artifact you know to be available.
+
+```bash
+curl -sSf -L \
+  -u "${CHAINGUARD_JAVA_IDENTITY_ID}:${CHAINGUARD_JAVA_TOKEN}" \
+  https://libraries.cgr.dev/java/junit/junit/4.13.2/junit-4.13.2.jar \
+  | openssl dgst -sha512 -binary | base64
+```
+
+2. Fetch the same artifact through the Artifactory remote repository and compute its checksum:
+
+```bash
+curl -sSf -L \
+  -u "${ARTIFACTORY_USER}:${ARTIFACTORY_TOKEN}" \
+  https://<artifactory-host>/artifactory/java-chainguard/junit/junit/4.13.2/junit-4.13.2.jar \
+  | openssl dgst -sha512 -binary | base64
+```
+Replace `artifactory-host` with your Artifactory instance hostname,.
+
+3. If your configuration includes a virtual repository combining `javascript-chainguard` with a public npm fallback, test that as well:
+
+```bash
+curl -sSf -L \
+  -H "Authorization: Bearer ${ARTIFACTORY_TOKEN}" \
+  https://<artifactory-host>/artifactory/api/npm/javascript-all/picocolors/-/picocolors-1.1.1.tgz \
+  | openssl dgst -sha512 -binary | base64
+```
+
+The checksums returned by the commands must match. 
+
+If the checksum from the Artifactory remote or virtual repository differs from the direct fetch, or if the Artifactory fetch fails entirely, review the following before proceeding:
+
+* URL: The remote repository URL must be set to `https://libraries.cgr.dev/java/`. 
+* Credentials: You may need to regenerate your pull token with `chainctl auth pull-token --repository=java` and update the Artifactory repository credentials. Expired tokens fail silently.
+
+Do not proceed to virtual repository setup or build configuration until the checksums match.
+
 ### Build tool access
 
 The following steps allow you to determine the URL and authentication details
