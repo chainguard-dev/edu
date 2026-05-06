@@ -181,6 +181,8 @@ repository:
    with chainctl](/chainguard/libraries/access/).
 1. Click **Create Remote Repository**.
 
+
+
 Create a virtual repository, or add the remote repository to an existing
 virtual repository used for npm packages. A virtual repository may also include private npm packages or 
 additional upstream sources, depending on your configuration.
@@ -220,6 +222,40 @@ To prevent this:
    install.
     - Alternatively, you could delete specific corrupted `.tgz` artifacts from
       the remote cache, rather than deleting all, before re-running the install.
+
+### Validate the remote repository
+
+After creating and configuring the `javascript-chainguard` remote repository, validate that Artifactory is successfully proxying through to Chainguard before proceeding. Because Artifactory falls back to the upstream npm registry when a connection to a remote repository fails, a misconfigured repository may silently resolve packages from npm rather than Chainguard — and the build will succeed without any visible error.
+
+Common sources of misconfiguration include invalid or expired credentials, an incorrect or incomplete URL, and missing [settings from the Advanced tab](#advanced-settings-for-redirect-handling). The Artifactory **Test** button on the repository configuration screen is not a reliable indicator; it may fail for a correctly configured repository, and may pass for an incorrectly configured one. Instead, use the following steps.
+
+To confirm that Artifactory is proxying correctly, verify that fetching an artifact through Artifactory produces the same checksum as fetching it directly from `libraries.cgr.dev`:
+
+1. Fetch the artifact directly from `libraries.cgr.dev` and compute its checksum. This example uses `picocolors-1.1.1`: 
+
+```bash
+curl -sSf -L \
+  -H "Authorization: Bearer $(chainctl auth token --audience=libraries.cgr.dev)" \
+  https://libraries.cgr.dev/javascript/picocolors/-/picocolors-1.1.1.tgz \
+  | openssl dgst -sha512 -binary | base64
+```
+2. Fetch the same artifact through the Artifactory remote repository and compute its checksum:
+
+```bash
+curl -sSf -L \
+  -H "Authorization: Bearer ${ARTIFACTORY_TOKEN}" \
+  https://<artifactory-host>/artifactory/api/npm/javascript-chainguard/picocolors/-/picocolors-1.1.1.tgz \
+  | openssl dgst -sha512 -binary | base64
+```
+3. If your configuration includes a virtual repository combining javascript-chainguard with a public npm fallback, test that as well:
+
+```bash
+curl -sSf -L \
+  -H "Authorization: Bearer ${ARTIFACTORY_TOKEN}" \
+  https://<artifactory-host>/artifactory/api/npm/javascript-all/picocolors/-/picocolors-1.1.1.tgz \
+  | openssl dgst -sha512 -binary | base64
+```
+The checksums returned by all three commands must match. If the checksum from the Artifactory remote or virtual repository differs from the direct fetch, or if the Artifactory fetch fails entirely, review the following before proceeding:
 
 ### Build tool access
 
@@ -315,3 +351,11 @@ Use the URL of the repository group, such as
 configuration](/chainguard/libraries/javascript/build-configuration/) and build a
 first test project. In a working setup the `javascript-chainguard` proxy
 repository contains all libraries retrieved from Chainguard.
+
+## Google Artifact Registry
+
+Google Artifact Registry (GAR) is not an officially supported repository manager for Chainguard Libraries for JavaScript. However, it has been shown to work with the following configuration.
+
+Configure two GAR remote repositories, with upstream validation disabled on the second:
+* First remote repository: `cg-proxy` pointing to `https://libraries.cgr.dev/javascript` with upstream validation enabled
+* Second remote repository: `cg-proxy-upstream` pointing to `https://libraries.cgr.dev/javascript-upstream` with upstream validation disabled.
