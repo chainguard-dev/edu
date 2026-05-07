@@ -1,27 +1,17 @@
 ---
 date: 2026-05-06T12:14:02Z
-title: "chainctl config save"
-slug: chainctl_config_save
-url: /chainguard/chainctl/chainctl-docs/chainctl_config_save/
+title: "chainctl actions entitlements"
+slug: chainctl_actions_entitlements
+url: /chainguard/chainctl/chainctl-docs/chainctl_actions_entitlements/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl config save
+## chainctl actions entitlements
 
-Save the current chainctl config to a config file.
-
-```
-chainctl config save [--config FILE] [--yes] [flags]
-```
-
-### Options
-
-```
-  -y, --yes   Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
-```
+Manage Actions product entitlements.
 
 ### Options inherited from parent commands
 
@@ -40,5 +30,8 @@ chainctl config save [--config FILE] [--yes] [flags]
 
 ### SEE ALSO
 
-* [chainctl config](/chainguard/chainctl/chainctl-docs/chainctl_config/)	 - Local config file commands for chainctl.
+* [chainctl actions](/chainguard/chainctl/chainctl-docs/chainctl_actions/)	 - Interact with the Chainguard Actions product.
+* [chainctl actions entitlements create](/chainguard/chainctl/chainctl-docs/chainctl_actions_entitlements_create/)	 - Enable the Actions product for an organization.
+* [chainctl actions entitlements delete](/chainguard/chainctl/chainctl-docs/chainctl_actions_entitlements_delete/)	 - Disable the Actions product for an organization.
+* [chainctl actions entitlements list](/chainguard/chainctl/chainctl-docs/chainctl_actions_entitlements_list/)	 - List Actions product entitlements for an organization.
 
