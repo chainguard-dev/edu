@@ -1,6 +1,88 @@
 {
   "components": {
     "schemas": {
+      "chainguard.platform.actions.AuthorizationResponse": {
+        "description": "AuthorizationResponse describes the outcome of a *successful*\nauthorization check. Failure is signaled by a non-OK gRPC status\n(codes.Unauthenticated); a returned message always represents\nsuccess and always carries claims. The body deliberately does NOT\ndistinguish among failure modes — see the RPC definitions for the\nprivacy rationale.",
+        "properties": {
+          "claims": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "claims echoes the verified GitHub identity (subset of GitHub's\nOIDC claim names). For the OIDC path, claims come from the\nverified token. For the challenge path, claims come from the\nWorkflowRun fetched from the GitHub API at verify time — not from\nthe IssueChallenge inputs.",
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.actions.AuthorizeWithOIDCRequest": {
+        "description": "AuthorizeWithOIDCRequest carries no token. The OIDC ID token is\nread from the `Authorization: Bearer \u003cjwt\u003e` gRPC metadata header.\nThe set of accepted audiences is fixed by the server; the caller\ncannot influence it.",
+        "type": "object"
+      },
+      "chainguard.platform.actions.CACertResponse": {
+        "description": "CACertResponse carries the server's active signer CA cert.",
+        "properties": {
+          "caCert": {
+            "description": "ca_cert is the PEM-encoded X.509 CA certificate (one\n`CERTIFICATE` block).",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.actions.IssueChallengeRequest": {
+        "description": "IssueChallengeRequest names the GitHub Actions run for which a\nchallenge cert is being requested. The server treats these as\nclaims to bind into the leaf cert's URI SAN; trust does not arrive\nuntil the subsequent VerifyChallenge call confirms the cert\nappeared as an artifact in that run's actual artifact listing.",
+        "properties": {
+          "repository": {
+            "description": "repository is the owner/repo slug, e.g. \"chainguard-dev/mono\".",
+            "type": "string"
+          },
+          "runAttempt": {
+            "description": "run_attempt is the workflow run attempt number (numeric, as a\nstring).",
+            "type": "string"
+          },
+          "runId": {
+            "description": "run_id is the workflow run ID (numeric, as a string).",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.actions.IssueChallengeResponse": {
+        "properties": {
+          "cert": {
+            "description": "cert is a PEM-encoded X.509 leaf certificate signed by the\nserver's CA. The workflow writes this PEM into a GitHub Actions\nartifact whose name starts with `chainguard-actions-client`. The\ncert encodes the run identity in a URI SAN; only the server's\nsigning key can have produced it. NotAfter and the serial number\nare encoded inside the cert — clients extract them by parsing.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.actions.TrustedKeysResponse": {
+        "description": "TrustedKeysResponse lists every public key currently trusted for\nattestation-leaf verification. During a key-rotation overlap the\nlist contains both the new and the previous signing key; once the\nprevious key is dropped from CHALLENGE_KMS_TRUSTED_VERSIONS on the\nnext deploy, only the new key remains.",
+        "properties": {
+          "publicKeys": {
+            "description": "public_keys is a sequence of PEM-encoded PKIX `PUBLIC KEY` blocks\nconcatenated together. Order is not significant.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.actions.VerifyChallengeRequest": {
+        "description": "VerifyChallengeRequest names the run to verify. The server lists\nthe run's GitHub Actions artifacts, downloads any whose name starts\nwith `chainguard-actions-client`, and looks for one whose\ncertificate is signed by the server's CA and whose URI SAN matches\nthis run identity. The client cannot influence which artifact is\nchecked.",
+        "properties": {
+          "repository": {
+            "description": "repository is the owner/repo slug, matching the IssueChallenge\ncall.",
+            "type": "string"
+          },
+          "runAttempt": {
+            "description": "run_attempt is the workflow run attempt number.",
+            "type": "string"
+          },
+          "runId": {
+            "description": "run_id is the workflow run ID (numeric, as a string).",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.advisory.Advisory": {
         "properties": {
           "aliases": {
@@ -883,6 +965,16 @@
           "NotReady"
         ],
         "type": "string"
+      },
+      "chainguard.platform.iam.CheckEligibilityResponse": {
+        "description": "CheckEligibilityResponse is the response message for CheckEligibility.",
+        "properties": {
+          "eligible": {
+            "description": "Indicates if the domain of the caller's email address is eligible\nfor email-domain-gated Groups flows.",
+            "type": "boolean"
+          }
+        },
+        "type": "object"
       },
       "chainguard.platform.iam.Group": {
         "properties": {
@@ -5741,6 +5833,202 @@
   },
   "openapi": "3.0.3",
   "paths": {
+    "/actions/v1/authorize/oidc": {
+      "post": {
+        "description": "AuthorizeWithOIDC verifies a GitHub Actions OIDC ID token. The\ntoken is read from the `Authorization: Bearer \u003cjwt\u003e` gRPC\nmetadata header (or the equivalent HTTP header on the gateway\npath). The request body never carries the token.",
+        "operationId": "ActionsAuthorization_AuthorizeWithOIDC",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.actions.AuthorizeWithOIDCRequest"
+              }
+            }
+          },
+          "description": "AuthorizeWithOIDCRequest carries no token. The OIDC ID token is\nread from the `Authorization: Bearer \u003cjwt\u003e` gRPC metadata header.\nThe set of accepted audiences is fixed by the server; the caller\ncannot influence it.",
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.actions.AuthorizationResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Authorize With OIDC",
+        "tags": [
+          "ActionsAuthorization"
+        ]
+      }
+    },
+    "/actions/v1/ca": {
+      "get": {
+        "description": "GetCACert returns the active signer's CA cert as PEM. External\nverifiers consume this to validate attestation leaf certs\noffline. For verification across a key-rotation overlap, prefer\nGetTrustedKeys — GetCACert reflects only the *current* signing\nkey.",
+        "operationId": "ActionsAuthorization_GetCACert",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.actions.CACertResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get CA Cert",
+        "tags": [
+          "ActionsAuthorization"
+        ]
+      }
+    },
+    "/actions/v1/challenge/issue": {
+      "post": {
+        "description": "IssueChallenge mints a short-lived X.509 leaf cert bound to a\nspecific GitHub Actions run. The server validates the run exists\nand is in progress by querying the GitHub API. The workflow is\nexpected to upload the returned cert as a GitHub Actions artifact\nwhose name starts with `chainguard-actions-client`, so a later\nVerifyChallenge call can fetch and confirm origin. The server\nkeeps no state between Issue and Verify — the cert is\nself-contained.",
+        "operationId": "ActionsAuthorization_IssueChallenge",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.actions.IssueChallengeRequest"
+              }
+            }
+          },
+          "description": "IssueChallengeRequest names the GitHub Actions run for which a\nchallenge cert is being requested. The server treats these as\nclaims to bind into the leaf cert's URI SAN; trust does not arrive\nuntil the subsequent VerifyChallenge call confirms the cert\nappeared as an artifact in that run's actual artifact listing.",
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.actions.IssueChallengeResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Issue Challenge",
+        "tags": [
+          "ActionsAuthorization"
+        ]
+      }
+    },
+    "/actions/v1/challenge/verify": {
+      "post": {
+        "description": "VerifyChallenge lists the named run's artifacts via the GitHub\nAPI, downloads any whose name starts with\n`chainguard-actions-client`, and accepts the first whose cert is\nsigned by a currently-trusted KMS key, is unexpired, and is bound\nto the requested (repository, run_id, run_attempt). The request\ndoes NOT carry the cert — only run identity. Replay across runs\nis prevented because artifacts are scoped to the run they were\nuploaded from.",
+        "operationId": "ActionsAuthorization_VerifyChallenge",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.actions.VerifyChallengeRequest"
+              }
+            }
+          },
+          "description": "VerifyChallengeRequest names the run to verify. The server lists\nthe run's GitHub Actions artifacts, downloads any whose name starts\nwith `chainguard-actions-client`, and looks for one whose\ncertificate is signed by the server's CA and whose URI SAN matches\nthis run identity. The client cannot influence which artifact is\nchecked.",
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.actions.AuthorizationResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Verify Challenge",
+        "tags": [
+          "ActionsAuthorization"
+        ]
+      }
+    },
+    "/actions/v1/trusted-keys": {
+      "get": {
+        "description": "GetTrustedKeys returns every public key the server currently\ntrusts for verification, as a list of PEM-encoded PKIX\n`PUBLIC KEY` blocks. Includes the active signing key plus any\nadditional rotation-overlap keys configured at deploy time.",
+        "operationId": "ActionsAuthorization_GetTrustedKeys",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.actions.TrustedKeysResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Trusted Keys",
+        "tags": [
+          "ActionsAuthorization"
+        ]
+      }
+    },
     "/advisory/v1/documents": {
       "get": {
         "operationId": "SecurityAdvisory_ListDocuments",
@@ -7309,6 +7597,38 @@
           }
         },
         "summary": "Create",
+        "tags": [
+          "Groups"
+        ]
+      }
+    },
+    "/iam/v1/groups:checkEligibility": {
+      "get": {
+        "description": "CheckEligibility reports whether the caller passes the same eligibility\ngates applied by LookupGroup and RequestGroupAccess. A response of\neligible=true does not guarantee those calls succeed for other reasons\n(no matching org, already requested, etc.).",
+        "operationId": "Groups_CheckEligibility",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.CheckEligibilityResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Check Eligibility",
         "tags": [
           "Groups"
         ]
@@ -13489,6 +13809,9 @@
   "tags": [
     {
       "name": "PingService"
+    },
+    {
+      "name": "ActionsAuthorization"
     },
     {
       "name": "SecurityAdvisory"

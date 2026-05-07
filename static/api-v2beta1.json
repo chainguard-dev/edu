@@ -391,6 +391,16 @@
         ],
         "type": "object"
       },
+      "chainguard.platform.iam.v2beta1.CheckEligibilityResponse": {
+        "description": "CheckEligibilityResponse is the response message for CheckEligibility.",
+        "properties": {
+          "eligible": {
+            "description": "Indicates if the domain of the caller's email address is eligible\nfor email-domain-gated Groups flows.",
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.iam.v2beta1.Group": {
         "description": "Group represents an IAM group (organization or folder).",
         "properties": {
@@ -3483,6 +3493,38 @@
           }
         },
         "summary": "Get Group",
+        "tags": [
+          "GroupsService"
+        ]
+      }
+    },
+    "/iam/v2beta1/groups:checkEligibility": {
+      "get": {
+        "description": "CheckEligibility reports whether the caller passes the same eligibility\ngates applied by LookupGroup and RequestGroupAccess. A response of\neligible=true does not guarantee those calls succeed for other reasons\n(no matching org, already requested, etc.).",
+        "operationId": "GroupsService_CheckEligibility",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.CheckEligibilityResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Check Eligibility",
         "tags": [
           "GroupsService"
         ]
