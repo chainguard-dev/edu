@@ -129,30 +129,40 @@ In this example, the Artifactory username is `linky` and the hostname is `exampl
 
 This section outlines how to build a container image using a Chainguard image as a base and configure it to pull packages from the private APK repositories through your remote Artifactory repository.
 
-Open a terminal and create a Dockerfile:
+Open a terminal and create a Dockerfile. Note the use of single quotes around `'EOF'` to prevent the shell from expanding the `$` variables — these will be processed by Docker during the build:
 
 ```shell
-cat > Dockerfile <<EOF
+cat > Dockerfile <<'EOF'
 FROM cgr.dev/chainguard/python:latest-dev
 USER root
-RUN cp /etc/apk/repositories /etc/apk/repositories.disabled
-RUN echo 'https://$ARTIFACTORY_USERNAME:$CG_PRIVATE_TOKEN@$ARTIFACTORY_SERVER_NAME.jfrog.io/artifactory/cg-private/' > /etc/apk/repositories
-RUN apk add sed
+ARG ARTIFACTORY_USERNAME
+ARG ARTIFACTORY_SERVER_NAME
+RUN --mount=type=secret,id=cg_private_token \
+    cp /etc/apk/repositories /etc/apk/repositories.disabled && \
+    echo "https://${ARTIFACTORY_USERNAME}:$(cat /run/secrets/cg_private_token)@${ARTIFACTORY_SERVER_NAME}.jfrog.io/artifactory/cg-private/" > /etc/apk/repositories && \
+    apk add sed && \
+    rm /etc/apk/repositories
 USER nonroot
 EOF
 ```
 
 This Dockerfile uses the `python:latest-dev` image. You don't have to use this particular image, but because we are using the `apk` command to install a package from `cgr-private` in this Dockerfile, you should use a Chainguard container image that has this package manager available.
 
-Note that this Dockerfile renames the default `/etc/apk/repositories` file. This isn't necessary, but doing so allows you to ensure that you're actually downloading packages from the remote Artifactory repositories instead of the default ones. 
+Note that this Dockerfile combines the repository configuration, package installation, and cleanup into a single `RUN` instruction. This is important because it ensures the Artifactory token is never stored in an image layer. The `--mount=type=secret` option mounts the token only for the duration of this `RUN` instruction and it is not written to the image or its history. The final `rm` removes the `/etc/apk/repositories` file, which contained the token in plain text for the duration of the step.
 
 Additionally, be aware that there are limitations to what packages are available from your organization's private APK repository. For instance, your organization may not have access to the `sed` package. Refer to our [private APK repository documentation](/chainguard/chainguard-images/features/private-apk-repos/#about-private-apk-repositories) for more information.
 
-After creating the Dockerfile, build the image. Here, we tag the image `ar-build`:
+After creating the Dockerfile, build the image. Here, we tag the image `ar-build` and pass the Artifactory token as a Docker build secret along with the username and server name as build arguments:
 
 ```shell
-docker build -t ar-build .
+docker build \
+  --secret id=cg_private_token,env=CG_PRIVATE_TOKEN \
+  --build-arg ARTIFACTORY_USERNAME=$ARTIFACTORY_USERNAME \
+  --build-arg ARTIFACTORY_SERVER_NAME=$ARTIFACTORY_SERVER_NAME \
+  -t ar-build .
 ```
+
+The `--secret` flag passes `CG_PRIVATE_TOKEN` as a build secret that is accessible only during the build and is never stored in the image or its history.
 
 This command's output will show that the `sed` package was installed as expected:
 
@@ -214,23 +224,33 @@ Then for the `cg-extras` repo's token:
 export EXTRAS_TOKEN=<cg-extras-token>
 ```
 
-Following that, you can use these environment variables, along with a few created earlier in the guide, to create a Dockerfile as you previously did for the `cg-private` repository:
+Following that, you can create a Dockerfile for the public repositories. As before, use single quotes around `'EOF'` to prevent shell expansion:
 
 ```shell
-cat > Dockerfile.repos <<EOF
+cat > Dockerfile.repos <<'EOF'
 FROM cgr.dev/chainguard/python:latest-dev
 USER root
-RUN cp /etc/apk/repositories /etc/apk/repositories.disabled
-RUN echo 'https://$ARTIFACTORY_USERNAME:$CG_TOKEN@$ARTIFACTORY_SERVER_NAME.jfrog.io/artifactory/cg-chainguard/' > /etc/apk/repositories
-RUN echo 'https://$ARTIFACTORY_USERNAME:$EXTRAS_TOKEN@$ARTIFACTORY_SERVER_NAME.jfrog.io/artifactory/cg-extras/' >> /etc/apk/repositories
-RUN apk add c-ares
+ARG ARTIFACTORY_USERNAME
+ARG ARTIFACTORY_SERVER_NAME
+RUN --mount=type=secret,id=cg_token \
+    --mount=type=secret,id=extras_token \
+    cp /etc/apk/repositories /etc/apk/repositories.disabled && \
+    echo "https://${ARTIFACTORY_USERNAME}:$(cat /run/secrets/cg_token)@${ARTIFACTORY_SERVER_NAME}.jfrog.io/artifactory/cg-chainguard/" > /etc/apk/repositories && \
+    echo "https://${ARTIFACTORY_USERNAME}:$(cat /run/secrets/extras_token)@${ARTIFACTORY_SERVER_NAME}.jfrog.io/artifactory/cg-extras/" >> /etc/apk/repositories && \
+    apk add c-ares && \
+    rm /etc/apk/repositories
 EOF
 ```
 
-Following that, build the image:
+Following that, build the image, passing each Artifactory token as a Docker build secret:
 
 ```shell
-docker build -t ar-repos -f Dockerfile.repos .
+docker build \
+  --secret id=cg_token,env=CG_TOKEN \
+  --secret id=extras_token,env=EXTRAS_TOKEN \
+  --build-arg ARTIFACTORY_USERNAME=$ARTIFACTORY_USERNAME \
+  --build-arg ARTIFACTORY_SERVER_NAME=$ARTIFACTORY_SERVER_NAME \
+  -t ar-repos -f Dockerfile.repos .
 ```
 
 As this command runs, it installs the `c-ares` package into the image.
