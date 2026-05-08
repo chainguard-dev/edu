@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "A conceptual overview of Security Technical Implementation Guides, which are available for Chainguard Containers."
 date: 2024-06-13T15:56:52-07:00
-lastmod: 2025-04-08T15:56:52-07:00
+lastmod: 2026-05-08T15:56:52-07:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -20,7 +20,9 @@ toc: true
 
 The practice of using Security Technical Implementation Guides, or "STIGs," to secure various technologies originated with the United States Department of Defense (DoD). If an organization uses a certain kind of software, say MySQL 8.0, they must ensure that their implementation of it meets the requirements of the [associated Security Requirements Guides (SRG)](https://www.cyber.mil/stigs/) in order to qualify as a vendor for the DoD. More recently, other compliance frameworks have begun acknowledging the value of STIGS, with some going so far as to require the use of STIGs in their guidelines.
 
-[Chainguard announced](https://www.chainguard.dev/unchained/stig-hardening-container-images) the release of a STIG for the [General Purpose Operating System (GPOS) SRG](https://stigviewer.com/stigs/general_purpose_operating_system_security_requirements_guide) — an SRG that specifies security requirements for general purpose operating systems running in a network. The goal for this new STIG is that it will help customers confidently and securely integrate Chainguard Containers into their workflows. This conceptual article aims to give a brief overview of what STIGs are and how they can be valuable in the context of container images. It also includes instructions on how to get started with Chainguard's STIG for the GPOS SRG. 
+[Chainguard announced](https://www.chainguard.dev/unchained/stig-hardening-container-images) the release of a STIG for the [General Purpose Operating System (GPOS) SRG](https://stigviewer.com/stigs/general_purpose_operating_system_security_requirements_guide) — an SRG that specifies security requirements for general purpose operating systems running in a network. The goal for this new STIG is that it will help customers confidently and securely integrate Chainguard Containers into their workflows. This conceptual article aims to give a brief overview of what STIGs are and how they can be valuable in the context of container images. It also includes instructions on how to get started with Chainguard's STIG for the GPOS SRG.
+
+The Chainguard GPOS SRG profile applies to all Chainguard Containers — including both FIPS and non-FIPS images. The [Getting Started](#getting-started) section demonstrates how to use OpenSCAP to validate hardening checks against any Chainguard Container.
 
 
 ## Getting Started
@@ -39,7 +41,7 @@ curl -fsSLO https://raw.githubusercontent.com/chainguard-dev/stigs/main/gpos/xml
 
 The `-O` option in this example will redirect the file's contents into a local file also named `ssg-chainguard-gpos-ds.xml` in your working directory. You can then view the checklist locally.
 
-We'll refer to Chainguard's `openscap` container image as the `scan` image, and the `target` image we'll be scanning will be: `cgr.dev/chainguard/wolfi-base:latest`.
+We'll refer to Chainguard's `openscap` container image as the `scan` image, and the `target` image we'll be scanning will be: `cgr.dev/chainguard/wolfi-base:latest`. This is a non-FIPS image and is used as an example; you can substitute any Chainguard Container image as the target.
 
 The scan may be performed using one of two methods - we may either scan an image in a registry, or a running container.
 
@@ -190,4 +192,4 @@ These containers can be validated against the General Purpose Operating System S
 
 ## Learn more
 
-Chainguard's STIG hardened FIPS Containers are now generally available. You can check out our [STIG repo](https://github.com/chainguard-dev/stigs?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) or [contact us](https://get.chainguard.dev/simplify-fedramp-compliance-5?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) for more information. If you'd like to learn more about how Chainguard Containers can help you meet FedRAMP compliance, we encourage you to refer to our overview of [Chainguard's FIPS-ready container images](/chainguard/chainguard-images/working-with-images/fips-images/).
+You can use OpenSCAP to validate hardening checks against any Chainguard Container, including both FIPS and non-FIPS images, using the process described in [Getting Started](#getting-started). Chainguard's STIG hardened FIPS Containers are also generally available. You can check out our [STIG repo](https://github.com/chainguard-dev/stigs?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) or [contact us](https://get.chainguard.dev/simplify-fedramp-compliance-5?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) for more information. If you'd like to learn more about how Chainguard Containers can help you meet FedRAMP compliance, we encourage you to refer to our overview of [Chainguard's FIPS-ready container images](/chainguard/chainguard-images/working-with-images/fips-images/).
