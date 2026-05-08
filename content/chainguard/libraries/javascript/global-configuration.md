@@ -227,11 +227,11 @@ After creating and configuring the `javascript-chainguard` remote repository, va
 
 Common sources of misconfiguration include invalid or expired credentials, an incorrect or incomplete URL, and mosconfigured [settings in the Advanced tab](#advanced-settings-for-redirect-handling). The Artifactory **Test** button on the repository configuration screen is not a reliable indicator; it may fail for a correctly configured repository, and may pass for an incorrectly configured one. Instead, use the following steps to verify that fetching an artifact through Artifactory produces the same checksum as fetching it directly from `libraries.cgr.dev`.
 
-1. Fetch the artifact directly from Chainguard and compute its checksum. This example uses `picocolors-1.1.1`. You can substitute any artifact you know to be available.
+1. Fetch the artifact directly from Chainguard and compute its checksum, using the same credentials you configured in Artifactory. This example uses `picocolors-1.1.1`. You can substitute any artifact you know to be available.
 
 ```bash
 curl -sSf -L \
-  -H "Authorization: Bearer $(chainctl auth token --audience=libraries.cgr.dev)" \
+  -u "${CHAINGUARD_JAVASCRIPT_IDENTITY_ID}:${CHAINGUARD_JAVASCRIPT_TOKEN}" \
   https://libraries.cgr.dev/javascript/picocolors/-/picocolors-1.1.1.tgz \
   | openssl dgst -sha512 -binary | base64
 ```

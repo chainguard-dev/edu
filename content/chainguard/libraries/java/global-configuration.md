@@ -312,7 +312,7 @@ Common sources of misconfiguration include invalid or expired credentials, or an
 curl -sSf -L \
   -u "${CHAINGUARD_JAVA_IDENTITY_ID}:${CHAINGUARD_JAVA_TOKEN}" \
   https://libraries.cgr.dev/java/junit/junit/4.13.2/junit-4.13.2.jar \
-  | openssl dgst -sha512 -binary | base64
+  | sha256sum
 ```
 
 2. Fetch the same artifact through the Artifactory remote repository and compute its checksum:
@@ -321,18 +321,9 @@ curl -sSf -L \
 curl -sSf -L \
   -u "${ARTIFACTORY_USER}:${ARTIFACTORY_TOKEN}" \
   https://<artifactory-host>/artifactory/java-chainguard/junit/junit/4.13.2/junit-4.13.2.jar \
-  | openssl dgst -sha512 -binary | base64
+  | sha256sum
 ```
-Replace `artifactory-host` with your Artifactory instance hostname,.
-
-3. If your configuration includes a virtual repository combining `javascript-chainguard` with a public npm fallback, test that as well:
-
-```bash
-curl -sSf -L \
-  -H "Authorization: Bearer ${ARTIFACTORY_TOKEN}" \
-  https://<artifactory-host>/artifactory/api/npm/javascript-all/picocolors/-/picocolors-1.1.1.tgz \
-  | openssl dgst -sha512 -binary | base64
-```
+Replace `artifactory-host` with your Artifactory instance hostname.
 
 The checksums returned by the commands must match. 
 
@@ -340,6 +331,7 @@ If the checksum from the Artifactory remote or virtual repository differs from t
 
 * URL: The remote repository URL must be set to `https://libraries.cgr.dev/java/`. 
 * Credentials: You may need to regenerate your pull token with `chainctl auth pull-token --repository=java` and update the Artifactory repository credentials. Expired tokens fail silently.
+* Advanced configuration: Ensure all recommended Advanced settings from the [remote repository configuration steps](#initial-configuration-2) have been applied.
 
 Do not proceed to virtual repository setup or build configuration until the checksums match.
 

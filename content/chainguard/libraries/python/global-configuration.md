@@ -286,7 +286,7 @@ curl -sSf \
 curl -sSf -L \
   -u "${CHAINGUARD_PYTHON_IDENTITY_ID}:${CHAINGUARD_PYTHON_TOKEN}" \
   <url-from-step-1> \
-  | openssl dgst -sha512 -binary | base64
+  | sha256sum
 ```
 
 3. Fetch the same file through the Artifactory remote repository and compute its checksum:
@@ -294,18 +294,18 @@ curl -sSf -L \
 ```bash
 curl -sSfL \
   -u "${ARTIFACTORY_USERNAME}:${ARTIFACTORY_TOKEN}" \
-  "https://<artifactory-host>/artifactory/<python-remote-repository>/${PATH_FROM_INDEX}" \
-  | openssl dgst -sha512 -binary \
-  | base64
+  "https://<artifactory-host>/artifactory/<python-remote-repository>/${path-to-wheel}" \
+  | sha256sum
 ```
-Replace `artifactory-host` with your Artifactory instance hostname, replace `python-remote-repository` with your remote repository name, and replace `path-to-wheel` with the path component of the URL from step 1.
+Replace `artifactory-host` with your Artifactory instance hostname and replace `python-remote-repository` with your remote repository name. Replace `path-to-wheel` with the path component of the URL from step 1 (for example: `/files/15f7d141c3b76b85/37e321caa85a8f41/urllib3/urllib3-1.26.9-py2.py3-none-any.whl`)
 
-The checksums returned by both commands must match. 
+The checksums returned by the commands must match. 
 
 If the checksum from the Artifactory remote repository differs from the direct fetch, or if the Artifactory fetch fails entirely, review the following before proceeding:
 
 * URL: The remote repository URL must be set to `https://libraries.cgr.dev/python/`. 
 * Credentials: You may need to regenerate your pull token with `chainctl auth pull-token --repository=python` and update the Artifactory repository credentials. Expired tokens fail silently.
+* Advanced Configuration: Ensure all recommended Advanced settings from the [initial configuration steps](#initial-configuration-2) have been applied.
 
 Do not proceed to virtual repository setup or build configuration until the checksums match.
 
