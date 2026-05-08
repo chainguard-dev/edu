@@ -257,7 +257,7 @@ curl -sSf -L \
 
 The checksums returned by the commands must match. 
 
-If the checksum from the Artifactory remote or virtual repository differs from the direct fetch, or if the Artifactory fetch fails entirely, review the following before proceeding:
+If the checksum from the Artifactory remote or virtual repository differ from the direct fetch, or if the Artifactory fetch fails entirely, review the following before proceeding:
 
 * URL: The remote repository URL must be set to `https://libraries.cgr.dev/javascript/`. 
 * Credentials: You may need to regenerate your pull token with `chainctl auth pull-token --repository=javascript` and update the Artifactory repository credentials. Expired tokens fail silently.

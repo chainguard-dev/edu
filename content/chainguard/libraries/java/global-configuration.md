@@ -327,7 +327,7 @@ Replace `artifactory-host` with your Artifactory instance hostname.
 
 The checksums returned by the commands must match. 
 
-If the checksum from the Artifactory remote or virtual repository differs from the direct fetch, or if the Artifactory fetch fails entirely, review the following before proceeding:
+If the checksum from the Artifactory remote repository differs from the direct fetch, or if the Artifactory fetch fails entirely, review the following before proceeding:
 
 * URL: The remote repository URL must be set to `https://libraries.cgr.dev/java/`. 
 * Credentials: You may need to regenerate your pull token with `chainctl auth pull-token --repository=java` and update the Artifactory repository credentials. Expired tokens fail silently.
