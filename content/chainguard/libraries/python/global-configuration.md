@@ -265,6 +265,50 @@ optionally including remediated versions, with your chosen tools. This setup
 falls back to the public PyPI index in cases where a package is not available in
 Chainguard's index.
 
+### Validate the remote repository
+
+After creating the `python-chainguard` remote repository, validate that Artifactory is successfully proxying through to Chainguard before proceeding. Because Artifactory falls back to the public PyPI index when a connection to a remote repository fails, a misconfigured repository may silently resolve packages from PyPI rather than Chainguard — and the build will succeed without any visible error.
+
+Common sources of misconfiguration include invalid or expired credentials, or an incorrect or incomplete repository URL. The Artifactory **Test** button on the repository configuration screen is not a reliable indicator; it may fail for a correctly configured repository, and may pass for an incorrectly configured one. Instead, use the following steps to verify that fetching an artifact through Artifactory produces the same checksum as fetching it directly from `libraries.cgr.dev`.
+
+1. Find the direct URL for a specific package wheel from the Chainguard index. This example uses `urllib3`. You can substitute any artifact you know to be available.
+
+```bash
+curl -sSf \
+  -u "${CHAINGUARD_PYTHON_IDENTITY_ID}:${CHAINGUARD_PYTHON_TOKEN}" \
+  https://libraries.cgr.dev/python/simple/urllib3/ \
+  | grep -o 'https://[^"]*\.whl' | head -1
+```
+
+2. Fetch a package file directly from `libraries.cgr.dev` and compute its checksum:
+
+```bash
+curl -sSf -L \
+  -u "${CHAINGUARD_PYTHON_IDENTITY_ID}:${CHAINGUARD_PYTHON_TOKEN}" \
+  <url-from-step-1> \
+  | sha256sum
+```
+
+3. Fetch the same file through the Artifactory remote repository and compute its checksum:
+
+```bash
+curl -sSfL \
+  -u "${ARTIFACTORY_USERNAME}:${ARTIFACTORY_TOKEN}" \
+  "https://<artifactory-host>/artifactory/<python-remote-repository>/${path-to-wheel}" \
+  | sha256sum
+```
+Replace `artifactory-host` with your Artifactory instance hostname and replace `python-remote-repository` with your remote repository name. Replace `path-to-wheel` with the path component of the URL from step 1 (for example: `/files/15f7d141c3b76b85/37e321caa85a8f41/urllib3/urllib3-1.26.9-py2.py3-none-any.whl`)
+
+The checksums returned by the commands must match. 
+
+If the checksum from the Artifactory remote repository differs from the direct fetch, or if the Artifactory fetch fails entirely, review the following before proceeding:
+
+* URL: The remote repository URL must be set to `https://libraries.cgr.dev/python/`. 
+* Credentials: You may need to regenerate your pull token with `chainctl auth pull-token --repository=python` and update the Artifactory repository credentials. Expired tokens fail silently.
+* Advanced Configuration: Ensure all recommended Advanced settings from the [initial configuration steps](#initial-configuration-2) have been applied.
+
+Do not proceed to virtual repository setup or build configuration until the checksums match.
+
 ### Build tool access
 
 See the page on [build tool configuration for Chainguard Libraries for
