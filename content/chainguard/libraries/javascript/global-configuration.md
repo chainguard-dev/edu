@@ -357,5 +357,5 @@ repository contains all libraries retrieved from Chainguard.
 Google Artifact Registry (GAR) is not an officially supported repository manager for Chainguard Libraries for JavaScript. However, it has been shown to work with the following configuration.
 
 Configure two GAR remote repositories, with upstream validation disabled on the second:
-* First remote repository: `cg-proxy` pointing to `https://libraries.cgr.dev/javascript` with upstream validation enabled
-* Second remote repository: `cg-proxy-upstream` pointing to `https://libraries.cgr.dev/javascript-upstream` with upstream validation disabled.
+* First remote repository: `javascript-chainguard` pointing to `https://libraries.cgr.dev/javascript` with upstream validation enabled
+* Second remote repository: `javascript-chainguard-upstream` pointing to `https://libraries.cgr.dev/javascript-upstream` with upstream validation disabled.
