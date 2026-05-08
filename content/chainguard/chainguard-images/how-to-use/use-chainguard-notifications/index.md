@@ -17,7 +17,7 @@ weight: 030
 toc: true
 ---
 
-You can use the [Chainguard Console](/chainguard/chainguard-images/how-to-use/images-directory) to configure how **Chainguard** is permitted to send notifications about things like breaking changes to users in your organization. The feature includes options to allow notifications to be sent in-app to the Activity Center on the user’s Overview page in the Chainguard Console, via Slack, and for customers who are opted in, via email.
+You can use the [Chainguard Console](/chainguard/chainguard-images/how-to-use/images-directory) to configure how **Chainguard** is permitted to send notifications about things like breaking changes to users in your organization. The feature includes options to allow notifications to be sent in-app to the **Activity Center** on the user’s Overview page in the Chainguard Console, via Slack, and for customers who are opted in, via email.
 
 These notifications are different from [Chainguard Events](/chainguard/administration/cloudevents/) as Chainguard Notifications are sent by Chainguard’s customer success representatives.
 
@@ -32,7 +32,6 @@ The in-app notifications are set up automatically and currently have no configur
 Slack requires you to establish the connection between our Chainguard Notifications Slack app and your company Slack workspace by completing the Slack OAuth flow that initiates when you connect Slack the first time.
 
 Some customers have access to email notifications. When enabled, you have control over which email notifications are sent. You are also able to set one or more additional email addresses to receive notifications for your organizations; these are called forwarding addresses.
-
 
 ## Set up Slack for Chainguard Notifications
 
@@ -80,7 +79,6 @@ Include the private channel in your actions in the next section.
 <center><img src="notifications-integrations.png" alt="Screenshot showing the Integrations section of the Chainguard Console's Settings > Notifications page." style="width:700px;"></center>
 <br />
 
-
 ## Manage email notifications
 
 Email notifications are not yet available to all customers.
@@ -96,3 +94,13 @@ To perform this task, you must use a user account for the Chainguard Console tha
 
 <center><img src="notifications-email.png" alt="Screenshot showing the Email section of the Chainguard Console's Settings > Notifications page." style="width:700px;"></center>
 <br />
+
+## Notification categories
+
+Notifications fall into one of multiple categories based on content. Here's a list of the currently available categories:
+
+- **Breaking changes** - Changes that could disrupt regular use
+- **Incidents** - Reports and updates
+- **Product lifecycle** - Has two sub-categories:
+  - **End of life**
+  - **New releases**
