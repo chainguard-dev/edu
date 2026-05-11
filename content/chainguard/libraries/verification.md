@@ -263,7 +263,7 @@ supports-color@7.2.0:
   resolution: {integrity: sha512-LPhWJX...}
 ```
 
-Packages that fell back to the upstream registry include an explicit `tarball:` URL pointing to `javascript-upstream`. For example:
+Packages that are pulled from the upstream fallback include an explicit `tarball:` URL pointing to `javascript-upstream`. For example:
 
 ```yaml
 tar-fs@2.1.4:
