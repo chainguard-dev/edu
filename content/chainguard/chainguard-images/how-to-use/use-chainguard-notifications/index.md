@@ -105,7 +105,9 @@ Notifications fall into one of multiple categories based on content. Here's a li
   - **End of life**
   - **New releases**
 
-## Troubleshooting FAQ
+## Troubleshooting FAQ - setting up Slack
+
+### Channel seems to be missing
 
 **Q:** I connected Slack successfully, but the channel I want to use doesn't appear in the "Slack Channels" dropdown. Other channels show up fine — why is this one missing?
 
@@ -115,6 +117,8 @@ The most common cause is that the channel is private. The Chainguard Notificatio
 1. Click the channel members icon, then open the **Integrations** tab.
 1. Click **Add an App**, find **Chainguard Notifications**, and click **Add**.
 1. Return to the Chainguard Console and refresh the **Settings > Activity Center** page. The private channel should now appear in the dropdown.
+
+### Channel still seems to be missing
 
 **Q:** My channel is public, I'm a member of it, and I even added the Chainguard Notifications app to it — but it still doesn't show up. What's wrong?
 
@@ -130,6 +134,8 @@ To fix it:
 1. Sign out of the Chainguard Console.
 1. Sign back in using the email address that matches your corporate Slack workspace identity.
 1. Re-connect Slack and complete the OAuth flow again.
+
+### I still cannot find the channel
 
 **Q:** I disconnected and reconnected Slack with the correct email, but the channel I want still isn't appearing. Now what?
 
