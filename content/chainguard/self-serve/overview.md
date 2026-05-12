@@ -14,14 +14,15 @@ being able to Chainguard products (images etc.) on their own
 without any direct help or involvement of Chainguard employees.
 
 This applies to both paying customers/prospects, as well
-as *free-tier* users who have not formally engaged with us (yet).
+as *Free-tier* users who have not formally engaged with us (yet).
 
 **Catalog Starter** refers to a specific plan that enables users
 to self-serve up to 5 images for free.
 
 The Catalog Starter plan has the following restrictions:
 
-- You must be authenticated with a business email address using one of the following:
+You must be authenticated with a business email address using one of the following:
+
 - Email and password
 - Google (only if your business uses a Google Workspace account)
 
@@ -66,7 +67,7 @@ To add one or more images, run the following command, substituting the desired i
 chainctl image entitlements add-images $IMAGE1 $IMAGE2
 ```
 
-After the Chainguard system has processed your request, the image(s) will be accessible. This will take anywhere from a few minutes (best case) to a few hours. When available, you will be able to pull the images like this, replacing `$ORGANIZATION` with your organization's name and `$IMAGE` with the desired image's name.
+After the Chainguard system has processed your request, the image(s) will be accessible. This can take up to a few hours. When available, you will be able to pull the images like this, replacing `$ORGANIZATION` with your organization's name and `$IMAGE` with the desired image's name.
 
 ```shell
 docker pull cgr.dev/$ORGANIZATION/$IMAGE:latest
