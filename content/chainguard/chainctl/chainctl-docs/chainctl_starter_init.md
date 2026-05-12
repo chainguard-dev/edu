@@ -1,5 +1,5 @@
 ---
-date: 2026-05-08T12:26:27Z
+date: 2026-05-11T16:01:54Z
 title: "chainctl starter init"
 slug: chainctl_starter_init
 url: /chainguard/chainctl/chainctl-docs/chainctl_starter_init/
