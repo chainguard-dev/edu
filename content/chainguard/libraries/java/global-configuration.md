@@ -395,7 +395,7 @@ Configure a remote repository for the Maven Central Repository:
 1. Click **Create repository**, then select the `maven2 (proxy)` recipe.
 1. Configure the repository:
     * **Name**: `java-public`
-    * Set **Maven 2 - Version policy** to `Release`.
+    * **Maven 2 - Version policy**: `Release`
     * **Proxy - Remote storage**: Add the URL `https://repo1.maven.org/maven2/`.
 1. Click **Create repository**.
 
@@ -405,7 +405,7 @@ Configure a remote repository for the Chainguard Libraries for Java repository:
 1. Click **Create repository**, then select the `maven2 (proxy)` recipe.
 1. Configure the repository:
     * **Name**: `java-chainguard`
-    * Set **Maven 2 - Version policy** to `Release`.
+    * **Maven 2 - Version policy**: `Release`.
     * **Proxy - Remote storage**: Add the URL `https://libraries.cgr.dev/java/`
     * **HTTP - Authentication** Select the `username` **Authentication type**, and
    provide the [username and password values as retrieved with
