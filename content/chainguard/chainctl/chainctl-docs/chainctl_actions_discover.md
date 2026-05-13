@@ -1,17 +1,53 @@
 ---
 date: 2026-05-12T22:15:22Z
-title: "chainctl actions entitlements"
-slug: chainctl_actions_entitlements
-url: /chainguard/chainctl/chainctl-docs/chainctl_actions_entitlements/
+title: "chainctl actions discover"
+slug: chainctl_actions_discover
+url: /chainguard/chainctl/chainctl-docs/chainctl_actions_discover/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl actions entitlements
+## chainctl actions discover
 
-Manage Actions product entitlements.
+Discover GitHub Actions dependencies used by your workflows.
+
+### Synopsis
+
+Discover GitHub Actions dependencies.
+
+Walks the target's workflows and composite-action definitions and resolves
+every action and container image they (transitively) use.
+
+TARGET may be:
+  - a local directory (default: current directory) — scans .github/workflows/
+    and action.{yml,yaml}
+  - a repo "owner/repo" — scans the repo's workflows and action.{yml,yaml}
+  - a single action ref "owner/repo[/subpath]@version"
+
+Requires a GitHub token via $GITHUB_TOKEN or 'gh auth token'.
+
+```
+chainctl actions discover [TARGET] [flags]
+```
+
+### Examples
+
+```
+  chainctl actions discover
+  chainctl actions discover .
+  chainctl actions discover actions/checkout@v4
+  chainctl actions discover chainguard-dev/mono
+```
+
+### Options
+
+```
+      --cache-dir string   Directory for caching GitHub API responses (default: $TMPDIR/chainctl-discover-cache)
+      --clear-cache        Clear the cache directory before running
+      --timeout duration   Maximum time to spend resolving dependencies (default 5m0s)
+```
 
 ### Options inherited from parent commands
 
@@ -31,7 +67,4 @@ Manage Actions product entitlements.
 ### SEE ALSO
 
 * [chainctl actions](/chainguard/chainctl/chainctl-docs/chainctl_actions/)	 - Interact with the Chainguard Actions product.
-* [chainctl actions entitlements create](/chainguard/chainctl/chainctl-docs/chainctl_actions_entitlements_create/)	 - Enable the Actions product for an organization.
-* [chainctl actions entitlements delete](/chainguard/chainctl/chainctl-docs/chainctl_actions_entitlements_delete/)	 - Disable the Actions product for an organization.
-* [chainctl actions entitlements list](/chainguard/chainctl/chainctl-docs/chainctl_actions_entitlements_list/)	 - List Actions product entitlements for an organization.
 
