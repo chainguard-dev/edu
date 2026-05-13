@@ -1,5 +1,5 @@
 ---
-date: 2026-05-11T16:01:54Z
+date: 2026-05-12T22:15:22Z
 title: "chainctl actions"
 slug: chainctl_actions
 url: /chainguard/chainctl/chainctl-docs/chainctl_actions/
@@ -31,5 +31,6 @@ Interact with the Chainguard Actions product.
 ### SEE ALSO
 
 * [chainctl](/chainguard/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
+* [chainctl actions discover](/chainguard/chainctl/chainctl-docs/chainctl_actions_discover/)	 - Discover GitHub Actions dependencies used by your workflows.
 * [chainctl actions entitlements](/chainguard/chainctl/chainctl-docs/chainctl_actions_entitlements/)	 - Manage Actions product entitlements.
 
