@@ -243,16 +243,32 @@ chainctl libraries verify "$(npm config get cache)"
 
 #### Verify a pnpm store
 
-Verify your pnpm store:
+Verify your pnpm store. Use `--store-dir` to install to an explicit path and verify that location:
 
 ```sh
-chainctl libraries verify "$(pnpm store path)"
+pnpm install --store-dir /tmp/my-pnpm-store
+chainctl libraries verify /tmp/my-pnpm-store
 ```
 
 pnpm v9 and earlier are not supported. Verification works by comparing
 the tarball hash recorded in your local store against the hash in Chainguard's
 signed SLSA attestation. pnpm v10 records this hash in the index file path;
 pnpm v9 does not. 
+
+Note that in `pnpm-lock.yaml`, packages resolved from Chainguard have only a
+`resolution:` entry with an integrity hash:
+
+```yaml
+supports-color@7.2.0:
+  resolution: {integrity: sha512-LPhWJX...}
+```
+
+Packages that are pulled from the upstream fallback include an explicit `tarball:` URL pointing to `javascript-upstream`. For example:
+
+```yaml
+tar-fs@2.1.4:
+  resolution: {integrity: sha512-mDAjwm..., tarball: https://libraries.cgr.dev/javascript-upstream/tar-fs/-/tar-fs-2.1.4.tgz}
+```
 
 #### Verify a Yarn Classic cache
 

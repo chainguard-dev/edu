@@ -104,3 +104,43 @@ Notifications fall into one of multiple categories based on content. Here's a li
 - **Product lifecycle** - Has two sub-categories:
   - **End of life**
   - **New releases**
+
+## Troubleshooting FAQ - setting up Slack
+
+### Channel seems to be missing — check if it is private
+
+**Q:** I connected Slack successfully, but the channel I want to use doesn't appear in the "Slack Channels" dropdown. Other channels show up fine — why is this one missing?
+
+The most common cause is that the channel is private. The Chainguard Notifications Slack app can only see public channels by default. To make a private channel selectable:
+
+1. In Slack, open the private channel.
+1. Click the channel members icon, then open the **Integrations** tab.
+1. Click **Add an App**, find **Chainguard Notifications**, and click **Add**.
+1. Return to the Chainguard Console and refresh the **Settings > Activity Center** page. The private channel should now appear in the dropdown.
+
+### Channel still seems to be missing — check which email address you are using
+
+**Q:** My channel is public, I'm a member of it, and I even added the Chainguard Notifications app to it — but it still doesn't show up. What's wrong?
+
+This usually means the email address you used to sign in to the Chainguard Console doesn't match the email address associated with your account in your company's Slack workspace.
+
+The Slack app uses your Console email to look up your Slack user ID — if it can't find a matching user in your workspace, it can't determine which channels you have access to, and the channel list comes back empty (or partial).
+
+A common version of this scenario is signing in to the Console with your Github profile linked to your personal Gmail (e.g. you@gmail.com) while your corporate Slack workspace knows you as you@company.com.
+
+To fix it:
+
+1. In the Console, disconnect the Slack integration in **Settings > Activity Center > Integrations > Edit**.
+1. Sign out of the Chainguard Console.
+1. Sign back in using the email address that matches your corporate Slack workspace identity.
+1. Re-connect Slack and complete the OAuth flow again.
+
+### I still cannot find the channel — refresh the Console cache
+
+**Q:** I disconnected and reconnected Slack with the correct email, but the channel I want still isn't appearing. Now what?
+
+After reconnecting, the channel list can get stuck on a stale cached version from the previous session.
+
+A hard refresh of the Console tab almost always resolves it. On Mac use `Cmd + Shift + R` or on Windows and Linux use `Ctrl + Shift + R` to refresh.
+
+Then reopen **Settings > Activity Center** and check the channel dropdown again. If the channel still doesn't appear after a hard refresh, contact your Chainguard Customer Success representative — they can verify on the backend that your Slack user ID was successfully linked to the Notifications service.
