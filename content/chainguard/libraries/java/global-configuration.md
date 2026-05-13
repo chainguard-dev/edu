@@ -176,7 +176,7 @@ value as retrieved with chainctl](/chainguard/libraries/access/):
 1. Navigate to the **Secret Manager**
 1. Click **Create secret**. 
 1. Set the **Name** to `chainguard-libraries-java`.
-1. Set the **Secret* value to the password from your `chainctl` output.
+1. Set the **Secret** value to the password from your `chainctl` output.
 1. Click **Create secret**.
 
 Navigate to Artifact Registry and select **Repositories** in the left hand
@@ -282,10 +282,9 @@ Configure a remote repository for the Chainguard Libraries for Java repository:
     * **Package type**: Maven
     * **Repository Key**: `java-chainguard`
     * **URL**: `https://libraries.cgr.dev/java/`
-    * **User Name** and **Password / Access Token**: Set to the [values as retrieved
+    * **User Name** and **Password / Access Token**: Set to the [values as retrieved with chainctl](/chainguard/libraries/access/).
     * Deactivate **Maven Settings - Handle Snapshots**.
-   with chainctl](/chainguard/libraries/access/).
-1. Optionally click the **Test** button to verify connection and authentication.
+1. Optionally click **Test** to verify connection and authentication.
 1. Click the **Advanced** configuration tab. Under the **Others** section, deactivate the **Block
    Mismatching Mime Types** setting.
 1. Click **Create Remote Repository**.
@@ -371,9 +370,9 @@ all libraries retrieved from Chainguard.
 
 [Sonatype Nexus
 Repository](https://www.sonatype.com/products/sonatype-nexus-repository)
-includes a *maven-public* repository group out of the box. It groups access to
-the Maven Central Repository from the *maven-central* repository with the
-internal *maven-releases* and *maven-snapshot* repositories. Refer to the [Maven
+includes a `maven-public` repository group out of the box. It groups access to
+the Maven Central Repository from the `maven-central` repository with the
+internal `maven-releases` and `maven-snapshot` repositories. Refer to the [Maven
 Repositories documentation for
 Nexus](https://help.sonatype.com/en/maven-repositories.html) for more
 information.
