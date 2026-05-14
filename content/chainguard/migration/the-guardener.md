@@ -30,7 +30,9 @@ Additionally, you will need the following in order to use The Guardener:
 
 - `chainctl` installed on your local machine. Refer to our [installation guide](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up if you haven't already done so
 - [Docker installed](https://docs.docker.com/engine/install/) and running locally
-- You must have the `repo.create` capability within your Chainguard organization. Refer to our [Built-in Roles and Capabilities Reference](/chainguard/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for more information
+- Before anyone in your organization can use The Guardener, a user with permission to accept Guardener's legal terms must accept them for the organization. The `owner` role and the `guardener.admin` role include the capabilities required to accept those terms. 
+- To run Guardener sessions after the terms have been accepted, you must have a role that includes the Guardener user capabilities. The `guardener.user` is the minimum role for this.
+    - Refer to our [Built-in Roles and Capabilities Reference](/chainguard/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for more information on roles.
 - Your Dockerfile and build context (source code and other inputs) must be present on the same machine where you run The Guardener
 
 If you encounter permission errors, check your available groups and verify role bindings:
