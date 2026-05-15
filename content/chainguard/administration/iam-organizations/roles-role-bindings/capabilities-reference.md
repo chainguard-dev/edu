@@ -34,7 +34,7 @@ This guide outlines the following built-in roles provided by Chainguard:
 * **Administrative Roles:**
     * `owner` - Full administrative access with all capabilities
     * `editor` - Limited administrative access with mostly read permissions and event management
-    * `viewer` - Read-only access across all resources and **can** pull images
+    * `viewer` - Read-only access across all resources, **can** pull images, and can run Guardener sessions
     * `limited_owner` - Read access across all resources with ability to create identities and role bindings, and pull images
     * `console_viewer` - Read-only access across all resources and **cannot** pull images, without blob access or the ability to manage event subscriptions
 * **Registry and Container Roles:**
@@ -48,6 +48,9 @@ This guide outlines the following built-in roles provided by Chainguard:
     * `libraries.python.pull_token_creator` - Python library token management
     * `libraries.javascript.pull` - JavaScript library access
     * `libraries.javascript.pull_token_creator` - JavaScript library token management
+* **Guardener Roles**:
+    * `guardener.user` - Minimum role for running Guardener sessions, including Guardener conversion, terms lookup, and registry pull access
+    * `guardener.admin` - Extends `guardener.user` with permission to accept the legal terms required before Guardener sessions can start
 
 The administrative roles are useful for user profiles that require broad, but clearly defined capabilities. The registry, container, and library roles have limited permissions, allowing them to manage only one specific Chainguard resource. These specialized, resource-specific roles grant minimal required access.
 
@@ -116,6 +119,8 @@ The following table compares the general abilities of the built-in roles describ
 | `libraries.python.pull_token_creator` | ✕ | ✕ | ✕ | ✅ | ✅ | ✅ |
 | `libraries.javascript.pull` | ✕ | ✕ | ✕ | ✕ | ✕ | ✅ |
 | `libraries.javascript.pull_token_creator` | ✕ | ✕ | ✕ | ✅ | ✅ | ✅ |
+| `guardener.user` | ✅ | ✅ | ✅ | ✕ | ✕ | ✕ |
+| `guardener.admin` | ✅ | ✅ | ✅ | ✕ | ✕ | ✕ |
 
 </div>
 
