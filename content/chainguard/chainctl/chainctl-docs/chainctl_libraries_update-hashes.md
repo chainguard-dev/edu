@@ -1,5 +1,5 @@
 ---
-date: 2026-05-12T22:15:22Z
+date: 2026-05-14T21:18:15Z
 title: "chainctl libraries update-hashes"
 slug: chainctl_libraries_update-hashes
 url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_update-hashes/
@@ -73,14 +73,15 @@ chainctl libraries update-hashes [lockfile-path] [flags]
 ### Options
 
 ```
-      --cuda string             CUDA variant to include alongside python (e.g. "cu124", "cu130")
-      --dry-run                 Show what would change without writing
-      --ecosystem string        Ecosystem: "auto", "js", or "python" (default "auto")
-      --ecosystems-url string   URL for the Ecosystems Proxy (defaults to https://libraries.cgr.dev)
-      --no-color                Disable colored output
-      --parent string           Parent organization for authentication
-      --remediated              Use python-remediated registry (Python only)
-      --replace                 Replace integrity hashes instead of appending (no-op for formats that only support replacement)
+      --cuda string                    CUDA variant to include alongside python (e.g. "cu124", "cu130")
+      --dry-run                        Show what would change without writing
+      --ecosystem string               Ecosystem: "auto", "js", or "python" (default "auto")
+      --ecosystems-url string          URL for the Ecosystems Proxy (defaults to https://libraries.cgr.dev)
+      --fallback-registry-url string   Registry URL used to synthesize tarball URLs for JS packages not found in Chainguard Libraries (e.g. https://registry.npmjs.org). Empty (the default) disables fallback synthesis; if any package requires a fallback URL, the command fails with a list of offenders. WARNING: pointing this at a public registry such as https://registry.npmjs.org can cause installation of malicious packages — prefer a private/internal registry you trust.
+      --no-color                       Disable colored output
+      --parent string                  Parent organization for authentication
+      --remediated                     Use python-remediated registry (Python only)
+      --replace                        Replace integrity hashes instead of appending (no-op for formats that only support replacement)
 ```
 
 ### Options inherited from parent commands
