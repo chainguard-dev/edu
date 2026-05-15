@@ -370,3 +370,5 @@ Google Artifact Registry (GAR) is not an officially supported repository manager
 Configure two GAR remote repositories, with upstream validation disabled on the second:
 * First remote repository: `javascript-chainguard` pointing to `https://libraries.cgr.dev/javascript` with upstream validation enabled
 * Second remote repository: `javascript-chainguard-upstream` pointing to `https://libraries.cgr.dev/javascript-upstream` with upstream validation disabled.
+
+When using `artifactregistry-auth`, note that it only injects credentials for repositories explicitly listed in your `.npmrc`. Ensure you add a credentials entry for the `javascript-chainguard-upstream` repository alongside your existing `javascript-chainguard` entry, otherwise you will receive 404s for upstream-fallback packages.
