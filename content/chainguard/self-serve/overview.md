@@ -10,7 +10,7 @@ weight: 010
 ---
 
 **Self-Serve** is a general term to capture all forms of users
-being able to Chainguard products (images etc.) on their own
+being able to use Chainguard products (images etc.) on their own
 without any direct help or involvement of Chainguard employees.
 
 **Catalog Starter** refers to a specific plan that enables users
