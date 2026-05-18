@@ -214,9 +214,11 @@ The default cooldown period is 7 days. Note that shorter cooldown periods increa
 ### Security controls
 
 #### Malware scanning
-All packages served from the upstream fallback are scanned for malware before being made available. Any package version with a detected malware identifier (MAL ID) from the public OSV feed is blocked and will not be served.
+All packages served from the upstream fallback are scanned for malware before being made available. Any package version with a detected malware identifier (MAL ID) from the public OSV feed is blocked and will not be served. 
 
 Malware detection is continuous. If a version that was previously cached is later identified as malicious, it is added to the block list and will be blocked on subsequent requests.
+
+In addition, [Chainguard's Sentinel scanning](https://www.chainguard.dev/unchained/how-does-chainguard-prevent-malware-in-chainguard-libraries/) blocks greyware and malicious packages before a public advisory exists.
 
 #### Cooldown period
 
