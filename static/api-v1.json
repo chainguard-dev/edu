@@ -830,8 +830,14 @@
       },
       "chainguard.platform.events.IdentityMetadata": {
         "properties": {
+          "familyName": {
+            "type": "string"
+          },
+          "givenName": {
+            "type": "string"
+          },
           "name": {
-            "description": "Output only. This is the name of the user.",
+            "description": "Output only. This is the name of the user derived\nfrom their upstream token.",
             "readOnly": true,
             "type": "string"
           },
@@ -850,6 +856,16 @@
           "companyName": {
             "type": "string"
           },
+          "jobTitle": {
+            "type": "string"
+          },
+          "latestFormSubmitUrl": {
+            "description": "Marketing fields.",
+            "type": "string"
+          },
+          "latestInternalReferringUrl": {
+            "type": "string"
+          },
           "product": {
             "type": "string"
           },
@@ -858,6 +874,22 @@
               "type": "string"
             },
             "type": "array"
+          },
+          "utmCampaign": {
+            "title": "UTM fields\nSee https://en.wikipedia.org/wiki/UTM_parameters",
+            "type": "string"
+          },
+          "utmContent": {
+            "type": "string"
+          },
+          "utmMedium": {
+            "type": "string"
+          },
+          "utmSource": {
+            "type": "string"
+          },
+          "utmTerm": {
+            "type": "string"
           }
         },
         "type": "object"
