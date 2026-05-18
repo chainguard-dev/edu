@@ -115,6 +115,40 @@ Alternatively, you can use the token for direct access from a build tool as
 discussed in [Build
 configuration](/chainguard/libraries/java/build-configuration/).
 
+## CVE remediation
+
+Chainguard Libraries for Java includes the [CVE
+Remediation](/chainguard/libraries/cve-remediation/) feature, available in beta for Spring Boot. Remediated
+libraries include an appended local version identifier of `-0.cgr.N`. 
+
+For example, if `org.apache.commons:commons-lang3:3.18.0` has a remediated build, that build is published as `org.apache.commons:commons-lang3:3.18.0-0.cgr.1`. If Chainguard publishes another remediated iteration for the same base version, the trailing number increases, such as `-0.cgr.2` or `-0.cgr.3`.
+
+Maven and Gradle treat the `-0` as part of the version ordering. In practice, `3.18.0-0.cgr.1` sorts higher than `3.18.0`. This means version ranges or dependency management rules can resolve to the remediated build when the overlay repository is available.
+
+Learn how to opt in to remediated versions in the [Java build configuration docs](/chainguard/libraries/java/build-configuration/#selecting-remediated-library-versions).
+
+### Troubleshooting resolution issues
+
+Enabling the remediated repository does not typically require clearing caches. However, clearing the cache may help when troubleshooting resolution issues.
+
+Maven:
+
+```bash
+rm -rf ~/.m2/repository
+```
+
+Gradle:
+
+```bash
+rm -rf ~/.gradle/caches/
+```
+
+Bazel:
+
+```bash
+bazel clean --expunge
+```
+
 <a id="manual"></a>
 
 ## Manual access
