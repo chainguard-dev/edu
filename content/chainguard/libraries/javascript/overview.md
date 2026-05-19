@@ -132,20 +132,6 @@ lockfile, ensure your `.npmrc` or equivalent is configured with Chainguard
 credentials, then reinstall to apply the changes. The `chainctl libraries update-hashes` command will output
 a "Next steps" section that includes the tool-specific command for reinstalling.
 
-> **Note:** Packages that resolve through the Chainguard Repository's upstream
-> npm fallback may still point to `registry.npmjs.org` in your lockfile after
-> running the command. See [Upstream packages](#upstream-packages) for
-> details.
-
-#### Upstream packages
-
-If your organization uses the Chainguard Repository with upstream npm fallback
-enabled, packages that resolve through the upstream registry may still point to
-`registry.npmjs.org` in your lockfile after running `chainctl libraries
-update-hashes`. These packages are not automatically redirected to route through
-Chainguard. Once Chainguard has rebuilt the package from source, a subsequent
-run of `update-hashes` will update it automatically.
-
 ## Provenance and attestations
 Chainguard Libraries for JavaScript include SLSA provenance with signed attestations. 
 These attestations cryptographically link each package to the Chainguard 
