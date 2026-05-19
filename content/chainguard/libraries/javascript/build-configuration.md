@@ -405,10 +405,24 @@ values in the `integrity` field and other information for each module.
 **Direct access: Point registry to Chainguard**
 
 To change a project to use Chainguard Libraries for JavaScript, set the registry
-URL to point to Chainguard in your user `.npmrc` file: 
+URL to point to Chainguard and set auth credentials. The following command writes to the project-level configuration:
 
 ```bash
-pnpm config set registry https://libraries.cgr.dev/javascript/
+export token=$(echo -n "${CHAINGUARD_JAVASCRIPT_IDENTITY_ID}:${CHAINGUARD_JAVASCRIPT_TOKEN}" | base64 -w 0)
+
+pnpm config set registry https://libraries.cgr.dev/javascript/ --location=project
+pnpm config set //libraries.cgr.dev/javascript/:_auth "${token}" --location=project
+pnpm config set //libraries.cgr.dev/javascript-upstream/:_auth "${token}" --location=project
+```
+
+To set the registry at the user level instead of project-level, omit the `--location=project` flag.
+
+The configuration should look like the following:
+
+```properties
+registry=https://libraries.cgr.dev/javascript/
+//libraries.cgr.dev/javascript/:_auth=<base64-encoded-token>
+//libraries.cgr.dev/javascript-upstream/:_auth=<base64-encoded-token>
 ```
 
 ### Using a repository manager 
@@ -521,16 +535,31 @@ pnpm init
 For testing purposes, you can use direct access and environment variables as
 detailed in the [access documentation](/chainguard/libraries/access/#env). 
 
+To create pull token credentials and set them as environment variables, run:
+
+```bash
+eval $(chainctl auth pull-token --output env --repository=javascript)
+```
+
 Once
 the environment variables are set, the following steps configure registry
 access and authentication in the `.npmrc` file in the current project
 directory:
 
-```shell
-chainctl auth configure-npm --pull-token
+```bash
+export token=$(echo -n "${CHAINGUARD_JAVASCRIPT_IDENTITY_ID}:${CHAINGUARD_JAVASCRIPT_TOKEN}" | base64 -w 0)
+
+pnpm config set registry https://libraries.cgr.dev/javascript/ --location=project
+pnpm config set //libraries.cgr.dev/javascript/:_auth "${token}" --location=project
+pnpm config set //libraries.cgr.dev/javascript-upstream/:_auth "${token}" --location=project
 ```
 
-[This command](/chainguard/chainctl/chainctl-docs/chainctl_auth_configure-npm/) creates a pull token (valid for 30 days by default) scoped to your organization and writes a project-level `.npmrc` with the registry URL and base64-encoded credentials. If this command returns an error, ensure that you are using the [latest version of `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
+The trailing slash in the registry URL is required. Note that the `-w 0` option for `base64` is required and supported by the GNU coreutils versions included in most operating systems. To avoid the use of `base64`, which can behave differently across operating systems, you can alternatively set `username` and `_password` instead of `auth` with a token:
+
+```bash
+pnpm config set //libraries.cgr.dev/javascript/:username "${CHAINGUARD_JAVASCRIPT_IDENTITY_ID}" --location=project
+pnpm config set //libraries.cgr.dev/javascript/:_password "${CHAINGUARD_JAVASCRIPT_TOKEN}" --location=project
+```
 
 Add dependencies for your project into the `package.json` file to test retrieval
 from Chainguard Libraries, build the project, and list the dependencies:
