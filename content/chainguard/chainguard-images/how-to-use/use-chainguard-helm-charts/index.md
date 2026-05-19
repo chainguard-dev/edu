@@ -67,12 +67,21 @@ To begin, authenticate with chainctl and generate a pull token.
 chainctl auth login
 chainctl auth configure-docker --pull-token --save --ttl=24h
 ```
-
 This token expires in 24 hours by default, which can be modified using the
 `--ttl` flag. It sets the duration for the validity of the token. The maximum
 valid value is `8760h` (equivalent to 365 days), Valid unit strings range from
 nanoseconds to hours and are `ns`, `us`, `ms`, `s`, `m`, and `h`, for example
 `--ttl=24h`.
+
+You will be asked which location the pull token will be associated with, select the **charts** org under your main org. It will look similar to this example.
+
+```shell
+    With which location is the pull token associated?
+
+    [chainguard.edu] chainguard.edu This group holds the private Chainguard Images hosted under    cgr.dev/chainguard.edu
+  > ├ [charts]
+    └ [iamguarded-charts]
+```
 
 Find the username and password that are contained in the pull token, as in this sample output:
 
