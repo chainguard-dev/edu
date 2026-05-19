@@ -204,6 +204,21 @@
         },
         "type": "object"
       },
+      "chainguard.platform.actions.RecordRequest": {
+        "description": "- Verified call (valid bearer presented): the `repository` field\n    is IGNORED. The server takes the repository slug from the\n    verified token's `repository` claim instead — that value is\n    authoritative, and accepting a request-supplied one would just\n    create a way to lie.\n  - Unverified call (no bearer): the `repository` field is REQUIRED\n    and is taken as-is. The recorded event is marked unverified.\n\nThere are no other caller-supplied fields — no metrics, no\nattributes, no free-form text. The recording is internal: the\nserver keeps a usage record per repository (today via structured\nlogging), and the response is empty.",
+        "properties": {
+          "repository": {
+            "description": "repository is the owner/repo slug, e.g. \"chainguard-dev/mono\".\nRequired on unverified calls; ignored on verified calls. Server-\nenforced caps: non-empty, ≤256 bytes, must contain a single \"/\"\nseparating non-empty owner and repo segments.",
+            "type": "string"
+          }
+        },
+        "title": "RecordRequest names the GitHub repository whose use of the service\nis being recorded. Whose value the server actually trusts depends\non the optional OIDC bearer token:",
+        "type": "object"
+      },
+      "chainguard.platform.actions.RecordResponse": {
+        "description": "RecordResponse is empty on success. Failure is signaled by a\nnon-OK gRPC status.",
+        "type": "object"
+      },
       "chainguard.platform.actions.TrustedKeysResponse": {
         "description": "TrustedKeysResponse lists every public key currently trusted for\nattestation-leaf verification. During a key-rotation overlap the\nlist contains both the new and the previous signing key; once the\nprevious key is dropped from CHALLENGE_KMS_TRUSTED_VERSIONS on the\nnext deploy, only the new key remains.",
         "properties": {
@@ -8224,6 +8239,50 @@
         "summary": "Verify Challenge",
         "tags": [
           "ActionsAuthorization"
+        ]
+      }
+    },
+    "/actions/v1/record": {
+      "post": {
+        "description": "Behavior depends on the `Authorization: Bearer \u003cjwt\u003e` header:\n  - Header absent (or non-Bearer scheme): the request body's\n    `repository` field is REQUIRED and taken as-is; the event is\n    recorded as unverified. Lets forked-PR workflows (which\n    cannot mint an OIDC token) still self-identify.\n  - Header present and verifies: the request body's `repository`\n    field is IGNORED and the repository is taken from the\n    verified token's claim instead; the event is recorded as\n    verified with the token's claims attached.\n  - Header present but fails to verify: rejected with\n    codes.PermissionDenied. The caller claimed an identity and\n    we won't silently downgrade that to unverified.\n\nRepeated calls with the same token are allowed (no replay check)\nso a long-running workflow can record multiple events.",
+        "operationId": "Actions_Record",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.actions.RecordRequest"
+              }
+            }
+          },
+          "description": "- Verified call (valid bearer presented): the `repository` field\n    is IGNORED. The server takes the repository slug from the\n    verified token's `repository` claim instead — that value is\n    authoritative, and accepting a request-supplied one would just\n    create a way to lie.\n  - Unverified call (no bearer): the `repository` field is REQUIRED\n    and is taken as-is. The recorded event is marked unverified.\n\nThere are no other caller-supplied fields — no metrics, no\nattributes, no free-form text. The recording is internal: the\nserver keeps a usage record per repository (today via structured\nlogging), and the response is empty.",
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.actions.RecordResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Record",
+        "tags": [
+          "Actions"
         ]
       }
     },
@@ -19997,6 +20056,9 @@
     }
   ],
   "tags": [
+    {
+      "name": "Actions"
+    },
     {
       "name": "SubscriptionsService"
     },
