@@ -85,12 +85,7 @@ Follow the steps detailed in [Manual Access](#manual) to browse the Python index
 and find available packages, package versions, source distribution (sdist), and
 Python wheel files for standard and remediated package version.
 
-
-## Security protections
-
-<a id="cve-remediation"></a>
-
-### CVE remediation
+## CVE remediation
 
 Chainguard Libraries for Python includes the [CVE
 Remediation](/chainguard/libraries/cve-remediation/) feature. Remediated
@@ -109,10 +104,6 @@ newer, compatible replacements automatically.
 In some cases, multiple CVEs may be remediated in a specific library version.
 For example, `aiohttp` has fixes for both CVE-2024-23334 and CVE-2024-30251 in
 the version `3.9.1+cgr.2`.
-
-### Malicious package detection
-
-Chainguard blocks malicious Python packages classified as malware or greyware. This includes packages that have been publicly identified as malicious, and packages detected as malicious even whem no public advisory exists yet.
 
 ## CUDA-enabled libraries
 

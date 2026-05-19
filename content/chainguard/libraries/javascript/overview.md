@@ -218,7 +218,13 @@ All packages served from the upstream fallback are scanned for malware before be
 
 Malware detection is continuous. If a version that was previously cached is later identified as malicious, it is added to the block list and will be blocked on subsequent requests.
 
-In addition, [Chainguard's Sentinel scanning](https://www.chainguard.dev/unchained/how-does-chainguard-prevent-malware-in-chainguard-libraries/) blocks greyware and malicious packages before a public advisory exists.
+In addition, [Chainguard's Sentinel scanning](https://www.chainguard.dev/unchained/how-does-chainguard-prevent-malware-in-chainguard-libraries/) blocks greyware and malicious packages before a public advisory exists. 
+
+Use the malware API endpoint to return a list of libraries currently blocked due to malware. For example, to list all blocked JavaScript libraries from malware detection since May 1, 2026:
+
+```bash
+curl -H "Authorization: Bearer $(chainctl auth token --audience=libraries.cgr.dev)" "https://libraries.cgr.dev/javascript/-/api/malware?since=2026-05-01T00:00:00Z" | jq .
+```
 
 #### Cooldown period
 
