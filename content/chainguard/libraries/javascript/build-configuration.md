@@ -405,7 +405,9 @@ values in the `integrity` field and other information for each module.
 **Direct access: Point registry to Chainguard**
 
 To change a project to use Chainguard Libraries for JavaScript, set the registry
-URL to point to Chainguard and set auth credentials. The following command writes to the project-level configuration:
+URL to point to Chainguard and set auth credentials. You can set auth and configure the registry by using the `chainctl auth configure-npm --pull-token`, as demonstrated in the [minimal example project](#minimal-example-project-1) on this page.
+
+Alternatively, you can manually set the registry and auth credentials. The following command writes to the project-level configuration:
 
 ```bash
 pnpm config set registry https://libraries.cgr.dev/javascript/ --location=project
