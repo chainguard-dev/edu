@@ -90,6 +90,23 @@ Following that you can use `chainctl`. Be aware that Windows PowerShell does not
 
 Also, please note that while [`chainctl` commands](/chainguard/chainctl/) will generally work, some are not as thoroughly tested on Windows and may not behave as expected.
 
+## Install with Scoop in Windows
+
+Scoop is a command-line installer for Windows that has a community-contributed and -maintained way of [installing `chainctl`](https://scoop.sh/#/apps?q=chainctl).
+
+If you have Scoop installed, then installing `chainctl` only requires two commands.
+
+First, add the bucket.
+
+```shell
+scoop bucket add main
+```
+
+And then install `chainctl` from there.
+
+```shell
+scoop install main/chainctl
+```
 
 ## Verifying the `chainctl` binary with Cosign
 
