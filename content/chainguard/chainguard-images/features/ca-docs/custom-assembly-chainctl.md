@@ -257,6 +257,28 @@ Highlight your chosen build report and select it by pressing `ENTER`. This will 
 2025-04-17T16:00:08-07:00[INFO]Building image with locked configuration: {Contents:{BuildRepositories:[] RuntimeRepositories:[https://apk.cgr.dev/45a0c61eEXAMPLEf050c5fb9ac06a69eed764595]
 ```
 
+## Making bulk changes across repos
+
+You are not required to make changes to custom assembly repos one at a time. Instead, you can make bulk changes to customize across multiple repos at the same time.
+
+For example, if you wanted to apply custom certs at scale across every repo you own with "kubernetes-*" you could use this:
+
+```shell
+chainctl images repos build apply \
+  --parent=$ORGANIZATION \
+  --repo="kubernetes-*" \
+  --with-certificates=ca.pem
+```
+
+You can use `chainctl images repos build apply` to do things like:
+
+- Pass `--repo` multiple times: `--repo=python --repo=nginx --repo=node`
+- Use wildcards: `--repo="python-*"` or `--repo="*"` (all repos under the parent)
+- Combine with `--dry-run` to see which repos would change (drift detection) without actually updating anything.
+
+For more information, see [chainctl images repos build apply](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_apply/).
+
+
 ## Learn More
 
 You can also use `chainctl` to add custom certificates to your Custom Assembly images. Refer to our guide on [Adding Custom Certificates with Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly-certs/#using-chainctl-to-add-custom-certificates-using-custom-assembly) for more information.
