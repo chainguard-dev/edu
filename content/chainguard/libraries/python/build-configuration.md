@@ -140,6 +140,33 @@ the Chainguard Libraries for Python directly. As an alternative that works
 across tools and is often preferred, use [.netrc for
 authentication](/chainguard/libraries/access/#netrc).
 
+### Updating lockfile hashes
+
+If you are migrating an existing Python project to Chainguard Libraries, your lockfile likely contains integrity hashes generated against packages previously downloaded from the PyPI registry or through your repository manager. Because Chainguard rebuilds packages from verified source, the checksums for those packages differ from the ones already recorded in your lockfile. These hashes must be updated before reinstalling.
+
+The [`chainctl libraries update-hashes` command](/chainguard/chainctl/chainctl-docs/chainctl_libraries_update-hashes/) automates lockfile hash updates for all supported Python lockfile formats. Rather than manually regenerating lock files with each tool, you can run the command directly against your existing lockfile to update hashes to Chainguard checksums while preserving your locked dependency versions, without re-resolving your dependency graph.
+
+Supported formats include `requirements.txt` (pip-tools `--hash` style), `poetry.lock`, `uv.lock`, `pdm.lock`, `Pipfile.lock`, and `pylock.toml`.
+
+Run the command in your project directory to auto-detect the lockfile:
+
+```bash
+chainctl libraries update-hashes
+```
+
+Or specify a lockfile path directly:
+
+```bash
+chainctl libraries update-hashes path/to/requirements.txt
+```
+
+When using a repo manager, pass the full repository URL with `--registry-url`.
+Learn about using this command with repo managers in the [Global
+configuration](/chainguard/libraries/python/global-configuration/) page.
+
+By default, Chainguard hashes are appended alongside existing upstream hashes. After updating the lockfiles, to switch your environment to use Chainguard packages, configure your tool to use the Chainguard index and reinstall. The command will output
+a "Next steps" section that includes the tool-specific command for reinstalling. 
+
 <a id="pip"></a>
 
 ### pip
@@ -492,7 +519,7 @@ and environment variables as detailed in the [access
 documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials). 
 
 > **Migrating an existing project?** If you have an existing uv lockfile with
-> upstream hashes, use [`chainctl libraries update-hashes`](/chainguard/libraries/python/overview/#updating-lockfile-hashes)
+> upstream hashes, use [`chainctl libraries update-hashes`](#updating-lockfile-hashes)
 > to update hashes in place rather than starting from scratch.
 
 **1. Configure credentials**
@@ -618,7 +645,7 @@ For testing purposes, you can use direct access and environment variables as det
 documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials).  
 
 > **Migrating an existing project?** If you have an existing pip lockfile with
-> upstream hashes, use [`chainctl libraries update-hashes`](/chainguard/libraries/python/overview/#updating-lockfile-hashes)
+> upstream hashes, use [`chainctl libraries update-hashes`](#updating-lockfile-hashes)
 > to update hashes in place rather than starting from scratch.
 
 **1. Update your configuration to point to Chainguard**

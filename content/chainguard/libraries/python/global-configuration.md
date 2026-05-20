@@ -56,6 +56,23 @@ Before configuring your repo manager, consider how you want to handle packages t
 yet available in the Chainguard Libraries repository. If you configure a fallback to PyPI, packages sourced from that registry are not covered by Chainguard's
 malware-resistance guarantees. See the [fallback approaches](/chainguard/libraries/quickstart/#artifact-manager-recommended) described in the Chainguard Libraries quick start for guidance on choosing the right approach for your environment.
 
+### Updating lockfile hashes
+
+If you are migrating an existing Python project to Chainguard Libraries through a repository manager, your lockfile likely contains integrity hashes generated against packages previously downloaded from PyPI or through your repository manager. The [`chainctl libraries update-hashes` command](/chainguard/chainctl/chainctl-docs/chainctl_libraries_update-hashes/) automates lockfile hash updates
+for all supported JavaScript lockfile formats. 
+
+When you are using a repository manager, pass the full repository manager URL with `--registry-url` and authenticate with one of the supported methods: `--username` and `--password`, `--token`, or a `.netrc` entry for the registry host. For example:
+
+```bash
+chainctl libraries update-hashes \
+  --registry-url https://repo.example.com:8443/repository/javascript-all/ \
+  --token "$REPO_TOKEN"
+```
+
+After updating the lockfile, keep your repository manager configuration in place and reinstall through the same repository manager endpoint to apply the updated hashes. 
+
+Learn more in the [Build configuration page](/chainguard/libraries/python/build-configuration/#updating-lockfile-hashes/) and in the [chainctl docs](/chainguard/chainctl/chainctl-docs/chainctl_libraries_update-hashes/).
+
 <a id="cloudsmith"></a>
 
 ## Cloudsmith

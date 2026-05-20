@@ -110,15 +110,6 @@ to apply the updated hashes. The `chainctl libraries update-hashes` command will
 output a "Next steps" section that includes the tool-specific command for
 reinstalling.
 
-> **Note:** If your organization uses the [Chainguard Repository with upstream
-> npm fallback
-> enabled](/chainguard/libraries/javascript/overview/#upstream-fallback-policy-and-controls),
-> packages that resolve through the upstream registry may still point to
-> `registry.npmjs.org` in your lockfile after running `chainctl libraries
-> update-hashes`. These packages are not automatically redirected to route
-> through Chainguard. To fully migrate these packages, update their resolved
-> URLs to use `libraries.cgr.dev/javascript-upstream/` manually.
-
 <a id="npm"></a>
 
 ## npm
@@ -236,7 +227,7 @@ npm cache verify
 ### Update lockfile hashes
 
 If you are migrating an existing project and want to preserve your current
-lockfile, use [`chainctl libraries update-hashes`](#updating-lockfile-hashes-for-existing-projects)
+lockfile, use [`chainctl libraries update-hashes`](#updating-lockfile-hashes)
 to update only the integrity hashes in place instead.
 
 Now you can proceed with your development and testing. 
@@ -536,7 +527,7 @@ Use the path returned by `pnpm store path` and delete it via File Explorer or `r
 ### Update lockfile hashes
 
 If you are migrating an existing project and want to preserve your current
-lockfile, use [`chainctl libraries update-hashes`](#updating-lockfile-hashes-for-existing-projects)
+lockfile, use [`chainctl libraries update-hashes`](#updating-lockfile-hashes)
 to update only the integrity hashes in place instead.
 
 Now you can proceed with your development and testing. 
@@ -703,7 +694,7 @@ checksumBehavior: reset
 ### Update lockfile hashes
 
 If you are migrating an existing project and want to preserve your current
-lockfile, use [`chainctl libraries update-hashes`](#updating-lockfile-hashes-for-existing-projects)
+lockfile, use [`chainctl libraries update-hashes`](#updating-lockfile-hashes)
 to update only the integrity hashes in place instead.
 
 Now you can proceed with your development and testing. 
@@ -878,7 +869,7 @@ yarn cache clean
 ### Update lockfile hashes
 
 If you are migrating an existing project and want to preserve your current
-lockfile, use [`chainctl libraries update-hashes`](#updating-lockfile-hashes-for-existing-projects)
+lockfile, use [`chainctl libraries update-hashes`](#updating-lockfile-hashes)
 to update only the integrity hashes in place instead.
 
 Now you can proceed with your development and testing. 

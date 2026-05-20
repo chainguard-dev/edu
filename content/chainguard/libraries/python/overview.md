@@ -367,30 +367,13 @@ docker build --no-cache
 
 ### Updating lockfile hashes
 
-> Note: `chainctl libraries update-hashes` does not currently support authentication through a repository manager. You will need to [configure direct access](/chainguard/libraries/python/build-configuration/#direct-access) credentials before running the command, or [update the lockfiles manually](#update-lockfiles-manually).
+Existing Python lockfiles usually contain upstream integrity hashes. Because Chainguard rebuilds packages from verified source, those hashes must be updated before reinstalling. Use `chainctl libraries update-hashes` to update them in place. Learn more in [Build configuration](/chainguard/libraries/python/build-configuration/).
 
-The `chainctl libraries update-hashes` command automates lockfile hash updates for all supported Python lockfile formats. Rather than manually regenerating lock files with each tool, you can run the command directly against your existing lockfile to update hashes to Chainguard checksums while preserving your locked dependency versions, without re-resolving your dependency graph.
-
-Supported formats include `requirements.txt` (pip-tools `--hash` style), `poetry.lock`, `uv.lock`, `pdm.lock`, `Pipfile.lock`, and `pylock.toml`.
-
-Run the command in your project directory to auto-detect the lockfile:
-
-```bash
-chainctl libraries update-hashes
-```
-
-Or specify a lockfile path directly:
-
-```bash
-chainctl libraries update-hashes path/to/requirements.txt
-```
-
-By default, Chainguard hashes are appended alongside existing upstream hashes. After updating the lockfiles, to switch your environment to use Chainguard packages, configure your tool to use the Chainguard index and reinstall. The `chainctl libraries update-hashes` command will output
-a "Next steps" section that includes the tool-specific command for reinstalling. 
+If you install through a repository manager, see [Global configuration](/chainguard/libraries/python/global-configuration/#updating-lockfile-hashes/).
 
 #### Update lockfiles manually
 
-If you are using a repository manager, and do not want to use direct access temporarily while updating lockfiles, you can use the following instructions to update your lockfiles: 
+Alternatively, you can use the following instructions to manually update your lockfiles: 
 
 {{< details "Manually updating lockfiles" >}}
 
