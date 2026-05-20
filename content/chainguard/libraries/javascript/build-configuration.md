@@ -69,24 +69,46 @@ recommended. See the [global
 configuration](/chainguard/libraries/javascript/global-configuration/) for setup
 guides.
 
-## Updating lockfile hashes for existing projects
+## Updating lockfile hashes
 
-> **Note**: `chainctl libraries update-hashes` does not currently support authentication through a repository manager. You will need to configure [direct access](#direct-access) credentials before running the command.
+When migrating an existing JavaScript project to Chainguard Libraries, your
+lockfile contains integrity hashes generated against packages previously downloaded from the npm registry or through your repository manager.
+Because Chainguard rebuilds packages in a secured build environment rather than
+distributing upstream artifacts directly, the resulting checksums differ even
+for identical package versions. These hashes must be updated before your package
+manager will accept packages from Chainguard.
 
-If you are migrating an existing JavaScript project to Chainguard Libraries,
-your lockfile likely contains integrity hashes generated against the npm
-registry. Because Chainguard rebuilds packages in a secured build environment rather than distributing upstream artifacts directly, the resulting checksums differ even for identical package versions; they must be updated before reinstalling.
+The [`chainctl libraries update-hashes` command](/chainguard/chainctl/chainctl-docs/chainctl_libraries_update-hashes/) automates lockfile hash updates
+for all supported JavaScript lockfile formats. Rather than deleting your
+lockfile and reinstalling from scratch, you can run the command directly against
+your existing lockfile to update integrity hashes and resolved URLs to use
+Chainguard, while preserving the file's format and structure.
 
-Use the following command, in the directory containing the lockfile, to update hashes in place across all supported lockfile formats (`package-lock.json`, `yarn.lock`,
-`pnpm-lock.yaml`, `bun.lock`) without regenerating the lockfile from scratch:
+Supported formats include `package-lock.json` (npm v2/v3), `yarn.lock` (Yarn
+Classic and Berry), `pnpm-lock.yaml`, and `bun.lock`.
+
+Run the command in the directory containing the lockfile:
 
 ```bash
 chainctl libraries update-hashes
 ```
 
-After running the command, ensure your `.npmrc` is configured with Chainguard
-credentials, then reinstall to apply the updated hashes. The `chainctl libraries update-hashes` command will output
-a "Next steps" section that includes the tool-specific command for reinstalling.
+Or specify a lockfile path directly:
+
+```bash
+chainctl libraries update-hashes path/to/lockfile
+```
+
+When using a repo manager, pass the full repository URL with `--registry-url`.
+Learn about using this command with repo managers in the [Global
+configuration](/chainguard/libraries/javascript/global-configuration/) page.
+
+By default, Chainguard hashes are appended alongside existing upstream hashes
+and resolved URLs are updated to point to Chainguard. After running the command,
+ensure your `.npmrc` is configured with Chainguard credentials, then reinstall
+to apply the updated hashes. The `chainctl libraries update-hashes` command will
+output a "Next steps" section that includes the tool-specific command for
+reinstalling.
 
 > **Note:** If your organization uses the [Chainguard Repository with upstream
 > npm fallback
