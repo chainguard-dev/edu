@@ -113,7 +113,7 @@ Configure an upstream proxy for the Chainguard Libraries for Java repository:
     * **Authentication Settings**: Enter the **Username** and **Password** value from [Chainguard Libraries
       access](/chainguard/libraries/access/).
 1. Click **Create Upstream Proxy**.
-1. If you are using the separate repository with remediated Java libraries, repeat the preceding steps to create remote repository named `java-chainguard-remediated` with a URL set to `https://libraries.cgr.dev/java/remediated/`. Use the same authentication details.
+1. If you are using the separate repository with remediated Java libraries, repeat the preceding steps to create remote repository named `java-chainguard-remediated` with a URL set to `https://libraries.cgr.dev/java-remediated/`. Use the same authentication details.
 
 Use this setup for initial testing with Chainguard Libraries for Java. For
 production usage, add the `java-chainguard` upstream proxy to your production
@@ -207,7 +207,7 @@ Configure a remote repository for the Chainguard Libraries for Java repository:
     * **Secret**: Select the `chainguard-libraries-java` secret in the list.
     * **Location type > Region**: Select the same region configured for your `java-public` repository.
 1. Click **Create**.
-1. If you are using the separate repository with remediated Java libraries, repeat the preceding steps to create remote repository named `java-chainguard-remediated` with a URL set to `https://libraries.cgr.dev/java/remediated/`. Use the same authentication details.
+1. If you are using the separate repository with remediated Java libraries, repeat the preceding steps to create remote repository named `java-chainguard-remediated` with a URL set to `https://libraries.cgr.dev/java-remediated/`. Use the same authentication details.
 
 Combine the repositories in a new virtual repository:
 
@@ -288,7 +288,7 @@ Configure a remote repository for the Chainguard Libraries for Java repository:
 1. Click the **Advanced** configuration tab. Under the **Others** section, deactivate the **Block
    Mismatching Mime Types** setting.
 1. Click **Create Remote Repository**.
-1. If you are using the separate repository with remediated Java libraries, repeat the preceding steps to create remote repository named `java-chainguard-remediated` with a URL set to `https://libraries.cgr.dev/java/remediated/`. Use the same authentication details.
+1. If you are using the separate repository with remediated Java libraries, repeat the preceding steps to create remote repository named `java-chainguard-remediated` with a URL set to `https://libraries.cgr.dev/java-remediated/`. Use the same authentication details.
 
 Combine the repositories in a new virtual repository:
 
@@ -411,7 +411,7 @@ Configure a remote repository for the Chainguard Libraries for Java repository:
    provide the [username and password values as retrieved with
    chainctl](/chainguard/libraries/access/).
 1. Click **Create repository**. 
-1. If you are using the separate repository with remediated Java libraries, repeat the preceding steps to create remote repository named `java-chainguard-remediated` with a URL set to `https://libraries.cgr.dev/java/remediated/`. Use the same authentication details.
+1. If you are using the separate repository with remediated Java libraries, repeat the preceding steps to create remote repository named `java-chainguard-remediated` with a URL set to `https://libraries.cgr.dev/java-remediated/`. Use the same authentication details.
 
 Combine a new repository group and add the repositories:
 

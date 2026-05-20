@@ -76,8 +76,8 @@ with username and password from a pull token as detailed in
 [access documentation](/chainguard/libraries/access/#pull-token).
 
 If using Chainguard's [CVE remediation](/chainguard/libraries/cve-remediation/) for Java libraries (available in beta), set it as the top repository. The recommended ordering for repositories is:
-1. `https://libraries.cgr.dev/javascript/remediated/` for remediated Spring Boot libraries; this is available in beta as part of the [CVE Remediation](/chainguard/libraries/cve-remediation/) feature.
-1. `https://libraries.cgr.dev/javascript/`
+1. `https://libraries.cgr.dev/java-remediated/` for remediated Spring Boot libraries; this is available in beta as part of the [CVE Remediation](/chainguard/libraries/cve-remediation/) feature.
+1. `https://libraries.cgr.dev/java/`
 1. `https://repo1.maven.org/maven2/` or your Maven Central proxy
 
 
@@ -356,6 +356,13 @@ variables](/chainguard/libraries/access/#env) for the pull token detailed in
   </profiles>
   <servers>
     <server>
+      <id>chainguard-remediated</id>
+      <!-- Use environment variables -->
+      <username>${env.CHAINGUARD_JAVA_IDENTITY_ID}</username>
+      <password>${env.CHAINGUARD_JAVA_TOKEN}</password>
+      <!-- <username>YOUR_IDENTITY_ID</username> -->
+      <!-- <password>YOUR_TOKEN</password> -->
+    </server>
       <id>chainguard</id>
       <!-- Use environment variables -->
       <username>${env.CHAINGUARD_JAVA_IDENTITY_ID}</username>
