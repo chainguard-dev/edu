@@ -5,7 +5,7 @@ lead: "Model Context Protocol server for Chainguard documentation"
 description: "Access Chainguard documentation through MCP for AI assistants and automation"
 type: "article"
 date: 2026-01-02T21:00:00+00:00
-lastmod: 2026-04-10T00:00:00+00:00
+lastmod: 2026-05-20T00:00:00+00:00
 draft: false
 images: []
 weight: 600
@@ -15,40 +15,68 @@ aliases:
 
 ## Overview
 
-The Chainguard AI Documentation MCP (Model Context Protocol) server enables AI assistants and automation tools to interact with Chainguard's complete documentation library through a standardized protocol. This provides efficient, searchable access to container image docs, security guides, and tool references without loading entire documentation bundles into context.
+The Chainguard AI Documentation MCP server gives AI assistants and automation tools searchable access to Chainguard's container image docs, security guides, and tool references. The server returns only the sections that match each query, so clients avoid loading the full documentation bundle into context.
 
 ## What is MCP?
 
-[Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is an open protocol that standardizes how AI applications access external data and tools. MCP servers expose structured data and capabilities that AI assistants can query and use to provide more accurate, context-aware responses.
+[Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is an open protocol that standardizes how AI applications access external data and tools. An MCP server exposes structured data and tools that AI clients can call to ground their responses in real information.
 
-## Why Use the MCP Server?
+## Why use the MCP server?
 
-**Efficient Context Usage**
-- Only retrieve relevant documentation sections
-- Avoid loading 2.8 MB of docs into every prompt
-- Search and filter content dynamically
+- **Lower context cost.** Clients fetch only the sections they need instead of loading 2.8 MB of documentation into every prompt.
+- **Structured queries.** Look up a specific image, search for a CVE, or find a package equivalent without writing custom scrapers.
+- **IDE integration.** Works with Claude Code, Claude Desktop, Cursor, and other MCP-compatible clients, so developers can reference Chainguard docs while they write code.
 
-**Better for Agents**
-- Programmatic access to documentation
-- Structured queries (get specific image docs, search CVEs, etc.)
-- Perfect for automated workflows and CI/CD
-
-**IDE Integration**
-- Works with Claude Desktop, Cursor, and other MCP-compatible tools
-- Access Chainguard docs while coding
-- No manual copy/paste needed
-
-## Getting Started
+## Getting started
 
 ### Prerequisites
 
-- MCP-compatible client (Claude Desktop, Cursor, Claude Code, or other MCP-compatible tools)
+- An MCP-compatible client such as Claude Code, Claude Desktop, or Cursor
 
-### Hosted Server (Recommended)
+### Hosted server (recommended)
 
-The fastest way to get started — no Docker or local setup required. Chainguard hosts a public MCP server at `mcp.edu.chainguard.dev`.
+Chainguard hosts a public MCP server at `https://mcp.edu.chainguard.dev/mcp/`. This is the fastest way to get started — no Docker or local setup required.
 
-Add this to your MCP client configuration:
+How you register the server depends on your MCP client. Clients that support HTTP transport natively can connect to the URL directly. Clients that only spawn local processes (including Claude Desktop) need a small bridge such as [`mcp-remote`](https://github.com/geelen/mcp-remote).
+
+#### Claude Code
+
+Run this command:
+
+```bash
+claude mcp add --transport http chainguard-docs https://mcp.edu.chainguard.dev/mcp/
+```
+
+The server is available immediately. Verify it with `claude mcp list`.
+
+#### Claude Desktop
+
+Claude Desktop reads MCP servers from a JSON file but does not yet support HTTP transport directly. Use `mcp-remote` to bridge to the hosted server:
+
+```json
+{
+  "mcpServers": {
+    "chainguard-docs": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://mcp.edu.chainguard.dev/mcp/"
+      ]
+    }
+  }
+}
+```
+
+The configuration file lives at:
+
+* **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+* **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
+`npx` downloads and runs `mcp-remote` on demand, so Node.js must be installed on the host. Restart Claude Desktop after saving the file.
+
+#### Cursor and other clients with native HTTP transport
+
+Add the server URL to your client's MCP configuration:
 
 ```json
 {
@@ -60,34 +88,17 @@ Add this to your MCP client configuration:
 }
 ```
 
-For **Claude Desktop**, the configuration file is located at:
+Consult your client's documentation for the configuration file location, then restart the client. The Chainguard documentation tools appear in the next conversation.
 
-* **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-* **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+### Local Docker setup
 
-For **Claude Code**, add the server from the command line:
-
-```bash
-claude mcp add chainguard-docs --transport http https://mcp.edu.chainguard.dev/mcp/
-```
-
-After adding this configuration, restart your MCP client. The Chainguard documentation tools will be available in your conversations.
-
-### Local Docker Setup
-
-If you prefer to run the MCP server locally, you can use the container image:
+To run the MCP server locally, pull the container image:
 
 ```bash
 docker pull ghcr.io/chainguard-dev/ai-docs:latest
 ```
 
-Run in stdio mode for MCP clients that support local processes:
-
-```bash
-docker run --rm -i ghcr.io/chainguard-dev/ai-docs:latest serve-mcp
-```
-
-Claude Desktop configuration for the local Docker setup:
+The image's `serve-mcp` entrypoint speaks stdio, which works with any MCP client that launches local processes. For Claude Desktop, add this block to `claude_desktop_config.json`:
 
 ```json
 {
@@ -106,9 +117,11 @@ Claude Desktop configuration for the local Docker setup:
 }
 ```
 
-## Available Tools
+Restart the client after saving the file.
 
-The MCP server provides seven tools for querying Chainguard documentation, looking up package compatibility, and checking image availability:
+## Available tools
+
+The server exposes seven tools for querying documentation, mapping packages, and checking image availability.
 
 ### `search_docs`
 
@@ -137,11 +150,11 @@ Get documentation for a specific Chainguard container image.
 
 ### `list_images`
 
-List available Chainguard container images with optional filtering and equivalent mapping info. When the image catalog is available, results include metadata such as documentation status and alternative mappings.
+List Chainguard container images with optional filtering. When the image catalog is available, results include metadata such as documentation status and alternative mappings.
 
 **Parameters:**
 - `filter` (string, optional): Filter images by name or alternate mapping (for example, "python", "nginx", "apache")
-- `include_upstream` (Boolean, optional): Include alternate image mappings and variants in results (default: false)
+- `include_upstream` (boolean, optional): Include alternate image mappings and variants in results (default: `false`)
 
 **Example prompts:**
 - "List all Chainguard images"
@@ -171,7 +184,7 @@ Get documentation for Chainguard tools and ecosystem components.
 
 ### `find_package_equivalent`
 
-Find Chainguard OS or Wolfi package equivalents for other OS packages. This is useful when migrating Dockerfiles from Debian, Fedora, or Alpine to Chainguard images and you need to translate package names for `apk add` commands.
+Find the Wolfi package that replaces a Debian, Fedora, or Alpine package. Use this when migrating a Dockerfile to a Chainguard image and translating package names for `apk add`.
 
 **Parameters:**
 - `package` (string, required): Upstream OS package name (e.g., "build-essential", "libssl-dev", "python3-pip")
@@ -184,7 +197,7 @@ Find Chainguard OS or Wolfi package equivalents for other OS packages. This is u
 
 ### `check_image_freshness`
 
-Check a Chainguard image's availability and list its current tags via a live registry query to `cgr.dev`. Falls back to catalog data if no network access is available.
+Query `cgr.dev` for an image's availability and current tags. Falls back to catalog data if the registry is unreachable.
 
 **Parameters:**
 - `image_name` (string, required): Chainguard image name (such as "python", "node", "nginx")
@@ -194,18 +207,18 @@ Check a Chainguard image's availability and list its current tags via a live reg
 - "Show me the available tags for the nginx image"
 - "Is the golang image available on cgr.dev?"
 
-## Image Catalog
+## Image catalog
 
-The MCP server includes a pre-built image catalog that powers the `list_images`, `find_package_equivalent`, and `check_image_freshness` tools. The catalog contains:
+The `list_images`, `find_package_equivalent`, and `check_image_freshness` tools draw from a pre-built catalog that ships with the server. The catalog includes:
 
-- **All Chainguard container images** with registry references, sourced from image documentation
-- **Package mappings** across Debian, Fedora, and Alpine to Wolfi equivalents
+- Every Chainguard container image with its registry reference, sourced from the image documentation
+- Package mappings from Debian, Fedora, and Alpine to their Wolfi equivalents
 
-The catalog is regenerated automatically as part of the weekly documentation build.
+The weekly documentation build regenerates the catalog.
 
-## Example Usage
+## Example usage
 
-Once configured with Claude Desktop:
+Sample exchanges from a Claude Desktop session with the server connected:
 
 ```
 You: Search for python image security best practices
@@ -240,9 +253,9 @@ The Chainguard Python image (cgr.dev/chainguard/python) is available with these 
 latest, latest-dev, 3.13, 3.13-dev, ...
 ```
 
-## Standalone Installation (without Docker)
+## Standalone installation (without Docker)
 
-The MCP server script and its dependencies are available directly from the repository. The documentation files are distributed via the container image.
+The server script and its dependencies live in the [edu repository](https://github.com/chainguard-dev/edu). The documentation files ship inside the container image, which you can extract once and reuse.
 
 ```bash
 # Download the MCP server script and requirements
@@ -260,7 +273,7 @@ pip install -r mcp-requirements.txt
 DOCS_PATH=chainguard-ai-docs.md CATALOG_PATH=image-catalog.json python3 mcp-server.py
 ```
 
-To use this with Claude Desktop, update your configuration to point to the local script:
+To run this script under Claude Desktop, point the configuration at the local files:
 
 ```json
 {
@@ -277,73 +290,72 @@ To use this with Claude Desktop, update your configuration to point to the local
 }
 ```
 
-## Self-Hosting with HTTP Transport
+## Self-hosting with HTTP transport
 
-You can also self-host the MCP server using Streamable HTTP transport. This is useful for running your own instance behind a firewall or with custom configuration.
+Run your own HTTP instance when you need to expose the server inside a firewall or with custom configuration.
 
-### Standalone
+### From the standalone script
 
 ```bash
 python3 mcp-server.py --transport http --port 8080
 ```
 
-The server will start on `http://0.0.0.0:8080` with the MCP endpoint at `/mcp`.
+The server binds to `http://0.0.0.0:8080` with the MCP endpoint at `/mcp`.
 
-You can also configure via environment variables:
+Environment variables work too:
 
 ```bash
 MCP_TRANSPORT=http MCP_PORT=8080 python3 mcp-server.py
 ```
 
-### Docker
+### From Docker
 
 ```bash
 docker run --rm -p 8080:8080 ghcr.io/chainguard-dev/ai-docs:latest serve-mcp-http
 ```
 
-Then configure your MCP client to connect to `http://localhost:8080/mcp/`.
+Point your MCP client at `http://localhost:8080/mcp/`.
 
-### CLI Flags
+### CLI flags
 
-| Flag | Env Var | Default | Description |
+| Flag | Env var | Default | Description |
 |---|---|---|---|
 | `--transport` | `MCP_TRANSPORT` | `stdio` | Transport mode: `stdio` or `http` |
 | `--host` | `MCP_HOST` | `0.0.0.0` | HTTP server bind address |
 | `--port` | `MCP_PORT` | `8080` | HTTP server port |
 
-## Alternative: Static Documentation
+## Alternative: static documentation
 
-If you don't need MCP server functionality, extract the documentation from the container:
+If you don't need the server at all, extract the documentation file from the container:
 
 ```bash
 docker run --rm -v $(pwd):/output \
   ghcr.io/chainguard-dev/ai-docs:latest extract /output
 ```
 
-See the [Developer Resources](/developer-resources/) page for more details on static extraction.
+See the [Developer Resources](/developer-resources/) page for more on static extraction.
 
-## Security Features
+## Security features
 
-Following Chainguard's security-first approach:
+The container image follows the standard Chainguard pattern:
 
-- **Minimal Image**: Built on `cgr.dev/chainguard/wolfi-base`
-- **Zero CVEs**: Regularly updated to maintain zero known vulnerabilities
-- **Non-root**: Runs as non-root user
-- **Signed**: Container images are signed with Cosign
-- **Transparent**: Full SBOM and provenance available
+- Built on `cgr.dev/chainguard/wolfi-base`
+- Runs as a non-root user
+- Signed with Cosign, with SBOM and provenance attached
+- Rebuilt regularly so known CVEs do not accumulate
 
 ## Troubleshooting
 
-### Server Not Appearing in Claude Desktop
+### Server does not appear in Claude Desktop
 
-1. Check that the configuration file path is correct
-2. Restart Claude Desktop after configuration changes
-3. Check Claude Desktop logs for error messages
-4. If using Docker locally, ensure Docker is running
+1. Confirm that the configuration file path is correct for your platform.
+2. Restart Claude Desktop after editing the file.
+3. Check Claude Desktop's logs for parse or connection errors.
+4. For the local Docker block, confirm Docker is running.
 
-### Connection Issues
+### Connection issues
 
-Test the hosted server:
+Test the hosted server with `curl`:
 
 ```bash
 curl -X POST https://mcp.edu.chainguard.dev/mcp/ \
@@ -352,7 +364,7 @@ curl -X POST https://mcp.edu.chainguard.dev/mcp/ \
   -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"test","version":"1.0"}}}'
 ```
 
-You should receive a JSON response with the server's capabilities.
+A JSON response listing the server's capabilities confirms the connection.
 
 To test a local Docker server:
 
@@ -360,11 +372,11 @@ To test a local Docker server:
 docker run --rm -i ghcr.io/chainguard-dev/ai-docs:latest serve-mcp
 ```
 
-The server should start and display startup messages.
+The container prints startup messages and then waits for stdio input.
 
-### Documentation Out of Date
+### Documentation out of date
 
-The hosted server at `mcp.edu.chainguard.dev` is updated automatically. If using Docker locally, pull the latest image:
+The hosted server updates automatically. For the local Docker setup, pull a fresh image:
 
 ```bash
 docker pull ghcr.io/chainguard-dev/ai-docs:latest
@@ -372,12 +384,12 @@ docker pull ghcr.io/chainguard-dev/ai-docs:latest
 
 ## Resources
 
-- [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
-- [Chainguard MCP Blog Post](https://www.chainguard.dev/unchained/meet-chainguard-mcps-bringing-supply-chain-security-to-the-ai-era)
+- [Model Context Protocol documentation](https://modelcontextprotocol.io/)
+- [Chainguard MCP blog post](https://www.chainguard.dev/unchained/meet-chainguard-mcps-bringing-supply-chain-security-to-the-ai-era)
 - [Developer Resources](/developer-resources/)
 - [Chainguard Images Directory](https://images.chainguard.dev/)
 
-## Need Help?
+## Need help?
 
 - [Chainguard Support](https://support.chainguard.dev?utm=docs)
 - [Community Slack](https://go.chainguard.dev/slack?utm=docs)
