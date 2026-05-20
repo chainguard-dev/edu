@@ -65,7 +65,7 @@ When you are using a repository manager, pass the full repository manager URL wi
 
 ```bash
 chainctl libraries update-hashes \
-  --registry-url https://repo.example.com:8443/repository/javascript-all/ \
+  --registry-url https://repo.example.com:8443/repository/python-all/ \
   --token "$REPO_TOKEN"
 ```
 
