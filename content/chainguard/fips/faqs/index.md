@@ -76,24 +76,6 @@ NSS does not have a stable API/ABI as it is a collection of low-level libraries,
 This is in contrast to OpenSSL, which presents one application facing API-ABI, and has an internal provider (plugin) architecture allowing the use of a separately built FIPS provider. For example, OpenSSL v3.4 released in 2024 is using the FIPS provider v3.0 released in 2021 due to strong API-ABI stability commitments.
 
 
-## Can Chainguard provide FIPS versions of Rust applications or toolchains to build FIPS compliant Rust applications?
-
-Not yet, but we are working with upstream groups to fix this.
-
-Many compilers and interpreters provide cryptography and TLS functionality as part of their standard libraries. Most of them already use OpenSSL on Linux (such as Python, Node, .NET, and Ruby) or can be made to use OpenSSL (such as Go).
-
-The [Rust standard library](https://doc.rust-lang.org/std/) does not implement or provide any cryptography or TLS. This creates a challenge to FIPS compliance, as there is no default cryptographic implementation.
-
-The cryptography of an individual application written in Rust depends on which [crates](https://doc.rust-lang.org/book/ch07-01-packages-and-crates.html) it leverages. The vast majority of crates that are listed under the “crypto” or “cryptography keywords have not been certified and do not have plans to complete certifications. This includes the most popular crates such as rustcrypto and ring.
-
-The most popular crate for TLS is [rustls](https://github.com/rustls/rustls) (many higher-level crates ultimately depend on rustls), which supports multiple alternative providers. As examples, rustls can use aws-lc-rs, ring, OpenSSL, and BoringCrypto implementations of the underlying (and in some cases FIPS certifiable) cryptography.
-
-However, if you run a default build of the rustls crate alone with the FIPS feature turned on today, it will pull in both FIPS and non-FIPS implementations. This is due to the dependency resolution of crates and the additive nature of features. If an application itself, and some of its dependencies, require rustls, each one of them will bring in a non-FIPS version of rustls into the binary despite a FIPS provider already present and linked into the binary. Even the most minimal applications like rustls-ffi (rustls compiled as a shared library with nothing else) and ztunnel (which uses just a single TLS mode and nothing else) link in non-FIPS cryptographic implementations in addition to the FIPS ones. In practice, this doubles the amount of dependencies in the binary, increases its size, and portions of the application end up using non-FIPS cryptography when it shouldn't.
-
-We detected this at Chainguard because we compile all rust binaries with [cargo-auditable](https://github.com/rust-secure-code/cargo-auditable) and thus can observe which crates a given binary is linked with through [rust-audit-info](https://crates.io/crates/rust-audit-info).
-
-Chainguard is currently exploring upstream methods for ensuring FIPS compliance given these challenges. Until then, it is not practical to build any Rust applications in FIPS mode that use TLS.
-
 ## Are Go binaries compiled with the upstream Golang provided `GOEXPERIMENT=boringcrypto` covered by the Chainguard FIPS commitment?
 
 The short answer is no.
