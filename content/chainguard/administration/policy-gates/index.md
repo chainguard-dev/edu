@@ -26,8 +26,8 @@ This is how policy gates uses the following terms.
 - **Policy** — A reusable rule that determines whether an image is allowed. Each policy has a name, a description, and the resource types it applies to. Policies apply to registry repositories.
 - **Binding** — A link between a policy and an organization. While a binding exists, the policy is active for image pulls under that organization. Without a binding, the policy has no effect.
 - **Mode** — A binding's mode controls what happens when the policy denies an image:
-  •  `ENFORCE` — Block the pull.
-  •  `DRY_RUN` — Allow the pull but record the violation.
+  - `ENFORCE` — Block the pull.
+  - `DRY_RUN` — Allow the pull but record the violation.
 
 The default mode for new bindings is `DRY_RUN`.
 
@@ -35,13 +35,13 @@ The default mode for new bindings is `DRY_RUN`.
 
 Policy gates are managed using `chainctl`. System policies are shipped with the platform.
 
-See which policies are available to your organization.
+See which policies are available to your organization:
 
 ```shell
 chainctl policy-gates list
 ```
 
-See which policies are currently active.
+See which policies are currently active:
 
 ```shell
 chainctl policy-gates binding list
@@ -53,13 +53,13 @@ Activate a policy in `DRY_RUN` mode. This example activates the "no end-of-life"
 chainctl policy-gates enable --policy=no-eol --mode=DRY_RUN
 ```
 
-Promote a policy to `ENFORCE`.
+Promote a policy to `ENFORCE`:
 
 ```shell
 chainctl policy-gates enable --policy=no-eol --mode=ENFORCE
 ```
 
-Check the results of specific policies on an image, including `DRY_RUN` policies which wouldn't cause the registry to block a pull.
+Check the results of specific policies on an image, including `DRY_RUN` policies which wouldn't cause the registry to block a pull:
 
 ```shell
 chainctl policy-gates check cgr.dev/$ORGANIZATION/bash:latest
@@ -70,7 +70,7 @@ chainctl policy-gates check cgr.dev/$ORGANIZATION/bash:latest
  no-eol   | DRY_RUN | ALLOWED
 ```
 
-Disable a policy.
+Disable a policy:
 
 ```shell
 chainctl policy-gate disable --policy=no-eol
