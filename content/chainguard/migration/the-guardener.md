@@ -19,7 +19,7 @@ The Guardener migrates your Dockerfiles to use Chainguard Containers. It uses AI
 
 You interact with it through `chainctl agent dockerfile` commands. The AI runs server-side and scans your workspace to perform its analysis. Docker builds and file access remain local to your machine, and only the data necessary for analysis is processed.
 
-> **Note:** The Guardener is currently in beta. Features and behavior may change before general availability.
+{{< beta feature="The Guardener" >}}
 
 
 ## Prerequisites

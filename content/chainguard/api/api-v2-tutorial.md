@@ -12,7 +12,9 @@ toc: true
 weight: 030
 ---
 
-The Chainguard API v2 is currently in a limited beta release for testing. It introduces cursor-based pagination, server-side ordering, consistent resource patterns, and structured error responses across all endpoints.
+{{< beta feature="The Chainguard API v2" >}}
+
+The v2 API introduces cursor-based pagination, server-side ordering, consistent resource patterns, and structured error responses across all endpoints.
 
 This guide walks through the v2 API using real `curl` commands.
 
