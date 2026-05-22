@@ -85,8 +85,6 @@ Follow the steps detailed in [Manual Access](#manual) to browse the Python index
 and find available packages, package versions, source distribution (sdist), and
 Python wheel files for standard and remediated package version.
 
-<a id="cve-remediation"></a>
-
 ## CVE remediation
 
 Chainguard Libraries for Python includes the [CVE

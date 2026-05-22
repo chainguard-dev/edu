@@ -133,6 +133,15 @@ After that six-month window closes, Chainguard Libraries will:
 - No longer provide security fixes for packages built against the EOL version
 - Continue to serve previously built packages
 
+## Malware and greyware detection
+
+Chainguard's [Sentinel scanning system](https://www.chainguard.dev/unchained/how-does-chainguard-prevent-malware-in-chainguard-libraries/) identifies and blocks malicious and greyware packages in Chainguard Libraries for JavaScript. This includes 
+
+- Packages that are publicly reported as malicious, including packages associated with OSV malware IDs.
+- Packages that Chainguard determines are unsafe, even when no public malware advisory exists yet.
+
+If a package is flagged as malicious, Chainguard does not build that package from source or serve it through upstream fallback.
+
 ## Other resources
 
 * [Chainguard Libraries product page](https://www.chainguard.dev/libraries)
