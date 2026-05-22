@@ -220,7 +220,53 @@ Malware detection is continuous. If a version that was previously cached is late
 
 In addition, [Chainguard's Sentinel scanning](https://www.chainguard.dev/unchained/how-does-chainguard-prevent-malware-in-chainguard-libraries/) blocks greyware and malicious packages before a public advisory exists. 
 
-Use the malware API endpoint to return a list of libraries currently blocked due to malware. For example, to list all blocked JavaScript libraries from malware detection since May 1, 2026:
+**Use the API for malware scanning**
+
+First, authenticate:
+
+{{< details "API authentication" >}}
+
+Use [chainctl](/chainguard/chainctl-usage/how-to-install-chainctl/) to authenticate.
+
+**Option 1: Interactive**
+
+Run the following:
+
+```bash
+chainctl auth login
+chainctl auth token --audience=libraries.cgr.dev
+```
+
+Then use the token as a Bearer:
+
+```bash
+curl -H "Authorization: Bearer $(chainctl auth token --audience=libraries.cgr.dev)" \
+ "https://libraries.cgr.dev/javascript/-/api/malware" | jq .
+```
+
+**Option 2: Pull token (for CI/CD and automated environments)**
+
+Generate a pull token and write it to `.npmrc`:
+
+```bash
+chainctl auth configure-npm --pull-token
+```
+
+Then use the `_auth` value as Basic http auth:
+
+```bash
+AUTH=$(grep '_auth=' .npmrc | cut -d= -f2-)
+      curl -H "Authorization: Basic $AUTH" \
+        "https://libraries.cgr.dev/javascript/-/api/malware" | jq .
+```
+
+The pull token is long-lived (configurable with `--ttl`, with a maximum lifetime of 1 year) and doesn't require a browser login, making it suitable for automation. 
+
+{{< /details >}}
+
+Next, use the malware API endpoint to return a list of libraries currently blocked due to malware. 
+
+For example, to list all blocked JavaScript libraries from malware detection since May 1, 2026:
 
 ```bash
 curl -H "Authorization: Bearer $(chainctl auth token --audience=libraries.cgr.dev)" "https://libraries.cgr.dev/javascript/-/api/malware?since=2026-05-01T00:00:00Z" | jq .
