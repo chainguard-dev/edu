@@ -135,7 +135,7 @@ After that six-month window closes, Chainguard Libraries will:
 
 ## Malware and greyware detection
 
-Chainguard's [Sentinel scanning system](https://www.chainguard.dev/unchained/how-does-chainguard-prevent-malware-in-chainguard-libraries/) identifies and blocks hostile packages in Chainguard Libraries for JavaScript. This includes 
+Chainguard's [Sentinel scanning system](https://www.chainguard.dev/unchained/how-does-chainguard-prevent-malware-in-chainguard-libraries/) identifies and blocks malicious and greyware packages in Chainguard Libraries for JavaScript. This includes 
 
 - Packages that are publicly reported as malicious, including packages associated with OSV malware IDs.
 - Packages that Chainguard determines are unsafe, even when no public malware advisory exists yet.
