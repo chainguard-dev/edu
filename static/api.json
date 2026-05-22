@@ -4229,11 +4229,11 @@
       },
       "chainguard.platform.policygates.v1.PolicyMode": {
         "default": "POLICY_MODE_UNSPECIFIED",
-        "description": "The mode to use when evaluating the policy.\n\n - POLICY_MODE_ENFORCED: Disallow access to the artifact when it doesn't satisfy the applied policy.\n - POLICY_MODE_LOG: Allow access to the artifact when it doesn't satisfy the applied policy, but log the outcome.",
+        "description": "The mode to use when evaluating the policy.\n\n - POLICY_MODE_ENFORCED: Disallow access to the artifact when it doesn't satisfy the applied policy.\n - POLICY_MODE_DRY_RUN: Allow access to the artifact when it doesn't satisfy the applied policy, but log the outcome.",
         "enum": [
           "POLICY_MODE_UNSPECIFIED",
           "POLICY_MODE_ENFORCED",
-          "POLICY_MODE_LOG"
+          "POLICY_MODE_DRY_RUN"
         ],
         "type": "string"
       },
@@ -5485,11 +5485,11 @@
       },
       "chainguard.platform.registry.PolicyMode": {
         "default": "POLICY_MODE_UNSPECIFIED",
-        "description": "PolicyMode indicates how the caller should treat a policy violation.\n\n - ENFORCED: The violation should be treated as blocking by the caller.\n - LOG: The violation should be logged but not treated as blocking.",
+        "description": "PolicyMode indicates how the caller should treat a policy violation.\n\n - ENFORCED: The violation should be treated as blocking by the caller.\n - DRY_RUN: The violation should be logged but not treated as blocking.",
         "enum": [
           "POLICY_MODE_UNSPECIFIED",
           "ENFORCED",
-          "LOG"
+          "DRY_RUN"
         ],
         "type": "string"
       },
