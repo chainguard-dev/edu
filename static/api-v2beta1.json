@@ -6160,10 +6160,10 @@
       "name": "PingService"
     },
     {
-      "name": "ReposService"
+      "name": "TagsService"
     },
     {
-      "name": "TagsService"
+      "name": "ReposService"
     },
     {
       "name": "AdvisoriesService"
