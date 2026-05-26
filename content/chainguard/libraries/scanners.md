@@ -245,3 +245,15 @@ scanning for Amazon ECR. This integration brings high-impact CVE remediation
 directly into your AWS vulnerability management workflows. Refer to the [AWS
 documentation](https://docs.aws.amazon.com/inspector/latest/user/supported.html#:~:text=Supported%20programming%20languages%3A%20Amazon%20ECR%20scanning)
 for additional details.
+
+## Upwind
+
+[Upwind](https://www.upwind.io/) can scan container images that use Chainguard Libraries for Python and recognize Chainguard backported fixes in [remediated library](/chainguard/libraries/cve-remediation/) versions. 
+
+It is supported for container scanning in CI/CD only, for Python applications built with:
+
+- `uv` / `pyproject.toml`
+- `pip` / `requirements.txt`
+- Poetry
+
+When Upwind recognizes a remediated Chainguard library version, the scan results reflect the installed `+cgr.N` package version rather than only the original upstream version. Vulnerabilities that Chainguard has already remediated in that installed version no longer appear as active findings.
