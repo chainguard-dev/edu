@@ -5,6 +5,7 @@ description: "Learn how the Chainguard Image Matcher uses SBOMs to recommend the
 type: "article"
 date: 2026-05-26T00:00:00+00:00
 draft: false
+weight: 01
 tags: ["Chainguard Images", "Migration", "SBOM", "API"]
 ---
 
