@@ -299,6 +299,50 @@
         ]
       }
     },
+    "/registry/v2alpha1/tags/{uid}": {
+      "delete": {
+        "description": "DeleteTag deletes a tag by UID.",
+        "operationId": "TagsService_DeleteTag",
+        "parameters": [
+          {
+            "description": "UID of the tag to delete.",
+            "in": "path",
+            "name": "uid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Delete Tag",
+        "tags": [
+          "TagsService"
+        ]
+      }
+    },
     "/sts/exchange": {
       "get": {
         "operationId": "SecurityTokenService_Exchange2",
@@ -595,6 +639,9 @@
   "tags": [
     {
       "name": "TermsService"
+    },
+    {
+      "name": "TagsService"
     },
     {
       "name": "Auth"
