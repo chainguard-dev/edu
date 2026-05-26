@@ -1,8 +1,7 @@
 ---
 title: "Image Matcher"
 linktitle: "Image Matcher"
-aliases:
-description: "Language- or platform-specific tutorials outlining how you can migrate applications to Chainguard Containers."
+description: "Use the Chainguard Image Matcher API to find the closest Chainguard equivalent for an existing container image."
 type: "article"
 date: 2026-05-26T00:00:00+00:00
 lastmod: 2026-05-26T00:00:00+00:00
