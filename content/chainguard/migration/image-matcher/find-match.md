@@ -80,7 +80,7 @@ Use the following table to match `dist`, `arch`, and `purl_prefix` to your sourc
 | SUSE              | `suse`         | `pkg:rpm/`    |
 | Amazon Linux      | `amazon-linux` | `pkg:rpm/`    |
 
-Pass `dist_version` as an additional `--arg` if you know the exact version (for example, `12` for Debian 12, `24.04` for Ubuntu 24.04). This narrows the candidate set and improves results, but is optional.
+Pass `dist_version` as an additional `--arg` if you know the exact version (for example, `12` for Debian 12, `24.04` for Ubuntu 24.04). This is optional, but it narrows the candidate set and improves results.
 
 ### Example request body
 
