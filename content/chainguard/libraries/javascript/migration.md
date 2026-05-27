@@ -87,9 +87,13 @@ one place.
 
 To see all currently active npm configuration and where each value comes from:
 
-```shell
-npm config list
-```
+| Tool | Command |
+|---|---|
+| npm | `npm config list` |
+| pnpm | `pnpm config list` |
+| Yarn Berry | `yarn config` |
+| Yarn Classic | `yarn config list` |
+| Bun | `bun pm ls` (lists installed packages, not config) |
 
 The `registry` line shows where packages are currently being fetched from. If no
 registry is set, npm fetches from `https://registry.npmjs.org` by default.
@@ -290,11 +294,6 @@ your package manager's install command after changing the registry does **not**
 re-fetch already-resolved packages — the lockfile entries are treated as
 satisfied, and source URLs will still point to `registry.npmjs.org`.
 
-> **Note:** If you encounter stale or corrupted package data, you may need to
-> run additional commands to clear the cache. See the "Apply registry changes"
-> sections for your build tool on the [build configuration](/chainguard/libraries/javascript/build-configuration/)
-> page.
-
 ### Recommended: Update checksums in place
 
 Use [`chainctl libraries update-hashes`](/chainguard/libraries/javascript/build-configuration/#updating-lockfile-hashes-for-existing-projects)
@@ -336,7 +335,91 @@ resolved version is not yet available in Chainguard Libraries or is still within
 the cooldown window. See [Packages not available in Chainguard
 Libraries](#packages-not-available-in-chainguard-libraries) for next steps.
 
-## Step 4: Reinstall dependencies
+If you reinstall dependencies during this step, skip ahead to [Step 6: Verify your libraries](#step-6-verify-your-libraries).
+
+## Step 4: Delete node_modules and clear caches
+
+**npm**
+
+```bash
+rm -rf node_modules && npm cache clean --force
+```
+
+**pnpm**
+
+First, remove `node_modules`:
+
+```bash
+rm -rf node_modules
+```
+
+Then, clear the caches. pnpm has three separate layers of cached data:
+
+{{< details "Clear pnpm caches" >}}
+
+Remove the following caches in order:
+
+**1. Metadata (packuments)**
+
+There is an [experimental command](https://pnpm.io/cli/cache-delete) to delete the metadata cache:
+
+```bash
+pnpm cache delete
+```
+
+**2. HTTP cache**
+
+pnpm maintains a separate HTTP cache at `~/.cache/pnpm` (or `$XDG_CACHE_HOME/pnpm` if that variable is set). Delete it with:
+
+```bash
+rm -rf "${XDG_CACHE_HOME:-$HOME/.cache}/pnpm"
+```
+
+**3. Content-addressable store (tarballs)**
+
+To find and manually remove the full store:
+
+```bash
+pnpm store path
+```
+
+Then delete the directory that command outputs: 
+
+On macOS/Linux - 
+
+```bash
+rm -rf "$(pnpm store path)"
+```
+
+On Windows - 
+
+Use the path returned by `pnpm store path` and delete it via File Explorer or `rmdir`.
+
+> Note: `pnpm prune` removes unused tarballs but does not remove packument metadata. If you are seeing 404 errors after switching to or updating the Chainguard registry endpoint, use the commands above rather than `pnpm prune`.
+
+{{< /details >}}
+
+**Yarn Berry**
+
+```bash
+rm -rf node_modules .yarn/cache
+```
+
+**Yarn Classic**
+
+```bash
+rm -rf node_modules && yarn cache clean
+```
+
+**Bun**
+
+```bash
+rm -rf node_modules && bun pm cache rm
+```
+
+If this command is not available on your version of Bun, you can instead delete Bun's cache directory manually.
+
+## Step 5: Reinstall dependencies
 
 Run the install command for your package manager:
 
@@ -371,7 +454,7 @@ grep "archiveUrl" yarn.lock | head -5
 Resolved URLs should point to `libraries.cgr.dev/javascript` (direct access) or
 your repository manager host, not `registry.npmjs.org`.
 
-## Step 5: Verify your libraries
+## Step 6: Verify your libraries
 
 After reinstalling, verify that your JavaScript dependencies are sourced from
 Chainguard by scanning your local package manager cache or `node_modules`
@@ -406,7 +489,7 @@ Verification Coverage: 100.00%
 For full details on verification options and output, see [Verification: Analyze
 JavaScript packages](/chainguard/libraries/verification/#analyze-javascript-packages).
 
-## Step 6: Commit and roll out
+## Step 7: Commit and roll out
 
 Commit the updated lockfile and any registry configuration files that do not
 contain literal credentials. Apply the same registry, cache, and hash update
