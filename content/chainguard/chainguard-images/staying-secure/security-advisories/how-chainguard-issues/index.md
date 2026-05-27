@@ -19,11 +19,13 @@ toc: true
 
 When you scan a newly-built Chainguard Container with a vulnerability scanner, typically, no CVEs will be reported. However, as software packages age, more vulnerabilities are reported and CVEs will begin to accumulate in container images. When this happens, Chainguard releases security advisories to communicate these vulnerabilities to downstream images users.
 
+> **Note:** Advisory timestamps represent when updates are made to the advisory page, not when they were first detected and triaged by Chainguard.
+
 In alignment with the [Chainguard Container Product Release Lifecycle](/chainguard/chainguard-images/about/versions/#what-chainguard-supports-and-maintains-for-chainguard-containers), our vulnerability management strategy focuses on the latest versions of any given release track, as these are the versions we actively maintain and secure. Accordingly, we only publish new CVE advisories for packages that fall within our defined support scope.
 
 We do not actively monitor non-supported versions of a package or image. Our efforts are centered on keeping the latest versions up-to-date and as close to zero CVEs as we can, while encouraging customers to upgrade and stay on supported versions.
 
-On this page, learn about [how to access Security Advisories](#accessing-security-advisories) and [the stages of a Security Advisory](#stages-of-a-security-advisory), from CVE disclosure to remediation. 
+On this page, learn about [how to access Security Advisories](#accessing-security-advisories) and [the stages of a Security Advisory](#stages-of-a-security-advisory), from CVE disclosure to remediation.
 
 ## Accessing Security Advisories
 
