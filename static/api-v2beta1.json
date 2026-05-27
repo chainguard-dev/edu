@@ -1046,6 +1046,17 @@
         },
         "type": "object"
       },
+      "chainguard.platform.iam.v2beta1.LookupIdentityResponse": {
+        "description": "LookupIdentityResponse is the response for LookupIdentity.",
+        "properties": {
+          "uid": {
+            "description": "The Chainguard identity UID matching the issuer/subject.\nIf no identity exists yet, this is the deterministic UID\nthe identity will receive upon future registration.",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.iam.v2beta1.OrgKind": {
         "default": "ORG_KIND_UNSPECIFIED",
         "description": "OrgKind is the kind of organization the group belongs to.\n\n - ORG_KIND_UNSPECIFIED: Organization kind is not yet set.\n - ORG_KIND_STARTER: Free catalog starter organizations.\n - ORG_KIND_CUSTOMER: Paid customer organizations.\n - ORG_KIND_DEV: Personal developer organizations.\n - ORG_KIND_INFRA: Organizations that are used for infrastructure or automation.",
@@ -3980,6 +3991,58 @@
           }
         },
         "summary": "Get Identity",
+        "tags": [
+          "IdentitiesService"
+        ]
+      }
+    },
+    "/iam/v2beta1/identities:lookupIdentity": {
+      "get": {
+        "description": "This is an unscoped endpoint: any authenticated caller may invoke it.",
+        "operationId": "IdentitiesService_LookupIdentity",
+        "parameters": [
+          {
+            "description": "The OIDC issuer URL (e.g. \"https://accounts.google.com\").",
+            "in": "query",
+            "name": "issuer",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "The OIDC subject identifier.",
+            "in": "query",
+            "name": "subject",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.LookupIdentityResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Lookup Identity",
         "tags": [
           "IdentitiesService"
         ]
