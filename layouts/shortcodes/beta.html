@@ -1,0 +1,13 @@
+{{- $feature := .Get "feature" | default "This feature" -}}
+{{- $enroll := .Get "enroll" -}}
+{{- $access := .Get "access" -}}
+{{- $feedback := .Get "feedback" -}}
+<p>
+<blockquote>
+    <p><strong>Note</strong>: {{ $feature }} is in beta.
+    {{- if eq $enroll "true" }} Contact your Chainguard account team to enable it for your organization.{{ end -}}
+    {{- with $access }} Available to {{ . }}.{{ end -}}
+    {{- if eq $feedback "true" }} Share feedback with your account team.{{ end -}}
+    </p>
+</blockquote>
+</p>

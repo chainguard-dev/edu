@@ -17,7 +17,7 @@ weight: 008
 
 Policy gates enable you to filter and restrict Chainguard artifact updates. You do this by defining policies that control and restrict versions that will be pulled from Chainguard.
 
-> **Note:** Policy gates is currently in beta and available for testing. It is an opt-in feature. To enable it for your organization, contact your Chainguard customer success representative.
+{{< beta feature="Policy gates" enroll="true" >}}
 
 ## Definitions
 
