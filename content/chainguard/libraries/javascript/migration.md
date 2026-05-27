@@ -6,11 +6,6 @@ description: "How to migrate an existing JavaScript project to pull dependencies
 date: 2025-05-27T00:00:00+00:00
 lastmod: 2025-05-27T00:00:00+00:00
 tags: ["Chainguard Libraries", "JavaScript"]
-draft: false
-images: []
-menu:
-  docs:
-    parent: "getting-started"
 weight: 056
 toc: true
 ---
