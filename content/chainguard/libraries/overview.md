@@ -25,15 +25,6 @@ Central](https://central.sonatype.com/), [npm Registry](https://www.npmjs.com/),
 and [PyPI](https://pypi.org/), but using these repositories introduces supply
 chain risks that could expose your applications and system to compromise.
 
-{{< tabs >}}
-{{% tab title="npm" %}}
-npm content here.
-{{% /tab %}}
-{{% tab title="Maven" %}}
-Maven content here.
-{{% /tab %}}
-{{< /tabs >}}
-
 ## Background
 
 Open source libraries distributed through public repositories face several
