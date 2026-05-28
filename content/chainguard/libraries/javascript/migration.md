@@ -36,14 +36,18 @@ Before you begin, you'll need:
 - An [entitlement to Chainguard Libraries](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/)
   for JavaScript
 
+### Create an entitlement
+
 To create an entitlement to Chainguard Libraries for JavaScript, run:
 
 ```shell
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT
 ```
 
+Alternatively, you can create an entitlement and pull token in the Chainguard Console: while viewing the JavaScript ecosystem page, follow the prompts to create an access token.
+
 You can also configure [upstream fallback and cooldown policies](#packages-not-available-in-chainguard-libraries)
-when creating the entitlement. For example, to enable upstream fallback with a
+when creating the entitlement. For example, use `chainctl` to enable upstream fallback with a
 10-day cooldown:
 
 ```shell
@@ -51,18 +55,21 @@ chainctl libraries entitlements create --ecosystems=JAVASCRIPT \
   --policy=CHAINGUARD_AND_UPSTREAM --cooldown-days=10
 ```
 
-### Pull token
+### Create a pull token
 
 If you plan to use a repository manager, or a non-interactive environment such
 as CI/CD, you will need a pull token. You must be an Owner or have the
 `libraries.javascript.pull_token_creator` permission to create one.
 
+You can [create a pull token in the Chainguard Console](/chainguard/libraries/access/#creating-pull-tokens-with-the-chainguard-console), or via `chainctl`:
+
 ```shell
-chainctl auth pull-token --repository=javascript
+chainctl auth pull-token --repository=javascript --name=my-js-token
 ```
 
-This outputs an identity ID and token, with a default expiration of 30 days.
-Set them as environment variables:
+This outputs an identity ID and token named `my-js-token`, with a default expiration of 30 days. To configure the expiration, use the `--ttl` flag. Learn more about command options in the [chainctl documentation](/chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token/).
+
+Set the identity ID and token as environment variables:
 
 ```shell
 export CHAINGUARD_JAVASCRIPT_IDENTITY_ID="<your-identity-id>"
@@ -87,13 +94,50 @@ one place.
 
 To see all currently active npm configuration and where each value comes from:
 
-| Tool | Command |
-|---|---|
-| npm | `npm config list` |
-| pnpm | `pnpm config list` |
-| Yarn Berry | `yarn config` |
-| Yarn Classic | `yarn config list` |
-| Bun | `bun pm ls` (lists installed packages, not config) |
+{{< tabs >}}
+
+{{% tab title="npm" %}}
+
+```shell
+npm config list
+```
+{{% /tab %}}
+
+{{% tab title="pnpm" %}}
+
+```shell
+pnpm config list
+```
+
+{{% /tab %}}
+
+{{% tab title="Yarn Berry" %}}
+
+```shell
+yarn config
+```
+
+{{% /tab %}}
+
+{{% tab title="Yarn Classic" %}}
+
+```shell
+yarn config list
+```
+
+{{% /tab %}}
+
+{{% tab title="Bun" %}}
+
+```shell
+bun pm ls
+```
+
+This command lists installed packages.
+
+{{% /tab %}}
+
+{{< /tabs >}}
 
 The `registry` line shows where packages are currently being fetched from. If no
 registry is set, npm fetches from `https://registry.npmjs.org` by default.
@@ -156,7 +200,7 @@ For pnpm, Yarn, and Bun, authenticate the workload then apply the
 
 If your platform does not support assumable identities, you can use a static pull token.
 
-For npm:
+**For npm**:
 
 ```shell
 chainctl auth configure-npm --pull-token
@@ -164,7 +208,9 @@ chainctl auth configure-npm --pull-token
 
 This generates a project-level `.npmrc` with a pull token.
 
-For pnpm, Yarn Berry, Yarn Classic, and Bun:
+<a name="manual-registry-configuration"></a>
+
+**For pnpm, Yarn Berry, Yarn Classic, and Bun**:
 
 First create a pull token as described in the [prerequisites](#pull-token), then configure your build tool manually using the instructions below.
 
@@ -239,23 +285,33 @@ Once configured, point your build tool at your repository manager URL. In this
 setup, the credentials your build tool uses are your repository manager
 credentials — not a Chainguard pull token.
 
-**npm or Yarn Classic:**
+{{< tabs >}}
+
+{{% tab title="npm or Yarn Classic" %}}
 
 ```shell
 npm config set registry https://<your-repo-manager-url>/repository/javascript-all/ --location=project
 ```
+{{% /tab %}}
 
-**pnpm:**
+{{% tab title="pnpm" %}}
 
 ```shell
 pnpm config set registry https://<your-repo-manager-url>/repository/javascript-all/ --location=project
 ```
 
-**Yarn Berry:**
+{{% /tab %}}
+
+{{% tab title="Yarn Berry" %}}
 
 ```shell
 yarn config set npmRegistryServer https://<your-repo-manager-url>/repository/javascript-all
 ```
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
 
 Example URLs by repository manager:
 
@@ -310,12 +366,15 @@ command to run after it completes.
 
 ### Alternative: Delete and regenerate the lockfile
 
-Deleting the lockfile is **not recommended** as a first approach. When npm
-regenerates a lockfile, it re-resolves all dependencies from scratch using the
-version constraints in `package.json`. If a constraint uses `^` or `~` (the npm
-default), the resolver picks the highest matching version. This may be a version
-that Chainguard has not yet built, or a version that is still within the
-cooldown window. Either case results in 404 errors that can be difficult to
+Deleting the lockfile is **not recommended** as a first approach. Expand the section below to learn more about this approach.
+
+{{< details "Delete and regenerate the lockfile" >}}
+
+When npm regenerates a lockfile, it re-resolves all dependencies from scratch
+using the version constraints in `package.json`. If a constraint uses `^` or `~`
+(the npm default), the resolver picks the highest matching version. This may be
+a version that Chainguard has not yet built, or a version that is still within
+the cooldown window. Either case results in 404 errors that can be difficult to
 diagnose. Regenerating the lockfile can also introduce unintended dependency
 upgrades that break your application independently of the registry change.
 
@@ -337,15 +396,20 @@ Libraries](#packages-not-available-in-chainguard-libraries) for next steps.
 
 If you reinstall dependencies during this step, skip ahead to [Step 6: Verify your libraries](#step-6-verify-your-libraries).
 
+{{< /details >}}
+
 ## Step 4: Delete node_modules and clear caches
 
-**npm**
+{{< tabs >}}
+
+{{% tab title="npm" %}}
 
 ```bash
 rm -rf node_modules && npm cache clean --force
 ```
+{{% /tab %}}
 
-**pnpm**
+{{% tab title="pnpm" %}}
 
 First, remove `node_modules`:
 
@@ -353,11 +417,8 @@ First, remove `node_modules`:
 rm -rf node_modules
 ```
 
-Then, clear the caches. pnpm has three separate layers of cached data:
+Then, clear the caches. pnpm has three separate layers of cached data; remove them in the following order:
 
-{{< details "Clear pnpm caches" >}}
-
-Remove the following caches in order:
 
 **1. Metadata (packuments)**
 
@@ -397,21 +458,26 @@ Use the path returned by `pnpm store path` and delete it via File Explorer or `r
 
 > Note: `pnpm prune` removes unused tarballs but does not remove packument metadata. If you are seeing 404 errors after switching to or updating the Chainguard registry endpoint, use the commands above rather than `pnpm prune`.
 
-{{< /details >}}
 
-**Yarn Berry**
+{{% /tab %}}
+
+{{% tab title="Yarn Berry" %}}
 
 ```bash
 rm -rf node_modules .yarn/cache
 ```
 
-**Yarn Classic**
+{{% /tab %}}
+
+{{% tab title="Yarn Classic" %}}
 
 ```bash
 rm -rf node_modules && yarn cache clean
 ```
 
-**Bun**
+{{% /tab %}}
+
+{{% tab title="Bun" %}}
 
 ```bash
 rm -rf node_modules && bun pm cache rm
@@ -419,40 +485,83 @@ rm -rf node_modules && bun pm cache rm
 
 If this command is not available on your version of Bun, you can instead delete Bun's cache directory manually.
 
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
 ## Step 5: Reinstall dependencies
 
-Run the install command for your package manager:
+Reinstall dependencies and confirm that the lockfile reflects Chainguard as the source. Resolved URLs should point to `libraries.cgr.dev/javascript` (direct access) or
+your repository manager host, not `registry.npmjs.org`.
 
-| Tool | Command |
-|---|---|
-| npm | `npm install` |
-| pnpm | `pnpm install` |
-| Yarn Berry or Classic | `yarn` |
-| Bun | `bun install` |
 
-After installation, confirm that the lockfile reflects Chainguard as the source
-by inspecting resolved URLs:
+{{< tabs >}}
 
-**npm** — check the `resolved` field in `package-lock.json`:
+{{% tab title="npm" %}}
+
+Install dependencies:
+
+```shell
+npm install
+```
+
+Then check the `resolved` field in `package-lock.json`:
 
 ```shell
 grep "resolved" package-lock.json | head -5
 ```
 
-**pnpm** — check the `tarball` field in `pnpm-lock.yaml`:
+
+{{% /tab %}}
+
+{{% tab title="pnpm" %}}
+
+Install dependencies:
+
+```bash
+pnpm install
+```
+
+Then check the `tarball` field in `pnpm-lock.yaml`:
 
 ```shell
 grep "tarball" pnpm-lock.yaml | head -5
 ```
 
-**Yarn Berry** — check the `archiveUrl` field in `yarn.lock`:
+{{% /tab %}}
+
+{{% tab title="Yarn" %}}
+
+Install dependencies:
+
+```shell
+yarn
+```
+
+Then check the `archiveUrl` field in `yarn.lock`:
 
 ```shell
 grep "archiveUrl" yarn.lock | head -5
 ```
 
-Resolved URLs should point to `libraries.cgr.dev/javascript` (direct access) or
-your repository manager host, not `registry.npmjs.org`.
+{{% /tab %}}
+
+{{% tab title="Bun" %}}
+
+Install dependencies:
+
+```shell
+bun install
+```
+
+Then check the `packages` section in `bun.lock` to verify that package source URLs reference Chainguard (or your repository manager) rather than npm.
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
 
 ## Step 6: Verify your libraries
 
@@ -461,25 +570,42 @@ Chainguard by scanning your local package manager cache or `node_modules`
 directory. `chainctl libraries verify` auto-detects npm and pnpm caches by
 their directory structure.
 
-**npm** — scan the npm cache:
+{{< tabs >}}
+
+{{% tab title="npm" %}}
+
+Scan the npm cache:
 
 ```shell
 chainctl libraries verify ~/.npm
 ```
 
-**pnpm** — scan the pnpm store:
+{{% /tab %}}
+
+{{% tab title="pnpm" %}}
+
+Scan the pnpm store:
 
 ```shell
 chainctl libraries verify $(pnpm store path)
 ```
 
-**node_modules** — scan the project directory:
+{{% /tab %}}
+
+{{% tab title="node_modules" %}}
+
+Scan the project directory:
 
 ```shell
 chainctl libraries verify ./node_modules
 ```
 
-A successful result shows verification coverage for the scanned packages:
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+A successful result shows verification coverage for the scanned packages. For example:
 
 ```
 Artifact: ./node_modules
