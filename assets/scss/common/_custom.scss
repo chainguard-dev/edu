@@ -1548,3 +1548,11 @@ blockquote p a {
     }
   }
 }
+
+[data-dark-mode] .ctabs-nav button {
+  color: var(--bs-light, #f8f9fa);
+
+  &:hover {
+    color: var(--bs-primary);
+  }
+}
