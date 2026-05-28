@@ -1524,8 +1524,9 @@ blockquote p a {
 }
 .tabs-nav {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
-  border-bottom: 2px solid var(--bs-border-color, #dee2e6);
+  border-bottom: 2px solid var(--leftnav-border);
   margin-bottom: 1rem;
 
   button {
@@ -1536,23 +1537,21 @@ blockquote p a {
     border-bottom: 2px solid transparent;
     margin-bottom: -2px;
     font-size: inherit;
-    color: var(--bs-body-color);
+    color: var(--body-color);
 
     &.active {
-      border-bottom-color: var(--bs-primary, #0d6efd);
+      border-bottom-color: var(--active-element-shadow);
       font-weight: 600;
     }
 
-    &:hover {
-      color: var(--bs-primary, #0d6efd);
+    &:hover:not(.active) {
+      color: var(--active-element-shadow);
     }
-  }
-}
 
-[data-dark-mode] .tabs-nav button {
-  color: var(--bs-light, #f8f9fa);
-
-  &:hover {
-    color: var(--bs-primary);
+    &:focus-visible {
+      outline: 2px solid var(--active-element-shadow);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
   }
 }
