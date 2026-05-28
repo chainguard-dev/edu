@@ -25,14 +25,14 @@ Central](https://central.sonatype.com/), [npm Registry](https://www.npmjs.com/),
 and [PyPI](https://pypi.org/), but using these repositories introduces supply
 chain risks that could expose your applications and system to compromise.
 
-{{< ctabs >}}
-{{% ctab title="npm" %}}
+{{< tabs >}}
+{{% tab title="npm" %}}
 npm content here.
-{{% /ctab %}}
-{{% ctab title="Maven" %}}
+{{% /tab %}}
+{{% tab title="Maven" %}}
 Maven content here.
-{{% /ctab %}}
-{{< /ctabs >}}
+{{% /tab %}}
+{{< /tabs >}}
 
 ## Background
 

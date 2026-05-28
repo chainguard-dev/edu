@@ -1522,7 +1522,7 @@ blockquote p a {
     width: auto;
     max-width: 100%;
 }
-.ctabs-nav {
+.tabs-nav {
   display: flex;
   gap: 0.5rem;
   border-bottom: 2px solid var(--bs-border-color, #dee2e6);
@@ -1549,7 +1549,7 @@ blockquote p a {
   }
 }
 
-[data-dark-mode] .ctabs-nav button {
+[data-dark-mode] .tabs-nav button {
   color: var(--bs-light, #f8f9fa);
 
   &:hover {

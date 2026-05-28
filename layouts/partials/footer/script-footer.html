@@ -115,10 +115,10 @@
 {{ partial "footer/script-footer-custom.html" . }}
 
 <script>
-document.querySelectorAll('.ctabs-component').forEach(function(wrapper) {
-  const panels = wrapper.querySelectorAll('.ctab-panel');
+document.querySelectorAll('.tabs-component').forEach(function(wrapper) {
+  const panels = wrapper.querySelectorAll('.tab-panel');
   const nav = document.createElement('div');
-  nav.className = 'ctabs-nav';
+  nav.className = 'tabs-nav';
   nav.setAttribute('role', 'tablist');
 
   panels.forEach(function(panel, i) {
