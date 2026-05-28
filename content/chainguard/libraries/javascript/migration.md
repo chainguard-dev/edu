@@ -290,8 +290,13 @@ credentials — not a Chainguard pull token.
 {{% tab title="npm or Yarn Classic" %}}
 
 ```shell
-npm config set registry https://<your-repo-manager-url>/repository/javascript-all/ --location=project
+cat > .npmrc << EOF
+registry=https://repo.example.com:8443/repository/javascript-all
+EOF
 ```
+
+Learn more in the build configuration docs for [npm](/chainguard/libraries/javascript/build-configuration/#using-a-repository-manager) and for [Yarn Classic](/chainguard/libraries/javascript/build-configuration/#using-a-repo-manager).
+
 {{% /tab %}}
 
 {{% tab title="pnpm" %}}
@@ -300,6 +305,8 @@ npm config set registry https://<your-repo-manager-url>/repository/javascript-al
 pnpm config set registry https://<your-repo-manager-url>/repository/javascript-all/ --location=project
 ```
 
+Learn more in the [build configuration docs](/chainguard/libraries/javascript/build-configuration/#using-a-repository-manager-1). 
+
 {{% /tab %}}
 
 {{% tab title="Yarn Berry" %}}
@@ -307,6 +314,22 @@ pnpm config set registry https://<your-repo-manager-url>/repository/javascript-a
 ```shell
 yarn config set npmRegistryServer https://<your-repo-manager-url>/repository/javascript-all
 ```
+
+Learn more in the [build configuration docs](/chainguard/libraries/javascript/build-configuration/#using-a-repository-manager-2). 
+
+{{% /tab %}}
+
+{{% tab title="Bun" %}}
+
+Add the registry configuration to the `bunfig.toml` file of your project: 
+
+```toml
+[install]
+# set default registry as a string
+registry = "https://repo.example.com:8443/repository/javascript-all/"
+```
+
+Learn more in the [build configuration docs](/chainguard/libraries/javascript/build-configuration/#using-a-repository-manager-3). 
 
 {{% /tab %}}
 
