@@ -113,36 +113,3 @@
 
 {{ partial "footer/linkedin-insight.html" . }}
 {{ partial "footer/script-footer-custom.html" . }}
-
-<script>
-document.querySelectorAll('.tabs-component').forEach(function(wrapper) {
-  const panels = wrapper.querySelectorAll('.tab-panel');
-  const nav = document.createElement('div');
-  nav.className = 'tabs-nav';
-  nav.setAttribute('role', 'tablist');
-
-  panels.forEach(function(panel, i) {
-    const btn = document.createElement('button');
-    btn.textContent = panel.dataset.tabTitle;
-    btn.setAttribute('role', 'tab');
-    btn.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
-    if (i === 0) btn.classList.add('active');
-    panel.style.display = i === 0 ? '' : 'none';
-
-    btn.addEventListener('click', function() {
-      panels.forEach(p => p.style.display = 'none');
-      nav.querySelectorAll('button').forEach(b => {
-        b.classList.remove('active');
-        b.setAttribute('aria-selected', 'false');
-      });
-      panel.style.display = '';
-      btn.classList.add('active');
-      btn.setAttribute('aria-selected', 'true');
-    });
-
-    nav.appendChild(btn);
-  });
-
-  wrapper.insertBefore(nav, wrapper.firstChild);
-});
-</script>
