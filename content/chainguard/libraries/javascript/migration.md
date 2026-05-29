@@ -130,8 +130,10 @@ yarn config list
 {{% tab title="Bun" %}}
 
 ```shell
-grep -R "registry" .npmrc bunfig.toml ~/.npmrc ~/.bunfig.toml 2>/dev/null
+cat bunfig.toml
 ```
+
+If there is no `bunfig.toml`, or if that file does not contain a specific registry, then it is using the standard npm registry by default.
 
 {{% /tab %}}
 
@@ -378,6 +380,10 @@ to rewrite only the integrity hashes in your existing lockfile to match
 Chainguard's artifacts, without regenerating the lockfile from scratch. This
 preserves your pinned dependency versions.
 
+> Note: For Bun, you must [delete and regenerate the lockfile](#alternative-delete-and-regenerate-the-lockfile).
+
+To update in place, run:
+
 ```shell
 chainctl libraries update-hashes
 ```
@@ -576,7 +582,7 @@ Install dependencies:
 bun install
 ```
 
-Then check the `packages` section in `bun.lock` to verify that package source URLs reference Chainguard (or your repository manager) rather than npm.
+Then check the `packages` section in `bun.lock` to verify that package source URLs reference Chainguard (or your repository manager) rather than npm. For Bun, the `update-hashes` command appends the Chainguard checksum rather than replacing it.
 
 
 {{% /tab %}}
