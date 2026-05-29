@@ -2774,6 +2774,12 @@
       "chainguard.platform.policygates.v1.Binding": {
         "description": "Binding associates a Policy with a resource in the hierarchy.\nThe binding is a child of the resource it applies to, and its policy\nis applied to all descendants of that resource.",
         "properties": {
+          "createdAt": {
+            "description": "When the binding was created.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
           "id": {
             "description": "The id of the Binding. The policy is bound to its parent,\nand applies to all of the parent's descendants.",
             "type": "string"
@@ -2786,6 +2792,11 @@
             ],
             "description": "PolicyMode defines how the policy is enforced."
           },
+          "parameters": {
+            "additionalProperties": {},
+            "description": "The parameter values supplied for this binding, keyed by parameter name.\nThe set of valid keys and value types is declared by the referenced\npolicy's parameter_schemas. Server-side validation rejects unknown keys\nand values that violate the schema.",
+            "type": "object"
+          },
           "policy": {
             "title": "The policy to apply",
             "type": "string"
@@ -2796,6 +2807,12 @@
             },
             "title": "The resource types this binding applies to.\nEach value is a Chainguard API resource type\n(e.g. \"registry.chainguard.dev/Repo\").\nSupported resource types:\n  - registry.chainguard.dev/Repo",
             "type": "array"
+          },
+          "updatedAt": {
+            "description": "When the binding was last updated.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
           }
         },
         "type": "object"
@@ -2829,6 +2846,12 @@
       "chainguard.platform.policygates.v1.Bindings.UpdateBindingBody": {
         "description": "Binding associates a Policy with a resource in the hierarchy.\nThe binding is a child of the resource it applies to, and its policy\nis applied to all descendants of that resource.",
         "properties": {
+          "createdAt": {
+            "description": "When the binding was created.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
           "mode": {
             "allOf": [
               {
@@ -2836,6 +2859,11 @@
               }
             ],
             "description": "PolicyMode defines how the policy is enforced."
+          },
+          "parameters": {
+            "additionalProperties": {},
+            "description": "The parameter values supplied for this binding, keyed by parameter name.\nThe set of valid keys and value types is declared by the referenced\npolicy's parameter_schemas. Server-side validation rejects unknown keys\nand values that violate the schema.",
+            "type": "object"
           },
           "policy": {
             "title": "The policy to apply",
@@ -2847,9 +2875,70 @@
             },
             "title": "The resource types this binding applies to.\nEach value is a Chainguard API resource type\n(e.g. \"registry.chainguard.dev/Repo\").\nSupported resource types:\n  - registry.chainguard.dev/Repo",
             "type": "array"
+          },
+          "updatedAt": {
+            "description": "When the binding was last updated.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
           }
         },
         "type": "object"
+      },
+      "chainguard.platform.policygates.v1.ParameterSchema": {
+        "description": "ParameterSchema declares a single configurable parameter on a Policy.\nBindings supply values for these parameters at activation time.",
+        "properties": {
+          "allowedValues": {
+            "items": {},
+            "title": "The set of allowed values (PARAMETER_TYPE_STRING, PARAMETER_TYPE_INTEGER).\nExact-match allowlist",
+            "type": "array"
+          },
+          "default": {
+            "description": "The default value applied when a Binding omits this parameter."
+          },
+          "deprecated": {
+            "description": "Whether the parameter is deprecated. Customers should migrate off\ndeprecated parameters; new Bindings should not set them.",
+            "type": "boolean"
+          },
+          "description": {
+            "description": "A human-readable description of what this parameter controls.",
+            "type": "string"
+          },
+          "maximum": {
+            "description": "The inclusive upper bound for numeric parameters (PARAMETER_TYPE_INTEGER)."
+          },
+          "minimum": {
+            "description": "The inclusive lower bound for numeric parameters (PARAMETER_TYPE_INTEGER)."
+          },
+          "name": {
+            "description": "The parameter name. Must be non-empty and unique within a Policy.",
+            "type": "string"
+          },
+          "required": {
+            "description": "Whether the parameter must be supplied by the Binding.",
+            "type": "boolean"
+          },
+          "type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.policygates.v1.ParameterType"
+              }
+            ],
+            "description": "The data type of the parameter value."
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.policygates.v1.ParameterType": {
+        "default": "PARAMETER_TYPE_UNSPECIFIED",
+        "description": "The data type of a configurable parameter on a Policy.\n\n - PARAMETER_TYPE_STRING: A UTF-8 string value.\n - PARAMETER_TYPE_INTEGER: A signed 64-bit integer value.\n - PARAMETER_TYPE_STRING_LIST: A list of UTF-8 string values.",
+        "enum": [
+          "PARAMETER_TYPE_UNSPECIFIED",
+          "PARAMETER_TYPE_STRING",
+          "PARAMETER_TYPE_INTEGER",
+          "PARAMETER_TYPE_STRING_LIST"
+        ],
+        "type": "string"
       },
       "chainguard.platform.policygates.v1.Policies.UpdatePolicyBody": {
         "description": "Policy defines a rule that can be evaluated on an image\nin a repository, giving an \"allowed\" or \"disallowed\" decision.",
@@ -2871,6 +2960,14 @@
           "name": {
             "title": "Human-readable name of the policy.\nName may be up to 128 characters in length, can consist\nof characters [a-zA-Z0-9._-], but may not start with '.' or '-'",
             "type": "string"
+          },
+          "parameterSchemas": {
+            "description": "The configurable parameter schemas declared by this policy. System\npolicies declare these; customers configure values on the bindings that\nactivate the policy.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.policygates.v1.ParameterSchema"
+            },
+            "readOnly": true,
+            "type": "array"
           },
           "policyType": {
             "allOf": [
@@ -2920,6 +3017,14 @@
           "name": {
             "title": "Human-readable name of the policy.\nName may be up to 128 characters in length, can consist\nof characters [a-zA-Z0-9._-], but may not start with '.' or '-'",
             "type": "string"
+          },
+          "parameterSchemas": {
+            "description": "The configurable parameter schemas declared by this policy. System\npolicies declare these; customers configure values on the bindings that\nactivate the policy.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.policygates.v1.ParameterSchema"
+            },
+            "readOnly": true,
+            "type": "array"
           },
           "policyType": {
             "allOf": [
