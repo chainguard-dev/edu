@@ -380,7 +380,7 @@ to rewrite only the integrity hashes in your existing lockfile to match
 Chainguard's artifacts, without regenerating the lockfile from scratch. This
 preserves your pinned dependency versions.
 
-> Note: For Bun, you must [delete and regenerate the lockfile](#alternative-delete-and-regenerate-the-lockfile).
+> Note: This command is not support for Bun. When using Bun, you must [delete and regenerate the lockfile](#alternative-delete-and-regenerate-the-lockfile) as described in the next section.
 
 To update in place, run:
 
