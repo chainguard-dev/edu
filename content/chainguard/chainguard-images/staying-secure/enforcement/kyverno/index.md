@@ -23,7 +23,7 @@ To follow the examples in this guide, you will need the following:
 
 ## Ensure Images are Pulled from Allowed Repositories
 
-You can use the [`ClusterPolicy` policy type](https://kyverno.io/docs/policy-types/cluster-policy/) to ensure that images are only pulled from a list of allowed repositories.
+You can use the [`ClusterPolicy` policy type](https://kyverno.io/docs/policy-types/cluster-policy/overview/) to ensure that images are only pulled from a list of allowed repositories.
 
 Create file named `restrict-image-registries.yaml` with the following content:
 
