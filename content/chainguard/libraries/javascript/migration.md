@@ -130,17 +130,15 @@ yarn config list
 {{% tab title="Bun" %}}
 
 ```shell
-bun pm ls
+grep -R "registry" .npmrc bunfig.toml ~/.npmrc ~/.bunfig.toml 2>/dev/null
 ```
-
-This command lists installed packages.
 
 {{% /tab %}}
 
 {{< /tabs >}}
 
 The `registry` line shows where packages are currently being fetched from. If no
-registry is set, npm fetches from `https://registry.npmjs.org` by default.
+registry is set, npm fetches from `https://registry.npmjs.org` by default. 
 
 If you don't have an `.npmrc` file yet, that's fine; you'll create one in the
 next step.
