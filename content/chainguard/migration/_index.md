@@ -10,7 +10,7 @@ images: []
 weight: 045
 topic: true
 banner: {
-    image: "/icon-arrows.svg",
+    image: "/icon-arrows_blurple.png",
     title: "Porting Applications to Chainguard",
     subtitle: "Step through migrating a full application to Chainguard Containers",
     cta: "Learn how",
