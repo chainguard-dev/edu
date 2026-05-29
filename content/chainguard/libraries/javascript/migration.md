@@ -421,8 +421,6 @@ resolved version is not yet available in Chainguard Libraries or is still within
 the cooldown window. See [Packages not available in Chainguard
 Libraries](#packages-not-available-in-chainguard-libraries) for next steps.
 
-If you reinstall dependencies during this step, skip ahead to [Step 6: Verify your libraries](#step-6-verify-your-libraries).
-
 {{< /details >}}
 
 ## Step 4: Delete node_modules and clear caches
