@@ -34,7 +34,11 @@ other engineers running relevant application builds. They must also be performed
 on any build server such as Jenkins, TeamCity, GitHub or other infrastructure
 that builds the applications or otherwise downloads and uses relevant libraries.
 
-## Cloudsmith
+## Library access approaches 
+
+### Repo manager
+
+#### Cloudsmith
 
 Build configuration to retrieve artifacts from Cloudsmith requires you to
 authenticate. Use your username and password for Cloudsmith in your build tool
@@ -44,7 +48,7 @@ Follow the steps from the [global
 configuration](/chainguard/libraries/java/global-configuration/#cloudsmith) to
 determine URL and authentication details.
 
-## JFrog Artifactory
+#### JFrog Artifactory
 
 Build configuration to retrieve artifacts from Artifactory typically requires
 you to authenticate and use the identity token in the configuration of your
@@ -54,7 +58,7 @@ Follow the steps from the [global
 configuration](/chainguard/libraries/java/global-configuration/#jfrog-artifactory)
 to determine URL and authentication details.
 
-## Sonatype Nexus Repository
+#### Sonatype Nexus Repository
 
 Build configuration to retrieve artifacts from Nexus may require authentication.
 Use your username and password for Nexus in your build tool configuration.
@@ -63,13 +67,72 @@ Follow the steps from the [global
 configuration](/chainguard/libraries/java/global-configuration/#sonatype-nexus-repository)
 to determine URL and authentication details.
 
-## Direct access
+### Direct access
 
 Build configuration to retrieve artifacts **directly** from the Chainguard
 Libraries
-for Java repository at `https://libraries.cgr.dev/java/` requires authentication
+for Java repository requires authentication
 with username and password from a pull token as detailed in
 [access documentation](/chainguard/libraries/access/#pull-token).
+
+If using Chainguard's [CVE remediation](/chainguard/libraries/cve-remediation/) for Java libraries (available in beta), set it as the top repository. The recommended ordering for repositories is:
+1. `https://libraries.cgr.dev/java-remediated/` for remediated Spring Boot libraries; this is available in beta as part of the [CVE Remediation](/chainguard/libraries/cve-remediation/) feature.
+1. `https://libraries.cgr.dev/java/`
+1. `https://repo1.maven.org/maven2/` or your Maven Central proxy
+
+
+
+## Selecting remediated library versions
+
+When using the [CVE remediation feature](/chainguard/libraries/cve-remediation/), available in beta to Chainguard Libraries for Java, your build will not receive a remediated Java artifact automatically with the overlay repository configured. To use the remediated build, you must opt in to the suffixed version directly, or route resolution to it through dependency management, Gradle constraints, or version ranges.
+
+### Update dependency version directly
+
+For Maven, you can set the suffixed version as a dependency in your `pom.xml`. For example:
+
+```xml
+<dependency>
+  <groupId>org.apache.commons</groupId>
+  <artifactId>commons-lang3</artifactId>
+  <version>3.18.0-0.cgr.1</version>
+</dependency>
+```
+
+For Gradle, you can set the suffixed version in the dependencies block in `build.gradle`:
+
+```build.gradle
+implementation 'org.apache.commons:commons-lang3:3.18.0-0.cgr.1'
+```
+
+### Override the version centrally
+
+When you use this option, the remediated version will apply to both direct and transitive dependencies.
+
+For Maven, update the `dependencyManagement` in a parent POM or the project POM:
+
+```xml
+<dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.18.0-0.cgr.1</version>
+    </dependency>
+  </dependencies>
+</dependencyManagement>
+```
+
+For Gradle, update the `constraints` block in `build.gradle`:
+
+```build.gradle
+dependencies {
+  constraints {
+    implementation('org.apache.commons:commons-lang3:3.18.0-0.cgr.1') {
+      because 'CVE remediation via Chainguard Libraries overlay'
+    }
+  }
+}
+```
 
 ## Apache Maven
 
@@ -222,10 +285,10 @@ Java.
 If you are not using a repository manager at your organization, you can
 configure access to the Chainguard Libraries for Java repository directly.
 Ensure that the Chainguard repository is located above the necessary override
-for the built-in `central` repository and any other repositories.
+for the built-in `central` repository and any other repositories. If you are participating in the beta for CVE remediation, include the `https://libraries.cgr.dev/java-remediated/` repository first.
 
-The following `~/.m2/settings.xml` configures direct access with Chainguard as
-the primary repository and Maven Central as a fallback for transitive
+The following `~/.m2/settings.xml` configures direct access with Chainguard's remediated Java repository as
+the primary repository, falling back to the standard Chainguard Libraries repository when a remediated version is not available, and then to Maven Central as a fallback for transitive
 dependencies not available from Chainguard. It uses placeholder values
 `CG_PULLTOKEN_USERNAME` and `CG_PULLTOKEN_PASSWORD` or [environment
 variables](/chainguard/libraries/access/#env) for the pull token detailed in
@@ -240,6 +303,12 @@ variables](/chainguard/libraries/access/#env) for the pull token detailed in
     <profile>
       <id>no-repo-manager</id>
       <repositories>
+        <repository>
+          <id>chainguard-remediated</id>
+          <url>https://libraries.cgr.dev/java-remediated/</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
+        </repository>
         <repository>
           <id>chainguard</id>
           <url>https://libraries.cgr.dev/java/</url>
@@ -287,6 +356,13 @@ variables](/chainguard/libraries/access/#env) for the pull token detailed in
   </profiles>
   <servers>
     <server>
+      <id>chainguard-remediated</id>
+      <!-- Use environment variables -->
+      <username>${env.CHAINGUARD_JAVA_IDENTITY_ID}</username>
+      <password>${env.CHAINGUARD_JAVA_TOKEN}</password>
+      <!-- <username>YOUR_IDENTITY_ID</username> -->
+      <!-- <password>YOUR_TOKEN</password> -->
+    </server>
       <id>chainguard</id>
       <!-- Use environment variables -->
       <username>${env.CHAINGUARD_JAVA_IDENTITY_ID}</username>
@@ -413,6 +489,8 @@ cat > ~/.m2/settings.xml << EOF
 </settings>
 EOF
 ```
+
+If you are using Chainguard's remediated repository for Java libraries, make sure to add `https://libraries.cgr.dev/java-remediated/` first, as shown in the [direct access example](#direct-access) earlier on this page.
 
 **5. Build the project**
 
@@ -554,10 +632,18 @@ for your pull token credentials.
 
 Open `app/build.gradle` and update the `repositories` block to include the
 Chainguard repository. Ensure it is located above the `mavenCentral` repository
-and any other repositories:
+and any other repositories. If you are using Chainguard's [remediated library repository](/chainguard/libraries/cve-remediation/), set it as the top repository:
 
 ```groovy
 repositories {
+      maven {
+    url = uri("https://libraries.cgr.dev/java-remediated/")
+    credentials {
+      username = providers.environmentVariable("CHAINGUARD_JAVA_IDENTITY_ID").orNull
+      password = providers.environmentVariable("CHAINGUARD_JAVA_TOKEN").orNull
+    }
+  }
+    
     maven {
         url = uri("https://libraries.cgr.dev/java/")
         credentials {
@@ -643,6 +729,8 @@ repositories {
     mavenCentral()
 }
 ```
+
+If you are using Chainguard's remediated repository for Java libraries, make sure to add `https://libraries.cgr.dev/java-remediated/` first, as shown in the [direct access example](#direct-access-to-chainguard-libraries) earlier in the Gradle section on this page.
 
 **4. Build the project**
 
