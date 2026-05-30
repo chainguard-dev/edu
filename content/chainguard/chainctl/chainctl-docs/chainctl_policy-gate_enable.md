@@ -1,5 +1,5 @@
 ---
-date: 2026-05-28T17:13:42Z
+date: 2026-05-29T17:37:58Z
 title: "chainctl policy-gate enable"
 slug: chainctl_policy-gate_enable
 url: /chainguard/chainctl/chainctl-docs/chainctl_policy-gate_enable/
@@ -23,7 +23,7 @@ This is a shortcut for "policy-gate binding create".
 The default mode is DRY_RUN.
 
 ```
-chainctl policy-gate enable --policy POLICY [--parent ORG] [--mode MODE] [--output=json|table] [flags]
+chainctl policy-gate enable --policy POLICY [--parent ORG] [--mode MODE] [--param KEY=VALUE] [--output=json|table] [flags]
 ```
 
 ### Examples
@@ -36,12 +36,17 @@ chainctl policy-gates enable --policy=no-critical-cves --parent=example.com --mo
 # Enable a policy in enforce mode
 chainctl policy-gates enable --policy=no-critical-cves --parent=example.com --mode=ENFORCE
 
+# Enable a policy with parameter values. Use --param=KEY=VALUE; for STRING_LIST,
+# items are comma-separated within a single --param value.
+chainctl policy-gates enable --policy=cooldown --parent=example.com --mode=ENFORCE --param=days=14
+
 ```
 
 ### Options
 
 ```
       --mode string         The policy mode (ENFORCE or LOG).
+      --param stringArray   Parameter value as key=value. Repeatable.
       --parent string       The name or id of the organization to scope the binding to.
       --policy string       The name or UIDP of the policy to bind.
       --resources strings   The resource types this binding applies to. (default [registry.chainguard.dev/Repo])

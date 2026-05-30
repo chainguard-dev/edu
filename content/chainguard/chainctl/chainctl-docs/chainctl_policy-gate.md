@@ -1,5 +1,5 @@
 ---
-date: 2026-05-28T17:13:42Z
+date: 2026-05-29T17:37:58Z
 title: "chainctl policy-gate"
 slug: chainctl_policy-gate
 url: /chainguard/chainctl/chainctl-docs/chainctl_policy-gate/
@@ -63,20 +63,28 @@ allows it.
 # 1. List the policies available to your organization.
 chainctl policy-gate list --parent=example.com
 
-# 2. Activate a policy in DRY_RUN mode (records, does not block).
-chainctl policy-gate enable --policy=no-eol --parent=example.com --mode=DRY_RUN
+# 2. Inspect a specific policy
+chainctl policy-gate describe --policy=cooldown --parent=example.com
 
-# 3. Review which policies are currently active.
+# 3. Activate a policy in DRY_RUN mode (records, does not block).
+# Note: if a policy declares configurable parameters and --param is omitted,
+# the schema's default value is applied.
+chainctl policy-gate enable --policy=cooldown --parent=example.com --mode=DRY_RUN
+
+# 4. Review which policies are currently active.
 chainctl policy-gate binding list --parent=example.com
 
-# 4. Evaluate a specific image against active policies
+# 5. Evaluate a specific image against active policies
 chainctl policy-gate check cgr.dev/example.com/python:latest
 
-# 5. Promote the policy to ENFORCE mode.
-chainctl policy-gate enable --policy=no-eol --parent=example.com --mode=ENFORCE
+# 6. Promote the policy to ENFORCE mode.
+chainctl policy-gate enable --policy=cooldown --parent=example.com --mode=ENFORCE
 
-# 6. Disable if no longer needed.
-chainctl policy-gate disable --policy=no-eol --parent=example.com
+# 7. Update the parameters for your binding
+chainctl policy-gate enable --policy=cooldown --parent=example.com --mode=ENFORCE --param=days=14
+
+# 8. Disable if no longer needed.
+chainctl policy-gate disable --policy=cooldown --parent=example.com
 
 ```
 
@@ -100,6 +108,7 @@ chainctl policy-gate disable --policy=no-eol --parent=example.com
 * [chainctl](/chainguard/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
 * [chainctl policy-gate binding](/chainguard/chainctl/chainctl-docs/chainctl_policy-gate_binding/)	 - Manage policy gate bindings.
 * [chainctl policy-gate check](/chainguard/chainctl/chainctl-docs/chainctl_policy-gate_check/)	 - Check an image against active policy gates.
+* [chainctl policy-gate describe](/chainguard/chainctl/chainctl-docs/chainctl_policy-gate_describe/)	 - Describe a policy and its parameter schema.
 * [chainctl policy-gate disable](/chainguard/chainctl/chainctl-docs/chainctl_policy-gate_disable/)	 - Disable a policy gate.
 * [chainctl policy-gate enable](/chainguard/chainctl/chainctl-docs/chainctl_policy-gate_enable/)	 - Enable a policy gate for an organization.
 * [chainctl policy-gate list](/chainguard/chainctl/chainctl-docs/chainctl_policy-gate_list/)	 - List policy gates.

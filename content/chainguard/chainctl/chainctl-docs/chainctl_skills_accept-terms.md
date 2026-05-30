@@ -1,32 +1,34 @@
 ---
 date: 2026-05-29T17:37:58Z
-title: "chainctl auth status"
-slug: chainctl_auth_status
-url: /chainguard/chainctl/chainctl-docs/chainctl_auth_status/
+title: "chainctl skills accept-terms"
+slug: chainctl_skills_accept-terms
+url: /chainguard/chainctl/chainctl-docs/chainctl_skills_accept-terms/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl auth status
+## chainctl skills accept-terms
 
-Inspect the local Chainguard Token.
+Accept legal terms required to publish skills.
+
+### Synopsis
+
+Accept the legal documents required to publish skills to skills.cgr.dev.
+
+An org owner must run this once per org before any 'chainctl skills push' will
+succeed. Re-running after acceptance is a no-op. --group accepts either the
+org name (e.g. "acme.com") or its UIDP; omit it for an interactive picker.
 
 ```
-chainctl auth status [--output=json|table|terse] [flags]
+chainctl skills accept-terms [flags]
 ```
 
 ### Options
 
 ```
-      --headless                   Skip browser authentication and use device flow.
-      --identity string            The unique ID of the identity to assume when logging in.
-      --identity-provider string   The unique ID of the customer managed identity provider to authenticate with
-      --identity-token string      Use an explicit passed identity token or token path.
-      --org-name string            Organization to use for authentication. If configured the organization's custom identity provider will be used
-      --quick                      Whether to perform quick offline token checks (vs. calling the Validate API).
-      --social-login string        Which of the default identity providers to use for authentication. Must be one of: email, google, github, gitlab
+      --group string   Name or UIDP of the org to accept terms for
 ```
 
 ### Options inherited from parent commands
@@ -46,5 +48,5 @@ chainctl auth status [--output=json|table|terse] [flags]
 
 ### SEE ALSO
 
-* [chainctl auth](/chainguard/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
+* [chainctl skills](/chainguard/chainctl/chainctl-docs/chainctl_skills/)	 - Skills registry related commands.
 

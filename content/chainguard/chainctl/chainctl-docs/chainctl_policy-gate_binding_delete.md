@@ -1,5 +1,5 @@
 ---
-date: 2026-05-28T17:13:42Z
+date: 2026-05-29T17:37:58Z
 title: "chainctl policy-gate binding delete"
 slug: chainctl_policy-gate_binding_delete
 url: /chainguard/chainctl/chainctl-docs/chainctl_policy-gate_binding_delete/

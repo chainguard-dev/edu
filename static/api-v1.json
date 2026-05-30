@@ -161,6 +161,10 @@
       },
       "chainguard.platform.advisory.Detection.DetectionTypeScanV1": {
         "properties": {
+          "artifactVersion": {
+            "description": "artifact_version is the version of the artifact (origin package or\nsubpackage) that was scanned when the vulnerability was detected.",
+            "type": "string"
+          },
           "componentId": {
             "type": "string"
           },
@@ -5902,6 +5906,10 @@
       },
       "chainguard.platform.vulnerabilities.v1.AdvisoryEvent.Detection.ScanV1": {
         "properties": {
+          "artifactVersion": {
+            "description": "artifact_version is the version of the artifact (origin package or\nsubpackage) that was scanned when the vulnerability was detected.",
+            "type": "string"
+          },
           "componentId": {
             "type": "string"
           },

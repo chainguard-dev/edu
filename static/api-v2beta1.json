@@ -1990,6 +1990,10 @@
       "chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.Detection.ScanV1": {
         "description": "The vulnerability was detected by a scanner, with the given match data.",
         "properties": {
+          "artifactVersion": {
+            "description": "The version of the artifact (origin package or subpackage) that was scanned when the vulnerability was detected. Pairs with the advisory's artifact_name.",
+            "type": "string"
+          },
           "component": {
             "description": "The name of the component within the subpackage the vulnerability was detected din.",
             "type": "string"
