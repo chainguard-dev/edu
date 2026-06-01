@@ -38,32 +38,46 @@ Policy gates are managed using `chainctl`. System policies are shipped with the 
 See which policies are available to your organization:
 
 ```shell
-chainctl policy-gates list
+chainctl policy-gate list
+```
+
+Inspect a policy to see its full definition and configurable parameters before enabling it:
+
+```shell
+chainctl policy-gate describe --policy=$POLICY
 ```
 
 See which policies are currently active:
 
 ```shell
-chainctl policy-gates binding list
+chainctl policy-gate binding list
 ```
 
 Activate a policy in `DRY_RUN` mode. This example activates the "no end-of-life" artifacts policy. Chainguard recommends that you roll out policies using `DRY_RUN` mode first and track for a time to be certain it has the impact you intend before moving to `ENFORCE`.
 
 ```shell
-chainctl policy-gates enable --policy=no-eol --mode=DRY_RUN
+chainctl policy-gate enable --policy=no-eol --mode=DRY_RUN
+```
+
+Some policies accept parameters. Use `--param=KEY=VALUE` to supply them:
+
+```shell
+chainctl policy-gate enable --policy=cooldown --mode=DRY_RUN --param=days=7
 ```
 
 Promote a policy to `ENFORCE`:
 
 ```shell
-chainctl policy-gates enable --policy=no-eol --mode=ENFORCE
+chainctl policy-gate enable --policy=no-eol --mode=ENFORCE
 ```
 
 Check the results of specific policies on an image, including `DRY_RUN` policies which wouldn't cause the registry to block a pull:
 
 ```shell
-chainctl policy-gates check cgr.dev/$ORGANIZATION/bash:latest
+chainctl policy-gate check cgr.dev/$ORGANIZATION/bash:latest
+```
 
+```output
   POLICY  |  MODE   | RESULT
 ----------|---------|---------
  cooldown | DRY_RUN | DENIED
