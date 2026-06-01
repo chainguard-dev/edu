@@ -1,6 +1,6 @@
 ---
 title: "Chainguard Containers FAQs"
-linktitle: "FAQs"
+linktitle: "FAQ"
 type: "article"
 description: "Chainguard container FAQs: why they have zero CVEs, how they compare to DockerHub, what makes them more secure, pricing, and enterprise deployment best practices"
 date: 2022-09-01T08:49:31+00:00
@@ -11,6 +11,7 @@ images: []
 menu:
   docs:
     parent: "chainguard-images"
+    identifier: "Chainguard Images FAQ"
 weight: 060
 toc: true
 ---

@@ -12,6 +12,7 @@ images: []
 menu:
   docs:
     parent: "open-source"
+    identifier: "Octo STS Overview"
 weight: 001
 toc: true
 ---

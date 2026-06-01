@@ -10,6 +10,7 @@ tags: ["Chainguard Libraries", "JavaScript"]
 menu:
   docs:
     parent: "javascript"
+    identifier: "JavaScript Build Configuration"
 weight: 053
 toc: true
 ---

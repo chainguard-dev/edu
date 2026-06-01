@@ -12,6 +12,7 @@ images: []
 menu:
   docs:
     parent: "octo-sts"
+    identifier: "Octo STS FAQ"
 weight: 60
 toc: true
 ---

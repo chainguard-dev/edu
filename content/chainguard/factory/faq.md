@@ -1,6 +1,6 @@
 ---
 title: "Chainguard Factory FAQs"
-linktitle: "FAQs"
+linktitle: "FAQ"
 type: "article"
 description: "Frequently asked questions about Chainguard Factory, the automated build system that monitors and updates thousands of open source projects for enhanced security"
 lead: "Chainguard Factory is the automated infrastructure that continuously transforms thousands of open source projects into containers, libraries, and VMs with enhanced security posture and the latest patches."
@@ -12,6 +12,7 @@ images: []
 menu:
   docs:
     parent: "chainguard-factory"
+    identifier: "Chainguard Factory FAQ"
 weight: 010
 toc: true
 ---

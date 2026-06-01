@@ -11,6 +11,7 @@ images: []
 menu:
   docs:
     parent: "java"
+    identifier: "Java Global Configuration"
 weight: 052
 toc: true
 ---

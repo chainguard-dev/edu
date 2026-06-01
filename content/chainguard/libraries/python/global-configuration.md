@@ -11,6 +11,7 @@ images: []
 menu:
   docs:
     parent: "python"
+    identifier: "Python Global Configuration"
 weight: 052
 toc: true
 ---

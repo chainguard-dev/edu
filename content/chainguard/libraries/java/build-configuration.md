@@ -10,6 +10,7 @@ tags: ["Chainguard Libraries", "Java"]
 menu:
   docs:
     parent: "java"
+    identifier: "Java Build Configuration"
 weight: 053
 toc: true
 ---

@@ -11,6 +11,7 @@ images: []
 menu:
   docs:
     parent: "java"
+    identifier: "Java Management"
 weight: 053
 toc: true
 ---

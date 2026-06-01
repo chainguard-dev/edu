@@ -1,6 +1,6 @@
 ---
 title: "Chainguard OS FAQs"
-linktitle: "FAQs"
+linktitle: "FAQ"
 type: "article"
 description: "Frequently asked questions about Chainguard OS, the secure operating system powering production Chainguard containers with enterprise features and continuous updates"
 lead: "Chainguard OS powers production container images with enhanced security, continuous updates, and enterprise-grade features - find answers to common questions about this purpose-built container operating system."
@@ -12,6 +12,7 @@ images: []
 menu:
   docs:
     parent: "chainguard-os"
+    identifier: "Chainguard OS FAQ"
 weight: 030
 toc: true
 ---
