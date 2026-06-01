@@ -13,9 +13,9 @@ weight: 025
 
 [Jenkins](https://www.jenkins.io/) is an open source automation server that supports building, deploying, and automating projects.
 
-This guide explains how to use `chainctl` to create an assumable identity and configure Jenkins to use that identity to authenticate to Chainguard. To accomplish this, we will create an OIDC token credential in Jenkins and then a matching Chainguard identity that uses the Jenkins OIDC URL and put the process into an example Jenkins build pipeline.
+This guide explains how to use `chainctl` to create an assumable identity and configure Jenkins to use that identity to authenticate to Chainguard. To accomplish this, create an OIDC token credential in Jenkins and a matching Chainguard identity that uses the Jenkins OIDC URL, then put the process into an example Jenkins build pipeline.
 
-If you would like to follow this guide using Terraform, you can review [Use Terraform to Create an Assumable Identity for a Jenkins Pipeline](/chainguard/administration/assumable-ids/identity-examples/jenkins-terraform/).
+To do this using Terraform, follow the instructions in [Use Terraform to Create an Assumable Identity for a Jenkins Pipeline](/chainguard/administration/assumable-ids/identity-examples/jenkins-terraform/).
 
 
 ## Prerequisites
@@ -26,13 +26,13 @@ If you would like to follow this guide using Terraform, you can review [Use Terr
 - Administrative privileges within your Chainguard organization to create IAM identities (`identity.create`); this capability is available to users with [the owner role](https://edu.chainguard.dev/chainguard/administration/iam-organizations/roles-role-bindings/capabilities-reference/#chainguard-role-capabilities).
 
 
-## Configure Jenkins Credentials
+## Configure Jenkins credentials
 
 Jenkins needs a way to supply `chainctl` with an API token so it can exchange it for short-lived credentials when a pipeline runs.
 
 In this example, Jenkins mints an OIDC ID token during each build and `chainctl` uses that token to allow the build pipeline to assume your Chainguard identity — no long-lived secrets are required.
 
-> **NOTE**: Why not a “long-lived API token”? Chainguard does not issue general-purpose, long-lived API tokens. This ensures your automation relies only on short-lived, scoped credentials.
+> **Note**: Chainguard does not issue general-purpose, long-lived API tokens. This ensures your automation relies only on short-lived, scoped credentials.
 
 
 ### Create an OIDC token credential
@@ -49,9 +49,9 @@ To get started, create an OIDC token with Jenkins:
 8. Click **Create**
 
 
-## Create a Matching Chainguard Identity
+## Create a matching Chainguard identity
 
-Create an identity that uses your Jenkins OIDC URL. This is typically `https://YOUR_JENKINS/oidc`:
+Create a Chainguard identity that uses your Jenkins OIDC URL. This is typically `https://YOUR_JENKINS/oidc`:
 
 ```shell
 chainctl iam identities create jenkins-ci \
@@ -65,14 +65,14 @@ Bind the identity to a role. We chose `registry.pull` for this example, but you 
 
 ```shell
 chainctl iam role-bindings create \
-  --identity=jenkins-oidc \
+  --identity=jenkins-ci \
   --role=registry.pull
 ```
 
 You can now use this identity in your build pipeline to authenticate to Chainguard.
 
 
-## Use the Identity and Create a Token in Your Jenkins Pipeline
+## Use the identity and create a token in your Jenkins pipeline
 
 Here is an example Jenkinsfile that uses what we just created. In this pipeline:
 
@@ -125,11 +125,11 @@ pipeline {
 }
 ```
 
-> **NOTE**: `$IDTOKEN` is not something you create manually; it comes from the Jenkins credentials plugin at runtime. You just need to make sure that you created the credential in Jenkins with ID `jenkins-oidc` and that the credential type is OpenID Connect ID token.
+> **Note**: `$IDTOKEN` is not something you create manually; it comes from the Jenkins credentials plugin at runtime. Ensure that you created the Jenkins credentials with ID `jenkins-oidc` and that the credential type is OpenID Connect ID token.
 
 After you run this pipeline, check to see that the requested Chainguard image was pulled to confirm everything is set up properly.
 
-## Learn More
+## Learn more
 
 In this guide you used `chainctl` to create an assumable identity and configure Jenkins to use that identity to authenticate to Chainguard. Refer to the following to learn more about how Chainguard has designed assumable IDs, `chainctl`, and authentication.
 
