@@ -1,5 +1,5 @@
 ---
-date: 2026-05-28T17:13:42Z
+date: 2026-05-29T17:37:58Z
 title: "chainctl policy-gate binding create"
 slug: chainctl_policy-gate_binding_create
 url: /chainguard/chainctl/chainctl-docs/chainctl_policy-gate_binding_create/
@@ -26,8 +26,12 @@ The --mode flag controls enforcement behavior:
 The default mode is DRY_RUN. Binding to an organization applies the policy to
 all repos within it.
 
+Use --param=KEY=VALUE (repeatable) to supply parameter values declared by
+the policy's schema. For STRING_LIST parameters, items are comma-separated
+within a single --param value.
+
 ```
-chainctl policy-gate binding create --policy POLICY [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--mode MODE] [--output=json|table] [flags]
+chainctl policy-gate binding create --policy POLICY [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--mode MODE] [--param KEY=VALUE] [--output=json|table] [flags]
 ```
 
 ### Examples
@@ -43,12 +47,16 @@ chainctl policy-gate binding create --policy=no-critical-cves --parent=engineeri
 # Create a binding with interactive organization selection
 chainctl policy-gate binding create --policy=no-critical-cves
 
+# Create a binding with parameter values
+chainctl policy-gate binding create --policy=cooldown --parent=engineering --mode=ENFORCE --param=days=14
+
 ```
 
 ### Options
 
 ```
       --mode string         The policy mode (ENFORCE or LOG).
+      --param stringArray   Parameter value as key=value. Repeatable.
       --parent string       The name or id of the organization to scope the binding to.
       --policy string       The name or UIDP of the policy to bind.
       --resources strings   The resource types this binding applies to. (default [registry.chainguard.dev/Repo])

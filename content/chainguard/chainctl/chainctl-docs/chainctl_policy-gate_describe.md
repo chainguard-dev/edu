@@ -1,32 +1,48 @@
 ---
 date: 2026-05-29T17:37:58Z
-title: "chainctl auth status"
-slug: chainctl_auth_status
-url: /chainguard/chainctl/chainctl-docs/chainctl_auth_status/
+title: "chainctl policy-gate describe"
+slug: chainctl_policy-gate_describe
+url: /chainguard/chainctl/chainctl-docs/chainctl_policy-gate_describe/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl auth status
+## chainctl policy-gate describe
 
-Inspect the local Chainguard Token.
+Describe a policy and its parameter schema.
+
+### Synopsis
+
+Show the full definition of a policy: its description, type, and the set
+of configurable parameters it accepts. The output includes a copyable
+example invocation suitable for `chainctl policy-gate enable`.
+
+Use this command to discover what's configurable on a system policy
+before enabling it for your organization.
 
 ```
-chainctl auth status [--output=json|table|terse] [flags]
+chainctl policy-gate describe --policy POLICY [--parent ORG] [--output=json|table] [flags]
+```
+
+### Examples
+
+```
+
+# Describe the cooldown policy
+chainctl policy-gate describe --policy=cooldown --parent=example.com
+
+# JSON output (useful for scripts that need the full schema)
+chainctl policy-gate describe --policy=cooldown --parent=example.com -o json
+
 ```
 
 ### Options
 
 ```
-      --headless                   Skip browser authentication and use device flow.
-      --identity string            The unique ID of the identity to assume when logging in.
-      --identity-provider string   The unique ID of the customer managed identity provider to authenticate with
-      --identity-token string      Use an explicit passed identity token or token path.
-      --org-name string            Organization to use for authentication. If configured the organization's custom identity provider will be used
-      --quick                      Whether to perform quick offline token checks (vs. calling the Validate API).
-      --social-login string        Which of the default identity providers to use for authentication. Must be one of: email, google, github, gitlab
+      --parent string   The name or id of the organization to scope the lookup to.
+      --policy string   The name or UIDP of the policy to describe.
 ```
 
 ### Options inherited from parent commands
@@ -46,5 +62,5 @@ chainctl auth status [--output=json|table|terse] [flags]
 
 ### SEE ALSO
 
-* [chainctl auth](/chainguard/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
+* [chainctl policy-gate](/chainguard/chainctl/chainctl-docs/chainctl_policy-gate/)	 - Manage policy gates.
 

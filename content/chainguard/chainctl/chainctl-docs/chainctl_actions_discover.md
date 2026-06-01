@@ -1,5 +1,5 @@
 ---
-date: 2026-05-28T17:13:42Z
+date: 2026-05-29T17:37:57Z
 title: "chainctl actions discover"
 slug: chainctl_actions_discover
 url: /chainguard/chainctl/chainctl-docs/chainctl_actions_discover/

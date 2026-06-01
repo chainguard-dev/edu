@@ -1,5 +1,5 @@
 ---
-date: 2026-05-28T17:13:42Z
+date: 2026-05-29T17:37:58Z
 title: "chainctl policy-gate disable"
 slug: chainctl_policy-gate_disable
 url: /chainguard/chainctl/chainctl-docs/chainctl_policy-gate_disable/
