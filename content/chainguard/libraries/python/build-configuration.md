@@ -10,6 +10,7 @@ tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
     parent: "python"
+    identifier: "Python Build Configuration"
 weight: 053
 toc: true
 ---

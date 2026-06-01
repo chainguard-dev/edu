@@ -11,6 +11,7 @@ images: []
 menu:
   docs:
     parent: "javascript"
+    identifier: "JavaScript Global Configuration"
 weight: 052
 toc: true
 ---

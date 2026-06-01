@@ -10,6 +10,7 @@ tags: ["Chainguard VMs", "FAQ"]
 menu:
   docs:
     parent: "vms"
+    identifier: "VMs FAQ"
 weight: 010
 toc: true
 ---

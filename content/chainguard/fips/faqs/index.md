@@ -1,6 +1,6 @@
 ---
 title: "Chainguard FIPS Container FAQs"
-linktitle: "FAQs"
+linktitle: "FAQ"
 aliases: 
 - /chainguard/chainguard-images/features/fips/faqs/
 type: "article"
@@ -13,6 +13,7 @@ images: []
 menu:
   docs:
     parent: "features"
+    identifier: "FIPS FAQ"
 weight: 060
 toc: true
 ---

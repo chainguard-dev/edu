@@ -12,6 +12,7 @@ images: []
 menu:
   docs:
     parent: "chainguard-factory"
+    identifier: "Chainguard Factory Overview"
 weight: 005
 toc: true
 ---

@@ -11,6 +11,7 @@ images: []
 menu:
   docs:
     parent: "python"
+    identifier: "Python Management"
 weight: 053
 toc: true
 ---
