@@ -605,14 +605,33 @@ Scan the npm cache:
 chainctl libraries verify ~/.npm
 ```
 
+Verify an npm tarball:
+
+```shell
+chainctl libraries verify PACKAGE-VERSION.tgz
+```
+
 {{% /tab %}}
 
 {{% tab title="pnpm" %}}
 
-Scan the pnpm store:
+Use `--store-dir` to install to an explicit path and verify that location:
 
 ```shell
-chainctl libraries verify $(pnpm store path)
+pnpm install --store-dir /tmp/my-pnpm-store
+chainctl libraries verify /tmp/my-pnpm-store
+```
+
+Learn more about verifying a pnpm store in the [Verification page](/chainguard/libraries/verification/#analyze-javascript-packages).
+
+{{% /tab %}}
+
+{{% tab title="Yarn Classic" %}}
+
+Verify a Yarn Classic cache:
+
+```shell
+chainctl libraries verify yarn:
 ```
 
 {{% /tab %}}
