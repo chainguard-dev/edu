@@ -164,7 +164,7 @@ credentials short-lived and avoids passing around static tokens.
 
 #### Local development
 
-For npm, run the following command to write a project-level `.npmrc` with the
+For npm, pnpm, and Bun, run the following command to write a project-level `.npmrc` with the
 registry URL and credentials from your current Chainguard session:
 
 ```shell
@@ -173,6 +173,8 @@ chainctl auth configure-npm
 
 Because [this command](/chainguard/chainctl/chainctl-docs/chainctl_auth_configure-npm/) uses a session-backed bearer token, you will need to re-run it when the token expires. If the command returns an error, ensure you are
 using the [latest version of chainctl](/chainguard/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
+
+For Yarn, [configure the .npmrc manually](#manual-registry-configuration).
 
 #### CI/CD and automated environments
 
@@ -200,17 +202,17 @@ For pnpm, Yarn, and Bun, authenticate the workload then apply the
 
 If your platform does not support assumable identities, you can use a static pull token.
 
-**For npm**:
+**Configure the .npmrc with `chainctl`**:
 
 ```shell
 chainctl auth configure-npm --pull-token
 ```
 
-This generates a project-level `.npmrc` with a pull token.
+This generates a project-level `.npmrc` with a pull token. It is supported for npm, pnpm, and Bun.
 
 <a name="manual-registry-configuration"></a>
 
-**For pnpm, Yarn Berry, Yarn Classic, and Bun**:
+**Configure the .npmrc manually**:
 
 First create a pull token as described in the [prerequisites](#pull-token), then configure your build tool manually using the instructions below.
 
@@ -367,7 +369,7 @@ proxy configuration.
 
 ## Step 3: Update your lockfile
 
-Your existing lockfile (`package-lock.json`, `pnpm-lock.yaml`, or `yarn.lock`)
+Your existing lockfile (`package-lock.json`, `pnpm-lock.yaml`, `yarn.lock`, or `bun.lock`)
 contains checksums and resolved URLs pointing to the original registry. Running
 your package manager's install command after changing the registry does **not**
 re-fetch already-resolved packages — the lockfile entries are treated as
@@ -380,13 +382,13 @@ to rewrite only the integrity hashes in your existing lockfile to match
 Chainguard's artifacts, without regenerating the lockfile from scratch. This
 preserves your pinned dependency versions.
 
-> Note: This command is not support for Bun. When using Bun, you must [delete and regenerate the lockfile](#alternative-delete-and-regenerate-the-lockfile) as described in the next section.
-
 To update in place, run:
 
 ```shell
 chainctl libraries update-hashes
 ```
+
+If your build tool appends the Chainguard hashes to your lock file, include the flag `--replace` to ensure the hashes are replaced with Chainguard hashes.
 
 The command outputs a "Next steps" section with the tool-specific reinstall
 command to run after it completes.
@@ -548,10 +550,16 @@ Install dependencies:
 pnpm install
 ```
 
-Then check the `tarball` field in `pnpm-lock.yaml`:
+For pnpm versions prior to v9, check the `tarball` field in `pnpm-lock.yaml`:
 
 ```shell
 grep "tarball" pnpm-lock.yaml | head -5
+```
+
+For pnpm v9+, check the `integrity` field:
+
+```shell
+grep "integrity" pnpm-lock.yaml | head -5
 ```
 
 {{% /tab %}}
@@ -704,7 +712,7 @@ The requested package or version may not yet be available in Chainguard
 Libraries, or may still be within the cooldown window. Check the [Chainguard
 Console](https://console.chainguard.dev/libraries/javascript), try an earlier
 version, or enable upstream fallback. See [Packages not available in Chainguard
-Libraries](#packages-not-available-in-chainguard-libraries).
+Libraries](#packages-not-available-in-chainguard-libraries). 
 
 **Authentication errors or `npm ping` failure**  
 Confirm your environment variables are set and the token has not expired.
