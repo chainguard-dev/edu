@@ -199,6 +199,8 @@ The following options are available:
 * **No upstream fallback (default)**: Only Chainguard-built packages are served.
 * **Upstream fallback enabled with cooldown**: Upstream packages are available after passing a cooldown period and malware scan. The same cooldown period is also enforced for Chainguard-built packages when the upstream repository is enabled, so dependency trees resolve consistently across both sources.
 
+> Note: When using `chainctl` to configure upstream fallback or cooldown duration, it can take up to 30 minutes for the repository changes to take effect.
+
 #### Configuring the cooldown period
 
 When upstream fallback is enabled, users with the Owner role can configure the cooldown with `chainctl`:
