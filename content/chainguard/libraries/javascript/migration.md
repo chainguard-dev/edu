@@ -528,6 +528,8 @@ If this command is not available on your version of Bun, you can instead delete 
 Reinstall dependencies and confirm that the lockfile reflects Chainguard as the source. Resolved URLs should point to `libraries.cgr.dev/javascript` (direct access) or
 your repository manager host, not `registry.npmjs.org`.
 
+> Note: When using the `update-hashes` command, some package managers and tool versions default to appending the hash rather than replacing it. In some cases, the resulting dual-hash format fails on install. If you encounter integrity errors, [run the command again](#recommended-update-checksums-in-place) and include the `--replace` flag.
+
 
 {{< tabs >}}
 
@@ -594,7 +596,7 @@ Install dependencies:
 bun install
 ```
 
-Then check the `packages` section in `bun.lock` to verify that package source URLs reference Chainguard (or your repository manager) rather than npm. For Bun, the `update-hashes` command appends the Chainguard checksum rather than replacing it.
+Then check the `packages` section in `bun.lock` to verify that package source URLs reference Chainguard (or your repository manager) rather than npm. 
 
 
 {{% /tab %}}
@@ -718,7 +720,9 @@ The requested package or version may not yet be available in Chainguard
 Libraries, or may still be within the cooldown window. Check the [Chainguard
 Console](https://console.chainguard.dev/libraries/javascript), try an earlier
 version, or enable upstream fallback. See [Packages not available in Chainguard
-Libraries](#packages-not-available-in-chainguard-libraries). 
+Libraries](#packages-not-available-in-chainguard-libraries). Also note that
+upstream fallback and cooldown policies can take up to 30 minutes to go into
+effect.
 
 **Authentication errors or `npm ping` failure**  
 Confirm your environment variables are set and the token has not expired.
