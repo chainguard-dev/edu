@@ -59,6 +59,8 @@ chainctl libraries entitlements create --ecosystems=JAVASCRIPT \
   --policy=CHAINGUARD_AND_UPSTREAM --cooldown-days=10
 ```
 
+It can take up to 30 minutes for the fallback and cooldown policies to take effect.
+
 ### Create a pull token
 
 If you plan to use a repository manager, or a non-interactive environment such
