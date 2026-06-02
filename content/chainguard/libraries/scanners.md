@@ -257,3 +257,9 @@ It is supported for container scanning in CI/CD only, for Python applications bu
 - Poetry
 
 When Upwind recognizes a remediated Chainguard library version, the scan results reflect the installed `+cgr.N` package version rather than only the original upstream version. Vulnerabilities that Chainguard has already remediated in that installed version no longer appear as active findings.
+
+## Wiz
+
+[Wiz](https://www.wiz.io/) supports Chainguard Libraries for Python and Java when scanning applications and images that include CVE-remediated libraries. Remediated Chainguard libraries are recognized appropriately in supported scan results rather than being treated the same as original vulnerable upstream versions.
+
+Chainguard publishes remediation data through its public VEX feed, which supported scanners can use to identify remediated versions correctly. 
