@@ -3,7 +3,7 @@
 
 # Security scanning tools
 bandit==1.9.4
-safety==3.7.0
+safety==3.8.1
 
 # Development tools
 black==26.5.1
