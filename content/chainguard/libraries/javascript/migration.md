@@ -386,18 +386,31 @@ satisfied, and source URLs will still point to `registry.npmjs.org`.
 Use [`chainctl libraries update-hashes`](/chainguard/libraries/javascript/build-configuration/#updating-lockfile-hashes-for-existing-projects)
 to rewrite only the integrity hashes in your existing lockfile to match
 Chainguard's artifacts, without regenerating the lockfile from scratch. This
-preserves your pinned dependency versions.
+preserves your pinned dependency versions. Supported formats include `package-lock.json` (npm v2/v3), `yarn.lock` (Yarn
+Classic and Berry), `pnpm-lock.yaml`, and `bun.lock`.
 
-To update in place, run:
+Run the command in the directory containing the lockfile:
 
 ```shell
 chainctl libraries update-hashes
 ```
 
-If your build tool appends the Chainguard hashes to your lock file, include the flag `--replace` to ensure the hashes are replaced with Chainguard hashes.
+If your build tool appends the Chainguard hashes to your lock file, include the flag `--replace` to ensure the hashes are replaced with Chainguard hashes. When using a repo manager, pass the full repository URL with `--registry-url`.
 
-The command outputs a "Next steps" section with the tool-specific reinstall
-command to run after it completes.
+You can also specify a lockfile path directly:
+
+```bash
+chainctl libraries update-hashes path/to/lockfile
+```
+
+After running the command,
+ensure your `.npmrc` is configured with Chainguard credentials. The updated hashes are applied when you reinstall. The `chainctl libraries update-hashes` command will
+output a "Next steps" section that includes the tool-specific command for
+reinstalling.
+
+Learn about using this command with repo managers in the [Global
+configuration](/chainguard/libraries/javascript/global-configuration/) page.
+
 
 ### Alternative: Delete and regenerate the lockfile
 
@@ -679,7 +692,8 @@ JavaScript packages](/chainguard/libraries/verification/#analyze-javascript-pack
 
 Commit the updated lockfile and any registry configuration files that do not
 contain literal credentials. Apply the same registry, cache, and hash update
-steps to other repositories and developer workstations as you migrate them.
+steps to other developer workstations and build servers as you migrate them - including Jenkins, TeamCity, GitHub or other infrastructure
+that builds the applications or downloads dependencies.
 
 For organization-wide rollout using a repository manager, see the [global
 configuration documentation](/chainguard/libraries/javascript/global-configuration/).
