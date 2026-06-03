@@ -16,23 +16,19 @@ toc: true
 ---
 
 The configuration for the use of Chainguard Libraries depends on your build
-tools, continuous integration, and continuous deployment setups.
+tools, continuous integration, and continuous deployment setups. This page is a
+configuration reference for each supported JavaScript build tool. It covers
+registry configuration, authentication, cache clearning, and minimal example
+projects for npm, pnpm, Yarn, and Bun. The changes described on this page must
+be performed on all workstations of individual developers and other engineers
+running relevant application builds. They must also be performed on any build
+server such as Jenkins, TeamCity, GitHub or other infrastructure that builds the
+applications or otherwise downloads and uses relevant libraries.
 
-At a high level, adopting Chainguard Libraries consists of the
-following steps:
+If you are migrating an existing project to Chainguard Libraries, follow the
+[JavaScript migration guide](/chainguard/libraries/javascript/migration/) for a
+step-by-step walkthrough. 
 
-* Remove local caches on workstations and CI/CD pipelines. This step ensures that
-  any libraries that were already sourced from upstream repositories are requested
-  again, and the version from Chainguard Libraries is used instead.
-* Change configuration to access Chainguard Libraries via your repository
-  manager after the changes from the [global
-  configuration](/chainguard/libraries/javascript/global-configuration/) are
-  implemented, or via direct access.
-
-These changes must be performed on all workstations of individual developers and
-other engineers running relevant application builds. They must also be performed
-on any build server such as Jenkins, TeamCity, GitHub or other infrastructure
-that builds the applications or otherwise downloads and uses relevant libraries.
 
 ## JFrog Artifactory
 
@@ -73,43 +69,15 @@ guides.
 ## Updating lockfile hashes
 
 When migrating an existing JavaScript project to Chainguard Libraries, your
-lockfile contains integrity hashes generated against packages previously downloaded from the npm registry or through your repository manager.
-Because Chainguard rebuilds packages in a secured build environment rather than
+lockfile contains integrity hashes generated against packages previously
+downloaded from the npm registry or through your repository manager. Because
+Chainguard rebuilds packages in a secured build environment rather than
 distributing upstream artifacts directly, the resulting checksums differ even
 for identical package versions. These hashes must be updated before your package
 manager will accept packages from Chainguard.
 
-The [`chainctl libraries update-hashes` command](/chainguard/chainctl/chainctl-docs/chainctl_libraries_update-hashes/) automates lockfile hash updates
-for all supported JavaScript lockfile formats. Rather than deleting your
-lockfile and reinstalling from scratch, you can run the command directly against
-your existing lockfile to update integrity hashes and resolved URLs to use
-Chainguard, while preserving the file's format and structure.
+Learn more in the [JavaScript migration guide](/chainguard/libraries/javascript/migration/#step-3-update-your-lockfile) and in the [`chainctl libraries update-hashes` command docs](/chainguard/chainctl/chainctl-docs/chainctl_libraries_update-hashes/).
 
-Supported formats include `package-lock.json` (npm v2/v3), `yarn.lock` (Yarn
-Classic and Berry), `pnpm-lock.yaml`, and `bun.lock`.
-
-Run the command in the directory containing the lockfile:
-
-```bash
-chainctl libraries update-hashes
-```
-
-Or specify a lockfile path directly:
-
-```bash
-chainctl libraries update-hashes path/to/lockfile
-```
-
-When using a repo manager, pass the full repository URL with `--registry-url`.
-Learn about using this command with repo managers in the [Global
-configuration](/chainguard/libraries/javascript/global-configuration/) page.
-
-By default, Chainguard hashes are appended alongside existing upstream hashes
-and resolved URLs are updated to point to Chainguard. After running the command,
-ensure your `.npmrc` is configured with Chainguard credentials, then reinstall
-to apply the updated hashes. The `chainctl libraries update-hashes` command will
-output a "Next steps" section that includes the tool-specific command for
-reinstalling.
 
 <a id="npm"></a>
 
@@ -200,16 +168,16 @@ Example URLs:
 
 ### Apply registry changes
 
-To apply the registry changes, remove the `node_modules` directory and the
-`package-lock.json` file and run the `npm install` command again. This re-fetches all
-packages from Chainguard and regenerates the lockfile with updated hashes:
+To apply the registry changes, remove the `node_modules` directory, [update the artifact hashes](#update-lockfile-hashes), then run the `npm install` command again. This re-fetches all
+packages from Chainguard and updates the lockfile in place with updated hashes:
 
 ```bash
-rm -rf node_modules package-lock.json
+rm -rf node_modules 
+chainctl libraries update-hashes
 npm install
 ```
 
-As an alternative to deleting the lock file, you can [run `chainctl libraries update-hashes`](#update-lockfile-hashes) to update hashes in place.
+As an alternative, you can remove the `node_modules` directory _and_ the `package-lock.json` file, then reinstall. This will regenerate the lockfile and update the hashes.
 
 **Clear caches**
 
@@ -224,14 +192,6 @@ To verify the cache is empty:
 ```bash
 npm cache verify
 ```
-
-### Update lockfile hashes
-
-If you are migrating an existing project and want to preserve your current
-lockfile, use [`chainctl libraries update-hashes`](#updating-lockfile-hashes)
-to update only the integrity hashes in place instead.
-
-Now you can proceed with your development and testing. 
 
 ### Using private npm packages alongside Chainguard Repository
 
@@ -467,17 +427,16 @@ Example URLs:
 
 ### Apply registry changes
 
-To apply the registry change, remove the `node_modules` directory and the
-`pnpm-lock.yaml` file and run the `pnpm install` command again. This re-fetches all
-packages from Chainguard and regenerates the lockfile with updated hashes.
+To apply the registry changes, remove the `node_modules` directory, [update the artifact hashes](#update-lockfile-hashes), then run the `pnpm install` command again. This re-fetches all
+packages from Chainguard and updates the lockfile in place with updated hashes:
 
 ```bash
-rm -rf node_modules pnpm-lock.yaml
+rm -rf node_modules 
+chainctl libraries update-hashes
 pnpm install
 ```
 
-As an alternative to deleting the lock file, you can [run `chainctl libraries update-hashes`](#update-lockfile-hashes-1) to update hashes in place.
-
+As an alternative, you can remove the `node_modules` directory _and_ the `pnpm-lock.yaml` file, then reinstall. This will regenerate the lockfile and update the hashes.
 
 **Clear pnpmn caches**
 
@@ -848,32 +807,25 @@ Refer to the [`.yarnrc`
 documentation](https://classic.yarnpkg.com/lang/en/docs/yarnrc/) for more
 details.
 
-To apply the registry change, remove the `node_modules` directory and the `yarn.lock`
-file and run the `yarn` command again. This forces a new download of all
-packages from the new registry and regeneration of the lock file:
+To apply the registry changes, remove the `node_modules` directory, [update the artifact hashes](#update-lockfile-hashes), then run the `yarn install` command again. This re-fetches all
+packages from Chainguard and updates the lockfile in place with updated hashes:
 
 ```bash
-rm -rf node_modules yarn.lock
+rm -rf node_modules 
+chainctl libraries update-hashes
 yarn install
 ```
 
-Alternatively,
-you can run `yarn upgrade` to update all dependencies to their latest allowed
-versions and regenerate the lock file.
+As an alternative, you can remove the `node_modules` directory _and_ the `yarn-lock.json` file, then reinstall. This will regenerate the lockfile and update the hashes. 
+
+Another option, after deleting `node_modules` and `yarn-lock.json`, is to run `yarn upgrade`. This updates all dependencies to their latest allowed
+versions and regenerates the lock file with updated hashes.
 
 If you encounter stale or corrupted package data, clear the cache with:
 
 ```bash
 yarn cache clean
 ```
-
-### Update lockfile hashes
-
-If you are migrating an existing project and want to preserve your current
-lockfile, use [`chainctl libraries update-hashes`](#updating-lockfile-hashes)
-to update only the integrity hashes in place instead.
-
-Now you can proceed with your development and testing. 
 
 <a id="yarn-classic-minimal"></a>
 
@@ -1005,16 +957,16 @@ Example registry URLs:
 
 ### Apply registry changes
 
-To apply the registry change to an existing project, remove `node_modules` and
-the `bun.lock` file and run:
+To apply the registry changes, remove the `node_modules` directory, [update the artifact hashes](#update-lockfile-hashes), then run the `bun install` command again. This re-fetches all
+packages from Chainguard and updates the lockfile in place with updated hashes:
 
-```shell
+```bash
+rm -rf node_modules 
+chainctl libraries update-hashes
 bun install
 ```
 
-This forces packages to be re-fetched from the configured registry and
-regenerates the lockfile. Now you can continue development and testing with
-Chainguard Libraries.
+As an alternative, you can remove the `node_modules` directory _and_ the `bun-lock.json` file, then reinstall. This will regenerate the lockfile and update the hashes. 
 
 <a id="bun-minimal"></a>
 
