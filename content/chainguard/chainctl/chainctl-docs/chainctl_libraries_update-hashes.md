@@ -1,5 +1,5 @@
 ---
-date: 2026-05-29T17:37:58Z
+date: 2026-06-02T11:07:19Z
 title: "chainctl libraries update-hashes"
 slug: chainctl_libraries_update-hashes
 url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_update-hashes/
@@ -52,6 +52,14 @@ Authentication:
   --password (or set CHAINCTL_REGISTRY_USERNAME and CHAINCTL_REGISTRY_PASSWORD).
   Credentials are also read from ~/.netrc ($NETRC if set) for the registry's host.
 
+  To send no authentication at all (for a network-limited private registry that
+  requires none and rejects any Authorization header), pass --no-auth. It overrides
+  every ambient credential source — the CHAINCTL_AUTH_TOKEN / CHAINCTL_REGISTRY_USERNAME /
+  CHAINCTL_REGISTRY_PASSWORD env vars, ~/.chainguard/token, ~/.netrc, and
+  'chainctl auth pull-token' — so no credential can leak to the registry. It is
+  mutually exclusive with the explicit --token and --username/--password flags
+  (passing both is a contradiction and is rejected).
+
 Custom registry URLs:
   Use --registry-url <url> to point at a private proxy whose path layout does not
   match libraries.cgr.dev (no /javascript or /python/simple suffix is appended;
@@ -88,6 +96,9 @@ chainctl libraries update-hashes [lockfile-path] [flags]
 
   # Include CUDA variant packages for Python
   chainctl libraries update-hashes --cuda cu128 uv.lock
+
+  # Query an unauthenticated private registry, sending no credentials
+  chainctl libraries update-hashes --registry-url https://registry.internal/cg --no-auth uv.lock
 ```
 
 ### Options
@@ -98,6 +109,7 @@ chainctl libraries update-hashes [lockfile-path] [flags]
       --ecosystem string               Ecosystem: "auto", "js", or "python" (default "auto")
       --ecosystems-url string          URL for the Ecosystems Proxy (defaults to https://libraries.cgr.dev). Paths /javascript/{name}/{version} (JS) and /{python,python-remediated,cu###}/simple (Python) are appended automatically. Mutually exclusive with --registry-url.
       --fallback-registry-url string   Registry URL used to synthesize tarball URLs for JS packages not found in Chainguard Libraries (e.g. https://registry.npmjs.org). Empty (the default) disables fallback synthesis; if any package requires a fallback URL, the command fails with a list of offenders. WARNING: pointing this at a public registry such as https://registry.npmjs.org can cause installation of malicious packages — prefer a private/internal registry you trust.
+      --no-auth                        Send no authentication to the registry. Use for a network-limited private registry that requires none and rejects any Authorization header. Overrides all ambient credential sources ($CHAINCTL_AUTH_TOKEN, $CHAINCTL_REGISTRY_USERNAME/$CHAINCTL_REGISTRY_PASSWORD, ~/.chainguard/token, ~/.netrc, and 'chainctl auth pull-token'). Mutually exclusive with the explicit --token and --username/--password flags.
       --no-color                       Disable colored output
       --parent string                  Parent organization for authentication via 'chainctl auth pull-token'. Not needed when --token, --username/--password, the CHAINCTL_AUTH_TOKEN/CHAINCTL_REGISTRY_USERNAME env vars, or a matching ~/.netrc entry provides credentials.
       --password ps                    Basic-auth password. Must be paired with --username. Also readable from $CHAINCTL_REGISTRY_PASSWORD. Prefer the env-var form to avoid leaking the value via ps or shell history.

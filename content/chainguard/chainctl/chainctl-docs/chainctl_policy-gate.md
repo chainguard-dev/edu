@@ -1,5 +1,5 @@
 ---
-date: 2026-05-29T17:37:58Z
+date: 2026-06-02T11:07:19Z
 title: "chainctl policy-gate"
 slug: chainctl_policy-gate
 url: /chainguard/chainctl/chainctl-docs/chainctl_policy-gate/
@@ -46,6 +46,13 @@ image:
 - `DRY_RUN` — Allow the pull but record the violation.
 
 The default mode for new bindings is `DRY_RUN`.
+
+**Parameter** — A configurable value declared by a policy's schema (for
+example, `days` on the cooldown policy). Supply values when you enable a
+policy with `--param=KEY=VALUE` (repeatable). Omitted parameters fall
+back to the schema's declared default. Use
+`chainctl policy-gate describe --policy NAME` to see which parameters a
+policy accepts and what defaults apply.
 
 ## What happens at pull time
 

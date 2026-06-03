@@ -1,5 +1,5 @@
 ---
-date: 2026-05-29T17:37:58Z
+date: 2026-06-02T11:07:19Z
 title: "chainctl policy-gate binding create"
 slug: chainctl_policy-gate_binding_create
 url: /chainguard/chainctl/chainctl-docs/chainctl_policy-gate_binding_create/
@@ -39,15 +39,15 @@ chainctl policy-gate binding create --policy POLICY [--parent ORGANIZATION_NAME 
 ```
 
 # Enforce a policy on all repos in an organization
-chainctl policy-gate binding create --policy=no-critical-cves --parent=engineering --mode=ENFORCE
+chainctl policy-gate binding create --policy=no-eol --parent=engineering --mode=ENFORCE
 
 # Enable a policy in dry-run mode
-chainctl policy-gate binding create --policy=no-critical-cves --parent=engineering --mode=DRY_RUN
+chainctl policy-gate binding create --policy=no-eol --parent=engineering --mode=DRY_RUN
 
 # Create a binding with interactive organization selection
-chainctl policy-gate binding create --policy=no-critical-cves
+chainctl policy-gate binding create --policy=no-eol
 
-# Create a binding with parameter values
+# Create a binding with a parameter value
 chainctl policy-gate binding create --policy=cooldown --parent=engineering --mode=ENFORCE --param=days=14
 
 ```

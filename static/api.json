@@ -2371,6 +2371,56 @@
         ],
         "type": "object"
       },
+      "chainguard.platform.iam.v2beta1.AccountAssociationsService.CheckAccountAssociationBody": {
+        "description": "CheckAccountAssociationRequest is the request for CheckAccountAssociation.",
+        "properties": {
+          "providerType": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.AccountProviderType"
+              }
+            ],
+            "description": "The cloud provider type to check."
+          }
+        },
+        "required": [
+          "providerType"
+        ],
+        "type": "object"
+      },
+      "chainguard.platform.iam.v2beta1.AccountProviderType": {
+        "default": "ACCOUNT_PROVIDER_TYPE_UNSPECIFIED",
+        "description": "AccountProviderType identifies a cloud provider for account association checks.\n\n - ACCOUNT_PROVIDER_TYPE_UNSPECIFIED: Unspecified provider type.\n - ACCOUNT_PROVIDER_TYPE_GOOGLE: Google Cloud Platform.\n - ACCOUNT_PROVIDER_TYPE_AMAZON: Amazon Web Services.\n - ACCOUNT_PROVIDER_TYPE_AZURE: Microsoft Azure.",
+        "enum": [
+          "ACCOUNT_PROVIDER_TYPE_UNSPECIFIED",
+          "ACCOUNT_PROVIDER_TYPE_GOOGLE",
+          "ACCOUNT_PROVIDER_TYPE_AMAZON",
+          "ACCOUNT_PROVIDER_TYPE_AZURE"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.iam.v2beta1.CheckAccountAssociationResponse": {
+        "description": "CheckAccountAssociationResponse is the response for CheckAccountAssociation.",
+        "properties": {
+          "message": {
+            "description": "Detailed error message, if any.",
+            "type": "string"
+          },
+          "reason": {
+            "description": "Human-readable reason code (e.g., \"not configured\", \"error exchanging credentials\").",
+            "type": "string"
+          },
+          "status": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.CheckStatus"
+              }
+            ],
+            "description": "Whether the association is ready."
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.iam.v2beta1.CheckEligibilityResponse": {
         "description": "CheckEligibilityResponse is the response message for CheckEligibility.",
         "properties": {
@@ -2380,6 +2430,16 @@
           }
         },
         "type": "object"
+      },
+      "chainguard.platform.iam.v2beta1.CheckStatus": {
+        "default": "CHECK_STATUS_UNSPECIFIED",
+        "description": "CheckStatus indicates the readiness state of an account association check.\n\n - CHECK_STATUS_UNSPECIFIED: Unspecified check status.\n - CHECK_STATUS_READY: The account association is correctly configured and credentials can be exchanged.\n - CHECK_STATUS_NOT_READY: The account association is not ready (misconfigured, missing, or credential exchange failed).",
+        "enum": [
+          "CHECK_STATUS_UNSPECIFIED",
+          "CHECK_STATUS_READY",
+          "CHECK_STATUS_NOT_READY"
+        ],
+        "type": "string"
       },
       "chainguard.platform.iam.v2beta1.Group": {
         "description": "Group represents an IAM group (organization or folder).",
@@ -2593,13 +2653,6 @@
             "description": "Human-readable name of the identity.\nMust be 3-63 characters.",
             "type": "string"
           },
-          "providers": {
-            "description": "Cloud provider names associated with the identity.",
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
           "servicePrincipal": {
             "allOf": [
               {
@@ -2739,6 +2792,76 @@
           "subject",
           "issuerKeys"
         ],
+        "type": "object"
+      },
+      "chainguard.platform.iam.v2beta1.IdentityMetadata": {
+        "description": "IdentityMetadata contains profile and onboarding metadata for the\ncaller's identity. OUTPUT_ONLY fields are populated by the server;\nall other fields are caller-provided and passed through the emitted\nCloudEvent for downstream consumers (e.g. HubSpot sync).",
+        "properties": {
+          "company": {
+            "description": "The company name associated with the identity.",
+            "type": "string"
+          },
+          "familyName": {
+            "description": "The caller's family name (derived from display name).",
+            "readOnly": true,
+            "type": "string"
+          },
+          "givenName": {
+            "description": "The caller's given name (derived from display name).",
+            "readOnly": true,
+            "type": "string"
+          },
+          "jobTitle": {
+            "description": "The user's job title.",
+            "type": "string"
+          },
+          "latestFormSubmitUrl": {
+            "description": "The URL of the latest form submission.",
+            "type": "string"
+          },
+          "latestInternalReferringUrl": {
+            "description": "The URL of the latest internal referring page.",
+            "type": "string"
+          },
+          "name": {
+            "description": "The caller's display name (from upstream OIDC token).",
+            "readOnly": true,
+            "type": "string"
+          },
+          "product": {
+            "description": "The product the user is interested in.",
+            "type": "string"
+          },
+          "uid": {
+            "description": "The caller's identity UID.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "updatesOptIn": {
+            "description": "Whether the user has opted to receive updates from Chainguard.",
+            "type": "boolean"
+          },
+          "utmCampaign": {
+            "description": "UTM campaign tracking parameter.",
+            "type": "string"
+          },
+          "utmContent": {
+            "description": "UTM content tracking parameter.",
+            "type": "string"
+          },
+          "utmMedium": {
+            "description": "UTM medium tracking parameter.",
+            "type": "string"
+          },
+          "utmSource": {
+            "description": "UTM source tracking parameter.",
+            "type": "string"
+          },
+          "utmTerm": {
+            "description": "UTM term tracking parameter.",
+            "type": "string"
+          }
+        },
         "type": "object"
       },
       "chainguard.platform.iam.v2beta1.IdentityProvider": {
@@ -3246,6 +3369,27 @@
           "SERVICE_PRINCIPAL_MATERIALIZER"
         ],
         "type": "string"
+      },
+      "chainguard.platform.iam.v2beta1.UpdateIdentityMetadataRequest": {
+        "description": "UpdateIdentityMetadataRequest is the request for UpdateIdentityMetadata.",
+        "properties": {
+          "identityMetadata": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.IdentityMetadata"
+              }
+            ],
+            "description": "The metadata to update."
+          },
+          "updateMask": {
+            "description": "The list of fields to update. If not provided, an implied field mask\nis used equivalent to all populated fields. * is supported over gRPC\nand interpreted as a full replacement with the given field values.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "identityMetadata"
+        ],
+        "type": "object"
       },
       "chainguard.platform.libraries.Artifact": {
         "description": "Artifact contains metadata related to a a software artifact for a language\necosystem. The id returned by this Artifact can be used to retrieve further\ndata, including more detailed version information.",
@@ -3794,163 +3938,6 @@
             "type": "string"
           },
           "version": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "chainguard.platform.notifications.Account": {
-        "properties": {
-          "createdAt": {
-            "description": "when the account was created.",
-            "format": "date-time",
-            "type": "string"
-          },
-          "id": {
-            "description": "id of the account.",
-            "type": "string"
-          },
-          "name": {
-            "description": "name of the account.",
-            "type": "string"
-          },
-          "updatedAt": {
-            "description": "when the account was last updated.",
-            "format": "date-time",
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "chainguard.platform.notifications.Author": {
-        "properties": {
-          "email": {
-            "description": "email of the author.",
-            "type": "string"
-          },
-          "id": {
-            "description": "id of the author.",
-            "type": "string"
-          },
-          "name": {
-            "description": "name of the author.",
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "chainguard.platform.notifications.Notification": {
-        "properties": {
-          "account": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/chainguard.platform.notifications.Account"
-              }
-            ],
-            "description": "account associated with the notification."
-          },
-          "accountId": {
-            "description": "account id associated with the notification.",
-            "type": "string"
-          },
-          "author": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/chainguard.platform.notifications.Author"
-              }
-            ],
-            "description": "author associated with the notification."
-          },
-          "authorId": {
-            "description": "author id associated with the notification.",
-            "type": "string"
-          },
-          "categoryId": {
-            "description": "id of the category the notification belongs to.",
-            "type": "string"
-          },
-          "createdAt": {
-            "description": "when the notification was created.",
-            "format": "date-time",
-            "type": "string"
-          },
-          "id": {
-            "description": "id is the identifier of this specific notification.",
-            "type": "string"
-          },
-          "note": {
-            "description": "the body of the notification.",
-            "type": "string"
-          },
-          "noteDate": {
-            "description": "date when the notification was created.",
-            "format": "date-time",
-            "type": "string"
-          },
-          "subject": {
-            "description": "subject or title of the notification.",
-            "type": "string"
-          },
-          "tags": {
-            "description": "tags associated with the notification.",
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          },
-          "traits": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/chainguard.platform.notifications.Traits"
-              }
-            ],
-            "description": "traits associated with the notification."
-          },
-          "updatedAt": {
-            "description": "when the notification was last updated.",
-            "format": "date-time",
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "chainguard.platform.notifications.NotificationsList": {
-        "properties": {
-          "items": {
-            "items": {
-              "$ref": "#/components/schemas/chainguard.platform.notifications.Notification"
-            },
-            "type": "array"
-          }
-        },
-        "type": "object"
-      },
-      "chainguard.platform.notifications.Traits": {
-        "properties": {
-          "approved": {
-            "description": "whether or not notification has been approved.",
-            "type": "boolean"
-          },
-          "chainctl": {
-            "description": "show notification for chainctl users.",
-            "type": "boolean"
-          },
-          "console": {
-            "description": "show notification in console.",
-            "type": "boolean"
-          },
-          "directory": {
-            "description": "show notification in directory.",
-            "type": "boolean"
-          },
-          "expires": {
-            "description": "expiration date of the notification.",
-            "format": "date-time",
-            "type": "string"
-          },
-          "starts": {
-            "description": "start date of the notification.",
-            "format": "date-time",
             "type": "string"
           }
         },
@@ -12224,6 +12211,61 @@
         ]
       }
     },
+    "/iam/v2beta1/accountAssociations/{uid}:checkAccountAssociation": {
+      "post": {
+        "description": "CheckAccountAssociation validates whether a cloud provider account\nassociation is correctly configured by performing a live credential\nexchange against the provider's STS/token endpoint.",
+        "operationId": "AccountAssociationsService_CheckAccountAssociation",
+        "parameters": [
+          {
+            "description": "UID (group UIDP) of the account association to check.",
+            "in": "path",
+            "name": "uid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.AccountAssociationsService.CheckAccountAssociationBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.CheckAccountAssociationResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Check Account Association",
+        "tags": [
+          "AccountAssociationsService"
+        ]
+      }
+    },
     "/iam/v2beta1/groupInvites": {
       "get": {
         "description": "ListGroupInvites returns group invites based on filter criteria with pagination support.",
@@ -13183,13 +13225,6 @@
                     "description": "Human-readable name of the identity.\nMust be 3-63 characters.",
                     "type": "string"
                   },
-                  "providers": {
-                    "description": "Cloud provider names associated with the identity.",
-                    "items": {
-                      "type": "string"
-                    },
-                    "type": "array"
-                  },
                   "servicePrincipal": {
                     "allOf": [
                       {
@@ -13442,6 +13477,50 @@
           }
         },
         "summary": "Lookup Identity",
+        "tags": [
+          "IdentitiesService"
+        ]
+      }
+    },
+    "/iam/v2beta1/identities:updateIdentityMetadata": {
+      "patch": {
+        "description": "This is an unscoped endpoint: any authenticated caller may invoke it.\nFollows AIP-134: supports field mask for partial updates.",
+        "operationId": "IdentitiesService_UpdateIdentityMetadata",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.UpdateIdentityMetadataRequest"
+              }
+            }
+          },
+          "description": "UpdateIdentityMetadataRequest is the request for UpdateIdentityMetadata.",
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.IdentityMetadata"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Update Identity Metadata",
         "tags": [
           "IdentitiesService"
         ]
@@ -15072,62 +15151,6 @@
         "summary": "List Versions",
         "tags": [
           "NpmPackages"
-        ]
-      }
-    },
-    "/notifications/v1/notifications": {
-      "get": {
-        "operationId": "Notifications_List",
-        "parameters": [
-          {
-            "description": "The id of the notification.",
-            "in": "query",
-            "name": "id",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Location of where notifications are displayed.\n\n - UNSPECIFIED: The \"unset\" value.\n - CONSOLE: Console.\n - DIRECTORY: Directory.\n - CHAINCTL: Chainctl.",
-            "in": "query",
-            "name": "location",
-            "schema": {
-              "default": "UNSPECIFIED",
-              "enum": [
-                "UNSPECIFIED",
-                "CONSOLE",
-                "DIRECTORY",
-                "CHAINCTL"
-              ],
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.notifications.NotificationsList"
-                }
-              }
-            },
-            "description": "A successful response."
-          },
-          "default": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/google.rpc.Status"
-                }
-              }
-            },
-            "description": "An unexpected error response."
-          }
-        },
-        "summary": "List",
-        "tags": [
-          "Notifications"
         ]
       }
     },
@@ -20334,9 +20357,6 @@
     },
     {
       "name": "ImageMatcher"
-    },
-    {
-      "name": "Notifications"
     },
     {
       "name": "SecurityTokenService"
