@@ -1,5 +1,5 @@
 ---
-date: 2026-05-29T17:37:58Z
+date: 2026-06-02T11:07:19Z
 title: "chainctl policy-gate enable"
 slug: chainctl_policy-gate_enable
 url: /chainguard/chainctl/chainctl-docs/chainctl_policy-gate_enable/
@@ -16,11 +16,13 @@ Enable a policy gate for an organization.
 ### Synopsis
 
 Enable a policy gate by creating a binding for an organization.
-If the policy is already enabled, its mode is updated.
+If the policy is already enabled, its mode (or parameter values) is updated.
 
 This is a shortcut for "policy-gate binding create".
 
-The default mode is DRY_RUN.
+The default mode is DRY_RUN. Pass --param=KEY=VALUE (repeatable) to supply
+values for policies that declare a parameter schema; omitted parameters
+fall back to the schema's declared default.
 
 ```
 chainctl policy-gate enable --policy POLICY [--parent ORG] [--mode MODE] [--param KEY=VALUE] [--output=json|table] [flags]
@@ -31,13 +33,12 @@ chainctl policy-gate enable --policy POLICY [--parent ORG] [--mode MODE] [--para
 ```
 
 # Enable a policy in DRY_RUN mode
-chainctl policy-gates enable --policy=no-critical-cves --parent=example.com --mode=DRY_RUN
+chainctl policy-gates enable --policy=no-eol --parent=example.com --mode=DRY_RUN
 
 # Enable a policy in enforce mode
-chainctl policy-gates enable --policy=no-critical-cves --parent=example.com --mode=ENFORCE
+chainctl policy-gates enable --policy=no-eol --parent=example.com --mode=ENFORCE
 
-# Enable a policy with parameter values. Use --param=KEY=VALUE; for STRING_LIST,
-# items are comma-separated within a single --param value.
+# Enable a policy with a parameter value
 chainctl policy-gates enable --policy=cooldown --parent=example.com --mode=ENFORCE --param=days=14
 
 ```

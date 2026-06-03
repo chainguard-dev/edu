@@ -1,5 +1,5 @@
 ---
-date: 2026-05-29T17:37:58Z
+date: 2026-06-02T11:07:19Z
 title: "chainctl policy-gate disable"
 slug: chainctl_policy-gate_disable
 url: /chainguard/chainctl/chainctl-docs/chainctl_policy-gate_disable/
@@ -29,7 +29,7 @@ chainctl policy-gate disable --policy POLICY [--parent ORG] [flags]
 ```
 
 # Disable a policy by name
-chainctl policy-gates disable --policy=lts-only --parent=example.com
+chainctl policy-gates disable --policy=no-eol --parent=example.com
 
 ```
 
