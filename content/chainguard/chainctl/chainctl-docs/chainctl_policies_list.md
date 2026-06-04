@@ -1,48 +1,47 @@
 ---
-date: 2026-06-02T11:07:19Z
-title: "chainctl policy-gate binding delete"
-slug: chainctl_policy-gate_binding_delete
-url: /chainguard/chainctl/chainctl-docs/chainctl_policy-gate_binding_delete/
+date: 2026-06-03T13:15:20Z
+title: "chainctl policies list"
+slug: chainctl_policies_list
+url: /chainguard/chainctl/chainctl-docs/chainctl_policies_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl policy-gate binding delete
+## chainctl policies list
 
-Delete a policy gate binding.
+List policies.
 
 ### Synopsis
 
-Delete a policy gate binding to deactivate a policy for its bound scope.
+List the policies available for an organization.
 
-Removing a binding disables the policy — image pulls will no longer be
-checked against it.
-
-You can pass a binding ID directly as a positional argument, or use
---policy to specify the policy name and --parent to identify the
-organization if needed.
+Each available policy is shown with its name and description.
 
 ```
-chainctl policy-gate binding delete [BINDING_ID | --policy POLICY] [--parent ORG] [flags]
+chainctl policies list [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json|table] [flags]
 ```
 
 ### Examples
 
 ```
-  # Delete a binding by ID
-  chainctl policy-gate binding delete <binding-id>
-  
-  # Delete a binding by policy name
-  chainctl policy-gate binding delete --policy=no-eol --parent=engineering
+
+# List all policies for an organization
+chainctl policies list --parent=example.com
+
+# List policies using interactive organization selection
+chainctl policies list
+
+# List policies in JSON format
+chainctl policies list --parent=example.com -o json
+
 ```
 
 ### Options
 
 ```
-      --parent string   The name or id of the organization (required when deleting by policy).
-      --policy string   The name or id of the policy to disable.
+      --parent string   The name or id of the organization.
 ```
 
 ### Options inherited from parent commands
@@ -62,5 +61,5 @@ chainctl policy-gate binding delete [BINDING_ID | --policy POLICY] [--parent ORG
 
 ### SEE ALSO
 
-* [chainctl policy-gate binding](/chainguard/chainctl/chainctl-docs/chainctl_policy-gate_binding/)	 - Manage policy gate bindings.
+* [chainctl policies](/chainguard/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
 

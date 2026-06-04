@@ -1,43 +1,40 @@
 ---
-date: 2026-06-02T11:07:19Z
-title: "chainctl policy-gate disable"
-slug: chainctl_policy-gate_disable
-url: /chainguard/chainctl/chainctl-docs/chainctl_policy-gate_disable/
+date: 2026-06-03T13:15:20Z
+title: "chainctl policies check"
+slug: chainctl_policies_check
+url: /chainguard/chainctl/chainctl-docs/chainctl_policies_check/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl policy-gate disable
+## chainctl policies check
 
-Disable a policy gate.
+Check an image against active policies.
 
 ### Synopsis
 
-Disable a policy gate by deleting its binding.
+Evaluate an image against any active policies and print the
+result for each.
 
-This is a shortcut for "policy-gate binding delete".
-
+Exit status is non-zero if any policy returned DENIED or ERROR, regardless
+of the policy's mode, so this command is suitable for use in CI.
 
 ```
-chainctl policy-gate disable --policy POLICY [--parent ORG] [flags]
+chainctl policies check IMAGE_REF [flags]
 ```
 
 ### Examples
 
 ```
 
-# Disable a policy by name
-chainctl policy-gates disable --policy=no-eol --parent=example.com
+# Check an image by tag
+chainctl policies check cgr.dev/example.com/python:latest
 
-```
+# Check an image by digest
+chainctl policies check cgr.dev/example.com/python@sha256:abc...
 
-### Options
-
-```
-      --parent string   The name or id of the organization (required when deleting by policy).
-      --policy string   The name or id of the policy to disable.
 ```
 
 ### Options inherited from parent commands
@@ -57,5 +54,5 @@ chainctl policy-gates disable --policy=no-eol --parent=example.com
 
 ### SEE ALSO
 
-* [chainctl policy-gate](/chainguard/chainctl/chainctl-docs/chainctl_policy-gate/)	 - Manage policy gates.
+* [chainctl policies](/chainguard/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
 

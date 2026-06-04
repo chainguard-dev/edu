@@ -1,17 +1,17 @@
 ---
-date: 2026-06-02T11:07:19Z
-title: "chainctl policy-gate binding create"
-slug: chainctl_policy-gate_binding_create
-url: /chainguard/chainctl/chainctl-docs/chainctl_policy-gate_binding_create/
+date: 2026-06-03T13:15:20Z
+title: "chainctl policies binding create"
+slug: chainctl_policies_binding_create
+url: /chainguard/chainctl/chainctl-docs/chainctl_policies_binding_create/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl policy-gate binding create
+## chainctl policies binding create
 
-Create a policy gate binding.
+Create a policy binding.
 
 ### Synopsis
 
@@ -31,7 +31,7 @@ the policy's schema. For STRING_LIST parameters, items are comma-separated
 within a single --param value.
 
 ```
-chainctl policy-gate binding create --policy POLICY [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--mode MODE] [--param KEY=VALUE] [--output=json|table] [flags]
+chainctl policies binding create --policy POLICY [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--mode MODE] [--param KEY=VALUE] [--output=json|table] [flags]
 ```
 
 ### Examples
@@ -39,16 +39,16 @@ chainctl policy-gate binding create --policy POLICY [--parent ORGANIZATION_NAME 
 ```
 
 # Enforce a policy on all repos in an organization
-chainctl policy-gate binding create --policy=no-eol --parent=engineering --mode=ENFORCE
+chainctl policies binding create --policy=no-eol --parent=engineering --mode=ENFORCE
 
 # Enable a policy in dry-run mode
-chainctl policy-gate binding create --policy=no-eol --parent=engineering --mode=DRY_RUN
+chainctl policies binding create --policy=no-eol --parent=engineering --mode=DRY_RUN
 
 # Create a binding with interactive organization selection
-chainctl policy-gate binding create --policy=no-eol
+chainctl policies binding create --policy=no-eol
 
 # Create a binding with a parameter value
-chainctl policy-gate binding create --policy=cooldown --parent=engineering --mode=ENFORCE --param=days=14
+chainctl policies binding create --policy=cooldown --parent=engineering --mode=ENFORCE --param=days=14
 
 ```
 
@@ -79,5 +79,5 @@ chainctl policy-gate binding create --policy=cooldown --parent=engineering --mod
 
 ### SEE ALSO
 
-* [chainctl policy-gate binding](/chainguard/chainctl/chainctl-docs/chainctl_policy-gate_binding/)	 - Manage policy gate bindings.
+* [chainctl policies binding](/chainguard/chainctl/chainctl-docs/chainctl_policies_binding/)	 - Manage policy bindings.
 
