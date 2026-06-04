@@ -1,6 +1,6 @@
 ---
-title: "Policy Gates"
-linktitle: "Policy Gates"
+title: "Policies"
+linktitle: "Policies"
 type: "article"
 description: "Control your image updates"
 date: 2026-05-21T08:48:45+00:00
@@ -15,13 +15,13 @@ toc: true
 weight: 008
 ---
 
-Policy gates enable you to filter and restrict Chainguard artifact updates. You do this by defining policies that control and restrict versions that will be pulled from Chainguard.
+Policies enable you to filter and restrict Chainguard artifact updates. You do this by defining policies that control and restrict versions that will be pulled from Chainguard.
 
-{{< beta feature="Policy gates" enroll="true" >}}
+{{< beta feature="Policies" enroll="true" >}}
 
 ## Definitions
 
-This is how policy gates uses the following terms.
+This is how policies uses the following terms.
 
 - **Policy** — A reusable rule that determines whether an image is allowed. Each policy has a name, a description, and the resource types it applies to. Policies apply to registry repositories.
 - **Binding** — A link between a policy and an organization. While a binding exists, the policy is active for image pulls under that organization. Without a binding, the policy has no effect.
@@ -33,48 +33,48 @@ The default mode for new bindings is `DRY_RUN`.
 
 ## Usage
 
-Policy gates are managed using `chainctl`. System policies are shipped with the platform.
+Policies are managed using `chainctl`. System policies are shipped with the platform.
 
 See which policies are available to your organization:
 
 ```shell
-chainctl policy-gate list --parent=$ORGANIZATION
+chainctl policies list --parent=$ORGANIZATION
 ```
 
 Inspect a policy to see its full definition and configurable parameters before enabling it:
 
 ```shell
-chainctl policy-gate describe --policy=$POLICY --parent=$ORGANIZATION
+chainctl policies describe --policy=$POLICY --parent=$ORGANIZATION
 ```
 
 See which policies are currently active:
 
 ```shell
-chainctl policy-gate binding list --parent=$ORGANIZATION
+chainctl policies binding list --parent=$ORGANIZATION
 ```
 
 Activate a policy in `DRY_RUN` mode. This example activates the "no end-of-life" artifacts policy. Chainguard recommends that you roll out policies using `DRY_RUN` mode first and track for a time to be certain it has the impact you intend before moving to `ENFORCE`.
 
 ```shell
-chainctl policy-gate enable --policy=no-eol --mode=DRY_RUN --parent=$ORGANIZATION
+chainctl policies enable --policy=no-eol --mode=DRY_RUN --parent=$ORGANIZATION
 ```
 
 Some policies accept parameters. Use `--param=KEY=VALUE` to supply them:
 
 ```shell
-chainctl policy-gate enable --policy=cooldown --mode=DRY_RUN --param=days=7 --parent=$ORGANIZATION
+chainctl policies enable --policy=cooldown --mode=DRY_RUN --param=days=7 --parent=$ORGANIZATION
 ```
 
 Promote a policy to `ENFORCE`:
 
 ```shell
-chainctl policy-gate enable --policy=no-eol --mode=ENFORCE --parent=$ORGANIZATION
+chainctl policies enable --policy=no-eol --mode=ENFORCE --parent=$ORGANIZATION
 ```
 
 Check the results of specific policies on an image, including `DRY_RUN` policies which wouldn't cause the registry to block a pull:
 
 ```shell
-chainctl policy-gate check cgr.dev/$ORGANIZATION/bash:latest
+chainctl policies check cgr.dev/$ORGANIZATION/bash:latest
 ```
 
 ```output
@@ -87,7 +87,7 @@ chainctl policy-gate check cgr.dev/$ORGANIZATION/bash:latest
 Disable a policy:
 
 ```shell
-chainctl policy-gate disable --policy=no-eol --parent=$ORGANIZATION
+chainctl policies disable --policy=no-eol --parent=$ORGANIZATION
 ```
 
-See `chainctl policy-gate --help` or the [chainctl reference pages](/chainguard/chainctl) for more information.
+See `chainctl policies --help` or the [chainctl reference pages](/chainguard/chainctl) for more information.
