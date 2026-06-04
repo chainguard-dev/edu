@@ -49,6 +49,8 @@ claude mcp add --transport http chainguard-docs https://mcp.edu.chainguard.dev/m
 
 The server is available immediately. Verify it with `claude mcp list`.
 
+> **Note:** This sets up the docs MCP for use in the current directory. To scope use of the MCP server to any directory in which your user account uses, adjust the command by adding `--scope user` to the end.
+
 #### Claude Desktop
 
 Claude Desktop reads MCP servers from a JSON file but does not yet support HTTP transport directly. Use `mcp-remote` to bridge to the hosted server:
