@@ -1,48 +1,43 @@
 ---
-date: 2026-06-02T11:07:19Z
-title: "chainctl policy-gate describe"
-slug: chainctl_policy-gate_describe
-url: /chainguard/chainctl/chainctl-docs/chainctl_policy-gate_describe/
+date: 2026-06-03T13:15:20Z
+title: "chainctl policies disable"
+slug: chainctl_policies_disable
+url: /chainguard/chainctl/chainctl-docs/chainctl_policies_disable/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl policy-gate describe
+## chainctl policies disable
 
-Describe a policy and its parameter schema.
+Disable a policy.
 
 ### Synopsis
 
-Show the full definition of a policy: its description, type, and the set
-of configurable parameters it accepts. The output includes a copyable
-example invocation suitable for `chainctl policy-gate enable`.
+Disable a policy by deleting its binding.
 
-Use this command to discover what's configurable on a system policy
-before enabling it for your organization.
+This is a shortcut for "policies binding delete".
+
 
 ```
-chainctl policy-gate describe --policy POLICY [--parent ORG] [--output=json|table] [flags]
+chainctl policies disable --policy POLICY [--parent ORG] [flags]
 ```
 
 ### Examples
 
 ```
 
-# Describe the cooldown policy
-chainctl policy-gate describe --policy=cooldown --parent=example.com
-
-# JSON output (useful for scripts that need the full schema)
-chainctl policy-gate describe --policy=cooldown --parent=example.com -o json
+# Disable a policy by name
+chainctl policies disable --policy=no-eol --parent=example.com
 
 ```
 
 ### Options
 
 ```
-      --parent string   The name or id of the organization to scope the lookup to.
-      --policy string   The name or UIDP of the policy to describe.
+      --parent string   The name or id of the organization (required when deleting by policy).
+      --policy string   The name or id of the policy to disable.
 ```
 
 ### Options inherited from parent commands
@@ -62,5 +57,5 @@ chainctl policy-gate describe --policy=cooldown --parent=example.com -o json
 
 ### SEE ALSO
 
-* [chainctl policy-gate](/chainguard/chainctl/chainctl-docs/chainctl_policy-gate/)	 - Manage policy gates.
+* [chainctl policies](/chainguard/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
 

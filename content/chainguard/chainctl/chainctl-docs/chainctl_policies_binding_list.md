@@ -1,47 +1,45 @@
 ---
-date: 2026-06-02T11:07:19Z
-title: "chainctl policy-gate list"
-slug: chainctl_policy-gate_list
-url: /chainguard/chainctl/chainctl-docs/chainctl_policy-gate_list/
+date: 2026-06-03T13:15:20Z
+title: "chainctl policies binding list"
+slug: chainctl_policies_binding_list
+url: /chainguard/chainctl/chainctl-docs/chainctl_policies_binding_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl policy-gate list
+## chainctl policies binding list
 
-List policy gates.
+List policy bindings.
 
 ### Synopsis
 
-List the policy gates available for an organization.
+List active policy bindings to see which policies are enabled and
+in which mode.
 
-Each available policy is shown with its name and description.
+Filter by --parent to see bindings for a specific scope. Without a
+filter, all accessible bindings are listed. Each binding shows the
+policy it activates and the enforcement mode (enforced or dry-run).
 
 ```
-chainctl policy-gate list [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json|table] [flags]
+chainctl policies binding list [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json|table] [flags]
 ```
 
 ### Examples
 
 ```
-
-# List all policy gates for an organization
-chainctl policy-gate list --parent=example.com
-
-# List policy gates using interactive organization selection
-chainctl policy-gate list
-
-# List policy gates in JSON format
-chainctl policy-gate list --parent=example.com -o json
-
+  # List bindings for an organization to see which policies are active
+  chainctl policies binding list --parent=engineering
+  
+  # List all accessible bindings
+  chainctl policies binding list
 ```
 
 ### Options
 
 ```
-      --parent string   The name or id of the organization.
+      --parent string   The name or id of the organization to list bindings for.
 ```
 
 ### Options inherited from parent commands
@@ -61,5 +59,5 @@ chainctl policy-gate list --parent=example.com -o json
 
 ### SEE ALSO
 
-* [chainctl policy-gate](/chainguard/chainctl/chainctl-docs/chainctl_policy-gate/)	 - Manage policy gates.
+* [chainctl policies binding](/chainguard/chainctl/chainctl-docs/chainctl_policies_binding/)	 - Manage policy bindings.
 

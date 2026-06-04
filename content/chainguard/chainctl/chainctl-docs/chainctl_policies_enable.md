@@ -1,31 +1,31 @@
 ---
-date: 2026-06-02T11:07:19Z
-title: "chainctl policy-gate enable"
-slug: chainctl_policy-gate_enable
-url: /chainguard/chainctl/chainctl-docs/chainctl_policy-gate_enable/
+date: 2026-06-03T13:15:20Z
+title: "chainctl policies enable"
+slug: chainctl_policies_enable
+url: /chainguard/chainctl/chainctl-docs/chainctl_policies_enable/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl policy-gate enable
+## chainctl policies enable
 
-Enable a policy gate for an organization.
+Enable a policy for an organization.
 
 ### Synopsis
 
-Enable a policy gate by creating a binding for an organization.
+Enable a policy by creating a binding for an organization.
 If the policy is already enabled, its mode (or parameter values) is updated.
 
-This is a shortcut for "policy-gate binding create".
+This is a shortcut for "policies binding create".
 
 The default mode is DRY_RUN. Pass --param=KEY=VALUE (repeatable) to supply
 values for policies that declare a parameter schema; omitted parameters
 fall back to the schema's declared default.
 
 ```
-chainctl policy-gate enable --policy POLICY [--parent ORG] [--mode MODE] [--param KEY=VALUE] [--output=json|table] [flags]
+chainctl policies enable --policy POLICY [--parent ORG] [--mode MODE] [--param KEY=VALUE] [--output=json|table] [flags]
 ```
 
 ### Examples
@@ -33,13 +33,13 @@ chainctl policy-gate enable --policy POLICY [--parent ORG] [--mode MODE] [--para
 ```
 
 # Enable a policy in DRY_RUN mode
-chainctl policy-gates enable --policy=no-eol --parent=example.com --mode=DRY_RUN
+chainctl policies enable --policy=no-eol --parent=example.com --mode=DRY_RUN
 
 # Enable a policy in enforce mode
-chainctl policy-gates enable --policy=no-eol --parent=example.com --mode=ENFORCE
+chainctl policies enable --policy=no-eol --parent=example.com --mode=ENFORCE
 
 # Enable a policy with a parameter value
-chainctl policy-gates enable --policy=cooldown --parent=example.com --mode=ENFORCE --param=days=14
+chainctl policies enable --policy=cooldown --parent=example.com --mode=ENFORCE --param=days=14
 
 ```
 
@@ -70,5 +70,5 @@ chainctl policy-gates enable --policy=cooldown --parent=example.com --mode=ENFOR
 
 ### SEE ALSO
 
-* [chainctl policy-gate](/chainguard/chainctl/chainctl-docs/chainctl_policy-gate/)	 - Manage policy gates.
+* [chainctl policies](/chainguard/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
 

@@ -1,21 +1,21 @@
 ---
-date: 2026-06-02T11:07:19Z
-title: "chainctl policy-gate binding"
-slug: chainctl_policy-gate_binding
-url: /chainguard/chainctl/chainctl-docs/chainctl_policy-gate_binding/
+date: 2026-06-03T13:15:20Z
+title: "chainctl policies binding"
+slug: chainctl_policies_binding
+url: /chainguard/chainctl/chainctl-docs/chainctl_policies_binding/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl policy-gate binding
+## chainctl policies binding
 
-Manage policy gate bindings.
+Manage policy bindings.
 
 ### Synopsis
 
-A policy gate binding is a link between a policy and a group of image
+A policy binding is a link between a policy and a group of image
 resources. When a binding exists, the linked policy is active for image
 pulls within that group; without a binding the policy has no effect.
 
@@ -41,8 +41,8 @@ Use these commands to create or delete bindings.
 
 ### SEE ALSO
 
-* [chainctl policy-gate](/chainguard/chainctl/chainctl-docs/chainctl_policy-gate/)	 - Manage policy gates.
-* [chainctl policy-gate binding create](/chainguard/chainctl/chainctl-docs/chainctl_policy-gate_binding_create/)	 - Create a policy gate binding.
-* [chainctl policy-gate binding delete](/chainguard/chainctl/chainctl-docs/chainctl_policy-gate_binding_delete/)	 - Delete a policy gate binding.
-* [chainctl policy-gate binding list](/chainguard/chainctl/chainctl-docs/chainctl_policy-gate_binding_list/)	 - List policy gate bindings.
+* [chainctl policies](/chainguard/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
+* [chainctl policies binding create](/chainguard/chainctl/chainctl-docs/chainctl_policies_binding_create/)	 - Create a policy binding.
+* [chainctl policies binding delete](/chainguard/chainctl/chainctl-docs/chainctl_policies_binding_delete/)	 - Delete a policy binding.
+* [chainctl policies binding list](/chainguard/chainctl/chainctl-docs/chainctl_policies_binding_list/)	 - List policy bindings.
 

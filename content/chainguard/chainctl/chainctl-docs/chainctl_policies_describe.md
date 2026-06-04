@@ -1,40 +1,48 @@
 ---
-date: 2026-06-02T11:07:19Z
-title: "chainctl policy-gate check"
-slug: chainctl_policy-gate_check
-url: /chainguard/chainctl/chainctl-docs/chainctl_policy-gate_check/
+date: 2026-06-03T13:15:20Z
+title: "chainctl policies describe"
+slug: chainctl_policies_describe
+url: /chainguard/chainctl/chainctl-docs/chainctl_policies_describe/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl policy-gate check
+## chainctl policies describe
 
-Check an image against active policy gates.
+Describe a policy and its parameter schema.
 
 ### Synopsis
 
-Evaluate an image against any active policy gates and print the
-result for each.
+Show the full definition of a policy: its description, type, and the set
+of configurable parameters it accepts. The output includes a copyable
+example invocation suitable for `chainctl policies enable`.
 
-Exit status is non-zero if any policy returned DENIED or ERROR, regardless
-of the policy's mode, so this command is suitable for use in CI.
+Use this command to discover what's configurable on a system policy
+before enabling it for your organization.
 
 ```
-chainctl policy-gate check IMAGE_REF [flags]
+chainctl policies describe --policy POLICY [--parent ORG] [--output=json|table] [flags]
 ```
 
 ### Examples
 
 ```
 
-# Check an image by tag
-chainctl policy-gate check cgr.dev/example.com/python:latest
+# Describe the cooldown policy
+chainctl policies describe --policy=cooldown --parent=example.com
 
-# Check an image by digest
-chainctl policy-gate check cgr.dev/example.com/python@sha256:abc...
+# JSON output (useful for scripts that need the full schema)
+chainctl policies describe --policy=cooldown --parent=example.com -o json
 
+```
+
+### Options
+
+```
+      --parent string   The name or id of the organization to scope the lookup to.
+      --policy string   The name or UIDP of the policy to describe.
 ```
 
 ### Options inherited from parent commands
@@ -54,5 +62,5 @@ chainctl policy-gate check cgr.dev/example.com/python@sha256:abc...
 
 ### SEE ALSO
 
-* [chainctl policy-gate](/chainguard/chainctl/chainctl-docs/chainctl_policy-gate/)	 - Manage policy gates.
+* [chainctl policies](/chainguard/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
 

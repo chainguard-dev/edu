@@ -1,45 +1,48 @@
 ---
-date: 2026-06-02T11:07:19Z
-title: "chainctl policy-gate binding list"
-slug: chainctl_policy-gate_binding_list
-url: /chainguard/chainctl/chainctl-docs/chainctl_policy-gate_binding_list/
+date: 2026-06-03T13:15:20Z
+title: "chainctl policies binding delete"
+slug: chainctl_policies_binding_delete
+url: /chainguard/chainctl/chainctl-docs/chainctl_policies_binding_delete/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl policy-gate binding list
+## chainctl policies binding delete
 
-List policy gate bindings.
+Delete a policy binding.
 
 ### Synopsis
 
-List active policy gate bindings to see which policies are enabled and
-in which mode.
+Delete a policy binding to deactivate a policy for its bound scope.
 
-Filter by --parent to see bindings for a specific scope. Without a
-filter, all accessible bindings are listed. Each binding shows the
-policy it activates and the enforcement mode (enforced or dry-run).
+Removing a binding disables the policy — image pulls will no longer be
+checked against it.
+
+You can pass a binding ID directly as a positional argument, or use
+--policy to specify the policy name and --parent to identify the
+organization if needed.
 
 ```
-chainctl policy-gate binding list [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json|table] [flags]
+chainctl policies binding delete [BINDING_ID | --policy POLICY] [--parent ORG] [flags]
 ```
 
 ### Examples
 
 ```
-  # List bindings for an organization to see which policies are active
-  chainctl policy-gate binding list --parent=engineering
+  # Delete a binding by ID
+  chainctl policies binding delete <binding-id>
   
-  # List all accessible bindings
-  chainctl policy-gate binding list
+  # Delete a binding by policy name
+  chainctl policies binding delete --policy=no-eol --parent=engineering
 ```
 
 ### Options
 
 ```
-      --parent string   The name or id of the organization to list bindings for.
+      --parent string   The name or id of the organization (required when deleting by policy).
+      --policy string   The name or id of the policy to disable.
 ```
 
 ### Options inherited from parent commands
@@ -59,5 +62,5 @@ chainctl policy-gate binding list [--parent ORGANIZATION_NAME | ORGANIZATION_ID]
 
 ### SEE ALSO
 
-* [chainctl policy-gate binding](/chainguard/chainctl/chainctl-docs/chainctl_policy-gate_binding/)	 - Manage policy gate bindings.
+* [chainctl policies binding](/chainguard/chainctl/chainctl-docs/chainctl_policies_binding/)	 - Manage policy bindings.
 
