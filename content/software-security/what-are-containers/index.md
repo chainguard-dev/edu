@@ -49,7 +49,7 @@ Depending on your application, you may not need to build your own container imag
 
 When choosing a container image, consider more than just core functionality. Your image must include the packages and components your application needs, but images with many unneeded packages increase your data egress and vulnerability counts. Prefer images that balance security and reliability with a minimal footprint.
 
-To learn more, see [Selecting a base image](/software-security/selecting-a-base-image/).
+To learn more, refer to [Selecting a base image](/software-security/selecting-a-base-image/).
 
 ## Learn more
 
