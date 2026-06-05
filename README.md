@@ -27,6 +27,18 @@ npm run start
 
 You'll then navigate to `localhost:1313` within the web browser of your choice.
 
+## Testing
+
+Any documentation published to Chainguard Academy is reviewed carefully for accuracy. Commands and code snippets in a draft are run and tested thoroughly — by both the author and the reviewer — to confirm they work exactly as written. This helps ensure that readers can follow along and get the same results.
+
+We also test drafts by previewing rendered content before it's published. Draft content passes through several checks between your editor and the live site:
+
+- **Local preview** — Run `npm install` once, then `npm run start` to serve the site at `http://localhost:1313` with live reload. Use this to confirm pages render correctly, formatting holds up, and internal links resolve. When a doc includes commands or examples, run them to confirm they still work.
+- **Pre-commit hooks** — When you commit, automated hooks manage dates, validate tags, and spell-check your prose. See [Pre-commit Hooks](#pre-commit-hooks) below for setup.
+- **Deploy previews** — Every pull request builds a Netlify deploy preview with a staging URL. Reviewers open this link to see your changes rendered as they'll appear in production.
+
+When you open a pull request, describe how you tested the change so reviewers know what to verify. Recent PRs often list the steps taken, such as previewing pages in the Hugo dev server, confirming links resolve, and running any commands the doc relies on.
+
 ## 📑 Contributing
 
 If you identify something that is a major change, please file an [issue](https://github.com/chainguard-dev/edu/issues/new). If you identify a minor change like a typo that needs to be updated, or tech tooling that has a newer package, you are welcome to open a pull request for review from the team.
