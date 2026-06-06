@@ -3,7 +3,7 @@
     "schemas": {
       "chainguard.capabilities.Capability": {
         "default": "UNKNOWN",
-        "description": "Capability is an enumeration of the Chainguard IAM capabilities.\n\n - CAP_TENANT_VULN_REPORTS_LIST: TODO(colin): deprecate this cap once the legacy endpoint is removed\n - CAP_REPO_BLOBS_GET: repo.blobs.get is a capability required to pull container images.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with images vs pulling the image itself.\n - CAP_APK_BLOBS_GET: apk.blobs.get is a capability required to pull APKs.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with APKs vs pulling the APK itself.\n - CAP_BUILD_REPORT_LIST: Custom Image Build\n - CAP_LIBRARIES_ENTITLEMENTS_CREATE: Global libraries capabilities\n - CAP_LIBRARIES_PYTHON_LIST: Ecosystems specific capabilities\n - CAP_LIBRARIES_CACHE_INVALIDATE: Cache invalidation capability for the libraries cache (covers all ecosystems).\nGranted to org owners and account admins; not to regular developer members.\n - CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE: Rebuilder API capabilities\n - CAP_REGISTRY_ENTITLEMENTS_LIST: Registry Entitlements\n - CAP_REGISTRY_SETTINGS_LIST: Registry Settings\n - CAP_REGISTRY_DEPLOYMENTS_CREATE: Registry Deployments\n - CAP_POLICY_GATES_POLICY_CREATE: Policy Gates\n - CAP_TERMS_ACCEPT: Terms\n - CAP_GULFSTREAM: This is orthogonal enough that we should leave\nit somewhat separate, so add new capabilities above.\nTODO(mattmoor): Think about whether we can encode specific\ncontroller capabilities into our access control here?\ne.g. could each logical controller/webhook be its own\ncapability?\n - CAP_GUARDENER_DFC_CONVERT: Guardener\n - CAP_MCP_TOOL_CALL: MCP tool calls\n - CAP_SKILLS_PUBLISH: Skills registry — publishing skill artifacts to skills.cgr.dev\n - CAP_SKILLS_ENTITLEMENTS_CREATE: Skills registry entitlements\n - CAP_ARGOS_DOCUMENTS_CREATE: Argos — client-side encrypted document records.",
+        "description": "Capability is an enumeration of the Chainguard IAM capabilities.\n\n - CAP_TENANT_VULN_REPORTS_LIST: TODO(colin): deprecate this cap once the legacy endpoint is removed\n - CAP_REPO_BLOBS_GET: repo.blobs.get is a capability required to pull container images.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with images vs pulling the image itself.\n - CAP_APK_BLOBS_GET: apk.blobs.get is a capability required to pull APKs.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with APKs vs pulling the APK itself.\n - CAP_BUILD_REPORT_LIST: Custom Image Build\n - CAP_LIBRARIES_ENTITLEMENTS_CREATE: Global libraries capabilities\n - CAP_LIBRARIES_PYTHON_LIST: Ecosystems specific capabilities\n - CAP_LIBRARIES_CACHE_INVALIDATE: Cache invalidation capability for the libraries cache (covers all ecosystems).\nGranted to org owners and account admins; not to regular developer members.\n - CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE: Rebuilder API capabilities\n - CAP_REGISTRY_ENTITLEMENTS_LIST: Registry Entitlements\n - CAP_REGISTRY_SETTINGS_LIST: Registry Settings\n - CAP_REGISTRY_DEPLOYMENTS_CREATE: Registry Deployments\n - CAP_POLICIES_POLICY_CREATE: Policies\n - CAP_TERMS_ACCEPT: Terms\n - CAP_GULFSTREAM: This is orthogonal enough that we should leave\nit somewhat separate, so add new capabilities above.\nTODO(mattmoor): Think about whether we can encode specific\ncontroller capabilities into our access control here?\ne.g. could each logical controller/webhook be its own\ncapability?\n - CAP_GUARDENER_DFC_CONVERT: Guardener\n - CAP_MCP_TOOL_CALL: MCP tool calls\n - CAP_SKILLS_PUBLISH: Skills registry — publishing skill artifacts to skills.cgr.dev\n - CAP_SKILLS_ENTITLEMENTS_CREATE: Skills registry entitlements\n - CAP_ARGOS_DOCUMENTS_CREATE: Argos — client-side encrypted document records.\n - CAP_ARGOS_OSV_READ: Argos — Private OSV API (customer-facing OSV query surface).\n - CAP_LIBRARIES_POLICY_CREATE: Libraries Policy Gates — customer-facing policies and bindings that\nconfigure the cooldown and malware gates applied to upstream package pulls,\nplus the block events recorded when a pull is withheld.",
         "enum": [
           "UNKNOWN",
           "CAP_INTERNAL",
@@ -125,14 +125,14 @@
           "CAP_REGISTRY_DEPLOYMENTS_CREATE",
           "CAP_REGISTRY_DEPLOYMENTS_UPDATE",
           "CAP_REGISTRY_DEPLOYMENTS_LIST",
-          "CAP_POLICY_GATES_POLICY_CREATE",
-          "CAP_POLICY_GATES_POLICY_UPDATE",
-          "CAP_POLICY_GATES_POLICY_LIST",
-          "CAP_POLICY_GATES_POLICY_DELETE",
-          "CAP_POLICY_GATES_BINDING_CREATE",
-          "CAP_POLICY_GATES_BINDING_UPDATE",
-          "CAP_POLICY_GATES_BINDING_LIST",
-          "CAP_POLICY_GATES_BINDING_DELETE",
+          "CAP_POLICIES_POLICY_CREATE",
+          "CAP_POLICIES_POLICY_UPDATE",
+          "CAP_POLICIES_POLICY_LIST",
+          "CAP_POLICIES_POLICY_DELETE",
+          "CAP_POLICIES_BINDING_CREATE",
+          "CAP_POLICIES_BINDING_UPDATE",
+          "CAP_POLICIES_BINDING_LIST",
+          "CAP_POLICIES_BINDING_DELETE",
           "CAP_REPO_CHECK_POLICIES",
           "CAP_PACKAGES_ENTITLEMENTS_LIST",
           "CAP_TERMS_ACCEPT",
@@ -146,7 +146,17 @@
           "CAP_SKILLS_ENTITLEMENTS_DELETE",
           "CAP_ARGOS_DOCUMENTS_CREATE",
           "CAP_ARGOS_DOCUMENTS_LIST",
-          "CAP_ARGOS_DOCUMENTS_DELETE"
+          "CAP_ARGOS_DOCUMENTS_DELETE",
+          "CAP_ARGOS_OSV_READ",
+          "CAP_LIBRARIES_POLICY_CREATE",
+          "CAP_LIBRARIES_POLICY_UPDATE",
+          "CAP_LIBRARIES_POLICY_LIST",
+          "CAP_LIBRARIES_POLICY_DELETE",
+          "CAP_LIBRARIES_POLICY_BINDING_CREATE",
+          "CAP_LIBRARIES_POLICY_BINDING_UPDATE",
+          "CAP_LIBRARIES_POLICY_BINDING_LIST",
+          "CAP_LIBRARIES_POLICY_BINDING_DELETE",
+          "CAP_LIBRARIES_POLICY_BLOCK_EVENT_LIST"
         ],
         "type": "string"
       },
@@ -836,6 +846,10 @@
             "readOnly": true,
             "type": "string"
           },
+          "hubspotUtk": {
+            "description": "The HubSpot UTK value to pass to HubSpot during console login.\nThis value is ephemeral and not persisted to datastore.",
+            "type": "string"
+          },
           "jobTitle": {
             "description": "The user's job title.",
             "type": "string"
@@ -856,6 +870,10 @@
           "product": {
             "description": "The product the user is interested in.",
             "type": "string"
+          },
+          "selfServe": {
+            "description": "Flag to indicate if the user is onboarding via a self-service flow.",
+            "type": "boolean"
           },
           "uid": {
             "description": "The caller's identity UID.",
@@ -952,6 +970,10 @@
           },
           "clientSecret": {
             "description": "Client secret of the identity provider. This is a sensitive value\nand is not returned for list/get calls.",
+            "type": "string"
+          },
+          "groupsClaim": {
+            "description": "Name of the OIDC token claim that carries the user's group memberships\n(e.g. \"groups\" for Entra, a custom claim name for Okta). Required for\nIdP group-based role mapping; when empty, group extraction is skipped.",
             "type": "string"
           },
           "issuer": {

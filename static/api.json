@@ -3,7 +3,7 @@
     "schemas": {
       "chainguard.capabilities.Capability": {
         "default": "UNKNOWN",
-        "description": "Capability is an enumeration of the Chainguard IAM capabilities.\n\n - CAP_TENANT_VULN_REPORTS_LIST: TODO(colin): deprecate this cap once the legacy endpoint is removed\n - CAP_REPO_BLOBS_GET: repo.blobs.get is a capability required to pull container images.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with images vs pulling the image itself.\n - CAP_APK_BLOBS_GET: apk.blobs.get is a capability required to pull APKs.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with APKs vs pulling the APK itself.\n - CAP_BUILD_REPORT_LIST: Custom Image Build\n - CAP_LIBRARIES_ENTITLEMENTS_CREATE: Global libraries capabilities\n - CAP_LIBRARIES_PYTHON_LIST: Ecosystems specific capabilities\n - CAP_LIBRARIES_CACHE_INVALIDATE: Cache invalidation capability for the libraries cache (covers all ecosystems).\nGranted to org owners and account admins; not to regular developer members.\n - CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE: Rebuilder API capabilities\n - CAP_REGISTRY_ENTITLEMENTS_LIST: Registry Entitlements\n - CAP_REGISTRY_SETTINGS_LIST: Registry Settings\n - CAP_REGISTRY_DEPLOYMENTS_CREATE: Registry Deployments\n - CAP_POLICY_GATES_POLICY_CREATE: Policy Gates\n - CAP_TERMS_ACCEPT: Terms\n - CAP_GULFSTREAM: This is orthogonal enough that we should leave\nit somewhat separate, so add new capabilities above.\nTODO(mattmoor): Think about whether we can encode specific\ncontroller capabilities into our access control here?\ne.g. could each logical controller/webhook be its own\ncapability?\n - CAP_GUARDENER_DFC_CONVERT: Guardener\n - CAP_MCP_TOOL_CALL: MCP tool calls\n - CAP_SKILLS_PUBLISH: Skills registry — publishing skill artifacts to skills.cgr.dev\n - CAP_SKILLS_ENTITLEMENTS_CREATE: Skills registry entitlements\n - CAP_ARGOS_DOCUMENTS_CREATE: Argos — client-side encrypted document records.",
+        "description": "Capability is an enumeration of the Chainguard IAM capabilities.\n\n - CAP_TENANT_VULN_REPORTS_LIST: TODO(colin): deprecate this cap once the legacy endpoint is removed\n - CAP_REPO_BLOBS_GET: repo.blobs.get is a capability required to pull container images.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with images vs pulling the image itself.\n - CAP_APK_BLOBS_GET: apk.blobs.get is a capability required to pull APKs.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with APKs vs pulling the APK itself.\n - CAP_BUILD_REPORT_LIST: Custom Image Build\n - CAP_LIBRARIES_ENTITLEMENTS_CREATE: Global libraries capabilities\n - CAP_LIBRARIES_PYTHON_LIST: Ecosystems specific capabilities\n - CAP_LIBRARIES_CACHE_INVALIDATE: Cache invalidation capability for the libraries cache (covers all ecosystems).\nGranted to org owners and account admins; not to regular developer members.\n - CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE: Rebuilder API capabilities\n - CAP_REGISTRY_ENTITLEMENTS_LIST: Registry Entitlements\n - CAP_REGISTRY_SETTINGS_LIST: Registry Settings\n - CAP_REGISTRY_DEPLOYMENTS_CREATE: Registry Deployments\n - CAP_POLICIES_POLICY_CREATE: Policies\n - CAP_TERMS_ACCEPT: Terms\n - CAP_GULFSTREAM: This is orthogonal enough that we should leave\nit somewhat separate, so add new capabilities above.\nTODO(mattmoor): Think about whether we can encode specific\ncontroller capabilities into our access control here?\ne.g. could each logical controller/webhook be its own\ncapability?\n - CAP_GUARDENER_DFC_CONVERT: Guardener\n - CAP_MCP_TOOL_CALL: MCP tool calls\n - CAP_SKILLS_PUBLISH: Skills registry — publishing skill artifacts to skills.cgr.dev\n - CAP_SKILLS_ENTITLEMENTS_CREATE: Skills registry entitlements\n - CAP_ARGOS_DOCUMENTS_CREATE: Argos — client-side encrypted document records.\n - CAP_ARGOS_OSV_READ: Argos — Private OSV API (customer-facing OSV query surface).\n - CAP_LIBRARIES_POLICY_CREATE: Libraries Policy Gates — customer-facing policies and bindings that\nconfigure the cooldown and malware gates applied to upstream package pulls,\nplus the block events recorded when a pull is withheld.",
         "enum": [
           "UNKNOWN",
           "CAP_INTERNAL",
@@ -125,14 +125,14 @@
           "CAP_REGISTRY_DEPLOYMENTS_CREATE",
           "CAP_REGISTRY_DEPLOYMENTS_UPDATE",
           "CAP_REGISTRY_DEPLOYMENTS_LIST",
-          "CAP_POLICY_GATES_POLICY_CREATE",
-          "CAP_POLICY_GATES_POLICY_UPDATE",
-          "CAP_POLICY_GATES_POLICY_LIST",
-          "CAP_POLICY_GATES_POLICY_DELETE",
-          "CAP_POLICY_GATES_BINDING_CREATE",
-          "CAP_POLICY_GATES_BINDING_UPDATE",
-          "CAP_POLICY_GATES_BINDING_LIST",
-          "CAP_POLICY_GATES_BINDING_DELETE",
+          "CAP_POLICIES_POLICY_CREATE",
+          "CAP_POLICIES_POLICY_UPDATE",
+          "CAP_POLICIES_POLICY_LIST",
+          "CAP_POLICIES_POLICY_DELETE",
+          "CAP_POLICIES_BINDING_CREATE",
+          "CAP_POLICIES_BINDING_UPDATE",
+          "CAP_POLICIES_BINDING_LIST",
+          "CAP_POLICIES_BINDING_DELETE",
           "CAP_REPO_CHECK_POLICIES",
           "CAP_PACKAGES_ENTITLEMENTS_LIST",
           "CAP_TERMS_ACCEPT",
@@ -146,7 +146,17 @@
           "CAP_SKILLS_ENTITLEMENTS_DELETE",
           "CAP_ARGOS_DOCUMENTS_CREATE",
           "CAP_ARGOS_DOCUMENTS_LIST",
-          "CAP_ARGOS_DOCUMENTS_DELETE"
+          "CAP_ARGOS_DOCUMENTS_DELETE",
+          "CAP_ARGOS_OSV_READ",
+          "CAP_LIBRARIES_POLICY_CREATE",
+          "CAP_LIBRARIES_POLICY_UPDATE",
+          "CAP_LIBRARIES_POLICY_LIST",
+          "CAP_LIBRARIES_POLICY_DELETE",
+          "CAP_LIBRARIES_POLICY_BINDING_CREATE",
+          "CAP_LIBRARIES_POLICY_BINDING_UPDATE",
+          "CAP_LIBRARIES_POLICY_BINDING_LIST",
+          "CAP_LIBRARIES_POLICY_BINDING_DELETE",
+          "CAP_LIBRARIES_POLICY_BLOCK_EVENT_LIST"
         ],
         "type": "string"
       },
@@ -793,9 +803,45 @@
         },
         "type": "object"
       },
+      "chainguard.platform.argos.Affected": {
+        "properties": {
+          "databaseSpecific": {
+            "format": "byte",
+            "type": "string"
+          },
+          "ecosystemSpecific": {
+            "format": "byte",
+            "type": "string"
+          },
+          "package": {
+            "$ref": "#/components/schemas/chainguard.platform.argos.Package"
+          },
+          "ranges": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.argos.Range"
+            },
+            "type": "array"
+          },
+          "versions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.argos.ArgosDocument": {
         "description": "ArgosDocument is an organization-scoped record describing a\nclient-side-encrypted document. The actual ciphertext (the upload\nenvelope: client-AES-encrypted plaintext + RSA-wrapped AES key) lives in\nGCS; ArgosDocument tracks only the metadata.",
         "properties": {
+          "cgpIds": {
+            "description": "cgp_ids are the Chainguard vulnerability identifiers (CGP-...) this\nsubmission resolved to, populated once processing completes.",
+            "items": {
+              "type": "string"
+            },
+            "readOnly": true,
+            "type": "array"
+          },
           "createdAt": {
             "description": "When the document record was created.",
             "format": "date-time",
@@ -827,12 +873,13 @@
       },
       "chainguard.platform.argos.ArgosDocument.Status": {
         "default": "STATUS_UNSPECIFIED",
-        "description": " - STATUS_PENDING: Payload received; pending downstream processing.\n - STATUS_READY: Document is fully usable.\n - STATUS_FAILED: Document processing failed; the document is unusable.",
+        "description": " - STATUS_PENDING: Payload received; pending downstream processing.\n - STATUS_READY: Document is fully usable.\n - STATUS_FAILED: Document processing failed; the document is unusable.\n - STATUS_FALSE_POSITIVE: Processing determined the finding is not a true positive.",
         "enum": [
           "STATUS_UNSPECIFIED",
           "STATUS_PENDING",
           "STATUS_READY",
-          "STATUS_FAILED"
+          "STATUS_FAILED",
+          "STATUS_FALSE_POSITIVE"
         ],
         "type": "string"
       },
@@ -892,6 +939,204 @@
         },
         "type": "object"
       },
+      "chainguard.platform.argos.Event": {
+        "properties": {
+          "fixed": {
+            "type": "string"
+          },
+          "introduced": {
+            "type": "string"
+          },
+          "lastAffected": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.MinimalOSVRecord": {
+        "description": "MinimalOSVRecord is the abbreviated vuln entry returned by QueryBatch,\nmatching the OSV spec's batch response (id + modified only); callers\nfollow up with GetVuln for full detail.",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "modified": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.OSVQueryBatchRequest": {
+        "properties": {
+          "queries": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.argos.OSVQueryRequest"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.OSVQueryBatchResponse": {
+        "properties": {
+          "results": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.argos.OSVQueryBatchResult"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.OSVQueryBatchResult": {
+        "properties": {
+          "nextPageToken": {
+            "description": "next_page_token paginates this query's results (OSV batch spec).",
+            "type": "string"
+          },
+          "vulns": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.argos.MinimalOSVRecord"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.OSVQueryRequest": {
+        "properties": {
+          "package": {
+            "$ref": "#/components/schemas/chainguard.platform.argos.Package"
+          },
+          "pageToken": {
+            "title": "page_token is the opaque cursor from a previous response's next_page_token.\nEmpty starts at the first page. (OSV spec: query supports page_token.)",
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.OSVQueryResponse": {
+        "properties": {
+          "nextPageToken": {
+            "description": "next_page_token is the cursor for the next page; empty when last page.",
+            "type": "string"
+          },
+          "vulns": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.argos.OSVRecord"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.OSVRecord": {
+        "properties": {
+          "affected": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.argos.Affected"
+            },
+            "type": "array"
+          },
+          "aliases": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "details": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "modified": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "published": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "related": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "schemaVersion": {
+            "type": "string"
+          },
+          "severity": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.argos.Severity"
+            },
+            "type": "array"
+          },
+          "summary": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.Package": {
+        "properties": {
+          "ecosystem": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "purl": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.Range": {
+        "properties": {
+          "events": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.argos.Event"
+            },
+            "type": "array"
+          },
+          "repo": {
+            "type": "string"
+          },
+          "type": {
+            "$ref": "#/components/schemas/chainguard.platform.argos.Range.RangeType"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.Range.RangeType": {
+        "default": "RANGE_TYPE_UNSPECIFIED",
+        "enum": [
+          "RANGE_TYPE_UNSPECIFIED",
+          "RANGE_TYPE_SEMVER",
+          "RANGE_TYPE_ECOSYSTEM",
+          "RANGE_TYPE_GIT"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.argos.Severity": {
+        "properties": {
+          "score": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.auth.HeadlessSession": {
         "properties": {
           "ecdhPublicKey": {
@@ -902,6 +1147,28 @@
           "encryptedIdtoken": {
             "description": "encrypted_idtoken is the encrypted idtoken.",
             "format": "byte",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.auth.Profile": {
+        "description": "Profile carries upstream OIDC profile claims for a single identity.\nReturned on WhoAmI for the caller's own identity; not exposed via any\nother API surface.",
+        "properties": {
+          "familyName": {
+            "description": "family_name is the upstream `family_name` claim.",
+            "type": "string"
+          },
+          "givenName": {
+            "description": "given_name is the upstream `given_name` claim.",
+            "type": "string"
+          },
+          "name": {
+            "description": "name is the upstream `name` claim — typically the user's full display name.",
+            "type": "string"
+          },
+          "picture": {
+            "description": "picture is the upstream `picture` claim — a URL to the user's avatar.",
             "type": "string"
           }
         },
@@ -967,6 +1234,14 @@
             "description": "Issuer is the issuer of the token.",
             "type": "string"
           },
+          "profile": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.auth.Profile"
+              }
+            ],
+            "description": "The upstream profile claims (name, picture, etc.) for the caller's\nidentity, sourced from the most recent authentication. Unset for\nidentities with no stored profile (e.g. assumable identities, or\nhuman identities that haven't authenticated since the feature shipped)."
+          },
           "subject": {
             "description": "The subject of the token.",
             "type": "string"
@@ -1024,6 +1299,9 @@
           "companyName": {
             "type": "string"
           },
+          "hubspotUtk": {
+            "type": "string"
+          },
           "jobTitle": {
             "type": "string"
           },
@@ -1042,6 +1320,10 @@
               "type": "string"
             },
             "type": "array"
+          },
+          "selfServe": {
+            "description": "Product fields.",
+            "type": "boolean"
           },
           "utmCampaign": {
             "title": "UTM fields\nSee https://en.wikipedia.org/wiki/UTM_parameters",
@@ -1316,6 +1598,47 @@
           "eligible": {
             "description": "Indicates if the domain of the caller's email address is eligible\nfor email-domain-gated Groups flows.",
             "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.ExternalGroupRoleMapping": {
+        "properties": {
+          "createdAt": {
+            "description": "When this mapping was created.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "externalGroupId": {
+            "description": "external_group_id is the IdP's identifier for the group.",
+            "type": "string"
+          },
+          "id": {
+            "description": "id is the UIDP of this mapping. It is rooted under the owning\nIdentityProvider's UIDP ({org}/{idp}/{mapping}).",
+            "type": "string"
+          },
+          "identityProviderUidp": {
+            "description": "identity_provider_uidp is the UIDP of the IdentityProvider this mapping belongs to.",
+            "type": "string"
+          },
+          "roleUidp": {
+            "description": "role_uidp is the UIDP of the Chainguard Role to grant.",
+            "type": "string"
+          },
+          "scope": {
+            "description": "scope is the UIDP of the Chainguard Group where the role applies.\nToday it must equal the organization root UIDP; it is modeled as a group\nUIDP (rather than an org_id) so role mappings can later be scoped to a\nsub-org or folder without a schema change.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.ExternalGroupRoleMappingList": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.iam.ExternalGroupRoleMapping"
+            },
+            "type": "array"
           }
         },
         "type": "object"
@@ -1844,6 +2167,10 @@
             "type": "string"
           },
           "clientSecret": {
+            "type": "string"
+          },
+          "groupsClaim": {
+            "description": "groups_claim is the name of the OIDC token claim containing group memberships.\nRequired for IdP group-based role mapping.",
             "type": "string"
           },
           "issuer": {
@@ -2811,6 +3138,10 @@
             "readOnly": true,
             "type": "string"
           },
+          "hubspotUtk": {
+            "description": "The HubSpot UTK value to pass to HubSpot during console login.\nThis value is ephemeral and not persisted to datastore.",
+            "type": "string"
+          },
           "jobTitle": {
             "description": "The user's job title.",
             "type": "string"
@@ -2831,6 +3162,10 @@
           "product": {
             "description": "The product the user is interested in.",
             "type": "string"
+          },
+          "selfServe": {
+            "description": "Flag to indicate if the user is onboarding via a self-service flow.",
+            "type": "boolean"
           },
           "uid": {
             "description": "The caller's identity UID.",
@@ -2927,6 +3262,10 @@
           },
           "clientSecret": {
             "description": "Client secret of the identity provider. This is a sensitive value\nand is not returned for list/get calls.",
+            "type": "string"
+          },
+          "groupsClaim": {
+            "description": "Name of the OIDC token claim that carries the user's group memberships\n(e.g. \"groups\" for Entra, a custom claim name for Okta). Required for\nIdP group-based role mapping; when empty, group extraction is skipped.",
             "type": "string"
           },
           "issuer": {
@@ -3596,6 +3935,377 @@
         },
         "type": "object"
       },
+      "chainguard.platform.libraries.LibraryAllowListEntry": {
+        "description": "AllowListEntry bypasses specific automatic gates for a trusted package (PURL).",
+        "properties": {
+          "bypassCooldown": {
+            "description": "Bypass the cooldown gate for matching versions.",
+            "type": "boolean"
+          },
+          "bypassMalware": {
+            "description": "Bypass the malware gate for matching versions. Requires justification.",
+            "type": "boolean"
+          },
+          "justification": {
+            "description": "Required when bypass_malware is true.",
+            "type": "string"
+          },
+          "purl": {
+            "description": "The PURL. Normalized on input. An empty component is a wildcard.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.LibraryBlockListEntry": {
+        "description": "BlockListEntry explicitly withholds a package (PURL) regardless of any other\ngate. Block-list entries always take precedence over allow-list entries.",
+        "properties": {
+          "purl": {
+            "description": "The PURL. Normalized on input. An empty component is a wildcard.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.LibraryPolicies.UpdatePolicyBody": {
+        "description": "LibraryPolicy configures Libraries gates via structured block/allow lists and\na cooldown window.",
+        "properties": {
+          "allowList": {
+            "description": "PURL-keyed entries that bypass specific automatic gates.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryAllowListEntry"
+            },
+            "type": "array"
+          },
+          "blockList": {
+            "description": "PURL-keyed entries that withhold a package regardless of other gates.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryBlockListEntry"
+            },
+            "type": "array"
+          },
+          "cooldownDays": {
+            "description": "The cooldown window in days. Unset = inherit default (7); 0 = disabled;\n1-30 = explicit. Values above 30 are rejected.",
+            "format": "int32",
+            "type": "integer"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "description": {
+            "description": "Human-readable description. May be up to 1024 characters.",
+            "type": "string"
+          },
+          "expression": {
+            "description": "Raw Rego. OUTPUT_ONLY: populated for SYSTEM policies, empty for CUSTOM.\nSetting it on create/update of a custom policy is rejected (INVALID_ARGUMENT) in v1.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "name": {
+            "description": "Human-readable name. May be up to 128 characters.",
+            "type": "string"
+          },
+          "policyType": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryPolicyType"
+              }
+            ],
+            "description": "SYSTEM or CUSTOM. System policies may not be modified.",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.LibraryPolicy": {
+        "description": "LibraryPolicy configures Libraries gates via structured block/allow lists and\na cooldown window.",
+        "properties": {
+          "allowList": {
+            "description": "PURL-keyed entries that bypass specific automatic gates.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryAllowListEntry"
+            },
+            "type": "array"
+          },
+          "blockList": {
+            "description": "PURL-keyed entries that withhold a package regardless of other gates.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryBlockListEntry"
+            },
+            "type": "array"
+          },
+          "cooldownDays": {
+            "description": "The cooldown window in days. Unset = inherit default (7); 0 = disabled;\n1-30 = explicit. Values above 30 are rejected.",
+            "format": "int32",
+            "type": "integer"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "description": {
+            "description": "Human-readable description. May be up to 1024 characters.",
+            "type": "string"
+          },
+          "expression": {
+            "description": "Raw Rego. OUTPUT_ONLY: populated for SYSTEM policies, empty for CUSTOM.\nSetting it on create/update of a custom policy is rejected (INVALID_ARGUMENT) in v1.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "description": "Human-readable name. May be up to 128 characters.",
+            "type": "string"
+          },
+          "policyType": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryPolicyType"
+              }
+            ],
+            "description": "SYSTEM or CUSTOM. System policies may not be modified.",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.LibraryPolicyBinding": {
+        "description": "LibraryPolicyBinding activates a policy for an (org, ecosystem) pair.",
+        "properties": {
+          "createdAt": {
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "ecosystem": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.Ecosystem"
+              }
+            ],
+            "description": "The ecosystem this binding applies to (JAVASCRIPT or PYTHON; JAVA rejected)."
+          },
+          "id": {
+            "type": "string"
+          },
+          "mode": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryPolicyBindingMode"
+              }
+            ],
+            "description": "ENFORCED or LOG."
+          },
+          "policy": {
+            "description": "The UIDP of the policy to apply.",
+            "type": "string"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.LibraryPolicyBindingList": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryPolicyBinding"
+            },
+            "type": "array"
+          },
+          "nextPageToken": {
+            "type": "string"
+          },
+          "skipped": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "totalCount": {
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.LibraryPolicyBindingMode": {
+        "default": "LIBRARY_POLICY_BINDING_MODE_UNSPECIFIED",
+        "description": "BindingMode controls whether a binding enforces (blocks pulls) or only logs\nshadow violations.\n\n - LIBRARY_POLICY_BINDING_MODE_ENFORCED: Withhold packages that fail the policy.\n - LIBRARY_POLICY_BINDING_MODE_LOG: Evaluate and record violations without blocking.",
+        "enum": [
+          "LIBRARY_POLICY_BINDING_MODE_UNSPECIFIED",
+          "LIBRARY_POLICY_BINDING_MODE_ENFORCED",
+          "LIBRARY_POLICY_BINDING_MODE_LOG"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.libraries.LibraryPolicyBindings.UpdateBindingBody": {
+        "description": "LibraryPolicyBinding activates a policy for an (org, ecosystem) pair.",
+        "properties": {
+          "createdAt": {
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "ecosystem": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.Ecosystem"
+              }
+            ],
+            "description": "The ecosystem this binding applies to (JAVASCRIPT or PYTHON; JAVA rejected)."
+          },
+          "mode": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryPolicyBindingMode"
+              }
+            ],
+            "description": "ENFORCED or LOG."
+          },
+          "policy": {
+            "description": "The UIDP of the policy to apply.",
+            "type": "string"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.LibraryPolicyBlockEvent": {
+        "description": "LibraryPolicyBlockEvent records that a package version was withheld.",
+        "properties": {
+          "attemptCount": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "cooldownDays": {
+            "description": "Cooldown days snapshotted at first block.",
+            "format": "int32",
+            "type": "integer"
+          },
+          "ecosystem": {
+            "description": "The ecosystem string (e.g. \"JAVASCRIPT\").",
+            "type": "string"
+          },
+          "firstBlockedAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "lastBlockedAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "mode": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryPolicyBindingMode"
+              }
+            ],
+            "description": "ENFORCED or LOG."
+          },
+          "policy": {
+            "description": "The policy UIDP active when the block occurred.",
+            "type": "string"
+          },
+          "publishDate": {
+            "description": "Upstream publish date; set when reason = cooldown.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "purl": {
+            "description": "Full PURL of the attempted pull.",
+            "type": "string"
+          },
+          "reason": {
+            "description": "cooldown, malware, or policy.",
+            "type": "string"
+          },
+          "unblocksAt": {
+            "description": "publish_date + cooldown_days; nil when reason != cooldown.",
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.LibraryPolicyBlockEventList": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryPolicyBlockEvent"
+            },
+            "type": "array"
+          },
+          "nextPageToken": {
+            "type": "string"
+          },
+          "skipped": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "totalCount": {
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.LibraryPolicyList": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryPolicy"
+            },
+            "type": "array"
+          },
+          "nextPageToken": {
+            "description": "Token for retrieving the next page of results. Empty if no more results.",
+            "type": "string"
+          },
+          "skipped": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "totalCount": {
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.LibraryPolicyType": {
+        "default": "LIBRARY_POLICY_TYPE_UNSPECIFIED",
+        "description": "PolicyType distinguishes Chainguard-authored system policies from\ncustomer-managed custom policies.\n\n - LIBRARY_POLICY_TYPE_SYSTEM: Created and managed by Chainguard; readable but not modifiable.\n - LIBRARY_POLICY_TYPE_CUSTOM: Created and managed by your organization.",
+        "enum": [
+          "LIBRARY_POLICY_TYPE_UNSPECIFIED",
+          "LIBRARY_POLICY_TYPE_SYSTEM",
+          "LIBRARY_POLICY_TYPE_CUSTOM"
+        ],
+        "type": "string"
+      },
       "chainguard.platform.libraries.NpmPackage": {
         "description": "NpmPackage contains metadata about an npm package available in\nChainguard Libraries. The package name can be used to retrieve\nversion-level details via ListVersions.",
         "properties": {
@@ -3649,26 +4359,62 @@
         "description": "NpmPackageVersion contains metadata about a specific version of an\nnpm package available in Chainguard Libraries.",
         "properties": {
           "createdAt": {
-            "description": "When this version was first published.",
+            "description": "created_at is when the record was created in the database.",
             "format": "date-time",
             "type": "string"
           },
           "fileCount": {
-            "description": "The number of files contained in the package.",
+            "description": "file_count is the number of files inside the tarball.",
             "format": "int64",
             "type": "string"
           },
           "fileSize": {
-            "description": "The size of the package in bytes.",
+            "description": "file_size is the size of the tarball in bytes.",
             "format": "int64",
             "type": "string"
           },
+          "integrity": {
+            "description": "integrity is the SRI string (optional).",
+            "type": "string"
+          },
           "license": {
-            "description": "The SPDX license identifier for this version.",
+            "description": "license is the SPDX license identifier for this version (e.g., \"MIT\", \"Apache-2.0\").",
+            "type": "string"
+          },
+          "malwareMalicious": {
+            "description": "malware_malicious indicates whether this version was flagged as malicious.",
+            "type": "boolean"
+          },
+          "malwareScanned": {
+            "description": "malware_scanned indicates whether this version has been scanned for malware.",
+            "type": "boolean"
+          },
+          "malwareScannedAt": {
+            "description": "malware_scanned_at is when the malware scan was performed.",
+            "format": "date-time",
             "type": "string"
           },
           "packageName": {
-            "description": "The npm package name (e.g. \"react\" or \"@scope/lib\").",
+            "title": "package_name is the full package name including scope.\ne.g., \"@scope/lib\" or \"react\"",
+            "type": "string"
+          },
+          "provenancePredicateType": {
+            "title": "provenance_predicate_type is the SLSA predicate type URI if provenance was\nprovided at publish time. Empty string if no provenance was provided.\ne.g., \"https://slsa.dev/provenance/v1\" or \"https://slsa.dev/provenance/v0.2\"",
+            "type": "string"
+          },
+          "putumentRef": {
+            "description": "putument_ref is the R2 storage path to the raw putument JSON blob.",
+            "type": "string"
+          },
+          "sbomFormats": {
+            "description": "sbom_formats are the supported sbom formats for this package.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "sha512": {
+            "description": "sha512 is the SHA-512 checksum of the tarball (required).",
             "type": "string"
           },
           "sourceType": {
@@ -3677,10 +4423,24 @@
                 "$ref": "#/components/schemas/chainguard.platform.libraries.NpmSourceType"
               }
             ],
-            "description": "The origin of this package version."
+            "description": "source_type indicates the origin of this version."
+          },
+          "updatedAt": {
+            "description": "updated_at is when the record was last updated.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "upstreamPublishedDate": {
+            "description": "upstream_published_date is when the package was published upstream (optional).",
+            "format": "date-time",
+            "type": "string"
           },
           "version": {
-            "description": "The version string of this package version.",
+            "title": "version is the semver string.\ne.g., \"18.2.0\"",
+            "type": "string"
+          },
+          "versionMetadata": {
+            "description": "version_metadata is a JSON blob of the version object from the putument,\nused to serve rich packument responses without fetching from R2.",
             "type": "string"
           }
         },
@@ -4028,7 +4788,7 @@
         },
         "type": "object"
       },
-      "chainguard.platform.policygates.v1.Binding": {
+      "chainguard.platform.policies.v1.Binding": {
         "description": "Binding associates a Policy with a resource in the hierarchy.\nThe binding is a child of the resource it applies to, and its policy\nis applied to all descendants of that resource.",
         "properties": {
           "createdAt": {
@@ -4044,7 +4804,7 @@
           "mode": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.policygates.v1.PolicyMode"
+                "$ref": "#/components/schemas/chainguard.platform.policies.v1.PolicyMode"
               }
             ],
             "description": "PolicyMode defines how the policy is enforced."
@@ -4074,12 +4834,12 @@
         },
         "type": "object"
       },
-      "chainguard.platform.policygates.v1.BindingList": {
+      "chainguard.platform.policies.v1.BindingList": {
         "properties": {
           "items": {
             "description": "The requested bindings.",
             "items": {
-              "$ref": "#/components/schemas/chainguard.platform.policygates.v1.Binding"
+              "$ref": "#/components/schemas/chainguard.platform.policies.v1.Binding"
             },
             "type": "array"
           },
@@ -4100,7 +4860,7 @@
         },
         "type": "object"
       },
-      "chainguard.platform.policygates.v1.Bindings.UpdateBindingBody": {
+      "chainguard.platform.policies.v1.Bindings.UpdateBindingBody": {
         "description": "Binding associates a Policy with a resource in the hierarchy.\nThe binding is a child of the resource it applies to, and its policy\nis applied to all descendants of that resource.",
         "properties": {
           "createdAt": {
@@ -4112,7 +4872,7 @@
           "mode": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.policygates.v1.PolicyMode"
+                "$ref": "#/components/schemas/chainguard.platform.policies.v1.PolicyMode"
               }
             ],
             "description": "PolicyMode defines how the policy is enforced."
@@ -4142,7 +4902,7 @@
         },
         "type": "object"
       },
-      "chainguard.platform.policygates.v1.ParameterSchema": {
+      "chainguard.platform.policies.v1.ParameterSchema": {
         "description": "ParameterSchema declares a single configurable parameter on a Policy.\nBindings supply values for these parameters at activation time.",
         "properties": {
           "allowedValues": {
@@ -4178,7 +4938,7 @@
           "type": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.policygates.v1.ParameterType"
+                "$ref": "#/components/schemas/chainguard.platform.policies.v1.ParameterType"
               }
             ],
             "description": "The data type of the parameter value."
@@ -4186,18 +4946,19 @@
         },
         "type": "object"
       },
-      "chainguard.platform.policygates.v1.ParameterType": {
+      "chainguard.platform.policies.v1.ParameterType": {
         "default": "PARAMETER_TYPE_UNSPECIFIED",
-        "description": "The data type of a configurable parameter on a Policy.\n\n - PARAMETER_TYPE_STRING: A UTF-8 string value.\n - PARAMETER_TYPE_INTEGER: A signed 64-bit integer value.\n - PARAMETER_TYPE_STRING_LIST: A list of UTF-8 string values.",
+        "description": "The data type of a configurable parameter on a Policy.\n\n - PARAMETER_TYPE_STRING: A UTF-8 string value.\n - PARAMETER_TYPE_INTEGER: A signed 64-bit integer value.\n - PARAMETER_TYPE_STRING_LIST: A list of UTF-8 string values.\n - PARAMETER_TYPE_BOOLEAN: A boolean value.",
         "enum": [
           "PARAMETER_TYPE_UNSPECIFIED",
           "PARAMETER_TYPE_STRING",
           "PARAMETER_TYPE_INTEGER",
-          "PARAMETER_TYPE_STRING_LIST"
+          "PARAMETER_TYPE_STRING_LIST",
+          "PARAMETER_TYPE_BOOLEAN"
         ],
         "type": "string"
       },
-      "chainguard.platform.policygates.v1.Policies.UpdatePolicyBody": {
+      "chainguard.platform.policies.v1.Policies.UpdatePolicyBody": {
         "description": "Policy defines a rule that can be evaluated on an image\nin a repository, giving an \"allowed\" or \"disallowed\" decision.",
         "properties": {
           "createdAt": {
@@ -4221,7 +4982,7 @@
           "parameterSchemas": {
             "description": "The configurable parameter schemas declared by this policy. System\npolicies declare these; customers configure values on the bindings that\nactivate the policy.",
             "items": {
-              "$ref": "#/components/schemas/chainguard.platform.policygates.v1.ParameterSchema"
+              "$ref": "#/components/schemas/chainguard.platform.policies.v1.ParameterSchema"
             },
             "readOnly": true,
             "type": "array"
@@ -4229,7 +4990,7 @@
           "policyType": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.policygates.v1.PolicyType"
+                "$ref": "#/components/schemas/chainguard.platform.policies.v1.PolicyType"
               }
             ],
             "description": "The type of policy (system or custom).\nSystem policies are created automatically by the system and may not be modified.\nCustom policies may be created and modified by users with the relevant IAM permissions.",
@@ -4251,7 +5012,7 @@
         },
         "type": "object"
       },
-      "chainguard.platform.policygates.v1.Policy": {
+      "chainguard.platform.policies.v1.Policy": {
         "description": "Policy defines a rule that can be evaluated on an image\nin a repository, giving an \"allowed\" or \"disallowed\" decision.",
         "properties": {
           "createdAt": {
@@ -4278,7 +5039,7 @@
           "parameterSchemas": {
             "description": "The configurable parameter schemas declared by this policy. System\npolicies declare these; customers configure values on the bindings that\nactivate the policy.",
             "items": {
-              "$ref": "#/components/schemas/chainguard.platform.policygates.v1.ParameterSchema"
+              "$ref": "#/components/schemas/chainguard.platform.policies.v1.ParameterSchema"
             },
             "readOnly": true,
             "type": "array"
@@ -4286,7 +5047,7 @@
           "policyType": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/chainguard.platform.policygates.v1.PolicyType"
+                "$ref": "#/components/schemas/chainguard.platform.policies.v1.PolicyType"
               }
             ],
             "description": "The type of policy (system or custom).\nSystem policies are created automatically by the system and may not be modified.\nCustom policies may be created and modified by users with the relevant IAM permissions.",
@@ -4308,12 +5069,12 @@
         },
         "type": "object"
       },
-      "chainguard.platform.policygates.v1.PolicyList": {
+      "chainguard.platform.policies.v1.PolicyList": {
         "properties": {
           "items": {
             "description": "The Policy items requested.",
             "items": {
-              "$ref": "#/components/schemas/chainguard.platform.policygates.v1.Policy"
+              "$ref": "#/components/schemas/chainguard.platform.policies.v1.Policy"
             },
             "type": "array"
           },
@@ -4334,7 +5095,7 @@
         },
         "type": "object"
       },
-      "chainguard.platform.policygates.v1.PolicyMode": {
+      "chainguard.platform.policies.v1.PolicyMode": {
         "default": "POLICY_MODE_UNSPECIFIED",
         "description": "The mode to use when evaluating the policy.\n\n - POLICY_MODE_ENFORCED: Disallow access to the artifact when it doesn't satisfy the applied policy.\n - POLICY_MODE_DRY_RUN: Allow access to the artifact when it doesn't satisfy the applied policy, but log the outcome.",
         "enum": [
@@ -4344,7 +5105,7 @@
         ],
         "type": "string"
       },
-      "chainguard.platform.policygates.v1.PolicyType": {
+      "chainguard.platform.policies.v1.PolicyType": {
         "default": "POLICY_TYPE_UNSPECIFIED",
         "description": "The type of policy.\n\n - POLICY_TYPE_SYSTEM: The policy was created and managed by the system.\n - POLICY_TYPE_CUSTOM: The policy was created and managed by your organization.",
         "enum": [
@@ -5614,6 +6375,11 @@
               }
             ],
             "description": "The mode the policy was operating in."
+          },
+          "parameters": {
+            "additionalProperties": {},
+            "description": "The parameter values the binding supplied for this evaluation, keyed by\nparameter name. Surfaces what the allow/deny outcome was configured with.",
+            "type": "object"
           },
           "policyId": {
             "description": "The UIDP of the policy that was evaluated.",
@@ -9063,7 +9829,7 @@
             }
           },
           {
-            "description": "Filter to documents in a specific lifecycle state.\nSTATUS_UNSPECIFIED (the default) returns documents in any state.\n\n - STATUS_PENDING: Payload received; pending downstream processing.\n - STATUS_READY: Document is fully usable.\n - STATUS_FAILED: Document processing failed; the document is unusable.",
+            "description": "Filter to documents in a specific lifecycle state.\nSTATUS_UNSPECIFIED (the default) returns documents in any state.\n\n - STATUS_PENDING: Payload received; pending downstream processing.\n - STATUS_READY: Document is fully usable.\n - STATUS_FAILED: Document processing failed; the document is unusable.\n - STATUS_FALSE_POSITIVE: Processing determined the finding is not a true positive.",
             "in": "query",
             "name": "status",
             "schema": {
@@ -9072,7 +9838,8 @@
                 "STATUS_UNSPECIFIED",
                 "STATUS_PENDING",
                 "STATUS_READY",
-                "STATUS_FAILED"
+                "STATUS_FAILED",
+                "STATUS_FALSE_POSITIVE"
               ],
               "type": "string"
             }
@@ -9304,6 +10071,132 @@
         "summary": "Get Org Public Key",
         "tags": [
           "ArgosDocuments"
+        ]
+      }
+    },
+    "/argos/v1/osv/query": {
+      "post": {
+        "operationId": "ArgosOSV_Query",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.argos.OSVQueryRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.argos.OSVQueryResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Query",
+        "tags": [
+          "ArgosOSV"
+        ]
+      }
+    },
+    "/argos/v1/osv/querybatch": {
+      "post": {
+        "operationId": "ArgosOSV_QueryBatch",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.argos.OSVQueryBatchRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.argos.OSVQueryBatchResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Query Batch",
+        "tags": [
+          "ArgosOSV"
+        ]
+      }
+    },
+    "/argos/v1/osv/vulns/{id}": {
+      "get": {
+        "operationId": "ArgosOSV_GetVuln",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.argos.OSVRecord"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Vuln",
+        "tags": [
+          "ArgosOSV"
         ]
       }
     },
@@ -10105,6 +10998,227 @@
         "summary": "Check",
         "tags": [
           "GroupAccountAssociations"
+        ]
+      }
+    },
+    "/iam/v1/externalGroupRoleMappings": {
+      "get": {
+        "operationId": "ExternalGroupRoleMappings_List",
+        "parameters": [
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "ids are a list of exact UIDPs of records.",
+            "in": "query",
+            "name": "uidp.ids",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          {
+            "description": "identity_provider_uidp filters to a specific IdentityProvider.",
+            "in": "query",
+            "name": "identityProviderUidp",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.ExternalGroupRoleMappingList"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List",
+        "tags": [
+          "ExternalGroupRoleMappings"
+        ]
+      }
+    },
+    "/iam/v1/externalGroupRoleMappings/{id}": {
+      "delete": {
+        "operationId": "ExternalGroupRoleMappings_Delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Delete",
+        "tags": [
+          "ExternalGroupRoleMappings"
+        ]
+      }
+    },
+    "/iam/v1/externalGroupRoleMappings/{parentId}": {
+      "post": {
+        "operationId": "ExternalGroupRoleMappings_Create",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.iam.ExternalGroupRoleMapping"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "mapping"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.ExternalGroupRoleMapping"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create",
+        "tags": [
+          "ExternalGroupRoleMappings"
+        ]
+      }
+    },
+    "/iam/v1/externalGroupRoleMappings/{uid}": {
+      "get": {
+        "operationId": "ExternalGroupRoleMappings_Get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "uid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.ExternalGroupRoleMapping"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get",
+        "tags": [
+          "ExternalGroupRoleMappings"
         ]
       }
     },
@@ -14845,6 +15959,108 @@
         ]
       }
     },
+    "/libraries/v1/blocked-packages": {
+      "get": {
+        "operationId": "LibraryPolicyBlockEvents_ListBlockEvents",
+        "parameters": [
+          {
+            "description": "The org (parent) to scope events to. Required.",
+            "in": "query",
+            "name": "parentId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Only events for this ecosystem (UNKNOWN = all).",
+            "in": "query",
+            "name": "ecosystem",
+            "schema": {
+              "default": "UNKNOWN",
+              "enum": [
+                "UNKNOWN",
+                "JAVA",
+                "PYTHON",
+                "JAVASCRIPT"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Match against the PURL name component (exact, case-insensitive).",
+            "in": "query",
+            "name": "packageName",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Only events in this mode. Defaults to ENFORCED when unspecified.\n\n - LIBRARY_POLICY_BINDING_MODE_ENFORCED: Withhold packages that fail the policy.\n - LIBRARY_POLICY_BINDING_MODE_LOG: Evaluate and record violations without blocking.",
+            "in": "query",
+            "name": "mode",
+            "schema": {
+              "default": "LIBRARY_POLICY_BINDING_MODE_UNSPECIFIED",
+              "enum": [
+                "LIBRARY_POLICY_BINDING_MODE_UNSPECIFIED",
+                "LIBRARY_POLICY_BINDING_MODE_ENFORCED",
+                "LIBRARY_POLICY_BINDING_MODE_LOG"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Only events first blocked at or after this time. Defaults to 30 days ago.",
+            "in": "query",
+            "name": "since",
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryPolicyBlockEventList"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Block Events",
+        "tags": [
+          "LibraryPolicyBlockEvents"
+        ]
+      }
+    },
     "/libraries/v1/entitlements": {
       "get": {
         "operationId": "Entitlements_List",
@@ -15066,6 +16282,23 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "description": "The source types to include. If empty, defaults to all.",
+            "in": "query",
+            "name": "sourceTypes",
+            "schema": {
+              "items": {
+                "enum": [
+                  "NPM_SOURCE_TYPE_UNKNOWN",
+                  "NPM_SOURCE_TYPE_INTERNAL",
+                  "NPM_SOURCE_TYPE_INTERNAL_REMEDIATED",
+                  "NPM_SOURCE_TYPE_UPSTREAM_REGISTRY"
+                ],
+                "type": "string"
+              },
+              "type": "array"
+            }
           }
         ],
         "responses": {
@@ -15124,6 +16357,23 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "description": "The source types to include. If empty, defaults to all.",
+            "in": "query",
+            "name": "sourceTypes",
+            "schema": {
+              "items": {
+                "enum": [
+                  "NPM_SOURCE_TYPE_UNKNOWN",
+                  "NPM_SOURCE_TYPE_INTERNAL",
+                  "NPM_SOURCE_TYPE_INTERNAL_REMEDIATED",
+                  "NPM_SOURCE_TYPE_UPSTREAM_REGISTRY"
+                ],
+                "type": "string"
+              },
+              "type": "array"
+            }
           }
         ],
         "responses": {
@@ -15151,6 +16401,467 @@
         "summary": "List Versions",
         "tags": [
           "NpmPackages"
+        ]
+      }
+    },
+    "/libraries/v1/policies": {
+      "get": {
+        "description": "ListPolicies returns all policies available to the org: SYSTEM policies and\nthe org's CUSTOM policies.",
+        "operationId": "LibraryPolicies_ListPolicies",
+        "parameters": [
+          {
+            "description": "The org (parent) to scope policies to.",
+            "in": "query",
+            "name": "parentId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Exact name of the policy.",
+            "in": "query",
+            "name": "name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Only return policies of this type (UNSPECIFIED = all).\n\n - LIBRARY_POLICY_TYPE_SYSTEM: Created and managed by Chainguard; readable but not modifiable.\n - LIBRARY_POLICY_TYPE_CUSTOM: Created and managed by your organization.",
+            "in": "query",
+            "name": "policyType",
+            "schema": {
+              "default": "LIBRARY_POLICY_TYPE_UNSPECIFIED",
+              "enum": [
+                "LIBRARY_POLICY_TYPE_UNSPECIFIED",
+                "LIBRARY_POLICY_TYPE_SYSTEM",
+                "LIBRARY_POLICY_TYPE_CUSTOM"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryPolicyList"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Policies",
+        "tags": [
+          "LibraryPolicies"
+        ]
+      }
+    },
+    "/libraries/v1/policies/{id}": {
+      "delete": {
+        "operationId": "LibraryPolicies_DeletePolicy",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Delete Policy",
+        "tags": [
+          "LibraryPolicies"
+        ]
+      },
+      "put": {
+        "description": "UpdatePolicy updates a custom policy. Returns PERMISSION_DENIED for SYSTEM\npolicies and applies the same validation as CreatePolicy.",
+        "operationId": "LibraryPolicies_UpdatePolicy",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryPolicies.UpdatePolicyBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryPolicy"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Update Policy",
+        "tags": [
+          "LibraryPolicies"
+        ]
+      }
+    },
+    "/libraries/v1/policies/{parentId}": {
+      "post": {
+        "description": "CreatePolicy creates a custom policy under an org. expression is rejected\n(INVALID_ARGUMENT); cooldown_days above 30 is rejected; an allow-list entry\nwith bypass_malware=true requires a non-empty justification.",
+        "operationId": "LibraryPolicies_CreatePolicy",
+        "parameters": [
+          {
+            "description": "The org Group UIDP under which the policy is created.",
+            "in": "path",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryPolicy"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "policy"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryPolicy"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create Policy",
+        "tags": [
+          "LibraryPolicies"
+        ]
+      }
+    },
+    "/libraries/v1/policy-bindings": {
+      "get": {
+        "operationId": "LibraryPolicyBindings_ListBindings",
+        "parameters": [
+          {
+            "description": "The org (parent) to scope bindings to.",
+            "in": "query",
+            "name": "parentId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Only return bindings for this ecosystem (UNKNOWN = all).",
+            "in": "query",
+            "name": "ecosystem",
+            "schema": {
+              "default": "UNKNOWN",
+              "enum": [
+                "UNKNOWN",
+                "JAVA",
+                "PYTHON",
+                "JAVASCRIPT"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Only return bindings in this mode (UNSPECIFIED = all).\n\n - LIBRARY_POLICY_BINDING_MODE_ENFORCED: Withhold packages that fail the policy.\n - LIBRARY_POLICY_BINDING_MODE_LOG: Evaluate and record violations without blocking.",
+            "in": "query",
+            "name": "mode",
+            "schema": {
+              "default": "LIBRARY_POLICY_BINDING_MODE_UNSPECIFIED",
+              "enum": [
+                "LIBRARY_POLICY_BINDING_MODE_UNSPECIFIED",
+                "LIBRARY_POLICY_BINDING_MODE_ENFORCED",
+                "LIBRARY_POLICY_BINDING_MODE_LOG"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryPolicyBindingList"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Bindings",
+        "tags": [
+          "LibraryPolicyBindings"
+        ]
+      }
+    },
+    "/libraries/v1/policy-bindings/{id}": {
+      "delete": {
+        "operationId": "LibraryPolicyBindings_DeleteBinding",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Delete Binding",
+        "tags": [
+          "LibraryPolicyBindings"
+        ]
+      },
+      "put": {
+        "operationId": "LibraryPolicyBindings_UpdateBinding",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryPolicyBindings.UpdateBindingBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryPolicyBinding"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Update Binding",
+        "tags": [
+          "LibraryPolicyBindings"
+        ]
+      }
+    },
+    "/libraries/v1/policy-bindings/{parentId}": {
+      "post": {
+        "description": "CreateBinding activates a policy. Returns ALREADY_EXISTS if a binding for\nthe same (org, ecosystem, mode) already exists; use UpdateBinding instead.\nA JAVA ecosystem is rejected (INVALID_ARGUMENT) until enforcement exists.",
+        "operationId": "LibraryPolicyBindings_CreateBinding",
+        "parameters": [
+          {
+            "description": "The org Group UIDP under which the binding is created.",
+            "in": "path",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryPolicyBinding"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "binding"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryPolicyBinding"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create Binding",
+        "tags": [
+          "LibraryPolicyBindings"
         ]
       }
     },
@@ -15258,7 +16969,7 @@
         ]
       }
     },
-    "/policygates/v1/bindings": {
+    "/policies/v1/bindings": {
       "get": {
         "operationId": "Bindings_ListBindings",
         "parameters": [
@@ -15345,7 +17056,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.policygates.v1.BindingList"
+                  "$ref": "#/components/schemas/chainguard.platform.policies.v1.BindingList"
                 }
               }
             },
@@ -15368,7 +17079,7 @@
         ]
       }
     },
-    "/policygates/v1/bindings/{id}": {
+    "/policies/v1/bindings/{id}": {
       "delete": {
         "operationId": "Bindings_DeleteBinding",
         "parameters": [
@@ -15427,7 +17138,7 @@
           "content": {
             "*/*": {
               "schema": {
-                "$ref": "#/components/schemas/chainguard.platform.policygates.v1.Bindings.UpdateBindingBody"
+                "$ref": "#/components/schemas/chainguard.platform.policies.v1.Bindings.UpdateBindingBody"
               }
             }
           },
@@ -15439,7 +17150,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.policygates.v1.Binding"
+                  "$ref": "#/components/schemas/chainguard.platform.policies.v1.Binding"
                 }
               }
             },
@@ -15462,7 +17173,7 @@
         ]
       }
     },
-    "/policygates/v1/bindings/{parentId}": {
+    "/policies/v1/bindings/{parentId}": {
       "post": {
         "operationId": "Bindings_CreateBinding",
         "parameters": [
@@ -15480,7 +17191,7 @@
           "content": {
             "*/*": {
               "schema": {
-                "$ref": "#/components/schemas/chainguard.platform.policygates.v1.Binding"
+                "$ref": "#/components/schemas/chainguard.platform.policies.v1.Binding"
               }
             }
           },
@@ -15492,7 +17203,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.policygates.v1.Binding"
+                  "$ref": "#/components/schemas/chainguard.platform.policies.v1.Binding"
                 }
               }
             },
@@ -15515,7 +17226,7 @@
         ]
       }
     },
-    "/policygates/v1/policies": {
+    "/policies/v1/policies": {
       "get": {
         "operationId": "Policies_ListPolicies",
         "parameters": [
@@ -15610,7 +17321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.policygates.v1.PolicyList"
+                  "$ref": "#/components/schemas/chainguard.platform.policies.v1.PolicyList"
                 }
               }
             },
@@ -15633,7 +17344,7 @@
         ]
       }
     },
-    "/policygates/v1/policies/{id}": {
+    "/policies/v1/policies/{id}": {
       "delete": {
         "operationId": "Policies_DeletePolicy",
         "parameters": [
@@ -15692,7 +17403,7 @@
           "content": {
             "*/*": {
               "schema": {
-                "$ref": "#/components/schemas/chainguard.platform.policygates.v1.Policies.UpdatePolicyBody"
+                "$ref": "#/components/schemas/chainguard.platform.policies.v1.Policies.UpdatePolicyBody"
               }
             }
           },
@@ -15704,7 +17415,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.policygates.v1.Policy"
+                  "$ref": "#/components/schemas/chainguard.platform.policies.v1.Policy"
                 }
               }
             },
@@ -15727,7 +17438,7 @@
         ]
       }
     },
-    "/policygates/v1/policies/{parentId}": {
+    "/policies/v1/policies/{parentId}": {
       "post": {
         "operationId": "Policies_CreatePolicy",
         "parameters": [
@@ -15746,7 +17457,7 @@
           "content": {
             "*/*": {
               "schema": {
-                "$ref": "#/components/schemas/chainguard.platform.policygates.v1.Policy"
+                "$ref": "#/components/schemas/chainguard.platform.policies.v1.Policy"
               }
             }
           },
@@ -15759,7 +17470,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.policygates.v1.Policy"
+                  "$ref": "#/components/schemas/chainguard.platform.policies.v1.Policy"
                 }
               }
             },
@@ -20311,6 +22022,9 @@
       "name": "ArgosDocuments"
     },
     {
+      "name": "ArgosOSV"
+    },
+    {
       "name": "Auth"
     },
     {
@@ -20322,6 +22036,9 @@
     },
     {
       "name": "GroupAccountAssociations"
+    },
+    {
+      "name": "ExternalGroupRoleMappings"
     },
     {
       "name": "Groups"
@@ -20354,6 +22071,15 @@
     },
     {
       "name": "NpmPackages"
+    },
+    {
+      "name": "LibraryPolicies"
+    },
+    {
+      "name": "LibraryPolicyBindings"
+    },
+    {
+      "name": "LibraryPolicyBlockEvents"
     },
     {
       "name": "ImageMatcher"

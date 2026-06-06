@@ -1,5 +1,5 @@
 ---
-date: 2026-06-03T13:15:20Z
+date: 2026-06-05T18:37:43Z
 title: "chainctl images entitlements list"
 slug: chainctl_images_entitlements_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_entitlements_list/
