@@ -51,15 +51,6 @@ approach. Refer to the [direct access documentation for build
 tools](/chainguard/libraries/python/build-configuration/#direct-access) for more
 information.
 
-### Upcoming infrastructure migration
-
-Chainguard is migrating Python Libraries serving from `/python/files/...` paths to new R2-backed `/python/simple/...` paths. To avoid breaking existing environments, this migration is being rolled out with a 60-day transition window from June 10, 2026 through August 9, 2026. During this window, both path styles are served. 
-
-- Ensure your firewall allows HTTPS access to `9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com`.
-- If you use lockfiles that retain artifact URLs, such as with `pip` hash pinning or `uv`, plan to refresh those lockfiles during the migration window so they resolve to the new paths before August 9, 2026.
-- If you manage Python package access through a repository manager, review your configuration and validate package retrieval in a staging environment before the end of the migration window.
-
-
 ### Considerations for fallback approach
 
 Before configuring your repo manager, consider how you want to handle packages that aren't
