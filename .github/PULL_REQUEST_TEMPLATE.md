@@ -14,4 +14,7 @@
 <!-- Do any stakeholders need to be tagged in this review? If so, please add them. -->
 
 ### How should this PR be tested?
-<!-- What should your reviewer do to test this PR? Please list steps. -->
+
+Any documentation published to Chainguard Academy is reviewed carefully for accuracy. GUI procedures, API commands, and CLI code snippets in a draft are run and tested thoroughly — by both the author and the reviewer — to confirm they work exactly as written. This helps ensure that readers can follow along and get the same results. See the [docs wiki](https://github.com/chainguard-dev/edu#testing).
+
+<!-- What should your reviewer do to test this PR? Please list any steps that are additional to or different from the standard. -->
