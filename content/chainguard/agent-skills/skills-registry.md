@@ -19,7 +19,7 @@ The Chainguard Skills Registry lets you publish, manage, and distribute skills s
 
 This guide walks through the full workflow, including how to enable the registry for your org, then push, install, and run a skill.
 
-> **Note**: As of this writing, the Chainguard Skills Registry is in beta. You can sign up for the beta program by visiting the [Chainguard Agent Skills product page](https://www.chainguard.dev/agent-skills) and clicking **Join the beta**.
+{{< beta feature="Chainguard Skills Registry" >}}
 
 ## Prerequisites
 

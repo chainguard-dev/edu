@@ -17,7 +17,7 @@ weight: 001
 
 Chainguard Agent Skills is a catalog of hardened AI agent skills that Chainguard reviews, scopes, and publishes with a full audit trail. It lets teams extend their AI agents without extending their attack surface.
 
-> **Note**: As of this writing, Chainguard Agent Skills are in beta. You can sign up for the beta program by visiting the [Chainguard Agent Skills product page](https://www.chainguard.dev/agent-skills) and clicking **Join the beta**.
+{{< beta feature="Chainguard Agent Skills" access="Chainguard Containers customers who sign up for the beta program. You can sign up by visiting the [Chainguard Agent Skills product page](https://www.chainguard.dev/agent-skills) and clicking **Join the beta**" >}}
 
 ## What is an agent skill?
 

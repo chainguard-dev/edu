@@ -19,7 +19,7 @@ Chainguard publishes a curated set of hardened agent skills in a public catalog 
 
 This guide walks through the full workflow: listing the available skills, inspecting one, installing it, and running it with an agent.
 
-> **Note**: As of this writing, Chainguard Agent Skills are in beta. You can sign up for the beta program by visiting the [Chainguard Agent Skills product page](https://www.chainguard.dev/agent-skills) and clicking **Join the beta**.
+{{< beta feature="Chainguard Agent Skills" access="Chainguard Containers customers who sign up for the beta program. You can sign up by visiting the [Chainguard Agent Skills product page](https://www.chainguard.dev/agent-skills) and clicking **Join the beta**" >}}
 
 ## Prerequisites
 
