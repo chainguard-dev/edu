@@ -29,7 +29,7 @@ You'll then navigate to `localhost:1313` within the web browser of your choice.
 
 ## Testing
 
-Any documentation published to Chainguard Academy is reviewed carefully for accuracy. Commands and code snippets in a draft are run and tested thoroughly — by both the author and the reviewer — to confirm they work exactly as written. This helps ensure that readers can follow along and get the same results.
+Any documentation published to Chainguard Academy is reviewed carefully for accuracy. GUI procedures, API commands, and CLI code snippets in a draft are run and tested thoroughly — by both the author and the reviewer — to confirm they work exactly as written. This helps ensure that readers can follow along and get the same results.
 
 We also test drafts by previewing rendered content before it's published. Draft content passes through several checks between your editor and the live site:
 
