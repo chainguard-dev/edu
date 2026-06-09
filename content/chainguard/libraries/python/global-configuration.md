@@ -269,7 +269,7 @@ Configure a remote repository for the PyPI public index:
 Combine the two repositories in a new virtual repository:
 
 1. Click **Create a Repository** and choose the **Virtual** option.
-1. Select *PyPI* as the Package type.
+1. Select `PyPI` as the Package type.
 1. Set the **Repository Key** to `python-all`.
 1. In the **Repositories** section, find the `python-chainguard` and
    `python-public` repositories. Ensure the `python-chainguard` repository is
