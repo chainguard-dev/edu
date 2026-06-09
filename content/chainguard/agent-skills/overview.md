@@ -53,4 +53,4 @@ To interact with either of these registries, use the [`chainctl skills` commands
 
 ## Next steps
 
-To install and run a skill hardened by Chainguard, check out our guide on [Getting started with the Chainguard Agent Skills public catalog](/chainguard/agent-skills/public-catalog/). Alternatively, to publish, push, and run skills in your organization's private registry, refer to our guide on [Getting started with the Chainguard Agent Skills private registry](/chainguard/agent-skills/private-catalog/).
+To install and run a skill hardened by Chainguard, check out our guide on [Getting started with the Chainguard Agent Skills public catalog](/chainguard/agent-skills/public-catalog/). Alternatively, to publish, push, and run skills in your organization's private registry, refer to our guide on [Getting started with the Chainguard Skills Registry](/chainguard/agent-skills/skills-registry/).

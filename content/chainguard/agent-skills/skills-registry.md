@@ -1,7 +1,7 @@
 ---
-title: "Getting started with the Chainguard Agent Skills private registry"
-linktitle: "Private Registry"
-description: "Enable Chainguard Agent Skills, then push, install, and run an agent skill scoped to your organization."
+title: "Getting started with the Chainguard Skills Registry"
+linktitle: "Skills Registry"
+description: "Enable the Chainguard Skills Registry, then push, install, and run an agent skill scoped to your organization."
 type: "article"
 date: 2026-06-05T08:48:45+00:00
 lastmod: 2026-06-05T08:48:45+00:00
@@ -15,11 +15,11 @@ toc: true
 weight: 002
 ---
 
-Chainguard Agent Skills lets you publish, manage, and distribute skills scoped to your organization. Skills are stored as OCI artifacts at `skills.cgr.dev/<your-org>/<skill-name>:<tag>` and managed with `chainctl`.
+The Chainguard Skills Registry lets you publish, manage, and distribute skills scoped to your organization. Skills are stored as OCI artifacts at `skills.cgr.dev/<your-org>/<skill-name>:<tag>` and managed with `chainctl`.
 
 This guide walks through the full workflow, including how to enable the registry for your org, then push, install, and run a skill.
 
-> **Note**: As of this writing, Chainguard Agent Skills are in beta. You can sign up for the beta program by visiting the [Chainguard Agent Skills product page](https://www.chainguard.dev/agent-skills) and clicking **Join the beta**.
+> **Note**: As of this writing, the Chainguard Skills Registry is in beta. You can sign up for the beta program by visiting the [Chainguard Agent Skills product page](https://www.chainguard.dev/agent-skills) and clicking **Join the beta**.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ To follow this guide, you need:
 * An active Chainguard organization.
 * Owner access on the organization.
 
-The examples use an `$ORG` environment variable to refer to your organization. Set it to the name of your organization before you begin:
+The examples in this guide use an `$ORG` environment variable to refer to your organization. Set it to the name of your organization before you begin:
 
 ```shell
 export ORG=<your-organization>
@@ -42,7 +42,6 @@ Before your org can push or install skills, create a skills entitlement:
 ```shell
 chainctl skills entitlements create --parent $ORG
 ```
-
 ```output
 Created skills entitlement for org example.dev (717b474ac6972745c5706a898aa6e67ffba97dad)
 ```
@@ -91,7 +90,7 @@ If the user provides their name, greet them by name instead:
 EOF
 ```
 
-Your directory now looks like this:
+After running this command, your directory will have the following structure:
 
 ```
 hello-world/
@@ -104,7 +103,7 @@ The directory name (`hello-world/`) must match the `name` field in the frontmatt
 
 This section outlines some of the `chainctl` commands you can use to manage skills in your organization's private Skills Registry. The following commands use the `hello-world` skill as an example, but you can use any other skills you've created in its place.
 
-Check out the [`chainctl skills` reference documentation](/chainguard/chainctl/chainctl-docs/chainctl_skills/) for more information.
+Refer to the [`chainctl skills` reference documentation](/chainguard/chainctl/chainctl-docs/chainctl_skills/) for more information.
 
 ### Push the skill to your organization's registry
 
@@ -168,7 +167,7 @@ Installing hello-world
 
 ### Run the skill from an agent
 
-Load `hello-world` into Claude or any MCP-compatible agent. In Claude Code, invoke it with:
+Load `hello-world` into Claude Code or any MCP-compatible agent. In Claude Code, invoke it with:
 
 ```Agent
 /hello-world
