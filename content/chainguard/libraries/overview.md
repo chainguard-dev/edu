@@ -140,7 +140,8 @@ identifies and blocks malicious and greyware packages in Chainguard Libraries
 for JavaScript. This includes packages that are publicly reported as malicious
 (including packages associated with OSV malware IDs) and packages that
 Chainguard determines are unsafe, even when no public malware advisory exists
-yet.
+yet. If a package is flagged as malicious, Chainguard does not build that package
+from source or serve it through upstream fallback for JavaScript. Python and Java upstream package blocking is coming soon.
 
 The scanner evaluates multiple signal types, including:
 
@@ -164,8 +165,6 @@ The scanner evaluates multiple signal types, including:
   environment to see if there are attempts to call out to an external server,
   read system files, or execute hidden payloads.
 
-If a package is flagged as malicious, Chainguard does not build that package
-from source or serve it through upstream fallback.
 
 ## Other resources
 
