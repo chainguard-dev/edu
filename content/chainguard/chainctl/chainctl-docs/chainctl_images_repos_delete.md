@@ -1,5 +1,5 @@
 ---
-date: 2026-06-05T18:37:43Z
+date: 2026-06-08T21:00:27Z
 title: "chainctl images repos delete"
 slug: chainctl_images_repos_delete
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_delete/

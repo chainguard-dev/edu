@@ -1,5 +1,5 @@
 ---
-date: 2026-06-05T18:37:43Z
+date: 2026-06-08T21:00:27Z
 title: "chainctl libraries update-hashes"
 slug: chainctl_libraries_update-hashes
 url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_update-hashes/
