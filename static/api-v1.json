@@ -2903,6 +2903,14 @@
             "description": "The npm package name (e.g. \"react\" or \"@types/node\").",
             "type": "string"
           },
+          "sourceType": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.NpmSourceType"
+              }
+            ],
+            "description": "The source type this package summary belongs to. Packages are scoped by\nsource type, so the same name may appear once per source type."
+          },
           "versionCount": {
             "description": "The number of versions available for this package.",
             "format": "int64",
