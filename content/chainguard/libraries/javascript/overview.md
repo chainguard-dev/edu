@@ -220,7 +220,7 @@ All packages served from the upstream fallback are scanned for malware before be
 
 Malware detection is continuous. If a version that was previously cached is later identified as malicious, it is added to the block list and will be blocked on subsequent requests.
 
-In addition, [Chainguard's Sentinel scanning](https://www.chainguard.dev/unchained/how-does-chainguard-prevent-malware-in-chainguard-libraries/) blocks greyware and malicious packages before a public advisory exists. 
+In addition, [Chainguard's source code and maintainer behavior scanning](https://www.chainguard.dev/unchained/the-expanding-threat-landscape-chainguard-now-scans-source-code-for-traditional-malware-and-greyware) blocks packages that have malicious behavior that other firewall solutions may miss. Learn more in the [Libraries Overview](/chainguard/libraries/overview/#malware-and-greyware-detection).
 
 **Use the API for malware scanning**
 
