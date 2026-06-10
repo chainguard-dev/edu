@@ -335,6 +335,8 @@ other desired packages for further testing.
 JavaScript, designed as an alternative to npm and Yarn. For
 more information, see the [pnpm documentation](https://pnpm.io/motivation).
 
+> Note: Chainguard Libraries for JavaScript has been tested with pnpm v11. We recommend using pnpm v11 or newer.
+
 **Declare dependencies in package.json**
 
 With pnpm, you declare JavaScript package dependencies in a `package.json` file
