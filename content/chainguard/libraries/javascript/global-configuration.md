@@ -197,6 +197,7 @@ repository:
 1. Set the **URL** to `https://libraries.cgr.dev/javascript/`.
 1. Set **User Name** and **Password / Access Token** to the [values as retrieved
    with chainctl](/chainguard/libraries/access/).
+1. Click the **Advanced** configuration tab. Disable **URL Normalization**
 1. Click **Create Remote Repository**.
 
 
