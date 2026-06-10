@@ -106,6 +106,7 @@
           "CAP_LIBRARIES_REBUILDER_REMEDIATED_ARTIFACTS_READ",
           "CAP_LIBRARIES_REBUILDER_NEW_VERSIONS_READ",
           "CAP_LIBRARIES_REBUILDER_NEW_VERSIONS_REFRESH",
+          "CAP_LIBRARIES_REBUILDER_MALWARE_STATUS_READ",
           "CAP_REGISTRY_ENTITLEMENTS_LIST",
           "CAP_REGISTRY_ENTITLEMENTS_CREATE",
           "CAP_REGISTRY_ENTITLEMENTS_DELETE",
@@ -20330,6 +20331,48 @@
       }
     },
     "/registry/v2beta1/repos/{uid}": {
+      "delete": {
+        "description": "DeleteRepo deletes a repository by UID.",
+        "operationId": "ReposService_DeleteRepo",
+        "parameters": [
+          {
+            "description": "UID of the repository to delete.",
+            "in": "path",
+            "name": "uid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Delete Repo",
+        "tags": [
+          "ReposService"
+        ]
+      },
       "get": {
         "description": "GetRepo retrieves a single repository by UID.",
         "operationId": "ReposService_GetRepo",
