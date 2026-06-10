@@ -1,7 +1,8 @@
 ---
 title: "Using the Chainguard Console"
 linktitle: "Using the Chainguard Console"
-aliases: 
+aliases:
+- /chainguard/chainguard-images/how-to-use/images-directory/
 type: "article"
 description: "A walkthrough of the Chainguard Console."
 date: 2024-02-23T11:07:52+02:00
@@ -11,7 +12,7 @@ tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:
-    parent: "chainguard-images"
+    parent: "console"
 weight: 020
 toc: true
 ---
@@ -39,7 +40,7 @@ After signing in to the [Chainguard Console](https://console.chainguard.dev), yo
 <center><img src="imgs-dir-A.png" alt="Screenshot showing the Chainguard Console's Overview page." style="width:1100px;"></center>
 <br /> 
 
-If your organization and account have [Chainguard Notifications](/chainguard/chainguard-images/how-to-use/use-chainguard-notifications) enabled, you will see the **Activity Center** on the page where notifications from Chainguard will occasionally be shown.
+If your organization and account have [Chainguard Notifications](/chainguard/console/use-chainguard-notifications) enabled, you will see the **Activity Center** on the page where notifications from Chainguard will occasionally be shown.
 
 <center><img src="notifications-inapp.png" alt="Screenshot showing a test notification in the Chainguard Notifications box on the Chainguard Console's Overview page." style="width:1100px;"></center>
 <br />

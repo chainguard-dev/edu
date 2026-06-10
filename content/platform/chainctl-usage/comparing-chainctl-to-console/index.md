@@ -22,7 +22,7 @@ Chainguard provides two powerful interfaces for managing container security reso
 
 ## Prerequisites
 
-To access the [Chainguard Console](/chainguard/chainguard-images/how-to-use/images-directory/) you need to [create an account and sign in](https://console.chainguard.dev/auth/login). The Console is accessible to everyone, including users who aren't Chainguard customers.
+To access the [Chainguard Console](/chainguard/console/images-directory/) you need to [create an account and sign in](https://console.chainguard.dev/auth/login). The Console is accessible to everyone, including users who aren't Chainguard customers.
 
 To use `chainctl`, start by [installing chainctl](/chainguard/chainctl-usage/how-to-install-chainctl/). See [Get Started with chainctl](/chainguard/chainctl-usage/getting-started-with-chainctl/) to help you begin using it; the examples on this page assume you have `chainctl` installed and are authenticated.
 
@@ -151,7 +151,7 @@ To learn more about `chainctl`, see:
 
 To learn more about the Chainguard Console, see:
 
-* [Using the Chainguard Directory and Console](/chainguard/chainguard-images/how-to-use/images-directory/).
+* [Using the Chainguard Directory and Console](/chainguard/console/images-directory/).
 
 
 ### Compare a Chainguard Container to a non-Chainguard Alternative in the Console
