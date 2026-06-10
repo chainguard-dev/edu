@@ -1,5 +1,6 @@
 ---
 title : "Chainguard Repository"
+linktitle: "Repository"
 lead: ""
 description: "Chainguard Repository Documentation"
 type: "article"
