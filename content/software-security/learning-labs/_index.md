@@ -3,7 +3,7 @@ title: "Learning Labs"
 description: "Education and training videos on demand"
 type: "article"
 date: 2025-06-18T21:00:00+00:00
-lastmod: 2025-12-17T21:00:00+00:00
+lastmod: 2026-06-02T21:00:00+00:00
 draft: false
 images: []
 tags: ["Learning Labs", "Overview"]
@@ -22,6 +22,8 @@ The lab notes often include demo projects, a slide presentation, sample
 commands, links to specific sections in the video, and pointers to more
 resources:
 
+- [{{<icon "play-circle-fill">}} Build Safely with AI - May 2026](/software-security/learning-labs/ll202605/)
+- [{{<icon "play-circle-fill">}} Securing CI/CD with Chainguard - April 2026](/software-security/learning-labs/ll202604/)
 - [{{<icon "play-circle-fill">}} Software supply chain attacks and Chainguard Libraries - March 2026](/software-security/learning-labs/ll202603/)
 - [{{<icon "play-circle-fill">}} AI-assisted migration to Chainguard Containers - February 2026](https://www.youtube.com/watch?v=JUPBtq3DyUw&list=PLLjvkjPNmuZmvi2ZDXicVAWAC_mg2Jpgn)
 - [{{<icon "play-circle-fill">}} AI with hardened containers and libraries - January 2026](https://www.youtube.com/watch?v=hkoj-dm-5z8&list=PLLjvkjPNmuZmvi2ZDXicVAWAC_mg2Jpgn)

@@ -12,6 +12,7 @@ images: []
 menu:
   docs:
     parent: "chainguard-os"
+    identifier: "Chainguard OS Overview"
 weight: 010
 toc: true
 ---

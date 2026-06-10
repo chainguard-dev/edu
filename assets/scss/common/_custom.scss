@@ -700,7 +700,6 @@ header .search-container {
 }
 
 .search.is-search {
-    background-color: var(--search-background) !important;
     line-height: 26px;
     padding: 0 34px;
     font-size: 14px;
@@ -1521,4 +1520,37 @@ blockquote p a {
     max-height: 45em;
     width: auto;
     max-width: 100%;
+}
+.tabs-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  border-bottom: 2px solid var(--leftnav-border);
+  margin-bottom: 1rem;
+
+  button {
+    background: none;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    font-size: inherit;
+    color: var(--body-color);
+
+    &.active {
+      border-bottom-color: var(--active-element-shadow);
+      font-weight: 600;
+    }
+
+    &:hover:not(.active) {
+      color: var(--active-element-shadow);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--active-element-shadow);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+  }
 }

@@ -204,6 +204,39 @@ When you request a JavaScript or Java package from the Chainguard Repository, th
     * Malware scanning checks all packages against the Open Source Vulnerabilities (OSV) database, which includes the OpenSSF Malicious Packages feed among other sources. Any package version flagged with a malware identifier is blocked. This covers reported malicious packages across the npm ecosystem.
 
 > **Note**: Chainguard Repository for JavaScript is not a full mirror of npm by design. Similarly, Chainguard Repository for Java is not a full mirror of Maven Central. Packages are screened for malware before being made available. Some packages may be delayed by the cooldown period or permanently blocked if flagged as malicious.
+## Malware and greyware detection
+
+Chainguard's [source code and maintainer behavior
+scanning](https://www.chainguard.dev/unchained/the-expanding-threat-landscape-chainguard-now-scans-source-code-for-traditional-malware-and-greyware/)
+identifies and blocks malicious and greyware packages in Chainguard Libraries
+for JavaScript. This includes packages that are publicly reported as malicious
+(including packages associated with OSV malware IDs) and packages that
+Chainguard determines are unsafe, even when no public malware advisory exists
+yet. If a package is flagged as malicious, Chainguard does not build that
+package from source or serve it through upstream fallback for JavaScript. Python
+and Java upstream package blocking is coming soon.
+
+The scanner evaluates multiple signal types, including:
+
+- **Maintainer behavior**: Flags anomalies in publisher accounts, release
+  history, and package metadata, checking to see if a maintainer account was
+  recently transferred, if a version was quietly yanked and republished, or if a
+  publish timestamp falls outside any normal window. It also monitors for
+  changes in publishing policy, process, or toolchain as these updates can be an
+  indicator of ownership takeover. 
+- **Package contents**: Downloads and scans the actual package that was
+  published for obfuscated code, embedded C2 domains, modified binaries, and
+  other indicators that something fishy was inserted into the package before it
+  hit the registry. It also triggers on newly added dependencies and significant
+  changes in code or binary size.
+- **Publishing signals**: Compares the published package against its source
+  code, providing extra protection for all of the packages served via
+  Chainguard’s upstream fallback. It also monitors for items such as a release
+  not being tagged or being signed with an unknown key. Other publish signals
+  include force pushing a tag or a commit hash not being in the event log.
+- **Dynamic execution**: Runs install scripts in a sandboxed, network-blocked
+  environment to see if there are attempts to call out to an external server,
+  read system files, or execute hidden payloads.
 
 
 ## Other resources

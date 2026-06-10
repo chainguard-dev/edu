@@ -4,20 +4,19 @@ lead: "AI-ready documentation bundle for development"
 description: "Compiled Chainguard documentation optimized for use with AI coding assistants"
 type: "article"
 date: 2025-07-29T10:00:00+00:00
-lastmod: 2026-03-30T00:00:00+00:00
+lastmod: 2026-05-20T00:00:00+00:00
 draft: false
 images: []
 weight: 50
 toc: false
 ---
 
-## AI-Ready Documentation Bundle
+## AI-ready documentation bundle
 
-This page provides compiled Chainguard documentation optimized for use with AI coding assistants like Claude, ChatGPT, GitHub Copilot, and others. Access it through our secure container image or as a standalone Python MCP server.
+This page describes a compiled bundle of Chainguard documentation that you can feed to AI coding assistants such as Claude, ChatGPT, or GitHub Copilot. Use it through the Chainguard-built container image or run the bundle as a Python MCP server.
 
-### What's Included
+### What's included
 
-A comprehensive collection of Chainguard documentation including:
 - Complete Chainguard Containers documentation
 - Security best practices and CVE management
 - Migration guides and tutorials
@@ -25,77 +24,76 @@ A comprehensive collection of Chainguard documentation including:
 - Wolfi, melange, and apko documentation
 - Compliance and supply chain security guides
 
-## Download AI Documentation Bundle
+## Download the AI documentation bundle
 
 <div style="background-color: var(--blockquote-background); border-left: 4px solid var(--link-color, #2196F3); padding: 20px; border-radius: 4px; margin: 20px 0;">
-  <h3 style="margin-top: 0; color: var(--body-color);">New: MCP Server Support</h3>
+  <h3 style="margin-top: 0; color: var(--body-color);">MCP server support</h3>
   <p style="color: var(--body-color);">Run the container as an <strong>MCP (Model Context Protocol) server</strong> for searchable, on-demand access to Chainguard documentation in AI assistants and IDEs.</p>
-  <p><a href="/mcp-server-ai-docs/" style="font-weight: bold; text-decoration: none; color: var(--link-color, #2196F3);">→ Full MCP Server Documentation</a></p>
+  <p><a href="/mcp-server-ai-docs/" style="font-weight: bold; text-decoration: none; color: var(--link-color, #2196F3);">→ Full MCP server documentation</a></p>
 </div>
 
-Choose your preferred distribution method:
+Two distribution methods are available:
 
 <div style="background-color: var(--blockquote-background); border-left: 4px solid #4CAF50; padding: 16px; border-radius: 4px; margin: 20px 0;">
-  <strong>Container Distribution Recommended</strong><br>
-  For enhanced security and verification, we recommend using the Chainguard container image. It includes built-in verification, runs as non-root, and is built on our secure <code>wolfi-base</code> image.
+  <strong>Container distribution is recommended.</strong><br>
+  The Chainguard container image includes verification scripts, runs as a non-root user, and is built on <code>wolfi-base</code>. Use it unless you have a reason to download files directly.
 </div>
 
-### Container Distribution
+### Container distribution
 
-Pull the secure, Chainguard-based container with embedded documentation:
+Pull the container, then run it to print usage, verify the bundle, or extract the documentation:
 
 ```bash
 # Pull the container image (built on Chainguard wolfi-base)
 docker pull ghcr.io/chainguard-dev/ai-docs:latest
 
-# View available commands and usage
+# Print available commands
 docker run --rm ghcr.io/chainguard-dev/ai-docs:latest
 
 # Verify documentation integrity
 docker run --rm ghcr.io/chainguard-dev/ai-docs:latest verify
 
-# Extract documentation to current directory
+# Extract documentation to the current directory
 docker run --rm -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract /output
 ```
 
-**Container Features:**
+**Container features:**
 - Built on Chainguard's minimal `wolfi-base` image
-- Runs as non-root user for enhanced security
+- Runs as a non-root user
 - Includes verification scripts and checksums
-- Cryptographically signed with Cosign
-- Automatically updated weekly
+- Signed with Cosign
+- Rebuilt weekly
 
-**Verify Container Signature:**
+**Verify the container signature:**
 ```bash
-# Verify the container image signature with Cosign
 cosign verify ghcr.io/chainguard-dev/ai-docs:latest \
   --certificate-identity-regexp ".*github.com/chainguard-dev/edu.*" \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com
 ```
 
-### MCP Server (Model Context Protocol)
+### MCP server (Model Context Protocol)
 
-**Recommended for:** Developers, agent workflows, IDE integration
+**Recommended for:** developers, agent workflows, IDE integration.
 
-Run the container as an MCP server to provide AI assistants with searchable, on-demand access to Chainguard documentation:
+Run the same container as an MCP server so AI assistants can search the documentation on demand:
 
 ```bash
 # Run as MCP server
 docker run --rm -i ghcr.io/chainguard-dev/ai-docs:latest serve-mcp
 ```
 
-**MCP Tools Available:**
-- `search_docs` - Search across all documentation
-- `get_image_docs` - Get specific container image docs
-- `list_images` - List and filter available images with upstream mappings
-- `get_security_docs` - Get CVE and security information
-- `get_tool_docs` - Get wolfi/apko/melange/chainctl docs
-- `find_package_equivalent` - Find Wolfi packages for upstream OS packages (Debian, Fedora, Alpine)
-- `check_image_freshness` - Live registry check for image tags and availability
+**Available MCP tools:**
+- `search_docs` — search across all documentation
+- `get_image_docs` — return docs for a specific container image
+- `list_images` — list and filter available images, with optional upstream mappings
+- `get_security_docs` — return CVE and security information
+- `get_tool_docs` — return Wolfi, apko, melange, or chainctl docs
+- `find_package_equivalent` — map a Debian, Fedora, or Alpine package to its Wolfi equivalent
+- `check_image_freshness` — query the registry for current image tags
 
-**Claude Desktop Configuration:**
+**Claude Desktop configuration:**
 
-Add to your `claude_desktop_config.json`:
+Add this block to `claude_desktop_config.json`:
 
 ```json
 {
@@ -108,16 +106,11 @@ Add to your `claude_desktop_config.json`:
 }
 ```
 
-**Benefits:**
-- Efficient context usage - only retrieve what you need
-- Searchable and queryable documentation
-- Perfect for automated workflows
-- Works with Claude Desktop, Cursor, and other MCP-compatible tools
-- Also available as a [standalone Python script](/mcp-server-ai-docs/#standalone-installation-without-docker) (no Docker required)
+To use the hosted server instead of running a container locally, see the [hosted server instructions](/mcp-server-ai-docs/#hosted-server-recommended) — Claude Desktop reaches it through the [`mcp-remote`](https://github.com/geelen/mcp-remote) bridge. A [standalone Python script](/mcp-server-ai-docs/#standalone-installation-without-docker) is also available for setups without Docker.
 
-[**Full MCP Server Documentation →**](/mcp-server-ai-docs/)
+[**Full MCP server documentation →**](/mcp-server-ai-docs/)
 
-### Quick Start
+### Quick start
 
 ```bash
 # Extract current documentation from the container image
@@ -126,43 +119,43 @@ docker run --rm -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract 
 # The extracted file 'chainguard-ai-docs.md' is ready to use with your AI assistant
 ```
 
-### Security Features
+### Security features
 
 <div style="border: 2px solid #4CAF50; padding: 20px; border-radius: 8px; margin: 20px 0;">
-  <h4>Available Security Features</h4>
+  <h4>Bundle security</h4>
   <ul>
     <li>Container image signed with Sigstore/Cosign</li>
-    <li>Container distribution via GitHub Container Registry</li>
-    <li>Automated updates via GitHub Actions</li>
-    <li>Security scanning with gitleaks</li>
+    <li>Distributed through GitHub Container Registry</li>
+    <li>Rebuilt weekly through GitHub Actions</li>
+    <li>Scanned with gitleaks during the build</li>
   </ul>
 </div>
 
 
-### Security Transparency
+### Security transparency
 
 <div style="background-color: var(--blockquote-background); border: 1px solid var(--sidebar-item-list-item-selected-background); padding: 16px; border-radius: 6px; margin: 20px 0;">
-  <strong>Security First:</strong> Our documentation bundles are compiled with security measures.
+  <strong>Security first.</strong> The documentation bundles are compiled under controls described on the security page.
   <a href="/ai-docs-security" style="font-weight: bold;">Learn about our security practices →</a>
 </div>
 
-View our security resources:
-- **[Security and Compilation Process](/ai-docs-security)** - Detailed security measures and verification
-- [Build Logs](https://github.com/chainguard-dev/edu/actions/workflows/compile-docs.yml) - Public compilation logs
-- [Source Code](https://github.com/chainguard-dev/edu/tree/main/scripts) - Open source compilation scripts
+Security resources:
+- **[Security and compilation process](/ai-docs-security)** — measures and verification steps
+- [Build logs](https://github.com/chainguard-dev/edu/actions/workflows/compile-docs.yml) — public compilation logs
+- [Source code](https://github.com/chainguard-dev/edu/tree/main/scripts) — open-source compilation scripts
 
-### How to Use with AI Assistants
+### How to use the bundle with AI assistants
 
-1. **Download and verify** the documentation bundle using one of the methods above
-2. **Open your AI assistant** (Claude, ChatGPT, etc.)
-3. **Upload or paste the markdown file** into your conversation
-4. **Start coding** with full Chainguard context available to your AI assistant
+1. Download and verify the documentation bundle using one of the methods above.
+2. Open your AI assistant (Claude, ChatGPT, and others).
+3. Upload or paste the markdown file into the conversation.
+4. Start coding with Chainguard context available to the assistant.
 
-### Example Prompts for Common Tasks
+### Example prompts for common tasks
 
-Once you've loaded the documentation, try these prompts with your AI assistant:
+Once the documentation is loaded, try these prompts with your AI assistant:
 
-#### Container Security and CVEs
+#### Container security and CVEs
 - "Search for Chainguard container security best practices and CVE management"
 - "How do I migrate from Docker Hub images to Chainguard images?"
 - "Show me examples of using Chainguard images in production"
@@ -170,7 +163,7 @@ Once you've loaded the documentation, try these prompts with your AI assistant:
 - "How do I scan Chainguard images for vulnerabilities?"
 - "Explain Chainguard's approach to zero CVE images"
 
-#### Development Workflows
+#### Development workflows
 - "Find information about debugging distroless containers"
 - "How do I use Chainguard images with Kubernetes?"
 - "What are the differences between Chainguard development and production images?"
@@ -178,7 +171,7 @@ Once you've loaded the documentation, try these prompts with your AI assistant:
 - "How do I add custom packages to a Chainguard image?"
 - "Create a Dockerfile using Chainguard's Python image for a Flask app"
 
-#### Specific Technologies
+#### Specific technologies
 - "Show me Chainguard's Python/Node.js/Go image documentation"
 - "Find FIPS-compliant container information"
 - "How do I use Chainguard images for AI/ML workloads?"
@@ -186,7 +179,7 @@ Once you've loaded the documentation, try these prompts with your AI assistant:
 - "How to use Chainguard's PostgreSQL image with custom extensions"
 - "Show examples of using Chainguard's NGINX image with custom configs"
 
-#### Security and Compliance
+#### Security and compliance
 - "Search for SBOM and supply chain security information"
 - "Find information about Chainguard's compliance certifications"
 - "How does Chainguard help with CVE remediation?"
@@ -194,7 +187,7 @@ Once you've loaded the documentation, try these prompts with your AI assistant:
 - "What are Chainguard's SLSA compliance levels?"
 - "How to generate and analyze SBOMs for Chainguard images"
 
-#### CI/CD Integration
+#### CI/CD integration
 - "How do I use Chainguard images in GitHub Actions?"
 - "Show me examples of using Chainguard images with GitLab CI"
 - "How to set up automated vulnerability scanning for Chainguard images"
@@ -208,27 +201,27 @@ Once you've loaded the documentation, try these prompts with your AI assistant:
 - "Common migration issues when moving from Alpine to Wolfi-based images"
 - "How to identify missing dependencies in distroless containers"
 
-#### Architecture and Best Practices
+#### Architecture and best practices
 - "Explain the architecture of Wolfi and how it differs from Alpine"
 - "What is apko and how does it relate to Chainguard images?"
 - "Best practices for minimizing image size with Chainguard"
 - "How to implement a secure software supply chain with Chainguard"
 - "Explain melange and its role in package building"
 
-### Benefits for AI-Assisted Development
+### Benefits for AI-assisted development
 
-- **Complete Context**: AI assistants have access to all Chainguard documentation at once
-- **Better Code Suggestions**: AI can reference actual Chainguard patterns and best practices
-- **Faster Development**: No need to search through multiple documentation pages
-- **Accurate Answers**: AI responses are based on official Chainguard documentation
+- **Complete context.** The assistant can see all Chainguard documentation at once.
+- **Better code suggestions.** The assistant grounds its output in actual Chainguard patterns.
+- **Faster development.** No need to search through multiple documentation pages.
+- **Accurate answers.** Responses come from official Chainguard documentation rather than the model's training data.
 
 ### Updates
 
-The bundle is regenerated periodically. Check the timestamp in the downloaded file for the compilation date.
+The bundle is rebuilt weekly. The compilation date appears at the top of the downloaded file.
 
-### Need Help?
+### Need help?
 
 If you have questions or need assistance:
 - Visit [Chainguard Support](https://support.chainguard.dev?utm=docs)
-- Join our [Community Slack](https://go.chainguard.dev/slack?utm=docs)
-- Review our [Documentation](https://edu.chainguard.dev)
+- Join our [community Slack](https://go.chainguard.dev/slack?utm=docs)
+- Browse the [documentation site](https://edu.chainguard.dev)

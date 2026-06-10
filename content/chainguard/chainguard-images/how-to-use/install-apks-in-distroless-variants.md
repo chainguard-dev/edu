@@ -21,9 +21,9 @@ This page documents workflows for installing APK packages in [distroless variant
 
 The distroless variants of Chainguard Containers do not contain shells or package managers by design. This reduces attack surface and exploitability for these images. In cases where additional packages are required, we typically recommend the following:
 
-- If packages for the language runtime (such as those installed with Python’s pip or Node’s npm) are required and no additional system-level (APK) dependencies are needed, we recommend following one of our language-specific multi-stage build tutorials ([Python](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/python/), [Node](https://edu.chainguard.dev/chainguard/migration/migrating-node/), [PHP](https://edu.chainguard.dev/chainguard/migration/migrating-php/)).  
-- Use Chainguard's [Custom Assembly](https://edu.chainguard.dev/chainguard/chainguard-images/features/custom-assembly/) tool to create an image with additional packages added.  
-- For some use cases, consider running our variant tagged `:latest-dev` in production. These Chainguard Containers are also low-to-zero CVE and are considered production-ready.  
+- If packages for the language runtime (such as those installed with Python’s pip or Node’s npm) are required and no additional system-level (APK) dependencies are needed, we recommend following one of our language-specific multi-stage build tutorials ([Python](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/python/), [Node](https://edu.chainguard.dev/chainguard/migration/migrating-node/), [PHP](https://edu.chainguard.dev/chainguard/migration/migrating-php/)).
+- Use Chainguard's [Custom Assembly](https://edu.chainguard.dev/chainguard/chainguard-images/features/custom-assembly/) tool to create an image with additional packages added.
+- For some use cases, consider running our variant tagged `:latest-dev` in production. These Chainguard Containers are also low-to-zero CVE and are considered production-ready.
 - Consider requesting a custom image from Chainguard.
 
 However, we understand that there are specific use cases that require installation of system-level APK packages in distroless variants, such as maintaining internal build environments requiring application- or team-based packaging. In these cases, you may wish to implement the approach described in this document.
@@ -56,7 +56,7 @@ This workflow allows you to install APKs to a distroless image during a Dockerfi
 3. Install any build time dependencies and build your software artifacts, such as virtual environments or binaries.
 4. Copy the entire filesystem from the reference image to a directory on the build image. Install any desired runtime APKs to this directory using chroot.
 5. Switch to the original distroless image for the final assembly.
-6. Copy the directory with installed runtime dependencies from the build image to root on the distroless image. Copy any built software artifacts from the build image to the distroless image.  
+6. Copy the directory with installed runtime dependencies from the build image to root on the distroless image. Copy any built software artifacts from the build image to the distroless image.
 7. Set the desired entrypoint.
 
 In short, we pull a distroless image, replicate its file structure as a folder on the build image, install APKs to that file structure, build our artifacts on the build image, then put the customized file structure and artifacts into the distroless image.
@@ -67,7 +67,7 @@ In short, we pull a distroless image, replicate its file structure as a folder o
 - Images built using this approach should be rebuilt periodically, even when reference base & build images did not change, to get updates of custom packages.
 - Scanners should correctly register packages in the final image.
 
-### Example A: Preparing a Python virtual environment with APK install and runtime dependencies  
+### Example A: Preparing a Python virtual environment with APK install and runtime dependencies
 
 In this example, we prepare a virtual environment that will support the Python module for MariaDB, create a customized distroless file structure with needed APKs, and assemble these components in a distroless image. Creating this virtual environment (installing from pip) requires specific APKs be available at both install time and runtime.
 
@@ -78,7 +78,7 @@ Let's get started.
 1. Create a `run.py` file that will import the `_mysql` object from the `MySQLdb` module and print the version:
 
 ```python
-from MySQLdb import _mysql  
+from MySQLdb import _mysql
 print(_mysql.__version__)
 ```
 
@@ -111,7 +111,8 @@ RUN pip install --no-cache-dir -r /app/requirements.txt
 USER root
 COPY --from=base / /base-chroot
 RUN mkdir -p /base-chroot
-RUN apk add --no-cache --root /base-chroot mariadb-connector-c-dev mariadb
+RUN apk add --no-cache --no-scripts --root /base-chroot mariadb-connector-c-dev mariadb && \
+  ldconfig -r /base-chroot
 
 FROM cgr.dev/chainguard/python:latest
 # Copy over the apks prep'ed at the end of the build stage (no apk-add in this image)
@@ -139,28 +140,28 @@ Create a working directory:
 
 Now let’s add dependencies needed to install `mysqlclient` using pip. For many libraries, dependencies are needed only for runtime, so installing APKs at this stage is not needed. Note that we need root access to install APKs.
 
-`USER root`  
+`USER root`
 `RUN apk add --no-cache mariadb-connector-c-dev mariadb`
 
 We now create a virtual environment, give this environment precedence on the path, and install Python dependencies, in this case only `mysqlclient`. Installation by pip takes place as a nonadministrative user.
 
-`USER 65532`  
-`RUN python -m venv venv`  
-`ENV PATH="/app/venv/bin":$PATH`  
-`COPY requirements.txt /app/`  
+`USER 65532`
+`RUN python -m venv venv`
+`ENV PATH="/app/venv/bin":$PATH`
+`COPY requirements.txt /app/`
 `RUN pip install --no-cache-dir -r /app/requirements.txt`
 
 We have now created the software artifact that will be copied into our final distroless image, in this case a Python virtual environment set up to run MariaDB. Now we will create a customized file structure that uses the filesystem from our distroless image as a base and includes required additional APKs needed during runtime.
 
 First, copy the full contents of the distroless image we pulled at the beginning (labeled “base”) to a folder on our build image:
 
-`USER root`  
-`COPY --from=base / /base-chroot`  
+`USER root`
+`COPY --from=base / /base-chroot`
 `RUN mkdir -p /base-chroot`
 
-Now install APKs to this copied folder using chroot:
+Now install APKs to this copied folder using chroot. We add `--no-scripts` and `ldconfig -r /base-chroot` to skip the pre- and post-install scripts in the APKs which would fail in a distroless environment and then regenerate the cache after installation:
 
-`RUN apk add --no-cache --root /base-chroot mariadb-connector-c-dev mariadb`
+`RUN apk add --no-cache --no-scripts --root /base-chroot mariadb-connector-c-dev mariadb && ldconfig -r /base-chroot`
 
 We’ve now prepared two components on our build image: the required software artifacts (a Python virtual environment) and a file structure customized with installed APKs needed for runtime. We will now assemble these components in the distroless image.
 
@@ -170,14 +171,14 @@ Switch to the distroless image:
 
 Copy the customized folder structure we created on the build image, replacing the root of our distroless image:
 
-`COPY --link --from=build /base-chroot` 
+`COPY --link --from=build /base-chroot`
 
 Note here that we have chosen to use the [`--link` flag](https://docs.docker.com/reference/dockerfile/#copy---link). This adds an independent layer with the copied files and replaces the filesystem without reference to existing files, resulting in a more complete replacement. However, use of this flag can increase image size, so you may wish to experiment with disabling this flag in your build.
 
 Next, we copy our virtual environment and run script:
 
-`WORKDIR /app`  
-`COPY --from=build /app/venv /app/venv`  
+`WORKDIR /app`
+`COPY --from=build /app/venv /app/venv`
 `COPY run.py run.py`
 
 Set the path so that the virtual environment has precedence:
@@ -225,7 +226,8 @@ RUN gcc test.c `pkg-config --cflags --libs libcurl` -o dynamic-binary
 
 COPY --from=base / /base-chroot
 
-RUN apk add --root /base-chroot so:libcurl.so.4
+RUN apk add --no-scripts --root /base-chroot so:libcurl.so.4 && \
+  ldconfig -r /base-chroot
 
 FROM scratch
 
@@ -247,12 +249,12 @@ Next, pull a build image with shell, APK, and needed toolchains for binary compi
 
 Copy source file(s) for our desired artifact. This example will use a [here document](https://en.wikipedia.org/wiki/Here_document) with a short example depending on libcurl.
 
-`COPY <<EOF ./test.c`  
-`#include <stdio.h>`  
-`#include <curl/curl.h>`  
-`void main(){`  
-   `printf("%s\\n", curl_version());`  
-`}`  
+`COPY <<EOF ./test.c`
+`#include <stdio.h>`
+`#include <curl/curl.h>`
+`void main(){`
+   `printf("%s\\n", curl_version());`
+`}`
 `EOF`
 
 Install any needed build-time dependencies using APK:
@@ -269,9 +271,9 @@ Copy the filesystem of our reference image (“base”)to a directory on our bui
 
 `COPY --from=base / /base-chroot`
 
-Install APKs to the copied folder using chroot:
+Install APKs to the copied folder using chroot. We add `--no-scripts` and `ldconfig -r /base-chroot` to skip the pre- and post-install scripts in the APKs which would fail in a distroless environment and then regenerate the cache after installation:
 
-`RUN apk add --root /base-chroot so:libcurl.so.4`
+`RUN apk add --no-scripts --root /base-chroot so:libcurl.so.4 && ldconfig -r /base-chroot`
 
 We now have our needed components, the compiled software artifact (in this case, a binary depending on libcurl) and a directory structure customized without runtime dependencies. We will now assemble these components in scratch.
 
@@ -332,7 +334,8 @@ RUN pip install --no-cache-dir -r /app/requirements.txt
 USER root
 COPY --from=base / /base-chroot
 RUN mkdir -p /base-chroot
-RUN apk add --no-cache --root /base-chroot mariadb-connector-c-dev mariadb
+RUN apk add --no-cache --no-scripts --root /base-chroot mariadb-connector-c-dev mariadb && \
+  ldconfig -r /base-chroot
 
 FROM cgr.dev/chainguard/python:latest
 # Copy over the apks prep'ed at the end of the build stage (no apk-add in this image)
@@ -396,7 +399,8 @@ RUN gcc test.c `pkg-config --cflags --libs libcurl` -o dynamic-binary
 COPY --from=base / /base-chroot
 
 # Customize base image chroot
-RUN apk add --root /base-chroot so:libcurl.so.4
+RUN apk add --no-scripts --root /base-chroot so:libcurl.so.4 && \
+  ldconfig -r /base-chroot
 
 # Create customized production image from scratch
 FROM scratch AS custom-production-image

@@ -18,6 +18,8 @@ With Chainguard's private APK repositories, you can access packages that are inc
 
 This guide provides a brief overview of Chainguard's private APK repositories and outlines different ways you can incorporate them into your organization's workflows.
 
+{{< beta feature="Private APK Repositories" access="all Chainguard Containers customers" >}}
+
 
 ## About private APK repositories
 
@@ -25,14 +27,12 @@ Chainguard's private APK repos allow customers to pull secure apk packages from 
 
 For example, say your organization has access to the [Chainguard MySQL container image](https://images.chainguard.dev/directory/image/mysql/versions). Along with `mysql`, this image comes with other apk packages, including `bash`, `openssl`, and `pwgen`. This means that you'll have access to these apk packages through your organization's private APK repository, along with any others that appear in Chainguard container images that your organization has access to.
 
-Chainguard's private APK repositories are available to all Chainguard Containers customers.
-
 
 ## Contents of private APK repositories
 
 Your private APK repository contains all packages available in the container images your organization is entitled to, plus some extra utilities, like `curl`.
 
-Chainguard offers an opt-in beta feature that extends the set of available packages in your private APK repository to include the latest versions of all 30,000 packages Chainguard maintains as part of Chainguard OS and Wolfi. If you are a catalog customer, your private APK repository will contain the full set of packages built for Chainguard OS and Wolfi. If you're a per-image customer, your private APK repository will contain most of these packages, but won't contain any "main" packages for images you aren't entitled to, preventing you from recreating our images. If you're interested in expanding the set of available packages in your private APK repository and are a current customer, reach out to your account team to be added to the Beta.
+Chainguard offers [Chainguard OS Packages](/chainguard/chainguard-os/chainguard-os-packages/), a beta feature that extends the set of available packages in your private APK repository to include the latest versions of all 30,000 packages Chainguard maintains as part of Chainguard OS and Wolfi. If you are a catalog customer, your private APK repository will contain the full set of packages built for Chainguard OS and Wolfi. If you're a per-image customer, your private APK repository will contain most of these packages, but won't contain any "main" packages for images you aren't entitled to, preventing you from recreating our images. If you're interested in expanding the set of available packages in your private APK repository and are a current customer, reach out to your account team to be added to the Beta.
 
 
 ## Your repository address
@@ -394,7 +394,7 @@ You can check this and fix it by following these steps:
 2. Create the `apk.pull` role using the steps outlined in our [Overview of Roles and Role-bindings](/chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/) resource.
 3. Try pulling the package again.
 
-As this feature is still in its beta phase, we invite feedback. If you would like to provide feedback or need further assistance troubleshooting, please [reach out to our Customer Support team](https://www.chainguard.dev/contact?utm=docs).
+If you'd like to provide feedback or need further help troubleshooting, [reach out to our Customer Support team](https://www.chainguard.dev/contact?utm=docs).
 
 
 ## Conclusion

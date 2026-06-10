@@ -20,7 +20,7 @@
             padding-left: 36px;
             padding-right: 36px;
             height: 36px;
-            line-height: 36px;
+            line-height: 1em;
             font-size: 14px;
             background: var(--search-background);
             border: 1px solid var(--leftnav-border);
@@ -32,9 +32,11 @@
                 outline: none;
                 box-shadow: 0 0 0 2px rgba(117, 69, 251, 0.1);
             }
-            
-            &::placeholder {
-                color: #8C8C8C; // Use neutral gray for placeholder in light mode
+
+            &:hover {
+                background: var(--watch-btn-hover-background);
+                border-color: var(--primary-1);
+                color: var(--primary-1);
             }
         }
         
@@ -60,7 +62,7 @@
             top: 50%;
             right: 10px;
             transform: translateY(-50%);
-            border: 1px solid var(--search-slash-border);
+            border: 1px solid var(--leftnav-border);
             border-radius: 3px;
             font-size: 11px;
             display: flex;
@@ -75,9 +77,9 @@
 
 #ask-ai {
     font-size: 14px;
+    color: var(--body-color);
     border-color: var(--leftnav-border);
     background: var(--search-background);
-    color: #8C8C8C;
     border-radius: 4px;
 
     svg {
@@ -85,11 +87,21 @@
         path {
             fill: #3443f4;
         }
-    } 
+    }
+
+    &:hover {
+        background: var(--watch-btn-hover-background);
+        border-color: var(--primary-1);
+        color: var(--primary-1);
+    }
 
     :root[data-dark-mode] & {
-        color: var(--placeholder-color);
         border-color: rgba(255, 255, 255, 0.1);
+
+        &:hover {
+            border-color: var(--primary-2);
+            color: var(--primary-2);
+        }
 
         svg {
             path {
@@ -133,7 +145,6 @@
     .leftnav .search-container {
         .doks-search {
             .search.is-search {
-                background: var(--search-background);
                 border-color: rgba(255, 255, 255, 0.1);
                 color: var(--body-color); // Ensure proper text color in dark mode
                 
@@ -141,10 +152,9 @@
                     border-color: var(--primary-2);
                     box-shadow: 0 0 0 2px rgba(122, 240, 254, 0.1);
                 }
-                
-                &::placeholder {
-                    color: var(--placeholder-color); // Use theme placeholder color for dark mode
-                    opacity: 0.7;
+                &:hover {
+                    border-color: var(--primary-2);
+                    color: var(--primary-2);
                 }
             }
             

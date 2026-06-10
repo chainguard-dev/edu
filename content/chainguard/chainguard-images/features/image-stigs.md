@@ -18,44 +18,45 @@ weight: 010
 toc: true
 ---
 
-The practice of using Security Technical Implementation Guides, or "STIGs," to secure various technologies originated with the United States Department of Defense (DoD). If an organization uses a certain kind of software, say MySQL 8.0, they must ensure that their implementation of it meets the requirements of the [associated Security Requirements Guides (SRG)](https://www.cyber.mil/stigs/) in order to qualify as a vendor for the DoD. More recently, other compliance frameworks have begun acknowledging the value of STIGS, with some going so far as to require the use of STIGs in their guidelines.
+Security Technical Implementation Guides (STIGs) trace their origin to the United States Department of Defense (DoD). They work in two layers. The Defense Information Systems Agency (DISA) publishes Security Requirements Guides (SRGs) — category-level security baselines covering technology types such as databases, web servers, or general purpose operating systems, written without vendor participation. Vendors then collaborate with DISA to produce a product-specific STIG — a formally reviewed configuration guide for a particular product, derived from the relevant SRG. If an organization runs software like MySQL 8.0 in a DoD environment, it must be configured to meet that product's STIG. Beyond the DoD, compliance frameworks such as FedRAMP and CMMC have come to recognize STIGs as accepted security baselines.
 
-[Chainguard announced](https://www.chainguard.dev/unchained/stig-hardening-container-images) the release of a STIG for the [General Purpose Operating System (GPOS) SRG](https://stigviewer.com/stigs/general_purpose_operating_system_security_requirements_guide) — an SRG that specifies security requirements for general purpose operating systems running in a network. The goal for this new STIG is that it will help customers confidently and securely integrate Chainguard Containers into their workflows. This conceptual article aims to give a brief overview of what STIGs are and how they can be valuable in the context of container images. It also includes instructions on how to get started with Chainguard's STIG for the GPOS SRG.
+[Chainguard has published](https://www.chainguard.dev/unchained/stig-hardening-container-images) a hardening profile based on the [General Purpose Operating System (GPOS) SRG](https://stigviewer.com/stigs/general_purpose_operating_system_security_requirements_guide), the DISA framework that covers security requirements for general purpose operating systems in a networked environment. Because DISA has never published a container-specific SRG, no formally approved container-only STIG exists from any vendor today. Applying the GPOS SRG to containers is the established industry approach for closing this gap, consistent with how other Linux-based container vendors address container security requirements. Throughout this documentation, "STIG" refers to this GPOS SRG-based hardening profile. The goal is to help customers in compliance-sensitive environments confidently validate Chainguard Containers against recognized security requirements and integrate them into DoD and related workflows.
 
-The Chainguard GPOS SRG profile applies to all Chainguard Containers — including both FIPS and non-FIPS images. The [Getting Started](#getting-started) section demonstrates how to use OpenSCAP to validate hardening checks against any Chainguard Container.
-
+The Chainguard GPOS SRG profile applies to all Chainguard Containers — including both FIPS and non-FIPS images. The Getting Started (#getting-started) section demonstrates how to use OpenSCAP to validate hardening checks against any Chainguard Container.
 
 ## Getting Started
+
+The instructions below use OpenSCAP. For an InSpec-based alternative using cinc-auditor, Chainguard also maintains [chainguard-inspec](https://github.com/chainguard-dev/chainguard-inspec), which is a good fit for teams already using InSpec for compliance automation or working with distroless and short-lived containers.
 
 The recommended way to get started with Chainguard's STIG for the GPOS SRG is to use the Chainguard [`openscap`](https://images.chainguard.dev/directory/image/openscap/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-image-stigs) Container. This includes the `openscap` tool itself, the `oscap-docker` libraries, and the Chainguard GPOS STIG profile. This image is built with the same capabilities and low-to-zero CVEs as every other Chainguard Container, and makes the `openscap` tool — which can be difficult to set up — more portable.
 
 The following instructions assume that you have `docker` installed and running on your system, and are intended to be performed on a non-production system, similar to the process outlined in [DISA's Container Hardening Whitepaper](https://dl.dod.cyber.mil/wp-content/uploads/devsecops/pdf/Final_DevSecOps_Enterprise_Container_Hardening_Guide_1.2.pdf).
 
-For ease of use, we'll use [the datastream file](https://raw.githubusercontent.com/chainguard-dev/stigs/main/gpos/xml/scap/ssg/content/ssg-chainguard-gpos-ds.xml) sourced from [the Chainguard STIGs repository](https://github.com/chainguard-dev/stigs/tree/main/gpos/xml/scap/ssg/content), and available within Chainguard's `openscap` container image. This file serves as a sort of checklist, outlining each of the requirements that must be met in order to conform with the STIG. 
+For ease of use, we'll use [the datastream file](https://raw.githubusercontent.com/chainguard-dev/stigs/main/gpos/xml/scap/ssg/content/ssg-chainguard-gpos-ds.xml) sourced from [the Chainguard STIGs repository](https://github.com/chainguard-dev/stigs/tree/main/gpos/xml/scap/ssg/content), and available within Chainguard's `openscap` container image. This file serves as a sort of checklist, outlining each of the requirements that must be met in order to conform with the STIG.
 
-If you'd like, you can download this datastream file — named `ssg-chainguard-gpos-ds.xml` — with a command like the following:
+Download the datastream file — named `ssg-chainguard-gpos-ds.xml` — with the following command:
 
 ```bash
 curl -fsSLO https://raw.githubusercontent.com/chainguard-dev/stigs/main/gpos/xml/scap/ssg/content/ssg-chainguard-gpos-ds.xml
 ```
 
-The `-O` option in this example will redirect the file's contents into a local file also named `ssg-chainguard-gpos-ds.xml` in your working directory. You can then view the checklist locally.
+The `-O` option redirects the file's contents into a local file of the same name in your working directory. You can then view the checklist locally.
 
 We'll refer to Chainguard's `openscap` container image as the `scan` image, and the `target` image we'll be scanning will be: `cgr.dev/chainguard/wolfi-base:latest`. This is a non-FIPS image and is used as an example; you can substitute any Chainguard Container image as the target.
 
-The scan may be performed using one of two methods - we may either scan an image in a registry, or a running container.
+You can scan either a registry image or a running container.
 
 ### Scanning a registry image
 
 First, ensure the target image is present in your local Docker daemon.
 
-```
+```bash
 docker pull cgr.dev/chainguard/wolfi-base:latest
 ```
 
-Next, run the scan image against the target image. 
+Next, run the scan image against the target image.
 
-```
+```bash
 docker run -i --rm -u 0:0 --pid=host \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v $(pwd)/out:/out \
@@ -77,7 +78,7 @@ First, start the target image:
 docker run --name target -d cgr.dev/chainguard/wolfi-base:latest tail -f /dev/null
 ```
 
-Next, run the scan image against the target image. 
+Next, run the scan image against the target image.
 
 ```bash
 docker run -i --rm -u 0:0 --pid=host \
@@ -93,14 +94,14 @@ oscap-docker container target xccdf eval \
 _END_DOCKER_RUN
 ```
 
-Note that this is a highly privileged container since we're scanning a container being run by the host's Docker daemon.
+> **Warning:** This is a highly privileged container because it scans a container running under the host Docker daemon.
 
-The results of the scan will be written to a new subdirectory named `out/` within the current working directory.  The `report.html` file will contain a human-readable report of the scan results, and the `results.xml` file will contain the raw results of the scan.
+Results are written to a new `out/` subdirectory in the current working directory. The `report.html` file contains a human-readable report of the scan results; `results.xml` contains the raw results.
 
 
 ## What are STIGs?
 
-As mentioned previously, "STIG" is an acronym that stands for Security Technical Implementation Guide. A STIG is akin to the implementation of a Security Requirements Guide (SRG) that a security administrator can go through to ensure that a given piece of software has been hardened against cybersecurity threats.
+"STIG" stands for Security Technical Implementation Guide. A STIG is a technology-specific implementation of a Security Requirements Guide (SRG) that a security administrator follows to ensure that a given piece of software has been hardened against cybersecurity threats.
 
 A STIG is typically written by the developer or vendor of the given piece of software against a published DOD Security Requirements Guide (SRG). STIGs are presented in the XCCDF (Extensible Configuration Checklist Description Format), allowing them to be ingested into a SCAP-validated tool to validate that a given target is in compliance with them.
 
@@ -111,13 +112,13 @@ After drafting the STIG, the vendor will submit it to the [Defense Information S
 
 STIGs are typically published for hardware, firmware, and specific applications. However, in recent years containerization has grown in popularity and is now the modern way to deploy applications. This has resulted in there being a gap in terms of clear instructions on how to securely deploy containerized applications.
 
-Chainguard produces hardened, minimal container images containing few to zero CVEs. Because of this, they adhere to many compliance standards where there's a control for vulnerability or risk management, including [FedRAMP](https://www.fedramp.gov/) and [PCI DSS v4.0](https://www.pcisecuritystandards.org/document_library/?category=pcidss). 
+Chainguard produces hardened, minimal container images containing few to zero CVEs. Because of this, they adhere to many compliance standards where there's a control for vulnerability or risk management, including [FedRAMP](https://www.fedramp.gov/) and [PCI DSS v4.0](https://www.pcisecuritystandards.org/document_library/?category=pcidss).
 
 For many risk management frameworks, the system categorization will result in varying levels of hardening guidelines. Using FedRAMP as an example, FIPS-199 defines the security categorization which will result in a baseline set of controls (defined in NIST 800-53) that must be implemented.
 
 Because the NIST 800-53 controls are technology-neutral, the STIGs published by DISA provide technology-specific configurations on how to satisfy the applicable NIST 800-53 control set. As stated in the CM-6 (a) Requirement 1 of the FedRAMP System Security Plan:
 
-_“The service provider shall use the DoD STIGs to establish configuration settings; Center for Internet Security up to Level 2 (CIS Level 2) guidelines shall be used if STIGs are not available; Custom baselines shall be used if CIS is not available.”_
+_"The service provider shall use the DoD STIGs to establish configuration settings; Center for Internet Security up to Level 2 (CIS Level 2) guidelines shall be used if STIGs are not available; Custom baselines shall be used if CIS is not available."_
 
 However, the requirements for how a STIG applies to a container image are rather unclear. For example, some controls apply to the host operating system instead of the image. Similarly, other controls apply to the container runtime instead of the container itself. Knowing what controls are relevant for containers and how to check for them in a STIG are key to achieving and maintaining FedRAMP compliance.
 
@@ -128,7 +129,7 @@ DISA understands that containers have different requirements than traditional op
 _"With a properly locked down hosting environment, containers inherit most of the security
 controls and benefits from infrastructure to host OS-level remediation requirements."_
 
-Deploying containers on a STIG hardened host provides many of the security features that are difficult or sometimes impossible to implement inside a container. What's left then is the application-level security configuration — in particular vulnerability remediation — which Chainguard provides through our guaranteed vulnerability remediation SLAs. 
+Deploying containers on a STIG hardened host provides many of the security features that are difficult or sometimes impossible to implement inside a container. What's left then is the application-level security configuration — in particular vulnerability remediation — which Chainguard provides through our guaranteed vulnerability remediation SLAs.
 
 
 ## False positives and the General Purpose OS STIG
@@ -172,7 +173,7 @@ Linux containers inherit the firewall configuration of their host operating syst
 
 ### Host filesystem
 
-Linux containers use the host's filesystem for storage of their files and configuration. To protect data at rest inside containers from unauthorized access or modification, you must modify the host operating system's configuration. As an example, one might set up encrypted virtual filesystems. The host filesystem is also responsible for the size, utilization, and capacity of the physical disks that are used by containers running on that host. 
+Linux containers use the host's filesystem for storage of their files and configuration. To protect data at rest inside containers from unauthorized access or modification, you must modify the host operating system's configuration. As an example, you might set up encrypted virtual filesystems. The host filesystem is also responsible for the size, utilization, and capacity of the physical disks that are used by containers running on that host.
 
 
 ### Vulnerability scanning

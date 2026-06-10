@@ -19,7 +19,7 @@ The Chainguard Console includes the Requests section where customers can submit 
 
 This guide provides an overview of how to submit a request for a new resource to Chainguard, as well as the limitations on what resources can be built.
 
-> **Note**: As of this writing, the Requests section is in beta. Some of the details and instructions included in this guide are likely to change over time.
+{{< beta feature="The Requests section" >}}
 
 
 ## Prerequisites

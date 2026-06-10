@@ -144,7 +144,7 @@ certificates.additional (+1, ~0, -0, final: 1):
 Plan: 1 to add, 0 to change, 0 to remove
 ```
 
-The non-interactive approach is particularly useful for CI/CD pipelines and automation.
+The non-interactive approach is particularly useful for CI/CD pipelines and automation. You can also perform bulk operations across multiple repos. See [Making bulk changes across repos](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/#making-bulk-changes-across-repos) to learn more.
 
 
 ## Verifying that certificates were added

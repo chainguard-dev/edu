@@ -11,6 +11,7 @@ images: []
 menu:
   docs:
     parent: "java"
+    identifier: "Java Global Configuration"
 weight: 052
 toc: true
 ---
@@ -75,44 +76,45 @@ by defining multiple upstream repositories.
 Use the following steps to add a repository with the Maven Central Repository
 and the Chainguard Libraries for Java repository as Maven upstream repositories. 
 
-Configure a *java-all* repository:
+Configure a `java-all` repository:
 
 1. Log in as a user with administrator privileges.
 1. Select the **Repositories** tab near the top of the screen.
 1. On the **Repositories** page, click the **+ New repository** button.
-1. Enter the name *java-all* for your new repository. The name should
-   include *java* to identify the ecosystem. This convention helps
+1. Enter the name `java-all` for your new repository. The name should
+   include `java` to identify the ecosystem. This convention helps
    avoid confusion since repositories in Cloudsmith are multi-format. 
 1. Select a storage region that is appropriate for your organization and
    infrastructure.
-1. Press **+ Create Repository**. 
+1. Click **+Create Repository**. 
 
 Configure an upstream proxy for the Maven Central Repository:
 
-1. Click the name of the new *java-public* repository on the repositories
+1. Click the name of the new `java-public` repository on the repositories
    page to configure it.
-1. Access the **Upstreams** tab and click **+ Add Upstream Proxy**.
-1. Configure an upstream proxy with the format **Maven** and the following details:
-1. Configure another upstream proxy with the following details
-    * **Name** *java-public*
-    * **Priority** *2*
-    * **Upstream URL** *https://repo1.maven.org/maven2/*
-    * **Mode** *Cache and Proxy*
-1. Press **Create Upstream Proxy**.
+1. Click the **Upstreams** tab, then click **+Add Upstream Proxy**.
+1. Configure an upstream proxy with the format **Maven**.
+1. Configure another upstream proxy with the following:
+    * **Name**: `java-public`
+    * **Priority**: `2`
+    * **Upstream URL**: `https://repo1.maven.org/maven2/`
+    * **Mode**: Cache and Proxy
+1. Click **Create Upstream Proxy**.
 
 Configure an upstream proxy for the Chainguard Libraries for Java repository:
 
-1. Click the name of the new *java-chainguard* repository on the repositories
+1. Click the name of the new `java-chainguard` repository on the repositories
    page to configure it.
-1. Access the **Upstreams** tab and click **+ Add Upstream Proxy**.
+1. Click the **Upstreams** tab, then click **+Add Upstream Proxy**.
 1. Configure an upstream proxy with the format **Maven** and the following details:
-    * **Name** *java-chainguard*
-    * **Priority** *1*
-    * **Proxy URL** *https://libraries.cgr.dev/java/*
-    * **Mode** *Cache and Proxy*
-    * Add the **Username** and **Password** value from [Chainguard Libraries
-      access](/chainguard/libraries/access/) in **Authentication Settings**
-1. Press **Create Upstream Proxy**.
+    * **Name**: `java-chainguard`
+    * **Priority**: `1`
+    * **Proxy URL**: `https://libraries.cgr.dev/java/`
+    * **Mode**: Cache and Proxy
+    * **Authentication Settings**: Enter the **Username** and **Password** value from [Chainguard Libraries
+      access](/chainguard/libraries/access/).
+1. Click **Create Upstream Proxy**.
+1. If you are using the separate repository with remediated Java libraries, repeat the preceding steps to create remote repository named `java-chainguard-remediated` with a URL set to `https://libraries.cgr.dev/java-remediated/`. Use the same authentication details.
 
 Use this setup for initial testing with Chainguard Libraries for Java. For
 production usage, add the `java-chainguard` upstream proxy to your production
@@ -124,7 +126,7 @@ The following steps allow you to determine the URL and authentication details
 for accessing the repository:
 
 1. Select the **Packages** tab.
-1. Press **Push/Pull Packages**.
+1. Click **Push/Pull Packages**.
 1. Choose the format **Maven**.
 1. Copy the value in the `<url>` tag from the XML snippet with the
    `<repositories>` entry. For example,
@@ -133,16 +135,16 @@ for accessing the repository:
    repository `java-all` as well as `maven` as identifier for the format are
    part of the URL.
 1. Copy the username and password values block from the second code snippet for
-   authentication after choosing the desired authentication of *Default* or
-   *API Key*.
+   authentication after choosing the desired authentication of **Default** or
+   **API Key**.
 
 Choose a different format and the equivalent sections if you are using another
 build tools such as Gradle.
 
 Use the URL of the repository, the username, and the password for the server
 authentication block in the [build
-configuration](/chainguard/libraries/java/build-configuration/). and build a
-first test project. In a working setup all libraries retrieved from Chainguard
+configuration](/chainguard/libraries/java/build-configuration/) and build a
+first test project. In a working setup, all libraries retrieved from Chainguard
 are tagged with the name of the upstream proxy.
 
 <a name="gar"></a>
@@ -173,57 +175,60 @@ Before configuring the repositories, you must create a secret with the [password
 value as retrieved with chainctl](/chainguard/libraries/access/):
 
 1. Navigate to the **Secret Manager**
-1. Press **Create secret**. 
-1. Set the **Name** to *chainguard-libraries-java*.
-1. Use the **Password** from chainctl output to set the **Secret value**.
-1. Press **Create secret**.
+1. Click **Create secret**. 
+1. Set the **Name** to `chainguard-libraries-java`.
+1. Set the **Secret** value to the password from your `chainctl` output.
+1. Click **Create secret**.
 
 Navigate to Artifact Registry and select **Repositories** in the left hand
 navigation under the **Artifact Registry** label to configure a remote
 repository for the Maven Central Repository:
 
-1. Press **Create a Repository** or the **+** button.
-1. Set the **Name** to *java-public*.
-1. Set the **Format** to *Maven*.
-1. Select *Remote* for the **Mode**.
-1. Select *Maven Central* for the **Remote repository source**.
-1. Choose a suitable **Region** for your development in **Location type**.
-1. Press **Create**.
+1. Click **Create a Repository** (or the **+** button).
+1. Configure the repository:
+    * **Name**: `java-public`
+    * **Format**: Maven
+    * **Mode**: Remote
+    * **Remote repository source**: Maven Central
+    * **Location type > Region**: Select a region.
+1. Click **Create**.
 
 Configure a remote repository for the Chainguard Libraries for Java repository:
 
-1. Press the **+** button to add another repository.
-1. Set the **Name** to *java-chainguard*.
-1. Set the **Format** to *Maven*.
-1. Select *Remote* for the **Mode**.
-1. Select *Custom* for the **Remote repository source**.
-1. Set the URL for the Custom repository to *https://libraries.cgr.dev/java/*.
-1. Select *Authenticated* in **Remote repository authentication mode**.
-1. Set **Username for the upstream repository** to the [value as retrieved
+1. Click **+** to add another repository.
+1. Configure the repository:
+    * **Name**: `java-chainguard`
+    * **Format**: `Maven`
+    * **Mode**: Remote
+    * **Remote repository source**: Custom
+    * **Custom repository URL**: `https://libraries.cgr.dev/java/`
+    * **Remote repository authentication mode**: Authenticated
+    * **Username for the upstream repository**: Set this to the [value as retrieved
    with chainctl](/chainguard/libraries/access/).
-1. Select the *chainguard-libraries-java* secret in the list for the **Secret** input.
-1. Choose the same suitable **Region** for your development in **Location type**
-   as configured for the *java-public* repository.
-1. Press **Create**.
+    * **Secret**: Select the `chainguard-libraries-java` secret in the list.
+    * **Location type > Region**: Select the same region configured for your `java-public` repository.
+1. Click **Create**.
+1. If you are using the separate repository with remediated Java libraries, repeat the preceding steps to create remote repository named `java-chainguard-remediated` with a URL set to `https://libraries.cgr.dev/java-remediated/`. Use the same authentication details.
 
-Combine the two repositories in a new virtual repository:
+Combine the repositories in a new virtual repository:
 
-1. Press the **+** button to add another repository.
-1. Set the **Name** to *java-all*.
-1. Set the **Format** to *Maven*.
-1. Select *Virtual* for the **Mode**.
-1. Press **Add upstream repository** in **Virtual upstream repositories**.
-1. Use the **Browse** button to locate and select the *java-chainguard*
+1. Click the **+** button to add another repository.
+1. Configure the repository:
+    * **Name**: `java-all`
+    * **Format**: Maven
+    * **Mode**: Virtual
+1. Under **Virtual upstream repositories**, click **Add upstream repository**.
+1. Use the **Browse** button to locate and select the `java-chainguard`
    repository as **Repository 1** and set the **Policy name 1** to
-   *java-chainguard*.
-1. Use the **Browse** button to locate and select the *java-public* repository
-   as **Repository 1** and set the **Policy name 1** to *java-public*.
-1. Press **Add upstream repository** in **Virtual upstream repositories**.
-1. Set the **Priority** value for the *java-chainguard* policy name to a higher
-   value than the *java-public* priority value.
-1. Choose the same suitable **Region** for your development in **Location type**
-   as configured for the *java-public* repository.
-1. Press **Create**.
+   `java-chainguard`. 
+1. Use the **Browse** button to locate and select the `java-public` repository
+   as **Repository 1** and set the **Policy name 1** to `java-public`.
+1. Under **Virtual upstream repositories**, click **Add upstream repository**.
+1. Set the **Priority** value for the `java-chainguard` policy name to a higher
+   value than the `java-public` priority value.
+   * If you are using the remediated repository, add the `java-chainguard-remediated` repository and ensure it is the first in the displayed list. If not, ensure the `java-chainguard` repository is first. 
+1. Under **Location type**, choose the same suitable **Region** for your development as configured for the `java-public` repository.
+1. Click **Create**.
 
 ### Build tool access
 
@@ -232,13 +237,13 @@ repository:
 
 1. Navigate to Artifact Registry and select **Repositories** in the left hand
    navigation under the **Artifact Registry** label.
-1. Click on the **java-all** repository name in the list of repositories.
-1. Press the **Setup instructions** button and follow the documentation. Note
+1. Click the `java-all` repository name in the list of repositories.
+1. Click **Setup instructions** and follow the documentation. Note
    that you must add the extension
    `com.google.cloud.artifactregistry:artifactregistry-maven-wagon` to each
    project.
 
-In a working setup, the **chainguard** remote repository contains all artifacts
+In a working setup, the `chainguard` remote repository contains all artifacts
 retrieved from Chainguard.
 
 <a name="artifactory"></a>
@@ -258,43 +263,45 @@ Libraries for Java repository as remote repositories and combine them as a
 virtual repository:
 
 1. Log in as a user with administrator privileges.
-1. Press **Administration** in the top navigation bar.
+1. Click **Administration** in the top navigation bar.
 1. Select **Repositories** in the left hand navigation.
 
 Configure a remote repository for the Maven Central Repository:
 
-1. Press **Create a Repository** and choose the **Remote** option.
-1. Select *Maven* as the **Package type**.
-1. Set the **Repository Key** to *java-public*.
-1. Set the **URL** to *https://repo1.maven.org/maven2/* .
-1. Deactivate **Maven Settings - Handle Snapshots**.
-1. Press **Create Remote Repository**.
+1. Click **Create a Repository** and choose the **Remote** option.
+1. Configure the repository:
+    * **Package type**: Maven
+    * **Repository Key**: `java-public`
+    * **URL**: `https://repo1.maven.org/maven2/`
+    * Deactivate **Maven Settings - Handle Snapshots**.
+1. Click **Create Remote Repository**.
 
 Configure a remote repository for the Chainguard Libraries for Java repository:
 
-1. Press **Create a Repository** and choose the **Remote** option.
-1. Select *Maven* as the **Package type**.
-1. Set the **Repository Key** to *java-chainguard*.
-1. Set the **URL** to *https://libraries.cgr.dev/java/*.
-1. Set **User Name** and **Password / Access Token** to the [values as retrieved
-   with chainctl](/chainguard/libraries/access/).
-1. Optionally click the **Test** button to verify connection and authentication.
-1. Deactivate **Maven Settings - Handle Snapshots**.
-1. Access the **Advanced** configuration tab and deactivate the **Block
-   Mismatching Mime Types** setting in the **Others** section.
-1. Press **Create Remote Repository**.
+1. Click **Create a Repository** and choose the **Remote** option.
+1. Configure the repository:
+    * **Package type**: Maven
+    * **Repository Key**: `java-chainguard`
+    * **URL**: `https://libraries.cgr.dev/java/`
+    * **User Name** and **Password / Access Token**: Set to the [values as retrieved with chainctl](/chainguard/libraries/access/).
+    * Deactivate **Maven Settings - Handle Snapshots**.
+1. Optionally click **Test** to verify connection and authentication.
+1. Click the **Advanced** configuration tab. Under the **Others** section, deactivate the **Block
+   Mismatching Mime Types** setting. Disable **URL Normalization**
+1. Click **Create Remote Repository**.
+1. If you are using the separate repository with remediated Java libraries, repeat the preceding steps to create remote repository named `java-chainguard-remediated` with a URL set to `https://libraries.cgr.dev/java-remediated/`. Use the same authentication details.
 
-Combine the two repositories in a new virtual repository:
+Combine the repositories in a new virtual repository:
 
-1. Press **Create a Repository** and choose the **Virtual** option.
-1. Select *Maven* as the **Package type**.
-1. Set the **Repository Key** to *java-all*.
-1. Scroll down to the **Repositories** section
-1. Add the *java-chainguard* and *java-public* repositories. Ensure the
-   *java-chainguard* repository is the first in the displayed list. Use the icon
-   on the right of the repository name to drag and drop repositories into the
+1. Click **Create a Repository** and choose the **Virtual** option.
+1. Configure the repository:
+    * **Package type**: Maven
+    * **Repository Key**: `java-all`
+1. Scroll down to the **Repositories** section.
+1. Add the `java-chainguard` and `java-public` repositories. Drag and drop repositories into the
    desired position.
-1. Press **Create Virtual Repository**.
+    * If you are using the remediated repository, add the `java-chainguard-remediated` repository and ensure it is the first in the displayed list. If not, ensure the `java-chainguard` repository is first. 
+1. Click **Create Virtual Repository**.
 
 Use this setup for initial testing with Chainguard Libraries for Java. For
 production usage add the `java-chainguard` repository to your production virtual
@@ -340,16 +347,16 @@ Do not proceed to virtual repository setup or build configuration until the chec
 The following steps allow you to determine the URL and authentication details
 for accessing the repository:
 
-1. Press **Administration** in the top navigation bar.
+1. Click **Administration** in the top navigation bar.
 1. Select **Repositories** in the left hand navigation.
 1. Select the **Virtual** tab in the repositories view.
-1. Locate the **chainguard-maven** repository.
+1. Locate the `chainguard-maven` repository.
 1. Hover over the row and click the **...** in the last column on the right.
 1. Select **Set Me Up** in the dialog.
-1. Press **Generate Token & Create Instructions**
+1. Click **Generate Token & Create Instructions**.
 1. Copy the generated token value to use as the password for authentication.
-1. Press **Generate Settings**.
-1. Copy the value from a *url* field. They are all identical. For example,
+1. Click **Generate Settings**.
+1. Copy the value from a **url** field. They are all identical. For example,
    `https://exampleorg.jfrog.io/artifactory/java-all/` with `exampleorg`
    replaced with the name of your organization.
 
@@ -364,9 +371,9 @@ all libraries retrieved from Chainguard.
 
 [Sonatype Nexus
 Repository](https://www.sonatype.com/products/sonatype-nexus-repository)
-includes a *maven-public* repository group out of the box. It groups access to
-the Maven Central Repository from the *maven-central* repository with the
-internal *maven-releases* and *maven-snapshot* repositories. Refer to the [Maven
+includes a `maven-public` repository group out of the box. It groups access to
+the Maven Central Repository from the `maven-central` repository with the
+internal `maven-releases` and `maven-snapshot` repositories. Refer to the [Maven
 Repositories documentation for
 Nexus](https://help.sonatype.com/en/maven-repositories.html) for more
 information.
@@ -381,41 +388,41 @@ repository for the Maven Central Repository, a separate proxy repository
 Chainguard Libraries for Java repository, and a separate repository group:
 
 1. Log in as a user with administrator privileges.
-1. Access the **Server administration** and configuration section with the gear
-   icon in the top navigation bar.
+1. Click the gear icon in the top navigation bar to access **Server administration**.
 
 Configure a remote repository for the Maven Central Repository:
 
 1. Select **Repository - Repositories** in the left hand navigation.
-1. Press **Create repository**.
-1. Select the **maven2 (proxy)** recipe.
-1. Provide a new name *java-public*.
-1. Ensure **Maven 2 - Version policy** is set to *Release*.
-1. In the **Proxy - Remote storage** input add the URL *https://repo1.maven.org/maven2/*.
-1. Press **Create repository**.
+1. Click **Create repository**, then select the `maven2 (proxy)` recipe.
+1. Configure the repository:
+    * **Name**: `java-public`
+    * **Maven 2 - Version policy**: `Release`
+    * **Proxy - Remote storage**: Add the URL `https://repo1.maven.org/maven2/`.
+1. Click **Create repository**.
 
 Configure a remote repository for the Chainguard Libraries for Java repository:
 
 1. Select **Repository - Repositories** in the left hand navigation.
-1. Press **Create repository**.
-1. Select the **maven2 (proxy)** recipe.
-1. Provide a new name *java-chainguard*.
-1. Ensure **Maven 2 - Version policy** is set to *Release*.
-1. In the **Proxy - Remote storage** input add the URL *https://libraries.cgr.dev/java/*.
-1. In **HTTP - Authentication** with the **Authentication type** *username*,
+1. Click **Create repository**, then select the `maven2 (proxy)` recipe.
+1. Configure the repository:
+    * **Name**: `java-chainguard`
+    * **Maven 2 - Version policy**: `Release`.
+    * **Proxy - Remote storage**: Add the URL `https://libraries.cgr.dev/java/`
+    * **HTTP - Authentication** Select the `username` **Authentication type**, and
    provide the [username and password values as retrieved with
    chainctl](/chainguard/libraries/access/).
-1. Press **Create repository**. 
+1. Click **Create repository**. 
+1. If you are using the separate repository with remediated Java libraries, repeat the preceding steps to create remote repository named `java-chainguard-remediated` with a URL set to `https://libraries.cgr.dev/java-remediated/`. Use the same authentication details.
 
-Combine a new repository group and add the two repositories:
+Combine a new repository group and add the repositories:
 
 1. Select **Repository - Repositories** in the left hand navigation.
-1. Press **Create repository**.
-1. Select the **maven2 (group)** recipe.
-1. Provide a new name *java-all*.
-1. In the section **Group - Member repositories**, move the new repositories
-   `java-public` and `java-chainguard` to the right and move the
-   `java-chainguard` repository to the top of the list with the arrow control.
+1. Click **Create repository**, then select the `maven2 (group)` recipe.
+1. Configure the repository:
+    * **Name**: `java-all`
+    * Under **Group - Member repositories**, move the new repositories
+   `java-public` and `java-chainguard` to the right. Move the
+   `java-chainguard` repository to the top of the list with the arrow control. If you are using the remediated repository, move the `java-chainguard-remediated` repository to the top.
 
 ### Build tool access
 
@@ -424,17 +431,17 @@ for accessing the repository:
 
 1. Click **Browse** in the **Welcome** view or the browse icon (cube) in the top
    navigation bar.
-1. Locate the **URL** column for the *java-all* repository group and press
-   **copy**. For example, `https://repo.example.com/repository/java-all/` with
-   `repo.example.com` replaced with the hostname of your repository manager.
-1. Copy the URL in the dialog.
-1. Use your configured username and password unless **Security** - **Anonymous
-   Access** - **Access** - **Allow anonymous users to access the server** is
+1. Locate the **URL** column for the `java-all` repository group and click
+   **Copy**. 
+     * For example, `https://repo.example.com/repository/java-all/` (with
+   `repo.example.com` replaced with the hostname of your repository manager).
+1. Use your configured username and password, unless **Security > Anonymous
+   Access > Access > Allow anonymous users to access the server** is
    activated. Details vary based on your configured authentication system.
 
 Use the URL of the repository group, such as
-*https://repo.example.com/repository/java-all/* or
-*https://repo.example.com/repository/maven-public/* in the [build
+`https://repo.example.com/repository/java-all/` or
+`https://repo.example.com/repository/maven-public/` in the [build
 configuration](/chainguard/libraries/java/build-configuration/) and build a 
 first test project. In a working setup the `java-chainguard` proxy repository contains
 all libraries retrieved from Chainguard.

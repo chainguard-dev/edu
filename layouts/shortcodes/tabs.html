@@ -1,3 +1,93 @@
-<ul class="tabs">
-  {{.Inner}}
-</ul>
+<div class="tabs-component"{{ with .Get "label" }} data-tabs-label="{{ . }}"{{ end }}>
+  {{ .Inner }}
+</div>
+{{ if not (.Page.Store.Get "tabs_script_loaded") }}
+  {{ .Page.Store.Set "tabs_script_loaded" true }}
+  <noscript><style>.tab-panel[hidden]{display:block!important}</style></noscript>
+  <script>
+  (function () {
+    function slugify(s) {
+      return (s || '').toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    }
+
+    function init() {
+      document.querySelectorAll('.tabs-component').forEach(function (wrapper, groupIndex) {
+      if (wrapper.querySelector(':scope > .tabs-nav')) return;
+
+      const panels = Array.from(wrapper.querySelectorAll(':scope > .tab-panel'));
+      if (!panels.length) return;
+
+      const nav = document.createElement('div');
+      nav.className = 'tabs-nav';
+      nav.setAttribute('role', 'tablist');
+      nav.setAttribute('aria-orientation', 'horizontal');
+      if (wrapper.dataset.tabsLabel) {
+        nav.setAttribute('aria-label', wrapper.dataset.tabsLabel);
+      }
+
+      const usedSlugs = new Set();
+      const buttons = panels.map(function (panel, i) {
+        const title = panel.dataset.tabTitle || ('Tab ' + (i + 1));
+        const baseSlug = slugify(title) || ('tab-' + i);
+        let slug = baseSlug;
+        for (let n = 2; usedSlugs.has(slug); n++) slug = baseSlug + '-' + n;
+        usedSlugs.add(slug);
+        const tabId = 'tab-' + groupIndex + '-' + slug;
+        const panelId = 'tabpanel-' + groupIndex + '-' + slug;
+
+        panel.id = panelId;
+        panel.setAttribute('role', 'tabpanel');
+        panel.setAttribute('aria-labelledby', tabId);
+        panel.setAttribute('tabindex', '0');
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.id = tabId;
+        btn.textContent = title;
+        btn.setAttribute('role', 'tab');
+        btn.setAttribute('aria-controls', panelId);
+        nav.appendChild(btn);
+        return btn;
+      });
+
+      function activate(index, focus) {
+        buttons.forEach(function (b, j) {
+          const selected = j === index;
+          b.setAttribute('aria-selected', selected ? 'true' : 'false');
+          b.setAttribute('tabindex', selected ? '0' : '-1');
+          b.classList.toggle('active', selected);
+          panels[j].hidden = !selected;
+        });
+        if (focus) buttons[index].focus();
+      }
+
+      buttons.forEach(function (btn, i) {
+        btn.addEventListener('click', function () { activate(i, false); });
+        btn.addEventListener('keydown', function (e) {
+          let next = -1;
+          switch (e.key) {
+            case 'ArrowRight': next = (i + 1) % buttons.length; break;
+            case 'ArrowLeft':  next = (i - 1 + buttons.length) % buttons.length; break;
+            case 'Home':       next = 0; break;
+            case 'End':        next = buttons.length - 1; break;
+          }
+          if (next !== -1) {
+            e.preventDefault();
+            activate(next, true);
+          }
+        });
+      });
+
+      wrapper.insertBefore(nav, wrapper.firstChild);
+      activate(0, false);
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+  </script>
+{{ end }}

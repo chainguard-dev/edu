@@ -11,6 +11,7 @@ images: []
 menu:
   docs:
     parent: "javascript"
+    identifier: "JavaScript Global Configuration"
 weight: 052
 toc: true
 ---
@@ -64,6 +65,23 @@ ordering, you can configure `https://libraries.cgr.dev/javascript/` as a remote
 repository alongside your npm upstream, and combine them in a virtual or group
 repository with Chainguard as the first priority. The per-tool instructions on
 this page follow this pattern.
+
+### Updating lockfile hashes
+
+If you are migrating an existing JavaScript project to Chainguard Libraries through a repository manager, your lockfile likely contains integrity hashes generated against packages previously downloaded from npm or through your repository manager. The [`chainctl libraries update-hashes` command](/chainguard/chainctl/chainctl-docs/chainctl_libraries_update-hashes/) automates lockfile hash updates
+for all supported JavaScript lockfile formats. 
+
+When you are using a repository manager, pass the full repository manager URL with `--registry-url` and authenticate with one of the supported methods: `--username` and `--password`, `--token`, or a `.netrc` entry for the registry host. For example:
+
+```bash
+chainctl libraries update-hashes \
+  --registry-url https://repo.example.com:8443/repository/javascript-all/ \
+  --token "$REPO_TOKEN"
+```
+
+After updating the lockfile, keep your repository manager configuration in place and reinstall through the same repository manager endpoint to apply the updated hashes. 
+
+Learn more in the [Build configuration page](/chainguard/libraries/javascript/build-configuration/#updating-lockfile-hashes/) and in the [chainctl docs](/chainguard/chainctl/chainctl-docs/chainctl_libraries_update-hashes/).
 
 <a name="cloudsmith"></a>
 
@@ -179,6 +197,7 @@ repository:
 1. Set the **URL** to `https://libraries.cgr.dev/javascript/`.
 1. Set **User Name** and **Password / Access Token** to the [values as retrieved
    with chainctl](/chainguard/libraries/access/).
+1. Click the **Advanced** configuration tab. Disable **URL Normalization**
 1. Click **Create Remote Repository**.
 
 
@@ -370,3 +389,5 @@ Google Artifact Registry (GAR) is not an officially supported repository manager
 Configure two GAR remote repositories, with upstream validation disabled on the second:
 * First remote repository: `javascript-chainguard` pointing to `https://libraries.cgr.dev/javascript` with upstream validation enabled
 * Second remote repository: `javascript-chainguard-upstream` pointing to `https://libraries.cgr.dev/javascript-upstream` with upstream validation disabled.
+
+When using `artifactregistry-auth`, note that it only injects credentials for repositories explicitly listed in your `.npmrc`. Ensure you add a credentials entry for the `javascript-chainguard-upstream` repository alongside your existing `javascript-chainguard` entry, otherwise you will receive 404s for upstream-fallback packages.

@@ -11,6 +11,7 @@ images: []
 menu:
   docs:
     parent: "java"
+    identifier: "Java Management"
 weight: 053
 toc: true
 ---
@@ -20,7 +21,7 @@ Chainguard Libraries for Java operates transparently after completing the [globa
 The following sections detail optional management, maintenance, and auditing
 steps on the repository manager and the build tool.
 
-<a id="java-verification">
+<a id="java-verification"></a>
 
 ## Source verification
 

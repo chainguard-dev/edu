@@ -23,7 +23,7 @@ These notifications are different from [Chainguard Events](/chainguard/administr
 
 ## Prerequisites and limitations
 
-This feature is currently in beta.
+{{< beta feature="Chainguard Notifications" >}}
 
 Notifications are currently limited to messages related to a small set of topics like breaking changes, incidents, and product lifecycle changes like end-of-life (EOL) and new releases.
 

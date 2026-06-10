@@ -11,6 +11,7 @@ images: []
 menu:
   docs:
     parent: "python"
+    identifier: "Python Global Configuration"
 weight: 052
 toc: true
 ---
@@ -55,6 +56,23 @@ information.
 Before configuring your repo manager, consider how you want to handle packages that aren't
 yet available in the Chainguard Libraries repository. If you configure a fallback to PyPI, packages sourced from that registry are not covered by Chainguard's
 malware-resistance guarantees. See the [fallback approaches](/chainguard/libraries/quickstart/#artifact-manager-recommended) described in the Chainguard Libraries quick start for guidance on choosing the right approach for your environment.
+
+### Updating lockfile hashes
+
+If you are migrating an existing Python project to Chainguard Libraries through a repository manager, your lockfile likely contains integrity hashes generated against packages previously downloaded from PyPI or through your repository manager. The [`chainctl libraries update-hashes` command](/chainguard/chainctl/chainctl-docs/chainctl_libraries_update-hashes/) automates lockfile hash updates
+for all supported JavaScript lockfile formats. 
+
+When you are using a repository manager, pass the full repository manager URL with `--registry-url` and authenticate with one of the supported methods: `--username` and `--password`, `--token`, or a `.netrc` entry for the registry host. For example:
+
+```bash
+chainctl libraries update-hashes \
+  --registry-url https://repo.example.com:8443/repository/python-all/ \
+  --token "$REPO_TOKEN"
+```
+
+After updating the lockfile, keep your repository manager configuration in place and reinstall through the same repository manager endpoint to apply the updated hashes. 
+
+Learn more in the [Build configuration page](/chainguard/libraries/python/build-configuration/#updating-lockfile-hashes/) and in the [chainctl docs](/chainguard/chainctl/chainctl-docs/chainctl_libraries_update-hashes/).
 
 <a id="cloudsmith"></a>
 
@@ -146,26 +164,26 @@ Before configuring the repositories, you must create a secret with the [password
 value as retrieved with chainctl](/chainguard/libraries/access/):
 
 1. Navigate to the **Secret Manager**
-1. Press **Create secret**. 
+1. Click **Create secret**. 
 1. Set the **Name** to *chainguard-libraries-python*.
 1. Use the **Password** from chainctl output to set the **Secret value**.
-1. Press **Create secret**.
+1. Click **Create secret**.
 
 Navigate to Artifact Registry and select **Repositories** in the left hand
 navigation under the **Artifact Registry** label to configure a remote
 repository for the Pypi Package Index:
 
-1. Press **Create a Repository** or the **+** button.
+1. Click **Create a Repository** or the **+** button.
 1. Set the **Name** to *python-public*.
 1. Set the **Format** to *Python*.
 1. Select *Remote* for the **Mode**.
 1. Select *PyPi* for the **Remote repository source**.
 1. Choose a suitable **Region** for your development in **Location type**.
-1. Press **Create**.
+1. Click **Create**.
 
 Configure a remote repository for the Chainguard Libraries for Python repository:
 
-1. Press the **+** button to add another repository.
+1. Click **+** to add another repository.
 1. Set the **Name** to *python-chainguard*.
 1. Set the **Format** to *Python*.
 1. Select *Remote* for the **Mode**.
@@ -177,26 +195,26 @@ Configure a remote repository for the Chainguard Libraries for Python repository
 1. Select the *chainguard-libraries-python* secret in the list for the **Secret** input.
 1. Choose the same suitable **Region** for your development in **Location type**
    as configured for the *python-public* repository.
-1. Press **Create**.
+1. Click **Create**.
 
 Combine the two repositories in a new virtual repository:
 
-1. Press the **+** button to add another repository.
-1. Set the **Name** to *python-all*.
-1. Set the **Format** to *Python*.
-1. Select *Virtual* for the **Mode**.
-1. Press **Add upstream repository** in **Virtual upstream repositories**.
-1. Use the **Browse** button to locate and select the *python-chainguard*
+1. Click **+** to add another repository.
+1. Set the **Name** to `python-all`.
+1. Set the **Format** to `Python`.
+1. Set the **Mode** to `Virtual`.
+1. Click **Add upstream repository** in **Virtual upstream repositories**.
+1. Click **Browse**, then locate and select the `python-chainguard`
    repository as **Repository 1** and set the **Policy name 1** to
-   *python-chainguard*.
-1. Use the **Browse** button to locate and select the *python-public* repository
-   as **Repository 2** and set the **Policy name 2** to *python-public*.
-1. Press **Add upstream repository** in **Virtual upstream repositories**.
-1. Set the **Priority** value for the *python-chainguard* policy name to a higher
-   value than the *python-public* priority value.
+   `python-chainguard`.
+1. Click **Browse**, then locate and select the `python-public` repository
+   as **Repository 2** and set the **Policy name 2** to `python-public`.
+1. Click **Add upstream repository** in **Virtual upstream repositories**.
+1. Set the **Priority** value for the `python-chainguard` policy name to a higher
+   value than the `python-public` priority value.
 1. Choose the same suitable **Region** for your development in **Location type**
-   as configured for the *python-public* repository.
-1. Press **Create**.
+   as configured for the `python-public` repository.
+1. Click **Create**.
 
 <a id="artifactory"></a>
 
@@ -215,7 +233,7 @@ PyPI public index as remote repositories and combine them as a virtual
 repository:
 
 1. Log in as a user with administrator privileges.
-1. Press **Administration** in the top navigation bar.
+1. Click **Administration** in the top navigation bar.
 1. Select **Repositories** in the left hand navigation.
 
 Configure a remote repository for the Chainguard Libraries for Python index:
@@ -228,10 +246,10 @@ Configure a remote repository for the Chainguard Libraries for Python index:
    with chainctl](/chainguard/libraries/access/).
 1. Set the **PyPI Settings - Registry URL** to
    `https://libraries.cgr.dev/python/`.
-1. Optionally click the **Test** button to verify connection and authentication.
-1. Access the **Advanced** configuration tab and deactivate the **Block
-   Mismatching Mime Types** setting in the **Others** section.
-1. Press **Create Remote Repository**.
+1. Optionally click **Test** to verify connection and authentication.
+1. Click the **Advanced** configuration tab. Disable **URL Normalization** and disable **Block
+   Mismatching Mime Types** in the **Others** section.
+1. Click **Create Remote Repository**.
 
 If you want to use the separate repository with [remediated Python
 libraries](/chainguard/libraries/python/overview/#cve-remediation) repeat the
@@ -242,7 +260,7 @@ authentication details, and the URL
 Configure a remote repository for the PyPI public index:
 
 1. Select **Create a Repository** and choose the **Remote** option.
-1. Select *PyPI* as the Package type.
+1. Select `PyPI` as the Package type.
 1. Set the **Repository Key** to `python-public`.
 1. Set the **URL** to `https://files.pythonhosted.org`.
 1. Set the **PyPI Settings - Registry URL** to `https://pypi.org/`.
@@ -250,8 +268,8 @@ Configure a remote repository for the PyPI public index:
 
 Combine the two repositories in a new virtual repository:
 
-1. Press **Create a Repository** and choose the **Virtual** option.
-1. Select *PyPI* as the Package type.
+1. Click **Create a Repository** and choose the **Virtual** option.
+1. Select `PyPI` as the Package type.
 1. Set the **Repository Key** to `python-all`.
 1. In the **Repositories** section, find the `python-chainguard` and
    `python-public` repositories. Ensure the `python-chainguard` repository is

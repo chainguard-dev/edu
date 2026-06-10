@@ -1,5 +1,5 @@
 ---
-date: 2026-05-11T16:01:54Z
+date: 2026-06-09T15:24:57Z
 title: "chainctl skills"
 slug: chainctl_skills
 url: /chainguard/chainctl/chainctl-docs/chainctl_skills/
@@ -31,6 +31,7 @@ Skills registry related commands.
 ### SEE ALSO
 
 * [chainctl](/chainguard/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
+* [chainctl skills accept-terms](/chainguard/chainctl/chainctl-docs/chainctl_skills_accept-terms/)	 - Accept legal terms required to publish skills.
 * [chainctl skills delete](/chainguard/chainctl/chainctl-docs/chainctl_skills_delete/)	 - Remove a published version of a skill.
 * [chainctl skills describe](/chainguard/chainctl/chainctl-docs/chainctl_skills_describe/)	 - Show metadata for a published skill.
 * [chainctl skills entitlements](/chainguard/chainctl/chainctl-docs/chainctl_skills_entitlements/)	 - Manage skills entitlements for an organization.
