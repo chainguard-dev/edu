@@ -260,7 +260,7 @@ authentication details, and the URL
 Configure a remote repository for the PyPI public index:
 
 1. Select **Create a Repository** and choose the **Remote** option.
-1. Select *PyPI* as the Package type.
+1. Select `PyPI` as the Package type.
 1. Set the **Repository Key** to `python-public`.
 1. Set the **URL** to `https://files.pythonhosted.org`.
 1. Set the **PyPI Settings - Registry URL** to `https://pypi.org/`.
