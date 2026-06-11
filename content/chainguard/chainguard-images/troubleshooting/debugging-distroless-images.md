@@ -1,5 +1,5 @@
 ---
-title: "Debugging Distroless Container Images"
+title: "Debugging distroless container images"
 linktitle: "Debugging"
 aliases:
 - /chainguard/chainguard-images/debugging-distroless-images/
@@ -22,11 +22,13 @@ Because distroless images are minimal and don't include a package manager or a s
 
 In this article, we'll discuss a few different strategies to debug distroless images.
 
-## 1. Using Development Container Image Variants
+## 1. Using development container image variants
 
 Before moving a workload to a distroless runtime image, it is important to make sure that it runs without issues in a similar but less restrictive environment, which allows for easier debugging. It is also possible to make a temporary base image change from a distroless image to a fully featured image that offers more debugging capabilities.
 
 The development variants of [Chainguard Containers](/chainguard/chainguard-images/) are designed to replicate the same packages of their distroless version, but with additional software that helps in developing, building, and debugging applications in different language ecosystems. These are sometimes referred to as `-dev` variants since they are tagged with `:latest-dev`.
+
+> **Note**: If you're debugging a workload that crashes because it expects packages from its previous upstream image, a *full* variant may help. Available for a number of our most popular Containers and tagged `-full`, these variants map their upstream equivalent. See [Full container variants](/chainguard/chainguard-images/about/differences-development-production/#full-container-variants).
 
 For example, the following table shows a comparison between the development variants of the PHP image, and which packages are included with each variant:
 
@@ -53,12 +55,12 @@ docker run -it --entrypoint /bin/sh cgr.dev/chainguard/php:latest-dev
 
 Having a package manager and the ability to log into the image to debug any issues is very important at development time, but becomes unnecessary (and less safe) when talking about production environments. That's why we recommend using a distroless variant for production workloads.
 
-### Chainguard Containers in Production
+### Chainguard Containers in production
 Although the development image variants have similar security features as their distroless versions, such as complete SBOMs and signatures, they feature additional software that is typically not necessary in production environments. The general recommendation is to use the development variants to build the application and then copy all application artifacts into a distroless image, which will result in a final container image that has a minimal attack surface and won't allow package installations or logins.
 
 That being said, it's worth noting that the `-dev` variants of Chainguard Containers are still **more secure** than many popular container images based on fully-featured operating systems such as Debian and Ubuntu, because they carry less software, follow a more frequent patch cadence, and offer attestations for what is included.
 
-### Language Ecosystem Guides
+### Language ecosystem guides
 The following guides show how to use these development images in combination with their distroless variants in order to build a final image that is also distroless, but contains everything the application needs to run:
 
 - [Getting Started with the Python Chainguard Container](/chainguard/chainguard-images/getting-started/python/)
@@ -70,7 +72,7 @@ The following guides show how to use these development images in combination wit
 Check also the guide on [Creating Wolfi Container Images with Dockerfiles](/open-source/wolfi/wolfi-with-dockerfiles/) for guidance on how to build a custom image that can be used for development and debugging.
 
 
-## 2. Using Ephemeral Debug Containers
+## 2. Using ephemeral debug containers
 
 Another method to debug distroless images running in production is to use ephemeral debug containers, a special type of container that is temporarily attached to an existing Pod to troubleshoot and inspect running services.
 
@@ -143,7 +145,7 @@ tcp        0      0 0.0.0.0:8080            0.0.0.0:*               LISTEN
 
 To facilitate accessing processes running in other containers without having to specify a target, you may enable [process namespace sharing](https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/) within your Pod setup. It's also worth noting that the filesystem may not be accessible due to default user permissions.
 
-### Troubleshooting Volume Mounts
+### Troubleshooting volume mounts
 
 Kubernetes starts the ephemeral container without mounting the same volumes in the target container. As a result, directories like `/var/log`, which are backed by a volume in the original container, will appear empty or missing in the ephemeral container.
 
@@ -250,7 +252,7 @@ In the ephemeral container shell, you should now see the expected contents withi
 
 For more strategies on how to debug production distroless containers, check the [Kubernetes documentation on debugging running Pods](https://kubernetes.io/docs/tasks/debug/debug-application/debug-running-pod/).
 
-## Resources to Learn More
+## Resources to learn more
 
 - [Minimal Container Images: Towards a More Secure Future ](https://www.chainguard.dev/unchained/minimal-container-images-towards-a-more-secure-future) - Chainguard Blog
 - [Why Distroless](/chainguard/chainguard-images/overview/) - Chainguard Container Documentation

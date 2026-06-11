@@ -1,5 +1,5 @@
 ---
-title: "Chainguard's Container Variants"
+title: "Chainguard's container variants"
 linktitle: "Container Variants"
 aliases:
 - /chainguard/chainguard-images/differences-development-production/
@@ -58,6 +58,15 @@ Slim variants start from that same security posture and then strip away even mor
 The result is a smaller, more opinionated runtime with the lowest possible footprint and attack surface, at the cost of some convenience and compatibility compared to the corresponding standard variant. In many workflows, you might build or debug using a development image, then deploy with a corresponding slim (or other standard) variant once your application artifacts are ready.
 
 Because slim variants remove general-purpose tools, they can require more deliberate configuration than other variants, particularly around entrypoints, logging, and debugging. When using a slim variant, always review the image documentation to understand its expected entrypoint, available utilities, and any behavioral differences from the corresponding standard or development image.
+
+
+## Full container variants
+
+Some Chainguard Containers also provide *full* variants, whose tags are appended with `-full`. Where standard images strip away everything but the essentials, full variants aim for parity with their upstream equivalent — typically the Debian-based image on Docker Hub. They include the packages, environment variables, and entrypoint scripts that the standard Chainguard image intentionally omits. We currently offer full variants for 10 images.
+
+Full variants exist primarily to ease migration. When you move a workload onto Chainguard Containers, your build and test pipelines may depend on components from your previous upstream image, even when the application itself doesn't need them to run. These dependencies can cause runtime crashes or pipeline failures during a switch to a more minimal image. Starting with a full variant lets you adopt Chainguard Containers without first untangling every such dependency.
+
+We recommend treating full variants as a starting point rather than a destination. Once you've migrated, review which packages your production pipeline actually requires, then move to a standard or development variant that includes only what you need. Doing so gives you the smaller attack surface and lower CVE count that make Chainguard Containers worth adopting in the first place.
 
 
 ## Special considerations
