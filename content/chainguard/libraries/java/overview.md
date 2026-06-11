@@ -16,16 +16,19 @@ toc: true
 
 ## Introduction
 
-Chainguard Libraries for Java provides enhanced security for the Java ecosystem by rebuilding popular Maven dependencies with the latest patches and comprehensive supply chain protection. As the first supported ecosystem in [Chainguard Libraries](/chainguard/libraries/overview/), this service addresses critical vulnerabilities in the vast Java/JVM ecosystem that spans hundreds of projects from organizations like the Apache Software Foundation, Eclipse Foundation, and numerous independent maintainers. 
+Chainguard Libraries for Java provides enhanced security for the Java ecosystem by rebuilding popular Maven dependencies with the latest patches and comprehensive supply chain protection. This service addresses critical vulnerabilities in the vast Java/JVM ecosystem that spans hundreds of projects from organizations like the Apache Software Foundation, Eclipse Foundation, and numerous independent maintainers. 
 
 Chainguard Libraries for Java provides access to all open source libraries
 commonly used. New releases of common libraries or artifacts requested by
 customers are added to the growing index by an automated system. The number of
-included libraries continues to grow.
+included libraries continues to grow. These artifacts are accessible through the
+[Chainguard Repository](https://edu.chainguard.dev/chainguard/libraries/chainguard-repository/),
+a single endpoint for package retrieval that supports configurable security
+policies for both Chainguard-built and upstream packages.
 
 The main public repository for binary artifacts is the [Maven Central
-Repository](https://central.sonatype.com/). It has been in operation for nearly
-20 years and hosts artifacts of all releases of most open source projects in the
+Repository](https://central.sonatype.com/). In operation for over
+20 years, it hosts artifacts for most open source projects in the
 Java community. It is the default repository in all commonly used build tools
 from the Java community including [Apache Maven](https://maven.apache.org/),
 [Gradle](https://gradle.org/), and others, and uses the Maven repository format.
@@ -45,10 +48,6 @@ Note that coverage is not exhaustive for any single repository; the index
 continues to grow, and any request for a missing library or version
 automatically triggers a process to provision the artifacts from relevant
 sources if available. 
-
-You can use Chainguard Libraries for Java alongside third-party software
-repositories to create a single source of truth with your repository manager
-application. 
 
 ## Runtime requirements
 

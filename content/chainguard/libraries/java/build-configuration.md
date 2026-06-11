@@ -35,6 +35,8 @@ other engineers running relevant application builds. They must also be performed
 on any build server such as Jenkins, TeamCity, GitHub or other infrastructure
 that builds the applications or otherwise downloads and uses relevant libraries.
 
+The `https://libraries.cgr.dev/java/` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for Java. By default, it serves only Chainguard-built artifacts. When [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) is enabled for your organization, the same endpoint can also serve requested versions from Maven Central under Chainguard security controls.
+
 ## Library access approaches 
 
 ### Repo manager
@@ -284,9 +286,9 @@ Java.
 #### Configure direct access
 
 If you are not using a repository manager at your organization, you can
-configure access to the Chainguard Libraries for Java repository directly.
-Ensure that the Chainguard repository is located above the necessary override
-for the built-in `central` repository and any other repositories. If you are participating in the beta for CVE remediation, include the `https://libraries.cgr.dev/java-remediated/` repository first.
+configure access to the Chainguard Libraries for Java repository directly. If [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) is enabled for your organization, the `https://libraries.cgr.dev/java/` repository can serve both Chainguard-built artifacts and eligible upstream Maven Central artifacts through the same endpoint. If upstream fallback is not enabled, continue to configure Maven Central or your Maven Central proxy after the Chainguard repository, as shown below.
+
+If you are participating in the beta for CVE remediation, include the `https://libraries.cgr.dev/java-remediated/` repository first.
 
 The following `~/.m2/settings.xml` configures direct access with Chainguard's remediated Java repository as
 the primary repository, falling back to the standard Chainguard Libraries repository when a remediated version is not available, and then to Maven Central as a fallback for transitive
