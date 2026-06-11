@@ -182,6 +182,8 @@ subject to additional security controls before being served.
 
 Learn about managing fallback and cooldown controls in the [Chainguard Libraries Overview](/chainguard/libraries/overview/).
 
+> Note: Upstream fallback has been tested against pnpm v11. When using pnpm, we recommend pnpm v11 or newer.
+
 ### Malware scanning
 All packages served from the upstream fallback are scanned for malware before being made available. In addition, [Chainguard's source code and maintainer behavior scanning](https://www.chainguard.dev/unchained/the-expanding-threat-landscape-chainguard-now-scans-source-code-for-traditional-malware-and-greyware) blocks packages that have malicious behavior that other firewall solutions may miss. 
 
