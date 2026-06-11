@@ -236,7 +236,7 @@ kind load docker-image cgr.dev/chainguard-private/spark-operator-fips:latest \
   --name spark-fips-test
 ```
 
-For production clusters, configure an image pull secret for `cgr.dev` rather than pre-loading images. See the [Chainguard registry authentication documentation](/chainguard/chainguard-images/how-to-use/chainguard-registry/) for details.
+For production clusters, configure an image pull secret for `cgr.dev` rather than pre-loading images. See the [Chainguard registry authentication documentation](/chainguard/chainguard-images/chainguard-registry/authenticating/) for details.
 
 ### Create namespaces and RBAC
 
