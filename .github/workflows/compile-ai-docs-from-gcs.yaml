@@ -241,11 +241,22 @@ jobs:
         docker tag "ghcr.io/$REPO_OWNER/ai-docs:latest" "ghcr.io/$REPO_OWNER/ai-docs:$COMMIT_SHA"
 
         # Push images and capture digest for signing
-        DIGEST=$(docker push "ghcr.io/$REPO_OWNER/ai-docs:latest" | grep -oP 'sha256:[a-f0-9]+')
+        PUSH_OUTPUT=$(docker push "ghcr.io/$REPO_OWNER/ai-docs:latest")
+        echo "$PUSH_OUTPUT"
+
+        # Extract digest more reliably - handle both formats
+        DIGEST=$(echo "$PUSH_OUTPUT" | grep -oP 'sha256:[a-f0-9]{64}' | tail -1)
+        if [ -z "$DIGEST" ]; then
+          # Fallback: use inspect to get the digest
+          DIGEST=$(docker inspect --format='{{index .RepoDigests 0}}' "ghcr.io/$REPO_OWNER/ai-docs:latest" | grep -oP 'sha256:[a-f0-9]{64}')
+        fi
+
         if [ -z "$DIGEST" ]; then
           echo "ERROR: Failed to capture image digest from docker push"
           exit 1
         fi
+
+        echo "Captured digest: $DIGEST"
         docker push "ghcr.io/$REPO_OWNER/ai-docs:$COMMIT_SHA" || { echo "ERROR: Failed to push SHA-tagged image"; exit 1; }
 
         # Sign container image by immutable digest
