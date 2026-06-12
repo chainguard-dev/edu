@@ -1,4 +1,6 @@
 ---
+aliases:
+- /chainguard/factory/assemble/
 title: "Inside the Chainguard Factory - Assemble 2025"
 linktitle: "Inside the Chainguard Factory"
 type: "article"

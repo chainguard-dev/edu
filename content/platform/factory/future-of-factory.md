@@ -1,4 +1,6 @@
 ---
+aliases:
+- /chainguard/factory/future-of-factory/
 title: "What is the future of the Chainguard Factory?"
 linktitle: "Future of the Factory"
 type: "article"

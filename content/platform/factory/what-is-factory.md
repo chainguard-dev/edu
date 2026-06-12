@@ -1,4 +1,6 @@
 ---
+aliases:
+- /chainguard/factory/what-is-factory/
 title: "What is the Chainguard Factory?"
 linktitle: "What is the Factory"
 type: "article"

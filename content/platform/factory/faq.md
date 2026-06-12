@@ -1,4 +1,6 @@
 ---
+aliases:
+- /chainguard/factory/faq/
 title: "Chainguard Factory FAQs"
 linktitle: "FAQ"
 type: "article"

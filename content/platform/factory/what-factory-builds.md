@@ -1,4 +1,6 @@
 ---
+aliases:
+- /chainguard/factory/what-factory-builds/
 title: "What does the Chainguard Factory build?"
 linktitle: "What the Factory Builds"
 type: "article"

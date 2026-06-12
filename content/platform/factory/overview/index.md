@@ -1,4 +1,6 @@
 ---
+aliases:
+- /chainguard/factory/overview/
 title: "Overview of The Chainguard Factory"
 linktitle: "Overview"
 type: "article"

@@ -1,4 +1,6 @@
 ---
+aliases:
+- /chainguard/factory/touring-the-factory/
 title: "Touring the Chainguard Factory"
 linktitle: "Factory Tour"
 type: "article"
