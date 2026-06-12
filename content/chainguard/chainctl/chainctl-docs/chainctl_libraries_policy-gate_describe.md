@@ -1,27 +1,30 @@
 ---
 date: 2026-06-11T20:09:07Z
-title: "chainctl events subscriptions create"
-slug: chainctl_events_subscriptions_create
-url: /chainguard/chainctl/chainctl-docs/chainctl_events_subscriptions_create/
+title: "chainctl libraries policy-gate describe"
+slug: chainctl_libraries_policy-gate_describe
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate_describe/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl events subscriptions create
+## chainctl libraries policy-gate describe
 
-Subscribe to events under an organization or folder.
+Describe a Libraries policy.
+
+### Synopsis
+
+Show a Libraries policy in full, including every block-list and allow-list entry.
 
 ```
-chainctl events subscriptions create SINK_URL [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--yes] [--output=id|json|table]
+chainctl libraries policy-gate describe POLICY [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json|table] [flags]
 ```
 
 ### Options
 
 ```
-      --parent string   The parent location name or id of the subscription.
-  -y, --yes             Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+      --parent string   The name or id of the organization.
 ```
 
 ### Options inherited from parent commands
@@ -41,5 +44,5 @@ chainctl events subscriptions create SINK_URL [--parent ORGANIZATION_NAME | ORGA
 
 ### SEE ALSO
 
-* [chainctl events subscriptions](/chainguard/chainctl/chainctl-docs/chainctl_events_subscriptions/)	 - Subscription interactions.
+* [chainctl libraries policy-gate](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate/)	 - Manage Libraries policy gates.
 

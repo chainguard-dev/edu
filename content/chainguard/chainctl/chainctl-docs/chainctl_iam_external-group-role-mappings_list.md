@@ -1,27 +1,33 @@
 ---
 date: 2026-06-11T20:09:07Z
-title: "chainctl events subscriptions create"
-slug: chainctl_events_subscriptions_create
-url: /chainguard/chainctl/chainctl-docs/chainctl_events_subscriptions_create/
+title: "chainctl iam external-group-role-mappings list"
+slug: chainctl_iam_external-group-role-mappings_list
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_external-group-role-mappings_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl events subscriptions create
+## chainctl iam external-group-role-mappings list
 
-Subscribe to events under an organization or folder.
+List IdP group-to-role mappings.
 
 ```
-chainctl events subscriptions create SINK_URL [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--yes] [--output=id|json|table]
+chainctl iam external-group-role-mappings list --parent PARENT [flags]
+```
+
+### Examples
+
+```
+  # List all group mappings in an organization
+  chainctl iam external-group-role-mappings list --parent ORG_UIDP
 ```
 
 ### Options
 
 ```
-      --parent string   The parent location name or id of the subscription.
-  -y, --yes             Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+      --parent string   Organization or folder UIDP to list mappings under
 ```
 
 ### Options inherited from parent commands
@@ -41,5 +47,5 @@ chainctl events subscriptions create SINK_URL [--parent ORGANIZATION_NAME | ORGA
 
 ### SEE ALSO
 
-* [chainctl events subscriptions](/chainguard/chainctl/chainctl-docs/chainctl_events_subscriptions/)	 - Subscription interactions.
+* [chainctl iam external-group-role-mappings](/chainguard/chainctl/chainctl-docs/chainctl_iam_external-group-role-mappings/)	 - Manage IdP group-to-role mappings.
 
