@@ -1,27 +1,36 @@
 ---
 date: 2026-06-11T20:09:07Z
-title: "chainctl events subscriptions create"
-slug: chainctl_events_subscriptions_create
-url: /chainguard/chainctl/chainctl-docs/chainctl_events_subscriptions_create/
+title: "chainctl iam external-group-role-mappings create"
+slug: chainctl_iam_external-group-role-mappings_create
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_external-group-role-mappings_create/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl events subscriptions create
+## chainctl iam external-group-role-mappings create
 
-Subscribe to events under an organization or folder.
+Create an IdP group-to-role mapping.
 
 ```
-chainctl events subscriptions create SINK_URL [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--yes] [--output=id|json|table]
+chainctl iam external-group-role-mappings create --external-group-id GROUP --role ROLE --scope SCOPE --idp IDP [flags]
+```
+
+### Examples
+
+```
+  # Map IdP group "Platform-SRE" to the owner role at the org root
+  chainctl iam external-group-role-mappings create --external-group-id "Platform-SRE" --role owner --scope ORG_UIDP --idp IDP_UIDP
 ```
 
 ### Options
 
 ```
-      --parent string   The parent location name or id of the subscription.
-  -y, --yes             Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+      --external-group-id string   IdP group identifier (the claim value from the IdP token)
+      --idp string                 Identity provider UIDP that owns this mapping
+      --role string                Role UIDP or name to grant
+      --scope string               Group UIDP where the role applies (the organization root)
 ```
 
 ### Options inherited from parent commands
@@ -41,5 +50,5 @@ chainctl events subscriptions create SINK_URL [--parent ORGANIZATION_NAME | ORGA
 
 ### SEE ALSO
 
-* [chainctl events subscriptions](/chainguard/chainctl/chainctl-docs/chainctl_events_subscriptions/)	 - Subscription interactions.
+* [chainctl iam external-group-role-mappings](/chainguard/chainctl/chainctl-docs/chainctl_iam_external-group-role-mappings/)	 - Manage IdP group-to-role mappings.
 

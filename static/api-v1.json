@@ -646,13 +646,17 @@
       },
       "chainguard.platform.argos.Affected": {
         "properties": {
-          "databaseSpecific": {
-            "format": "byte",
-            "type": "string"
+          "database_specific": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.argos.DatabaseSpecific"
+              }
+            ],
+            "description": "database_specific is the Chainguard atomic-vulnerability extension; see\nDatabaseSpecific."
           },
-          "ecosystemSpecific": {
-            "format": "byte",
-            "type": "string"
+          "ecosystem_specific": {
+            "description": "ecosystem_specific is the OSV-spec free-form ecosystem-owned extension\nobject. Currently never populated.",
+            "type": "object"
           },
           "package": {
             "$ref": "#/components/schemas/chainguard.platform.argos.Package"
@@ -780,6 +784,31 @@
         },
         "type": "object"
       },
+      "chainguard.platform.argos.DatabaseSpecific": {
+        "description": "DatabaseSpecific is the Chainguard database-owned extension on an Affected\nentry: the atomic-vulnerability classification and sink location for the\nrecord. Field names are pinned to OSV-spec snake_case via json_name.",
+        "properties": {
+          "cwe_ids": {
+            "description": "cwe_ids is the ordered list of CWE classifications; the lead (most\nspecific) CWE is cwe_ids[0].",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "defect_kind": {
+            "description": "defect_kind is the coarse defect class: \"missing-control\",\n\"incorrect-control\", or \"configuration-default\".",
+            "type": "string"
+          },
+          "sink_locator": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.argos.SinkLocator"
+              }
+            ],
+            "description": "sink_locator is the structured sink of the defect within the upstream\npackage's own source. Unset for non-flow defects."
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.argos.Event": {
         "properties": {
           "fixed": {
@@ -788,7 +817,7 @@
           "introduced": {
             "type": "string"
           },
-          "lastAffected": {
+          "last_affected": {
             "type": "string"
           },
           "limit": {
@@ -834,7 +863,7 @@
       },
       "chainguard.platform.argos.OSVQueryBatchResult": {
         "properties": {
-          "nextPageToken": {
+          "next_page_token": {
             "description": "next_page_token paginates this query's results (OSV batch spec).",
             "type": "string"
           },
@@ -852,7 +881,7 @@
           "package": {
             "$ref": "#/components/schemas/chainguard.platform.argos.Package"
           },
-          "pageToken": {
+          "page_token": {
             "title": "page_token is the opaque cursor from a previous response's next_page_token.\nEmpty starts at the first page. (OSV spec: query supports page_token.)",
             "type": "string"
           },
@@ -864,7 +893,7 @@
       },
       "chainguard.platform.argos.OSVQueryResponse": {
         "properties": {
-          "nextPageToken": {
+          "next_page_token": {
             "description": "next_page_token is the cursor for the next page; empty when last page.",
             "type": "string"
           },
@@ -911,7 +940,7 @@
             },
             "type": "array"
           },
-          "schemaVersion": {
+          "schema_version": {
             "type": "string"
           },
           "severity": {
@@ -958,12 +987,13 @@
         "type": "object"
       },
       "chainguard.platform.argos.Range.RangeType": {
-        "default": "RANGE_TYPE_UNSPECIFIED",
+        "default": "UNSPECIFIED",
+        "description": "RangeType mirrors the OSV spec's `type` enum. Value names are\ndeliberately unprefixed so the protojson wire form matches OSV verbatim\n(the spec uses bare \"SEMVER\" / \"ECOSYSTEM\" / \"GIT\"); nested-enum scoping\nmeans Go consumers see Range_SEMVER, Range_ECOSYSTEM, Range_GIT.",
         "enum": [
-          "RANGE_TYPE_UNSPECIFIED",
-          "RANGE_TYPE_SEMVER",
-          "RANGE_TYPE_ECOSYSTEM",
-          "RANGE_TYPE_GIT"
+          "UNSPECIFIED",
+          "SEMVER",
+          "ECOSYSTEM",
+          "GIT"
         ],
         "type": "string"
       },
@@ -973,6 +1003,28 @@
             "type": "string"
           },
           "type": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.SinkLocator": {
+        "description": "SinkLocator locates a defect's sink within the upstream package source.",
+        "properties": {
+          "arg_signature": {
+            "description": "arg_signature is the sink's argument signature, when known.",
+            "type": "string"
+          },
+          "class": {
+            "description": "class is the fully-qualified class/type of the sink (or module path for\nnon-OO languages).",
+            "type": "string"
+          },
+          "file_line": {
+            "description": "file_line is the sink's source location, e.g. \"src/.../X.java:NNN\".",
+            "type": "string"
+          },
+          "method": {
+            "description": "method is the symbolic method/function at the sink.",
             "type": "string"
           }
         },
@@ -2881,6 +2933,88 @@
           "LIBRARY_POLICY_TYPE_UNSPECIFIED",
           "LIBRARY_POLICY_TYPE_SYSTEM",
           "LIBRARY_POLICY_TYPE_CUSTOM"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.libraries.MalwareBlockListEntry": {
+        "description": "MalwareBlockListEntry is a single known-malicious entry. It unifies the\nversion-scoped and package-scoped block lists; the scope field disambiguates.",
+        "properties": {
+          "blockedAt": {
+            "description": "blocked_at is when the entry was added to the block list.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "description": {
+            "description": "description is a longer free-form description of the block reason. Populated\non source: \"chainguard\" entries.",
+            "type": "string"
+          },
+          "ecosystem": {
+            "description": "ecosystem is the package ecosystem the entry belongs to, as stored\n(e.g. \"npm\", \"PyPI\", \"Maven\").",
+            "type": "string"
+          },
+          "malid": {
+            "description": "malid is the MAL-* identifier for the advisory (e.g. \"MAL-2024-12345\").",
+            "type": "string"
+          },
+          "packageName": {
+            "description": "package_name is the full package name including any scope/namespace.",
+            "type": "string"
+          },
+          "reason": {
+            "description": "reason is a fixed-vocabulary set of tags categorizing why the package was\nflagged (e.g. \"install_script_exfiltration\", \"typosquat\"). Populated on\nsource: \"chainguard\" entries.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "scope": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.MalwareScope"
+              }
+            ],
+            "description": "scope indicates whether this entry blocks a single version or the whole\npackage."
+          },
+          "source": {
+            "description": "source is the origin of this entry (e.g. \"osv\", \"manual\", \"chainguard\").",
+            "type": "string"
+          },
+          "version": {
+            "description": "version is the blocked version. Empty for package-scoped entries\n(scope == MALWARE_SCOPE_PACKAGE), which block every version.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.MalwareBlockListEntryList": {
+        "description": "MalwareBlockListEntryList is a paginated collection of block list entries as\nreturned by ListBlockList. Entries are ordered by blocked_at descending, then\npackage name and version ascending.",
+        "properties": {
+          "items": {
+            "description": "The list of block list entries matching the request.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.MalwareBlockListEntry"
+            },
+            "type": "array"
+          },
+          "nextPageToken": {
+            "description": "A token that can be reused on subsequent requests to retrieve the next\npage of results. Other filter fields must match the call that provided it.",
+            "type": "string"
+          },
+          "totalCount": {
+            "description": "The total number of entries matching the filter (across all pages).",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.MalwareScope": {
+        "default": "MALWARE_SCOPE_UNKNOWN",
+        "description": "MalwareScope indicates whether a block list entry applies to a single\npackage version or to every version of the package.\n\n - MALWARE_SCOPE_VERSION: MALWARE_SCOPE_VERSION blocks a single version of the package.\n - MALWARE_SCOPE_PACKAGE: MALWARE_SCOPE_PACKAGE blocks every version of the package.",
+        "enum": [
+          "MALWARE_SCOPE_UNKNOWN",
+          "MALWARE_SCOPE_VERSION",
+          "MALWARE_SCOPE_PACKAGE"
         ],
         "type": "string"
       },
@@ -10948,6 +11082,104 @@
         ]
       }
     },
+    "/libraries/v1/malware/blocklist": {
+      "get": {
+        "description": "ListBlockList returns the merged version- and package-scoped block list,\noptionally filtered by ecosystem, package, source, time, and scope.",
+        "operationId": "Malware_ListBlockList",
+        "parameters": [
+          {
+            "description": "ecosystem filters to a single ecosystem as stored (e.g. \"npm\", \"PyPI\",\n\"Maven\"). When empty, entries across all ecosystems are returned.",
+            "in": "query",
+            "name": "ecosystem",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "package_name filters to an exact package name. When empty, all packages\nmatch.",
+            "in": "query",
+            "name": "packageName",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "source filters by entry origin (e.g. \"osv\"). When empty, all sources match.",
+            "in": "query",
+            "name": "source",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "since returns only entries blocked at or after this time. When unset, no\ntime filter is applied.",
+            "in": "query",
+            "name": "since",
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "description": "scope filters to version- or package-scoped entries. MALWARE_SCOPE_UNKNOWN\nreturns both.\n\n - MALWARE_SCOPE_VERSION: MALWARE_SCOPE_VERSION blocks a single version of the package.\n - MALWARE_SCOPE_PACKAGE: MALWARE_SCOPE_PACKAGE blocks every version of the package.",
+            "in": "query",
+            "name": "scope",
+            "schema": {
+              "default": "MALWARE_SCOPE_UNKNOWN",
+              "enum": [
+                "MALWARE_SCOPE_UNKNOWN",
+                "MALWARE_SCOPE_VERSION",
+                "MALWARE_SCOPE_PACKAGE"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "page_size is the maximum number of entries to return per request. The\nservice may return fewer.",
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int64",
+              "type": "string"
+            }
+          },
+          {
+            "description": "page_token is the token received from a previous call to ListBlockList.",
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.MalwareBlockListEntryList"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Block List",
+        "tags": [
+          "Malware"
+        ]
+      }
+    },
     "/libraries/v1/npm/packages": {
       "get": {
         "operationId": "NpmPackages_List",
@@ -15959,6 +16191,9 @@
     {
       "description": "Libraries Entitlements API",
       "name": "LibrariesEntitlements"
+    },
+    {
+      "name": "Malware"
     },
     {
       "name": "NpmPackages"

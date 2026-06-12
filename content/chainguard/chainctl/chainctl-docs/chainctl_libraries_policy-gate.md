@@ -1,5 +1,5 @@
 ---
-date: 2026-06-10T18:28:08Z
+date: 2026-06-11T20:09:07Z
 title: "chainctl libraries policy-gate"
 slug: chainctl_libraries_policy-gate
 url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate/
@@ -41,6 +41,7 @@ ecosystem) pair in either ENFORCED or LOG mode.
 * [chainctl libraries policy-gate binding](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate_binding/)	 - Manage Libraries policy gate bindings.
 * [chainctl libraries policy-gate create](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate_create/)	 - Create a custom Libraries policy.
 * [chainctl libraries policy-gate delete](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate_delete/)	 - Delete a custom Libraries policy.
+* [chainctl libraries policy-gate describe](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate_describe/)	 - Describe a Libraries policy.
 * [chainctl libraries policy-gate disable](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate_disable/)	 - Disable a Libraries policy for an organization.
 * [chainctl libraries policy-gate enable](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate_enable/)	 - Enable a Libraries policy for an organization.
 * [chainctl libraries policy-gate list](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate_list/)	 - List Libraries policies.
