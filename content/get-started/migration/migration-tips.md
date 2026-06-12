@@ -1,7 +1,7 @@
 ---
 aliases:
 - /chainguard/migration/migration-tips/
-title: "Tips for Migrating to Chainguard Containers"
+title: "Tips for migrating to Chainguard Containers"
 linktitle: "Migration Tips"
 type: "article"
 description: "This guide outlines a number of tips and strategies to keep in mind for when your organization begins migrating to Chainguard Containers."
@@ -20,7 +20,7 @@ toc: true
 The process of migrating over to Chainguard Containers isn't always straightforward. To help customers become acquainted with Chainguard Containers as they go through the migration process, we've assembled this list of tips and strategies for migrating over their applications.
 
 
-## Use Development Variants When You Need a Shell
+## Use development variants when you need a shell
 
 Chainguard provides development (or `-dev`) variants of its containers which include a shell and package manager to allow users to more easily debug and modify the image.
 
@@ -54,7 +54,7 @@ Although the `-dev` variants have similar security features as their distroless 
 
 That being said, it's worth noting that `-dev` variants of Chainguard Containers are completely fine to run in production environments. After all, the `-dev` variants are still **more secure** than many popular container images based on fully-featured operating systems such as Debian and Ubuntu since they carry less software, follow a more frequent patch cadence, and offer attestations for what they include.
 
-## Install a Different Shell
+## Install a different shell
 
 The `-dev` variants and `chainguard-base` image use the [ash](https://en.wikipedia.org/wiki/Almquist_shell) shell from BusyBox by default. This is nice from a minimalism perspective, but it's not so great if you need to port a bash and Debian centric entrypoint script to Chainguard Containers.
 
@@ -158,7 +158,7 @@ ae154854dc6d:/# apk add cmd:ldd
 OK: 27 MiB in 22 packages
 ```
 
-## Watch Out for Entrypoint Differences
+## Watch out for entrypoint differences
 
 In some cases, the entrypoint of Chainguard Containers can have a different behavior from their equivalent images based on other distros. This happens because many popular container images use an entrypoint script that allows running commands on the image through a shell. Since our images typically don't have a shell by default, this can lead to unexpected behavior.
 
@@ -203,7 +203,7 @@ docker run -it cgr.dev/chainguard/python:latest-dev echo "in a shell"
 
 Other images, such as our [WordPress container images](https://images.chainguard.dev/directory/image/wordpress/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrations-overview), will have a different entrypoint behavior in their `-dev` variant to allow for customization and to facilitate migration from other base images. It's important to always read the image's documentation to understand how the entrypoint works, and if there are any major differences from other images you may be used to work with.
 
-## Containers Don't Run As root By Default
+## Containers don't run as root by default
 
 Although there are exceptions, Chainguard Containers typically don’t run as the root user. The reason for this is that distroless containers should have no privileged capabilities, and containers that run as a non-root user and use a minimal seccomp profile are ideal from a security perspective.
 
@@ -230,13 +230,15 @@ docker run -it --user root --entrypoint bin/bash chainguard/python:latest-dev
 Here, the `--user` option tells Docker to assume the root user role.
 
 
-## Packages Not Found
+## Packages not found
 
 Container images are usually meant to support every possible use case. Because of this, they often contain packages that aren't always necessary, which increases the container image's attack surface and makes it more likely to contain CVEs.
 
 Chainguard Containers are built with minimalism in mind, and thus contain the bare minimum packages needed for an image to function. However, this also means that Chainguard Containers may not contain the packages that you'd expect to find in third-party alternatives.
 
 If a Chainguard Container is missing certain packages that are required for your application, we recommend using a base image and installing the required dependencies on top of it, preferably in a multi-stage Docker build. Our guides on [How to Use Chainguard Containers](/chainguard/chainguard-images/how-to-use-chainguard-images/#extending-chainguard-base-images) and [Getting Started with Distroless](/chainguard/migration/migrations-overview/) include guidance on how you can extend Chainguard base images.
+
+For a number of our most popular Containers, Chainguard offers a *full* variant (tagged `-full`) that maps to the upstream image, including the packages you'd expect from the third-party alternative. If a full variant is available for an image you're migrating, it can serve as a low-friction starting point while you determine which packages your workload actually needs. See [Full container variants](/chainguard/chainguard-images/about/differences-development-production/#full-container-variants) for details.
 
 Alternatively, you can take advantage of Chainguard's [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) and [Private APK Repositories](/chainguard/chainguard-images/features/private-apk-repos/) features to extend your container images. Custom Assembly allows users to create customers container images with extra packages added. This reduces their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs.
 
@@ -245,6 +247,6 @@ Private APK Repositories, meanwhile, allow customers to pull secure apk packages
 In some cases you may have Docker builds that copy in binaries to run agents or similar tooling. You may find these binaries don’t work as expected as they are designed to run on a different Linux distribution. Be aware that Chainguard Containers may not have the dependencies required by third-party binaries, or they may be stored at a different path.
 
 
-## Learn More
+## Learn more
 
 For more resources on migrating to Chainguard Containers, please refer to our [Containers Migration documentation](/chainguard/migration/). In particular, our [Migration Overview](/chainguard/migration/migrations-overview/) may be of interest. Chainguard Academy also hosts a number of [Compatibility Resources](/chainguard/migration/compatibility/) and [Migration Guides](/chainguard/migration/migration-guides/) for specific platforms and tools.

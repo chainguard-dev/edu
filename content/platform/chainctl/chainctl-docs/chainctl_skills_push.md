@@ -1,5 +1,5 @@
 ---
-date: 2026-06-09T15:24:57Z
+date: 2026-06-11T20:09:07Z
 title: "chainctl skills push"
 slug: chainctl_skills_push
 url: /chainguard/chainctl/chainctl-docs/chainctl_skills_push/
@@ -28,7 +28,7 @@ chainctl skills push [<path>] [flags]
 
 ```
       --dry-run        Build and validate without pushing.
-  -g, --group string   Org to publish under (default: from current chainctl context).
+  -g, --group string   Org or folder to publish under, e.g. "chainguard" or "chainguard/github" (default: current chainctl context).
   -t, --tag string     Version tag to apply. (default "latest")
 ```
 

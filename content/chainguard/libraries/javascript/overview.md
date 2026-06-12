@@ -180,6 +180,8 @@ Repository](/chainguard/chainguard-repository/overview/). By default, the endpoi
 only Chainguard-built packages. When the upstream fallback is enabled, upstream packages are
 subject to additional security controls before being served.
 
+> Note: Upstream fallback has been tested against pnpm v11. When using pnpm, we recommend pnpm v11 or newer.
+
 ### Enable the upstream repository
 
 To enable or change upstream fallback configuration, use the [`chainctl
