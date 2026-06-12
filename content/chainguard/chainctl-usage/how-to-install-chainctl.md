@@ -42,10 +42,11 @@ If you haven't already done so, you can install the Xcode Command Line Tools wit
 xcode-select --install
 ```
 
-Before installing `chainctl` with Homebrew, use `brew tap` to bring in Chainguard's repositories.
+Before installing `chainctl` with Homebrew, use `brew tap` to bring in Chainguard's repositories and trust them.
 
 ```sh
 brew tap chainguard-dev/tap
+brew trust --tap chainguard-dev/tap
 ```
 
 Next, install `chainctl` with Homebrew.
