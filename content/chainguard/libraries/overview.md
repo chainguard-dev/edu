@@ -183,11 +183,13 @@ The default cooldown period is 7 days. Note that shorter cooldown periods increa
 
 Chainguard's [source code and maintainer behavior
 scanning](https://www.chainguard.dev/unchained/the-expanding-threat-landscape-chainguard-now-scans-source-code-for-traditional-malware-and-greyware/)
-identifies and blocks malicious and greyware packages in Chainguard Libraries via the Chainguard Repository. This includes packages that are publicly reported as malicious
-(including packages associated with OSV malware IDs) and packages that
-Chainguard determines are unsafe, even when no public malware advisory exists
-yet. If a package is flagged as malicious, Chainguard does not build that
-package from source or serve it through upstream fallback through the Chainguard Repository.
+identifies and blocks malicious and greyware packages in Chainguard Libraries
+via the Chainguard Repository. This includes packages that are publicly reported
+as malicious (including packages associated with OSV malware IDs) and packages
+that Chainguard determines are unsafe, even when no public malware advisory
+exists yet. If a package is flagged as malicious, Chainguard does not build that
+package from source or serve it via upstream fallback through the Chainguard
+Repository.
 
 Malware detection is continuous. If a version that was previously cached is later identified as malicious, it is added to the block list and will be blocked on subsequent requests.
 
@@ -273,7 +275,7 @@ When fallback is enabled, upstream packages are subject to a cooldown period fro
 
 The cooldown applies globally across Chainguard-built packages and upstream npm or Maven Central packages served through the fallback. This prevents installs from failing when a Chainguard-built package depends on an upstream dependency that is still under the cooldown window.
 
-If a package version is requested and falls within the cooldown period, the package manager will output a 404 error. The package becomes available once it has passed the cooldown period and cleared malware scanning.
+If a requested package version falls within the cooldown period, the package manager will output a 404 error. The package becomes available once it has passed the cooldown period and cleared malware scanning.
 
 > **Upstream fallback best practices**
 > Upstream packages are proxied directly from npm and are not rebuilt or authored by Chainguard as part of our Libraries product. The cooldown period and malware scanning provide a supplemental baseline of protection to your own security practices, but you are solely responsible for independently evaluating and validating all upstream artifacts before use in your environment.

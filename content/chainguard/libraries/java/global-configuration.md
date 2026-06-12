@@ -24,15 +24,15 @@ Repository](https://www.sonatype.com/products/sonatype-nexus-repository). The
 repository manager acts as a single point of access for developers and
 development tools to retrieve the required libraries.
 
-If your organization uses the [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls)
-feature of Chainguard Repository, you can configure your repository manager
-with a single upstream pointed at `https://libraries.cgr.dev/java/`. This
-is the recommended setup. The Chainguard Repository handles fallback and policy
-enforcement; your repository manager handles local caching and access control.
-Chainguard also retrieves packages from the public Maven Central repository on your
-behalf when upstream fallback is enabled. This includes protections such as
-malware detection and a cooldown period for newly published
-packages.
+The recommended approach is to use the [upstream
+fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls)
+feature of Chainguard Repository, which allows you to configure your repository
+manager with a single upstream pointed at `https://libraries.cgr.dev/java/`. The
+Chainguard Repository handles fallback and policy enforcement; your repository
+manager handles local caching and access control. Chainguard also retrieves
+packages from the public Maven Central repository on your behalf when upstream
+fallback is enabled. This includes protections such as malware detection and a
+cooldown period for newly published packages.
 
 At a high level, adopting the use of Chainguard Libraries consists of the following steps:
 

@@ -14,8 +14,6 @@ weight: 051
 toc: true
 ---
 
-## Introduction
-
 Chainguard Libraries for Java provides enhanced security for the Java ecosystem by rebuilding popular Maven dependencies with the latest patches and comprehensive supply chain protection. This service addresses critical vulnerabilities in the vast Java/JVM ecosystem that spans hundreds of projects from organizations like the Apache Software Foundation, Eclipse Foundation, and numerous independent maintainers. 
 
 Chainguard Libraries for Java provides access to all open source libraries
