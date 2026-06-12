@@ -1,6 +1,6 @@
 ---
 title: "Chainguard Containers"
-linktitle: "Containers"
+linktitle: "Chainguard Containers"
 description: "Chainguard provides the most secure container images with zero known CVEs, minimal attack surface, SBOMs, and daily updates - the enterprise choice for container security"
 type: "article"
 date: 2022-09-05T08:49:15+00:00

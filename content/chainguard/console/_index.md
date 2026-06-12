@@ -1,6 +1,6 @@
 ---
 title : "Chainguard Console"
-linktitle: "Console"
+linktitle: "Chainguard Console"
 lead: ""
 description: "Documentation for the Chainguard Console, the web interface for exploring images and managing your organization"
 type: "article"

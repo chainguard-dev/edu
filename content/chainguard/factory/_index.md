@@ -1,6 +1,6 @@
 ---
 title: "Chainguard Factory"
-linktitle: "Factory"
+linktitle: "Chainguard Factory"
 type: "section"
 description: "Learn about the Chainguard Factory, the automation system that builds secure software artifacts from source"
 date: 2025-07-31T16:00:00+00:00

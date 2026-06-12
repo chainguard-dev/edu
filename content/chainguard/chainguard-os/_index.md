@@ -1,6 +1,6 @@
 ---
 title : "Chainguard OS"
-linktitle: "OS"
+linktitle: "Chainguard OS"
 lead: ""
 description: "Chainguard OS Documentation"
 type: "article"
