@@ -17,87 +17,158 @@ weight: 003
 
 Chainguard publishes a curated set of hardened agent skills in a public catalog at `skills.cgr.dev/chainguard`. Anyone with `chainctl` can browse and install them — no entitlement and no legal terms required. The Chainguard Agent Skills public catalog is pull-only: you can install skills from the catalog, but you can't push your own skills to it.
 
-This guide walks through the full workflow: listing the available skills, inspecting one, installing it, and running it with an agent.
+This guide walks through the full workflow: listing the available skills, inspecting one, pulling it to audit how Chainguard hardened it, installing it, and running it with an agent.
 
 {{< beta feature="Chainguard Agent Skills" access="Chainguard Containers customers who sign up for the beta program. You can sign up by visiting the [Chainguard Agent Skills product page](https://www.chainguard.dev/agent-skills) and clicking **Join the beta**" >}}
 
 ## Prerequisites
 
-To follow this guide, you need `chainctl` **v0.2.275** or later, installed. Refer to our guide on [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) if you don't have it yet.
+To follow this guide, you need `chainctl` **v0.2.282** or later, installed. Refer to our guide on [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) if you don't have it yet.
 
-Unlike a [private Chainguard Skills Registry](/chainguard/agent-skills/skills-registry/), the public catalog requires no entitlement, terms acceptance, or organization membership.
+Unlike a [private Chainguard Skills Registry](/chainguard/agent-skills/skills-registry/), the public catalog requires no entitlement, terms acceptance, or organization membership. You do need a Chainguard account to list and pull skills, but you don't need to be a customer.
 
 ## List available skills
 
-You can browse the skills published in the public Chainguard catalog with the `list` subcommand:
+Sign in, then browse the skills published in the public Chainguard catalog with the `list` subcommand. The `--recursive` flag lists skills across every owner in the catalog:
 
 ```shell
-chainctl skills list --group chainguard
+chainctl auth login
+chainctl skills list --group chainguard --recursive
 ```
 ```output
-    NAME      | LATEST TAG | UPDATED
---------------|------------|----------
- hello-world  | v1.0.0     | 2 days ago
+              NAME              | LATEST TAG |   UPDATED
+--------------------------------|------------|--------------
+ agentspace-so/agentspace       | latest     | 21 hours ago
+ antfu/antfu                    | latest     | 21 hours ago
+ antfu/nuxt                     | latest     | 21 hours ago
+ antfu/vitest                   | latest     | 21 hours ago
+ antfu/vue                      | latest     | 21 hours ago
+ anthropics/doc-coauthoring     | latest     | 21 hours ago
+ anthropics/frontend-design     | latest     | 21 hours ago
+ apollographql/apollo-client    | latest     | 21 hours ago
+ 
+ . . .
+```
+
+To list the skills from a single upstream owner, name it in the `--group` value:
+
+```shell
+chainctl skills list --group chainguard/anthropics
+```
+```output
+ TYPE  |      NAME       | LATEST TAG | UPDATED
+-------|-----------------|------------|------------
+ skill | doc-coauthoring | latest     | 1 hour ago
+ skill | frontend-design | latest     | 1 hour ago
 ```
 
 ## Inspect a skill
 
-To retrieve a skill's reference, digest, tags, and metadata, use the `describe` subcommand:
+To retrieve a skill's reference, digest, tags, and metadata, use the `describe` subcommand. The output records the upstream source and the exact commit Chainguard hardened from:
 
 ```shell
-chainctl skills describe skills.cgr.dev/chainguard/hello-world:v1.0.0
+chainctl skills describe skills.cgr.dev/chainguard/github/add-educational-comments:latest
 ```
 ```output
-    FIELD    |                                              VALUE                                               
--------------|--------------------------------------------------------------------------------------------------
- Name        | hello-world                                                                                      
- Description | A simple hello world skill. Use this to verify your skills registry setup is working end to end. 
- Tag         | v1.0.0                                                                                           
- Digest      | sha256:393c0a2556c626010dfacaa402508122cbb4218be786882b7c74d9d61b38d19e                          
- Size        | 709 B                                                                                            
- Published   | 2 days ago  
+      FIELD      |                                                    VALUE                                                     
+-----------------|--------------------------------------------------------------------------------------------------------------
+ Display Name    | add-educational-comments
+ Reference       | chainguard/github/add-educational-comments
+ Install Name    | chainguard-github-add-educational-comments
+ OCI URL         | skills.cgr.dev/chainguard/github/add-educational-comments:latest
+ Description     | Add educational comments to the file specified, or prompt asking for file to comment if one is not provided.
+ License         | MIT
+ Upstream        | github.com/github/awesome-copilot/skills/add-educational-comments
+ Upstream Commit | cf4347e88c2e40a9aabe5801748ec6bf924c09be
+ License Source  | LICENSE
+ Tag             | cf4347e88c2e40a9aabe5801748ec6bf924c09be
+ Digest          | sha256:59b781f87f82aba08ccf622b60a31ee5b8fbb27fa447ed5910850d4320505735
+ Size            | 1.1 KB
+ Published       | 1 day ago   
 ```
+
+## Pull a skill to inspect it
+
+Where `install` drops a skill straight into your agent's skills directory, `pull` writes the skill's files to a directory you choose so you can inspect them first:
+
+```shell
+chainctl skills pull skills.cgr.dev/chainguard/github/add-educational-comments:latest ./add-educational-comments
+```
+```output
+Skill written to: /home/linky/add-educational-comments
+```
+
+Every hardened skill ships with a `HARDENING.md` that records the upstream source, the exact commit Chainguard hardened from, and every change the hardening engine made:
+
+```shell
+cat add-educational-comments/HARDENING.md
+```
+```output
+# Hardening Report: github.com/github/awesome-copilot/skills/add-educational-comments
+
+| Field | Value |
+|---|---|
+| Upstream SHA | `cf4347e88c2e40a9aabe5801748ec6bf924c09be` |
+| Hardened at | 2026-06-09T23:14:22Z |
+| Files processed | 2 |
+| .md files (clean after harden) | 1 |
+| .md files (attempts exhausted) | 0 |
+| Non-.md files (copied verbatim) | 1 |
+
+## Markdown files
+
+### `SKILL.md`
+
+- Status: **clean**
+- Attempts used: 2
+- Findings + fixes applied:
+
+  | Attempt | Rule | Severity | Finding |
+  |---|---|---|---|
+  | 1 | `minimal-permissions` | high | The skill's purpose is to statically analyze and add comments to code files. It does not require the ability to execute the code to fulfill its objectives. The prompt's rules about not 'breaking execution' are constraints on the output, not a requirement to test the code by running it in a live environment. |
+
+## Verbatim files
+
+- `LICENSE`
+```
+
+Here, the engine flagged `minimal-permissions`: the skill only needs to read and comment on files, so the hardened version drops the implied permission to execute them.
 
 ## Install a skill
 
 Download and install the skill to make it available to agents on your machine with the `install` subcommand:
 
 ```shell
-chainctl skills install skills.cgr.dev/chainguard/hello-world:v1.0.0
+chainctl skills install skills.cgr.dev/chainguard/github/add-educational-comments:latest
 ```
 
 This command automatically detects any agents on your machine and places the skill into their relevant directories. The following example output shows the results on a machine where Claude Code is present:
 
 ```output
-Installing hello-world
-    AGENT    |          LOCATION          |                    MODE                    
--------------|----------------------------|--------------------------------------------
- Claude Code | .claude/skills/hello-world | symlink → ../../.agents/skills/hello-world 
+Installing github/add-educational-comments
+    AGENT    |                         LOCATION                          |                                   MODE                                    
+-------------|-----------------------------------------------------------|---------------------------------------------------------------------------
+ Claude Code | .claude/skills/chainguard-github-add-educational-comments | symlink → ../../.agents/skills/chainguard-github-add-educational-comments 
 ```
 
 ## Run the skill from an agent
 
-Load `hello-world` into Claude Code or any MCP-compatible agent. In Claude Code, invoke it by name:
+Load the skill into Claude Code or any MCP-compatible agent. In Claude Code, invoke it by name:
 
 ```Agent
-/hello-world
+/add-educational-comments
 ```
 
-The agent responds:
-
-```output
-Hello from Chainguard Agent Skills! Your skill installed and loaded successfully.
-```
-
-This confirms the skill installed and loaded correctly end to end.
+The agent loads the skill and runs it, confirming it installed and loaded correctly end to end.
 
 ## Command reference
 
 | Action | Command |
 | ----- | ----- |
-| List skills | `chainctl skills list --group chainguard` |
-| Describe a skill | `chainctl skills describe skills.cgr.dev/chainguard/<name>:<tag>` |
-| Install a skill | `chainctl skills install skills.cgr.dev/chainguard/<name>:<tag>` |
+| List skills | `chainctl skills list --group chainguard --recursive` |
+| Describe a skill | `chainctl skills describe skills.cgr.dev/chainguard/<owner>/<name>:<tag>` |
+| Pull a skill | `chainctl skills pull skills.cgr.dev/chainguard/<owner>/<name>:<tag> <dir>` |
+| Install a skill | `chainctl skills install skills.cgr.dev/chainguard/<owner>/<name>:<tag>` |
 
 ## Next steps
 
