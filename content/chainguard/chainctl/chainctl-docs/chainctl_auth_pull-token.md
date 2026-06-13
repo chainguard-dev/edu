@@ -1,5 +1,5 @@
 ---
-date: 2026-06-11T20:09:07Z
+date: 2026-06-12T17:28:47Z
 title: "chainctl auth pull-token"
 slug: chainctl_auth_pull-token
 url: /chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token/

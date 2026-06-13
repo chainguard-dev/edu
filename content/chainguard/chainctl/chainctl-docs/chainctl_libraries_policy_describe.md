@@ -1,33 +1,30 @@
 ---
-date: 2026-06-11T20:09:07Z
-title: "chainctl libraries policy-gate binding create"
-slug: chainctl_libraries_policy-gate_binding_create
-url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate_binding_create/
+date: 2026-06-12T17:28:47Z
+title: "chainctl libraries policy describe"
+slug: chainctl_libraries_policy_describe
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_describe/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl libraries policy-gate binding create
+## chainctl libraries policy describe
 
-Create a Libraries policy gate binding.
+Describe a Libraries policy.
 
 ### Synopsis
 
-Create a binding to activate a Libraries policy for an (organization, ecosystem) pair. The default mode is ENFORCED.
+Show a Libraries policy in full, including every block-list and allow-list entry.
 
 ```
-chainctl libraries policy-gate binding create --policy POLICY [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--ecosystem ECOSYSTEM] [--mode ENFORCED|LOG] [flags]
+chainctl libraries policy describe POLICY [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json|table] [flags]
 ```
 
 ### Options
 
 ```
-      --ecosystem string   The ecosystem the binding applies to (JAVA, PYTHON, JAVASCRIPT).
-      --mode string        The binding mode (ENFORCED or LOG). Defaults to ENFORCED.
-      --parent string      The name or id of the organization to scope the binding to.
-      --policy string      The name or UIDP of the policy to bind.
+      --parent string   The name or id of the organization.
 ```
 
 ### Options inherited from parent commands
@@ -47,5 +44,5 @@ chainctl libraries policy-gate binding create --policy POLICY [--parent ORGANIZA
 
 ### SEE ALSO
 
-* [chainctl libraries policy-gate binding](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate_binding/)	 - Manage Libraries policy gate bindings.
+* [chainctl libraries policy](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy/)	 - Manage Libraries policies.
 

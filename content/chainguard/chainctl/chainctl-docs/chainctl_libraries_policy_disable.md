@@ -1,44 +1,34 @@
 ---
 date: 2026-06-12T17:28:47Z
-title: "chainctl images history"
-slug: chainctl_images_history
-url: /chainguard/chainctl/chainctl-docs/chainctl_images_history/
+title: "chainctl libraries policy disable"
+slug: chainctl_libraries_policy_disable
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_disable/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl images history
+## chainctl libraries policy disable
 
-Show history for a specific image tag.
+Disable a Libraries policy for an organization.
 
 ### Synopsis
 
-Show history for a specific image tag.
-
-If a digest does not represent a multi-arch image, only a single digest without architecture information will be displayed.
-Architecture information may not be available for all digests.
-
-Examples:
-  # Show history for a specific tag (selected interactively)
-  chainctl images history nginx
-
-  # Show history for a specific tag (specified in the command)
-  chainctl images history nginx:1.21.0
-
-  # Show history for a tag in a specific organization
-  chainctl images history nginx:1.21.0 --parent=my-org
+Disable a Libraries policy by deleting its binding. If --mode is omitted, both
+the ENFORCE and DRY_RUN bindings for the (organization, ecosystem) are deleted.
 
 ```
-chainctl images history IMAGE[:TAG] [flags]
+chainctl libraries policy disable --policy POLICY [--parent ORG] [--ecosystem ECOSYSTEM] [--mode ENFORCE|DRY_RUN] [flags]
 ```
 
 ### Options
 
 ```
-      --parent string   Organization to view image history from
-      --recursive       Search repositories recursively through all descendants instead of just children
+      --ecosystem string   The ecosystem the binding applies to (JAVA, PYTHON, JAVASCRIPT).
+      --mode string        The binding mode (ENFORCE or DRY_RUN).
+      --parent string      The name or id of the organization to scope the binding to.
+      --policy string      The name or UIDP of the policy.
 ```
 
 ### Options inherited from parent commands
@@ -58,5 +48,5 @@ chainctl images history IMAGE[:TAG] [flags]
 
 ### SEE ALSO
 
-* [chainctl images](/chainguard/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
+* [chainctl libraries policy](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy/)	 - Manage Libraries policies.
 

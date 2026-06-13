@@ -1,35 +1,30 @@
 ---
-date: 2026-06-11T20:09:07Z
-title: "chainctl libraries policy-gate enable"
-slug: chainctl_libraries_policy-gate_enable
-url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate_enable/
+date: 2026-06-12T17:28:47Z
+title: "chainctl libraries policy update"
+slug: chainctl_libraries_policy_update
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_update/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl libraries policy-gate enable
+## chainctl libraries policy update
 
-Enable a Libraries policy for an organization.
-
-### Synopsis
-
-Enable a Libraries policy by creating a binding. If a binding already exists
-for the (organization, ecosystem, mode), its mode is updated. The default mode
-is ENFORCED.
+Update a custom Libraries policy.
 
 ```
-chainctl libraries policy-gate enable --policy POLICY [--parent ORG] [--ecosystem ECOSYSTEM] [--mode ENFORCED|LOG] [flags]
+chainctl libraries policy update POLICY [--cooldown-days N] [--block ...] [--allow ...] [flags]
 ```
 
 ### Options
 
 ```
-      --ecosystem string   The ecosystem the binding applies to (JAVA, PYTHON, JAVASCRIPT).
-      --mode string        The binding mode (ENFORCED or LOG).
-      --parent string      The name or id of the organization to scope the binding to.
-      --policy string      The name or UIDP of the policy.
+      --allow stringArray     An allow-list entry, formatted as comma-separated key=value pairs. Repeatable.
+      --block stringArray     A block-list entry, formatted as comma-separated key=value pairs. Repeatable.
+      --cooldown-days int32   The cooldown window in days (0 disables, 1-30 explicit, omit to inherit the default). (default -1)
+      --description string    The updated description of the policy.
+      --parent string         The name or id of the organization that owns the policy.
 ```
 
 ### Options inherited from parent commands
@@ -49,5 +44,5 @@ chainctl libraries policy-gate enable --policy POLICY [--parent ORG] [--ecosyste
 
 ### SEE ALSO
 
-* [chainctl libraries policy-gate](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate/)	 - Manage Libraries policy gates.
+* [chainctl libraries policy](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy/)	 - Manage Libraries policies.
 

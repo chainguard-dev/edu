@@ -1,26 +1,24 @@
 ---
-date: 2026-06-11T20:09:07Z
-title: "chainctl libraries policy-gate delete"
-slug: chainctl_libraries_policy-gate_delete
-url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate_delete/
+date: 2026-06-12T17:28:47Z
+title: "chainctl libraries policy binding delete"
+slug: chainctl_libraries_policy_binding_delete
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding_delete/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl libraries policy-gate delete
+## chainctl libraries policy binding delete
 
-Delete a custom Libraries policy.
+Delete a Libraries policy binding.
 
-```
-chainctl libraries policy-gate delete POLICY [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [flags]
-```
+### Synopsis
 
-### Options
+Delete a Libraries policy binding to deactivate the policy for its bound (organization, ecosystem) pair.
 
 ```
-      --parent string   The name or id of the organization that owns the policy.
+chainctl libraries policy binding delete BINDING_ID [flags]
 ```
 
 ### Options inherited from parent commands
@@ -40,5 +38,5 @@ chainctl libraries policy-gate delete POLICY [--parent ORGANIZATION_NAME | ORGAN
 
 ### SEE ALSO
 
-* [chainctl libraries policy-gate](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate/)	 - Manage Libraries policy gates.
+* [chainctl libraries policy binding](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding/)	 - Manage Libraries policy bindings.
 
