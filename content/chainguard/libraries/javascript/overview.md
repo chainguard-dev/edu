@@ -139,12 +139,14 @@ curl -H "Authorization: Bearer $(chainctl auth token --audience=libraries.cgr.de
 ```
 cosign verify-blob-attestation \
   --bundle PACKAGE-provenance.sigstore.json \
-  --new-bundle-format \
+  --type slsaprovenance1 \
   --certificate-oidc-issuer=https://issuer.enforce.dev \
   --certificate-identity-regexp="^https://issuer.enforce.dev/" \
   --check-claims=false \
   PACKAGE-VERSION.tgz
 ```
+
+If this command returns an error, ensure you are using the latest version of `cosign`.
 
 A successful verification returns:
 ```
