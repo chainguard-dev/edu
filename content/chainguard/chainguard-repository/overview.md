@@ -49,7 +49,7 @@ All upstream packages are checked against public malware identifier feeds, and a
 
 ## **Management**
 
-The Chainguard Console and `chainctl` can be used for configuring and managing policies across your organization. Learn more in [Using the Chainguard Console](/chainguard/console/images-directory/) and [Get Started with chainctl](/get-started/getting-started-with-chainctl/).
+The Chainguard Console and `chainctl` can be used for configuring and managing policies across your organization. Learn more in [Using the Chainguard Console](/platform/console/images-directory/) and [Get Started with chainctl](/get-started/getting-started-with-chainctl/).
 
 Access the Console at [console.chainguard.dev](https://console.chainguard.dev).
 

@@ -40,7 +40,7 @@ After signing in to the [Chainguard Console](https://console.chainguard.dev), yo
 <center><img src="imgs-dir-A.png" alt="Screenshot showing the Chainguard Console's Overview page." style="width:1100px;"></center>
 <br /> 
 
-If your organization and account have [Chainguard Notifications](/chainguard/console/use-chainguard-notifications) enabled, you will see the **Activity Center** on the page where notifications from Chainguard will occasionally be shown.
+If your organization and account have [Chainguard Notifications](/platform/console/use-chainguard-notifications) enabled, you will see the **Activity Center** on the page where notifications from Chainguard will occasionally be shown.
 
 <center><img src="notifications-inapp.png" alt="Screenshot showing a test notification in the Chainguard Notifications box on the Chainguard Console's Overview page." style="width:1100px;"></center>
 <br />

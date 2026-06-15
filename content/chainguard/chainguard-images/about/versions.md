@@ -78,7 +78,7 @@ In rare cases, a project may not follow a defined release pattern at all.
 
 There are several scenarios that define what Chainguard agrees to maintain
 regarding software versions in the [Chainguard Containers
-Directory](/chainguard/console/images-directory/). All
+Directory](/platform/console/images-directory/). All
 container images that Chainguard currently supports are those with upstream
 software that is still supported and maintained, and Chainguard patches and
 rebuilds these Containers daily. If you have purchased a container image during

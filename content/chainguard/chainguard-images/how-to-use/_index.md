@@ -20,7 +20,7 @@ tutorials: [
   {
     title: "Chainguard Containers Directory",
     description: "",
-    url: "/chainguard/console/images-directory/"
+    url: "/platform/console/images-directory/"
   },
   {
     title: "How to Retrieve SBOMs",

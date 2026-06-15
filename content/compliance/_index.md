@@ -8,6 +8,6 @@ draft: false
 aliases:
 - /software-security/compliance/
 images: []
-weight: 5
+weight: 4
 ---
 

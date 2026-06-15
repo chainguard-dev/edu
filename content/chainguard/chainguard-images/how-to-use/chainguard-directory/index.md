@@ -19,7 +19,7 @@ toc: true
 
 There are hundreds of Chainguard Containers available for use. To help users explore and better understand all of these container images, we've developed the Chainguard Directory. This is a free to access web portal that does not require signing in from which you can view information about container images in the Chainguard catalog. This is great for quick searches or while exploring Chainguard's offerings.
 
-If you want more specific information about what is available to your organization, take a look at the Chainguard Console. You'll first need to [create an account and log in](https://console.chainguard.dev/auth/login) but there you can interact in a clearer, organization-specific way. If you use the *Sign In* link in the directory, it brings you to the console. Learn more about the [Chainguard Console](/chainguard/console/images-directory/) in the related docs page.
+If you want more specific information about what is available to your organization, take a look at the Chainguard Console. You'll first need to [create an account and log in](https://console.chainguard.dev/auth/login) but there you can interact in a clearer, organization-specific way. If you use the *Sign In* link in the directory, it brings you to the console. Learn more about the [Chainguard Console](/platform/console/images-directory/) in the related docs page.
 
 
 ## Accessing the Chainguard Directory

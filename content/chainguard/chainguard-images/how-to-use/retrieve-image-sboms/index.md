@@ -63,7 +63,7 @@ You can include the following flags when retrieving attestations:
 
 ### Retrieve a container image attestation in the Chainguard Console
 
-You can also find container image SBOMs in the [Chainguard Console](https://console.chainguard.dev). After signing in to the Console and clicking either the **Public images** or, if available, **Organization images** you'll be presented with a list of images. Click on any of these to navigate that image's landing page. From there, navigate to the [**SBOM** tab](/chainguard/console/images-directory/#sbom-tab) to find and download the SBOM for the given image. 
+You can also find container image SBOMs in the [Chainguard Console](https://console.chainguard.dev). After signing in to the Console and clicking either the **Public images** or, if available, **Organization images** you'll be presented with a list of images. Click on any of these to navigate that image's landing page. From there, navigate to the [**SBOM** tab](/platform/console/images-directory/#sbom-tab) to find and download the SBOM for the given image. 
 
 You can use the drop-down menus above the table to select which version and architecture of the image you want to view. You can also use the search box to find specific packages in the SBOM or use the button to the right of the search box to download the SBOM to your machine.
 
@@ -71,7 +71,7 @@ Clicking **Download** reveals a drop-down menu where you can choose to download 
 
 ![Screenshot of the nginx image's "SBOM" tab, showing the Download button and drop-down menu options (SPDX and CyclonedDX) highlighted in a yellow box.](img-dir-5.png)
 
-Check out our guide on [using the Chainguard Containers Directory](/chainguard/console/images-directory/) for more details.
+Check out our guide on [using the Chainguard Containers Directory](/platform/console/images-directory/) for more details.
 
 ## Available attestation types
 

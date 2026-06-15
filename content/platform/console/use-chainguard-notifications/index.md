@@ -18,7 +18,7 @@ weight: 030
 toc: true
 ---
 
-You can use the [Chainguard Console](/chainguard/console/images-directory) to configure how **Chainguard** is permitted to send notifications about things like breaking changes to users in your organization. The feature includes options to allow notifications to be sent in-app to the **Activity Center** on the user’s Overview page in the Chainguard Console, via Slack, and for customers who are opted in, via email.
+You can use the [Chainguard Console](/platform/console/images-directory) to configure how **Chainguard** is permitted to send notifications about things like breaking changes to users in your organization. The feature includes options to allow notifications to be sent in-app to the **Activity Center** on the user’s Overview page in the Chainguard Console, via Slack, and for customers who are opted in, via email.
 
 These notifications are different from [Chainguard Events](/chainguard/administration/cloudevents/) as Chainguard Notifications are sent by Chainguard’s customer success representatives.
 
