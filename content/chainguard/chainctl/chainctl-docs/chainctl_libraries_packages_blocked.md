@@ -1,5 +1,5 @@
 ---
-date: 2026-06-11T20:09:07Z
+date: 2026-06-12T17:28:47Z
 title: "chainctl libraries packages blocked"
 slug: chainctl_libraries_packages_blocked
 url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_packages_blocked/
@@ -15,17 +15,17 @@ List blocked Libraries packages.
 
 ### Synopsis
 
-List packages that were withheld by an active Libraries policy gate. Defaults to ENFORCED-mode events from the last 30 days.
+List packages that were withheld by an active Libraries policy. Defaults to ENFORCE-mode events from the last 30 days.
 
 ```
-chainctl libraries packages blocked [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--ecosystem ECOSYSTEM] [--package NAME] [--mode ENFORCED|LOG] [--output=json|table] [flags]
+chainctl libraries packages blocked [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--ecosystem ECOSYSTEM] [--package NAME] [--mode ENFORCE|DRY_RUN] [--output=json|table] [flags]
 ```
 
 ### Options
 
 ```
       --ecosystem string   Only show events for this ecosystem (JAVA, PYTHON, JAVASCRIPT).
-      --mode string        Only show events in this mode (ENFORCED or LOG). Defaults to ENFORCED.
+      --mode string        Only show events in this mode (ENFORCE or DRY_RUN). Defaults to ENFORCE.
       --package string     Only show events whose package name matches (exact, case-insensitive).
       --parent string      The name or id of the organization to scope events to.
 ```

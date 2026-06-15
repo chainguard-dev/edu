@@ -1,15 +1,15 @@
 ---
-date: 2026-06-11T20:09:07Z
-title: "chainctl libraries policy-gate list"
-slug: chainctl_libraries_policy-gate_list
-url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate_list/
+date: 2026-06-12T17:28:47Z
+title: "chainctl libraries policy list"
+slug: chainctl_libraries_policy_list
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl libraries policy-gate list
+## chainctl libraries policy list
 
 List Libraries policies.
 
@@ -18,7 +18,7 @@ List Libraries policies.
 List the Libraries policies available to an organization (SYSTEM policies and the organization's CUSTOM policies).
 
 ```
-chainctl libraries policy-gate list [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json|table] [flags]
+chainctl libraries policy list [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json|table] [flags]
 ```
 
 ### Options
@@ -44,5 +44,5 @@ chainctl libraries policy-gate list [--parent ORGANIZATION_NAME | ORGANIZATION_I
 
 ### SEE ALSO
 
-* [chainctl libraries policy-gate](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate/)	 - Manage Libraries policy gates.
+* [chainctl libraries policy](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy/)	 - Manage Libraries policies.
 
