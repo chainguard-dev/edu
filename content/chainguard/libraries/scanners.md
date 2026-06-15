@@ -27,7 +27,7 @@ project by Chainguard to create new libraries of older versions containing these
 newer changes. Find more details in [CVE
 Remediation](/chainguard/libraries/cve-remediation/).
 
-This article provides an overview of vulnerability scanning for libraries and
+This page provides an overview of vulnerability scanning for libraries and
 the use of specific scanning applications in the following sections. For more
 information on scanning containers, refer to our guide on [Working with
 Container Image
