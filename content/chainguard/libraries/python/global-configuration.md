@@ -60,11 +60,11 @@ approach. Refer to the [direct access documentation for build
 tools](/chainguard/libraries/python/build-configuration/#direct-access) for more
 information.
 
-### Considerations for fallback approach
+### Manually managing fallback 
 
-Before configuring your repo manager, consider how you want to handle packages that aren't
-yet available in the Chainguard Libraries repository. If you configure a fallback to PyPI, packages sourced from that registry are not covered by Chainguard's
-malware-resistance guarantees. See the [fallback approaches](/chainguard/libraries/quickstart/#artifact-manager-recommended) described in the Chainguard Libraries quick start for guidance on choosing the right approach for your environment.
+Chainguard recommends using the [Chainguard Repository built-in upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) rather than configuring a public PyPI fallback in your repository manager. Configuring your own fallback bypasses the protection and policy behavior provided by Chainguard Repository.
+
+However, if you intentionally want to manage fallback ordering yourself, you can continue using the repository manager patterns described on this page to combine Chainguard and PyPI sources.
 
 ### Updating lockfile hashes
 
@@ -104,14 +104,14 @@ First, create a repository:
 
 1. Log in to your Cloudsmith instance as user with administrator privileges.
 1. Select the **Repositories** tab near the top of the screen.
-1. Navigate to the **Repositories Overview**, then select **+ New repository**.
+1. Navigate to the **Repositories Overview**, then select **+New repository**.
 1. At the new repository form, enter the name *python-all* for your new
    repository. The name should include *python* to identify the repository
    format. This convention helps avoid confusion, since repositories in
    Cloudsmith are multi-format. 
 1. Select a storage region that is appropriate for your organization and
    infrastructure.
-1. Select **+ Create Repository**. 
+1. Select **+Create Repository**. 
 
 Next, configure the upstream proxies:
 
@@ -132,7 +132,7 @@ Next, configure the upstream proxies:
    repeat the preceding two steps with the name `python-chainguard-remediated`,
    the priority `2`, the same authentication details, and the URL
    `https://libraries.cgr.dev/python-remediated/`.
-1. Configure another upstream proxy with the following details
+1. If you are manually managing fallback rather than using the [Chainguard Repository's built-in fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls), configure another upstream proxy with the following details:
     * **Name**: `python-public`
     * **Priority**: `3`
     * **Upstream URL**: `https://pypi.org/`
@@ -180,24 +180,14 @@ value as retrieved with chainctl](/chainguard/libraries/access/):
 
 Navigate to Artifact Registry and select **Repositories** in the left hand
 navigation under the **Artifact Registry** label to configure a remote
-repository for the Pypi Package Index:
+repository for Chainguard Libraries for Python repository:
 
-1. Click **Create a Repository** or the **+** button.
-1. Set the **Name** to *python-public*.
-1. Set the **Format** to *Python*.
-1. Select *Remote* for the **Mode**.
-1. Select *PyPi* for the **Remote repository source**.
-1. Choose a suitable **Region** for your development in **Location type**.
-1. Click **Create**.
-
-Configure a remote repository for the Chainguard Libraries for Python repository:
-
-1. Click **+** to add another repository.
+1. Click **+Create a Repository**.
 1. Set the **Name** to *python-chainguard*.
 1. Set the **Format** to *Python*.
 1. Select *Remote* for the **Mode**.
 1. Select *Custom* for the **Remote repository source**.
-1. Set the URL for the Custom repository to *https://libraries.cgr.dev/python/*.
+1. Set the URL for the Custom repository to `https://libraries.cgr.dev/python/`.
 1. Select *Authenticated* in **Remote repository authentication mode**.
 1. Set **Username for the upstream repository** to the [value as retrieved
    with chainctl](/chainguard/libraries/access/).
@@ -206,7 +196,15 @@ Configure a remote repository for the Chainguard Libraries for Python repository
    as configured for the *python-public* repository.
 1. Click **Create**.
 
-Combine the two repositories in a new virtual repository:
+If you want to use the separate repository with [remediated Python
+libraries](/chainguard/libraries/python/overview/#cve-remediation) repeat the
+preceding steps with the name `python-chainguard-remediated`, the same
+authentication details, and the URL
+`https://libraries.cgr.dev/python-remediated/`.
+
+If you are manually managing fallback rather than using the [Chainguard Repository's built-in fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls), configure an additional remote repository for the public PyPI. 
+
+Combine the repositories in a new virtual repository:
 
 1. Click **+** to add another repository.
 1. Set the **Name** to `python-all`.
@@ -266,31 +264,19 @@ preceding steps with the name `python-chainguard-remediated`, the same
 authentication details, and the URL
 `https://libraries.cgr.dev/python-remediated/`.
 
-Configure a remote repository for the PyPI public index:
+If you are manually managing fallback rather than using the [Chainguard Repository's built-in fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls), configure an additional remote repository for the public PyPI index. 
 
-1. Select **Create a Repository** and choose the **Remote** option.
-1. Select `PyPI` as the Package type.
-1. Set the **Repository Key** to `python-public`.
-1. Set the **URL** to `https://files.pythonhosted.org`.
-1. Set the **PyPI Settings - Registry URL** to `https://pypi.org/`.
-1. Select **Create Remote Repository**.
-
-Combine the two repositories in a new virtual repository:
+Combine the repositories in a new virtual repository:
 
 1. Click **Create a Repository** and choose the **Virtual** option.
 1. Select `PyPI` as the Package type.
 1. Set the **Repository Key** to `python-all`.
-1. In the **Repositories** section, find the `python-chainguard` and
-   `python-public` repositories. Ensure the `python-chainguard` repository is
-   the first in the displayed list. Use the icon on the right of the repository
-   name to drag and drop repositories into the desired position.
+1. In the **Repositories** section, find `python-chainguard`, `python-chainguard-remediated`, and if manually managing fallback, the `python-public` repository. Ensure the `python-chainguard-remediated` repository is the first in the displayed list. Use the icon on the right of the repository name to drag and drop repositories into the desired position.
 1. Select **Create Virtual Repository**.
 
 At this point, you have a virtual repository set up in Artifactory that allows
 you or others in your organization to access Chainguard Libraries for Python,
-optionally including remediated versions, with your chosen tools. This setup
-falls back to the public PyPI index in cases where a package is not available in
-Chainguard's index.
+optionally including remediated versions, with your chosen tools. 
 
 ### Validate the remote repository
 
@@ -362,17 +348,7 @@ First, log in to Sonatype Nexus as a user with administrator privileges and
 access the **Server administration** and configuration section within the gear
 icon in the top navigation bar.
 
-Next, configure a remote repository for the public PyPI index:
-
-1. Select **Repository - Repositories** in the left hand navigation.
-1. Select **Create repository**.
-1. Select the **PyPI (proxy)** recipe.
-1. Provide a new name, such as `python-public`.
-1. In the **Proxy - Remote storage** field, add the following URL:
-   `https://pypi.org/`.
-1. Select **Create repository**.
-
-Configure a remote repository for the Chainguard Libraries for Python repository:
+Next, configure a remote repository for Chainguard Libraries for Python repository:
 
 1. Select **Repository - Repositories** in the left hand navigation.
 1. Select **Create repository**.
@@ -391,17 +367,16 @@ preceding steps with the name `python-chainguard-remediated`, the same
 authentication details, and the URL
 `https://libraries.cgr.dev/python-remediated/`.
 
-Finally, create a new repository group and add the two repositories:
+If you are manually managing fallback rather than using the [Chainguard Repository's built-in fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls), configure an additional remote repository for the public PyPI. 
+
+Finally, create a new repository group and add the repositories:
 
 1. Select **Repository - Repositories** in the left hand navigation.
 1. Select **Create repository**.
 1. Select the **PyPI (group)** recipe.
 1. Provide a new name, such as `python-all`.
 1. In the section **Group - Member repositories**, move the new repositories
-   `python-public` and `python-chainguard` to the right and move the
-   `python-chainguard` repository to the top of the list with the arrow control.
-   If you configured the  `python-chainguard-remediated` repository, also move
-   it to the right and the top of the list.
+   `python-chainguard-remediated` and `python-chainguard` to the right. Move the  `python-chainguard-remediated` repository to the top of the list.
 
 ### Build tool access
 
