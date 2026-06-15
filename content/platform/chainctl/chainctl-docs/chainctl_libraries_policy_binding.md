@@ -1,31 +1,21 @@
 ---
-date: 2026-06-11T20:09:07Z
-title: "chainctl libraries policy-gate binding list"
-slug: chainctl_libraries_policy-gate_binding_list
-url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate_binding_list/
+date: 2026-06-12T17:28:47Z
+title: "chainctl libraries policy binding"
+slug: chainctl_libraries_policy_binding
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl libraries policy-gate binding list
+## chainctl libraries policy binding
 
-List Libraries policy gate bindings.
+Manage Libraries policy bindings.
 
 ### Synopsis
 
-List active Libraries policy gate bindings to see which policies are enabled and in which mode.
-
-```
-chainctl libraries policy-gate binding list [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json|table] [flags]
-```
-
-### Options
-
-```
-      --parent string   The name or id of the organization to list bindings for.
-```
+A Libraries policy binding activates a policy for an (organization, ecosystem) pair in either ENFORCE or DRY_RUN mode.
 
 ### Options inherited from parent commands
 
@@ -44,5 +34,9 @@ chainctl libraries policy-gate binding list [--parent ORGANIZATION_NAME | ORGANI
 
 ### SEE ALSO
 
-* [chainctl libraries policy-gate binding](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate_binding/)	 - Manage Libraries policy gate bindings.
+* [chainctl libraries policy](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy/)	 - Manage Libraries policies.
+* [chainctl libraries policy binding create](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding_create/)	 - Create a Libraries policy binding.
+* [chainctl libraries policy binding delete](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding_delete/)	 - Delete a Libraries policy binding.
+* [chainctl libraries policy binding list](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding_list/)	 - List Libraries policy bindings.
+* [chainctl libraries policy binding update](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding_update/)	 - Update a Libraries policy binding.
 

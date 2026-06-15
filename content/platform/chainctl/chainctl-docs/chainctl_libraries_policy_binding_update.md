@@ -1,30 +1,30 @@
 ---
-date: 2026-06-11T20:09:07Z
-title: "chainctl libraries policy-gate binding update"
-slug: chainctl_libraries_policy-gate_binding_update
-url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate_binding_update/
+date: 2026-06-12T17:28:47Z
+title: "chainctl libraries policy binding update"
+slug: chainctl_libraries_policy_binding_update
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding_update/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl libraries policy-gate binding update
+## chainctl libraries policy binding update
 
-Update a Libraries policy gate binding.
+Update a Libraries policy binding.
 
 ### Synopsis
 
-Update the mode of an existing Libraries policy gate binding.
+Update the mode of an existing Libraries policy binding.
 
 ```
-chainctl libraries policy-gate binding update BINDING_ID --mode ENFORCED|LOG [flags]
+chainctl libraries policy binding update BINDING_ID --mode ENFORCE|DRY_RUN [flags]
 ```
 
 ### Options
 
 ```
-      --mode string   The binding mode (ENFORCED or LOG).
+      --mode string   The binding mode (ENFORCE or DRY_RUN).
 ```
 
 ### Options inherited from parent commands
@@ -44,5 +44,5 @@ chainctl libraries policy-gate binding update BINDING_ID --mode ENFORCED|LOG [fl
 
 ### SEE ALSO
 
-* [chainctl libraries policy-gate binding](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate_binding/)	 - Manage Libraries policy gate bindings.
+* [chainctl libraries policy binding](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding/)	 - Manage Libraries policy bindings.
 

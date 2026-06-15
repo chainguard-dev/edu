@@ -1,5 +1,5 @@
 ---
-date: 2026-06-11T20:09:07Z
+date: 2026-06-12T17:28:47Z
 title: "chainctl skills entitlements list"
 slug: chainctl_skills_entitlements_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_skills_entitlements_list/

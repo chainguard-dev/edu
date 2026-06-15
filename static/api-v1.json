@@ -2073,13 +2073,14 @@
       },
       "chainguard.platform.iam.OrgKind": {
         "default": "ORG_KIND_UNSPECIFIED",
-        "description": "OrgKind is the kind of organization the group belongs to.\n\n - ORG_KIND_STARTER: Free catalog starter organizations.\n - ORG_KIND_CUSTOMER: Paid customer organizations.\n - ORG_KIND_DEV: Personal developer organizations.\n - ORG_KIND_INFRA: Organizations that are used for infrastructure or automation.",
+        "description": "OrgKind is the kind of organization the group belongs to.\n\n - ORG_KIND_STARTER: Free catalog starter organizations.\n - ORG_KIND_CUSTOMER: Paid customer organizations.\n - ORG_KIND_DEV: Personal developer organizations.\n - ORG_KIND_INFRA: Organizations that are used for infrastructure or automation.\n - ORG_KIND_AWS_MARKETPLACE: Organizations that are created via AWS Marketplace Subscriptions.\nOrgs can move from this kind to CUSTOMER upon up-sell.",
         "enum": [
           "ORG_KIND_UNSPECIFIED",
           "ORG_KIND_STARTER",
           "ORG_KIND_CUSTOMER",
           "ORG_KIND_DEV",
-          "ORG_KIND_INFRA"
+          "ORG_KIND_INFRA",
+          "ORG_KIND_AWS_MARKETPLACE"
         ],
         "type": "string"
       },

@@ -1,31 +1,31 @@
 ---
-date: 2026-06-11T20:09:07Z
-title: "chainctl libraries policy-gate create"
-slug: chainctl_libraries_policy-gate_create
-url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate_create/
+date: 2026-06-12T17:28:47Z
+title: "chainctl libraries policy create"
+slug: chainctl_libraries_policy_create
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_create/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl libraries policy-gate create
+## chainctl libraries policy create
 
 Create a custom Libraries policy.
 
 ```
-chainctl libraries policy-gate create --name NAME [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--cooldown-days N] [--block ...] [--allow ...] [flags]
+chainctl libraries policy create --name NAME [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--cooldown-days N] [--block ...] [--allow ...] [flags]
 ```
 
 ### Examples
 
 ```
   # Create a policy with a cooldown window and a blocked package
-  chainctl libraries policy-gate create --name=trusted --parent=example.com \
+  chainctl libraries policy create --name=trusted --parent=example.com \
   --cooldown-days=14 --block=purl=pkg:pypi/evil
   
   # Allow a package to bypass the malware gate (justification required)
-  chainctl libraries policy-gate create --name=trusted --parent=example.com \
+  chainctl libraries policy create --name=trusted --parent=example.com \
   --allow=purl=pkg:pypi/requests,bypass-malware=true,justification="vetted internally"
 ```
 
@@ -57,5 +57,5 @@ chainctl libraries policy-gate create --name NAME [--parent ORGANIZATION_NAME | 
 
 ### SEE ALSO
 
-* [chainctl libraries policy-gate](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate/)	 - Manage Libraries policy gates.
+* [chainctl libraries policy](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy/)	 - Manage Libraries policies.
 

@@ -335,7 +335,10 @@ other desired packages for further testing.
 JavaScript, designed as an alternative to npm and Yarn. For
 more information, see the [pnpm documentation](https://pnpm.io/motivation).
 
-> Note: The Chainguard Repository [upstream fallback](/chainguard/libraries/javascript/overview/#upstream-fallback-policy-and-controls) has been tested with pnpm v11. We recommend using pnpm v11 or newer.
+Before getting started, note the following limitations:
+
+* The Chainguard Repository [upstream fallback](/chainguard/libraries/javascript/overview/#upstream-fallback-policy-and-controls) has been tested with pnpm v11. We recommend using pnpm v11 or newer.
+* If you use Chainguard Libraries with pnpm `trustPolicy: no-downgrade`, pnpm may fail installation. Because Chainguard Libraries serves rebuilt packages, pnpm may treat those packages as a trust downgrade. To work around this, disable it in your pnpm configuration: `trustPolicy: off`
 
 **Declare dependencies in package.json**
 
