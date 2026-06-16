@@ -31,7 +31,7 @@ manager with a single upstream pointed at `https://libraries.cgr.dev/java/`. The
 Chainguard Repository handles fallback and policy enforcement; your repository
 manager handles local caching and access control. Chainguard also retrieves
 packages from the public Maven Central repository on your behalf when upstream
-fallback is enabled. This includes protections such as malware detection and a
+fallback is enabled. This includes protections such as malware scanning and a
 cooldown period for newly published packages.
 
 At a high level, adopting the use of Chainguard Libraries consists of the following steps:
@@ -41,15 +41,10 @@ At a high level, adopting the use of Chainguard Libraries consists of the follow
   either:
     * As a remote repository in your repository manager, or
     * Directly in your Java build configuration (for example, Maven or Gradle).
-* Additional steps depend on the desired insights and can include the following
+* Additional steps depend on your specific environment and preferences, and can include the following
 optional measures:
-    * Remove all cached artifacts in the proxy repository of Maven Central and other
-  repositories. This step allows you to validate which libraries are not
-  available from Chainguard Libraries and proceed with potential next steps with
-  Chainguard and your own development efforts. 
-    * Remove any repositories that are no longer desired or necessary. Depending on
-  your library requirements this step can result in removal of some proxy
-  repositories or even removal of all proxy repositories. 
+    * Remove all cached artifacts for Maven Central. This step ensures that any libraries you pull are from Chainguard Libraries, and not existing cached artifacts from upstream. 
+    * Remove any repositories that are no longer desired or necessary, depending on your organization's preferences. 
 
 Adopting the use of a repository manager is the recommended approach, however if
 your organization does not use a repository manager, you can still use
@@ -72,7 +67,7 @@ repository alongside your Maven upstream, and combine them in a virtual or group
 repository with Chainguard as the first priority. The per-tool instructions on
 this page follow this pattern. 
 
-Before configuring manual fallback, consider how you want to handle packages that aren't yet available in the Chainguard Libraries repository. If you configure a fallback to Maven Central, packages sourced from that registry are not covered by Chainguard's
+Before configuring your own fallback, consider how you want to handle packages that aren't yet available in the Chainguard Libraries repository. If you configure a fallback to Maven Central, packages sourced from that registry are not covered by Chainguard's
 malware-resistance guarantees. See the [fallback approaches](/chainguard/libraries/quickstart/#artifact-manager-recommended) described in the Chainguard Libraries quick start for guidance on choosing the right approach for your environment.
 
 <a name="cloudsmith"></a>

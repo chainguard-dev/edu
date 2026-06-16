@@ -14,7 +14,7 @@ weight: 051
 toc: true
 ---
 
-Chainguard Libraries for Java provides enhanced security for the Java ecosystem by rebuilding popular Maven dependencies with the latest patches and comprehensive supply chain protection. This service addresses critical vulnerabilities in the vast Java/JVM ecosystem that spans hundreds of projects from organizations like the Apache Software Foundation, Eclipse Foundation, and numerous independent maintainers. 
+Chainguard Libraries for Java provides enhanced security for the Java ecosystem by rebuilding dependencies from Maven Central and other common repositories with the latest patches and comprehensive supply chain protection. This service addresses critical vulnerabilities in the vast Java/JVM ecosystem that spans hundreds of projects from organizations like the Apache Software Foundation, Eclipse Foundation, and numerous independent maintainers. 
 
 Chainguard Libraries for Java provides access to all open source libraries
 commonly used. New releases of common libraries or artifacts requested by
@@ -239,3 +239,15 @@ It includes the following files:
 * `commons-compress-1.28.0.jar`
 * `commons-compress-1.28.0.slsa-attestation.json`
 * `commons-compress-1.28.0.spdx.json`
+
+## Upstream fallback policy and controls
+
+Chainguard Libraries for Java supports an optional built-in fallback to
+the upstream Maven Central repository, managed through the [Chainguard
+Repository](/chainguard/chainguard-repository/overview/). By default, the endpoint serves
+only Chainguard-built packages. When the upstream fallback is enabled, upstream packages are
+subject to additional security controls before being served, including source code and maintainer behavior scanning. 
+
+For Java, Chainguard's scanning inspects compiled `.class` files and package metadata for suspicious patterns and malicious signals.
+
+Learn more in the [Chainguard Libraries Overview](/chainguard/libraries/overview/).

@@ -135,7 +135,7 @@ After that six-month window closes, Chainguard Libraries will:
 
 ## Upstream fallback and controls
 
-Chainguard Libraries support an optional built-in fallback managed through the [Chainguard
+Chainguard Libraries support an optional protected upstream fallback, managed through the [Chainguard
 Repository](/chainguard/chainguard-repository/overview/): 
 
 - Chainguard Libraries for JavaScript supports fallback to
@@ -155,10 +155,10 @@ libraries entitlements`
 command](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/).
 
 The following command creates or updates an entitlement to Chainguard Libraries
-for JavaScript, adds the npm upstream fallback policy, and configures a 7-day cooldown:
+for JavaScript, adds the npm upstream fallback policy, and by default includes a 7-day cooldown:
 
 ```bash
-chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM --cooldown-days=7
+chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM 
 ```
 
 ### Fallback options
@@ -186,12 +186,12 @@ scanning](https://www.chainguard.dev/unchained/the-expanding-threat-landscape-ch
 identifies and blocks malicious and greyware packages in Chainguard Libraries
 via the Chainguard Repository. This includes packages that are publicly reported
 as malicious (including packages associated with OSV malware IDs) and packages
-that Chainguard determines are unsafe, even when no public malware advisory
-exists yet. If a package is flagged as malicious, Chainguard does not build that
-package from source or serve it via upstream fallback through the Chainguard
-Repository.
+that Chainguard determines are unsafe through its own malware source code
+scanning, even when no public malware advisory exists yet. 
 
-Malware detection is continuous. If a version that was previously cached is later identified as malicious, it is added to the block list and will be blocked on subsequent requests.
+Malware detection is continuous. If a version that was previously cached is
+later identified as malicious, it is added to the block list and will be blocked
+on subsequent requests.
 
 Chainguard's scanning evaluates multiple signal types, including:
 
@@ -215,59 +215,7 @@ Chainguard's scanning evaluates multiple signal types, including:
   environment to see if there are attempts to call out to an external server,
   read system files, or execute hidden payloads.
 
-In addition, [Chainguard's source code and maintainer behavior scanning](https://www.chainguard.dev/unchained/the-expanding-threat-landscape-chainguard-now-scans-source-code-for-traditional-malware-and-greyware) blocks packages that have malicious behavior that other firewall solutions may miss. Learn more in the [Libraries Overview](/chainguard/libraries/overview/#malware-and-greyware-detection).
-
-#### Use the API for malware scanning 
-
-First, authenticate:
-
-{{< details "API authentication" >}}
-
-Use [chainctl](/chainguard/chainctl-usage/how-to-install-chainctl/) to authenticate.
-
-**Option 1: Interactive**
-
-Run the following:
-
-```bash
-chainctl auth login
-chainctl auth token --audience=libraries.cgr.dev
-```
-
-Then use the token as a Bearer:
-
-```bash
-curl -H "Authorization: Bearer $(chainctl auth token --audience=libraries.cgr.dev)" \
- "https://libraries.cgr.dev/javascript/-/api/malware" | jq .
-```
-
-**Option 2: Pull token (for CI/CD and automated environments)**
-
-Generate a pull token and write it to `.npmrc`:
-
-```bash
-chainctl auth configure-npm --pull-token
-```
-
-Then use the `_auth` value as Basic http auth:
-
-```bash
-AUTH=$(grep '_auth=' .npmrc | cut -d= -f2-)
-      curl -H "Authorization: Basic $AUTH" \
-        "https://libraries.cgr.dev/javascript/-/api/malware" | jq .
-```
-
-The pull token is long-lived (configurable with `--ttl`, with a maximum lifetime of 1 year) and doesn't require a browser login, making it suitable for automation. 
-
-{{< /details >}}
-
-Next, use the malware API endpoint to return a list of libraries currently blocked due to malware. 
-
-For example, to list all blocked JavaScript libraries from malware detection since May 1, 2026:
-
-```bash
-curl -H "Authorization: Bearer $(chainctl auth token --audience=libraries.cgr.dev)" "https://libraries.cgr.dev/javascript/-/api/malware?since=2026-05-01T00:00:00Z" | jq .
-```
+Use Chainguard's [malware API endpoint](/chainguard/api/spec-api-v1/#tag/malware) to query malware scanning details.
 
 ### Cooldown period
 
@@ -282,7 +230,7 @@ If a requested package version falls within the cooldown period, the package man
 
 ### How package resolution works
 
-When you request a JavaScript or Java package from the Chainguard Repository, the following logic applies:
+When you request a package from the Chainguard Repository, the following logic applies:
 
 * **Chainguard-built package available**: The package is served directly from Chainguard's rebuilt artifact store, complete with SBOM, provenance, and signatures, subject to the configured cooldown.
 * **Package not yet built by Chainguard**: If upstream fallback is enabled, the repository checks whether the package has passed the cooldown period and malware scan.
