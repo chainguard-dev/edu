@@ -1,5 +1,5 @@
 ---
-date: 2026-06-16T00:04:16Z
+date: 2026-06-16T22:17:50Z
 title: "chainctl starter status"
 slug: chainctl_starter_status
 url: /chainguard/chainctl/chainctl-docs/chainctl_starter_status/
