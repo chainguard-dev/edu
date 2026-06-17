@@ -98,7 +98,7 @@ Note the `--default-role` option. This defines the default role granted to users
 
 You can refer to our [Generic Integration Guide](/chainguard/administration/custom-idps/custom-idps/#generic-integration-guide) in our Introduction to Custom Identity Providers article for more information about the `chainctl iam identity-provider create` command and its required options.
 
-## Logging in to Chainguard with Okta SSO
+## Logging in to Chainguard with the Okta identity provider
 
 To log in to the Chainguard Console with the new identity provider you just created, navigate to [console.chainguard.dev/auth/login](https://console.chainguard.dev/auth/login), enter your Chainguard organization's name into the **Email or organization** box, and click **Continue**. This opens a new window with the Okta login flow, where you can complete the login process.
 
