@@ -60,9 +60,9 @@ Alternatively, you can create an entitlement and pull token in the Chainguard Co
 
 ## Step 1: Choose your access method
 
-There are two ways to access Chainguard Libraries: using an [artifact manager](#artifact-manager-recommended) (recommended), or [direct access](#direct-access).
+There are two ways to access Chainguard Libraries: using an [artifact manager](#artifact-manager) or [direct access](#direct-access).
 
-### Artifact manager (recommended)
+### Artifact manager
 
 Configure credentials once in a tool like JFrog Artifactory, Sonatype Nexus, or Cloudsmith. This centralizes policy, logging, and fallback behavior, and is the safest approach for organizations with multiple teams and applications.
 
@@ -86,8 +86,7 @@ Configure authentication directly in each project's build configuration.
 
 This option is faster to set up initially, but requires per-project and
 per-workstation configuration. This increases the risk of credentials being
-committed to source control or going stale. For production use, Chainguard
-strongly recommends using an artifact manager.
+committed to source control or going stale. 
 
 Learn how to set up direct access in the build configuration documentation for
 [Python](/chainguard/libraries/python/build-configuration/),
@@ -155,8 +154,7 @@ If you configure [upstream fallback](/chainguard/libraries/overview/#upstream-fa
 
 ### Java 
 
-* [Repository manager](/chainguard/libraries/java/global-configuration/)
-  **(recommended)**: Configure your repository manager or build tool to use
+* [Repository manager](/chainguard/libraries/java/global-configuration/): Configure your repository manager or build tool to use
   `https://libraries.cgr.dev/java/` as the first repository for artifact
   resolution. 
 * [Direct access](/chainguard/libraries/java/build-configuration/): Configure
@@ -182,8 +180,7 @@ and
 
 ### Python
 
-* [Repository manager](/chainguard/libraries/python/global-configuration/)
-  **(recommended)**: Add Chainguard Libraries as a remote repository in your
+* [Repository manager](/chainguard/libraries/python/global-configuration/): Add Chainguard Libraries as a remote repository in your
   repository manager. 
 * [Direct access](/chainguard/libraries/python/build-configuration/): Configure
   your tool to retrieve artifacts directly from the Chainguard Libraries for
@@ -216,8 +213,7 @@ Check out minimal example projects for
 ### JavaScript
 
 * [Repository
-  manager](/chainguard/libraries/javascript/global-configuration/)
-  **(recommended)**: Add the Chainguard Libraries registry as a remote repository
+  manager](/chainguard/libraries/javascript/global-configuration/): Add the Chainguard Libraries registry as a remote repository
   and configure it as the first choice for package resolution, with npm as a
   fallback only where necessary. 
 * [Direct access](/chainguard/libraries/javascript/build-configuration/): Configure your `.npmrc` to use `https://libraries.cgr.dev/javascript/` as the registry. 
@@ -259,7 +255,7 @@ and
 
 ## Step 4: Verify your libraries
 
-After setup, you can verify that your dependencies are sourced from Chainguard using:
+After setup, you can verify which dependencies were built from source by Chainguard:
 
 ```bash
 chainctl libraries verify /path/to/artifact
