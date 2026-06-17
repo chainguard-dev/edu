@@ -248,6 +248,6 @@ Repository](/chainguard/chainguard-repository/overview/). By default, the endpoi
 only Chainguard-built packages. When the upstream fallback is enabled, upstream packages are
 subject to additional security controls before being served, including source code and maintainer behavior scanning. 
 
-For Java, Chainguard's scanning inspects compiled `.class` files and package metadata for suspicious patterns and malicious signals.
+For Java, Chainguard's scanning inspects compiled `.class` files, package metadata, and extracted `.jar`, `.war`, and `.ear` archive contents for suspicious patterns and malicious signals.
 
 Learn more in the [Chainguard Libraries Overview](/chainguard/libraries/overview/).
