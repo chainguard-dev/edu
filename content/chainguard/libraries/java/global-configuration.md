@@ -37,7 +37,7 @@ cooldown period for newly published packages.
 At a high level, adopting the use of Chainguard Libraries consists of the following steps:
 
 * Configure your environment to use `https://libraries.cgr.dev/java/`
-  as the single upstream source for JavaScript package retrieval. This can be done
+  as the single upstream source for Java package retrieval. This can be done
   either:
     * As a remote repository in your repository manager, or
     * Directly in your Java build configuration (for example, Maven or Gradle).
@@ -46,11 +46,9 @@ optional measures:
     * Remove all cached artifacts for Maven Central. This step ensures that any libraries you pull are from Chainguard Libraries, and not existing cached artifacts from upstream. 
     * Remove any repositories that are no longer desired or necessary, depending on your organization's preferences. 
 
-Adopting the use of a repository manager is the recommended approach, however if
-your organization does not use a repository manager, you can still use
-Chainguard Libraries. All access to the Chainguard Libraries repository is then
-distributed across all your build platforms and therefore more complex to
-configure and control. Refer to the [direct access documentation for build
+This page explains how to use Chainguard Libraries for Java with a repository
+manager. If your organization does not use a repository manager, you can pull
+directly from Chainguard. Refer to the [direct access documentation for build
 tools](/chainguard/libraries/java/build-configuration/#direct-access) for more
 information.
 
@@ -67,7 +65,7 @@ repository alongside your Maven upstream, and combine them in a virtual or group
 repository with Chainguard as the first priority. The per-tool instructions on
 this page follow this pattern. 
 
-Before configuring your own fallback, consider how you want to handle packages that aren't yet available in the Chainguard Libraries repository. If you configure a fallback to Maven Central, packages sourced from that registry are not covered by Chainguard's
+Before configuring your own fallback, consider how you want to handle packages that aren't yet built by Chainguard. If you configure a fallback to Maven Central, packages sourced from that registry are not covered by Chainguard's
 malware-resistance guarantees. See the [fallback approaches](/chainguard/libraries/quickstart/#artifact-manager-recommended) described in the Chainguard Libraries quick start for guidance on choosing the right approach for your environment.
 
 <a name="cloudsmith"></a>
@@ -84,8 +82,7 @@ by defining multiple upstream repositories.
 
 ### Initial configuration
 
-Use the following steps to add a repository with the Maven Central Repository
-and the Chainguard Libraries for Java repository as Maven upstream repositories. 
+Use the following steps to set up a repository in Cloudsmith to access Chainguard Java Libraries via the Chainguard Repository. 
 
 Configure a `java-all` repository:
 
@@ -151,7 +148,7 @@ are tagged with the name of the upstream proxy.
 
 ## Google Artifact Registry
 
-[Google Artifact Registry](https://cloud.google.com/artifact-registry) supports
+[Google Artifact Registry (GAR)](https://cloud.google.com/artifact-registry) supports
 the Maven format for hosting artifacts in **Standard** repositories and proxying
 artifacts from public repositories in **Remote** repositories. Use **Virtual**
 repositories to combine them for consumption with Maven and other build tools.
@@ -161,9 +158,7 @@ point for more details.
 
 ### Initial configuration
 
-Use the following steps to add the Maven Central Repository and the Chainguard
-Libraries for Java repository as remote repositories and combine them as a
-virtual repository:
+Use the following steps to set up a repository in GAR to access Chainguard Java Libraries via the Chainguard Repository. 
 
 1. Log in to the Google Cloud console as a user with administrator privileges.
 1. Navigate to your project and find the **Artifact Registry** with the search.
@@ -245,9 +240,7 @@ for more information.
 
 ### Initial configuration
 
-Use the following steps to add the Maven Central Repository and the Chainguard
-Libraries for Java repository as remote repositories and combine them as a
-virtual repository:
+Use the following steps to set up a repository in Artifactory to access Chainguard Java Libraries via the Chainguard Repository. 
 
 1. Log in as a user with administrator privileges.
 1. Click **Administration** in the top navigation bar.
@@ -362,22 +355,14 @@ Libraries for Java repository for production use.
 
 ### Initial configuration
 
-For initial testing and adoption it is advised to create a separate proxy
+Use the following steps to set up a repository in Sonatype Nexus to access Chainguard Java Libraries via the Chainguard Repository. 
+
+If you are configuring your own fallback in your repo manager, for initial testing it is advised to create a separate proxy
 repository for the Maven Central Repository, a separate proxy repository
-Chainguard Libraries for Java repository, and a separate repository group:
+Chainguard Libraries for Java repository, and a separate repository group.
 
 1. Log in as a user with administrator privileges.
 1. Click the gear icon in the top navigation bar to access **Server administration**.
-
-Configure a remote repository for the Maven Central Repository:
-
-1. Select **Repository - Repositories** in the left hand navigation.
-1. Click **Create repository**, then select the `maven2 (proxy)` recipe.
-1. Configure the repository:
-    * **Name**: `java-public`
-    * **Maven 2 - Version policy**: `Release`
-    * **Proxy - Remote storage**: Add the URL `https://repo1.maven.org/maven2/`.
-1. Click **Create repository**.
 
 Configure a remote repository for the Chainguard Libraries for Java repository:
 
@@ -393,7 +378,7 @@ Configure a remote repository for the Chainguard Libraries for Java repository:
 1. Click **Create repository**. 
 1. If you are using the separate repository with remediated Java libraries, repeat the preceding steps to create remote repository named `java-chainguard-remediated` with a URL set to `https://libraries.cgr.dev/java-remediated/`. Use the same authentication details.
 
-If you are manually managing fallback, you can configure an additional remote repository for Maven Central with lower priority.
+If you are manually managing fallback, you can configure an additional `java-public` remote repository for Maven Central with lower priority.
 
 Combine a new repository group and add the repositories:
 

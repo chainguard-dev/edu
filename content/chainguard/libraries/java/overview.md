@@ -246,7 +246,7 @@ Chainguard Libraries for Java supports an optional built-in fallback to
 the upstream Maven Central repository, managed through the [Chainguard
 Repository](/chainguard/chainguard-repository/overview/). By default, the endpoint serves
 only Chainguard-built packages. When the upstream fallback is enabled, upstream packages are
-subject to additional security controls before being served, including source code and maintainer behavior scanning. 
+subject to additional security controls before being served, including source code and maintainer behavior scanning and a configurable cooldown period.
 
 For Java, Chainguard's scanning inspects compiled `.class` files, package metadata, and extracted `.jar`, `.war`, and `.ear` archive contents for suspicious patterns and malicious signals.
 

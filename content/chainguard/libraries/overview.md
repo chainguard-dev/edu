@@ -155,7 +155,7 @@ libraries entitlements`
 command](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/).
 
 The following command creates or updates an entitlement to Chainguard Libraries
-for JavaScript, adds the npm upstream fallback policy, and by default includes a 7-day cooldown:
+for JavaScript, and adds the npm upstream fallback policy. Enabling upstream fallback includes a 7-day cooldown by default, which can also be configured:
 
 ```bash
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM 
@@ -165,19 +165,7 @@ chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUA
 
 The following options are available:
 * **No upstream fallback (default)**: Only Chainguard-built packages are served.
-* **Upstream fallback enabled with cooldown**: Upstream packages are available after passing a cooldown period and malware scan. The same cooldown period is also enforced for Chainguard-built packages when the upstream repository is enabled, so dependency trees resolve consistently across both sources.
-
-#### Configuring the cooldown period
-
-When upstream fallback is enabled, users with the Owner role can configure the cooldown with `chainctl`:
-
-```bash
-chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM --cooldown-days=3
-```
-The default cooldown period is 7 days. Note that shorter cooldown periods increase the risk of pulling malicious or compromised upstream packages before the broader ecosystem can detect and report them.
-
-> **Upstream fallback best practices**
-> Upstream packages are proxied directly from npm or Maven Central, and are not rebuilt or authored by Chainguard as part of our Libraries product. The cooldown period and malware scanning provide a supplemental baseline of protection to your own security practices, but you are solely responsible for independently evaluating and validating all upstream artifacts before use in your environment.
+* **Upstream fallback enabled with cooldown**: Upstream packages are available after passing a configurable cooldown period and malware scan. The same cooldown period is enforced across Chainguard-built packages and upstream packages, so that dependency trees resolve consistently across both sources.
 
 ### Malware and greyware detection
 
@@ -225,8 +213,14 @@ The cooldown applies globally across Chainguard-built packages and upstream npm 
 
 If a requested package version falls within the cooldown period, the package manager will output a 404 error. The package becomes available once it has passed the cooldown period and cleared malware scanning.
 
-> **Upstream fallback best practices**
-> Upstream packages are proxied directly from npm and are not rebuilt or authored by Chainguard as part of our Libraries product. The cooldown period and malware scanning provide a supplemental baseline of protection to your own security practices, but you are solely responsible for independently evaluating and validating all upstream artifacts before use in your environment.
+#### Configuring the cooldown period
+
+When upstream fallback is enabled, users with the Owner role can configure the cooldown with `chainctl`:
+
+```bash
+chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM --cooldown-days=3
+```
+The default cooldown period is 7 days. The cooldown period provides an additional layer of defense on top of malware and greyware scanning, giving the broader security community time to surface threats that may not be immediately detectable. 
 
 ### How package resolution works
 
@@ -236,7 +230,7 @@ When you request a package from the Chainguard Repository, the following logic a
 * **Package not yet built by Chainguard**: If upstream fallback is enabled, the repository checks whether the package has passed the cooldown period and malware scan.
     * **Within the cooldown period**: The request returns an error. This prevents newly published packages — which carry higher malware risk — from being served immediately.
     * **After the cooldown period**: If upstream fallback is enabled and the version is outside the cooldown window and passes malware scanning, the repository pulls the version through from the upstream registry, serves it to the client, and caches it in the upstream mirror for future requests.
-* **Malware detected**: Any package version with a known malware identifier (MAL ID) is blocked and never served, whether it originates from Chainguard builds or the npm upstream. Malware scanning runs on all packages, including those proxied from npm.
+* **Malware or greyware detected**: Any package version that is detected for malware or greyware is blocked, whether it originates from Chainguard's builds or the upstream fallback.
     * Malware scanning checks all packages against the Open Source Vulnerabilities (OSV) database, which includes the OpenSSF Malicious Packages feed among other sources. Any package version flagged with a malware identifier is blocked. This covers reported malicious packages across the npm ecosystem.
 
 > **Note**: Chainguard Repository for JavaScript is not a full mirror of npm by design. Similarly, Chainguard Repository for Java is not a full mirror of Maven Central. Packages are screened for malware before being made available. Some packages may be delayed by the cooldown period or permanently blocked if flagged as malicious.
