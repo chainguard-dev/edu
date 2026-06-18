@@ -243,13 +243,7 @@ and
 
 > **Note on upstream fallback**: The upstream fallback is
 > available as an opt-in setting for both repository manager or direct access
-> approaches, and is turned off by default. Upstream packages are proxied
-> directly from upstream public repositories and are not rebuilt or authored by Chainguard as part of our
-> Libraries product. The cooldown period and malware scanning provide a
-> supplemental baseline of protection to your own security practices, but you
-> are solely responsible for independently evaluating and validating all
-> upstream artifacts before use in your environment.  
-> <br>Learn more about upstream
+> approaches, and is turned off by default. Learn more about upstream
 > fallback policy and controls in the [Libraries
 > overview](/chainguard/libraries/overview/#upstream-fallback-policy-and-controls).
 
