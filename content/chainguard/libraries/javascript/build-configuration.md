@@ -338,6 +338,15 @@ more information, see the [pnpm documentation](https://pnpm.io/motivation).
 Before getting started, note the following limitations:
 
 * The Chainguard Repository [upstream fallback](/chainguard/libraries/javascript/overview/#upstream-fallback-policy-and-controls) has been tested with pnpm v11. We recommend using pnpm v11 or newer.
+    * pnpm v11 re-verifies lockfile entries during install, including when you run `pnpm install --frozen-lockfile`. With Chainguard Repository for JavaScript, this can cause `ERR_PNPM_TARBALL_URL_MISMATCH` or `ERR_PNPM_MINIMUM_RELEASE_AGE_VIOLATION` errors even when the lockfile is up to date. If this issue occurs, temporarily configure pnpm to trust the existing lockfile in the `pnpm-workspace.yaml`:
+    <br>
+    ```yaml
+    trustPolicy: off
+    trustLockfile: true
+    lockfileIncludeTarballUrl: true
+    ```
+    Note that this reduces pnpm 11 supply-chain enforcement; setting this configuration reduces friction in the process but increases lockfile-poisoning risk.  
+    <br>
 * If you use Chainguard Libraries with pnpm `trustPolicy: no-downgrade`, pnpm may fail installation. Because Chainguard Libraries serves rebuilt packages, pnpm may treat those packages as a trust downgrade. To work around this, disable it in your pnpm configuration: `trustPolicy: off`
 
 **Declare dependencies in package.json**
