@@ -1261,6 +1261,25 @@
         },
         "type": "object"
       },
+      "chainguard.platform.iam.AcceptTermsResponse": {
+        "description": "AcceptTermsResponse is returned after successfully recording acceptance.",
+        "properties": {
+          "documentIds": {
+            "description": "document_ids that were accepted.",
+            "items": {
+              "type": "string"
+            },
+            "readOnly": true,
+            "type": "array"
+          },
+          "group": {
+            "description": "group UIDP that accepted the documents.",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.iam.AccountAssociations": {
         "properties": {
           "amazon": {
@@ -2361,6 +2380,87 @@
         },
         "type": "object"
       },
+      "chainguard.platform.libraries.AWSMarketplaceSubscription": {
+        "description": "AWSMarketplaceSubscription is an org's Chainguard Libraries subscription\npurchased through AWS Security Hub Extended.",
+        "properties": {
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "developerBand": {
+            "description": "developer_band is the selected developer-count band — the \"Up to X\ndevelopers\" ceiling, not an exact head count. It applies uniformly across\nevery selected ecosystem.",
+            "format": "int32",
+            "type": "integer"
+          },
+          "ecosystems": {
+            "description": "ecosystems are the Libraries ecosystems the subscription covers.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.Ecosystem"
+            },
+            "type": "array"
+          },
+          "id": {
+            "description": "id is the uidp of the subscription, a child of the org group.",
+            "type": "string"
+          },
+          "isFreeTrial": {
+            "description": "is_free_trial indicates the subscription is on an AWS free trial (not\ncharged while the trial is active).",
+            "type": "boolean"
+          },
+          "status": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.SubscriptionStatus"
+              }
+            ],
+            "description": "status is the subscription lifecycle state."
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.AWSMarketplaceSubscriptionList": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.AWSMarketplaceSubscription"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.AWSMarketplaceSubscriptions.CancelBody": {
+        "type": "object"
+      },
+      "chainguard.platform.libraries.AWSMarketplaceSubscriptions.CreateBody": {
+        "properties": {
+          "awsToken": {
+            "description": "aws_token is the AWS Marketplace registration token from the SHx hand-off.\nIt is exchanged server-side via ResolveCustomer; required.",
+            "type": "string"
+          },
+          "developerBand": {
+            "description": "developer_band is the selected developer-count band ceiling.",
+            "format": "int32",
+            "type": "integer"
+          },
+          "ecosystems": {
+            "description": "ecosystems are the Libraries ecosystems to subscribe to (one or more).",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.Ecosystem"
+            },
+            "type": "array"
+          },
+          "isFreeTrial": {
+            "description": "is_free_trial marks the subscription as an AWS free trial, from the\nmarketplace offer type carried on the hand-off.",
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.libraries.Artifact": {
         "description": "Artifact contains metadata related to a a software artifact for a language\necosystem. The id returned by this Artifact can be used to retrieve further\ndata, including more detailed version information.",
         "properties": {
@@ -3220,6 +3320,19 @@
         ],
         "type": "string"
       },
+      "chainguard.platform.libraries.SubscriptionStatus": {
+        "default": "SUBSCRIPTION_STATUS_UNSPECIFIED",
+        "description": "SubscriptionStatus is the lifecycle state of an AWS Marketplace subscription.\n\n - SUBSCRIPTION_STATUS_PENDING: PENDING: created, awaiting AWS subscribe confirmation.\n - SUBSCRIPTION_STATUS_ACTIVE: ACTIVE: confirmed and metering-eligible.\n - SUBSCRIPTION_STATUS_UNSUBSCRIBE_PENDING: UNSUBSCRIBE_PENDING: cancellation in progress (final metering window).\n - SUBSCRIPTION_STATUS_UNSUBSCRIBED: UNSUBSCRIBED: cancelled; no further metering.\n - SUBSCRIPTION_STATUS_EXPIRED: EXPIRED: subscription has expired (e.g. a free trial).",
+        "enum": [
+          "SUBSCRIPTION_STATUS_UNSPECIFIED",
+          "SUBSCRIPTION_STATUS_PENDING",
+          "SUBSCRIPTION_STATUS_ACTIVE",
+          "SUBSCRIPTION_STATUS_UNSUBSCRIBE_PENDING",
+          "SUBSCRIPTION_STATUS_UNSUBSCRIBED",
+          "SUBSCRIPTION_STATUS_EXPIRED"
+        ],
+        "type": "string"
+      },
       "chainguard.platform.matcher.ImageMatch": {
         "properties": {
           "coverage": {
@@ -3826,6 +3939,36 @@
         ],
         "type": "string"
       },
+      "chainguard.platform.registry.AddChartResponse": {
+        "description": "AddChartResponse contains the result of an AddChart operation.",
+        "properties": {
+          "repos": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.AddChartResult"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.AddChartResult": {
+        "description": "AddChartResult describes what happened to a single repo during AddChart.",
+        "properties": {
+          "created": {
+            "description": "True if the repo was newly created by this call; false if it already\nexisted (or, on a dry run, would not need to be created).",
+            "type": "boolean"
+          },
+          "id": {
+            "description": "The UIDP of the resulting repo. Empty only when a dry run reports a\nwould-be-created repo that does not yet exist; an existing repo (created\n= false) always carries its UIDP, including on dry runs.",
+            "type": "string"
+          },
+          "name": {
+            "description": "Path of the repo relative to the destination organization. The chart\nitself lives under the catalog folder (e.g. \"charts/argo-cd\"); image\ndependencies are created at the org root, so their path is the bare repo\nname (e.g. \"nginx\").",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.registry.AddEntitlementImagesResponse": {
         "properties": {
           "images": {
@@ -4358,6 +4501,23 @@
         },
         "type": "object"
       },
+      "chainguard.platform.registry.Charts.AddChartBody": {
+        "properties": {
+          "dryRun": {
+            "description": "If true, return what would change but don't create anything.",
+            "type": "boolean"
+          },
+          "sourceRepoId": {
+            "description": "The UIDP of the source chart repo (e.g., from the catalog).",
+            "type": "string"
+          },
+          "tag": {
+            "description": "The tag of the source chart to inspect for image dependencies. Defaults to\nthe newest tag in the source repo when empty.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.registry.CheckPoliciesResponse": {
         "properties": {
           "results": {
@@ -4859,6 +5019,13 @@
         "properties": {
           "packages": {
             "description": "Packages to append to the image config.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "runtimeRepositories": {
+            "description": "Custom APK repository URLs to write to /etc/apk/repositories in the\nassembled image. When set, these replace the default virtualapk.cgr.dev\nrepositories.",
             "items": {
               "type": "string"
             },
@@ -10529,7 +10696,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "$ref": "#/components/schemas/chainguard.platform.iam.AcceptTermsResponse"
                 }
               }
             },
@@ -10785,6 +10952,237 @@
         "summary": "List Versions",
         "tags": [
           "Artifacts"
+        ]
+      }
+    },
+    "/libraries/v1/aws-marketplace-subscriptions": {
+      "get": {
+        "description": "List returns the subscriptions under an org.",
+        "operationId": "AWSMarketplaceSubscriptions_List",
+        "parameters": [
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "ids are a list of exact UIDPs of records.",
+            "in": "query",
+            "name": "uidp.ids",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.AWSMarketplaceSubscriptionList"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List",
+        "tags": [
+          "AWSMarketplaceSubscriptions"
+        ]
+      }
+    },
+    "/libraries/v1/aws-marketplace-subscriptions/{id}": {
+      "get": {
+        "description": "Get returns a single subscription by its uidp.",
+        "operationId": "AWSMarketplaceSubscriptions_Get",
+        "parameters": [
+          {
+            "description": "id is the exact uidp of the subscription.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.AWSMarketplaceSubscription"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get",
+        "tags": [
+          "AWSMarketplaceSubscriptions"
+        ]
+      }
+    },
+    "/libraries/v1/aws-marketplace-subscriptions/{id}:cancel": {
+      "post": {
+        "description": "Cancel unsubscribes the org's subscription on our side: it stops future\nmetering and removes the associated Libraries entitlements, moving the\nsubscription to UNSUBSCRIBED. The AWS Marketplace subscription itself is\nunaffected (AWS has no partner-initiated cancellation); the record is\nretained for billing history.",
+        "operationId": "AWSMarketplaceSubscriptions_Cancel",
+        "parameters": [
+          {
+            "description": "id is the exact uidp of the subscription to cancel.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.AWSMarketplaceSubscriptions.CancelBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.AWSMarketplaceSubscription"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Cancel",
+        "tags": [
+          "AWSMarketplaceSubscriptions"
+        ]
+      }
+    },
+    "/libraries/v1/aws-marketplace-subscriptions/{parentId}": {
+      "post": {
+        "description": "Create provisions a subscription for an org from an AWS Marketplace\nregistration token. aws_token is exchanged server-side and doubles\nas an authorization gate: only a token minted by AWS Marketplace\nresolves, so a caller without one cannot create a subscription.\nThe caller must additionally hold the create capability on parent_id.",
+        "operationId": "AWSMarketplaceSubscriptions_Create",
+        "parameters": [
+          {
+            "description": "parent_id is the org (group uidp) to provision the subscription under.",
+            "in": "path",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.AWSMarketplaceSubscriptions.CreateBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.AWSMarketplaceSubscription"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create",
+        "tags": [
+          "AWSMarketplaceSubscriptions"
         ]
       }
     },
@@ -13516,6 +13914,61 @@
         ]
       }
     },
+    "/registry/v1/repos/{parentId}:addChart": {
+      "post": {
+        "description": "AddChart adds a Helm chart and its image dependencies as synced repos in\nthe destination organization.",
+        "operationId": "Charts_AddChart",
+        "parameters": [
+          {
+            "description": "The UIDP of the destination organization.",
+            "in": "path",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.registry.Charts.AddChartBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.registry.AddChartResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Add Chart",
+        "tags": [
+          "Charts"
+        ]
+      }
+    },
     "/registry/v1/repos/{repoId}/deployment": {
       "get": {
         "operationId": "Registry_GetDeployment",
@@ -16190,6 +16643,10 @@
       "name": "Artifacts"
     },
     {
+      "description": "Chainguard Libraries on AWS Security Hub Extended subscriptions",
+      "name": "AWSMarketplaceSubscriptions"
+    },
+    {
       "description": "Libraries Entitlements API",
       "name": "LibrariesEntitlements"
     },
@@ -16226,6 +16683,9 @@
     },
     {
       "name": "Apko"
+    },
+    {
+      "name": "Charts"
     },
     {
       "name": "Registry"

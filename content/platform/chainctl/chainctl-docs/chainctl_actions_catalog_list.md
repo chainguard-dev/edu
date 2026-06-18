@@ -1,5 +1,5 @@
 ---
-date: 2026-06-12T17:28:47Z
+date: 2026-06-17T22:32:16Z
 title: "chainctl actions catalog list"
 slug: chainctl_actions_catalog_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_actions_catalog_list/

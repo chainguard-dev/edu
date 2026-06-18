@@ -1,5 +1,5 @@
 ---
-date: 2026-06-12T17:28:47Z
+date: 2026-06-17T22:32:16Z
 title: "chainctl libraries update-hashes"
 slug: chainctl_libraries_update-hashes
 url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_update-hashes/
@@ -113,6 +113,8 @@ chainctl libraries update-hashes [lockfile-path] [flags]
       --ecosystem string               Ecosystem: "auto", "js", or "python" (default "auto")
       --ecosystems-url string          URL for the Ecosystems Proxy (defaults to https://libraries.cgr.dev). Paths /javascript/{name}/{version} (JS) and /{python,python-remediated,cu###}/simple (Python) are appended automatically. Mutually exclusive with --registry-url.
       --fallback-registry-url string   Registry URL used to synthesize tarball URLs for JS packages not found in Chainguard Libraries (e.g. https://registry.npmjs.org). Empty (the default) disables fallback synthesis; if any package requires a fallback URL, the command fails with a list of offenders. WARNING: pointing this at a public registry such as https://registry.npmjs.org can cause installation of malicious packages — prefer a private/internal registry you trust.
+      --include-all-scopes             Ignore per-scope registries configured in .npmrc and reroute every package to Chainguard. JavaScript only. Mutually exclusive with --include-scope.
+      --include-scope strings          npm scope(s) (e.g. @myorg) to reroute to Chainguard even when .npmrc configures them to a different registry. By default, packages in a scope that .npmrc pins to a non-Chainguard registry are left untouched. Repeatable and/or comma-separated. JavaScript only.
       --no-auth                        Send no authentication to the registry. Use for a network-limited private registry that requires none and rejects any Authorization header. Overrides all ambient credential sources ($CHAINCTL_AUTH_TOKEN, $CHAINCTL_REGISTRY_USERNAME/$CHAINCTL_REGISTRY_PASSWORD, ~/.netrc, the in-process session token exchange, and 'chainctl auth pull-token'). Mutually exclusive with the explicit --token and --username/--password flags.
       --no-color                       Disable colored output
       --parent string                  Parent organization for authentication via 'chainctl auth pull-token'. Not needed when --token, --username/--password, the CHAINCTL_AUTH_TOKEN/CHAINCTL_REGISTRY_USERNAME env vars, or a matching ~/.netrc entry provides credentials.

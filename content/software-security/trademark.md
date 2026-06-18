@@ -45,6 +45,6 @@ Below are non-exhaustive examples of how you may not use the Chainguard Marks:
 
 Chainguard remains committed to open source licensing principles, which primarily concern copyright associated with software. The Chainguard Trademark Policy clearly defines how the organization is protecting consumers as to what products and services are coming from Chainguard and therefore meet relevant security guarantees. 
 
-You can review the full [Chainguard Trademark Policy](https://www.chainguard.dev/legal/chainguard-trademark-use-policy) or find additional information in our [Open Source FAQ](https://www.chainguard.dev/legal/open-source-faq). 
+We encourage you to can review the full [Chainguard Trademark Policy](https://www.chainguard.dev/legal/chainguard-trademark-use-policy).
 
 
