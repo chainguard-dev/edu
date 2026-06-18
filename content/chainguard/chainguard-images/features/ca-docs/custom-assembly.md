@@ -182,23 +182,23 @@ To learn more, refer to our [Private APK Repositories documentation](/chainguard
 
 By default, Custom Assembly images have `/etc/apk/repositories` pointing to Chainguard's `virtualapk.cgr.dev` tracking proxy. Some organizations mirror Chainguard's APK feed to internal registries — for example, to satisfy internal security policies that require all package sources to resolve to internal infrastructure.
 
-Custom Assembly allows you to specify custom APK repository URLs that replace the default `virtualapk.cgr.dev` entries in `/etc/apk/repositories`. This means runtime `apk add` commands inside the container will resolve packages from your internal mirror instead of Chainguard's endpoints, without requiring Dockerfile modifications.
+Custom Assembly lets you specify custom APK repository URLs that replace the default `virtualapk.cgr.dev` entries in `/etc/apk/repositories`. This means runtime `apk add` commands inside the container resolve packages from your internal mirror instead of Chainguard's endpoints, without requiring Dockerfile modifications.
 
-Build-time package resolution is unaffected by this setting. Packages are always fetched from `apk.cgr.dev` during the Custom Assembly build, preserving Chainguard's supply-chain integrity guarantees. The custom repository URLs are only written to the image's `/etc/apk/repositories` file for use at runtime.
+This setting doesn't affect build-time package resolution. Packages are always fetched from `apk.cgr.dev` during the Custom Assembly build, preserving Chainguard's supply-chain guarantees. The custom repository URLs are only written to the image's `/etc/apk/repositories` file for use at runtime.
 
 To learn how to configure custom runtime repositories using `chainctl`, refer to the [Custom runtime repositories section](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/#custom-runtime-repositories) of the `chainctl` Custom Assembly guide.
 
 ### Limitations and compatibility
 
-Custom runtime repositories work with APK mirrors that serve packages with the original Chainguard signatures. The Chainguard signing key is baked into the image at build time, so `apk` will verify packages from your mirror using this existing key.
+Custom runtime repositories work with APK mirrors that serve packages with the original Chainguard signatures. The Chainguard signing key is embedded in the image at build time, so `apk` verifies packages from your mirror using this existing key.
 
 This means custom runtime repositories are compatible with:
 
-* **Artifactory remote repositories** — Remote repositories in [JFrog Artifactory](/chainguard/chainguard-images/chainguard-registry/pull-through-guides/artifactory/artifactory-packages-pull-through/) act as pull-through caches and serve packages with their original signatures intact. These work with custom runtime repositories without any additional configuration.
+* **Artifactory remote repositories** — Remote repositories in [JFrog Artifactory](/chainguard/chainguard-images/chainguard-registry/pull-through-guides/artifactory/artifactory-packages-pull-through/) act as pull-through caches and serve packages with their original signatures intact. These work with custom runtime repositories without additional configuration.
 
 Custom runtime repositories are **not compatible** with repositories that use their own signing key, including:
 
-* **Artifactory virtual repositories** — Virtual repositories in Artifactory add an additional signing key to packages. Because the Custom Assembly image only contains the Chainguard signing key, `apk` will not trust packages signed with a different key. Users who need to use virtual repositories can work around this by using the `--allow-untrusted` flag with `apk`, or by injecting the additional signing key into the image via a Dockerfile.
+* **Artifactory virtual repositories** — Virtual repositories in Artifactory add an additional signing key to packages. Because the Custom Assembly image contains only the Chainguard signing key, `apk` won't trust packages signed with a different key. Users who need virtual repositories can work around this by using the `--allow-untrusted` flag with `apk`, or by injecting the additional signing key into the image via a Dockerfile.
 * **Sonatype Nexus Alpine repositories** — Nexus requires its own signing key for Alpine repositories. As with Artifactory virtual repositories, this is incompatible with the Chainguard signing key embedded in Custom Assembly images.
 
 Support for custom keyrings may be added in a future release, which would allow repositories with their own signing keys to be used with Custom Assembly. Contact your account team if this is a requirement for your organization.
