@@ -9,5 +9,8 @@ aliases:
 - /software-security/compliance/
 images: []
 weight: 4
+crosslinks:
+- title: "Selecting a Base Image"
+  url: "/software-security/selecting-a-base-image/"
 ---
 
