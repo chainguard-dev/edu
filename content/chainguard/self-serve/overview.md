@@ -56,7 +56,7 @@ Use the arrow keys and click 'Enter' to select either, which will launch a brows
 
 ## Add images
 
-You can see which images are available [using the Chainguard Directory](chainguard/chainguard-images/how-to-use/chainguard-directory/), but remember the images available are limited to the tiers mentioned above.
+You can see which images are available [using the Chainguard Directory](/chainguard/chainguard-images/how-to-use/chainguard-directory/), but remember the images available are limited to the tiers mentioned above.
 
 To add one or more images, run the following command, substituting the desired image names for the variables:
 
