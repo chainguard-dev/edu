@@ -108,9 +108,8 @@
           "CAP_LIBRARIES_REBUILDER_NEW_VERSIONS_REFRESH",
           "CAP_LIBRARIES_REBUILDER_MALWARE_STATUS_READ",
           "CAP_LIBRARIES_AWS_MARKETPLACE_SUBSCRIPTIONS_CREATE",
-          "CAP_LIBRARIES_AWS_MARKETPLACE_SUBSCRIPTIONS_GET",
+          "CAP_LIBRARIES_AWS_MARKETPLACE_SUBSCRIPTIONS_UPDATE",
           "CAP_LIBRARIES_AWS_MARKETPLACE_SUBSCRIPTIONS_LIST",
-          "CAP_LIBRARIES_AWS_MARKETPLACE_SUBSCRIPTIONS_CANCEL",
           "CAP_REGISTRY_ENTITLEMENTS_LIST",
           "CAP_REGISTRY_ENTITLEMENTS_CREATE",
           "CAP_REGISTRY_ENTITLEMENTS_DELETE",
@@ -1475,6 +1474,25 @@
         "required": [
           "sink"
         ],
+        "type": "object"
+      },
+      "chainguard.platform.iam.AcceptTermsResponse": {
+        "description": "AcceptTermsResponse is returned after successfully recording acceptance.",
+        "properties": {
+          "documentIds": {
+            "description": "document_ids that were accepted.",
+            "items": {
+              "type": "string"
+            },
+            "readOnly": true,
+            "type": "array"
+          },
+          "group": {
+            "description": "group UIDP that accepted the documents.",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
         "type": "object"
       },
       "chainguard.platform.iam.AccountAssociations": {
@@ -6014,6 +6032,10 @@
           },
           "sourceRepoId": {
             "description": "The UIDP of the source chart repo (e.g., from the catalog).",
+            "type": "string"
+          },
+          "tag": {
+            "description": "The tag of the source chart to inspect for image dependencies. Defaults to\nthe newest tag in the source repo when empty.",
             "type": "string"
           }
         },
@@ -13305,7 +13327,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "$ref": "#/components/schemas/chainguard.platform.iam.AcceptTermsResponse"
                 }
               }
             },
