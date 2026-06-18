@@ -48,7 +48,7 @@ You do not need to manually edit JSON configuration files or perform separate CL
 
 ## Using the Chainguard Power
 
-When the Chainguard Power is installed, Kiro can use Chainguard context to help with tasks such as:
+Kiro can use Chainguard context to help with tasks such as:
 
 * Migrating Dockerfiles to [Chainguard Containers](https://images.chainguard.dev/)
 * Reconfiguring Java, JavaScript, and Python projects to use [Chainguard Libraries](/chainguard/libraries/overview/)
@@ -63,7 +63,7 @@ The power includes the following MCP servers:
 * `cg-oci` for container image discovery and tag lookup
 * `cg-versions` for version and upgrade-path lookup
 
-## Migrate a project to use Chainguard
+### Migrate a project to use Chainguard
 
 After installing the power, open your project in Kiro and describe the migration you want.
 
@@ -126,7 +126,7 @@ In this example, Kiro may also point out that:
 
 To browse available images and tags, see the [Chainguard Images directory](https://images.chainguard.dev/).
 
-## Use Chainguard Libraries with Kiro
+### Use Chainguard Libraries with Kiro
 
 The Chainguard Power can also help migrate language dependencies to Chainguard Libraries.
 
@@ -144,43 +144,8 @@ For ecosystem-specific instructions, see:
 * [Chainguard Libraries for Python](/chainguard/libraries/python/overview/)
 * [Chainguard Libraries for Java](/chainguard/libraries/java/overview/)
 
-
-## Troubleshooting
-
-### The power installs, but I cannot use Chainguard artifacts in my build
-
-The Kiro power can guide configuration and migration steps, but your local or remote build environment still needs the right Chainguard access configured.
-
-Check the following:
-
-* `chainctl` is installed and authenticated
-* you have access to the relevant Chainguard product
-* if you are using Chainguard Libraries, you have credentials or tokens configured for the correct ecosystem
-
-### A referenced image tag does not exist
-
-If Kiro suggests a Chainguard image tag that is unavailable:
-
-* check the image and available tags in the [Chainguard Images directory](https://images.chainguard.dev/)
-* start with a broadly available tag such as a current versioned runtime or `latest-dev` equivalent when appropriate for evaluation
-* pin to a specific version or digest before production use
-
-### A package is not available from Chainguard Libraries
-
-Chainguard Libraries does not mirror every package version from public registries.
-If a dependency is unavailable, your build may fail until you adjust configuration or enable an allowed fallback path.
-
-Common examples:
-
-* JavaScript: configure upstream fallback according to your Chainguard Repository or Libraries policy
-* Python: if your policy allows it, add PyPI as an additional index for packages that are not yet available from Chainguard
-* Java: add Maven Central after the Chainguard repository entry if your workflow allows upstream fallback
-
-See the ecosystem documentation for the exact configuration patterns and policy considerations.
-
 ## Learn more
 
 * [Chainguard Images directory](https://images.chainguard.dev/)
 * [Chainguard Libraries](https://www.chainguard.dev/libraries)
-* [Install chainctl](/chainguard/chainctl-usage/how-to-install-chainctl/)
 * [Kiro Powers directory](https://kiro.dev/powers/)
