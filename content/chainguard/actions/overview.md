@@ -14,7 +14,7 @@ weight: 001
 toc: true
 ---
 
-Chainguard Actions is a set of hardened drop-in replacements for popular GitHub Action. Each action preserves the same inputs and outputs as the upstream version, but have been examined and revised to better protect your CI/CD pipelines from supply chain attacks. The only change in your workflow configuration is the name of the action in the `uses:` line.
+Chainguard Actions is a set of hardened drop-in replacements for popular GitHub Actions. Each action preserves the same inputs and outputs as the upstream version, but have been examined and revised to better protect your CI/CD pipelines from supply chain attacks. The only change in your workflow configuration is the name of the action in the `uses:` line.
 
 Coverage spans GitHub first-party (`actions/*`), cloud-provider (`aws-actions/*`, `azure/*`, `google-github-actions/*`), Docker, HashiCorp, security tools (Trivy, Grype, CodeQL, Semgrep), and a growing catalog of community actions.
 
@@ -85,11 +85,11 @@ To use a Chainguard hardened action, edit your workflow's YAML configuration fil
 - uses: chainguard-actions/<action-name>@main
 ```
 
-Action names often have the upstream organization appended to the action name for clarity, for example, `tj-actions/changed-actions` becomes `tj-actions-changed-actions`. This is to prevent two different sources of a `changed-actions` action from clashing in the Chainguard Actions repository.
+Action names often have the upstream organization appended to the action name for clarity, for example, `tj-actions/changed-actions` becomes `tj-actions-changed-actions`. This prevents two different sources of a `changed-actions` action from clashing in the Chainguard Actions repository.
 
 Search the Chainguard Actions repository, find the action you want to use, and then use the name you find there.
 
-> **Note**: This example uses `@main`, a mutable reference, to illustrate the mechanics of switching organizations. For production workflows, pin to an immutable SHA instead. The [Configure your workflows](#configure-your-workflows-to-use-chainguard-actions) section covers the full migration, including how to [find the correct SHA](#find-the-sha-for-a-specific-release).
+> **Note:** This example uses `@main`, a mutable reference, to illustrate the mechanics of switching organizations. For production workflows, pin to an immutable SHA instead. The [Configure your workflows](#configure-your-workflows-to-use-chainguard-actions) section covers the full migration, including how to [find the correct SHA](#find-the-sha-for-a-specific-release).
 
 The rest of this page goes a bit deeper into how to use Chainguard Actions.
 
@@ -162,12 +162,12 @@ The rest of this page goes a bit deeper into how to use Chainguard Actions.
 
    The action's inputs, outputs, and behavior are almost always identical to the upstream version, so no other workflow changes are needed.
 
-   > **Note**: Read the `HARDENING.md` file for each Chainguard Action before migrating. In rare cases, the hardening process requires a change to inputs, outputs, or behavior — those changes are documented in this file.
+   > **Note:** Read the `HARDENING.md` file for each Chainguard Action before migrating. In rare cases, the hardening process requires a change to inputs, outputs, or behavior — those changes are documented in this file.
 
    If something breaks, [file an issue](https://github.com/chainguard-actions/.github/issues/new?template=action-issue.yml) with a reproducer.
 
 
-## View the actions you are currently using in a repo
+## View the actions you are currently using in a repository
 
 Use `chainctl` to scan every workflow and composite action in a repository and list all dependencies transitively:
 
@@ -188,13 +188,13 @@ chainctl actions discover $GIT_ORGANIZATION/$REPO
 
 ## View the actions currently available
 
-While you can search the [Chainguard Actions repository](https://github.com/chainguard-actions) directly in GitHub, you can also use `chainctl` to find action.
+While you can search the [Chainguard Actions repository](https://github.com/chainguard-actions) directly in GitHub, you can also use `chainctl` to find an action.
 
 ```shell
 chainctl actions catalog list --upstream-owner=$OWNER
 ```
 
-For example,
+For example, to list all the actions from the `tj-actions` source:
 
 ```shell
 chainctl actions catalog list --upstream-owner=tj-actions
@@ -203,7 +203,7 @@ chainctl actions catalog list --upstream-owner=tj-actions
 This example returns a list of all actions in the Chainguard Actions repository that originate from the `tj-actions` upstream source.
 
 
-## Hardened action repo contents
+## Hardened action repository contents
 
 The main branch of each hardened action repository contains:
 
