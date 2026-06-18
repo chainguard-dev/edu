@@ -1,5 +1,5 @@
 ---
-date: 2026-06-16T22:17:50Z
+date: 2026-06-17T22:32:16Z
 title: "chainctl libraries verify"
 slug: chainctl_libraries_verify
 url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_verify/
@@ -29,6 +29,10 @@ For container images, you can use:
 
 JavaScript package manager caches (npm, pnpm, Yarn Classic) are auto-detected
 in container images and local directories by their structure.
+
+Remediated (CVE-patched) Java artifacts, whose versions carry a "-0.cgr.<rev>" suffix
+(e.g. 3.5.0-0.cgr.2), are automatically resolved from the java-remediated repository
+in addition to java-all.
 
 ```
 chainctl libraries verify [path...] [flags]

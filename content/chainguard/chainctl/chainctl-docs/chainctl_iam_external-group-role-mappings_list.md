@@ -1,5 +1,5 @@
 ---
-date: 2026-06-16T22:17:50Z
+date: 2026-06-17T22:32:16Z
 title: "chainctl iam external-group-role-mappings list"
 slug: chainctl_iam_external-group-role-mappings_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_external-group-role-mappings_list/
@@ -14,7 +14,7 @@ toc: true
 List IdP group-to-role mappings.
 
 ```
-chainctl iam external-group-role-mappings list --parent PARENT [flags]
+chainctl iam external-group-role-mappings list --parent PARENT [--idp IDP] [flags]
 ```
 
 ### Examples
@@ -22,11 +22,15 @@ chainctl iam external-group-role-mappings list --parent PARENT [flags]
 ```
   # List all group mappings in an organization
   chainctl iam external-group-role-mappings list --parent ORG_UIDP
+
+  # List mappings for a specific identity provider
+  chainctl iam external-group-role-mappings list --parent ORG_UIDP --idp IDP_UIDP
 ```
 
 ### Options
 
 ```
+      --idp string      Narrow results to a specific identity provider UIDP
       --parent string   Organization or folder UIDP to list mappings under
 ```
 
