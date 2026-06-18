@@ -22,7 +22,7 @@ runs:
       shell: bash
       run: |
         gcloud --quiet storage cp --project="${{ inputs.project_id }}" \
-          "${{ inputs.storage_bucket }}/enforce-events/events.md" content/chainguard/administration/cloudevents/events-reference.md
+          "${{ inputs.storage_bucket }}/enforce-events/events.md" content/platform/administration/cloudevents/events-reference.md
 
     - name: download chainctl docs from cloud storage
       shell: bash
@@ -34,13 +34,13 @@ runs:
       shell: bash
       run: |
         rsync -av --delete --exclude="_index.md" \
-          "/tmp/chainctl-docs/" "content/chainguard/chainctl/"
+          "/tmp/chainctl-docs/" "content/platform/chainctl/"
 
     - name: add tags to chainctl docs by inserting line with sed
       shell: bash
       run: |
         sed '/draft: false/a tags: ["chainctl", "Reference", "Product"]' \
-          -i content/chainguard/chainctl/chainctl-docs/*.md
+          -i content/platform/chainctl/chainctl-docs/*.md
 
     - name: add tags to cloudevents by inserting line with sed
       shell: bash

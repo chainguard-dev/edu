@@ -491,8 +491,8 @@ h2[id^="chainctl"] {
     text-align: left;
     color: var(--sidebar-category-color);
     padding: 0 12px;
-    margin-top: 36px;
-    margin-bottom: 12px;
+    margin-top: 20px;
+    margin-bottom: 8px;
 }
 
 .sidebar-subcategory {
@@ -1239,7 +1239,16 @@ header .search-container {
 // Beat <a> tag
 .sidebar-item.sidebar-item>button,
 .sidebar-subcategory.sidebar-subcategory {
-    padding: 12px;
+    padding: 6px 12px;
+}
+
+// Leaf entries pick up the content-typography `.content ul li` bottom margin
+// (--docs-list-spacing), while expandable entries cancel it with `my-0`
+// (!important). Override it for every sidebar nav item so leaf and expandable
+// entries share one rhythm (spacing comes from the link padding). !important is
+// needed to beat `.content ul li`, matching how `my-0` already does this.
+.btn-toggle-nav li {
+    margin-bottom: 0 !important;
 }
 
 .sidebar-item.sidebar-item>button {
