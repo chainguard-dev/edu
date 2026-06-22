@@ -74,7 +74,7 @@ supports protected upstream fallback when configured for your organization. This
 allows builds to prefer Chainguard-built packages first while still covering
 packages or wheel files that Chainguard does not currently serve directly. Configure this endpoint [globally through a repository manager](/chainguard/libraries/python/global-configuration/) for centralized
 access control across your organization, or use it [directly from individual
-build tools](/chainguard/libraries/python/build-configuration/) if that matches your environment.
+build tools](/chainguard/libraries/python/build-configuration/).
 
 Follow the steps detailed in [Manual Access](#manual) to browse the Python index
 and find available packages, package versions, source distribution (sdist), and
