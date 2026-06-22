@@ -33,6 +33,8 @@ Before you begin, you'll need:
 The Chainguard Power uses your existing `chainctl` session for image and package lookups in Kiro.
 If you want Kiro to help reconfigure a project to use Chainguard Libraries, make sure your organization also has access to the relevant Libraries ecosystem.
 
+Note: Chainguard MCP authentication depends on the Chainguard authentication flows available to your organization. If your users do not sign in through one of the currently supported social identity providers (Google, GitHub, or GitLab), then MCP-based IDE workflows may not work as expected. If your organization uses a different IdP, confirm the authentication path before rolling out the Kiro integration broadly.
+
 ## Install the Chainguard Power
 
 The Kiro integration is delivered through the Kiro Powers panel.
