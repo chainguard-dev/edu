@@ -42,7 +42,7 @@ Before you begin, you'll need:
 
 ### Create an entitlement
 
-To create an entitlement to Chainguard Libraries for JavaScript and enable upstream fallback, run:
+To create an entitlement to Chainguard Libraries for JavaScript and enable upstream fallback, including a default 7-day cooldown, run:
 
 ```shell
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM
