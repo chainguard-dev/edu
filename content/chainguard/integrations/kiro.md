@@ -23,12 +23,12 @@ This page explains how to install the Chainguard Power for Kiro and use it to st
 
 Before you begin, you'll need:
 
-* A [Kiro](https://kiro.dev/) account
+* A [Kiro](https://kiro.dev/) account, with [Kiro IDE](https://kiro.dev/downloads/) downloaded.
 * A [Chainguard account](https://console.chainguard.dev/) and organization in domain format (for example, `acme-corp.com`).
 * [`chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) installed and authenticated
 * Access to the Chainguard products you plan to use
-  * Chainguard Images for container image migration
-  * Chainguard Libraries for Java, JavaScript, or Python dependency migration. Learn how to create an entitlement in the [Libraries Access docs](/chainguard/libraries/access/#manage-library-entitlements).
+  * [Chainguard Containers](/chainguard/chainguard-images/overview/) for container image migration
+  * [Chainguard Libraries](/chainguard/libraries/overview/) for Java, JavaScript, or Python dependency migration. Learn how to create an entitlement in the [Libraries Access docs](/chainguard/libraries/access/#manage-library-entitlements).
 
 The Chainguard Power uses your existing `chainctl` session for image and package lookups in Kiro.
 If you want Kiro to help reconfigure a project to use Chainguard Libraries, make sure your organization also has access to the relevant Libraries ecosystem.
@@ -39,8 +39,8 @@ The Kiro integration is delivered through the Kiro Powers panel.
 
 To install it:
 
-1. Open Kiro and navigate to the **Powers** panel in the sidebar.
-1. Search for `Chainguard`.
+1. Open Kiro IDE and navigate to the **Powers** panel in the sidebar.
+1. Scroll down to the Chainguard Power. 
 1. Select the Chainguard Power and click **Install**.
 
 After installation, Kiro automatically registers the Chainguard MCP servers included with the power.
@@ -69,8 +69,8 @@ After installing the power, open your project in Kiro and describe the migration
 
 For example:
 
-```prompt
-Can you help me migrate this project to use Chainguard images and libraries?
+```Prompt
+Can you help me migrate this project to use Chainguard container images and libraries?
 ```
 
 Kiro can then inspect the relevant files in your project and suggest changes such as:
@@ -100,7 +100,7 @@ CMD ["python", "app.py"]
 
 Prompt Kiro with a request such as:
 
-```prompt
+```Prompt
 Can you help me migrate this Dockerfile to use Chainguard Images?
 ```
 
@@ -124,7 +124,7 @@ In this example, Kiro may also point out that:
 * a production runtime image may use a different tag
 * Chainguard images run as non-root by default
 
-To browse available images and tags, see the [Chainguard Images directory](https://images.chainguard.dev/).
+To browse available images and tags, see the [Chainguard Containers directory](https://images.chainguard.dev/).
 
 ### Use Chainguard Libraries with Kiro
 
