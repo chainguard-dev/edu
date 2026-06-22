@@ -390,13 +390,31 @@ URL to point to Chainguard and set auth credentials. The following command write
 export token=$(echo -n "${CHAINGUARD_JAVASCRIPT_IDENTITY_ID}:${CHAINGUARD_JAVASCRIPT_TOKEN}" | base64 -w 0)
 
 pnpm config set registry https://libraries.cgr.dev/javascript/ --location=project
-pnpm config set //libraries.cgr.dev/javascript/:_auth "${token}" --location=project
-pnpm config set //libraries.cgr.dev/javascript-upstream/:_auth "${token}" --location=project
+pnpm config set //libraries.cgr.dev/:_auth "${token}" --location=project
 ```
 
 To set the registry at the user level instead of project-level, omit the `--location=project` flag.
 
 The configuration should look like the following:
+
+```properties
+registry=https://libraries.cgr.dev/javascript/
+//libraries.cgr.dev/:_auth=<base64-encoded-token>
+```
+
+The registry URL always points to the `/javascript/` repository; you do not point
+it at `/javascript-upstream/`. The authentication entry, however, is keyed to the
+whole `libraries.cgr.dev` host (`//libraries.cgr.dev/`) rather than to the
+`/javascript/` path alone. This matters because packages that Chainguard has not
+yet rebuilt are served through the [upstream
+fallback](/chainguard/libraries/javascript/overview/#upstream-fallback-policy-and-controls)
+at `https://libraries.cgr.dev/javascript-upstream/`, and pnpm authenticates against
+whatever tarball URL the registry returns for each package. A credential keyed to
+the host covers both the `/javascript/` and `/javascript-upstream/` paths.
+
+If you prefer to scope credentials per path, you must configure **both** paths.
+Otherwise, installs that resolve upstream-fallback packages fail with an HTTP 401
+error:
 
 ```properties
 registry=https://libraries.cgr.dev/javascript/
@@ -528,15 +546,23 @@ directory:
 export token=$(echo -n "${CHAINGUARD_JAVASCRIPT_IDENTITY_ID}:${CHAINGUARD_JAVASCRIPT_TOKEN}" | base64 -w 0)
 
 pnpm config set registry https://libraries.cgr.dev/javascript/ --location=project
-pnpm config set //libraries.cgr.dev/javascript/:_auth "${token}" --location=project
-pnpm config set //libraries.cgr.dev/javascript-upstream/:_auth "${token}" --location=project
+pnpm config set //libraries.cgr.dev/:_auth "${token}" --location=project
 ```
 
-The trailing slash in the registry URL is required. Note that the `-w 0` option for `base64` is required and supported by the GNU coreutils versions included in most operating systems. To avoid the use of `base64`, which can behave differently across operating systems, you can alternatively set `username` and `_password` instead of `auth` with a token:
+The trailing slash in the registry URL is required. The authentication entry is
+keyed to the whole `libraries.cgr.dev` host (`//libraries.cgr.dev/`) so that it
+also covers packages served through the [upstream
+fallback](/chainguard/libraries/javascript/overview/#upstream-fallback-policy-and-controls)
+path. Note that the `-w 0` option for `base64` is required and supported by the GNU
+coreutils versions included in most operating systems.
+
+Alternatively, you can set `username` and `_password` instead of `_auth`. Note
+that the `_password` value must still be base64-encoded; pnpm does not accept a
+raw token here:
 
 ```bash
-pnpm config set //libraries.cgr.dev/javascript/:username "${CHAINGUARD_JAVASCRIPT_IDENTITY_ID}" --location=project
-pnpm config set //libraries.cgr.dev/javascript/:_password "${CHAINGUARD_JAVASCRIPT_TOKEN}" --location=project
+pnpm config set //libraries.cgr.dev/:username "${CHAINGUARD_JAVASCRIPT_IDENTITY_ID}" --location=project
+pnpm config set //libraries.cgr.dev/:_password "$(echo -n "${CHAINGUARD_JAVASCRIPT_TOKEN}" | base64 -w 0)" --location=project
 ```
 
 Add dependencies for your project into the `package.json` file to test retrieval
