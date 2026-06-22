@@ -42,21 +42,21 @@ Before you begin, you'll need:
 
 ### Create an entitlement
 
-To create an entitlement to Chainguard Libraries for JavaScript, run:
+To create an entitlement to Chainguard Libraries for JavaScript and enable upstream fallback, run:
 
 ```shell
-chainctl libraries entitlements create --ecosystems=JAVASCRIPT
+chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM
 ```
 
 Alternatively, you can create an entitlement and pull token in the Chainguard Console: while viewing the JavaScript ecosystem page, follow the prompts to create an access token.
 
-You can also configure [upstream fallback and cooldown policies](#packages-not-available-in-chainguard-libraries)
-when creating the entitlement. For example, use `chainctl` to enable upstream fallback with a
-10-day cooldown:
+You can also configure [cooldown policies](#packages-not-available-in-chainguard-libraries)
+after you create the entitlement. For example, to create and enforce a
+policy for a 14-day cooldown:
 
 ```shell
-chainctl libraries entitlements create --ecosystems=JAVASCRIPT \
-  --policy=CHAINGUARD_AND_UPSTREAM --cooldown-days=10
+chainctl libraries policy create --name=js-cooldown-14d --cooldown-days=14
+chainctl libraries policy enable --policy=js-cooldown-14d --ecosystem=JAVASCRIPT --mode=ENFORCE
 ```
 
 It can take up to 30 minutes for the fallback and cooldown policies to take effect.
