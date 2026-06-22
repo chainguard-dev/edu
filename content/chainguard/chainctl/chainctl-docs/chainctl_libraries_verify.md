@@ -1,5 +1,5 @@
 ---
-date: 2026-06-17T22:32:16Z
+date: 2026-06-19T17:44:19Z
 title: "chainctl libraries verify"
 slug: chainctl_libraries_verify
 url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_verify/
@@ -31,8 +31,8 @@ JavaScript package manager caches (npm, pnpm, Yarn Classic) are auto-detected
 in container images and local directories by their structure.
 
 Remediated (CVE-patched) Java artifacts, whose versions carry a "-0.cgr.<rev>" suffix
-(e.g. 3.5.0-0.cgr.2), are automatically resolved from the java-remediated repository
-in addition to java-all.
+(e.g. 3.5.0-0.cgr.2), are resolved from the java-remediated repository; other Java
+artifacts are resolved from the java repository.
 
 ```
 chainctl libraries verify [path...] [flags]
@@ -73,6 +73,7 @@ chainctl libraries verify [path...] [flags]
 ### Options
 
 ```
+      --concurrency int         Number of artifacts verified in parallel: nested archives within a single input, or inputs across a multi-path run (0 = default of 16)
   -d, --detailed                Show detailed per-artifact results
       --ecosystems-url string   URL for the Ecosystems Proxy (defaults to https://libraries.cgr.dev)
       --no-color                Disable colored output
