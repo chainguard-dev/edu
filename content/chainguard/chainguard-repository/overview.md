@@ -56,7 +56,7 @@ As with Libraries, you can also set policies for Chainguard Images to define rul
 Available policies include:
 
 * **no-eol**: Prevent end-of-life images from being used.  
-* **Cooldown**: Block newly published image versions for a defined period before they can be pulled, giving the security community time to detect threats. The cooldown is configurable (0 to 3650 days) with a default of 7 days. It is applied globally across all packages to prevent dependency resolution errors.
+* **cooldown**: Block newly published image versions for a defined period before they can be pulled, giving the security community time to detect threats. The cooldown is configurable (0 to 3650 days) with a default of 7 days. It is applied globally across all packages to prevent dependency resolution errors.
 
 > **Note**: Chainguard recommends a 7-day cooldown when enabling upstream fallback, to block a large share of malicious packages identified shortly after publication. Shorter cooldown periods increase the risk of pulling malicious or compromised upstream packages before the broader ecosystem can detect and report them.
 
