@@ -1,5 +1,5 @@
 ---
-date: 2026-06-10T18:28:08Z
+date: 2026-06-22T22:04:27Z
 title: "chainctl policies enable"
 slug: chainctl_policies_enable
 url: /chainguard/chainctl/chainctl-docs/chainctl_policies_enable/

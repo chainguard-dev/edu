@@ -1,27 +1,27 @@
 ---
-date: 2026-06-10T18:28:08Z
-title: "chainctl libraries policy-gate update"
-slug: chainctl_libraries_policy-gate_update
-url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate_update/
+date: 2026-06-22T22:04:27Z
+title: "chainctl libraries policy update"
+slug: chainctl_libraries_policy_update
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_update/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl libraries policy-gate update
+## chainctl libraries policy update
 
 Update a custom Libraries policy.
 
 ```
-chainctl libraries policy-gate update POLICY [--cooldown-days N] [--block ...] [--allow ...] [flags]
+chainctl libraries policy update POLICY [--cooldown-days N] [--block ...] [--allow ...] [flags]
 ```
 
 ### Options
 
 ```
-      --allow stringArray     An allow-list entry, formatted as comma-separated key=value pairs. Repeatable.
-      --block stringArray     A block-list entry, formatted as comma-separated key=value pairs. Repeatable.
+      --allow stringArray     A package permitted to bypass gates, as comma-separated key=value pairs: purl=<package-url>[,bypass-cooldown=true][,bypass-malware=true][,justification="..."]. Replaces the existing allow list. Repeatable.
+      --block stringArray     A package to always deny, as purl=<package-url> (pkg:pypi/<name>, pkg:npm/<name>, pkg:maven/<group>/<artifact>); append @<version> to block a single version. Replaces the existing block list. Repeatable.
       --cooldown-days int32   The cooldown window in days (0 disables, 1-30 explicit, omit to inherit the default). (default -1)
       --description string    The updated description of the policy.
       --parent string         The name or id of the organization that owns the policy.
@@ -44,5 +44,5 @@ chainctl libraries policy-gate update POLICY [--cooldown-days N] [--block ...] [
 
 ### SEE ALSO
 
-* [chainctl libraries policy-gate](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate/)	 - Manage Libraries policy gates.
+* [chainctl libraries policy](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy/)	 - Manage Libraries policies.
 

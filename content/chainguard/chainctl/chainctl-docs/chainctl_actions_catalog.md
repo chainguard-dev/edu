@@ -1,31 +1,17 @@
 ---
-date: 2026-06-10T18:28:08Z
-title: "chainctl libraries policy-gate binding update"
-slug: chainctl_libraries_policy-gate_binding_update
-url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate_binding_update/
+date: 2026-06-22T22:04:27Z
+title: "chainctl actions catalog"
+slug: chainctl_actions_catalog
+url: /chainguard/chainctl/chainctl-docs/chainctl_actions_catalog/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl libraries policy-gate binding update
+## chainctl actions catalog
 
-Update a Libraries policy gate binding.
-
-### Synopsis
-
-Update the mode of an existing Libraries policy gate binding.
-
-```
-chainctl libraries policy-gate binding update BINDING_ID --mode ENFORCED|LOG [flags]
-```
-
-### Options
-
-```
-      --mode string   The binding mode (ENFORCED or LOG).
-```
+Browse the public Chainguard Actions catalog.
 
 ### Options inherited from parent commands
 
@@ -44,5 +30,6 @@ chainctl libraries policy-gate binding update BINDING_ID --mode ENFORCED|LOG [fl
 
 ### SEE ALSO
 
-* [chainctl libraries policy-gate binding](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate_binding/)	 - Manage Libraries policy gate bindings.
+* [chainctl actions](/chainguard/chainctl/chainctl-docs/chainctl_actions/)	 - Interact with the Chainguard Actions product.
+* [chainctl actions catalog list](/chainguard/chainctl/chainctl-docs/chainctl_actions_catalog_list/)	 - List Chainguard Actions in the public catalog.
 

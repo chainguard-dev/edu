@@ -67,7 +67,7 @@ The URL for the repository is:
 https://libraries.cgr.dev/java/
 ```
 
-This site provides a directory browsing and file listing capability similar to the Maven Central repository, allowing you to find available libraries, library versions, and available files. Learn more under [Manual access](#manual).
+The repository root at `https://libraries.cgr.dev/java/` is not browsable, but you can access artifacts directly by their [Maven repository format](https://maven.apache.org/repository/layout.html) path: list the available versions of a library through its `maven-metadata.xml` file, view the files for a specific version in that version's directory, and download individual files by their full path. Learn more under [Manual access](#manual).
 
 This Chainguard Libraries for Java repository uses the Maven repository format
 and only includes release artifacts of the libraries built by Chainguard from
@@ -154,40 +154,51 @@ To manually access artifacts in the Chainguard Libraries for Java repository, us
 with your [username and password retrieved with
 chainctl](/chainguard/libraries/access/).
 
-This site provides a directory browsing and file listing capability similar to
-the Maven Central repository at
-[`https://repo1.maven.org/maven2/`](https://repo1.maven.org/maven2/). The
-structure follows the [Maven repository
-format](https://maven.apache.org/repository/layout.html). The `groupId` and
-`artifactId` of a library is used to create a nested directory structure,
-similar to the package structure within Java projects.
+The repository follows the [Maven repository
+format](https://maven.apache.org/repository/layout.html), where the `groupId` and
+`artifactId` of a library form a nested directory structure, similar to the
+package structure within Java projects. The repository root at
+[`https://libraries.cgr.dev/java/`](https://libraries.cgr.dev/java/) is not
+browsable, but you can discover and retrieve artifacts directly as described
+below.
 
 For example, the Maven coordinates for [Apache Commons
-Lang](https://commons.apache.org/proper/commons-lang/) 3.18.0 are the following:
+Lang](https://commons.apache.org/proper/commons-lang/) are the following:
 
 ```xml
 <groupId>org.apache.commons</groupId>
 <artifactId>commons-lang3</artifactId>
-<version>3.18.0</version>
+<version>3.13.0</version>
 ```
 
-All available versions can be found in
-[https://libraries.cgr.dev/java/org/apache/commons/commons-lang3](https://libraries.cgr.dev/java/org/apache/commons/commons-lang3)
-since the `groupId` is used to create separate, nested directories `org`
-`apache`, and `commons`, and the `artifactId` results in the `commons-lang3`
-directory.
+**Find available versions**
 
-The final leaf directory is created from the `version`, in the example `3.18.0`.
-All leaf directories are allocated for a specific version of a specific library
-and contain all relevant files.
+List the versions that Chainguard has built for a library by requesting its
+`maven-metadata.xml` file at the `groupId`/`artifactId` path. The `groupId`
+`org.apache.commons` becomes the nested directories `org/apache/commons`, and the
+`artifactId` adds the `commons-lang3` directory:
 
-For example, the directory at
-`https://libraries.cgr.dev/java/org/apache/commons/commons-lang3` contains all
-files for the `org.apache.commons:commons-lang3:3.18.0` library. Specifically,
-this includes the file `commons-lang3-3.18.0.pom` for the main Maven metadata
-from the project and main JAR file `commons-lang3-3.18.0.jar`. The directory
-also includes numerous other files, and related checksum files. Specific files
-vary between the different libraries.
+```
+https://libraries.cgr.dev/java/org/apache/commons/commons-lang3/maven-metadata.xml
+```
+
+The repository only includes release artifacts that Chainguard builds from source,
+so the versions listed may differ from those available on Maven Central.
+
+**List the files for a version**
+
+Each version has its own leaf directory, formed by appending the `version` to the
+`groupId`/`artifactId` path. This version directory is browsable and lists all
+files for that specific library version:
+
+```
+https://libraries.cgr.dev/java/org/apache/commons/commons-lang3/3.13.0/
+```
+
+For the `org.apache.commons:commons-lang3:3.13.0` library, this directory includes
+the main Maven metadata file `commons-lang3-3.13.0.pom`, the main JAR file
+`commons-lang3-3.13.0.jar`, related checksum files, and the SBOM and attestation
+files described below. Specific files vary between libraries.
 
 All filenames can be used to download individual files.
 
@@ -199,14 +210,14 @@ With [.netrc authentication](/chainguard/libraries/access/#netrc):
 
 ```shell
 curl -n -L \
-  -O https://libraries.cgr.dev/java/commons-io/commons-io/2.17.0/commons-io-2.17.0.pom
+  -O https://libraries.cgr.dev/java/commons-io/commons-io/2.13.0/commons-io-2.13.0.pom
 ```
 
 With [environment variables](/chainguard/libraries/access/#env):
 
 ```shell
 curl -L --user "$CHAINGUARD_JAVA_IDENTITY_ID:$CHAINGUARD_JAVA_TOKEN" \
-  -O https://libraries.cgr.dev/java/commons-io/commons-io/2.17.0/commons-io-2.17.0.pom
+  -O https://libraries.cgr.dev/java/commons-io/commons-io/2.13.0/commons-io-2.13.0.pom
 ```
 
 The option `-L` is required to follow redirects for the actual file locations.
@@ -228,11 +239,11 @@ version and uses the same `artifactId-version` naming convention with the
 following extensions:
 
 * `.slsa-attestation.json` for the SLSA provenance attestation
-* `.spdx.json for the SBOM information
+* `.spdx.json` for the SBOM information
 
-For example, the file location for artifactId `commons-compress` and version
-`1.28.0` is
-[https://libraries.cgr.dev/java/org/apache/commons/commons-compress/1.28.0/](https://libraries.cgr.dev/java/org/apache/commons/commons-compress/1.28.0/).
+For example, the files for artifactId `commons-compress` and version
+`1.23.0` are located in the version directory
+[https://libraries.cgr.dev/java/org/apache/commons/commons-compress/1.23.0/](https://libraries.cgr.dev/java/org/apache/commons/commons-compress/1.23.0/).
 It includes the following files:
 
 * `commons-compress-1.28.0.pom`

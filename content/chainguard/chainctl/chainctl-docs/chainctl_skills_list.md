@@ -1,5 +1,5 @@
 ---
-date: 2026-06-10T18:28:08Z
+date: 2026-06-22T22:04:27Z
 title: "chainctl skills list"
 slug: chainctl_skills_list
 url: /chainguard/chainctl/chainctl-docs/chainctl_skills_list/
@@ -20,7 +20,8 @@ chainctl skills list [flags]
 ### Options
 
 ```
-  -g, --group string   Org to list skills for (default: current context).
+  -g, --group string   Org or folder to list, e.g. "chainguard" or "chainguard/github" (default: current context).
+  -r, --recursive      Recurse into nested folders and list every skill by its full path.
 ```
 
 ### Options inherited from parent commands

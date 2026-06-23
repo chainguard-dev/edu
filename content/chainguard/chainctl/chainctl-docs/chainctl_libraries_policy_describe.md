@@ -1,34 +1,30 @@
 ---
-date: 2026-06-10T18:28:08Z
-title: "chainctl libraries policy-gate disable"
-slug: chainctl_libraries_policy-gate_disable
-url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate_disable/
+date: 2026-06-22T22:04:27Z
+title: "chainctl libraries policy describe"
+slug: chainctl_libraries_policy_describe
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_describe/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl libraries policy-gate disable
+## chainctl libraries policy describe
 
-Disable a Libraries policy for an organization.
+Describe a Libraries policy.
 
 ### Synopsis
 
-Disable a Libraries policy by deleting its binding. If --mode is omitted, both
-the ENFORCED and LOG bindings for the (organization, ecosystem) are deleted.
+Show a Libraries policy in full, including every block-list and allow-list entry.
 
 ```
-chainctl libraries policy-gate disable --policy POLICY [--parent ORG] [--ecosystem ECOSYSTEM] [--mode ENFORCED|LOG] [flags]
+chainctl libraries policy describe POLICY [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json|table] [flags]
 ```
 
 ### Options
 
 ```
-      --ecosystem string   The ecosystem the binding applies to (JAVA, PYTHON, JAVASCRIPT).
-      --mode string        The binding mode (ENFORCED or LOG).
-      --parent string      The name or id of the organization to scope the binding to.
-      --policy string      The name or UIDP of the policy.
+      --parent string   The name or id of the organization.
 ```
 
 ### Options inherited from parent commands
@@ -48,5 +44,5 @@ chainctl libraries policy-gate disable --policy POLICY [--parent ORG] [--ecosyst
 
 ### SEE ALSO
 
-* [chainctl libraries policy-gate](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate/)	 - Manage Libraries policy gates.
+* [chainctl libraries policy](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy/)	 - Manage Libraries policies.
 

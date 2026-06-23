@@ -7,7 +7,7 @@ safety==3.8.1
 
 # Development tools
 black==26.5.1
-pylint==4.0.5
+pylint==4.0.6
 
 # Runtime dependencies (if needed in future)
 # Add any required packages here with pinned versions

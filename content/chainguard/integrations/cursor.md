@@ -25,14 +25,31 @@ Before you begin, you'll need:
     * Chainguard authentication should be configured in the environment where Cursor runs commands.
     * Your Chainguard pull token credentials should be injected via environment variables, and not hard-coded in source.
 
+## Install the Chainguard Plugin
+
+The Chainguard integration is delivered as an official plugin through the Cursor marketplace. To get started:
+
+1. Open the Cursor marketplace and search for Chainguard.
+1. On the Chainguard plugin screen, click **Add to Cursor**.
+1. In your Cursor settings, navigate to the **Tools & MCPs** section. Connect all Chainguard MCP servers to your account.
+
+You will be prompted to authenticate Chainguard MCPs. After authenticating, Cursor displays an overview of how the plugin works. 
+
 ## Migrate a project to use Chainguard
 
-The fastest way to get started is to tell Cursor what you want and let it handle the migration. Open a project in Cursor, then in the chat, use a prompt like:
+After installing the plugin, open a project in Cursor. When writing prompts, tell Cursor to use Chainguard libraries and images:
 
 ```prompt
-I'd like to migrate this project to use Chainguard images and libraries. My Chainguard org is <your-org>.
+I'd like to migrate this project to use Chainguard images and libraries. 
 ```
+
 Cursor will update your Dockerfiles to reference Chainguard container images and reconfigure your build files to pull dependencies from Chainguard Libraries.
+
+You can also reference specific Chainguard library skills in prompts. For example:
+
+```prompt
+/chainguard-libraries-python set up my token
+```
 
 > **Note**: Cursor's output is prompt-driven and may vary depending on your project's structure and complexity. Review all changes before running a build or deploying to production.
 

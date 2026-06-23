@@ -1,31 +1,21 @@
 ---
-date: 2026-06-10T18:28:08Z
-title: "chainctl libraries policy-gate list"
-slug: chainctl_libraries_policy-gate_list
-url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate_list/
+date: 2026-06-22T22:04:27Z
+title: "chainctl libraries policy binding"
+slug: chainctl_libraries_policy_binding
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl libraries policy-gate list
+## chainctl libraries policy binding
 
-List Libraries policies.
+Manage Libraries policy bindings.
 
 ### Synopsis
 
-List the Libraries policies available to an organization (SYSTEM policies and the organization's CUSTOM policies).
-
-```
-chainctl libraries policy-gate list [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json|table] [flags]
-```
-
-### Options
-
-```
-      --parent string   The name or id of the organization.
-```
+A Libraries policy binding activates a policy for an (organization, ecosystem) pair in either ENFORCE or DRY_RUN mode.
 
 ### Options inherited from parent commands
 
@@ -44,5 +34,9 @@ chainctl libraries policy-gate list [--parent ORGANIZATION_NAME | ORGANIZATION_I
 
 ### SEE ALSO
 
-* [chainctl libraries policy-gate](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate/)	 - Manage Libraries policy gates.
+* [chainctl libraries policy](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy/)	 - Manage Libraries policies.
+* [chainctl libraries policy binding create](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding_create/)	 - Create a Libraries policy binding.
+* [chainctl libraries policy binding delete](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding_delete/)	 - Delete a Libraries policy binding.
+* [chainctl libraries policy binding list](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding_list/)	 - List Libraries policy bindings.
+* [chainctl libraries policy binding update](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding_update/)	 - Update a Libraries policy binding.
 

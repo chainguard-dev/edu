@@ -1,30 +1,33 @@
 ---
-date: 2026-06-10T18:28:08Z
-title: "chainctl libraries policy-gate binding list"
-slug: chainctl_libraries_policy-gate_binding_list
-url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate_binding_list/
+date: 2026-06-22T22:04:27Z
+title: "chainctl iam external-group-role-mappings delete"
+slug: chainctl_iam_external-group-role-mappings_delete
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_external-group-role-mappings_delete/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl libraries policy-gate binding list
+## chainctl iam external-group-role-mappings delete
 
-List Libraries policy gate bindings.
-
-### Synopsis
-
-List active Libraries policy gate bindings to see which policies are enabled and in which mode.
+Delete an IdP group-to-role mapping.
 
 ```
-chainctl libraries policy-gate binding list [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json|table] [flags]
+chainctl iam external-group-role-mappings delete MAPPING_ID [--yes] [flags]
+```
+
+### Examples
+
+```
+  # Delete a group mapping by ID
+  chainctl iam external-group-role-mappings delete MAPPING_UIDP
 ```
 
 ### Options
 
 ```
-      --parent string   The name or id of the organization to list bindings for.
+  -y, --yes   Skip confirmation prompt
 ```
 
 ### Options inherited from parent commands
@@ -44,5 +47,5 @@ chainctl libraries policy-gate binding list [--parent ORGANIZATION_NAME | ORGANI
 
 ### SEE ALSO
 
-* [chainctl libraries policy-gate binding](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate_binding/)	 - Manage Libraries policy gate bindings.
+* [chainctl iam external-group-role-mappings](/chainguard/chainctl/chainctl-docs/chainctl_iam_external-group-role-mappings/)	 - Manage IdP group-to-role mappings.
 

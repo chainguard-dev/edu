@@ -203,10 +203,15 @@ calling `chainctl`:
 ```shell
 eval $(chainctl auth pull-token --output env --repository=java --parent=example)
 ```
-
 Equivalent commands for Python and JavaScript are supported and result in values
 for the `CHAINGUARD_PYTHON_IDENTITY_ID`/`CHAINGUARD_PYTHON_TOKEN` and
 `CHAINGUARD_JAVASCRIPT_IDENTITY_ID`/`CHAINGUARD_JAVASCRIPT_TOKEN` variables.
+
+Use the export commands in a `~/.env` or similar file or use your preferred
+secrets management application to reuse the token in multiple sessions. Source
+the file or load the secrets from the app to have access to the tokens in your
+shell session, including build configurations file that can load from
+environment variables, for example a Maven `settings.xml` file.
 
 Running this command as part of a login script or some other automation allows
 your organization to replace actual username and password values in your build

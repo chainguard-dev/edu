@@ -1,35 +1,29 @@
 ---
-date: 2026-06-10T18:28:08Z
-title: "chainctl libraries policy-gate enable"
-slug: chainctl_libraries_policy-gate_enable
-url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate_enable/
+date: 2026-06-22T22:04:27Z
+title: "chainctl actions list"
+slug: chainctl_actions_list
+url: /chainguard/chainctl/chainctl-docs/chainctl_actions_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl libraries policy-gate enable
+## chainctl actions list
 
-Enable a Libraries policy for an organization.
-
-### Synopsis
-
-Enable a Libraries policy by creating a binding. If a binding already exists
-for the (organization, ecosystem, mode), its mode is updated. The default mode
-is ENFORCED.
+List Chainguard Actions catalog entries for an organization.
 
 ```
-chainctl libraries policy-gate enable --policy POLICY [--parent ORG] [--ecosystem ECOSYSTEM] [--mode ENFORCED|LOG] [flags]
+chainctl actions list --parent=PARENT [--upstream-owner=OWNER [--upstream-repo=REPO]] [--output=json|table] [flags]
 ```
 
 ### Options
 
 ```
-      --ecosystem string   The ecosystem the binding applies to (JAVA, PYTHON, JAVASCRIPT).
-      --mode string        The binding mode (ENFORCED or LOG).
-      --parent string      The name or id of the organization to scope the binding to.
-      --policy string      The name or UIDP of the policy.
+      --page-size int32         Maximum number of actions to fetch per page (0 uses the server default).
+      --parent string           The name or id of the org to list actions for.
+      --upstream-owner string   Filter to actions mirroring this upstream owner (e.g. "actions").
+      --upstream-repo string    Filter to actions mirroring this upstream repo (requires --upstream-owner).
 ```
 
 ### Options inherited from parent commands
@@ -49,5 +43,5 @@ chainctl libraries policy-gate enable --policy POLICY [--parent ORG] [--ecosyste
 
 ### SEE ALSO
 
-* [chainctl libraries policy-gate](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate/)	 - Manage Libraries policy gates.
+* [chainctl actions](/chainguard/chainctl/chainctl-docs/chainctl_actions/)	 - Interact with the Chainguard Actions product.
 

@@ -1,26 +1,35 @@
 ---
-date: 2026-06-10T18:28:08Z
-title: "chainctl libraries policy-gate delete"
-slug: chainctl_libraries_policy-gate_delete
-url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate_delete/
+date: 2026-06-22T22:04:27Z
+title: "chainctl libraries policy enable"
+slug: chainctl_libraries_policy_enable
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_enable/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl libraries policy-gate delete
+## chainctl libraries policy enable
 
-Delete a custom Libraries policy.
+Enable a Libraries policy for an organization.
+
+### Synopsis
+
+Enable a Libraries policy by creating a binding. If a binding already exists
+for the (organization, ecosystem, mode), its mode is updated. The default mode
+is ENFORCE.
 
 ```
-chainctl libraries policy-gate delete POLICY [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [flags]
+chainctl libraries policy enable --policy POLICY [--parent ORG] [--ecosystem ECOSYSTEM] [--mode ENFORCE|DRY_RUN] [flags]
 ```
 
 ### Options
 
 ```
-      --parent string   The name or id of the organization that owns the policy.
+      --ecosystem string   The ecosystem the binding applies to (JAVA, PYTHON, JAVASCRIPT).
+      --mode string        The binding mode (ENFORCE or DRY_RUN).
+      --parent string      The name or id of the organization to scope the binding to.
+      --policy string      The name or UIDP of the policy.
 ```
 
 ### Options inherited from parent commands
@@ -40,5 +49,5 @@ chainctl libraries policy-gate delete POLICY [--parent ORGANIZATION_NAME | ORGAN
 
 ### SEE ALSO
 
-* [chainctl libraries policy-gate](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate/)	 - Manage Libraries policy gates.
+* [chainctl libraries policy](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy/)	 - Manage Libraries policies.
 

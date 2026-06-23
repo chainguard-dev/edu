@@ -1,33 +1,24 @@
 ---
-date: 2026-06-10T18:28:08Z
-title: "chainctl libraries policy-gate binding create"
-slug: chainctl_libraries_policy-gate_binding_create
-url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate_binding_create/
+date: 2026-06-22T22:04:27Z
+title: "chainctl libraries policy binding delete"
+slug: chainctl_libraries_policy_binding_delete
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding_delete/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl libraries policy-gate binding create
+## chainctl libraries policy binding delete
 
-Create a Libraries policy gate binding.
+Delete a Libraries policy binding.
 
 ### Synopsis
 
-Create a binding to activate a Libraries policy for an (organization, ecosystem) pair. The default mode is ENFORCED.
+Delete a Libraries policy binding to deactivate the policy for its bound (organization, ecosystem) pair.
 
 ```
-chainctl libraries policy-gate binding create --policy POLICY [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--ecosystem ECOSYSTEM] [--mode ENFORCED|LOG] [flags]
-```
-
-### Options
-
-```
-      --ecosystem string   The ecosystem the binding applies to (JAVA, PYTHON, JAVASCRIPT).
-      --mode string        The binding mode (ENFORCED or LOG). Defaults to ENFORCED.
-      --parent string      The name or id of the organization to scope the binding to.
-      --policy string      The name or UIDP of the policy to bind.
+chainctl libraries policy binding delete BINDING_ID [flags]
 ```
 
 ### Options inherited from parent commands
@@ -47,5 +38,5 @@ chainctl libraries policy-gate binding create --policy POLICY [--parent ORGANIZA
 
 ### SEE ALSO
 
-* [chainctl libraries policy-gate binding](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy-gate_binding/)	 - Manage Libraries policy gate bindings.
+* [chainctl libraries policy binding](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding/)	 - Manage Libraries policy bindings.
 

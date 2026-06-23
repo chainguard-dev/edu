@@ -1,5 +1,5 @@
 ---
-title: "Debian Compatibility"
+title: "Debian compatibility"
 linktitle: "Debian"
 type: "article"
 aliases:
@@ -28,6 +28,8 @@ Note that `$PATH` locations like `/usr/bin` or `/sbin` are not included here. If
 Generally, if a tool exists in `busybox` but does not have a `coreutils` counterpart, there will be a specific package that includes it. For example the `zcat` utility is included in the `gzip` package in both Wolfi and Debian.
 
 You can use the `apk search` command in Wolfi, and the `apt-cache search` command in Debian to find out which package includes a tool.
+
+If your workflow depends on tools or packages from the upstream Debian image, note that Chainguard offers *full* variants (tagged `-full`) for a number of our most popular Containers.These variants map to their upstream equivalent (often the Debian image on Docker Hub) and can ease migration before you move to a more minimal image. See [Full container variants](/chainguard/chainguard-images/about/differences-development-production/#full-container-variants).
 
 | Utility             | Wolfi busybox | Debian busybox | Wolfi coreutils | Debian coreutils |
 | ------------------- | :-----------: | :------------: | :-------------: | :--------------: |
