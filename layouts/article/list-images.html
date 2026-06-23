@@ -52,11 +52,11 @@
                                     <path d="M1.06199 5.729L0.291992 4.938L4.99999 0.229004L9.70799 4.938L8.93799 5.729L4.99999 1.792L1.06199 5.729Z" fill="currentColor"/>
                                 </svg>
                             </div>
-                        </a>
-                        {{ if .Description }}
+                            {{ if .Description }}
                             <div class="button-description">{{ .Description }}</div>
+                            {{ end }}
+                        </a>
                         {{ end }}
-                    {{ end }}
                     {{ template "_internal/pagination.html" . }}
                 {{ end }}
             </div>
