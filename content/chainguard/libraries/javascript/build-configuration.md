@@ -78,6 +78,38 @@ manager will accept packages from Chainguard.
 
 Learn more in the [JavaScript migration guide](/chainguard/libraries/javascript/migration/#step-3-update-your-lockfile) and in the [`chainctl libraries update-hashes` command docs](/chainguard/chainctl/chainctl-docs/chainctl_libraries_update-hashes/).
 
+<a id="update-hashes-auth"></a>
+
+### Authentication
+
+`update-hashes` fetches checksums from Chainguard Libraries (`libraries.cgr.dev`),
+which requires authentication. Choose whichever fits your environment:
+
+- **Logged in locally.** Run the command while authenticated; if you have no
+  other credential it prompts for an organization and authenticates with a
+  [pull token](/chainguard/libraries/access/#pull-token). Pass
+  `--parent <organization>` to skip the prompt. To avoid the prompt entirely,
+  scope your login to the libraries registry once with
+  `chainctl auth login --audience=libraries.cgr.dev` — that session is then used
+  automatically. (`chainctl auth configure-npm` also sets up this
+  libraries-scoped session as part of configuring npm.)
+- **CI or non-interactive.**
+  - For a session token, pass `--token <token>` or set `CHAINCTL_AUTH_TOKEN`. The
+    token must be scoped to the libraries registry; mint one with
+    `chainctl auth token --audience=libraries.cgr.dev`.
+  - For a [pull token](/chainguard/libraries/access/#pull-token) (an identity and
+    secret), pass it as basic auth: `--username <identity> --password <secret>`,
+    or set `CHAINCTL_REGISTRY_USERNAME` / `CHAINCTL_REGISTRY_PASSWORD`.
+- **From `~/.netrc`.** Credentials for the registry host are read from `~/.netrc`
+  (or `$NETRC`); see [.netrc for authentication](/chainguard/libraries/access/#netrc).
+  Pass `--ignore-netrc` to skip an unrelated entry.
+
+When you target a repository manager with `--registry-url` (for example
+Artifactory or JFrog), authenticate with **that** registry's credentials —
+`--username`/`--password`, the `CHAINCTL_REGISTRY_USERNAME` /
+`CHAINCTL_REGISTRY_PASSWORD` environment variables, or a matching `~/.netrc`
+entry. Chainguard-scoped tokens are never sent to third-party hosts.
+
 
 <a id="npm"></a>
 

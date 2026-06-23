@@ -165,6 +165,37 @@ When using a repo manager, pass the full repository URL with `--registry-url`.
 Learn about using this command with repo managers in the [Global
 configuration](/chainguard/libraries/python/global-configuration/) page.
 
+<a id="update-hashes-auth"></a>
+
+#### Authentication
+
+`update-hashes` fetches checksums from Chainguard Libraries (`libraries.cgr.dev`),
+which requires authentication. Choose whichever fits your environment:
+
+- **Logged in locally.** Run the command while authenticated; if you have no
+  other credential it prompts for an organization and authenticates with a
+  [pull token](/chainguard/libraries/access/#pull-token). Pass
+  `--parent <organization>` to skip the prompt. To avoid the prompt entirely,
+  scope your login to the libraries registry once with
+  `chainctl auth login --audience=libraries.cgr.dev` — that session is then used
+  automatically.
+- **CI or non-interactive.**
+  - For a session token, pass `--token <token>` or set `CHAINCTL_AUTH_TOKEN`. The
+    token must be scoped to the libraries registry; mint one with
+    `chainctl auth token --audience=libraries.cgr.dev`.
+  - For a [pull token](/chainguard/libraries/access/#pull-token) (an identity and
+    secret), pass it as basic auth: `--username <identity> --password <secret>`,
+    or set `CHAINCTL_REGISTRY_USERNAME` / `CHAINCTL_REGISTRY_PASSWORD`.
+- **From `~/.netrc`.** Credentials for the registry host are read from `~/.netrc`
+  (or `$NETRC`); see [.netrc for authentication](/chainguard/libraries/access/#netrc).
+  Pass `--ignore-netrc` to skip an unrelated entry.
+
+When you target a repository manager with `--registry-url` (for example
+Artifactory or JFrog), authenticate with **that** registry's credentials —
+`--username`/`--password`, the `CHAINCTL_REGISTRY_USERNAME` /
+`CHAINCTL_REGISTRY_PASSWORD` environment variables, or a matching `~/.netrc`
+entry. Chainguard-scoped tokens are never sent to third-party hosts.
+
 By default, Chainguard hashes are appended alongside existing upstream hashes. After updating the lockfiles, to switch your environment to use Chainguard packages, configure your tool to use the Chainguard index and reinstall. The command will output
 a "Next steps" section that includes the tool-specific command for reinstalling. 
 
