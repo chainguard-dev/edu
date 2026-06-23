@@ -335,17 +335,14 @@ other desired packages for further testing.
 JavaScript, designed as an alternative to npm and Yarn. For
 more information, see the [pnpm documentation](https://pnpm.io/motivation).
 
+**Limitations**
+
 Before getting started, note the following limitations:
 
-* The Chainguard Repository [upstream fallback](/chainguard/libraries/javascript/overview/#upstream-fallback-policy-and-controls) has been tested with pnpm v11. We recommend using pnpm v11 or newer.
-    * pnpm v11 re-verifies lockfile entries during install, including when you run `pnpm install --frozen-lockfile`. With Chainguard Repository for JavaScript, this can cause `ERR_PNPM_TARBALL_URL_MISMATCH` or `ERR_PNPM_MINIMUM_RELEASE_AGE_VIOLATION` errors even when the lockfile is up to date. If this issue occurs, configure pnpm to trust the existing lockfile in the `pnpm-workspace.yaml`:
-    <br>
-    ```yaml
-    trustLockfile: true
-    ```
-    <br>
-    * Setting `lockfileIncludeTarballUrl: true` in the `pnpm-workspace.yaml` ensures pnpm continues to fetch the upstream tarball URL recorded in the lockfile. Without this setting, you can encounter integrity errors when Chainguard builds a package version that had previously been mirrored from upstream. This helps avoid integrity errors until the lockfile is updated.
-* If you use Chainguard Libraries with pnpm `trustPolicy: no-downgrade`, pnpm may fail installation. Because Chainguard Libraries serves rebuilt packages, pnpm may treat those packages as a trust downgrade. To work around this, disable it in your pnpm configuration: `trustPolicy: off`
+- The Chainguard Repository [upstream fallback](/chainguard/libraries/javascript/overview/#upstream-fallback-policy-and-controls) has been tested with pnpm v11. We recommend using pnpm v11 or newer.
+- pnpm v11 re-verifies lockfile entries during install, including when you run `pnpm install --frozen-lockfile`. With Chainguard Repository for JavaScript, this can cause errors even when the lockfile is up to date. If this issue occurs, set `trustLockfile: true` in the `pnpm-workspace.yaml` to configure pnpm to trust the existing lockfile.
+- Setting `lockfileIncludeTarballUrl: true` in the `pnpm-workspace.yaml` ensures pnpm continues to fetch the upstream tarball URL recorded in the lockfile. Without this setting, you can encounter integrity errors when Chainguard builds a package version that had previously been mirrored from upstream. This helps avoid integrity errors until the lockfile is updated.
+- If you use Chainguard Libraries with pnpm `trustPolicy: no-downgrade`, pnpm may fail installation. Because Chainguard Libraries serves rebuilt packages, pnpm may treat those packages as a trust downgrade. To work around this, disable it in your pnpm configuration: `trustPolicy: off`
 
 **Declare dependencies in package.json**
 
