@@ -1554,7 +1554,7 @@
       },
       "chainguard.platform.iam.v2beta1.ServicePrincipal": {
         "default": "SERVICE_PRINCIPAL_UNSPECIFIED",
-        "description": "ServicePrincipal represents a Chainguard service that can assume an identity.\n\n - SERVICE_PRINCIPAL_UNSPECIFIED: Unknown/unspecified service principal.\n - SERVICE_PRINCIPAL_COSIGNED: Cosigned service for image signing.\n - SERVICE_PRINCIPAL_INGESTER: Ingester service for data ingestion.\n - SERVICE_PRINCIPAL_CATALOG_SYNCER: Catalog syncer service for synchronizing image catalogs.\n - SERVICE_PRINCIPAL_APKO_BUILDER: APKO builder service for building images.\n - SERVICE_PRINCIPAL_ENTITLEMENT_SYNCER: Entitlement syncer service for synchronizing entitlements.\n - SERVICE_PRINCIPAL_TENANT_SCANNER: Tenant scanner service for scanning tenant resources.\n - SERVICE_PRINCIPAL_SEDIMENTOLOGY: Sedimentology service for data analysis.\n - SERVICE_PRINCIPAL_SKILLUP: Skillup service for fixing repository skill violations.\n - SERVICE_PRINCIPAL_MATERIALIZER: Materializer service for materializing solutions from problem statements.",
+        "description": "ServicePrincipal represents a Chainguard service that can assume an identity.\n\n - SERVICE_PRINCIPAL_UNSPECIFIED: Unknown/unspecified service principal.\n - SERVICE_PRINCIPAL_COSIGNED: Cosigned service for image signing.\n - SERVICE_PRINCIPAL_INGESTER: Ingester service for data ingestion.\n - SERVICE_PRINCIPAL_CATALOG_SYNCER: Catalog syncer service for synchronizing image catalogs.\n - SERVICE_PRINCIPAL_APKO_BUILDER: APKO builder service for building images.\n - SERVICE_PRINCIPAL_ENTITLEMENT_SYNCER: Entitlement syncer service for synchronizing entitlements.\n - SERVICE_PRINCIPAL_TENANT_SCANNER: Tenant scanner service for scanning tenant resources.\n - SERVICE_PRINCIPAL_SEDIMENTOLOGY: Sedimentology service for data analysis.\n - SERVICE_PRINCIPAL_SKILLUP: Skillup service for fixing repository skill violations.\n - SERVICE_PRINCIPAL_MATERIALIZER: Materializer service for materializing solutions from problem statements.\n - SERVICE_PRINCIPAL_MICROFLOW: Microflow service for running a pull request's committed CI workflows in microVMs.",
         "enum": [
           "SERVICE_PRINCIPAL_UNSPECIFIED",
           "SERVICE_PRINCIPAL_COSIGNED",
@@ -1565,7 +1565,8 @@
           "SERVICE_PRINCIPAL_TENANT_SCANNER",
           "SERVICE_PRINCIPAL_SEDIMENTOLOGY",
           "SERVICE_PRINCIPAL_SKILLUP",
-          "SERVICE_PRINCIPAL_MATERIALIZER"
+          "SERVICE_PRINCIPAL_MATERIALIZER",
+          "SERVICE_PRINCIPAL_MICROFLOW"
         ],
         "type": "string"
       },
