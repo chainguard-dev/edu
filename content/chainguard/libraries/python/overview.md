@@ -530,4 +530,10 @@ Repository](/chainguard/chainguard-repository/overview/). By default, the endpoi
 only Chainguard-built packages. When the upstream fallback is enabled, upstream packages are
 subject to additional security controls before being served.
 
+When using upstream fallback, the visibility of Chainguard-built versus upstream-fallback artifacts depends on the package manager in use:
+
+- **uv**: When `uv lock` resolves dependencies through Chainguard Repository, the resulting `uv.lock` can include per-artifact URLs that point to both `.../python/simple/` and `.../python-upstream/simple/`. This makes upstream fallback visible directly in the lockfile.
+- **pip**: To inspect whether a dependency came from the Chainguard-built path, use `pip install --report` and review the reported download URLs.
+- **Poetry**: Inspect the lockfile for the package source URLs.
+
 Learn about managing fallback and cooldown controls in the [Chainguard Libraries Overview](/chainguard/libraries/overview/).
