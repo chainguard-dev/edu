@@ -2358,7 +2358,8 @@
           "TENANT_SCANNER",
           "SEDIMENTOLOGY",
           "SKILLUP",
-          "MATERIALIZER"
+          "MATERIALIZER",
+          "MICROFLOW"
         ],
         "type": "string"
       },
