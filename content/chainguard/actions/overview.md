@@ -31,7 +31,17 @@ This page provides enough to get you started. See the [Chainguard Actions README
 
 ## Prerequisites
 
-- An organization in the Chainguard platform that you own or can administer and that is registered to use Chainguard Actions
+To follow this guide, you need:
+
+*- `chainctl` **v0.2.261** or later, installed and authenticated. See [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) if you don't have it yet.
+- An active Chainguard organization.
+- Owner access on the organization.
+
+The examples in this guide use an `$ORGANIZATION` environment variable to refer to your organization. Set it to the name of your organization before you begin:
+
+```shell
+export ORGANIZATION=<your-organization>
+```
 
 ## Preliminary steps
 
@@ -84,6 +94,10 @@ Search the Chainguard Actions repository, find the action you want to use, and t
 The rest of this page goes a bit deeper into how to use Chainguard Actions.
 
 ## Configure your workflows to use Chainguard Actions
+
+You can save some time by using the optional [cg-actions](https://github.com/chainguard-dev/cg-skills/tree/main/skills/cg-actions), which is a Claude Code skill for auditing GitHub Actions usage and migrating to Chainguard hardened actions. See the link for details.
+
+Following the steps in this section will achieve a similar result.
 
 ### Inventory the actions you currently use.
 
