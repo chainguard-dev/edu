@@ -210,7 +210,7 @@ When upstream fallback is enabled, users with the Owner role can configure the c
 chainctl libraries policy create --name=js-cooldown --cooldown-days=10
 chainctl libraries policy enable --policy=js-cooldown --ecosystem=JAVASCRIPT --mode=ENFORCE
 ```
-Note: These commands require `chainctl` v0.2.290 or newer.
+Note: These commands require `chainctl` v0.2.291 or newer.
 
 The default cooldown period is 7 days. Note that shorter cooldown periods increase the risk of pulling malicious or compromised upstream packages before the broader ecosystem can detect and report them.
 
