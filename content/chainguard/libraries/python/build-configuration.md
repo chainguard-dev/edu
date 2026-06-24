@@ -179,7 +179,7 @@ which requires authentication. Choose whichever fits your environment:
   scope your login to the libraries registry once with
   `chainctl auth login --audience=libraries.cgr.dev` — that session is then used
   automatically.
-- **CI or non-interactive.**
+- **CI or non-interactive**:
   - For a session token, pass `--token <token>` or set `CHAINCTL_AUTH_TOKEN`. The
     token must be scoped to the libraries registry; mint one with
     `chainctl auth token --audience=libraries.cgr.dev`.
