@@ -1822,6 +1822,19 @@
         },
         "type": "object"
       },
+      "chainguard.platform.registry.v2beta1.Architectures": {
+        "description": "Architectures contains the architectures present in an OCI index manifest.",
+        "properties": {
+          "architectures": {
+            "description": "Architecture names (e.g., \"amd64\", \"arm64\").",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.registry.v2beta1.CatalogTier": {
         "default": "CATALOG_TIER_UNSPECIFIED",
         "description": "CatalogTier represents the catalog tier classification for repositories.\n\n - CATALOG_TIER_UNSPECIFIED: Unknown or unspecified tier.\n - CATALOG_TIER_APPLICATION: Application images tier.\n - CATALOG_TIER_BASE: Base images tier.\n - CATALOG_TIER_FIPS: FIPS-compliant images tier.\n - CATALOG_TIER_AI: AI/ML images tier.\n - CATALOG_TIER_DEVTOOLS: Developer tools images tier.\n - CATALOG_TIER_COMMERCIAL: Commercial images tier.",
@@ -2159,6 +2172,21 @@
         "required": [
           "name"
         ],
+        "type": "object"
+      },
+      "chainguard.platform.registry.v2beta1.Size": {
+        "description": "Size contains the size of a container image for a specific architecture.",
+        "properties": {
+          "architecture": {
+            "description": "Architecture the size was computed for.",
+            "type": "string"
+          },
+          "size": {
+            "description": "Total size in bytes (sum of all layers plus config).",
+            "format": "int64",
+            "type": "string"
+          }
+        },
         "type": "object"
       },
       "chainguard.platform.registry.v2beta1.SyncConfig": {
@@ -6480,6 +6508,120 @@
         ]
       }
     },
+    "/registry/v2beta1/repos/{repoUid}/digests/{digest}/architectures": {
+      "get": {
+        "description": "GetArchitectures returns the architectures present in an OCI index manifest.",
+        "operationId": "ImagesService_GetArchitectures",
+        "parameters": [
+          {
+            "description": "UIDP of the repository containing the image.",
+            "in": "path",
+            "name": "repoUid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Digest of the OCI index manifest.",
+            "in": "path",
+            "name": "digest",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.Architectures"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Architectures",
+        "tags": [
+          "ImagesService"
+        ]
+      }
+    },
+    "/registry/v2beta1/repos/{repoUid}/digests/{digest}/size": {
+      "get": {
+        "description": "GetSize returns the size of a container image for a specific architecture.",
+        "operationId": "ImagesService_GetSize",
+        "parameters": [
+          {
+            "description": "UIDP of the repository containing the image.",
+            "in": "path",
+            "name": "repoUid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Digest of the OCI index manifest.",
+            "in": "path",
+            "name": "digest",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Architecture to get the size for (e.g., \"amd64\", \"arm64\").\nDefaults to \"amd64\" if not specified.",
+            "in": "query",
+            "name": "architecture",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.Size"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Size",
+        "tags": [
+          "ImagesService"
+        ]
+      }
+    },
     "/registry/v2beta1/repos/{uid}": {
       "delete": {
         "description": "DeleteRepo deletes a repository by UID.",
@@ -7462,6 +7604,9 @@
     },
     {
       "name": "TagsService"
+    },
+    {
+      "name": "ImagesService"
     },
     {
       "name": "ReposService"
