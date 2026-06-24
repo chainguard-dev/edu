@@ -379,7 +379,29 @@ is configured. Alternatively you can add the `repositories` and
 `pluginRepositories` to individual project `pom.xml` files. Authentication
 details must remain within the settings file.
 
-If your settings.xml is using credentials set as environment variables, ensure the variables are exported.
+If your `settings.xml` is using credentials set as environment variables, ensure the variables are exported.
+
+To explicitly remove access to Maven Central, include the following in your `settings.xml`:
+
+```xml
+      <repositories>
+       ...
+        <repository>
+          <id>central</id>
+          <url>invalid</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
+        </repository>
+...
+        <pluginRepository>
+          <id>central</id>
+          <url>invalid</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
+        </pluginRepository>
+
+```
+
 
 ### Minimal example project
 
