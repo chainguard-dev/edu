@@ -95,7 +95,7 @@ The rest of this page goes a bit deeper into how to use Chainguard Actions.
 
 ## Configure your workflows to use Chainguard Actions
 
-You can save some time by using the optional [cg-actions](https://github.com/chainguard-dev/cg-skills/tree/main/skills/cg-actions), which is a Claude Code skill for auditing GitHub Actions usage and migrating to Chainguard hardened actions. See the link for details.
+You can save some time by using the optional [cg-actions](https://github.com/chainguard-dev/cg-skills/tree/main/skills/cg-actions) skill, a Claude Code skill for auditing GitHub Actions usage and migrating to Chainguard hardened actions.
 
 Following the steps in this section will achieve a similar result.
 
