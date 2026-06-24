@@ -148,7 +148,7 @@ subject to additional security controls before being served.
 
 To enable or change upstream fallback configuration, use the [`chainctl
 libraries entitlements`
-command](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/). You cannot enable fallback via the Chainguard Console.
+command](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/). 
 
 For example, the following command creates or updates an entitlement to Chainguard Libraries
 for JavaScript, and adds the npm upstream fallback policy. Enabling upstream fallback includes a 7-day cooldown by default, which can also be configured:
@@ -156,6 +156,8 @@ for JavaScript, and adds the npm upstream fallback policy. Enabling upstream fal
 ```bash
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM 
 ```
+
+For JavaScript, you can also enable upstream fallback in the Chainguard Console. For Java and Python, you cannot currently enable fallback or view upstream vs. Chainguard-built packages via the Chainguard Console.
 
 ### Fallback options
 
