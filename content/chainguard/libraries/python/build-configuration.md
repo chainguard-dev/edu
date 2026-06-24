@@ -172,7 +172,7 @@ configuration](/chainguard/libraries/python/global-configuration/) page.
 `update-hashes` fetches checksums from Chainguard Libraries (`libraries.cgr.dev`),
 which requires authentication. Choose whichever fits your environment:
 
-- **Logged in locally.** Run the command while authenticated; if you have no
+- **Logged in locally**: Run the command while authenticated; if you have no
   other credential it prompts for an organization and authenticates with a
   [pull token](/chainguard/libraries/access/#pull-token). Pass
   `--parent <organization>` to skip the prompt. To avoid the prompt entirely,
