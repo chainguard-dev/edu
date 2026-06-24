@@ -290,24 +290,22 @@ configure access to the Chainguard Libraries for Java repository directly. If [u
 
 If you are participating in the beta for CVE remediation, include the `https://libraries.cgr.dev/java-remediated/` repository first.
 
-If you are using direct access with the Chainguard Repository and you want Chainguard policy controls to apply consistently, configure Chainguard as a global Maven mirror. Without a global mirror, Maven can fall back to its built-in Maven Central definition when Chainguard reports a dependency as unavailable, bypassing the expected cooldown behavior for artifacts.
+If you are using direct access with the Chainguard Repository and you want Chainguard policy controls to apply consistently, configure Chainguard as a global Maven mirror. Without a global mirror, Maven can fall back to its built-in Maven Central definition when Chainguard reports a dependency as unavailable, bypassing the policy and malware scanning controls provided by Chainguard.
 
 The following `~/.m2/settings.xml` configures direct access with Chainguard's remediated Java repository as
-the primary repository, falling back to the standard Chainguard Libraries repository when a remediated version is not available, and then to Maven Central as a fallback for transitive
-dependencies not available from Chainguard. It uses placeholder values
-`CG_PULLTOKEN_USERNAME` and `CG_PULLTOKEN_PASSWORD` or [environment
+the primary repository, falling back to the standard Chainguard Libraries repository when a remediated version is not available. If a library is not yet built by Chainguard and you have enabled upstream fallback, then upstream packages will be subject to malware scanning and any cooldown policies you have configured. This settings file uses [environment
 variables](/chainguard/libraries/access/#env) for the pull token detailed in
-[Chainguard Libraries access](/chainguard/libraries/access/):
+[Chainguard Libraries access](/chainguard/libraries/access/). 
 
 ```xml
 <settings>
   <activeProfiles>
-    <activeProfile>no-repo-manager</activeProfile>
+    <activeProfile>chainguard</activeProfile>
   </activeProfiles>
 
   <profiles>
     <profile>
-      <id>no-repo-manager</id>
+      <id>chainguard</id>
 
       <repositories>
         <repository>
@@ -318,7 +316,7 @@ variables](/chainguard/libraries/access/#env) for the pull token detailed in
         </repository>
 
         <repository>
-          <id>chainguard</id>
+          <id>chainguard-java</id>
           <url>https://libraries.cgr.dev/java/</url>
           <releases>
             <enabled>true</enabled>
@@ -331,15 +329,18 @@ variables](/chainguard/libraries/access/#env) for the pull token detailed in
 
       <pluginRepositories>
         <pluginRepository>
-          <id>chainguard</id>
-          <url>https://libraries.cgr.dev/java/</url>
-          <releases>
-            <enabled>true</enabled>
-          </releases>
-          <snapshots>
-            <enabled>false</enabled>
-          </snapshots>
+          <id>chainguard-java-remediated</id>
+          <url>https://libraries.cgr.dev/java-remediated/</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
         </pluginRepository>
+        <pluginRepository>
+          <id>chainguard-java</id>
+          <url>https://libraries.cgr.dev/java/</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
+        </pluginRepository>
+
       </pluginRepositories>
     </profile>
   </profiles>
@@ -362,7 +363,7 @@ variables](/chainguard/libraries/access/#env) for the pull token detailed in
       <!-- <username>YOUR_IDENTITY_ID</username> -->
       <!-- <password>YOUR_TOKEN</password> -->
     </server>
-      <id>chainguard</id>
+      <id>chainguard-java</id>
       <!-- Use environment variables -->
       <username>${env.CHAINGUARD_JAVA_IDENTITY_ID}</username>
       <password>${env.CHAINGUARD_JAVA_TOKEN}</password>
@@ -377,6 +378,8 @@ The preceding settings affects all projects built on the machine where the file
 is configured. Alternatively you can add the `repositories` and
 `pluginRepositories` to individual project `pom.xml` files. Authentication
 details must remain within the settings file.
+
+If your settings.xml is using credentials set as environment variables, ensure the variables are exported.
 
 ### Minimal example project
 

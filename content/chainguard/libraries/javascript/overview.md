@@ -182,24 +182,6 @@ Repository](/chainguard/chainguard-repository/overview/). By default, the endpoi
 only Chainguard-built packages. When the upstream fallback is enabled, upstream packages are
 subject to additional security controls before being served.
 
-Learn about managing fallback and cooldown controls in the [Chainguard Libraries Overview](/chainguard/libraries/overview/).
+Learn about managing fallback and cooldown controls in the [Libraries Overview](/chainguard/libraries/overview/#upstream-fallback-and-controls).
 
 > Note: Upstream fallback has been tested against pnpm v11. When using pnpm, we recommend pnpm v11 or newer.
-
-### Malware scanning
-All packages served from the upstream fallback are scanned for malware before being made available. In addition, [Chainguard's source code and maintainer behavior scanning](https://www.chainguard.dev/unchained/the-expanding-threat-landscape-chainguard-now-scans-source-code-for-traditional-malware-and-greyware) blocks packages that have malicious behavior that other firewall solutions may miss. 
-
-Learn more in the [Libraries Overview](/chainguard/libraries/overview/#malware-and-greyware-detection).
-
-### Enable fallback policies for Chainguard Libraries for JavaScript
-
-To enable or change upstream fallback configuration, use the [`chainctl
-libraries entitlements`
-command](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/).
-
-The following command creates or updates an entitlement to Chainguard Libraries
-for JavaScript, adds the npm upstream fallback policy, and configures a 10-day cooldown:
-
-```bash
-chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM --cooldown-days=10
-```

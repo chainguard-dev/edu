@@ -136,11 +136,7 @@ After that six-month window closes, Chainguard Libraries will:
 ## Upstream fallback and controls
 
 Chainguard Libraries support an optional protected upstream fallback, managed through the [Chainguard
-Repository](/chainguard/chainguard-repository/overview/): 
-
-- Chainguard Libraries for JavaScript supports fallback to
-the upstream npm Registry
-- Chainguard Libraries for Java supports fallback to Maven Central
+Repository](/chainguard/chainguard-repository/overview/).
 
 By default, the Chainguard library endpoints serve
 only Chainguard-built packages. When the upstream fallback is enabled, upstream packages are
@@ -152,9 +148,9 @@ subject to additional security controls before being served.
 
 To enable or change upstream fallback configuration, use the [`chainctl
 libraries entitlements`
-command](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/).
+command](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/). You cannot enable fallback via the Chainguard Console.
 
-The following command creates or updates an entitlement to Chainguard Libraries
+For example, the following command creates or updates an entitlement to Chainguard Libraries
 for JavaScript, and adds the npm upstream fallback policy. Enabling upstream fallback includes a 7-day cooldown by default, which can also be configured:
 
 ```bash
@@ -218,8 +214,11 @@ If a requested package version falls within the cooldown period, the package man
 When upstream fallback is enabled, users with the Owner role can configure the cooldown with `chainctl`:
 
 ```bash
-chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM --cooldown-days=3
+chainctl libraries policy create --name=js-cooldown --cooldown-days=10
+chainctl libraries policy enable --policy=js-cooldown --ecosystem=JAVASCRIPT --mode=ENFORCE
 ```
+Note: These commands require `chainctl` v0.2.291 or newer.
+
 The default cooldown period is 7 days. The cooldown period provides an additional layer of defense on top of malware and greyware scanning, giving the broader security community time to surface threats that may not be immediately detectable. 
 
 ### How package resolution works
