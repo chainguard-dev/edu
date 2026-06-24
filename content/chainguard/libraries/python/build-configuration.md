@@ -186,7 +186,7 @@ which requires authentication. Choose whichever fits your environment:
   - For a [pull token](/chainguard/libraries/access/#pull-token) (an identity and
     secret), pass it as basic auth: `--username <identity> --password <secret>`,
     or set `CHAINCTL_REGISTRY_USERNAME` / `CHAINCTL_REGISTRY_PASSWORD`.
-- **From `~/.netrc`.** Credentials for the registry host are read from `~/.netrc`
+- **From `~/.netrc`**: Credentials for the registry host are read from `~/.netrc`
   (or `$NETRC`); see [.netrc for authentication](/chainguard/libraries/access/#netrc).
   Pass `--ignore-netrc` to skip an unrelated entry.
 
