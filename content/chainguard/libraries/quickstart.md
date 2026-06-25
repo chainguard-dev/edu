@@ -195,8 +195,8 @@ Check out minimal example projects for
 > are solely responsible for independently evaluating and validating all
 > upstream artifacts before use in your environment.  
 > <br>Learn more about upstream
-> fallback policy and controls in the [JavaScript
-> overview](/chainguard/libraries/javascript/overview/#upstream-fallback-policy-and-controls).
+> fallback policy and controls in the [Libraries
+> overview](/chainguard/libraries/overview/#upstream-fallback-and-controls).
 
 Check out minimal example projects for
 [npm](/chainguard/libraries/javascript/build-configuration/#minimal-example-project),

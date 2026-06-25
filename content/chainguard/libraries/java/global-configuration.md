@@ -445,3 +445,4 @@ Use the URL of the repository group, such as
 configuration](/chainguard/libraries/java/build-configuration/) and build a 
 first test project. In a working setup the `java-chainguard` proxy repository contains
 all libraries retrieved from Chainguard.
+

@@ -24,9 +24,7 @@ system. This guide explains how to access (download) Chainguard library artifact
 
 - Ensure you have access to Chainguard Libraries. 
     - If you are not a Chainguard user yet, a new Chainguard account must be
-created and configured for access to Chainguard Libraries.
-    - If you are already a Chainguard user, the Chainguard account owner in your
-organization can grant access to Chainguard Libraries.
+created and you must [add an entitlement to Chainguard Libraries](/chainguard/libraries/access/#manage-library-entitlements).
 - Confirm the name of your organization so you can use it with the `--parent`
 parameter to specify your organization when running commands with `chainctl`.
 
