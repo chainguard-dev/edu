@@ -23,7 +23,17 @@ The configuration for the use of Chainguard Libraries depends on how you've set 
 - Remove local caches on workstations and CI/CD pipelines. This step ensures that dependencies are preferentially sourced from Chainguard Libraries.
 - Finally, confirm that your development tools and CI/CD workflows are correctly ingesting dependencies from Chainguard Libraries.
 
-These changes must be performed on all workstations of individual developers and other engineers running relevant application builds. They must also be performed on any build tool such as Jenkins, TeamCity, GitHub Actions, or other infrastructure that draws in dependencies.
+These changes must be performed on all workstations of individual developers and
+other engineers running relevant application builds. They must also be performed
+on any build tool such as Jenkins, TeamCity, GitHub Actions, or other
+infrastructure that draws in dependencies.
+
+The `https://libraries.cgr.dev/python/` endpoint is also the [Chainguard
+Repository](/chainguard/chainguard-repository/overview/) endpoint for Python. By
+default, it serves only Chainguard-built artifacts. When [upstream
+fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) is
+enabled for your organization, the same endpoint can also serve requested
+versions from PyPI under Chainguard security controls. 
 
 See the [minimal example projects](#minimal-example-projects) on this page for demonstrations using `uv` and `pip`.
 
@@ -132,6 +142,8 @@ See examples using `uv` and `pip` under [Minimal example projects](#minimal-exam
 Once you have credentials and the index URL from your organization's repository
 manager, you're ready to set up specific build tools for local development or
 CI/CD.
+
+The recommended configuration is to use the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint rather than manually configuring fallback to upstream PyPI. 
 
 ### Authentication
 
