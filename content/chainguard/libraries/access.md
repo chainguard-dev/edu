@@ -492,7 +492,7 @@ To verify which policy is active, run the following:
 chainctl libraries policy binding list
 ```
 
-Prior to `chainctl` version 0.2.291, cooldown policies were enabled via the `chainctl entitlements command`. Cooldown policies from earlier versions are listed as read-only system policies. To change the cooldown period, create a new custom policy and enforce it for a specified ecosystem.
+Prior to `chainctl` version 0.2.291, cooldown policies were enabled via the `chainctl entitlements command`. Cooldown policies configured prior to this version of `chainctl` are migrated under the new `chainctl libraries policies` system. 
 
 ### Remove entitlements
 
