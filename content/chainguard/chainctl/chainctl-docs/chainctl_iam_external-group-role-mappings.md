@@ -1,5 +1,5 @@
 ---
-date: 2026-06-16T22:17:50Z
+date: 2026-06-23T17:19:36Z
 title: "chainctl iam external-group-role-mappings"
 slug: chainctl_iam_external-group-role-mappings
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_external-group-role-mappings/

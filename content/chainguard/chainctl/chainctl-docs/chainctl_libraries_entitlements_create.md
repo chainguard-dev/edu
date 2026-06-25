@@ -1,5 +1,5 @@
 ---
-date: 2026-06-16T22:17:50Z
+date: 2026-06-23T17:19:36Z
 title: "chainctl libraries entitlements create"
 slug: chainctl_libraries_entitlements_create
 url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/
@@ -20,10 +20,9 @@ chainctl libraries entitlements create --parent=PARENT --ecosystems=LANGUAGE1,LA
 ### Options
 
 ```
-      --cooldown-days int32   Number of days an upstream package version must have been published before it is served (0 = no cooldown, valid range: 0-3650). Defaults to the system default of 7. (default 7)
-      --ecosystems strings    The language ecosystems to entitle to the parent org.
-      --parent string         The name or id of the org to create an entitlement for.
-      --policy string         The policy to apply to the entitlement (e.g. chainguard, chainguard_and_upstream). (default "chainguard")
+      --ecosystems strings   The language ecosystems to entitle to the parent org.
+      --parent string        The name or id of the org to create an entitlement for.
+      --policy string        The policy to apply to the entitlement (e.g. chainguard, chainguard_and_upstream). (default "chainguard")
 ```
 
 ### Options inherited from parent commands

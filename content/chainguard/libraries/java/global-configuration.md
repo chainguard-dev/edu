@@ -287,7 +287,7 @@ Configure a remote repository for the Chainguard Libraries for Java repository:
     * Deactivate **Maven Settings - Handle Snapshots**.
 1. Optionally click **Test** to verify connection and authentication.
 1. Click the **Advanced** configuration tab. Under the **Others** section, deactivate the **Block
-   Mismatching Mime Types** setting. Disable **URL Normalization**
+   Mismatching Mime Types** setting. Ensure **Disable URL Normalization** is checked.
 1. Click **Create Remote Repository**.
 1. If you are using the separate repository with remediated Java libraries, repeat the preceding steps to create remote repository named `java-chainguard-remediated` with a URL set to `https://libraries.cgr.dev/java-remediated/`. Use the same authentication details.
 
@@ -445,3 +445,4 @@ Use the URL of the repository group, such as
 configuration](/chainguard/libraries/java/build-configuration/) and build a 
 first test project. In a working setup the `java-chainguard` proxy repository contains
 all libraries retrieved from Chainguard.
+

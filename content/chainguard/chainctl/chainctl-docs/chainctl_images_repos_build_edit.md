@@ -1,5 +1,5 @@
 ---
-date: 2026-06-16T22:17:50Z
+date: 2026-06-23T17:19:36Z
 title: "chainctl images repos build edit"
 slug: chainctl_images_repos_build_edit
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_edit/
@@ -16,8 +16,8 @@ Edit a build config, optionally creating a new repo with --save-as
 ### Synopsis
 
 
-Extend a Chainguard image with custom packages, environment variables, and
-certificates.
+Extend a Chainguard image with custom packages, environment variables,
+certificates, and runtime APK repositories.
 
 You can use Custom Assembly to customize any image you are entitled to by
 adding packages from Chainguard's repository, setting environment variables,
@@ -27,6 +27,11 @@ Furthermore, Custom Assembly allows you to include any additional custom
 certificates in the image. They will be merged with the default certificate
 bundle, enabling the image to trust non-standard certificate authorities and
 connect to services secured with custom TLS certificates.
+
+You can also configure custom runtime APK repositories using --with-runtime-repositories.
+When set, these replace the default virtualapk.cgr.dev repositories in
+/etc/apk/repositories, allowing runtime package installation from your own
+APK mirrors.
 
 Finally, you can create variants by choosing to save the customized
 configuration as a new repository instead of modifying the existing one.
@@ -48,6 +53,11 @@ Customizable sections:
   contents.packages
     Add additional packages to install in the image (e.g., development tools,
     utilities). Packages must be available in Chainguard's package repository.
+
+  contents.runtime_repositories
+    Add APK repositories to /etc/apk/repositories in the image for runtime
+    package installation. When set, these replace the default virtualapk.cgr.dev
+    repositories. Must be HTTPS URLs.
 
   environment
     Set environment variables that will be available in the image. Variables
@@ -111,11 +121,12 @@ chainctl images repos build edit --file=config.yaml --with-certificates=internal
 ### Options
 
 ```
-  -f, --file string                 The name of the file containing the build config.
-      --parent string               The name or id of the parent location to apply build config.
-      --repo string                 The name or id of the repo to apply build config.
-      --save-as string              Create a new repo with the edited configuration instead of updating the existing one.
-      --with-certificates strings   Comma separated list of files to read the custom certificates from.
+  -f, --file string                         The name of the file containing the build config.
+      --parent string                       The name or id of the parent location to apply build config.
+      --repo string                         The name or id of the repo to apply build config.
+      --save-as string                      Create a new repo with the edited configuration instead of updating the existing one.
+      --with-certificates strings           Comma separated list of files to read the custom certificates from.
+      --with-runtime-repositories strings   Comma separated list of runtime APK repository URLs to write to /etc/apk/repositories in the image.
 ```
 
 ### Options inherited from parent commands

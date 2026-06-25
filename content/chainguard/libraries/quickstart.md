@@ -218,6 +218,19 @@ Check out minimal example projects for
   fallback only where necessary. 
 * [Direct access](/chainguard/libraries/javascript/build-configuration/): Configure your `.npmrc` to use `https://libraries.cgr.dev/javascript/` as the registry. 
 
+<a id="upstream-note"></a>
+
+> **Note on upstream fallback for JavaScript**: The npm upstream fallback is
+> available as an opt-in setting for both repository manager or direct access
+> approaches, and is turned off by default. Upstream packages are proxied
+> directly from npm and are not rebuilt or authored by Chainguard as part of our
+> Libraries product. The cooldown period and malware scanning provide a
+> supplemental baseline of protection to your own security practices, but you
+> are solely responsible for independently evaluating and validating all
+> upstream artifacts before use in your environment.  
+> <br>Learn more about upstream
+> fallback policy and controls in the [Libraries
+> overview](/chainguard/libraries/overview/#upstream-fallback-and-controls).
 
 Check out minimal example projects for
 [npm](/chainguard/libraries/javascript/build-configuration/#minimal-example-project),
@@ -228,6 +241,14 @@ Classic](/chainguard/libraries/javascript/build-configuration/#minimal-example-p
 and
 [Bun](/chainguard/libraries/javascript/build-configuration/#minimal-example-project-4) to understand how to use these repositories.
 
+> **Migrating an existing Python or JavaScript project?** If you have an
+> existing lockfile with upstream hashes, use `chainctl libraries update-hashes`
+> to update checksums to Chainguard's automatically, without regenerating your
+> lockfile from scratch. The command authenticates to Chainguard Libraries; see
+> the authentication options in the
+> [Python](/chainguard/libraries/python/build-configuration/#update-hashes-auth) and
+> [JavaScript](/chainguard/libraries/javascript/build-configuration/#update-hashes-auth)
+> build configuration guides.
 > **Migrating an existing JavaScript project?** If you have an existing lockfile
 > with upstream hashes, use `chainctl libraries update-hashes` to update
 > checksums to Chainguard's automatically, without regenerating your lockfile

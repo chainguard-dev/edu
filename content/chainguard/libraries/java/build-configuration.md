@@ -35,6 +35,8 @@ other engineers running relevant application builds. They must also be performed
 on any build server such as Jenkins, TeamCity, GitHub or other infrastructure
 that builds the applications or otherwise downloads and uses relevant libraries.
 
+The `https://libraries.cgr.dev/java/` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for Java. By default, it serves only Chainguard-built artifacts. When [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) is enabled for your organization, the same endpoint can also serve requested versions from Maven Central under Chainguard security controls.
+
 ## Library access approaches 
 
 ### Repo manager
@@ -284,25 +286,27 @@ Java.
 #### Configure direct access
 
 If you are not using a repository manager at your organization, you can
-configure access to the Chainguard Libraries for Java repository directly.
-Ensure that the Chainguard repository is located above the necessary override
-for the built-in `central` repository and any other repositories. If you are participating in the beta for CVE remediation, include the `https://libraries.cgr.dev/java-remediated/` repository first.
+configure access to the Chainguard Libraries for Java repository directly. If [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) is enabled for your organization, the `https://libraries.cgr.dev/java/` repository can serve both Chainguard-built artifacts and eligible upstream Maven Central artifacts through the same endpoint. If upstream fallback is not enabled, continue to configure Maven Central or your Maven Central proxy after the Chainguard repository, as shown in the following example.
+
+If you are participating in the beta for CVE remediation, include the `https://libraries.cgr.dev/java-remediated/` repository first.
+
+If you are using direct access with the Chainguard Repository and you want Chainguard policy controls to apply consistently, configure Chainguard as a global Maven mirror. Without a global mirror, Maven can fall back to its built-in Maven Central definition when Chainguard reports a dependency as unavailable, bypassing the policy and malware scanning controls provided by Chainguard.
 
 The following `~/.m2/settings.xml` configures direct access with Chainguard's remediated Java repository as
-the primary repository, falling back to the standard Chainguard Libraries repository when a remediated version is not available, and then to Maven Central as a fallback for transitive
-dependencies not available from Chainguard. It uses placeholder values
-`CG_PULLTOKEN_USERNAME` and `CG_PULLTOKEN_PASSWORD` or [environment
+the primary repository, falling back to the standard Chainguard Libraries repository when a remediated version is not available. If a library is not yet built by Chainguard and you have enabled upstream fallback, then upstream packages will be subject to malware scanning and any cooldown policies you have configured. This settings file uses [environment
 variables](/chainguard/libraries/access/#env) for the pull token detailed in
-[Chainguard Libraries access](/chainguard/libraries/access/):
+[Chainguard Libraries access](/chainguard/libraries/access/). 
 
 ```xml
 <settings>
   <activeProfiles>
-    <activeProfile>no-repo-manager</activeProfile>
+    <activeProfile>chainguard</activeProfile>
   </activeProfiles>
+
   <profiles>
     <profile>
-      <id>no-repo-manager</id>
+      <id>chainguard</id>
+
       <repositories>
         <repository>
           <id>chainguard-remediated</id>
@@ -311,7 +315,7 @@ variables](/chainguard/libraries/access/#env) for the pull token detailed in
           <snapshots><enabled>false</enabled></snapshots>
         </repository>
         <repository>
-          <id>chainguard</id>
+          <id>chainguard-java</id>
           <url>https://libraries.cgr.dev/java/</url>
           <releases>
             <enabled>true</enabled>
@@ -322,39 +326,45 @@ variables](/chainguard/libraries/access/#env) for the pull token detailed in
         </repository>
         <repository>
           <id>central</id>
-          <url>https://repo1.maven.org/maven2/</url>
-          <releases>
-            <enabled>true</enabled>
-          </releases>
-          <snapshots>
-            <enabled>false</enabled>
-          </snapshots>
+          <url>invalid</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
         </repository>
       </repositories>
+
       <pluginRepositories>
         <pluginRepository>
-          <id>chainguard</id>
+          <id>chainguard-java-remediated</id>
+          <url>https://libraries.cgr.dev/java-remediated/</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
+        </pluginRepository>
+        <pluginRepository>
+          <id>chainguard-java</id>
           <url>https://libraries.cgr.dev/java/</url>
-          <releases>
-            <enabled>true</enabled>
-          </releases>
-          <snapshots>
-            <enabled>false</enabled>
-          </snapshots>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
         </pluginRepository>
         <pluginRepository>
           <id>central</id>
-          <url>https://repo1.maven.org/maven2/</url>
-          <releases>
-            <enabled>true</enabled>
-          </releases>
-          <snapshots>
-            <enabled>false</enabled>
-          </snapshots>
+          <url>invalid</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
         </pluginRepository>
+
       </pluginRepositories>
     </profile>
   </profiles>
+
+    <mirrors>
+    <mirror>
+      <id>chainguard</id>
+      <name>Chainguard Mirror</name>
+      <url>https://libraries.cgr.dev/java/</url>
+      <mirrorOf>*</mirrorOf>
+    </mirror>
+  </mirrors>
+
   <servers>
     <server>
       <id>chainguard-remediated</id>
@@ -364,7 +374,7 @@ variables](/chainguard/libraries/access/#env) for the pull token detailed in
       <!-- <username>YOUR_IDENTITY_ID</username> -->
       <!-- <password>YOUR_TOKEN</password> -->
     </server>
-      <id>chainguard</id>
+      <id>chainguard-java</id>
       <!-- Use environment variables -->
       <username>${env.CHAINGUARD_JAVA_IDENTITY_ID}</username>
       <password>${env.CHAINGUARD_JAVA_TOKEN}</password>
@@ -379,6 +389,8 @@ The preceding settings affects all projects built on the machine where the file
 is configured. Alternatively you can add the `repositories` and
 `pluginRepositories` to individual project `pom.xml` files. Authentication
 details must remain within the settings file.
+
+If your `settings.xml` is using credentials set as environment variables, ensure the variables are exported.
 
 ### Minimal example project
 
