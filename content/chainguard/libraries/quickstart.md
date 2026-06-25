@@ -210,7 +210,11 @@ and
 > **Migrating an existing Python or JavaScript project?** If you have an
 > existing lockfile with upstream hashes, use `chainctl libraries update-hashes`
 > to update checksums to Chainguard's automatically, without regenerating your
-> lockfile from scratch.
+> lockfile from scratch. The command authenticates to Chainguard Libraries; see
+> the authentication options in the
+> [Python](/chainguard/libraries/python/build-configuration/#update-hashes-auth) and
+> [JavaScript](/chainguard/libraries/javascript/build-configuration/#update-hashes-auth)
+> build configuration guides.
 
 ## Step 4: Verify your libraries
 

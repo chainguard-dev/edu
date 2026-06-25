@@ -456,12 +456,14 @@ To enable upstream fallback for JavaScript, use the `--policy` flag:
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM
 ```
 
-To update the policy on an existing entitlement, rerun the `create` command with the new `--policy` value.
+To update the upstream fallback policy on an existing entitlement, rerun the `create` command with the new `--policy` value.
 
 
-### List entitlements
+### List entitlements and policies
 
-You can verify entitlements for your organization `example.com` to verify which ecosystems are enabled and what policies are configured:
+**Entitlements**
+
+You can verify entitlements for your organization `example.com` to verify which ecosystems are enabled:
 
 ```shell
 chainctl libraries entitlements list
@@ -478,6 +480,22 @@ Ecosystem Library Entitlements for example (45a0...p7q)
  45a0c61a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q/45678abc67890 | JAVA       | POLICY_CHAINGUARD
  45a0c61a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q/56789abc67890 | PYTHON     | POLICY_CHAINGUARD
 ```
+
+**Policies** 
+
+To list available policies, run the following:
+
+```bash
+chainctl libraries policy list
+```
+
+To verify which policy is active, run the following:
+
+```bash
+chainctl libraries policy binding list
+```
+
+Prior to `chainctl` version 0.2.291, cooldown policies were enabled via the `chainctl entitlements command`. Cooldown policies configured prior to this version of `chainctl` are migrated under the new `chainctl libraries policies` system. 
 
 ### Remove entitlements
 
