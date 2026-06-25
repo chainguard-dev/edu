@@ -59,7 +59,7 @@ jobs:
         python-version: '3.10'
 
     - name: Set environment variable for GitHub Actions
-      run: echo "GITHUB_ACTIONS=true" >> $GITHUB_ENV
+      run: echo "GITHUB_ACTIONS=true" >> "$GITHUB_ENV"
 
     - name: Compile documentation
       run: |

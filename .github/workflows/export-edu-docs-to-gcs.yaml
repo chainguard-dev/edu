@@ -59,12 +59,12 @@ jobs:
         if [ -d "content" ]; then
           echo "Copying and cleaning content directory..."
           # Create content directory structure
-          find content -type d | while read dir; do
+          find content -type d | while read -r dir; do
             mkdir -p "$EXPORT_DIR/$dir"
           done
           
           # Process each markdown file to remove HTML comments
-          find content -name "*.md" -type f | while read file; do
+          find content -name "*.md" -type f | while read -r file; do
             # Remove HTML comments and clean up empty lines
             sed -E 's/<!--[^>]*-->//g' "$file" | \
               sed '/^[[:space:]]*$/N;/\n[[:space:]]*$/d' > "$EXPORT_DIR/$file"

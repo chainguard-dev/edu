@@ -90,7 +90,7 @@ jobs:
         done
         
         # Check for suspicious files
-        find . -name "*.sh" -o -name "*.py" | grep -v -E "(compile_docs\.py|create_compressed_docs\.sh)" | while read file; do
+        find . -name "*.sh" -o -name "*.py" | grep -v -E "(compile_docs\.py|create_compressed_docs\.sh)" | while read -r file; do
           echo "Warning: Unexpected script found: $file"
         done
 
@@ -114,10 +114,10 @@ jobs:
         fi
 
     - name: Set environment variable for GitHub Actions
-      run: echo "GITHUB_ACTIONS=true" >> $GITHUB_ENV
+      run: echo "GITHUB_ACTIONS=true" >> "$GITHUB_ENV"
 
     - name: Create temporary directory
-      run: echo "TEMP_BUILD_DIR=$(mktemp -d)" >> $GITHUB_ENV
+      run: echo "TEMP_BUILD_DIR=$(mktemp -d)" >> "$GITHUB_ENV"
 
     - name: Compile documentation with resource limits
       run: |
@@ -129,9 +129,9 @@ jobs:
         timeout 600 python3 scripts/compile_docs.py --output $TEMP_BUILD_DIR/chainguard-complete-docs.md
         
         # Verify output file size (max 50MB uncompressed)
-        if [ -f $TEMP_BUILD_DIR/chainguard-complete-docs.md ]; then
+        if [ -f "$TEMP_BUILD_DIR"/chainguard-complete-docs.md ]; then
           size=$(stat -c%s $TEMP_BUILD_DIR/chainguard-complete-docs.md)
-          if [ $size -gt 52428800 ]; then
+          if [ "$size" -gt 52428800 ]; then
             echo "Error: Compiled documentation exceeds 50MB limit"
             exit 1
           fi
