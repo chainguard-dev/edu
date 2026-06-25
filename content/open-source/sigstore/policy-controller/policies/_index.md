@@ -1,5 +1,5 @@
 ---
-title: "Policies"
+title: "Sigstore Policy Controller Policies"
 lead: ""
 type: "article"
 date: 2023-04-13T08:49:15+00:00
