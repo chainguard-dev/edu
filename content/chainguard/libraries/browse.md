@@ -50,7 +50,9 @@ The list includes the following columns:
 
 At the bottom of the page, see a total count of available libraries.
 
-As a part of Chainguard Repository, [upstream fallback and policy controls](/chainguard/libraries/overview/#upstream-fallback-and-controls) are available for Chainguard Libraries for JavaScript. When fallback is configured for your organization, you will see all packages including those built by Chainguard and those that are mirrored from upstream npm. For a given package, you can see whether it is being served from Chainguard's rebuilt artifacts or proxied from upstream npm.
+As a part of Chainguard Repository, [upstream fallback and policy controls](/chainguard/libraries/overview/#upstream-fallback-and-controls) are available for Chainguard Libraries and can be enabled via `chainctl` commands. For JavaScript, you can also enable upstream fallback in the Chainguard Console. 
+
+When fallback is configured for your organization, you will see all JavaScript packages -- including those built by Chainguard and those that are mirrored from upstream npm -- in the Console. For a given package, you can see whether it is being served from Chainguard's rebuilt artifacts or proxied from upstream npm. For Java and Python, you cannot currently view upstream vs. Chainguard-built packages via the Chainguard Console.
 
 <a id="search"></a>
 
