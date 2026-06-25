@@ -187,14 +187,11 @@ subject to additional security controls before being served.
 ### Enable the upstream repository
 
 To enable or change upstream fallback configuration, use the [`chainctl
-libraries entitlements`
-command](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/).
-
-The following command creates or updates an entitlement to Chainguard Libraries
-for JavaScript, adds the npm upstream fallback policy, and configures a 7-day cooldown:
+libraries entitlements create`
+command](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/):
 
 ```bash
-chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM --cooldown-days=7
+chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM
 ```
 
 ### Fallback options
@@ -210,8 +207,11 @@ The following options are available:
 When upstream fallback is enabled, users with the Owner role can configure the cooldown with `chainctl`:
 
 ```bash
-chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM --cooldown-days=3
+chainctl libraries policy create --name=js-cooldown --cooldown-days=10
+chainctl libraries policy enable --policy=js-cooldown --ecosystem=JAVASCRIPT --mode=ENFORCE
 ```
+Note: These commands require `chainctl` v0.2.291 or newer.
+
 The default cooldown period is 7 days. Note that shorter cooldown periods increase the risk of pulling malicious or compromised upstream packages before the broader ecosystem can detect and report them.
 
 > **Upstream fallback best practices**
