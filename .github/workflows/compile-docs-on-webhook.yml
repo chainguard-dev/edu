@@ -84,16 +84,18 @@ jobs:
         fi
 
     - name: Commit and push changes
+      env:
+        CLIENT_PAYLOAD_REPOSITORY: ${{ github.event.client_payload.repository }}
       run: |
         cd edu
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        
+
         # Check if there are changes
         if git diff --quiet; then
           echo "No changes to commit"
         else
           git add static/downloads/chainguard-complete-docs.*
-          git commit -m "Update compiled documentation bundle from ${{ github.event.client_payload.repository }} [skip ci]" || echo "No changes to commit"
+          git commit -m "Update compiled documentation bundle from ${CLIENT_PAYLOAD_REPOSITORY} [skip ci]" || echo "No changes to commit"
           git push
         fi

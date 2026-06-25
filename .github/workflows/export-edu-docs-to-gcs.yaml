@@ -86,9 +86,9 @@ jobs:
         {
           "repository": "chainguard-dev/edu",
           "export_time": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
-          "commit": "${{ github.sha }}",
-          "ref": "${{ github.ref }}",
-          "triggered_by": "${{ github.event_name }}",
+          "commit": "$GITHUB_SHA",
+          "ref": "$GITHUB_REF",
+          "triggered_by": "$GITHUB_EVENT_NAME",
           "files_count": $(find "$EXPORT_DIR" -name "*.md" -type f | wc -l),
           "total_size": "$(du -sh "$EXPORT_DIR" | cut -f1)"
         }
@@ -154,17 +154,17 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
           // Wait a moment to ensure all repos have uploaded if running on schedule
-          if ('${{ github.event_name }}' === 'schedule') {
+          if (context.eventName === 'schedule') {
             await new Promise(resolve => setTimeout(resolve, 60000)); // Wait 1 minute
           }
-          
+
           await github.rest.repos.createDispatchEvent({
             owner: context.repo.owner,
             repo: context.repo.repo,
             event_type: 'ai-docs-source-updated',
             client_payload: {
               repository: 'chainguard-dev/edu',
-              commit: '${{ github.sha }}',
+              commit: context.sha,
               source: 'edu'
             }
           });

@@ -14,21 +14,30 @@ runs:
   steps:
     - name: download openapi api.json spec from cloud storage
       shell: bash
+      env:
+        PROJECT_ID: ${{ inputs.project_id }}
+        STORAGE_BUCKET: ${{ inputs.storage_bucket }}
       run: |
-        gcloud --quiet storage cp --project="${{ inputs.project_id }}" \
-          "${{ inputs.storage_bucket }}/enforce-openapi/api*.json" static/
+        gcloud --quiet storage cp --project="${PROJECT_ID}" \
+          "${STORAGE_BUCKET}/enforce-openapi/api*.json" static/
 
     - name: download events.md from cloud storage
       shell: bash
+      env:
+        PROJECT_ID: ${{ inputs.project_id }}
+        STORAGE_BUCKET: ${{ inputs.storage_bucket }}
       run: |
-        gcloud --quiet storage cp --project="${{ inputs.project_id }}" \
-          "${{ inputs.storage_bucket }}/enforce-events/events.md" content/chainguard/administration/cloudevents/events-reference.md
+        gcloud --quiet storage cp --project="${PROJECT_ID}" \
+          "${STORAGE_BUCKET}/enforce-events/events.md" content/chainguard/administration/cloudevents/events-reference.md
 
     - name: download chainctl docs from cloud storage
       shell: bash
+      env:
+        PROJECT_ID: ${{ inputs.project_id }}
+        STORAGE_BUCKET: ${{ inputs.storage_bucket }}
       run: |
-        gcloud --quiet storage cp --recursive --project="${{ inputs.project_id }}" \
-          "${{ inputs.storage_bucket }}/chainctl-docs" /tmp/
+        gcloud --quiet storage cp --recursive --project="${PROJECT_ID}" \
+          "${STORAGE_BUCKET}/chainctl-docs" /tmp/
 
     - name: copy changed chainctl docs into academy content directory
       shell: bash
@@ -50,16 +59,22 @@ runs:
 
     - name: download domains.md from cloud storage
       shell: bash
+      env:
+        PROJECT_ID: ${{ inputs.project_id }}
+        STORAGE_BUCKET: ${{ inputs.storage_bucket }}
       run: |
-        gcloud --quiet storage cp --project="${{ inputs.project_id }}" \
-          "${{ inputs.storage_bucket }}/enforce-blurbs/domains.md" /tmp/domains.md
+        gcloud --quiet storage cp --project="${PROJECT_ID}" \
+          "${STORAGE_BUCKET}/enforce-blurbs/domains.md" /tmp/domains.md
         sed 's/^/- /g' -i /tmp/domains.md
         mv /tmp/domains.md data/domains.yaml
 
     - name: download ips.md from cloud storage
       shell: bash
+      env:
+        PROJECT_ID: ${{ inputs.project_id }}
+        STORAGE_BUCKET: ${{ inputs.storage_bucket }}
       run: |
-        gcloud --quiet storage cp --project="${{ inputs.project_id }}" \
-          "${{ inputs.storage_bucket }}/enforce-blurbs/ips.md" /tmp/ips.md
+        gcloud --quiet storage cp --project="${PROJECT_ID}" \
+          "${STORAGE_BUCKET}/enforce-blurbs/ips.md" /tmp/ips.md
         sed 's/^/- /g' -i /tmp/ips.md
         mv /tmp/ips.md data/ips.yaml

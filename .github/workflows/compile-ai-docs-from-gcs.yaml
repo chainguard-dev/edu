@@ -269,10 +269,11 @@ jobs:
         PROJECT_ID: ${{ secrets.PROJECT_ID }}
         REPOSITORY: ${{ secrets.REPOSITORY }}
         COMMIT_SHA: ${{ github.sha }}
+        REPO_OWNER: ${{ github.repository_owner }}
       run: |
         gcloud auth configure-docker "${REGISTRY_URL%%/*}" --quiet
         AR_IMAGE="$REGISTRY_URL/$PROJECT_ID/$REPOSITORY/ai-docs"
-        docker tag "ghcr.io/${{ github.repository_owner }}/ai-docs:$COMMIT_SHA" "$AR_IMAGE:$COMMIT_SHA"
+        docker tag "ghcr.io/${REPO_OWNER}/ai-docs:$COMMIT_SHA" "$AR_IMAGE:$COMMIT_SHA"
         docker push "$AR_IMAGE:$COMMIT_SHA" || { echo "ERROR: Failed to push to Artifact Registry"; exit 1; }
 
     - name: Deploy MCP server to Cloud Run

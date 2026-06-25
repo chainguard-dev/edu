@@ -70,27 +70,36 @@ jobs:
 
       - name: Configure GCR auth
         shell: bash
-        run: gcloud auth configure-docker "${{ secrets.TERMINAL_REGISTRY_URL }}"
+        env:
+          TERMINAL_REGISTRY_URL: ${{ secrets.TERMINAL_REGISTRY_URL }}
+        run: gcloud auth configure-docker "${TERMINAL_REGISTRY_URL}"
 
       - name: apko login
         shell: bash
+        env:
+          TERMINAL_REGISTRY_URL: ${{ secrets.TERMINAL_REGISTRY_URL }}
+          ACCESS_TOKEN: ${{ steps.auth.outputs.access_token }}
         run: |
           apko login \
-            "${{ secrets.TERMINAL_REGISTRY_URL }}" \
-            --password=${{ steps.auth.outputs.access_token }} \
+            "${TERMINAL_REGISTRY_URL}" \
+            --password="${ACCESS_TOKEN}" \
             --username="oauth2accesstoken"
 
       - name: apko publish
         shell: bash
         # working-directory: terminal-images/${{ matrix.image }}
+        env:
+          TERMINAL_REGISTRY_URL: ${{ secrets.TERMINAL_REGISTRY_URL }}
+          TERMINAL_REPOSITORY: ${{ secrets.TERMINAL_REPOSITORY }}
+          MATRIX_IMAGE: ${{ matrix.image }}
         run: |
           apko publish \
             --arch x86_64 apko.yaml \
             --image-refs image-refs.txt \
-            "${{ secrets.TERMINAL_REGISTRY_URL }}/${{ secrets.TERMINAL_REPOSITORY }}/${{ matrix.image }}:latest" \
+            "${TERMINAL_REGISTRY_URL}/${TERMINAL_REPOSITORY}/${MATRIX_IMAGE}:latest" \
             -k melange.rsa.pub \
             --sbom-path . \
-            -C terminal-images/${{ matrix.image }}
+            -C "terminal-images/${MATRIX_IMAGE}"
 
       # - name: cosign login
       #  shell: bash
