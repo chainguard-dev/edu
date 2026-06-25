@@ -28,6 +28,8 @@ jobs:
 
     - name: 'Checkout default branch to $GITHUB_WORKSPACE dir'
       uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      with:
+        persist-credentials: false
 
     - name: 'Setup gitsign'
       uses: chainguard-dev/actions/setup-gitsign@e1c4977ad9cb32b12c5b222ec0134a22bec60bd5 # v1.6.25

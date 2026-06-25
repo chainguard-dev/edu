@@ -31,6 +31,11 @@ jobs:
       with:
         path: edu
         token: ${{ secrets.GITHUB_TOKEN }}
+        # Required by the bare `git push` in the "Commit and push changes"
+        # step, which relies on the persisted credential helper. Consider
+        # converting to an explicitly-passed token (octo-sts candidate) and
+        # flipping this to false.
+        persist-credentials: true
 
     - name: Checkout courses repository
       uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
@@ -38,6 +43,7 @@ jobs:
         repository: chainguard-dev/courses
         path: courses
         token: ${{ secrets.DOCS_COMPILE_PAT }}
+        persist-credentials: false
 
     - name: Checkout images-private repository
       uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
@@ -45,6 +51,7 @@ jobs:
         repository: chainguard-images/images-private
         path: images-private
         token: ${{ secrets.DOCS_COMPILE_PAT }}
+        persist-credentials: false
 
     - name: Set up Python
       uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
