@@ -314,7 +314,6 @@ variables](/chainguard/libraries/access/#env) for the pull token detailed in
           <releases><enabled>true</enabled></releases>
           <snapshots><enabled>false</enabled></snapshots>
         </repository>
-
         <repository>
           <id>chainguard-java</id>
           <url>https://libraries.cgr.dev/java/</url>
@@ -324,6 +323,12 @@ variables](/chainguard/libraries/access/#env) for the pull token detailed in
           <snapshots>
             <enabled>false</enabled>
           </snapshots>
+        </repository>
+        <repository>
+          <id>central</id>
+          <url>invalid</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
         </repository>
       </repositories>
 
@@ -337,6 +342,12 @@ variables](/chainguard/libraries/access/#env) for the pull token detailed in
         <pluginRepository>
           <id>chainguard-java</id>
           <url>https://libraries.cgr.dev/java/</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
+        </pluginRepository>
+        <pluginRepository>
+          <id>central</id>
+          <url>invalid</url>
           <releases><enabled>true</enabled></releases>
           <snapshots><enabled>false</enabled></snapshots>
         </pluginRepository>
@@ -380,28 +391,6 @@ is configured. Alternatively you can add the `repositories` and
 details must remain within the settings file.
 
 If your `settings.xml` is using credentials set as environment variables, ensure the variables are exported.
-
-To explicitly remove access to Maven Central, include the following in your `settings.xml`:
-
-```xml
-      <repositories>
-       ...
-        <repository>
-          <id>central</id>
-          <url>invalid</url>
-          <releases><enabled>true</enabled></releases>
-          <snapshots><enabled>false</enabled></snapshots>
-        </repository>
-...
-        <pluginRepository>
-          <id>central</id>
-          <url>invalid</url>
-          <releases><enabled>true</enabled></releases>
-          <snapshots><enabled>false</enabled></snapshots>
-        </pluginRepository>
-
-```
-
 
 ### Minimal example project
 
