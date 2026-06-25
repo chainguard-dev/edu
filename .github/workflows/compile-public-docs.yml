@@ -22,18 +22,18 @@ on:
           - 'true'
           - 'false'
 
-permissions:
-  contents: write  # For creating/updating releases
-  actions: read
-  id-token: write  # For cosign keyless signing
-  packages: write  # For GHCR
-  # TODO: Split into separate compile (read-only) and publish (write) jobs
-  
+permissions: {}
+
 jobs:
   compile-and-release:
     if: github.repository == 'chainguard-dev/edu'
     runs-on: ubuntu-latest
     environment: documentation
+    permissions:
+      contents: write  # For creating/updating releases
+      actions: read
+      id-token: write  # For cosign keyless signing
+      packages: write  # For GHCR
 
     steps:
     - name: Harden the runner

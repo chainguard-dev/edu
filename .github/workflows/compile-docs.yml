@@ -18,19 +18,19 @@ on:
         required: false
         default: 'false'
 
-permissions:
-  contents: write  # For creating/updating releases
-  actions: read
-  id-token: write  # For cosign keyless signing
-  packages: write  # For GHCR
-  # TODO: Split into separate compile (read-only) and publish (write) jobs
-  
+permissions: {}
+
 jobs:
   compile-docs:
     if: github.repository == 'chainguard-dev/edu'
     runs-on: ubuntu-latest
     environment: documentation  # Use environment protection rules
-    
+    permissions:
+      contents: write  # For creating/updating releases
+      actions: read
+      id-token: write  # For cosign keyless signing
+      packages: write  # For GHCR
+
     steps:
     - name: Harden the runner
       uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4

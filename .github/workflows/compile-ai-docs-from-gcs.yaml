@@ -13,19 +13,18 @@ concurrency:
   group: compile-ai-docs-${{ github.ref }}
   cancel-in-progress: false
 
-permissions:
-  contents: read
-  id-token: write  # For GCP workload identity federation
-  packages: write  # For pushing to GHCR
-  # TODO: Split into separate compile (read-only) and publish (write) jobs
-  # to minimize permission scope per step
-  
+permissions: {}
+
 jobs:
   compile-docs:
     if: github.repository == 'chainguard-dev/edu'
     runs-on: ubuntu-latest
     environment: documentation
-    
+    permissions:
+      contents: read
+      id-token: write  # For GCP workload identity federation
+      packages: write  # For pushing to GHCR
+
     steps:
     - name: Harden Runner
       uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4

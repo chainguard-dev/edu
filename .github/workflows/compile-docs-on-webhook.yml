@@ -9,16 +9,17 @@ on:
   workflow_dispatch:
 
 # Restrict permissions to minimum required
-permissions:
-  contents: write  # Only for pushing compiled docs
-  actions: read
+permissions: {}
 
 jobs:
   compile-docs:
     if: github.repository == 'chainguard-dev/edu'
     runs-on: ubuntu-latest
     environment: documentation  # Use environment protection rules
-    
+    permissions:
+      contents: write  # Only for pushing compiled docs
+      actions: read
+
     steps:
     - name: Harden the runner (Audit all outbound calls)
       uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4

@@ -15,15 +15,16 @@ on:
   
   workflow_dispatch:
 
-permissions:
-  contents: write  # Required for repository dispatch events
-  id-token: write  # Required for workload identity federation
+permissions: {}
 
 jobs:
   export-docs:
     if: github.repository == 'chainguard-dev/edu'
     runs-on: ubuntu-latest
-    
+    permissions:
+      contents: write  # Required for repository dispatch events
+      id-token: write  # Required for workload identity federation
+
     steps:
     - name: Harden Runner
       uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4
