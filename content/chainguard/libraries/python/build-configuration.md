@@ -423,13 +423,13 @@ Alternatively, edit the `pyproject.toml` file directly:
 
 ```toml
 [[tool.poetry.source]]
-name = "chainguard"
+name = "chainguard-remediated"
 url = "https://libraries.cgr.dev/python-remediated/simple"
 priority = "primary"
 
 [[tool.poetry.source]]
-name = "chainguard-remediated"
-url = "https://libraries.cgr.dev/python-remediated/simple"
+name = "chainguard"
+url = "https://libraries.cgr.dev/python/simple"
 
 [[tool.poetry.source]]
 name = "PyPI"
