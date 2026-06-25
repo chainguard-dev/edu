@@ -22,6 +22,7 @@ As of this writing, the Chainguard Repository contains the following artifact ty
 | ----- | ----- |
 | [Chainguard Libraries for JavaScript](/chainguard/libraries/javascript/overview/) | Open source language dependencies rebuilt from source for JavaScript (npm). |
 | [Chainguard Libraries for Java](/chainguard/libraries/java/overview/) | Open source language dependencies rebuilt from source for Java (Maven). |
+| [Chainguard Libraries for Python](/chainguard/libraries/python/overview/) | Open source language dependencies rebuilt from source for Python (PyPI). |
 
 ## Endpoints
 
@@ -31,6 +32,7 @@ Each artifact type is accessible via its own endpoint:
 | ----- | ----- |
 | Libraries for [JavaScript](/chainguard/libraries/javascript/overview/) | `https://libraries.cgr.dev/javascript/` |
 | Libraries for [Java](/chainguard/libraries/java/overview/) | `https://libraries.cgr.dev/java/` |
+| Libraries for [Python](/chainguard/libraries/python/overview/) | `https://libraries.cgr.dev/python/` |
 
 See each artifact type's documentation for authentication and configuration details.
 
@@ -78,4 +80,5 @@ Access the Console at [console.chainguard.dev](https://console.chainguard.dev).
 
 * [Chainguard Libraries for JavaScript](/chainguard/libraries/javascript/overview/)  
 * [Chainguard Libraries for Java](/chainguard/libraries/java/overview/)
+* [Chainguard Libraries for Python](/chainguard/libraries/python/overview/)
 
