@@ -10,6 +10,8 @@ draft: false
 images: []
 weight: 020
 crosslinks:
+- title: "Authenticate to the registry"
+  url: "/chainguard/chainguard-images/chainguard-registry/authenticating/"
 - title: "nginx"
   url: "/chainguard/chainguard-images/getting-started/nginx/"
 - title: "PostgreSQL"
