@@ -12,7 +12,7 @@ menu:
   docs:
     parent: "chainguard-images"
     identifier: "Chainguard Images FAQ"
-weight: 060
+weight: 065
 toc: true
 ---
 
