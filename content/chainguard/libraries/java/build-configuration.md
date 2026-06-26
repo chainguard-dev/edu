@@ -392,6 +392,8 @@ details must remain within the settings file.
 
 If your `settings.xml` is using credentials set as environment variables, ensure the variables are exported.
 
+>Note: Upstream fallback includes a 7-day cooldown by default. If you have a cooldown policy configured, your build will fail if a package falls within the cooldown window. See [the FAQ](#build-fails-with-unknown-host-invalid-or-nodename-nor-servname-provided) on this page for more information.
+
 ### Minimal example project
 
 Use the following steps to create a minimal example project for Maven with Chainguard Libraries for Java. For testing purposes, you can use direct access and environment variables as
