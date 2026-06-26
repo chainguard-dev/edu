@@ -1,5 +1,5 @@
 ---
-date: 2026-06-23T17:19:36Z
+date: 2026-06-25T19:50:48Z
 title: "chainctl skills pull"
 slug: chainctl_skills_pull
 url: /chainguard/chainctl/chainctl-docs/chainctl_skills_pull/
@@ -18,10 +18,17 @@ Download a published skill to a local directory.
 Download a published skill to a local directory.
 
 <ref> is a skill reference of the form org/name[:tag].
-<dir> is the output directory (default: ./<name>).
+<dir> is the destination directory.
 
 ```
 chainctl skills pull <ref> [<dir>] [flags]
+```
+
+### Examples
+
+```
+  # Pull into a specific directory:
+  chainctl skills pull chainguard/github/lint ./my-skills/lint
 ```
 
 ### Options

@@ -1,24 +1,24 @@
 ---
 date: 2026-06-25T19:50:48Z
-title: "chainctl libraries policy binding delete"
-slug: chainctl_libraries_policy_binding_delete
-url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding_delete/
+title: "chainctl libraries artifacts versions"
+slug: chainctl_libraries_artifacts_versions
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_artifacts_versions/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl libraries policy binding delete
+## chainctl libraries artifacts versions
 
-Delete a Libraries policy binding.
+List the versions of a Libraries artifact.
 
 ### Synopsis
 
-Delete a Libraries policy binding to deactivate the policy for its bound (organization, ecosystem) pair.
+List all versions of a single artifact, identified by the artifact id returned by 'chainctl libraries artifacts list'.
 
 ```
-chainctl libraries policy binding delete BINDING_ID [flags]
+chainctl libraries artifacts versions ARTIFACT_ID [--output=json|table] [flags]
 ```
 
 ### Options inherited from parent commands
@@ -38,5 +38,5 @@ chainctl libraries policy binding delete BINDING_ID [flags]
 
 ### SEE ALSO
 
-* [chainctl libraries policy binding](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding/)	 - Manage Libraries policy bindings.
+* [chainctl libraries artifacts](/chainguard/chainctl/chainctl-docs/chainctl_libraries_artifacts/)	 - Inspect Libraries artifacts.
 

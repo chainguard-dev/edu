@@ -1,25 +1,23 @@
 ---
 date: 2026-06-25T19:50:48Z
-title: "chainctl libraries policy binding delete"
-slug: chainctl_libraries_policy_binding_delete
-url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding_delete/
+title: "chainctl libraries artifacts"
+slug: chainctl_libraries_artifacts
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_artifacts/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl libraries policy binding delete
+## chainctl libraries artifacts
 
-Delete a Libraries policy binding.
+Inspect Libraries artifacts.
 
 ### Synopsis
 
-Delete a Libraries policy binding to deactivate the policy for its bound (organization, ecosystem) pair.
-
-```
-chainctl libraries policy binding delete BINDING_ID [flags]
-```
+Browse the Chainguard Libraries artifact catalog. Artifacts are the
+packages served by Chainguard Libraries across language ecosystems; these
+commands list artifacts, their versions, and per-ecosystem counts.
 
 ### Options inherited from parent commands
 
@@ -38,5 +36,8 @@ chainctl libraries policy binding delete BINDING_ID [flags]
 
 ### SEE ALSO
 
-* [chainctl libraries policy binding](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding/)	 - Manage Libraries policy bindings.
+* [chainctl libraries](/chainguard/chainctl/chainctl-docs/chainctl_libraries/)	 - Ecosystem library related commands.
+* [chainctl libraries artifacts count](/chainguard/chainctl/chainctl-docs/chainctl_libraries_artifacts_count/)	 - Count Libraries artifacts per ecosystem.
+* [chainctl libraries artifacts list](/chainguard/chainctl/chainctl-docs/chainctl_libraries_artifacts_list/)	 - List Libraries artifacts.
+* [chainctl libraries artifacts versions](/chainguard/chainctl/chainctl-docs/chainctl_libraries_artifacts_versions/)	 - List the versions of a Libraries artifact.
 
