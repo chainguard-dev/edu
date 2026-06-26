@@ -4843,6 +4843,22 @@
         },
         "type": "object"
       },
+      "chainguard.platform.registry.Entitlements.RemoveEntitlementImagesBody": {
+        "properties": {
+          "id": {
+            "description": "The exact id of the entitlement to remove images from.",
+            "type": "string"
+          },
+          "imageNames": {
+            "description": "Catalog image names to remove (e.g., \"nginx\", \"redis\"). Matched against\nthe names of catalog images currently associated with the targeted\nentitlement(s). Names that aren't currently entitled are silent no-ops.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.registry.EolGracePeriodStatus": {
         "default": "GRACE_NOT_ELIGIBLE",
         "enum": [
@@ -5529,6 +5545,23 @@
           "uniqueTags": {
             "description": "unique_tags controls whether exported tags will be uniquely labeled by default.",
             "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.RemoveEntitlementImagesResponse": {
+        "properties": {
+          "images": {
+            "description": "The images that were removed. One entry per removal event — when a\nsingle image is removed from multiple entitlements (org-scoped remove),\nit appears once per affected entitlement so callers can see the\nper-entitlement effect.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.EntitledImage"
+            },
+            "type": "array"
+          },
+          "parent": {
+            "description": "The customer org UIDP that owned the affected entitlements. Set by\nthe backend to the resolved parent regardless of whether the request\nselected by parent or by entitlement id. Used as the CloudEvents\nsubject for downstream subscribers.",
+            "readOnly": true,
+            "type": "string"
           }
         },
         "type": "object"
@@ -13719,6 +13752,61 @@
           }
         },
         "summary": "Get Features",
+        "tags": [
+          "RegistryEntitlements"
+        ]
+      }
+    },
+    "/registry/v1/entitlements/{parent}:removeImages": {
+      "post": {
+        "description": "Removal is a soft delete: the underlying rows are retained with a deletion\ntimestamp so that history can be reconstructed for audit purposes.",
+        "operationId": "Entitlements_RemoveEntitlementImages",
+        "parameters": [
+          {
+            "description": "The organization to remove images from. The named images are\nremoved from every active entitlement under the org that has them.",
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.registry.Entitlements.RemoveEntitlementImagesBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.registry.RemoveEntitlementImagesResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Remove Entitlement Images",
         "tags": [
           "RegistryEntitlements"
         ]

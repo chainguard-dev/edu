@@ -1,24 +1,33 @@
 ---
 date: 2026-06-25T19:50:48Z
-title: "chainctl libraries policy binding delete"
-slug: chainctl_libraries_policy_binding_delete
-url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding_delete/
+title: "chainctl libraries artifacts list"
+slug: chainctl_libraries_artifacts_list
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_artifacts_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl libraries policy binding delete
+## chainctl libraries artifacts list
 
-Delete a Libraries policy binding.
+List Libraries artifacts.
 
 ### Synopsis
 
-Delete a Libraries policy binding to deactivate the policy for its bound (organization, ecosystem) pair.
+List artifacts in the Chainguard Libraries catalog for an ecosystem, optionally filtered by a search query.
 
 ```
-chainctl libraries policy binding delete BINDING_ID [flags]
+chainctl libraries artifacts list --ecosystem ECOSYSTEM [--query QUERY] [--output=json|table] [flags]
+```
+
+### Options
+
+```
+      --ecosystem string   The ecosystem to list artifacts for (JAVA, PYTHON, JAVASCRIPT).
+      --limit int32        The maximum number of artifacts to return; results are paginated automatically up to this limit. (default 50)
+      --query string       A search string to filter artifacts by name. If empty, all artifacts in the ecosystem are returned.
+      --remediated         Only return remediated artifacts.
 ```
 
 ### Options inherited from parent commands
@@ -38,5 +47,5 @@ chainctl libraries policy binding delete BINDING_ID [flags]
 
 ### SEE ALSO
 
-* [chainctl libraries policy binding](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding/)	 - Manage Libraries policy bindings.
+* [chainctl libraries artifacts](/chainguard/chainctl/chainctl-docs/chainctl_libraries_artifacts/)	 - Inspect Libraries artifacts.
 
