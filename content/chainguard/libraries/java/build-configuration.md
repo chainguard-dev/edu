@@ -925,3 +925,19 @@ Example URLs for repository managers:
 * Cloudsmith: `https://dl.cloudsmith.io/basic/exampleorg/java-all/maven/`
 * JFrog Artifactory: `https://example.jfrog.io/artifactory/java-all/`
 * Sonatype Nexus: `https://repo.example.com:8443/repository/java-all/`
+
+## Troubleshooting
+
+### Build fails with "Unknown host invalid" or "nodename nor servname provided"
+
+If your build fails with an error similar to the following, a dependency has been blocked by Chainguard's cooldown policy:
+
+```
+Non-resolvable import POM: Could not transfer artifact io.airlift:bom:pom:436
+from/to central (https://invalid): invalid: nodename nor servname provided,
+or not known
+```
+
+The `https://invalid` URL in the error indicates that Chainguard blocked the artifact rather than serving it, and the fallback to Central was also blocked. This happens when a recently published package falls within the cooldown window — a security feature that holds newly published artifacts for a configurable period before serving them, to allow time for malware scanning.
+
+To avoid build failures, you can [disable the cooldown or decrease its length](/chainguard/libraries/overview/#cooldown-period).
