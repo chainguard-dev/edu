@@ -15,15 +15,16 @@ on:
   
   workflow_dispatch:
 
-permissions:
-  contents: write  # Required for repository dispatch events
-  id-token: write  # Required for workload identity federation
+permissions: {}
 
 jobs:
   export-docs:
     if: github.repository == 'chainguard-dev/edu'
     runs-on: ubuntu-latest
-    
+    permissions:
+      contents: write  # Required for repository dispatch events
+      id-token: write  # Required for workload identity federation
+
     steps:
     - name: Harden Runner
       uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4
@@ -31,7 +32,7 @@ jobs:
         egress-policy: audit
 
     - name: Checkout repository
-      uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+      uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       with:
         persist-credentials: false  # Don't persist auth token
 
@@ -58,12 +59,12 @@ jobs:
         if [ -d "content" ]; then
           echo "Copying and cleaning content directory..."
           # Create content directory structure
-          find content -type d | while read dir; do
+          find content -type d | while read -r dir; do
             mkdir -p "$EXPORT_DIR/$dir"
           done
           
           # Process each markdown file to remove HTML comments
-          find content -name "*.md" -type f | while read file; do
+          find content -name "*.md" -type f | while read -r file; do
             # Remove HTML comments and clean up empty lines
             sed -E 's/<!--[^>]*-->//g' "$file" | \
               sed '/^[[:space:]]*$/N;/\n[[:space:]]*$/d' > "$EXPORT_DIR/$file"
@@ -85,9 +86,9 @@ jobs:
         {
           "repository": "chainguard-dev/edu",
           "export_time": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
-          "commit": "${{ github.sha }}",
-          "ref": "${{ github.ref }}",
-          "triggered_by": "${{ github.event_name }}",
+          "commit": "$GITHUB_SHA",
+          "ref": "$GITHUB_REF",
+          "triggered_by": "$GITHUB_EVENT_NAME",
           "files_count": $(find "$EXPORT_DIR" -name "*.md" -type f | wc -l),
           "total_size": "$(du -sh "$EXPORT_DIR" | cut -f1)"
         }
@@ -153,17 +154,17 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
           // Wait a moment to ensure all repos have uploaded if running on schedule
-          if ('${{ github.event_name }}' === 'schedule') {
+          if (context.eventName === 'schedule') {
             await new Promise(resolve => setTimeout(resolve, 60000)); // Wait 1 minute
           }
-          
+
           await github.rest.repos.createDispatchEvent({
             owner: context.repo.owner,
             repo: context.repo.repo,
             event_type: 'ai-docs-source-updated',
             client_payload: {
               repository: 'chainguard-dev/edu',
-              commit: '${{ github.sha }}',
+              commit: context.sha,
               source: 'edu'
             }
           });

@@ -200,6 +200,74 @@ After saving and confirming these changes, Custom Assembly will add these five c
 Be aware that Custom Assembly blocks any environment variable that begins with `CHAINGUARD_` from being added or changed. This is to prevent conflicts with configuration details managed by Chainguard.
 
 
+## Custom runtime repositories
+
+Custom Assembly lets you replace the default APK repository URLs written to `/etc/apk/repositories` in your assembled images. This is useful if your organization mirrors Chainguard's APK feed to an internal registry and requires containers to resolve packages from internal infrastructure at runtime.
+
+> **Note**: This feature only affects which repository URLs are written into the image for runtime use. Build-time package resolution always uses Chainguard's `apk.cgr.dev` repositories. For more details on limitations and compatibility, refer to the [Custom runtime repositories overview](/chainguard/chainguard-images/features/ca-docs/custom-assembly/#custom-runtime-repositories).
+
+To add custom runtime repositories, use `chainctl image repo build edit` as with other customizations:
+
+```shell
+chainctl image repo build edit --parent $ORGANIZATION --repo $CONTAINER
+```
+
+In the text editor, add a `runtime_repositories` field under `contents`:
+
+```yaml
+contents:
+  packages:
+    - curl
+    - jq
+  runtime_repositories:
+    - https://apk-mirror.example.com/chainguard
+    - https://apk-mirror.example.com/extras
+```
+
+After saving and confirming the changes, the resulting image's `/etc/apk/repositories` will contain only your custom URLs:
+
+```
+https://apk-mirror.example.com/chainguard
+https://apk-mirror.example.com/extras
+```
+
+The default `virtualapk.cgr.dev` entries aren't present in the image.
+
+You can also apply custom runtime repositories declaratively using the `apply` subcommand:
+
+```shell
+cat > build.yaml <<EOF
+contents:
+  packages:
+    - curl
+    - jq
+  runtime_repositories:
+    - https://apk-mirror.example.com/chainguard
+    - https://apk-mirror.example.com/extras
+EOF
+```
+
+```shell
+chainctl image repo build apply -f build.yaml --parent $ORGANIZATION --repo $CONTAINER --yes
+```
+
+To remove custom runtime repositories and revert to the default `virtualapk.cgr.dev` URLs, edit the configuration and remove the `runtime_repositories` field entirely.
+
+### Validation rules
+
+Custom runtime repository URLs are validated when the configuration is applied. URLs that do not pass validation will be rejected. The following rules apply:
+
+* Each URL must use HTTPS (`https://`). HTTP, `file://`, and other schemes aren't allowed.
+* At least one URL must be provided if the `runtime_repositories` field is set.
+* Duplicate URLs aren't allowed.
+* Loopback addresses (`127.0.0.0/8`, `::1`) aren't allowed.
+* Private network addresses (RFC 1918: `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) aren't allowed.
+* Link-local addresses (`169.254.0.0/16`, `fe80::/10`) aren't allowed.
+* Hostnames ending in `.internal`, `.local`, or `.svc.cluster.local` aren't allowed.
+* `localhost` isn't allowed.
+* Hostnames that resolve to any of the blocked IP ranges listed earlier aren't allowed either.
+
+
 ## Retrieving Information about Custom Assembly Containers
 
 You can also use the `list` subcommand to retrieve every one of a customized image's builds from the past 24 hours:

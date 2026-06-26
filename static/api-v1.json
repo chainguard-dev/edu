@@ -180,7 +180,19 @@
           "componentVersion": {
             "type": "string"
           },
+          "grypeDbBuilt": {
+            "description": "grype_db_built is the build timestamp (RFC 3339) of the grype\nvulnerability database used for this detection.",
+            "type": "string"
+          },
+          "grypeDbChecksum": {
+            "description": "grype_db_checksum is the integrity checksum of the grype vulnerability\ndatabase used for this detection.",
+            "type": "string"
+          },
           "scanner": {
+            "type": "string"
+          },
+          "scannerVersion": {
+            "description": "scanner_version is the version of the vulnerability scanner (grype)\nthat produced this detection.",
             "type": "string"
           },
           "subpackageName": {
@@ -281,6 +293,18 @@
       "chainguard.platform.advisory.Fixed": {
         "properties": {
           "fixedVersion": {
+            "type": "string"
+          },
+          "grypeDbBuilt": {
+            "description": "grype_db_built is the build timestamp (RFC 3339) of the grype\nvulnerability database used for this fixed determination.",
+            "type": "string"
+          },
+          "grypeDbChecksum": {
+            "description": "grype_db_checksum is the integrity checksum of the grype vulnerability\ndatabase used for this fixed determination.",
+            "type": "string"
+          },
+          "scannerVersion": {
+            "description": "scanner_version is the version of the vulnerability scanner (grype) that\nproduced this fixed determination.",
             "type": "string"
           }
         },
@@ -784,6 +808,25 @@
         },
         "type": "object"
       },
+      "chainguard.platform.argos.ArgosVulns.BatchGetBody": {
+        "properties": {
+          "cgpIds": {
+            "description": "cgp_ids is the explicit set of CGP vulnerability IDs to fetch metadata for.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "pageSize": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "pageToken": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.argos.DatabaseSpecific": {
         "description": "DatabaseSpecific is the Chainguard database-owned extension on an Affected\nentry: the atomic-vulnerability classification and sink location for the\nrecord. Field names are pinned to OSV-spec snake_case via json_name.",
         "properties": {
@@ -1026,6 +1069,26 @@
           "method": {
             "description": "method is the symbolic method/function at the sink.",
             "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.VulnList": {
+        "properties": {
+          "nextPageToken": {
+            "type": "string"
+          },
+          "totalCount": {
+            "description": "total_count is the total number of matching records across all pages.\nOptional; provided for UI pagination.",
+            "format": "int64",
+            "type": "string"
+          },
+          "vulns": {
+            "description": "vulns is the list of OSV records returned, reusing the public OSVRecord\nfrom argos_osv (same proto package: chainguard.platform.argos).",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.argos.OSVRecord"
+            },
+            "type": "array"
           }
         },
         "type": "object"
@@ -2295,7 +2358,8 @@
           "TENANT_SCANNER",
           "SEDIMENTOLOGY",
           "SKILLUP",
-          "MATERIALIZER"
+          "MATERIALIZER",
+          "MICROFLOW"
         ],
         "type": "string"
       },
@@ -2385,10 +2449,11 @@
         "properties": {
           "createdAt": {
             "format": "date-time",
+            "readOnly": true,
             "type": "string"
           },
           "developerBand": {
-            "description": "developer_band is the selected developer-count band — the \"Up to X\ndevelopers\" ceiling, not an exact head count. It applies uniformly across\nevery selected ecosystem.",
+            "description": "developer_band is the selected developer-count band — the \"Up to X\ndevelopers\" ceiling, not an exact head count. It applies uniformly across\nevery selected ecosystem.\nOnce set on a subscription this cannot be changed. This constraint may be\nrelaxed in the future.",
             "format": "int32",
             "type": "integer"
           },
@@ -2401,10 +2466,11 @@
           },
           "id": {
             "description": "id is the uidp of the subscription, a child of the org group.",
+            "readOnly": true,
             "type": "string"
           },
           "isFreeTrial": {
-            "description": "is_free_trial indicates the subscription is on an AWS free trial (not\ncharged while the trial is active).",
+            "description": "is_free_trial indicates the subscription is on an AWS free trial (not\ncharged while the trial is active).\nUpdating free trial status is not supported directly through the API.",
             "type": "boolean"
           },
           "status": {
@@ -2413,10 +2479,11 @@
                 "$ref": "#/components/schemas/chainguard.platform.libraries.SubscriptionStatus"
               }
             ],
-            "description": "status is the subscription lifecycle state."
+            "description": "status is the subscription lifecycle state.\nThe value is managed server side and cannot be updated through the API."
           },
           "updatedAt": {
             "format": "date-time",
+            "readOnly": true,
             "type": "string"
           }
         },
@@ -4776,6 +4843,22 @@
         },
         "type": "object"
       },
+      "chainguard.platform.registry.Entitlements.RemoveEntitlementImagesBody": {
+        "properties": {
+          "id": {
+            "description": "The exact id of the entitlement to remove images from.",
+            "type": "string"
+          },
+          "imageNames": {
+            "description": "Catalog image names to remove (e.g., \"nginx\", \"redis\"). Matched against\nthe names of catalog images currently associated with the targeted\nentitlement(s). Names that aren't currently entitled are silent no-ops.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.registry.EolGracePeriodStatus": {
         "default": "GRACE_NOT_ELIGIBLE",
         "enum": [
@@ -5462,6 +5545,23 @@
           "uniqueTags": {
             "description": "unique_tags controls whether exported tags will be uniquely labeled by default.",
             "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.RemoveEntitlementImagesResponse": {
+        "properties": {
+          "images": {
+            "description": "The images that were removed. One entry per removal event — when a\nsingle image is removed from multiple entitlements (org-scoped remove),\nit appears once per affected entitlement so callers can see the\nper-entitlement effect.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.EntitledImage"
+            },
+            "type": "array"
+          },
+          "parent": {
+            "description": "The customer org UIDP that owned the affected entitlements. Set by\nthe backend to the resolved parent regardless of whether the request\nselected by parent or by entitlement id. Used as the CloudEvents\nsubject for downstream subscribers.",
+            "readOnly": true,
+            "type": "string"
           }
         },
         "type": "object"
@@ -6822,7 +6922,19 @@
           "componentVersion": {
             "type": "string"
           },
+          "grypeDbBuilt": {
+            "description": "grype_db_built is the build timestamp (RFC 3339) of the grype\nvulnerability database used for this detection.",
+            "type": "string"
+          },
+          "grypeDbChecksum": {
+            "description": "grype_db_checksum is the integrity checksum of the grype vulnerability\ndatabase used for this detection.",
+            "type": "string"
+          },
           "scanner": {
+            "type": "string"
+          },
+          "scannerVersion": {
+            "description": "scanner_version is the version of the vulnerability scanner (grype)\nthat produced this detection.",
             "type": "string"
           },
           "subpackageName": {
@@ -6874,7 +6986,19 @@
           "fixedVersion": {
             "type": "string"
           },
+          "grypeDbBuilt": {
+            "description": "grype_db_built is the build timestamp (RFC 3339) of the grype\nvulnerability database used for this fixed determination.",
+            "type": "string"
+          },
+          "grypeDbChecksum": {
+            "description": "grype_db_checksum is the integrity checksum of the grype vulnerability\ndatabase used for this fixed determination.",
+            "type": "string"
+          },
           "note": {
+            "type": "string"
+          },
+          "scannerVersion": {
+            "description": "scanner_version is the version of the vulnerability scanner (grype) that\nproduced this fixed determination.",
             "type": "string"
           }
         },
@@ -8101,6 +8225,136 @@
         "summary": "Get Org Public Key",
         "tags": [
           "ArgosDocuments"
+        ]
+      }
+    },
+    "/argos/v1/orgs/{parent}/vulns": {
+      "get": {
+        "description": "ListForOrg returns all CGP records associated with the org's documents\n(accumulated server-side). Scoped to parent. Paginated.",
+        "operationId": "ArgosVulns_ListForOrg",
+        "parameters": [
+          {
+            "description": "parent is the UIDP of the organization (root group) to scope the query to.",
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          },
+          {
+            "description": "package is an optional exact ecosystem/name filter (v1: exact match).",
+            "in": "query",
+            "name": "package",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "version is an optional version filter.",
+            "in": "query",
+            "name": "version",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.argos.VulnList"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List For Org",
+        "tags": [
+          "ArgosVulns"
+        ]
+      }
+    },
+    "/argos/v1/orgs/{parent}/vulns:batchGet": {
+      "post": {
+        "description": "BatchGet returns metadata for an explicit set of CGP IDs in one call\n(avoids N x ArgosOSV.GetVuln). Scoped to parent. Paginated.",
+        "operationId": "ArgosVulns_BatchGet",
+        "parameters": [
+          {
+            "description": "parent is the UIDP of the organization (root group) to scope the query to.",
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.argos.ArgosVulns.BatchGetBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.argos.VulnList"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Batch Get",
+        "tags": [
+          "ArgosVulns"
         ]
       }
     },
@@ -11186,6 +11440,98 @@
         ]
       }
     },
+    "/libraries/v1/aws-marketplace-subscriptions/{subscription.id}": {
+      "patch": {
+        "operationId": "AWSMarketplaceSubscriptions_Update",
+        "parameters": [
+          {
+            "description": "id is the uidp of the subscription, a child of the org group.",
+            "in": "path",
+            "name": "subscription.id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "properties": {
+                  "createdAt": {
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "developerBand": {
+                    "description": "developer_band is the selected developer-count band — the \"Up to X\ndevelopers\" ceiling, not an exact head count. It applies uniformly across\nevery selected ecosystem.\nOnce set on a subscription this cannot be changed. This constraint may be\nrelaxed in the future.",
+                    "format": "int32",
+                    "type": "integer"
+                  },
+                  "ecosystems": {
+                    "description": "ecosystems are the Libraries ecosystems the subscription covers.",
+                    "items": {
+                      "$ref": "#/components/schemas/chainguard.platform.libraries.Ecosystem"
+                    },
+                    "type": "array"
+                  },
+                  "isFreeTrial": {
+                    "description": "is_free_trial indicates the subscription is on an AWS free trial (not\ncharged while the trial is active).\nUpdating free trial status is not supported directly through the API.",
+                    "type": "boolean"
+                  },
+                  "status": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/chainguard.platform.libraries.SubscriptionStatus"
+                      }
+                    ],
+                    "description": "status is the subscription lifecycle state.\nThe value is managed server side and cannot be updated through the API."
+                  },
+                  "updatedAt": {
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string"
+                  }
+                },
+                "title": "The subscription to update.",
+                "type": "object"
+              }
+            }
+          },
+          "description": "The subscription to update.",
+          "required": true,
+          "x-originalParamName": "subscription"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.AWSMarketplaceSubscription"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Update",
+        "tags": [
+          "AWSMarketplaceSubscriptions"
+        ]
+      }
+    },
     "/libraries/v1/blocked-packages": {
       "get": {
         "operationId": "LibraryPolicyBlockEvents_ListBlockEvents",
@@ -13406,6 +13752,61 @@
           }
         },
         "summary": "Get Features",
+        "tags": [
+          "RegistryEntitlements"
+        ]
+      }
+    },
+    "/registry/v1/entitlements/{parent}:removeImages": {
+      "post": {
+        "description": "Removal is a soft delete: the underlying rows are retained with a deletion\ntimestamp so that history can be reconstructed for audit purposes.",
+        "operationId": "Entitlements_RemoveEntitlementImages",
+        "parameters": [
+          {
+            "description": "The organization to remove images from. The named images are\nremoved from every active entitlement under the org that has them.",
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.registry.Entitlements.RemoveEntitlementImagesBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.registry.RemoveEntitlementImagesResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Remove Entitlement Images",
         "tags": [
           "RegistryEntitlements"
         ]
@@ -16600,6 +17001,9 @@
     },
     {
       "name": "ArgosOSV"
+    },
+    {
+      "name": "ArgosVulns"
     },
     {
       "name": "Auth"

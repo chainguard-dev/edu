@@ -224,7 +224,7 @@ Combine the two repositories in a new virtual repository:
 for proxying and virtual repositories to combine multiple sources into a single
 repository. The following instructions are based on the [PyPI Repository
 documentation for
-Artifactory](https://jfrog.com/help/r/jfrog-artifactory-documentation/set-up-pypi-repositories-on-artifactory).
+Artifactory](https://docs.jfrog.com/artifactory/docs/pypi-repositories).
 
 ### Initial configuration
 
@@ -247,7 +247,7 @@ Configure a remote repository for the Chainguard Libraries for Python index:
 1. Set the **PyPI Settings - Registry URL** to
    `https://libraries.cgr.dev/python/`.
 1. Optionally click **Test** to verify connection and authentication.
-1. Click the **Advanced** configuration tab. Disable **URL Normalization** and disable **Block
+1. Click the **Advanced** configuration tab. Ensure **Disable URL Normalization** is checked, and disable **Block
    Mismatching Mime Types** in the **Others** section.
 1. Click **Create Remote Repository**.
 

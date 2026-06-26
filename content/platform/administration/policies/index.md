@@ -4,7 +4,7 @@ aliases:
 title: "Policies"
 linktitle: "Policies"
 type: "article"
-description: "Control your image updates"
+description: "Configure and enforce policies that control which Chainguard image and artifact versions your organization can pull, using chainctl or the Chainguard Console"
 date: 2026-05-21T08:48:45+00:00
 lastmod: 2026-05-21T08:48:45+00:00
 draft: false

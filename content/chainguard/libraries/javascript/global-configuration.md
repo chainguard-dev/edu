@@ -23,7 +23,7 @@ Repository](https://www.sonatype.com/products/sonatype-nexus-repository), and
 others. The repository manager acts as a single point of access for developers
 and development tools to retrieve the required libraries.
 
-If your organization uses the [upstream fallback](/chainguard/libraries/javascript/overview/#upstream-fallback-policy-and-controls)
+If your organization uses the [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls)
 feature of Chainguard Repository, you can configure your repository manager
 with a single upstream pointed at `https://libraries.cgr.dev/javascript/`. This
 is the recommended setup. The Chainguard Repository handles fallback and policy
@@ -175,8 +175,8 @@ token for the registry access:
 
 [JFrog Artifactory](https://jfrog.com/artifactory/) supports npm repositories
 for proxying and hosting, and virtual repositories to combine them. Refer to the
-[npm registry documentation for
-Artifactory](https://jfrog.com/help/r/jfrog-artifactory-documentation/npm-registry)
+[npm Repository documentation for
+Artifactory](https://docs.jfrog.com/artifactory/docs/npm-repositories)
 for more information.
 
 ### Initial configuration
@@ -197,7 +197,7 @@ repository:
 1. Set the **URL** to `https://libraries.cgr.dev/javascript/`.
 1. Set **User Name** and **Password / Access Token** to the [values as retrieved
    with chainctl](/chainguard/libraries/access/).
-1. Click the **Advanced** configuration tab. Disable **URL Normalization**
+1. Click the **Advanced** configuration tab. Ensure **Disable URL Normalization** is checked.
 1. Click **Create Remote Repository**.
 
 

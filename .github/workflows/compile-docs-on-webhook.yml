@@ -9,16 +9,17 @@ on:
   workflow_dispatch:
 
 # Restrict permissions to minimum required
-permissions:
-  contents: write  # Only for pushing compiled docs
-  actions: read
+permissions: {}
 
 jobs:
   compile-docs:
     if: github.repository == 'chainguard-dev/edu'
     runs-on: ubuntu-latest
     environment: documentation  # Use environment protection rules
-    
+    permissions:
+      contents: write  # Only for pushing compiled docs
+      actions: read
+
     steps:
     - name: Harden the runner (Audit all outbound calls)
       uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4
@@ -26,24 +27,31 @@ jobs:
         egress-policy: audit
 
     - name: Checkout edu repository
-      uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+      uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       with:
         path: edu
         token: ${{ secrets.GITHUB_TOKEN }}
+        # Required by the bare `git push` in the "Commit and push changes"
+        # step, which relies on the persisted credential helper. Consider
+        # converting to an explicitly-passed token (octo-sts candidate) and
+        # flipping this to false.
+        persist-credentials: true
 
     - name: Checkout courses repository
-      uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+      uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       with:
         repository: chainguard-dev/courses
         path: courses
         token: ${{ secrets.DOCS_COMPILE_PAT }}
+        persist-credentials: false
 
     - name: Checkout images-private repository
-      uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+      uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       with:
         repository: chainguard-images/images-private
         path: images-private
         token: ${{ secrets.DOCS_COMPILE_PAT }}
+        persist-credentials: false
 
     - name: Set up Python
       uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
@@ -51,7 +59,7 @@ jobs:
         python-version: '3.10'
 
     - name: Set environment variable for GitHub Actions
-      run: echo "GITHUB_ACTIONS=true" >> $GITHUB_ENV
+      run: echo "GITHUB_ACTIONS=true" >> "$GITHUB_ENV"
 
     - name: Compile documentation
       run: |
@@ -76,16 +84,18 @@ jobs:
         fi
 
     - name: Commit and push changes
+      env:
+        CLIENT_PAYLOAD_REPOSITORY: ${{ github.event.client_payload.repository }}
       run: |
         cd edu
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        
+
         # Check if there are changes
         if git diff --quiet; then
           echo "No changes to commit"
         else
           git add static/downloads/chainguard-complete-docs.*
-          git commit -m "Update compiled documentation bundle from ${{ github.event.client_payload.repository }} [skip ci]" || echo "No changes to commit"
+          git commit -m "Update compiled documentation bundle from ${CLIENT_PAYLOAD_REPOSITORY} [skip ci]" || echo "No changes to commit"
           git push
         fi

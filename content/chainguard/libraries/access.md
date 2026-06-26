@@ -24,9 +24,7 @@ system. This guide explains how to access (download) Chainguard library artifact
 
 - Ensure you have access to Chainguard Libraries. 
     - If you are not a Chainguard user yet, a new Chainguard account must be
-created and configured for access to Chainguard Libraries.
-    - If you are already a Chainguard user, the Chainguard account owner in your
-organization can grant access to Chainguard Libraries.
+created and you must [add an entitlement to Chainguard Libraries](/chainguard/libraries/access/#manage-library-entitlements).
 - Confirm the name of your organization so you can use it with the `--parent`
 parameter to specify your organization when running commands with `chainctl`.
 
@@ -205,10 +203,15 @@ calling `chainctl`:
 ```shell
 eval $(chainctl auth pull-token --output env --repository=java --parent=example)
 ```
-
 Equivalent commands for Python and JavaScript are supported and result in values
 for the `CHAINGUARD_PYTHON_IDENTITY_ID`/`CHAINGUARD_PYTHON_TOKEN` and
 `CHAINGUARD_JAVASCRIPT_IDENTITY_ID`/`CHAINGUARD_JAVASCRIPT_TOKEN` variables.
+
+Use the export commands in a `~/.env` or similar file or use your preferred
+secrets management application to reuse the token in multiple sessions. Source
+the file or load the secrets from the app to have access to the tokens in your
+shell session, including build configurations file that can load from
+environment variables, for example a Maven `settings.xml` file.
 
 Running this command as part of a login script or some other automation allows
 your organization to replace actual username and password values in your build
@@ -453,12 +456,14 @@ To enable upstream fallback for JavaScript, use the `--policy` flag:
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM
 ```
 
-To update the policy on an existing entitlement, rerun the `create` command with the new `--policy` value.
+To update the upstream fallback policy on an existing entitlement, rerun the `create` command with the new `--policy` value.
 
 
-### List entitlements
+### List entitlements and policies
 
-You can verify entitlements for your organization `example.com` to verify which ecosystems are enabled and what policies are configured:
+**Entitlements**
+
+You can verify entitlements for your organization `example.com` to verify which ecosystems are enabled:
 
 ```shell
 chainctl libraries entitlements list
@@ -475,6 +480,22 @@ Ecosystem Library Entitlements for example (45a0...p7q)
  45a0c61a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q/45678abc67890 | JAVA       | POLICY_CHAINGUARD
  45a0c61a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q/56789abc67890 | PYTHON     | POLICY_CHAINGUARD
 ```
+
+**Policies** 
+
+To list available policies, run the following:
+
+```bash
+chainctl libraries policy list
+```
+
+To verify which policy is active, run the following:
+
+```bash
+chainctl libraries policy binding list
+```
+
+Prior to `chainctl` version 0.2.291, cooldown policies were enabled via the `chainctl entitlements command`. Cooldown policies configured prior to this version of `chainctl` are migrated under the new `chainctl libraries policies` system. 
 
 ### Remove entitlements
 

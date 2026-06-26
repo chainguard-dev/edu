@@ -161,6 +161,25 @@ Load the skill into Claude Code or any MCP-compatible agent. In Claude Code, inv
 
 The agent loads the skill and runs it, confirming it installed and loaded correctly end to end.
 
+## Uninstall the skill
+
+To remove a skill from your machine, pass its name to the `uninstall` subcommand. Use the skill's install name, which `describe` reports as the `Install Name` field — for this skill, `chainguard-github-add-educational-comments`:
+
+```shell
+chainctl skills uninstall chainguard-github-add-educational-comments
+```
+
+The command prompts for confirmation before removing any files:
+
+```output
+This will remove skill "chainguard-github-add-educational-comments" from local agent directories.
+Proceed?
+Do you want to continue? [y,N]: 
+Uninstalled skill "chainguard-github-add-educational-comments".
+```
+
+By default, `uninstall` removes the skill from every agent directory where it's installed. Use the `--agent` flag to remove it from specific agents only, or the `--global` flag to remove it from global directories instead of the current project. Add the `-y` flag to skip the confirmation prompt.
+
 ## Command reference
 
 | Action | Command |
@@ -169,6 +188,7 @@ The agent loads the skill and runs it, confirming it installed and loaded correc
 | Describe a skill | `chainctl skills describe skills.cgr.dev/chainguard/<owner>/<name>:<tag>` |
 | Pull a skill | `chainctl skills pull skills.cgr.dev/chainguard/<owner>/<name>:<tag> <dir>` |
 | Install a skill | `chainctl skills install skills.cgr.dev/chainguard/<owner>/<name>:<tag>` |
+| Uninstall a skill | `chainctl skills uninstall <install-name>` |
 
 ## Next steps
 

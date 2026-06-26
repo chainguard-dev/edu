@@ -14,8 +14,6 @@ weight: 010
 toc: true
 ---
 
-## Introduction
-
 Chainguard Libraries for Python provides enhanced security for the vast Python
 ecosystem by rebuilding PyPI packages with comprehensive supply chain protection
 and automated patching. With over 600,000 packages on the [Python Package Index
@@ -70,16 +68,13 @@ from PyPI. Chainguard Libraries for Python are rebuilt from source and require
 that source be available. Therefore, packages that do not provide a valid source
 URL cannot be rebuilt within the Chainguard Factory.
 
-Since the Chainguard Libraries for Python index is not complete, you should
-strongly consider setting the PyPI public package index as a fallback within
-your repository manager. In this case, failed requests are logged by Chainguard
-and, where possible, the package is prioritized for a new build from source.
-Typically, access is [configured globally on a repository manager for your
-organization](/chainguard/libraries/python/global-configuration/).
-
-Alternatively, you can use the token for direct access to the Chainguard
-Libraries for Python index as discussed in [Build
-configuration](/chainguard/libraries/python/build-configuration/).
+Chainguard Libraries for Python can be consumed through [Chainguard
+Repository](/chainguard/libraries/chainguard-repository/), which provides a single endpoint for Python package retrieval and
+supports protected upstream fallback when configured for your organization. This
+allows builds to prefer Chainguard-built packages first while still covering
+packages or wheel files that Chainguard does not currently serve directly. Configure this endpoint [globally through a repository manager](/chainguard/libraries/python/global-configuration/) for centralized
+access control across your organization, or use it [directly from individual
+build tools](/chainguard/libraries/python/build-configuration/).
 
 Follow the steps detailed in [Manual Access](#manual) to browse the Python index
 and find available packages, package versions, source distribution (sdist), and
@@ -527,4 +522,12 @@ as `bundle.json` from the integrity context at
 `https://libraries.cgr.dev/python/integrity/PACKAGE/VERSION/FILE/bundle.json`
 specifically for each package, version, and file. 
 
+## Upstream fallback policy and controls
 
+Chainguard Libraries for Python supports an optional built-in fallback to
+the upstream PyPI index, managed through the [Chainguard
+Repository](/chainguard/chainguard-repository/overview/). By default, the endpoint serves
+only Chainguard-built packages. When the upstream fallback is enabled, upstream packages are
+subject to additional security controls before being served.
+
+Learn about managing fallback and cooldown controls in the [Chainguard Libraries Overview](/chainguard/libraries/overview/).

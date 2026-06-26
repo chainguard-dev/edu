@@ -1,5 +1,5 @@
 ---
-date: 2026-06-17T22:32:16Z
+date: 2026-06-25T19:50:48Z
 title: "chainctl iam identity-providers create"
 slug: chainctl_iam_identity-providers_create
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers_create/
@@ -38,6 +38,7 @@ chainctl iam identity-providers create --parent ORGANIZATION_NAME | ORGANIZATION
       --oidc-additional-scopes stringArray   additional scopes to request for OIDC type identity provider
       --oidc-client-id string                client id for OIDC type identity provider
       --oidc-client-secret string            client secret for OIDC type identity provider
+      --oidc-groups-claim string             OIDC token claim carrying group memberships, used for group-to-role mappings (empty disables group mapping)
       --oidc-issuer string                   Issuer URL for OIDC type identity provider
       --parent string                        The name or ID of the location the identity provider belongs to.
   -y, --yes                                  Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.

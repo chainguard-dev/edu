@@ -1,5 +1,5 @@
 ---
-date: 2026-06-17T22:32:16Z
+date: 2026-06-25T19:50:48Z
 title: "chainctl iam identity-providers update"
 slug: chainctl_iam_identity-providers_update
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers_update/
@@ -37,6 +37,7 @@ chainctl iam identity-providers update IDENTITY_PROVIDER_ID [--name=NAME] [--des
       --oidc-additional-scopes stringArray   additional scopes to request for OIDC type identity provider
       --oidc-client-id string                client id for OIDC type identity provider
       --oidc-client-secret string            client secret for OIDC type identity provider
+      --oidc-groups-claim string             OIDC token claim carrying group memberships, used for group-to-role mappings (empty disables group mapping)
       --oidc-issuer string                   Issuer URL for OIDC type identity provider
   -y, --yes                                  Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```

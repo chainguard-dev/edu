@@ -1,5 +1,5 @@
 ---
-date: 2026-06-17T22:32:16Z
+date: 2026-06-25T19:50:48Z
 title: "chainctl images repos build apply"
 slug: chainctl_images_repos_build_apply
 url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_apply/
@@ -16,7 +16,7 @@ Apply a build config
 ### Synopsis
 
 
-Apply a pre-written YAML configuration file and/or custom certificates to customize one or more Chainguard images.
+Apply a pre-written YAML configuration file, custom certificates, and/or runtime repositories to customize one or more Chainguard images.
 
 You can use Custom Assembly to customize any image you are entitled to by
 adding packages from Chainguard's repository, setting environment variables,
@@ -34,13 +34,13 @@ new repository instead of modifying the existing one (single-repo only).
 How it works:
 
 You can customize the image by providing configuration through a YAML file,
-certificates, or both.
+certificates, runtime repositories, or any combination.
 
-At least one of --file or --with-certificates must be provided. When --file is
-used alone, the YAML configuration from the file is applied as-is. When
---with-certificates is used alone, only the certificates will be applied to
-the image. When both flags are provided, the certificates are merged with the
-configuration from the file.
+At least one of --file, --with-certificates, or --with-runtime-repositories must be
+provided. When --file is used alone, the YAML configuration from the file is
+applied as-is. When --with-certificates or --with-runtime-repositories is used alone,
+only those values will be applied to the image. When multiple flags are provided,
+they are merged together.
 
 The command validates the resulting configuration and displays a diff comparing
 it to the current repository configuration (or an empty baseline for new
@@ -67,6 +67,11 @@ Customizable sections:
   contents.packages
     Add additional packages to install in the image (e.g., development tools,
     utilities). Packages must be available in Chainguard's package repository.
+
+  contents.runtime_repositories
+    Add APK repositories to /etc/apk/repositories in the image for runtime
+    package installation. When set, these replace the default virtualapk.cgr.dev
+    repositories. Must be HTTPS URLs.
 
   environment
     Set environment variables that will be available in the image. Variables
@@ -119,6 +124,12 @@ chainctl images repos build apply --repo=my-custom-python --file=config.yaml --y
 # Add only custom certificates (no config file needed)
 chainctl images repos build apply --repo=my-custom-python --with-certificates=ca1.pem --with-certificates=ca2.pem
 
+# Set custom runtime APK repositories (replaces default virtualapk.cgr.dev)
+chainctl images repos build apply --repo=my-custom-python --with-runtime-repositories=https://apk-mirror.example.com/chainguard
+
+# Set multiple runtime repositories
+chainctl images repos build apply --repo=my-custom-python --with-runtime-repositories=https://apk-mirror.example.com/chainguard,https://apk-mirror.example.com/extras
+
 # Add custom certificates alongside a config file
 chainctl images repos build apply --repo=my-custom-python --file=config.yaml --with-certificates=ca1.pem --with-certificates=ca2.pem
 
@@ -145,13 +156,14 @@ chainctl images repos build apply --parent=my-org --repo="*" --file=config.yaml 
 ### Options
 
 ```
-      --dry-run                     Print the diff without applying changes. Exits with a non-zero code if changes would be made.
-  -f, --file string                 The name of the file containing the build config.
-      --parent string               The name or id of the parent location to apply build config.
-      --repo stringArray            The name or id of the repo to apply build config. Supports wildcards (*, ?, [abc]). Can be specified multiple times.
-      --save-as string              Create a new repo with the edited configuration instead of updating the existing one.
-      --with-certificates strings   Comma separated list of files to read the custom certificates from.
-  -y, --yes                         Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+      --dry-run                             Print the diff without applying changes. Exits with a non-zero code if changes would be made.
+  -f, --file string                         The name of the file containing the build config.
+      --parent string                       The name or id of the parent location to apply build config.
+      --repo stringArray                    The name or id of the repo to apply build config. Supports wildcards (*, ?, [abc]). Can be specified multiple times.
+      --save-as string                      Create a new repo with the edited configuration instead of updating the existing one.
+      --with-certificates strings           Comma separated list of files to read the custom certificates from.
+      --with-runtime-repositories strings   Comma separated list of runtime APK repository URLs to write to /etc/apk/repositories in the image.
+  -y, --yes                                 Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 
 ### Options inherited from parent commands

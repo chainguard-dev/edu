@@ -3,7 +3,7 @@
     "schemas": {
       "chainguard.capabilities.Capability": {
         "default": "UNKNOWN",
-        "description": "Capability is an enumeration of the Chainguard IAM capabilities.\n\n - CAP_TENANT_VULN_REPORTS_LIST: TODO(colin): deprecate this cap once the legacy endpoint is removed\n - CAP_REPO_BLOBS_GET: repo.blobs.get is a capability required to pull container images.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with images vs pulling the image itself.\n - CAP_REPO_CREATE: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_CREATE as a transitional grant for write access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_WRITE, drop the dual-accept in cassie.\n - CAP_REPO_LIST: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_LIST as a transitional grant for read access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_READ, drop the dual-accept in cassie.\n - CAP_APK_BLOBS_GET: apk.blobs.get is a capability required to pull APKs.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with APKs vs pulling the APK itself.\n - CAP_BUILD_REPORT_LIST: Custom Image Build\n - CAP_LIBRARIES_ENTITLEMENTS_CREATE: Global libraries capabilities\n - CAP_LIBRARIES_PYTHON_LIST: Ecosystems specific capabilities\n - CAP_LIBRARIES_CACHE_INVALIDATE: Cache invalidation capability for the libraries cache (covers all ecosystems).\nGranted to org owners and account admins; not to regular developer members.\n - CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE: Rebuilder API capabilities\n - CAP_LIBRARIES_AWS_MARKETPLACE_SUBSCRIPTIONS_CREATE: AWS Marketplace Subscriptions (Chainguard Libraries on AWS Security Hub Extended)\n - CAP_REGISTRY_ENTITLEMENTS_LIST: Registry Entitlements\n - CAP_REGISTRY_SETTINGS_LIST: Registry Settings\n - CAP_REGISTRY_DEPLOYMENTS_CREATE: Registry Deployments\n - CAP_POLICIES_POLICY_CREATE: Policies\n - CAP_TERMS_ACCEPT: Terms\n - CAP_GULFSTREAM: This is orthogonal enough that we should leave\nit somewhat separate, so add new capabilities above.\nTODO(mattmoor): Think about whether we can encode specific\ncontroller capabilities into our access control here?\ne.g. could each logical controller/webhook be its own\ncapability?\n - CAP_GUARDENER_DFC_CONVERT: Guardener\n - CAP_MCP_TOOL_CALL: MCP tool calls\n - CAP_SKILLS_PUBLISH: Skills registry — publishing skill artifacts to skills.cgr.dev\n - CAP_SKILLS_ENTITLEMENTS_CREATE: Skills registry entitlements\n - CAP_ARGOS_DOCUMENTS_CREATE: Argos — client-side encrypted document records.\n - CAP_ARGOS_OSV_READ: Argos — Private OSV API (customer-facing OSV query surface).\n - CAP_LIBRARIES_POLICY_CREATE: Libraries Policy Gates — customer-facing policies and bindings that\nconfigure the cooldown and malware gates applied to upstream package pulls,\nplus the block events recorded when a pull is withheld.\n - CAP_BUILDAPI_BUILD_CREATE: Build API\n - CAP_CASSIE_CAS_READ: Cassie REAPI cache surface (CAS, ActionCache, ByteStream).\n - CAP_ACTIONS_LIST: Actions catalog — the read-only catalog of Chainguard-published GitHub\nActions and the upstreams they mirror. Writes are internal (importer only).",
+        "description": "Capability is an enumeration of the Chainguard IAM capabilities.\n\n - CAP_TENANT_VULN_REPORTS_LIST: TODO(colin): deprecate this cap once the legacy endpoint is removed\n - CAP_REPO_BLOBS_GET: repo.blobs.get is a capability required to pull container images.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with images vs pulling the image itself.\n - CAP_REPO_CREATE: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_CREATE as a transitional grant for write access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_WRITE, drop the dual-accept in cassie.\n - CAP_REPO_LIST: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_LIST as a transitional grant for read access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_READ, drop the dual-accept in cassie.\n - CAP_REPO_INTERNAL_ADMIN: repo.internal.admin allows administering internal-only repository fields\n(catalog tier, bundles, aliases, active tags, README, and sync settings)\nthat are otherwise read-only to customers.\n - CAP_APK_BLOBS_GET: apk.blobs.get is a capability required to pull APKs.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with APKs vs pulling the APK itself.\n - CAP_BUILD_REPORT_LIST: Custom Image Build\n - CAP_LIBRARIES_ENTITLEMENTS_CREATE: Global libraries capabilities\n - CAP_LIBRARIES_PYTHON_LIST: Ecosystems specific capabilities\n - CAP_LIBRARIES_CACHE_INVALIDATE: Cache invalidation capability for the libraries cache (covers all ecosystems).\nGranted to org owners and account admins; not to regular developer members.\n - CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE: Rebuilder API capabilities\n - CAP_LIBRARIES_AWS_MARKETPLACE_SUBSCRIPTIONS_CREATE: AWS Marketplace Subscriptions (Chainguard Libraries on AWS Security Hub Extended)\n - CAP_REGISTRY_ENTITLEMENTS_LIST: Registry Entitlements\n - CAP_REGISTRY_SETTINGS_LIST: Registry Settings\n - CAP_REGISTRY_DEPLOYMENTS_CREATE: Registry Deployments\n - CAP_POLICIES_POLICY_CREATE: Policies\n - CAP_TERMS_ACCEPT: Terms\n - CAP_GULFSTREAM: This is orthogonal enough that we should leave\nit somewhat separate, so add new capabilities above.\nTODO(mattmoor): Think about whether we can encode specific\ncontroller capabilities into our access control here?\ne.g. could each logical controller/webhook be its own\ncapability?\n - CAP_GUARDENER_DFC_CONVERT: Guardener\n - CAP_MCP_TOOL_CALL: MCP tool calls\n - CAP_SKILLS_PUBLISH: Skills registry — publishing skill artifacts to skills.cgr.dev\n - CAP_SKILLS_ENTITLEMENTS_CREATE: Skills registry entitlements\n - CAP_ARGOS_DOCUMENTS_CREATE: Argos — client-side encrypted document records.\n - CAP_ARGOS_OSV_READ: Argos — Private OSV API (customer-facing OSV query surface).\n - CAP_LIBRARIES_POLICY_CREATE: Libraries Policy Gates — customer-facing policies and bindings that\nconfigure the cooldown and malware gates applied to upstream package pulls,\nplus the block events recorded when a pull is withheld.\n - CAP_BUILDAPI_BUILD_CREATE: Build API\n - CAP_CASSIE_CAS_READ: Cassie REAPI cache surface (CAS, ActionCache, ByteStream).\n - CAP_ACTIONS_LIST: Actions catalog — the read-only catalog of Chainguard-published GitHub\nActions and the upstreams they mirror. Writes are internal (importer only).",
         "enum": [
           "UNKNOWN",
           "CAP_INTERNAL",
@@ -73,6 +73,7 @@
           "CAP_TAG_DELETE",
           "CAP_MANIFEST_METADATA_LIST",
           "CAP_REFERRERS_LIST",
+          "CAP_REPO_INTERNAL_ADMIN",
           "CAP_APK_BLOBS_GET",
           "CAP_APK_CREATE",
           "CAP_APK_UPDATE",
@@ -114,6 +115,7 @@
           "CAP_REGISTRY_ENTITLEMENTS_CREATE",
           "CAP_REGISTRY_ENTITLEMENTS_DELETE",
           "CAP_REGISTRY_ENTITLEMENTS_IMAGES_ADD",
+          "CAP_REGISTRY_ENTITLEMENTS_IMAGES_REMOVE",
           "CAP_REGISTRY_SETTINGS_LIST",
           "CAP_REGISTRY_SETTINGS_UPDATE",
           "CAP_SIGSTORE_CREATE",
@@ -350,7 +352,19 @@
           "componentVersion": {
             "type": "string"
           },
+          "grypeDbBuilt": {
+            "description": "grype_db_built is the build timestamp (RFC 3339) of the grype\nvulnerability database used for this detection.",
+            "type": "string"
+          },
+          "grypeDbChecksum": {
+            "description": "grype_db_checksum is the integrity checksum of the grype vulnerability\ndatabase used for this detection.",
+            "type": "string"
+          },
           "scanner": {
+            "type": "string"
+          },
+          "scannerVersion": {
+            "description": "scanner_version is the version of the vulnerability scanner (grype)\nthat produced this detection.",
             "type": "string"
           },
           "subpackageName": {
@@ -451,6 +465,18 @@
       "chainguard.platform.advisory.Fixed": {
         "properties": {
           "fixedVersion": {
+            "type": "string"
+          },
+          "grypeDbBuilt": {
+            "description": "grype_db_built is the build timestamp (RFC 3339) of the grype\nvulnerability database used for this fixed determination.",
+            "type": "string"
+          },
+          "grypeDbChecksum": {
+            "description": "grype_db_checksum is the integrity checksum of the grype vulnerability\ndatabase used for this fixed determination.",
+            "type": "string"
+          },
+          "scannerVersion": {
+            "description": "scanner_version is the version of the vulnerability scanner (grype) that\nproduced this fixed determination.",
             "type": "string"
           }
         },
@@ -954,6 +980,25 @@
         },
         "type": "object"
       },
+      "chainguard.platform.argos.ArgosVulns.BatchGetBody": {
+        "properties": {
+          "cgpIds": {
+            "description": "cgp_ids is the explicit set of CGP vulnerability IDs to fetch metadata for.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "pageSize": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "pageToken": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.argos.DatabaseSpecific": {
         "description": "DatabaseSpecific is the Chainguard database-owned extension on an Affected\nentry: the atomic-vulnerability classification and sink location for the\nrecord. Field names are pinned to OSV-spec snake_case via json_name.",
         "properties": {
@@ -1196,6 +1241,26 @@
           "method": {
             "description": "method is the symbolic method/function at the sink.",
             "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.VulnList": {
+        "properties": {
+          "nextPageToken": {
+            "type": "string"
+          },
+          "totalCount": {
+            "description": "total_count is the total number of matching records across all pages.\nOptional; provided for UI pagination.",
+            "format": "int64",
+            "type": "string"
+          },
+          "vulns": {
+            "description": "vulns is the list of OSV records returned, reusing the public OSVRecord\nfrom argos_osv (same proto package: chainguard.platform.argos).",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.argos.OSVRecord"
+            },
+            "type": "array"
           }
         },
         "type": "object"
@@ -2510,7 +2575,8 @@
           "TENANT_SCANNER",
           "SEDIMENTOLOGY",
           "SKILLUP",
-          "MATERIALIZER"
+          "MATERIALIZER",
+          "MICROFLOW"
         ],
         "type": "string"
       },
@@ -2591,6 +2657,25 @@
               "$ref": "#/components/schemas/chainguard.platform.iam.TermsDocumentStatus"
             },
             "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.v2beta1.AcceptTermsResponse": {
+        "description": "AcceptTermsResponse is the response message for AcceptTerms.",
+        "properties": {
+          "documentIds": {
+            "description": "IDs of the documents that were accepted.",
+            "items": {
+              "type": "string"
+            },
+            "readOnly": true,
+            "type": "array"
+          },
+          "group": {
+            "description": "Group UIDP that accepted the documents.",
+            "readOnly": true,
+            "type": "string"
           }
         },
         "type": "object"
@@ -2822,6 +2907,10 @@
               "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.CreateRoleBindingRequest"
             },
             "type": "array"
+          },
+          "roleUid": {
+            "description": "Optional role UID applied to all sub-requests that do not specify their own\nrole_uid. When set, sub-requests may omit role_uid and it will be inherited\nfrom this field. If a sub-request specifies a different role_uid, the request\nfails with INVALID_ARGUMENT (conflict detection per AIP-233).",
+            "type": "string"
           }
         },
         "required": [
@@ -2905,6 +2994,40 @@
           "parent",
           "roleBinding"
         ],
+        "type": "object"
+      },
+      "chainguard.platform.iam.v2beta1.ExternalGroupRoleMapping": {
+        "description": "ExternalGroupRoleMapping maps an external identity provider group to a Chainguard role.\nWhen a user authenticates via SSO and their token includes the mapped group,\nthe federation flow grants the mapped role's capabilities at the specified scope.",
+        "properties": {
+          "createTime": {
+            "description": "When the mapping was created.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "externalGroupId": {
+            "description": "The external identity provider's opaque group identifier (e.g. OIDC group claim value).",
+            "type": "string"
+          },
+          "identityProviderUid": {
+            "description": "UIDP of the parent identity provider.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "roleUid": {
+            "description": "UIDP of the Chainguard role to grant to members of the external group.",
+            "type": "string"
+          },
+          "scope": {
+            "description": "UIDP of the Chainguard group where the role applies (currently constrained to org root).",
+            "type": "string"
+          },
+          "uid": {
+            "description": "Unique identifier for the mapping (UIDP rooted under the identity provider).",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
         "type": "object"
       },
       "chainguard.platform.iam.v2beta1.Group": {
@@ -3469,6 +3592,33 @@
         },
         "type": "object"
       },
+      "chainguard.platform.iam.v2beta1.ListExternalGroupRoleMappingsResponse": {
+        "description": "ListExternalGroupRoleMappingsResponse is the response message for ListExternalGroupRoleMappings.",
+        "properties": {
+          "externalGroupRoleMappings": {
+            "description": "Mappings matching the filter criteria.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.ExternalGroupRoleMapping"
+            },
+            "type": "array"
+          },
+          "nextPageToken": {
+            "description": "Token for retrieving the next page of results.",
+            "type": "string"
+          },
+          "skipped": {
+            "description": "Number of results that were skipped.",
+            "format": "int32",
+            "type": "integer"
+          },
+          "totalCount": {
+            "description": "Total number of mappings matching the filter.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.iam.v2beta1.ListGroupInvitesResponse": {
         "description": "ListGroupInvitesResponse is the response message for ListGroupInvites.",
         "properties": {
@@ -3625,6 +3775,33 @@
           },
           "totalCount": {
             "description": "Total number of roles matching the filter.\nOptional, provided for UI pagination.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.v2beta1.ListTermsAcceptancesResponse": {
+        "description": "ListTermsAcceptancesResponse is the response message for ListTermsAcceptances.",
+        "properties": {
+          "nextPageToken": {
+            "description": "Token for retrieving the next page of results.",
+            "type": "string"
+          },
+          "skipped": {
+            "description": "Number of results that were skipped.",
+            "format": "int32",
+            "type": "integer"
+          },
+          "termsAcceptances": {
+            "description": "Terms acceptances matching the request criteria.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.TermsAcceptance"
+            },
+            "type": "array"
+          },
+          "totalCount": {
+            "description": "Total number of terms acceptances matching the filter.",
             "format": "int64",
             "type": "string"
           }
@@ -3857,7 +4034,7 @@
       },
       "chainguard.platform.iam.v2beta1.ServicePrincipal": {
         "default": "SERVICE_PRINCIPAL_UNSPECIFIED",
-        "description": "ServicePrincipal represents a Chainguard service that can assume an identity.\n\n - SERVICE_PRINCIPAL_UNSPECIFIED: Unknown/unspecified service principal.\n - SERVICE_PRINCIPAL_COSIGNED: Cosigned service for image signing.\n - SERVICE_PRINCIPAL_INGESTER: Ingester service for data ingestion.\n - SERVICE_PRINCIPAL_CATALOG_SYNCER: Catalog syncer service for synchronizing image catalogs.\n - SERVICE_PRINCIPAL_APKO_BUILDER: APKO builder service for building images.\n - SERVICE_PRINCIPAL_ENTITLEMENT_SYNCER: Entitlement syncer service for synchronizing entitlements.\n - SERVICE_PRINCIPAL_TENANT_SCANNER: Tenant scanner service for scanning tenant resources.\n - SERVICE_PRINCIPAL_SEDIMENTOLOGY: Sedimentology service for data analysis.\n - SERVICE_PRINCIPAL_SKILLUP: Skillup service for fixing repository skill violations.\n - SERVICE_PRINCIPAL_MATERIALIZER: Materializer service for materializing solutions from problem statements.",
+        "description": "ServicePrincipal represents a Chainguard service that can assume an identity.\n\n - SERVICE_PRINCIPAL_UNSPECIFIED: Unknown/unspecified service principal.\n - SERVICE_PRINCIPAL_COSIGNED: Cosigned service for image signing.\n - SERVICE_PRINCIPAL_INGESTER: Ingester service for data ingestion.\n - SERVICE_PRINCIPAL_CATALOG_SYNCER: Catalog syncer service for synchronizing image catalogs.\n - SERVICE_PRINCIPAL_APKO_BUILDER: APKO builder service for building images.\n - SERVICE_PRINCIPAL_ENTITLEMENT_SYNCER: Entitlement syncer service for synchronizing entitlements.\n - SERVICE_PRINCIPAL_TENANT_SCANNER: Tenant scanner service for scanning tenant resources.\n - SERVICE_PRINCIPAL_SEDIMENTOLOGY: Sedimentology service for data analysis.\n - SERVICE_PRINCIPAL_SKILLUP: Skillup service for fixing repository skill violations.\n - SERVICE_PRINCIPAL_MATERIALIZER: Materializer service for materializing solutions from problem statements.\n - SERVICE_PRINCIPAL_MICROFLOW: Microflow service for running a pull request's committed CI workflows in microVMs.",
         "enum": [
           "SERVICE_PRINCIPAL_UNSPECIFIED",
           "SERVICE_PRINCIPAL_COSIGNED",
@@ -3868,9 +4045,53 @@
           "SERVICE_PRINCIPAL_TENANT_SCANNER",
           "SERVICE_PRINCIPAL_SEDIMENTOLOGY",
           "SERVICE_PRINCIPAL_SKILLUP",
-          "SERVICE_PRINCIPAL_MATERIALIZER"
+          "SERVICE_PRINCIPAL_MATERIALIZER",
+          "SERVICE_PRINCIPAL_MICROFLOW"
         ],
         "type": "string"
+      },
+      "chainguard.platform.iam.v2beta1.TermsAcceptance": {
+        "description": "TermsAcceptance records an acceptance event for a single legal document.",
+        "properties": {
+          "acceptedBy": {
+            "description": "Identity (subject) that accepted the document.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "createTime": {
+            "description": "When the document was accepted.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "docId": {
+            "description": "Stable identifier for the accepted document.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "orgUid": {
+            "description": "Organization UIDP where the document was accepted.",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.v2beta1.TermsService.AcceptTermsBody": {
+        "description": "AcceptTermsRequest is the request message for AcceptTerms.",
+        "properties": {
+          "documentIds": {
+            "description": "IDs of the legal documents being accepted.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "documentIds"
+        ],
+        "type": "object"
       },
       "chainguard.platform.iam.v2beta1.UpdateIdentityMetadataRequest": {
         "description": "UpdateIdentityMetadataRequest is the request for UpdateIdentityMetadata.",
@@ -3898,10 +4119,11 @@
         "properties": {
           "createdAt": {
             "format": "date-time",
+            "readOnly": true,
             "type": "string"
           },
           "developerBand": {
-            "description": "developer_band is the selected developer-count band — the \"Up to X\ndevelopers\" ceiling, not an exact head count. It applies uniformly across\nevery selected ecosystem.",
+            "description": "developer_band is the selected developer-count band — the \"Up to X\ndevelopers\" ceiling, not an exact head count. It applies uniformly across\nevery selected ecosystem.\nOnce set on a subscription this cannot be changed. This constraint may be\nrelaxed in the future.",
             "format": "int32",
             "type": "integer"
           },
@@ -3914,10 +4136,11 @@
           },
           "id": {
             "description": "id is the uidp of the subscription, a child of the org group.",
+            "readOnly": true,
             "type": "string"
           },
           "isFreeTrial": {
-            "description": "is_free_trial indicates the subscription is on an AWS free trial (not\ncharged while the trial is active).",
+            "description": "is_free_trial indicates the subscription is on an AWS free trial (not\ncharged while the trial is active).\nUpdating free trial status is not supported directly through the API.",
             "type": "boolean"
           },
           "status": {
@@ -3926,10 +4149,11 @@
                 "$ref": "#/components/schemas/chainguard.platform.libraries.SubscriptionStatus"
               }
             ],
-            "description": "status is the subscription lifecycle state."
+            "description": "status is the subscription lifecycle state.\nThe value is managed server side and cannot be updated through the API."
           },
           "updatedAt": {
             "format": "date-time",
+            "readOnly": true,
             "type": "string"
           }
         },
@@ -4845,6 +5069,199 @@
           "SUBSCRIPTION_STATUS_EXPIRED"
         ],
         "type": "string"
+      },
+      "chainguard.platform.libraries.v2beta1.Artifact": {
+        "description": "Artifact contains metadata about a software artifact in a language ecosystem.",
+        "properties": {
+          "createTime": {
+            "description": "When the first version was published to Chainguard Libraries.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "description": {
+            "description": "The description of the most recent version of this artifact.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "ecosystem": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.v2beta1.Ecosystem"
+              }
+            ],
+            "description": "The language ecosystem this artifact belongs to.",
+            "readOnly": true
+          },
+          "latestVersion": {
+            "description": "The most recent version of this artifact available.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "name": {
+            "description": "The artifact name.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "uid": {
+            "description": "Unique identifier for the artifact, based on the ecosystem it belongs to.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "updateTime": {
+            "description": "When the most recent version was published to Chainguard Libraries.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "versionCount": {
+            "description": "The number of versions available for this artifact.",
+            "format": "int32",
+            "readOnly": true,
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.v2beta1.ArtifactVersion": {
+        "description": "ArtifactVersion contains metadata about a specific version of an artifact.",
+        "properties": {
+          "createTime": {
+            "description": "When this version was first published to Chainguard Libraries.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "description": {
+            "description": "A long form description of this version of the artifact.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "name": {
+            "description": "The name of the artifact.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "sizeBytes": {
+            "description": "The estimated size of this artifact in bytes.",
+            "format": "int64",
+            "readOnly": true,
+            "type": "string"
+          },
+          "uid": {
+            "description": "Unique identifier for this version of the artifact.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "updateTime": {
+            "description": "When this version was last published to Chainguard Libraries.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "version": {
+            "description": "The version string of this artifact.",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.v2beta1.Ecosystem": {
+        "default": "ECOSYSTEM_UNSPECIFIED",
+        "description": "Ecosystem represents the language ecosystem an artifact belongs to.\n\n - ECOSYSTEM_UNSPECIFIED: Unspecified ecosystem.\n - ECOSYSTEM_JAVA: Java ecosystem (Maven).\n - ECOSYSTEM_PYTHON: Python ecosystem (PyPI).",
+        "enum": [
+          "ECOSYSTEM_UNSPECIFIED",
+          "ECOSYSTEM_JAVA",
+          "ECOSYSTEM_PYTHON"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.libraries.v2beta1.GetArtifactCountResponse": {
+        "description": "GetArtifactCountResponse is the response message for GetArtifactCount.",
+        "properties": {
+          "counts": {
+            "description": "Counts for each requested ecosystem.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.v2beta1.GetArtifactCountResponse.EcosystemCount"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.v2beta1.GetArtifactCountResponse.EcosystemCount": {
+        "description": "EcosystemCount represents the total number of artifacts for a given ecosystem.",
+        "properties": {
+          "ecosystem": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.v2beta1.Ecosystem"
+              }
+            ],
+            "description": "The ecosystem."
+          },
+          "totalCount": {
+            "description": "Total number of artifacts for this ecosystem.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.v2beta1.ListArtifactVersionsResponse": {
+        "description": "ListArtifactVersionsResponse is the response message for ListArtifactVersions.",
+        "properties": {
+          "artifactVersions": {
+            "description": "Versions of the artifact.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.v2beta1.ArtifactVersion"
+            },
+            "type": "array"
+          },
+          "nextPageToken": {
+            "description": "Token for retrieving the next page of results.\nEmpty if no more results.",
+            "type": "string"
+          },
+          "skipped": {
+            "description": "Number of results that were skipped.\nAccumulates across paginated requests.",
+            "format": "int32",
+            "type": "integer"
+          },
+          "totalCount": {
+            "description": "Total number of versions for this artifact.\nProvided for UI pagination.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.v2beta1.ListArtifactsResponse": {
+        "description": "ListArtifactsResponse is the response message for ListArtifacts.",
+        "properties": {
+          "artifacts": {
+            "description": "Artifacts matching the filter criteria.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.v2beta1.Artifact"
+            },
+            "type": "array"
+          },
+          "nextPageToken": {
+            "description": "Token for retrieving the next page of results.\nEmpty if no more results.",
+            "type": "string"
+          },
+          "skipped": {
+            "description": "Number of results that were skipped.\nAccumulates across paginated requests.",
+            "format": "int32",
+            "type": "integer"
+          },
+          "totalCount": {
+            "description": "Total number of artifacts matching the filter.\nProvided for UI pagination.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
       },
       "chainguard.platform.matcher.ImageMatch": {
         "properties": {
@@ -6299,6 +6716,22 @@
         },
         "type": "object"
       },
+      "chainguard.platform.registry.Entitlements.RemoveEntitlementImagesBody": {
+        "properties": {
+          "id": {
+            "description": "The exact id of the entitlement to remove images from.",
+            "type": "string"
+          },
+          "imageNames": {
+            "description": "Catalog image names to remove (e.g., \"nginx\", \"redis\"). Matched against\nthe names of catalog images currently associated with the targeted\nentitlement(s). Names that aren't currently entitled are silent no-ops.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.registry.EolGracePeriodStatus": {
         "default": "GRACE_NOT_ELIGIBLE",
         "enum": [
@@ -6989,6 +7422,23 @@
         },
         "type": "object"
       },
+      "chainguard.platform.registry.RemoveEntitlementImagesResponse": {
+        "properties": {
+          "images": {
+            "description": "The images that were removed. One entry per removal event — when a\nsingle image is removed from multiple entitlements (org-scoped remove),\nit appears once per affected entitlement so callers can see the\nper-entitlement effect.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.EntitledImage"
+            },
+            "type": "array"
+          },
+          "parent": {
+            "description": "The customer org UIDP that owned the affected entitlements. Set by\nthe backend to the resolved parent regardless of whether the request\nselected by parent or by entitlement id. Used as the CloudEvents\nsubject for downstream subscribers.",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.registry.Repo": {
         "properties": {
           "activeTags": {
@@ -7567,6 +8017,19 @@
         ],
         "type": "string"
       },
+      "chainguard.platform.registry.v2beta1.Architectures": {
+        "description": "Architectures contains the architectures present in an OCI index manifest.",
+        "properties": {
+          "architectures": {
+            "description": "Architecture names (e.g., \"amd64\", \"arm64\").",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.registry.v2beta1.CatalogTier": {
         "default": "CATALOG_TIER_UNSPECIFIED",
         "description": "CatalogTier represents the catalog tier classification for repositories.\n\n - CATALOG_TIER_UNSPECIFIED: Unknown or unspecified tier.\n - CATALOG_TIER_APPLICATION: Application images tier.\n - CATALOG_TIER_BASE: Base images tier.\n - CATALOG_TIER_FIPS: FIPS-compliant images tier.\n - CATALOG_TIER_AI: AI/ML images tier.\n - CATALOG_TIER_DEVTOOLS: Developer tools images tier.\n - CATALOG_TIER_COMMERCIAL: Commercial images tier.",
@@ -7582,7 +8045,7 @@
         "type": "string"
       },
       "chainguard.platform.registry.v2beta1.CustomOverlay": {
-        "description": "CustomOverlay contains apko image configuration customizations.",
+        "description": "CustomOverlay contains apko image configuration customizations.\nCan only be used on repositories with custom assembly enabled.",
         "properties": {
           "accounts": {
             "allOf": [
@@ -7590,15 +8053,13 @@
                 "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay.Accounts"
               }
             ],
-            "description": "Account customizations applied during rebuilds.",
-            "readOnly": true
+            "description": "Account customizations applied during rebuilds."
           },
           "annotations": {
             "additionalProperties": {
               "type": "string"
             },
-            "description": "OCI annotations to add to the image.",
-            "readOnly": true,
+            "description": "OCI annotations to add to the image.\nKeys with the reserved prefixes \"dev.chainguard.\" and\n\"org.opencontainers.\" are rejected.",
             "type": "object"
           },
           "certificates": {
@@ -7607,8 +8068,7 @@
                 "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay.Certificates"
               }
             ],
-            "description": "Custom certificates to include in the image.",
-            "readOnly": true
+            "description": "Custom certificates to include in the image."
           },
           "contents": {
             "allOf": [
@@ -7616,15 +8076,13 @@
                 "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay.ImageContents"
               }
             ],
-            "description": "Additional packages to include in the image.",
-            "readOnly": true
+            "description": "Additional packages to include in the image."
           },
           "environment": {
             "additionalProperties": {
               "type": "string"
             },
-            "description": "Environment variables to set in the image.",
-            "readOnly": true,
+            "description": "Environment variables to set in the image.\nKeys with the reserved prefix \"CHAINGUARD_\" are rejected.",
             "type": "object"
           }
         },
@@ -7674,6 +8132,9 @@
             "type": "array"
           }
         },
+        "required": [
+          "groupname"
+        ],
         "type": "object"
       },
       "chainguard.platform.registry.v2beta1.CustomOverlay.Accounts.User": {
@@ -7706,6 +8167,9 @@
             "type": "string"
           }
         },
+        "required": [
+          "username"
+        ],
         "type": "object"
       },
       "chainguard.platform.registry.v2beta1.CustomOverlay.Certificates": {
@@ -7719,7 +8183,7 @@
             "type": "array"
           },
           "providers": {
-            "description": "Ceritificate providers via packages.",
+            "description": "Certificate providers via packages.",
             "items": {
               "type": "string"
             },
@@ -7740,6 +8204,10 @@
             "type": "string"
           }
         },
+        "required": [
+          "name",
+          "content"
+        ],
         "type": "object"
       },
       "chainguard.platform.registry.v2beta1.CustomOverlay.ImageContents": {
@@ -7820,7 +8288,7 @@
         "description": "Repo represents a container image repository.",
         "properties": {
           "activeTags": {
-            "description": "Actively maintained tags in this repository.",
+            "description": "Actively maintained tags in this repository.\nFor repositories that sync from another repository, these are synced from\nthat repository.",
             "items": {
               "type": "string"
             },
@@ -7828,7 +8296,7 @@
             "type": "array"
           },
           "aliases": {
-            "description": "List of equivalent image names/aliases.",
+            "description": "List of equivalent image names/aliases.\nFor repositories that sync from another repository, these are synced from\nthat repository.",
             "items": {
               "type": "string"
             },
@@ -7836,7 +8304,7 @@
             "type": "array"
           },
           "bundles": {
-            "description": "Sales grouping labels for the repository.",
+            "description": "Sales grouping labels for the repository.\nFor repositories that sync from another repository, these are synced from\nthat repository.",
             "items": {
               "type": "string"
             },
@@ -7849,7 +8317,7 @@
                 "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CatalogTier"
               }
             ],
-            "description": "Catalog tier this repository belongs to.",
+            "description": "Catalog tier this repository belongs to.\nFor repositories that sync from another repository, this is synced from\nthat repository.",
             "readOnly": true
           },
           "createTime": {
@@ -7864,20 +8332,14 @@
                 "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay"
               }
             ],
-            "description": "Custom apko image configuration overlay.",
-            "readOnly": true
+            "description": "Custom apko image configuration overlay applied when images are rebuilt\nfor this repository. Can only be set on repositories with custom\nassembly enabled."
           },
           "description": {
-            "description": "Optional description of the repository.",
+            "description": "Optional description of the repository.\nFor repositories that sync from another repository, this defaults to that\nrepository's description.",
             "type": "string"
           },
           "name": {
             "description": "Human-readable name of the repository.",
-            "type": "string"
-          },
-          "readme": {
-            "description": "Raw Markdown content describing the repository.",
-            "readOnly": true,
             "type": "string"
           },
           "sync_config": {
@@ -7886,8 +8348,7 @@
                 "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.SyncConfig"
               }
             ],
-            "description": "Repository sync configuration for image mirroring.",
-            "readOnly": true
+            "description": "Repository sync configuration. If set, images and metadata are synced\nfrom the source repository to this one."
           },
           "uid": {
             "description": "Unique identifier for the repository (UIDP).\nGenerated by server.",
@@ -7906,51 +8367,65 @@
         ],
         "type": "object"
       },
+      "chainguard.platform.registry.v2beta1.Size": {
+        "description": "Size contains the size of a container image for a specific architecture.",
+        "properties": {
+          "architecture": {
+            "description": "Architecture the size was computed for.",
+            "type": "string"
+          },
+          "size": {
+            "description": "Total size in bytes (sum of all layers plus config).",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.registry.v2beta1.SyncConfig": {
         "description": "SyncConfig contains repository synchronization settings.",
         "properties": {
           "amazon": {
-            "description": "AWS ECR destination repository.",
-            "readOnly": true,
+            "description": "AWS ECR destination repository to additionally sync images to.",
             "type": "string"
           },
           "apkoOverlay": {
-            "description": "Apko overlay configuration name.",
+            "description": "Apko configuration overlay applied when rebuilding images during sync.\nThis field is managed by Chainguard.",
             "readOnly": true,
             "type": "string"
           },
           "azure": {
-            "description": "Azure ACR destination repository.",
-            "readOnly": true,
+            "description": "Azure ACR destination repository to additionally sync images to.",
             "type": "string"
           },
           "expirationTime": {
-            "description": "When the catalog syncer should stop syncing.",
+            "description": "When the catalog syncer should stop syncing from the source repository.\nDefaults to 14 days from creation.\nThis field is managed by Chainguard.",
             "format": "date-time",
             "readOnly": true,
             "type": "string"
           },
           "google": {
-            "description": "GCP Artifact Registry destination repository.",
-            "readOnly": true,
+            "description": "GCP Artifact Registry destination repository to additionally sync\nimages to.",
             "type": "string"
           },
           "gracePeriod": {
-            "description": "Whether EOL grace period is enabled.",
+            "description": "Whether EOL grace period is enabled.\nDetermined by your organization's settings.",
             "readOnly": true,
             "type": "boolean"
           },
           "source": {
-            "description": "Source repository UIDP to sync from.",
-            "readOnly": true,
+            "description": "Source repository to sync from.\nAccepts a repository UIDP, a catalog name (e.g. \"chainguard/nginx\"), or\na full image reference (e.g. \"cgr.dev/chainguard/nginx\"); always stored\nand returned as a UIDP. The caller's organization must have an active\nentitlement for the source repository, or the caller must have pull\naccess to it.",
             "type": "string"
           },
           "uniqueTags": {
-            "description": "Whether exported tags will be uniquely labeled.",
+            "description": "Whether exported tags will be uniquely labeled.\nDetermined by your organization's settings.",
             "readOnly": true,
             "type": "boolean"
           }
         },
+        "required": [
+          "source"
+        ],
         "type": "object"
       },
       "chainguard.platform.registry.v2beta1.Tag": {
@@ -8771,7 +9246,19 @@
           "componentVersion": {
             "type": "string"
           },
+          "grypeDbBuilt": {
+            "description": "grype_db_built is the build timestamp (RFC 3339) of the grype\nvulnerability database used for this detection.",
+            "type": "string"
+          },
+          "grypeDbChecksum": {
+            "description": "grype_db_checksum is the integrity checksum of the grype vulnerability\ndatabase used for this detection.",
+            "type": "string"
+          },
           "scanner": {
+            "type": "string"
+          },
+          "scannerVersion": {
+            "description": "scanner_version is the version of the vulnerability scanner (grype)\nthat produced this detection.",
             "type": "string"
           },
           "subpackageName": {
@@ -8823,7 +9310,19 @@
           "fixedVersion": {
             "type": "string"
           },
+          "grypeDbBuilt": {
+            "description": "grype_db_built is the build timestamp (RFC 3339) of the grype\nvulnerability database used for this fixed determination.",
+            "type": "string"
+          },
+          "grypeDbChecksum": {
+            "description": "grype_db_checksum is the integrity checksum of the grype vulnerability\ndatabase used for this fixed determination.",
+            "type": "string"
+          },
           "note": {
+            "type": "string"
+          },
+          "scannerVersion": {
+            "description": "scanner_version is the version of the vulnerability scanner (grype) that\nproduced this fixed determination.",
             "type": "string"
           }
         },
@@ -9188,8 +9687,20 @@
             "description": "The version of the matched component.",
             "type": "string"
           },
+          "grypeDbBuilt": {
+            "description": "The build timestamp (RFC 3339) of the grype vulnerability database used for this detection.",
+            "type": "string"
+          },
+          "grypeDbChecksum": {
+            "description": "The integrity checksum of the grype vulnerability database used for this detection.",
+            "type": "string"
+          },
           "scanner": {
             "description": "The scanner that detected the vulnerability.",
+            "type": "string"
+          },
+          "scannerVersion": {
+            "description": "The version of the vulnerability scanner (grype) that produced this detection.",
             "type": "string"
           },
           "subpackage": {
@@ -9249,8 +9760,20 @@
             "description": "The first version of the artifact in which the vulnerability is considered fixed.",
             "type": "string"
           },
+          "grypeDbBuilt": {
+            "description": "The build timestamp (RFC 3339) of the grype vulnerability database used for this fixed determination.",
+            "type": "string"
+          },
+          "grypeDbChecksum": {
+            "description": "The integrity checksum of the grype vulnerability database used for this fixed determination.",
+            "type": "string"
+          },
           "note": {
             "description": "Additional textual comments about the fix.",
+            "type": "string"
+          },
+          "scannerVersion": {
+            "description": "The version of the vulnerability scanner (grype) that produced this fixed determination.",
             "type": "string"
           }
         },
@@ -10479,6 +11002,136 @@
         "summary": "Get Org Public Key",
         "tags": [
           "ArgosDocuments"
+        ]
+      }
+    },
+    "/argos/v1/orgs/{parent}/vulns": {
+      "get": {
+        "description": "ListForOrg returns all CGP records associated with the org's documents\n(accumulated server-side). Scoped to parent. Paginated.",
+        "operationId": "ArgosVulns_ListForOrg",
+        "parameters": [
+          {
+            "description": "parent is the UIDP of the organization (root group) to scope the query to.",
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          },
+          {
+            "description": "package is an optional exact ecosystem/name filter (v1: exact match).",
+            "in": "query",
+            "name": "package",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "version is an optional version filter.",
+            "in": "query",
+            "name": "version",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.argos.VulnList"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List For Org",
+        "tags": [
+          "ArgosVulns"
+        ]
+      }
+    },
+    "/argos/v1/orgs/{parent}/vulns:batchGet": {
+      "post": {
+        "description": "BatchGet returns metadata for an explicit set of CGP IDs in one call\n(avoids N x ArgosOSV.GetVuln). Scoped to parent. Paginated.",
+        "operationId": "ArgosVulns_BatchGet",
+        "parameters": [
+          {
+            "description": "parent is the UIDP of the organization (root group) to scope the query to.",
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.argos.ArgosVulns.BatchGetBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.argos.VulnList"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Batch Get",
+        "tags": [
+          "ArgosVulns"
         ]
       }
     },
@@ -13788,6 +14441,267 @@
         ]
       }
     },
+    "/iam/v2beta1/externalGroupRoleMappings": {
+      "get": {
+        "description": "ListExternalGroupRoleMappings returns mappings matching filter criteria with pagination.",
+        "operationId": "ExternalGroupRoleMappingsService_ListExternalGroupRoleMappings",
+        "parameters": [
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "ids are a list of exact UIDPs of records.",
+            "in": "query",
+            "name": "uidp.ids",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          {
+            "description": "Filter by identity provider UID.",
+            "in": "query",
+            "name": "identityProviderUid",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Maximum number of results to return per page.",
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Page token from a previous List response for pagination.",
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Order results by field. Format: \"field [asc|desc]\".\nDefault: \"uid asc\".\nNote: Changing order_by between pages invalidates the page token.",
+            "in": "query",
+            "name": "orderBy",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Number of results to skip before returning.",
+            "in": "query",
+            "name": "skip",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.ListExternalGroupRoleMappingsResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List External Group Role Mappings",
+        "tags": [
+          "ExternalGroupRoleMappingsService"
+        ]
+      }
+    },
+    "/iam/v2beta1/externalGroupRoleMappings/{parent}": {
+      "post": {
+        "description": "CreateExternalGroupRoleMapping creates a new mapping under an identity provider.\nThe caller must hold both the identity provider create and role binding create capabilities,\nand must already possess the capabilities granted by the mapped role (anti-escalation).",
+        "operationId": "ExternalGroupRoleMappingsService_CreateExternalGroupRoleMapping",
+        "parameters": [
+          {
+            "description": "Parent identity provider UIDP under which the mapping will be created.",
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.ExternalGroupRoleMapping"
+              }
+            }
+          },
+          "description": "The mapping to create.\nSet external_group_id, role_uid, and scope.",
+          "required": true,
+          "x-originalParamName": "externalGroupRoleMapping"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.ExternalGroupRoleMapping"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create External Group Role Mapping",
+        "tags": [
+          "ExternalGroupRoleMappingsService"
+        ]
+      }
+    },
+    "/iam/v2beta1/externalGroupRoleMappings/{uid}": {
+      "delete": {
+        "description": "DeleteExternalGroupRoleMapping deletes a mapping by UID.\nUses hard delete to maintain the unique constraint on (idp, group, role, scope).",
+        "operationId": "ExternalGroupRoleMappingsService_DeleteExternalGroupRoleMapping",
+        "parameters": [
+          {
+            "description": "UID of the mapping to delete.",
+            "in": "path",
+            "name": "uid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Delete External Group Role Mapping",
+        "tags": [
+          "ExternalGroupRoleMappingsService"
+        ]
+      },
+      "get": {
+        "description": "GetExternalGroupRoleMapping retrieves a single external group role mapping by UID.",
+        "operationId": "ExternalGroupRoleMappingsService_GetExternalGroupRoleMapping",
+        "parameters": [
+          {
+            "description": "UID of the mapping to retrieve.",
+            "in": "path",
+            "name": "uid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.ExternalGroupRoleMapping"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get External Group Role Mapping",
+        "tags": [
+          "ExternalGroupRoleMappingsService"
+        ]
+      }
+    },
     "/iam/v2beta1/groupInvites": {
       "get": {
         "description": "ListGroupInvites returns group invites based on filter criteria with pagination support.",
@@ -16183,6 +17097,137 @@
         ]
       }
     },
+    "/iam/v2beta1/terms/{group}": {
+      "get": {
+        "description": "ListTermsAcceptances returns the legal documents that a group has accepted.",
+        "operationId": "TermsService_ListTermsAcceptances",
+        "parameters": [
+          {
+            "description": "Group UIDP of the organization to list acceptances for.\nIncludes ancestor organization acceptances.",
+            "in": "path",
+            "name": "group",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Maximum number of results to return per page.",
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Page token from a previous List response for pagination.",
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Order results by field. Format: \"field [asc|desc]\"",
+            "in": "query",
+            "name": "orderBy",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Number of results to skip before returning.",
+            "in": "query",
+            "name": "skip",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.ListTermsAcceptancesResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Terms Acceptances",
+        "tags": [
+          "TermsService"
+        ]
+      },
+      "post": {
+        "description": "AcceptTerms records that a group has accepted one or more legal documents.",
+        "operationId": "TermsService_AcceptTerms",
+        "parameters": [
+          {
+            "description": "Group UIDP of the organization accepting the documents.",
+            "in": "path",
+            "name": "group",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.TermsService.AcceptTermsBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.AcceptTermsResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Accept Terms",
+        "tags": [
+          "TermsService"
+        ]
+      }
+    },
     "/image-recommendation/v1/match": {
       "post": {
         "description": "MatchImage takes a list of SBOM components and returns a list of Chainguard\nimages ranked by similarity to original SBOM components",
@@ -16645,6 +17690,98 @@
           }
         },
         "summary": "Create",
+        "tags": [
+          "AWSMarketplaceSubscriptions"
+        ]
+      }
+    },
+    "/libraries/v1/aws-marketplace-subscriptions/{subscription.id}": {
+      "patch": {
+        "operationId": "AWSMarketplaceSubscriptions_Update",
+        "parameters": [
+          {
+            "description": "id is the uidp of the subscription, a child of the org group.",
+            "in": "path",
+            "name": "subscription.id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "properties": {
+                  "createdAt": {
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "developerBand": {
+                    "description": "developer_band is the selected developer-count band — the \"Up to X\ndevelopers\" ceiling, not an exact head count. It applies uniformly across\nevery selected ecosystem.\nOnce set on a subscription this cannot be changed. This constraint may be\nrelaxed in the future.",
+                    "format": "int32",
+                    "type": "integer"
+                  },
+                  "ecosystems": {
+                    "description": "ecosystems are the Libraries ecosystems the subscription covers.",
+                    "items": {
+                      "$ref": "#/components/schemas/chainguard.platform.libraries.Ecosystem"
+                    },
+                    "type": "array"
+                  },
+                  "isFreeTrial": {
+                    "description": "is_free_trial indicates the subscription is on an AWS free trial (not\ncharged while the trial is active).\nUpdating free trial status is not supported directly through the API.",
+                    "type": "boolean"
+                  },
+                  "status": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/chainguard.platform.libraries.SubscriptionStatus"
+                      }
+                    ],
+                    "description": "status is the subscription lifecycle state.\nThe value is managed server side and cannot be updated through the API."
+                  },
+                  "updatedAt": {
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string"
+                  }
+                },
+                "title": "The subscription to update.",
+                "type": "object"
+              }
+            }
+          },
+          "description": "The subscription to update.",
+          "required": true,
+          "x-originalParamName": "subscription"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.AWSMarketplaceSubscription"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Update",
         "tags": [
           "AWSMarketplaceSubscriptions"
         ]
@@ -17651,6 +18788,244 @@
         "summary": "Create Binding",
         "tags": [
           "LibraryPolicyBindings"
+        ]
+      }
+    },
+    "/libraries/v2beta1/artifacts": {
+      "get": {
+        "description": "ListArtifacts returns artifacts based on filter criteria with pagination support.",
+        "operationId": "ArtifactsService_ListArtifacts",
+        "parameters": [
+          {
+            "description": "The language ecosystems to return artifacts for.\n\n - ECOSYSTEM_UNSPECIFIED: Unspecified ecosystem.\n - ECOSYSTEM_JAVA: Java ecosystem (Maven).\n - ECOSYSTEM_PYTHON: Python ecosystem (PyPI).",
+            "in": "query",
+            "name": "ecosystems",
+            "required": true,
+            "schema": {
+              "items": {
+                "enum": [
+                  "ECOSYSTEM_UNSPECIFIED",
+                  "ECOSYSTEM_JAVA",
+                  "ECOSYSTEM_PYTHON"
+                ],
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          {
+            "description": "A string to search artifacts by. If empty, all artifacts\nfrom the given ecosystem will be returned.",
+            "in": "query",
+            "name": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Specify the CUDA version of the packages to return from the Python ecosystem.",
+            "in": "query",
+            "name": "cudaVersion",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Flag to return only remediated packages for the ecosystems.",
+            "in": "query",
+            "name": "remediated",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "Maximum number of artifacts to return per page.\nDefault: 50, Maximum: 200.",
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Page token from a previous ListArtifacts response for pagination.\nOpaque token with 3-day expiration.",
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Number of results to skip before returning.\nUsed for random-access pagination (jumping to arbitrary pages).\nCan be combined with page_token to skip from cursor position.\nMust be non-negative.",
+            "in": "query",
+            "name": "skip",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Order results by field. Format: \"field [asc|desc]\"\nDefault: name ascending.\nNote: Changing order_by between pages invalidates the page_token.",
+            "in": "query",
+            "name": "orderBy",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.v2beta1.ListArtifactsResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Artifacts",
+        "tags": [
+          "ArtifactsService"
+        ]
+      }
+    },
+    "/libraries/v2beta1/artifacts/count": {
+      "get": {
+        "description": "GetArtifactCount returns the total number of artifacts for specified ecosystems.",
+        "operationId": "ArtifactsService_GetArtifactCount",
+        "parameters": [
+          {
+            "description": "The language ecosystems to request the artifact counts for.\n\n - ECOSYSTEM_UNSPECIFIED: Unspecified ecosystem.\n - ECOSYSTEM_JAVA: Java ecosystem (Maven).\n - ECOSYSTEM_PYTHON: Python ecosystem (PyPI).",
+            "in": "query",
+            "name": "ecosystems",
+            "required": true,
+            "schema": {
+              "items": {
+                "enum": [
+                  "ECOSYSTEM_UNSPECIFIED",
+                  "ECOSYSTEM_JAVA",
+                  "ECOSYSTEM_PYTHON"
+                ],
+                "type": "string"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.v2beta1.GetArtifactCountResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Artifact Count",
+        "tags": [
+          "ArtifactsService"
+        ]
+      }
+    },
+    "/libraries/v2beta1/artifacts/{artifactId}/versions": {
+      "get": {
+        "description": "ListArtifactVersions returns all versions of a specific artifact with pagination support.",
+        "operationId": "ArtifactsService_ListArtifactVersions",
+        "parameters": [
+          {
+            "description": "The artifact's unique identifier, as returned by ListArtifacts.",
+            "in": "path",
+            "name": "artifactId",
+            "required": true,
+            "schema": {
+              "pattern": "[^/]+",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Maximum number of versions to return per page.\nDefault: 50, Maximum: 200.",
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Page token from a previous ListArtifactVersions response for pagination.\nOpaque token with 3-day expiration.",
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Number of results to skip before returning.\nUsed for random-access pagination (jumping to arbitrary pages).\nCan be combined with page_token to skip from cursor position.\nMust be non-negative.",
+            "in": "query",
+            "name": "skip",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Order results by field. Format: \"field [asc|desc]\"\nDefault: \"version desc\" (newest first)\nNote: Changing order_by between pages invalidates the page_token.",
+            "in": "query",
+            "name": "orderBy",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.v2beta1.ListArtifactVersionsResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Artifact Versions",
+        "tags": [
+          "ArtifactsService"
         ]
       }
     },
@@ -18902,6 +20277,61 @@
           }
         },
         "summary": "Get Features",
+        "tags": [
+          "RegistryEntitlements"
+        ]
+      }
+    },
+    "/registry/v1/entitlements/{parent}:removeImages": {
+      "post": {
+        "description": "Removal is a soft delete: the underlying rows are retained with a deletion\ntimestamp so that history can be reconstructed for audit purposes.",
+        "operationId": "Entitlements_RemoveEntitlementImages",
+        "parameters": [
+          {
+            "description": "The organization to remove images from. The named images are\nremoved from every active entitlement under the org that has them.",
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.registry.Entitlements.RemoveEntitlementImagesBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.registry.RemoveEntitlementImagesResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Remove Entitlement Images",
         "tags": [
           "RegistryEntitlements"
         ]
@@ -21095,14 +22525,6 @@
             }
           },
           {
-            "description": "Whether to exclude the readme field from results.\nDefaults to false (readme included).",
-            "in": "query",
-            "name": "excludeReadme",
-            "schema": {
-              "type": "boolean"
-            }
-          },
-          {
             "description": "Maximum number of results to return per page.\nDefault: 50, Maximum: 200.",
             "in": "query",
             "name": "pageSize",
@@ -21162,6 +22584,307 @@
         "summary": "List Repos",
         "tags": [
           "ReposService"
+        ]
+      }
+    },
+    "/registry/v2beta1/repos/{parent}": {
+      "post": {
+        "description": "CreateRepo creates a repository under a parent group.",
+        "operationId": "ReposService_CreateRepo",
+        "parameters": [
+          {
+            "description": "Parent group UIDP under which to create the repository.",
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.Repo"
+              }
+            }
+          },
+          "description": "The repository to create. Required fields: name.",
+          "required": true,
+          "x-originalParamName": "repo"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.Repo"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create Repo",
+        "tags": [
+          "ReposService"
+        ]
+      }
+    },
+    "/registry/v2beta1/repos/{repo.uid}": {
+      "patch": {
+        "description": "UpdateRepo updates a repository's mutable fields.",
+        "operationId": "ReposService_UpdateRepo",
+        "parameters": [
+          {
+            "description": "Unique identifier for the repository (UIDP).\nGenerated by server.",
+            "in": "path",
+            "name": "repo.uid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "properties": {
+                  "activeTags": {
+                    "description": "Actively maintained tags in this repository.\nFor repositories that sync from another repository, these are synced from\nthat repository.",
+                    "items": {
+                      "type": "string"
+                    },
+                    "readOnly": true,
+                    "type": "array"
+                  },
+                  "aliases": {
+                    "description": "List of equivalent image names/aliases.\nFor repositories that sync from another repository, these are synced from\nthat repository.",
+                    "items": {
+                      "type": "string"
+                    },
+                    "readOnly": true,
+                    "type": "array"
+                  },
+                  "bundles": {
+                    "description": "Sales grouping labels for the repository.\nFor repositories that sync from another repository, these are synced from\nthat repository.",
+                    "items": {
+                      "type": "string"
+                    },
+                    "readOnly": true,
+                    "type": "array"
+                  },
+                  "catalogTier": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CatalogTier"
+                      }
+                    ],
+                    "description": "Catalog tier this repository belongs to.\nFor repositories that sync from another repository, this is synced from\nthat repository.",
+                    "readOnly": true
+                  },
+                  "createTime": {
+                    "description": "When the repository was created.",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "customOverlay": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay"
+                      }
+                    ],
+                    "description": "Custom apko image configuration overlay applied when images are rebuilt\nfor this repository. Can only be set on repositories with custom\nassembly enabled."
+                  },
+                  "description": {
+                    "description": "Optional description of the repository.\nFor repositories that sync from another repository, this defaults to that\nrepository's description.",
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "Human-readable name of the repository.",
+                    "type": "string"
+                  },
+                  "sync_config": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.SyncConfig"
+                      }
+                    ],
+                    "description": "Repository sync configuration. If set, images and metadata are synced\nfrom the source repository to this one."
+                  },
+                  "updateTime": {
+                    "description": "When the repository was last updated.",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ],
+                "title": "The repository to update. The uid identifies the repository.",
+                "type": "object"
+              }
+            }
+          },
+          "description": "The repository to update. The uid identifies the repository.",
+          "required": true,
+          "x-originalParamName": "repo"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.Repo"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Update Repo",
+        "tags": [
+          "ReposService"
+        ]
+      }
+    },
+    "/registry/v2beta1/repos/{repoUid}/digests/{digest}/architectures": {
+      "get": {
+        "description": "GetArchitectures returns the architectures present in an OCI index manifest.",
+        "operationId": "ImagesService_GetArchitectures",
+        "parameters": [
+          {
+            "description": "UIDP of the repository containing the image.",
+            "in": "path",
+            "name": "repoUid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Digest of the OCI index manifest.",
+            "in": "path",
+            "name": "digest",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.Architectures"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Architectures",
+        "tags": [
+          "ImagesService"
+        ]
+      }
+    },
+    "/registry/v2beta1/repos/{repoUid}/digests/{digest}/size": {
+      "get": {
+        "description": "GetSize returns the size of a container image for a specific architecture.",
+        "operationId": "ImagesService_GetSize",
+        "parameters": [
+          {
+            "description": "UIDP of the repository containing the image.",
+            "in": "path",
+            "name": "repoUid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Digest of the OCI index manifest.",
+            "in": "path",
+            "name": "digest",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Architecture to get the size for (e.g., \"amd64\", \"arm64\").\nDefaults to \"amd64\" if not specified.",
+            "in": "query",
+            "name": "architecture",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.Size"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Size",
+        "tags": [
+          "ImagesService"
         ]
       }
     },
@@ -22866,6 +24589,9 @@
       "name": "AccountAssociationsService"
     },
     {
+      "name": "ExternalGroupRoleMappingsService"
+    },
+    {
       "name": "GroupInvitesService"
     },
     {
@@ -22884,13 +24610,22 @@
       "name": "RolesService"
     },
     {
+      "name": "TermsService"
+    },
+    {
+      "name": "ArtifactsService"
+    },
+    {
       "name": "PingService"
+    },
+    {
+      "name": "ReposService"
     },
     {
       "name": "TagsService"
     },
     {
-      "name": "ReposService"
+      "name": "ImagesService"
     },
     {
       "name": "AdvisoriesService"
@@ -22909,6 +24644,9 @@
     },
     {
       "name": "ArgosOSV"
+    },
+    {
+      "name": "ArgosVulns"
     },
     {
       "name": "Auth"
