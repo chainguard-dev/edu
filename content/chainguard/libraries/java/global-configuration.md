@@ -253,7 +253,7 @@ retrieved from Chainguard.
 [JFrog Artifactory](https://jfrog.com/artifactory/) supports Maven repositories
 for proxying and hosting, and virtual repositories to combine them. Refer to the
 [Maven Repository documentation for
-Artifactory](https://jfrog.com/help/r/jfrog-artifactory-documentation/maven-repository)
+Artifactory](https://docs.jfrog.com/artifactory/docs/maven-repositories)
 for more information.
 
 ### Initial configuration
