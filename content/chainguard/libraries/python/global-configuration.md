@@ -224,7 +224,7 @@ Combine the two repositories in a new virtual repository:
 for proxying and virtual repositories to combine multiple sources into a single
 repository. The following instructions are based on the [PyPI Repository
 documentation for
-Artifactory](https://jfrog.com/help/r/jfrog-artifactory-documentation/set-up-pypi-repositories-on-artifactory).
+Artifactory](https://docs.jfrog.com/artifactory/docs/pypi-repositories).
 
 ### Initial configuration
 

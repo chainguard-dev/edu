@@ -175,8 +175,8 @@ token for the registry access:
 
 [JFrog Artifactory](https://jfrog.com/artifactory/) supports npm repositories
 for proxying and hosting, and virtual repositories to combine them. Refer to the
-[npm registry documentation for
-Artifactory](https://jfrog.com/help/r/jfrog-artifactory-documentation/npm-registry)
+[npm Repository documentation for
+Artifactory](https://docs.jfrog.com/artifactory/docs/npm-repositories)
 for more information.
 
 ### Initial configuration
