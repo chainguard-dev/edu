@@ -10,7 +10,7 @@ lastmod: 2025-07-23T16:52:56+00:00
 draft: false
 tags: ["chainctl", "Getting Started"]
 images: []
-weight: 020
+weight: 040
 ---
 
 Chainguard's `chainctl` provides command-line access to manage container images, identity resources, and security configurations across your organization. This guide covers essential commands to begin using `chainctl` effectively in your security and DevOps workflows. For comprehensive command documentation, see the [chainctl Reference](/chainguard/chainctl/).

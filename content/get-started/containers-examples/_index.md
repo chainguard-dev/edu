@@ -8,7 +8,7 @@ date: 2026-06-17T08:48:23+00:00
 lastmod: 2026-06-17T08:48:23+00:00
 draft: false
 images: []
-weight: 020
+weight: 050
 crosslinks:
 - title: "nginx"
   url: "/chainguard/chainguard-images/getting-started/nginx/"
