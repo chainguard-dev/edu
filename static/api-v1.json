@@ -4564,9 +4564,27 @@
           "name": {
             "description": "The name/alias of the image.",
             "type": "string"
+          },
+          "requirement": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.ChartImageRequirement"
+              }
+            ],
+            "description": "Whether this image is required for the chart to deploy, or optional.\nSourced from the chart-lock attestation's cg.json template; UNSPECIFIED\nfor charts that do not carry a chart-lock predicate."
           }
         },
         "type": "object"
+      },
+      "chainguard.platform.registry.ChartImageRequirement": {
+        "default": "REQUIREMENT_UNSPECIFIED",
+        "description": "ChartImageRequirement indicates whether a chart image is required or\noptional for the chart to deploy.",
+        "enum": [
+          "REQUIREMENT_UNSPECIFIED",
+          "REQUIREMENT_REQUIRED",
+          "REQUIREMENT_OPTIONAL"
+        ],
+        "type": "string"
       },
       "chainguard.platform.registry.Charts.AddChartBody": {
         "properties": {

@@ -1,5 +1,5 @@
 ---
-date: 2026-06-25T19:50:48Z
+date: 2026-06-26T20:33:43Z
 title: "chainctl policies binding"
 slug: chainctl_policies_binding
 url: /chainguard/chainctl/chainctl-docs/chainctl_policies_binding/

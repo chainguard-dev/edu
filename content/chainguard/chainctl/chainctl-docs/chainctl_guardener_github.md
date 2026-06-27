@@ -1,27 +1,17 @@
 ---
-date: 2026-06-26T20:33:43Z
-title: "chainctl skills versions"
-slug: chainctl_skills_versions
-url: /chainguard/chainctl/chainctl-docs/chainctl_skills_versions/
+date: 2026-06-26T20:33:42Z
+title: "chainctl guardener github"
+slug: chainctl_guardener_github
+url: /chainguard/chainctl/chainctl-docs/chainctl_guardener_github/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl skills versions
+## chainctl guardener github
 
-List all published versions (tags) for a skill.
-
-### Synopsis
-
-List all published versions (tags) for a skill.
-
-<ref> is the skill name without a tag: org/name
-
-```
-chainctl skills versions <ref> [flags]
-```
+Link and unlink a GitHub organization to a Chainguard group.
 
 ### Options inherited from parent commands
 
@@ -40,5 +30,7 @@ chainctl skills versions <ref> [flags]
 
 ### SEE ALSO
 
-* [chainctl skills](/chainguard/chainctl/chainctl-docs/chainctl_skills/)	 - Skills registry related commands.
+* [chainctl guardener](/chainguard/chainctl/chainctl-docs/chainctl_guardener/)	 - Manage guardener integrations.
+* [chainctl guardener github link](/chainguard/chainctl/chainctl-docs/chainctl_guardener_github_link/)	 - Link a GitHub organization to a Chainguard group.
+* [chainctl guardener github unlink](/chainguard/chainctl/chainctl-docs/chainctl_guardener_github_unlink/)	 - Unlink a GitHub organization from its Chainguard group.
 

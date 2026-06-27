@@ -3,7 +3,7 @@
     "schemas": {
       "chainguard.capabilities.Capability": {
         "default": "UNKNOWN",
-        "description": "Capability is an enumeration of the Chainguard IAM capabilities.\n\n - CAP_TENANT_VULN_REPORTS_LIST: TODO(colin): deprecate this cap once the legacy endpoint is removed\n - CAP_REPO_BLOBS_GET: repo.blobs.get is a capability required to pull container images.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with images vs pulling the image itself.\n - CAP_REPO_CREATE: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_CREATE as a transitional grant for write access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_WRITE, drop the dual-accept in cassie.\n - CAP_REPO_LIST: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_LIST as a transitional grant for read access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_READ, drop the dual-accept in cassie.\n - CAP_REPO_INTERNAL_ADMIN: repo.internal.admin allows administering internal-only repository fields\n(catalog tier, bundles, aliases, active tags, README, and sync settings)\nthat are otherwise read-only to customers.\n - CAP_APK_BLOBS_GET: apk.blobs.get is a capability required to pull APKs.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with APKs vs pulling the APK itself.\n - CAP_BUILD_REPORT_LIST: Custom Image Build\n - CAP_LIBRARIES_ENTITLEMENTS_CREATE: Global libraries capabilities\n - CAP_LIBRARIES_PYTHON_LIST: Ecosystems specific capabilities\n - CAP_LIBRARIES_CACHE_INVALIDATE: Cache invalidation capability for the libraries cache (covers all ecosystems).\nGranted to org owners and account admins; not to regular developer members.\n - CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE: Rebuilder API capabilities\n - CAP_LIBRARIES_AWS_MARKETPLACE_SUBSCRIPTIONS_CREATE: AWS Marketplace Subscriptions (Chainguard Libraries on AWS Security Hub Extended)\n - CAP_REGISTRY_ENTITLEMENTS_LIST: Registry Entitlements\n - CAP_REGISTRY_SETTINGS_LIST: Registry Settings\n - CAP_REGISTRY_DEPLOYMENTS_CREATE: Registry Deployments\n - CAP_POLICIES_POLICY_CREATE: Policies\n - CAP_TERMS_ACCEPT: Terms\n - CAP_GULFSTREAM: This is orthogonal enough that we should leave\nit somewhat separate, so add new capabilities above.\nTODO(mattmoor): Think about whether we can encode specific\ncontroller capabilities into our access control here?\ne.g. could each logical controller/webhook be its own\ncapability?\n - CAP_GUARDENER_DFC_CONVERT: Guardener\n - CAP_MCP_TOOL_CALL: MCP tool calls\n - CAP_SKILLS_PUBLISH: Skills registry — publishing skill artifacts to skills.cgr.dev\n - CAP_SKILLS_ENTITLEMENTS_CREATE: Skills registry entitlements\n - CAP_ARGOS_DOCUMENTS_CREATE: Argos — client-side encrypted document records.\n - CAP_ARGOS_OSV_READ: Argos — Private OSV API (customer-facing OSV query surface).\n - CAP_LIBRARIES_POLICY_CREATE: Libraries Policy Gates — customer-facing policies and bindings that\nconfigure the cooldown and malware gates applied to upstream package pulls,\nplus the block events recorded when a pull is withheld.\n - CAP_BUILDAPI_BUILD_CREATE: Build API\n - CAP_CASSIE_CAS_READ: Cassie REAPI cache surface (CAS, ActionCache, ByteStream).\n - CAP_ACTIONS_LIST: Actions catalog — the read-only catalog of Chainguard-published GitHub\nActions and the upstreams they mirror. Writes are internal (importer only).",
+        "description": "Capability is an enumeration of the Chainguard IAM capabilities.\n\n - CAP_TENANT_VULN_REPORTS_LIST: TODO(colin): deprecate this cap once the legacy endpoint is removed\n - CAP_REPO_BLOBS_GET: repo.blobs.get is a capability required to pull container images.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with images vs pulling the image itself.\n - CAP_REPO_CREATE: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_CREATE as a transitional grant for write access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_WRITE, drop the dual-accept in cassie.\n - CAP_REPO_LIST: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_LIST as a transitional grant for read access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_READ, drop the dual-accept in cassie.\n - CAP_REPO_INTERNAL_ADMIN: repo.internal.admin allows administering internal-only repository fields\n(catalog tier, bundles, aliases, active tags, README, and sync settings)\nthat are otherwise read-only to customers.\n - CAP_APK_BLOBS_GET: apk.blobs.get is a capability required to pull APKs.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with APKs vs pulling the APK itself.\n - CAP_BUILD_REPORT_LIST: Custom Image Build\n - CAP_LIBRARIES_ENTITLEMENTS_CREATE: Global libraries capabilities\n - CAP_LIBRARIES_PYTHON_LIST: Ecosystems specific capabilities\n - CAP_LIBRARIES_CACHE_INVALIDATE: Cache invalidation capability for the libraries cache (covers all ecosystems).\nGranted to org owners and account admins; not to regular developer members.\n - CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE: Rebuilder API capabilities\n - CAP_LIBRARIES_AWS_MARKETPLACE_SUBSCRIPTIONS_CREATE: AWS Marketplace Subscriptions (Chainguard Libraries on AWS Security Hub Extended)\n - CAP_REGISTRY_ENTITLEMENTS_LIST: Registry Entitlements\n - CAP_REGISTRY_SETTINGS_LIST: Registry Settings\n - CAP_REGISTRY_DEPLOYMENTS_CREATE: Registry Deployments\n - CAP_POLICIES_POLICY_CREATE: Policies\n - CAP_TERMS_ACCEPT: Terms\n - CAP_GULFSTREAM: This is orthogonal enough that we should leave\nit somewhat separate, so add new capabilities above.\nTODO(mattmoor): Think about whether we can encode specific\ncontroller capabilities into our access control here?\ne.g. could each logical controller/webhook be its own\ncapability?\n - CAP_GUARDENER_DFC_CONVERT: Guardener\n - CAP_GUARDENER_ASSOCIATION_MANAGE: guardener.association.manage gates self-service linking/unlinking of a\nGitHub org to a Chainguard group (the GroupAccountAssociations record).\n - CAP_MCP_TOOL_CALL: MCP tool calls\n - CAP_SKILLS_PUBLISH: Skills registry — publishing skill artifacts to skills.cgr.dev\n - CAP_SKILLS_ENTITLEMENTS_CREATE: Skills registry entitlements\n - CAP_ARGOS_DOCUMENTS_CREATE: Argos — client-side encrypted document records.\n - CAP_ARGOS_OSV_READ: Argos — Private OSV API (customer-facing OSV query surface).\n - CAP_LIBRARIES_POLICY_CREATE: Libraries Policy Gates — customer-facing policies and bindings that\nconfigure the cooldown and malware gates applied to upstream package pulls,\nplus the block events recorded when a pull is withheld.\n - CAP_BUILDAPI_BUILD_CREATE: Build API\n - CAP_CASSIE_CAS_READ: Cassie REAPI cache surface. CAS (blobs + ByteStream) and the ActionCache\nare separately gated: a caller may read or write action results without\nany authority over the underlying content blobs, and vice versa.\n - CAP_ACTIONS_LIST: Actions catalog — the read-only catalog of Chainguard-published GitHub\nActions and the upstreams they mirror. Writes are internal (importer only).",
         "enum": [
           "UNKNOWN",
           "CAP_INTERNAL",
@@ -145,6 +145,7 @@
           "CAP_TERMS_LIST",
           "CAP_GULFSTREAM",
           "CAP_GUARDENER_DFC_CONVERT",
+          "CAP_GUARDENER_ASSOCIATION_MANAGE",
           "CAP_MCP_TOOL_CALL",
           "CAP_SKILLS_PUBLISH",
           "CAP_SKILLS_ENTITLEMENTS_CREATE",
@@ -169,6 +170,8 @@
           "CAP_BUILDAPI_BUILD_CANCEL",
           "CAP_CASSIE_CAS_READ",
           "CAP_CASSIE_CAS_WRITE",
+          "CAP_CASSIE_AC_READ",
+          "CAP_CASSIE_AC_WRITE",
           "CAP_ACTIONS_LIST"
         ],
         "type": "string"
@@ -2928,6 +2931,44 @@
               "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.RoleBinding"
             },
             "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.v2beta1.BatchDeleteExternalGroupRoleMappingsRequest": {
+        "description": "BatchDeleteExternalGroupRoleMappingsRequest is the request message for BatchDeleteExternalGroupRoleMappings.",
+        "properties": {
+          "names": {
+            "description": "UIDs of the mappings to delete. Names that no longer exist under parent are\nsilently skipped; names whose parent differs from parent return\nINVALID_ARGUMENT.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "parent": {
+            "description": "UID of the identity provider the mappings belong to. Every name must be one\nof its mappings.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "parent",
+          "names"
+        ],
+        "type": "object"
+      },
+      "chainguard.platform.iam.v2beta1.BatchDeleteExternalGroupRoleMappingsResponse": {
+        "description": "BatchDeleteExternalGroupRoleMappingsResponse is the response message for BatchDeleteExternalGroupRoleMappings.",
+        "properties": {
+          "externalGroupRoleMappings": {
+            "description": "The mappings that were deleted.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.ExternalGroupRoleMapping"
+            },
+            "type": "array"
+          },
+          "parent": {
+            "description": "UID of the identity provider the delete targeted. Echoed so the operation can\nbe attributed even when no mappings matched.",
+            "type": "string"
           }
         },
         "type": "object"
@@ -6437,9 +6478,27 @@
           "name": {
             "description": "The name/alias of the image.",
             "type": "string"
+          },
+          "requirement": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.ChartImageRequirement"
+              }
+            ],
+            "description": "Whether this image is required for the chart to deploy, or optional.\nSourced from the chart-lock attestation's cg.json template; UNSPECIFIED\nfor charts that do not carry a chart-lock predicate."
           }
         },
         "type": "object"
+      },
+      "chainguard.platform.registry.ChartImageRequirement": {
+        "default": "REQUIREMENT_UNSPECIFIED",
+        "description": "ChartImageRequirement indicates whether a chart image is required or\noptional for the chart to deploy.",
+        "enum": [
+          "REQUIREMENT_UNSPECIFIED",
+          "REQUIREMENT_REQUIRED",
+          "REQUIREMENT_OPTIONAL"
+        ],
+        "type": "string"
       },
       "chainguard.platform.registry.Charts.AddChartBody": {
         "properties": {
@@ -14697,6 +14756,50 @@
           }
         },
         "summary": "Get External Group Role Mapping",
+        "tags": [
+          "ExternalGroupRoleMappingsService"
+        ]
+      }
+    },
+    "/iam/v2beta1/externalGroupRoleMappings:batchDelete": {
+      "post": {
+        "description": "BatchDeleteExternalGroupRoleMappings deletes the named mappings under an\nidentity provider in one call, for cleanup, offboarding, or teardown.",
+        "operationId": "ExternalGroupRoleMappingsService_BatchDeleteExternalGroupRoleMappings",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.BatchDeleteExternalGroupRoleMappingsRequest"
+              }
+            }
+          },
+          "description": "BatchDeleteExternalGroupRoleMappingsRequest is the request message for BatchDeleteExternalGroupRoleMappings.",
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.BatchDeleteExternalGroupRoleMappingsResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Batch Delete External Group Role Mappings",
         "tags": [
           "ExternalGroupRoleMappingsService"
         ]
