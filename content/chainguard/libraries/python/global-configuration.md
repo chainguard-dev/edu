@@ -161,7 +161,7 @@ point for more details.
 
 Use the following steps to add the Pypi Package Index and the Chainguard
 Libraries for Python repository as remote repositories and combine them as a
-virtual repository:
+virtual repository.
 
 1. Log in to the Google Cloud console as a user with administrator privileges.
 1. Navigate to your project and find the **Artifact Registry** with the search.
@@ -174,7 +174,7 @@ value as retrieved with chainctl](/chainguard/libraries/access/):
 
 1. Navigate to the **Secret Manager**
 1. Click **Create secret**. 
-1. Set the **Name** to *chainguard-libraries-python*.
+1. Set the **Name** to `chainguard-libraries-python`.
 1. Use the **Password** from chainctl output to set the **Secret value**.
 1. Click **Create secret**.
 
@@ -183,20 +183,18 @@ navigation under the **Artifact Registry** label to configure a remote
 repository for Chainguard Libraries for Python repository:
 
 1. Click **+Create a Repository**.
-1. Set the **Name** to *python-chainguard*.
-1. Set the **Format** to *Python*.
-1. Select *Remote* for the **Mode**.
-1. Select *Custom* for the **Remote repository source**.
-1. Set the URL for the Custom repository to `https://libraries.cgr.dev/python/`.
-1. Select *Authenticated* in **Remote repository authentication mode**.
-1. Set **Username for the upstream repository** to the [value as retrieved
+1. Configure the repository:
+    1. **Name**: `python-chainguard`
+    1. **Format**: `Python`
+    1. **Mode**: `Remote`
+    1. **Remote repository source**: `Custom`. Set the URL for the Custom repository to `https://libraries.cgr.dev/python/`.
+    1. **Remote repository authentication mode**: Select `Authenticated`.
+    1. Set **Username for the upstream repository** to the [value as retrieved
    with chainctl](/chainguard/libraries/access/).
-1. Select the *chainguard-libraries-python* secret in the list for the **Secret** input.
-1. Choose the same suitable **Region** for your development in **Location type**
-   as configured for the *python-public* repository.
+    1. Select the *chainguard-libraries-python* secret in the list for the **Secret** input.
+    1. Choose the a **Region** for your development in **Location type**.
 1. Click **Create**.
-
-If you want to use the separate repository with [remediated Python
+1. If you want to use the separate repository with [remediated Python
 libraries](/chainguard/libraries/python/overview/#cve-remediation) repeat the
 preceding steps with the name `python-chainguard-remediated`, the same
 authentication details, and the URL
@@ -248,11 +246,12 @@ Configure a remote repository for the Chainguard Libraries for Python index:
 1. Select **Create a Repository** and choose the **Remote** option.
 1. Select *PyPI* as the **Package type**.
 1. Set the **Repository Key** to `python-chainguard`.
-1. Set the **URL** to `https://libraries.cgr.dev/python/`.
+1. Set the **URL** to `https://libraries.cgr.dev/`. Do not include `/python` in the URL.
 1. Set **User Name** and **Password / Access Token** to the [values as retrieved
    with chainctl](/chainguard/libraries/access/).
 1. Set the **PyPI Settings - Registry URL** to
    `https://libraries.cgr.dev/python/`.
+1. Set the **PyPI Settings - Registry Index Location URL Suffix** to `python/simple`.
 1. Optionally click **Test** to verify connection and authentication.
 1. Click the **Advanced** configuration tab. Disable **URL Normalization** and disable **Block
    Mismatching Mime Types** in the **Others** section.
