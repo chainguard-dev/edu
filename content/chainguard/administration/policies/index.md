@@ -31,6 +31,38 @@ This is how policies uses the following terms.
 
 The default mode for new bindings is `DRY_RUN`.
 
+## Available policies
+
+Chainguard ships a set of system policies that are available to every organization. The list below describes each one and its configurable parameters. To confirm which policies are available to you and see their full definitions, use `chainctl policies list` and `chainctl policies describe` as shown under [Usage](#usage).
+
+### no-eol
+
+The `no-eol` policy denies any image whose primary package has reached its end-of-life (EOL) date. An image is allowed when it has no recorded EOL date, or when that date is still in the future. This policy takes no parameters.
+
+```shell
+chainctl policies enable --policy=no-eol --mode=DRY_RUN --parent=$ORGANIZATION
+```
+
+### cooldown
+
+The `cooldown` policy denies images that are newer than a minimum age, measured from the image's build timestamp. Use it to hold off on adopting a version until it has been published long enough to shake out early regressions. An image is allowed once its age is greater than or equal to the configured number of days.
+
+It accepts one parameter, `days`, an integer number of days an image must exist before it is allowed. The default is `7`, and accepted values range from `1` to `365`.
+
+```shell
+chainctl policies enable --policy=cooldown --mode=DRY_RUN --param=days=14 --parent=$ORGANIZATION
+```
+
+### support-window
+
+The `support-window` policy requires an image's primary package to have a minimum remaining support period, measured as the span between the package's release date and its EOL date. An image is allowed when that span is greater than or equal to the configured number of months, or when the package has no recorded EOL date.
+
+It accepts one parameter, `months`, an integer minimum number of months of support. The default is `6`, and accepted values range from `1` to `24`.
+
+```shell
+chainctl policies enable --policy=support-window --mode=DRY_RUN --param=months=12 --parent=$ORGANIZATION
+```
+
 ## Usage
 
 Policies are managed using `chainctl`. System policies are shipped with the platform.
