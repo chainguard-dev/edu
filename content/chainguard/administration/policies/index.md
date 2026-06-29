@@ -71,24 +71,42 @@ Promote a policy to `ENFORCE`:
 chainctl policies enable --policy=no-eol --mode=ENFORCE --parent=$ORGANIZATION
 ```
 
-Check the results of specific policies on an image, including `DRY_RUN` policies which wouldn't cause the registry to block a pull:
-
-```shell
-chainctl policies check cgr.dev/$ORGANIZATION/bash:latest
-```
-
-```output
-  POLICY  |  MODE   | RESULT
-----------|---------|---------
- cooldown | DRY_RUN | DENIED
- no-eol   | DRY_RUN | ALLOWED
-```
-
 Disable a policy:
 
 ```shell
 chainctl policies disable --policy=no-eol --parent=$ORGANIZATION
 ```
+
+## Checking whether an image is allowed
+
+Before you depend on a specific image (pinning it in a deployment, promoting it through an environment, or adding it to a base image), you often want to know whether your active policies will let it through. `chainctl policies check` answers that for one image on demand, without waiting for a pull to happen.
+
+Pass a full image reference, by tag or by digest:
+
+```shell
+chainctl policies check cgr.dev/$ORGANIZATION/python:latest
+```
+
+The reference identifies the organization and repository; a tag is resolved to its current digest, and a digest is used as-is. The image is then evaluated against every policy active for that organization, and each result is printed:
+
+```output
+  POLICY  |  MODE   | PARAMETERS | RESULT
+----------|---------|------------|---------
+ cooldown | DRY_RUN | days=7     | DENIED
+ no-eol   | ENFORCE |            | ALLOWED
+```
+
+Read the table per policy. The image is blocked at pull time only when a policy in `ENFORCE` mode returns `DENIED`. A `DENIED` from a `DRY_RUN` policy is reported here but would not block a real pull; it is a preview of what enforcing that policy would do. If no policies apply to the image, the command says so rather than printing a table.
+
+Because the check evaluates against the policies you have enabled right now, it reflects your current configuration, not a historical record. To review outcomes from pulls that already happened, use [policy decisions](#policy-decisions) instead.
+
+`check` is also built for automation. Its exit status is non-zero whenever any policy returns `DENIED` or `ERROR`, regardless of that policy's mode, so you can gate a CI pipeline on it:
+
+```shell
+chainctl policies check cgr.dev/$ORGANIZATION/python@sha256:abc... || echo "image violates a policy"
+```
+
+Note that a `DRY_RUN` denial also produces a non-zero exit, so a passing `check` is stricter than what enforcement alone would block, which is useful as an early warning while you stage policies.
 
 ## Policy decisions
 
