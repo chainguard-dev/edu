@@ -458,10 +458,15 @@ chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUA
 
 To update the upstream fallback policy on an existing entitlement, rerun the `create` command with the new `--policy` value.
 
+### Remove entitlements
 
-### List entitlements and policies
+You can delete an ecosystem library entitlement for a specific ecosystem from your organization with [`chainctl libraries entitlements delete`](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/): 
 
-**Entitlements**
+```shell
+chainctl libraries entitlements delete --ecosystem=JAVASCRIPT --parent=example
+```
+
+### List entitlements
 
 You can verify entitlements for your organization `example.com` to verify which ecosystems are enabled:
 
@@ -481,7 +486,35 @@ Ecosystem Library Entitlements for example (45a0...p7q)
  45a0c61a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q/56789abc67890 | PYTHON     | POLICY_CHAINGUARD
 ```
 
-**Policies** 
+<a id="policy"></a>
+
+## Manage library policies
+
+You can create, disable, and list library policies using [`chainctl libraries policy`](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy/) commands.
+
+>Note: The commands in this section require `chainctl` v0.2.291 or newer.
+
+### Create and enable a cooldown policy
+
+When upstream fallback is enabled, users with the Owner role can create and enable a cooldown policy with `chainctl`. In the following example, a 10-day cooldown policy is created, then it is enforced on the JavaScript ecosystem:
+
+```bash
+chainctl libraries policy create --name=js-cooldown --cooldown-days=10
+chainctl libraries policy enable --policy=js-cooldown --ecosystem=JAVASCRIPT --mode=ENFORCE
+```
+
+The default cooldown period is 7 days. The cooldown period provides an additional layer of defense on top of malware and greyware scanning, giving the broader security community time to surface threats that may not be immediately detectable. 
+
+### Disable cooldown
+
+To disable the cooldown, set it to 0. In the example below, the policy is created, then it is enforced on the Java ecosystem:
+
+```bash
+chainctl libraries policy create --name=no-cooldown --cooldown-days=0
+chainctl libraries policy enable --policy=no-cooldown --ecosystem=JAVA --mode=ENFORCE
+```
+
+### List policies and verify bindings
 
 To list available policies, run the following:
 
@@ -489,19 +522,10 @@ To list available policies, run the following:
 chainctl libraries policy list
 ```
 
-To verify which policy is active, run the following:
+To verify which policy is active and its cooldown settings, run the following:
 
 ```bash
 chainctl libraries policy binding list
 ```
 
 Prior to `chainctl` version 0.2.291, cooldown policies were enabled via the `chainctl entitlements command`. Cooldown policies configured prior to this version of `chainctl` are migrated under the new `chainctl libraries policies` system. 
-
-### Remove entitlements
-
-You can delete an ecosystem library entitlement for a specific ecosystem from your organization with [`chainctl libraries entitlements delete`](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/): 
-
-```shell
-chainctl libraries entitlements delete --ecosystem=JAVASCRIPT --parent=example
-```
-
