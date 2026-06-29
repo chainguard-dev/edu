@@ -157,7 +157,7 @@ for JavaScript, and adds the npm upstream fallback policy. Enabling upstream fal
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM 
 ```
 
-For JavaScript, you can also enable upstream fallback in the Chainguard Console. For Java and Python, you cannot currently enable fallback or view upstream vs. Chainguard-built packages via the Chainguard Console.
+For JavaScript, you can also enable upstream fallback in the Chainguard Console. For Java and Python, you cannot currently enable fallback or view upstream vs. Chainguard-built packages via the Chainguard Console; you must use `chainctl` to enable fallback for Java and Python.
 
 ### Fallback options
 
