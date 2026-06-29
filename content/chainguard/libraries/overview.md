@@ -211,39 +211,7 @@ The cooldown applies globally across Chainguard-built packages and upstream pack
 
 If a requested package version falls within the cooldown period, the package manager will output a 404 error. The package becomes available once it has passed the cooldown period and cleared malware scanning.
 
-#### Managing the cooldown period
-
->Note: The commands in this section require `chainctl` v0.2.291 or newer.
-
-**Create and enable a cooldown policy**
-
-When upstream fallback is enabled, users with the Owner role can create and enable a cooldown policy with `chainctl`. In the following example, a 10-day cooldown policy is created, then it is enforced on the JavaScript ecosystem:
-
-```bash
-chainctl libraries policy create --name=js-cooldown --cooldown-days=10
-chainctl libraries policy enable --policy=js-cooldown --ecosystem=JAVASCRIPT --mode=ENFORCE
-```
-
-The default cooldown period is 7 days. The cooldown period provides an additional layer of defense on top of malware and greyware scanning, giving the broader security community time to surface threats that may not be immediately detectable. 
-
-**Disable cooldown**
-
-To disable the cooldown, set it to 0. In the example below, the policy is created, then it is enforced on the Java ecosystem:
-
-```bash
-chainctl libraries policy create --name=no-cooldown --cooldown-days=0
-chainctl libraries policy enable --policy=no-cooldown --ecosystem=JAVA --mode=ENFORCE
-```
-
-**Check existing policy bindings**
-
-Run the following command to check existing bindings:
-
-```bash
-chainctl libraries policy bindings list
-```
-
-This shows which policies are active for each ecosystem and their current cooldown settings.
+Learn how to create, enforce, disable, and list policies in the [Libraries Access](/chainguard/libraries/access/#policy) page.
 
 ### How package resolution works
 
