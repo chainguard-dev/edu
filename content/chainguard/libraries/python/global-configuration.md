@@ -29,10 +29,10 @@ fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls)
 feature of Chainguard Repository, which allows you to configure your repository
 manager with a single upstream pointed at `https://libraries.cgr.dev/python/`. The
 Chainguard Repository handles fallback and policy enforcement; your repository
-manager handles local caching and access control. Chainguard also retrieves
+manager handles local caching and access control. Chainguard proxies and serves
 packages from the public PyPI repository on your behalf when upstream
-fallback is enabled. This includes protections such as malware detection and a
-cooldown period for newly published packages.
+fallback is enabled. All packages served from Chainguard are protected with 
+malware scanning and a configurable cooldown policy.
 
 At a high level, adopting the use of Chainguard Libraries consists of the following steps:
 
@@ -180,7 +180,7 @@ value as retrieved with chainctl](/chainguard/libraries/access/):
 
 Navigate to Artifact Registry and select **Repositories** in the left hand
 navigation under the **Artifact Registry** label to configure a remote
-repository for Chainguard Libraries for Python repository:
+repository for Chainguard Libraries for Python:
 
 1. Click **+Create a Repository**.
 1. Configure the repository:
@@ -233,8 +233,7 @@ Artifactory](https://jfrog.com/help/r/jfrog-artifactory-documentation/set-up-pyp
 
 ### Initial configuration
 
-Use the following steps to add the Chainguard Libraries for Python index and the
-PyPI public index as remote repositories and combine them as a virtual
+Use the following steps to add the Chainguard Libraries for Python indexes as remote repositories and combine them as a virtual
 repository:
 
 1. Log in as a user with administrator privileges.
@@ -250,7 +249,7 @@ Configure a remote repository for the Chainguard Libraries for Python index:
 1. Set **User Name** and **Password / Access Token** to the [values as retrieved
    with chainctl](/chainguard/libraries/access/).
 1. Set the **PyPI Settings - Registry URL** to
-   `https://libraries.cgr.dev/python/`.
+   `https://libraries.cgr.dev/`.
 1. Set the **PyPI Settings - Registry Index Location URL Suffix** to `python/simple`.
 1. Optionally click **Test** to verify connection and authentication.
 1. Click the **Advanced** configuration tab. Disable **URL Normalization** and disable **Block
