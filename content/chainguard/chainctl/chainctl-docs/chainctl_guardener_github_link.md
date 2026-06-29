@@ -1,26 +1,37 @@
 ---
-date: 2026-06-26T20:33:43Z
-title: "chainctl skills versions"
-slug: chainctl_skills_versions
-url: /chainguard/chainctl/chainctl-docs/chainctl_skills_versions/
+date: 2026-06-26T20:33:42Z
+title: "chainctl guardener github link"
+slug: chainctl_guardener_github_link
+url: /chainguard/chainctl/chainctl-docs/chainctl_guardener_github_link/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl skills versions
+## chainctl guardener github link
 
-List all published versions (tags) for a skill.
+Link a GitHub organization to a Chainguard group.
 
 ### Synopsis
 
-List all published versions (tags) for a skill.
+Link a GitHub organization to a Chainguard group.
 
-<ref> is the skill name without a tag: org/name
+Requires that you are an owner of both the Chainguard group (the
+guardener.association.manage capability) and the GitHub organization. A browser
+window opens to authorize with GitHub; the guardener GitHub App must already be
+installed on the organization.
 
 ```
-chainctl skills versions <ref> [flags]
+chainctl guardener github link [flags]
+```
+
+### Options
+
+```
+      --github-org string   GitHub account login to link (an organization, or your own user).
+      --group string        UIDP of the Chainguard group to link to.
+      --port int            Local loopback port for the GitHub OAuth callback. (default 8989)
 ```
 
 ### Options inherited from parent commands
@@ -40,5 +51,5 @@ chainctl skills versions <ref> [flags]
 
 ### SEE ALSO
 
-* [chainctl skills](/chainguard/chainctl/chainctl-docs/chainctl_skills/)	 - Skills registry related commands.
+* [chainctl guardener github](/chainguard/chainctl/chainctl-docs/chainctl_guardener_github/)	 - Link and unlink a GitHub organization to a Chainguard group.
 
