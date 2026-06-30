@@ -3,7 +3,7 @@ title: "Global configuration"
 linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for Java in your organization"
 type: "article"
-date: 2026-06-24T08:04:00+00:00
+date: 2025-03-25T08:04:00+00:00
 lastmod: 2026-06-24T14:42:00+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java"]
@@ -54,19 +54,18 @@ information.
 
 ### Manually managing fallback
 Chainguard recommends using the Chainguard Repository's built-in [upstream
-fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls)
-rather than configuring a public registry fallback in your repo manager.
-Configuring your own fallback bypasses the protection that the Chainguard
-Repository provides.
+fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) rather
+than configuring a public registry fallback in your repo manager. Configuring
+your own fallback bypasses the protection that the Chainguard Repository
+provides.
 
-However, if upstream fallback is not enabled or you prefer to manage your own fallback
-ordering, you can configure `https://libraries.cgr.dev/java/` as a remote
-repository alongside your Maven upstream, and combine them in a virtual or group
-repository with Chainguard as the first priority. The per-tool instructions on
-this page follow this pattern. 
-
-Before configuring your own fallback, consider how you want to handle packages that aren't yet built by Chainguard. If you configure a fallback to Maven Central, packages sourced from that registry are not covered by Chainguard's
-malware-resistance guarantees. See the [fallback approaches](/chainguard/libraries/quickstart/#artifact-manager-recommended) described in the Chainguard Libraries quick start for guidance on choosing the right approach for your environment.
+However, if you intentionally want to manage fallback ordering yourself, you can
+configure `https://libraries.cgr.dev/java/` as a remote repository alongside
+your Maven upstream, and combine them in a virtual or group repository with
+Chainguard as the first priority. The per-tool instructions on this page follow
+this pattern. If you configure a fallback to Maven Central, packages sourced
+from that registry are not covered by Chainguard's malware-resistance
+guarantees. 
 
 <a name="cloudsmith"></a>
 
