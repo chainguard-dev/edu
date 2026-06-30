@@ -1,21 +1,24 @@
 ---
 date: 2026-06-30T00:00:55Z
-title: "chainctl iam account-associations check aws"
-slug: chainctl_iam_account-associations_check_aws
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_check_aws/
+title: "chainctl policies decision"
+slug: chainctl_policies_decision
+url: /chainguard/chainctl/chainctl-docs/chainctl_policies_decision/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam account-associations check aws
+## chainctl policies decision
 
-Checks that the given location has been properly configured for OIDC federation with AWS
+Inspect policy decisions.
 
-```
-chainctl iam account-associations check aws ORGANIZATION_NAME|ORGANIZATION_ID|FOLDER_NAME|FOLDER_ID [flags]
-```
+### Synopsis
+
+A policy decision records the outcome of evaluating one policy
+against one image digest at pull time. Decisions are recorded for both
+enforced and dry-run policies, so you can review what a policy blocked,
+or would have blocked, before promoting it to enforce mode.
 
 ### Options inherited from parent commands
 
@@ -34,5 +37,6 @@ chainctl iam account-associations check aws ORGANIZATION_NAME|ORGANIZATION_ID|FO
 
 ### SEE ALSO
 
-* [chainctl iam account-associations check](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_check/)	 - Check the OIDC federation configurations for cloud providers.
+* [chainctl policies](/chainguard/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
+* [chainctl policies decision list](/chainguard/chainctl/chainctl-docs/chainctl_policies_decision_list/)	 - List policy decisions.
 
