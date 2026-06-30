@@ -62,8 +62,14 @@ You are now ready to use the `chainctl` command. You can verify that it works co
 A platform-agnostic approach to installing `chainctl` is through using `curl`. We have [specific instructions for Windows users](/chainguard/chainctl-usage/how-to-install-chainctl/#installing-with-curl-in-windows-powershell) on installing `chainctl` with `curl`, but all others can run the following command:
 
 ```bash
-curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/aarch64/arm64/')"
+PLATFORM="$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/aarch64/arm64/')"
+VERSION=$(curl -sS "https://dl.enforce.dev/chainctl/latest/metadata.json" | jq -r .version)
+curl -o chainctl "https://dl.enforce.dev/chainctl/${VERSION}/chainctl_${PLATFORM}"
 ```
+
+We resolve the release version once from `metadata.json` and then download the binary from that explicit version path (rather than from `/latest/` directly). This ensures the binary and the signature you verify it against in the next step come from the same release. Downloading individual artifacts from `/latest/` in separate steps can occasionally pull mismatched files if a new release is published in between, causing signature verification to fail.
+
+Keep this same terminal session for the verification step below so that the `PLATFORM` and `VERSION` values are reused.
 
 Move `chainctl` into your `/usr/local/bin` directory and elevate its permissions so that it can execute as needed.
 
@@ -78,7 +84,8 @@ At this point, you'll be able to use the `chainctl` command.
 As stated previously, you can also use `curl` install `chainctl` on Windows systems. Running the following command in PowerShell will download the appropriate `.exe` file.
 
 ```PowerShell
-curl -o chainctl.exe https://dl.enforce.dev/chainctl/latest/chainctl_windows_x86_64.exe
+$VERSION = (curl -UseBasicParsing https://dl.enforce.dev/chainctl/latest/metadata.json | ConvertFrom-Json).version
+curl -o chainctl.exe https://dl.enforce.dev/chainctl/$VERSION/chainctl_windows_x86_64.exe
 ```
 
 It may take several minutes for this operation to complete.
@@ -113,18 +120,22 @@ scoop install main/chainctl
 
 Before running `chainctl` for the first time, you should verify the integrity of the downloaded binary using Cosign. This ensures the binary has not been tampered with. Ensure that you have the latest version of Cosign installed by following our [How to Install Cosign guide](/open-source/sigstore/cosign/how-to-install-cosign/).
 
-Retrieve the release version from the metadata file, then verify the binary you just downloaded:
+If you are continuing in the same terminal session as the installation step above, `PLATFORM` and `VERSION` are already set. Otherwise, resolve them again first. Then verify the binary you just downloaded, pulling the signature and certificate from the same pinned version:
 
 ```sh
 PLATFORM="$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/aarch64/arm64/')"
 VERSION=$(curl -sS "https://dl.enforce.dev/chainctl/latest/metadata.json" | jq -r .version)
 cosign verify-blob \
-   --signature "https://dl.enforce.dev/chainctl/latest/chainctl_${PLATFORM}.sig" \
-   --certificate "https://dl.enforce.dev/chainctl/latest/chainctl_${PLATFORM}.cert.pem" \
+   --signature "https://dl.enforce.dev/chainctl/${VERSION}/chainctl_${PLATFORM}.sig" \
+   --certificate "https://dl.enforce.dev/chainctl/${VERSION}/chainctl_${PLATFORM}.cert.pem" \
    --certificate-identity "https://github.com/chainguard-dev/mono/.github/workflows/.release-drop.yaml@refs/tags/v${VERSION}" \
    --certificate-oidc-issuer https://token.actions.githubusercontent.com \
    $(which chainctl)
 ```
+
+{{< note >}}
+Always pin the binary, signature, and certificate downloads to the same explicit `${VERSION}` rather than fetching each from `/latest/` independently. If a new release is published between the individual downloads, you can end up with a binary and a signature from different releases, and verification will fail with an error such as `invalid signature when validating ASN.1 encoded signature`.
+{{< /note >}}
 
 You should receive the following output:
 
