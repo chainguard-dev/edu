@@ -139,6 +139,7 @@
           "CAP_POLICIES_BINDING_UPDATE",
           "CAP_POLICIES_BINDING_LIST",
           "CAP_POLICIES_BINDING_DELETE",
+          "CAP_POLICIES_DECISION_LIST",
           "CAP_REPO_CHECK_POLICIES",
           "CAP_PACKAGES_ENTITLEMENTS_LIST",
           "CAP_TERMS_ACCEPT",
@@ -2476,6 +2477,14 @@
             "readOnly": true,
             "type": "string"
           },
+          "severities": {
+            "description": "Severity scoring for the vulnerability associated with this advisory.\nSourced from vulnerability metadata (e.g., OSV) via the advisory's aliases.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2beta1.Severity"
+            },
+            "readOnly": true,
+            "type": "array"
+          },
           "uid": {
             "description": "The unique identifier (UIDP) for the Advisory.",
             "readOnly": true,
@@ -2859,6 +2868,35 @@
           "REVIEW_STATE_APPROVED",
           "REVIEW_STATE_REQUEST_CHANGES",
           "REVIEW_STATE_REJECTED"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.vulnerabilities.v2beta1.Severity": {
+        "description": "Severity represents a quantitative severity scoring method for a vulnerability.",
+        "properties": {
+          "score": {
+            "description": "The score string (CVSS vector string or numeric value depending on type).",
+            "type": "string"
+          },
+          "type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2beta1.Severity.Type"
+              }
+            ],
+            "description": "The type of severity scoring method used."
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.vulnerabilities.v2beta1.Severity.Type": {
+        "default": "TYPE_UNSPECIFIED",
+        "description": "Type of severity scoring method.\n\n - TYPE_UNSPECIFIED: Unspecified severity type.\n - TYPE_CVSS_V2: CVSS version 2.\n - TYPE_CVSS_V3: CVSS version 3.x.\n - TYPE_CVSS_V4: CVSS version 4.x.",
+        "enum": [
+          "TYPE_UNSPECIFIED",
+          "TYPE_CVSS_V2",
+          "TYPE_CVSS_V3",
+          "TYPE_CVSS_V4"
         ],
         "type": "string"
       },
