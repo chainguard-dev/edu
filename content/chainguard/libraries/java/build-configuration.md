@@ -522,7 +522,7 @@ indicate that a dependency is not present in Chainguard and the download fell
 back to Maven Central; this is expected behavior.
 
 #### Verify the project works as expected
-`
+
 Following the build, the dependencies declared in `pom.xml` are downloaded to
 the local Maven repository at ~/.m2/repository. For example, the `guava`
 dependency added in the example project can be found at:
