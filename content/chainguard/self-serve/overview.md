@@ -1,10 +1,10 @@
 ---
 title : "Self-serve overview"
 lead: ""
-description: "Signing yourself up for Chainguard products"
+description: "Signing yourself up for Chainguard products like the Catalog Starter plan"
 type: "article"
 date: 2026-05-12T01:00:01+00:00
-lastmod: 2026-05-12T01:00:01+00:00
+lastmod: 2026-07-01T01:00:01+00:00
 draft: false
 weight: 010
 ---
@@ -32,7 +32,30 @@ Other limitations include:
   - BASE
 - No access to nested UIDP image repos, such as Helm charts
 
-## Sign up with `chainctl`
+## Manage Catalog Starter plans in the Chainguard Console
+
+Sign up and manage a Catalog Starter plan using the Chainguard Console. If you prefer, you can instead [use `chainctl`](#manage-catalog-starter-plans-using-chainctl).
+
+### Sign up with the Chainguard Console
+
+To sign up, use [this console link](https://console.chainguard.dev/signup) or click **Get Started** on the main login screen.
+
+### Manage image selections in the Chainguard Console
+
+To add images in the console:
+
+1. Browse to **Settings > Plan and Subscription**, which shows your current account status and currently selected images
+1. Click **Select images**
+1. Use the checkboxes to select or deselect images
+1. Click **Review and confirm**
+
+> **Note:** Changes made to image selections can take up to a few hours to process before the images become accessible to you.
+
+## Manage Catalog Starter plans using `chainctl`
+
+Sign up and manage a Catalog Starter plan using `chainctl`. If you prefer, you can instead [use the Chainguard Console](#manage-catalog-starter-plans-in-the-chainguard-console).
+
+### Sign up with `chainctl`
 
 The current method for signing up is with `chainctl`.
 
@@ -54,11 +77,11 @@ This will require selection of a valid authentication option:
 
 Use the arrow keys and click 'Enter' to select either, which will launch a browser window to the Chainguard console to complete sign-up.
 
-## Add images
+### Add images with `chainctl`
 
 You can see which images are available [using the Chainguard Directory](/chainguard/chainguard-images/how-to-use/chainguard-directory/), but remember the images available are limited to the tiers mentioned above.
 
-To add one or more images, run the following command, substituting the desired image names for the variables:
+To add one or more images with chainctl, run the following command, substituting the desired image names for the variables:
 
 ```shell
 chainctl starter add-images $IMAGE1 [$IMAGE2]
@@ -70,7 +93,7 @@ After the Chainguard system has processed your request, the image(s) will be acc
 docker pull cgr.dev/$ORGANIZATION/$IMAGE:latest
 ```
 
-## Find status
+### Find status with `chainctl`
 
 To show the status of your catalog starter organization, including the registry path, account provisioning status, image quota usage, and per-image readiness, use:
 
@@ -78,7 +101,7 @@ To show the status of your catalog starter organization, including the registry 
 chainctl starter status
 ```
 
-## Add additional users
+## Add additional users to your Catalog Starter plan
 
 To request access for additional users for your organization, use:
 
