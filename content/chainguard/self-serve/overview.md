@@ -1,7 +1,7 @@
 ---
 title : "Self-serve overview"
 lead: ""
-description: "Signing yourself up for Chainguard products like the Catalog Starter plan"
+description: "Signing yourself up for the Catalog Starter plan and other Chainguard products"
 type: "article"
 date: 2026-05-12T01:00:01+00:00
 lastmod: 2026-07-01T01:00:01+00:00
@@ -44,10 +44,10 @@ To sign up, use [this console link](https://console.chainguard.dev/signup) or cl
 
 To add images in the console:
 
-1. Browse to **Settings > Plan and Subscription**, which shows your current account status and currently selected images
-1. Click **Select images**
-1. Use the checkboxes to select or deselect images
-1. Click **Review and confirm**
+1. Browse to **Settings > Plan and Subscription**, which shows your current account status and currently selected images.
+1. Click **Select images**.
+1. Use the checkboxes to select or deselect images.
+1. Click **Review and confirm**.
 
 > **Note:** Changes made to image selections can take up to a few hours to process before the images become accessible to you.
 
