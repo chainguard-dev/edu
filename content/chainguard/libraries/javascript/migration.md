@@ -236,6 +236,8 @@ First create a pull token as described in the [prerequisites](#pull-token), then
 
 **pnpm**
 
+> Note: The Chainguard Repository [upstream fallback](/chainguard/libraries/javascript/overview/#upstream-fallback-policy-and-controls) has been tested with pnpm v11. We recommend using pnpm v11 or newer.
+
 ```shell
 export token=$(echo -n "${CHAINGUARD_JAVASCRIPT_IDENTITY_ID}:${CHAINGUARD_JAVASCRIPT_TOKEN}" | base64 -w 0)
 
