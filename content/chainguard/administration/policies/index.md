@@ -169,4 +169,44 @@ chainctl policies enable --policy=no-eol --mode=ENFORCE --parent=$ORGANIZATION
 
 After promoting, keep reviewing decisions to confirm enforcement behaves as expected. The same command now returns `ENFORCE`-mode rows for the pulls the policy is actively blocking.
 
+## Granting an exception with an override
+
+Once a policy is enforcing, it blocks every image that violates it. Sometimes you need to let one specific image through anyway: a known-good build that trips a policy, an artifact approved through a separate review, or an urgent fix that cannot wait for the policy itself to change. An override is an admin-granted waiver that flips a `DENIED` result to `ALLOWED` for one policy and one image, without disabling the policy or changing its binding. Every other image stays subject to the policy.
+
+An override is deliberate and attributable. It applies to exactly one policy and one image digest, requires a reason, and records who created it and when. The engine applies it after evaluation, so the recorded decision still reflects the policy's verdict while the override is what ultimately allows the pull.
+
+Creating an override requires the `policies.override.create` capability, which is typically held by organization owners.
+
+Waive a policy for a specific image, identified by digest, with a reason:
+
+```shell
+chainctl policies override create \
+  --policy=no-eol \
+  --digest=sha256:abc123... \
+  --reason="approved exception, ticket OPS-42" \
+  --parent=$ORGANIZATION
+```
+
+The `--digest` value must be a manifest digest rather than a tag, so the waiver targets one exact artifact. A given policy and image can carry at most one override; to change an existing one, delete it and create it again.
+
+Review the active overrides for an organization to see what has been waived, by whom, and why:
+
+```shell
+chainctl policies override list --parent=$ORGANIZATION
+```
+
+```output
+ OVERRIDE ID  | POLICY |       TARGET        |           REASON           |    CREATED BY     |       CREATED AT
+--------------|--------|---------------------|----------------------------|-------------------|-------------------------
+ <id>         | no-eol | image sha256:abc12… | approved exception, OPS-42 | alice@example.com | 2026-06-28 14:30:00 UTC
+```
+
+When the exception is no longer needed, delete the override to restore the policy's result for that image. Use `chainctl policies override list` to find the ID:
+
+```shell
+chainctl policies override delete <override-id>
+```
+
+Once deleted, the image is again subject to whatever the policy decides.
+
 See `chainctl policies --help` or the [chainctl reference pages](/chainguard/chainctl) for more information.
