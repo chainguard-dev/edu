@@ -15,7 +15,7 @@ New to Chainguard? Read [What is Chainguard?](/get-started/what-is-chainguard/) 
 
 ## Build with containers
 
-Pull and run hardened, low-CVE container images from `cgr.dev`. Start with the [container quickstart](/get-started/quickstart-container/), then work through a [language- or service-specific example](/get-started/containers-examples/).
+Pull and run hardened, low-CVE container images from `cgr.dev`. Start with the [container quickstart](/get-started/containers-examples/quickstart-container/), then work through a [language- or service-specific example](/get-started/containers-examples/).
 
 ## Build with libraries
 

@@ -9,4 +9,7 @@ date: 2026-05-12T01:00:01+00:00
 lastmod: 2026-05-12T01:00:01+00:00
 draft: false
 weight: 005
+crosslinks:
+- title: "Catalog Starter"
+  url: "/chainguard/chainguard-images/about/catalog-starter/"
 ---

@@ -1,8 +1,8 @@
 ---
 title: "What is Chainguard?"
-linktitle: "What is Chainguard?"
+linktitle: "What is Chainguard?*"
 lead: "Chainguard provides hardened container images and secure language libraries, both rebuilt from source to minimize known vulnerabilities. This page explains what each is, who it's for, and how they fit together."
-description: "An introduction to Chainguard Containers and Chainguard Libraries: what they are, who they serve, and how they work together."
+description: "An introduction to Chainguard Containers and Chainguard Libraries: what they are, who they serve, how they work together, and the key concepts and terminology behind them."
 type: "article"
 date: 2026-06-26T00:00:00+00:00
 lastmod: 2026-06-26T00:00:00+00:00
@@ -26,3 +26,20 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
 ## How they fit together
 
 Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+
+## Key concepts and terminology
+
+A single glossary spanning both pillars: distroless, `-dev` versus production variants, pinned tags, and FIPS for containers; rebuilt-from-source, drop-in replacement, and the libraries endpoint for libraries.
+
+### Container concepts
+
+- **Distroless** — Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+- **`-dev` vs production variants** — Duis aute irure dolor in reprehenderit in voluptate velit esse.
+- **Pinned tags** — Excepteur sint occaecat cupidatat non proident.
+- **FIPS** — Sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+### Library concepts
+
+- **Rebuilt from verified source** — Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
+- **Drop-in replacement** — Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.
+- **The libraries repository endpoint** — Nemo enim ipsam voluptatem quia voluptas sit aspernatur.

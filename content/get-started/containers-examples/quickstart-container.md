@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: pull and run your first container"
-linktitle: "Quickstart: Containers"
+linktitle: "Quickstart: Containers*"
 lead: "A stack-agnostic hello-world: log in, pull a Chainguard Container, run it, and see the CVE difference against a standard image."
 description: "Pull and run your first Chainguard Container, then compare its vulnerability profile against a conventional base image."
 type: "article"
