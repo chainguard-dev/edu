@@ -1,5 +1,5 @@
 ---
-date: 2026-06-30T00:00:55Z
+date: 2026-06-30T03:10:49Z
 title: "chainctl libraries artifacts versions"
 slug: chainctl_libraries_artifacts_versions
 url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_artifacts_versions/
