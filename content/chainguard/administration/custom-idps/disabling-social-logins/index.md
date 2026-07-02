@@ -6,7 +6,7 @@ description: "How to stop users from authenticating to Chainguard with social lo
 type: "article"
 date: 2026-07-02T08:48:45+00:00
 lastmod: 2026-07-02T08:48:45+00:00
-draft: true
+draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
 weight: 007
