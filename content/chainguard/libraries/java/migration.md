@@ -1,5 +1,5 @@
 ---
-title: "Migrating a Java Project to Chainguard Libraries"
+title: "Migrating a Java project to Chainguard Libraries"
 type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Java project to pull dependencies from Chainguard Libraries"
@@ -14,22 +14,25 @@ weight: 056
 toc: true
 ---
 
-Chainguard Libraries for Java provides a curated registry of packages rebuilt from upstream sources and [scanned for malware](/chainguard/libraries/overview/#malware-and-greyware-detection). Because Chainguard Libraries uses the standard Maven repository protocol, switching an existing project requires only a repository configuration change — no changes to your application code or dependency versions.
+Chainguard Libraries for Java provides a curated repository of packages rebuilt from upstream sources, with any upstream fallback packages [scanned for malware](/chainguard/libraries/overview/#malware-and-greyware-detection). Because Chainguard Libraries uses the standard Maven repository format, switching an existing project requires only a repository configuration change — no changes to your application code or dependency versions.
 
 This guide walks through migrating an existing Java project to Chainguard Libraries, covering the two most common setups:
+
 - Direct access — your build tool connects directly to libraries.cgr.dev. This option is faster for initial evaluation and smaller-scale setups.
 - Repository manager — your build tool connects to a repository manager (such as Cloudsmith, JFrog Artifactory, or Sonatype Nexus), which proxies requests to Chainguard Libraries. 
 
 ## Prerequisites
+
 Before you begin, you'll need:
 - An existing Java project 
 - [`chainctl` installed and authenticated](/chainguard/chainctl-usage/how-to-install-chainctl/)
-- An [entitlement to Chainguard Libraries](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) for Java with upstream fallback enabled
+- An [entitlement to Chainguard Libraries](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) for Java with [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) enabled
 
-> **Note**: The configurations in this guide assume that you have configured the Chainguard Repository’s upstream fallback. If you choose to manage your own fallback to upstream repositories, see the [Build configuration](/chainguard/libraries/java/build-configuration/) page for instructions on adding a fallback to Maven Central. Note that configuring a public fallback bypasses the protections provided by Chainguard.
+> **Note**: The configurations in this guide assume that you have configured the Chainguard Repository’s upstream fallback. If you choose to manage your own fallback to upstream repositories, see the following docs pages for more information: [Build configuration](/chainguard/libraries/java/build-configuration/) for direct access instructions or [Global configuration](/chainguard/libraries/java/global-configuration/) for repo manager instructions. Note that configuring a public fallback bypasses the protections provided by Chainguard.
 
 ### Create an entitlement
-To create an entitlement to Chainguard Libraries for Java and enable [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) (including a default 7-day cooldown), run the following command:
+
+To create an entitlement to Chainguard Libraries for Java and enable [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls), which includes a default 7-day cooldown, run the following command:
 
 ```shell
 chainctl libraries entitlements create --ecosystems=JAVA --policy=CHAINGUARD_AND_UPSTREAM
@@ -101,18 +104,19 @@ When configuring direct access, note that environment variables do not persist b
 
 ### Ensure secure credential management
 
-**Do not commit credentials to version control.** The Gradle build.gradle file is typically committed to a repository — always use environment variables for credentials rather than hardcoding token values directly in the file. Maven credentials live in ~/.m2/settings.xml, which is outside the project directory and not committed by default, but take care not to add it to your repository. Store tokens as CI secrets referenced via environment variables instead. If you accidentally commit credentials, [delete the exposed token](/chainguard/libraries/access/#pull-token-management).
+**Do not commit credentials to version control.** The Gradle `build.gradle` file is typically committed to a repository — always use environment variables for credentials rather than hardcoding token values directly in the file. Maven credentials live in ~/.m2/settings.xml, which is outside the project directory and not committed by default, but take care not to add it to your repository. Store tokens as CI secrets referenced via environment variables instead. If you accidentally commit credentials, [delete the exposed token](/chainguard/libraries/access/#pull-token-management).
 
 For more secure credential management, consider using a secrets manager such as 1Password CLI or Bitwarden, which can dynamically inject environment variables at runtime without storing token values in shell profiles or env files. 
 
 ### Verify your setup
+
 Run the following command for a connectivity and auth check:
 
 ```bash
 curl -u "$CHAINGUARD_JAVA_IDENTITY_ID:$CHAINGUARD_JAVA_TOKEN" \
   https://libraries.cgr.dev/java/
 ```
-The command will return an HTML page listing repository directories. If credentials are invalid or expired, you will receive a 403 error instead of the directory listing.
+The command returns an HTML page listing repository directories. If credentials are invalid or expired, you will receive a 403 error instead of the directory listing.
 
 ## Step 3: Configure repository access
 
@@ -231,7 +235,7 @@ repositories {
 }
 ```
 
-If a dependency's pom file is found in Chainguard but the jar is not, Gradle will fail rather than fall back to Central automatically. If this happens, check whether a newer version of the dependency is available in Chainguard's catalog and update the version in your `build.gradle`.
+If a dependency's pom file is found in Chainguard but the jar is not, Gradle fails rather than falling back to Central automatically. If this happens, check whether a newer version of the dependency is available in Chainguard's catalog and update the version in your `build.gradle`.
 
 {{% /tab %}}
 
