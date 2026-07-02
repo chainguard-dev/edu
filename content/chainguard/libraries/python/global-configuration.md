@@ -252,8 +252,7 @@ Configure a remote repository for the Chainguard Libraries for Python index:
    `https://libraries.cgr.dev/`.
 1. Set the **PyPI Settings - Registry Index Location URL Suffix** to `python/simple`.
 1. Optionally click **Test** to verify connection and authentication.
-1. Click the **Advanced** configuration tab. Disable **URL Normalization** and disable **Block
-   Mismatching Mime Types** in the **Others** section.
+1. Click the **Advanced** configuration tab. In the **Others** section, check the box next to **Disable URL Normalization** and uncheck the box next to **Block Mismatching Mime Types**.
 1. Click **Create Remote Repository**.
 
 If you want to use the separate repository with [remediated Python
