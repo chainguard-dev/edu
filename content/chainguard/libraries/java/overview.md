@@ -67,8 +67,7 @@ The URL for the repository is:
 https://libraries.cgr.dev/java/
 ```
 
-The repository root at `https://libraries.cgr.dev/java/` is not browsable, but you can access artifacts directly by their [Maven repository format](https://maven.apache.org/repository/layout.html) path: list the available versions of a library through its `maven-metadata.xml` file, view the files for a specific version in that version's directory, and download individual files by their full path. Learn more under [Manual access](#manual).
-The repository root at `https://libraries.cgr.dev/java/` is not browsable, but you can access artifacts directly by their [Maven repository format](https://maven.apache.org/repository/layout.html) path: list the available versions of a library through its `maven-metadata.xml` file, view the files for a specific version in that version's directory, and download individual files by their full path. Learn more under [Manual access](#manual).
+This site provides a directory browsing and file listing capability similar to the Maven Central repository, allowing you to find available libraries, library versions, and available files. Learn more under [Manual access](#manual).
 
 This Chainguard Libraries for Java repository uses the Maven repository format
 and only includes release artifacts of the libraries built by Chainguard from
@@ -155,23 +154,16 @@ To manually access artifacts in the Chainguard Libraries for Java repository, us
 with your [username and password retrieved with
 chainctl](/chainguard/libraries/access/).
 
-The repository follows the [Maven repository
-format](https://maven.apache.org/repository/layout.html), where the `groupId` and
-`artifactId` of a library form a nested directory structure, similar to the
-package structure within Java projects. The repository root at
-[`https://libraries.cgr.dev/java/`](https://libraries.cgr.dev/java/) is not
-browsable, but you can discover and retrieve artifacts directly as described
-below.
-The repository follows the [Maven repository
-format](https://maven.apache.org/repository/layout.html), where the `groupId` and
-`artifactId` of a library form a nested directory structure, similar to the
-package structure within Java projects. The repository root at
-[`https://libraries.cgr.dev/java/`](https://libraries.cgr.dev/java/) is not
-browsable, but you can discover and retrieve artifacts directly as described
-below.
+This site provides a directory browsing and file listing capability similar to
+the Maven Central repository at
+[`https://repo1.maven.org/maven2/`](https://repo1.maven.org/maven2/). The
+structure follows the [Maven repository
+format](https://maven.apache.org/repository/layout.html). The `groupId` and
+`artifactId` of a library is used to create a nested directory structure,
+similar to the package structure within Java projects.
+
 
 For example, the Maven coordinates for [Apache Commons
-Lang](https://commons.apache.org/proper/commons-lang/) are the following:
 Lang](https://commons.apache.org/proper/commons-lang/) are the following:
 
 ```xml
