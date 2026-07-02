@@ -241,4 +241,47 @@ chainctl policies override delete <override-id>
 
 Once deleted, the image is again subject to whatever the policy decides.
 
+## Known issues
+
+Policies are in open beta, and we are continuously working to improve the experience. The items below are current limitations you may run into when working with overrides, along with the workaround for each.
+
+### An override is not effective immediately
+
+After you create an override, it does not take effect right away. The platform caches policy decisions, and it takes a short while for that cache to refresh before the override is applied. If a pull is still blocked immediately after you create an override, wait a moment and try again.
+
+### A single image can require two overrides
+
+Pulling an image with a client such as Docker involves two separate requests: a manifest pull followed by an image pull. Both requests are now evaluated against your policies, and they resolve to different digests, so a single `docker pull` can produce two `DENIED` decisions. An override targets one digest, so waiving only the first digest still leaves the second one blocked.
+
+To work around this, create an override for each denied digest. First attempt the pull so both decisions are recorded, then use [policy decisions](#policy-decisions) to find the digests that were blocked:
+
+```shell
+chainctl policies decision list --parent=$ORGANIZATION --result=DENIED
+```
+
+```output
+ REPOSITORY |     DIGEST     |  POLICY  |   MODE   | RESULT | PULLED ON
+------------|----------------|----------|----------|--------|------------
+ curl       | sha256:609aeb… | cooldown | ENFORCED | DENIED | 2026-07-02
+ curl       | sha256:db532b… | cooldown | ENFORCED | DENIED | 2026-07-02
+```
+
+Create an override for each of the denied digests:
+
+```shell
+chainctl policies override create \
+  --policy=cooldown \
+  --digest=sha256:609aeb... \
+  --reason="approved exception, ticket OPS-42" \
+  --parent=$ORGANIZATION
+
+chainctl policies override create \
+  --policy=cooldown \
+  --digest=sha256:db532b... \
+  --reason="approved exception, ticket OPS-42" \
+  --parent=$ORGANIZATION
+```
+
+With both digests waived, the pull is allowed. Remember that the override is subject to the cache refresh described above, so allow a short delay before retrying the pull.
+
 See `chainctl policies --help` or the [chainctl reference pages](/chainguard/chainctl) for more information.
