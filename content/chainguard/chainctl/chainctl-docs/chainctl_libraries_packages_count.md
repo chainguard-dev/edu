@@ -1,33 +1,30 @@
 ---
-date: 2026-06-30T03:10:49Z
-title: "chainctl libraries artifacts list"
-slug: chainctl_libraries_artifacts_list
-url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_artifacts_list/
+date: 2026-07-01T03:32:22Z
+title: "chainctl libraries packages count"
+slug: chainctl_libraries_packages_count
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_packages_count/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl libraries artifacts list
+## chainctl libraries packages count
 
-List Libraries artifacts.
+Count Libraries packages per ecosystem.
 
 ### Synopsis
 
-List artifacts in the Chainguard Libraries catalog for an ecosystem, optionally filtered by a search query.
+Report the total number of packages available in the Chainguard Libraries catalog, optionally scoped to a single ecosystem.
 
 ```
-chainctl libraries artifacts list --ecosystem ECOSYSTEM [--query QUERY] [--output=json|table] [flags]
+chainctl libraries packages count [--output=json|table] [flags]
 ```
 
 ### Options
 
 ```
-      --ecosystem string   The ecosystem to list artifacts for (JAVA, PYTHON, JAVASCRIPT).
-      --limit int32        The maximum number of artifacts to return; results are paginated automatically up to this limit. (default 50)
-      --query string       A search string to filter artifacts by name. If empty, all artifacts in the ecosystem are returned.
-      --remediated         Only return remediated artifacts.
+      --ecosystem string   The ecosystem to count packages for (JAVA, PYTHON, JAVASCRIPT).
 ```
 
 ### Options inherited from parent commands
@@ -47,5 +44,5 @@ chainctl libraries artifacts list --ecosystem ECOSYSTEM [--query QUERY] [--outpu
 
 ### SEE ALSO
 
-* [chainctl libraries artifacts](/chainguard/chainctl/chainctl-docs/chainctl_libraries_artifacts/)	 - Inspect Libraries artifacts.
+* [chainctl libraries packages](/chainguard/chainctl/chainctl-docs/chainctl_libraries_packages/)	 - Inspect Libraries packages.
 
