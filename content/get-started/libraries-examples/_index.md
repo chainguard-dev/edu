@@ -2,7 +2,7 @@
 title: "Libraries Examples"
 linktitle: "Libraries Examples"
 lead: ""
-description: "Swap in your first secure dependency with Chainguard Libraries: quickstart, package-manager access, and why hardened libraries matter. Available for Java, Python, and JavaScript."
+description: "Swap in your first secure dependency with Chainguard Libraries: a quickstart and a JavaScript migration walkthrough. Available for Java, Python, and JavaScript."
 type: "article"
 date: 2026-06-26T00:00:00+00:00
 lastmod: 2026-06-26T00:00:00+00:00
@@ -12,12 +12,8 @@ weight: 025
 crosslinks:
 - title: "Quickstart: swap in a library"
   url: "/chainguard/libraries/quickstart/"
-- title: "Connect your package manager"
-  url: "/chainguard/libraries/access/"
-- title: "Network requirements"
-  url: "/chainguard/libraries/network-requirements/"
-- title: "Why secure your dependencies?"
-  url: "/chainguard/libraries/how-libraries-help-developers/"
+- title: "Migrate a JavaScript project"
+  url: "/chainguard/libraries/javascript/migration/"
 ---
 
 Point your package manager at Chainguard, reinstall, and ship — no breaking changes. Chainguard Libraries are rebuilt from verified source as drop-in replacements for the packages you already use.
@@ -27,6 +23,4 @@ These on-ramp guides link to the published Chainguard Libraries documentation. L
 ## On-ramp guides
 
 - **[Quickstart: swap in a library](/chainguard/libraries/quickstart/)** — point your package manager at Chainguard, reinstall, and ship.
-- **[Connect your package manager](/chainguard/libraries/access/)** — set up access for Maven, pip, or npm.
-- **[Network requirements](/chainguard/libraries/network-requirements/)** — endpoints and connectivity your build environment needs.
-- **[Why secure your dependencies?](/chainguard/libraries/how-libraries-help-developers/)** — the supply-chain attacks hardened libraries help you avoid.
+- **[Migrate a JavaScript project](/chainguard/libraries/javascript/migration/)** — switch an existing npm project over to Chainguard Libraries.
