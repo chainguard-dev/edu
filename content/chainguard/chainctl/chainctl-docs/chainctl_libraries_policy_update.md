@@ -1,5 +1,5 @@
 ---
-date: 2026-06-30T03:10:49Z
+date: 2026-07-01T03:32:22Z
 title: "chainctl libraries policy update"
 slug: chainctl_libraries_policy_update
 url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_update/
@@ -20,7 +20,7 @@ chainctl libraries policy update POLICY [--cooldown-days N] [--block ...] [--all
 ### Options
 
 ```
-      --allow stringArray     A package permitted to bypass gates, as comma-separated key=value pairs: purl=<package-url>[,bypass-cooldown=true][,bypass-malware=true][,justification="..."]. Replaces the existing allow list. Repeatable.
+      --allow stringArray     A package permitted to override gates, as comma-separated key=value pairs: purl=<package-url>[,override-cooldown=true][,override-malware=true][,justification="..."]. Replaces the existing allow list. Repeatable.
       --block stringArray     A package to always deny, as purl=<package-url> (pkg:pypi/<name>, pkg:npm/<name>, pkg:maven/<group>/<artifact>); append @<version> to block a single version. Replaces the existing block list. Repeatable.
       --cooldown-days int32   The cooldown window in days (0 disables, 1-30 explicit, omit to inherit the default). (default -1)
       --description string    The updated description of the policy.

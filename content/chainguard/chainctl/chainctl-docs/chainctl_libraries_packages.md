@@ -1,5 +1,5 @@
 ---
-date: 2026-06-30T03:10:49Z
+date: 2026-07-01T03:32:22Z
 title: "chainctl libraries packages"
 slug: chainctl_libraries_packages
 url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_packages/
@@ -12,6 +12,13 @@ toc: true
 ## chainctl libraries packages
 
 Inspect Libraries packages.
+
+### Synopsis
+
+Browse the Chainguard Libraries package catalog. Packages are served by
+Chainguard Libraries across language ecosystems; these commands list packages,
+their versions, and per-ecosystem counts, and report packages withheld by
+active Libraries policy.
 
 ### Options inherited from parent commands
 
@@ -32,4 +39,7 @@ Inspect Libraries packages.
 
 * [chainctl libraries](/chainguard/chainctl/chainctl-docs/chainctl_libraries/)	 - Ecosystem library related commands.
 * [chainctl libraries packages blocked](/chainguard/chainctl/chainctl-docs/chainctl_libraries_packages_blocked/)	 - List blocked Libraries packages.
+* [chainctl libraries packages count](/chainguard/chainctl/chainctl-docs/chainctl_libraries_packages_count/)	 - Count Libraries packages per ecosystem.
+* [chainctl libraries packages list](/chainguard/chainctl/chainctl-docs/chainctl_libraries_packages_list/)	 - List Libraries packages.
+* [chainctl libraries packages versions](/chainguard/chainctl/chainctl-docs/chainctl_libraries_packages_versions/)	 - List the versions of a Libraries package.
 
