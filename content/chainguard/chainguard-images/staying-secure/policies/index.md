@@ -1,20 +1,17 @@
 ---
 aliases:
 - /chainguard/administration/policies/
-title: "Policies"
-linktitle: "Policies"
+title: "Container Pull Policies"
+linktitle: "Container Pull Policies"
 type: "article"
-description: "Configure and enforce policies that control which Chainguard image and artifact versions your organization can pull, using chainctl or the Chainguard Console"
+description: "Configure and enforce policies that control which Chainguard container and artifact versions your organization can pull, using chainctl or the Chainguard Console"
 date: 2026-05-21T08:48:45+00:00
 lastmod: 2026-05-21T08:48:45+00:00
 draft: false
 tags: ["Overview"]
 images: []
-menu:
-  docs:
-    parent: "administration"
 toc: true
-weight: 008
+weight: 025
 ---
 
 Policies enable you to filter and restrict Chainguard artifact updates. You do this by defining policies that control and restrict versions that will be pulled from Chainguard.

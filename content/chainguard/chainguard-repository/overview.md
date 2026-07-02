@@ -66,7 +66,7 @@ Available policies include:
 
 The packages that make up Chainguard Images are checked against public malware identifier feeds, and any package with a known malware idenitifier is remediated before being used in any image.
 
-See [Policies](/chainguard/administration/policies/) for more information.
+See [Container Pull Policies](/chainguard/chainguard-images/staying-secure/policies/) for more information.
 
 
 ## Management
