@@ -1,23 +1,25 @@
 ---
-date: 2026-06-30T03:10:49Z
-title: "chainctl libraries artifacts"
-slug: chainctl_libraries_artifacts
-url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_artifacts/
+date: 2026-07-01T03:32:22Z
+title: "chainctl libraries packages versions"
+slug: chainctl_libraries_packages_versions
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_packages_versions/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl libraries artifacts
+## chainctl libraries packages versions
 
-Inspect Libraries artifacts.
+List the versions of a Libraries package.
 
 ### Synopsis
 
-Browse the Chainguard Libraries artifact catalog. Artifacts are the
-packages served by Chainguard Libraries across language ecosystems; these
-commands list artifacts, their versions, and per-ecosystem counts.
+List all versions of a single package, identified by the id returned by 'chainctl libraries packages list'.
+
+```
+chainctl libraries packages versions PACKAGE_ID [--output=json|table] [flags]
+```
 
 ### Options inherited from parent commands
 
@@ -36,8 +38,5 @@ commands list artifacts, their versions, and per-ecosystem counts.
 
 ### SEE ALSO
 
-* [chainctl libraries](/chainguard/chainctl/chainctl-docs/chainctl_libraries/)	 - Ecosystem library related commands.
-* [chainctl libraries artifacts count](/chainguard/chainctl/chainctl-docs/chainctl_libraries_artifacts_count/)	 - Count Libraries artifacts per ecosystem.
-* [chainctl libraries artifacts list](/chainguard/chainctl/chainctl-docs/chainctl_libraries_artifacts_list/)	 - List Libraries artifacts.
-* [chainctl libraries artifacts versions](/chainguard/chainctl/chainctl-docs/chainctl_libraries_artifacts_versions/)	 - List the versions of a Libraries artifact.
+* [chainctl libraries packages](/chainguard/chainctl/chainctl-docs/chainctl_libraries_packages/)	 - Inspect Libraries packages.
 
