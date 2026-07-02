@@ -83,10 +83,10 @@ Libraries are provided in the following sections.
 | Scanner | Python | Java |
 |---|---|---|
 | Amazon Inspector | ✓ | ✓ |
-| Anchore Enterprise | ✓ | |
+| Anchore Enterprise | ✓ | ✓ |
 | Grype | ✓ | ✓ |
 | Trivy | ✓ | ✓ |
-| Upwind | ✓ | |
+| Upwind | ✓ | ✓ |
 | Wiz | ✓ | ✓ |
 
 ### Amazon Inspector
@@ -100,7 +100,9 @@ for additional details.
 ### Anchore Enterprise
 
 Anchore Enterprise supports the detection of remediated Chainguard Libraries for Python
-starting with **version 5.23.0**, once the required configuration is applied.
+starting with version 5.23.0, once the required configuration is applied.
+
+Support for remediated Chainguard Libraries for Java is also available through Anchore's vulnerability data updates. Anchore Data Service v0.32.0 adds support for Maven package remediations from Chainguard Libraries.
 
 To ensure remediated CVEs are filtered out by default, disable CPE matching for
 the ecosystem in which you are using Chainguard Libraries. Instructions for
@@ -260,15 +262,17 @@ as well as the [official documentation](https://trivy.dev/docs/latest/).
 
 ### Upwind
 
-[Upwind](https://www.upwind.io/) can scan container images that use Chainguard Libraries for Python and recognize Chainguard backported fixes in [remediated library](/chainguard/libraries/cve-remediation/) versions. 
+[Upwind](https://www.upwind.io/) can scan container images that use Chainguard Libraries for Python and Java, and recognize Chainguard backported fixes in [remediated library](/chainguard/libraries/cve-remediation/) versions. 
 
-It is supported for container scanning in CI/CD only, for Python applications built with:
+It is supported for container scanning in CI/CD only.
+
+For Python applications, support is available for:
 
 - `uv` / `pyproject.toml`
 - `pip` / `requirements.txt`
 - Poetry
 
-When Upwind recognizes a remediated Chainguard library version, the scan results reflect the installed `+cgr.N` package version rather than only the original upstream version. Vulnerabilities that Chainguard has already remediated in that installed version no longer appear as active findings.
+When Upwind recognizes a remediated Chainguard library version, the scan results reflect the installed remediated package version rather than only the original upstream version. Vulnerabilities that Chainguard has already remediated in that installed version no longer appear as active findings.
 
 ### Wiz
 
