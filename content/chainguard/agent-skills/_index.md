@@ -1,13 +1,13 @@
 ---
 title: "Chainguard Agent Skills"
-linkTitle: "Chainguard Agent Skills"
+linktitle: "Chainguard Agent Skills"
 description: "Hardened AI agent skills that Chainguard reviews, scopes, and publishes with a full audit trail."
 type: "article"
 date: 2026-06-05T08:48:45+00:00
 lastmod: 2026-06-05T08:48:45+00:00
 draft: false
 images: []
-weight: 025
+weight: 010
 ---
 
 Chainguard Agent Skills is a catalog of hardened AI agent skills that Chainguard reviews, scopes, and publishes with a full audit trail. It lets teams extend their AI agents without extending their attack surface.

@@ -66,12 +66,12 @@ Available policies include:
 
 The packages that make up Chainguard Images are checked against public malware identifier feeds, and any package with a known malware idenitifier is remediated before being used in any image.
 
-See [Policies](/chainguard/administration/policies/) for more information.
+See [Container Pull Policies](/chainguard/chainguard-images/staying-secure/policies/) for more information.
 
 
 ## Management
 
-The Chainguard Console and `chainctl` can be used for configuring and managing policies across your organization. Learn more in [Using the Chainguard Console](/chainguard/chainguard-images/how-to-use/images-directory/) and [Get Started with chainctl](/chainguard/chainctl-usage/getting-started-with-chainctl/).
+The Chainguard Console and `chainctl` can be used for configuring and managing policies across your organization. Learn more in [Using the Chainguard Console](/platform/console/images-directory/) and [Get Started with chainctl](/get-started/getting-started-with-chainctl/).
 
 Access the Console at [console.chainguard.dev](https://console.chainguard.dev).
 
