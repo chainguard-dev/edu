@@ -197,7 +197,7 @@ chainctl libraries verify -o json --detailed target/chainguard-verify/*.jar \
 
 > Note: If you belong to multiple Chainguard organizations, include the `--parent=<org>` flag in the command.
 
-This returns output similar to the following:
+It can take up to 5 minutes for this command to return results. It returns output similar to the following:
 
 ```bash
 {
