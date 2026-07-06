@@ -182,6 +182,46 @@ Analyze a file and create JSON output:
 chainctl libraries verify -o json commons-lang3-3.17.0.jar
 ```
 
+#### Recommended build-time workflow for Maven
+
+For Maven-based applications, a recommended workflow is to copy only runtime dependencies into a dedicated directory then verify those files, allowing you to avoid noise from unrelated artifacts in `~/.m2/repository`. For example:
+
+```bash
+mvn -U -q -s settings.xml dependency:copy-dependencies \
+  -DincludeScope=runtime \
+  -DoutputDirectory=target/chainguard-verify
+
+chainctl libraries verify -o json --detailed target/chainguard-verify/*.jar \
+  > provenance-report.json
+```
+
+> Note: If you belong to multiple Chainguard organizations, include the `--parent=<org>` flag in the command.
+
+This returns output similar to the following:
+
+```bash
+{
+  "artifactVerificationCoverage": 74.19354838709677,
+  "verifiedItems": 23,
+  "totalItems": 31,
+  "artifactsSummary": {
+    "totalArtifacts": 31,
+    "fullyVerified": 23,
+    "partiallyVerified": 0,
+    "notVerified": 8,
+    "verifiedPercent": 74.19354838709677
+  },
+  "results": [
+    {
+      "artifact": "target/chainguard-verify/jakarta.validation-api-3.0.2.jar",
+      "artifactVerificationCoverage": 100,
+      "details": "Fully verified by Chainguard (signature verified)\nMaven artifact: jakarta.validation:jakarta.validation-api:3.0.2"
+    },
+...
+```
+
+In this example, out of 31 `totalItems`, 23 were verified. The `arfifactVerificationCoverage` percent is 74.
+
 #### Java fat JAR limitations
 
 The fat JAR packaging approach merges the class files from all dependency
@@ -369,6 +409,12 @@ Use the `help` command for more command options and details for the `verify` com
 ```sh
 chainctl help libraries verify
 ```
+
+## Troubleshooting
+
+#### Why might I see 0% coverage when verifying Java artifacts?
+
+A 0% coverage result is expected when verifying a fat JAR, uber JAR, or shaded JAR. Those packaging formats merge dependency contents into a single archive, so `chainctl libraries verify` cannot trace merged classes back to the original JARs.
 
 ## Resources
 
