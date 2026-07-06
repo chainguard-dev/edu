@@ -216,8 +216,15 @@ jobs:
 
         # Copy necessary files for container build (rename to match Dockerfile expectations)
         cp "$TEMP_BUILD_DIR/chainguard-complete-docs.md" scripts/chainguard-ai-docs.md
-        cp "$TEMP_BUILD_DIR/checksums.txt" scripts/checksums.txt
         # verification.sh is already in scripts/ directory
+
+        # Generate a container-specific checksums.txt whose entries match the
+        # filenames actually shipped inside the image under /docs. The release
+        # checksums.txt in $TEMP_BUILD_DIR references chainguard-complete-docs.*
+        # (the release artifact names) and is signed as such, so it cannot be
+        # reused here -- doing so makes the in-image `verify` and `extract`
+        # commands fail because those filenames do not exist in /docs.
+        ( cd scripts && sha256sum chainguard-ai-docs.md image-catalog.json verification.sh > checksums.txt )
 
         # Build container with GitHub Container Registry
         docker build -f scripts/Dockerfile.ai-docs -t "ghcr.io/$REPO_OWNER/ai-docs:latest" scripts/
