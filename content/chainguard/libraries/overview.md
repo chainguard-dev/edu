@@ -124,15 +124,6 @@ Our current minimum supported toolchains are:
 
 We will attempt to rebuild any libraries that meet the [licensing and source availability criteria](#licensing-and-source-availability) using the supported toolchains.
 
-### EOL version support
-
-When a library version reaches end of life (EOL) upstream, Chainguard Libraries continues to build packages and provide security fixes for that version for six months beyond the upstream EOL date.
-
-After that six-month window closes, Chainguard Libraries will:
-- No longer build new packages that require the EOL version
-- No longer provide security fixes for packages built against the EOL version
-- Continue to serve previously built packages
-
 ## Upstream fallback and controls
 
 Chainguard Libraries support an optional protected upstream fallback, managed through the [Chainguard
