@@ -1,6 +1,6 @@
 ---
-title: "Manage Your chainctl Configuration"
-linktitle: "Manage Your chainctl Configuration"
+title: "Manage Your chainctl configuration"
+linktitle: "Manage Your chainctl configuration"
 aliases:
 - /chainguard/chainguard-enforce/manage-chainctl-config/
 - /chainguard/administration/manage-chainctl-config
@@ -117,6 +117,7 @@ chainctl looks for a configuration file in three locations and uses the first on
 
 `<config-dir>` is your operating system's user configuration directory: `~/Library/Application Support` on macOS, and `$XDG_CONFIG_HOME` (usually `~/.config`) on Linux. Passing `--config FILE` (or setting the `CHAINCTL_CONFIG` environment variable) points chainctl at a specific file and bypasses this search. When chainctl writes a file itself (for example with `save` or `edit`), it uses `<config-dir>/chainctl/config.yaml`.
 
+## Edit the chainctl configuration
 Settings are resolved in order of precedence, where a higher source overrides a lower one:
 
 ```
