@@ -1,5 +1,5 @@
 ---
-date: 2026-06-23T17:19:36Z
+date: 2026-07-01T03:32:22Z
 title: "chainctl libraries policy"
 slug: chainctl_libraries_policy
 url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy/
@@ -18,7 +18,7 @@ Manage Libraries policies.
 Libraries policies control which upstream packages your organization can
 pull. A policy configures automatic gates (cooldown, malware) and explicit
 block/allow lists; a binding activates a policy for an (organization,
-ecosystem) pair in either ENFORCE or DRY_RUN mode.
+ecosystem) pair in either ENFORCE or PREVIEW mode.
 
 ### Options inherited from parent commands
 

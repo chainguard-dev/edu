@@ -21,6 +21,8 @@ As of this writing, the Chainguard Repository contains the following artifact ty
 | Artifact type | Description |
 | ----- | ----- |
 | [Chainguard Libraries for JavaScript](/chainguard/libraries/javascript/overview/) | Open source language dependencies rebuilt from source for JavaScript (npm). |
+| [Chainguard Libraries for Java](/chainguard/libraries/java/overview/) | Open source language dependencies rebuilt from source for Java (Maven). |
+| [Chainguard Libraries for Python](/chainguard/libraries/python/overview/) | Open source language dependencies rebuilt from source for Python (PyPI). |
 
 ## Endpoints
 
@@ -28,7 +30,9 @@ Each artifact type is accessible via its own endpoint:
 
 | Artifact type | Endpoint |
 | ----- | ----- |
-| Libraries for JavaScript | `libraries.cgr.dev/javascript` |
+| Libraries for [JavaScript](/chainguard/libraries/javascript/overview/) | `https://libraries.cgr.dev/javascript/` |
+| Libraries for [Java](/chainguard/libraries/java/overview/) | `https://libraries.cgr.dev/java/` |
+| Libraries for [Python](/chainguard/libraries/python/overview/) | `https://libraries.cgr.dev/python/` |
 
 See each artifact type's documentation for authentication and configuration details.
 
@@ -62,17 +66,19 @@ Available policies include:
 
 The packages that make up Chainguard Images are checked against public malware identifier feeds, and any package with a known malware idenitifier is remediated before being used in any image.
 
-See [Policies](/chainguard/administration/policies/) for more information.
+See [Container Pull Policies](/chainguard/chainguard-images/staying-secure/policies/) for more information.
 
 
 ## Management
 
-The Chainguard Console and `chainctl` can be used for configuring and managing policies across your organization. Learn more in [Using the Chainguard Console](/chainguard/chainguard-images/how-to-use/images-directory/) and [Get Started with chainctl](/chainguard/chainctl-usage/getting-started-with-chainctl/).
+The Chainguard Console and `chainctl` can be used for configuring and managing policies across your organization. Learn more in [Using the Chainguard Console](/platform/console/images-directory/) and [Get Started with chainctl](/get-started/getting-started-with-chainctl/).
 
 Access the Console at [console.chainguard.dev](https://console.chainguard.dev).
 
 
 ## Learn more
 
-* [Chainguard Repository for JavaScript Libraries](/chainguard/libraries/chainguard-repository/)  
+* [Chainguard Libraries for JavaScript](/chainguard/libraries/javascript/overview/)  
+* [Chainguard Libraries for Java](/chainguard/libraries/java/overview/)
+* [Chainguard Libraries for Python](/chainguard/libraries/python/overview/)
 

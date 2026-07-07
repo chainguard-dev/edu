@@ -1,4 +1,4 @@
-FROM cgr.dev/chainguard/nginx:latest@sha256:cd35918ef80082318a9215becdb351c964435193003f281ebb8d5de872562ccd
+FROM cgr.dev/chainguard/nginx:latest@sha256:f23fcc2d894e8711b25d88ca4d3ea50964c8268e67fc6e58b054c652f08f2ad5
 
 COPY public/ /usr/share/nginx/html/
 COPY public/_aliases /etc/nginx/aliases

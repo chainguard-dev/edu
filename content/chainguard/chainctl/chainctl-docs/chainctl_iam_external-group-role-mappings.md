@@ -1,5 +1,5 @@
 ---
-date: 2026-06-23T17:19:36Z
+date: 2026-07-01T03:32:22Z
 title: "chainctl iam external-group-role-mappings"
 slug: chainctl_iam_external-group-role-mappings
 url: /chainguard/chainctl/chainctl-docs/chainctl_iam_external-group-role-mappings/
@@ -32,6 +32,6 @@ Manage IdP group-to-role mappings.
 
 * [chainctl iam](/chainguard/chainctl/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.
 * [chainctl iam external-group-role-mappings create](/chainguard/chainctl/chainctl-docs/chainctl_iam_external-group-role-mappings_create/)	 - Create an IdP group-to-role mapping.
-* [chainctl iam external-group-role-mappings delete](/chainguard/chainctl/chainctl-docs/chainctl_iam_external-group-role-mappings_delete/)	 - Delete an IdP group-to-role mapping.
+* [chainctl iam external-group-role-mappings delete](/chainguard/chainctl/chainctl-docs/chainctl_iam_external-group-role-mappings_delete/)	 - Delete IdP group-to-role mappings.
 * [chainctl iam external-group-role-mappings list](/chainguard/chainctl/chainctl-docs/chainctl_iam_external-group-role-mappings_list/)	 - List IdP group-to-role mappings.
 

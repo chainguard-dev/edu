@@ -16,95 +16,6 @@
         },
         "type": "object"
       },
-      "chainguard.platform.iam.v2alpha1.AcceptTermsResponse": {
-        "description": "AcceptTermsResponse is the response message for AcceptTerms.",
-        "properties": {
-          "documentIds": {
-            "description": "IDs of the documents that were accepted.",
-            "items": {
-              "type": "string"
-            },
-            "readOnly": true,
-            "type": "array"
-          },
-          "group": {
-            "description": "Group UIDP that accepted the documents.",
-            "readOnly": true,
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "chainguard.platform.iam.v2alpha1.ListTermsAcceptancesResponse": {
-        "description": "ListTermsAcceptancesResponse is the response message for ListTermsAcceptances.",
-        "properties": {
-          "nextPageToken": {
-            "description": "Token for retrieving the next page of results.",
-            "type": "string"
-          },
-          "skipped": {
-            "description": "Number of results that were skipped.",
-            "format": "int32",
-            "type": "integer"
-          },
-          "termsAcceptances": {
-            "description": "Terms acceptances matching the request criteria.",
-            "items": {
-              "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.TermsAcceptance"
-            },
-            "type": "array"
-          },
-          "totalCount": {
-            "description": "Total number of terms acceptances matching the filter.",
-            "format": "int64",
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "chainguard.platform.iam.v2alpha1.TermsAcceptance": {
-        "description": "TermsAcceptance records an acceptance event for a single legal document.",
-        "properties": {
-          "acceptedBy": {
-            "description": "Identity (subject) that accepted the document.",
-            "readOnly": true,
-            "type": "string"
-          },
-          "createTime": {
-            "description": "When the document was accepted.",
-            "format": "date-time",
-            "readOnly": true,
-            "type": "string"
-          },
-          "docId": {
-            "description": "Stable identifier for the accepted document.",
-            "readOnly": true,
-            "type": "string"
-          },
-          "orgUid": {
-            "description": "Organization UIDP where the document was accepted.",
-            "readOnly": true,
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "chainguard.platform.iam.v2alpha1.TermsService.AcceptTermsBody": {
-        "description": "AcceptTermsRequest is the request message for AcceptTerms.",
-        "properties": {
-          "documentIds": {
-            "description": "IDs of the legal documents being accepted.",
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
-          }
-        },
-        "required": [
-          "documentIds"
-        ],
-        "type": "object"
-      },
       "chainguard.platform.oidc.RawToken": {
         "properties": {
           "expiry": {
@@ -129,6 +40,21 @@
           },
           "token": {
             "$ref": "#/components/schemas/chainguard.platform.oidc.RawToken"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.v2alpha1.RepoReadme": {
+        "description": "RepoReadme is the Markdown README describing a repository.\nIt is a singleton sub-resource of Repo.",
+        "properties": {
+          "content": {
+            "description": "Raw Markdown content of the README.\nOn repositories with a sync_config the README is synced from the source\nrepository.",
+            "type": "string"
+          },
+          "uid": {
+            "description": "UID of the repository this README describes.",
+            "readOnly": true,
+            "type": "string"
           }
         },
         "type": "object"
@@ -168,91 +94,15 @@
   },
   "openapi": "3.0.3",
   "paths": {
-    "/iam/v2alpha1/terms/{group}": {
-      "get": {
-        "description": "ListTermsAcceptances returns the legal documents that a group has accepted.",
-        "operationId": "TermsService_ListTermsAcceptances",
+    "/registry/v2alpha1/repos/{repoReadme.uid}/readme": {
+      "patch": {
+        "description": "UpdateRepoReadme updates the README for a repository.",
+        "operationId": "ReposService_UpdateRepoReadme",
         "parameters": [
           {
-            "description": "Group UIDP of the organization to list acceptances for.\nIncludes ancestor organization acceptances.",
+            "description": "UID of the repository this README describes.",
             "in": "path",
-            "name": "group",
-            "required": true,
-            "schema": {
-              "pattern": ".+",
-              "type": "string"
-            }
-          },
-          {
-            "description": "Maximum number of results to return per page.",
-            "in": "query",
-            "name": "pageSize",
-            "schema": {
-              "format": "int32",
-              "type": "integer"
-            }
-          },
-          {
-            "description": "Page token from a previous List response for pagination.",
-            "in": "query",
-            "name": "pageToken",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Order results by field. Format: \"field [asc|desc]\"",
-            "in": "query",
-            "name": "orderBy",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Number of results to skip before returning.",
-            "in": "query",
-            "name": "skip",
-            "schema": {
-              "format": "int32",
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.ListTermsAcceptancesResponse"
-                }
-              }
-            },
-            "description": "A successful response."
-          },
-          "default": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/google.rpc.Status"
-                }
-              }
-            },
-            "description": "An unexpected error response."
-          }
-        },
-        "summary": "List Terms Acceptances",
-        "tags": [
-          "TermsService"
-        ]
-      },
-      "post": {
-        "description": "AcceptTerms records that a group has accepted one or more legal documents.",
-        "operationId": "TermsService_AcceptTerms",
-        "parameters": [
-          {
-            "description": "Group UIDP of the organization accepting the documents.",
-            "in": "path",
-            "name": "group",
+            "name": "repoReadme.uid",
             "required": true,
             "schema": {
               "pattern": ".+",
@@ -264,19 +114,27 @@
           "content": {
             "*/*": {
               "schema": {
-                "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.TermsService.AcceptTermsBody"
+                "properties": {
+                  "content": {
+                    "description": "Raw Markdown content of the README.\nOn repositories with a sync_config the README is synced from the source\nrepository.",
+                    "type": "string"
+                  }
+                },
+                "title": "README to update. The uid identifies the repository.",
+                "type": "object"
               }
             }
           },
+          "description": "README to update. The uid identifies the repository.",
           "required": true,
-          "x-originalParamName": "body"
+          "x-originalParamName": "repoReadme"
         },
         "responses": {
           "200": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.v2alpha1.AcceptTermsResponse"
+                  "$ref": "#/components/schemas/chainguard.platform.registry.v2alpha1.RepoReadme"
                 }
               }
             },
@@ -293,9 +151,53 @@
             "description": "An unexpected error response."
           }
         },
-        "summary": "Accept Terms",
+        "summary": "Update Repo Readme",
         "tags": [
-          "TermsService"
+          "ReposService"
+        ]
+      }
+    },
+    "/registry/v2alpha1/repos/{uid}/readme": {
+      "get": {
+        "description": "GetRepoReadme retrieves the README for a repository.",
+        "operationId": "ReposService_GetRepoReadme",
+        "parameters": [
+          {
+            "description": "UID of the repository whose README to retrieve.",
+            "in": "path",
+            "name": "uid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.registry.v2alpha1.RepoReadme"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Repo Readme",
+        "tags": [
+          "ReposService"
         ]
       }
     },
@@ -638,7 +540,7 @@
   ],
   "tags": [
     {
-      "name": "TermsService"
+      "name": "ReposService"
     },
     {
       "name": "TagsService"

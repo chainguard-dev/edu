@@ -18,19 +18,19 @@ on:
         required: false
         default: 'false'
 
-permissions:
-  contents: write  # For creating/updating releases
-  actions: read
-  id-token: write  # For cosign keyless signing
-  packages: write  # For GHCR
-  # TODO: Split into separate compile (read-only) and publish (write) jobs
-  
+permissions: {}
+
 jobs:
   compile-docs:
     if: github.repository == 'chainguard-dev/edu'
     runs-on: ubuntu-latest
     environment: documentation  # Use environment protection rules
-    
+    permissions:
+      contents: write  # For creating/updating releases
+      actions: read
+      id-token: write  # For cosign keyless signing
+      packages: write  # For GHCR
+
     steps:
     - name: Harden the runner
       uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4
@@ -69,12 +69,12 @@ jobs:
         echo "# Placeholder" > images-private/README.md
 
     - name: Set up Python
-      uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+      uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
       with:
         python-version: '3.10'
 
     - name: Cache Python dependencies
-      uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+      uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
       with:
         path: ~/.cache/pip
         key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
@@ -90,7 +90,7 @@ jobs:
         done
         
         # Check for suspicious files
-        find . -name "*.sh" -o -name "*.py" | grep -v -E "(compile_docs\.py|create_compressed_docs\.sh)" | while read file; do
+        find . -name "*.sh" -o -name "*.py" | grep -v -E "(compile_docs\.py|create_compressed_docs\.sh)" | while read -r file; do
           echo "Warning: Unexpected script found: $file"
         done
 
@@ -114,24 +114,24 @@ jobs:
         fi
 
     - name: Set environment variable for GitHub Actions
-      run: echo "GITHUB_ACTIONS=true" >> $GITHUB_ENV
+      run: echo "GITHUB_ACTIONS=true" >> "$GITHUB_ENV"
 
     - name: Create temporary directory
-      run: echo "TEMP_BUILD_DIR=$(mktemp -d)" >> $GITHUB_ENV
+      run: echo "TEMP_BUILD_DIR=$(mktemp -d)" >> "$GITHUB_ENV"
 
     - name: Compile documentation with resource limits
       run: |
         cd edu
         # Create output directory
-        mkdir -p $TEMP_BUILD_DIR
+        mkdir -p "$TEMP_BUILD_DIR"
         
         # Run with timeout and memory limits, output to temp directory
-        timeout 600 python3 scripts/compile_docs.py --output $TEMP_BUILD_DIR/chainguard-complete-docs.md
+        timeout 600 python3 scripts/compile_docs.py --output "$TEMP_BUILD_DIR/chainguard-complete-docs.md"
         
         # Verify output file size (max 50MB uncompressed)
-        if [ -f $TEMP_BUILD_DIR/chainguard-complete-docs.md ]; then
-          size=$(stat -c%s $TEMP_BUILD_DIR/chainguard-complete-docs.md)
-          if [ $size -gt 52428800 ]; then
+        if [ -f "$TEMP_BUILD_DIR"/chainguard-complete-docs.md ]; then
+          size=$(stat -c%s "$TEMP_BUILD_DIR/chainguard-complete-docs.md")
+          if [ "$size" -gt 52428800 ]; then
             echo "Error: Compiled documentation exceeds 50MB limit"
             exit 1
           fi
@@ -150,7 +150,7 @@ jobs:
 
     - name: Create compressed versions
       run: |
-        cd $TEMP_BUILD_DIR
+        cd "$TEMP_BUILD_DIR"
         
         # Create compressed versions with integrity checks
         gzip -k -9 chainguard-complete-docs.md
@@ -170,7 +170,7 @@ jobs:
 
     - name: Sign documentation with cosign
       run: |
-        cd $TEMP_BUILD_DIR
+        cd "$TEMP_BUILD_DIR"
         
         # Sign the main documentation file (bundle format for cosign v3)
         cosign sign-blob chainguard-complete-docs.md \
@@ -183,7 +183,7 @@ jobs:
           --bundle=checksums.txt.bundle
 
         # Copy verification script
-        cp $GITHUB_WORKSPACE/edu/scripts/verification.sh .
+        cp "$GITHUB_WORKSPACE/edu/scripts/verification.sh" .
         
         # Create release bundle with all verification files
         tar -czf chainguard-ai-docs.tar.gz \
@@ -216,8 +216,15 @@ jobs:
 
         # Copy necessary files for container build (rename to match Dockerfile expectations)
         cp "$TEMP_BUILD_DIR/chainguard-complete-docs.md" scripts/chainguard-ai-docs.md
-        cp "$TEMP_BUILD_DIR/checksums.txt" scripts/checksums.txt
         # verification.sh is already in scripts/ directory
+
+        # Generate a container-specific checksums.txt whose entries match the
+        # filenames actually shipped inside the image under /docs. The release
+        # checksums.txt in $TEMP_BUILD_DIR references chainguard-complete-docs.*
+        # (the release artifact names) and is signed as such, so it cannot be
+        # reused here -- doing so makes the in-image `verify` and `extract`
+        # commands fail because those filenames do not exist in /docs.
+        ( cd scripts && sha256sum chainguard-ai-docs.md image-catalog.json verification.sh > checksums.txt )
 
         # Build container with GitHub Container Registry
         docker build -f scripts/Dockerfile.ai-docs -t "ghcr.io/$REPO_OWNER/ai-docs:latest" scripts/
@@ -263,7 +270,7 @@ jobs:
         tar -xzf gitleaks_8.18.0_linux_x64.tar.gz
         
         # Scan compiled documentation for secrets with custom config
-        ./gitleaks detect --no-git --source $TEMP_BUILD_DIR/ --config .gitleaks.toml --verbose --report-format json --report-path gitleaks-report.json || true
+        ./gitleaks detect --no-git --source "$TEMP_BUILD_DIR/" --config .gitleaks.toml --verbose --report-format json --report-path gitleaks-report.json || true
 
         # Check results - parse JSON to see if there are actual findings
         if [ -f gitleaks-report.json ]; then

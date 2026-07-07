@@ -724,7 +724,66 @@ If you are migrating an existing project and want to preserve your current
 lockfile, use [`chainctl libraries update-hashes`](#updating-lockfile-hashes)
 to update only the integrity hashes in place instead.
 
-Now you can proceed with your development and testing. 
+#### Using Chainguard Libraries with `yarn install --immutable`
+
+Yarn Berry's `--immutable` flag prevents changes to `yarn.lock` during installation. Migrating to Chainguard Libraries requires a lockfile preparation step before your normal `--immutable` workflow can resume. 
+
+Yarn Berry's lockfile stores both resolved `__archiveUrl` entries and Yarn-specific checksums (used by `--immutable` to detect tampering). Run the following command to update both:
+
+```bash
+chainctl auth configure-npm
+TOKEN=$(grep '_authToken=' .npmrc | sed 's/.*_authToken=//')
+chainctl libraries update-hashes --token "$TOKEN" yarn.lock
+yarn install --mode=update-lockfile
+```
+
+After running these commands, verify that your lockfile is stable under `--immutable`:
+
+```bash
+yarn install --immutable
+```
+
+If this command exits without error and without modifying `yarn.lock`, your lockfile is ready to commit.
+
+Expand the following section to learn about recommended workflows.
+
+{{< details "Workflows when using the --immutable flag" >}}
+
+**Recommended workflow for dependency updates**
+
+When updating dependencies, repeat the lockfile preparation steps before committing:
+
+```bash
+chainctl auth configure-npm
+TOKEN=$(grep '_authToken=' .npmrc | sed 's/.*_authToken=//')
+chainctl libraries update-hashes --token "$TOKEN" yarn.lock
+yarn install --mode=update-lockfile
+yarn install --immutable
+yarn build
+yarn test
+```
+
+Review the `yarn.lock` diff before committing. Expected changes are updated `__archiveUrl` resolutions pointing to Chainguard, updated Yarn checksum entries, and any intentional dependency version changes. Unexpected changes to package versions should be investigated before committing.
+
+**Recommended CI workflow**
+
+After the updated lockfile is committed, your CI configuration does not need to change. Use your standard immutable install:
+
+```bash
+yarn install --immutable
+yarn build
+yarn test
+```
+
+For stricter checksum and cache validation, you can also add `--check-cache`:
+
+```bash
+yarn install --immutable --check-cache
+```
+
+Do not commit `.npmrc` credentials to version control. Use environment variables or CI secrets to supply credentials at build time.
+
+{{< /details >}}
 
 <a id="yarn-berry-minimal"></a>
 

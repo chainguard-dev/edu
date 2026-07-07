@@ -42,21 +42,21 @@ Before you begin, you'll need:
 
 ### Create an entitlement
 
-To create an entitlement to Chainguard Libraries for JavaScript, run:
+To create an entitlement to Chainguard Libraries for JavaScript and enable upstream fallback, including a default 7-day cooldown, run:
 
 ```shell
-chainctl libraries entitlements create --ecosystems=JAVASCRIPT
+chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM
 ```
 
 Alternatively, you can create an entitlement and pull token in the Chainguard Console: while viewing the JavaScript ecosystem page, follow the prompts to create an access token.
 
-You can also configure [upstream fallback and cooldown policies](#packages-not-available-in-chainguard-libraries)
-when creating the entitlement. For example, use `chainctl` to enable upstream fallback with a
-10-day cooldown:
+You can also configure [cooldown policies](#packages-not-available-in-chainguard-libraries)
+after you create the entitlement. For example, to create and enforce a
+policy for a 14-day cooldown:
 
 ```shell
-chainctl libraries entitlements create --ecosystems=JAVASCRIPT \
-  --policy=CHAINGUARD_AND_UPSTREAM --cooldown-days=10
+chainctl libraries policy create --name=js-cooldown-14d --cooldown-days=14
+chainctl libraries policy enable --policy=js-cooldown-14d --ecosystem=JAVASCRIPT --mode=ENFORCE
 ```
 
 It can take up to 30 minutes for the fallback and cooldown policies to take effect.
@@ -170,7 +170,7 @@ credentials short-lived and avoids passing around static tokens.
 
 #### Local development
 
-For npm, pnpm, and Bun, run the following command to write a project-level `.npmrc` with the
+For npm and Bun, run the following command to write a project-level `.npmrc` with the
 registry URL and credentials from your current Chainguard session:
 
 ```shell
@@ -180,7 +180,10 @@ chainctl auth configure-npm
 Because [this command](/chainguard/chainctl/chainctl-docs/chainctl_auth_configure-npm/) uses a session-backed bearer token, you will need to re-run it when the token expires. If the command returns an error, ensure you are
 using the [latest version of chainctl](/chainguard/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
 
-For Yarn, [configure the .npmrc manually](#manual-registry-configuration).
+For pnpm and Yarn, [configure the .npmrc manually](#manual-registry-configuration).
+`chainctl auth configure-npm` generates path-scoped credentials (`//libraries.cgr.dev/javascript/:_auth`)
+that do not cover pnpm's upstream-fallback path, causing HTTP 401 errors on packages
+Chainguard has not yet rebuilt.
 
 #### CI/CD and automated environments
 
@@ -214,7 +217,7 @@ If your platform does not support assumable identities, you can use a static pul
 chainctl auth configure-npm --pull-token
 ```
 
-This generates a project-level `.npmrc` with a pull token. It is supported for npm, pnpm, and Bun.
+This generates a project-level `.npmrc` with a pull token. It is supported for npm and Bun. For pnpm, [configure the registry manually](#manual-registry-configuration) to ensure host-level credentials are used.
 
 <a name="manual-registry-configuration"></a>
 
@@ -233,19 +236,29 @@ First create a pull token as described in the [prerequisites](#pull-token), then
 
 **pnpm**
 
+> Note: The Chainguard Repository [upstream fallback](/chainguard/libraries/javascript/overview/#upstream-fallback-policy-and-controls) has been tested with pnpm v11. We recommend using pnpm v11 or newer.
+
 ```shell
 export token=$(echo -n "${CHAINGUARD_JAVASCRIPT_IDENTITY_ID}:${CHAINGUARD_JAVASCRIPT_TOKEN}" | base64 -w 0)
 
 pnpm config set registry https://libraries.cgr.dev/javascript/ --location=project
-pnpm config set //libraries.cgr.dev/javascript/:_auth "${token}" --location=project
+pnpm config set //libraries.cgr.dev/:_auth "${token}" --location=project
 ```
 
-Alternatively, use username and password directly to avoid `base64` encoding
-differences across platforms:
+The authentication entry is keyed to the whole `libraries.cgr.dev` host
+(`//libraries.cgr.dev/`) so that it also covers packages served through the
+[upstream fallback](/chainguard/libraries/javascript/overview/#upstream-fallback-policy-and-controls)
+path (`/javascript-upstream/`). A credential scoped only to `/javascript/` causes
+pnpm to send no auth header for upstream-fallback packages, resulting in HTTP 401
+errors.
+
+Alternatively, use `username` and `_password` instead of `_auth`. Note that the
+`_password` value must still be base64-encoded; pnpm does not accept a raw token
+here:
 
 ```shell
-pnpm config set //libraries.cgr.dev/javascript/:username "${CHAINGUARD_JAVASCRIPT_IDENTITY_ID}" --location=project
-pnpm config set //libraries.cgr.dev/javascript/:_password "${CHAINGUARD_JAVASCRIPT_TOKEN}" --location=project
+pnpm config set //libraries.cgr.dev/:username "${CHAINGUARD_JAVASCRIPT_IDENTITY_ID}" --location=project
+pnpm config set //libraries.cgr.dev/:_password "$(echo -n "${CHAINGUARD_JAVASCRIPT_TOKEN}" | base64 -w 0)" --location=project
 ```
 
 **Yarn Berry (2.x+)**

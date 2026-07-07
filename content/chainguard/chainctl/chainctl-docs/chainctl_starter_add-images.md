@@ -1,5 +1,5 @@
 ---
-date: 2026-06-23T17:19:36Z
+date: 2026-07-01T03:32:22Z
 title: "chainctl starter add-images"
 slug: chainctl_starter_add-images
 url: /chainguard/chainctl/chainctl-docs/chainctl_starter_add-images/

@@ -1,5 +1,5 @@
 ---
-date: 2026-06-23T17:19:36Z
+date: 2026-07-01T03:32:22Z
 title: "chainctl libraries policy binding create"
 slug: chainctl_libraries_policy_binding_create
 url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding_create/
@@ -18,14 +18,14 @@ Create a Libraries policy binding.
 Create a binding to activate a Libraries policy for an (organization, ecosystem) pair. The default mode is ENFORCE.
 
 ```
-chainctl libraries policy binding create --policy POLICY [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--ecosystem ECOSYSTEM] [--mode ENFORCE|DRY_RUN] [flags]
+chainctl libraries policy binding create --policy POLICY [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--ecosystem ECOSYSTEM] [--mode ENFORCE|PREVIEW] [flags]
 ```
 
 ### Options
 
 ```
       --ecosystem string   The ecosystem the binding applies to (JAVA, PYTHON, JAVASCRIPT).
-      --mode string        The binding mode (ENFORCE or DRY_RUN). Defaults to ENFORCE.
+      --mode string        The binding mode (ENFORCE or PREVIEW). Defaults to ENFORCE.
       --parent string      The name or id of the organization to scope the binding to.
       --policy string      The name or UIDP of the policy to bind.
 ```

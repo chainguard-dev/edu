@@ -253,7 +253,7 @@ retrieved from Chainguard.
 [JFrog Artifactory](https://jfrog.com/artifactory/) supports Maven repositories
 for proxying and hosting, and virtual repositories to combine them. Refer to the
 [Maven Repository documentation for
-Artifactory](https://jfrog.com/help/r/jfrog-artifactory-documentation/maven-repository)
+Artifactory](https://docs.jfrog.com/artifactory/docs/maven-repositories)
 for more information.
 
 ### Initial configuration
@@ -286,8 +286,7 @@ Configure a remote repository for the Chainguard Libraries for Java repository:
     * **User Name** and **Password / Access Token**: Set to the [values as retrieved with chainctl](/chainguard/libraries/access/).
     * Deactivate **Maven Settings - Handle Snapshots**.
 1. Optionally click **Test** to verify connection and authentication.
-1. Click the **Advanced** configuration tab. Under the **Others** section, deactivate the **Block
-   Mismatching Mime Types** setting. Ensure **Disable URL Normalization** is checked.
+1. Click the **Advanced** configuration tab. In the **Others** section, check the box next to **Disable URL Normalization** and uncheck the box next to **Block Mismatching Mime Types**.
 1. Click **Create Remote Repository**.
 1. If you are using the separate repository with remediated Java libraries, repeat the preceding steps to create remote repository named `java-chainguard-remediated` with a URL set to `https://libraries.cgr.dev/java-remediated/`. Use the same authentication details.
 
@@ -445,3 +444,4 @@ Use the URL of the repository group, such as
 configuration](/chainguard/libraries/java/build-configuration/) and build a 
 first test project. In a working setup the `java-chainguard` proxy repository contains
 all libraries retrieved from Chainguard.
+
