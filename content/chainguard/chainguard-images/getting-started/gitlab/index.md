@@ -134,9 +134,9 @@ secret/cgr-pull-secret created
 
 ## Step 4: Create the GitLab configuration file
 
-Create a file named `gitlab-values.yaml` with the content below. This file configures the GitLab Helm chart to pull all images from the Chainguard registry, references the pull secret you just created, and sets reduced resource requests appropriate for a local development environment.
+Create a file named `gitlab-values.yaml` with the following content. This file configures the GitLab Helm chart to pull all images from the Chainguard registry, references the pull secret you just created, and sets reduced resource requests appropriate for a local development environment.
 
-Replace every occurrence of `ORGANIZATION` with your Chainguard organization name. If you set `$ORGANIZATION` in Step 1, run the following command after saving the file to substitute it automatically:
+Replace every occurrence of `ORGANIZATION` with your Chainguard organization name. If you set `$ORGANIZATION` in [Step 1](#step-1-authenticate-with-the-chainguard-registry), run the following command after saving the file to substitute it automatically:
 
 ```shell
 sed -i "s/ORGANIZATION/$ORGANIZATION/g" gitlab-values.yaml
