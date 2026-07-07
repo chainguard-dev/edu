@@ -80,17 +80,12 @@ This is in contrast to OpenSSL, which presents one application facing API-ABI, a
 
 ## Are Go binaries compiled with the upstream Golang provided `GOEXPERIMENT=boringcrypto` covered by the Chainguard FIPS commitment?
 
-The short answer is no.
+For older OpenSSL-based Go FIPS workflows, the short answer is no. If you want a Chainguard-supported Go-native FIPS path, use the `go-geomys-fips` Chainguard Container. That image is based on the upstream Geomys Go Cryptographic Module, defaults to the validated module, removes the non-validated alternatives, blocks many disallowed algorithms by default, uses a validated entropy source for kernel-independent FIPS, and includes `go-fips-test` to verify that produced binaries are using the validated module.
 
-Google and Golang upstream do not provide any support for `GOEXPERIMENT=boringcrypto` compiled binaries. The security policy for those modules contains many unapproved algorithms. The Golang upstream toolchain does not indicate missbuilt binaries that do not use boringcrypto (at all or partially) at runtime, and correctly compiled binaries allow using unapproved algorithms without restriction. Using the Golang upstream GOEXPERIMENT=boringcrypto requires strict adherence to the security policy, manual code audits of all source code, and all go.sum vendored copies of code.
+If you are using older workflows, we strongly recommend using the [go-fips](https://images.chainguard.dev/directory/image/go-fips/versions), [go-msft-fips](https://images.chainguard.dev/directory/image/go-msft-fips/versions), and [go-openssl](https://images.chainguard.dev/directory/image/go-openssl/versions) Chainguard Containers. These Chainguard Containers use system OpenSSL as the cryptographic module in approved mode, are covered by the [Chainguard FIPS Commitment](https://www.chainguard.dev/legal/fips-commitment), and are in scope for [Kernel-Independent FIPS Containers](https://www.chainguard.dev/unchained/kernel-independent-fips-images)
 
-Due to these caveats, we strongly recommend using the [go-fips](https://images.chainguard.dev/directory/image/go-fips/versions), [go-msft-fips](https://images.chainguard.dev/directory/image/go-msft-fips/versions), and [go-openssl](https://images.chainguard.dev/directory/image/go-openssl/versions) Chainguard Containers.
+Google and Golang upstream do not provide any support for `GOEXPERIMENT=boringcrypto` compiled binaries. The security policy for those modules contains many unapproved algorithms. The Golang upstream toolchain does not indicate missbuilt binaries that do not use boringcrypto (at all or partially) at runtime, and correctly compiled binaries allow using unapproved algorithms without restriction. Using the Golang upstream `GOEXPERIMENT=boringcrypto` requires strict adherence to the security policy, manual code audits of all source code, and all go.sum vendored copies of code.
 
-These Chainguard Containers: 
-
-* Use system OpenSSL as the cryptographic module in approved mode
-* Are covered by the [Chainguard FIPS Commitment](https://www.chainguard.dev/legal/fips-commitment)
-* Are in scope for [Kernel-Independent FIPS Containers](https://www.chainguard.dev/unchained/kernel-independent-fips-images)
 
 ## Can WireGuard with Tailscale or Shadowsocks be used for Chainguard FIPS Containers?
 
