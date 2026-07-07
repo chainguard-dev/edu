@@ -7,4 +7,5 @@ date: 2025-10-21T08:04:00+00:00
 lastmod: 2025-10-21T15:09:59+00:00
 draft: false
 weight: 060
+landingpage: "/chainguard/vms/overview/"
 ---
