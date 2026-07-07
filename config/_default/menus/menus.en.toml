@@ -1,8 +1,20 @@
 [[docs]]
-  name = "Chainguard"
+  name = "Get Started"
+  identifier = "get-started"
+  url = "/get-started/"
+  weight = 5
+
+[[docs]]
+  name = "Products"
   identifier = "chainguard"
   url = "/chainguard/"
   weight = 10
+
+[[docs]]
+  name = "Platform & Tools"
+  identifier = "platform"
+  url = "/platform/"
+  weight = 15
 
 [[docs]]
   name = "Open Source"
@@ -23,9 +35,19 @@
   weight = 40
 
 [[main]]
-  name = "Product Docs"
+  name = "Get Started"
+  identifier = "menu-getstarted"
+  weight = 5
+
+[[main]]
+  name = "Products"
   identifier = "menu-chainguard"
   weight = 10
+
+[[main]]
+  name = "Platform & Tools"
+  identifier = "menu-platform"
+  weight = 15
 
 [[main]]
   name = "Open Source"
@@ -39,8 +61,8 @@
 
 [[main]]
   name = "API Reference"
-  url = "/chainguard/api/"
-  parent = "menu-chainguard"
+  url = "/platform/api/"
+  parent = "menu-platform"
   weight = 10
 
 [[main]]
@@ -52,8 +74,8 @@
 
 [[main]]
   name = "chainctl"
-  url = "/chainguard/chainctl/"
-  parent = "menu-chainguard"
+  url = "/platform/chainctl/"
+  parent = "menu-platform"
   weight = 20
 
 [[main]]

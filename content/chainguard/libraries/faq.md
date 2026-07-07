@@ -167,7 +167,7 @@ build and distribution channel security.
 
 Malware‑hardened libraries are the baseline Chainguard Libraries experience:
 Chainguard rebuilds open source Java, JavaScript, and Python dependencies from
-upstream source in the [Chainguard Factory](/chainguard/factory/), a controlled,
+upstream source in the [Chainguard Factory](/platform/factory/), a controlled,
 SLSA‑aligned build environment, and publishes them to hardened registries for
 customers to consume. This closes off most supply chain malware vectors compared
 to pulling directly from public registries like Maven Central, npm, and PyPI.
