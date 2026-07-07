@@ -1,6 +1,6 @@
 ---
-title: "Manage Your chainctl Configuration"
-linktitle: "Manage Your chainctl Configuration"
+title: "Manage Your chainctl configuration"
+linktitle: "Manage Your chainctl configuration"
 aliases:
 - /chainguard/chainguard-enforce/manage-chainctl-config/
 - /chainguard/administration/manage-chainctl-config
@@ -99,7 +99,7 @@ platform:
 
 The full documentation for the `chainctl config` command is available on the relevant [reference page](/chainguard/chainctl/chainctl-docs/chainctl_config/).
 
-## Edit the chainctl Configuration
+## Edit the chainctl configuration
 
 You can edit the `chainctl` config directly with an editor. The following command will open your default command line text editor (typically `nano`) where you can edit the local `chainctl` config.
 
@@ -115,7 +115,7 @@ chainctl config set platform.api=https://console-api.enforce.dev
 
 You can review the `chainctl config set` options on the relevant [docs page](/chainguard/chainctl/chainctl-docs/chainctl_config_set/).
 
-## Reset the Configuration
+## Reset the configuration
 
 If you run into issues with your `chainctl` configuration, you can use the following command to reset it to the default state:
 
