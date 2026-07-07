@@ -74,7 +74,7 @@
 
 [[main]]
   name = "chainctl"
-  url = "/platform/chainctl/"
+  url = "/chainguard/chainctl/"
   parent = "menu-platform"
   weight = 20
 
