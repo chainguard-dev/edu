@@ -4,7 +4,7 @@ type: "article"
 linktitle: "GitLab"
 description: "Learn how to deploy GitLab using Chainguard's security-hardened container images with reduced vulnerabilities, verifiable provenance, and daily security updates"
 date: 2026-06-24T00:00:00+00:00
-lastmod: 2026-06-24T00:00:00+00:00
+lastmod: 2026-07-07T00:00:00+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
