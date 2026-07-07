@@ -496,14 +496,20 @@ You can create, disable, and list library policies using [`chainctl libraries po
 
 ### Create and enable a cooldown policy
 
-When upstream fallback is enabled, users with the Owner role can create and enable a cooldown policy with `chainctl`. In the following example, a 10-day cooldown policy is created, then it is enforced on the JavaScript ecosystem:
+When upstream fallback is enabled, users with the Owner role can create and enable a cooldown policy with `chainctl`. The cooldown period provides an additional layer of defense on top of malware and greyware scanning, giving the broader security community time to surface threats that may not be immediately detectable. 
+
+In the following example, a 10-day cooldown policy is created, then it is enforced on the JavaScript ecosystem:
 
 ```bash
 chainctl libraries policy create --name=js-cooldown --cooldown-days=10
 chainctl libraries policy enable --policy=js-cooldown --ecosystem=JAVASCRIPT --mode=ENFORCE
 ```
 
-The default cooldown period is 7 days. The cooldown period provides an additional layer of defense on top of malware and greyware scanning, giving the broader security community time to surface threats that may not be immediately detectable. 
+The default cooldown period is 7 days. 
+
+#### Preview a cooldown policy
+
+To understand the impact before enforcing a policy, use `--mode=PREVIEW`. In preview mode, installs continue to succeed, but Chainguard records what _would have been blocked_ if the policy were enforced.
 
 ### Disable cooldown
 
