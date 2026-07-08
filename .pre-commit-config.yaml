@@ -15,6 +15,10 @@ repos:
       - id: check-added-large-files
         args: ['--maxkb=1000']
       - id: detect-private-key
+        # This workflow embeds a gitleaks allowlist whose regexes include an
+        # example PEM private-key header string as a redaction pattern, not a
+        # real key. Exclude it to avoid a false positive.
+        exclude: ^\.github/workflows/compile-docs\.yml$
       - id: check-merge-conflict
       - id: mixed-line-ending
 
