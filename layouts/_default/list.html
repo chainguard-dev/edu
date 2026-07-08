@@ -1,5 +1,11 @@
 {{ define "main" }}
-  {{ if eq .Params.topic true }}
+  {{ if .Params.landingpage }}
+  {{ with .Site.GetPage .Params.landingpage }}
+    {{ partial "single-body.html" . }}
+  {{ else }}
+    {{ warnf "landingpage %q on %q did not resolve to a page" $.Params.landingpage $.Path }}
+  {{ end }}
+  {{ else if eq .Params.topic true }}
   <div class="row flex-md-nowrap">
     <div class="leftnav-container">
       <div class="board-background leftnav">

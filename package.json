@@ -25,7 +25,7 @@
     "clean": "shx rm -rf public resources",
     "clean:install": "shx rm -rf package-lock.json node_modules ",
     "lint": "npm run -s lint:scripts && npm run -s lint:styles && npm run -s lint:markdown",
-    "lint:scripts": "eslint assets/js config functions",
+    "lint:scripts": "eslint assets/js config",
     "lint:styles": "stylelint \"assets/scss/**/*.{css,sass,scss,sss,less}\"",
     "lint:markdown": "markdownlint-cli2 \"*.md\" \"content/**/*.md\"",
     "lint:markdown-fix": "markdownlint-cli2-fix \"*.md\" \"content/**/*.md\"",
@@ -48,8 +48,10 @@
     "autoprefixer": "^10.4",
     "bootstrap": "^5.1",
     "clipboard": "^2.0",
-    "eslint": "^8.15",
+    "@eslint/js": "^9.39.0",
+    "eslint": "^9.39.0",
     "exec-bin": "^1.0.0",
+    "globals": "^16.5.0",
     "flexsearch": "^0.7.21",
     "highlight.js": "^11.5",
     "hugo-installer": "^4.0",
@@ -74,5 +76,8 @@
     "@scalar/api-reference": "^1.62.1",
     "algoliasearch": "^5.49.1",
     "bootstrap-icons": "^1.10.5"
+  },
+  "overrides": {
+    "decompress": "npm:@xhmikosr/decompress@^11.1.3"
   }
 }
