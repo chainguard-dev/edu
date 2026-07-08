@@ -1,0 +1,33 @@
+.changelog-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2em 0.65em;
+  border-radius: 4px;
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+  color: #fff;
+
+  &--breaking-change {
+    background-color: #c0392b;
+  }
+
+  &--update {
+    background-color: var(--primary-2);
+    color: var(--primary-3);
+  }
+
+  &--new-feature {
+    background-color: var(--primary-1);
+  }
+
+  &--deprecation {
+    background-color: #e67e22;
+  }
+
+  & + h4 {
+    margin-top: 0.25rem;
+  }
+}
