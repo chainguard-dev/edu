@@ -6,7 +6,7 @@ type: "article"
 date: 2026-07-08T00:00:00+00:00
 lastmod: 2026-07-08T00:00:00+00:00
 draft: false
-tags: ["Guardener", "GitHub", "Sigstore", "Signing"]
+tags: ["Guardener", "GitHub", "Security"]
 images: []
 menu:
   docs:
