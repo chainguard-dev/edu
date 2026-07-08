@@ -30,6 +30,19 @@ repos:
       - id: gitleaks
         args: ['--config', '.github/gitleaks.toml']
 
+  # GitHub Actions linting. These also run as standalone CI workflows
+  # (zizmor.yaml uploads SARIF to code scanning, actionlint.yaml adds shellcheck
+  # + annotations); the hooks give the same checks locally on changed files.
+  - repo: https://github.com/zizmorcore/zizmor-pre-commit
+    rev: v1.26.1
+    hooks:
+      - id: zizmor # auto-loads .github/zizmor.yml
+
+  - repo: https://github.com/rhysd/actionlint
+    rev: v1.7.12
+    hooks:
+      - id: actionlint
+
   - repo: https://github.com/PyCQA/bandit
     rev: 1.7.5
     hooks:
