@@ -183,9 +183,9 @@ done < "$CSV_FILE"
 
 The `--single-use` flag ensures each invite code can only be redeemed once. Adjust `--ttl` to match your onboarding window.
 
-## Revoke a departed user's access
+## Revoke a user's access
 
-When someone leaves, remove their Chainguard identity to prevent further authentication. This script looks up the identity by email address using role bindings and prints the delete command for you to confirm before running.
+When someone leaves your organization, remove their Chainguard identity to prevent further authentication. This script looks up the identity by email address using role bindings and prints the delete command for you to confirm before running.
 
 ```bash
 #!/usr/bin/env bash
