@@ -47,8 +47,11 @@ repos:
     rev: 92ae8b82fb422a639f0ed8d99e96cea769594e08  # frozen: 1.9.4
     hooks:
       - id: bandit
-        args: ['-r', 'scripts/', '-ll']
-        files: \.py$
+        # Scan the changed Python files (ratchet model), reporting medium+
+        # severity. Previously used -r scripts/, which rescanned the whole tree
+        # and could not mix with the filenames pre-commit appends.
+        args: ['-ll']
+        files: ^scripts/.*\.py$
 
   - repo: https://github.com/psf/black
     rev: 87928e6d6761a4a6d22250e1fee5601b3998086e  # frozen: 26.5.1
@@ -70,6 +73,22 @@ repos:
         entry: bash -c 'find static/downloads -name "*.md" -size +50M -exec echo "File {} exceeds 50MB limit" \; -exec false \;'
         language: system
         pass_filenames: false
+
+      # Content tag validation against the approved taxonomy (TAG_GUIDELINES.md).
+      # Blocking; runs locally and in CI.
+      - id: content-tags
+        name: Validate content tags
+        entry: python3 scripts/hooks/content_checks.py --mode tags
+        language: system
+        files: ^content/.*\.md$
+
+      # Prose spell check (aspell). Advisory only, and local-only: the CI job
+      # sets SKIP=content-spellcheck, and aspell may be absent there anyway.
+      - id: content-spellcheck
+        name: Spell-check content prose
+        entry: python3 scripts/hooks/content_checks.py --mode spell
+        language: system
+        files: ^content/.*\.md$
 
   # Lint the theme's own JavaScript (assets/js, config). Uses ESLint 9 flat
   # config (eslint.config.js). @eslint/js and globals are required by that

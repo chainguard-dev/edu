@@ -1,69 +1,86 @@
 # Pre-commit Hook Guide for Contributors
 
-This guide explains how to use the pre-commit hook that automatically checks your content before committing changes to the repository.
+This guide explains the automated checks that run on your content before it merges.
 
-## What is a Pre-commit Hook?
+## Two systems
 
-A pre-commit hook is an automated script that runs every time you try to commit changes. It helps maintain consistency and quality by catching common issues before they enter the codebase.
+Content quality is enforced by two complementary systems:
 
-## What Does Our Hook Check?
+1. **The [pre-commit](https://pre-commit.com/) framework** (`.pre-commit-config.yaml`)
+   runs on `git commit` and as a **required** CI check on pull requests. It handles
+   tag validation and spell checking (plus repo-wide security/lint hooks). In CI it
+   runs only on the files a PR changes.
+2. **A native git hook** (`.githooks/pre-commit`, enabled via `./setup-hooks.sh`)
+   stamps content dates. It stays a git hook because it re-stages the stamped file
+   into your commit, which the pre-commit framework does not do.
 
-### 1. Automatic Date Management
+## What gets checked
+
+### 1. Automatic Date Management (git hook)
+
 - **New files**: Automatically adds `date` and `lastmod` fields with the current timestamp
 - **Modified files**: Automatically updates the `lastmod` field to reflect when changes were made
 - **Format**: Uses ISO 8601 format with UTC timezone (e.g., `2025-01-16T10:30:45+00:00`)
 - **No manual work needed**: You no longer need to add or update these fields yourself!
 
-### 2. Tag Validation
+### 2. Tag Validation (pre-commit framework, blocking)
+
 - Ensures all tags match our approved taxonomy
 - Checks that you haven't exceeded 5 tags per article
 - Verifies proper capitalization (Title Case vs. acronyms)
 
-### 3. Spelling
-- Catches typos and misspellings
-- Ignores code blocks (between ```)
-- Ignores Hugo shortcodes (e.g., `{{< youtube >}}`)
-- Ignores inline code (between `)
-- Ignores URLs
-- Uses a custom dictionary for technical terms
+### 3. Spelling (pre-commit framework, advisory + local-only)
 
-## Setting Up the Hook
+- Catches typos and misspellings; reports but never blocks a commit
+- Runs locally only — the CI check skips it (`SKIP=content-spellcheck`)
+- Ignores code blocks (between ```), Hugo shortcodes (e.g. `{{< youtube >}}`), inline code (between `), and URLs
+- Uses a custom dictionary for technical terms (`.aspell.en.pws`)
 
-### One-time Setup
+## Setting up
 
-1. **Install aspell** (for spell checking):
+### One-time setup
+
+1. **Install and enable pre-commit** (tags, spell check, security/lint):
+
    ```bash
-   # macOS
-   brew install aspell
-   
-   # Ubuntu/Debian
-   sudo apt install aspell
-   
-   # RHEL/CentOS/Fedora
-   sudo yum install aspell
-   # or
-   sudo dnf install aspell
-   
-   # Alpine Linux
-   apk add aspell
-   
-   # Arch Linux
-   sudo pacman -S aspell
+   brew install pre-commit        # or: pipx install pre-commit
+   pre-commit install
    ```
 
-2. **Enable the git hooks**:
+2. **Enable the date-stamping git hook**:
+
    ```bash
    ./setup-hooks.sh
    ```
 
-That's it! The hook will now run automatically when you commit.
+3. **(Optional) Install aspell** so the local spell check runs:
+
+   ```bash
+   # macOS
+   brew install aspell
+
+   # Ubuntu/Debian
+   sudo apt install aspell
+
+   # RHEL/CentOS/Fedora
+   sudo dnf install aspell
+
+   # Alpine Linux
+   apk add aspell
+
+   # Arch Linux
+   sudo pacman -S aspell
+   ```
+
+That's it! Both run automatically when you commit.
 
 ## Understanding the Output
 
 When you run `git commit`, you'll see output like this:
 
 ### ✅ Success Case
-```
+
+```text
 🔍 Running pre-commit checks...
 
 📅 Updated lastmod dates for 1 file(s)
@@ -73,7 +90,8 @@ When you run `git commit`, you'll see output like this:
 ```
 
 ### ⚠️ With Warnings
-```
+
+```text
 🔍 Running pre-commit checks...
 
 📅 Added date fields to 1 new file(s)
@@ -101,7 +119,8 @@ Pre-commit Check Summary:
 ```
 
 ### ❌ With Errors (Blocks Commit)
-```
+
+```text
 🔍 Running pre-commit checks...
 
 📄 content/chainguard/tutorial.md
@@ -125,6 +144,7 @@ Pre-commit Check Summary:
 When creating a new article, you no longer need to add date fields manually. Just focus on your content:
 
 **What you write:**
+
 ```yaml
 ---
 title: "Getting Started with Chainguard Images"
@@ -134,6 +154,7 @@ tags: ["Chainguard Containers", "Getting Started", "Overview"]
 ```
 
 **What gets committed (automatically):**
+
 ```yaml
 ---
 title: "Getting Started with Chainguard Images"
@@ -149,6 +170,7 @@ tags: ["Chainguard Containers", "Getting Started", "Overview"]
 When you modify an article, the `lastmod` field is automatically updated:
 
 **Before your edit:**
+
 ```yaml
 ---
 title: "Security Best Practices"
@@ -158,6 +180,7 @@ lastmod: 2024-12-15T14:30:00+00:00
 ```
 
 **After commit (automatic update):**
+
 ```yaml
 ---
 title: "Security Best Practices"
@@ -188,11 +211,13 @@ The spell checker might flag technical terms as errors. You have three options:
 
 2. **Add technical terms to the dictionary**:
    If you're using a legitimate technical term that's flagged:
+
    ```bash
    echo "MyTechnicalTerm" >> .aspell.en.pws
    ```
 
 3. **Skip the check** (use sparingly):
+
    ```bash
    git commit --no-verify -m "Your commit message"
    ```
@@ -202,11 +227,13 @@ The spell checker might flag technical terms as errors. You have three options:
 ### Most Common Tags
 
 **Product Tags:**
+
 - `Chainguard Containers`
 - `Chainguard Libraries`
 - `chainctl`
 
 **Content Types:**
+
 - `Overview` - High-level introductions
 - `Procedural` - Step-by-step guides
 - `Conceptual` - Theory/background
@@ -214,6 +241,7 @@ The spell checker might flag technical terms as errors. You have three options:
 - `FAQ` - Common questions
 
 **Action Tags:**
+
 - `Getting Started`
 - `Migration`
 - `Configuration`
@@ -221,6 +249,7 @@ The spell checker might flag technical terms as errors. You have three options:
 - `Integration`
 
 **Platform Tags:**
+
 - `AWS`, `GCP`, `Azure`
 - `Kubernetes`
 - `Docker Hub`
@@ -233,6 +262,7 @@ For the complete list, see [TAG_GUIDELINES.md](../TAG_GUIDELINES.md).
 ### "aspell not installed" Error
 
 Install aspell using your system's package manager:
+
 ```bash
 # macOS
 brew install aspell
@@ -253,12 +283,14 @@ sudo pacman -S aspell
 ### Hook Not Running
 
 Make sure hooks are enabled:
+
 ```bash
 git config core.hooksPath
 # Should output: .githooks
 ```
 
 If not, run:
+
 ```bash
 ./setup-hooks.sh
 ```
@@ -266,6 +298,7 @@ If not, run:
 ### Need to Temporarily Disable
 
 For urgent commits where you need to bypass the check:
+
 ```bash
 git commit --no-verify -m "Emergency fix"
 ```
