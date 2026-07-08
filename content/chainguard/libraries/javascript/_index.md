@@ -7,4 +7,5 @@ date: 2025-06-05T09:00:00+00:00
 lastmod: 2025-06-05T09:00:00+00:00
 draft: false
 weight: 055
+landingpage: "/chainguard/libraries/javascript/overview/"
 ---
