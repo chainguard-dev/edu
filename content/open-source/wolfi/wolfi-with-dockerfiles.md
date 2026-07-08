@@ -30,7 +30,8 @@ In this article, we'll learn how to leverage Wolfi to create safer runtime envir
 You'll need Docker to build and run the application.
 
 ## Step 1: Obtaining the Demo Application
-We'll use the same demo application from the [Getting Started with the Python Chainguard Image](/chainguard/chainguard-images/getting-started/python//) tutorial to demonstrate how to build a Wolfi Python image with a Dockerfile. The application files are available in the [edu-images-demos](https://github.com/chainguard-dev/edu-images-demos) repository. We'll start by cloning that repository in a temporary folder so that we can obtain the relevant application files to run the **second** demo from that tutorial.
+
+We'll use the same demo application from the [Getting Started with the Python Chainguard Image](/chainguard/chainguard-images/getting-started/python/) tutorial to demonstrate how to build a Wolfi Python image with a Dockerfile. The application files are available in the [edu-images-demos](https://github.com/chainguard-dev/edu-images-demos) repository. We'll start by cloning that repository in a temporary folder so that we can obtain the relevant application files to run the **second** demo from that tutorial.
 
 The following command will clone the demos repository in your `/tmp` folder:
 
@@ -97,7 +98,7 @@ ARG version=3.12
 WORKDIR /app
 
 RUN apk add python-${version} py${version}-pip && \
-	chown -R nonroot:nonroot /app/
+ chown -R nonroot:nonroot /app/
 
 USER nonroot
 COPY requirements.txt linky.png linky.py /app/
@@ -109,7 +110,6 @@ ENTRYPOINT [ "python", "/app/linky.py" ]
 This Dockerfile uses a variable called `version` to define which Python version is going to be installed in the resulting image. You can change this to one of the Python versions available in Wolfi. To find out which versions are available, please refer to the [Searching for Packages](https://edu.chainguard.dev/chainguard/migration/migrating-to-chainguard-images/#searching-for-packages) section of our migration guide.
 
 Save the file when you're done. In the next step, we'll build and run the image with `docker`.
-
 
 ## Step 3: Building and Running the Image
 
@@ -160,7 +160,7 @@ ENV PATH="/app/venv/bin:$PATH"
 WORKDIR /app
 
 RUN apk update && apk add python-$version py${version}-pip && \
-	chown -R nonroot:nonroot /app/
+ chown -R nonroot:nonroot /app/
 USER nonroot
 RUN python -m venv /app/venv
 
@@ -216,6 +216,3 @@ In this tutorial, we've demonstrated how to build a Python image from scratch us
 If your application runtime requires system dependencies that are not already included within a distroless variant available in our [images directory](https://images.chainguard.dev), you can still use a builder image (identified by the `-dev` suffix) or the `wolfi-base` image in a standard Dockerfile to build a suitable runtime. These images come with `apk` and a shell, allowing for further customization based on your application's requirements.
 
 If you can't find an image that is a good match for your use case, or if your build has dependencies that cannot be met with the regular catalog, [get in touch with us](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) for alternative options.
-
-
-

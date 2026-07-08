@@ -23,15 +23,15 @@ Chainguard offers a collection of images that are publicly available, don't requ
 
 ## Signing Up
 
-You can register a Chainguard account through our [sign up form](https://console.chainguard.dev/auth/login?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). This will create your account and a [Chainguard IAM organization](/chainguard/administration/iam-organizations/overview-of-chainguard-iam-model/). If you already have an account, you can log in through the [login page](https://console.chainguard.dev/auth/login?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
+You can register a Chainguard account through our [sign up form](https://console.chainguard.dev/auth/login?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). This will create your account and a [Chainguard IAM organization](/platform/administration/iam-organizations/overview-of-chainguard-iam-model/). If you already have an account, you can log in through the [login page](https://console.chainguard.dev/auth/login?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
 
-For more details on signing in, you can review our [sign in guidance](/chainguard/administration/iam-organizations/how-to-manage-iam-organizations-in-chainguard/#logging-in). If your organization is interested in (or already using) custom identity providers like Okta, you can read [how to authenticate to Chainguard with custom identity providers](/chainguard/administration/custom-idps/custom-idps/).
+For more details on signing in, you can review our [sign in guidance](/platform/administration/iam-organizations/how-to-manage-iam-organizations-in-chainguard/#logging-in). If your organization is interested in (or already using) custom identity providers like Okta, you can read [how to authenticate to Chainguard with custom identity providers](/platform/administration/custom-idps/custom-idps/).
 
 ## Authenticating with the `chainctl` Credential Helper
 
 You can configure authentication by using the credential helper included with `chainctl`. This is the workflow recommended by Chainguard.
 
-First [install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) and configure the credential helper:
+First [install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) and configure the credential helper:
 
 ```sh
 chainctl auth configure-docker
@@ -45,7 +45,7 @@ Pulls authenticated in this way are associated with your user.
 
 You can also create a "pull token" using `chainctl`. This generates a longer-lived token that can be used to pull images from other environments that don't support OIDC, such as some CI environments, Kubernetes clusters, or with registry mirroring tools like Artifactory.
 
-First [install `chainctl`](/chainguard/administration/how-to-install-chainctl/), then log in and configure a pull token:
+First [install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/), then log in and configure a pull token:
 
 ```sh
 chainctl auth configure-docker --pull-token
@@ -65,7 +65,7 @@ Pulls authenticated in this way are associated with a Chainguard identity, which
 
 You can also export the pull token details into environment variables for
 [authentication in automated
-systems](/chainguard/chainguard-images/features/private-apk-repos/#pull-token-automation).
+systems](/chainguard/chainguard-images/features/packages/private-apk-repos/#pull-token-automation).
 
 ### Note on Multiple Pull Tokens
 
@@ -93,7 +93,6 @@ You can also create and view pull tokens in the [Chainguard Console](https://con
 
 After navigating to the Console, click on **Settings** in the left-hand navigation menu. From the **Settings** pane, click on **Pull tokens**. There, you'll be presented with a table listing of all the active pull tokens for your selected organization.
 
-
 ![Screenshot showing the Pull tokens page within the Settings pane. This example shows four pull tokens in the table.](pull-tokens-console-1.png)
 
 This table shows the name of each pull token, their descriptions, the date they were created, and the number of days until they expire.
@@ -103,7 +102,6 @@ You can create a new pull token by clicking the **Create pull token** button at 
 ![Screenshot showing the Create pull token pane. This example shows all the fields filled in: the Name is "new-pull-token", the Description reads "This is a description for the new pull token.", with a custom expiration date and the selection calendar showing March 2025.](pull-tokens-console-2.png)
 
 After entering these details, click the **Create token** button and your new pull token will appear in the list with the rest of your organization's tokens.
-
 
 ## Authenticating with GitHub Actions
 
@@ -129,7 +127,7 @@ name: Registry Example
 
 on:
   push:
-	branches: ['main']
+ branches: ['main']
 
 permissions:
   contents: read
@@ -137,24 +135,23 @@ permissions:
 
 jobs:
   example:
-	runs-on: ubuntu-latest
-	steps:
-  	- uses: chainguard-dev/setup-chainctl@main
-    	with:
-      	identity: [[ The Chainguard Identity ID you created above ]]
-  	- run: docker pull cgr.dev/chainguard/node
+ runs-on: ubuntu-latest
+ steps:
+   - uses: chainguard-dev/setup-chainctl@main
+     with:
+       identity: [[ The Chainguard Identity ID you created above ]]
+   - run: docker pull cgr.dev/chainguard/node
 ```
 
 Pulls authenticated in this way are associated with the Chainguard identity you created, which is associated with the organization selected when the identity was created.
 
 If the identity is configured to only work with GitHub Actions workflow runs from a given repo and branch, that identity will not be able to pull from other repos or branches, including pull requests targeting the specified branch.
 
-
 ## Authenticating with CircleCI OIDC Token
 
 You can configure authentication with OIDC-aware CircleCI platform.
 
-First, use `chainctl` to create an [assumed identity](/chainguard/administration/assumable-ids/assumable-ids/#managing-identities-with-chainctl). This example uses a CircleCI ID of `1234` and will work for all projects in that organization. Replace `1234` with your identity issuer org. Modify the subject pattern regex to reduce the scope to specific repos in the organization.
+First, use `chainctl` to create an [assumed identity](/platform/administration/assumable-ids/assumable-ids/#managing-identities-with-chainctl). This example uses a CircleCI ID of `1234` and will work for all projects in that organization. Replace `1234` with your identity issuer org. Modify the subject pattern regex to reduce the scope to specific repos in the organization.
 
 ```sh
 chainctl iam identities create circleci-identity
@@ -202,11 +199,10 @@ workflows:
   version: 2
   chainctl-workflow:
     jobs:
-      - install-and-authenticate  
+      - install-and-authenticate
 ```
 
 See the [CircleCI documentation](https://circleci.com/docs/openid-connect-tokens/#format-of-the-openid-connect-id-token) to learn more about using OpenID Connect tokens in CircleCI jobs.
-
 
 ## Authenticating with Microsoft Entra ID OIDC Token
 
@@ -222,7 +218,7 @@ If you use the authorization code flow (recommended), request the `openid` scope
 
 Retrieve and save an ID token as a local environment variable. The following examples use `MS_ENTRA_ID_OIDC_TOKEN`.
 
-Next, use `chainctl` to create an [assumed identity](/chainguard/administration/assumable-ids/assumable-ids/#managing-identities-with-chainctl). Replace `{tenant}` with your Entra ID tenant ID (GUID). Modify the subject pattern regular expression to reduce access from all users from that issuer to a more appropriate scope for your needs.
+Next, use `chainctl` to create an [assumed identity](/platform/administration/assumable-ids/assumable-ids/#managing-identities-with-chainctl). Replace `{tenant}` with your Entra ID tenant ID (GUID). Modify the subject pattern regular expression to reduce access from all users from that issuer to a more appropriate scope for your needs.
 
 ```sh
 chainctl iam identities create entraid-identity \
@@ -268,7 +264,7 @@ workflows:
   version: 2
   chainctl-workflow:
     jobs:
-      - install-and-authenticate  
+      - install-and-authenticate
 ```
 
 Refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc) to learn more about using OpenID Connect tokens on the Microsoft Entra ID platform. Of special note is their warning about reading and validating their tokens:
@@ -276,7 +272,6 @@ Refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/i
 > Don't attempt to validate or read tokens for any API you don't own, including the tokens in this example, in your code. Tokens for Microsoft services can use a special format that will not validate as a JWT, and may also be encrypted for consumer (Microsoft account) users. While reading tokens is a useful debugging and learning tool, do not take dependencies on this in your code or assume specifics about tokens that aren't for an API you control.
 
 Chainguard does not require you to parse or validate the Microsoft-issued token yourself. Instead, just pass the token to `chainctl` as shown above.
-
 
 ## Authenticating with Kubernetes
 
@@ -288,8 +283,8 @@ After that, you can create a Kubernetes secret based on those credentials, follo
 
 ```sh
 kubectl create secret generic regcred \
-	--from-file=.dockerconfigjson=<path/to/.docker/config.json> \
-	--type=kubernetes.io/dockerconfigjson
+ --from-file=.dockerconfigjson=<path/to/.docker/config.json> \
+ --type=kubernetes.io/dockerconfigjson
 ```
 
 > **Important Note:** this will also make any other credentials you have configured in your Docker config available in the secret. Ensure only the necessary credentials are included.
@@ -304,7 +299,7 @@ metadata:
 spec:
   containers:
   - name: nginx
-	image: cgr.dev/chainguard/nginx:latest
+ image: cgr.dev/chainguard/nginx:latest
   imagePullSecrets:
   - name: regcred
 ```
@@ -316,4 +311,4 @@ kubectl apply -f cgr-example.yaml
 kubectl get pod cgr-example
 ```
 
-Learn more in our [sign in guidance](/chainguard/administration/iam-organizations/how-to-manage-iam-organizations-in-chainguard/#logging-in).
+Learn more in our [sign in guidance](/platform/administration/iam-organizations/how-to-manage-iam-organizations-in-chainguard/#logging-in).

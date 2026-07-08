@@ -28,7 +28,7 @@ You can check the status of Chainguard's registry at [https://status.cgr.dev](ht
 
 ## Network Requirements
 
-Refer to our [Network Requirements](/chainguard/administration/network-requirements/) reference page for details about how to ensure access to Chainguard's registry in environments using firewalls, access control lists, and proxies.
+Refer to our [Network Requirements](/chainguard/chainguard-images/network-requirements/) reference page for details about how to ensure access to Chainguard's registry in environments using firewalls, access control lists, and proxies.
 
 ## Using a Caching Proxy with Chainguard's registry
 
@@ -36,8 +36,8 @@ Chainguard does not offer an SLA for uptime for the Chainguard's registry. In or
 
 We currently provide documentation on how you can set up a pull-through cache for the Chainguard's registry on the following platforms:
 
-* [Amazon ECR](/chainguard/chainguard-registry/pull-through-guides/ecr-pull-through/)
-* [Google Artifact Registry](/chainguard/chainguard-registry/pull-through-guides/artifact-registry-pull-through/)
-* [JFrog Artifactory](/chainguard/chainguard-registry/pull-through-guides/artifactory/)
-* [Sonatype Nexus](/chainguard/chainguard-registry/pull-through-guides/nexus-pull-through/)
-* [Cloudsmith](/chainguard/chainguard-registry/pull-through-guides/cloudsmith-pull-through/)
+* [Amazon ECR](/chainguard/chainguard-images/chainguard-registry/pull-through-guides/ecr-pull-through/)
+* [Google Artifact Registry](/chainguard/chainguard-images/chainguard-registry/pull-through-guides/artifact-registry-pull-through/)
+* [JFrog Artifactory](/chainguard/chainguard-images/chainguard-registry/pull-through-guides/artifactory/)
+* [Sonatype Nexus](/chainguard/chainguard-images/chainguard-registry/pull-through-guides/nexus-pull-through/)
+* [Cloudsmith](/chainguard/chainguard-images/chainguard-registry/pull-through-guides/cloudsmith-pull-through/)
