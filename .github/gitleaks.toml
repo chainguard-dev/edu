@@ -68,14 +68,14 @@ regex = '''(?i)(private_key|privatekey)(.{0,20})?['|"][0-9a-zA-Z]{32,45}['|"]'''
 tags = ["key", "Generic"]
 
 # Allow certain patterns in documentation
-[[rules.allowlist]]
+[[rules.allowlists]]
 description = "Allow example keys in documentation"
-regex = '''example|sample|demo|test|dummy|placeholder|your-.*-here|<.*>|\$\{.*\}'''
+regexes = ['''example|sample|demo|test|dummy|placeholder|your-.*-here|<.*>|\$\{.*\}''']
 
-[[rules.allowlist]]
+[[rules.allowlists]]
 description = "Allow code blocks"
-regex = '''```[\s\S]*?```'''
+regexes = ['''```[\s\S]*?```''']
 
-[[rules.allowlist]]
+[[rules.allowlists]]
 description = "Allow markdown links"
-regex = '''\[.*\]\(.*\)'''
+regexes = ['''\[.*\]\(.*\)''']
