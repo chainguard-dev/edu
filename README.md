@@ -34,7 +34,7 @@ Any documentation published to Chainguard Academy is reviewed carefully for accu
 We also test drafts by previewing rendered content before it's published. Draft content passes through several checks between your editor and the live site:
 
 - **Local preview** — Run `npm install` once, then `npm run start` to serve the site at `http://localhost:1313` with live reload. Use this to confirm pages render correctly, formatting holds up, and internal links resolve. When a doc includes commands or examples, run them to confirm they still work.
-- **Pre-commit hooks** — When you commit, automated hooks manage dates, validate tags, and spell-check your prose. See [Pre-commit Hooks](#pre-commit-hooks) below for setup.
+- **Pre-commit checks** — A required `pre-commit` check validates tags, lints, and scans changed files; a git hook stamps content dates; spell-check runs locally. See [Pre-commit](#pre-commit) below for setup.
 - **Deploy previews** — Every pull request builds a Netlify deploy preview with a staging URL. Reviewers open this link to see your changes rendered as they'll appear in production.
 
 When you open a pull request, describe how you tested the change so reviewers know what to verify. Recent PRs often list the steps taken, such as previewing pages in the Hugo dev server, confirming links resolve, and running any commands the doc relies on.
@@ -118,20 +118,35 @@ You can review our current list of [Tags](https://edu.chainguard.dev/tags).
 
 ## Quick Reference for Contributors
 
-### Pre-commit Hooks
+### Pre-commit
 
-This repository uses automated pre-commit hooks to maintain content quality:
+This repository uses the [pre-commit](https://pre-commit.com/) framework to check
+changes before they merge. The `pre-commit` check is **required** on pull requests,
+and it runs only on the files a PR changes (a pre-existing backlog is not gated).
+It checks:
 
-- **Automatic date management** - Adds `date` field to new files and updates `lastmod` when you edit
-- **Tag validation** - Ensures tags match our approved taxonomy
-- **Spell checking** - Catches typos before they're committed (ignores code blocks and technical terms)
+- Secret scanning, private keys, large files, and file hygiene (whitespace, EOF, line endings)
+- GitHub Actions security (`zizmor`) and linting (`actionlint`)
+- JavaScript (`eslint`), Markdown (`markdownlint`), and Python (`bandit`, `black`)
+- **Content tag validation** against the approved taxonomy (blocking)
+- **Spell checking** of prose with aspell — advisory and local-only (skipped in CI)
 
 **Setup (one-time):**
 ```sh
-# Install spell checker
-brew install aspell
+# Install pre-commit
+brew install pre-commit        # or: pipx install pre-commit
 
-# Enable hooks
+# Enable it in your clone
+pre-commit install
+
+# Optional: enable local prose spell checking
+brew install aspell
+```
+
+Separately, a native git hook stamps `date`/`lastmod` on content files (it
+re-stages into the same commit, so it stays a git hook rather than a pre-commit
+hook). Enable it once with:
+```sh
 ./setup-hooks.sh
 ```
 
@@ -139,4 +154,3 @@ brew install aspell
 - 📖 [Complete Pre-commit Hook Guide for Contributors](docs/pre-commit-hook-guide.md) - Detailed guide with examples
 - 📋 [Tag Guidelines](TAG_GUIDELINES.md) - Complete approved tag taxonomy
 - 📝 [Custom Dictionary](.aspell.en.pws) - Technical terms for spell checker
-
