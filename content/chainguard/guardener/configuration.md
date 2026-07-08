@@ -21,7 +21,7 @@ Guardener is configured entirely through files committed to the `.chainguard/` d
 
 Guardener reads its configuration from the `.chainguard/` directory at the root of each repository. Every feature has its own file:
 
-```
+```text
 .chainguard/
 ├── actions.yaml   # Actions Security
 └── source.yaml    # Commit Verification

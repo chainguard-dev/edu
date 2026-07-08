@@ -52,7 +52,7 @@ Install the Guardener GitHub App on the GitHub organization whose repositories y
 Guardener requests the minimum GitHub permissions needed to operate:
 
 | Permission | Access | Why it's needed |
-|------------|--------|-----------------|
+| ---------- | ------ | --------------- |
 | Contents | Read & write | Read repository files (workflows, signatures, configuration) and push migration pull request branches. |
 | Pull requests | Read & write | Receive pull request events, read diffs, and post review comments and pull requests. |
 | Workflows | Read & write | Read and update GitHub Actions workflow files during Actions migration. |
