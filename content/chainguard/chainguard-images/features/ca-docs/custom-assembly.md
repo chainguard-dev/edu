@@ -43,7 +43,6 @@ With Custom Assembly, you can add the following to your container images:
 
 Note: You cannot remove base packages that come with the source image — you can only add to them.
 
-
 ## About Custom Assembly
 
 Custom Assembly is only available to customers that have access to Production Chainguard Containers.
@@ -60,7 +59,6 @@ The packages you can add to a container image are those that your organization a
 
 The changes you make to your customized container image may affect its functional behavior when deployed. Chainguard doesn’t test your final customized image and therefore doesn't guarantee its functional behavior. Please test your customized images extensively to ensure they meet your requirements.
 
-
 ## Why use Custom Assembly for adding packages
 
 When you add packages to Chainguard Containers using `apk add` commands without pinning to specific package versions and image digests, you expose yourself to version compatibility conflicts that can break their builds. Chainguard continuously updates its APK repository with the latest package versions to ensure customers receive the most recent security patches. This creates problems when a newly-updated package has conflicts with older dependencies installed in an image. These conflicts will be resolved when a new version of the image is released, but until then it's possible there will be a window where builds will break.
@@ -68,7 +66,6 @@ When you add packages to Chainguard Containers using `apk add` commands without 
 Chainguard's Custom Assembly tool solves this problem by building customized images on Chainguard's infrastructure, where the build pipeline automatically ensures all packages (both those included in the base image and those being added) remain on compatible versions. Custom Assembly treats package additions as a declarative configuration that Chainguard builds, maintains, and automatically rebuilds as packages are updated. The alternative approach — manually pinning packages to specific versions when using `apk add` and pinning images to digests — requires ongoing maintenance to update images and pins. 
 
 Custom Assembly is the officially supported method for extending Chainguard Containers with additional packages. It leverages Chainguard's build infrastructure to produce tailored container images without requiring customers to maintain their own build pipelines. Because Chainguard automatically rebuilds Custom Assembly images when constituent packages are updated, customers receive timely security patches without manual intervention while avoiding the version conflicts inherent in ad hoc `apk add` usage.
-
 
 ## Custom Assembly permissions requirements
 
@@ -85,7 +82,6 @@ chainctl iam roles create ca-role --parent=$ORGANIZATION --capabilities=repo.cre
 ```
 
 After creating this custom role, you would need to bind it to any identities in your organization that you want to be able to manage Custom Assembly resources. Check out our [Overview of Roles and Role-bindings in Chainguard](/chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/) to learn more.
-
 
 ## Using customized containers
 
@@ -109,7 +105,6 @@ Pulling container images by digest can [improve reproducibility](/chainguard/cha
 
 > If you run into any issues with your customized container images or with using the Custom Assembly tool, please reach out to your account team for assistance.
 
-
 ### Installing packages from a Chainguard private APK repository
 
 Chainguard offers [Private APK Repositories](/chainguard/chainguard-images/features/private-apk-repos/) which you can use to access the apk packages available to your organization. You can use your organization's private APK repository to further customize your Custom Assembly containers.
@@ -131,6 +126,7 @@ By default, your organization's private APK repository will be listed in the con
 ```container
 cat /etc/apk/repositories
 ```
+
 ```Output
 https://apk.cgr.dev/45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595
 ```
@@ -142,6 +138,7 @@ To search for and install packages from the private APK repository, first update
 ```container
 apk update
 ```
+
 ```Output
 fetch https://apk.cgr.dev/45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/x86_64/APKINDEX.tar.gz
  [https://apk.cgr.dev/45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595]
@@ -153,6 +150,7 @@ Then you can search for packages available in your private repo. The following e
 ```container
 apk search mongo
 ```
+
 ```Output
 mongo-5.0-5.0.31-r0
 mongo-6.0-6.0.20-r0
@@ -169,6 +167,7 @@ Finally, you can install a package with `apk`:
 ```container
 apk add mongo
 ```
+
 ```Output
 (1/1) Installing mongo-8.0 (8.0.4-r1)
 Executing busybox-1.37.0-r0.trigger
@@ -176,7 +175,6 @@ OK: 719 MiB in 78 packages
 ```
 
 To learn more, refer to our [Private APK Repositories documentation](/chainguard/chainguard-images/features/private-apk-repos/).
-
 
 ## Custom runtime repositories
 
@@ -215,7 +213,6 @@ Build failures can occur for a number of reason, including the following:
 * Large images taking longer than 1 hour to build will fail with a timeout error.
 
 In any case, you won't know whether a container image build fails until after it's complete. If you need assistance troubleshooting, please [reach out to our Customer Support team](https://www.chainguard.dev/contact?utm=docs).
-
 
 ## Learn more
 
