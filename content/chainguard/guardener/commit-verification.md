@@ -1,7 +1,7 @@
 ---
-title: "Guardener Commit Verification"
+title: "Chainguard Guardener Commit Verification"
 linktitle: "Commit Verification"
-description: "Configure Guardener to verify that every commit in a pull request is cryptographically signed by an authorized signer."
+description: "Configure Chainguard Guardener to verify that every commit in a pull request is cryptographically signed by an authorized signer."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
 lastmod: 2026-07-08T00:00:00+00:00
@@ -37,7 +37,7 @@ spec:
 
 The example above accepts commits signed with keyless Sigstore signatures where the signer's identity is an `@example.com` address authenticated through Google.
 
-<!-- SCREENSHOT: A Guardener check run on a pull request reporting commit signature verification results. -->
+<!-- SCREENSHOT: A Chainguard Guardener check run on a pull request reporting commit signature verification results. -->
 
 ## Keyless (Sigstore) authorities
 

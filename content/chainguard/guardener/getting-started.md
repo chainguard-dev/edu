@@ -1,7 +1,7 @@
 ---
-title: "Getting Started with Guardener"
+title: "Getting Started with Chainguard Guardener"
 linktitle: "Getting Started"
-description: "Install the Guardener GitHub App and link your Chainguard organization to your GitHub organization to start using Guardener."
+description: "Install the Chainguard Guardener GitHub App and link your Chainguard organization to your GitHub organization to start using Chainguard Guardener."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
 lastmod: 2026-07-08T00:00:00+00:00
@@ -15,15 +15,15 @@ weight: 010
 toc: true
 ---
 
-This guide walks you through everything you need to start using Guardener on your GitHub repositories:
+This guide walks you through everything you need to start using Chainguard Guardener on your GitHub repositories:
 
-1. [Install the Guardener GitHub App](#step-1-install-the-guardener-github-app) on your GitHub organization.
+1. [Install the Chainguard Guardener GitHub App](#step-1-install-the-chainguard-guardener-github-app) on your GitHub organization.
 2. [Link your Chainguard organization to your GitHub organization](#step-2-link-your-chainguard-organization-to-github).
 3. [Verify the link](#step-3-verify-the-link) and enable your first feature.
 
-Linking your Chainguard organization to your GitHub organization is what entitles you to use Guardener — there is no separate entitlement step.
+Linking your Chainguard organization to your GitHub organization is what entitles you to use Chainguard Guardener — there is no separate entitlement step.
 
-{{< beta feature="Guardener" access="organizations that have installed and linked the Guardener GitHub App" >}}
+{{< beta feature="Chainguard Guardener" access="organizations that have installed and linked the Chainguard Guardener GitHub App" >}}
 
 ## Prerequisites
 
@@ -35,34 +35,34 @@ Before you begin, make sure you have the following:
 
 The `chainctl guardener` commands identify your Chainguard organization by its group name — you don't need to look up a group ID. Pass the name with `--group`, or omit the flag entirely and `chainctl` will prompt you to select from the organizations you have access to.
 
-## Step 1: Install the Guardener GitHub App
+## Step 1: Install the Chainguard Guardener GitHub App
 
-Install the Guardener GitHub App on the GitHub organization whose repositories you want Guardener to manage.
+Install the Chainguard Guardener GitHub App on the GitHub organization whose repositories you want Chainguard Guardener to manage.
 
-1. Go to the [Guardener GitHub App page](https://github.com/apps/chainguard-guardener).
+1. Go to the [Chainguard Guardener GitHub App page](https://github.com/apps/chainguard-guardener).
 2. Select **Install** (or **Configure** if it is already installed on another account).
 3. Choose the GitHub organization to install it on.
-4. Choose which repositories Guardener can access. You can grant access to **All repositories** or select specific repositories. You can change this selection later in your GitHub organization settings.
+4. Choose which repositories Chainguard Guardener can access. You can grant access to **All repositories** or select specific repositories. You can change this selection later in your GitHub organization settings.
 5. Review the requested permissions and confirm the installation.
 
 <!-- SCREENSHOT: GitHub App installation screen showing repository selection (All repositories vs. Only select repositories). -->
 
-### Permissions Guardener requests
+### Permissions Chainguard Guardener requests
 
-Guardener requests the minimum GitHub permissions needed to operate:
+Chainguard Guardener requests the minimum GitHub permissions needed to operate:
 
 | Permission | Access | Why it's needed |
 | ---------- | ------ | --------------- |
 | Contents | Read & write | Read repository files (workflows, signatures, configuration) and push migration pull request branches. |
 | Pull requests | Read & write | Receive pull request events, read diffs, and post review comments and pull requests. |
 | Workflows | Read & write | Read and update GitHub Actions workflow files during Actions migration. |
-| Checks | Write | Publish check runs that report Guardener's results. |
+| Checks | Write | Publish check runs that report Chainguard Guardener's results. |
 
 Installing the app does **not** change any repository on its own. Each feature stays disabled until you opt in with a configuration file, as described in [Configuration](/chainguard/guardener/configuration/).
 
 ## Step 2: Link your Chainguard organization to GitHub
 
-Linking associates your GitHub organization with a Chainguard group so Guardener knows which Chainguard organization your GitHub activity belongs to.
+Linking associates your GitHub organization with a Chainguard group so Chainguard Guardener knows which Chainguard organization your GitHub activity belongs to.
 
 Run `chainctl guardener github link`, passing your GitHub organization login and your Chainguard group name:
 
@@ -74,7 +74,7 @@ chainctl guardener github link \
 
 If you omit `--group`, `chainctl` prompts you to select the Chainguard organization to link.
 
-A browser window opens to authorize with GitHub. This step proves that you own the GitHub organization. The Guardener GitHub App must already be installed on the organization (see [Step 1](#step-1-install-the-guardener-github-app)) for the link to succeed.
+A browser window opens to authorize with GitHub. This step proves that you own the GitHub organization. The Chainguard Guardener GitHub App must already be installed on the organization (see [Step 1](#step-1-install-the-chainguard-guardener-github-app)) for the link to succeed.
 
 > **Note**: Linking requires that you are an owner of the Chainguard group (specifically, that you hold the `guardener.association.manage` capability) **and** an owner of the GitHub organization.
 
@@ -86,12 +86,12 @@ If you need to link your own user account rather than an organization, pass your
 
 ## Step 3: Verify the link
 
-After linking, confirm that Guardener is active on your repositories:
+After linking, confirm that Chainguard Guardener is active on your repositories:
 
-- Open a repository that Guardener can access and confirm the Guardener GitHub App appears under the repository's or organization's installed GitHub Apps.
-- Add your first configuration file (for example, `.chainguard/actions.yaml`) as described in [Configuration](/chainguard/guardener/configuration/), then open a pull request to see Guardener respond.
+- Open a repository that Chainguard Guardener can access and confirm the Chainguard Guardener GitHub App appears under the repository's or organization's installed GitHub Apps.
+- Add your first configuration file (for example, `.chainguard/actions.yaml`) as described in [Configuration](/chainguard/guardener/configuration/), then open a pull request to see Chainguard Guardener respond.
 
-<!-- SCREENSHOT: A pull request showing a Guardener check run and/or review comment. -->
+<!-- SCREENSHOT: A pull request showing a Chainguard Guardener check run and/or review comment. -->
 
 ## Unlinking a GitHub organization
 
@@ -105,7 +105,7 @@ chainctl guardener github unlink \
 
 When you pass `--group` and hold the `guardener.association.manage` capability on that group, the organization is unlinked using your Chainguard credentials with no browser involved. Otherwise, `chainctl` falls back to the GitHub authorization flow to prove you own the organization. Either way, you must be logged in to Chainguard.
 
-Unlinking stops Guardener from acting on the organization's repositories. To fully remove Guardener, also uninstall the GitHub App from your GitHub organization settings.
+Unlinking stops Chainguard Guardener from acting on the organization's repositories. To fully remove Chainguard Guardener, also uninstall the GitHub App from your GitHub organization settings.
 
 ## Command reference
 
