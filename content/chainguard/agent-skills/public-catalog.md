@@ -19,7 +19,7 @@ Chainguard publishes a curated set of hardened agent skills in a public catalog 
 
 This guide walks through the full workflow: listing the available skills, inspecting one, pulling it to audit how Chainguard hardened it, installing it, and running it with an agent.
 
-{{< beta feature="Chainguard Agent Skills" access="Chainguard Containers customers who sign up for the beta program. You can sign up by visiting the [Chainguard Agent Skills product page](https://www.chainguard.dev/agent-skills) and clicking **Join the beta**" >}}
+{{< beta feature="Chainguard Agent Skills" >}}
 
 ## Prerequisites
 
@@ -62,7 +62,7 @@ chainctl skills list --group chainguard/anthropics
  skill | frontend-design | latest     | 1 hour ago
 ```
 
-## Inspect a skill
+## Describe a skill
 
 To retrieve a skill's reference, digest, tags, and metadata, use the `describe` subcommand. The output records the upstream source and the exact commit Chainguard hardened from:
 
