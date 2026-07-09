@@ -274,7 +274,7 @@ jobs:
         # Check results - parse JSON to see if there are actual findings
         if [ -f gitleaks-report.json ]; then
           # Check if JSON array is not empty (more than just "[]")
-          findings_count=$(cat gitleaks-report.json | grep -o '"Description":' | wc -l)
+          findings_count=$(grep -o '"Description":' gitleaks-report.json | wc -l)
 
           if [ "$findings_count" -gt 0 ]; then
             echo "Potential secrets detected in compiled documentation!"
