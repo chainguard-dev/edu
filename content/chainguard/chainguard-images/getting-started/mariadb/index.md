@@ -2,7 +2,7 @@
 title: "Getting Started with the MariaDB Chainguard Container"
 type: "article"
 linktitle: "MariaDB"
-aliases: 
+aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-mariadb
 description: "Learn how to deploy MariaDB databases using Chainguard's security-hardened container image with minimal vulnerabilities and distroless design"
 date: 2023-07-28T11:07:52+02:00
@@ -34,7 +34,6 @@ In order to illustrate how the MariaDB Chainguard Container might be used in pra
 {{< details "Chainguard Containers" >}}
 {{< blurb/images >}}
 {{< /details >}}
-
 
 ## Step 1: Setting up a demo application
 
@@ -82,7 +81,6 @@ cd mariadb/
 
 From here, you can run the application and use a web browser to observe it working in real time, which we'll do in the next section.
 
-
 ## Step 2: Inspect, run, and test the sample application
 
 We encourage you to check out [the application code on GitHub](https://github.com/chainguard-dev/edu-images-demos/tree/main/mariadb) to better understand how this application works, but we'll provide a brief overview here.
@@ -120,7 +118,6 @@ This shows that the application is recording each visit in the MariaDB database 
 
 After confirming that the application is functioning as expected, you can read through the next section to explore how else you can work with the `mariadb` container.
 
-
 ## Step 3: Working with the database
 
 The `docker-compose.yml` file contains some configuration details regarding the MariaDB database used in this example application. Run the following command to inspect the contents of this file.
@@ -135,19 +132,19 @@ We're interested in the `mariadb` service:
 . . .
 
   mariadb:
-	image: cgr.dev/chainguard/mariadb
-	restart: unless-stopped
-	environment:
-  	MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: 1
-  	MARIADB_USER: php
-  	MARIADB_PASSWORD: password
-  	MARIADB_DATABASE: php-test
-	ports:
-  	- 3306:3306
-	volumes:
-  	- ./:/app
-	networks:
-  	- wolfi
+ image: cgr.dev/chainguard/mariadb
+ restart: unless-stopped
+ environment:
+   MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: 1
+   MARIADB_USER: php
+   MARIADB_PASSWORD: password
+   MARIADB_DATABASE: php-test
+ ports:
+   - 3306:3306
+ volumes:
+   - ./:/app
+ networks:
+   - wolfi
 
 . . .
 ```

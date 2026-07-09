@@ -31,16 +31,14 @@ the following domains:
 
 ## Access for development tools
 
-When using a repository manager, ensure your network allows outbound HTTPS access 
-to the following domains from your repository manager. Your workstations and build 
-infrastructure typically require no additional network access, as libraries are 
-served through your repository manager. If accessing Chainguard Libraries directly 
-for testing with curl or builds, ensure your network allows outbound HTTPS access 
+When using a repository manager, ensure your network allows outbound HTTPS access
+to the following domains from your repository manager. Your workstations and build
+infrastructure typically require no additional network access, as libraries are
+served through your repository manager. If accessing Chainguard Libraries directly
+for testing with curl or builds, ensure your network allows outbound HTTPS access
 to these domains from your workstation:
 
 * `libraries.cgr.dev` and `9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com` for library access
 * `issuer.enforce.dev` for authentication
 
 > Note that the `9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com` host is used to serve files via `libraries.cgr.dev`. The same host is also used to serve Chainguard Container images.
-
-

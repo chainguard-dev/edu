@@ -26,7 +26,7 @@ Log in to the Chainguard Console at
 
 In the left-hand navigation under **Libraries**, expand **Ecosystems** to find
 links for browsing Chainguard's [**Java**](/chainguard/libraries/java/overview/)
-and [**Python**](/chainguard/libraries/python/overview/) libraries. 
+and [**Python**](/chainguard/libraries/python/overview/) libraries.
 
 <a id="initial-display"></a>
 
@@ -38,9 +38,9 @@ libraries. Click any row to open the [library detail page](#library-page).
 The list includes the following columns:
 
 * **Name** - the full library name, excluding any version identifiers.
-    * Python library names are simple strings, such as `setuptools` or
-  `Flask-Admin`. 
-    * Java library names are the concatenation of the Maven
+  * Python library names are simple strings, such as `setuptools` or
+  `Flask-Admin`.
+  * Java library names are the concatenation of the Maven
   coordinate values `groupId` and `artifactId`, separated by `:`. Examples are
   `org.springframework:spring-core` or `org.eclipse.jetty:jetty-http`.
 * **Latest version** - the latest released and available version of the library
@@ -50,7 +50,7 @@ The list includes the following columns:
 
 At the bottom of the page, see a total count of available libraries.
 
-As a part of Chainguard Repository, [upstream fallback and policy controls](/chainguard/libraries/overview/#upstream-fallback-and-controls) are available for Chainguard Libraries and can be enabled via `chainctl` commands. For JavaScript, you can also enable upstream fallback in the Chainguard Console. 
+As a part of Chainguard Repository, [upstream fallback and policy controls](/chainguard/libraries/overview/#upstream-fallback-and-controls) are available for Chainguard Libraries and can be enabled via `chainctl` commands. For JavaScript, you can also enable upstream fallback in the Chainguard Console.
 
 When fallback is configured for your organization, you will see all JavaScript packages -- including those built by Chainguard and those that are mirrored from upstream npm -- in the Console. For a given package, you can see whether it is being served from Chainguard's rebuilt artifacts or proxied from upstream npm. For Java and Python, you cannot currently view upstream vs. Chainguard-built packages via the Chainguard Console.
 
@@ -77,7 +77,7 @@ remediated CVEs.
 
 While viewing the list of remediated versions for a library, click into a
 version to view more details: which CVEs were remediated, the date that the
-version was patched, and links to additional resources. 
+version was patched, and links to additional resources.
 
 Learn more about browsing remediations in [CVE remediation for Chainguard
 Libraries](/chainguard/libraries/cve-remediation/#about-cve-remediation).
@@ -96,7 +96,7 @@ The list of library versions includes the following columns:
   Depending on the ecosystem and library they can follow naming patterns and
   other restrictions that allow ordering by version.
 * **Size** - the size of the library.
-    * The displayed size reflects the primary file(s) only: `.jar`/`.pom` for
+  * The displayed size reflects the primary file(s) only: `.jar`/`.pom` for
       Java, and `.whl`/`.tar.gz` for Python. It is not an aggregation of all
       files under a given version.
 * **Built** - The date when this version was built and published by Chainguard.
@@ -104,4 +104,5 @@ The list of library versions includes the following columns:
 Click on the column titles to change the **sort** order of the list.
 
 ## View repository configuration in the Chainguard Console
+
 The Chainguard Console provides visibility into your repository configuration and the packages being served. When the upstream fallback is configured for your organization, you will see all packages including those built by Chainguard and those that are mirrored from upstream npm.

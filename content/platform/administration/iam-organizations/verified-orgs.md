@@ -35,13 +35,13 @@ Verified organizations will have a field `verified: true` set.
 ```json
 [
   {
-	"id": "f5a2c73d75a8d7fe666ecb623c79a2b771d78765",
-	"name": "example.com",
-	"resourceLimits": {
-    	"clusters": 3,
-    	"idps": 1
-	},
-	"verified": true
+ "id": "f5a2c73d75a8d7fe666ecb623c79a2b771d78765",
+ "name": "example.com",
+ "resourceLimits": {
+     "clusters": 3,
+     "idps": 1
+ },
+ "verified": true
   }
 ]
 ```

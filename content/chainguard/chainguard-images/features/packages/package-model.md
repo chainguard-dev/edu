@@ -18,7 +18,6 @@ Chainguard offers curated package repositories to support containerized workload
 
 This article provides an overview of Chainguard's package model, highlighting the different Chainguard package repositories available to customers.
 
-
 ## Repository types
 
 All users have access to two distinct package repositories maintained by Chainguard:
@@ -30,32 +29,32 @@ Additionally, Chainguard customers have access to a Private APK Repository speci
 
 > **Note**: Be aware that SLAs apply to container images, not individual packages.
 
-Chainguard Containers are designed to run apk packages, a package format developed for [Alpine Linux](https://www.alpinelinux.org/). Accordingly, Chainguard's package repositories contain apk packages, and you can interact with them using the standard [`apk` commands](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html). Chainguard maintains the packages within all of these package repositories. 
+Chainguard Containers are designed to run apk packages, a package format developed for [Alpine Linux](https://www.alpinelinux.org/). Accordingly, Chainguard's package repositories contain apk packages, and you can interact with them using the standard [`apk` commands](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html). Chainguard maintains the packages within all of these package repositories.
 
 The following table presents a high-level overview of these package repositories:
 
 | Repository Type | Access Level | Package Scope | Authentication Required | Typical Use Case |
-|-----------------|:----------------:|:----------------------:|:-----------------------:|:------------------------:|
+| ----------------- | :----------------: | :----------------------: | :-----------------------: | :------------------------: |
 | Wolfi | Public | Wolfi ecosystem | No | Free images |
-| Extra | Public | Supplemental utilities | No | Additional dependencies, non-open source software  |
+| Extra | Public | Supplemental utilities | No | Additional dependencies, non-open source software |
 | Private | Private/Organization-specific | Packages in org-entitled container images ¹ | Yes | Customizing Chainguard Containers with [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) |
 
 ¹ Customers using Chainguard OS Packages have access to far more packages than this to build their own images, but the additional packages are not available to use with Custom Assembly. Read the details in [Private APK Repositories](#private-apk-repositories).
 
-
 ## Public repositories
 
-Chainguard has two public package repositories: the Wolfi and Extra Packages repositories. These repos typically include the latest stable versions and explicitly exclude FIPS-validated packages or version streams. 
+Chainguard has two public package repositories: the Wolfi and Extra Packages repositories. These repos typically include the latest stable versions and explicitly exclude FIPS-validated packages or version streams.
 
 ### Wolfi
 
-The [Wolfi packages repository](https://github.com/wolfi-dev/os) is the public package source for [Wolfi, Chainguard's open-source Linux "undistro."](/open-source/wolfi/overview/) It contains all the open-source packages used in Chainguard's Free container images. As a public repository, the Wolfi APK repo doesn't require authentication. 
+The [Wolfi packages repository](https://github.com/wolfi-dev/os) is the public package source for [Wolfi, Chainguard's open-source Linux "undistro."](/open-source/wolfi/overview/) It contains all the open-source packages used in Chainguard's Free container images. As a public repository, the Wolfi APK repo doesn't require authentication.
 
 By default, Chainguard's Free container images use a generic address for this repository (`https://apk.cgr.dev/chainguard`) in their `/etc/apk/repositories` files:
 
 ```shell
 docker run -it --rm --entrypoint cat cgr.dev/chainguard/python:latest-dev /etc/apk/repositories
 ```
+
 ```output
 https://apk.cgr.dev/chainguard
 ```
@@ -74,14 +73,13 @@ Chainguard's Extra Packages repository is a public-facing APK repository that in
 
 The Extra Packages repository follows similar rules to the Wolfi repo, but explicitly allows packages under more restrictive licenses as long as redistribution is permitted.
 
-The Extra Packages repository isn't specified in the `/etc/apk/repositories` file of Chainguard's Free images by default. However, users that aren't Chainguard customers can access it through the generic address `https://apk.cgr.dev/extra-packages`. 
+The Extra Packages repository isn't specified in the `/etc/apk/repositories` file of Chainguard's Free images by default. However, users that aren't Chainguard customers can access it through the generic address `https://apk.cgr.dev/extra-packages`.
 
 Like the Wolfi repository, customers can access it with a URL that's unique to their organization:
 
 ```url
 https://virtualapk.cgr.dev/$ORGANIZATION_ID/extra-packages
 ```
-
 
 ### Working with public repositories
 
@@ -90,7 +88,7 @@ As mentioned previously, both the Wolfi and Extra Packages repositories are publ
 * Wolfi: `https://virtualapk.cgr.dev/$ORGANIZATION_ID/chainguard`
 * Extra: `https://virtualapk.cgr.dev/$ORGANIZATION_ID/extra-packages`
 
-You must replace `$ORGANIZATION_ID` with your organization's unique identifier (UID). You can find this with `chainctl` if [you've installed it](/chainguard/chainctl-usage/how-to-install-chainctl/): 
+You must replace `$ORGANIZATION_ID` with your organization's unique identifier (UID). You can find this with `chainctl` if [you've installed it](/chainguard/chainctl-usage/how-to-install-chainctl/):
 
 ```shell
 chainctl iam orgs ls -o table
@@ -98,17 +96,15 @@ chainctl iam orgs ls -o table
 
 You must replace `$ORGANIZATION_ID` with your organization's `ID` value, not its name:
 
-
 ```output
-                    ID                    |      NAME       |          DESCRIPTION                          
+                    ID                    |      NAME       |          DESCRIPTION
 ------------------------------------------|-----------------|--------------------------------------
  0a************************************c8 | example.com     | This is an example organization
 ```
 
-You can also find this in the [Chainguard Console](https://console.chainguard.dev/). After logging in, open the **Settings** tab. There, you'll find your organization's identifier under **Organization UID**. Be aware that these repository URLs **will not** resolve properly if you include the name of your organization instead of the UID. 
+You can also find this in the [Chainguard Console](https://console.chainguard.dev/). After logging in, open the **Settings** tab. There, you'll find your organization's identifier under **Organization UID**. Be aware that these repository URLs **will not** resolve properly if you include the name of your organization instead of the UID.
 
 For any of your organization's Chainguard Containers that include the APK package manager, these repositories are included by default. You can also add them to the `/etc/apk/repositories` file of any container that uses APK. Our guide on [How to Pull Packages from Chainguard Package Repositories through Artifactory](/chainguard/chainguard-images/chainguard-registry/pull-through-guides/artifactory/artifactory-packages-pull-through/#configuring-pull-through-caches-for-chainguards-public-repositories) includes directions for setting up pull-through caches for these repositories on Artifactory.
-
 
 ### Package retention in public repositories
 
@@ -119,8 +115,8 @@ The public Wolfi and Extra repositories currently retain non-latest package vers
 Retention rules for public repositories:
 
 * Non-latest package versions older than 12 months are removed unless:
-    * They are required by other Wolfi packages.
-    * They are required by Chainguard Container images.
+  * They are required by other Wolfi packages.
+  * They are required by Chainguard Container images.
 * Additionally, Chainguard removes latest package versions if the corresponding package definition has been removed from the Wolfi source repository (`https://github.com/wolfi-dev/os`), unless they meet one of these exceptions.
 
 If you pin specific package versions, ensure those versions remain within the retention window or mirror them internally.
@@ -131,7 +127,6 @@ Public repositories affected:
 
 * Wolfi (`https://apk.cgr.dev/chainguard`)
 * Extra (`https://apk.cgr.dev/extra-packages`)
-
 
 ## Private APK Repositories
 
@@ -151,20 +146,17 @@ There is one exception: Chainguard OS Packages is an offering for larger custome
 
 Chainguard OS Packages are not currently available for use with Chainguard Custom Assembly. However, they are made available to you in the same private APK repository location as is described in this page. The only difference is the number of packages that are available. So, any existing build automation you are using will continue to work.
 
-
 ### Package retention in private repositories
 
 Private APK repositories for Chainguard customers follow a **12-month** retention period for non-latest package versions. They follow the same retention rules and removal schedule as the public Wolfi repository.
 
 Customers that require older package versions should mirror or store copies internally.
 
-
 ## Package support
 
 Chainguard commits to build packages in the Chainguard Factory with complete SBOMs and our standard enterprise-grade, zero-CVE process. Packages that are used in Chainguard Container images are also covered by our [CVE remediation SLA](https://www.chainguard.dev/legal/cve-policy?utm_source=docs). That commitment continues to apply to these packages when they are included in private APK repositories, but not to images you build yourself using those packages. We cannot extend our SLA to the images because we do not have control of your build.
 
 Similar to the [Chainguard Shared Responsibility Model](https://edu.chainguard.dev/chainguard/chainguard-images/about/shared-responsibility-model/) for container images, you are responsible for your authored image builds, the build tooling, validation, and compatibility, but now you can do all this using packages that are scanned daily for CVEs. We recommend you always update your builds to new package versions as we release them so are still benefiting from the SLA even if your custom-built images are not covered by it.
-
 
 ## Learn more
 

@@ -40,9 +40,11 @@ In this guide, we'll demonstrate how to deploy and use MinIO with Chainguard Con
 {{< /details >}}
 
 ## Preparation
+
 This tutorial requires Docker to be installed on your local machine. If you don't have Docker installed, you can download and install it from the [official Docker website](https://docs.docker.com/get-docker/).
 
 ### Cloning the Demos Repository
+
 Start by cloning the demos repository to your local machine:
 
 ```shell
@@ -113,10 +115,12 @@ docker compose up -d minio
 ```
 
 Once the service is running, you can access:
+
 - **MinIO API**: http://localhost:9000
 - **MinIO Console**: http://localhost:9001
 
 Open your web browser and navigate to http://localhost:9001. Log in using the credentials defined in the compose file:
+
 - **Username**: `minioadmin`
 - **Password**: `minioadmin123`
 
@@ -141,6 +145,7 @@ This example demonstrates how to build containerized applications that interact 
 The example uses a multi-stage Docker build with Chainguard Python images, which reduces the final container size and attack surface by separating build dependencies from runtime requirements. This approach is recommended for production deployments where security and efficiency are priorities.
 
 The demo includes a Python script that performs the following operations:
+
 - Connecting to the MinIO server with retry logic
 - Creating buckets
 - Uploading objects (files and data)
@@ -153,6 +158,7 @@ The demo includes a Python script that performs the following operations:
 The application consists of three main files:
 
 1. **requirements.txt** - Python dependencies:
+
    ```
    minio==7.2.8
    urllib3==2.2.3
@@ -362,5 +368,3 @@ docker compose -f docker-compose.dockerhub.yml up
 This video demonstrates the workflow covered in Example 2, showing how to build the Python client application using a multi-stage Docker build with Chainguard images. The walkthrough also includes scanning both the Chainguard MinIO image and the Docker Hub alternative with Grype to compare their security profiles, illustrating the vulnerability differences between maintained and unmaintained container images.
 
 {{< youtube iaEvQdZ9gh4 >}}
-
-

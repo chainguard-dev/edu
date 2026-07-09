@@ -44,7 +44,7 @@ The Kiro integration is delivered through the Kiro Powers panel.
 To install it:
 
 1. Open Kiro IDE and navigate to the **Powers** panel in the sidebar.
-1. Scroll down to the Chainguard Power. 
+1. Scroll down to the Chainguard Power.
 1. Select the Chainguard Power and click **Install**.
 
 After installation, Kiro automatically registers the Chainguard MCP servers included with the power.

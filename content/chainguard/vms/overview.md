@@ -32,13 +32,13 @@ For platform engineers and DevOps teams, this means:
 
 To understand the applicability of Chainguard VMs to your organization, it might be helpful to compare the features of Chainguard VMs to Chainguard Containers. In a nutshell, the main differences come from the fact that Chainguard VMs boot from and run with their own hardened kernel as part of Chainguard OS, while Chainguard Containers rely on the host system's kernel.
 
-| Feature | Chainguard Container                                   | Chainguard VM                                                                               |
-| :---- |:-------------------------------------------------------|:--------------------------------------------------------------------------------------------|
-| Includes Kernel? | **No** – uses host’s kernel                            | **Yes** – ships and boots with its own hardened kernel                                      |
-| Environment | Userspace only, isolated via namespaces & cgroups      | Full OS, boots in VM with kernel, init, userspace                                           |
-| Boot Process | Starts from container entrypoint, no bootloader/kernel | Full bootloader → kernel → init system                                                      |
-| Security Boundaries | Dependent on host kernel isolation                     | Stronger isolation via hypervisor and custom kernel controls, secure boot, SELinux policies |
-| Use Case Focus | Microservices, CI/CD, ephemeral workloads              | Secure cloud workloads, edge VMs, kernel-level policy control, high performance             |
+| Feature | Chainguard Container | Chainguard VM |
+| :---- | :------------------------------------------------------- | :-------------------------------------------------------------------------------------------- |
+| Includes Kernel? | **No** – uses host’s kernel | **Yes** – ships and boots with its own hardened kernel |
+| Environment | Userspace only, isolated via namespaces & cgroups | Full OS, boots in VM with kernel, init, userspace |
+| Boot Process | Starts from container entrypoint, no bootloader/kernel | Full bootloader → kernel → init system |
+| Security Boundaries | Dependent on host kernel isolation | Stronger isolation via hypervisor and custom kernel controls, secure boot, SELinux policies |
+| Use Case Focus | Microservices, CI/CD, ephemeral workloads | Secure cloud workloads, edge VMs, kernel-level policy control, high performance |
 
 ## Chainguard VM Types
 
@@ -61,7 +61,6 @@ Chainguard VMs are currently available for the following platforms / hypervisors
 
 Offering broad compatibility, Chainguard VMs allow for deployment in any environment, from public clouds to self-managed infrastructure. This flexibility facilitates one-click deployment across environments and helps prevent vendor lock-in.
 
-
 ## Compliance and SLAs
 
 Chainguard VMs (running Chainguard OS) are intentionally designed to minimize risk, maximize transparency, and satisfy security standards such as [CIS Benchmarks](https://edu.chainguard.dev/compliance/cis-benchmarks/), [FedRAMP](https://edu.chainguard.dev/chainguard/chainguard-images/staying-secure/fedramp-considerations/), SOC 2, and others.
@@ -73,6 +72,6 @@ Chainguard VMs (running Chainguard OS) are intentionally designed to minimize ri
 
 ## Resources
 
-- [Chainguard VMs](https://www.chainguard.dev/vms)
-- [Unchained Blog: Announcing Chainguard VMs: Minimal, Zero-CVE Container Host Images](https://www.chainguard.dev/unchained/announcing-chainguard-vms-minimal-zero-cve-container-host-images)
-- [Unchained Blog: Expanding Chainguard VMs: Zero-CVE Application & Base Virtual Machine Images](https://www.chainguard.dev/unchained/expanding-chainguard-vms-zero-cve-application-base-virtual-machine-images-for-cloud-and-on-prem)
+* [Chainguard VMs](https://www.chainguard.dev/vms)
+* [Unchained Blog: Announcing Chainguard VMs: Minimal, Zero-CVE Container Host Images](https://www.chainguard.dev/unchained/announcing-chainguard-vms-minimal-zero-cve-container-host-images)
+* [Unchained Blog: Expanding Chainguard VMs: Zero-CVE Application & Base Virtual Machine Images](https://www.chainguard.dev/unchained/expanding-chainguard-vms-zero-cve-application-base-virtual-machine-images-for-cloud-and-on-prem)

@@ -81,7 +81,7 @@ Libraries are provided in the following sections.
 ## Supported scanners
 
 | Scanner | Python | Java |
-|---|---|---|
+| --- | --- | --- |
 | Amazon Inspector | ✓ | ✓ |
 | Anchore Enterprise | ✓ | ✓ |
 | Grype | ✓ | ✓ |
@@ -125,7 +125,7 @@ such as `requirements.txt`, Grype reports against the declared versions rather
 than the installed versions. As a result, Chainguard’s remediated Python package
 versions are not recognized in this mode. To ensure accurate results, we
 recommend scanning the installed environment, such as a Python virtual
-environment directory, instead. 
+environment directory, instead.
 
 For example, the entry `werkzeug==3.0.2` in the `requirements.txt` file results
 in the use of the local version `werkzeug==3.0.2+cg4.1` that includes the
@@ -259,10 +259,9 @@ Software
 Artifacts](/chainguard/chainguard-images/staying-secure/working-with-scanners/trivy-tutorial/)
 as well as the [official documentation](https://trivy.dev/docs/latest/).
 
-
 ### Upwind
 
-[Upwind](https://www.upwind.io/) can scan container images that use Chainguard Libraries for Python and Java, and recognize Chainguard backported fixes in [remediated library](/chainguard/libraries/cve-remediation/) versions. 
+[Upwind](https://www.upwind.io/) can scan container images that use Chainguard Libraries for Python and Java, and recognize Chainguard backported fixes in [remediated library](/chainguard/libraries/cve-remediation/) versions.
 
 It is supported for container scanning in CI/CD only.
 
@@ -278,4 +277,4 @@ When Upwind recognizes a remediated Chainguard library version, the scan results
 
 [Wiz](https://www.wiz.io/) supports Chainguard Libraries for Python and Java when scanning applications and images that include CVE-remediated libraries. Remediated Chainguard libraries are recognized appropriately in supported scan results rather than being treated the same as original vulnerable upstream versions.
 
-Chainguard publishes remediation data through its public VEX feed, which supported scanners can use to identify remediated versions correctly. 
+Chainguard publishes remediation data through its public VEX feed, which supported scanners can use to identify remediated versions correctly.

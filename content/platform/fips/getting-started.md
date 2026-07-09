@@ -23,6 +23,7 @@ Before starting, you'll need:
 - **Basic container knowledge**: Familiarity with pulling and running container images.
 
 FIPS containers work on any recent Linux kernel, including:
+
 - Linux workstations
 - macOS (Docker Desktop)
 - Windows (WSL2 with Docker Desktop)
@@ -32,6 +33,7 @@ FIPS containers work on any recent Linux kernel, including:
 Chainguard offers 400+ FIPS image variants. Choose based on your use case:
 
 **Language runtime images** if you're building applications:
+
 - `go-fips` - For building Go applications
 - `python-fips` - For Python applications
 - `node-fips` - For Node.js applications
@@ -39,12 +41,14 @@ Chainguard offers 400+ FIPS image variants. Choose based on your use case:
 - `dotnet-runtime-fips` - For .NET applications
 
 **Application images** if you need a specific tool or service:
+
 - `nginx-fips` - Web server
 - `postgres-fips` - Database
 - `prometheus-fips` - Monitoring
 - And many more
 
 **Base images** for minimal runtime environments:
+
 - `glibc-openssl-fips` - Minimal glibc-based runtime
 - `busybox-fips` - Minimal BusyBox environment
 
@@ -111,6 +115,7 @@ cosign download attestation cgr.dev/$ORGANIZATION/python-fips:latest | jq -r .pa
 ```
 
 Look for:
+
 - `libcrypto3` version 3.4.0-r2 or higher
 - `openssl-config-fipshardened` version 3.4.0-r3 or higher
 
@@ -160,6 +165,7 @@ ENTRYPOINT ["/usr/bin/myapp"]
 ```
 
 This pattern:
+
 - Builds your application with FIPS-enabled Go toolchain
 - Produces a minimal runtime image with only the binary and FIPS runtime
 - Maintains FIPS compliance throughout

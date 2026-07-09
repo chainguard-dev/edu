@@ -18,13 +18,11 @@ Chainguard's [.NET container images](https://images.chainguard.dev/directory/ima
 
 This guide demonstrates migrating a .NET application from Microsoft's official images to Chainguard's .NET container images by building one application with two different Dockerfiles and comparing the results side by side. This guide also highlights concrete examples of the security improvements resulting from migrating to Chainguard Containers.
 
-
 ## Prerequisites
 
 This tutorial uses the publicly available .NET container images from Chainguard's [Free tier](/chainguard/chainguard-images/about/images-categories/#free-containers) of images. You don't need special access or permissions to use these images.
 
 To follow along, you must have Docker installed on your local machine. If you don't have Docker installed, you can download and install it from the [official Docker website](https://docs.docker.com/get-docker/). Optionally, you can install [Grype](https://github.com/anchore/grype) to scan container images for vulnerabilities and compare the security posture of different base images.
-
 
 ## Retrieving the Demo Application Files
 
@@ -71,7 +69,6 @@ This directory holds a single .NET application along with two Dockerfiles that b
 
 Both Dockerfiles compile the same `Program.cs` and `dotnetapp.csproj`, so the only difference between the two images comes from the base images each Dockerfile uses.
 
-
 ## Understanding the Demo Application
 
 The demo application is a .NET console program that displays runtime and system information, including:
@@ -88,7 +85,6 @@ This sample application is based on Microsoft's [dotnet-runtimeinfo sample](http
 
 In the following sections, we'll build and compare both versions of the application.
 
-
 ## Building with Microsoft's .NET Images
 
 Start by building and running the application with the .NET container images provided by Microsoft to establish a baseline for comparison.
@@ -98,6 +94,7 @@ Inspect `notlinky.Dockerfile` to see how it's structured:
 ```sh
 cat notlinky.Dockerfile
 ```
+
 ```output
 FROM mcr.microsoft.com/dotnet/sdk AS build
 
@@ -139,15 +136,16 @@ Use this image to run the application:
 ```sh
 docker run --rm dotnet-example:notlinky
 ```
+
 ```output
-         42                                                    
-         42              ,d                             ,d     
-         42              42                             42     
- ,adPPYb,42  ,adPPYba, MM42MMM 8b,dPPYba,   ,adPPYba, MM42MMM  
-a8"    `Y42 a8"     "8a  42    42P'   `"8a a8P_____42   42     
-8b       42 8b       d8  42    42       42 8PP!!!!!!!   42     
-"8a,   ,d42 "8a,   ,a8"  42,   42       42 "8b,   ,aa   42,    
- `"8bbdP"Y8  `"YbbdP"'   "Y428 42       42  `"Ybbd8"'   "Y428  
+         42
+         42              ,d                             ,d
+         42              42                             42
+ ,adPPYb,42  ,adPPYba, MM42MMM 8b,dPPYba,   ,adPPYba, MM42MMM
+a8"    `Y42 a8"     "8a  42    42P'   `"8a a8P_____42   42
+8b       42 8b       d8  42    42       42 8PP!!!!!!!   42
+"8a,   ,d42 "8a,   ,a8"  42,   42       42 "8b,   ,aa   42,
+ `"8bbdP"Y8  `"YbbdP"'   "Y428 42       42  `"Ybbd8"'   "Y428
 
 OSArchitecture: X64
 OSDescription: Ubuntu 24.04.4 LTS
@@ -162,7 +160,6 @@ TotalAvailableMemoryBytes: 16472748032 (15.34 GiB)
 
 Running the container returns system information, including a stylized ASCII art banner followed by runtime details.
 
-
 ## Building with Chainguard's .NET Container Images
 
 Next, build the application with Chainguard's .NET container images. Inspect `linky.Dockerfile` to understand the differences:
@@ -170,6 +167,7 @@ Next, build the application with Chainguard's .NET container images. Inspect `li
 ```sh
 cat linky.Dockerfile
 ```
+
 ```output
 FROM cgr.dev/chainguard/dotnet-sdk AS build
 
@@ -196,6 +194,7 @@ Like `notlinky.Dockerfile`, this Dockerfile uses a multi-stage build. To find th
 ```sh
 git diff --no-index -U1000 notlinky.Dockerfile linky.Dockerfile
 ```
+
 ```diff
 diff --git a/notlinky.Dockerfile b/linky.Dockerfile
 index 3b7a6e2..8cd6f2e 100644
@@ -204,24 +203,24 @@ index 3b7a6e2..8cd6f2e 100644
 @@ -1,19 +1,18 @@
 -FROM mcr.microsoft.com/dotnet/sdk AS build
 +FROM cgr.dev/chainguard/dotnet-sdk AS build
- 
+
  WORKDIR /source
- 
+
  COPY dotnetapp.csproj .
 +USER root
  RUN dotnet restore
- 
+
  COPY . .
  RUN dotnet publish --no-restore -o /app
- 
+
 -FROM mcr.microsoft.com/dotnet/runtime
 +FROM cgr.dev/chainguard/dotnet-runtime
- 
+
 -COPY --from=build --chown=app:app /app /app
 +COPY --from=build --chown=65532:65532 /app /app
- 
+
  WORKDIR /app
- 
+
 -USER app
 -
  ENTRYPOINT ["./dotnetapp"]
@@ -247,15 +246,16 @@ Run the application:
 ```sh
 docker run --rm dotnet-example:linky
 ```
+
 ```output
-         42                                                    
-         42              ,d                             ,d     
-         42              42                             42     
- ,adPPYb,42  ,adPPYba, MM42MMM 8b,dPPYba,   ,adPPYba, MM42MMM  
-a8"    `Y42 a8"     "8a  42    42P'   `"8a a8P_____42   42     
-8b       42 8b       d8  42    42       42 8PP!!!!!!!   42     
-"8a,   ,d42 "8a,   ,a8"  42,   42       42 "8b,   ,aa   42,    
- `"8bbdP"Y8  `"YbbdP"'   "Y428 42       42  `"Ybbd8"'   "Y428  
+         42
+         42              ,d                             ,d
+         42              42                             42
+ ,adPPYb,42  ,adPPYba, MM42MMM 8b,dPPYba,   ,adPPYba, MM42MMM
+a8"    `Y42 a8"     "8a  42    42P'   `"8a a8P_____42   42
+8b       42 8b       d8  42    42       42 8PP!!!!!!!   42
+"8a,   ,d42 "8a,   ,a8"  42,   42       42 "8b,   ,aa   42,
+ `"8bbdP"Y8  `"YbbdP"'   "Y428 42       42  `"Ybbd8"'   "Y428
 
 OSArchitecture: X64
 OSDescription: Wolfi
@@ -270,7 +270,6 @@ TotalAvailableMemoryBytes: 16472748032 (15.34 GiB)
 
 This output is nearly identical to what the `dotnet-example:notlinky` image returned. The differences reflect the underlying base image: the operating system is `Wolfi` rather than Ubuntu, and the application runs as `nonroot` rather than `app`. Otherwise, the two applications function identically.
 
-
 ## Comparing the Results
 
 If you have Grype installed, you can scan both of the container images you've built for vulnerabilities. Start by scanning the `dotnet-example:notlinky` image:
@@ -278,6 +277,7 @@ If you have Grype installed, you can scan both of the container images you've bu
 ```sh
 grype dotnet-example:notlinky
 ```
+
 ```output
 . . .
 
@@ -292,10 +292,10 @@ grype dotnet-example:notlinky
 [0014] DEBUG       ├── medium: 7
 [0014] DEBUG       ├── high: 0
 [0014] DEBUG       └── critical: 0
-NAME                INSTALLED                FIXED-IN  TYPE  VULNERABILITY   SEVERITY   
-coreutils           9.4-3ubuntu6.2                     deb   CVE-2025-5278   Low        
-dpkg                1.22.6ubuntu6.6                    deb   CVE-2026-2219   Medium     
-gpgv                2.4.4-2ubuntu17.4                  deb   CVE-2025-68972  Medium     
+NAME                INSTALLED                FIXED-IN  TYPE  VULNERABILITY   SEVERITY
+coreutils           9.4-3ubuntu6.2                     deb   CVE-2025-5278   Low
+dpkg                1.22.6ubuntu6.6                    deb   CVE-2026-2219   Medium
+gpgv                2.4.4-2ubuntu17.4                  deb   CVE-2025-68972  Medium
 . . .
 ```
 
@@ -306,6 +306,7 @@ Next, scan the Chainguard-based image:
 ```sh
 grype dotnet-example:linky
 ```
+
 ```output
 . . .
 
@@ -330,6 +331,7 @@ You can compare the sizes of the two container images with `docker`:
 ```sh
 docker images dotnet-example
 ```
+
 ```output
 REPOSITORY       TAG        IMAGE ID       CREATED         SIZE
 dotnet-example   linky      defe30f42942   5 minutes ago   151MB
@@ -339,7 +341,6 @@ dotnet-example   notlinky   70e03529cea6   7 minutes ago   210MB
 This output shows that the `dotnet-example:linky` container image is significantly smaller than the `dotnet-example:notlinky` image.
 
 > **Note**: The command outputs shown in these examples were validated at the time of this writing. Over time, the number of vulnerabilities in either image is likely to change, though you can always expect the Chainguard-based image to contain fewer vulnerabilities.
-
 
 ## .NET Migration Considerations and Best Practices
 
@@ -368,7 +369,6 @@ Choose the runtime image based on the type of application:
 - `cgr.dev/chainguard/aspnet-runtime:latest` for ASP.NET applications (these are typically web applications)
 
 If a build stage needs a shell or package manager, use a [development variant](/chainguard/chainguard-images/about/differences-development-production/) of the relevant Chainguard container image.
-
 
 ## Learn More
 

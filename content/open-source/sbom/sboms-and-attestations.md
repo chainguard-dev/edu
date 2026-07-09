@@ -25,7 +25,6 @@ One of the first steps to improving your software supply chain security is to es
 
 However, these commands don't work the same way. This guide outlines the differences between these two subcommands and provides guidance for when you might want to use one over the other.
 
-
 ## SBOMs vs. Attestations
 
 An SBOM is essentially an electronic packing slip: it's a list of all the components that went into making a given piece of software. But unless you have some indication of when the software was produced, who produced it, and how it was produced, then you can't say with any certainty that the components listed in the SBOM are actually part of the software you're running.
@@ -59,7 +58,6 @@ This will upload the SBOM to the registry as an OCI artifact with a `.sbom` exte
 Be aware that there is also the `cosign sign` command. After running `cosign attach` to attach an SBOM and upload it to a registry, you can then run `cosign sign` to sign the SBOM, and upload the signature to the registry as a separate OCI artifact, this time with the `.sig` extension.
 
 If you'd like to learn more about working with SBOMs and Cosign, we encourage you to check out our tutorial on [How to Sign an SBOM with Cosign](/open-source/sigstore/cosign/how-to-sign-an-sbom-with-cosign/).
-
 
 ## A note on generating SBOMs
 

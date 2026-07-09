@@ -18,7 +18,7 @@ toc: true
 
 Chainguard Containers are designed with minimalism and security in mind. By including fewer packages and tools, Chainguard Containers have a smaller attack surface than their counterparts. However, there are cases where the external counterparts have certain desirable features, like useful startup scripts or configuration defaults.
 
-There are several ways to customize Chainguard Containers. For example, you can use [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) to add packages to an otherwise minimal Chainguard container image. Changing a Chainguard container image's configuration — such as updating its entrypoint or adding startup scripts — requires a different strategy. One method for doing so in Kubernetes deployments is to use *init containers*. 
+There are several ways to customize Chainguard Containers. For example, you can use [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) to add packages to an otherwise minimal Chainguard container image. Changing a Chainguard container image's configuration — such as updating its entrypoint or adding startup scripts — requires a different strategy. One method for doing so in Kubernetes deployments is to use *init containers*.
 
 This guide provides a brief overview of what init containers are as well as their benefits. It then outlines an example of how you can build an init container and use it to reconfigure Chainguard's nginx container image.
 
@@ -30,8 +30,7 @@ In order to follow this guide, you will need the following:
 * A container registry you can push the init container image to. This guide assumes you have access to a [Docker Hub registry](https://hub.docker.com/), though the example can be adjusted for other registries.
 * Access to a Kubernetes cluster. This could be a cluster that you run locally with a tool like [minikube](https://minikube.sigs.k8s.io/docs/) or [kind](https://kind.sigs.k8s.io/), or a cloud-hosted cluster such as [Amazon EKS](https://aws.amazon.com/eks/) or [Google GKE](https://cloud.google.com/kubernetes-engine).
 
-
-## Benefits of Init Containers 
+## Benefits of Init Containers
 
 Init containers are specialized containers that run before application containers within a Kubernetes pod. Init containers are temporary: they run and complete their given tasks before the main application container starts, and then immediately exit.
 
@@ -39,8 +38,7 @@ Init containers are useful for preparing the application environment, since they
 
 You can also use init containers to create directories, set file permissions, install dependencies, or populate data stores with initial data. In some cases, they can retrieve secrets and place them in a shared volume for the application.
 
-Put together, this allows you to separate initialization logic from your app code, making both more manageable. Init containers can also run in sequence, so you can control the order of operations. If one init container fails, Kubernetes will restart the pod and run the init containers again until they succeed. 
-
+Put together, this allows you to separate initialization logic from your app code, making both more manageable. Init containers can also run in sequence, so you can control the order of operations. If one init container fails, Kubernetes will restart the pod and run the init containers again until they succeed.
 
 ## Configuring Chainguard's `nginx` Container with an Init Container
 
@@ -55,7 +53,6 @@ This image runs startup scripts inside the `/docker-entrypoint.d` directory of t
 Rather than exposing yourself to such risks, you can instead run the default nginx image from Docker Hub as an init container, which you'll then use to reconfigure Chainguard's more minimal and secure nginx container image. This involves running the startup configuration in the init container, mounting the resulting configuration to a shared volume, and thereby decoupling the `docker-entrypoint.sh` script from the core nginx image. This avoids introducing the aforementioned security risks into the minimal Chainguard nginx container image.
 
 This section illustrates how to set up an nginx init container based on the default nginx container from Docker Hub and then run it inside a Kubernetes deployment to reconfigure a Chainguard nginx container image. This example involves creating a sample `nginx.conf` file, building an init container with `docker`, and deploying it in a Kubernetes pod.
-
 
 ### Creating a sample `nginx.conf` file
 
@@ -86,7 +83,7 @@ http {
 EOF
 ```
 
-This `nginx.conf` file configures a minimal nginx web server. It configures nginx to listen on port `80` and returns a custom response (`Hello from minimal NGINX!`) for any HTTP request. 
+This `nginx.conf` file configures a minimal nginx web server. It configures nginx to listen on port `80` and returns a custom response (`Hello from minimal NGINX!`) for any HTTP request.
 
 After creating this `nginx.conf` file, continue by using `docker` to create a container image that will be used for an init container.
 
@@ -108,7 +105,7 @@ EOF
 
 This Dockerfile builds an image using the default nginx container image from Docker Hub (`FROM nginx`). This image includes `docker-entrypoint.d` and `docker-entrypoint.sh` by default. It will copy the `nginx.conf` file you created previously into the new image when you build it. Then, when you run the container in a Kubernetes deployment, it will prepare and copy the nginx configuration at startup using the entrypoint script.
 
-After creating this Dockerfile, build the image. 
+After creating this Dockerfile, build the image.
 
 Recall from the Prerequisites section that this guide assumes you have a Docker Hub registry. The following examples expect you to have an environment variable with the namespace on Docker Hub to which you will push images. This could be your username or your organization's name. For example, if you log in to Docker Hub and navigate to your list of repositories, the URL in your browser will have an address like `hub.docker.com/repositories/EXAMPLE`. In this case, `EXAMPLE` would be your Docker Hub namespace.
 
@@ -160,7 +157,7 @@ containers:
         mountPath: /etc/nginx
 ```
 
-Because your nginx container would mount the configurations from the shared volumeMount nginx-config in this case, you would now avoid having to run startup steps outside of the init. 
+Because your nginx container would mount the configurations from the shared volumeMount nginx-config in this case, you would now avoid having to run startup steps outside of the init.
 
 The following command creates a deployment manifest named `init-deployment.yaml` that performs these steps using the init container image you created earlier:
 
@@ -215,6 +212,7 @@ If you retrieve information about your Kubernetes pod immediately after deployme
 ```shell
 kubectl get pods
 ```
+
 ```
 NAME                               READY   STATUS     RESTARTS   AGE
 nginx-chainguard-d49d7496c-stxcj   0/1     Init:0/1   0          6s
@@ -232,6 +230,7 @@ Once the workload is running, you can test whether nginx is working as expected.
 ```shell
 kubectl port-forward deploy/nginx-chainguard 8080:80
 ```
+
 ```
 Forwarding from 127.0.0.1:8080 -> 80
 Forwarding from [::1]:8080 -> 80
@@ -242,6 +241,7 @@ Then, **in a separate terminal window**, use `curl` to reach the pod:
 ```shell
 curl http://localhost:8080
 ```
+
 ```
 Hello from minimal NGINX!
 ```
@@ -249,8 +249,6 @@ Hello from minimal NGINX!
 This confirms that the workload is indeed running and nginx is working as expected.
 
 Note that this example copies over only an `nginx.conf` file, but you can use this strategy to set up other nginx configurations. For example, you could also copy a `mime.types` file over to the Chainguard nginx container image.
-
-
 
 ## Learn More
 

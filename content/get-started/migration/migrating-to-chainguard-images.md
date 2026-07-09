@@ -28,8 +28,8 @@ There are some differences in Wolfi's `busybox` and `coreutils` packages when co
 
 The next sections of this page contain distro-specific information that should help you streamline the migration process from your current base images to Chainguard images.
 
-
 ## Migrating from Debian and Ubuntu Dockerfiles
+
 Chainguard Containers use the [apk](https://wiki.alpinelinux.org/wiki/Package_management) package format, which differs from the Debian-based `apt` in several ways. Some of these features contribute in making packages smaller and more accountable, resulting in smaller images with traceable provenance information based on cryptographic signatures. The page [Why apk](/open-source/wolfi/apk-package-manager/) from the official Wolfi documentation explains in more detail why we use apk.
 
 If you are coming from a Debian-based Dockerfile, you'll need to adapt some of your commands to be compatible with the apk ecosystem:
@@ -43,6 +43,7 @@ If you are coming from a Debian-based Dockerfile, you'll need to adapt some of y
 Our [Debian Compatibility](/chainguard/migration/debian-compatibility/) page has a table listing common tools and their corresponding package(s) in both Wolfi and Debian distributions. For Ubuntu-based Dockerfiles, check our [Ubuntu Compatibility](/chainguard/migration/ubuntu-compatibility/) page.
 
 ## Migrating from Red Hat UBI Dockerfiles
+
 If you are coming from a Red Hat UBI (Universal Base Image) Dockerfile, you'll also need to adapt some of your commands to be compatible with the apk ecosystem. Wolfi uses BusyBox utilities, which offer a smaller footprint compared to GNU coreutils in Red Hat images. Our [Red Hat Compatibility](/chainguard/migration/red-hat-compatibility/) page has a table listing common tools and their corresponding package(s) in both Wolfi and Red Hat distributions.
 
 If you are coming from a Red Hat UBI based Dockerfile, you'll need to adapt some of your commands to be compatible with the apk ecosystem:
@@ -54,11 +55,13 @@ If you are coming from a Red Hat UBI based Dockerfile, you'll need to adapt some
 | Update package manager cache | `yum makecache`        | `apk update`           |
 
 ## Migrating from Alpine Dockerfiles
+
 If your Dockerfile is based on Alpine, the process for migrating to Chainguard Containers should be more straightforward, since you're already using `apk` commands. Wolfi packages typically match what is available in Alpine, with some exceptions. For instance, the Wolfi busybox package is slimmer and doesn't include all tools available in Alpine's busybox. Check the [Alpine Compatibility](/chainguard/migration/alpine-compatibility/) page for a list of common tools and their corresponding packages in Wolfi and Alpine.
 
 Be aware that binaries are not compatible between Alpine and Wolfi. You **should not** attempt to copy Alpine binaries into a Wolfi-based container image.
 
 ## Searching for Packages
+
 Packages from Debian and other base distributions might have a different name in Wolfi. To search for packages, log into an ephemeral container based on `cgr.dev/chainguard/wolfi-base`:
 
 ```shell
@@ -84,6 +87,7 @@ Now you can use `apk search` to look for packages. The following example searche
 ```shell
 apk search php*8.2*xml*
 ```
+
 You should get output similar to this:
 
 ```
@@ -102,11 +106,13 @@ php-xmlwriter-8.2.11-r1
 ```
 
 ### Searching which package has a command
+
 To search in which package you can find a command, you can use the syntax `apk search cmd:command-name`. For instance, if you want to discover which package has the command `useradd`, you can use:
 
 ```shell
 apk search cmd:useradd
 ```
+
 You'll get output indicating that the `shadow` package has the command you are looking for.
 
 ```
@@ -114,11 +120,13 @@ shadow-4.15.1-r0
 ```
 
 ### Searching for package dependencies
+
 To check for package dependencies, you can use the syntax `apk search -R info package-name`. For example, to search which packages are listed as dependencies for the `shadow` package that we've seen in the previous section, you can run:
 
 ```shell
 apk -R info shadow
 ```
+
 And this will give you a list of dependencies for each version of the `shadow` package currently available:
 
 ```
@@ -133,11 +141,13 @@ so:libpam_misc.so.0
 ```
 
 ### Searching for packages that include a shared object
+
 To search which packages include a shared object, you can use the syntax `apk search so:shared-library`. As an example, if you want to check which packages include the `libxml2` shared library, you can run something like:
 
 ```shell
 apk search so:libxml2.so*
 ```
+
 And this should give you output indicating that this shared object is included within the `libxml2-2.12.6-r0` package.
 
 For detailed information about apk options and flags when searching for packages, check the [official documentation](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html#_searching_for_packages).

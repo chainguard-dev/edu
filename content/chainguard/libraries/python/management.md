@@ -46,7 +46,7 @@ you can verify your libraries use in the following locations:
 The number of available artifacts in Chainguard Libraries for Python increases
 over time. If an artifact was already retrieved from the PyPI
 Repository and is available in your repository manager or local repository it is
-not automatically replaced with the equivalent Chainguard Library version. 
+not automatically replaced with the equivalent Chainguard Library version.
 
 You can force a download of new libraries by erasing them from your local
 repositories on your workstations and the PyPI proxy repository in your

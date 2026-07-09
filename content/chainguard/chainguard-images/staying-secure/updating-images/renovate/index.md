@@ -22,13 +22,11 @@ toc: true
 
 > **NOTE**: This article describes using Renovate to alert on new versions of Chainguard Containers. It is not about alerts for Wolfi packages (which is unsupported at the time of writing).
 
-
 ## Prerequisites
 
 This guide assumes you have successfully installed and configured Renovate. If you haven't already set this up, please refer to the [installation instructions](https://docs.renovatebot.com/getting-started/installing-onboarding/).
 
-Additionally, several examples in this guide assume you have `chainctl` — Chainguard's command-line interface — installed on your local machine. Follow our guide on [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up. 
-
+Additionally, several examples in this guide assume you have `chainctl` — Chainguard's command-line interface — installed on your local machine. Follow our guide on [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up.
 
 ## Setting up Credentials for Renovate
 
@@ -85,7 +83,6 @@ chainctl auth configure-docker --pull-token --ttl 10m
 ```
 
 This sets the pull token's lifetime to 10 minutes, which limits the risk posed if the token should leak. You can also set the lifetime to a longer period for more manual configurations.
-
 
 ## Updating Versioned Container Images
 
@@ -325,6 +322,7 @@ This example passes a short-lived token for `cgr.dev` using the `RENOVATE_DOCKER
 If Renovate isn't working as expected, try running it in debug mode and/or dumping the resolved configuration.
 
 For example:
+
 ```
 LOG_LEVEL=debug renovate --print-config
 ...

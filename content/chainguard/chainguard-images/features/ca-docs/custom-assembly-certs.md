@@ -22,6 +22,7 @@ Many enterprise environments use internal certificate authorities (CAs) to issue
 ## Prerequisites and limitations
 
 Before getting started, you'll need the following:
+
 * Access to Chainguard's Custom Assembly tool, which is available to any organization with access to Production Chainguard Containers.
 * Permissions in your Chainguard organization to use Custom Assembly.
   * Review the [Custom Assembly Permissions Requirements](https://edu.chainguard.dev/chainguard/chainguard-images/features/ca-docs/custom-assembly/#custom-assembly-permissions-requirements) for more information
@@ -31,12 +32,10 @@ Before getting started, you'll need the following:
   * Private keys must not be passed as a certificate, and will be rejected.
   * The total size of all inlined certificates must not exceed 50 KB. Please reach out to your account team if there are any issues with this limit.
 
-
 Additionally, be aware of the following limitations when adding custom certificates:
 
 * Adding new certificates is currently only available through the API and `chainctl`.
 * Custom certificates are included in the image's provenance attestation but are not currently listed in the SBOM. They will appear in the apko configuration attestation.
-
 
 ## Using `chainctl` to add custom certificates using Custom Assembly
 
@@ -146,7 +145,6 @@ Plan: 1 to add, 0 to change, 0 to remove
 
 The non-interactive approach is particularly useful for CI/CD pipelines and automation. You can also perform bulk operations across multiple repos. See [Making bulk changes across repos](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/#making-bulk-changes-across-repos) to learn more.
 
-
 ## Verifying that certificates were added
 
 Before following the steps below, ensure you have [`crane` installed](https://github.com/google/go-containerregistry/blob/main/cmd/crane/README.md#installation).
@@ -156,12 +154,12 @@ You can verify that your certificates are present in the system trust bundle by 
 ```shell
 crane export cgr.dev/my-org/my-custom-image:latest - | tar -xOf - etc/ssl/certs/ca-certificates.crt > ca-certificates.crt
 ```
-After running this command, inspect the copied file locally to confirm that your certificate is present.
 
+After running this command, inspect the copied file locally to confirm that your certificate is present.
 
 ## Chainguard-managed certificate bundles
 
-Customers have the ability to add Chainguard-managed certificate bundles for certain regulated environments to their Custom Assembly images. These certificates are bundled into discrete packages that you can apply to customized images in bulk. You can add them to a customized image the same way you would add any other package with Custom Assembly, including with [`chainctl`](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/) or in the [Chainguard Console](/chainguard/chainguard-images/features/ca-docs/custom-assembly-console/). 
+Customers have the ability to add Chainguard-managed certificate bundles for certain regulated environments to their Custom Assembly images. These certificates are bundled into discrete packages that you can apply to customized images in bulk. You can add them to a customized image the same way you would add any other package with Custom Assembly, including with [`chainctl`](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/) or in the [Chainguard Console](/chainguard/chainguard-images/features/ca-docs/custom-assembly-console/).
 
 The following example YAML configuration shows two certificate bundle packages added to an image:
 
@@ -181,7 +179,6 @@ As of this writing, Chainguard offers the following certificate bundle packages 
 * `ca-certificates-dod-eca` — US DoD External Certificate Authority (ECA) PKI certificates
 * `ca-certificates-dod-wcf` — US DoD Web Content Filtering (WCF) PKI certificates
 
-
 ## Custom Assembly and Java truststores
 
 In addition to the system truststore, Custom Assembly’s custom certificates update Java truststores automatically.
@@ -189,7 +186,6 @@ In addition to the system truststore, Custom Assembly’s custom certificates up
 As outlined previously, when you define `certificates.additional` in a Custom Assembly config, the certificates are appended to the system bundle at `/etc/ssl/certs/ca-certificates.crt`. The same certificates are also added to the Java truststore at `/etc/ssl/certs/java/cacerts`, if that file exists in the image (for example, because the image includes Chainguard’s Java truststore package or a JDK/JRE that exposes it there).
 
 There is no extra configuration flag for Java: the build looks for a Java truststore in that location and, if found, appends the custom certificates to it in the same way it does for the OS store. This works even if you add Java to a non-Java base image with Custom Assembly; once the Java truststore file is present, it gets updated.
-
 
 ## Troubleshooting
 
@@ -209,7 +205,6 @@ If applications within your container are not trusting your custom certificates:
 * Verify the certificate was added successfully by checking `/etc/ssl/certs/ca-certificates.crt`
 * Check that the certificate file exists in `/usr/local/share/ca-certificates/`
 * Ensure your application is configured to use the system truststore
-
 
 ## Alternative: Using `incert` for certificate injection
 

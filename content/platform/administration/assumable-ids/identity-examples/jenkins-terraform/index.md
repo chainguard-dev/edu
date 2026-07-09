@@ -22,7 +22,6 @@ Chainguard's [*assumable identities*](/chainguard/administration/iam-organizatio
 
 This procedural tutorial outlines how to create an identity using Terraform, and then how to update a Jenkins pipeline so that it can assume the identity and interact with Chainguard resources. If you would like to follow this guide using `chainctl`, Chainguard's command line tool, you can review [Use chainctl to Create an Assumable Identity for a Jenkins Pipeline](/chainguard/administration/assumable-ids/identity-examples/jenkins-chainctl/).
 
-
 ## Prerequisites
 
 To complete this guide, you will need the following.
@@ -30,7 +29,6 @@ To complete this guide, you will need the following.
 * `terraform` installed on your local machine. Terraform is an open-source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
 * `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up.
 * A Jenkins server with the [OpenID Connect Provider plugin](https://plugins.jenkins.io/oidc-provider/) installed and configured, as well as a pipeline you can use to test out the identity you'll create.
-
 
 ## Creating Terraform Files
 
@@ -43,7 +41,6 @@ mkdir ~/jenkins-id && cd $_
 ```
 
 This will help make it easier to clean up your system at the end of this guide.
-
 
 ### `main.tf`
 
@@ -78,7 +75,6 @@ EOF
 ```
 
 Next, you can create the `sample.tf` file.
-
 
 ### `sample.tf`
 
@@ -269,7 +265,7 @@ Assuming everything works as expected, your pipeline will be able to assume the 
 
 ```
 . . .
-chainctl        	100%[===================>]  54.34M  6.78MB/s	in 13s
+chainctl         100%[===================>]  54.34M  6.78MB/s in 13s
 
 2023-05-17 13:19:45 (4.28 MB/s) - ‘chainctl’ saved [56983552/56983552]
 
@@ -289,8 +285,8 @@ data "chainguard_role" "editor" {
 You can also edit the pipeline itself to change its behavior. For example, instead of inspecting the policies the identity has access to, you could have the workflow inspect the organizations.
 
 ```
-	. . .
-	- './chainctl iam organizations ls'
+ . . .
+ - './chainctl iam organizations ls'
 ```
 
 Of course, the Jenkins pipeline will only be able to perform certain actions on certain resources, depending on what kind of access you grant it.
@@ -312,7 +308,6 @@ rm -r ~/jenkins-id/
 ```
 
 Following that, all of the example resources created in this guide will be removed from your system.
-
 
 ## Learn more
 

@@ -20,11 +20,11 @@ For background on how the matcher works and how it scores recommendations, see [
 Before getting started, you will need:
 
 - An SBOM for your source image in CycloneDX JSON format, with `purl` values on each component.
-    - SBOMs produced by [Syft](https://github.com/anchore/syft), Trivy, `docker sbom`, or cdxgen all work.
+  - SBOMs produced by [Syft](https://github.com/anchore/syft), Trivy, `docker sbom`, or cdxgen all work.
 - `chainctl` [installed and authenticated](/chainguard/api/authentication/).
 - `jq` installed.
 - Your Chainguard organization UID.
-    - Retrieve it from **Settings > General** in the [Chainguard Console](https://console.chainguard.dev/org/-/settings/general), or run `chainctl iam groups list`.
+  - Retrieve it from **Settings > General** in the [Chainguard Console](https://console.chainguard.dev/org/-/settings/general), or run `chainctl iam groups list`.
 
 ## Step 1: Reshape your SBOM for the API
 
@@ -174,4 +174,3 @@ The API returns up to 10 candidates by default. For common stacks the top result
 - The source image is not a well-known public image.
 
 To request more or fewer candidates, add a `count` field to your request body. To suppress weak matches, add a `threshold` field (default: `50.0`).
-

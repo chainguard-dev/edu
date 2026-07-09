@@ -21,11 +21,9 @@ This guide provides an overview of how to submit a request for a new resource to
 
 {{< beta feature="The Requests section" >}}
 
-
 ## Prerequisites
 
 In order to submit requests for new resources in the Chainguard Console, you must be part of a [verified organization](/chainguard/administration/iam-organizations/verified-orgs/). Users with access to only Chainguard's Free tier of container images will not be able to submit requests.
-
 
 ## The Requests section
 
@@ -38,18 +36,17 @@ To begin, navigate to the [**Requests** section of the Chainguard Console](https
 Each of these tabs contains a table with the following columns:
 
 * A column at the far left where you can upvote requests by clicking the upward-pointing arrow.
-    * Click the arrow again to remove an upvote.
+  * Click the arrow again to remove an upvote.
 * The **Name** of the resource requested.
 * The request's **Status**. This can be one of the following:
-    * **Future**
-    * **In progress**
-    * **Paused**
-    * **Reviewing**
-    * **Won't build**
+  * **Future**
+  * **In progress**
+  * **Paused**
+  * **Reviewing**
+  * **Won't build**
 * If the original requester included them, **Project Details** that describe the resource being requested
 
-Additionally, the **Community requests** tab includes a **Demand** column, showing what demand percentile the request falls into. Also, the **Active builds** tab includes an **Estimated delivery** column that shows when Chainguard expects the resource to be available. 
-
+Additionally, the **Community requests** tab includes a **Demand** column, showing what demand percentile the request falls into. Also, the **Active builds** tab includes an **Estimated delivery** column that shows when Chainguard expects the resource to be available.
 
 ## Requesting new resources
 
@@ -60,7 +57,7 @@ This window contains several fields. The following are required for you to submi
 * **Type** — Specify the type of resource you're requesting, either an **Image**, a **Package**, or a **Helm chart**.
 * **Name** — Enter the existing public name of the resource you're requesting.
 * **Open Source project repository** — Include a link to a public repository containing the source code for the open source project you're requesting.
-* **Include FIPS-validated variant?** — Select either **Yes** or **No**. 
+* **Include FIPS-validated variant?** — Select either **Yes** or **No**.
 * Additionally, you must confirm that none of Chainguard's existing artifacts or requests match your request.
 
 There are also a few optional fields you can fill in:
@@ -75,13 +72,12 @@ After filling out the form, click **Request image** to submit your request. Your
 
 The Chainguard team will then review the request and prioritize it based on demand, as determined by the number of upvotes the request has received from users.
 
-
 ## Limitations
 
 There are a few limitations you should consider before submitting a new request:
 
 * Chainguard will not build resources based on proprietary code.
-    * Note that some projects distributed under open source licenses have strict terms that prevent Chainguard from building artifacts based on them.
+  * Note that some projects distributed under open source licenses have strict terms that prevent Chainguard from building artifacts based on them.
 * If a project is no longer receiving updates or releases, Chainguard typically won't build it since there aren't reliable security fixes upstream.
 * There are cases where Chainguard cannot fulfill a FIPS request and be FIPS compliant. In such cases the standard variant can often still be built but the FIPS variant will get marked as **Won't build**.
 

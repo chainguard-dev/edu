@@ -1,7 +1,7 @@
 ---
 title: "False Positives and False Negatives with Container Images Scanners"
 linktitle: "False Positives and Negatives"
-aliases: 
+aliases:
 - /chainguard/chainguard-images/scanners/false-results
 - /chainguard/chainguard-images/recommended-practices/false-results/
 - /chainguard/chainguard-images/staying-secure/updating-images/false-results/
@@ -31,7 +31,7 @@ This article aims to explain the formation of false positive and false negative 
 
 ## How False Positives and False Negatives Occur
 
-Understanding how false positives and negatives occur first requires insight into how scanners operate. 
+Understanding how false positives and negatives occur first requires insight into how scanners operate.
 
 A vulnerability scanner starts by ingesting various *vulnerability databases*. A vulnerability database (such as the [National Vulnerability Database](https://nvd.nist.gov/)) is home to information regarding causes, impacts, and security advisories for software vulnerabilities. A container image scanner will often use multiple vulnerability databases as references for what software components may be vulnerable. Different databases may focus on documenting vulnerabilities for certain software vendors or products. As a result, collecting vulnerability data from numerous sources allows a scanner to identify a more exhaustive selection of vulnerabilities across software components.
 
@@ -43,11 +43,11 @@ Due to the complexity of cross-referencing image components against databases, s
 
 Vulnerability scanners may be unable to consistently detect container components, causing the results of scans to be incomplete or inaccurate. Scanners often rely on package managers and package metadata to catalog the parts of a container. If a scanner cannot collect complete information about package metadata the results of the scan may not reflect the true contents of the image. For example, if a package in a container is not tracked by a package manager, it may go undetected, so vulnerabilities contained within are not reported.
 
-For an in-depth discussion of how scanners fail to collect certain information, we encourage you to check out our [blog post on "Software Dark Matter"](https://www.chainguard.dev/unchained/software-dark-matter-is-the-enemy-of-software-transparency?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). 
+For an in-depth discussion of how scanners fail to collect certain information, we encourage you to check out our [blog post on "Software Dark Matter"](https://www.chainguard.dev/unchained/software-dark-matter-is-the-enemy-of-software-transparency?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
 
 ### Program Scope
 
-Some reported vulnerabilities may be falsely positive because they are detected outside of the scope of your container images. For example, a container may have packages in it which have vulnerabilities, though the [specific vulnerable functions](https://www.chainguard.dev/unchained/stemming-the-tide-of-false-positive-vulnerabilities?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) may not be called or reachable by your images. As a result, these vulnerabilities may pop up in your scans despite your program not interacting with their vulnerable sources. 
+Some reported vulnerabilities may be falsely positive because they are detected outside of the scope of your container images. For example, a container may have packages in it which have vulnerabilities, though the [specific vulnerable functions](https://www.chainguard.dev/unchained/stemming-the-tide-of-false-positive-vulnerabilities?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) may not be called or reachable by your images. As a result, these vulnerabilities may pop up in your scans despite your program not interacting with their vulnerable sources.
 
 It is worth noting that these false positive vulnerabilities could impact you if other vulnerabilities are leveraged to access them, so they are not negligible. However, such a situation arises infrequently as a result of the exploitation of other vulnerabilities, which are first in a line of defense.
 
@@ -74,7 +74,7 @@ The presence of false positive and negative vulnerabilities in your scans add an
 
 ## Reducing False Results
 
-Unfortunately, there is no single way to stop false positives and false negatives from occurring in your vulnerability scans. Triaging reported vulnerabilities will always be necessary to determine what vulnerabilities need to be addressed based on their severity. However, steps can be taken to reduce the overall number of false positive and negative results that surface. 
+Unfortunately, there is no single way to stop false positives and false negatives from occurring in your vulnerability scans. Triaging reported vulnerabilities will always be necessary to determine what vulnerabilities need to be addressed based on their severity. However, steps can be taken to reduce the overall number of false positive and negative results that surface.
 
 ### SBOMs, Purls, and VEX
 

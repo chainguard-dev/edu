@@ -38,8 +38,6 @@ This table lists the DNS hostnames, associated ports, and protocols that will ne
 | packages.cgr.dev        | 443  | HTTPS    | v4      | Package repository (Extra packages)   |
 | packages.wolfi.dev      | 443  | HTTPS    | v4 & v6 | Package repository (Free containers)  |
 
-
-
 > If you experience networking issues while trying to use Chainguard Containers, please ensure that your firewall allows traffic to and from these hosts, and that it doesn't have any rules to block `.dev` domains.
 
 ## Chainguard Containers Third-party Hosts

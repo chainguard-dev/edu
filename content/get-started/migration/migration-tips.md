@@ -19,7 +19,6 @@ toc: true
 
 The process of migrating over to Chainguard Containers isn't always straightforward. To help customers become acquainted with Chainguard Containers as they go through the migration process, we've assembled this list of tips and strategies for migrating over their applications.
 
-
 ## Use development variants when you need a shell
 
 Chainguard provides development (or `-dev`) variants of its containers which include a shell and package manager to allow users to more easily debug and modify the image.
@@ -85,7 +84,6 @@ OK: 20 MiB in 17 packages
 
 Note that this example uses the `chainguard-base` image, which is only available as a paid Production Container. To follow along with this example, you would need to be part of an organization that has access to this image.
 
-
 ## Use `apk search`
 
 Following on from the last point, you'll often need to install extra utilities to provide required dependencies for applications and scripts. These dependencies are likely to have different package names compared to other Linux distributions, so the `apk search` command can be very useful for finding the package you need.
@@ -101,7 +99,7 @@ ae154854dc6d:/# groupadd
 ae154854dc6d:/# apk add groupadd
 ERROR: unable to select packages:
   groupadd (no such package):
-	required by: world[groupadd]
+ required by: world[groupadd]
 
 ae154854dc6d:/# apk search groupadd
 shadow-4.15.1-r0
@@ -117,18 +115,18 @@ ae154854dc6d:/# groupadd
 Usage: groupadd [options] GROUP
 
 Options:
-  -f, --force               	exit successfully if the group already exists,
-                            	and cancel -g if the GID is already used
-  -g, --gid GID             	use GID for the new group
-  -h, --help                	display this help message and exit
-  -K, --key KEY=VALUE       	override /etc/login.defs defaults
-  -o, --non-unique          	allow to create groups with duplicate
-                            	(non-unique) GID
-  -p, --password PASSWORD   	use this encrypted password for the new group
-  -r, --system              	create a system account
-  -R, --root CHROOT_DIR     	directory to chroot into
-  -P, --prefix PREFIX_DIR   	directory prefix
-  -U, --users USERS         	list of user members of this group
+  -f, --force                exit successfully if the group already exists,
+                             and cancel -g if the GID is already used
+  -g, --gid GID              use GID for the new group
+  -h, --help                 display this help message and exit
+  -K, --key KEY=VALUE        override /etc/login.defs defaults
+  -o, --non-unique           allow to create groups with duplicate
+                             (non-unique) GID
+  -p, --password PASSWORD    use this encrypted password for the new group
+  -r, --system               create a system account
+  -R, --root CHROOT_DIR      directory to chroot into
+  -P, --prefix PREFIX_DIR    directory prefix
+  -U, --users USERS          list of user members of this group
 ```
 
 Another useful trick is the `cmd:` syntax for finding packages that provide commands. For example, searching for `ldd` returns multiple results:
@@ -229,7 +227,6 @@ docker run -it --user root --entrypoint bin/bash chainguard/python:latest-dev
 
 Here, the `--user` option tells Docker to assume the root user role.
 
-
 ## Packages not found
 
 Container images are usually meant to support every possible use case. Because of this, they often contain packages that aren't always necessary, which increases the container image's attack surface and makes it more likely to contain CVEs.
@@ -242,10 +239,9 @@ For a number of our most popular Containers, Chainguard offers a *full* variant 
 
 Alternatively, you can take advantage of Chainguard's [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) and [Private APK Repositories](/chainguard/chainguard-images/features/private-apk-repos/) features to extend your container images. Custom Assembly allows users to create customers container images with extra packages added. This reduces their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs.
 
-Private APK Repositories, meanwhile, allow customers to pull secure apk packages from Chainguard. The list of packages available in an organization’s private repository is based on the apk repositories that the organization already has access to. For example, say your organization has access to the [Chainguard MySQL container image](https://images.chainguard.dev/directory/image/mysql/versions). Along with `mysql`, this image comes with other apk packages, including `bash`, `openssl`, and `pwgen`. This means that you'll have access to these apk packages through your organization's private APK repository, along with any others that appear in Chainguard container images that your organization has access to. 
+Private APK Repositories, meanwhile, allow customers to pull secure apk packages from Chainguard. The list of packages available in an organization’s private repository is based on the apk repositories that the organization already has access to. For example, say your organization has access to the [Chainguard MySQL container image](https://images.chainguard.dev/directory/image/mysql/versions). Along with `mysql`, this image comes with other apk packages, including `bash`, `openssl`, and `pwgen`. This means that you'll have access to these apk packages through your organization's private APK repository, along with any others that appear in Chainguard container images that your organization has access to.
 
 In some cases you may have Docker builds that copy in binaries to run agents or similar tooling. You may find these binaries don’t work as expected as they are designed to run on a different Linux distribution. Be aware that Chainguard Containers may not have the dependencies required by third-party binaries, or they may be stored at a different path.
-
 
 ## Learn more
 

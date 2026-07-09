@@ -65,9 +65,11 @@ EOF
 ```
 
 Then, we'll start up the cluster:
+
 ```sh
 k3d cluster create --config k3d.yaml
 ```
+
 If cluster creation fails with errors, check that Docker is running.
 
 Next, Cilium requires some system mounts for the nodes. Run the following command to configure the mounts:
@@ -118,6 +120,7 @@ cilium install \
 ```
 
 This will return output similar to the following:
+
 ```output
 🔮 Auto-detected Kubernetes kind: K3s
 ℹ️  Using Cilium version 1.14.2
@@ -131,7 +134,6 @@ watch kubectl get pods --all-namespaces
 ```
 
 When all the Pods have a status of `Running` or `Completed`, press `Ctrl+C` to exit the watch.
-
 
 ## Verify that the Cilium installation is successful
 
@@ -165,7 +167,6 @@ This should takes about 5 minutes to complete. It will return output similar to 
 ```
 
 Note that the exact output and results of individual tests may differ based on your local machine's configuration.
-
 
 ## Exploring the Cilium Hubble UI
 

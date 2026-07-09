@@ -20,7 +20,6 @@ Chainguard's [*assumable identities*](/chainguard/administration/iam-organizatio
 
 This procedural tutorial outlines how to create an identity using Terraform, and then assume the identity with the CLI to interact with Chainguard resources.
 
-
 ## Prerequisites
 
 To complete this guide, you will need the following.
@@ -28,7 +27,6 @@ To complete this guide, you will need the following.
 * `terraform` installed on your local machine. Terraform is an open-source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
 * `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up.
 * A Keycloak deployment. [Keycloak](https://www.keycloak.org/) is an Open Source identity provider which Chainguard provides as an [image](https://images.chainguard.dev/directory/image/keycloak/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-administration-iam-organizations-identity-examples-keycloak-identity)
-
 
 ## Creating Terraform Files
 
@@ -41,7 +39,6 @@ mkdir ~/keycloak-id && cd $_
 ```
 
 This will help make it easier to clean up your system at the end of this guide.
-
 
 ### `main.tf`
 
@@ -71,7 +68,7 @@ This Terraform configuration consists of two main parts. The first part of the f
 
 ```hcl
 data "chainguard_group" "group" {
-  name   	 = "my-customer.biz"
+  name     = "my-customer.biz"
 }
 ```
 
@@ -94,10 +91,10 @@ The first section creates the identity itself.
 ```hcl
 resource "chainguard_identity" "keycloak" {
   parent_id   = data.chainguard_group.group.id
-  name    	= "keycloak"
+  name     = "keycloak"
   description = <<EOF
-	This is an identity that authorizes Keycloak in this
-	repository to assume to interact with chainctl.
+ This is an identity that authorizes Keycloak in this
+ repository to assume to interact with chainctl.
   EOF
 
   claim_match {
@@ -141,8 +138,8 @@ The final section grants this role to the identity.
 ```hcl
 resource "chainguard_rolebinding" "view-stuff" {
   identity = chainguard_identity.keycloak.id
-  group	= data.chainguard_group.group.id
-  role 	= data.chainguard_role.viewer.items[0].id
+  group = data.chainguard_group.group.id
+  role  = data.chainguard_role.viewer.items[0].id
 }
 ```
 
@@ -219,11 +216,11 @@ export ID_TOKEN=$(curl \
 
 Next set a variable named `ID` to your identity's UIDP value with the following command. Be sure to replace `<identity UIDP>` with the identity's UIDP value, which you noted down in the previous section.
 
-```sh 
+```sh
 export ID=<identity UIDP>
 ```
 
-After creating these variables, run the following commands to log in to Chainguard under the assumed identity. 
+After creating these variables, run the following commands to log in to Chainguard under the assumed identity.
 
 ```shell
 chainctl auth login \
@@ -269,7 +266,6 @@ chainctl iam roles list
 
 This command's output will also include any custom roles you are able to grant.
 
-
 ## Removing Sample Resources
 
 To remove the resources Terraform created, you can run the `terraform destroy` command.
@@ -287,7 +283,6 @@ rm -r ~/keycloak-id/
 ```
 
 Following that, all of the example resources created in this guide will be removed from your system.
-
 
 ## Learn more
 
