@@ -43,8 +43,8 @@ A `keyless` authority verifies short-lived certificates issued by a Sigstore cer
 
 - `keyless.url` — the Fulcio instance that issued the signing certificate.
 - `keyless.identities` — one or more identity constraints. Each entry matches the certificate's subject and issuer.
-  - `subjectRegExp` — a regular expression the signer's subject (for example, an email address) must match. Use `subject` for an exact match instead.
-  - `issuer` — the OIDC issuer that authenticated the signer (for example, `https://accounts.google.com`). Use `issuerRegExp` for a pattern match.
+    - `subjectRegExp` — a regular expression the signer's subject (for example, an email address) must match. Use `subject` for an exact match instead.
+    - `issuer` — the OIDC issuer that authenticated the signer (for example, `https://accounts.google.com`). Use `issuerRegExp` for a pattern match.
 - `ctlog.url` — the transparency log (Rekor) instance used to verify the signature was logged.
 
 ## Static key authorities

@@ -29,8 +29,8 @@ To follow along with this guide, it is assumed that you have the following set u
 * `chainctl`, the Chainguard command-line interface. You can install this by following our guide on [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/).
 * [`terraform`](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) to configure a Google Cloud service account, IAM permissions, and deploy the Cloud Run service.
 * A Google Cloud account with a project running. The example application assumes that your project has the following APIs enabled:
-  * [Artifact Registry API](https://cloud.google.com/artifact-registry/docs/reference/rest)
-  * [Cloud Run Admin API](https://cloud.google.com/run/docs/reference/rest)
+    * [Artifact Registry API](https://cloud.google.com/artifact-registry/docs/reference/rest)
+    * [Cloud Run Admin API](https://cloud.google.com/run/docs/reference/rest)
 * The [`gcloud` CLI](https://cloud.google.com/sdk/docs/install) installed on your local machine. You'll need this to authenticate to Google Cloud over the command line.
 
 ## Setting up the Terraform configuration
@@ -57,7 +57,7 @@ The next five lines configure a few variables that you will need to update to re
 * First, the configuration defines a `name` value. This will be used to prefix resources created by this sample application where possible.
 * Next, it specifies the GCP project ID where certain resources will reside, including the container image for this application (along with mirrored images), the Cloud Run service hosting the application, and the Service Account that authorizes pushes to the Google Artifact Registry.
 * Following that, the configuration specifies the Chainguard IAM organization from which we expect to receive events. This is used to authenticate that the Chainguard events are intended for you, and not another user. Container images pushed to repositories under this organization will be mirrored to Artifact Registry.
-  * You can find the names of every organization you have access to by running `chainctl iam organizations list -o table`.
+    * You can find the names of every organization you have access to by running `chainctl iam organizations list -o table`.
 * The next line specifies the location of the Artifact Registry repository and the Cloud Run subscriber.
 * The final line defines `dst_repo` value, which is used to create a name for the repository in the Artifact Registry where container images will be mirrored.
 

@@ -29,8 +29,8 @@ Before you begin, you'll need:
 * A [Chainguard account](https://console.chainguard.dev/) and organization in domain format (for example, `acme-corp.com`).
 * [`chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) installed and authenticated
 * Access to the Chainguard products you plan to use
-  * [Chainguard Containers](/chainguard/chainguard-images/overview/) for container image migration
-  * [Chainguard Libraries](/chainguard/libraries/overview/) for Java, JavaScript, or Python dependency migration. Learn how to create an entitlement in the [Libraries Access docs](/chainguard/libraries/access/#manage-library-entitlements).
+    * [Chainguard Containers](/chainguard/chainguard-images/overview/) for container image migration
+    * [Chainguard Libraries](/chainguard/libraries/overview/) for Java, JavaScript, or Python dependency migration. Learn how to create an entitlement in the [Libraries Access docs](/chainguard/libraries/access/#manage-library-entitlements).
 
 The Chainguard Power uses your existing `chainctl` session for image and package lookups in Kiro.
 If you want Kiro to help reconfigure a project to use Chainguard Libraries, make sure your organization also has access to the relevant Libraries ecosystem.

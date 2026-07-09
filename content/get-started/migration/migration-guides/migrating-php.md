@@ -20,8 +20,8 @@ Chainguard's PHP containers provide enhanced security for PHP applications throu
 
 This article will assist you in the process of migrating your existing PHP Dockerfiles to leverage the benefits of Chainguard Containers, including a smaller attack surface and a more secure application footprint.
 
-
 ## PHP Chainguard Containers
+
 Chainguard offers multiple PHP images and variants catering to distinct use cases. In addition to the regular PHP image that includes CLI and FPM variants, we offer a dedicated [Laravel](https://images.chainguard.dev/directory/image/laravel/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-php) image designed for Laravel applications.
 
 Each variant comes in two flavors: a minimal runtime image (distroless) and a development variant distinguished by the `-dev` suffix (e.g., `latest-dev`).
@@ -35,9 +35,11 @@ In a nutshell, distroless images don't include a package manager or a shell, bei
 For a deeper exploration of distroless images and their differences from standard base images, refer to the guide on [Getting Started with Distroless images](/chainguard/chainguard-images/getting-started-distroless/).
 
 ## Migrating from non-apk systems
+
 When migrating from distributions that are not based on the `apk` ecosystem, you'll need to update your Dockerfile accordingly. Our high-level guide on [Migrating to Chainguard Containers](/chainguard/migration/migrating-to-chainguard-images/) contains details about distro-based migration and package compatibility when migrating from Debian, Ubuntu, and Red Hat UBI base images.
 
 ## Installing PHP Extensions
+
 Wolfi offers several PHP extensions as optional packages you can install with `apk`. Because PHP extensions are system-level packages, they require `apk` which is only available in our development image variants. The following extensions are already included within all Chainguard PHP image variants:
 
 - `php-mbstring`
@@ -52,6 +54,7 @@ Wolfi offers several PHP extensions as optional packages you can install with `a
 - `php-phar`
 
 In addition to those, the Laravel image includes the following extensions:
+
 - `php-ctype`
 - `php-dom`
 - `php-fileinfo`
@@ -74,11 +77,13 @@ Make sure to update the package manager cache:
 ```shell
 apk update
 ```
+
 If you want to search for PHP 8.2 XML extensions, for example, you can run the following:
 
 ```shell
 apk search php*8.2*xml*
 ```
+
 And this should give you a list of all PHP 8.2 XML extensions available in Wolfi.
 
 ```output
@@ -95,9 +100,11 @@ php-xml-8.2.11-r1
 php-xmlreader-8.2.11-r1
 php-xmlwriter-8.2.11-r1
 ```
+
 For more searching tips, check the [Searching for Packages](/chainguard/migration/migrating-to-chainguard-images/#searching-for-packages) section of our base migration guide.
 
 ## Migrating PHP CLI workloads to use Chainguard Containers
+
 Our `latest` and `latest-dev` PHP image variants are designed to run CLI applications and scripts that don't need a web server. As a first step towards migration, you might want to change your base image to the `latest-dev` variant, since that would be the closest option for a drop-in base image replacement. Once you have your dependencies and steps dialed in, you can optionally migrate to a multi-stage build to create a strict runtime containing only what the application needs to run.
 
 The following `Dockerfile` uses the `php:latest-dev` image to build the application, which in this case means copying the application files and installing dependencies via `composer`. A second build stage copies the application to a final distroless image based on `php:latest`.
@@ -120,6 +127,7 @@ ENTRYPOINT [ "php", "/app/myscript.php" ]
 Our [PHP Getting Started](/chainguard/chainguard-images/getting-started/php/) guide has step-by-step instructions on how to build and run a PHP CLI application with Chainguard Containers.
 
 ## Migrating PHP Web applications to use Chainguard Containers
+
 For PHP web applications that serve content through a web server, you should use the `latest-fpm` and `latest-fpm-dev` variants of our PHP image. Combine it with our [Nginx image](https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-php) and an optional database for a traditional LEMP setup.
 
 The overall migration process is essentially the same as described in the previous section, with the difference that you won't set up application entry points, since these images run as services. Your Dockerfile may require additional steps to set up front-end dependencies, initialize databases, and perform any additional tasks needed for the application to run through a web server.
@@ -202,11 +210,13 @@ http {
 ```
 
 ## Migrating Laravel Applications to use Chainguard Containers
+
 Chainguard has a dedicated [Laravel image](https://images.chainguard.dev/directory/image/laravel/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-php) designed for applications built on top of the [Laravel](https://laravel.com) PHP Framework. This image is based on the `php:latest-fpm` variant, with additional extensions required by Laravel. Migration should follow the same steps described in previous sections, with the `laravel:latest-dev` variant as builder and `laravel:latest` as the distroless variant of this image.
 
 In addition to including extensions required by Laravel by default, the image includes a **laravel** system user that facilitates running `composer` and `artisan` commands from a host environment, which enables users to create and develop Laravel applications with the `-dev` variant of this image. Check the section on [Developing Laravel Applications](#developing-laravel-applications) for more information on how to use the development variant of the Laravel image for development environments.
 
 ## Using Development Containers
+
 Our PHP development images are minimal yet versatile images that include `apk` and `composer`. You can use these images to create and develop PHP applications on a containerized development environment.
 
 Development images can be identified by the `-dev` suffix (e.g: `php:latest-dev`). You can use them to execute Composer commands from a Dockerfile or directly from the command line with `docker run`. This allows users to run Composer without having to install PHP on their host system.
@@ -216,6 +226,7 @@ Development images can be identified by the `-dev` suffix (e.g: `php:latest-dev`
 To be able to write to your host's filesystem through a shared volume, you'll need to use the **root** container user when installing dependencies with Composer using the `latest-dev` or `latest-fpm-dev` image variants.
 
 **Example 1: Installing Dependencies**
+
 ```shell
 docker run --rm -v ${PWD}:/app --entrypoint composer --user root \
     cgr.dev/chainguard/php:latest-dev \
@@ -237,6 +248,7 @@ sudo chown -R ${USER}:${USER} .
 ```
 
 ### Running the Built-in Web Server
+
 You can use the built-in PHP web server to preview web applications using a `docker run` command with a port redirect.
 
 The following command will run the `php:latest-dev` image variant with the built-in server (`php -S`) on port `8000`, redirecting all requests to the same port on the host machine, and using the current folder as document root:
@@ -246,6 +258,7 @@ docker run -p 8000:8000 --rm -it -v ${PWD}:/work \
     cgr.dev/chainguard/php:latest-dev \
     -S 0.0.0.0:8000 -t /work
 ```
+
 The preview should be live at `localhost:8000`.
 
 ### Developing Laravel Applications
@@ -281,6 +294,7 @@ docker run -p 8000:8000 --rm -it -v ${PWD}:/app --entrypoint /app/artisan --user
     cgr.dev/chainguard/laravel:latest-dev \
     serve --host=0.0.0.0
 ```
+
 The preview should be live at `localhost:8000`.
 
 ## Additional Resources

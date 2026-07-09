@@ -29,9 +29,9 @@ Other limitations include:
 
 - Only a maximum of 5 Chainguard Images can be used
 - Only images from the following tiers are available:
-  - AI
-  - APPLICATION
-  - BASE
+    - AI
+    - APPLICATION
+    - BASE
 - No access to nested UIDP image repos, such as Helm charts
 
 ## Manage Catalog Starter plans in the Chainguard Console

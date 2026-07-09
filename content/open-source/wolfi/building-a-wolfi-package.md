@@ -121,37 +121,37 @@ A package build pipeline typically starts with fetching the package (as a tarbal
 Some of the actions executed in build pipelines are very similar across packages: downloading a package, running configure and make, fetching a package from git, etc. Luckily for us, melange bakes a lot of repetitive tasks into reusable [pipelines](https://github.com/chainguard-dev/melange/tree/main/pkg/build/pipelines):
 
 - Downloading Packages
-  - `fetch`
-  - `git-checkout`
+    - `fetch`
+    - `git-checkout`
 - Autoconf
-  - `autoconf/configure`
-  - `autoconf/make`
-  - `autoconf/make-install`
+    - `autoconf/configure`
+    - `autoconf/make`
+    - `autoconf/make-install`
 - Cmake
-  - `cmake/build`
-  - `cmake/configure`
-  - `cmake/install`
+    - `cmake/build`
+    - `cmake/configure`
+    - `cmake/install`
 - Go
-  - `go/build`
-  - `go/install`
+    - `go/build`
+    - `go/install`
 - Meson
-  - `meson/compile`
-  - `meson/configure`
-  - `meson/install`
+    - `meson/compile`
+    - `meson/configure`
+    - `meson/install`
 - Ruby
-  - `ruby/build`
-  - `ruby/clean`
-  - `ruby/install`
+    - `ruby/build`
+    - `ruby/clean`
+    - `ruby/install`
 - Split
-  - `split/debug`
-  - `split/dev`
-  - `split/infodir`
-  - `split/locales`
-  - `split/manpages`
-  - `split/static`
+    - `split/debug`
+    - `split/dev`
+    - `split/infodir`
+    - `split/locales`
+    - `split/manpages`
+    - `split/static`
 - Other
-  - `strip`
-  - `patch`
+    - `strip`
+    - `patch`
 
 Each pipeline can have one or more parameters that should be provided as keypairs in a `with` entry. For example, a download-and-check has the following structure in the melange YAML, using the built-in pipeline `fetch`:
 
