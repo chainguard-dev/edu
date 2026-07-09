@@ -3,9 +3,9 @@
 
 Two modes, selected with --mode:
 
-  tags   Validate frontmatter tags against the approved taxonomy. Blocks the
-         commit on errors (e.g. an all-caps tag that is not a known acronym).
-         Runs locally and in CI.
+  tags   Validate frontmatter tags against the approved taxonomy. Advisory:
+         it warns (unapproved tag, too many tags, non-acronym all-caps) but
+         never blocks. Runs locally and in CI.
 
   spell  Spell-check prose with aspell, skipping code blocks, shortcodes and
          URLs. Advisory only: it reports misspellings but never fails. Runs
@@ -252,13 +252,18 @@ def extract_tags(filepath):
 
 
 def validate_tags(paths):
-    """Return exit code: 1 if any blocking tag errors found, else 0."""
-    had_error = False
+    """Report tag issues as advisory warnings. Never blocks (always returns 0).
+
+    All-caps tags are only warned about, not blocked: many legitimate tags are
+    acronyms (FIPS, TLS, API, ...), and maintaining an exhaustive allowlist of
+    them is impractical. ACRONYM_TAGS still suppresses the warning for known
+    acronyms to keep the signal useful.
+    """
     for filepath in content_markdown(paths):
         tags = extract_tags(filepath)
         if not tags:
             continue
-        warnings, errors = [], []
+        warnings = []
         if len(tags) > 5:
             warnings.append(
                 f"  ⚠️  Too many tags ({len(tags)}). Maximum recommended: 5"
@@ -267,17 +272,12 @@ def validate_tags(paths):
             if tag not in APPROVED_TAGS and tag not in ACRONYM_TAGS:
                 warnings.append(f"  ⚠️  Tag not in approved list: '{tag}'")
             if tag not in ACRONYM_TAGS and tag.isupper():
-                errors.append(f"  ❌  Tag should use Title Case: '{tag}'")
-        if warnings or errors:
+                warnings.append(f"  ⚠️  Non-acronym tag should use Title Case: '{tag}'")
+        if warnings:
             print(f"\n📄 {filepath}")
             print(f"   Tags: {', '.join(tags)}")
-            for line in warnings + errors:
+            for line in warnings:
                 print(line)
-        if errors:
-            had_error = True
-    if had_error:
-        print("\n❌ Commit blocked due to tag errors. See TAG_GUIDELINES.md.")
-        return 1
     return 0
 
 

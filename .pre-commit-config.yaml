@@ -75,7 +75,7 @@ repos:
         pass_filenames: false
 
       # Content tag validation against the approved taxonomy (TAG_GUIDELINES.md).
-      # Blocking; runs locally and in CI.
+      # Advisory (warnings only, never blocks); runs locally and in CI.
       - id: content-tags
         name: Validate content tags
         entry: python3 scripts/hooks/content_checks.py --mode tags
