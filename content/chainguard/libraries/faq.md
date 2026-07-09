@@ -42,7 +42,7 @@ of the software supply chain for libraries across different language ecosystems:
 
 * This May 2025 attack uploaded compromised packages to PyPI and npm that enable remote shell access and uploading files to compromised machines
 * Chainguard Libraries would have protected against this attack. First, the packages have invalid upstream source URLs so there was no source repository. In the case of the lone exception (a package with a valid source repository link), no code was present for Chainguard to build a valid package.
-- [The Hacker News](https://thehackernews.com/2025/06/new-supply-chain-malware-operation-hits.html) blog post on the attack
+* [The Hacker News](https://thehackernews.com/2025/06/new-supply-chain-malware-operation-hits.html) blog post on the attack
 
 {{< /details >}}
 
@@ -124,12 +124,12 @@ list](https://github.com/chainguard-dev/ssc-reading-list).
 
 {{< /details >}}
 
-
 ## Why do the Chainguard library checksums differ from those published by upstream repositories?
 
-Chainguard rebuilds libraries from source in a controlled environment to improve supply-chain security. As a result, while functionality remains the same, build metadata and generated content, such as SBOMs, differs from upstream distributions. Whether Chainguard library checksums match upstream depends on the ecosystem and build process. 
+Chainguard rebuilds libraries from source in a controlled environment to improve supply-chain security. As a result, while functionality remains the same, build metadata and generated content, such as SBOMs, differs from upstream distributions. Whether Chainguard library checksums match upstream depends on the ecosystem and build process.
 
 During initial migration to Chainguard Libraries, some common causes of checksum errors include:
+
 * Artifacts were previously cached from upstream repositories
     * Example: Maven's `.m2` or Gradle's cache.
 * Dependencies are pinned to upstream checksums or hashes
@@ -139,7 +139,7 @@ During initial migration to Chainguard Libraries, some common causes of checksum
 
 ## Does Chainguard Libraries for Java include CVE remediation fixes?
 
-Short answer: 
+Short answer:
 
 No. Libraries are built from source code in the secured and hardened Chainguard
 infrastructure. This eliminates any build and distribution stage
@@ -151,7 +151,7 @@ Chainguard cannot patch Java libraries and create binaries with the same
 identifier because the complete behavior and API surface of every library
 affects the use. That use however is part of the application development of each
 customer. It varies widely and any change potentially creates incompatibilities,
-different behavior or even new security issues. 
+different behavior or even new security issues.
 
 Chainguard collaborates with many upstream projects and can collaborate with
 customers to increase and accelerate the creation and adoption of fixes and the
@@ -178,9 +178,10 @@ backports High and Critical vulnerability fixes from newer upstream releases to
 older versions that customers are still using, particularly when upstream
 maintainers no longer ship patches for those older versions. Remediated versions
 are:
-- Published in a separate Python index (e.g.,
+
+* Published in a separate Python index (e.g.,
   https://libraries.cgr.dev/python-remediated/simple/).
-- Given a local version suffix like +cgr.N (for example, 2.0.0+cgr.1) so
+* Given a local version suffix like +cgr.N (for example, 2.0.0+cgr.1) so
   dependency resolvers can distinguish them from non‑remediated upstream
   versions while still preferring the remediated build during resolution.
 
@@ -189,21 +190,22 @@ are:
 For JavaScript, Chainguard offers the [Chainguard
 Repository](/chainguard/chainguard-repository/) as a unified, managed endpoint
 at `https://libraries.cgr.dev/javascript/`. This single endpoint:
-- Serves Chainguard‑built packages first, rebuilt from source.
-- Optionally falls back to upstream npm for packages or versions that are not
+
+* Serves Chainguard‑built packages first, rebuilt from source.
+* Optionally falls back to upstream npm for packages or versions that are not
   yet available from Chainguard.
-- Applies security controls on the upstream fallback, including a cooldown
+* Applies security controls on the upstream fallback, including a cooldown
   window and malware detection that blocks packages associated with known
   malware IDs from public OSV feeds.
 
 Because of those controls, you can still see 404s or failed fetches even when
 fallback is enabled, for example when:
 
-- A package or version is blocked by malware detection and therefore
+* A package or version is blocked by malware detection and therefore
   intentionally not served from upstream.
-- A recently published version is still in the cooldown period, so the
+* A recently published version is still in the cooldown period, so the
   repository will not yet proxy it from npm.
-- The requested package/version truly does not exist in either Chainguard’s
+* The requested package/version truly does not exist in either Chainguard’s
   catalog or upstream.
 
 Fallback respects security policies first, then mirrors safe content from npm.
@@ -214,4 +216,4 @@ though a version appears in the public registry.
 
 Chibbies is the internal codename for the Chainguard Libraries. It evolved from
 Chainguard Libraries being shortened to Chainguard Libbies, and then [finally to
-Chibbies](https://www.youtube.com/watch?v=adfU9LJg3I0&t=2843s). 
+Chibbies](https://www.youtube.com/watch?v=adfU9LJg3I0&t=2843s).
