@@ -19,7 +19,7 @@ The Commit Verification feature verifies that every commit in a pull request is 
 
 Commit signatures are verified using [gitsign](https://github.com/sigstore/gitsign) and [Sigstore](/open-source/sigstore/).
 
-## Enabling Commit Verification
+## Enable Commit Verification
 
 Add a `.chainguard/source.yaml` file to your repository that defines one or more **authorities**. A commit is accepted if it satisfies **any** of the listed authorities.
 
@@ -41,19 +41,7 @@ The example above accepts commits signed with keyless Sigstore signatures where 
 
 ## Keyless (Sigstore) authorities
 
-A `keyless` authority verifies short-lived certificates issued by a Sigstore certificate authority (Fulcio) and logged in a transparency log (Rekor). Use `identities` to constrain which signer identities are trusted:
-
-```yaml
-spec:
-  authorities:
-    - keyless:
-        url: https://fulcio.sigstore.dev
-        identities:
-          - subjectRegExp: .+@example.com$
-            issuer: https://accounts.google.com
-      ctlog:
-        url: https://rekor.sigstore.dev
-```
+A `keyless` authority verifies short-lived certificates issued by a Sigstore certificate authority (Fulcio) and logged in a transparency log (Rekor). Use `identities` to constrain which signer identities are trusted. The fields in the example above are:
 
 - `keyless.url` — the Fulcio instance that issued the signing certificate.
 - `keyless.identities` — one or more identity constraints. Each entry matches the certificate's subject and issuer.

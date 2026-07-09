@@ -12,7 +12,7 @@ weight: 015
 
 Guardener is Chainguard's GitHub automation app: a single, hardened bot that helps secure and maintain your repositories. Rather than adding a separate integration for every task, Guardener provides a growing suite of capabilities that you opt into independently, per repository, through configuration files committed to your codebase.
 
-{{< beta feature="Guardener" enroll="true" >}}
+{{< beta feature="Guardener" access="organizations that have installed and linked the Guardener GitHub App" >}}
 
 Guardener's capabilities include:
 
@@ -39,4 +39,4 @@ Because configuration lives in your repository, it is reviewed, versioned, and a
 
 ## Support
 
-Guardener is in beta. For questions, feedback, or to enable your entitlement, contact your Chainguard account team or email [support@chainguard.dev](mailto:support@chainguard.dev).
+For questions or feedback, contact your Chainguard account team or email [support@chainguard.dev](mailto:support@chainguard.dev).

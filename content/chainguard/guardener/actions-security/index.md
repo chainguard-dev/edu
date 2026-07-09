@@ -24,7 +24,7 @@ Actions Security operates in two independent modes:
 
 You can enable either mode on its own or both together.
 
-## Enabling Actions Security
+## Enable Actions Security
 
 Add a `.chainguard/actions.yaml` file to your repository:
 
@@ -36,7 +36,7 @@ With just `enabled: true`, Guardener posts non-blocking recommendation comments 
 
 ![A Guardener pull request review comment suggesting a SHA-pinned action, with the one-click suggestion block.](pr-review.png)
 
-## Enabling automated migration pull requests
+## Enable automated migration pull requests
 
 To have Guardener periodically open and maintain a pull request that migrates your workflows, enable the `migrate` block:
 
@@ -51,7 +51,7 @@ Guardener opens (and keeps updated) a single migration pull request on the caden
 
 ![A Guardener automated migration pull request updating multiple workflow files to SHA-pinned actions.](migrate-pr.png)
 
-## Ignoring files and actions
+## Exclude files and actions
 
 Use the `migrate.ignore` block to exclude specific workflow files or upstream actions from automated migration. Both fields accept glob patterns:
 

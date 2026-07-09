@@ -56,7 +56,7 @@ To add or update Guardener configuration:
 2. Open a pull request with your change.
 3. Merge the pull request. Guardener picks up the new configuration for subsequent events.
 
-**NOTE**: Guardener uses the repo's default branch (i.e. `main`) for its configuration.
+> **Note:** Guardener uses the repo's default branch (that is, `main`) for its configuration.
 
 ## Next steps
 
