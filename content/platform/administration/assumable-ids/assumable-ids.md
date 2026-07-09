@@ -17,7 +17,7 @@ images: []
 weight: 005
 ---
 
-Both [`chainctl`](/chainguard/chainctl/) and the [Chainguard Console](https://console.chainguard.dev/) are useful tools for interacting with Chainguard. However, there may be times that you want to hand off certain administrative tasks to an automation system, like Buildkite or GitHub Actions.
+Both [`chainctl`](/platform/chainctl/) and the [Chainguard Console](https://console.chainguard.dev/) are useful tools for interacting with Chainguard. However, there may be times that you want to hand off certain administrative tasks to an automation system, like Buildkite or GitHub Actions.
 
 In such cases, you can create a Chainguard identity for these systems to assume, allowing them to perform certain tasks within a specific scope. You can restrict access to an identity so that only workflows that present tokens matching a specific issuer and subject can assume it. Likewise, assumable identities can be tied to certain roles — like `viewer`, `owner`, or `editor` — letting you place strict limits on what a given identity is allowed to do.
 
@@ -43,7 +43,7 @@ This enables you to create identities that can only be assumed by specific autom
 
 A notable difference between registered users and identities in Chainguard's IAM model is that identities are tied to a specific [IAM organization](/platform/administration/iam-organizations/overview-of-chainguard-iam-model/). When you create an identity, you must specify a Chainguard organization under which the identity will be created.
 
-However, an identity won't automatically have access to the other resources associated with that organization. In order for an identity to be able to interact with a organization's resources — including the containers, repositories, and users associated with the organization — it must be granted the permissions it needs to do so. To do this, you must also tie the identity to a role. Chainguard comes with a few built-in roles, including `viewer`, `editor`, and `owner`. You can also create custom role-bindings with `chainctl`. Check out the [`chainctl iam role-bindings` documentation](/chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings/) for more details.
+However, an identity won't automatically have access to the other resources associated with that organization. In order for an identity to be able to interact with a organization's resources — including the containers, repositories, and users associated with the organization — it must be granted the permissions it needs to do so. To do this, you must also tie the identity to a role. Chainguard comes with a few built-in roles, including `viewer`, `editor`, and `owner`. You can also create custom role-bindings with `chainctl`. Check out the [`chainctl iam role-bindings` documentation](/platform/chainctl/chainctl-docs/chainctl_iam_role-bindings/) for more details.
 
 Now that you have a better understanding of what assumable identities are, let's go over how you can set up an assumable identity. There are currently two main ways you can create an identity: with Terraform and with `chainctl`. Let's first go over how to set up an identity with Terraform.
 
@@ -154,7 +154,7 @@ To delete an identity, use the `delete` subcommand.
 chainctl iam identities delete <identity-name>
 ```
 
-For more detailed information on managing identities with `chainctl`, we encourage you to check out the [`chainctl` reference documentation](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities/).
+For more detailed information on managing identities with `chainctl`, we encourage you to check out the [`chainctl` reference documentation](/platform/chainctl/chainctl-docs/chainctl_iam_identities/).
 
 ## Assuming an Identity
 

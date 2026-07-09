@@ -13,6 +13,16 @@ command = "npm run build:preview -- -b $DEPLOY_PRIME_URL"
 HUGO_ENV = "staging"
 HUGO_VERSION = "0.104.3"
 
+# chainctl reference docs moved from /chainguard/chainctl/ to /platform/chainctl/
+# during the IA reorg. These pages are auto-generated, so they can't carry
+# persistent Hugo aliases; this splat keeps the old URLs from 404ing on Netlify.
+# Must precede the catch-all "/*" rule below.
+[[redirects]]
+  from = "/chainguard/chainctl/*"
+  to = "/platform/chainctl/:splat"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/*"
   to = "/:splat/"

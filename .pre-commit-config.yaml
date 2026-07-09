@@ -9,8 +9,14 @@ repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c  # frozen: v6.0.0
     hooks:
+      # content/platform/chainctl/chainctl-docs/ is generated upstream and synced
+      # in verbatim (see .github/actions/integrate-platform-docs). Its cobra-
+      # generated code fences carry trailing whitespace that reappears on every
+      # sync, so exclude it from the whitespace formatters (also unlinted below).
       - id: trailing-whitespace
+        exclude: ^content/platform/chainctl/chainctl-docs/
       - id: end-of-file-fixer
+        exclude: ^content/platform/chainctl/chainctl-docs/
       - id: check-yaml
       - id: check-added-large-files
         args: ['--maxkb=1000']
@@ -108,3 +114,9 @@ repos:
     rev: 534166213006ec869b773b7ed8c6ebeaad1165d0  # frozen: v0.23.0
     hooks:
       - id: markdownlint-cli2
+        # content/platform/chainctl/chainctl-docs/ is generated upstream (cobra
+        # doc generator, see chainguard-dev/mono docs/chainctl-docs) and synced
+        # in verbatim by .github/actions/integrate-platform-docs. It carries
+        # generator-inherent violations (hard tabs, unlabeled code fences) that
+        # any local fix would lose on the next sync, so it is not linted here.
+        exclude: ^content/platform/chainctl/chainctl-docs/

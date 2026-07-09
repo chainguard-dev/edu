@@ -1,0 +1,55 @@
+---
+date: 2026-07-01T03:32:22Z
+title: "chainctl starter request-access"
+slug: chainctl_starter_request-access
+url: /platform/chainctl/chainctl-docs/chainctl_starter_request-access/
+draft: false
+tags: ["chainctl", "Reference", "Product"]
+images: []
+type: "article"
+toc: true
+---
+## chainctl starter request-access
+
+Request access to a catalog starter organization.
+
+### Synopsis
+
+Request access to an existing catalog starter organization.
+
+If a catalog starter organization for your email domain already exists, this
+command sends an access request to the organization's owners. They can
+choose whether to invite you; if they do, you will receive an email with
+instructions to join.
+
+You must be authenticated as a Chainguard identity (e.g. via 'chainctl auth
+login') before running this command. The candidate organization is derived
+from the email domain on your authenticated session.
+
+For privacy, this command intentionally returns the same response whether or
+not a matching organization exists. If your domain has no associated starter
+organization, no request is sent and no error is reported.
+
+```
+chainctl starter request-access [flags]
+```
+
+### Options inherited from parent commands
+
+```
+      --api string         The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
+      --audience string    The Chainguard token audience to request. (default "https://console-api.enforce.dev")
+      --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
+      --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
+      --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
+      --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
+      --log-level string   Set the log level (debug, info) (default "ERROR")
+  -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
+  -v, --v int              Set the log verbosity level.
+```
+
+### SEE ALSO
+
+* [chainctl starter](/platform/chainctl/chainctl-docs/chainctl_starter/)	 - Manage catalog starter organizations
+
