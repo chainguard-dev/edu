@@ -11,6 +11,7 @@ images: []
 menu:
   docs:
     parent: "agent-skills"
+    identifier: "Agent Skills Overview"
 toc: true
 weight: 001
 ---
