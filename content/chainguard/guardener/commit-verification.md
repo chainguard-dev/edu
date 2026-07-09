@@ -1,7 +1,7 @@
 ---
-title: "The Guardener Commit Verification"
+title: "Chainguard Guardener Commit Verification"
 linktitle: "Commit Verification"
-description: "Configure The Guardener to verify that every commit in a pull request is cryptographically signed by an authorized signer."
+description: "Configure Chainguard Guardener to verify that every commit in a pull request is cryptographically signed by an authorized signer."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
 lastmod: 2026-07-08T00:00:00+00:00

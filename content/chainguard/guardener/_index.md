@@ -1,18 +1,18 @@
 ---
-title: "The Guardener"
-linktitle: "The Guardener"
-description: "The Guardener is Chainguard's GitHub automation app — a single, hardened bot that helps secure and maintain your repositories."
+title: "Chainguard Guardener"
+linktitle: "Chainguard Guardener"
+description: "Chainguard Guardener is a GitHub automation app — a single, hardened bot that helps secure and maintain your repositories."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
 lastmod: 2026-07-08T00:00:00+00:00
 draft: false
 images: []
-weight: 015
+weight: 025
 ---
 
-The Guardener is Chainguard's GitHub automation app: a single, hardened bot that helps secure and maintain your repositories. Rather than adding a separate integration for every task, The Guardener provides a growing suite of capabilities that you opt into independently, per repository, through configuration files committed to your codebase.
+Chainguard Guardener is a GitHub automation app: a single, hardened bot that helps secure and maintain your repositories. Rather than adding a separate integration for every task, the Guardener provides a growing suite of capabilities that you opt into independently, per repository, through configuration files committed to your codebase.
 
-{{< beta feature="The Guardener" access="organizations that have installed and linked The Guardener GitHub App" >}}
+{{< beta feature="Chainguard Guardener" access="organizations that have installed and linked the Chainguard Guardener GitHub App" >}}
 
 The Guardener's capabilities include:
 
@@ -31,7 +31,7 @@ Additional capabilities will be added over time, each with its own opt-in config
 
 ## How it works
 
-Once installed and linked, The Guardener listens for events on your repositories (such as opened pull requests) and reads its configuration from the `.chainguard/` directory in each repository. Each capability is disabled until you add and enable its configuration file, so installing the app has no effect on a repository until you opt in.
+Once installed and linked, the Guardener listens for events on your repositories (such as opened pull requests) and reads its configuration from the `.chainguard/` directory in each repository. Each capability is disabled until you add and enable its configuration file, so installing the app has no effect on a repository until you opt in.
 
 Because configuration lives in your repository, it is reviewed, versioned, and audited like any other code change.
 
