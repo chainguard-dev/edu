@@ -1,7 +1,7 @@
 ---
-title: "Chainguard Guardener Actions Security"
+title: "The Guardener Actions Security"
 linktitle: "Actions Security"
-description: "Configure Chainguard Guardener to recommend and migrate your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents."
+description: "Configure The Guardener to recommend and migrate your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
 lastmod: 2026-07-08T00:00:00+00:00
@@ -32,13 +32,13 @@ Add a `.chainguard/actions.yaml` file to your repository:
 enabled: true
 ```
 
-With just `enabled: true`, Chainguard Guardener posts non-blocking recommendation comments on pull requests that touch your workflows. It does not open pull requests of its own.
+With just `enabled: true`, The Guardener posts non-blocking recommendation comments on pull requests that touch your workflows. It does not open pull requests of its own.
 
-![A Chainguard Guardener pull request review comment suggesting a SHA-pinned action, with the one-click suggestion block.](pr-review.png)
+![A The Guardener pull request review comment suggesting a SHA-pinned action, with the one-click suggestion block.](pr-review.png)
 
 ## Enable automated migration pull requests
 
-To have Chainguard Guardener periodically open and maintain a pull request that migrates your workflows, enable the `migrate` block:
+To have The Guardener periodically open and maintain a pull request that migrates your workflows, enable the `migrate` block:
 
 ```yaml
 enabled: true
@@ -47,9 +47,9 @@ migrate:
   period: "168h"
 ```
 
-Chainguard Guardener opens (and keeps updated) a single migration pull request on the cadence you set with `period`.
+The Guardener opens (and keeps updated) a single migration pull request on the cadence you set with `period`.
 
-![A Chainguard Guardener automated migration pull request updating multiple workflow files to SHA-pinned actions.](migrate-pr.png)
+![A The Guardener automated migration pull request updating multiple workflow files to SHA-pinned actions.](migrate-pr.png)
 
 ## Exclude files and actions
 
