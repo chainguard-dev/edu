@@ -25,12 +25,12 @@ Before getting started, you'll need the following:
 
 * Access to Chainguard's Custom Assembly tool, which is available to any organization with access to Production Chainguard Containers.
 * Permissions in your Chainguard organization to use Custom Assembly.
-  * Review the [Custom Assembly Permissions Requirements](https://edu.chainguard.dev/chainguard/chainguard-images/features/ca-docs/custom-assembly/#custom-assembly-permissions-requirements) for more information
+    * Review the [Custom Assembly Permissions Requirements](https://edu.chainguard.dev/chainguard/chainguard-images/features/ca-docs/custom-assembly/#custom-assembly-permissions-requirements) for more information
 * [`chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) installed and configured.
 * One or more PEM-encoded certificate files that you want to add to your container.
-  * Each certificate must be a PEM-encoded string of an x509v3 certificate.
-  * Private keys must not be passed as a certificate, and will be rejected.
-  * The total size of all inlined certificates must not exceed 50 KB. Please reach out to your account team if there are any issues with this limit.
+    * Each certificate must be a PEM-encoded string of an x509v3 certificate.
+    * Private keys must not be passed as a certificate, and will be rejected.
+    * The total size of all inlined certificates must not exceed 50 KB. Please reach out to your account team if there are any issues with this limit.
 
 Additionally, be aware of the following limitations when adding custom certificates:
 

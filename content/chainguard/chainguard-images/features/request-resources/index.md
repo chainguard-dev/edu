@@ -36,14 +36,14 @@ To begin, navigate to the [**Requests** section of the Chainguard Console](https
 Each of these tabs contains a table with the following columns:
 
 * A column at the far left where you can upvote requests by clicking the upward-pointing arrow.
-  * Click the arrow again to remove an upvote.
+    * Click the arrow again to remove an upvote.
 * The **Name** of the resource requested.
 * The request's **Status**. This can be one of the following:
-  * **Future**
-  * **In progress**
-  * **Paused**
-  * **Reviewing**
-  * **Won't build**
+    * **Future**
+    * **In progress**
+    * **Paused**
+    * **Reviewing**
+    * **Won't build**
 * If the original requester included them, **Project Details** that describe the resource being requested
 
 Additionally, the **Community requests** tab includes a **Demand** column, showing what demand percentile the request falls into. Also, the **Active builds** tab includes an **Estimated delivery** column that shows when Chainguard expects the resource to be available.
@@ -77,7 +77,7 @@ The Chainguard team will then review the request and prioritize it based on dema
 There are a few limitations you should consider before submitting a new request:
 
 * Chainguard will not build resources based on proprietary code.
-  * Note that some projects distributed under open source licenses have strict terms that prevent Chainguard from building artifacts based on them.
+    * Note that some projects distributed under open source licenses have strict terms that prevent Chainguard from building artifacts based on them.
 * If a project is no longer receiving updates or releases, Chainguard typically won't build it since there aren't reliable security fixes upstream.
 * There are cases where Chainguard cannot fulfill a FIPS request and be FIPS compliant. In such cases the standard variant can often still be built but the FIPS variant will get marked as **Won't build**.
 

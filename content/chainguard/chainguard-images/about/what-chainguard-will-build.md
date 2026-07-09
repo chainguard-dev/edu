@@ -22,11 +22,11 @@ If you would like a Chainguard Container that is not yet available, or inquire a
 * The source code is freely available in a Source Code Manager (SCM) system such as GitHub or GitLab.
 * The project is licensed under a FOSS license. Non-FOSS licenses are reviewed on a case-by-case basis.
 * The project is actively maintained with supported versions. That is:
-  * There are recent commits and releases.
-  * The project has not reached its end of life (EOL).
-  * The project has maintained active versions.
-  * The project does not rely on outdated or unmaintained dependencies; for example, unsupported versions of Python, OpenSSL etc.
-  * There is usually a lead or owner.
+    * There are recent commits and releases.
+    * The project has not reached its end of life (EOL).
+    * The project has maintained active versions.
+    * The project does not rely on outdated or unmaintained dependencies; for example, unsupported versions of Python, OpenSSL etc.
+    * There is usually a lead or owner.
 * There are no technical blockers preventing us from building the container image as we’ve determined as part of an initial analysis process.
 
 If the software project or container image you have in mind meets the above criteria, please [contact us](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) for more information.

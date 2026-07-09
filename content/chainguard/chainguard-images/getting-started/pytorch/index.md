@@ -78,9 +78,9 @@ In this section, we'll download prepared data to your environment, download a mo
 
 First check that `curl` and `tar` are available on your system, and install them if necessary. [Docker Engine](https://docs.docker.com/engine/install/) will also need to be installed.
 
-Run the following to download necessary files and train the model. If there is an issue with the command, see the [manual step-by-step instructions](#a-namemanuala-manual-steps-to-fine-tune-the-model) below.
+Run the following to download necessary files and train the model. If there is an issue with the command, see the [manual step-by-step instructions](#manual-steps-to-fine-tune-the-model) below.
 
-Note: if you're following this tutorial in an environment without access to GPU, remove the ` --gpus all \` line below before running.
+Note: if you're following this tutorial in an environment without access to GPU, remove the `--gpus all \` line below before running.
 
 ```bash
 mkdir image_classification && cd image_classification
@@ -125,7 +125,7 @@ In the below steps, the prompt of your host machine will be denoted as `(host) $
     (host) $ cd pytorch-getting-started
     ```
 
-3. Run the below command to start an interactive session in a running `pytorch` Chainguard Container with root access. If your environment doesn't have access to GPU, remove the ` --gpus all \` line before running. Note the volume option, which creates a volume on the container based on the current working directory, allowing access to our training script and data inside the container. Remember that this guide assumes you are training the model in a controlled development environment—do not use root access in any production scenario.
+3. Run the below command to start an interactive session in a running `pytorch` Chainguard Container with root access. If your environment doesn't have access to GPU, remove the `--gpus all \` line before running. Note the volume option, which creates a volume on the container based on the current working directory, allowing access to our training script and data inside the container. Remember that this guide assumes you are training the model in a controlled development environment—do not use root access in any production scenario.
 
     ```bash
     (host) $ docker run --user root --rm -it \

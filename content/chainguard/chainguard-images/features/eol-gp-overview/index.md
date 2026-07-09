@@ -62,20 +62,20 @@ After a grace period ends, your organization will retain access to the last succ
 To maximize the value of a grace period, we recommend the following:
 
 * **Before the grace period starts**:
-  * Identify all dependent applications and services using the container image
-  * Create an upgrade plan with realistic timelines
-  * Document any known issues or compatibility requirements
-  * Set up monitoring for the container images
+    * Identify all dependent applications and services using the container image
+    * Create an upgrade plan with realistic timelines
+    * Document any known issues or compatibility requirements
+    * Set up monitoring for the container images
 * **During the grace period**:
-  * Test newer versions of the image in a development environment
-  * Track and resolve any compatibility issues
-  * Begin deploying updated versions to non-critical environments
-  * Monitor for any build failures or dependency conflicts
+    * Test newer versions of the image in a development environment
+    * Track and resolve any compatibility issues
+    * Begin deploying updated versions to non-critical environments
+    * Monitor for any build failures or dependency conflicts
 * **Before expiration**:
-  * Complete all necessary testing of the new version
-  * Schedule the production upgrade
-  * Document any configuration changes needed
-  * Prepare rollback procedures if needed
+    * Complete all necessary testing of the new version
+    * Schedule the production upgrade
+    * Document any configuration changes needed
+    * Prepare rollback procedures if needed
 
 ## Using the EOL Grace Period API
 
@@ -149,17 +149,17 @@ This example output is derived from an API call made on a `node` image repositor
 * `id`: this is the UID of the specific image this block of data represents
 * `name`: the given container image's tag
 * `tagStatus`: whether the tag can support a grace period, with the following possible statuses:
-  * `TAG_ACTIVE`: the tag is continuing to be built, but is not in a grace period
-  * `TAG_IN_GRACE`: tag is in a grace period
-  * `TAG_INACTIVE`: the tag is not in a grace period and no longer being built
+    * `TAG_ACTIVE`: the tag is continuing to be built, but is not in a grace period
+    * `TAG_IN_GRACE`: tag is in a grace period
+    * `TAG_INACTIVE`: the tag is not in a grace period and no longer being built
 * `mainPackageVersion`: this section shows some information about the main package itself:
-  * `eolDate`: the date on which the image's main package reached EOL
-  * `lts`: the date on which this version of the main package entered its long-term support period
-  * `releaseDate`: the date on which the main package's version was released
+    * `eolDate`: the date on which the image's main package reached EOL
+    * `lts`: the date on which this version of the main package entered its long-term support period
+    * `releaseDate`: the date on which the main package's version was released
 * `graceStatus`: the status of whether or not the given container image is in an active grace period
-  * `GRACE_ACTIVE`, as shown in this example, indicates the image is in an active grace period
-  * any images that are not currently in a grace period but may be in the future will show `GRACE_ELIGIBLE`
-  * any container images that will never enter a grace period will show `GRACE_NOT_ELIGIBLE`
+    * `GRACE_ACTIVE`, as shown in this example, indicates the image is in an active grace period
+    * any images that are not currently in a grace period but may be in the future will show `GRACE_ELIGIBLE`
+    * any container images that will never enter a grace period will show `GRACE_NOT_ELIGIBLE`
 * `gracePeriodExpiryDate`: the date on which the image's grace period will end
 
 Of course, you won't use `curl` to interact with the Chainguard API in most scenarios. Instead, you'll likely have some kind of application that can ingest and process this EOL data. For example, your organization could create a Slackbot that fetches data from the Chainguard EOL grace period API and posts messages about EOL tags approaching their grace period expiration to a specified Slack channel. Chainguard's [API documentation](/chainguard/api/spec/) includes request samples for many languages and platforms, including Go, Python, and Java.

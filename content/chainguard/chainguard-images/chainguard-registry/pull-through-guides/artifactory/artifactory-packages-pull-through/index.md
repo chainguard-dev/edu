@@ -190,7 +190,7 @@ Enter the following details for the two remote repositories:
 
 * **Repository Key** — This is the name used to identify your remote repository. Again, you can choose whatever names you like here but this guide's examples use the names `cg-chainguard` and `cg-extras`.
 * **URL** — This must be set to `https://virtualapk.cgr.dev/<ORGANIZATION-ID>/chainguard` for the `chainguard` repository and `https://virtualapk.cgr.dev/<ORGANIZATION-ID>/extra-packages` for the `extra-packages` repository.
-  * For both of these URLs, you need to replace the `<ORGANIZATION-ID>` placeholder with your Chainguard organization's UID. You can find this by running the `chainctl iam organizations list -o table`; the UID is the value in your organization's `ID` column. Alternatively, you can find it by checking the **Settings** ⇒ **General** page in the [Chainguard Console](https://console.chainguard.dev).
+    * For both of these URLs, you need to replace the `<ORGANIZATION-ID>` placeholder with your Chainguard organization's UID. You can find this by running the `chainctl iam organizations list -o table`; the UID is the value in your organization's `ID` column. Alternatively, you can find it by checking the **Settings** ⇒ **General** page in the [Chainguard Console](https://console.chainguard.dev).
 
 You **do not** need to set any values for the **User Name** or **Password / Access Token** fields, as the public repositories do not require authentication.
 
@@ -256,7 +256,7 @@ If you run into issues when trying to pull from Chainguard's package repositorie
 * You may run into issues if your Artifactory username is an email address; specifically, the `@` sign can lead to errors. Be sure that you're using a user profile with a name that only contains letters and numbers. If you must use a profile with an email address for a name, try percent-encoding the `@` sign by replacing it with `%40`.
 * Ensure that all [network requirements](/chainguard/chainguard-images/network-requirements/) are met.
 * When configuring a remote Artifactory repository, ensure that the **URL** field is set correctly.
-  * If necessary, ensure that you've set the correct UID for your organization in the URL field.
+    * If necessary, ensure that you've set the correct UID for your organization in the URL field.
 * It may help to [clear the Artifactory cache](https://jfrog.com/help/r/artifactory-cleanup-best-practices/clearing-an-oversized-cache).
 * It could be that your Artifactory repository was misconfigured. In this case, create and configure a new Remote Artifactory repository to test with.
 * If your output returns `package mentioned in index not found`, it usually means Artifactory or a CDN is normalizing or rewriting APK URLs (often by stripping query strings, collapsing path segments, or altering tokens). To prevent this, ensure that Artifactory's **Disable URL Normalization** option is checked in order to preserve exact filenames and tokens.
