@@ -35,7 +35,6 @@ The following is an instructional guide for Chainguard users that are looking fo
 
 You can use these Helm charts with Chainguard FIPS container images, but you will need to adjust the charts as they use the non-FIPS images by default. We build a single chart per application and validate that both FIPS and non-FIPS Chainguard Images work with it.
 
-
 ## Configuration Requirements
 
 If you are pulling container images directly from Chainguard, then you must set a `global.org` value. You don't need this if you are pulling from your own internal registry.
@@ -71,16 +70,15 @@ volumePermissions:
     digest: sha256:... # Use specific digest instead of tag
 ```
 
-
 ## Authentication
 
 You will need to authenticate to pull charts. These instructions explain how to use charts and images with the `cgr.dev` repository. If you have mirrored or copied the charts and images to an organization-specific registry, you will need to adapt these instructions to authenticate to your registry, as appropriate.
 
 This section presents multiple authentication methods:
+
 - Use Helm values with `global.imagePullSecrets`
 - Deploy a Chainguard Helm chart using a Kubernetes pull secret
 - Use cluster node-scoped registry permissions
-
 
 ### Use Helm values with `global.imagePullSecrets`
 
@@ -91,7 +89,6 @@ global:
   imagePullSecrets:
     - name: chainguard-pull-secret
 ```
-
 
 ### Deploy a Chainguard Helm chart using a Kubernetes pull secret
 
@@ -112,7 +109,7 @@ Find the username and password that are contained in the pull token, as in this 
 
 ```sh
 chainctl auth configure-docker --pull-token --save --ttl=24h
-                                    
+
   ✔ Selected folder chainguard.edu.
 
 To use this pull token in another environment, run this command:
@@ -131,7 +128,7 @@ HELMUSER=45a0c61ea6fd977f050c5fb9ac06a69eed764595/095b0c7ea9d68679
 HELMPASS=eyJhbGciOiJSUzI1NiJ9.eyJhdWQ... # Token truncated
 ```
 
-Create your Kubernetes secret using the variables you just created.	
+Create your Kubernetes secret using the variables you just created.
 
 ```sh
 kubectl create secret docker-registry chainguard-pull-secret \
@@ -156,7 +153,6 @@ helm install rabbitmq oci://cgr.dev/$ORGANIZATION/iamguarded-charts/rabbitmq \
   --set "global.org=$ORGANIZATION" \
   --set "global.imagePullSecrets[0].name=chainguard-pull-secret"
 ```
-
 
 When the install is successful, it returns a confirmation message, like this:
 
@@ -202,7 +198,6 @@ WARNING: There are "resources" sections in the chart not set. Using "resourcesPr
 +info https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
 ```
 
-
 ### Use cluster node-scoped registry permissions
 
 If you manage access and permissions at cluster-wide and node-specific levels, these are some best practices to consider.
@@ -212,13 +207,12 @@ If you manage access and permissions at cluster-wide and node-specific levels, t
 **Pin to Digest:** While charts follow the same tagging scheme as Chainguard images, always pin to a specific chart **digest** to prevent unexpected updates:
 
 ```sh
-helm install rabbitmq \ 
+helm install rabbitmq \
 oci://cgr.dev/$ORGANIZATION/iamguarded-charts/rabbitmq@sha256:DIGEST \
      --set "global.org=$ORGANIZATION"
 ```
 
 **Review Default Values:** The chart provides security-minded defaults that are sensible but may not suit all use cases. Review the chart's `values.yaml` for the full range of configuration options and adjust as needed.
-
 
 ## Helm chart usage examples
 
@@ -276,7 +270,7 @@ helm install rabbitmq oci://cgr.dev/$ORGANIZATION/iamguarded-charts/rabbitmq \
   --set "persistence.storageClass=gp3-automode"
 ```
 
-## Troubleshooting 
+## Troubleshooting
 
 To check the Helm configuration, you can run `helm install` with `--dry-run` flag. This will output the generated Kubernetes YAML. Double check the values for the image and `imagePullSecrets` to ensure they point to the correct registry and authentication is in place.
 

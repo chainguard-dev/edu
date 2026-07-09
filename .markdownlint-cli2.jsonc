@@ -6,7 +6,11 @@
     "MD026": false,
     "MD033": false,
     "MD034": false,
-    "MD040": false
+    "MD040": false,
+    // Table style rules disabled: they enforce cosmetic pipe alignment/style
+    // that is high-churn and not autofixable, without improving rendering.
+    "MD055": false,
+    "MD060": false
   },
   "ignores": [
     "node_modules",
