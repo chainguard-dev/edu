@@ -6,6 +6,9 @@
     "MD026": false,
     "MD033": false,
     "MD034": false,
+    "MD036": false,
+    // Nested list items use 4-space indentation in this repo's docs.
+    "MD007": { "indent": 4 },
     "MD040": false,
     // Table style rules disabled: they enforce cosmetic pipe alignment/style
     // that is high-churn and not autofixable, without improving rendering.

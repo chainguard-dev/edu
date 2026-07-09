@@ -22,7 +22,7 @@ system. This guide explains how to access (download) Chainguard library artifact
 
 ### Prerequisites
 
-- Ensure you have access to Chainguard Libraries. 
+- Ensure you have access to Chainguard Libraries.
     - If you are not a Chainguard user yet, a new Chainguard account must be
 created and you must [add an entitlement to Chainguard Libraries](/chainguard/libraries/access/#manage-library-entitlements).
 - Confirm the name of your organization so you can use it with the `--parent`
@@ -31,13 +31,13 @@ parameter to specify your organization when running commands with `chainctl`.
 ### Direct access vs. artifact manager
 
 There are two approaches to access: Using an artifact manager or
-direct access. 
+direct access.
 
 **Artifact manager**
 
 If your organization uses an artifact manager such as Cloudsmith, JFrog Artifactory, or Sonatype Nexus, you can set up and configure credentials once per language ecosystem. Then, all projects and developers automatically inherit
 the configuration. This option is recommended for organizations with multiple
-teams, and provides centralized access controls and consistent uptime. 
+teams, and provides centralized access controls and consistent uptime.
 
 **Direct access**
 
@@ -47,11 +47,11 @@ allow for global configuration. It requires configuration per project and
 workstation, which creates more overhead as you scale across teams and projects.
 
 Both approaches require pull tokens for authentication; see [Pull token
-characteristics and use](#pull-token-characteristics-and-use) for more information. 
+characteristics and use](#pull-token-characteristics-and-use) for more information.
 
 > NOTE: For Python users, the [Chainguard keyring
 provider](#python-keyring-provider) uses short-lived credentials and is the
-preferred method where your environment supports it. 
+preferred method where your environment supports it.
 
 ### Initial authentication
 
@@ -77,7 +77,8 @@ Valid! Id: 8a4141a........7d9904d98c
 ## Creating pull tokens for libraries
 
 Pull tokens authenticate requests to download library artifacts from Chainguard. You can create the pull tokens:
-- With [the chainctl command](#creating-pull-tokens-with-chainctl), or 
+
+- With [the chainctl command](#creating-pull-tokens-with-chainctl), or
 - [Using the Chainguard
   console](#creating-pull-tokens-with-the-chainguard-console).
 
@@ -100,14 +101,14 @@ command:
 chainctl auth pull-token --repository=java --parent=example --ttl=8670h
 ```
 
-* `--repository=java`: retrieve the token for use with [Chainguard Libraries for
+- `--repository=java`: retrieve the token for use with [Chainguard Libraries for
   Java](/chainguard/libraries/java/overview/). Use `python` for a token to use
   [Chainguard Libraries for Python](/chainguard/libraries/python/overview/) and
   `javascript` for a token to use [Chainguard Libraries for
   JavaScript](/chainguard/libraries/javascript/overview/).
-* `--parent=example`: specify the parent organization for your account as
+- `--parent=example`: specify the parent organization for your account as
   provided when requesting access to Chainguard Libraries and replace `example`.
-* `--ttl=8670h`: set the duration for the validity of the token, defaults to
+- `--ttl=8670h`: set the duration for the validity of the token, defaults to
   `720h` (equivalent to 30 days), maximum valid value is `8760h` (equivalent to
   365 days), valid unit strings range from nanoseconds to hours and are `ns`,
   `us`, `ms`, `s`, `m`, and `h`.
@@ -171,14 +172,16 @@ for basic authentication. Note that the actual returned values are much longer.
 > your own artifact repository whenever possible.
 
 For artifact manager setup, see the global configuration guides:
-* [Java](/chainguard/libraries/java/global-configuration/)
-* [JavaScript](/chainguard/libraries/javascript/global-configuration/)
-* [Python](/chainguard/libraries/python/global-configuration/)
+
+- [Java](/chainguard/libraries/java/global-configuration/)
+- [JavaScript](/chainguard/libraries/javascript/global-configuration/)
+- [Python](/chainguard/libraries/python/global-configuration/)
 
 For direct access, see the build configuration guides:
-* [Java](/chainguard/libraries/java/build-configuration/)
-* [JavaScript](/chainguard/libraries/javascript/build-configuration/)
-* [Python](/chainguard/libraries/python/build-configuration/)
+
+- [Java](/chainguard/libraries/java/build-configuration/)
+- [JavaScript](/chainguard/libraries/javascript/build-configuration/)
+- [Python](/chainguard/libraries/python/build-configuration/)
 
 <a name="env"></a>
 
@@ -203,6 +206,7 @@ calling `chainctl`:
 ```shell
 eval $(chainctl auth pull-token --output env --repository=java --parent=example)
 ```
+
 Equivalent commands for Python and JavaScript are supported and result in values
 for the `CHAINGUARD_PYTHON_IDENTITY_ID`/`CHAINGUARD_PYTHON_TOKEN` and
 `CHAINGUARD_JAVASCRIPT_IDENTITY_ID`/`CHAINGUARD_JAVASCRIPT_TOKEN` variables.
@@ -217,11 +221,11 @@ Running this command as part of a login script or some other automation allows
 your organization to replace actual username and password values in your build
 tool configuration with environment variable placeholders:
 
-* [Java build tool
+- [Java build tool
   configuration](/chainguard/libraries/java/build-configuration/)
-* [JavaScript build tool
+- [JavaScript build tool
   configuration](/chainguard/libraries/javascript/build-configuration/)
-* [Python build tool
+- [Python build tool
   configuration](/chainguard/libraries/python/build-configuration/)
 
 <a id="netrc"></a>
@@ -270,14 +274,14 @@ Use the credentials for manual testing in a browser or with a script and curl if
 you know the URL for a specific library artifact. Refer to the following
 sections for more details:
 
-* [Technical details and manual testing for Java
+- [Technical details and manual testing for Java
   libraries](/chainguard/libraries/java/overview/#technical-details)
-* [Technical details and manual testing for JavaScript
+- [Technical details and manual testing for JavaScript
   libraries](/chainguard/libraries/javascript/overview/#technical-details)
-* [Technical details and manual testing for Python
+- [Technical details and manual testing for Python
   libraries](/chainguard/libraries/python/overview/#technical-details)
-* [Use environment variables](#env)
-* [.netrc for authentication](#netrc)
+- [Use environment variables](#env)
+- [.netrc for authentication](#netrc)
 
 <a id="python-keyring"></a>
 
@@ -359,30 +363,30 @@ otherwise do not cause any issues and continue to exist until you delete them.
 
 Inspect all pull tokens for your organization in the Chainguard console:
 
-* Use your authentication details to access the console at
+- Use your authentication details to access the console at
   [https://console.chainguard.dev/](https://console.chainguard.dev/).
-* Select **Overview** in the left-hand navigation.
-* Select the **Manage pull tokens** tab.
-  * Alternatively, select **Settings** in the left-hand navigation, and select
+- Select **Overview** in the left-hand navigation.
+- Select the **Manage pull tokens** tab.
+    - Alternatively, select **Settings** in the left-hand navigation, and select
     **Pull Tokens** in the menu on the settings page.
 
 The list includes the following columns:
 
-* **Name** - the name of the pull token, expired pull token are identified by a
+- **Name** - the name of the pull token, expired pull token are identified by a
   red **Expired** warning.
-* **Description** - the description of the pull token
-* **Created** - the date when the pull token was created
-* **Expiration** - string description of the expiration status of the token,
+- **Description** - the description of the pull token
+- **Created** - the date when the pull token was created
+- **Expiration** - string description of the expiration status of the token,
   such as *in 8 months* or *4 days ago*.
-* **Actions** - menu button to perform actions on the pull token, only a Delete
+- **Actions** - menu button to perform actions on the pull token, only a Delete
   action is available.
 
 Use the action to remove a pull token:
 
-* Locate the row of the desired pull token, typically an expired token.
-* Use the menu button in the **Actions** column of the same row and select
+- Locate the row of the desired pull token, typically an expired token.
+- Use the menu button in the **Actions** column of the same row and select
   **Delete**.
-* Confirm the deletion in the dialog by pressing **Delete pull token**.
+- Confirm the deletion in the dialog by pressing **Delete pull token**.
 
 Alternatively use chainctl with the [auth
 pull-token](/chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token/) and
@@ -397,16 +401,16 @@ chainctl auth pull-token list
 
 The displayed list includes the following columns:
 
-* **ID** - the identifying username of the pull token
-* **NAME** - the name of the pull token
-* **DESCRIPTION** - the description of the pull token
-* **ROLES** - the assigned organization and role for the pull token. The value
+- **ID** - the identifying username of the pull token
+- **NAME** - the name of the pull token
+- **DESCRIPTION** - the description of the pull token
+- **ROLES** - the assigned organization and role for the pull token. The value
   shows the name of the organization separate from the role with a colon. Valid
   roles are all pull authorization from for apk packages `apk.pull`, container
   images `registry.pull`, Python libraries `libraries.python.pull`, Java
   libraries `libraries.java.pull`, and JavaScript libraries
   `libraries.javascript.pull` .
-* **EXPIRES** - the number of days until the end of the TTL period. Negative
+- **EXPIRES** - the number of days until the end of the TTL period. Negative
   values indicate expired tokens.
 
 List all pull tokens for Chainguard Libraries for Java that are not yet expired:
@@ -460,7 +464,7 @@ To update the upstream fallback policy on an existing entitlement, rerun the `cr
 
 ### Remove entitlements
 
-You can delete an ecosystem library entitlement for a specific ecosystem from your organization with [`chainctl libraries entitlements delete`](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/): 
+You can delete an ecosystem library entitlement for a specific ecosystem from your organization with [`chainctl libraries entitlements delete`](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/):
 
 ```shell
 chainctl libraries entitlements delete --ecosystem=JAVASCRIPT --parent=example
@@ -496,7 +500,7 @@ You can create, disable, and list library policies using [`chainctl libraries po
 
 ### Create and enable a cooldown policy
 
-When upstream fallback is enabled, users with the Owner role can create and enable a cooldown policy with `chainctl`. The cooldown period provides an additional layer of defense on top of malware and greyware scanning, giving the broader security community time to surface threats that may not be immediately detectable. 
+When upstream fallback is enabled, users with the Owner role can create and enable a cooldown policy with `chainctl`. The cooldown period provides an additional layer of defense on top of malware and greyware scanning, giving the broader security community time to surface threats that may not be immediately detectable.
 
 In the following example, a 10-day cooldown policy is created, then it is enforced on the JavaScript ecosystem:
 
@@ -505,11 +509,11 @@ chainctl libraries policy create --name=js-cooldown --cooldown-days=10
 chainctl libraries policy enable --policy=js-cooldown --ecosystem=JAVASCRIPT --mode=ENFORCE
 ```
 
-The default cooldown period is 7 days. 
+The default cooldown period is 7 days.
 
 #### Preview a cooldown policy
 
-To understand the impact before enforcing a policy, use `--mode=PREVIEW`. In preview mode, installs continue to succeed, but Chainguard records what _would have been blocked_ if the policy were enforced.
+To understand the impact before enforcing a policy, use `--mode=PREVIEW`. In preview mode, installs continue to succeed, but Chainguard records what *would have been blocked* if the policy were enforced.
 
 ### Disable cooldown
 
@@ -534,4 +538,4 @@ To verify which policy is active and its cooldown settings, run the following:
 chainctl libraries policy binding list
 ```
 
-Prior to `chainctl` version 0.2.291, cooldown policies were enabled via the `chainctl entitlements command`. Cooldown policies configured prior to this version of `chainctl` are migrated under the new `chainctl libraries policies` system. 
+Prior to `chainctl` version 0.2.291, cooldown policies were enabled via the `chainctl entitlements command`. Cooldown policies configured prior to this version of `chainctl` are migrated under the new `chainctl libraries policies` system.
