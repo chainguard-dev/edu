@@ -45,6 +45,10 @@ repos:
     rev: v1.7.12
     hooks:
       - id: actionlint
+        # Match the standalone actionlint.yaml workflow's shellcheck settings so
+        # the hook and the workflow agree: fail only on error-severity findings
+        # and skip SC2129 (sequential-redirect style).
+        args: ['-shellcheck=shellcheck --severity=error --exclude=SC2129']
 
   - repo: https://github.com/PyCQA/bandit
     rev: 92ae8b82fb422a639f0ed8d99e96cea769594e08  # frozen: 1.9.4
