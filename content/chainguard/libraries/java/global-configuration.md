@@ -268,8 +268,8 @@ Combine the repositories in a new virtual repository:
 
 1. Click **Create a Repository** and choose the **Virtual** option.
 1. Configure the repository:
-    * **Package type**: Maven
-    * **Repository Key**: `java-all`
+  * **Package type**: Maven
+  * **Repository Key**: `java-all`
 1. Scroll down to the **Repositories** section.
 1. Add the `java-chainguard` repository. If you are using the remediated repository, add the `java-chainguard-remediated` repository and ensure it is the first in the displayed list. 
 1. Click **Create Virtual Repository**.
