@@ -314,7 +314,7 @@ The checksums returned by the commands must match.
 
 If the checksum from the Artifactory remote repository differs from the direct fetch, or if the Artifactory fetch fails entirely, review the following before proceeding:
 
-* URL: The remote repository URL must be set to `https://libraries.cgr.dev/java/`. 
+* URL: The remote repository URL must be set to `https://libraries.cgr.dev/java/`.
 * Credentials: You may need to regenerate your pull token with `chainctl auth pull-token --repository=java` and update the Artifactory repository credentials. Expired tokens fail silently.
 * Advanced configuration: Ensure all recommended Advanced settings from the [remote repository configuration steps](#initial-configuration-2) have been applied.
 
@@ -339,7 +339,7 @@ for accessing the repository:
    replaced with the name of your organization.
 
 Use the URL of the virtual repository in the [build
-configuration](/chainguard/libraries/java/build-configuration/) and build a 
+configuration](/chainguard/libraries/java/build-configuration/) and build a
 first test project. In a working setup the chainguard remote repository contains 
 all libraries retrieved from Chainguard.
 
