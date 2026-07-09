@@ -6,7 +6,7 @@ type: "article"
 date: 2026-07-08T00:00:00+00:00
 lastmod: 2026-07-08T00:00:00+00:00
 draft: false
-tags: ["Guardener", "GitHub", "Getting Started"]
+tags: ["GitHub", "Getting Started"]
 images: []
 menu:
   docs:
@@ -39,13 +39,11 @@ The `chainctl guardener` commands identify your Chainguard organization by its g
 
 Install The Guardener GitHub App on the GitHub organization whose repositories you want The Guardener to manage.
 
-1. Go to the [The Guardener GitHub App page](https://github.com/apps/chainguard-guardener).
+1. Go to the [Guardener GitHub App page](https://github.com/apps/chainguard-guardener).
 2. Select **Install** (or **Configure** if it is already installed on another account).
 3. Choose the GitHub organization to install it on.
 4. Choose which repositories The Guardener can access. You can grant access to **All repositories** or select specific repositories. You can change this selection later in your GitHub organization settings.
 5. Review the requested permissions and confirm the installation.
-
-<!-- SCREENSHOT: GitHub App installation screen showing repository selection (All repositories vs. Only select repositories). -->
 
 ### Permissions The Guardener requests
 
@@ -78,10 +76,6 @@ A browser window opens to authorize with GitHub. This step proves that you own t
 
 > **Note**: Linking requires that you are an owner of the Chainguard group (specifically, that you hold the `guardener.association.manage` capability) **and** an owner of the GitHub organization.
 
-<!-- SCREENSHOT: Browser GitHub authorization prompt shown during `chainctl guardener github link`. -->
-
-<!-- EXAMPLE: Paste the terminal output of a successful `chainctl guardener github link` run here. -->
-
 If you need to link your own user account rather than an organization, pass your GitHub username to `--github-org`.
 
 ## Step 3: Verify the link
@@ -90,8 +84,6 @@ After linking, confirm that The Guardener is active on your repositories:
 
 - Open a repository that The Guardener can access and confirm The Guardener GitHub App appears under the repository's or organization's installed GitHub Apps.
 - Add your first configuration file (for example, `.chainguard/actions.yaml`) as described in [Configuration](/chainguard/guardener/configuration/), then open a pull request to see The Guardener respond.
-
-<!-- SCREENSHOT: A pull request showing a The Guardener check run and/or review comment. -->
 
 ## Unlinking a GitHub organization
 

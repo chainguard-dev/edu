@@ -35,8 +35,6 @@ Once installed and linked, The Guardener listens for events on your repositories
 
 Because configuration lives in your repository, it is reviewed, versioned, and audited like any other code change.
 
-<!-- SCREENSHOT: High-level diagram showing The Guardener connecting a Chainguard organization to a GitHub organization, reading .chainguard/ config, and acting on pull requests. -->
-
 ## Support
 
 For questions or feedback, contact your Chainguard account team or email [support@chainguard.dev](mailto:support@chainguard.dev).

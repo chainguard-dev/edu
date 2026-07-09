@@ -6,7 +6,7 @@ type: "article"
 date: 2026-07-08T00:00:00+00:00
 lastmod: 2026-07-08T00:00:00+00:00
 draft: false
-tags: ["Guardener", "GitHub", "Automation"]
+tags: ["GitHub", "Automation"]
 images: []
 menu:
   docs:
@@ -34,8 +34,6 @@ enabled: true
 
 With just `enabled: true`, The Guardener posts non-blocking recommendation comments on pull requests that touch your workflows. It does not open pull requests of its own.
 
-![A The Guardener pull request review comment suggesting a SHA-pinned action, with the one-click suggestion block.](pr-review.png)
-
 ## Enable automated migration pull requests
 
 To have The Guardener periodically open and maintain a pull request that migrates your workflows, enable the `migrate` block:
@@ -48,8 +46,6 @@ migrate:
 ```
 
 The Guardener opens (and keeps updated) a single migration pull request on the cadence you set with `period`.
-
-![A The Guardener automated migration pull request updating multiple workflow files to SHA-pinned actions.](migrate-pr.png)
 
 ## Exclude files and actions
 

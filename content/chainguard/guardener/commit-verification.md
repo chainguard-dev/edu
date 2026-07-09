@@ -6,7 +6,7 @@ type: "article"
 date: 2026-07-08T00:00:00+00:00
 lastmod: 2026-07-08T00:00:00+00:00
 draft: false
-tags: ["Guardener", "GitHub", "Security"]
+tags: ["GitHub", "Security"]
 images: []
 menu:
   docs:
@@ -17,7 +17,7 @@ toc: true
 
 The Commit Verification feature verifies that every commit in a pull request is cryptographically signed by an authorized signer, according to a policy you control. This ensures that changes to your codebase come from identities you trust, and it supports both keyless (Sigstore) signatures and static keys such as GPG.
 
-Commit signatures are verified using [gitsign](https://github.com/sigstore/gitsign) and [Sigstore](/open-source/sigstore/).
+Keyless commit signatures are verified using [gitsign](https://github.com/sigstore/gitsign) and [Sigstore](/open-source/sigstore/). Static key authorities (such as GPG) are verified directly against the key material you supply, without gitsign.
 
 ## Enable Commit Verification
 
@@ -36,8 +36,6 @@ spec:
 ```
 
 The example above accepts commits signed with keyless Sigstore signatures where the signer's identity is an `@example.com` address authenticated through Google.
-
-<!-- SCREENSHOT: A The Guardener check run on a pull request reporting commit signature verification results. -->
 
 ## Keyless (Sigstore) authorities
 
