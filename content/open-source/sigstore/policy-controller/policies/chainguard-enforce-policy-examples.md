@@ -1,6 +1,6 @@
 ---
 title: "Example Policies"
-aliases: 
+aliases:
 - /chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-policy-examples/
 type: "article"
 description: "Policy recipes"
@@ -16,7 +16,7 @@ weight: 075
 toc: true
 ---
 
-The [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) allows users to create their own security policies that they can be enforced on Kubernetes clusters. Here are a few example policies to help you get started. 
+The [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) allows users to create their own security policies that they can be enforced on Kubernetes clusters. Here are a few example policies to help you get started.
 
 You may also review the [Sigstore Policy Controller documentation](https://docs.sigstore.dev/policy-controller/overview). In particular, we encourage you to review the Policy Controller documentation relating to the [Admission of images](https://docs.sigstore.dev/policy-controller/overview/#admission-of-images) to learn how to admit images through the cluster image policy.
 
@@ -180,6 +180,7 @@ spec:
     - static:
         action: pass
 ```
+
 ## Enforce that cert-manager is signed
 
 ```
@@ -270,4 +271,3 @@ spec:
           7HTEVN+BkNI4D1+66ufzn1eGTrbaC9dceJqCAkhp37vMxhWOrGufpBUokg==
           -----END PUBLIC KEY-----
 ```
-

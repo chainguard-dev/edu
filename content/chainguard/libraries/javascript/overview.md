@@ -34,7 +34,7 @@ Repository](/chainguard/libraries/chainguard-repository/), which provides a
 single endpoint for package retrieval and supports configurable security
 policies for both Chainguard-built and upstream packages.
 
-### Background
+## Background
 
 The main public repository for JavaScript packages is the [npm
 Registry](https://npmjs.com/). Launched in 2010, the npm Registry has grown to
@@ -49,7 +49,7 @@ It is the default repository in all commonly used build tools from the
 JavaScript community, including [npm](https://www.npmjs.com/),
 [pnpm](https://pnpm.io/), [Yarn](https://classic.yarnpkg.com/), and [Yarn
 Berry](https://yarnpkg.com/), and uses the npm repository format. Chainguard
-Libraries for JavaScript covers many of the open source artifacts found in the 
+Libraries for JavaScript covers many of the open source artifacts found in the
 npm Registry.
 
 You can use Chainguard Libraries for Javascript with [your repository
@@ -93,16 +93,17 @@ Configure this endpoint [globally through a repository manager](/chainguard/libr
 
 ## Updating lockfile hashes
 
-Existing JavaScript lockfiles usually contain upstream integrity hashes. Because Chainguard rebuilds packages from verified source, those hashes must be updated before reinstalling. Use `chainctl libraries update-hashes` to update them in place. Learn more in [Build configuration](/chainguard/libraries/javascript/build-configuration/#updating-lockfile-hashes/). 
+Existing JavaScript lockfiles usually contain upstream integrity hashes. Because Chainguard rebuilds packages from verified source, those hashes must be updated before reinstalling. Use `chainctl libraries update-hashes` to update them in place. Learn more in [Build configuration](/chainguard/libraries/javascript/build-configuration/#updating-lockfile-hashes/).
 
 If you install through a repository manager, see [Global configuration](/chainguard/libraries/javascript/global-configuration/#updating-lockfile-hashes/).
 
 ## Provenance and attestations
-Chainguard Libraries for JavaScript include SLSA provenance with signed attestations. 
-These attestations cryptographically link each package to the Chainguard 
-Factory build environment, providing verifiable proof of where and how each package 
-was produced. Provenance attestations follow the npm attestation standard. The 
-Chainguard publisher identity is verifiable via the Sigstore signing certificate 
+
+Chainguard Libraries for JavaScript include SLSA provenance with signed attestations.
+These attestations cryptographically link each package to the Chainguard
+Factory build environment, providing verifiable proof of where and how each package
+was produced. Provenance attestations follow the npm attestation standard. The
+Chainguard publisher identity is verifiable via the Sigstore signing certificate
 embedded in the attestation bundle, which links back to https://issuer.enforce.dev,  
 the Chainguard OIDC issuer.
 
@@ -116,11 +117,12 @@ See [Verification](/chainguard/libraries/verification/) for setup and usage deta
 
 ### Verify attestation manually
 
-Alternatively, you can verify a specific package's provenance attestation manually using `cosign`, which is useful for debugging or integrating individual steps into custom workflows. In the following commands, replace `PACKAGE` 
-and `VERSION` with the package name and version (for example, `axios-mock-adapter` 
+Alternatively, you can verify a specific package's provenance attestation manually using `cosign`, which is useful for debugging or integrating individual steps into custom workflows. In the following commands, replace `PACKAGE`
+and `VERSION` with the package name and version (for example, `axios-mock-adapter`
 and `1.17.0`):
 
 **Download the tarball**
+
 ```
 curl -L -H "Authorization: Bearer $(chainctl auth token --audience=libraries.cgr.dev)" \
   "https://libraries.cgr.dev/javascript/PACKAGE/-/PACKAGE-VERSION.tgz" \
@@ -128,6 +130,7 @@ curl -L -H "Authorization: Bearer $(chainctl auth token --audience=libraries.cgr
 ```
 
 **Extract the SLSA provenance bundle**
+
 ```
 curl -H "Authorization: Bearer $(chainctl auth token --audience=libraries.cgr.dev)" \
   "https://libraries.cgr.dev/javascript/-/npm/v1/attestations/PACKAGE@VERSION" | \
@@ -136,6 +139,7 @@ curl -H "Authorization: Bearer $(chainctl auth token --audience=libraries.cgr.de
 ```
 
 **Verify the attestation was signed by Chainguard**
+
 ```
 cosign verify-blob-attestation \
   --bundle PACKAGE-provenance.sigstore.json \
@@ -149,16 +153,17 @@ cosign verify-blob-attestation \
 If this command returns an error, ensure you are using the latest version of `cosign`.
 
 A successful verification returns:
+
 ```
 Verified OK
 ```
 
-The `--certificate-oidc-issuer` and `--certificate-identity-regexp` flags confirm 
-the attestation was signed by Chainguard. 
+The `--certificate-oidc-issuer` and `--certificate-identity-regexp` flags confirm
+the attestation was signed by Chainguard.
 
 ### Retrieve SBOMs
 
-Chainguard Libraries for JavaScript also include Software Bills of Materials (SBOMs) in SPDX format. 
+Chainguard Libraries for JavaScript also include Software Bills of Materials (SBOMs) in SPDX format.
 
 To check whether an SBOM is available for a package, use npm show with the dist.sboms field:
 

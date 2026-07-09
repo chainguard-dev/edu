@@ -71,8 +71,8 @@ Claude Desktop reads MCP servers from a JSON file but does not yet support HTTP 
 
 The configuration file lives at:
 
-* **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-* **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
 
 `npx` downloads and runs `mcp-remote` on demand, so Node.js must be installed on the host. Restart Claude Desktop after saving the file.
 
@@ -130,10 +130,12 @@ The server exposes seven tools for querying documentation, mapping packages, and
 Search across all Chainguard documentation for relevant content.
 
 **Parameters:**
+
 - `query` (string, required): Search query
 - `max_results` (integer, optional): Maximum results to return (default: 5)
 
 **Example prompts:**
+
 - "Search Chainguard docs for python CVE management"
 - "Find information about FIPS compliance"
 - "Search for nginx configuration examples"
@@ -143,9 +145,11 @@ Search across all Chainguard documentation for relevant content.
 Get documentation for a specific Chainguard container image.
 
 **Parameters:**
+
 - `image_name` (string, required): Image name (e.g., "python", "node", "nginx")
 
 **Example prompts:**
+
 - "Show me the Python image documentation"
 - "Get docs for the nginx image"
 - "What's in the node image?"
@@ -155,10 +159,12 @@ Get documentation for a specific Chainguard container image.
 List Chainguard container images with optional filtering. When the image catalog is available, results include metadata such as documentation status and alternative mappings.
 
 **Parameters:**
+
 - `filter` (string, optional): Filter images by name or alternate mapping (for example, "python", "nginx", "apache")
 - `include_upstream` (boolean, optional): Include alternate image mappings and variants in results (default: `false`)
 
 **Example prompts:**
+
 - "List all Chainguard images"
 - "Show me images related to Python"
 - "List images with equivalent mappings included"
@@ -168,6 +174,7 @@ List Chainguard container images with optional filtering. When the image catalog
 Get security-related documentation including CVE management, SBOMs, and signing.
 
 **Example prompts:**
+
 - "How does Chainguard handle CVEs?"
 - "Show me security documentation"
 - "Explain SBOM generation"
@@ -177,9 +184,11 @@ Get security-related documentation including CVE management, SBOMs, and signing.
 Get documentation for Chainguard tools and ecosystem components.
 
 **Parameters:**
+
 - `tool_name` (string, required): Tool name: `wolfi`, `apko`, `melange`, or `chainctl`
 
 **Example prompts:**
+
 - "Show me wolfi documentation"
 - "How do I use apko?"
 - "Explain melange"
@@ -189,10 +198,12 @@ Get documentation for Chainguard tools and ecosystem components.
 Find the Wolfi package that replaces a Debian, Fedora, or Alpine package. Use this when migrating a Dockerfile to a Chainguard image and translating package names for `apk add`.
 
 **Parameters:**
+
 - `package` (string, required): Upstream OS package name (e.g., "build-essential", "libssl-dev", "python3-pip")
 - `distro` (string, optional): Source distribution to search: `debian`, `fedora`, or `alpine`. Searches all distributions if omitted.
 
 **Example prompts:**
+
 - "What's the Wolfi equivalent of Debian's build-essential?"
 - "Find the Chainguard package for libssl-dev"
 - "I need to replace python3-pip in my Alpine Dockerfile"
@@ -202,9 +213,11 @@ Find the Wolfi package that replaces a Debian, Fedora, or Alpine package. Use th
 Query `cgr.dev` for an image's availability and current tags. Falls back to catalog data if the registry is unreachable.
 
 **Parameters:**
+
 - `image_name` (string, required): Chainguard image name (such as "python", "node", "nginx")
 
 **Example prompts:**
+
 - "What tags are available for the Python image?"
 - "Show me the available tags for the nginx image"
 - "Is the golang image available on cgr.dev?"
@@ -321,7 +334,7 @@ Point your MCP client at `http://localhost:8080/mcp/`.
 ### CLI flags
 
 | Flag | Env var | Default | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `--transport` | `MCP_TRANSPORT` | `stdio` | Transport mode: `stdio` or `http` |
 | `--host` | `MCP_HOST` | `0.0.0.0` | HTTP server bind address |
 | `--port` | `MCP_PORT` | `8080` | HTTP server port |

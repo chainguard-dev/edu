@@ -27,12 +27,12 @@ docker run --rm -v ${PWD}:/work cgr.dev/chainguard/apko build --debug \
   apko.yaml hello-minicli:test hello-minicli.tar \
   -k melange.rsa.pub
 ```
+
 ## Common Errors
 
 When the apk package manager is unable to resolve your requirements to a set of installable packages, you will get an error similar to this:
 
 {{< alert context="danger" text="Error: failed to build layer image: initializing apk: failed to fixate apk world: exit status 1" />}}
-
 
 There are two main root causes for this error, which we'll explain in more detail in the upcoming section:
 
@@ -40,6 +40,7 @@ There are two main root causes for this error, which we'll explain in more detai
 - apk cannot find the apk index for your custom-built packages.
 
 ### The requested package is not in the included repositories
+
 Make sure you've added the relevant package repositories you need and the package name is correct.
 Check the [Wolfi repository](https://github.com/wolfi-dev/os) for available packages if you are building Wolfi images,
 or the [Alpine APK index](https://pkgs.alpinelinux.org/packages) if you are using Alpine as base.
@@ -49,9 +50,11 @@ If this is your case, you should find error messages similar to this when enabli
 {{< alert context="danger" text="ERROR: unable to select packages: hello-minicli (no such package)" />}}
 
 ### apko is unable to find the local packages folder
+
 With melange-built package(s), make sure you have a volume sharing your apko / melange files with the location `/work` inside the apko container.
 
 ### The apk index is missing
+
 If you have a functional volume sharing your packages with the apko container and you're still getting this error, make sure you built a valid apk index as described in [step 4 of the Getting Started with melange Guide](/open-source/build-tools/melange/getting-started-with-melange/#4--building-the-minicli-apk-with-melange).
 
 If this is your case, you should find error messages similar to this when enabling debug info with the `--debug` flag:
@@ -77,6 +80,7 @@ packages
 
 4 directories, 8 files
 ```
+
 ## Further Resources
 
 For additional guidance, please refer to the [apko repository](https://github.com/chainguard-dev/apko) on GitHub, where you can find [more examples](https://github.com/chainguard-dev/apko/tree/main/examples) or [open an issue](https://github.com/chainguard-dev/apko/issues/new/choose) in case of problems.

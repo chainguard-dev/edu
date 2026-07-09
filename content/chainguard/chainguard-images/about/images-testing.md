@@ -22,7 +22,6 @@ Chainguard Containers are minimal, distroless container images that you can use 
 
 This article provides a high-level overview of Chainguard's approach to testing when building new container images to ensure their security and consistency with comparable container images.
 
-
 ## Build requirements for new container images
 
 Chainguard has a set of requirements in place that new container images must meet in order to be included in our [Containers Directory](https://images.chainguard.dev?utm=docs). These requirements fall into two categories:
@@ -30,31 +29,29 @@ Chainguard has a set of requirements in place that new container images must mee
 * Container image standards
 * Comprehensive testing
 
-
 ### Container image standards
 
 When building a new container image, Chainguard will take steps to ensure it meets the following standards:
 
-| **Requirement** 	  |  **Explanation**     |
+| **Requirement**    |  **Explanation**     |
 | --- | --- |
 | **Size**     |  Any new Chainguard Containers should be smaller than their external counterparts, though exceptions may occur.    |
-|  **CVEs**     | When scanned with a CVE scanning tool like Grype, new container images should return zero CVEs. If a container image does return CVEs in its scan results it should include an explanation, though some reported CVEs may be false positives. Refer to our [Security Advisories](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-images-testing) for more information.	  |
+|  **CVEs**     | When scanned with a CVE scanning tool like Grype, new container images should return zero CVEs. If a container image does return CVEs in its scan results it should include an explanation, though some reported CVEs may be false positives. Refer to our [Security Advisories](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-images-testing) for more information.   |
 |  **Kubernetes accessibility**     | Containers used for Kubernetes-based deployments must be able to run inside of a Kubernetes cluster.     |
 |  **Architecture**     | Chainguard Containers must be built for both the `x86_64` and `aarch64` architectures.      |
 
 Chainguard also performs the following checks on new container images to ensure that the applications contained within them meet the needs of most use cases:
 
-| **Requirement** 	  |  **Explanation**     |
+| **Requirement**    |  **Explanation**     |
 | --- | --- |
 |  **Functionality**     | The application is tested to comply with its upstream counterpart's core feature set.   |
 |  **Builder Containers**     | Chainguard's builder containers can in fact build new, functional container images.     |
-
 
 ### Comprehensive testing
 
 Chainguard builds a wide variety of different container images, with differing core functionalities and expected installation methods. This means we must vary our testing across container images to test the right things. It can be helpful to think about the various layers in a container image build process and what would be useful to test for each layer:
 
-| **Layer**  | **Test** | **Applies to**  |
+| **Layer** | **Test** | **Applies to** |
 | --- | --- | --- |
 | Deployment | Upstream accepted, documented deployment methods | All services and controllers |
 | Runtime security | Non-root, no extra capacities, read-only rootfs | All |
@@ -62,7 +59,6 @@ Chainguard builds a wide variety of different container images, with differing c
 | Persistence | Correct file and directory permissions, read/write, restarts cleanly | Stateful, such as databases |
 | UI | Smoke test and auth | UI apps, such as Argo |
 | Metrics and logging | Metrics emitted or exposed if the app exposes them, logs are written to expected locations if they are emitted | Almost all containers intended for production environments |
-
 
 In addition, Chainguard performs a number of automatic checks for new container images as part of our CI/CD process.
 
@@ -73,7 +69,6 @@ When applicable, Chainguard will develop functional tests for container images. 
 Our goal for these tests is that they fully evaluate the container image's deployment in a representative environment; for example, container images running Kubernetes applications are tested in a Kubernetes cluster and builder or toolchain applications are tested with a `docker run` command or part of a `docker build` process. This means that our container images work with the existing upstream deployment methods, such as Helm charts or Kustomize manifests, helping us to ensure that a container image is as close to a drop-in replacement as possible.
 
 Additionally, Chainguard performs automated tests on every *package* included in our container images. These tests run on every new package build within an ephemeral container environment before the package build is published. This allows us to validate the representative functionality of each package well before packages are assembled into container images.
-
 
 ## Learn more
 

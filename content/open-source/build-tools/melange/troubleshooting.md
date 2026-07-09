@@ -20,6 +20,7 @@ toc: true
 ---
 
 ## Debug Options
+
 To include debug-level information on melange builds, edit your `melange.yaml` file and include `set -x` in your pipeline. You can add this flag at any point of your pipeline commands to further debug a specific section of your build.
 
 ```yaml
@@ -31,6 +32,7 @@ pipeline:
       APP_HOME="${{targets.destdir}}/usr/share/hello-minicli"
 ...
 ```
+
 ## Common Errors
 
 When melange is unable to finish a build successfully, you will get an error similar to this:
@@ -56,7 +58,9 @@ docker run --privileged --rm tonistiigi/binfmt --install all
 ```
 
 ### Missing build-time dependencies
+
 You may get errors from missing build-time dependences such as `busybox`. In this case you may get "No such file or directory" errors when enabling debug with `set -x`. To fix this, you'll need to locate which package has the commands that your build needs, and add it to the list of your build-time dependencies.
+
 ## Further Resources
 
 For additional guidance, please refer to the [melange repository](https://github.com/chainguard-dev/melange) on GitHub, where you can find [more examples](https://github.com/chainguard-dev/melange/tree/main/examples) or [open an issue](https://github.com/chainguard-dev/melange/issues/new/choose) in case of problems.

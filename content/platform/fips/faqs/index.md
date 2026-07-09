@@ -1,7 +1,7 @@
 ---
 title: "Chainguard FIPS Container FAQs"
 linktitle: "FAQ"
-aliases: 
+aliases:
 - /chainguard/fips/faqs/
 - /chainguard/chainguard-images/features/fips/faqs/
 type: "article"
@@ -21,14 +21,13 @@ toc: true
 
 Answers to your questions about Chainguard FIPS container images.
 
-
 ## Is there a way to enable or disable the FIPS mode in a FIPS image?
 
 All Chainguard FIPS Containers are configured in approved-only mode as noted in our [FIPS commitment](https://www.chainguard.dev/legal/fips-commitment).
 
 For non-approved mode, our recommendation is to use a non-FIPS Chainguard Container.
 
-Because it is error prone, difficult to support, and fragile, Chainguard does not provide the ability to switch to non-FIPS from a FIPS container image. If you require that, please contact a [NIST-approved security lab](https://csrc.nist.gov/projects/testing-laboratories) to help you achieve your certification needs when using our FIPS modules. 
+Because it is error prone, difficult to support, and fragile, Chainguard does not provide the ability to switch to non-FIPS from a FIPS container image. If you require that, please contact a [NIST-approved security lab](https://csrc.nist.gov/projects/testing-laboratories) to help you achieve your certification needs when using our FIPS modules.
 
 ## Does a given Chainguard FIPS Container require me to “bring my own license”?
 
@@ -51,11 +50,11 @@ The following packages are excluded:
 * `bouncycastle-fips-1.0`
 * Any with `-cni-` in the name
 
-You can read more about [kernel-independent FIPS Container in our blog announcement](https://www.chainguard.dev/unchained/kernel-independent-fips-images). 
+You can read more about [kernel-independent FIPS Container in our blog announcement](https://www.chainguard.dev/unchained/kernel-independent-fips-images).
 
 ## How can I block SHA-1 in OpenSSL or FIPS?
 
-Right now, there are limitations on blocking specific algorithms. 
+Right now, there are limitations on blocking specific algorithms.
 
 OpenSSL currently only offers a limited set of policies that can be applied to block generic algorithms. It has better runtime configuration options for TLS (with regard to CipherSuite selection and ECDH Curves), but nothing that can be more specific (like blocking RSA signatures with SHA2-224).
 
@@ -73,10 +72,9 @@ The current average wait time from submission to certificate received is 590 day
 
 Given [Mozilla NSS](https://firefox-source-docs.mozilla.org/security/nss/index.html)’s [rapid release cycles](https://wiki.mozilla.org/NSS:Release_Versions) that quickly reach EOL (end-of-life), coupled with the length of time necessary for FIPS certification, the likely scenarios where NSS could become FIPS certified would not be compatible with Chainguard’s product commitments. Because Chainguard provides up-to-date software with zero-to-limited CVEs, it is not currently feasible for us to offer FIPS container images of software that use NSS.
 
-NSS does not have a stable API/ABI as it is a collection of low-level libraries, which typically are tightly coupled with the application that uses them. 
+NSS does not have a stable API/ABI as it is a collection of low-level libraries, which typically are tightly coupled with the application that uses them.
 
 This is in contrast to OpenSSL, which presents one application facing API-ABI, and has an internal provider (plugin) architecture allowing the use of a separately built FIPS provider. For example, OpenSSL v3.4 released in 2024 is using the FIPS provider v3.0 released in 2021 due to strong API-ABI stability commitments.
-
 
 ## Are Go binaries compiled with the upstream Golang provided `GOEXPERIMENT=boringcrypto` covered by the Chainguard FIPS commitment?
 
@@ -85,7 +83,6 @@ For older OpenSSL-based Go FIPS workflows, the short answer is no. If you want a
 If you are using older workflows, we strongly recommend using the [go-fips](https://images.chainguard.dev/directory/image/go-fips/versions), [go-msft-fips](https://images.chainguard.dev/directory/image/go-msft-fips/versions), and [go-openssl](https://images.chainguard.dev/directory/image/go-openssl/versions) Chainguard Containers. These Chainguard Containers use system OpenSSL as the cryptographic module in approved mode, are covered by the [Chainguard FIPS Commitment](https://www.chainguard.dev/legal/fips-commitment), and are in scope for [Kernel-Independent FIPS Containers](https://www.chainguard.dev/unchained/kernel-independent-fips-images)
 
 Google and Golang upstream do not provide any support for `GOEXPERIMENT=boringcrypto` compiled binaries. The security policy for those modules contains many unapproved algorithms. The Golang upstream toolchain does not indicate missbuilt binaries that do not use boringcrypto (at all or partially) at runtime, and correctly compiled binaries allow using unapproved algorithms without restriction. Using the Golang upstream `GOEXPERIMENT=boringcrypto` requires strict adherence to the security policy, manual code audits of all source code, and all go.sum vendored copies of code.
-
 
 ## Can WireGuard with Tailscale or Shadowsocks be used for Chainguard FIPS Containers?
 
@@ -114,7 +111,6 @@ Explanation of every option:
 * `-storepass changeit` specify the cacerts default password, the default password like this is FIPS compliant for public certificates
 * `-file /tmp/servercert.pem` filepath to your PEM certificate
 * `-alias servercert` desired alias for your certificate, must be unique. Otherwise import will fail or will ask interactively to specify server alias
-
 
 After import, execute list command to check if the certificate was imported successfully:
 

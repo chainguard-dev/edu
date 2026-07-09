@@ -21,7 +21,7 @@ module.exports = [
   {
     files: ["assets/js/**/*.js", "config/**/*.js"],
     languageOptions: {
-      ecmaVersion: 2018,
+      ecmaVersion: 2022,
       sourceType: "module",
       globals: {
         ...globals.browser,
@@ -43,6 +43,17 @@ module.exports = [
           functions: "ignore",
         },
       ],
+    },
+  },
+  {
+    // The rumble scripts are concatenated at build time (Hugo resources.Concat
+    // of base.js + comparison.js / vulnerability.js), so symbols defined in one
+    // fragment are referenced from another. eslint lints each file in isolation
+    // and cannot see that, so disable the cross-file rules for these fragments.
+    files: ["assets/js/rumble/**/*.js"],
+    rules: {
+      "no-unused-vars": "off",
+      "no-undef": "off",
     },
   },
 ];

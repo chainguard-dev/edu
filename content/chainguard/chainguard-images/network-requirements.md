@@ -38,8 +38,6 @@ This table lists the DNS hostnames, associated ports, and protocols that will ne
 | packages.cgr.dev        | 443  | HTTPS    | v4      | Package repository (Extra packages)   |
 | packages.wolfi.dev      | 443  | HTTPS    | v4 & v6 | Package repository (Free containers)  |
 
-
-
 > If you experience networking issues while trying to use Chainguard Containers, please ensure that your firewall allows traffic to and from these hosts, and that it doesn't have any rules to block `.dev` domains.
 
 ## Chainguard Containers Third-party Hosts
@@ -73,8 +71,8 @@ Containers and endpoints:
 
 - TLSv1.3 with the TLS_AES_256_GCM_SHA384 cipher suite
 - TLSv1.2 with
-  - ECDHE-ECDSA-AES256-GCM-SHA384 cipher string
-  - [RFC 7627](https://datatracker.ietf.org/doc/html/rfc7627) Extended Master Secret Extension support
+    - ECDHE-ECDSA-AES256-GCM-SHA384 cipher string
+    - [RFC 7627](https://datatracker.ietf.org/doc/html/rfc7627) Extended Master Secret Extension support
 - Signatures using P-256 with SHA-256
 - Signatures using RSA-PSS with 2048 bits and SHA-256
 - Support for encrypted HTTP/2 is required, including by any proxies in use

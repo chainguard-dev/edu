@@ -121,37 +121,37 @@ A package build pipeline typically starts with fetching the package (as a tarbal
 Some of the actions executed in build pipelines are very similar across packages: downloading a package, running configure and make, fetching a package from git, etc. Luckily for us, melange bakes a lot of repetitive tasks into reusable [pipelines](https://github.com/chainguard-dev/melange/tree/main/pkg/build/pipelines):
 
 - Downloading Packages
-  - `fetch`
-  - `git-checkout`
+    - `fetch`
+    - `git-checkout`
 - Autoconf
-  - `autoconf/configure`
-  - `autoconf/make`
-  - `autoconf/make-install`
+    - `autoconf/configure`
+    - `autoconf/make`
+    - `autoconf/make-install`
 - Cmake
-  - `cmake/build`
-  - `cmake/configure`
-  - `cmake/install`
+    - `cmake/build`
+    - `cmake/configure`
+    - `cmake/install`
 - Go
-  - `go/build`
-  - `go/install`
+    - `go/build`
+    - `go/install`
 - Meson
-  - `meson/compile`
-  - `meson/configure`
-  - `meson/install`
+    - `meson/compile`
+    - `meson/configure`
+    - `meson/install`
 - Ruby
-  - `ruby/build`
-  - `ruby/clean`
-  - `ruby/install`
+    - `ruby/build`
+    - `ruby/clean`
+    - `ruby/install`
 - Split
-  - `split/debug`
-  - `split/dev`
-  - `split/infodir`
-  - `split/locales`
-  - `split/manpages`
-  - `split/static`
+    - `split/debug`
+    - `split/dev`
+    - `split/infodir`
+    - `split/locales`
+    - `split/manpages`
+    - `split/static`
 - Other
-  - `strip`
-  - `patch`
+    - `strip`
+    - `patch`
 
 Each pipeline can have one or more parameters that should be provided as keypairs in a `with` entry. For example, a download-and-check has the following structure in the melange YAML, using the built-in pipeline `fetch`:
 
@@ -184,6 +184,7 @@ As indicated, a pipeline step will have either a `uses` or a `run` directive. Yo
 You can find more details about available pipelines in the [melange pipelines documentation](https://github.com/chainguard-dev/melange/blob/main/docs/PIPELINES.md).
 
 ### The `subpackages` Section
+
 As mentioned previously, a package may extract parts of its contents into subpackages in order to make for a slimmer final apk. Many packages have resources that are not required at execution time, including development headers, man pages, shared libraries that are optional. This part is really important in Wolfi, because we want packages to be minimal. The `subpackages` section of the melange YAML file looks a lot like the pipeline section, and it essentially works the same way. You'll just have to make sure you place any subpackage files in the `targets.subpkgdir` location.
 
 The `split` built-in pipelines were created to facilitate the creation of subpackages. They implement code to remove development headers (`split/dev`), man pages (`split/manpages`), among other resources that aren't typically required at runtime. You can experiment with those, just be aware that they use standard path locations and some compiled packages may use different paths for certain resources.
@@ -255,6 +256,7 @@ update:
   release-monitor:
     identifier: 3627
 ```
+
 You can obtain the identifier from the [release monitoring page](https://release-monitoring.org/) - search for the package and grab the ID that shows up at the URL.
 
 Here is another example, this time from a package that is released via GitHub:
@@ -267,6 +269,7 @@ update:
     strip-prefix: v
     tag-filter: v
 ```
+
 Again, this section is only required when submitting the package to Wolfi. For more details about Wolfi's automated package updates, check [the official docs](https://github.com/wolfi-dev/os/blob/main/docs/UPDATES.md) on the subject.
 
 ## Building Packages
@@ -346,6 +349,7 @@ In this scenario, it is often useful to check the build environment, which is pr
 ℹ️  x86_64    |   workspace dir: /tmp/melange-workspace-4269468499
 ℹ️  x86_64    |   guest dir: /tmp/melange-guest-3734950176
 ```
+
 The **workspace dir** is where you will find the `melange_out` directory, which contains the output of your package. The **guest dir** directory contains the filesystem of your build environment.
 
 Another useful strategy is to include `set -x` before commands in your pipeline, in order to get extended debug information.
@@ -418,11 +422,11 @@ The first test you'll want to run with your package is to check if you can use `
 ```
 ❯ make local-wolfi
 docker run --rm -it \
-	--mount type=bind,source="/home/erika/Projects/os/packages",destination="/work/packages",readonly \
-	--mount type=bind,source="/home/erika/Projects/os/local-melange.rsa.pub",destination="/etc/apk/keys/local-melange.rsa.pub",readonly \
-	--mount type=bind,source="/tmp/tmp.LXnQu0hkFn/repositories",destination="/etc/apk/repositories",readonly \
-	-w "/work/packages" \
-	cgr.dev/chainguard/wolfi-base:latest
+ --mount type=bind,source="/home/erika/Projects/os/packages",destination="/work/packages",readonly \
+ --mount type=bind,source="/home/erika/Projects/os/local-melange.rsa.pub",destination="/etc/apk/keys/local-melange.rsa.pub",readonly \
+ --mount type=bind,source="/tmp/tmp.LXnQu0hkFn/repositories",destination="/etc/apk/repositories",readonly \
+ -w "/work/packages" \
+ cgr.dev/chainguard/wolfi-base:latest
 d2df519c59df:/work/packages#
 ```
 
@@ -470,4 +474,3 @@ The [Wolfi Contributing Guide](https://github.com/wolfi-dev/os/blob/main/CONTRIB
 If you haven't yet, check the [Wolfi PHP package source file](https://github.com/wolfi-dev/os/blob/main/php-8.2.yaml) for a more comprehensive view of the melange YAML structure and how that looks in a more complex build.
 
 If you'd like to learn more about Wolfi, check the [documentation](https://edu.chainguard.dev/open-source/wolfi/overview/) and [FAQ](https://edu.chainguard.dev/open-source/wolfi/faq/) for more details about the ecosystem surrounding it.
-

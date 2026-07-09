@@ -42,6 +42,7 @@ Before your org can push or install skills, create a skills entitlement:
 ```shell
 chainctl skills entitlements create --parent $ORG
 ```
+
 ```output
 Created skills entitlement for org example.dev (717b474ac6972745c5706a898aa6e67ffba97dad)
 ```
@@ -64,7 +65,6 @@ This opens an interactive prompt:
 ```
 
 Press <kbd>SPACE</kbd> to accept the terms of service and <kbd>ENTER</kbd> to confirm.
-
 
 ## Creating an example skill
 
@@ -112,6 +112,7 @@ Before you publish, check that the skill directory meets the spec with the `vali
 ```shell
 chainctl skills validate hello-world
 ```
+
 ```output
 ✓  SKILL.md found
 ✓  Frontmatter valid
@@ -131,6 +132,7 @@ To also flag optional fields that Chainguard recommends, add the `--strict` flag
 ```shell
 chainctl skills validate hello-world --strict
 ```
+
 ```output
 ✓  SKILL.md found
 ✓  Frontmatter valid
@@ -153,6 +155,7 @@ From the parent directory of `hello-world/`, push the skill to your org's regist
 ```shell
 chainctl skills push hello-world --group $ORG --tag v1.0.0
 ```
+
 ```output
             REFERENCE             |        DIGEST
 ----------------------------------|------------------------
@@ -166,6 +169,7 @@ Confirm the skill was published with the `list` subcommand:
 ```shell
 chainctl skills list --group $ORG
 ```
+
 ```output
     NAME      | LATEST TAG | UPDATED
 --------------|------------|----------
@@ -177,17 +181,17 @@ To view a skill's reference, digest, tags, and metadata, use the `describe` subc
 ```shell
 chainctl skills describe skills.cgr.dev/$ORG/hello-world:v1.0.0
 ```
-```output
-    FIELD    |                                              VALUE                                               
--------------|--------------------------------------------------------------------------------------------------
- Name        | hello-world                                                                                      
- Description | A simple hello world skill. Use this to verify your skills registry setup is working end to end. 
- Tag         | v1.0.0                                                                                           
- Digest      | sha256:393c0a2556c626010dfacaa402508122cbb4218be786882b7c74d9d61b38d19e                          
- Size        | 709 B                                                                                            
- Published   | just now  
-```
 
+```output
+    FIELD    |                                              VALUE
+-------------|--------------------------------------------------------------------------------------------------
+ Name        | hello-world
+ Description | A simple hello world skill. Use this to verify your skills registry setup is working end to end.
+ Tag         | v1.0.0
+ Digest      | sha256:393c0a2556c626010dfacaa402508122cbb4218be786882b7c74d9d61b38d19e
+ Size        | 709 B
+ Published   | just now
+```
 
 ### Install the skill
 
@@ -201,9 +205,9 @@ This command automatically detects any agents on your machine and places the ski
 
 ```output
 Installing hello-world
-    AGENT    |          LOCATION          |                    MODE                    
+    AGENT    |          LOCATION          |                    MODE
 -------------|----------------------------|--------------------------------------------
- Claude Code | .claude/skills/hello-world | symlink → ../../.agents/skills/hello-world 
+ Claude Code | .claude/skills/hello-world | symlink → ../../.agents/skills/hello-world
 ```
 
 ### Run the skill from an agent
@@ -235,7 +239,7 @@ The command prompts for confirmation before removing any files:
 ```output
 This will remove skill "hello-world" from local agent directories.
 Proceed?
-Do you want to continue? [y,N]: 
+Do you want to continue? [y,N]:
 Uninstalled skill "hello-world".
 ```
 
@@ -255,7 +259,7 @@ The command prompts for confirmation before removing the version:
 
 ```output
 Delete skills.cgr.dev/example.dev/hello-world:v1.0.0?
-Do you want to continue? [y,N]: 
+Do you want to continue? [y,N]:
 ```
 
 Press <kbd>y</kbd> and <kbd>ENTER</kbd> to confirm. Add the `-y` flag to skip the prompt and delete the version non-interactively.

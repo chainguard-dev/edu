@@ -19,7 +19,6 @@ Chainguard Academy has several deeper guides on [Chainguard CloudEvents](/chaing
 
 There are three `chainctl events` commands available: `create`, `list`, and `delete`.
 
-
 ## Create event subscriptions
 
 To create a new event and subscribe to events in that organization or folder, use:
@@ -32,7 +31,6 @@ A sink is an addressable or callable resource that can receive incoming events d
 
 Depending on the sink, you may be prompted to respond to some questions before this action is complete. You can add a `-y` to the command to automatically assume `yes` and run without interaction.
 
-
 ## View your event subscriptions
 
 To retrieve a list of all your Chainguard account's subscriptions, use:
@@ -42,7 +40,6 @@ chainctl events subscriptions list
 ```
 
 This will return a list of IDs and sinks for all of your subscriptions.
-
 
 ## Delete event subscriptions
 

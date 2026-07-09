@@ -181,4 +181,3 @@ So that's about it.
 We've seen how you can use Chainguard's maven and JRE images to reduce the size and CVE count in a Java application with relatively little work.
 
 Please do take a look and let me know how you get on.
-

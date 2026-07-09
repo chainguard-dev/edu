@@ -25,8 +25,8 @@ Before you begin, you'll need:
 * A [Cursor](https://cursor.com/) account
 * A [Chainguard account](https://console.enforce.dev/) and organization in domain format (for example, `acme-corp.com`).
 * [`chainctl` installed and authenticated](/platform/chainctl-usage/how-to-install-chainctl/)
-  * Chainguard authentication should be configured in the environment where Cursor runs commands.
-  * Your Chainguard pull token credentials should be injected via environment variables, and not hard-coded in source.
+    * Chainguard authentication should be configured in the environment where Cursor runs commands.
+    * Your Chainguard pull token credentials should be injected via environment variables, and not hard-coded in source.
 
 ## Install the Chainguard Plugin
 

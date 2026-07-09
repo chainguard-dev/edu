@@ -1,7 +1,7 @@
 ---
 title: "How End-of-Life Software Accumulates Vulnerabilities"
 linktitle: "EOL Vulnerabilities"
-aliases: 
+aliases:
 - /chainguard/chainguard-images/recommended-practices/how-eol-software-accumulates-cves
 - /chainguard/chainguard-images/staying-secure/updating-images/how-eol-software-accumulates-cves
 type: "article"
@@ -24,7 +24,6 @@ Because it's no longer being actively maintained, software begins to collect vul
 
 This conceptual article highlights the risk involved with using end-of-life software by outlining how EOL images accrue vulnerabilities and where they accumulate.
 
-
 ## Findings
 
 Chainguard's internal research team came to the following conclusions after scanning a set of official Docker images that had reached EOL:
@@ -35,7 +34,6 @@ Chainguard's internal research team came to the following conclusions after scan
 With these takeaways in mind, it's clear that images with EOL software can quickly develop serious security risks. Not only does the target application accumulate vulnerabilities, but so do the dependencies and additional image components, and at a much faster pace.
 
 When a vulnerability appears directly in the source code of the application, that application isn’t going to receive a patch from upstream. This means you'll be forced to update the software or even move on from EOL projects or risk compromising your application's security.
-
 
 ## Vulnerability accumulation in EOL images
 
@@ -54,11 +52,10 @@ The number of vulnerabilities between older EOL versions and recent EOL versions
 <center><img src="EOL_1.png" alt="Chart aggregating vulnerabilities every six months to depict the accumulation of vulnerabilities based on the application EOL date. As the chart moves right along the x-axis (meaning newer versions) the number of vulnerabilities decreases." style="width:950px;"></center>
 <br />
 
-
 ## Where are the vulnerabilities?
 
 | Time since EOL | Application Vulns | Application Dependency Vulns | Image Component Vulns |
-|:----------|---------:|----------:|----------:|
+| :---------- | ---------: | ----------: | ----------: |
 | 0-6 months | <1 CVE | 3 CVEs | 351 CVEs |
 | 6-12 months | 1 CVE | 11 CVEs | 542 CVEs |
 | 12+ months | 3 CVEs | 33 CVEs | 1,601 CVEs |
@@ -74,7 +71,7 @@ Project maintainers won't patch these CVEs, and updating to a newer version or p
 In the first six months after an image reaches the EOL stage, 40% of versions contain a vulnerability in the application dependencies. The following table outlines how many vulnerabilities, on average, a dependency will accumulate over time:
 
 | Time span | Number of CVEs |
-|----------|----------|
+| ---------- | ---------- |
 | 0-6 months | 3 |
 | 6-12 months | 11 |
 | 12+ months | 32 |
@@ -86,13 +83,12 @@ Fixing these would involve upgrading dependencies and rebuilding the target appl
 As mentioned previously, more than 98% of vulnerability accumulation occurs within the components of the image:
 
 | Time span | Number of CVEs |
-|----------|----------|
+| ---------- | ---------- |
 | 0-6 months | 340 |
 | 6-12 months | 501 |
 | 12+ months | 1,552 |
 
 Ninety-seven percent of these vulnerabilities are within Debian packages. Per [this blog post](https://www.chainguard.dev/unchained/the-zero-cve-challenge-can-official-docker-hub-images-pass-the-test?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) many of these vulnerabilities are found in the latest stable versions of these Debian packages, meaning that you can't make them go away with just an `apt upgrade`.
-
 
 ## A deeper look at Traefik
 
@@ -117,12 +113,10 @@ Following the release of version 2.9.10, 55 vulnerabilities were reported: four 
 
 - ‍[CVE-2023-5363](https://nvd.nist.gov/vuln/detail/CVE-2023-5363): An out-of-bounds write within OpenSSL, a dependency of the base image [Alpine 3.17](https://github.com/traefik/traefik-library-image/blob/v2.9.10/alpine/Dockerfile#L1) used by Traefik (impacts `libcrypto3` and `libssl3`). The Chainguard Container of Trafeik uses the [wolfi-base image](https://github.com/chainguard-images/images/tree/main/images/wolfi-base), which runs the updated versions of libcrypto3 and libssl3.
 
-
 ## Learn More
 
 End-of-life software represents a significant security risk. This issue becomes particularly critical when vulnerabilities are found directly in the target application of the image.
 
-The only option when that occurs is to update. However, the vast majority of vulnerabilities that appear in an EOL image will come from its additional components, meaning that updating just the application software may not significantly reduce the overall number of vulnerabilities. Thus the best option is to have a plan to keep your software updated to the latest versions promptly. 
+The only option when that occurs is to update. However, the vast majority of vulnerabilities that appear in an EOL image will come from its additional components, meaning that updating just the application software may not significantly reduce the overall number of vulnerabilities. Thus the best option is to have a plan to keep your software updated to the latest versions promptly.
 
 To learn more about keeping container images up to date, we encourage you to check out our article on [Considerations for Keeping Containers Up to Date](/chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/) as well as our overview of [Strategies and Tooling for Updating Containers](/chainguard/chainguard-images/recommended-practices/strategies-tools-updating-images/).
-

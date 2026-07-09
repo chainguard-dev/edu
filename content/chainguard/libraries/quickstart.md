@@ -46,14 +46,16 @@ Before getting started:
    ```bash
    chainctl auth login
    ```
+
 * Entitle access for yourself to Chainguard Libraries.
     * Chainguard Libraries are available to Catalog Starter and Free tier users,
-      and trial users. 
+      and trial users.
     * Run the following [chainctl libraries](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements/) command to create an entitlement for libraries:
 
 ```bash
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT
 ```
+
 The available `ecosystems` are `JAVASCRIPT`, `JAVA`, and `PYTHON`.
 
 Alternatively, you can create an entitlement and pull token in the Chainguard Console: while viewing a library ecosystem page, follow the prompts to create an access token.
@@ -68,10 +70,10 @@ Configure credentials once in a tool like JFrog Artifactory, Sonatype Nexus, or 
 
 If you [configure upstream fallback](/chainguard/libraries/overview/#upstream-fallback-policy-and-controls), the same ecosystem endpoint can serve both:
 
-- Libraries rebuilt from source by Chainguard, and
-- Eligible packages from the upstream public registry when Chainguard has not built that package or version yet 
+* Libraries rebuilt from source by Chainguard, and
+* Eligible packages from the upstream public registry when Chainguard has not built that package or version yet
 
-Upstream packages served through the Chainguard Repository are subject to configurable policy controls such as cooldown and malware protection. It is strongly recommended that you follow this approach. 
+Upstream packages served through the Chainguard Repository are subject to configurable policy controls such as cooldown and malware protection. It is strongly recommended that you follow this approach.
 
 Alternatively, you can configure your repository manager to fallback to the upstream public repositories for packages not available from Chainguard Libraries, as described in the global configuration docs for each ecosystem. Packages sourced from public registries are **not** covered by Chainguard's
 malware-resistance guarantees. If you choose this option, we strongly recommend
@@ -86,18 +88,17 @@ Configure authentication directly in each project's build configuration.
 
 This option is faster to set up initially, but requires per-project and
 per-workstation configuration. This increases the risk of credentials being
-committed to source control or going stale. 
+committed to source control or going stale.
 
 Learn how to set up direct access in the build configuration documentation for
 [Python](/chainguard/libraries/python/build-configuration/),
 [JavaScript](/chainguard/libraries/javascript/build-configuration/), and
-[Java](/chainguard/libraries/java/build-configuration/). 
+[Java](/chainguard/libraries/java/build-configuration/).
 
 ## Step 2: Create a pull token
 
 [Pull tokens](/chainguard/libraries/access/#creating-pull-tokens-for-libraries)
 are required for authentication. You can create one using `chainctl`:
-
 
 {{< tabs >}}
 
@@ -125,17 +126,16 @@ chainctl auth pull-token --repository=javascript --ttl=720h
 
 {{% /tab %}}
 
-
 {{< /tabs >}}
 
 > The default TTL is `720h` (30 days); the maximum is `8760h` (365 days).
 
 The command returns a username and password for basic authentication. Store
-these securely, as they won't be shown again. 
+these securely, as they won't be shown again.
 
 You can also [create pull tokens via the Chainguard
 Console](/chainguard/libraries/access/#creating-pull-tokens-with-the-chainguard-console)
-under **Overview > Manage pull tokens > Create access token**. 
+under **Overview > Manage pull tokens > Create access token**.
 
 Learn more about pull tokens, and using environment variables for pull token credentials, in the [Libraries Access documentation](/chainguard/libraries/access/).
 
@@ -143,20 +143,19 @@ Learn more about pull tokens, and using environment variables for pull token cre
 
 Once you have a pull token, you can configure your build tool. Configuration
 steps vary by build tool and ecosystem. See the ecosystem-specific documentation
-pages for instructions. 
+pages for instructions.
 
 If you configure [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-policy-and-controls), the same endpoint can serve both Chainguard-built artifacts and upstream arfifacts through the Chainguard Repository.
-
 
 {{< tabs >}}
 
 {{% tab title="Java" %}}
 
-### Java 
+### Java
 
 * [Repository manager](/chainguard/libraries/java/global-configuration/): Configure your repository manager or build tool to use
   `https://libraries.cgr.dev/java/` as the first repository for artifact
-  resolution. 
+  resolution.
 * [Direct access](/chainguard/libraries/java/build-configuration/): Configure
   your tool to retrieve artifacts directly from the Chainguard Libraries for
   Java repository at `https://libraries.cgr.dev/java/`. Use direct access for
@@ -166,13 +165,12 @@ If you configure [upstream fallback](/chainguard/libraries/overview/#upstream-fa
 In addition to malware-resistance, Chainguard Libraries for Java includes
 CVE remediation for select libraries. These patched versions help reduce known
 risk while you plan your next major version upgrade. You can view which
-libraries have CVE remediation available in the Chainguard Console. 
-  
+libraries have CVE remediation available in the Chainguard Console.
+
 Check out minimal example projects for
 [Maven](/chainguard/libraries/java/build-configuration/#minimal-example-project)
 and
 [Gradle](/chainguard/libraries/java/build-configuration/#minimal-example-project-1) to understand how to use these repositories.
-
 
 {{% /tab %}}
 
@@ -181,12 +179,13 @@ and
 ### Python
 
 * [Repository manager](/chainguard/libraries/python/global-configuration/): Add Chainguard Libraries as a remote repository in your
-  repository manager. 
+  repository manager.
 * [Direct access](/chainguard/libraries/python/build-configuration/): Configure
   your tool to retrieve artifacts directly from the Chainguard Libraries for
-  Python. 
+  Python.
 
 Note that there are multiple repositories:
+
 * `https://libraries.cgr.dev/python/` with the simple index at
   `https://libraries.cgr.dev/python/simple`
 * `https://libraries.cgr.dev/python-remediated` with the simple index at
@@ -196,7 +195,7 @@ Note that there are multiple repositories:
 In addition to malware-resistance, Chainguard Libraries for Python includes
 CVE remediation for select libraries. These patched versions help reduce known
 risk while you plan your next major version upgrade. You can view which
-libraries have CVE remediation available in the Chainguard Console. 
+libraries have CVE remediation available in the Chainguard Console.
 
 Check out minimal example projects for
 [uv](/chainguard/libraries/python/build-configuration/#uv-minimal) and [pip](/chainguard/libraries/python/build-configuration/#pip-minimal) to understand how to use these repositories.
@@ -215,8 +214,8 @@ Check out minimal example projects for
 * [Repository
   manager](/chainguard/libraries/javascript/global-configuration/): Add the Chainguard Libraries registry as a remote repository
   and configure it as the first choice for package resolution, with npm as a
-  fallback only where necessary. 
-* [Direct access](/chainguard/libraries/javascript/build-configuration/): Configure your `.npmrc` to use `https://libraries.cgr.dev/javascript/` as the registry. 
+  fallback only where necessary.
+* [Direct access](/chainguard/libraries/javascript/build-configuration/): Configure your `.npmrc` to use `https://libraries.cgr.dev/javascript/` as the registry.
 
 <a id="upstream-note"></a>
 
@@ -256,7 +255,6 @@ and
 > guide](/chainguard/libraries/javascript/migration/) for instructions.
 
 {{% /tab %}}
-
 
 {{< /tabs >}}
 

@@ -21,7 +21,6 @@ The [Chainguard SDK](https://github.com/chainguard-dev/sdk) serves to ease progr
 
 This page gives examples in Golang as well as using `curl`. For more information about the Golang examples, refer to the [`examples` folder](https://github.com/chainguard-dev/sdk/tree/main/examples/registry) in the SDK repository.
 
-
 ## Prerequisites
 
 To follow along with this guide you must have [Go installed](https://go.dev/doc/install) to run the  examples provided by the SDK repository, which are written in Golang. Additional examples in `curl` are found just after the discussion of each Golang example.
@@ -31,7 +30,6 @@ Additionally, it may help to run these examples from a temporary directory, like
 ```shell
 cd /tmp
 ```
-
 
 ## Example 1 — Authenticate using local credentials
 
@@ -45,28 +43,28 @@ The `chainctl` example consists of the following Go code in a `main.go` file (wi
 package main
 
 import (
-	"context"
-	"encoding/json"
-	"log"
-	"os"
+ "context"
+ "encoding/json"
+ "log"
+ "os"
 
-	"chainguard.dev/sdk/auth"
-	"chainguard.dev/sdk/auth/ggcr"
-	"github.com/google/go-containerregistry/pkg/name"
-	"github.com/google/go-containerregistry/pkg/v1/remote"
+ "chainguard.dev/sdk/auth"
+ "chainguard.dev/sdk/auth/ggcr"
+ "github.com/google/go-containerregistry/pkg/name"
+ "github.com/google/go-containerregistry/pkg/v1/remote"
 )
 
 func main() {
-	ctx := context.Background()
-	ts := auth.NewChainctlTokenSource(ctx, auth.WithAudience("cgr.dev"))
+ ctx := context.Background()
+ ts := auth.NewChainctlTokenSource(ctx, auth.WithAudience("cgr.dev"))
 
-	desc, err := remote.Get(name.MustParseReference("cgr.dev/chainguard/static"), remote.WithAuthFromKeychain(ggcr.TokenSourceKeychain(ts)))
-	if err != nil {
-    	log.Fatalf("error getting reference: %v", err)
-	}
-	enc := json.NewEncoder(os.Stdout)
-	enc.SetIndent("", "  ")
-	_ = enc.Encode(desc)
+ desc, err := remote.Get(name.MustParseReference("cgr.dev/chainguard/static"), remote.WithAuthFromKeychain(ggcr.TokenSourceKeychain(ts)))
+ if err != nil {
+     log.Fatalf("error getting reference: %v", err)
+ }
+ enc := json.NewEncoder(os.Stdout)
+ enc.SetIndent("", "  ")
+ _ = enc.Encode(desc)
 }
 ```
 
@@ -106,7 +104,6 @@ The example returns the image's digest and the OCI manifest data. This proves th
 This example doesn't really reflect a real-world use case, as users will generally access `cgr.dev/chainguard` container repositories without authenticating. However, by presenting a token it will trigger the authentication checks, making this example useful for illustrating how this can be done with the Chainguard SDK.
 
 You can experiment with updating this example to retrieve information about a different Chainguard container image by changing the `cgr.dev/chainguard/static` value in the `main()` function. You could replace this with any Chainguard repository you have access to, and the example will return information about that image.
-
 
 ### Example 1 using curl
 
@@ -157,7 +154,7 @@ In our example, [we requested a list of groups the account belongs to](https://e
 }
 ```
 
-## Example 2 — Authenticate with an Assumed Identity 
+## Example 2 — Authenticate with an Assumed Identity
 
 The [`exchange` example](https://github.com/chainguard-dev/sdk/tree/main/examples/registry/exchange) demonstrates how to exchange a token for an assumed identity to access the registry.
 
@@ -169,32 +166,32 @@ This example consists of the following Go code in a `main.go` file (with comment
 package main
 
 import (
-	"context"
-	"encoding/json"
-	"log"
-	"os"
+ "context"
+ "encoding/json"
+ "log"
+ "os"
 
-	"chainguard.dev/sdk/auth"
-	"chainguard.dev/sdk/auth/ggcr"
-	"github.com/google/go-containerregistry/pkg/name"
-	"github.com/google/go-containerregistry/pkg/v1/remote"
+ "chainguard.dev/sdk/auth"
+ "chainguard.dev/sdk/auth/ggcr"
+ "github.com/google/go-containerregistry/pkg/name"
+ "github.com/google/go-containerregistry/pkg/v1/remote"
 )
 
 const (
-	sub = "720909c9f5279097d847ad02a2f24ba8f59de36a/a033a6fabe0bfa0d"
+ sub = "720909c9f5279097d847ad02a2f24ba8f59de36a/a033a6fabe0bfa0d"
 )
 
 func main() {
-	ctx := context.Background()
-	ts := auth.NewChainctlTokenSource(ctx)
+ ctx := context.Background()
+ ts := auth.NewChainctlTokenSource(ctx)
 
-	desc, err := remote.Get(name.MustParseReference("cgr.dev/chainguard/static"), remote.WithAuthFromKeychain(ggcr.Keychain(sub, ts)))
-	if err != nil {
-    	log.Fatalf("error getting reference: %v", err)
-	}
-	enc := json.NewEncoder(os.Stdout)
-	enc.SetIndent("", "  ")
-	_ = enc.Encode(desc)
+ desc, err := remote.Get(name.MustParseReference("cgr.dev/chainguard/static"), remote.WithAuthFromKeychain(ggcr.Keychain(sub, ts)))
+ if err != nil {
+     log.Fatalf("error getting reference: %v", err)
+ }
+ enc := json.NewEncoder(os.Stdout)
+ enc.SetIndent("", "  ")
+ _ = enc.Encode(desc)
 }
 ```
 
@@ -233,7 +230,6 @@ Again, this example doesn't really reflect a real-world use case. Users will gen
 You can experiment with updating this example to authenticate by assuming an identity you created and retrieve the digest of a container image from your organization's private repository within the Chainguard registry.
 
 To do so, you will need an appropriately-configured assumable identity. You can create an assumable identity with the [`chainctl iam identities create` command](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create/).
-
 
 ### Example 2 using curl
 
@@ -299,7 +295,6 @@ curl -H "Authorization: Bearer ${API_TOKEN}" https://console-api.enforce.dev/reg
 ```
 
 Refer to the [Assumable Identities documentation](/chainguard/administration/assumable-ids/assumable-ids/#using-the-chainguard-api) for another example of authentication using an assumed identity.
-
 
 ## Learn More
 

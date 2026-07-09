@@ -52,7 +52,6 @@ If you’re wondering how these security advisories are made, you’re in the ri
 
 All security advisories begin with the disclosure of a security vulnerability. The [CVE Project](https://www.cve.org/) coordinates the processing of reported vulnerabilities through a network of CVE Numbering Authorities (CNAs). CNAs assign CVE IDs to new entries, and they are then added to a CVE Catalog. Each catalog entry contains information such as what packages or components are affected by the vulnerability, their versions, and remediation procedures, if applicable.
 
-
 ### Stage 2: Scanners Detect the CVE
 
 The [National Vulnerability Database (NVD)](https://nvd.nist.gov/), the U.S. government vulnerability repository, will pick up these CVE records and review them further. During this secondary review process, the CVE entry is enriched with details that scanners later use to identify affected software. This process can take some time, so there will be issued CVEs that have not yet been analyzed by the NVD. These CVEs pending review will be marked as such by the NVD, as shown in the following image.
@@ -61,13 +60,11 @@ The [National Vulnerability Database (NVD)](https://nvd.nist.gov/), the U.S. gov
 
 In addition to the NVD, vulnerability scanners also reference other databases such as the [GitHub Advisory Database](https://github.com/advisories) (GHSA) and the [Go Vulnerability Database](https://vuln.go.dev/).
 
-
 ### Stage 3: Advisory is Issued
 
 Once a CVE has been reviewed by the NVD, it will be picked up by vulnerability scanners and reported in any affected container images. Chainguard uses [Grype](https://github.com/anchore/grype), an open-source vulnerability scanner from Anchore, as its primary tool for vulnerability detection.
 
 The newly detected CVE is then moved into the next phase where it waits for a team member to assess it. A security advisory will be issued with the status of "Under Investigation" to alert downstream users that Chainguard is aware of its presence. Security advisories are issued per package, as one CVE may impact different packages in different ways. From there, this security advisory will be updated over time.
-
 
 ### Stage 4: Advisory is Updated
 
@@ -84,6 +81,7 @@ Sometimes, a vulnerability may be present in a piece of software, but remediatio
 Rarely, a vulnerability is found in a package but there is no current status update on whether it can be remediated, or if plans exist to remediate it. In these few situations, the package is simply marked as being "Affected" by the vulnerability. This status is likely to be updated soon as the next steps towards remediation are established.
 
 ### Summary of Advisory Statuses
+
 <table>
 <thead>
 <th>Status</th>

@@ -24,7 +24,7 @@ By signing software, you can authenticate that you are who you say you are, whic
 
 ## Code Signing with Cosign
 
-Software artifacts are distributed widely, can be incorporated into the software of other individuals and organizations, and are often updated throughout their life spans. End users and developers who build upon existing software are increasingly aware of the possibility of threats and vulnerabilities in packages, containers, and other artifacts. How can users and developers decide whether to use software created by others? One answer that has been increasingly gaining traction is *code signing*.
+Software artifacts are distributed widely, can be incorporated into the software of other individuals and organizations, and are often updated throughout their life spans. End users and developers who build upon existing software are increasingly aware of the possibility of threats and vulnerabilities in packages, containers, and other artifacts. How can users and developers decide whether to use software created by others? One answer that has been increasingly gaining traction is _code signing_.
 
 While code signing is not new technology, the growing prevalence of software in our everyday lives coupled with a rising number of attacks like [SolarWinds](https://www.businessinsider.com/solarwinds-hack-explained-government-agencies-cyber-security-2020-12) and [Codecov](https://www.reuters.com/technology/codecov-hackers-breached-hundreds-restricted-customer-sites-sources-2021-04-19/) has created a more pressing need for solutions that build trust, prevent forgery and tampering, and ultimately lead to a more secure software supply chain.
 
@@ -32,7 +32,7 @@ Similar in concept to a signature on a document that was signed in the presence 
 
 Code signing involves a developer, software publisher, or entity (like an automated workload) digitally signing a software artifact to confirm their identity and ensure that the artifact was not tampered with since having been signed. Code signing has several implementations, and Cosign is one such implementation, but all code signing technology follows a similar process as Cosign.
 
-The recommended practice for a developer (or organization) looking to sign their code with Cosign is to use *keyless signing*. This process will first generate an ephemeral key pair which will then be used to create a digital signature for a given software artifact. A *key pair* is a combination of a signing key to sign data, and a verification key that is used to verify data signed with the corresponding signing key. With the `cosign sign` command, the developer will sign their software artifact, and that signature will be stored in the registry (if applicable). This signature can later be verified by others through searching for an artifact, finding its signature, and then verifying it.
+The recommended practice for a developer (or organization) looking to sign their code with Cosign is to use _keyless signing_. This process will first generate an ephemeral key pair which will then be used to create a digital signature for a given software artifact. A _key pair_ is a combination of a signing key to sign data, and a verification key that is used to verify data signed with the corresponding signing key. With the `cosign sign` command, the developer will sign their software artifact, and that signature will be stored in the registry (if applicable). This signature can later be verified by others through searching for an artifact, finding its signature, and then verifying it.
 
 ## Keyless Signing
 
@@ -78,6 +78,7 @@ cosign verify \
     --certificate-oidc-issuer https://accounts.google.com \
     docker-username/demo-container
 ```
+
 ```output
 Verification for index.docker.io/docker-username/demo-container:latest --
 The following checks were performed on each of these signatures:

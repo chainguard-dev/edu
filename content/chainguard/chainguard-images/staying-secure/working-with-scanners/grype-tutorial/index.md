@@ -206,11 +206,13 @@ In our output, we can see that we have 0 critical, 1 high, and 8 medium CVEs:
 ```
    ├── by severity: 0 critical, 1 high, 8 medium, 0 low, 0 negligible
 ```
+
 Grype also counts the number of CVEs by fixed status. If a CVE is marked as fixed, it can be resolved by updating to a newer version of the package. Our output suggests that 7 packages have been fixed and can be remediated with updates:
 
 ```
    └── by status:   7 fixed, 3 not-fixed, 0 ignored
 ```
+
 ### Itemized CVEs
 
 In addition to the summary, Grype provides an itemized list of CVEs. By default, these are in table format, and list the package name, current version, severity, and package type (such as `apt`, `apk`, or `binary`). If the package is fixed, Grype will also indicate the package version where the fix was introduced.
@@ -220,8 +222,8 @@ Grype writes itemized CVEs to stdout, so you can redirect the report of itemized
 ```bash
 grype python:3.10.14-alpine3.20 > report.txt
 ```
-Alternatively, you can use the `--file` flag to write to a file:
 
+Alternatively, you can use the `--file` flag to write to a file:
 
 ```bash
 grype --file report.txt python:3.10.14-alpine3.20

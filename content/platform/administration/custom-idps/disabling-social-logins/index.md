@@ -20,7 +20,6 @@ Chainguard doesn't currently offer a native setting to disable social logins. Ho
 
 > **Note**: If a native setting would be valuable to your organization, let your customer success manager know.
 
-
 ## Prerequisites
 
 Before blocking social logins, make sure you have a working custom identity provider and a recovery path in place. Some organizations intentionally keep a social login (or an email and password account) as a [backup, break-glass account](/chainguard/administration/custom-idps/custom-idps/#backup-accounts) in case they are ever locked out of their identity provider. If you block Google login without another recovery mechanism, an identity provider outage or misconfiguration could lock every user out of your organization.
@@ -41,7 +40,6 @@ We recommend confirming both of the following before proceeding:
 
 You also need administrator access to your organization's [Google Workspace Admin console](https://admin.google.com).
 
-
 ## How this works
 
 Google Workspace administrators control which third-party applications can access Google Workspace data and log in with a Google account.
@@ -49,7 +47,6 @@ Google Workspace administrators control which third-party applications can acces
 When you set the Chainguard application's access to **Blocked**, the **Login with Google** button on the Chainguard login screen fails for users in your Google Workspace organization. Those users must then authenticate through your custom identity provider (or another allowed method) instead, which prevents stray accounts from being created outside your organization.
 
 You do all of this configuration on the Google Workspace side — Chainguard requires no configuration changes.
-
 
 ## Blocking the Chainguard app in Google Workspace
 
@@ -59,7 +56,7 @@ Note that navigation paths and setting names in these steps may change over time
 
 1. Log in to the [Google Workspace Admin console](https://admin.google.com) with an administrator account.
 2. Navigate to **Security** > **Access and data control** > **API controls**.
-3. Find the **App access control** section. The list of accessed apps may be hidden behind a ribbon-style scroll pane. Scroll through the tiles until you reach the one labeled **_N_ Accessed Apps**, then click **View list**. This displays the apps that have accessed your organization's Google Workspace data.
+3. Find the **App access control** section. The list of accessed apps may be hidden behind a ribbon-style scroll pane. Scroll through the tiles until you reach the one labeled ***N* Accessed Apps**, then click **View list**. This displays the apps that have accessed your organization's Google Workspace data.
 4. Click **Add filter**, type `Chainguard`, and apply the filter to narrow the list to apps with "Chainguard" in the name.
 5. Hover over the **Chainguard** app row. A **Change access** button appears on the right; click it.
 6. Select which users the policy applies to — either **all** organizational units or **specific** ones, and then select the policy to **Block** access.
@@ -68,7 +65,6 @@ Note that navigation paths and setting names in these steps may change over time
 After you activate the policy, attempts to log in to the Chainguard Console using a Google account linked to your organization show a Google **Access blocked: Authorization error** pop-up with the message `Error 400: admin_policy_enforced`. Affected users must then authenticate through your custom identity provider instead.
 
 > **Tip**: Because you can scope the block to specific organizational units, you can retain break-glass access via Google social login for a chosen organizational unit (for example, a small unit containing only your recovery accounts) while blocking it for everyone else.
-
 
 ## After blocking social logins
 
@@ -89,4 +85,3 @@ To avoid specifying this on every login, users can set a default identity provid
 If you need to restore Google login (for example, during a recovery scenario), follow the same steps to locate the Chainguard app, but instead of blocking it, change the access policy for the relevant organizational units to grant access. Select at least **Limited** access so that Google permits the login scopes.
 
 Google manages the exact console layout and terminology, which may change over time. If you require additional assistance configuring app access control or organizational units, refer to [Google Workspace support](https://support.google.com/a).
-

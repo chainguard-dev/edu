@@ -19,8 +19,7 @@ toc: true
 
 Chainguard implements [CloudEvents](/chainguard/administration/cloudevents/events-reference/), a specification for a standard format for events data. This means developers can use events (generated based on interactions with Chainguard resources) to initiate processes and thus automate certain actions. For example, you could set up infrastructure to listen for push events to an organization's private registry and [mirror any new Chainguard Containers in the registry to a third-party repository](/chainguard/administration/cloudevents/image-copy-gcr/).
 
-This article includes an example of how to use `chainctl` to create an event subscription. It also includes details on how to validate events from Chainguard and highlights some potential use cases for them. This article is primarily focused on Registry `push` and `pull` events. *Push* events occur when an image in your entitlement is added or updated. *Pull* events occur when an image is pulled from your Chainguard repository. Be aware, though, that there are also events related to IAM, such as user creation and adding identity providers. 
-
+This article includes an example of how to use `chainctl` to create an event subscription. It also includes details on how to validate events from Chainguard and highlights some potential use cases for them. This article is primarily focused on Registry `push` and `pull` events. *Push* events occur when an image in your entitlement is added or updated. *Pull* events occur when an image is pulled from your Chainguard repository. Be aware, though, that there are also events related to IAM, such as user creation and adding identity providers.
 
 ## Subscribing to Events
 
@@ -46,7 +45,7 @@ Select the organization whose events you want to subscribe to when prompted. If 
 
 ```output
    ✔ Selected folder chainguard.edu.
-                         	ID                         	|                       	SINK
+                          ID                          |                        SINK
 ------------------------------------------------------------+------------------------------------------------------------
   45a0cEXAMPLE977f050c5fb9EXAMPLEeed764595/91b3cdEXAMPLE7a6 | https://webhook.site/aEXAMPLE-b689-49a5-94df-f1dEXAMPLE29
 ```
@@ -83,7 +82,7 @@ Then, navigate back to Webhook.site. It may take a few moments, but in time an e
   },
   "body": {
     "repository": "chainguard.edu/istio-pilot",
-	"repo_id": "45a0cEXAMPLE977f050c5fb9EXAMPLEeed764595/e2fca7026fbaa243",
+ "repo_id": "45a0cEXAMPLE977f050c5fb9EXAMPLEeed764595/e2fca7026fbaa243",
     "tag": "1-dev",
     "digest": "sha256:043446cbda630e5071e4f72736b38b5249c859d07bb14886cd93b4e36fc3402c",
     "method": "HEAD",
@@ -99,34 +98,32 @@ Then, navigate back to Webhook.site. It may take a few moments, but in time an e
 This sample request has the following headers:
 
 | Header | Value |
-|----------|----------|
-| accept-encoding   | `gzip` |
-| traceparent   | `00-6f9aceb3276e8c60676cf04099d8818d-dd75e26d099ef057-00`|
-| original-traceparent   | `00-6f9aceb3276e8c60676cf04099d8818d-dd75e26d099ef057-00` |
-| content-type   | `application/json` |
-| ce-type   | `dev.chainguard.registry.pull.v1` |
-| ce-time   | `2025-04-23T00:37:47Z` |
-| ce-subject   | `45a0c61ea6fd977f050c5fb9ac06a69eed764595/7214b8ddd5ce879d` |
-| ce-specversion   | `1.0` |
-| ce-source   | `cgr.dev` |
-| ce-id   | `188888b6-27d2-4a80-8ad5-c7450ab89c0c` |
-| ce-group   | `45a0c61ea6fd977f050c5fb9ac06a69eed764595` |
-| ce-audience   | `customer` |
-| ce-actor   | `enforce-prod-registry-jzjewxe4@prod-enforce-fabc.iam.gserviceaccount.com` |
-| authorization   | `Bearer …` |
-| content-length   | `721` |
-| user-agent   | `Chainguard Enforce bd6a3e9-dirty` |
-| host  | `webhook.site`   |
+| ---------- | ---------- |
+| accept-encoding | `gzip` |
+| traceparent | `00-6f9aceb3276e8c60676cf04099d8818d-dd75e26d099ef057-00` |
+| original-traceparent | `00-6f9aceb3276e8c60676cf04099d8818d-dd75e26d099ef057-00` |
+| content-type | `application/json` |
+| ce-type | `dev.chainguard.registry.pull.v1` |
+| ce-time | `2025-04-23T00:37:47Z` |
+| ce-subject | `45a0c61ea6fd977f050c5fb9ac06a69eed764595/7214b8ddd5ce879d` |
+| ce-specversion | `1.0` |
+| ce-source | `cgr.dev` |
+| ce-id | `188888b6-27d2-4a80-8ad5-c7450ab89c0c` |
+| ce-group | `45a0c61ea6fd977f050c5fb9ac06a69eed764595` |
+| ce-audience | `customer` |
+| ce-actor | `enforce-prod-registry-jzjewxe4@prod-enforce-fabc.iam.gserviceaccount.com` |
+| authorization | `Bearer …` |
+| content-length | `721` |
+| user-agent | `Chainguard Enforce bd6a3e9-dirty` |
+| host | `webhook.site` |
 
 This shows that you have successfully subscribed the test service to Chainguard Events.
-
 
 ## Filtering Events
 
 The webhook will get all events for your organization. You will need to filter them to only the events you are interested in, which can be done using the `ce-type` header. For pull events the type is `dev.chainguard.registry.pull.v1` and push events are of type `dev.chainguard.registry.push.v1`.
 
 A full description of all events and their types is [available on Chainguard Academy](/chainguard/administration/cloudevents/events-reference/).
-
 
 ## Validating Events
 

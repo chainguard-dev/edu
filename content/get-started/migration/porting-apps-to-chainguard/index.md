@@ -18,7 +18,7 @@ weight: 010
 toc: true
 ---
 
-### Porting Key Points
+## Porting Key Points
 
 * Chainguard's distroless Containers have no shell or package manager by default. This is great for security, but sometimes you need these things, especially in builder images. For those cases we have `-dev` variants (such as `cgr.dev/chainguard/python:latest-dev`) which do include a shell and package manager.
 * Chainguard Containers typically don't run as root, so a `USER root` statement may be required before installing software. This should be a temporary escalation only; after completing any root-level operations, you should create and switch to a dedicated non-root user (for example, using `addgroup` and `adduser`) or use the image's built-in non-root user. Leaving the container running as root defeats the security purpose of using minimal images.
@@ -29,7 +29,6 @@ toc: true
 * In some cases, the entrypoint in Chainguard Containers can be different from equivalent container images based on other distros, which can lead to unexpected behavior. You should always check the image's specific documentation to understand how the entrypoint works.
 * When needed, Chainguard recommends using a Base Container like `chainguard-base` or a `-dev` variant to install an application's OS-level dependencies.
 * Although `-dev` variants are still more secure than most popular container images based on other distros, for increased security on production environments we recommend combining them with a distroless variant in a multi-stage build.
-
 
 ## The Sample Application
 
@@ -49,7 +48,6 @@ The book walked through using various orchestrators to deploy the application, s
 The first task was to get the 10-year-old application building and running again. As it was a simple example application, this was thankfully straightforward and mainly required bumping versions of dependencies and a couple of cases of replacing unmaintained libraries. For a larger project, this may well have been a major effort. The original code can be found on the [using-docker GitHub repository](https://github.com/using-docker/identidock) and the updated working version (prior to moving to Chainguard Containers) can be found on the [v1 branch](https://github.com/chainguard-dev/identidock-cg/tree/v1) of the [repository for this tutorial](https://github.com/chainguard-dev/identidock-cg/).
 
 In order to follow along with the tutorial, please clone the code and switch to the `v1` branch:
-
 
 ```bash
 git clone https://github.com/chainguard-dev/identidock-cg.git
@@ -73,7 +71,6 @@ In this example, we give dnmonster the input "wolfi", for which it will produce 
 The version of the code on the v1 branch already contains a few updates from the original code, as well as bumping versions, the codebase was moved from the old and sporadically maintained [restify](https://github.com/restify/node-restify) module to the more modern [express](https://expressjs.com/) module.
 
 The Dockerfile for this version of the dnmonster service can be found in the dnmonster folder:
-
 
 ```Dockerfile
 FROM node
@@ -137,7 +134,6 @@ This tells us that (at the time of writing) the image is 1.79 GB in size and has
 
 The first step in moving to Chainguard Containers is to try switching the container image name in to check if anything breaks. In this case, we’ll begin with the development variant of the Node image. Change the first line of the Dockerfile from:
 
-
 ```Dockerfile
 FROM node
 ```
@@ -153,7 +149,6 @@ Unlike the `cgr.dev/chainguard/node:latest` image, the `:latest-dev` version inc
 If you try building this image, you'll find that it breaks in several places. The container image needs to install various libraries so that it can compile the [`node-canvas`](https://github.com/Automattic/node-canvas) dependency, and this looks a bit different in Debian than it does in [Wolfi](https://github.com/wolfi-dev/) (the OS powering Chainguard Containers). In Wolfi, we first need to switch to the root user to install software and we use `apk add` instead of `apt-get`. We then need to figure out the Wolfi equivalents of the various Debian packages, which may not always have a one-to-one correspondence. There are tools to help here – you can consult our [migration guides](/chainguard/migration/debian-compatibility/) and use apk tools (like `apk search libjpeg`), but searching the [Wolfi GitHub](https://github.com/wolfi-dev/os) repository for package names will often provide you with what you’re looking for.
 
 Make these changes by replacing the `RUN apt-get …` line with the following `RUN apk update` and adding a `USER root` line. The start of the Dockerfile should look like this:
-
 
 ```Dockerfile
 FROM cgr.dev/chainguard/node:latest-dev
@@ -290,7 +285,6 @@ We've added an `as build` statement to the first `FROM` line and added a second 
 
 Build and investigate the image:
 
-
 ```bash
 docker build --pull -t dnmonster-multi .
 …
@@ -366,6 +360,7 @@ docker run -d -p 8080:8080 dnmonster-final
 ...
 curl --output ./monster.png 'localhost:8080/monster/wolfi?size=100'
 ```
+
 > **Note:** If you receive a "port is already allocated" error, be sure to clean up the previous container. Check what containers are running with `docker container ls` and remove it with `docker rm -f <container-name>`. There are still more tweaks that could be made. Bret Fisher has some [excellent resources on building Node.js containers in this GitHub repo](https://github.com/BretFisher/nodejs-rocks-in-docker). But for the purposes of this example app, we've made excellent progress.
 
 ## Updating the Python Microservice
@@ -430,7 +425,6 @@ FROM cgr.dev/chainguard/python:latest-dev
 ```
 
 Before building the image we need to also update `groupadd` syntax to use the `addgroup` format. As Chainguard Containers don't run as root by default for security reasons, we also need to change to the root user for this command to work. Replace the `RUN groupadd` line with the lines:
-
 
 ```Dockerfile
 USER root
@@ -546,7 +540,6 @@ identidock-cg   latest    1b5689af14a1   14 seconds ago   122MB
 
 Run a scan with grype:
 
-
 ```bash
 grype docker:identidock-cg
  ✔ Loaded image                                                                                            identidock-cg:latest
@@ -567,13 +560,11 @@ The result of all these changes is that the production image is only 122 MB (dow
 
 Further information on using Chainguard Containers with Python can be found in our [Getting Started guide](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/python/).
 
-
 ## Replacing the Redis Container and Updating the Docker Compose File
 
 Updating Redis is straightforward. We're not making any changes to the application image, so all we need to do is directly update the reference to `redis:7` in the Docker Compose file to `cgr.dev/chainguard/redis`. The new container image requires no extra configuration, but we go from a 195 MB image with 129 vulnerabilities to a 33 MB image with 0 CVEs (again according to Grype).
 
 To update Compose, in the top level directory of the repo, replace the content of the `docker-compose.yml` file with the following:
-
 
 ```yaml
 name: identidock

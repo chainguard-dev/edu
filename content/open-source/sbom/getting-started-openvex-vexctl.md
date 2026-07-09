@@ -80,7 +80,6 @@ This command notes the following:
 * The current status — `status` — which can be `not_affected`, `affected`, `fixed`, or `under_investigation`
 * When the `status` is noted as `not_affected`, the reason for the status — `justification` — must be included, and can read `inline_mitigations_already_exist` or `component_not_present`
 
-
 The `vexctl create` command above renders the following document.
 
 ```json

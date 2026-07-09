@@ -1,7 +1,7 @@
 ---
 title: "How to Set Up Pull Through from Chainguard's Registry to Nexus"
 linktitle: "Nexus"
-aliases: 
+aliases:
 - /chainguard/chainguard-registry/nexus-pull-through/
 - /chainguard/chainguard-registry/pull-through-guides/nexus-pull-through/
 type: "article"
@@ -22,7 +22,6 @@ Organizations can use Chainguard Containers along with third-party software repo
 
 This tutorial outlines how to set up a repository with [Sonatype Nexus](https://www.sonatype.com/products/sonatype-nexus-repository). Specifically, it will walk you through how to set up one repository you can use as a pull through cache for Chainguard's Free containers or for Production containers originating from a private Chainguard repository.
 
-
 ## Prerequisites
 
 In order to complete this tutorial, you will need the following:
@@ -33,7 +32,6 @@ In order to complete this tutorial, you will need the following:
 
 * Privileges to create a pull token on a Chainguard registry. (For private Chainguard repository access)
 * A spare port on the Nexus server to serve the repository (Nexus limits you to 20 ports). Or an alternative solution — such as a reverse proxy — which is beyond the scope of this guide.
-
 
 ## Setting up Nexus as a pull through for Free containers
 
@@ -51,7 +49,7 @@ Following that, you can enter the following details for your new remote reposito
 
 Following that, click the **Create repository** button at the bottom of the page. If everything worked as expected, you'll be taken back to the repository list and should now see an extra repository with your chosen name, with type "proxy".
 
-Your Nexus URL is the hostname of the Nexus server AND the port number you chose; for example, `myrepo.local:5051`. If your Nexus server is running from a Docker container, your Nexus URL would be something like `localhost:5051`.  
+Your Nexus URL is the hostname of the Nexus server AND the port number you chose; for example, `myrepo.local:5051`. If your Nexus server is running from a Docker container, your Nexus URL would be something like `localhost:5051`.
 
 ### Testing pull through of a Free container
 
@@ -69,7 +67,7 @@ After running the `docker login` command, you will be able to pull a Free contai
 docker pull <Nexus URL>/chainguard/wolfi-base
 ```
 
-Be sure the `docker pull` command contains the correct Nexus URL for your repository. 
+Be sure the `docker pull` command contains the correct Nexus URL for your repository.
 
 ## Setting up Nexus as a pull through for Production containers
 
@@ -83,14 +81,13 @@ You can edit the existing repository and all your users will have access to the 
 
 At the bottom of the configuration screen there will be an HTTP section. Check the **Authentication** box and use the "Username" Authentication type.
 
-Enter the `username` and `password` from the pull token in the respective fields. 
+Enter the `username` and `password` from the pull token in the respective fields.
 
 ![Screenshot of the Sonatype Nexus Repositories screen, showing the authentication configuration.](nexus-2.png)
 
 Click the **Save** button to apply the changes.
 
-
-### Testing pull through of a Production container image: 
+### Testing pull through of a Production container image:
 
 If your setup requires authentication, log in with a valid Nexus username and password:
 
@@ -108,16 +105,14 @@ docker pull <Nexus URL>/<company domain>/chainguard-base
 
 Be sure the `docker pull` command you run includes the name of your organization's registry.
 
-
 ## Debugging pull through from Chainguard’s registry to Nexus
 
 If you run into issues when trying to pull Containers from Chainguard's Registry to Nexus, please ensure the following requirements are met:
 
 * Ensure that all Containers [network requirements](/chainguard/chainguard-images/network-requirements/) are met.
-* When configuring a remote Nexus repository, ensure that the **URL** field is set to `https://cgr.dev/`. This field **must not** contain additional components. 
+* When configuring a remote Nexus repository, ensure that the **URL** field is set to `https://cgr.dev/`. This field **must not** contain additional components.
 * You can troubleshoot by running `docker login` from another node (using the Nexus pull token credentials) and try pulling a container image from `cgr.dev/chainguard/<image name>` or `cgr.dev/<example.com>/<image name>`, using your own organization's registry name in place of `<example.com>`.
 * It could be that your Nexus repository was misconfigured. In this case, create and configure a new Nexus repository to test with.
-
 
 ## Learn more
 
