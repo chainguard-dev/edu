@@ -50,6 +50,9 @@ jobs:
       - name: Action lint
         uses: step-security/action-actionlint@c3aa382d371c6b05513ae5907d4f77713e21813c # v1.72.0
         env:
+          # Keep these shellcheck settings in sync with the actionlint
+          # pre-commit hook in .pre-commit-config.yaml (its
+          # -shellcheck=... arg), so local hooks and CI agree.
           SHELLCHECK_OPTS: "--exclude=SC2129 --severity=error"
         with:
           actionlint_flags: ${{ steps.get_yamls.outputs.files }}
