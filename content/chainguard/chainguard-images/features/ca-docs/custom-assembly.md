@@ -180,6 +180,8 @@ To learn more, refer to our [Private APK Repositories documentation](/chainguard
 
 ## Custom runtime repositories
 
+{{< beta feature="Custom runtime repositories" enroll="true" >}}
+
 By default, Custom Assembly images have `/etc/apk/repositories` pointing to Chainguard's `virtualapk.cgr.dev` tracking proxy. Some organizations mirror Chainguard's APK feed to internal registries — for example, to satisfy internal security policies that require all package sources to resolve to internal infrastructure.
 
 Custom Assembly lets you specify custom APK repository URLs that replace the default `virtualapk.cgr.dev` entries in `/etc/apk/repositories`. This means runtime `apk add` commands inside the container resolve packages from your internal mirror instead of Chainguard's endpoints, without requiring Dockerfile modifications.
