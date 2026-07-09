@@ -13,19 +13,18 @@ concurrency:
   group: compile-ai-docs-${{ github.ref }}
   cancel-in-progress: false
 
-permissions:
-  contents: read
-  id-token: write  # For GCP workload identity federation
-  packages: write  # For pushing to GHCR
-  # TODO: Split into separate compile (read-only) and publish (write) jobs
-  # to minimize permission scope per step
-  
+permissions: {}
+
 jobs:
   compile-docs:
     if: github.repository == 'chainguard-dev/edu'
     runs-on: ubuntu-latest
     environment: documentation
-    
+    permissions:
+      contents: read
+      id-token: write  # For GCP workload identity federation
+      packages: write  # For pushing to GHCR
+
     steps:
     - name: Harden Runner
       uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4
@@ -58,7 +57,8 @@ jobs:
 
     - name: Checkout edu repository
       uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-      # persist-credentials left enabled — this workflow needs git push
+      with:
+        persist-credentials: false  # No git write occurs in this workflow; outputs go to GCS/GHCR
 
     - name: Authenticate to Google Cloud
       uses: step-security/google-github-auth@775fc4c80760272ef389c9f9f8d98de7db0c170d # v3.0.2
@@ -70,7 +70,7 @@ jobs:
       uses: google-github-actions/setup-gcloud@aa5489c8933f4cc7a4f7d45035b3b1440c9c10db # v3.0.1
 
     - name: Set up Python
-      uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+      uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
       with:
         python-version: '3.10'
 
@@ -214,7 +214,7 @@ jobs:
 
     - name: Login to GHCR
       if: github.ref == 'refs/heads/main'
-      uses: docker/login-action@650006c6eb7dba73a995cc03b0b2d7f5ca915bee # v4.2.0
+      uses: docker/login-action@af1e73f918a031802d376d3c8bbc3fe56130a9b0 # v4.4.0
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
@@ -269,10 +269,11 @@ jobs:
         PROJECT_ID: ${{ secrets.PROJECT_ID }}
         REPOSITORY: ${{ secrets.REPOSITORY }}
         COMMIT_SHA: ${{ github.sha }}
+        REPO_OWNER: ${{ github.repository_owner }}
       run: |
         gcloud auth configure-docker "${REGISTRY_URL%%/*}" --quiet
         AR_IMAGE="$REGISTRY_URL/$PROJECT_ID/$REPOSITORY/ai-docs"
-        docker tag "ghcr.io/${{ github.repository_owner }}/ai-docs:$COMMIT_SHA" "$AR_IMAGE:$COMMIT_SHA"
+        docker tag "ghcr.io/${REPO_OWNER}/ai-docs:$COMMIT_SHA" "$AR_IMAGE:$COMMIT_SHA"
         docker push "$AR_IMAGE:$COMMIT_SHA" || { echo "ERROR: Failed to push to Artifact Registry"; exit 1; }
 
     - name: Deploy MCP server to Cloud Run

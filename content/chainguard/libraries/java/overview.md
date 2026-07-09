@@ -14,18 +14,19 @@ weight: 051
 toc: true
 ---
 
-## Introduction
-
-Chainguard Libraries for Java provides enhanced security for the Java ecosystem by rebuilding popular Maven dependencies with the latest patches and comprehensive supply chain protection. As the first supported ecosystem in [Chainguard Libraries](/chainguard/libraries/overview/), this service addresses critical vulnerabilities in the vast Java/JVM ecosystem that spans hundreds of projects from organizations like the Apache Software Foundation, Eclipse Foundation, and numerous independent maintainers. 
+Chainguard Libraries for Java provides enhanced security for the Java ecosystem by rebuilding dependencies from Maven Central and other common repositories with the latest patches and comprehensive supply chain protection. This service addresses critical vulnerabilities in the vast Java/JVM ecosystem that spans hundreds of projects from organizations like the Apache Software Foundation, Eclipse Foundation, and numerous independent maintainers. 
 
 Chainguard Libraries for Java provides access to all open source libraries
 commonly used. New releases of common libraries or artifacts requested by
 customers are added to the growing index by an automated system. The number of
-included libraries continues to grow.
+included libraries continues to grow. These artifacts are accessible through the
+[Chainguard Repository](https://edu.chainguard.dev/chainguard/libraries/chainguard-repository/),
+a single endpoint for package retrieval that supports configurable security
+policies for both Chainguard-built and upstream packages.
 
 The main public repository for binary artifacts is the [Maven Central
-Repository](https://central.sonatype.com/). It has been in operation for nearly
-20 years and hosts artifacts of all releases of most open source projects in the
+Repository](https://central.sonatype.com/). In operation for over
+20 years, it hosts artifacts for most open source projects in the
 Java community. It is the default repository in all commonly used build tools
 from the Java community including [Apache Maven](https://maven.apache.org/),
 [Gradle](https://gradle.org/), and others, and uses the Maven repository format.
@@ -45,10 +46,6 @@ Note that coverage is not exhaustive for any single repository; the index
 continues to grow, and any request for a missing library or version
 automatically triggers a process to provision the artifacts from relevant
 sources if available. 
-
-You can use Chainguard Libraries for Java alongside third-party software
-repositories to create a single source of truth with your repository manager
-application. 
 
 ## Runtime requirements
 
@@ -70,7 +67,7 @@ The URL for the repository is:
 https://libraries.cgr.dev/java/
 ```
 
-The repository root at `https://libraries.cgr.dev/java/` is not browsable, but you can access artifacts directly by their [Maven repository format](https://maven.apache.org/repository/layout.html) path: list the available versions of a library through its `maven-metadata.xml` file, view the files for a specific version in that version's directory, and download individual files by their full path. Learn more under [Manual access](#manual).
+This site provides a directory browsing and file listing capability similar to the Maven Central repository, allowing you to find available libraries, library versions, and available files. Learn more under [Manual access](#manual).
 
 This Chainguard Libraries for Java repository uses the Maven repository format
 and only includes release artifacts of the libraries built by Chainguard from
@@ -125,6 +122,30 @@ For example, if `org.apache.commons:commons-lang3:3.18.0` has a remediated build
 
 Maven and Gradle treat the `-0` as part of the version ordering. In practice, `3.18.0-0.cgr.1` sorts higher than `3.18.0`. This means version ranges or dependency management rules can resolve to the remediated build when the overlay repository is available.
 
+Learn how to opt in to remediated versions in the [Java build configuration docs](/chainguard/libraries/java/build-configuration/#selecting-remediated-library-versions).
+
+### Troubleshooting resolution issues
+
+Enabling the remediated repository does not typically require clearing caches. However, clearing the cache may help when troubleshooting resolution issues.
+
+Maven:
+
+```bash
+rm -rf ~/.m2/repository
+```
+
+Gradle:
+
+```bash
+rm -rf ~/.gradle/caches/
+```
+
+Bazel:
+
+```bash
+bazel clean --expunge
+```
+
 <a id="manual"></a>
 
 ## Manual access
@@ -133,13 +154,14 @@ To manually access artifacts in the Chainguard Libraries for Java repository, us
 with your [username and password retrieved with
 chainctl](/chainguard/libraries/access/).
 
-The repository follows the [Maven repository
-format](https://maven.apache.org/repository/layout.html), where the `groupId` and
-`artifactId` of a library form a nested directory structure, similar to the
-package structure within Java projects. The repository root at
-[`https://libraries.cgr.dev/java/`](https://libraries.cgr.dev/java/) is not
-browsable, but you can discover and retrieve artifacts directly as described
-below.
+This site provides a directory browsing and file listing capability similar to
+the Maven Central repository at
+[`https://repo1.maven.org/maven2/`](https://repo1.maven.org/maven2/). The
+structure follows the [Maven repository
+format](https://maven.apache.org/repository/layout.html). The `groupId` and
+`artifactId` of a library is used to create a nested directory structure,
+similar to the package structure within Java projects.
+
 
 For example, the Maven coordinates for [Apache Commons
 Lang](https://commons.apache.org/proper/commons-lang/) are the following:
@@ -148,8 +170,37 @@ Lang](https://commons.apache.org/proper/commons-lang/) are the following:
 <groupId>org.apache.commons</groupId>
 <artifactId>commons-lang3</artifactId>
 <version>3.13.0</version>
+<version>3.13.0</version>
 ```
 
+**Find available versions**
+
+List the versions that Chainguard has built for a library by requesting its
+`maven-metadata.xml` file at the `groupId`/`artifactId` path. The `groupId`
+`org.apache.commons` becomes the nested directories `org/apache/commons`, and the
+`artifactId` adds the `commons-lang3` directory:
+
+```
+https://libraries.cgr.dev/java/org/apache/commons/commons-lang3/maven-metadata.xml
+```
+
+The repository only includes release artifacts that Chainguard builds from source,
+so the versions listed may differ from those available on Maven Central.
+
+**List the files for a version**
+
+Each version has its own leaf directory, formed by appending the `version` to the
+`groupId`/`artifactId` path. This version directory is browsable and lists all
+files for that specific library version:
+
+```
+https://libraries.cgr.dev/java/org/apache/commons/commons-lang3/3.13.0/
+```
+
+For the `org.apache.commons:commons-lang3:3.13.0` library, this directory includes
+the main Maven metadata file `commons-lang3-3.13.0.pom`, the main JAR file
+`commons-lang3-3.13.0.jar`, related checksum files, and the SBOM and attestation
+files described below. Specific files vary between libraries.
 **Find available versions**
 
 List the versions that Chainguard has built for a library by requesting its
@@ -190,12 +241,14 @@ With [.netrc authentication](/chainguard/libraries/access/#netrc):
 ```shell
 curl -n -L \
   -O https://libraries.cgr.dev/java/commons-io/commons-io/2.13.0/commons-io-2.13.0.pom
+  -O https://libraries.cgr.dev/java/commons-io/commons-io/2.13.0/commons-io-2.13.0.pom
 ```
 
 With [environment variables](/chainguard/libraries/access/#env):
 
 ```shell
 curl -L --user "$CHAINGUARD_JAVA_IDENTITY_ID:$CHAINGUARD_JAVA_TOKEN" \
+  -O https://libraries.cgr.dev/java/commons-io/commons-io/2.13.0/commons-io-2.13.0.pom
   -O https://libraries.cgr.dev/java/commons-io/commons-io/2.13.0/commons-io-2.13.0.pom
 ```
 
@@ -219,13 +272,26 @@ following extensions:
 
 * `.slsa-attestation.json` for the SLSA provenance attestation
 * `.spdx.json` for the SBOM information
+* `.spdx.json` for the SBOM information
 
 For example, the files for artifactId `commons-compress` and version
 `1.23.0` are located in the version directory
-[https://libraries.cgr.dev/java/org/apache/commons/commons-compress/1.23.0/](https://libraries.cgr.dev/java/org/apache/commons/commons-compress/1.23.0/).
+[https://libraries.cgr.dev/java/org/apache/commons/commons-compress/1.23.0/](https://libraries.cgr.dev/java/org/apache/commons/commons-compress/1.28.0/).
 It includes the following files:
 
 * `commons-compress-1.23.0.pom`
 * `commons-compress-1.23.0.jar`
 * `commons-compress-1.23.0.slsa-attestation.json`
 * `commons-compress-1.23.0.spdx.json`
+
+## Upstream fallback policy and controls
+
+Chainguard Libraries for Java supports an optional built-in fallback to
+the upstream Maven Central repository, managed through the [Chainguard
+Repository](/chainguard/chainguard-repository/overview/). By default, the endpoint serves
+only Chainguard-built packages. When the upstream fallback is enabled, upstream packages are
+subject to additional security controls before being served, including source code and maintainer behavior scanning and a configurable cooldown period.
+
+For Java, Chainguard's scanning inspects compiled `.class` files, package metadata, and extracted `.jar`, `.war`, and `.ear` archive contents for suspicious patterns and malicious signals.
+
+Learn more in the [Chainguard Libraries Overview](/chainguard/libraries/overview/).

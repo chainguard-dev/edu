@@ -1,5 +1,5 @@
 ---
-date: 2026-06-23T17:19:36Z
+date: 2026-07-01T03:32:22Z
 title: "chainctl libraries policy binding update"
 slug: chainctl_libraries_policy_binding_update
 url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding_update/
@@ -18,13 +18,13 @@ Update a Libraries policy binding.
 Update the mode of an existing Libraries policy binding.
 
 ```
-chainctl libraries policy binding update BINDING_ID --mode ENFORCE|DRY_RUN [flags]
+chainctl libraries policy binding update BINDING_ID --mode ENFORCE|PREVIEW [flags]
 ```
 
 ### Options
 
 ```
-      --mode string   The binding mode (ENFORCE or DRY_RUN).
+      --mode string   The binding mode (ENFORCE or PREVIEW).
 ```
 
 ### Options inherited from parent commands

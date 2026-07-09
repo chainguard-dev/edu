@@ -165,7 +165,7 @@ In the [tts.py](https://github.com/chainguard-dev/nemo-examples/blob/main/tts.py
 
 The former model allows us to convert plain text into a spectrogram, or a representation of a waveform. The second model generates audio from the spectrogram. Note that NVIDIA's model overview pages provide useful background information, tags, and sample code. You can search the [full NGC model catalog](https://catalog.ngc.nvidia.com/models?filters=&orderBy=weightPopularDESC&query=&page=&pageSize=) to find pretrained models for use with NeMo.
 
-In this script, we used pretrained models to create the phonemes and audio output. These models can be finetuned with your own speech data to customize the results. NVIDIA hosts a [tutorial on finetuning TTS models with NeMo](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/tutorials/tts-finetune-nemo.html).
+In this script, we used pretrained models to create the phonemes and audio output. These models can be finetuned with your own speech data to customize the results.
 
 The following resources may give a starting point for further explorations with the NeMo Chainguard Container:
 

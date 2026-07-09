@@ -27,7 +27,7 @@ project by Chainguard to create new libraries of older versions containing these
 newer changes. Find more details in [CVE
 Remediation](/chainguard/libraries/cve-remediation/).
 
-This article provides an overview of vulnerability scanning for libraries and
+This page provides an overview of vulnerability scanning for libraries and
 the use of specific scanning applications in the following sections. For more
 information on scanning containers, refer to our guide on [Working with
 Container Image
@@ -78,15 +78,46 @@ features, capabilities, and integration options for detecting vulnerabilities in
 these libraries. Details about how specific scanners work with Chainguard
 Libraries are provided in the following sections.
 
-## Grype
+## Supported scanners
+
+| Scanner | Python | Java |
+|---|---|---|
+| Amazon Inspector | ✓ | ✓ |
+| Anchore Enterprise | ✓ | ✓ |
+| Grype | ✓ | ✓ |
+| Trivy | ✓ | ✓ |
+| Upwind | ✓ | ✓ |
+| Wiz | ✓ | ✓ |
+
+### Amazon Inspector
+
+Chainguard Libraries for Python and Java are supported by Amazon Inspector’s enhanced
+scanning for Amazon ECR. This integration brings high-impact CVE remediation
+directly into your AWS vulnerability management workflows. Refer to the [AWS
+documentation](https://docs.aws.amazon.com/inspector/latest/user/supported.html#:~:text=Supported%20programming%20languages%3A%20Amazon%20ECR%20scanning)
+for additional details.
+
+### Anchore Enterprise
+
+Anchore Enterprise supports the detection of remediated Chainguard Libraries for Python
+starting with version 5.23.0, once the required configuration is applied.
+
+Support for remediated Chainguard Libraries for Java is also available through Anchore's vulnerability data updates. Anchore Data Service v0.32.0 adds support for Maven package remediations from Chainguard Libraries.
+
+To ensure remediated CVEs are filtered out by default, disable CPE matching for
+the ecosystem in which you are using Chainguard Libraries. Instructions for
+disabling CPE matching are available in the [Anchore
+documentation](https://docs.anchore.com/current/docs/vulnerability_management/).
+
+### Grype
 
 [Grype](https://github.com/anchore/grype) supports detection of remediated
-Chainguard Libraries starting with Grype **version 0.100.0**. You can use Grype
+Chainguard Libraries for Python and Java starting with Grype **version 0.100.0**. You can use Grype
 in multiple ways:
 
 - Scan the Python virtual environment directly. If your Python application is
   not containerized, this is recommended.
-- Alternatively, scan the container image for your Python application. Grype
+- Alternatively, scan the container image for your application. Grype
   detects and accounts for remediated library versions inside the image.
 
 When scanning a Python project source directory that contains a dependency file
@@ -148,20 +179,10 @@ to Scan Software
 Artifacts](/chainguard/chainguard-images/staying-secure/working-with-scanners/grype-tutorial/)
 and the [official documentation](https://github.com/anchore/grype).
 
-## Anchore Enterprise
-
-Anchore Enterprise supports the detection of remediated Chainguard Libraries
-starting with **version 5.23.0**, once the required configuration is applied.
-
-To ensure remediated CVEs are filtered out by default, disable CPE matching for
-the ecosystem in which you are using Chainguard Libraries. Instructions for
-disabling CPE matching are available in the [Anchore
-documentation](https://docs.anchore.com/current/docs/vulnerability_management/).
-
-## Trivy
+### Trivy
 
 [Trivy](https://github.com/aquasecurity/trivy) versions 0.54 and newer support
-detection of remediated Chainguard Libraries after applying necessary
+detection of remediated Chainguard Libraries for Python and Java after applying necessary
 configuration.
 
 Use the experimental VEX Repo feature of Trivy with the [VEX feed for Chainguard
@@ -238,22 +259,23 @@ Software
 Artifacts](/chainguard/chainguard-images/staying-secure/working-with-scanners/trivy-tutorial/)
 as well as the [official documentation](https://trivy.dev/docs/latest/).
 
-## Amazon Inspector
 
-Chainguard Libraries for Python is supported by Amazon Inspector’s enhanced
-scanning for Amazon ECR. This integration brings high-impact CVE remediation
-directly into your AWS vulnerability management workflows. Refer to the [AWS
-documentation](https://docs.aws.amazon.com/inspector/latest/user/supported.html#:~:text=Supported%20programming%20languages%3A%20Amazon%20ECR%20scanning)
-for additional details.
+### Upwind
 
-## Upwind
+[Upwind](https://www.upwind.io/) can scan container images that use Chainguard Libraries for Python and Java, and recognize Chainguard backported fixes in [remediated library](/chainguard/libraries/cve-remediation/) versions. 
 
-[Upwind](https://www.upwind.io/) can scan container images that use Chainguard Libraries for Python and recognize Chainguard backported fixes in [remediated library](/chainguard/libraries/cve-remediation/) versions. 
+It is supported for container scanning in CI/CD only.
 
-It is supported for container scanning in CI/CD only, for Python applications built with:
+For Python applications, support is available for:
 
 - `uv` / `pyproject.toml`
 - `pip` / `requirements.txt`
 - Poetry
 
-When Upwind recognizes a remediated Chainguard library version, the scan results reflect the installed `+cgr.N` package version rather than only the original upstream version. Vulnerabilities that Chainguard has already remediated in that installed version no longer appear as active findings.
+When Upwind recognizes a remediated Chainguard library version, the scan results reflect the installed remediated package version rather than only the original upstream version. Vulnerabilities that Chainguard has already remediated in that installed version no longer appear as active findings.
+
+### Wiz
+
+[Wiz](https://www.wiz.io/) supports Chainguard Libraries for Python and Java when scanning applications and images that include CVE-remediated libraries. Remediated Chainguard libraries are recognized appropriately in supported scan results rather than being treated the same as original vulnerable upstream versions.
+
+Chainguard publishes remediation data through its public VEX feed, which supported scanners can use to identify remediated versions correctly. 

@@ -1,5 +1,5 @@
 ---
-date: 2026-06-23T17:19:36Z
+date: 2026-07-01T03:32:22Z
 title: "chainctl libraries policy create"
 slug: chainctl_libraries_policy_create
 url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_create/
@@ -21,7 +21,7 @@ A policy configures the gates applied when your organization pulls upstream
 packages. Use --cooldown-days to quarantine newly published versions for N
 days (0 disables the cooldown, 1-30 sets an explicit window, omit to inherit
 the system default), --block to always deny a package, and --allow to let a
-package bypass the cooldown and/or malware gates.
+package override the cooldown and/or malware gates.
 
 Packages are identified by their package URL (purl). The purl namespace
 selects the ecosystem, so the same --block and --allow flags work for Python,
@@ -63,19 +63,19 @@ chainctl libraries policy create --name NAME [--parent ORGANIZATION_NAME | ORGAN
   chainctl libraries policy create --name=pin --parent=example.com \
   --block=purl=pkg:npm/lodash@4.17.20
   
-  # Allow a package to bypass the malware gate (justification required)
+  # Allow a package to override the malware gate (justification required)
   chainctl libraries policy create --name=trusted --parent=example.com \
-  --allow=purl=pkg:pypi/requests,bypass-malware=true,justification="vetted internally"
+  --allow=purl=pkg:pypi/requests,override-malware=true,justification="vetted internally"
   
   # Allow a Java package to skip the cooldown window
   chainctl libraries policy create --name=trusted --parent=example.com \
-  --allow=purl=pkg:maven/org.apache.commons/commons-lang3,bypass-cooldown=true
+  --allow=purl=pkg:maven/org.apache.commons/commons-lang3,override-cooldown=true
 ```
 
 ### Options
 
 ```
-      --allow stringArray     A package permitted to bypass gates, as comma-separated key=value pairs: purl=<package-url>[,bypass-cooldown=true][,bypass-malware=true][,justification="..."]. justification is required with bypass-malware. Repeatable.
+      --allow stringArray     A package permitted to override gates, as comma-separated key=value pairs: purl=<package-url>[,override-cooldown=true][,override-malware=true][,justification="..."]. justification is required with override-malware. Repeatable.
       --block stringArray     A package to always deny, as purl=<package-url>. The purl namespace selects the ecosystem (pkg:pypi/<name>, pkg:npm/<name>, pkg:maven/<group>/<artifact>); append @<version> to block a single version. Repeatable.
       --cooldown-days int32   The cooldown window in days (0 disables, 1-30 explicit, omit to inherit the default). (default -1)
       --description string    The description of the policy.

@@ -22,18 +22,18 @@ on:
           - 'true'
           - 'false'
 
-permissions:
-  contents: write  # For creating/updating releases
-  actions: read
-  id-token: write  # For cosign keyless signing
-  packages: write  # For GHCR
-  # TODO: Split into separate compile (read-only) and publish (write) jobs
-  
+permissions: {}
+
 jobs:
   compile-and-release:
     if: github.repository == 'chainguard-dev/edu'
     runs-on: ubuntu-latest
     environment: documentation
+    permissions:
+      contents: write  # For creating/updating releases
+      actions: read
+      id-token: write  # For cosign keyless signing
+      packages: write  # For GHCR
 
     steps:
     - name: Harden the runner
@@ -64,7 +64,7 @@ jobs:
         persist-credentials: false
 
     - name: Set up Python
-      uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+      uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
       with:
         python-version: '3.10'
 
@@ -96,7 +96,7 @@ jobs:
         echo "Python script output should show 'Documentation compiled successfully to: [PATH]' above"
         echo ""
         echo "Looking for chainguard-complete-docs.md anywhere in the repository..."
-        find . -name "chainguard-complete-docs.md" -type f 2>/dev/null | while read file; do
+        find . -name "chainguard-complete-docs.md" -type f 2>/dev/null | while read -r file; do
           echo "Found at: $file"
           echo "File size: $(ls -lh "$file" | awk '{print $5}')"
         done
@@ -173,7 +173,7 @@ jobs:
 
     - name: Login to GHCR
       if: github.ref == 'refs/heads/main'
-      uses: docker/login-action@650006c6eb7dba73a995cc03b0b2d7f5ca915bee # v4.2.0
+      uses: docker/login-action@af1e73f918a031802d376d3c8bbc3fe56130a9b0 # v4.4.0
       with:
         registry: ghcr.io
         username: ${{ github.actor }}

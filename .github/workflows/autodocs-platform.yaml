@@ -28,9 +28,11 @@ jobs:
 
     - name: 'Checkout default branch to $GITHUB_WORKSPACE dir'
       uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      with:
+        persist-credentials: false
 
     - name: 'Setup gitsign'
-      uses: chainguard-dev/actions/setup-gitsign@e1c4977ad9cb32b12c5b222ec0134a22bec60bd5 # v1.6.25
+      uses: chainguard-dev/actions/setup-gitsign@f0be69916b439d0fcced2451b23d0f27cd46d545 # v1.6.26
 
     - name: Authenticate to Google Cloud
       id: auth
@@ -88,7 +90,7 @@ jobs:
         assignees: matthewhelmke
 
     - name: Post failure notice to Slack
-      uses: step-security/action-slack-notify@7210d1a1599b9ea84d6140184222f04f1ff56070 # v2.3.6
+      uses: step-security/action-slack-notify@e4cdee14a905d9da46ba47ad9309704407d8cd79 # v2.4.0
       if: ${{ failure() }}
       env:
         SLACK_ICON: http://github.com/chainguard-dev.png?size=48

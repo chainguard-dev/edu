@@ -1,0 +1,15 @@
+# zizmor configuration (v1.x) — chainguard-dev/edu hardening campaign (PSEC-923)
+# Only `rules:` and `self-hosted-runner:` are valid top-level fields.
+rules:
+  # Paired with `cooldown.default-days: 3` in .github/dependabot.yml so the
+  # pedantic-persona threshold (default 7 days) is satisfied.
+  dependabot-cooldown:
+    config:
+      days: 3
+  # Cosmetic pedantic-only findings — suppressed across the campaign.
+  anonymous-definition:
+    disable: true
+  undocumented-permissions:
+    disable: true
+  concurrency-limits:
+    disable: true

@@ -1,5 +1,5 @@
 ---
-date: 2026-06-23T17:19:36Z
+date: 2026-07-01T03:32:22Z
 title: "chainctl libraries policy binding"
 slug: chainctl_libraries_policy_binding
 url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding/
@@ -15,7 +15,7 @@ Manage Libraries policy bindings.
 
 ### Synopsis
 
-A Libraries policy binding activates a policy for an (organization, ecosystem) pair in either ENFORCE or DRY_RUN mode.
+A Libraries policy binding activates a policy for an (organization, ecosystem) pair in either ENFORCE or PREVIEW mode.
 
 ### Options inherited from parent commands
 

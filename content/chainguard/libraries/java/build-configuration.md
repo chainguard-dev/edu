@@ -35,6 +35,8 @@ other engineers running relevant application builds. They must also be performed
 on any build server such as Jenkins, TeamCity, GitHub or other infrastructure
 that builds the applications or otherwise downloads and uses relevant libraries.
 
+The `https://libraries.cgr.dev/java/` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for Java. By default, it serves only Chainguard-built artifacts. When [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) is enabled for your organization, the same endpoint can also serve requested versions from Maven Central under Chainguard security controls.
+
 ## Library access approaches 
 
 ### Repo manager
@@ -284,25 +286,27 @@ Java.
 #### Configure direct access
 
 If you are not using a repository manager at your organization, you can
-configure access to the Chainguard Libraries for Java repository directly.
-Ensure that the Chainguard repository is located above the necessary override
-for the built-in `central` repository and any other repositories. If you are participating in the beta for CVE remediation, include the `https://libraries.cgr.dev/java-remediated/` repository first.
+configure access to the Chainguard Libraries for Java repository directly. If [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) is enabled for your organization, the `https://libraries.cgr.dev/java/` repository can serve both Chainguard-built artifacts and eligible upstream Maven Central artifacts through the same endpoint. If upstream fallback is not enabled, continue to configure Maven Central or your Maven Central proxy after the Chainguard repository, as shown in the following example.
+
+If you are participating in the beta for CVE remediation, include the `https://libraries.cgr.dev/java-remediated/` repository first.
+
+If you are using direct access with the Chainguard Repository and you want Chainguard policy controls to apply consistently, configure Chainguard as a global Maven mirror. Without a global mirror, Maven can fall back to its built-in Maven Central definition when Chainguard reports a dependency as unavailable, bypassing the policy and malware scanning controls provided by Chainguard.
 
 The following `~/.m2/settings.xml` configures direct access with Chainguard's remediated Java repository as
-the primary repository, falling back to the standard Chainguard Libraries repository when a remediated version is not available, and then to Maven Central as a fallback for transitive
-dependencies not available from Chainguard. It uses placeholder values
-`CG_PULLTOKEN_USERNAME` and `CG_PULLTOKEN_PASSWORD` or [environment
+the primary repository, falling back to the standard Chainguard Libraries repository when a remediated version is not available. If a library is not yet built by Chainguard and you have enabled upstream fallback, then upstream packages will be subject to malware scanning and any cooldown policies you have configured. This settings file uses [environment
 variables](/chainguard/libraries/access/#env) for the pull token detailed in
-[Chainguard Libraries access](/chainguard/libraries/access/):
+[Chainguard Libraries access](/chainguard/libraries/access/). 
 
 ```xml
 <settings>
   <activeProfiles>
-    <activeProfile>no-repo-manager</activeProfile>
+    <activeProfile>chainguard</activeProfile>
   </activeProfiles>
+
   <profiles>
     <profile>
-      <id>no-repo-manager</id>
+      <id>chainguard</id>
+
       <repositories>
         <repository>
           <id>chainguard-remediated</id>
@@ -311,7 +315,7 @@ variables](/chainguard/libraries/access/#env) for the pull token detailed in
           <snapshots><enabled>false</enabled></snapshots>
         </repository>
         <repository>
-          <id>chainguard</id>
+          <id>chainguard-java</id>
           <url>https://libraries.cgr.dev/java/</url>
           <releases>
             <enabled>true</enabled>
@@ -322,39 +326,45 @@ variables](/chainguard/libraries/access/#env) for the pull token detailed in
         </repository>
         <repository>
           <id>central</id>
-          <url>https://repo1.maven.org/maven2/</url>
-          <releases>
-            <enabled>true</enabled>
-          </releases>
-          <snapshots>
-            <enabled>false</enabled>
-          </snapshots>
+          <url>invalid</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
         </repository>
       </repositories>
+
       <pluginRepositories>
         <pluginRepository>
-          <id>chainguard</id>
+          <id>chainguard-java-remediated</id>
+          <url>https://libraries.cgr.dev/java-remediated/</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
+        </pluginRepository>
+        <pluginRepository>
+          <id>chainguard-java</id>
           <url>https://libraries.cgr.dev/java/</url>
-          <releases>
-            <enabled>true</enabled>
-          </releases>
-          <snapshots>
-            <enabled>false</enabled>
-          </snapshots>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
         </pluginRepository>
         <pluginRepository>
           <id>central</id>
-          <url>https://repo1.maven.org/maven2/</url>
-          <releases>
-            <enabled>true</enabled>
-          </releases>
-          <snapshots>
-            <enabled>false</enabled>
-          </snapshots>
+          <url>invalid</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
         </pluginRepository>
+
       </pluginRepositories>
     </profile>
   </profiles>
+
+    <mirrors>
+    <mirror>
+      <id>chainguard</id>
+      <name>Chainguard Mirror</name>
+      <url>https://libraries.cgr.dev/java/</url>
+      <mirrorOf>*</mirrorOf>
+    </mirror>
+  </mirrors>
+
   <servers>
     <server>
       <id>chainguard-remediated</id>
@@ -364,7 +374,7 @@ variables](/chainguard/libraries/access/#env) for the pull token detailed in
       <!-- <username>YOUR_IDENTITY_ID</username> -->
       <!-- <password>YOUR_TOKEN</password> -->
     </server>
-      <id>chainguard</id>
+      <id>chainguard-java</id>
       <!-- Use environment variables -->
       <username>${env.CHAINGUARD_JAVA_IDENTITY_ID}</username>
       <password>${env.CHAINGUARD_JAVA_TOKEN}</password>
@@ -379,6 +389,10 @@ The preceding settings affects all projects built on the machine where the file
 is configured. Alternatively you can add the `repositories` and
 `pluginRepositories` to individual project `pom.xml` files. Authentication
 details must remain within the settings file.
+
+If your `settings.xml` is using credentials set as environment variables, ensure the variables are exported.
+
+>Note: Upstream fallback includes a 7-day cooldown by default. If you have a cooldown policy configured, your build will fail if a package falls within the cooldown window. See [the FAQ](#build-fails-with-unknown-host-invalid-or-nodename-nor-servname-provided) on this page for more information.
 
 ### Minimal example project
 
@@ -508,7 +522,7 @@ indicate that a dependency is not present in Chainguard and the download fell
 back to Maven Central; this is expected behavior.
 
 #### Verify the project works as expected
-`
+
 Following the build, the dependencies declared in `pom.xml` are downloaded to
 the local Maven repository at ~/.m2/repository. For example, the `guava`
 dependency added in the example project can be found at:
@@ -913,3 +927,19 @@ Example URLs for repository managers:
 * Cloudsmith: `https://dl.cloudsmith.io/basic/exampleorg/java-all/maven/`
 * JFrog Artifactory: `https://example.jfrog.io/artifactory/java-all/`
 * Sonatype Nexus: `https://repo.example.com:8443/repository/java-all/`
+
+## Troubleshooting
+
+### Build fails with "Unknown host invalid" or "nodename nor servname provided"
+
+If your build fails with an error similar to the following, a dependency has been blocked by Chainguard's cooldown policy:
+
+```
+Non-resolvable import POM: Could not transfer artifact io.airlift:bom:pom:436
+from/to central (https://invalid): invalid: nodename nor servname provided,
+or not known
+```
+
+The `https://invalid` URL in the error indicates that Chainguard blocked the artifact rather than serving it, and the fallback to Central was also blocked. This happens when a recently published package falls within the cooldown window — a security feature that holds newly published artifacts for a configurable period before serving them, to allow time for malware scanning.
+
+To avoid build failures, you can [disable the cooldown or decrease its length](/chainguard/libraries/access/#policy).
