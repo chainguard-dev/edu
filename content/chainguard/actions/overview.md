@@ -89,7 +89,7 @@ Action names often have the upstream organization appended to the action name fo
 
 Search the Chainguard Actions repository, find the action you want to use, and then use the name you find there.
 
-> **Note:** This example uses `@main`, a mutable reference, to illustrate the mechanics of switching organizations. For production workflows, pin to an immutable SHA digest instead. The [Configure your workflows](#configure-your-workflows-to-use-chainguard-actions) section covers the full migration, including how to [find the correct SHA digest](#find-the-sha-for-a-specific-release).
+> **Note:** This example uses `@main`, a mutable reference, to illustrate the mechanics of switching organizations. For production workflows, pin to an immutable SHA digest instead. The [Configure your workflows](#configure-your-workflows-to-use-chainguard-actions) section covers the full migration.
 
 The rest of this page goes a bit deeper into how to use Chainguard Actions.
 
@@ -168,7 +168,6 @@ However, read the `HARDENING.md` file for each Chainguard Action before migratin
 
 If something breaks, [file an issue](https://github.com/chainguard-actions/.github/issues/new?template=action-issue.yml) with a reproducer.
 
-
 ## View the actions you are currently using in a repository
 
 Use `chainctl` to scan every workflow and composite action in a repository and list all dependencies transitively:
@@ -203,7 +202,6 @@ chainctl actions catalog list --upstream-owner=tj-actions
 ```
 
 This example returns a list of all actions in the Chainguard Actions repository that originate from the `tj-actions` upstream source.
-
 
 ## Hardened action repository contents
 
