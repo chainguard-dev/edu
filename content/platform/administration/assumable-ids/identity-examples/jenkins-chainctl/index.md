@@ -22,7 +22,7 @@ To do this using Terraform, follow the instructions in [Use Terraform to Create 
 ## Prerequisites
 
 - A running [Jenkins](https://www.jenkins.io/doc/pipeline/tour/getting-started/) instance.
-  - This Jenkins instance should have the [**Open ID Connect Provider** plugin](https://plugins.jenkins.io/oidc-provider/) installed, allowing you to create an OIDC token with Jenkins.
+    - This Jenkins instance should have the [**Open ID Connect Provider** plugin](https://plugins.jenkins.io/oidc-provider/) installed, allowing you to create an OIDC token with Jenkins.
 - [`chainctl`](https://edu.chainguard.dev/chainguard/chainctl-usage/how-to-install-chainctl/) installed locally.
 - Administrative privileges within your Chainguard organization to create IAM identities (`identity.create`); this capability is available to users with [the owner role](https://edu.chainguard.dev/chainguard/administration/iam-organizations/roles-role-bindings/capabilities-reference/#chainguard-role-capabilities).
 

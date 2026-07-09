@@ -157,11 +157,13 @@ The first line shows the error message and the failing `ClusterImagePolicy` name
 
 Edit the `/tmp/pod.yaml` file and change the `sysctls` section to use the following safe parameter:
 
-    sysctls:
-    - name: net.ipv4.tcp_syncookies
-      value: "1"
-    - name: net.ipv4.tcp_syncookies
-      value: "1"
+```yaml
+sysctls:
+- name: net.ipv4.tcp_syncookies
+  value: "1"
+- name: net.ipv4.tcp_syncookies
+  value: "1"
+```
 
 ```
 
@@ -188,4 +190,5 @@ Delete the pod once you're done experimenting with it:
 ```
 
 kubectl delete pod yolo
+
 ```

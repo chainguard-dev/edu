@@ -10,6 +10,9 @@
     // Nested list items use 4-space indentation in this repo's docs.
     "MD007": { "indent": 4 },
     "MD040": false,
+    // Descriptive-link-text: editorial and subjective; also flags deliberate
+    // compact table-cell links. Left to author judgment rather than enforced.
+    "MD059": false,
     // Table style rules disabled: they enforce cosmetic pipe alignment/style
     // that is high-churn and not autofixable, without improving rendering.
     "MD055": false,

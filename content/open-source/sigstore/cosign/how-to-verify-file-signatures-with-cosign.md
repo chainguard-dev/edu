@@ -22,7 +22,7 @@ Cosign can be used to verify binary artifacts ("blobs") using provided signature
 
 This tutorial assumes you [have Cosign installed](/open-source/sigstore/cosign/how-to-install-cosign/).
 
-### Verifying a binary with Cosign keyless signatures
+## Verifying a binary with Cosign keyless signatures
 
 All `apko` releases include [keyless signatures using Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/#keyless-signing). You can verify the signature for an apko release using the `cosign` tool directly, or by calculating the SHA256 hash of the release and finding the corresponding Rekor transparency log entry.
 

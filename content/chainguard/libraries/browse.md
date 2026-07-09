@@ -38,9 +38,9 @@ libraries. Click any row to open the [library detail page](#library-page).
 The list includes the following columns:
 
 * **Name** - the full library name, excluding any version identifiers.
-  * Python library names are simple strings, such as `setuptools` or
+    * Python library names are simple strings, such as `setuptools` or
   `Flask-Admin`.
-  * Java library names are the concatenation of the Maven
+    * Java library names are the concatenation of the Maven
   coordinate values `groupId` and `artifactId`, separated by `:`. Examples are
   `org.springframework:spring-core` or `org.eclipse.jetty:jetty-http`.
 * **Latest version** - the latest released and available version of the library
@@ -96,7 +96,7 @@ The list of library versions includes the following columns:
   Depending on the ecosystem and library they can follow naming patterns and
   other restrictions that allow ordering by version.
 * **Size** - the size of the library.
-  * The displayed size reflects the primary file(s) only: `.jar`/`.pom` for
+    * The displayed size reflects the primary file(s) only: `.jar`/`.pom` for
       Java, and `.whl`/`.tar.gz` for Python. It is not an aggregation of all
       files under a given version.
 * **Built** - The date when this version was built and published by Chainguard.

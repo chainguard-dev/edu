@@ -18,10 +18,10 @@ repos:
       - id: check-added-large-files
         args: ['--maxkb=1000']
       - id: detect-private-key
-        # These files contain an example PEM private-key header string as
-        # documentation (a redaction example / allowlist pattern), not a real
-        # key. Exclude them to avoid a false positive.
-        exclude: ^(\.github/workflows/compile-docs\.yml|content/ai-docs-security\.md)$
+        # These files contain example PEM private-key material as documentation
+        # (redaction examples, allowlist patterns, or a throwaway tutorial key),
+        # not real credentials. Exclude them to avoid false positives.
+        exclude: ^(\.github/workflows/compile-docs\.yml|content/ai-docs-security\.md|content/open-source/sigstore/cosign/cosign-manual-way\.md)$
       - id: check-merge-conflict
       - id: mixed-line-ending
 
