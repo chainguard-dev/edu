@@ -1,6 +1,4 @@
 ---
-aliases:
-- /chainguard/administration/cloudevents/events-reference/
 title : "Chainguard Events"
 lead: ""
 description: "Chainguard Events"
