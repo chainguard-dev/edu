@@ -39,12 +39,12 @@ At a high level, adopting the use of Chainguard Libraries consists of the follow
 * Configure your environment to use `https://libraries.cgr.dev/java/`
   as the single upstream source for Java package retrieval. This can be done
   either:
-    * As a remote repository in your repository manager, or
-    * Directly in your Java build configuration (for example, Maven or Gradle).
+  * As a remote repository in your repository manager, or
+  * Directly in your Java build configuration (for example, Maven or Gradle).
 * Additional steps depend on your specific environment and preferences, and can include the following
 optional measures:
-    * Remove all cached artifacts for Maven Central. This step ensures that any libraries you pull are from Chainguard Libraries, and not existing cached artifacts from upstream. 
-    * Remove any repositories that are no longer desired or necessary, depending on your organization's preferences. 
+  * Remove all cached artifacts for Maven Central. This step ensures that any libraries you pull are from Chainguard Libraries, and not existing cached artifacts from upstream. 
+  * Remove any repositories that are no longer desired or necessary, depending on your organization's preferences. 
 
 This page explains how to use Chainguard Libraries for Java with a repository
 manager. If your organization does not use a repository manager, you can pull
@@ -53,6 +53,7 @@ tools](/chainguard/libraries/java/build-configuration/#direct-access) for more
 information.
 
 ### Manually managing fallback
+
 Chainguard recommends using the Chainguard Repository's built-in [upstream
 fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) rather
 than configuring a public registry fallback in your repo manager. Configuring
@@ -261,6 +262,8 @@ Configure a remote repository for the Chainguard Libraries for Java repository:
 
 If you are manually managing fallback, you can configure an additional remote repository for Maven Central with lower priority. Make sure to deactivate **Maven Settings - Handle Snapshots** in the remote repository.
 
+> Note: If you are running Curation, you must add your Chainguard remote repository to the `curation-bypass` list. 
+
 Combine the repositories in a new virtual repository:
 
 1. Click **Create a Repository** and choose the **Virtual** option.
@@ -268,9 +271,7 @@ Combine the repositories in a new virtual repository:
     * **Package type**: Maven
     * **Repository Key**: `java-all`
 1. Scroll down to the **Repositories** section.
-1. Add the `java-chainguard` and `java-public` repositories. Drag and drop repositories into the
-   desired position.
-    * If you are using the remediated repository, add the `java-chainguard-remediated` repository and ensure it is the first in the displayed list. If not, ensure the `java-chainguard` repository is first. 
+1. Add the `java-chainguard` repository. If you are using the remediated repository, add the `java-chainguard-remediated` repository and ensure it is the first in the displayed list. 
 1. Click **Create Virtual Repository**.
 
 Use this setup for initial testing with Chainguard Libraries for Java. For
@@ -283,7 +284,9 @@ After creating the `java-chainguard` remote repository, validate that Artifactor
 
 Common sources of misconfiguration include invalid or expired credentials, or an incorrect or incomplete repository URL. The Artifactory **Test** button on the repository configuration screen is not a reliable indicator; it may fail for a correctly configured repository, and may pass for an incorrectly configured one. Instead, use the following steps to verify that fetching an artifact through Artifactory produces the same checksum as fetching it directly from `libraries.cgr.dev`.
 
-1. Fetch the artifact directly from Chainguard and compute its checksum. This example uses `junit-4.13.2.jar`. You can substitute any artifact you know to be available.
+#### 1. Compute the artifact's checksum
+
+Fetch the artifact directly from Chainguard and compute its checksum. This example uses `junit-4.13.2.jar`. You can substitute any artifact you know to be available.
 
 ```bash
 curl -sSf -L \
@@ -292,7 +295,9 @@ curl -sSf -L \
   | sha256sum
 ```
 
-2. Fetch the same artifact through the Artifactory remote repository and compute its checksum:
+#### 2. Compute the same artifact's checksum from Artifactory
+
+Fetch the same artifact through the Artifactory remote repository and compute its checksum:
 
 ```bash
 curl -sSf -L \
@@ -300,9 +305,10 @@ curl -sSf -L \
   https://<artifactory-host>/artifactory/java-chainguard/junit/junit/4.13.2/junit-4.13.2.jar \
   | sha256sum
 ```
+
 Replace `artifactory-host` with your Artifactory instance hostname.
 
-The checksums returned by the commands must match. 
+The checksums returned by the commands must match.
 
 If the checksum from the Artifactory remote repository differs from the direct fetch, or if the Artifactory fetch fails entirely, review the following before proceeding:
 
@@ -384,9 +390,7 @@ Combine a new repository group and add the repositories:
 1. Click **Create repository**, then select the `maven2 (group)` recipe.
 1. Configure the repository:
     * **Name**: `java-all`
-    * Under **Group - Member repositories**, move the new repositories
-   `java-public` and `java-chainguard` to the right. Move the
-   `java-chainguard` repository to the top of the list with the arrow control. If you are using the remediated repository, move the `java-chainguard-remediated` repository to the top.
+    * Under **Group - Member repositories**, move the new repository `java-chainguard` to the right. If you are using the remediated repository, move the `java-chainguard-remediated` repository to the right, above the `java-chainguard` repository.
 
 ### Build tool access
 
@@ -409,4 +413,3 @@ Use the URL of the repository group, such as
 configuration](/chainguard/libraries/java/build-configuration/) and build a 
 first test project. In a working setup the `java-chainguard` proxy repository contains
 all libraries retrieved from Chainguard.
-
