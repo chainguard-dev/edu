@@ -21,7 +21,6 @@ Certain interactions with Chainguard resources will emit [CloudEvents](/chaingua
 
 This tutorial is meant to serve as a companion to the [Image Copy GCP](https://github.com/chainguard-dev/platform-examples/tree/main/image-copy-gcp) example application. It will guide you through setting up infrastructure to listen for `push` events on an organization's private registry and mirror any new Chainguard Containers in the registry to a repository in a GCP Artifact Registry repository.
 
-
 ## Prerequisites
 
 To follow along with this guide, it is assumed that you have the following set up and ready to use.
@@ -30,14 +29,13 @@ To follow along with this guide, it is assumed that you have the following set u
 * `chainctl`, the Chainguard command-line interface. You can install this by following our guide on [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/).
 * [`terraform`](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) to configure a Google Cloud service account, IAM permissions, and deploy the Cloud Run service.
 * A Google Cloud account with a project running. The example application assumes that your project has the following APIs enabled:
-    * [Artifact Registry API](https://cloud.google.com/artifact-registry/docs/reference/rest)
-    * [Cloud Run Admin API](https://cloud.google.com/run/docs/reference/rest)
+  * [Artifact Registry API](https://cloud.google.com/artifact-registry/docs/reference/rest)
+  * [Cloud Run Admin API](https://cloud.google.com/run/docs/reference/rest)
 * The [`gcloud` CLI](https://cloud.google.com/sdk/docs/install) installed on your local machine. You'll need this to authenticate to Google Cloud over the command line.
-
 
 ## Setting up the Terraform configuration
 
-You can find all the code associated with this sample application in our [Platform Examples](https://github.com/chainguard-dev/platform-examples/tree/main/image-copy-gcp) repository on GitHub. 
+You can find all the code associated with this sample application in our [Platform Examples](https://github.com/chainguard-dev/platform-examples/tree/main/image-copy-gcp) repository on GitHub.
 
 To set up the sample application, you can create a Terraform configuration file and apply it to set up the necessary resources. To begin, create a new directory to hold the configuration and navigate into it.
 
@@ -59,7 +57,7 @@ The next five lines configure a few variables that you will need to update to re
 * First, the configuration defines a `name` value. This will be used to prefix resources created by this sample application where possible.
 * Next, it specifies the GCP project ID where certain resources will reside, including the container image for this application (along with mirrored images), the Cloud Run service hosting the application, and the Service Account that authorizes pushes to the Google Artifact Registry.
 * Following that, the configuration specifies the Chainguard IAM organization from which we expect to receive events. This is used to authenticate that the Chainguard events are intended for you, and not another user. Container images pushed to repositories under this organization will be mirrored to Artifact Registry.
-    * You can find the names of every organization you have access to by running `chainctl iam organizations list -o table`.
+  * You can find the names of every organization you have access to by running `chainctl iam organizations list -o table`.
 * The next line specifies the location of the Artifact Registry repository and the Cloud Run subscriber.
 * The final line defines `dst_repo` value, which is used to create a name for the repository in the Artifact Registry where container images will be mirrored.
 
@@ -74,7 +72,7 @@ Be sure to include a closing curly bracket after the final line.
 
   group_name = "<organization-name>"
 
-  location = "us-central1" 
+  location = "us-central1"
 
   dst_repo = "mirrored"
 }
@@ -93,7 +91,7 @@ module "image-copy" {
 
   group_name = "<organization-name>"
 
-  location = "us-central1" 
+  location = "us-central1"
 
   dst_repo = "mirrored"
 }
@@ -104,7 +102,7 @@ Make sure to replace the placeholders with your own settings for `project_id` an
 
 ## Applying the configuration
 
-The Terraform configuration you created in the previous section will do all the work of setting up an events subscription for you. 
+The Terraform configuration you created in the previous section will do all the work of setting up an events subscription for you.
 
 Specifically, it will build the mirroring application into a container image using `ko_build` and deploy the app to a Cloud Run service with permission to push to the Google Artifact Registry. It also sets up a Chainguard Identity with permissions to pull from the private `cgr.dev` repository, allows the Cloud Run service's service account  to assume the puller identity, and sets up a subscription to notify the Cloud Run service when pushes happen to `cgr.dev`.
 
@@ -139,7 +137,7 @@ If the plan worked successfully and you’re satisfied that it will produce the 
 terraform apply
 ```
 
-Before going through with applying the Terraform configuration, this command will prompt you to confirm that you want it to do so. Enter `yes` to apply the configuration. 
+Before going through with applying the Terraform configuration, this command will prompt you to confirm that you want it to do so. Enter `yes` to apply the configuration.
 
 ```output
 . . .
@@ -159,10 +157,9 @@ Apply complete! Resources: 8 added, 0 changed, 0 destroyed.
 
 Assuming all the resources were created as expected, you can observe the application in action.
 
-
 ## Testing the application
 
-If the `terraform apply` command you ran in the previous section was successful, the Terraform configuration will have set up a Cloud Run service to host the example application. 
+If the `terraform apply` command you ran in the previous section was successful, the Terraform configuration will have set up a Cloud Run service to host the example application.
 
 As mentioned previously, this application listens for `registry.push` events that occur on your organization's repository; any time a new Container gets added to your organization's Registry the application will mirror it to your GCP project's Artifact Registry and into a repository named with the `name` and `dst_repo` values you set in your `main.tf` file. For example, if these values were `chainguard-dev` and `mirrored`, respectively, (as shown in the previous example) the mirror repository would be found at `<location>-docker.pkg.dev/<project_id>/chainguard-dev-mirrored`.
 
@@ -171,7 +168,6 @@ You can find the results of the application in your GCP Project's dashboard. Nav
 ![Screenshot of a repository in a GCP Artifact Registry named "chainguard-dev-mirrored." This repository shows two images stored within it. The first, `node`, was created and updated 36 minutes ago, while the second, `python`, was created and last updated 33 minutes ago.](gcp-events-1.png)
 
 Be aware that just because the application is listening for `registry.push` events doesn't mean any will occur automatically. Chainguard Containers are generally updated at least once every twenty four hours, so container images may not immediately appear in your mirror repository.
-
 
 ## Removing sample resources
 
@@ -190,7 +186,6 @@ rm -r ~/gcp-example/
 ```
 
 Following that, all of the example resources created in this guide will be removed from your system.
-
 
 ## Learn more
 

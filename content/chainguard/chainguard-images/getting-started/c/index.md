@@ -76,11 +76,11 @@ Inside of your `hello.c` file, add in the following C code which will execute a 
 
 // Main Function
 int main(){
-	printf("Hello, world!\n");
-	printf("I am a demo from the Chainguard Academy.\n");
-	printf("My code was written in C.\n");
+ printf("Hello, world!\n");
+ printf("I am a demo from the Chainguard Academy.\n");
+ printf("My code was written in C.\n");
 
-	return 0;
+ return 0;
 }
 ```
 
@@ -119,6 +119,7 @@ nano Dockerfile1
 ```
 
 This Dockerfile will do the following:
+
 1. Use the `gcc-glibc:latest` Chainguard Container as the base image;
 2. Create and set the current working directory to `/home/build`;
 3. Copy the `hello.c` program code to the current directory;
@@ -184,6 +185,7 @@ nano Dockerfile2
 ```
 
 This time, the Dockerfile will do the following:
+
 1. Use the `gcc-glibc` Chainguard Container as the builder stage;
 2. Create and set the current working directory to `/home/build`;
 3. Copy your example `hello.c` program code to the current directory;
@@ -304,6 +306,7 @@ nano Dockerfile3
 ```
 
 This Dockerfile will do the following:
+
 1. Use the `gcc-glibc` Chainguard Container as the builder stage;
 2. Create and set the current working directory to `/home/build`;
 3. Copy your example `hello.cpp` program code to the current directory;

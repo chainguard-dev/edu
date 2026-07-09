@@ -40,14 +40,17 @@ The examples in this guide recommend executing Go binaries from one of our runti
 {{< /details >}}
 
 ## Preparation
+
 This tutorial requires Docker to be installed on your local machine. If you don't have Docker installed, you can download and install it from the [official Docker website](https://docs.docker.com/get-docker/). The third and optional example requires the installation of [ko](https://ko.build/), which you can install by following the instructions on the official site.
 
 ### Cloning the Demos Repository
+
 Start by cloning the demos repository to your local machine:
 
 ```shell
 git clone git@github.com:chainguard-dev/edu-images-demos.git
 ```
+
 Access the `go` folder in the repository:
 
 ```shell
@@ -57,6 +60,7 @@ cd edu-images-demos/go
 Here you will find three folders, each with a different demo that we'll cover in this guide.
 
 ## Example 1: CLI Application in Multi-Stage Build
+
 The following example demonstrates a command line application with support for flags and positional arguments. The application prints a modifiable greeting message and provides usage information if the wrong number of arguments are passed by a user or the user passes an unrecognized flag.
 
 Start by accessing the `go-greeter` folder in the demos repository:
@@ -97,6 +101,7 @@ You can now run the container image with:
 ```shell
 docker run go-greeter
 ```
+
 You should get output similar to the following:
 
 ```
@@ -108,11 +113,13 @@ You can also pass in arguments that will be parsed by the Go CLI application:
 ```shell
 docker run go-greeter -g Greetings "Chainguard user"
 ```
+
 This will produce the following output:
 
 ```
 Greetings, Chainguard user!
 ```
+
 The application will also share usage instructions when prompted with the `--help` flag or when invalid flags are passed.
 
 Because we used the `static` Chainguard Container as our runtime, the final container image only requires a few megabytes on disk:
@@ -120,9 +127,11 @@ Because we used the `static` Chainguard Container as our runtime, the final cont
 ```shell
 docker inspect go-greeter | jq -c 'first' | jq .Size | numfmt --to iec --format "%8.4f"
 ```
+
 ```
  3.3009M
 ```
+
 The final size, `3.309M`, is orders of magnitude smaller than it would be running the application using a Go image. However, if your application is dynamically linked to shared objects, consider using the `glibc-dynamic` Chainguard Container for your runtime or take extra steps to build your Go binary statically. In the next example, we'll build a web application and use the `glibc-dynamic` Chainguard Container as runtime.
 
 ## Example 2: Web Application
@@ -191,11 +200,13 @@ The `go-digester` demo uses the `go-containerregistry` library to print out the 
 ```shell
 go run main.go
 ```
+
 You should obtain output similar to this:
 
 ```
 The latest digest of the go Chainguard Container is sha256:86178b42db2e32763304e37f4cf3c6ec25b7bb83660dcb985ab603e3726a65a6
 ```
+
 We'll now use ko to build an image that is suitable to run the application defined in `main.go`. By default, ko uses the `cgr.dev/chainguard/static` image as the base image for the build. You can override this by setting the `KO_DEFAULTBASEIMAGE` environment variable to a different base image.
 
 Before building the container image, you'll need to set up the environment variable `KO_DOCKER_REPO`. This environment variable identifies where ko should push images that it builds. This is usually a remote registry like the GitHub Container registry or Docker Hub, but you can publish to your local machine for testing and demonstration purposes.
@@ -234,6 +245,7 @@ We'll demonstrate running the above built container with Docker.
 ```shell
 docker run --rm ko.local/go-digester-edc0ed689c7fb820a565f76425bed013:0914a85d803988ab10964323c0cd7b4bf89aed2603f6e8e276f798491c731336
 ```
+
 Here, you'll expect to receive the same output as before that shows the digest of the Go container.
 
 ```

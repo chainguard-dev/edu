@@ -19,7 +19,6 @@ toc: true
 
 Chainguard EKS add-ons are hardened, minimal container images for the foundational software components that power Amazon Elastic Kubernetes Service (EKS) clusters. Available through [AWS Marketplace](https://aws.amazon.com/marketplace), they serve as FIPS-validated drop-in replacements for AWS default add-ons, providing zero known CVEs and FIPS 140-3 validated cryptography without requiring custom image builds or manifest overrides.
 
-
 ## What are EKS add-ons?
 
 Amazon EKS add-ons are software components that provide supporting operational capabilities to Kubernetes applications — things like networking drivers, storage integrations, and observability agents that allow the cluster to interact with underlying AWS resources, but aren't specific to any application running on it.
@@ -28,19 +27,17 @@ They handle cluster functions like internal DNS resolution, pod networking, pers
 
 For a full explanation of how EKS add-ons work (including how to install, configure, and update them), refer to the [Amazon EKS add-ons documentation](https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html).
 
-
 ## Available Chainguard EKS add-ons
 
 Chainguard provides hardened images for five widely used EKS add-ons. All are FIPS-validated.
 
 | Add-on | Description |
-|--------|-------------|
+| -------- | ------------- |
 | **kube-proxy** | Routes network traffic between pods within the cluster |
 | **CoreDNS** | Handles internal DNS — how services discover and communicate with each other |
 | **Amazon VPC CNI** | Connects pods to the AWS VPC network backbone |
 | **Amazon EBS CSI Driver** | Enables persistent block storage volumes backed by Amazon EBS |
 | **Amazon EFS CSI Driver** | Enables shared, persistent file storage backed by Amazon EFS |
-
 
 ## Why use Chainguard EKS add-ons?
 
@@ -62,7 +59,6 @@ Chainguard EKS add-ons are designed as direct replacements for the corresponding
 
 Chainguard EKS add-ons are available through AWS Marketplace and can be found through the AWS Console. There's no manual setup, you don't need a Chainguard account to subscribe, and billing is consolidated with your existing AWS bill.
 
-
 ## Who should use Chainguard EKS add-ons?
 
 Chainguard EKS add-ons are well-suited for:
@@ -70,7 +66,6 @@ Chainguard EKS add-ons are well-suited for:
 - **Regulated industries**: Healthcare, financial services, defense, and government organizations that require FIPS 140-3 validated cryptography or operate under FedRAMP, NIST 800-53, or similar compliance frameworks.
 - **Security-conscious engineering teams**: Platform and DevOps teams that want a clean, auditable baseline for cluster infrastructure without maintaining custom image builds or accepting audit exceptions.
 - **Organizations requiring infrastructure control**: Enterprises that need more control over their EKS deployments than EKS Auto Mode provides, and for whom FIPS compliance through Auto Mode is not a viable option.
-
 
 ## Using Chainguard EKS add-ons
 
@@ -92,6 +87,6 @@ Chainguard EKS add-ons are listed in AWS Marketplace and can be found within the
 
 ### Deploy with Helm
 
-Once subscribed, deployment follows the standard EKS Helm workflow, and you can deploy the add-ons with AWS CLI or in your GitOps workflows. Unlike a standalone Helm chart, which is self-managed, EKS will automatically handle lifecycle management of your add-ons. No new tooling, no Chainguard account, and no changes to your existing Kubernetes manifests are required. 
+Once subscribed, deployment follows the standard EKS Helm workflow, and you can deploy the add-ons with AWS CLI or in your GitOps workflows. Unlike a standalone Helm chart, which is self-managed, EKS will automatically handle lifecycle management of your add-ons. No new tooling, no Chainguard account, and no changes to your existing Kubernetes manifests are required.
 
 For step-by-step installation guidance, refer to the deployment instructions included with each add-on listing in AWS Marketplace.

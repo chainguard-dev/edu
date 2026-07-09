@@ -73,6 +73,7 @@ FIPS 140 defines security requirements for cryptographic modules.
 **FIPS 140-3**, published in September 2019, delivers more robust security testing, clearer validation criteria, and updated standards that reflect advancements in cryptographic technology. Organizations adopting this version gain enhanced protection against emerging threats.
 
 The transition from 140-2 to 140-3 represents a significant upgrade in:
+
 - Security testing rigor
 - Documentation requirements
 - Conformance criteria clarity
@@ -112,6 +113,7 @@ The CMVP process is lengthy and complex:
 **Current average timeline**: 590 days from submission to certificate issuance.
 
 This extended timeline creates challenges for software vendors, as:
+
 - Security vulnerabilities (CVEs) may be discovered during the validation process
 - New features cannot be added without restarting validation
 - Projects with rapid release cycles struggle to maintain current certifications
@@ -129,6 +131,7 @@ A cryptographic boundary defines what is inside the validated module versus what
 **Outside the boundary**: Operating system services, entropy sources (validated separately under SP 800-90B), and application code that uses the module.
 
 For example, Chainguard's kernel-independent FIPS design places:
+
 - **Inside**: OpenSSL FIPS provider with approved algorithms
 - **Outside**: Jitterentropy library (separately validated under SP 800-90B)
 - **Outside**: Application code calling OpenSSL APIs
@@ -148,6 +151,7 @@ FIPS distinguishes between approved and non-approved cryptographic algorithms.
 ## Security Policies
 
 Each validated cryptographic module includes a security policy document describing:
+
 - The module's cryptographic boundary
 - Approved and non-approved modes of operation
 - Required configuration for FIPS compliance

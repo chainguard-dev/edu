@@ -49,6 +49,7 @@ Create a new `Dockerfile` in the folder using Nano or your preferred text editor
 ```sh
 nano Dockerfile
 ```
+
 Paste the following commands into the file:
 
 ```Dockerfile
@@ -86,9 +87,9 @@ docker run $DH_USERNAME/example-image
 This will display the "I love FOSS!" message along with some ASCII art:
 
 ```output
- ______________ 
+ ______________
 < I love FOSS! >
- -------------- 
+ --------------
    \
     \
         .--.
@@ -120,6 +121,7 @@ Now let's generate an SBOM for `example-image`, the image we built in the previo
 ```sh
 syft $DH_USERNAME/example-image:latest -o spdx-json > example-image.spdx.json
 ```
+
 {{< details "What is SPDX?" >}}
 {{% blurb/spdx %}}
 {{< /details >}}
@@ -184,7 +186,6 @@ Are you sure you would like to continue? [y/N]
 ```
 
 Note the warnings — a record of the attestation will be recorded to an immutable log maintained by the Sigstore project. When you're ready, press `y` to agree and attest.
-
 
 ## Verifying an Attestation
 

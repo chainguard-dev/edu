@@ -14,43 +14,43 @@ function toast(textContent) {
 // Function to normalize code block labels with consistent formatting
 const normalizeCodeBlockLabel = (rawLabel) => {
   if (!rawLabel) {
-    return ''; // Keep unlabeled blocks unlabeled
+    return ""; // Keep unlabeled blocks unlabeled
   }
 
   // Define transformation rules for existing labels only
   const labelTransforms = {
     // Shell variants
-    'shell': 'Shell',
-    'sh': 'Shell',
-    'bash': 'Shell',
+    "shell": "Shell",
+    "sh": "Shell",
+    "bash": "Shell",
 
     // Configuration formats
-    'yaml': 'YAML',
-    'yml': 'YAML',
-    'json': 'JSON',
-    'xml': 'XML',
+    "yaml": "YAML",
+    "yml": "YAML",
+    "json": "JSON",
+    "xml": "XML",
 
     // Database
-    'sql': 'SQL',
-    'mariadb': 'SQL',
-    'mysql': 'SQL',
-    'postgresql': 'SQL',
-    'postgres': 'SQL',
+    "sql": "SQL",
+    "mariadb": "SQL",
+    "mysql": "SQL",
+    "postgresql": "SQL",
+    "postgres": "SQL",
 
     // Container formats
-    'dockerfile': 'Dockerfile',
+    "dockerfile": "Dockerfile",
 
     // Programming languages
-    'python': 'Python',
-    'javascript': 'JavaScript',
-    'js': 'JavaScript',
-    'typescript': 'TypeScript',
-    'ts': 'TypeScript',
+    "python": "Python",
+    "javascript": "JavaScript",
+    "js": "JavaScript",
+    "typescript": "TypeScript",
+    "ts": "TypeScript",
 
     // Output and diffs
-    'diff': 'Diff',
+    "diff": "Diff",
     // Output
-    'output': 'Output'
+    "output": "Output",
   };
 
   const lowerLabel = rawLabel.toLowerCase();

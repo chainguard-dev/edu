@@ -19,7 +19,6 @@ For the following, assume that returned information only includes that which you
 
 This page is intended as an introductory overview of IAM with chainctl. For a full reference of all commands with details and switches, see [chainctl Reference](/chainguard/chainctl/).
 
-
 ## List Folders
 
 Folders contain the catalogs of things your organization has access to.
@@ -35,12 +34,12 @@ For example, for our Developer Enablement team, which uses the `chainguard.edu` 
 ```shell
 chainctl iam folders list chainguard.edu
 ```
+
 ```output
 [chainguard.edu] Developer Enablement images catalog
 ```
 
 This command can also delete, describe, and update folders by replacing `list` with `delete`, `describe`, or `update`. See the reference guide for more details.
-
 
 ## List and Describe Identities
 
@@ -57,7 +56,6 @@ chainctl iam identities describe {IDENTITY_NAME | IDENTITY_ID}
 ```
 
 This command can also create, delete, describe, and update identities by replacing `list` with `create`, `delete`, `describe`, or `update`. See the reference guide for more details.
-
 
 ## List and Create Identity Providers
 
@@ -78,7 +76,6 @@ chainctl iam identity-provider create --name=google --parent=example \
 --oidc-client-secret=bar \
 --default-role=viewer
 ```
-
 
 ## List and Create Invites
 
@@ -102,7 +99,6 @@ chainctl iam invite create ORGANIZATION_NAME
 --single-use
 ```
 
-
 ## List organizations
 
 To list all of the organizations your account is associated with, use:
@@ -114,7 +110,6 @@ chainctl iam organizations list
 Most users will only be associated with one organization, but admin and support users may find using this command especially useful to determine whether they have needed permissions to interact with specific organizations when help is needed.
 
 This command can also delete and describe organizations by replacing `list` with `delete` or `describe`. See the reference guide for more details.
-
 
 ## List roles
 
@@ -132,7 +127,6 @@ It is possible to define role details during creation or create a role interacti
 chainctl iam roles create ROLE_NAME
 ```
 
-
 To find out what actions can be done by each role, use:
 
 ```shell
@@ -143,43 +137,43 @@ This returns a list like this sample:
 
 ```shell
 $ chainctl iam roles capabilities list
-         RESOURCE        |                 ACTION                  
+         RESOURCE        |                 ACTION
 -------------------------+-----------------------------------------
-  account_associations   | create, delete, list, update            
-  attestations           | list                                    
-  build_report           | list                                    
-  clusters               | create, delete, discover, list, update  
-  group_invites          | create, delete, list                    
-  groups                 | create, delete, list, update            
-  identity               | create, delete, list, update            
-  identity_providers     | create, delete, list, update            
-  libraries.entitlements | create, delete, list                    
-  libraries.java         | list                                    
-  libraries.python       | list                                    
-  manifest               | create, delete, list, update            
-  manifest.metadata      | list                                    
-  namespaces             | list                                    
-  nodes                  | list                                    
-  policy                 | create, delete, list, update            
-  record_contexts        | list                                    
-  record_policy_results  | list                                    
-  record_signatures      | list                                    
-  records                | list                                    
-  registry.entitlements  | list                                    
-  repo                   | create, delete, list, update            
-  risks                  | list                                    
-  role_bindings          | create, delete, list, update            
-  roles                  | create, delete, list, update            
-  sboms                  | list                                    
-  sigstore               | create, delete, list, update            
-  sigstore.certificate   | create                                  
-  subscriptions          | create, delete, list, update            
-  tag                    | create, delete, list, update            
-  version                | list                                    
-  vuln                   | create                                  
-  vuln_report            | create, list                            
-  vuln_reports           | list                                    
-  workloads              | list 
+  account_associations   | create, delete, list, update
+  attestations           | list
+  build_report           | list
+  clusters               | create, delete, discover, list, update
+  group_invites          | create, delete, list
+  groups                 | create, delete, list, update
+  identity               | create, delete, list, update
+  identity_providers     | create, delete, list, update
+  libraries.entitlements | create, delete, list
+  libraries.java         | list
+  libraries.python       | list
+  manifest               | create, delete, list, update
+  manifest.metadata      | list
+  namespaces             | list
+  nodes                  | list
+  policy                 | create, delete, list, update
+  record_contexts        | list
+  record_policy_results  | list
+  record_signatures      | list
+  records                | list
+  registry.entitlements  | list
+  repo                   | create, delete, list, update
+  risks                  | list
+  role_bindings          | create, delete, list, update
+  roles                  | create, delete, list, update
+  sboms                  | list
+  sigstore               | create, delete, list, update
+  sigstore.certificate   | create
+  subscriptions          | create, delete, list, update
+  tag                    | create, delete, list, update
+  version                | list
+  vuln                   | create
+  vuln_report            | create, list
+  vuln_reports           | list
+  workloads              | list
   ```
 
 To find out about role bindings, use:
@@ -189,4 +183,3 @@ chainctl iam role-bindings list
 ```
 
 The `chainctl iam role-bindings` command can also create, delete, and update identities by replacing `list` with `create`, `delete` or `update`.
-

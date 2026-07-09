@@ -60,6 +60,7 @@ Before kernel-independent FIPS, containers relied on the host kernel to provide 
 **Kernel must be in FIPS mode**: Organizations had to provision and maintain kernels configured for FIPS, typically older LTS versions.
 
 **Limited deployment options**:
+
 - Cloud platforms without FIPS-enabled kernels (GKE with COS, AWS Bottlerocket, Azure Linux) were unavailable
 - Latest instance types and hardware often unsupported
 - Specific Linux distributions and versions required
@@ -187,7 +188,7 @@ Then search for the required packages and versions.
 ### Feature Comparison
 
 | Aspect | Traditional FIPS | Chainguard Kernel-Independent |
-|--------|------------------|-------------------------------|
+| -------- | ------------------ | ------------------------------- |
 | **Kernel requirement** | Must be in FIPS mode | Any recent Linux kernel |
 | **Entropy source** | Kernel (`/dev/random`) | Userspace (Jitterentropy) |
 | **Developer testing** | Requires FIPS VM/hardware | Works on local workstation |
@@ -219,11 +220,13 @@ If you encounter performance issues, profile your application to identify the ac
 Understanding what's inside versus outside the FIPS boundary is essential.
 
 **Inside the boundary**: OpenSSL FIPS provider containing:
+
 - Approved cryptographic algorithms (AES, SHA-2, SHA-3, RSA, EdDSA, etc.)
 - Key management functions
 - Self-tests and integrity checks
 
 **Outside the boundary**:
+
 - Jitterentropy library (separately validated under SP 800-90B)
 - Application code calling OpenSSL APIs
 - Operating system services

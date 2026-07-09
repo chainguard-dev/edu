@@ -15,7 +15,6 @@ weight: 030
 
 Chainguard's `chainctl` provides command-line access to manage container images, identity resources, and security configurations across your organization. This guide covers essential commands to begin using `chainctl` effectively in your security and DevOps workflows. For comprehensive command documentation, see the [chainctl Reference](/chainguard/chainctl/).
 
-
 ## Authenticate and Check Auth Status
 
 To use `chainctl`, the first thing you must do is [authenticate with the Chainguard platform](/chainguard/chainguard-registry/authenticating/). Do so with:
@@ -50,7 +49,6 @@ chainctl auth configure-docker
 
 > **Note**: {{< blurb/noproxy >}}
 
-
 ## Update chainctl to the Latest Release
 
 To see which `chainctl` version you have installed, use:
@@ -66,7 +64,6 @@ chainctl update
 ```
 
 Updating requires administrative privileges, so be prepared to enter your machine's admin password.
-
 
 ## Configure chainctl
 
@@ -84,7 +81,6 @@ chainctl config reset
 
 Learn more at [How to Manage chainctl Configuration](/chainguard/chainctl-usage/manage-chainctl-config/).
 
-
 ## List Available Images
 
 To see which Chainguard Containers are available to your account, use:
@@ -94,7 +90,6 @@ chainctl images list
 ```
 
 Be warned, that list may take a while to generate and is likely to scroll past quickly in your command line terminal.
-
 
 ## Compare Two Image Versions
 
@@ -110,7 +105,6 @@ If a requested image or release being requested is not available in the repo you
 
 Learn more at [How To Compare Chainguard Containers with chainctl](/chainguard/chainguard-images/how-to-use/comparing-images/).
 
-
 ## List Available Package Versions
 
 If you want to get details about the various package versions available that can be used in images, use:
@@ -120,7 +114,6 @@ chainctl packages versions list $PACKAGENAME
 ```
 
 This will list all the versions that Chainguard has built and the end-of-life date for each version that has one assigned. It will also list older package versions that are no longer available.
-
 
 ## Output Formats
 

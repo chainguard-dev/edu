@@ -18,7 +18,6 @@ Chainguard's `chainctl images` commands provide comprehensive tools for managing
 
 For a full reference of all commands with details and switches, see [chainctl Reference](/chainguard/chainctl/).
 
-
 ## List Available Chainguard Container Images
 
 When you want to know which Chainguard Containers are available to your account, use the following command:
@@ -30,11 +29,11 @@ chainctl images list
 This will respond with a list of organizations available to your account. For most users, there will only be one entry in the list. This example shows an account with access to several organizations within the fictional MyCorp.
 
 ```output
-    Which organization would you like to list images from?                                                       
-                                                                                                                        
-  > [MyCorp-prod]     This group holds the production Chainguard Containers hosted under    cgr.dev/MyCorp-prod                   
-    [MyCorp-starter]     This group holds the Free Chainguard Containers hosted under    cgr.dev/MyCorp-starter  
-    [MyCorp-eval]     This group holds the evaluation Chainguard Containers hosted under    cgr.dev/MyCorp-eval  
+    Which organization would you like to list images from?
+
+  > [MyCorp-prod]     This group holds the production Chainguard Containers hosted under    cgr.dev/MyCorp-prod
+    [MyCorp-starter]     This group holds the Free Chainguard Containers hosted under    cgr.dev/MyCorp-starter
+    [MyCorp-eval]     This group holds the evaluation Chainguard Containers hosted under    cgr.dev/MyCorp-eval
 ```
 
 Move the `>` up and down with the arrow keys and hit `Enter` to select the appropriate org. Then the command will return the list.
@@ -67,9 +66,7 @@ Here's an abbreviated example of what will be returned:
 ...
 ```
 
-
 This will continue until all images (like `python` above) are listed with all their variants (releases like `3.13.3`). Notice that the list is not necessarily in order of release.
-
 
 ## List Available Container Repos
 
@@ -78,7 +75,6 @@ For a list of image repositories available to your account, use:
 ```shell
 chainctl images repos list
 ```
-
 
 ## Examine the History of Container Images
 
@@ -95,7 +91,6 @@ For example, let's find the history of one of the `python` image variants from o
 ```shell
 chainctl images history python:3.12.7 --parent=chainguard.edu
 ```
-
 
 The returned list is longer than is shown here, but here's a useful excerpt:
 
@@ -135,35 +130,32 @@ The command returns a reverse-chronological history of when a specific tag was u
 
 When the release version tag is not provided, the command will present you with a menu that lets you select which tag you'd like to obtain the history for. For example, if you enter:
 
-
 ```shell
 chainctl images history python --parent=chainguard.edu
 ```
 
 This will present you with a menu like this:
 
-
 ```output
-    Which tag of python would you like to view history for?  
-                                                             
-  > 3                                                        
-    3-dev                                                    
-    3.10                                                     
-    3.10-dev                                                 
-    3.10.14                                                  
-    3.10.14-dev                                              
-    3.10.14-r2                                               
-    3.10.14-r2-dev                                           
-    3.10.14-r3                                               
-    3.10.14-r3-dev                                           
-    3.10.14-r4                                               
-    3.10.14-r4-dev                                           
-    3.10.14-r5                                               
- 
+    Which tag of python would you like to view history for?
+
+  > 3
+    3-dev
+    3.10
+    3.10-dev
+    3.10.14
+    3.10.14-dev
+    3.10.14-r2
+    3.10.14-r2-dev
+    3.10.14-r3
+    3.10.14-r3-dev
+    3.10.14-r4
+    3.10.14-r4-dev
+    3.10.14-r5
+
 ```
 
 Once you make a selection, the details will be returned for that variant.
-
 
 ## Compare Chainguard Container Images
 

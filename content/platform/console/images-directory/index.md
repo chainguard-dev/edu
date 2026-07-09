@@ -21,7 +21,6 @@ This guide serves as a walkthrough of the Chainguard Console, which is accessibl
 
 If you're not ready to create a Chainguard account, you can follow along with the public [Chainguard Directory](/chainguard/chainguard-images/how-to-use/chainguard-directory/) which offers similar information, but is only informative as it is not connected to your organization or account. If you use the *Sign In* link in the directory, it brings you to the console.
 
-
 ## Accessing the Chainguard Console
 
 Log in to access the [Chainguard Console](https://console.chainguard.dev/auth/login).
@@ -32,25 +31,24 @@ If you would like to open the console with your Organization already selected, y
 https://console.chainguard.dev/auth/login?org=ORGANIZATION
 ```
 
-
 ## Browse container images and details in the console
 
 After signing in to the [Chainguard Console](https://console.chainguard.dev), your browser will take you to the Overview page. The following screenshot shows the Overview Page for an organization that hasn't paid for access to any container images:
 
 <center><img src="imgs-dir-A.png" alt="Screenshot showing the Chainguard Console's Overview page." style="width:1100px;"></center>
-<br /> 
+<br />
 
 If your organization and account have [Chainguard Notifications](/platform/console/use-chainguard-notifications) enabled, you will see the **Activity Center** on the page where notifications from Chainguard will occasionally be shown.
 
 <center><img src="notifications-inapp.png" alt="Screenshot showing a test notification in the Chainguard Notifications box on the Chainguard Console's Overview page." style="width:1100px;"></center>
 <br />
 
-Click **Images** in the left-hand navigation. By default, takes you to the **Organization** images tab. If you're part of an organization, you may have access to private Chainguard Containers (or *Production Containers*) that can be found here. 
+Click **Images** in the left-hand navigation. By default, takes you to the **Organization** images tab. If you're part of an organization, you may have access to private Chainguard Containers (or *Production Containers*) that can be found here.
 
 Navigate to the **Chainguard catalog** tab. There, you'll be presented with a list of all of Chainguard's available images:
 
 <center><img src="imgs-dir-B.png" alt="Screenshot of the public container images directory in the Console. The table is sorted by the 'Updated' column in descending order, meaning that the most recently updated container images are shown first." style="width:1100px;"></center>
-<br /> 
+<br />
 
 The **Chainguard catalog** tab has a table with four columns:
 
@@ -64,7 +62,7 @@ Note that if your organization has signed up for catalog pricing, there will be 
 The **Organization** tab doesn't have a **Description** column, but has two additional columns. The first of these, labeled **Status** specifies what resources an organization has purchased and has access to. This column can show one of two possible values: **Active**, meaning that your organization is able to download and use the container image, or **Expired**, meaning that your organization had access to the container image in the past but not anymore:
 
 <center><img src="imgs-dir-C.png" alt="Screenshot showing a portion of an Organization container images directory, including the 'Status' column. This example shows five container: metrics-server, a customized metrics-server image, mongodb, nginx, and node." style="width:700px;"></center>
-<br /> 
+<br />
 
 The other additional column is labeled **Pull URL**, and contains a URL you can use to pull the given image, as in a `docker pull` command.
 
@@ -72,18 +70,16 @@ You can click on any of these column names to sort the list of container images 
 
 Above the table is a search box you can use to find specific container images by their name or latest version number. To the right of this box is a drop-down menu labeled **Category**. You can use this to filter the images listed based on which of [Chainguard's Container Image categories](/chainguard/chainguard-images/about/images-categories/) they belong to.
 
-
 ## Container image information
 
 Next, let's inspect an individual container image. Click on any container image you'd like:
 
 <center><img src="imgs-dir-E.png" alt="Screenshot of the Container Details page for the argocd image, showing the 'Tags' tab." style="width:1100px;"></center>
-<br /> 
+<br />
 
 This example shows the details page for `argocd` in the Console.
 
 Each container image details page has several tabs that provide information about various facets of the given image.
-
 
 ### Tags
 
@@ -114,7 +110,7 @@ The **Provenance** tab outlines how you can verify container signatures and down
 
 The **Specifications** tab is where you can find a number of important details about a given container image, such as whether it ships with the `apk` package manager or a shell. It also includes information like the image's default user ID, environment variables, and its entrypoint.
 
-It also shows the container image's **Raw configuration**, which includes many of these details as well as its OCI labels (similar to [annotations](/chainguard/chainguard-images/overview/#annotations)). 
+It also shows the container image's **Raw configuration**, which includes many of these details as well as its OCI labels (similar to [annotations](/chainguard/chainguard-images/overview/#annotations)).
 
 <center><img src="imgs-dir-F.png" alt="Screenshot showing the 'Specifications' tab for the argocd image." style="width:1100px;"></center>
 <br />
@@ -135,11 +131,11 @@ The table listing an image's packages has six columns.
 * **Subpath**: if available, a subpath that points to a specific file or directory within the package
 * **License**: the license under which each package is published
 
-Above the table is a search box you can use to find and filter the packages listed. To the left of this search box are two drop-down menus you can use to select which version of the image you want to find the SBOM for as well as what architecture (either x86_64 or arm64). 
+Above the table is a search box you can use to find and filter the packages listed. To the left of this search box are two drop-down menus you can use to select which version of the image you want to find the SBOM for as well as what architecture (either x86_64 or arm64).
 
 Finally, to the right of the search box is a button labeled **Download**. If the image is a Free Container or a container image your organization has access to, you can click this button to download the SBOM (in either the SPDX or CycloneDX formats) to your machine.
 
-Note that Chainguard began generating SBOMs for its images on November 15, 2023. For this reason, any versions of a given container image that were released before that date will not have any SBOM data to show. 
+Note that Chainguard began generating SBOMs for its images on November 15, 2023. For this reason, any versions of a given container image that were released before that date will not have any SBOM data to show.
 
 ### Vulnerabilities
 
@@ -167,11 +163,11 @@ To the left of each row in the table is down-pointing chevron (**˅**). Clicking
 
 Specifically, this highlights the **Package** name and **Version** number of the package associated with the vulnerability. It also shows the **Fixed version** of the package, a brief **Description** of the vulnerability, and one or more **References** you can review to learn more about the vulnerability.
 
-Please be aware that, as with SBOM data, Chainguard began generating vulnerability information for its images on November 15, 2023. For this reason, any versions of a given image that were released before that date won't have any vulnerability data to show. 
+Please be aware that, as with SBOM data, Chainguard began generating vulnerability information for its images on November 15, 2023. For this reason, any versions of a given image that were released before that date won't have any vulnerability data to show.
 
 ### Advisories
 
-The **Advisories** tab lists any CVEs that have affected the image in the past and what action Chainguard took to remediate the CVE. This tab shows a timeline of each security advisory released for a given container image, starting with the most recent. Each entry specifies the date and time the advisory was released, the CVE in question, the affected package, and the [current status](/chainguard/chainguard-images/staying-secure/security-advisories/how-chainguard-issues/#summary-of-advisory-statuses). 
+The **Advisories** tab lists any CVEs that have affected the image in the past and what action Chainguard took to remediate the CVE. This tab shows a timeline of each security advisory released for a given container image, starting with the most recent. Each entry specifies the date and time the advisory was released, the CVE in question, the affected package, and the [current status](/chainguard/chainguard-images/staying-secure/security-advisories/how-chainguard-issues/#summary-of-advisory-statuses).
 
 To learn more about Chainguard security advisories, we encourage you to read our article on [How Chainguard Issues Security Advisories](/chainguard/chainguard-images/staying-secure/security-advisories/how-chainguard-issues/) as well as our guide on [How to Use Chainguard Security Advisories](/chainguard/chainguard-images/staying-secure/security-advisories/how-to-use/). You can also find every security advisory published for Chainguard Containers by exploring our self-service [Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory).
 
@@ -194,7 +190,6 @@ Charts with the **shield** icon are iamguarded charts, created specifically to h
 
 Click any chart name to learn the chart details.
 
-
 ### Find packages in the Chainguard Console
 
 You can find a list of packages available to your organization in the Chainguard Console. Click **Packages** in the sidebar menu to open the Packages page to view and search across the list of APK packages that are available to you via the Chainguard-provided private APK repository for your organization.
@@ -203,7 +198,6 @@ You can find a list of packages available to your organization in the Chainguard
 <br />
 
 Click a package name to reveal more details about the package. Use the **Architecture** dropdown to select which option to display.
-
 
 ## Learn more
 

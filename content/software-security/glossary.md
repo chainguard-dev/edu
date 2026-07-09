@@ -95,7 +95,6 @@ The origin and exact meaning of this term varies among sources, but a zero-day i
 
 ---
 
-
 ## Security tools and frameworks
 
 ### Certificate authority

@@ -107,8 +107,8 @@ data "chainguard_role" "registry_pull" {
 
 resource "chainguard_rolebinding" "my_identity_name_registry_pull" {
   identity = chainguard_identity.my_identity_name.id
-  group	= data.chainguard_group.org.id
-  role 	= data.chainguard_role.registry_pull.items[0].id
+  group = data.chainguard_group.org.id
+  role  = data.chainguard_role.registry_pull.items[0].id
 }
 
 output "my_identity_name_id" {

@@ -144,7 +144,7 @@ ls -lh /out/*.bcfks
 After the script completes, the `spark-ssl/` directory contains three files:
 
 | File | Purpose |
-|------|---------|
+| ------ | --------- |
 | `keystore.bcfks` | Server certificate and private key |
 | `truststore.bcfks` | CA certificate used to verify peers |
 | `ca-keystore.bcfks` | CA keypair used to sign the server certificate (not needed at runtime) |

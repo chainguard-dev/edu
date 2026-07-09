@@ -35,9 +35,9 @@ These verification steps help you:
 
 Container images include packages with `NIST-` prefix indicating applicable certification. These also provide URLs to the certificates in the APK database and the SPDX SBOM. The following prefixes are in use:
 
- * `NIST-CMVP-5132` indicates a cryptoprographic module with the certificate [#5132](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/5132)
- * `NIST-ESV-191` indicates an entropy source with the certificate [#E191](https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/191)
- * `NIST-MIP-module-name` indicates a non-validated submitted module only available in fips-mip images showcasing [Modules in process](https://csrc.nist.gov/projects/cryptographic-module-validation-program/modules-in-process/modules-in-process-list) containing future FIPS module development
+- `NIST-CMVP-5132` indicates a cryptoprographic module with the certificate [#5132](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/5132)
+- `NIST-ESV-191` indicates an entropy source with the certificate [#E191](https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/191)
+- `NIST-MIP-module-name` indicates a non-validated submitted module only available in fips-mip images showcasing [Modules in process](https://csrc.nist.gov/projects/cryptographic-module-validation-program/modules-in-process/modules-in-process-list) containing future FIPS module development
 
 ## OpenSSL
 
@@ -52,78 +52,78 @@ You can use the `openssl-fips-test` tool to check whether any Chainguard Contain
 ```shell
 docker run -it --entrypoint openssl-fips-test cgr.dev/$ORGANIZATION/python-fips
 ```
+
 ```output
 Checking OpenSSL lifecycle assurance.
 
-	✓ Self-test KAT_Integrity HMAC ... passed.
-	✓ Self-test Module_Integrity HMAC ... passed.
-	✓ Self-test KAT_Digest SHA1 ... passed.
-	✓ Self-test KAT_Digest SHA2 ... passed.
-	✓ Self-test KAT_Digest SHA3 ... passed.
-	✓ Self-test KAT_Cipher AES_GCM ... passed.
-	✓ Self-test KAT_Cipher AES_ECB_Decrypt ... passed.
-	✓ Self-test Continuous_RNG_Test RNG ... passed.
-	✓ Self-test KAT_Signature RSA ... passed.
-	✓ Self-test KAT_Signature ECDSA ... passed.
-	✓ Self-test KAT_Signature DSA ... passed.
-	✓ Self-test KAT_KDF TLS13_KDF_EXTRACT ... passed.
-	✓ Self-test KAT_KDF TLS13_KDF_EXPAND ... passed.
-	✓ Self-test KAT_KDF TLS12_PRF ... passed.
-	✓ Self-test KAT_KDF PBKDF2 ... passed.
-	✓ Self-test KAT_KDF SSHKDF ... passed.
-	✓ Self-test KAT_KDF KBKDF ... passed.
-	✓ Self-test KAT_KDF HKDF ... passed.
-	✓ Self-test KAT_KDF SSKDF ... passed.
-	✓ Self-test KAT_KDF X963KDF ... passed.
-	✓ Self-test KAT_KDF X942KDF ... passed.
-	✓ Self-test DRBG HASH ... passed.
-	✓ Self-test DRBG CTR ... passed.
-	✓ Self-test DRBG HMAC ... passed.
-	✓ Self-test KAT_KA DH ... passed.
-	✓ Self-test KAT_KA ECDH ... passed.
-	✓ Self-test KAT_AsymmetricCipher RSA_Encrypt ... passed.
-	✓ Self-test KAT_AsymmetricCipher RSA_Decrypt ... passed.
-	✓ Self-test KAT_AsymmetricCipher RSA_Decrypt ... passed.
+ ✓ Self-test KAT_Integrity HMAC ... passed.
+ ✓ Self-test Module_Integrity HMAC ... passed.
+ ✓ Self-test KAT_Digest SHA1 ... passed.
+ ✓ Self-test KAT_Digest SHA2 ... passed.
+ ✓ Self-test KAT_Digest SHA3 ... passed.
+ ✓ Self-test KAT_Cipher AES_GCM ... passed.
+ ✓ Self-test KAT_Cipher AES_ECB_Decrypt ... passed.
+ ✓ Self-test Continuous_RNG_Test RNG ... passed.
+ ✓ Self-test KAT_Signature RSA ... passed.
+ ✓ Self-test KAT_Signature ECDSA ... passed.
+ ✓ Self-test KAT_Signature DSA ... passed.
+ ✓ Self-test KAT_KDF TLS13_KDF_EXTRACT ... passed.
+ ✓ Self-test KAT_KDF TLS13_KDF_EXPAND ... passed.
+ ✓ Self-test KAT_KDF TLS12_PRF ... passed.
+ ✓ Self-test KAT_KDF PBKDF2 ... passed.
+ ✓ Self-test KAT_KDF SSHKDF ... passed.
+ ✓ Self-test KAT_KDF KBKDF ... passed.
+ ✓ Self-test KAT_KDF HKDF ... passed.
+ ✓ Self-test KAT_KDF SSKDF ... passed.
+ ✓ Self-test KAT_KDF X963KDF ... passed.
+ ✓ Self-test KAT_KDF X942KDF ... passed.
+ ✓ Self-test DRBG HASH ... passed.
+ ✓ Self-test DRBG CTR ... passed.
+ ✓ Self-test DRBG HMAC ... passed.
+ ✓ Self-test KAT_KA DH ... passed.
+ ✓ Self-test KAT_KA ECDH ... passed.
+ ✓ Self-test KAT_AsymmetricCipher RSA_Encrypt ... passed.
+ ✓ Self-test KAT_AsymmetricCipher RSA_Decrypt ... passed.
+ ✓ Self-test KAT_AsymmetricCipher RSA_Decrypt ... passed.
 
-	✓ 29 out of 29 self-tests passed.
-	✓ Check FIPS cryptographic module is available... passed.
-	✓ Check FIPS approved only mode (EVP_default_properties_is_fips_enabled)... passed.
-	✓ Check non-approved algorithm blocked (HMAC-MD5)... passed.
+ ✓ 29 out of 29 self-tests passed.
+ ✓ Check FIPS cryptographic module is available... passed.
+ ✓ Check FIPS approved only mode (EVP_default_properties_is_fips_enabled)... passed.
+ ✓ Check non-approved algorithm blocked (HMAC-MD5)... passed.
 
 Digests available for non-security use as per FIPS 140-3 I.G. 2.4.A (fips=no):
-	✓  MD5
-	✓  SHA1
+ ✓  MD5
+ ✓  SHA1
 
 Available approved algorithms for security purposes (fips=yes):
-	✗ MD5
-	✓ SHA-1
-	✓ SHA-2
-	✓ SHA-3
-	✓ DSA
-	✓ RSA
-	✓ ECDSA
-	✗ Ed25519
-	✗ DetECDSA
-	✗ ML-DSA
-	✗ SLH-DSA
-	✗ ML-KEM
-	✗ X25519MLKEM768
-	✗ SecP256r1MLKEM768
+ ✗ MD5
+ ✓ SHA-1
+ ✓ SHA-2
+ ✓ SHA-3
+ ✓ DSA
+ ✓ RSA
+ ✓ ECDSA
+ ✗ Ed25519
+ ✗ DetECDSA
+ ✗ ML-DSA
+ ✗ SLH-DSA
+ ✗ ML-KEM
+ ✗ X25519MLKEM768
+ ✗ SecP256r1MLKEM768
 
 Public OpenSSL API (libssl.so & libcrypto.so):
-	name:     	OpenSSL 3.6.0 1 Oct 2025
-	version:  	3.6.0
+ name:      OpenSSL 3.6.0 1 Oct 2025
+ version:   3.6.0
 
 FIPS cryptographic module provider details (fips.so):
-	name:     	OpenSSL FIPS Provider
-	version:  	3.1.2
-	build:    	3.1.2
+ name:      OpenSSL FIPS Provider
+ version:   3.1.2
+ build:     3.1.2
 
 Locate applicable CMVP certificate(s) at: CMVP #4985
 ```
 
-This output confirms that OpenSSL in the `python-fips` image is properly configured to use its FIPS module. 
-
+This output confirms that OpenSSL in the `python-fips` image is properly configured to use its FIPS module.
 
 ## Bouncy Castle FIPS Java API
 
@@ -134,6 +134,7 @@ To verify whether Bouncy Castle FIPS is operating correctly, you can execute its
 ```shell
 docker run -it --rm cgr.dev/$ORGANIZATION/jre-fips org.bouncycastle.util.DumpInfo
 ```
+
 ```output
 Version Info: BouncyCastle Security Provider (FIPS edition) v2.1.1
 FIPS Ready Status: READY
@@ -144,10 +145,9 @@ Native Support: AES/CBC AES/CFB AES/CTR AES/ECB AES/GCM DRBG NRBG SHA2
 Module SHA-256 HMAC: …
 ```
 
-Note that this example worked because the `jre-fips` image's entrypoint is `/usr/bin/java`, so it executes `java org.bouncycastle.util.DumpInfo` within the container. 
+Note that this example worked because the `jre-fips` image's entrypoint is `/usr/bin/java`, so it executes `java org.bouncycastle.util.DumpInfo` within the container.
 
 > **Note:** You can find a Chainguard container image's entrypoint in its [**Specifications** tab](https://images.chainguard.dev/directory/image/jre-fips/specifications) within the Containers Directory.
-
 
 ## BoringCrypto
 
@@ -158,6 +158,7 @@ Chainguard FIPS images that use BoringCrypto list the version of the module in u
 ```shell
 docker run -it --rm cgr.dev/$ORGANIZATION/envoy-fips --version
 ```
+
 ```output
 envoy  version: dc2d3098ae5641555f15c71d5bb5ce0060a8015c/1.36.2/Modified/RELEASE/BoringSSL-FIPS-2023042800
 ```
@@ -167,6 +168,7 @@ You can contrast this with the `version` output of the standard, non-FIPS `envoy
 ```shell
 docker run -it --rm cgr.dev/$ORGANIZATION/envoy --version
 ```
+
 ```output
 envoy  version: dc2d3098ae5641555f15c71d5bb5ce0060a8015c/1.36.2/Modified/RELEASE/BoringSSL
 ```
@@ -178,6 +180,7 @@ Chainguard also ships the `envoy-fips` container image with `bssl-test_fips`. Th
 ```shell
 docker run -it --rm --entrypoint /usr/bin/bssl-test_fips cgr.dev/$ORGANIZATION/envoy-fips
 ```
+
 ```output
 Module version: 2023042800
 About to AES-CBC encrypt . . .
@@ -221,7 +224,6 @@ About to compute FFDH key-agreement:
 PASS
 ```
 
-
 ## Troubleshooting
 
 If verification checks fail, consider these common issues:
@@ -232,7 +234,6 @@ If verification checks fail, consider these common issues:
 - **Incorrect image variant**: Verify you're using the FIPS variant of the image (e.g., `python-fips` not `python`)
 
 For additional support, contact Chainguard support or consult the FIPS documentation.
-
 
 ## Related Resources
 

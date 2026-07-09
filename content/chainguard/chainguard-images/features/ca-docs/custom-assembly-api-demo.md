@@ -21,7 +21,6 @@ You can use the Chainguard API to further customize your Custom Assembly builds 
 
 > **Note**: This tutorial highlights using the Chainguard API to interact with Custom Assembly resources. However, you can also interact with Custom Assembly using [`chainctl`, Chainguard's command-line interface tool](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/), as well as [the Chainguard console](/chainguard/chainguard-images/features/ca-docs/custom-assembly-console/).
 
-
 ## Prerequisites
 
 In order to follow along with this guide, you will need the following:
@@ -29,7 +28,6 @@ In order to follow along with this guide, you will need the following:
 * Access to a Custom Assembly container image. If your organization doesn't yet have access to Custom Assembly, reach out to your account team to start the process.
 * The demo application used in this guide is written in Go, so you will need Go installed on your local machine. Refer to the [official Go documentation](https://go.dev/doc/install) for instructions on downloading and installing Go.
 * You will also need [`chainctl` installed](/chainguard/chainctl-usage/how-to-install-chainctl/) on your local machine to create a Chainguard token and authenticate to the Chainguard API.
-
 
 ## Downloading the Demo Application
 
@@ -77,12 +75,11 @@ cd custom-assembly-go/
 
 From here, you can run the application and use it to update the packages built into a Custom Assembly container. First though, let's go through the `main.go` file where the executable application code is written In order to understand how it works.
 
-
 ## Understanding the Demo Application
 
-Before outlining how to run the demo application to update a Custom Assembly container image, it's important that you have a general understanding of how the application works. 
+Before outlining how to run the demo application to update a Custom Assembly container image, it's important that you have a general understanding of how the application works.
 
-This section will only provide a general overview of the application. We encourage you to read through the complete application, as it includes comments that explain what each portion of the code does. 
+This section will only provide a general overview of the application. We encourage you to read through the complete application, as it includes comments that explain what each portion of the code does.
 
 ### Imports
 
@@ -90,13 +87,13 @@ The demo application uses the following packages:
 
 ```main.go
 import (
-	"context"
-	"flag"
-	"fmt"
-	"log"
-	"os"
-	"strings"
-	"time"
+ "context"
+ "flag"
+ "fmt"
+ "log"
+ "os"
+ "strings"
+ "time"
 
 . . .
 )
@@ -106,15 +103,15 @@ The application also uses the Chainguard SDK to interact with the Chainguard API
 
 ```main.go
 import (
-	
-	. . .
 
-	"chainguard.dev/sdk/auth"
-	"chainguard.dev/sdk/proto/platform"
-	commonv1 "chainguard.dev/sdk/proto/platform/common/v1"
-	"chainguard.dev/sdk/proto/platform/iam/v1"
-	registryv1 "chainguard.dev/sdk/proto/platform/registry/v1"
-	"gopkg.in/yaml.v2"
+ . . .
+
+ "chainguard.dev/sdk/auth"
+ "chainguard.dev/sdk/proto/platform"
+ commonv1 "chainguard.dev/sdk/proto/platform/common/v1"
+ "chainguard.dev/sdk/proto/platform/iam/v1"
+ registryv1 "chainguard.dev/sdk/proto/platform/registry/v1"
+ "gopkg.in/yaml.v2"
 )
 ```
 
@@ -126,16 +123,16 @@ Immediately below the imports, the application creates a few constants used thro
 
 ```main.go
 const (
-	defaultAPIURL	= "https://console-api.enforce.dev"
-	tokenEnvVariable = "TOK"
-	defaultGroupName = "ORGANIZATION"
-	demoRepoName 	= "CUSTOM-IMAGE-NAME"
-	buildConfigFile = "build.yaml"
+ defaultAPIURL = "https://console-api.enforce.dev"
+ tokenEnvVariable = "TOK"
+ defaultGroupName = "ORGANIZATION"
+ demoRepoName  = "CUSTOM-IMAGE-NAME"
+ buildConfigFile = "build.yaml"
 )
 ```
 
 * `defaultAPIURL`: This points to the Chainguard API's URL, which the application will reach in order to interact with the API.
-* `tokenEnvVariable`: In order to use the Chainguard API, you must authenticate to prove that you have access to the resources you want to interact with. This constant defines an environment variable `TOK` that the application will expect to be present in order to function. This variable must hold a Chainguard authentication token; the next section describes how to create this environment variable. 
+* `tokenEnvVariable`: In order to use the Chainguard API, you must authenticate to prove that you have access to the resources you want to interact with. This constant defines an environment variable `TOK` that the application will expect to be present in order to function. This variable must hold a Chainguard authentication token; the next section describes how to create this environment variable.
 * `defaultGroupName`: This constant points to the Chainguard organization whose Custom Assembly resources you would like to manage.
 * `demoRepoName`: This constant points to the name of the Custom Assembly container image that you'd like to update with this demo application.
 * `buildConfigFile`: This last constant points to the `build.yaml` file, which you'll use to configure the Custom Assembly container image.
@@ -166,10 +163,9 @@ To accomplish all this, the application's functions perform the following API ca
 * [UpdateRepo](/chainguard/api/spec/#/operations/Registry_UpdateRepo)
 * [Groups_List](/chainguard/api/spec/#/operations/Groups_List)
 
-For a deeper understanding of what each function does and how the application works overall, we encourage you to closely review the `main.go` file before running it. You may also benefit from reviewing our [OpenAPI Specification reference document](/chainguard/api/spec/). 
+For a deeper understanding of what each function does and how the application works overall, we encourage you to closely review the `main.go` file before running it. You may also benefit from reviewing our [OpenAPI Specification reference document](/chainguard/api/spec/).
 
 Once you feel you have a grasp on how the demo application works, move on to the next section which outlines how to run it.
-
 
 ## Running the Demo Application
 
@@ -198,14 +194,14 @@ nano main.go
 From there, edit the following lines:
 
 ```
-    	// Group and repository settings
-    	defaultGroupName = "ORGANIZATION"
-    	demoRepoName 	= "CUSTOM-IMAGE-NAME"
+     // Group and repository settings
+     defaultGroupName = "ORGANIZATION"
+     demoRepoName  = "CUSTOM-IMAGE-NAME"
 ```
 
 Replace `ORGANIZATION` with the name of your organization's repository within the Chainguard registry. This usually takes the form of a domain name, such as `example.com`. Additionally, replace `CUSTOM-IMAGE-NAME` with the name of the Chainguard Container you want to customize. For example, you may want to customize an `nginx` or `python` container image.
 
-Save and close the `main.go` file. If you used `nano`, you can do so by pressing `CTRL+X`, `Y`, and then `ENTER`. 
+Save and close the `main.go` file. If you used `nano`, you can do so by pressing `CTRL+X`, `Y`, and then `ENTER`.
 
 Next, open up the `build.yaml` file:
 
@@ -218,8 +214,8 @@ This file will have the following content:
 ```
 contents:
   packages:
-	- wolfi-base
-	- go
+ - wolfi-base
+ - go
 ```
 
 Here, replace `wolfi-base` and `go` with whatever packages you'd like to be included in the customized container image. Note that you can only add packages that your organization already has access to, based on the Chainguard Containers your organization has access to. Refer to the [Custom Assembly Overview](/chainguard/chainguard-images/features/ca-docs/custom-assembly/#limitations) for more details on the limitations of what packages you can add to a Custom Assembly image.
@@ -265,7 +261,7 @@ Enter `y` to confirm. Then, if everything was configured correctly, the applicat
 
 ### Troubleshooting
 
-Although the demo application has been tested to ensure that it works properly, there are several pitfalls one may encounter when they attempt to run it. 
+Although the demo application has been tested to ensure that it works properly, there are several pitfalls one may encounter when they attempt to run it.
 
 For example, you may run into an error like the following:
 
@@ -293,9 +289,8 @@ go mod init github.com/chainguard-dev/sdk && go mod tidy
 
 Again, the `main.go` file contains many comments that explain each portion of the code. If you encounter any errors, we encourage you to review the file closely to better understand how the application works and what might be going wrong.
 
-
 ## Learn More
 
-The example application highlighted in this guide is intended to show how you can manage Custom Assembly resources with the Chainguard API. 
+The example application highlighted in this guide is intended to show how you can manage Custom Assembly resources with the Chainguard API.
 
 To learn more about Custom Assembly, you can refer to the [Custom Assembly Overview](/chainguard/chainguard-images/features/ca-docs/custom-assembly/). Be aware that it's also possible to edit a Custom Assembly container's configuration using `chainctl`. Check out our [documentation on the subject](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/) for more information.

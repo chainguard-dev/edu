@@ -75,7 +75,7 @@ Keep this same terminal session for the verification step below so that the `PLA
 Move `chainctl` into your `/usr/local/bin` directory and elevate its permissions so that it can execute as needed.
 
 ```sh
-sudo install -o $UID -g $(id -g) -m 0755 chainctl /usr/local/bin/ 
+sudo install -o $UID -g $(id -g) -m 0755 chainctl /usr/local/bin/
 ```
 
 At this point, you'll be able to use the `chainctl` command.
@@ -164,13 +164,13 @@ You should receive output similar to the following.
   \____| |_| |_| /_/   \_\ |___| |_| \_|  \____|   |_|   |_____|
 chainctl: Chainguard Control
 
-GitVersion:	<semver version>
-GitCommit: 	<commit hash>
+GitVersion: <semver version>
+GitCommit:  <commit hash>
 GitTreeState:  clean
-BuildDate: 	<date here>
-GoVersion: 	<compiler version>
-Compiler:  	gc
-Platform:  	<your platform>
+BuildDate:  <date here>
+GoVersion:  <compiler version>
+Compiler:   gc
+Platform:   <your platform>
 ```
 
 If you received output that you did not expect, check your bash profile to make sure that your system is using the expected PATH.
@@ -206,8 +206,7 @@ For example, on Linux you can find the `oidc-token` for the `https://console-api
 /home/$USER/.cache/chainguard/https:--console-api.enforce.dev/
 ```
 
-Note that for this audience, chainctl replaces `/` with `-` in order to ensure a valid file path. 
-
+Note that for this audience, chainctl replaces `/` with `-` in order to ensure a valid file path.
 
 ## Configure a Docker credential helper
 
@@ -234,19 +233,21 @@ $env:Path += ";C:\Tools"
 For a persistent setup, add that directory to your user or system `PATH` via the Windows Environment Variables settings.
 
 #### 2. Authenticate and configure Docker credentials:
+
 ```PowerShell
 chainctl auth login
 chainctl auth configure-docker
 ```
 
 #### 3. Create the Docker credential helper symlink in the same directory as `chainctl.exe`:
+
 ```PowerShell
 New-Item -ItemType SymbolicLink -Path "docker-credential-cgr.exe" -Target "chainctl.exe"
 ```
+
 If this command fails with a permissions error, try running PowerShell as Administrator or ensure that Windows Developer Mode is enabled so you can create symbolic links.
 
 Following this, you can verify Docker pulls from Chainguard by pulling a private image.
-
 
 ## Updating `chainctl`
 
