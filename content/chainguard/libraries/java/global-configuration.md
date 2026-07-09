@@ -52,7 +52,7 @@ directly from Chainguard. Refer to the [direct access documentation for build
 tools](/chainguard/libraries/java/build-configuration/#direct-access) for more
 information.
 
-### Manually managing fallback
+## Manually managing fallback
 
 Chainguard recommends using the Chainguard Repository's built-in [upstream
 fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) rather
@@ -66,7 +66,7 @@ your Maven upstream, and combine them in a virtual or group repository with
 Chainguard as the first priority. The per-tool instructions on this page follow
 this pattern. If you configure a fallback to Maven Central, packages sourced
 from that registry are not covered by Chainguard's malware-resistance
-guarantees. 
+guarantees.
 
 <a name="cloudsmith"></a>
 
@@ -82,7 +82,7 @@ by defining multiple upstream repositories.
 
 ### Initial configuration
 
-Use the following steps to set up a repository in Cloudsmith to access Chainguard Java Libraries via the Chainguard Repository. 
+Use the following steps to set up a repository in Cloudsmith to access Chainguard Java Libraries via the Chainguard Repository.
 
 Configure a `java-all` repository:
 
@@ -158,7 +158,7 @@ point for more details.
 
 ### Initial configuration
 
-Use the following steps to set up a repository in GAR to access Chainguard Java Libraries via the Chainguard Repository. 
+Use the following steps to set up a repository in GAR to access Chainguard Java Libraries via the Chainguard Repository.
 
 1. Log in to the Google Cloud console as a user with administrator privileges.
 1. Navigate to your project and find the **Artifact Registry** with the search.
@@ -240,7 +240,7 @@ for more information.
 
 ### Initial configuration
 
-Use the following steps to set up a repository in Artifactory to access Chainguard Java Libraries via the Chainguard Repository. 
+Use the following steps to set up a repository in Artifactory to access Chainguard Java Libraries via the Chainguard Repository.
 
 1. Log in as a user with administrator privileges.
 1. Click **Administration** in the top navigation bar.
@@ -262,14 +262,16 @@ Configure a remote repository for the Chainguard Libraries for Java repository:
 
 If you are manually managing fallback, you can configure an additional remote repository for Maven Central with lower priority. Make sure to deactivate **Maven Settings - Handle Snapshots** in the remote repository.
 
-> Note: If you are running Curation, you must add your Chainguard remote repository to the `curation-bypass` list. 
+> Note: If you are running Curation, you must add your Chainguard remote repository to the `curation-bypass` list.
 
 Combine the repositories in a new virtual repository:
 
 1. Click **Create a Repository** and choose the **Virtual** option.
 1. Configure the repository:
+
   * **Package type**: Maven
   * **Repository Key**: `java-all`
+
 1. Scroll down to the **Repositories** section.
 1. Add the `java-chainguard` repository. If you are using the remediated repository, add the `java-chainguard-remediated` repository and ensure it is the first in the displayed list. 
 1. Click **Create Virtual Repository**.
@@ -359,7 +361,7 @@ Libraries for Java repository for production use.
 
 ### Initial configuration
 
-Use the following steps to set up a repository in Sonatype Nexus to access Chainguard Java Libraries via the Chainguard Repository. 
+Use the following steps to set up a repository in Sonatype Nexus to access Chainguard Java Libraries via the Chainguard Repository.
 
 If you are configuring your own fallback in your repo manager, for initial testing it is advised to create a separate proxy
 repository for the Maven Central Repository, a separate proxy repository
