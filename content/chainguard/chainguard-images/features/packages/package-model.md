@@ -115,8 +115,8 @@ The public Wolfi and Extra repositories currently retain non-latest package vers
 Retention rules for public repositories:
 
 * Non-latest package versions older than 12 months are removed unless:
-  * They are required by other Wolfi packages.
-  * They are required by Chainguard Container images.
+    * They are required by other Wolfi packages.
+    * They are required by Chainguard Container images.
 * Additionally, Chainguard removes latest package versions if the corresponding package definition has been removed from the Wolfi source repository (`https://github.com/wolfi-dev/os`), unless they meet one of these exceptions.
 
 If you pin specific package versions, ensure those versions remain within the retention window or mirror them internally.

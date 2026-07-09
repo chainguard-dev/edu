@@ -2,7 +2,7 @@
 title: "Getting Started with the Python Chainguard Container"
 type: "article"
 linktitle: "Python"
-aliases: 
+aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-python
 description: "Learn how to use Chainguard's Python container images for secure Python applications with minimal CVEs, distroless design, and comprehensive supply chain security features"
 date: 2023-02-28T11:07:52+02:00
@@ -150,7 +150,7 @@ And you should get output similar to what you got before, with a random octopus 
 Octopuses can breathe and see through their skin.
 ```
 
-You have successfully completed the single-stage Python Chainguard Container. At this point, you can continue to the [multi-stage example](#example-2-multi-stage-build-for-python-chainguard-image) or [advanced usage](#advanced-usage).
+You have successfully completed the single-stage Python Chainguard Container. At this point, you can continue to the [multi-stage example](#example-2-multi-stage-build-for-python-chainguard-container) or [advanced usage](#advanced-usage).
 
 ## Example 2 — Multi-Stage Build for Python Chainguard Container
 
@@ -237,12 +237,12 @@ The following Dockerfile will:
 
 1. Start a new build stage based on the `python:latest-dev` container image and call it `builder`;
 2. Create a new virtual environment to cleanly hold the application's dependencies;
-2. Copy `requirements.txt` from the current directory to the `/linky` location in the container;
-3. Run `pip install --no-cache-dir -r requirements.txt` to install dependencies;
-4. Start a new build stage based on the `python:latest` image;
-5. Copy the dependencies in the virtual environment from the builder stage, and the source code from
+3. Copy `requirements.txt` from the current directory to the `/linky` location in the container;
+4. Run `pip install --no-cache-dir -r requirements.txt` to install dependencies;
+5. Start a new build stage based on the `python:latest` image;
+6. Copy the dependencies in the virtual environment from the builder stage, and the source code from
    the current directory;
-6. Set up the application as the entry point for this container.
+7. Set up the application as the entry point for this container.
 
 Copy this configuration to your own Dockerfile:
 
@@ -279,7 +279,7 @@ Save the file when you’re finished.
 You can now build the container image. If you receive a permission error, try running under `sudo`.
 
 ```shell
-docker build . --pull -t linky 
+docker build . --pull -t linky
 ```
 
 Once the build is finished, run the image with:

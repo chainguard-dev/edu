@@ -23,13 +23,13 @@ There are a number of things one should keep in mind when analyzing revision tre
 
 * FedRAMP authorization has tended to only include external customer communication under scope. Now, though, the FedRAMP PMO is expecting both external and internal communications in scope.
 * Customers will be now be required to provide an authorization boundary diagram with an associated network diagram that shows all FIPS encrypted flows:
-  * Anything that isn’t encrypted needs to be explicitly highlighted.
-  * Auditors will ask that these diagrams and flows not just show this but, in some cases, to prove this during the audit with observed testing scenarios.
+    * Anything that isn’t encrypted needs to be explicitly highlighted.
+    * Auditors will ask that these diagrams and flows not just show this but, in some cases, to prove this during the audit with observed testing scenarios.
 * Notable Revision 5 Changes ([Rev 5 - appendix queue](https://web.archive.org/web/20250214120456/https://www.fedramp.gov/blog/2023-05-30-rev-5-baselines-have-been-approved-and-released/):
-  * Customers must list every client and server communication in the infrastructure and which FIPS module is being used.
-  * DoD Security Technical Implementation Guides (STIGs) can be required, although CIS Level 2 benchmarks are accepted if a STIG does not exist, marking a change from Revision 4 which only required CIS Level 1 benchmarks.
+    * Customers must list every client and server communication in the infrastructure and which FIPS module is being used.
+    * DoD Security Technical Implementation Guides (STIGs) can be required, although CIS Level 2 benchmarks are accepted if a STIG does not exist, marking a change from Revision 4 which only required CIS Level 1 benchmarks.
 * In order to get FIPS validated, libraries need to be assessed by one of thirteen authorized labs:
-  * National Institute of Standards and Technology ([NIST](https://www.nist.gov/)) labs are overwhelmed, as there is a large influx of 140-2 demand but limited supply for approval on certification.
+    * National Institute of Standards and Technology ([NIST](https://www.nist.gov/)) labs are overwhelmed, as there is a large influx of 140-2 demand but limited supply for approval on certification.
 
 While FIPS 140-3 is not immediately on the horizon for 2025, it will become the law of the land in 2026. As organizations begin analyzing their requirements and architecture constraints this year, it will be crucial to review and plan for the upcoming changes that are outlined in this section.
 

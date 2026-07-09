@@ -33,7 +33,7 @@ To follow along with this tutorial, you will need to have the following tools in
 * `incert`, a Go program that appends CA certificates to Docker images and pushes the modified image to a specified registry. You can install this by following [the instructions](https://github.com/chainguard-dev/incert#installation) listed in the project's GitHub repository.
 * Docker, the open-source containerization platform. Set this up by following [the platform-specific instructions](https://docs.docker.com/get-docker/) on the project's website.
 * A tool for creating a self-signed certificate. This guide highlights using `cfssl`, a public key infrastructure toolkit from CloudFlare, but alternatives like `openssl` could also be used for this purpose. Follow [the `cfssl` installation instructions](https://github.com/cloudflare/cfssl#installation) to set this up.
-  * Note that if you use `cfssl`, you will also need the `cfssljson` utility installed as well.
+    * Note that if you use `cfssl`, you will also need the `cfssljson` utility installed as well.
 
 ## Creating a self-signed certificate
 

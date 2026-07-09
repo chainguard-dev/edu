@@ -25,8 +25,8 @@ This is how policies uses the following terms.
 - **Policy** — A reusable rule that determines whether an image is allowed. Each policy has a name, a description, and the resource types it applies to. Policies apply to registry repositories.
 - **Binding** — A link between a policy and an organization. While a binding exists, the policy is active for image pulls under that organization. Without a binding, the policy has no effect.
 - **Mode** — A binding's mode controls what happens when the policy denies an image:
-  - `ENFORCE` — Block the pull.
-  - `DRY_RUN` — Allow the pull but record the violation.
+    - `ENFORCE` — Block the pull.
+    - `DRY_RUN` — Allow the pull but record the violation.
 
 The default mode for new bindings is `DRY_RUN`.
 

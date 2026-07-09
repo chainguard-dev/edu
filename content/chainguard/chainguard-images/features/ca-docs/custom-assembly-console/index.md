@@ -42,7 +42,7 @@ You can scroll through the list and select or deselect packages to tailor the im
 After selecting your chosen packages, click the **Continue** button. After doing so, Custom Assembly will prompt you to select one of the two following options for how you want to apply the customizations:
 
 * **Create a new image**: This option will create a new container image, based on the current image you've chosen to customize.
-  * This option requires you to select a new name for the container image. Note that whatever name you select can only contain lowercase alphanumeric characters, `-`, or `_`.
+    * This option requires you to select a new name for the container image. Note that whatever name you select can only contain lowercase alphanumeric characters, `-`, or `_`.
 * **Customize current image**: This option overrides the existing container image with your customizations. Note that any customizations applied to this image will also apply to any users in your organization that are already consuming it.
 
 <center><img src="ca-3.png" alt="Screenshot of the Customize Image display, showing the two customization options. The 'Create new image' option is selected, with the name 'customized_node' entered into the naming field." style="width:650px;"></center>
