@@ -40,14 +40,14 @@ chainctl libraries entitlements create --ecosystems=JAVA --policy=CHAINGUARD_AND
 
 Alternatively, you can create an entitlement in the Chainguard Console: while viewing the Java ecosystem page, follow the prompts to create an access token.
 
-You can also configure cooldown policies after you create the entitlement. For example, to create and enforce a policy for a 14-day cooldown:
+You can also configure cooldown policies after you create the entitlement. For example, to create and enforce a policy that disables the cooldown:
 
 ```shell
-chainctl libraries policy create --name=java-cooldown-14d --cooldown-days=14
-chainctl libraries policy enable --policy=java-cooldown-14d --ecosystem=JAVA --mode=ENFORCE
+chainctl libraries policy create --name=java-disable-cooldown --cooldown-days=0
+chainctl libraries policy enable --policy=java-disable-cooldown --ecosystem=JAVA --mode=ENFORCE
 ```
 
-It can take up to 30 minutes for the fallback and cooldown policies to take effect.
+It can take up to 30 minutes for the fallback and cooldown policies to take effect. Learn more about cooldown and other policies in the [Chainguard Libraries Access documentation](/chainguard/libraries/access/#manage-library-policies).
 
 > **Note**: If you choose to manage your own fallback to upstream repositories, see the following docs pages for more information: [Build configuration](/chainguard/libraries/java/build-configuration/) for direct access instructions or [Global configuration](/chainguard/libraries/java/global-configuration/) for repo manager instructions. Note that configuring a public fallback bypasses the protections provided by Chainguard.
 
@@ -243,7 +243,8 @@ If a dependency's pom file is found in Chainguard but the JAR is not, Gradle fai
 
 {{% tab title="Bazel" %}}
 
-Bazel uses `MODULE.bazel` to configure repositories via `rules_jvm_external`.
+Bazel uses `MODULE.bazel` to configure repositories via `rules_jvm_external`. The configuration described on this page uses `~/.netrc`, but note that `.netrc` only supports one set of credentials per hostname. Since all Chainguard Libraries are served from `libraries.cgr.dev`, configuring `.netrc` for Java will override credentials for any other ecosystem. 
+
 First, set up `~/.netrc` with your Chainguard credentials:
 
 ```bash
@@ -284,10 +285,30 @@ Once configured, point your build tool at your repository manager URL. In this s
 
 {{% tab title="Maven" %}}
 
-Create or update `~/.m2/settings.xml` to point Maven at your repository manager:
+Create or update `~/.m2/settings.xml` to point Maven at your repository manager and override Central with invalid URLs:
 
 ```xml
 <settings>
+
+  <mirrors>
+    <mirror>
+      <!-- Set the identifier for the server credentials for repository manager access
+      must match server name in "servers" -->
+      <id>nexus</id>
+      <!-- Send all requests to the repository manager URL -->
+      <mirrorOf>*</mirrorOf>
+      <!-- Ordered repository group with 
+        - java-remediated
+        - java
+        - Maven central
+        - anything else needed, including internal repos
+      -->
+      <!--<url>https://repo.example.com:8443/repository/java-all/</url>-->
+      <url>http://localhost:8081/repository/java-all/</url>
+    </mirror>
+  </mirrors>
+
+  <!-- Activate repo manager and override central repo from Maven itself with invalid URLs -->
   <activeProfiles>
     <activeProfile>repo-manager</activeProfile>
   </activeProfiles>
@@ -296,22 +317,31 @@ Create or update `~/.m2/settings.xml` to point Maven at your repository manager:
       <id>repo-manager</id>
       <repositories>
         <repository>
-          <id>repo-manager</id>
-          <url>https://repo.example.com/java-all/</url>
-          <releases><enabled>true</enabled></releases>
-          <snapshots><enabled>false</enabled></snapshots>
+          <id>central</id>
+          <url>http://central</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
         </repository>
       </repositories>
       <pluginRepositories>
         <pluginRepository>
-          <id>repo-manager</id>
-          <url>https://repo.example.com/java-all/</url>
-          <releases><enabled>true</enabled></releases>
-          <snapshots><enabled>false</enabled></snapshots>
+          <id>central</id>
+          <url>http://central</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
         </pluginRepository>
       </pluginRepositories>
     </profile>
   </profiles>
+
   <servers>
     <server>
       <id>repo-manager</id>
@@ -321,6 +351,8 @@ Create or update `~/.m2/settings.xml` to point Maven at your repository manager:
   </servers>
 </settings>
 ```
+
+See additional examples in [Chainguard's demo repository on GitHub](https://github.com/chainguard-demo/chainguard-libraries-java/tree/main/tools).
 
 {{% /tab %}}
 
@@ -404,7 +436,7 @@ rm -rf ~/.gradle/caches
 ./gradlew --stop
 ```
 
-Note: Run `./gradlew --stop` after clearing the Gradle cache to stop any running daemons. Skipping this step can cause build errors on the next run.
+> **Note**: Run `./gradlew --stop` after clearing the Gradle cache to stop any running daemons. Skipping this step can cause build errors on the next run.
 
 {{% /tab %}}
 
@@ -464,7 +496,7 @@ Bazel embeds the source repository URL in the cache path for each downloaded art
 
 {{< /tabs >}}
 
-Look for lines beginning with `Downloaded from chainguard:` or `Downloaded from chainguard-remediated:` to confirm artifacts are being served by Chainguard. Lines beginning with `Downloaded from central:` indicate the dependency fell back to Maven Central. This is expected for packages not yet in Chainguard's catalog.
+Look for lines beginning with `Downloaded from chainguard:` or `Downloaded from chainguard-remediated:` to confirm artifacts are being served by Chainguard. 
 
 If all artifacts download from Central, your credentials may be invalid or expired. Regenerate your pull token, re-export the pull token credentials as environment variables, then clear the cache and rebuild.
 
