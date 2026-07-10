@@ -180,7 +180,7 @@ Add the following repositories and pluginRepositores blocks to your `pom.xml`, i
 </pluginRepositories>
 ```
 
-Next, run the following command to add credentials to `~/.m2/settings.xml`: 
+Next, run the following command to add credentials to `~/.m2/settings.xml`:
 
 ```bash
 printf '%s\n' '<settings>
@@ -233,7 +233,7 @@ If a dependency's pom file is found in Chainguard but the JAR is not, Gradle fai
 
 {{% tab title="Bazel" %}}
 
-Bazel uses `MODULE.bazel` to configure repositories via `rules_jvm_external`. The configuration described on this page uses `~/.netrc`, but note that `.netrc` only supports one set of credentials per hostname. Since all Chainguard Libraries are served from `libraries.cgr.dev`, configuring `.netrc` for Java will override credentials for any other ecosystem. 
+Bazel uses `MODULE.bazel` to configure repositories via `rules_jvm_external`. The configuration described on this page uses `~/.netrc`, but note that `.netrc` only supports one set of credentials per hostname. Since all Chainguard Libraries are served from `libraries.cgr.dev`, configuring `.netrc` for Java will override credentials for any other ecosystem.
 
 First, set up `~/.netrc` with your Chainguard credentials:
 
@@ -287,7 +287,7 @@ Create or update `~/.m2/settings.xml` to point Maven at your repository manager 
       <id>nexus</id>
       <!-- Send all requests to the repository manager URL -->
       <mirrorOf>*</mirrorOf>
-      <!-- Ordered repository group with 
+      <!-- Ordered repository group with
         - java-remediated
         - java
         - Maven central
@@ -486,7 +486,7 @@ Bazel embeds the source repository URL in the cache path for each downloaded art
 
 {{< /tabs >}}
 
-Look for lines beginning with `Downloaded from chainguard:` or `Downloaded from chainguard-remediated:` to confirm artifacts are being served by Chainguard. 
+Look for lines beginning with `Downloaded from chainguard:` or `Downloaded from chainguard-remediated:` to confirm artifacts are being served by Chainguard.
 
 If all artifacts download from Central, your credentials may be invalid or expired. Regenerate your pull token, re-export the pull token credentials as environment variables, then clear the cache and rebuild.
 
