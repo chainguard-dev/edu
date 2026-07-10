@@ -138,7 +138,7 @@ The details that are returned here and the details found in the Console vary in 
 To learn more about `chainctl`, see:
 
 * [chainctl Usage](/chainguard/chainctl-usage/)
-* [chainctl Reference](/chainguard/chainctl/)
+* [chainctl Reference](/platform/chainctl/)
 
 To learn more about the Chainguard Console, see:
 
