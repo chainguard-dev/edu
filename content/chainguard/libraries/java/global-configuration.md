@@ -69,7 +69,7 @@ malware-resistance guarantees.
 
 The per-tool instructions on this page vary by repository manager. The JFrog
 Artifactory and Sonatype Nexus Repository sections use the recommended
-single-upstream approach, which Chainguard has tested with those tools. The
+upstream fallback approach, which Chainguard has tested with those tools. The
 Cloudsmith and Google Artifact Registry sections use the manual Maven Central
 fallback pattern; Chainguard has not yet tested the single-upstream approach
 with those tools.
