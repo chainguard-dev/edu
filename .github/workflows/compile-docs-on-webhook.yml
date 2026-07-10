@@ -4,7 +4,7 @@ on:
   # Trigger on repository dispatch events
   repository_dispatch:
     types: [docs-update]
-  
+
   # Also allow manual trigger
   workflow_dispatch:
 
@@ -76,7 +76,7 @@ jobs:
     - name: Scan for sensitive data
       run: |
         cd edu
-        
+
         # Simple check for common secret patterns
         if grep -E "(AKIA[0-9A-Z]{16}|ghp_[0-9a-zA-Z]{36}|ghs_[0-9a-zA-Z]{36}|sk-[0-9a-zA-Z]{48})" static/downloads/chainguard-complete-docs.md; then
           echo "WARNING: Potential secrets detected in compiled documentation!"
