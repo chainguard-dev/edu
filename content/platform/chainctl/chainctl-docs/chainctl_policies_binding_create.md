@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl policies binding create"
 slug: chainctl_policies_binding_create
-url: /platform/chainctl/chainctl-docs/chainctl_policies_binding_create/
+url: /chainguard/chainctl/chainctl-docs/chainctl_policies_binding_create/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -79,5 +79,5 @@ chainctl policies binding create --policy=cooldown --parent=engineering --mode=E
 
 ### SEE ALSO
 
-* [chainctl policies binding](/platform/chainctl/chainctl-docs/chainctl_policies_binding/)	 - Manage policy bindings.
+* [chainctl policies binding](/chainguard/chainctl/chainctl-docs/chainctl_policies_binding/)	 - Manage policy bindings.
 

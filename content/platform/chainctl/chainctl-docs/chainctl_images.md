@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl images"
 slug: chainctl_images
-url: /platform/chainctl/chainctl-docs/chainctl_images/
+url: /chainguard/chainctl/chainctl-docs/chainctl_images/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -30,14 +30,14 @@ Images related commands for the Chainguard platform.
 
 ### SEE ALSO
 
-* [chainctl](/platform/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
-* [chainctl images advisories](/platform/chainctl/chainctl-docs/chainctl_images_advisories/)	 - Security advisory commands for images.
-* [chainctl images changelog](/platform/chainctl/chainctl-docs/chainctl_images_changelog/)	 - Show changelog for image history
-* [chainctl images diff](/platform/chainctl/chainctl-docs/chainctl_images_diff/)	 - Diff images.
-* [chainctl images entitlements](/platform/chainctl/chainctl-docs/chainctl_images_entitlements/)	 - Manage entitlements to registry repositories.
-* [chainctl images helm](/platform/chainctl/chainctl-docs/chainctl_images_helm/)	 - Helm chart related commands
-* [chainctl images history](/platform/chainctl/chainctl-docs/chainctl_images_history/)	 - Show history for a specific image tag.
-* [chainctl images list](/platform/chainctl/chainctl-docs/chainctl_images_list/)	 - List tagged images from Chainguard registries.
-* [chainctl images repos](/platform/chainctl/chainctl-docs/chainctl_images_repos/)	 - Image repo related commands for the Chainguard platform.
-* [chainctl images tags](/platform/chainctl/chainctl-docs/chainctl_images_tags/)	 - Tags related commands for images.
+* [chainctl](/chainguard/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
+* [chainctl images advisories](/chainguard/chainctl/chainctl-docs/chainctl_images_advisories/)	 - Security advisory commands for images.
+* [chainctl images changelog](/chainguard/chainctl/chainctl-docs/chainctl_images_changelog/)	 - Show changelog for image history
+* [chainctl images diff](/chainguard/chainctl/chainctl-docs/chainctl_images_diff/)	 - Diff images.
+* [chainctl images entitlements](/chainguard/chainctl/chainctl-docs/chainctl_images_entitlements/)	 - Manage entitlements to registry repositories.
+* [chainctl images helm](/chainguard/chainctl/chainctl-docs/chainctl_images_helm/)	 - Helm chart related commands
+* [chainctl images history](/chainguard/chainctl/chainctl-docs/chainctl_images_history/)	 - Show history for a specific image tag.
+* [chainctl images list](/chainguard/chainctl/chainctl-docs/chainctl_images_list/)	 - List tagged images from Chainguard registries.
+* [chainctl images repos](/chainguard/chainctl/chainctl-docs/chainctl_images_repos/)	 - Image repo related commands for the Chainguard platform.
+* [chainctl images tags](/chainguard/chainctl/chainctl-docs/chainctl_images_tags/)	 - Tags related commands for images.
 

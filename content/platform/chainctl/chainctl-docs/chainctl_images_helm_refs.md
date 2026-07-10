@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl images helm refs"
 slug: chainctl_images_helm_refs
-url: /platform/chainctl/chainctl-docs/chainctl_images_helm_refs/
+url: /chainguard/chainctl/chainctl-docs/chainctl_images_helm_refs/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -69,5 +69,5 @@ chainctl images helm refs cgr.dev/my-org/charts/flux:v2.18.4 \
 
 ### SEE ALSO
 
-* [chainctl images helm](/platform/chainctl/chainctl-docs/chainctl_images_helm/)	 - Helm chart related commands
+* [chainctl images helm](/chainguard/chainctl/chainctl-docs/chainctl_images_helm/)	 - Helm chart related commands
 

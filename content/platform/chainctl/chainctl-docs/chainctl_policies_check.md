@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl policies check"
 slug: chainctl_policies_check
-url: /platform/chainctl/chainctl-docs/chainctl_policies_check/
+url: /chainguard/chainctl/chainctl-docs/chainctl_policies_check/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -54,5 +54,5 @@ chainctl policies check cgr.dev/example.com/python@sha256:abc...
 
 ### SEE ALSO
 
-* [chainctl policies](/platform/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
+* [chainctl policies](/chainguard/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
 

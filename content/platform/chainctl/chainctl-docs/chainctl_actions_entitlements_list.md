@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl actions entitlements list"
 slug: chainctl_actions_entitlements_list
-url: /platform/chainctl/chainctl-docs/chainctl_actions_entitlements_list/
+url: /chainguard/chainctl/chainctl-docs/chainctl_actions_entitlements_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -40,5 +40,5 @@ chainctl actions entitlements list --parent=PARENT [--output=json|table] [flags]
 
 ### SEE ALSO
 
-* [chainctl actions entitlements](/platform/chainctl/chainctl-docs/chainctl_actions_entitlements/)	 - Manage Actions product entitlements.
+* [chainctl actions entitlements](/chainguard/chainctl/chainctl-docs/chainctl_actions_entitlements/)	 - Manage Actions product entitlements.
 

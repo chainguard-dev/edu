@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl images list"
 slug: chainctl_images_list
-url: /platform/chainctl/chainctl-docs/chainctl_images_list/
+url: /chainguard/chainctl/chainctl-docs/chainctl_images_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -48,5 +48,5 @@ chainctl images list [--repo=REPO_NAME] [--public | --parent=PARENT_NAME|PARENT_
 
 ### SEE ALSO
 
-* [chainctl images](/platform/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
+* [chainctl images](/chainguard/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
 

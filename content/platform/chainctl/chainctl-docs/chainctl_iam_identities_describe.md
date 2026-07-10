@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl iam identities describe"
 slug: chainctl_iam_identities_describe
-url: /platform/chainctl/chainctl-docs/chainctl_iam_identities_describe/
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_describe/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -34,5 +34,5 @@ chainctl iam identities describe {IDENTITY_NAME | IDENTITY_ID} [flags]
 
 ### SEE ALSO
 
-* [chainctl iam identities](/platform/chainctl/chainctl-docs/chainctl_iam_identities/)	 - Identity management.
+* [chainctl iam identities](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities/)	 - Identity management.
 

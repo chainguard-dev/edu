@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl libraries packages count"
 slug: chainctl_libraries_packages_count
-url: /platform/chainctl/chainctl-docs/chainctl_libraries_packages_count/
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_packages_count/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -44,5 +44,5 @@ chainctl libraries packages count [--output=json|table] [flags]
 
 ### SEE ALSO
 
-* [chainctl libraries packages](/platform/chainctl/chainctl-docs/chainctl_libraries_packages/)	 - Inspect Libraries packages.
+* [chainctl libraries packages](/chainguard/chainctl/chainctl-docs/chainctl_libraries_packages/)	 - Inspect Libraries packages.
 

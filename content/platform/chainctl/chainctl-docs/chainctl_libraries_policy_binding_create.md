@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl libraries policy binding create"
 slug: chainctl_libraries_policy_binding_create
-url: /platform/chainctl/chainctl-docs/chainctl_libraries_policy_binding_create/
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding_create/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -47,5 +47,5 @@ chainctl libraries policy binding create --policy POLICY [--parent ORGANIZATION_
 
 ### SEE ALSO
 
-* [chainctl libraries policy binding](/platform/chainctl/chainctl-docs/chainctl_libraries_policy_binding/)	 - Manage Libraries policy bindings.
+* [chainctl libraries policy binding](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding/)	 - Manage Libraries policy bindings.
 

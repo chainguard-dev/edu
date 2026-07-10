@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl iam account-associations unset gcp"
 slug: chainctl_iam_account-associations_unset_gcp
-url: /platform/chainctl/chainctl-docs/chainctl_iam_account-associations_unset_gcp/
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_unset_gcp/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -40,5 +40,5 @@ chainctl iam account-associations unset gcp ORGANIZATION_NAME|ORGANIZATION_ID|FO
 
 ### SEE ALSO
 
-* [chainctl iam account-associations unset](/platform/chainctl/chainctl-docs/chainctl_iam_account-associations_unset/)	 - Remove cloud provider account associations from a location.
+* [chainctl iam account-associations unset](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_unset/)	 - Remove cloud provider account associations from a location.
 

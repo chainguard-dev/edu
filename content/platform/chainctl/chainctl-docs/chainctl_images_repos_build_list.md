@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl images repos build list"
 slug: chainctl_images_repos_build_list
-url: /platform/chainctl/chainctl-docs/chainctl_images_repos_build_list/
+url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -42,5 +42,5 @@ chainctl images repos build list [--parent ORGANIZATION_NAME | ORGANIZATION_ID |
 
 ### SEE ALSO
 
-* [chainctl images repos build](/platform/chainctl/chainctl-docs/chainctl_images_repos_build/)	 - Manage custom image builds
+* [chainctl images repos build](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build/)	 - Manage custom image builds
 

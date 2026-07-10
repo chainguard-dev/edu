@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl iam organizations describe"
 slug: chainctl_iam_organizations_describe
-url: /platform/chainctl/chainctl-docs/chainctl_iam_organizations_describe/
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_organizations_describe/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -34,5 +34,5 @@ chainctl iam organizations describe [ORGANIZATION_NAME | ORGANIZATION_ID] [--out
 
 ### SEE ALSO
 
-* [chainctl iam organizations](/platform/chainctl/chainctl-docs/chainctl_iam_organizations/)	 - IAM organization interactions.
+* [chainctl iam organizations](/chainguard/chainctl/chainctl-docs/chainctl_iam_organizations/)	 - IAM organization interactions.
 

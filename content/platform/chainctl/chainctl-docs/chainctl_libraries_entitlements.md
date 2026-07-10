@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl libraries entitlements"
 slug: chainctl_libraries_entitlements
-url: /platform/chainctl/chainctl-docs/chainctl_libraries_entitlements/
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -30,8 +30,8 @@ Manage entitlements to language ecosystem libraries.
 
 ### SEE ALSO
 
-* [chainctl libraries](/platform/chainctl/chainctl-docs/chainctl_libraries/)	 - Ecosystem library related commands.
-* [chainctl libraries entitlements create](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/)	 - Create ecosystem library entitlements for an organization.
-* [chainctl libraries entitlements delete](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_delete/)	 - Delete an ecosystem library entitlement from an organization.
-* [chainctl libraries entitlements list](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_list/)	 - List entitlements of an organization.
+* [chainctl libraries](/chainguard/chainctl/chainctl-docs/chainctl_libraries/)	 - Ecosystem library related commands.
+* [chainctl libraries entitlements create](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/)	 - Create ecosystem library entitlements for an organization.
+* [chainctl libraries entitlements delete](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_delete/)	 - Delete an ecosystem library entitlement from an organization.
+* [chainctl libraries entitlements list](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_list/)	 - List entitlements of an organization.
 

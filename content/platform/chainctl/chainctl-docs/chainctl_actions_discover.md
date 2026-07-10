@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl actions discover"
 slug: chainctl_actions_discover
-url: /platform/chainctl/chainctl-docs/chainctl_actions_discover/
+url: /chainguard/chainctl/chainctl-docs/chainctl_actions_discover/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -66,5 +66,5 @@ chainctl actions discover [TARGET] [flags]
 
 ### SEE ALSO
 
-* [chainctl actions](/platform/chainctl/chainctl-docs/chainctl_actions/)	 - Interact with the Chainguard Actions product.
+* [chainctl actions](/chainguard/chainctl/chainctl-docs/chainctl_actions/)	 - Interact with the Chainguard Actions product.
 

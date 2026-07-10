@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl iam folders list"
 slug: chainctl_iam_folders_list
-url: /platform/chainctl/chainctl-docs/chainctl_iam_folders_list/
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_folders_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -34,5 +34,5 @@ chainctl iam folders list ORGANIZATION_NAME | ORGANIZATION_ID [--output=id|json|
 
 ### SEE ALSO
 
-* [chainctl iam folders](/platform/chainctl/chainctl-docs/chainctl_iam_folders/)	 - IAM folders interactions.
+* [chainctl iam folders](/chainguard/chainctl/chainctl-docs/chainctl_iam_folders/)	 - IAM folders interactions.
 

@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl images repos delete"
 slug: chainctl_images_repos_delete
-url: /platform/chainctl/chainctl-docs/chainctl_images_repos_delete/
+url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_delete/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -41,5 +41,5 @@ chainctl images repos delete {REPO_NAME|REPO_ID} --parent ORGANIZATION_NAME | OR
 
 ### SEE ALSO
 
-* [chainctl images repos](/platform/chainctl/chainctl-docs/chainctl_images_repos/)	 - Image repo related commands for the Chainguard platform.
+* [chainctl images repos](/chainguard/chainctl/chainctl-docs/chainctl_images_repos/)	 - Image repo related commands for the Chainguard platform.
 

@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl images history"
 slug: chainctl_images_history
-url: /platform/chainctl/chainctl-docs/chainctl_images_history/
+url: /chainguard/chainctl/chainctl-docs/chainctl_images_history/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -58,5 +58,5 @@ chainctl images history IMAGE[:TAG] [flags]
 
 ### SEE ALSO
 
-* [chainctl images](/platform/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
+* [chainctl images](/chainguard/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
 

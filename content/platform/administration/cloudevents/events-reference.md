@@ -1,6 +1,4 @@
 ---
-aliases:
-- /chainguard/administration/cloudevents/events-reference/
 title : "Chainguard Events"
 lead: ""
 description: "Chainguard Events"
@@ -21,6 +19,7 @@ To subscribe to Chainguard events for your account, use the `chainctl` command l
 
 ```shell
 chainctl events subscriptions create –parent $YOUR_ORGANIZATION_OR_FOLDER https://<Your webhook URL>
+
 ```
 
 Once you are subscribed to Chainguard events, you will start receiving HTTP POST requests. Each request has a common set of CloudEvent header fields, denoted by the `Ce-` prefix. The event body is encoded using JSON and will have two top-level keys, `actor` and `body`.
@@ -45,6 +44,7 @@ The complete UIDP in the event's `Ce-Subject` header would be:
 
 ```
 0475f6baca584a8964a6bce6b74dbe78dd8805b6/b74ce966caf448d1/dda9aab2d2d90f9e/1a4b29ca6df80013
+
 ```
 
 ## Authorization Header
@@ -121,6 +121,7 @@ User-Agent: Chainguard Enforce
     "when": "2026-07-01T03:32:36.162481"
   }
 }
+
 ```
 
 ## Service: Registry - Push
@@ -172,6 +173,7 @@ User-Agent: Chainguard Enforce
     "when": "2026-07-01T03:32:36.162445"
   }
 }
+
 ```
 
 ## Service: auth - Auth
@@ -211,6 +213,7 @@ User-Agent: Chainguard Enforce
     "identity": "Chainguard UIDP"
   }
 }
+
 ```
 
 ## Service: events - Subscriptions
@@ -250,6 +253,7 @@ User-Agent: Chainguard Enforce
     "sink": "Webhook endpoint (http/https URL)"
   }
 }
+
 ```
 
 ### Method: Delete
@@ -286,6 +290,7 @@ User-Agent: Chainguard Enforce
     "id": "UIDP identifier of the subscription to delete"
   }
 }
+
 ```
 
 ## Service: iam - ExternalGroupRoleMappings
@@ -328,6 +333,7 @@ User-Agent: Chainguard Enforce
     "scope": "UIDP of the group where the role applies"
   }
 }
+
 ```
 
 ### Method: Delete
@@ -364,6 +370,7 @@ User-Agent: Chainguard Enforce
     "id": "UIDP of the mapping"
   }
 }
+
 ```
 
 ## Service: iam - GroupAccountAssociations
@@ -411,6 +418,7 @@ User-Agent: Chainguard Enforce
     "name": "group name"
   }
 }
+
 ```
 
 ### Method: Update
@@ -456,6 +464,7 @@ User-Agent: Chainguard Enforce
     "name": "group name"
   }
 }
+
 ```
 
 ### Method: Delete
@@ -492,6 +501,7 @@ User-Agent: Chainguard Enforce
     "group": "UIDP of the group whose associations will be deleted"
   }
 }
+
 ```
 
 ## Service: iam - GroupInvites
@@ -533,6 +543,7 @@ User-Agent: Chainguard Enforce
     "id": "group UIDP under which this invite resides"
   }
 }
+
 ```
 
 ### Method: Delete
@@ -569,6 +580,7 @@ User-Agent: Chainguard Enforce
     "id": "UIDP of the record"
   }
 }
+
 ```
 
 ## Service: iam - Groups
@@ -609,6 +621,7 @@ User-Agent: Chainguard Enforce
     "name": "group name"
   }
 }
+
 ```
 
 ### Method: Update
@@ -647,6 +660,7 @@ User-Agent: Chainguard Enforce
     "name": "group name"
   }
 }
+
 ```
 
 ### Method: Delete
@@ -683,6 +697,7 @@ User-Agent: Chainguard Enforce
     "id": "UIDP of the record"
   }
 }
+
 ```
 
 ## Service: iam - Identities
@@ -727,6 +742,7 @@ User-Agent: Chainguard Enforce
     "parent_id": "The Group UIDP path under which the new Identity resides"
   }
 }
+
 ```
 
 ### Method: Update
@@ -766,6 +782,7 @@ User-Agent: Chainguard Enforce
     "name": "The human readable name of identity"
   }
 }
+
 ```
 
 ### Method: Delete
@@ -802,6 +819,7 @@ User-Agent: Chainguard Enforce
     "id": "UIDP of the record"
   }
 }
+
 ```
 
 ## Service: iam - IdentityProviders
@@ -846,6 +864,7 @@ User-Agent: Chainguard Enforce
     "parent_id": "The UIDP of the IAM group to nest this identity provider under"
   }
 }
+
 ```
 
 ### Method: Update
@@ -885,6 +904,7 @@ User-Agent: Chainguard Enforce
     "name": "The human readable name of identity provider"
   }
 }
+
 ```
 
 ### Method: Delete
@@ -921,6 +941,7 @@ User-Agent: Chainguard Enforce
     "id": "UIDP of the IdP"
   }
 }
+
 ```
 
 ## Service: iam - RoleBindings
@@ -964,6 +985,7 @@ User-Agent: Chainguard Enforce
     }
   }
 }
+
 ```
 
 ### Method: CreateBatch
@@ -1006,6 +1028,7 @@ User-Agent: Chainguard Enforce
     ]
   }
 }
+
 ```
 
 ### Method: Update
@@ -1044,6 +1067,7 @@ User-Agent: Chainguard Enforce
     "role": "UIDP of the Role to bind"
   }
 }
+
 ```
 
 ### Method: Delete
@@ -1080,6 +1104,7 @@ User-Agent: Chainguard Enforce
     "id": "UID of the record"
   }
 }
+
 ```
 
 ## Service: iam - Terms
@@ -1122,6 +1147,7 @@ User-Agent: Chainguard Enforce
     "group": "Chainguard UIDP of the organization"
   }
 }
+
 ```
 
 ## Service: registry - Charts
@@ -1166,6 +1192,7 @@ User-Agent: Chainguard Enforce
     ]
   }
 }
+
 ```
 
 ## Service: registry - Registry
@@ -1209,6 +1236,7 @@ User-Agent: Chainguard Enforce
     }
   }
 }
+
 ```
 
 ### Method: UpdateRepo
@@ -1250,6 +1278,7 @@ User-Agent: Chainguard Enforce
     }
   }
 }
+
 ```
 
 ### Method: DeleteRepo
@@ -1286,6 +1315,7 @@ User-Agent: Chainguard Enforce
     "id": "The identifier of this specific repository"
   }
 }
+
 ```
 
 ### Method: CreateTag
@@ -1324,6 +1354,7 @@ User-Agent: Chainguard Enforce
     "name": "The unique name of the tag"
   }
 }
+
 ```
 
 ### Method: UpdateTag
@@ -1362,6 +1393,7 @@ User-Agent: Chainguard Enforce
     "name": "The unique name of the tag"
   }
 }
+
 ```
 
 ### Method: DeleteTag
@@ -1398,6 +1430,7 @@ User-Agent: Chainguard Enforce
     "id": "The identifier of this specific tag"
   }
 }
+
 ```
 
 ## Service: v1 - Bindings
@@ -1443,6 +1476,7 @@ User-Agent: Chainguard Enforce
     "updated_at": {}
   }
 }
+
 ```
 
 ### Method: UpdateBinding
@@ -1486,6 +1520,7 @@ User-Agent: Chainguard Enforce
     "updated_at": {}
   }
 }
+
 ```
 
 ### Method: DeleteBinding
@@ -1522,6 +1557,7 @@ User-Agent: Chainguard Enforce
     "id": "UIDP of the binding"
   }
 }
+
 ```
 
 ## Service: v1 - Overrides
@@ -1565,6 +1601,7 @@ User-Agent: Chainguard Enforce
     "reason": "Justification for the waiver"
   }
 }
+
 ```
 
 ### Method: DeleteOverride
@@ -1601,6 +1638,7 @@ User-Agent: Chainguard Enforce
     "id": "UIDP of the override"
   }
 }
+
 ```
 
 ## Service: v1 - Policies
@@ -1648,6 +1686,7 @@ User-Agent: Chainguard Enforce
     "updated_at": {}
   }
 }
+
 ```
 
 ### Method: UpdatePolicy
@@ -1693,6 +1732,7 @@ User-Agent: Chainguard Enforce
     "updated_at": {}
   }
 }
+
 ```
 
 ### Method: DeletePolicy
@@ -1729,6 +1769,7 @@ User-Agent: Chainguard Enforce
     "id": "UIDP of the policy"
   }
 }
+
 ```
 
 ## Service: v2beta1 - AccountAssociationsService
@@ -1776,6 +1817,7 @@ User-Agent: Chainguard Enforce
     "name": "group name"
   }
 }
+
 ```
 
 ### Method: DeleteAccountAssociation
@@ -1812,6 +1854,7 @@ User-Agent: Chainguard Enforce
     "group": "UIDP of the group whose associations will be deleted"
   }
 }
+
 ```
 
 ### Method: UpdateAccountAssociation
@@ -1857,6 +1900,7 @@ User-Agent: Chainguard Enforce
     "name": "group name"
   }
 }
+
 ```
 
 ## Service: v2beta1 - ExternalGroupRoleMappingsService
@@ -1899,6 +1943,7 @@ User-Agent: Chainguard Enforce
     "scope": "UIDP of the group where the role applies"
   }
 }
+
 ```
 
 ### Method: DeleteExternalGroupRoleMapping
@@ -1935,6 +1980,7 @@ User-Agent: Chainguard Enforce
     "id": "UIDP of the mapping"
   }
 }
+
 ```
 
 ### Method: BatchDeleteExternalGroupRoleMappings
@@ -1980,6 +2026,7 @@ User-Agent: Chainguard Enforce
     "parent": "UIDP of the identity provider"
   }
 }
+
 ```
 
 ## Service: v2beta1 - GroupInvitesService
@@ -2021,6 +2068,7 @@ User-Agent: Chainguard Enforce
     "id": "group UIDP under which this invite resides"
   }
 }
+
 ```
 
 ### Method: DeleteGroupInvite
@@ -2057,6 +2105,7 @@ User-Agent: Chainguard Enforce
     "id": "UIDP of the record"
   }
 }
+
 ```
 
 ## Service: v2beta1 - GroupsService
@@ -2095,6 +2144,7 @@ User-Agent: Chainguard Enforce
     "id": "UIDP of the record"
   }
 }
+
 ```
 
 ### Method: CreateGroup
@@ -2133,6 +2183,7 @@ User-Agent: Chainguard Enforce
     "name": "group name"
   }
 }
+
 ```
 
 ### Method: UpdateGroup
@@ -2171,6 +2222,7 @@ User-Agent: Chainguard Enforce
     "name": "group name"
   }
 }
+
 ```
 
 ## Service: v2beta1 - IdentitiesService
@@ -2215,6 +2267,7 @@ User-Agent: Chainguard Enforce
     "parent_id": "The Group UIDP path under which the new Identity resides"
   }
 }
+
 ```
 
 ### Method: DeleteIdentity
@@ -2251,6 +2304,7 @@ User-Agent: Chainguard Enforce
     "id": "UIDP of the record"
   }
 }
+
 ```
 
 ### Method: UpdateIdentity
@@ -2290,6 +2344,7 @@ User-Agent: Chainguard Enforce
     "name": "The human readable name of identity"
   }
 }
+
 ```
 
 ### Method: UpdateIdentityMetadata
@@ -2327,6 +2382,7 @@ User-Agent: Chainguard Enforce
     "uid": "The caller's identity UID"
   }
 }
+
 ```
 
 ## Service: v2beta1 - IdentityProvidersService
@@ -2371,6 +2427,7 @@ User-Agent: Chainguard Enforce
     "parent_id": "The UIDP of the IAM group to nest this identity provider under"
   }
 }
+
 ```
 
 ### Method: UpdateIdentityProvider
@@ -2410,6 +2467,7 @@ User-Agent: Chainguard Enforce
     "name": "The human readable name of identity provider"
   }
 }
+
 ```
 
 ### Method: DeleteIdentityProvider
@@ -2446,6 +2504,7 @@ User-Agent: Chainguard Enforce
     "id": "UIDP of the IdP"
   }
 }
+
 ```
 
 ## Service: v2beta1 - RoleBindingsService
@@ -2489,6 +2548,7 @@ User-Agent: Chainguard Enforce
     }
   }
 }
+
 ```
 
 ### Method: DeleteRoleBinding
@@ -2525,6 +2585,7 @@ User-Agent: Chainguard Enforce
     "id": "UID of the record"
   }
 }
+
 ```
 
 ### Method: BatchCreateRoleBindings
@@ -2567,6 +2628,7 @@ User-Agent: Chainguard Enforce
     ]
   }
 }
+
 ```
 
 ### Method: UpdateRoleBinding
@@ -2605,6 +2667,7 @@ User-Agent: Chainguard Enforce
     "role": "UIDP of the Role to bind"
   }
 }
+
 ```
 
 ## Service: v2beta1 - TermsService
@@ -2647,4 +2710,5 @@ User-Agent: Chainguard Enforce
     "group": "Chainguard UIDP of the organization"
   }
 }
+
 ```

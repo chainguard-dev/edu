@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl policies enable"
 slug: chainctl_policies_enable
-url: /platform/chainctl/chainctl-docs/chainctl_policies_enable/
+url: /chainguard/chainctl/chainctl-docs/chainctl_policies_enable/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -70,5 +70,5 @@ chainctl policies enable --policy=cooldown --parent=example.com --mode=ENFORCE -
 
 ### SEE ALSO
 
-* [chainctl policies](/platform/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
+* [chainctl policies](/chainguard/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
 

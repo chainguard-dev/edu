@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl iam identity-providers list"
 slug: chainctl_iam_identity-providers_list
-url: /platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_list/
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -50,5 +50,5 @@ chainctl iam identity-providers list [--parent ORGANIZATION_NAME | ORGANIZATION_
 
 ### SEE ALSO
 
-* [chainctl iam identity-providers](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers/)	 - customer managed identity provider management
+* [chainctl iam identity-providers](/chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers/)	 - customer managed identity provider management
 

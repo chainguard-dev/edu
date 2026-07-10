@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl policies decision list"
 slug: chainctl_policies_decision_list
-url: /platform/chainctl/chainctl-docs/chainctl_policies_decision_list/
+url: /chainguard/chainctl/chainctl-docs/chainctl_policies_decision_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -72,5 +72,5 @@ chainctl policies decision list [--parent ORG] [--repo REPO] [--policy POLICY] [
 
 ### SEE ALSO
 
-* [chainctl policies decision](/platform/chainctl/chainctl-docs/chainctl_policies_decision/)	 - Inspect policy decisions.
+* [chainctl policies decision](/chainguard/chainctl/chainctl-docs/chainctl_policies_decision/)	 - Inspect policy decisions.
 

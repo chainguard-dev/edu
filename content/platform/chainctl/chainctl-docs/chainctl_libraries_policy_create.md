@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl libraries policy create"
 slug: chainctl_libraries_policy_create
-url: /platform/chainctl/chainctl-docs/chainctl_libraries_policy_create/
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_create/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -100,5 +100,5 @@ chainctl libraries policy create --name NAME [--parent ORGANIZATION_NAME | ORGAN
 
 ### SEE ALSO
 
-* [chainctl libraries policy](/platform/chainctl/chainctl-docs/chainctl_libraries_policy/)	 - Manage Libraries policies.
+* [chainctl libraries policy](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy/)	 - Manage Libraries policies.
 

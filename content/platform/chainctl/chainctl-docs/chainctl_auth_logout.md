@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl auth logout"
 slug: chainctl_auth_logout
-url: /platform/chainctl/chainctl-docs/chainctl_auth_logout/
+url: /chainguard/chainctl/chainctl-docs/chainctl_auth_logout/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -34,5 +34,5 @@ chainctl auth logout [--audience=AUDIENCE]
 
 ### SEE ALSO
 
-* [chainctl auth](/platform/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
+* [chainctl auth](/chainguard/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
 

@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl iam invites create"
 slug: chainctl_iam_invites_create
-url: /platform/chainctl/chainctl-docs/chainctl_iam_invites_create/
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_invites_create/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -58,5 +58,5 @@ chainctl iam invite create my-org-name --single-use
 
 ### SEE ALSO
 
-* [chainctl iam invites](/platform/chainctl/chainctl-docs/chainctl_iam_invites/)	 - Manage invite codes that register identities with Chainguard.
+* [chainctl iam invites](/chainguard/chainctl/chainctl-docs/chainctl_iam_invites/)	 - Manage invite codes that register identities with Chainguard.
 

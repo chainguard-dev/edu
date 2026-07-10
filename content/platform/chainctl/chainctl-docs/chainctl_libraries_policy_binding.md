@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl libraries policy binding"
 slug: chainctl_libraries_policy_binding
-url: /platform/chainctl/chainctl-docs/chainctl_libraries_policy_binding/
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -34,9 +34,9 @@ A Libraries policy binding activates a policy for an (organization, ecosystem) p
 
 ### SEE ALSO
 
-* [chainctl libraries policy](/platform/chainctl/chainctl-docs/chainctl_libraries_policy/)	 - Manage Libraries policies.
-* [chainctl libraries policy binding create](/platform/chainctl/chainctl-docs/chainctl_libraries_policy_binding_create/)	 - Create a Libraries policy binding.
-* [chainctl libraries policy binding delete](/platform/chainctl/chainctl-docs/chainctl_libraries_policy_binding_delete/)	 - Delete a Libraries policy binding.
-* [chainctl libraries policy binding list](/platform/chainctl/chainctl-docs/chainctl_libraries_policy_binding_list/)	 - List Libraries policy bindings.
-* [chainctl libraries policy binding update](/platform/chainctl/chainctl-docs/chainctl_libraries_policy_binding_update/)	 - Update a Libraries policy binding.
+* [chainctl libraries policy](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy/)	 - Manage Libraries policies.
+* [chainctl libraries policy binding create](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding_create/)	 - Create a Libraries policy binding.
+* [chainctl libraries policy binding delete](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding_delete/)	 - Delete a Libraries policy binding.
+* [chainctl libraries policy binding list](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding_list/)	 - List Libraries policy bindings.
+* [chainctl libraries policy binding update](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_binding_update/)	 - Update a Libraries policy binding.
 
