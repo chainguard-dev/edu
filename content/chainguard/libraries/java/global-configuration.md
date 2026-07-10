@@ -39,12 +39,12 @@ At a high level, adopting the use of Chainguard Libraries consists of the follow
 * Configure your environment to use `https://libraries.cgr.dev/java/`
   as the single upstream source for Java package retrieval. This can be done
   either:
-  * As a remote repository in your repository manager, or
-  * Directly in your Java build configuration (for example, Maven or Gradle).
+    * As a remote repository in your repository manager, or
+    * Directly in your Java build configuration (for example, Maven or Gradle).
 * Additional steps depend on your specific environment and preferences, and can include the following
 optional measures:
-  * Remove all cached artifacts for Maven Central. This step ensures that any libraries you pull are from Chainguard Libraries, and not existing cached artifacts from upstream. 
-  * Remove any repositories that are no longer desired or necessary, depending on your organization's preferences. 
+    * Remove all cached artifacts for Maven Central. This step ensures that any libraries you pull are from Chainguard Libraries, and not existing cached artifacts from upstream.
+    * Remove any repositories that are no longer desired or necessary, depending on your organization's preferences.
 
 This page explains how to use Chainguard Libraries for Java with a repository
 manager. If your organization does not use a repository manager, you can pull
@@ -94,7 +94,7 @@ Configure a `java-all` repository:
    avoid confusion since repositories in Cloudsmith are multi-format.
 1. Select a storage region that is appropriate for your organization and
    infrastructure.
-1. Click **+Create Repository**. 
+1. Click **+Create Repository**.
 
 Configure an upstream proxy for the Chainguard Libraries for Java repository:
 
@@ -205,10 +205,10 @@ Combine the repositories in a new virtual repository:
 1. Under **Virtual upstream repositories**, click **Add upstream repository**.
 1. Use the **Browse** button to locate and select the `java-chainguard`
    repository as **Repository 1** and set the **Policy name 1** to
-   `java-chainguard`. 
-1. If you are using the remediated repository or manually configuring fallback to the public Maven repository, use the **Browse** button to locate and select each repository. 
+   `java-chainguard`.
+1. If you are using the remediated repository or manually configuring fallback to the public Maven repository, use the **Browse** button to locate and select each repository.
 1. Under **Virtual upstream repositories**, click **Add upstream repository**.
-1. Set the **Priority** values for the repositories. The priority order should be: `java-chainguard-remediated`, `java-chainguard`, then if you are manually configuring fallback to public Maven, `java-public` last. 
+1. Set the **Priority** values for the repositories. The priority order should be: `java-chainguard-remediated`, `java-chainguard`, then if you are manually configuring fallback to public Maven, `java-public` last.
 1. Under **Location type**, choose the same suitable **Region** for your development as configured for the `java-public` repository.
 1. Click **Create**.
 
@@ -268,15 +268,10 @@ Combine the repositories in a new virtual repository:
 
 1. Click **Create a Repository** and choose the **Virtual** option.
 1. Configure the repository:
-
-  * **Package type**: Maven
-  * **Repository Key**: `java-all`
-
+    * **Package type**: Maven
+    * **Repository Key**: `java-all`
 1. Scroll down to the **Repositories** section.
-1. Add the `java-chainguard` repository. If you are using the remediated repository, add the `java-chainguard-remediated` repository and ensure it is the first in the displayed list. 
-1. Add the `java-chainguard` and `java-public` repositories. Drag and drop repositories into the
-   desired position.
-    * If you are using the remediated repository, add the `java-chainguard-remediated` repository and ensure it is the first in the displayed list. If not, ensure the `java-chainguard` repository is first.
+1. Add the `java-chainguard` repository. If you are using the remediated repository, add the `java-chainguard-remediated` repository and ensure it is the first in the displayed list.
 1. Click **Create Virtual Repository**.
 
 Use this setup for initial testing with Chainguard Libraries for Java. For
@@ -285,7 +280,7 @@ repository.
 
 ### Validate the remote repository
 
-After creating the `java-chainguard` remote repository, validate that Artifactory is successfully proxying through to Chainguard before proceeding. Because Artifactory falls back to Maven Central when a connection to a remote repository fails, a misconfigured repository may silently resolve packages from Mavel Central rather than Chainguard — and the build will succeed without any visible error.
+After creating the `java-chainguard` remote repository, validate that Artifactory is successfully proxying through to Chainguard before proceeding. Because Artifactory falls back to Maven Central when a connection to a remote repository fails, a misconfigured repository may silently resolve packages from Maven Central rather than Chainguard — and the build will succeed without any visible error.
 
 Common sources of misconfiguration include invalid or expired credentials, or an incorrect or incomplete repository URL. The Artifactory **Test** button on the repository configuration screen is not a reliable indicator; it may fail for a correctly configured repository, and may pass for an incorrectly configured one. Instead, use the following steps to verify that fetching an artifact through Artifactory produces the same checksum as fetching it directly from `libraries.cgr.dev`.
 
@@ -300,7 +295,7 @@ curl -sSf -L \
   | sha256sum
 ```
 
-#### 1. Compute the same artifact's checksum from Artifactory
+#### 2. Compute the same artifact's checksum from Artifactory
 
 Fetch the same artifact through the Artifactory remote repository and compute its checksum:
 
@@ -311,14 +306,12 @@ curl -sSf -L \
   | sha256sum
 ```
 
-
 Replace `artifactory-host` with your Artifactory instance hostname.
 
 The checksums returned by the commands must match.
 
 If the checksum from the Artifactory remote repository differs from the direct fetch, or if the Artifactory fetch fails entirely, review the following before proceeding:
 
-* URL: The remote repository URL must be set to `https://libraries.cgr.dev/java/`.
 * URL: The remote repository URL must be set to `https://libraries.cgr.dev/java/`.
 * Credentials: You may need to regenerate your pull token with `chainctl auth pull-token --repository=java` and update the Artifactory repository credentials. Expired tokens fail silently.
 * Advanced configuration: Ensure all recommended Advanced settings from the [remote repository configuration steps](#initial-configuration-2) have been applied.
@@ -345,7 +338,7 @@ for accessing the repository:
 
 Use the URL of the virtual repository in the [build
 configuration](/chainguard/libraries/java/build-configuration/) and build a
-first test project. In a working setup the chainguard remote repository contains 
+first test project. In a working setup the chainguard remote repository contains
 all libraries retrieved from Chainguard.
 
 <a name="nexus"></a>
