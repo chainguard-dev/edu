@@ -57,18 +57,18 @@ Chainguard Containers are built on open source software, so understanding how
 Chainguard manages releases starts with understanding how open source projects
 version and release software. Generally, projects follow one of two approaches:
 
-- **Multiple release track**: Popular open source
+* **Multiple release track**: Popular open source
 projects often provide maintenance for a number of release tracks concurrently.
 For example, Java, Go, Postgres, and Kubernetes patch multiple release versions,
-each on their own defined maintenance schedule. 
-    - For these types of projects, Chainguard will maintain every version track of the
+each on their own defined maintenance schedule.
+    * For these types of projects, Chainguard will maintain every version track of the
 upstream software that receives updates from the project.
-- **Single release track**: Many open source projects support only a single stream of releases that are
+* **Single release track**: Many open source projects support only a single stream of releases that are
 continuously incremented; often, this is simply the latest release. In the case
 of a single release track, any security fix that is published will only be
 applied to the most recent release of the project, and the project release tags
-will be updated to indicate a new version is available. 
-    - For this type of project, Chainguard only warrants that the latest release of
+will be updated to indicate a new version is available.
+    * For this type of project, Chainguard only warrants that the latest release of
 the software and its corresponding version tags have the most up-to-date patches
 available.
 
@@ -78,7 +78,7 @@ In rare cases, a project may not follow a defined release pattern at all.
 
 There are several scenarios that define what Chainguard agrees to maintain
 regarding software versions in the [Chainguard Containers
-Directory](/chainguard/chainguard-images/how-to-use/images-directory/). All
+Directory](/platform/console/images-directory/). All
 container images that Chainguard currently supports are those with upstream
 software that is still supported and maintained, and Chainguard patches and
 rebuilds these Containers daily. If you have purchased a container image during
@@ -89,24 +89,24 @@ an actively maintained version.
 
 The table provides some example scenarios to help illustrate our approach.
 
-| **Category**	| **Example** | **Maintained Upstream Releases** | **Chainguard Patches** | **Chainguard No Longer Patches** |
-|---------------|-------------|----------------------------------|------------------------|----------------------------------|
-| **Multiple Release Tracks** | [Go](https://images.chainguard.dev/directory/image/go/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)       | 1.23, 1.22                 | `:latest`, 1, 1.23, 1.22 | 1.23.old, 1.22.old, 1.21 and below |
-|                             | [Python](https://images.chainguard.dev/directory/image/python/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)   | 3.13, 3.12, 3.11, 3.10, 3.9 | `:latest`, 3, 3.9 and above | 3.8 and below, 3.8.old, 3.9.old, 3.10.old, 3.11.old, 3.12.old |
-|                             | [Postgres](https://images.chainguard.dev/directory/image/postgres/version?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) | 17, 16, 15, 14, 13         | `:latest`, 17, 16, 15, 14, 13 | 12 (EOL November 21, 2024) and below |
-| **Single Release Track**    | [Cosign](https://images.chainguard.dev/directory/image/cosign/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)   | 2                          | `:latest`, 2, 2.4 | 2.3, 2.2, 2.1, 2.0, 1.x, 0.x |
-|                             | [Bank-Vaults](https://images.chainguard.dev/directory/image/bank-vaults/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) | 1 | `:latest`, 1 | Any previous version tag
-| **No Release Track**        | [envoyproxy/ratelimit](https://images.chainguard.dev/directory/image/envoy-ratelimit/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) | No versioned releases | `:latest` | Any previous version tag |
+| **Category** | **Example** | **Maintained Upstream Releases** | **Chainguard Patches** | **Chainguard No Longer Patches** |
+| --------------- | ------------- | ---------------------------------- | ------------------------ | ---------------------------------- |
+| **Multiple Release Tracks** | [Go](https://images.chainguard.dev/directory/image/go/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) | 1.23, 1.22 | `:latest`, 1, 1.23, 1.22 | 1.23.old, 1.22.old, 1.21 and below |
+| | [Python](https://images.chainguard.dev/directory/image/python/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) | 3.13, 3.12, 3.11, 3.10, 3.9 | `:latest`, 3, 3.9 and above | 3.8 and below, 3.8.old, 3.9.old, 3.10.old, 3.11.old, 3.12.old |
+| | [Postgres](https://images.chainguard.dev/directory/image/postgres/version?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) | 17, 16, 15, 14, 13 | `:latest`, 17, 16, 15, 14, 13 | 12 (EOL November 21, 2024) and below |
+| **Single Release Track** | [Cosign](https://images.chainguard.dev/directory/image/cosign/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) | 2 | `:latest`, 2, 2.4 | 2.3, 2.2, 2.1, 2.0, 1.x, 0.x |
+| | [Bank-Vaults](https://images.chainguard.dev/directory/image/bank-vaults/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) | 1 | `:latest`, 1 | Any previous version tag
+| **No Release Track** | [envoyproxy/ratelimit](https://images.chainguard.dev/directory/image/envoy-ratelimit/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) | No versioned releases | `:latest` | Any previous version tag |
 
 > **Note**: The "Maintained Upstream Releases" column is current as of December 2024.
 
 ### Daily rebuilds and proactive patching
 
-[Actively maintained](#list-active-tags) Chainguard Containers are rebuilt on a daily 
-cadence, so you can be sure the container image you are using is up to date. 
+[Actively maintained](#list-active-tags) Chainguard Containers are rebuilt on a daily
+cadence, so you can be sure the container image you are using is up to date.
 
-In some 
-cases, Chainguard will fix vulnerabilities in tools without waiting for the external 
+In some
+cases, Chainguard will fix vulnerabilities in tools without waiting for the external
 project to release patches. Learn more about this under [Epoch tags](#epoch-tags).
 
 ### Maintaining Wolfi packages in Chainguard Containers
@@ -152,7 +152,7 @@ more versions. The Chainguard approach is as follows:
 
 ## Floating tags and epoch tags
 
-Chainguard Containers use *floating tags*. This means that a container image's
+Chainguard Containers use _floating tags_. This means that a container image's
 tag always points to the most recent build or version within a version stream,
 rather than a fixed, immutable image. For example, `python:3.13` will always
 point to the latest version of that version stream (`3.13.9`, as of this
@@ -178,7 +178,7 @@ and tooling. Epoch tags make it easy to track these incremental updates in a
 clear, human-readable way — particularly useful when changes affect the main
 package or involve security fixes.
 
-**How epoch tags work**
+#### How epoch tags work
 
 Once a newer epoch tag is available, the previous one stops being updated. For
 example, the tag `1.14.5-r3` will no longer be updated once `1.14.5-r4` is
@@ -195,7 +195,7 @@ for Chainguard's `python` container image is `python:3.14.0-r6`, then
 to the same container image. However, you could still specify `python:3.14.0-r5`
 should you need.
 
-**How epoch tags affect other packages**
+#### How epoch tags affect other packages
 
 Bear in mind that Chainguard's Containers, although minimal, will almost always
 contain more than one package. At the time of writing this, the Go image has
@@ -219,7 +219,6 @@ instead.
 You can learn more about our approach by reviewing our [blog on Chainguard's
 container image tagging
 philosophy](https://www.chainguard.dev/unchained/chainguards-image-tagging-philosophy-enabling-high-velocity-updates-pt-1-of-3?utm=docs).
-
 
 ## SLAs
 
@@ -256,7 +255,6 @@ longer updated.
 No EOL notice will be provided for single-release applications where the only
 supported release is the `:latest` or corresponding version tag.
 
-
 ### EOL grace period
 
 There are cases where an organization may want to continue using a container
@@ -278,13 +276,13 @@ lifecycle of your Chainguard Containers.
 
 ### List Active Tags
 
-**Active tags in the Chainguard Console**
+#### Active tags in the Chainguard Console
 
 You can view tag statuses in the Chainguard Console. In the Console under
 **Images > Organization**, under the **Status** column, you can see:
 
-- `Active` status for images you are entitled to
-- `Expired` status for images you are no longer entitled to
+* `Active` status for images you are entitled to
+* `Expired` status for images you are no longer entitled to
 
 If you use Chainguard Production Containers, it is also possible to view the
 statuses of different tag versions for an image. Click into an image to see the
@@ -295,10 +293,11 @@ name to indicate that it's inactive.
 >**Note**: This feature is not applicable to customers who use [Unique
 >tags](/chainguard/chainguard-images/features/unique-tags/).
 
-**List active tags with chainctl**
+#### List active tags with chainctl
 
 You can use `chainctl` to retrieve the list of tags that are being actively
 maintained for a Chainguard container image by running:
+
 ```shell
 chainctl image repo list
 ```
@@ -309,6 +308,7 @@ For instance, the following command lists the tags that are currently active for
 ```sh
 chainctl image repo list --repo=python -o json | jq -r '.items[].activeTags'
 ```
+
 ```output
 [
   "3",
@@ -366,6 +366,7 @@ package:
 ```sh
 chainctl package versions list python --show-active
 ```
+
 ```output
  VERSION |  EOL DATE  | EOL GRACE PERIOD END DATE
 ---------|------------|---------------------------

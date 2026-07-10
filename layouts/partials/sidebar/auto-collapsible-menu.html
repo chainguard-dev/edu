@@ -118,10 +118,13 @@
             {{ end }}
             {{ end }}
 
-
-
-
-
+            {{/* Subsection cross-links: pointers defined in this subsection's _index.md. */}}
+            {{ range .Params.crosslinks }}
+            {{ $active := eq $currentPage.RelPermalink (.url | relURL) }}
+            <li class="sidebar-item-list-item {{ if $active }} sidebar-item-list-item-selected {{ end }}">
+              <a class="sidebar-subcategory docs-link rounded {{ if $active }} sidebar-item-active active {{ end }} sidebar-item" href="{{ .url | relURL }}">{{ .title }} <i class="bi bi-box-arrow-up-right" style="font-size:.7em;opacity:.6"></i></a>
+            </li>
+            {{ end }}
 
           </ul>
         </div>
@@ -131,6 +134,13 @@
       {{ $active := in $currentPage.RelPermalink .RelPermalink }}
       <li><a class="mx-0 sidebar-subcategory docs-link rounded {{ if $active }} sidebar-item-active active {{ end }} sidebar-item sidebar-item-top" href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
       {{ end }}
+      {{ end }}
+
+      {{/* Cross-links: extra nav entries pointing at a canonical page that lives in another section. */}}
+      {{/* Defined in this section's _index.md as a `crosslinks` list of {title, url} pairs. */}}
+      {{ range .Params.crosslinks }}
+      {{ $active := eq $currentPage.RelPermalink (.url | relURL) }}
+      <li><a class="mx-0 sidebar-subcategory docs-link rounded {{ if $active }} sidebar-item-active active {{ end }} sidebar-item sidebar-item-top" href="{{ .url | relURL }}">{{ .title }} <i class="bi bi-box-arrow-up-right" style="font-size:.7em;opacity:.6"></i></a></li>
       {{ end }}
     </ul>
   </div>

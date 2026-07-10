@@ -7,7 +7,7 @@ date: 2026-06-01T00:00:00+00:00
 lastmod: 2026-06-01T00:00:00+00:00
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
-  docs: 
+  docs:
     parent: javascript
     identifier: JavaScript Migration
 weight: 056
@@ -107,6 +107,7 @@ To see all currently active npm configuration and where each value comes from:
 ```shell
 npm config list
 ```
+
 {{% /tab %}}
 
 {{% tab title="pnpm" %}}
@@ -146,7 +147,7 @@ If there is no `bunfig.toml`, or if that file does not contain a specific regist
 {{< /tabs >}}
 
 The `registry` line shows where packages are currently being fetched from. If no
-registry is set, npm fetches from `https://registry.npmjs.org` by default. 
+registry is set, npm fetches from `https://registry.npmjs.org` by default.
 
 If you don't have an `.npmrc` file yet, that's fine; you'll create one in the
 next step.
@@ -223,7 +224,7 @@ This generates a project-level `.npmrc` with a pull token. It is supported for n
 
 **Configure the .npmrc manually**:
 
-First create a pull token as described in the [prerequisites](#pull-token), then configure your build tool manually using the instructions below.
+First create a pull token as described in the [prerequisites](#prerequisites), then configure your build tool manually using the instructions below.
 
 {{< details "Configure registry manually for pnpm, Yarn, and Bun" >}}
 
@@ -326,7 +327,7 @@ Learn more in the build configuration docs for [npm](/chainguard/libraries/javas
 pnpm config set registry https://<your-repo-manager-url>/repository/javascript-all/ --location=project
 ```
 
-Learn more in the [build configuration docs](/chainguard/libraries/javascript/build-configuration/#using-a-repository-manager-1). 
+Learn more in the [build configuration docs](/chainguard/libraries/javascript/build-configuration/#using-a-repository-manager-1).
 
 {{% /tab %}}
 
@@ -336,13 +337,13 @@ Learn more in the [build configuration docs](/chainguard/libraries/javascript/bu
 yarn config set npmRegistryServer https://<your-repo-manager-url>/repository/javascript-all
 ```
 
-Learn more in the [build configuration docs](/chainguard/libraries/javascript/build-configuration/#using-a-repository-manager-2). 
+Learn more in the [build configuration docs](/chainguard/libraries/javascript/build-configuration/#using-a-repository-manager-2).
 
 {{% /tab %}}
 
 {{% tab title="Bun" %}}
 
-Add the registry configuration to the `bunfig.toml` file of your project: 
+Add the registry configuration to the `bunfig.toml` file of your project:
 
 ```toml
 [install]
@@ -350,12 +351,11 @@ Add the registry configuration to the `bunfig.toml` file of your project:
 registry = "https://repo.example.com:8443/repository/javascript-all/"
 ```
 
-Learn more in the [build configuration docs](/chainguard/libraries/javascript/build-configuration/#using-a-repository-manager-3). 
+Learn more in the [build configuration docs](/chainguard/libraries/javascript/build-configuration/#using-a-repository-manager-3).
 
 {{% /tab %}}
 
 {{< /tabs >}}
-
 
 Example URLs by repository manager:
 
@@ -424,7 +424,6 @@ reinstalling.
 Learn about using this command with repo managers in the [Global
 configuration](/chainguard/libraries/javascript/global-configuration/) page.
 
-
 ### Alternative: Delete and regenerate the lockfile
 
 Deleting the lockfile is **not recommended** as a first approach. Expand the section below to learn more about this approach.
@@ -466,6 +465,7 @@ Libraries](#packages-not-available-in-chainguard-libraries) for next steps.
 ```bash
 rm -rf node_modules && npm cache clean --force
 ```
+
 {{% /tab %}}
 
 {{% tab title="pnpm" %}}
@@ -477,7 +477,6 @@ rm -rf node_modules
 ```
 
 Then, clear the caches. pnpm has three separate layers of cached data; remove them in the following order:
-
 
 **1. Metadata (packuments)**
 
@@ -503,20 +502,19 @@ To find and manually remove the full store:
 pnpm store path
 ```
 
-Then delete the directory that command outputs: 
+Then delete the directory that command outputs:
 
-On macOS/Linux - 
+On macOS/Linux -
 
 ```bash
 rm -rf "$(pnpm store path)"
 ```
 
-On Windows - 
+On Windows -
 
 Use the path returned by `pnpm store path` and delete it via File Explorer or `rmdir`.
 
 > Note: `pnpm prune` removes unused tarballs but does not remove packument metadata. If you are seeing 404 errors after switching to or updating the Chainguard registry endpoint, use the commands above rather than `pnpm prune`.
-
 
 {{% /tab %}}
 
@@ -548,14 +546,12 @@ If this command is not available on your version of Bun, you can instead delete 
 
 {{< /tabs >}}
 
-
 ## Step 5: Reinstall dependencies
 
 Reinstall dependencies and confirm that the lockfile reflects Chainguard as the source. Resolved URLs should point to `libraries.cgr.dev/javascript` (direct access) or
 your repository manager host, not `registry.npmjs.org`.
 
 > Note: When using the `update-hashes` command, some package managers and tool versions default to appending the hash rather than replacing it. In some cases, the resulting dual-hash format fails on install. If you encounter integrity errors, [run the command again](#recommended-update-checksums-in-place) and include the `--replace` flag.
-
 
 {{< tabs >}}
 
@@ -572,7 +568,6 @@ Then check the `resolved` field in `package-lock.json`:
 ```shell
 grep "resolved" package-lock.json | head -5
 ```
-
 
 {{% /tab %}}
 
@@ -622,13 +617,11 @@ Install dependencies:
 bun install
 ```
 
-Then check the `packages` section in `bun.lock` to verify that package source URLs reference Chainguard (or your repository manager) rather than npm. 
-
+Then check the `packages` section in `bun.lock` to verify that package source URLs reference Chainguard (or your repository manager) rather than npm.
 
 {{% /tab %}}
 
 {{< /tabs >}}
-
 
 ## Step 6: Verify your libraries
 
@@ -689,7 +682,6 @@ chainctl libraries verify ./node_modules
 {{% /tab %}}
 
 {{< /tabs >}}
-
 
 A successful result shows verification coverage for the scanned packages. For example:
 

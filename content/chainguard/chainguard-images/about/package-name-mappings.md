@@ -28,17 +28,16 @@ Some distributions split a single piece of software into many sub-packages, whil
 ### Container image name conventions
 
 For container images, Chainguard follows naming conventions that prioritize:
+
 - **Specificity**: Instead of generic names, we use descriptive names (for example, `argocd-repo-server` instead of just `argocd`)
 - **Consistency**: All our images follow similar naming patterns
 - **Discoverability**: Names that clearly indicate the software's purpose
-
 
 ### Using package mappings
 
 When you're using Chainguard's [Dockerfile Converter (dfc)](/chainguard/migration/dockerfile-conversion/), these mappings are applied automatically. The tool recognizes upstream package and image names and translates them to their Chainguard equivalents.
 
 For manual migrations, you can reference the following tables to find the correct package or image name you need.
-
 
 ## Package Name Mappings
 

@@ -2,7 +2,7 @@
 title: "Getting Started with the nginx Chainguard Container"
 type: "article"
 linktitle: "nginx "
-aliases: 
+aliases:
 - /chainguard/chainguard-images/getting-started/nginx
 description: "Learn how to deploy nginx web server using Chainguard's security-hardened container image with minimal vulnerabilities and distroless runtime"
 date: 2023-01-09T11:07:52+02:00
@@ -43,7 +43,7 @@ You will need to have [nginx](https://nginx.org/en/download.html) and [Docker En
 
 For this tutorial, you will be copying code to files you create locally. You can find the demo code throughout this tutorial, or you can find the complete demo at the [demo GitHub repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/nginx).
 
-## Step 1: Setting up a Demo Website 
+## Step 1: Setting up a Demo Website
 
 We'll start by serving static content to a local web server with nginx.
 
@@ -100,7 +100,7 @@ Next, create a CSS file named `stylesheet.css` using the text editor of your cho
 nano stylesheet.css
 ```
 
-Copy the following code to your `stylesheet.css` file. 
+Copy the following code to your `stylesheet.css` file.
 
 ```CSS
 /*
@@ -139,7 +139,7 @@ Next, you will pull down the `linky.png` file using `curl`. Always [inspect the 
 curl -O https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/fb54a9767a5474716398ac33de81d66e263d4c6f/nginx/data/linky.png
 ```
 
-Now, return to the `nginxdemo` directory you made earlier. 
+Now, return to the `nginxdemo` directory you made earlier.
 
 ```shell
 cd ../
@@ -195,7 +195,7 @@ Create a new file named `mime.types` using a text editor of your choice. We will
 nano mime.types
 ```
 
-Copy and paste the following code into your `mime.types` file. This file will allow nginx to handle the HTML, CSS, and png files we created when rendering the webserver. 
+Copy and paste the following code into your `mime.types` file. This file will allow nginx to handle the HTML, CSS, and png files we created when rendering the webserver.
 
 ```nginx
 types {
@@ -227,13 +227,14 @@ If you make any changes to the files nginx is serving, run `nginx -s reload` in 
 
 ## Step 2: Creating the Dockerfile
 
-We will now use a Dockerfile to build an image containing the demo. 
+We will now use a Dockerfile to build an image containing the demo.
 
 In the `nginxdemo` directory, create the `Dockerfile` with the text editor of your choice. We will use `nano`:
 
 ```shell
 nano Dockerfile
 ```
+
 The following Dockerfile will:
 
 1. Start a new build based on the `cgr.dev/chainguard/nginx:latest` container image;
@@ -249,6 +250,7 @@ EXPOSE 8080
 
 COPY data /usr/share/nginx/html/
 ```
+
 Save the file when you're finished.
 
 You can now build the container image with:
@@ -282,4 +284,3 @@ docker container stop nginxcontainer
 In this demo, we did not copy the configuration file into the container image built from the Dockerfile. This is because the default configuration file in the image was sufficient for the scope of this demo. If you wish to use a custom configuration file, you must ensure that file paths, ports, and other system-specific settings are configured to match the container environment. You can find more information about making these changes at the [Chainguard nginx Container Overview](https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-nginx).
 
 {{< blurb/images-advanced image="nginx" >}}
-

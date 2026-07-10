@@ -79,6 +79,7 @@ During compilation, we automatically remove:
 - Authentication tokens
 
 Example patterns we redact:
+
 - `api_key=...`
 - `password=...`
 - `-----BEGIN PRIVATE KEY-----`
@@ -132,6 +133,7 @@ python3 scripts/compile_docs.py
 ### How do I verify the build logs?
 
 Build logs are public on GitHub Actions:
+
 - [View Build Logs](https://github.com/chainguard-dev/edu/actions/workflows/compile-docs.yml)
 
 ### What if verification fails?

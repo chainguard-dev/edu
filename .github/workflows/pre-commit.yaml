@@ -1,0 +1,81 @@
+# Copyright 2026 Chainguard, Inc.
+# SPDX-License-Identifier: Apache-2.0
+
+name: pre-commit
+
+on:
+  pull_request:
+    branches: ['main']
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions: {}
+
+jobs:
+  pre-commit:
+    name: pre-commit
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read # Clone the repository
+
+    steps:
+      # audit (not block): pre-commit downloads hook environments from GitHub,
+      # PyPI, nodejs.org and the npm registry, which is a wide and changing
+      # egress footprint that a static allowlist would break on.
+      - uses: step-security/harden-runner@bf7454d06d71f1098171f2acdf0cd4708d7b5920 # v2.20.0
+        with:
+          egress-policy: audit
+
+      - name: Check out code
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          # Shallow by design: a full-depth clone of this large repo is
+          # deliberately avoided. pre-commit's --from-ref/--to-ref diff only
+          # needs the base and head commits, so fetch-depth: 2 plus the explicit
+          # shallow fetch of the base sha below is enough. This assumes PR
+          # branches stay current with main so the base sha is the diff's
+          # merge-base; a stale branch widens the diff to files main changed
+          # since the branch point. This repo is public, so the base-sha fetch
+          # needs no credentials and persist-credentials stays false.
+          persist-credentials: false
+          fetch-depth: 2
+
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: '3.13'
+          cache: pip
+          cache-dependency-path: .pre-commit-config.yaml
+
+      - name: Cache pre-commit hook environments
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.cache/pre-commit
+          key: pre-commit-${{ hashFiles('.pre-commit-config.yaml') }}
+          restore-keys: |
+            pre-commit-
+
+      # DO NOT REMOVE: this makes the PR base sha reachable in the shallow
+      # clone. Without it the --from-ref/--to-ref range below fails with
+      # "fatal: Invalid revision range". If you want to drop this step, you must
+      # switch checkout to fetch-depth: 0 (a full clone of this large repo).
+      - name: Fetch base ref for pre-commit diff
+        run: git fetch --depth=1 origin ${{ github.event.pull_request.base.sha }}
+
+      # Deliberately not --all-files: the repo carries a backlog of pre-existing
+      # lint errors, so gating the whole tree would make every PR responsible
+      # for cleaning up files it never touched. --from-ref/--to-ref scopes the
+      # run to files changed between the PR base and head (ratchet model).
+      # SKIP=content-spellcheck: the aspell prose check is advisory and local-only
+      # (aspell is not installed here, and spelling should not gate merges).
+      - name: Run pre-commit
+        env:
+          SKIP: content-spellcheck
+        run: |
+          pip install pre-commit
+          pre-commit run --show-diff-on-failure --color=always \
+            --from-ref ${{ github.event.pull_request.base.sha }} \
+            --to-ref ${{ github.event.pull_request.head.sha }}

@@ -47,7 +47,7 @@ docker pull cgr.dev/chainguard/node:latest@sha256:ede7ef4ca485553f5313f7a02ad353
 ## Dockerfile
 
 ```dockerfile
-FROM cgr.dev/chainguard/go:latest@sha256:7e60584b9ae1eec6ddc6bc72161f4712bcca066d5b1f511d740bcc0f65b05949 AS build 
+FROM cgr.dev/chainguard/go:latest@sha256:7e60584b9ae1eec6ddc6bc72161f4712bcca066d5b1f511d740bcc0f65b05949 AS build
 
 WORKDIR /src
 RUN CGO_ENABLED=0 go build -o /bin/server ./src

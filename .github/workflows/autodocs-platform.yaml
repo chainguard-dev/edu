@@ -22,7 +22,7 @@ jobs:
 
     steps:
     - name: 'Github Actions Runner'
-      uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4
+      uses: step-security/harden-runner@bf7454d06d71f1098171f2acdf0cd4708d7b5920 # v2.20.0
       with:
         egress-policy: audit
 
@@ -32,7 +32,7 @@ jobs:
         persist-credentials: false
 
     - name: 'Setup gitsign'
-      uses: chainguard-dev/actions/setup-gitsign@e1c4977ad9cb32b12c5b222ec0134a22bec60bd5 # v1.6.25
+      uses: chainguard-dev/actions/setup-gitsign@f0be69916b439d0fcced2451b23d0f27cd46d545 # v1.6.26
 
     - name: Authenticate to Google Cloud
       id: auth
@@ -90,7 +90,7 @@ jobs:
         assignees: matthewhelmke
 
     - name: Post failure notice to Slack
-      uses: step-security/action-slack-notify@7210d1a1599b9ea84d6140184222f04f1ff56070 # v2.3.6
+      uses: step-security/action-slack-notify@e4cdee14a905d9da46ba47ad9309704407d8cd79 # v2.4.0
       if: ${{ failure() }}
       env:
         SLACK_ICON: http://github.com/chainguard-dev.png?size=48

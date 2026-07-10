@@ -1,0 +1,262 @@
+---
+title: "How to Install chainctl"
+linktitle: "Install chainctl"
+aliases:
+- /chainguard/chainctl-usage/how-to-install-chainctl/
+- /chainguard/chainguard-enforce/how-to-install-chainctl
+- /chainguard/administration/how-to-install-chainctl
+type: "article"
+description: "Learn how to install chainctl, Chainguard's command-line interface for managing container images, IAM resources, and security configurations across platforms"
+date: 2022-09-22T15:56:52-07:00
+lastmod: 2025-07-23T16:52:56+00:00
+draft: false
+tags: ["chainctl"]
+images: []
+menu:
+  docs:
+    parent: "administration"
+toc: true
+weight: 010
+---
+
+Chainguard's `chainctl` command-line interface provides essential tools for managing your container security infrastructure, including image management, identity and access control, and resource monitoring. This CLI enables automation of Chainguard operations and integration with CI/CD pipelines.
+
+The tool uses the familiar `<context> <noun> <verb>` style of CLI interactions. For example, to retrieve a list of all the private Chainguard Containers available to your organization, you can run `chainctl images list`.
+
+Before we begin, let’s move into a temporary directory that we can work in. Be sure you have curl installed, which you can achieve through visiting the [curl download docs](https://curl.se/download.html) for your relevant operating system.
+
+```sh
+mkdir ~/tmp && cd $_
+```
+
+There are currently two ways to install `chainctl`, depending on your operating system and preferences.
+
+## Install `chainctl` with Homebrew
+
+You can install `chainctl` for macOS and Linux with the package manager [Homebrew](https://brew.sh/).
+
+Note that you will need to have the Xcode Command Line Tools installed prior to installing `chainctl` with Homebrew on macOS. Without these installed, you won't be able to use Homebrew to install `chainctl` on your macOS device.
+
+If you haven't already done so, you can install the Xcode Command Line Tools with the following command.
+
+```sh
+xcode-select --install
+```
+
+Before installing `chainctl` with Homebrew, use `brew tap` to bring in Chainguard's repositories and trust them.
+
+```sh
+brew tap chainguard-dev/tap
+brew trust --tap chainguard-dev/tap
+```
+
+Next, install `chainctl` with Homebrew.
+
+```sh
+brew install chainctl
+```
+
+You are now ready to use the `chainctl` command. You can verify that it works correctly in the final section of this guide.
+
+## Install with `curl`
+
+A platform-agnostic approach to installing `chainctl` is through using `curl`. We have [specific instructions for Windows users](/chainguard/chainctl-usage/how-to-install-chainctl/#installing-with-curl-in-windows-powershell) on installing `chainctl` with `curl`, but all others can run the following command:
+
+```bash
+PLATFORM="$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/aarch64/arm64/')"
+VERSION=$(curl -sS "https://dl.enforce.dev/chainctl/latest/metadata.json" | jq -r .version)
+curl -o chainctl "https://dl.enforce.dev/chainctl/${VERSION}/chainctl_${PLATFORM}"
+```
+
+We resolve the release version once from `metadata.json` and then download the binary from that explicit version path (rather than from `/latest/` directly). This ensures the binary and the signature you verify it against in the next step come from the same release. Downloading individual artifacts from `/latest/` in separate steps can occasionally pull mismatched files if a new release is published in between, causing signature verification to fail.
+
+Keep this same terminal session for the verification step below so that the `PLATFORM` and `VERSION` values are reused.
+
+Move `chainctl` into your `/usr/local/bin` directory and elevate its permissions so that it can execute as needed.
+
+```sh
+sudo install -o $UID -g $(id -g) -m 0755 chainctl /usr/local/bin/
+```
+
+At this point, you'll be able to use the `chainctl` command.
+
+### Installing with `curl` in Windows PowerShell
+
+As stated previously, you can also use `curl` install `chainctl` on Windows systems. Running the following command in PowerShell will download the appropriate `.exe` file.
+
+```PowerShell
+$VERSION = (curl -UseBasicParsing https://dl.enforce.dev/chainctl/latest/metadata.json | ConvertFrom-Json).version
+curl -o chainctl.exe https://dl.enforce.dev/chainctl/$VERSION/chainctl_windows_x86_64.exe
+```
+
+It may take several minutes for this operation to complete.
+
+Following that you can use `chainctl`. Be aware that Windows PowerShell does not load commands from the working directory by default so you will need to include `.\` before any `chainctl` commands you run, as in this example.
+
+```PowerShell
+.\chainctl auth login
+```
+
+Also, please note that while [`chainctl` commands](/chainguard/chainctl/) will generally work, some are not as thoroughly tested on Windows and may not behave as expected.
+
+## Install with Scoop in Windows
+
+Scoop is a command-line installer for Windows that has a community-contributed and -maintained way of [installing `chainctl`](https://scoop.sh/#/apps?q=chainctl).
+
+If you have Scoop installed, then installing `chainctl` only requires two commands.
+
+First, add the bucket.
+
+```shell
+scoop bucket add main
+```
+
+And then install `chainctl` from there.
+
+```shell
+scoop install main/chainctl
+```
+
+## Verifying the `chainctl` binary with Cosign
+
+Before running `chainctl` for the first time, you should verify the integrity of the downloaded binary using Cosign. This ensures the binary has not been tampered with. Ensure that you have the latest version of Cosign installed by following our [How to Install Cosign guide](/open-source/sigstore/cosign/how-to-install-cosign/).
+
+If you are continuing in the same terminal session as the installation step above, `PLATFORM` and `VERSION` are already set. Otherwise, resolve them again first. Then verify the binary you just downloaded, pulling the signature and certificate from the same pinned version:
+
+```sh
+PLATFORM="$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/aarch64/arm64/')"
+VERSION=$(curl -sS "https://dl.enforce.dev/chainctl/latest/metadata.json" | jq -r .version)
+cosign verify-blob \
+   --signature "https://dl.enforce.dev/chainctl/${VERSION}/chainctl_${PLATFORM}.sig" \
+   --certificate "https://dl.enforce.dev/chainctl/${VERSION}/chainctl_${PLATFORM}.cert.pem" \
+   --certificate-identity "https://github.com/chainguard-dev/mono/.github/workflows/.release-drop.yaml@refs/tags/v${VERSION}" \
+   --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+   $(which chainctl)
+```
+
+{{< note >}}
+Always pin the binary, signature, and certificate downloads to the same explicit `${VERSION}` rather than fetching each from `/latest/` independently. If a new release is published between the individual downloads, you can end up with a binary and a signature from different releases, and verification will fail with an error such as `invalid signature when validating ASN.1 encoded signature`.
+{{< /note >}}
+
+You should receive the following output:
+
+```output
+Verified OK
+```
+
+If you do not see the line `Verified OK` then there is a problem with your `chainctl` binary and you should reinstall it using the instructions at the beginning of this page.
+
+## Verifying installation
+
+Once verified, you can confirm that everything was set up correctly by checking the `chainctl` version.
+
+```sh
+chainctl version
+```
+
+You should receive output similar to the following.
+
+```output
+   ____   _   _      _      ___   _   _    ____   _____   _
+  / ___| | | | |    / \    |_ _| | \ | |  / ___| |_   _| | |
+ | |     | |_| |   / _ \    | |  |  \| | | |       | |   | |
+ | |___  |  _  |  / ___ \   | |  | |\  | | |___    | |   | |___
+  \____| |_| |_| /_/   \_\ |___| |_| \_|  \____|   |_|   |_____|
+chainctl: Chainguard Control
+
+GitVersion: <semver version>
+GitCommit:  <commit hash>
+GitTreeState:  clean
+BuildDate:  <date here>
+GoVersion:  <compiler version>
+Compiler:   gc
+Platform:   <your platform>
+```
+
+If you received output that you did not expect, check your bash profile to make sure that your system is using the expected PATH.
+
+## Authenticating
+
+With chainctl installed, you can authenticate into Chainguard with the following command:
+
+```sh
+chainctl auth login
+```
+
+This will open your browser window and take you through a workflow to login with your OIDC provider.
+
+### Authentication tokens
+
+If you ever need to retrieve your local Chainguard token, you can do so with the following command:
+
+```shell
+chainctl auth token
+```
+
+Following the [XDG standard](https://specifications.freedesktop.org/basedir/latest/), chainctl stores tokens in the local OS's cache directory:
+
+* **On Linux systems**, this is typically `~/.cache/`
+* **On MacOS**, this is `~/Library/Caches/`
+
+The token's path is the local cache directory appended with `/chainguard/<audience>/<oidc-token|refresh-token>`. The `oidc-token` is a short-lived access token used for authentication, while the `refresh-token` is a longer-lived credential that allows chainctl to obtain new access tokens without requiring you to log in again.
+
+For example, on Linux you can find the `oidc-token` for the `https://console-api.enforce.dev` audience in the following location:
+
+```
+/home/$USER/.cache/chainguard/https:--console-api.enforce.dev/
+```
+
+Note that for this audience, chainctl replaces `/` with `-` in order to ensure a valid file path.
+
+## Configure a Docker credential helper
+
+You can configure a Docker credential helper with chainctl by running:
+
+```sh
+chainctl auth configure-docker
+```
+
+This will update your Docker config file to call chainctl when an auth token is needed. A browser window will open when the token needs to be refreshed.
+
+For guidance on pull tokens, please review [authenticating with a pull token](/chainguard/chainguard-registry/authenticating/#authenticating-with-a-pull-token).
+
+### Docker credential helper on Windows
+
+On Windows, `chainctl auth configure-docker` updates your Docker config, but Docker also expects a `docker-credential-cgr.exe` helper to be available on your `PATH`. To make Docker pulls work, perform the following steps:
+
+#### 1. Add `chainctl.exe` to the `PATH` (replace `C:\Tools` with the actual directory you used):
+
+```PowerShell
+$env:Path += ";C:\Tools"
+```
+
+For a persistent setup, add that directory to your user or system `PATH` via the Windows Environment Variables settings.
+
+#### 2. Authenticate and configure Docker credentials:
+
+```PowerShell
+chainctl auth login
+chainctl auth configure-docker
+```
+
+#### 3. Create the Docker credential helper symlink in the same directory as `chainctl.exe`:
+
+```PowerShell
+New-Item -ItemType SymbolicLink -Path "docker-credential-cgr.exe" -Target "chainctl.exe"
+```
+
+If this command fails with a permissions error, try running PowerShell as Administrator or ensure that Windows Developer Mode is enabled so you can create symbolic links.
+
+Following this, you can verify Docker pulls from Chainguard by pulling a private image.
+
+## Updating `chainctl`
+
+When your version of `chainctl` is a few weeks old or older, you may consider updating it to make sure that your version is the most up to date. You can update `chainctl` by running the `update` command.
+
+```sh
+sudo chainctl update
+```
+
+The update command automatically verifies the cosign signature of the downloaded binary before replacing your existing installation. If signature verification fails (for example, due to a network issue), the update will not proceed and the unverified binary will be removed.
+
+Keeping `chainctl` up to date will ensure that you are using the most up to date version.

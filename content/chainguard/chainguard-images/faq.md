@@ -19,17 +19,21 @@ toc: true
 Learn answers to your questions about [Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). Chainguard provides container images designed with security as the primary focus, featuring zero known CVEs, minimal attack surface, and built-in SBOMs for every image.
 
 ## Which Linux distribution is used as base for Chainguard Containers?
+
 Chainguard Containers are based on [Wolfi](/open-source/wolfi/), a Linux _undistro_ we built specifically to address software supply chain security issues. We call it an undistro because it doesn't contain certain software you'd normally find in a traditional Linux distribution such as Debian or Alpine. Wolfi is a minimal Linux distribution designed specifically to be used as a base for stripped-down container images.
 
 ## How do Chainguard Containers relate to the Google Distroless Container Images?
+
 The [Google distroless](https://github.com/GoogleContainerTools/distroless) images follow a similar philosophy to many of our images: they are minimal images that don't include package managers or shells. The main difference is in the implementation. The Google distroless images are built with [Bazel](https://bazel.build) and based on the Debian distribution, whereas Chainguard Containers are built with [apko](/open-source/apko/) and based on [Wolfi](/open-source/wolfi/). We believe our approach is more maintainable and extensible.
 
 ## Which images are available?
-There are currently over a thousand Chainguard Containers available, which are segmented as **Free** or **Production**. You can read more about this in the [next question](#what-options-do-i-have-to-use-chainguard-images).
+
+There are currently over a thousand Chainguard Containers available, which are segmented as **Free** or **Production**. You can read more about this in the [next question](#what-options-do-i-have-to-use-chainguard-containers).
 
 Chainguard Containers are primarily available from [Chainguard's registry](/chainguard/chainguard-registry/overview/), but a selection of Free images is also available on [Docker Hub](https://hub.docker.com/u/chainguard). You can find the complete list of available Chainguard Containers in our public [Containers Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-faq) or within the [Chainguard Console](https://console.chainguard.dev/).
 
 ## What options do I have to use Chainguard Containers?
+
 You can get free Chainguard Containers for your organization. You can also upgrade for more versions, SLAs, and dedicated support.
 
 Free | Production
@@ -46,17 +50,21 @@ You can read more about the differences between Free and Production Containers i
 Yes, Chainguard Free Container images are available on [Docker Hub](https://hub.docker.com/u/chainguard?utm_source=academy&utm_medium=referral&utm_campaign=FY25-DockerHub-Orgprofile). As a Docker Verified Publisher, Chainguard has met Docker's stringent standards for security, quality, and transparency. This status signifies that our container images are trusted, reliable, and have undergone rigorous verification processes. If you wish to use Production Containers, you will use [Chainguard's registry](/chainguard/chainguard-registry/overview/).
 
 ## What is an SBOM and why is it important?
+
 An SBOM is a Software Bill of Materials, which is a list containing detailed information about all software that is included within a software artifact, whether it's an application, a container image, or a physical appliance.
 
 SBOMs provide visibility into the software you depend on. They can allow automated systems to quickly identify issues such as unpatched vulnerabilities, since SBOMs typically include the version of each dependency listed.
 
 ## Who maintains Chainguard Containers?
+
 [Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) are officially maintained by [Chainguard](https://chainguard.dev) engineers.
 
 ## How often are Chainguard Containers updated?
+
 Chainguard Containers are rebuilt every night to ensure that new package versions and security updates in upstream Wolfi are quickly applied.
 
 ## Can I simply replace my current base image with a Chainguard Container and it will work out of the box?
+
 Chainguard Containers are designed to be minimal, and many of them don't come with a package manager. Depending on your stack and specific dependencies, you may need to include additional software by combining `-dev` container images and our [distroless](/chainguard/chainguard-images/getting-started-distroless/) images in a multi-stage Docker build.
 
 ## What packages are available in Chainguard Containers?
@@ -67,22 +75,24 @@ Starting in March of 2024, Chainguard will maintain one version of each Wolfi pa
 
 This change ensures that Chainguard can provide the most up-to-date patches to all packages for our customers. Note that specific package versions can be made available in Production containers. If you have a request for a specific package version, please [contact us](https://www.chainguard.dev/contact?utm=docs).
 
-
 ## How do I add packages to a Chainguard Container?
 
 {{< blurb/why_ca >}}
 
-
 ## What does Chainguard do when a CVE is published, but a patch is not available from the owner of the OSS code?
+
 Chainguard investigates the CVE and marks relevant images as affected or not. If Chainguard can identify a patch that's unreleased, Chainguard may apply a patch before it lands upstream. In either case, when the patch lands upstream, Chainguard picks it up and rolls it out.
 
 ## Why are some CVEs persistent in select Chainguard Containers?
+
 There are several Chainguard Containers container images--such as Druid and Spark--with a notable number of CVEs that are marked `pending-upstream-fix.` The reasons that these CVEs can't be remediated by standard engineering procedures include: some vulnerabilities can only be patched through major version upgrades, which often break compatibility through broken builds or tests; many of these CVEs (over fifty percent by one internal Chainguard analysis) stem from "shaded" JARs, JAR files that bundle their dependencies internally; and a small portion of these CVEs simply have no fix available. The Chainguard engineering team continually investigates new approaches to fixing these persistent CVEs.
 
 ## I added software on top of one of Chainguard's base container images, why are there CVEs?
+
 Chainguard is not responsible for CVEs in software you add on top of base images.
 
 ## Do I need to authenticate into Chainguard to use Chainguard Containers?
+
 Logging in is optional if you are only using Free containers. That being said, there are benefits for all users who authenticate to Chainguard's registry, as Chainguard provides notifications of version updates, breaking changes, or critical security updates.
 
 To learn how to authenticate into Chainguard's registry, you can review our [authentication documentation](/chainguard/chainguard-registry/authenticating/) . You can read more about the thought process behind authentication in our blog post, [Scaling Chainguard Containers with a growing catalog and proactive security updates](https://www.chainguard.dev/unchained/scaling-chainguard-images-with-a-growing-catalog-and-proactive-security-updates).

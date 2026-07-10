@@ -27,8 +27,7 @@ applications or otherwise downloads and uses relevant libraries.
 
 If you are migrating an existing project to Chainguard Libraries, follow the
 [JavaScript migration guide](/chainguard/libraries/javascript/migration/) for a
-step-by-step walkthrough. 
-
+step-by-step walkthrough.
 
 ## JFrog Artifactory
 
@@ -94,10 +93,10 @@ which requires authentication. Choose whichever fits your environment:
   automatically. (`chainctl auth configure-npm` also sets up this
   libraries-scoped session as part of configuring npm.)
 - **CI or non-interactive**:
-  - For a session token, pass `--token <token>` or set `CHAINCTL_AUTH_TOKEN`. The
+    - For a session token, pass `--token <token>` or set `CHAINCTL_AUTH_TOKEN`. The
     token must be scoped to the libraries registry; mint one with
     `chainctl auth token --audience=libraries.cgr.dev`.
-  - For a [pull token](/chainguard/libraries/access/#pull-token) (an identity and
+    - For a [pull token](/chainguard/libraries/access/#pull-token) (an identity and
     secret), pass it as basic auth: `--username <identity> --password <secret>`,
     or set `CHAINCTL_REGISTRY_USERNAME` / `CHAINCTL_REGISTRY_PASSWORD`.
 - **From `~/.netrc`**: Credentials for the registry host are read from `~/.netrc`
@@ -109,7 +108,6 @@ Artifactory or JFrog), authenticate with **that** registry's credentials —
 `--username`/`--password`, the `CHAINCTL_REGISTRY_USERNAME` /
 `CHAINCTL_REGISTRY_PASSWORD` environment variables, or a matching `~/.netrc`
 entry. Chainguard-scoped tokens are never sent to third-party hosts.
-
 
 <a id="npm"></a>
 
@@ -148,7 +146,7 @@ shows a minimal example with a couple of dependencies each:
 By default, npm retrieves packages from the npm Registry at
 `https://registry.npmjs.org` and stores them locally in the `node_modules`
 directory of the project after running `npm install`. This operation also
-creates the `package-lock.json` file. 
+creates the `package-lock.json` file.
 
 Note that dependency versions are typically declared with the `^` before the
 version string. This indicates higher, compatible versions, following the
@@ -165,17 +163,16 @@ each module.
 **Direct access: Point registry to Chainguard**
 
 To change a project to use Chainguard Libraries for JavaScript, set the registry
-URL to point to Chainguard in your user `.npmrc` file: 
+URL to point to Chainguard in your user `.npmrc` file:
 
 ```bash
 npm config set registry https://libraries.cgr.dev/javascript/
 ```
 
-
 ### Using a repository manager
 
 To change a project to use Chainguard Libraries for JavaScript, set the registry
-URL to point to your repository manager in your user `.npmrc` file: 
+URL to point to your repository manager in your user `.npmrc` file:
 
 ```shell
 npm config set registry https://repo.example.com:8443/repository/javascript-all/
@@ -194,9 +191,9 @@ configuring authentication.
 
 Example URLs:
 
-* JFrog Artifactory: `https://example.jfrog.io/artifactory/javascript-all/`
-* Sonatype Nexus: `https://repo.example.com:8443/repository/javascript-all/`
-* Direct access: `https://libraries.cgr.dev/javascript/`
+- JFrog Artifactory: `https://example.jfrog.io/artifactory/javascript-all/`
+- Sonatype Nexus: `https://repo.example.com:8443/repository/javascript-all/`
+- Direct access: `https://libraries.cgr.dev/javascript/`
 
 ### Apply registry changes
 
@@ -204,7 +201,7 @@ To apply the registry changes, remove the `node_modules` directory, [update the 
 packages from Chainguard and updates the lockfile in place with updated hashes:
 
 ```bash
-rm -rf node_modules 
+rm -rf node_modules
 chainctl libraries update-hashes
 npm install
 ```
@@ -264,13 +261,12 @@ After adding this line, verify your lockfile reflects the
 correct resolved URLs: scoped packages should resolve to `registry.npmjs.org`
 and all other packages should resolve to `libraries.cgr.dev/javascript`.
 
-
 <a id="npm-minimal"></a>
 
 ### Minimal example project
 
 For testing purposes, you can use direct access and environment variables as
-detailed in the [access documentation](/chainguard/libraries/access/#env). 
+detailed in the [access documentation](/chainguard/libraries/access/#env).
 
 **1. Create a JavaScript project**
 
@@ -285,7 +281,7 @@ npm init -y
 
 **2. Configure the .npmrc file**
 
-Once the environment variables are set, configure the `.npmrc` file. 
+Once the environment variables are set, configure the `.npmrc` file.
 
 Run the following command to configure registry
 access and authentication in the `.npmrc` file in the current project
@@ -323,6 +319,7 @@ coreutils versions included in most operating systems.
 registry=https://libraries.cgr.dev/javascript/
 //libraries.cgr.dev/javascript/:_auth=aWRlbnRpdHktaWQ6dG9rZW4=
 ```
+
 The value of `auth` is the base64 encoding of `identity-id:token`, including the `/` character in the username.
 
 **3. Verify authentication with npm ping**
@@ -334,6 +331,7 @@ npm ping --userconfig .npmrc
 ```
 
 A successful respoonse looks like:
+
 ```bash
 npm notice PING https://libraries.cgr.dev/javascript/
 npm notice PONG 1065ms
@@ -404,7 +402,7 @@ shows a minimal example with a couple of dependencies each:
 By default, pnpm retrieves the packages the npm Registry at
 `https://registry.npmjs.org` and stores them locally in the `node_modules`
 directory of the project after running `pnpm install`. This operation also
-creates the `pnpm-lock.yaml` file. 
+creates the `pnpm-lock.yaml` file.
 
 Note that dependency versions are typically declared with the `^` before the
 version string. This indicates higher, compatible versions, following the
@@ -458,10 +456,10 @@ registry=https://libraries.cgr.dev/javascript/
 //libraries.cgr.dev/javascript-upstream/:_auth=<base64-encoded-token>
 ```
 
-### Using a repository manager 
+### Using a repository manager
 
 To change a project to use Chainguard Libraries for JavaScript, set the registry
-URL to point to your repository manager in your user `.npmrc` file: 
+URL to point to your repository manager in your user `.npmrc` file:
 
 ```shell
 pnpm config set registry https://repo.example.com:8443/repository/javascript-all/
@@ -480,9 +478,9 @@ configuring authentication.
 
 Example URLs:
 
-* JFrog Artifactory: `https://example.jfrog.io/artifactory/javascript-all/`
-* Sonatype Nexus: `https://repo.example.com:8443/repository/javascript-all/`
-* Direct access: `https://libraries.cgr.dev/javascript/`
+- JFrog Artifactory: `https://example.jfrog.io/artifactory/javascript-all/`
+- Sonatype Nexus: `https://repo.example.com:8443/repository/javascript-all/`
+- Direct access: `https://libraries.cgr.dev/javascript/`
 
 ### Apply registry changes
 
@@ -490,7 +488,7 @@ To apply the registry changes, remove the `node_modules` directory, [update the 
 packages from Chainguard and updates the lockfile in place with updated hashes:
 
 ```bash
-rm -rf node_modules 
+rm -rf node_modules
 chainctl libraries update-hashes
 pnpm install
 ```
@@ -527,15 +525,15 @@ To find and manually remove the full store:
 pnpm store path
 ```
 
-Then delete the directory that command outputs: 
+Then delete the directory that command outputs:
 
-On macOS/Linux - 
+On macOS/Linux -
 
 ```bash
 rm -rf "$(pnpm store path)"
 ```
 
-On Windows - 
+On Windows -
 
 Use the path returned by `pnpm store path` and delete it via File Explorer or `rmdir`.
 
@@ -549,7 +547,7 @@ If you are migrating an existing project and want to preserve your current
 lockfile, use [`chainctl libraries update-hashes`](#updating-lockfile-hashes)
 to update only the integrity hashes in place instead.
 
-Now you can proceed with your development and testing. 
+Now you can proceed with your development and testing.
 
 <a id="pnpm-minimal"></a>
 
@@ -565,7 +563,7 @@ pnpm init
 ```
 
 For testing purposes, you can use direct access and environment variables as
-detailed in the [access documentation](/chainguard/libraries/access/#env). 
+detailed in the [access documentation](/chainguard/libraries/access/#env).
 
 To create pull token credentials and set them as environment variables, run:
 
@@ -627,7 +625,7 @@ projects, offering fast, reliable, and secure dependency management as an
 alternative to npm. It is widely used for managing
 project dependencies, scripts, and workflows in Node.js and other JavaScript
 development environments. For more details, refer to the [Yarn
-documentation](https://yarnpkg.com/getting-started). 
+documentation](https://yarnpkg.com/getting-started).
 
 This section applies to modern versions of Yarn, also known as Yarn Berry, with
 versions 2.x and higher. If you are using Yarn 1.x refer to the [Yarn Classic
@@ -653,6 +651,7 @@ dependencies. The following block shows a minimal example with `react` and
   }
 }
 ```
+
 By default, Yarn retrieves the packages from the registry at
 `https://registry.yarnpkg.com` and stores them locally in the `.yarn` folder in the user's
 home directory after running `yarn`. Specific packages are linked into the
@@ -671,7 +670,7 @@ values in the `checksum` field.
 **Direct access: Point registry to Chainguard**
 
 To change a project to use Chainguard Libraries for JavaScript, set the registry
-URL to point to Chainguard in your user `.yarnrc` file: 
+URL to point to Chainguard in your user `.yarnrc` file:
 
 ```bash
 yarn config set npmRegistryServer https://libraries.cgr.dev/javascript/
@@ -680,7 +679,7 @@ yarn config set npmRegistryServer https://libraries.cgr.dev/javascript/
 ### Using a repository manager
 
 To change a project to use Chainguard Libraries for JavaScript, set the registry
-URL to point to your repository manager in your project `.yarnrc.yml` file: 
+URL to point to your repository manager in your project `.yarnrc.yml` file:
 
 ```shell
 yarn config set npmRegistryServer https://repo.example.com:8443/repository/javascript-all
@@ -697,9 +696,9 @@ more details such as authentication support.
 
 Example URLs:
 
-* JFrog Artifactory: `https://example.jfrog.io/artifactory/javascript-all`
-* Sonatype Nexus: `https://repo.example.com:8443/repository/javascript-all`
-* Direct access: `https://libraries.cgr.dev/javascript`
+- JFrog Artifactory: `https://example.jfrog.io/artifactory/javascript-all`
+- Sonatype Nexus: `https://repo.example.com:8443/repository/javascript-all`
+- Direct access: `https://libraries.cgr.dev/javascript`
 
 ### Apply registry changes
 
@@ -726,7 +725,7 @@ to update only the integrity hashes in place instead.
 
 #### Using Chainguard Libraries with `yarn install --immutable`
 
-Yarn Berry's `--immutable` flag prevents changes to `yarn.lock` during installation. Migrating to Chainguard Libraries requires a lockfile preparation step before your normal `--immutable` workflow can resume. 
+Yarn Berry's `--immutable` flag prevents changes to `yarn.lock` during installation. Migrating to Chainguard Libraries requires a lockfile preparation step before your normal `--immutable` workflow can resume.
 
 Yarn Berry's lockfile stores both resolved `__archiveUrl` entries and Yarn-specific checksums (used by `--immutable` to detect tampering). Run the following command to update both:
 
@@ -816,9 +815,9 @@ yarn config set 'npmRegistries["//libraries.cgr.dev/javascript"].npmAlwaysAuth' 
 
 Note the following details:
 
-* The `authInfo` token is passed as authentication identity `npmAuthIdent` and only uses 
+- The `authInfo` token is passed as authentication identity `npmAuthIdent` and only uses
   the username and password values from the pull token separated by colon without any further encoding.
-* Setting `npmAlwaysAuth` is required.
+- Setting `npmAlwaysAuth` is required.
 
 Add dependencies for your project into the `package.json` file to test retrieval
 from Chainguard Libraries, build the project, and list the dependencies:
@@ -892,7 +891,7 @@ To change a project to use Chainguard Libraries for JavaScript, first export you
 export token=$(echo -n "${CHAINGUARD_JAVASCRIPT_IDENTITY_ID}:${CHAINGUARD_JAVASCRIPT_TOKEN}" | base64 -w 0)
 ```
 
-Then, set auth and set the registry URL to point to Chainguard in your user `.npmrc` file: 
+Then, set auth and set the registry URL to point to Chainguard in your user `.npmrc` file:
 
 ```bash
 cat > .npmrc << 'EOF'
@@ -917,10 +916,9 @@ EOF
 
 Example URLs:
 
-* JFrog Artifactory: `https://example.jfrog.io/artifactory/javascript-all`
-* Sonatype Nexus: `https://repo.example.com:8443/repository/javascript-all`
-* Direct access: `https://libraries.cgr.dev/javascript`
-
+- JFrog Artifactory: `https://example.jfrog.io/artifactory/javascript-all`
+- Sonatype Nexus: `https://repo.example.com:8443/repository/javascript-all`
+- Direct access: `https://libraries.cgr.dev/javascript`
 
 ### Apply registry changes
 
@@ -937,12 +935,12 @@ To apply the registry changes, remove the `node_modules` directory, [update the 
 packages from Chainguard and updates the lockfile in place with updated hashes:
 
 ```bash
-rm -rf node_modules 
+rm -rf node_modules
 chainctl libraries update-hashes
 yarn install
 ```
 
-As an alternative, you can remove the `node_modules` directory _and_ the `yarn-lock.json` file, then reinstall. This will regenerate the lockfile and update the hashes. 
+As an alternative, you can remove the `node_modules` directory _and_ the `yarn-lock.json` file, then reinstall. This will regenerate the lockfile and update the hashes.
 
 Another option, after deleting `node_modules` and `yarn-lock.json`, is to run `yarn upgrade`. This updates all dependencies to their latest allowed
 versions and regenerates the lock file with updated hashes.
@@ -972,7 +970,7 @@ the environment variables are set, the following steps configure registry access
 with authentication in the `.npmrc` file directory:
 
 ```shell
-export token=$(echo -n "${CHAINGUARD_JAVASCRIPT_IDENTITY_ID}:${CHAINGUARD_JAVASCRIPT_TOKEN}" | base64 -w 0) 
+export token=$(echo -n "${CHAINGUARD_JAVASCRIPT_IDENTITY_ID}:${CHAINGUARD_JAVASCRIPT_TOKEN}" | base64 -w 0)
 cat > .npmrc << EOF
 registry=https://libraries.cgr.dev/javascript/
 //libraries.cgr.dev/javascript/:_auth="$token"
@@ -982,15 +980,15 @@ EOF
 
 Note the following details:
 
-* Using yarn configuration files such as `.yarnrc` and commands like `yarn
+- Using yarn configuration files such as `.yarnrc` and commands like `yarn
   config set registry` does not work with authentication details, and the
-  proposed approach with `.npmrc` file is preferable. 
-* The `token` token is passed as authentication token `_auth` and uses the
+  proposed approach with `.npmrc` file is preferable.
+- The `token` token is passed as authentication token `_auth` and uses the
   username and password values from the pull token separated by colon in
   `base64` encoding. Note that the `-w 0` option for `base64` is required and
-  supported by the GNU coreutils versions included in most operating systems. 
-* Setting `always-auth` is required.
-* The trailing slash in the registry URL and authentication references to it is required.
+  supported by the GNU coreutils versions included in most operating systems.
+- Setting `always-auth` is required.
+- The trailing slash in the registry URL and authentication references to it is required.
 
 Add dependencies for your project into the `package.json` file to test retrieval
 from Chainguard Libraries, build the project, and list the dependencies:
@@ -1052,7 +1050,7 @@ compatible newer releases under semantic versioning. For example, `^22.18.0` for
 Any dependency or version changes require running `bun install` again, which
 updates the lockfile.
 
-### Using a repository manager 
+### Using a repository manager
 
 To switch a project to use Chainguard Libraries for JavaScript, point Bun at
 your repository manager. Add the [registry
@@ -1077,9 +1075,9 @@ Refer to [Bun documentation](https://bun.com/docs) for additional registry and a
 
 Example registry URLs:
 
-* JFrog Artifactory: https://example.jfrog.io/artifactory/javascript-all/
-* Sonatype Nexus: https://repo.example.com:8443/repository/javascript-all/
-* Direct access: https://libraries.cgr.dev/javascript/
+- JFrog Artifactory: https://example.jfrog.io/artifactory/javascript-all/
+- Sonatype Nexus: https://repo.example.com:8443/repository/javascript-all/
+- Direct access: https://libraries.cgr.dev/javascript/
 
 ### Apply registry changes
 
@@ -1087,12 +1085,12 @@ To apply the registry changes, remove the `node_modules` directory, [update the 
 packages from Chainguard and updates the lockfile in place with updated hashes:
 
 ```bash
-rm -rf node_modules 
+rm -rf node_modules
 chainctl libraries update-hashes
 bun install
 ```
 
-As an alternative, you can remove the `node_modules` directory _and_ the `bun-lock.json` file, then reinstall. This will regenerate the lockfile and update the hashes. 
+As an alternative, you can remove the `node_modules` directory _and_ the `bun-lock.json` file, then reinstall. This will regenerate the lockfile and update the hashes.
 
 <a id="bun-minimal"></a>
 

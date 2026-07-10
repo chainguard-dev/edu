@@ -29,7 +29,6 @@ If you have a container environment that was working fine but suddenly breaks wi
 
 > NOTE: If you are looking for a quick way to learn the tag history of a container image, you may want to consider using the `chainctl images history` command instead of the API. See **[Examine the History of Container Images](/chainguard/chainctl-usage/chainctl-images/#examine-the-history-of-container-images)** for more information.
 
-
 ## Obtaining a Registry Token
 
 Before making API calls, you'll need to generate a token within [Chainguard's registry](/chainguard/chainguard-registry/overview/).
@@ -90,6 +89,7 @@ https://cgr.dev/v2/ORGANIZATION_NAME/IMAGE_NAME/_chainguard/history/IMAGE_TAG
 ```
 
 Where:
+
 - For private images `ORGANIZATION_NAME` is the name of your organization, for example: `foo.com`.
 - For public images `ORGANIZATION_NAME` is always `chainguard`.
 - `IMAGE_NAME` is the name of the image, for example: `chainguard-base` or `python`.
@@ -114,15 +114,15 @@ You should get output like the following:
 ```
 {
   "history": [
-	{
-  	"updateTimestamp": "2023-05-12T13:46:10.555Z",
-  	"digest": "sha256:81c334de6dd4583897f9e8d0691cbb75ad41613474360740824d8a7fa6a8fecb"
-	},
-	{
-  	"updateTimestamp": "2023-05-12T20:50:19.702Z",
-  	"digest": "sha256:a8724b7a80cae14263a3b55f7acb5d195fcbb24afbc8067aa5198aa2a9131cde"
-	},
-	...
+ {
+   "updateTimestamp": "2023-05-12T13:46:10.555Z",
+   "digest": "sha256:81c334de6dd4583897f9e8d0691cbb75ad41613474360740824d8a7fa6a8fecb"
+ },
+ {
+   "updateTimestamp": "2023-05-12T20:50:19.702Z",
+   "digest": "sha256:a8724b7a80cae14263a3b55f7acb5d195fcbb24afbc8067aa5198aa2a9131cde"
+ },
+ ...
 
   ]
 }
@@ -148,7 +148,7 @@ Then to query digests of the **python:latest** Chainguard Container created in t
 
 ```shell
 curl -s -H "Authorization: Bearer $tok" \
-	"https://cgr.dev/v2/chainguard/python/_chainguard/history/latest?start=${timestamp}" | jq
+ "https://cgr.dev/v2/chainguard/python/_chainguard/history/latest?start=${timestamp}" | jq
 ```
 
 To query digests of the **python:latest** Chainguard Container created before 2024, first create a new `timestamp` variable like this:
@@ -161,7 +161,7 @@ Then run the query like this:
 
 ```shell
 curl -s -H "Authorization: Bearer $tok" \
-	"https://cgr.dev/v2/chainguard/python/_chainguard/history/latest?end=${timestamp}" | jq
+ "https://cgr.dev/v2/chainguard/python/_chainguard/history/latest?end=${timestamp}" | jq
 ```
 
 Both of these examples filter the `curl` command's output through [`jq`](https://jqlang.github.io/jq/), a useful tool for processing JSON on the command line.
@@ -185,5 +185,3 @@ FROM cgr.dev/chainguard/python@sha256:81c334de6dd4583897f9e8d0691cbb75ad41613474
 ```
 
 And your container image will then be locked into that specific build of the `python:latest` image variant.
-
-

@@ -13,7 +13,7 @@ weight: 750
 toc: true
 ---
 
-This document explains how to specify version constraints for packages installed with the apk tool, as well as apko and melange. Understanding version selection will enable you to choose the version you're looking for, determine what updates and vulnerability fixes you receive, and can allow you to reproduce an image's digest through exact version matching. 
+This document explains how to specify version constraints for packages installed with the apk tool, as well as apko and melange. Understanding version selection will enable you to choose the version you're looking for, determine what updates and vulnerability fixes you receive, and can allow you to reproduce an image's digest through exact version matching.
 
 ## Version selection in apko and melange
 
@@ -88,7 +88,7 @@ Version constraints can be useful when you want to ensure a minimum or maximum m
 
 ## Installing Future Versions
 
-Using `apk add go` installs the latest _stable_ release of Go. For most packages, there is no distinction between the "latest" and "latest stable" release. Some projects, like Go, Node, Python, etc., produce pre-release versions before, or have more nuanced release maturity and support processes. Please refer to the respective larger project for more information. 
+Using `apk add go` installs the latest _stable_ release of Go. For most packages, there is no distinction between the "latest" and "latest stable" release. Some projects, like Go, Node, Python, etc., produce pre-release versions before, or have more nuanced release maturity and support processes. Please refer to the respective larger project for more information.
 
 Go versions often have Release Candidates. For example, when Go 1.21 is the latest release, the Go team may prepare for Go 1.22 by releasing a Go `1.22_rc1` to let folks try it out before it's fully released. To install this version, you can specify the pre-release package name, which for go will be `go-1.22`:
 

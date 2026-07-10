@@ -30,12 +30,11 @@ The community charts have been tested by Chainguard to confirm they produce expe
 
 Chainguard makes the provenance of these charts clear. Helm charts are packaged as [OCI artifacts](/open-source/oci/what-are-oci-artifacts/) using the upstream version adding an appended revision suffix for updates that include material changes to the chart; otherwise, tags will float based as their dependent images update. The OCI artifacts are signed and generate provenance attestations that link to the exact image digests used to ensure that all artifacts are cryptographically verifiable end-to-end for integrity and origin.
 
-You can find Helm charts in the [Chainguard Console](/chainguard/chainguard-images/how-to-use/images-directory/#find-helm-charts-in-the-chainguard-console) and in the [Chainguard Directory](/chainguard/chainguard-images/how-to-use/chainguard-directory/#find-helm-charts-in-the-chainguard-directory).
+You can find Helm charts in the [Chainguard Console](/platform/console/images-directory/#find-helm-charts-in-the-chainguard-console) and in the [Chainguard Directory](/chainguard/chainguard-images/how-to-use/chainguard-directory/#find-helm-charts-in-the-chainguard-directory).
 
 The following is an instructional guide for Chainguard users that are looking for Helm charts to use with their Chainguard container images.
 
 You can use these Helm charts with Chainguard FIPS container images, but you will need to adjust the charts as they use the non-FIPS images by default. We build a single chart per application and validate that both FIPS and non-FIPS Chainguard Images work with it.
-
 
 ## Authentication
 
@@ -47,7 +46,6 @@ This section presents multiple authentication methods:
 - Deploy a Chainguard Helm chart using a Kubernetes pull secret
 - Use cluster node-scoped registry permissions
 
-
 ### Use Helm values with `global.imagePullSecrets`
 
 When performing authentication via a `global.imagePullSecrets` key-value pair, include the following in your `values.yaml` file.
@@ -58,7 +56,6 @@ global:
     - name: chainguard-pull-secret
 ```
 
-
 ### Deploy a Chainguard Helm chart using a Kubernetes pull secret
 
 To begin, authenticate with chainctl and generate a pull token.
@@ -67,6 +64,7 @@ To begin, authenticate with chainctl and generate a pull token.
 chainctl auth login
 chainctl auth configure-docker --pull-token --save --ttl=24h
 ```
+
 This token expires in 24 hours by default, which can be modified using the
 `--ttl` flag. It sets the duration for the validity of the token. The maximum
 valid value is `8760h` (equivalent to 365 days), Valid unit strings range from
@@ -87,7 +85,7 @@ Find the username and password that are contained in the pull token, as in this 
 
 ```sh
 chainctl auth configure-docker --pull-token --save --ttl=24h
-                                    
+
   ✔ Selected folder chainguard.edu.
 
 To use this pull token in another environment, run this command:
@@ -131,7 +129,6 @@ helm install grafana oci://cgr.dev/$ORGANIZATION/charts/grafana \
   --set "global.imagePullSecrets[0].name=chainguard-pull-secret"
 ```
 
-
 When the install is successful, it returns a confirmation message, like this:
 
 ```sh
@@ -163,7 +160,6 @@ NOTES:
 #################################################################################
 ```
 
-
 ## Best practices with cluster node-scoped registry permissions
 
 If you manage access and permissions at cluster-wide and node-specific levels, these are some best practices to consider.
@@ -190,10 +186,10 @@ Pin to digests like this:
   sha256:38850bacab587e4cf1177d0fe5b8bd62bad27d3f04f5a1c65ddcd86ea9748a73
   ```
 
-2. Use the digest to install your chart, replacing `sha256:DIGEST` with the response you just received.
+1. Use the digest to install your chart, replacing `sha256:DIGEST` with the response you just received.
 
   ```sh
-  helm install grafana \ 
+  helm install grafana \
   oci://cgr.dev/$ORGANIZATION/charts/grafana@sha256:$DIGEST
   ```
 
@@ -214,7 +210,6 @@ There may be times when you need to override the version of an image that is set
 Refer to the documentation for charts in the Chainguard Console in the **Helm charts** page, accessible from the sidebar. Find your chart in the list and select it, then click through the tabs across the top of the page to learn more about the chart. For example, you can find the default values for the Grafana Helm chart in [its Default Values tab](https://console.chainguard.dev/org/$ORGANIZATION$/helm/organization/community-chart/grafana/defaultValues).
 
 ![Screenshot of the Default values tab for the Grafana Helm chart in the Chainguard Console.](helm-values.png)
-
 
 #### Example of overriding tag and digest
 
@@ -242,7 +237,6 @@ helm install <chart> --set image.tag=<desired-tag>
 
 Getting this wrong could cause you to unknowingly run the version specified by the digest instead of the version you intend.
 
-
 ## Helm chart usage examples
 
 ### Install with details in a file
@@ -263,8 +257,8 @@ helm install grafana oci://cgr.dev/$ORGANIZATION/charts/grafana \
   --values ./values.yaml
 ```
 
-
 ### Install on AWS Elastic Kubernetes Service (EKS) Auto Mode
+
 When installing on EKS Auto Mode, you may need to create a storage class for the Helm chart's pod(s). This can be done by creating a storage class:
 
 ```sh
@@ -290,7 +284,6 @@ helm install grafana oci://cgr.dev/$ORGANIZATION/charts/grafana \
   --set "persistence.storageClass=gp3-automode"
 ```
 
-
 ### Install using a mirror
 
 Many customers choose to handle container images by overriding the Chainguard repository and registry and using their own internal mirror. How you set this up depends on your chosen solution, but it does affect these Helm charts. You will need to override values in the Helm chart with the appropriate new values for your mirror.
@@ -303,8 +296,7 @@ chainctl images helm values --help
 
 This command is a subcommand of [chainctl images helm](/chainguard/chainctl/chainctl-docs/chainctl_images_helm/), which groups Helm chart related commands.
 
-
-## Troubleshooting 
+## Troubleshooting
 
 To check the Helm configuration, you can run `helm install` with `--dry-run` flag. This will output the generated Kubernetes YAML. Double check the values for the image and `imagePullSecrets` to ensure they point to the correct registry and authentication is in place.
 

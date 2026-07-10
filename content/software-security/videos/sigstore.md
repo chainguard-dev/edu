@@ -16,9 +16,9 @@ toc: true
 
 {{< youtube veiCVgDpYcY >}}
 <br>
-Let’s talk about software supply chain security. 
+Let’s talk about software supply chain security.
 
-Vulnerabilities and attacks in software have been increasing in recent years, and the U.S. government recently passed a Bill in the House that would forbid the Department of Defense (DoD) from procuring any software applications that contain a single security vulnerability or CVE (short for common vulnerability or exposure). Attacks and other security issues can exist all across the software supply chain, from the dependencies or packages you leverage in your code, to the code you write, to your deployment and integration strategy, to your packaging. 
+Vulnerabilities and attacks in software have been increasing in recent years, and the U.S. government recently passed a Bill in the House that would forbid the Department of Defense (DoD) from procuring any software applications that contain a single security vulnerability or CVE (short for common vulnerability or exposure). Attacks and other security issues can exist all across the software supply chain, from the dependencies or packages you leverage in your code, to the code you write, to your deployment and integration strategy, to your packaging.
 
 With so many opportunities for attack vectors and vulnerability risks, what can software developers do?
 
@@ -32,9 +32,9 @@ We’ll break down how this happens with each part of the Sigstore project (Cosi
 Cosign
 Cosign is a tool that helps make software more secure. Part of the Sigstore project, Cosign supports container signing, verification, and storage in an OCI (open container images) registry. Cosign makes it so that code signatures can be a part of invisible infrastructure.
 
-If we think about something physical that we want to keep secure, we may think of keys and a lock. Cosign lets developers generate a key pair with a private signing key that only you have access to, and a public verification key that can be stored with the software or in a transparency log. These keys are attached to the software artifact as a signature when it is released (whether that’s as a package, binary, container, whatever). Once that software is out in the world, another developer or user can verify the claims of the signature by checking that the public key matches up with the claims. 
+If we think about something physical that we want to keep secure, we may think of keys and a lock. Cosign lets developers generate a key pair with a private signing key that only you have access to, and a public verification key that can be stored with the software or in a transparency log. These keys are attached to the software artifact as a signature when it is released (whether that’s as a package, binary, container, whatever). Once that software is out in the world, another developer or user can verify the claims of the signature by checking that the public key matches up with the claims.
 
-We can also think about Cosign as like a wax seal on old paper letters. When someone — say a queen or public official — wrote a letter that needed to be secured, they would close up the letter and drip wax on it, then stamp into it with their seal or emblem. This would let the person who receives the letter know that the letter is from whom it claims to be from, and also that that letter wasn’t tampered with, which the recipient would know if the wax seal was broken. 
+We can also think about Cosign as like a wax seal on old paper letters. When someone — say a queen or public official — wrote a letter that needed to be secured, they would close up the letter and drip wax on it, then stamp into it with their seal or emblem. This would let the person who receives the letter know that the letter is from whom it claims to be from, and also that that letter wasn’t tampered with, which the recipient would know if the wax seal was broken.
 
 Another neat thing about Sigstore is that it enables keyless signing, meaning you don’t need to generate a key pair but can use an OIDC (OpenID Connect) protocol to authenticate your identity instead. This can currently be done through Google, GitHub, or Microsoft, and it will tie your identity — based on an email address or username — to the code you are signing.
 

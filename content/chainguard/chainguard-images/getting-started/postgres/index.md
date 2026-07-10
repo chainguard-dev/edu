@@ -2,7 +2,7 @@
 title: "Getting Started with the PostgreSQL Chainguard Container"
 type: "article"
 linktitle: "PostgreSQL"
-aliases: 
+aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-postgres
 description: "Learn how to deploy PostgreSQL databases using Chainguard's security-hardened container image with minimal vulnerabilities and distroless design"
 date: 2023-08-10T11:07:52+02:00
@@ -34,7 +34,6 @@ In order to illustrate how the PostgreSQL Chainguard Container might be used in 
 {{< details "Chainguard Containers" >}}
 {{< blurb/images >}}
 {{< /details >}}
-
 
 ## Step 1: Setting up a demo application
 
@@ -76,7 +75,6 @@ cd postgres/
 
 From here, you can run the application and use a web browser to observe it working in real time, which we'll do in the next section.
 
-
 ## Step 2: Inspect, run, and test the sample application
 
 We encourage you to check out [the application code on GitHub](https://github.com/chainguard-dev/edu-images-demos/tree/main/postgres) to better understand how this application works, but we'll provide a brief overview here.
@@ -97,6 +95,7 @@ Note that this application includes a Dockerfile.
 ```sh
 cat Dockerfile
 ```
+
 ```
 FROM cgr.dev/chainguard/php:latest-fpm-dev
 
@@ -130,7 +129,6 @@ This shows that the application is recording each visit in the PostgreSQL databa
 
 After confirming that the application is functioning as expected, you can read through the next section to explore how else you can work with the `postgres` container.
 
-
 ## Step 3: Working with the database
 
 The `docker-compose.yml` file contains some configuration details regarding the PostgreSQL database used in this example application. Run the following command to inspect the contents of this file.
@@ -145,16 +143,16 @@ We're interested in the `postgres` service:
 . . .
 
   postgres:
-	image: cgr.dev/chainguard/postgres
-	restart: unless-stopped
-	environment:
-  	POSTGRES_USER: php
-  	POSTGRES_PASSWORD: password
-  	POSTGRES_DB: php-test
-	ports:
-  	- 5432:5432
-	networks:
-  	- wolfi
+ image: cgr.dev/chainguard/postgres
+ restart: unless-stopped
+ environment:
+   POSTGRES_USER: php
+   POSTGRES_PASSWORD: password
+   POSTGRES_DB: php-test
+ ports:
+   - 5432:5432
+ networks:
+   - wolfi
 
 . . .
 ```
@@ -193,12 +191,9 @@ To close the `psql` prompt, you can enter the following command.
 
 Of course, you likely won't be regularly managing your containerized databases over the command line. The purpose of this section is to only show that you can interact with the database running in this container just like you would with any other Postgres database.
 
-
-
 ## Advanced Usage
 
 {{< blurb/images-advanced image="PostgreSQL" >}}
-
 
 ### Configuring the PostgreSQL container image
 
@@ -207,7 +202,7 @@ You can extend Chainguard's PostgreSQL container image with environment variable
 * `PGDATA`: This variable allows you to define another location for database files. The default data directory is `/var/lib/postgresql/data`.
 * `POSTGRES_PASSWORD`: This environment variable sets the superuser password for PostgreSQL. This variable is required to use the PostgreSQL image.
 * `POSTGRES_USER`: This is used with the `POSTGRES_PASSWORD` variable to set a superuser for the database and its password. If not specified, you can use the default `postgres` user.
-*  `POSTGRES_DB`: Using this variable allows you to set a different name for the default database. If not specified, the default database will be `postgres` or the value set by `POSTGRES_USER`.
+* `POSTGRES_DB`: Using this variable allows you to set a different name for the default database. If not specified, the default database will be `postgres` or the value set by `POSTGRES_USER`.
 * `POSTGRES_INITDB_ARGS`: This variable allows you to send arguments to `postgres initdb`.
 * `POSTGRES_INITDB_WALDIR`: You can set this variable to define the location for the PostgreSQL transaction log. By default, the transaction log is stored in a subdirectory of the main PostgresSQL data folder, which you can define with `PGDATA`.
 * `POSTGRES_HOST_AUTH_METHOD`: This variable allows you to control the `auth-method` used to authenticate when connecting to the database.
@@ -220,7 +215,7 @@ docker run --rm -e POSTGRES_HOST_AUTH_METHOD=trust -e POSTGRES_DB=linky -ti --na
 
 Be aware that the Docker specific variables will only have an effect if you start the container with an empty data directory; pre-existing databases won't be affected on container startup.
 
-You can also run the Chainguard PostgreSQL container image with a custom configuration file. The following example will mount a PostgreSQL configuration file named `my-postgres.conf` to the container. 
+You can also run the Chainguard PostgreSQL container image with a custom configuration file. The following example will mount a PostgreSQL configuration file named `my-postgres.conf` to the container.
 
 ```shell
 docker run --rm -v "$PWD/my-postgres.conf":/etc/postgresql/postgresql.conf -e POSTGRES_PASSWORD=password -ti --name postgres-test cgr.dev/ORGANIZATION/postgres:latest -c 'config_file=/etc/postgresql/postgresql.conf'

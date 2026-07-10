@@ -15,6 +15,7 @@ toc: true
 ---
 
 ## Attestation and Signature
+
 On behalf of the above-specified company, I attest that [software producer] presently makes consistent use of the following practices, drawn from the secure software development
 framework (SSDF), in developing the software identified in Section I:
 
@@ -28,7 +29,7 @@ framework (SSDF), in developing the software identified in Section I:
     1. Encrypting sensitive data, such as credentials, to the extent practicable and based on risk;
     1. Implementing defensive cyber security practices, including continuous monitoring of operations and alerts and, as necessary, responding to suspected and confirmed cyber incidents;
 1. The software producer has made a good-faith effort to maintain trusted source code supply chains by:
-    1. Employing automated tools or comparable processes; and 
+    1. Employing automated tools or comparable processes; and
     1. Establishing a process that includes reasonable steps to address the security of third-party components and manage related vulnerabilities;
 1. The software producer employs automated tools or comparable processes in a good-faith effort to maintain trusted source code supply chains;
 1. The software producer maintains provenance data for internal and third-party code incorporated into the software;
@@ -36,11 +37,12 @@ framework (SSDF), in developing the software identified in Section I:
     1. The software producer ensures these processes operate on an ongoing basis and, at a minimum, prior to product, version, or update releases; and
     1. The software producer has a policy or process to address discovered security vulnerabilities prior to product release; and
     1. The software producer operates a vulnerability disclosure program and accepts, reviews, and addresses disclosed software vulnerabilities in a timely fashion.
-    
+
 I attest that all requirements outlined above are consistently maintained and satisfied.
-I further attest the company will notify all impacted agencies if conformance to any element of this attestation is no longer valid. 
+I further attest the company will notify all impacted agencies if conformance to any element of this attestation is no longer valid.
 
 Please check the appropriate boxes below, if applicable:
+
 * [ ] There are addendums and/or artifacts attached to this self-attestation form, the title and contents of which are delineated below the signature line.
 * [ ] I attest that the referenced software has been verified by a certified FedRAMP Third Party Assessor Organization (3PAO) or other 3PAO approved by an appropriate agency official, and the Assessor used relevant NIST Guidance, which includes all elements outlined in this form, as the assessment baseline. Relevant documentation is attached.
 

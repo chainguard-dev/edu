@@ -18,23 +18,29 @@ toc: true
 ---
 
 ## Do I need to understand melange to use Chainguard Containers?
+
 No. Chainguard built [melange](https://github.com/chainguard-dev/melange) as part of its open source tooling used for the [Wolfi](/open-source/wolfi/) operating system. While you can check out the [project on GitHub](https://github.com/chainguard-dev/melange) and learn more, it’s not a prerequisite for using or working with [Chainguard Containers](/chainguard/chainguard-images/).
 
 ## How are melange packages defined?
+
 melange apks are defined declaratively using a YAML file.
 
 ## Is melange compatible with Alpine?
+
 Yes, melange is built to be compatible with apk-based systems including Alpine.
 
 ## Can I mix Alpine and Wolfi package repositories to create my melange build environment?
+
 No, it's not possible to mix Alpine apks with Wolfi apks.
 
 ## Is it mandatory to sign packages with a melange key?
+
 Signing packages is not mandatory, but it is a recommended practice, because it allows users and automated systems to verify that the package they downloaded was built by the same person who signed it, and that it hasn't been tampered with.
 
 ## What happens if I don't provide a key to sign my package(s)?
+
 Some systems may prevent installation of your apk if they can't attest the package provenance. This is the case with [apko](https://github.com/chainguard-dev/apko), which by default will fail any builds that reference unsigned packages.
 
 ## Can I create custom pipelines and embed them into my main pipeline?
-Although melange supports inclusion of sub-pipelines, this feature currently only supports the built-in pipelines (such as `make`, `split` and others) that can be found at the [pkg/build/pipelines](https://github.com/chainguard-dev/melange/tree/main/pkg/build/pipelines) directory on the main project repository.
 
+Although melange supports inclusion of sub-pipelines, this feature currently only supports the built-in pipelines (such as `make`, `split` and others) that can be found at the [pkg/build/pipelines](https://github.com/chainguard-dev/melange/tree/main/pkg/build/pipelines) directory on the main project repository.

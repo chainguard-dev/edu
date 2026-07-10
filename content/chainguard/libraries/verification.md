@@ -156,7 +156,7 @@ chainctl libraries verify example-application.tar.gz
 
 Note that if your deployment archive is a fat JAR, uber JAR, or shaded JAR,
 verification returns 0% coverage. This is expected behavior; see [Java fat JAR limitations](#java-fat-jar-limitations) for the recommended verification
-approach. 
+approach.
 
 For other archive types such as tarballs that contain individual unmodified JAR
 files, scanning can take a significant amount of time if numerous libraries are
@@ -165,7 +165,7 @@ for more information about the performed verification steps, and potentially
 pipe the output into a file.
 
 ```sh
-chainctl libraries verify --detailed commons-lang3-3.17.0.jar > run.log 
+chainctl libraries verify --detailed commons-lang3-3.17.0.jar > run.log
 ```
 
 Use the `--verbose` flag for even more details.
@@ -181,6 +181,46 @@ Analyze a file and create JSON output:
 ```sh
 chainctl libraries verify -o json commons-lang3-3.17.0.jar
 ```
+
+#### Recommended build-time workflow for Maven
+
+For Maven-based applications, a recommended workflow is to copy only runtime dependencies into a dedicated directory then verify those files, allowing you to avoid noise from unrelated artifacts in `~/.m2/repository`. For example:
+
+```bash
+mvn -U -q -s settings.xml dependency:copy-dependencies \
+  -DincludeScope=runtime \
+  -DoutputDirectory=target/chainguard-verify
+
+chainctl libraries verify -o json --detailed target/chainguard-verify/*.jar \
+  > provenance-report.json
+```
+
+> Note: If you belong to multiple Chainguard organizations, include the `--parent=<org>` flag in the command.
+
+It can take up to 5 minutes for this command to return results. It returns output similar to the following:
+
+```bash
+{
+  "artifactVerificationCoverage": 74.19354838709677,
+  "verifiedItems": 23,
+  "totalItems": 31,
+  "artifactsSummary": {
+    "totalArtifacts": 31,
+    "fullyVerified": 23,
+    "partiallyVerified": 0,
+    "notVerified": 8,
+    "verifiedPercent": 74.19354838709677
+  },
+  "results": [
+    {
+      "artifact": "target/chainguard-verify/jakarta.validation-api-3.0.2.jar",
+      "artifactVerificationCoverage": 100,
+      "details": "Fully verified by Chainguard (signature verified)\nMaven artifact: jakarta.validation:jakarta.validation-api:3.0.2"
+    },
+...
+```
+
+In this example, out of 31 `totalItems`, 23 were verified. The `arfifactVerificationCoverage` percent is 74.
 
 #### Java fat JAR limitations
 
@@ -209,7 +249,7 @@ chainctl libraries verify ~/.m2/repository/net/logstash/logback/logstash-logback
 ```
 
 To integrate this into your build pipeline, add the verification step after
-dependency resolution and before the packaging phase. 
+dependency resolution and before the packaging phase.
 
 ### Analyze JavaScript packages
 
@@ -227,8 +267,9 @@ Verify an npm package tarball to confirm it was built by Chainguard:
 ```sh
 chainctl libraries verify PACKAGE-VERSION.tgz
 ```
-Replace `PACKAGE` 
-and `VERSION` with the package name and version (for example, `@eslint-js` 
+
+Replace `PACKAGE`
+and `VERSION` with the package name and version (for example, `@eslint-js`
 and `9.0.0`)
 
 Verification uses SLSA provenance attestations. `chainctl` computes a SHA-512 digest of the tarball locally, fetches the signed attestation bundle, and uses `cosign` to confirm that the signature is valid, the certificate chains to the Sigstore root, the signer identity matches the Chainguard JavaScript builder, and the digest matches what was attested at build time.
@@ -253,7 +294,7 @@ chainctl libraries verify /tmp/my-pnpm-store
 pnpm v9 and earlier are not supported. Verification works by comparing
 the tarball hash recorded in your local store against the hash in Chainguard's
 signed SLSA attestation. pnpm v10 records this hash in the index file path;
-pnpm v9 does not. 
+pnpm v9 does not.
 
 Note that in `pnpm-lock.yaml`, packages resolved from Chainguard have only a
 `resolution:` entry with an integrity hash:
@@ -286,7 +327,6 @@ chainctl libraries verify yarn:~/Library/Caches/Yarn/v6
 
 Unlike npm and pnpm, Yarn Classic requires the `yarn:` prefix because its
 cache directory layout cannot be reliably auto-detected.
-
 
 #### Verify a `node_modules` directory
 
@@ -369,6 +409,12 @@ Use the `help` command for more command options and details for the `verify` com
 ```sh
 chainctl help libraries verify
 ```
+
+## Troubleshooting
+
+### Why might I see 0% coverage when verifying Java artifacts?
+
+A 0% coverage result is expected when verifying a fat JAR, uber JAR, or shaded JAR. Those packaging formats merge dependency contents into a single archive, so `chainctl libraries verify` cannot trace merged classes back to the original JARs.
 
 ## Resources
 

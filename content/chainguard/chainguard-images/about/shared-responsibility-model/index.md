@@ -21,14 +21,13 @@ toc: true
 Chainguard’s mission is to be the safe source for open source. As part of this mission, Chainguard builds all of our packages and images from upstream open source code and delivers the resulting artifacts to our customers. There are three distinct parties involved here: **Upstream** projects, **Chainguard**, and **Customers**; each of these parties share some measure of responsibility across a few dimensions.
 
 <center><img src="csrm-1.png" alt="Diagram representing the Chainguard-based open source software supply chain" style="width:1050px;"></center>
-<br /> 
+<br />
 
 This guide is an overview of Chainguard's Shared Responsibility Model: a framework that outlines the security responsibilities of upstream open source software projects, Chainguard, and its customers. The dimensions of shared responsibility this guide covers are:
 
 * **Releases**: defining and tracking what is and is not supported
 * **Patching**: defining which parties are responsible for patching each element of what goes into a container image
 * **Testing**: defining which parties are responsible for testing what scope of functionality
-
 
 ## Releases
 
@@ -37,10 +36,9 @@ Upstream projects are responsible for cutting releases and documenting its suppo
 A common pitfall we see, which drives an enormous incidence of CVEs across our prospects, is the use of "end-of-life" (or "EOL") software. The following diagram, taken from the [Risk section of Sonatype's 2024 State of the Software Supply Chain report](https://www.sonatype.com/state-of-the-software-supply-chain/2024/risk), highlights how more EOL components per application tends to lead to more security vulnerabilities:
 
 <center><img src="csrm-2.png" alt="Chart from Sonatype's 2024 State of the Software Supply Chain report. This chart is a scatter plot with two axes, with the y-axis labeled 'Vulnerabilities' and the x-axis labeled 'Number of EOL Packages per Application.' The far left of the x-axis represents a lower number of EOL packages per application and the far right represents a higher number. There is a dotted line showing an upward trend of more vulnerabilities as the number of EOL packages per application increases." style="width:600px;"></center>
-<br /> 
+<br />
 
 It is a customer’s responsibility to stay on a supported version of the software, and the responsibility of Chainguard to ensure that the customer receives builds of that version of the software to consume in their private registry on `cgr.dev`.
-
 
 ## Patching
 
@@ -52,26 +50,23 @@ Customers are responsible for building on or with fully patched Chainguard Conta
 
 There are generally two form-factors of Chainguard Container Images: **Application** and **Base** images, so let’s go over the patching responsibilities through these respective lenses.
 
-
 ### Application Container Images
 
 These are Chainguard Container Images that users generally just take and run (for example, by plugging into Helm). We created the following diagram to help customers understand where the division of responsibility is generally drawn for this class of images:
 
 <center><img src="csrm-3.png" alt="Diagram representing Chainguard's shared responsibility model for Application Images. This diagram shows a pyramid structure with 4 tiers: Apps, LangLibs (go mod, pom, …), Toolchains (go, java, php, …), and System (glibc, openssl). To the left of the pyramid there are two brackets showing that CVE management is performed by the Upstream Open Source project at the Apps level and by Chainguard at the Toolchains and System level, with responsibility being split at the Language Libraries level. To the right of the pyramid are two smaller brackets showing that if updating a dependency is breaking, the CVE management falls to the Upstream project; if it's successful, then CVE management falls to Chainguard." style="width:904px;"></center>
-<br /> 
+<br />
 
-Upstream projects are responsible for staying on API-compatible versions of libraries. Chainguard is responsible for rebuilding the upstream project [with the latest toolchain](https://www.chainguard.dev/unchained/chainguard-patches-3-silent-golang-cves-in-under-24-hours), and patching static and dynamic dependencies where such a change is non-breaking. Customers are responsible for tracking a supported version of the Chainguard image. Please refer to our [Product Release Lifecycle documentation](/chainguard/chainguard-images/versions/) for more information on what versions are supported. 
-
+Upstream projects are responsible for staying on API-compatible versions of libraries. Chainguard is responsible for rebuilding the upstream project [with the latest toolchain](https://www.chainguard.dev/unchained/chainguard-patches-3-silent-golang-cves-in-under-24-hours), and patching static and dynamic dependencies where such a change is non-breaking. Customers are responsible for tracking a supported version of the Chainguard image. Please refer to our [Product Release Lifecycle documentation](/chainguard/chainguard-images/versions/) for more information on what versions are supported.
 
 ### Base Container Images
 
 These are Chainguard Container Images that users extend with their own packages and applications (such as with a Dockerfile). We created the following diagram to clarify where the division of responsibility is drawn for these images:
 
 <center><img src="csrm-4.png" alt="Diagram representing Chainguard's shared responsibility model for Base Images. The diagram takes the shape of a pyramid with 3 tiers: User App, Toolchains (go, java, php, …), and System (glibc, openssl, …). To the left of this pyramid are two brackets, showing that user apps (the custom code level) are serviced by customers and the Toolchains and System levels are serviced by Chainguard." style="width:821px;"></center>
-<br /> 
+<br />
 
 Upstream projects are responsible for patching supported releases in a timely manner. Chainguard is responsible for releasing fully patched toolchain and base images. Customers are responsible for patching any applications and dependencies they add to a Chainguard image. We recommend using a fully patched Chainguard toolchain image to build the application, and using a fully patched Chainguard base image to layer the final application on.
-
 
 ## Testing
 
@@ -90,4 +85,3 @@ Following [the principle of immutability](https://www.chainguard.dev/unchained/t
 ## Learn More
 
 We encourage you to check out our other resources on recommended practices to ensure that your Chainguard Container Images are effectively maximizing your organization's security posture. As example, you can read through our conceptual articles on [Strategies for Minimizing your CVE Risk](/chainguard/chainguard-images/recommended-practices/cve-risk/) or [Considerations for Keeping Container Images Up to Date](/chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/).
-

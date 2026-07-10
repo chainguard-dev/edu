@@ -1,7 +1,7 @@
 ---
 title: "Debugging Distroless Containers with Docker Debug"
 linktitle: "Video: Debugging Distroless Containers"
-aliases: 
+aliases:
 - /chainguard/chainguard-images/videos/debugging_distroless/
 - /chainguard/chainguard-images/troubleshooting/debugging_distroless/
 lead: ""
@@ -141,5 +141,5 @@ Please do give it a go and let me know how you get on.
 
 ## Relevant Resources
 
-- [Debugging Distroless Container Images with Kubectl Debug and CDebug](https://edu.chainguard.dev/chainguard/chainguard-images/videos/kubectl_cdebug/) (Video)
-- [Debugging Distroless Container Images](https://edu.chainguard.dev/chainguard/chainguard-images/debugging-distroless-images/) (Article)
+* [Debugging Distroless Container Images with Kubectl Debug and CDebug](https://edu.chainguard.dev/chainguard/chainguard-images/videos/kubectl_cdebug/) (Video)
+* [Debugging Distroless Container Images](https://edu.chainguard.dev/chainguard/chainguard-images/debugging-distroless-images/) (Article)

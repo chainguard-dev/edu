@@ -75,6 +75,7 @@ Generating autoload files
 1 package you are using is looking for funding.
 Use the `composer fund` command to find out more!
 ```
+
 Next, make sure permissions are set correctly on the generated files.
 
 On Linux systems run the following:
@@ -126,6 +127,7 @@ The command should output a random name combination:
 ```shell
 ludicrous-walrus
 ```
+
 In the next step, you'll build the application in a multi-stage Dockerfile.
 
 ## 2. Building a Distroless Container for the Application
@@ -148,6 +150,7 @@ COPY --from=builder /app /app
 
 ENTRYPOINT [ "php", "/app/namegen" ]
 ```
+
 This Dockerfile will:
 
 1. Start a new build stage based on the `php:latest-dev` container image and call it `builder`;
@@ -162,6 +165,7 @@ You can now build the container with:
 ```shell
 docker build . --pull -t php-namegen
 ```
+
 You'll get output similar to this:
 
 ```shell
@@ -185,6 +189,7 @@ You'll get output similar to this:
  => => writing image sha256:e617d7afd472d4a78d82060eaacd3a1c33310d6a267f6aaf9aa34b44e3ef8e5c                        0.0s
  => => naming to docker.io/library/php-namegen                                                                      0.0s
 ```
+
 Once the build is finished, run the container with:
 
 ```shell
@@ -202,6 +207,7 @@ If you inspect the container image with a `docker image inspect php-namegen`, yo
 ```shell
 docker image inspect php-namegen
 ```
+
 ```shell
 ...
         "RootFS": {
@@ -218,6 +224,7 @@ docker image inspect php-namegen
 ]
 
 ```
+
 In such cases, the last `FROM` section from the Dockerfile is the one that composes the final image. That's why in our case it only adds one layer on top of the base `php:latest` image, containing the `COPY` command we use to copy the application from the build stage to the final container.
 
 It's worth highlighting that nothing is carried from one stage to the other unless you copy it. That facilitates creating a slim final image with only what's necessary to execute the application.
@@ -309,6 +316,7 @@ This command will start the services defined in the `docker-compose.yml` file. Y
 ```shell
 curl http://localhost:8000
 ```
+
 You should get a JSON response with a random name combination:
 
 ```

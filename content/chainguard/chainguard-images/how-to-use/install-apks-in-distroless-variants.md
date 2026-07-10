@@ -44,10 +44,9 @@ Here are three options that you may be considering and our thoughts about them b
 - **Bind mount** — In a multi-stage build, mount APK and other required development resources from a development image, then install needed APKs using these mounted resources. This approach can work for a single point in time but can be difficult to maintain as the APK resources needed to copy over change over time.
 - **Chroot (recommended)** — In a multi-stage build, install any build-time dependencies and build any required software artifacts such as binaries. Use a second base image to install runtime dependencies to a directory specified with chroot for later copying. In a final step, copy built software artifacts and the chroot installation directory to scratch and set the desired entrypoint. This method is recommended.
 
-
 ## Using chroot
 
-> **Note**: If you’re working to a deadline, you can skip to this short [appendix with full code example](#appendix-b:-example-code-for-chroot-method-\(c-binary\)).
+> **Note**: If you’re working to a deadline, you can skip to this short [appendix with full code example](#appendix-b-example-code-for-chroot-method-c-binary).
 
 This workflow allows you to install APKs to a distroless image during a Dockerfile build by generating required software artifacts in a development environment, preparing a directory structure with runtime dependencies installed using chroot, then assembling these components back in the distroless image. The steps are as follows:
 
@@ -82,13 +81,13 @@ from MySQLdb import _mysql
 print(_mysql.__version__)
 ```
 
-2. Create a `requirements.txt` file with `mysqlclient` as the only listed Python dependency:
+1. Create a `requirements.txt` file with `mysqlclient` as the only listed Python dependency:
 
 ```plaintext
 mysqlclient
 ```
 
-3. Create a Dockerfile. Here's the full file, followed by line-by-line explanations.
+1. Create a Dockerfile. Here's the full file, followed by line-by-line explanations.
 
 ```Dockerfile
 # syntax=docker/dockerfile:1
@@ -189,13 +188,13 @@ Finally, set the entrypoint:
 
 `ENTRYPOINT ["python", "run.py"]`
 
-4. Once you have your Dockerfile, `run.py`, and `requirements.txt`, build the image:
+1. Once you have your Dockerfile, `run.py`, and `requirements.txt`, build the image:
 
 `docker build . --pull --no-cache -t mariadb-distroless`
 
 Here, `--pull` ensures we receive the latest images, even if one is locally stored, and `--no-cache` ensures that we receive the latest versions of packages.
 
-5. Once the build completes, run the container:
+1. Once the build completes, run the container:
 
 `docker run mariadb-distroless`
 
