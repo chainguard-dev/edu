@@ -85,7 +85,7 @@ jobs:
     - name: Download documentation from GCS
       run: |
         echo "Downloading documentation bundles from GCS..."
-        
+
         # Create directories for extracted content
         mkdir -p ../images-private
         mkdir -p ../courses
@@ -115,7 +115,7 @@ jobs:
         else
           echo "⚠ edu docs not found in GCS (will use local content)"
         fi
-        
+
         # Download and extract images-private docs
         if gcloud storage cp gs://academy-all-docs/images-private/docs-export.tar.gz /tmp/images-private.tar.gz \
            --project=chainguard-academy 2>/dev/null; then
@@ -128,7 +128,7 @@ jobs:
           echo "# Images Private Documentation" > ../images-private/README.md
           echo "Documentation not yet available" >> ../images-private/README.md
         fi
-        
+
         # Download and extract courses docs
         if gcloud storage cp gs://academy-all-docs/courses/docs-export.tar.gz /tmp/courses.tar.gz \
            --project=chainguard-academy 2>/dev/null; then
@@ -167,13 +167,13 @@ jobs:
       run: |
         echo "Compiling documentation bundle..."
         python3 scripts/compile_docs.py
-        
+
         # Verify output
         if [ ! -f "static/downloads/chainguard-complete-docs.md" ]; then
           echo "Error: Documentation compilation failed"
           exit 1
         fi
-        
+
         echo "Documentation compiled successfully"
         ls -lh static/downloads/chainguard-complete-docs.md
 
@@ -190,10 +190,10 @@ jobs:
     - name: Create AI-specific bundle
       run: |
         cd static/downloads
-        
+
         # Rename for clarity
         cp chainguard-complete-docs.md chainguard-ai-docs.md
-        
+
         # Copy image catalog into downloads
         cp ../../scripts/image-catalog.json .
 
@@ -204,7 +204,7 @@ jobs:
 
         # Generate checksums
         sha256sum chainguard-ai-docs.md image-catalog.json > checksums.txt
-        
+
         echo "AI documentation bundle created:"
         ls -lh chainguard-ai-docs.*
 
