@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl policies binding"
 slug: chainctl_policies_binding
-url: /platform/chainctl/chainctl-docs/chainctl_policies_binding/
+url: /chainguard/chainctl/chainctl-docs/chainctl_policies_binding/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -41,8 +41,8 @@ Use these commands to create or delete bindings.
 
 ### SEE ALSO
 
-* [chainctl policies](/platform/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
-* [chainctl policies binding create](/platform/chainctl/chainctl-docs/chainctl_policies_binding_create/)	 - Create a policy binding.
-* [chainctl policies binding delete](/platform/chainctl/chainctl-docs/chainctl_policies_binding_delete/)	 - Delete a policy binding.
-* [chainctl policies binding list](/platform/chainctl/chainctl-docs/chainctl_policies_binding_list/)	 - List policy bindings.
+* [chainctl policies](/chainguard/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
+* [chainctl policies binding create](/chainguard/chainctl/chainctl-docs/chainctl_policies_binding_create/)	 - Create a policy binding.
+* [chainctl policies binding delete](/chainguard/chainctl/chainctl-docs/chainctl_policies_binding_delete/)	 - Delete a policy binding.
+* [chainctl policies binding list](/chainguard/chainctl/chainctl-docs/chainctl_policies_binding_list/)	 - List policy bindings.
 

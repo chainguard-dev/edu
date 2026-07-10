@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl iam role-bindings update"
 slug: chainctl_iam_role-bindings_update
-url: /platform/chainctl/chainctl-docs/chainctl_iam_role-bindings_update/
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings_update/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -52,5 +52,5 @@ chainctl iam role-bindings update BINDING_ID [--role=ROLE] [--identity=IDENTITY]
 
 ### SEE ALSO
 
-* [chainctl iam role-bindings](/platform/chainctl/chainctl-docs/chainctl_iam_role-bindings/)	 - IAM role-bindings resource interactions.
+* [chainctl iam role-bindings](/chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings/)	 - IAM role-bindings resource interactions.
 

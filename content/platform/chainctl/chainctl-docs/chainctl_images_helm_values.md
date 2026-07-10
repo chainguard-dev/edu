@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl images helm values"
 slug: chainctl_images_helm_values
-url: /platform/chainctl/chainctl-docs/chainctl_images_helm_values/
+url: /chainguard/chainctl/chainctl-docs/chainctl_images_helm_values/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -72,5 +72,5 @@ chainctl images helm values cgr.dev/my-org/charts/nginx:latest --registry myregi
 
 ### SEE ALSO
 
-* [chainctl images helm](/platform/chainctl/chainctl-docs/chainctl_images_helm/)	 - Helm chart related commands
+* [chainctl images helm](/chainguard/chainctl/chainctl-docs/chainctl_images_helm/)	 - Helm chart related commands
 

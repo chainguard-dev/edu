@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl events subscriptions list"
 slug: chainctl_events_subscriptions_list
-url: /platform/chainctl/chainctl-docs/chainctl_events_subscriptions_list/
+url: /chainguard/chainctl/chainctl-docs/chainctl_events_subscriptions_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -40,5 +40,5 @@ chainctl events subscriptions list [--parent ORGANIZATION_NAME | ORGANIZATION_ID
 
 ### SEE ALSO
 
-* [chainctl events subscriptions](/platform/chainctl/chainctl-docs/chainctl_events_subscriptions/)	 - Subscription interactions.
+* [chainctl events subscriptions](/chainguard/chainctl/chainctl-docs/chainctl_events_subscriptions/)	 - Subscription interactions.
 

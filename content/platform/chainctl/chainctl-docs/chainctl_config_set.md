@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl config set"
 slug: chainctl_config_set
-url: /platform/chainctl/chainctl-docs/chainctl_config_set/
+url: /chainguard/chainctl/chainctl-docs/chainctl_config_set/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -45,5 +45,5 @@ chainctl config set PROPERTY_NAME PROPERTY_VALUE
 
 ### SEE ALSO
 
-* [chainctl config](/platform/chainctl/chainctl-docs/chainctl_config/)	 - Local config file commands for chainctl.
+* [chainctl config](/chainguard/chainctl/chainctl-docs/chainctl_config/)	 - Local config file commands for chainctl.
 

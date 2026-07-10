@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl libraries entitlements create"
 slug: chainctl_libraries_entitlements_create
-url: /platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -42,5 +42,5 @@ chainctl libraries entitlements create --parent=PARENT --ecosystems=LANGUAGE1,LA
 
 ### SEE ALSO
 
-* [chainctl libraries entitlements](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements/)	 - Manage entitlements to language ecosystem libraries.
+* [chainctl libraries entitlements](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements/)	 - Manage entitlements to language ecosystem libraries.
 

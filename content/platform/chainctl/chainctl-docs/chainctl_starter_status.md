@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl starter status"
 slug: chainctl_starter_status
-url: /platform/chainctl/chainctl-docs/chainctl_starter_status/
+url: /chainguard/chainctl/chainctl-docs/chainctl_starter_status/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -47,5 +47,5 @@ chainctl starter status [flags]
 
 ### SEE ALSO
 
-* [chainctl starter](/platform/chainctl/chainctl-docs/chainctl_starter/)	 - Manage catalog starter organizations
+* [chainctl starter](/chainguard/chainctl/chainctl-docs/chainctl_starter/)	 - Manage catalog starter organizations
 

@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl guardener github unlink"
 slug: chainctl_guardener_github_unlink
-url: /platform/chainctl/chainctl-docs/chainctl_guardener_github_unlink/
+url: /chainguard/chainctl/chainctl-docs/chainctl_guardener_github_unlink/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -53,5 +53,5 @@ chainctl guardener github unlink [flags]
 
 ### SEE ALSO
 
-* [chainctl guardener github](/platform/chainctl/chainctl-docs/chainctl_guardener_github/)	 - Link and unlink a GitHub organization to a Chainguard group.
+* [chainctl guardener github](/chainguard/chainctl/chainctl-docs/chainctl_guardener_github/)	 - Link and unlink a GitHub organization to a Chainguard group.
 

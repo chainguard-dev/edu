@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl auth pull-token"
 slug: chainctl_auth_pull-token
-url: /platform/chainctl/chainctl-docs/chainctl_auth_pull-token/
+url: /chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -45,7 +45,7 @@ chainctl auth pull-token [flags]
 
 ### SEE ALSO
 
-* [chainctl auth](/platform/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
-* [chainctl auth pull-token create](/platform/chainctl/chainctl-docs/chainctl_auth_pull-token_create/)	 - Create a pull token.
-* [chainctl auth pull-token list](/platform/chainctl/chainctl-docs/chainctl_auth_pull-token_list/)	 - List all pull-tokens
+* [chainctl auth](/chainguard/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
+* [chainctl auth pull-token create](/chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token_create/)	 - Create a pull token.
+* [chainctl auth pull-token list](/chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token_list/)	 - List all pull-tokens
 

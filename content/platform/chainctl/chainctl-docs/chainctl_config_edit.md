@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl config edit"
 slug: chainctl_config_edit
-url: /platform/chainctl/chainctl-docs/chainctl_config_edit/
+url: /chainguard/chainctl/chainctl-docs/chainctl_config_edit/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -44,5 +44,5 @@ chainctl config edit [--config FILE] [--yes] [flags]
 
 ### SEE ALSO
 
-* [chainctl config](/platform/chainctl/chainctl-docs/chainctl_config/)	 - Local config file commands for chainctl.
+* [chainctl config](/chainguard/chainctl/chainctl-docs/chainctl_config/)	 - Local config file commands for chainctl.
 

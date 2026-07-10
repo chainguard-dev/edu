@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl auth token capabilities"
 slug: chainctl_auth_token_capabilities
-url: /platform/chainctl/chainctl-docs/chainctl_auth_token_capabilities/
+url: /chainguard/chainctl/chainctl-docs/chainctl_auth_token_capabilities/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -34,5 +34,5 @@ chainctl auth token capabilities [flags]
 
 ### SEE ALSO
 
-* [chainctl auth token](/platform/chainctl/chainctl-docs/chainctl_auth_token/)	 - Print the local Chainguard Token.
+* [chainctl auth token](/chainguard/chainctl/chainctl-docs/chainctl_auth_token/)	 - Print the local Chainguard Token.
 

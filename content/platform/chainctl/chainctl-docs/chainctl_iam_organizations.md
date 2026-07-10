@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl iam organizations"
 slug: chainctl_iam_organizations
-url: /platform/chainctl/chainctl-docs/chainctl_iam_organizations/
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_organizations/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -30,8 +30,8 @@ IAM organization interactions.
 
 ### SEE ALSO
 
-* [chainctl iam](/platform/chainctl/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.
-* [chainctl iam organizations delete](/platform/chainctl/chainctl-docs/chainctl_iam_organizations_delete/)	 - Delete an organization.
-* [chainctl iam organizations describe](/platform/chainctl/chainctl-docs/chainctl_iam_organizations_describe/)	 - Describe an organization.
-* [chainctl iam organizations list](/platform/chainctl/chainctl-docs/chainctl_iam_organizations_list/)	 - List organizations.
+* [chainctl iam](/chainguard/chainctl/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.
+* [chainctl iam organizations delete](/chainguard/chainctl/chainctl-docs/chainctl_iam_organizations_delete/)	 - Delete an organization.
+* [chainctl iam organizations describe](/chainguard/chainctl/chainctl-docs/chainctl_iam_organizations_describe/)	 - Describe an organization.
+* [chainctl iam organizations list](/chainguard/chainctl/chainctl-docs/chainctl_iam_organizations_list/)	 - List organizations.
 

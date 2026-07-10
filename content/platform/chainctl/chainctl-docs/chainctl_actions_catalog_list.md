@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl actions catalog list"
 slug: chainctl_actions_catalog_list
-url: /platform/chainctl/chainctl-docs/chainctl_actions_catalog_list/
+url: /chainguard/chainctl/chainctl-docs/chainctl_actions_catalog_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -42,5 +42,5 @@ chainctl actions catalog list [--upstream-owner=OWNER [--upstream-repo=REPO]] [-
 
 ### SEE ALSO
 
-* [chainctl actions catalog](/platform/chainctl/chainctl-docs/chainctl_actions_catalog/)	 - Browse the public Chainguard Actions catalog.
+* [chainctl actions catalog](/chainguard/chainctl/chainctl-docs/chainctl_actions_catalog/)	 - Browse the public Chainguard Actions catalog.
 

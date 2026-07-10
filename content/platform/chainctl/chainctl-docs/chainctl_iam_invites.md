@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl iam invites"
 slug: chainctl_iam_invites
-url: /platform/chainctl/chainctl-docs/chainctl_iam_invites/
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_invites/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -30,8 +30,8 @@ Manage invite codes that register identities with Chainguard.
 
 ### SEE ALSO
 
-* [chainctl iam](/platform/chainctl/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.
-* [chainctl iam invites create](/platform/chainctl/chainctl-docs/chainctl_iam_invites_create/)	 - Generate an invite code to identities with Chainguard.
-* [chainctl iam invites delete](/platform/chainctl/chainctl-docs/chainctl_iam_invites_delete/)	 - Delete invite codes
-* [chainctl iam invites list](/platform/chainctl/chainctl-docs/chainctl_iam_invites_list/)	 - List organization and folder invites.
+* [chainctl iam](/chainguard/chainctl/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.
+* [chainctl iam invites create](/chainguard/chainctl/chainctl-docs/chainctl_iam_invites_create/)	 - Generate an invite code to identities with Chainguard.
+* [chainctl iam invites delete](/chainguard/chainctl/chainctl-docs/chainctl_iam_invites_delete/)	 - Delete invite codes
+* [chainctl iam invites list](/chainguard/chainctl/chainctl-docs/chainctl_iam_invites_list/)	 - List organization and folder invites.
 
