@@ -27,7 +27,7 @@ development tools to retrieve the required libraries.
 The recommended approach is to use the [upstream
 fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls)
 feature of Chainguard Repository, which allows you to configure your repository
-manager with a single upstream pointed at `https://libraries.cgr.dev/java/`. The
+manager with a single upstream pointed at `https://libraries.cgr.dev/java/` without a separate fallback to Maven Central. The
 Chainguard Repository handles fallback and policy enforcement; your repository
 manager handles local caching and access control. Chainguard also retrieves
 packages from the public Maven Central repository on your behalf when upstream
