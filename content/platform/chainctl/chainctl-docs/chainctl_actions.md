@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl actions"
 slug: chainctl_actions
-url: /chainguard/chainctl/chainctl-docs/chainctl_actions/
+url: /platform/chainctl/chainctl-docs/chainctl_actions/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

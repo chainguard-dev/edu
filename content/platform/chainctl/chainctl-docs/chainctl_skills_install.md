@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl skills install"
 slug: chainctl_skills_install
-url: /chainguard/chainctl/chainctl-docs/chainctl_skills_install/
+url: /platform/chainctl/chainctl-docs/chainctl_skills_install/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

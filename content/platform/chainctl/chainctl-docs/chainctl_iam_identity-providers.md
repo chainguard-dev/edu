@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl iam identity-providers"
 slug: chainctl_iam_identity-providers
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers/
+url: /platform/chainctl/chainctl-docs/chainctl_iam_identity-providers/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

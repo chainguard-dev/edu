@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl images repos update"
 slug: chainctl_images_repos_update
-url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_update/
+url: /platform/chainctl/chainctl-docs/chainctl_images_repos_update/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

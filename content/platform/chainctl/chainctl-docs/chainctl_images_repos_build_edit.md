@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl images repos build edit"
 slug: chainctl_images_repos_build_edit
-url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_edit/
+url: /platform/chainctl/chainctl-docs/chainctl_images_repos_build_edit/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

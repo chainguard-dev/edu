@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl auth pull-token list"
 slug: chainctl_auth_pull-token_list
-url: /chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token_list/
+url: /platform/chainctl/chainctl-docs/chainctl_auth_pull-token_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

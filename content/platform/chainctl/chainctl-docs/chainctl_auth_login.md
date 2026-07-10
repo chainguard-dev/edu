@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl auth login"
 slug: chainctl_auth_login
-url: /chainguard/chainctl/chainctl-docs/chainctl_auth_login/
+url: /platform/chainctl/chainctl-docs/chainctl_auth_login/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

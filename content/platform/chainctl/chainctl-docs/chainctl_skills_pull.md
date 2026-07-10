@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl skills pull"
 slug: chainctl_skills_pull
-url: /chainguard/chainctl/chainctl-docs/chainctl_skills_pull/
+url: /platform/chainctl/chainctl-docs/chainctl_skills_pull/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

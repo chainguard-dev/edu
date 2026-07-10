@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl libraries entitlements delete"
 slug: chainctl_libraries_entitlements_delete
-url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_delete/
+url: /platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_delete/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

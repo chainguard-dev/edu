@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl guardener github"
 slug: chainctl_guardener_github
-url: /chainguard/chainctl/chainctl-docs/chainctl_guardener_github/
+url: /platform/chainctl/chainctl-docs/chainctl_guardener_github/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

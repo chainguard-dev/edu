@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl images advisories"
 slug: chainctl_images_advisories
-url: /chainguard/chainctl/chainctl-docs/chainctl_images_advisories/
+url: /platform/chainctl/chainctl-docs/chainctl_images_advisories/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

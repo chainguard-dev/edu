@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl iam invites list"
 slug: chainctl_iam_invites_list
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_invites_list/
+url: /platform/chainctl/chainctl-docs/chainctl_iam_invites_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

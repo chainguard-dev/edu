@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl iam account-associations check"
 slug: chainctl_iam_account-associations_check
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_check/
+url: /platform/chainctl/chainctl-docs/chainctl_iam_account-associations_check/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

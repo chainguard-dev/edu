@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl iam organizations"
 slug: chainctl_iam_organizations
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_organizations/
+url: /platform/chainctl/chainctl-docs/chainctl_iam_organizations/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

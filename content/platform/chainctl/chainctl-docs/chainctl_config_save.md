@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl config save"
 slug: chainctl_config_save
-url: /chainguard/chainctl/chainctl-docs/chainctl_config_save/
+url: /platform/chainctl/chainctl-docs/chainctl_config_save/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

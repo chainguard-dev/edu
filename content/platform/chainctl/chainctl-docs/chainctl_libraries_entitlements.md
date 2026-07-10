@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl libraries entitlements"
 slug: chainctl_libraries_entitlements
-url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements/
+url: /platform/chainctl/chainctl-docs/chainctl_libraries_entitlements/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

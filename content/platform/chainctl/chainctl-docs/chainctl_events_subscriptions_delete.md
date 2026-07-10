@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl events subscriptions delete"
 slug: chainctl_events_subscriptions_delete
-url: /chainguard/chainctl/chainctl-docs/chainctl_events_subscriptions_delete/
+url: /platform/chainctl/chainctl-docs/chainctl_events_subscriptions_delete/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

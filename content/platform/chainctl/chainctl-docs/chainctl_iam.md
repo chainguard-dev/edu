@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl iam"
 slug: chainctl_iam
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam/
+url: /platform/chainctl/chainctl-docs/chainctl_iam/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

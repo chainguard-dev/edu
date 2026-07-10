@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl iam roles delete"
 slug: chainctl_iam_roles_delete
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_roles_delete/
+url: /platform/chainctl/chainctl-docs/chainctl_iam_roles_delete/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
