@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl iam folders"
 slug: chainctl_iam_folders
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_folders/
+url: /platform/chainctl/chainctl-docs/chainctl_iam_folders/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

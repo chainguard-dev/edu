@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl policies binding"
 slug: chainctl_policies_binding
-url: /chainguard/chainctl/chainctl-docs/chainctl_policies_binding/
+url: /platform/chainctl/chainctl-docs/chainctl_policies_binding/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

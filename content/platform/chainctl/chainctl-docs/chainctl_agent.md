@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl agent"
 slug: chainctl_agent
-url: /chainguard/chainctl/chainctl-docs/chainctl_agent/
+url: /platform/chainctl/chainctl-docs/chainctl_agent/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

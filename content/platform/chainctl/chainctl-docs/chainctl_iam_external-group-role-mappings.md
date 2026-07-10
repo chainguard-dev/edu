@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl iam external-group-role-mappings"
 slug: chainctl_iam_external-group-role-mappings
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_external-group-role-mappings/
+url: /platform/chainctl/chainctl-docs/chainctl_iam_external-group-role-mappings/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

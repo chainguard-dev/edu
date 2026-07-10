@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl config unset"
 slug: chainctl_config_unset
-url: /chainguard/chainctl/chainctl-docs/chainctl_config_unset/
+url: /platform/chainctl/chainctl-docs/chainctl_config_unset/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

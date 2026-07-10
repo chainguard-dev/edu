@@ -87,6 +87,16 @@ runs:
         rsync -av --delete --exclude="_index.md" \
           "/tmp/chainctl-docs/" "content/platform/chainctl/"
 
+    - name: repoint chainctl doc URLs to the platform path
+      shell: bash
+      # The upstream generator still emits `url: /chainguard/chainctl/...` in
+      # each doc's frontmatter. An explicit `url:` overrides the file location,
+      # so without this the pages publish at the old path and every link 404s.
+      # Drop this once the generator emits `/platform/chainctl/`.
+      run: |
+        sed -i 's|^url: /chainguard/chainctl/|url: /platform/chainctl/|' \
+          content/platform/chainctl/chainctl-docs/*.md
+
     - name: add tags to chainctl docs by inserting line with sed
       shell: bash
       run: |

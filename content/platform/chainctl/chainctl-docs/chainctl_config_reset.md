@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl config reset"
 slug: chainctl_config_reset
-url: /chainguard/chainctl/chainctl-docs/chainctl_config_reset/
+url: /platform/chainctl/chainctl-docs/chainctl_config_reset/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

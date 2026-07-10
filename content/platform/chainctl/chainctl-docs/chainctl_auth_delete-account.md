@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl auth delete-account"
 slug: chainctl_auth_delete-account
-url: /chainguard/chainctl/chainctl-docs/chainctl_auth_delete-account/
+url: /platform/chainctl/chainctl-docs/chainctl_auth_delete-account/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

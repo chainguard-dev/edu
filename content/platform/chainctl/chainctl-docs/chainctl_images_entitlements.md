@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl images entitlements"
 slug: chainctl_images_entitlements
-url: /chainguard/chainctl/chainctl-docs/chainctl_images_entitlements/
+url: /platform/chainctl/chainctl-docs/chainctl_images_entitlements/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

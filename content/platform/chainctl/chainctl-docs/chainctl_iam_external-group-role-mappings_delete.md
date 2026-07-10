@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl iam external-group-role-mappings delete"
 slug: chainctl_iam_external-group-role-mappings_delete
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_external-group-role-mappings_delete/
+url: /platform/chainctl/chainctl-docs/chainctl_iam_external-group-role-mappings_delete/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

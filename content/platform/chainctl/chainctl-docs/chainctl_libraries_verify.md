@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl libraries verify"
 slug: chainctl_libraries_verify
-url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_verify/
+url: /platform/chainctl/chainctl-docs/chainctl_libraries_verify/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

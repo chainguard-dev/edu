@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl policies decision"
 slug: chainctl_policies_decision
-url: /chainguard/chainctl/chainctl-docs/chainctl_policies_decision/
+url: /platform/chainctl/chainctl-docs/chainctl_policies_decision/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

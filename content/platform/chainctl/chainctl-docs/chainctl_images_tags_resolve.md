@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl images tags resolve"
 slug: chainctl_images_tags_resolve
-url: /chainguard/chainctl/chainctl-docs/chainctl_images_tags_resolve/
+url: /platform/chainctl/chainctl-docs/chainctl_images_tags_resolve/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

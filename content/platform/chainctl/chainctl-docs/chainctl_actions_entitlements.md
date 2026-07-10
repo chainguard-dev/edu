@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl actions entitlements"
 slug: chainctl_actions_entitlements
-url: /chainguard/chainctl/chainctl-docs/chainctl_actions_entitlements/
+url: /platform/chainctl/chainctl-docs/chainctl_actions_entitlements/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

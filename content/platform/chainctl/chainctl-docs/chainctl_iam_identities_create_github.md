@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl iam identities create github"
 slug: chainctl_iam_identities_create_github
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create_github/
+url: /platform/chainctl/chainctl-docs/chainctl_iam_identities_create_github/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl libraries policy delete"
 slug: chainctl_libraries_policy_delete
-url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_delete/
+url: /platform/chainctl/chainctl-docs/chainctl_libraries_policy_delete/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
