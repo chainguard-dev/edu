@@ -56,7 +56,7 @@ information.
 
 Chainguard recommends using the Chainguard Repository's built-in [upstream
 fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) rather
-than configuring a public registry fallback in your repo manager. Configuring
+than configuring a fallback to the public Maven Central registry in your repo manager. Configuring
 your own fallback bypasses the protection that the Chainguard Repository
 provides.
 
