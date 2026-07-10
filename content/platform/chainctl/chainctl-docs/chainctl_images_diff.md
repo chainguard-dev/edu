@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl images diff"
 slug: chainctl_images_diff
-url: /chainguard/chainctl/chainctl-docs/chainctl_images_diff/
+url: /platform/chainctl/chainctl-docs/chainctl_images_diff/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

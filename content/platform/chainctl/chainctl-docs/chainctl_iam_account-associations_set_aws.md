@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl iam account-associations set aws"
 slug: chainctl_iam_account-associations_set_aws
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_set_aws/
+url: /platform/chainctl/chainctl-docs/chainctl_iam_account-associations_set_aws/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

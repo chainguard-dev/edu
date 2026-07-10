@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl libraries packages"
 slug: chainctl_libraries_packages
-url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_packages/
+url: /platform/chainctl/chainctl-docs/chainctl_libraries_packages/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []

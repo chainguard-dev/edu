@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl iam account-associations set gcp"
 slug: chainctl_iam_account-associations_set_gcp
-url: /chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_set_gcp/
+url: /platform/chainctl/chainctl-docs/chainctl_iam_account-associations_set_gcp/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
