@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl policies decision"
 slug: chainctl_policies_decision
-url: /platform/chainctl/chainctl-docs/chainctl_policies_decision/
+url: /chainguard/chainctl/chainctl-docs/chainctl_policies_decision/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -37,6 +37,6 @@ or would have blocked, before promoting it to enforce mode.
 
 ### SEE ALSO
 
-* [chainctl policies](/platform/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
-* [chainctl policies decision list](/platform/chainctl/chainctl-docs/chainctl_policies_decision_list/)	 - List policy decisions.
+* [chainctl policies](/chainguard/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
+* [chainctl policies decision list](/chainguard/chainctl/chainctl-docs/chainctl_policies_decision_list/)	 - List policy decisions.
 

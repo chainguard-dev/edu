@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl events"
 slug: chainctl_events
-url: /platform/chainctl/chainctl-docs/chainctl_events/
+url: /chainguard/chainctl/chainctl-docs/chainctl_events/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -30,6 +30,6 @@ Events related commands for the Chainguard platform.
 
 ### SEE ALSO
 
-* [chainctl](/platform/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
-* [chainctl events subscriptions](/platform/chainctl/chainctl-docs/chainctl_events_subscriptions/)	 - Subscription interactions.
+* [chainctl](/chainguard/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
+* [chainctl events subscriptions](/chainguard/chainctl/chainctl-docs/chainctl_events_subscriptions/)	 - Subscription interactions.
 

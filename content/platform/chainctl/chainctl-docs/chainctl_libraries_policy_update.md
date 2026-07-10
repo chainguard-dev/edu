@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl libraries policy update"
 slug: chainctl_libraries_policy_update
-url: /platform/chainctl/chainctl-docs/chainctl_libraries_policy_update/
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_policy_update/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -44,5 +44,5 @@ chainctl libraries policy update POLICY [--cooldown-days N] [--block ...] [--all
 
 ### SEE ALSO
 
-* [chainctl libraries policy](/platform/chainctl/chainctl-docs/chainctl_libraries_policy/)	 - Manage Libraries policies.
+* [chainctl libraries policy](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy/)	 - Manage Libraries policies.
 

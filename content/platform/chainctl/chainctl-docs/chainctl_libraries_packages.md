@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl libraries packages"
 slug: chainctl_libraries_packages
-url: /platform/chainctl/chainctl-docs/chainctl_libraries_packages/
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries_packages/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -37,9 +37,9 @@ active Libraries policy.
 
 ### SEE ALSO
 
-* [chainctl libraries](/platform/chainctl/chainctl-docs/chainctl_libraries/)	 - Ecosystem library related commands.
-* [chainctl libraries packages blocked](/platform/chainctl/chainctl-docs/chainctl_libraries_packages_blocked/)	 - List blocked Libraries packages.
-* [chainctl libraries packages count](/platform/chainctl/chainctl-docs/chainctl_libraries_packages_count/)	 - Count Libraries packages per ecosystem.
-* [chainctl libraries packages list](/platform/chainctl/chainctl-docs/chainctl_libraries_packages_list/)	 - List Libraries packages.
-* [chainctl libraries packages versions](/platform/chainctl/chainctl-docs/chainctl_libraries_packages_versions/)	 - List the versions of a Libraries package.
+* [chainctl libraries](/chainguard/chainctl/chainctl-docs/chainctl_libraries/)	 - Ecosystem library related commands.
+* [chainctl libraries packages blocked](/chainguard/chainctl/chainctl-docs/chainctl_libraries_packages_blocked/)	 - List blocked Libraries packages.
+* [chainctl libraries packages count](/chainguard/chainctl/chainctl-docs/chainctl_libraries_packages_count/)	 - Count Libraries packages per ecosystem.
+* [chainctl libraries packages list](/chainguard/chainctl/chainctl-docs/chainctl_libraries_packages_list/)	 - List Libraries packages.
+* [chainctl libraries packages versions](/chainguard/chainctl/chainctl-docs/chainctl_libraries_packages_versions/)	 - List the versions of a Libraries package.
 

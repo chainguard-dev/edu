@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl images repos create"
 slug: chainctl_images_repos_create
-url: /platform/chainctl/chainctl-docs/chainctl_images_repos_create/
+url: /chainguard/chainctl/chainctl-docs/chainctl_images_repos_create/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -42,5 +42,5 @@ chainctl images repos create {REPO_NAME} --parent ORGANIZATION_NAME | ORGANIZATI
 
 ### SEE ALSO
 
-* [chainctl images repos](/platform/chainctl/chainctl-docs/chainctl_images_repos/)	 - Image repo related commands for the Chainguard platform.
+* [chainctl images repos](/chainguard/chainctl/chainctl-docs/chainctl_images_repos/)	 - Image repo related commands for the Chainguard platform.
 

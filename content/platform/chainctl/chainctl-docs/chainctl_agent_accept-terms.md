@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl agent accept-terms"
 slug: chainctl_agent_accept-terms
-url: /platform/chainctl/chainctl-docs/chainctl_agent_accept-terms/
+url: /chainguard/chainctl/chainctl-docs/chainctl_agent_accept-terms/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -44,5 +44,5 @@ chainctl agent accept-terms [flags]
 
 ### SEE ALSO
 
-* [chainctl agent](/platform/chainctl/chainctl-docs/chainctl_agent/)	 - Agent-powered commands.
+* [chainctl agent](/chainguard/chainctl/chainctl-docs/chainctl_agent/)	 - Agent-powered commands.
 

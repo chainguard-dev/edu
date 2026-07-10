@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl starter request-access"
 slug: chainctl_starter_request-access
-url: /platform/chainctl/chainctl-docs/chainctl_starter_request-access/
+url: /chainguard/chainctl/chainctl-docs/chainctl_starter_request-access/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -51,5 +51,5 @@ chainctl starter request-access [flags]
 
 ### SEE ALSO
 
-* [chainctl starter](/platform/chainctl/chainctl-docs/chainctl_starter/)	 - Manage catalog starter organizations
+* [chainctl starter](/chainguard/chainctl/chainctl-docs/chainctl_starter/)	 - Manage catalog starter organizations
 

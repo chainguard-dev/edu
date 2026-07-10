@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl libraries"
 slug: chainctl_libraries
-url: /platform/chainctl/chainctl-docs/chainctl_libraries/
+url: /chainguard/chainctl/chainctl-docs/chainctl_libraries/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -30,10 +30,10 @@ Ecosystem library related commands.
 
 ### SEE ALSO
 
-* [chainctl](/platform/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
-* [chainctl libraries entitlements](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements/)	 - Manage entitlements to language ecosystem libraries.
-* [chainctl libraries packages](/platform/chainctl/chainctl-docs/chainctl_libraries_packages/)	 - Inspect Libraries packages.
-* [chainctl libraries policy](/platform/chainctl/chainctl-docs/chainctl_libraries_policy/)	 - Manage Libraries policies.
-* [chainctl libraries update-hashes](/platform/chainctl/chainctl-docs/chainctl_libraries_update-hashes/)	 - Update lockfile integrity hashes with Chainguard Libraries checksums
-* [chainctl libraries verify](/platform/chainctl/chainctl-docs/chainctl_libraries_verify/)	 - A tool to analyze the use of Chainguard Libraries in various artifacts
+* [chainctl](/chainguard/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
+* [chainctl libraries entitlements](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements/)	 - Manage entitlements to language ecosystem libraries.
+* [chainctl libraries packages](/chainguard/chainctl/chainctl-docs/chainctl_libraries_packages/)	 - Inspect Libraries packages.
+* [chainctl libraries policy](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy/)	 - Manage Libraries policies.
+* [chainctl libraries update-hashes](/chainguard/chainctl/chainctl-docs/chainctl_libraries_update-hashes/)	 - Update lockfile integrity hashes with Chainguard Libraries checksums
+* [chainctl libraries verify](/chainguard/chainctl/chainctl-docs/chainctl_libraries_verify/)	 - A tool to analyze the use of Chainguard Libraries in various artifacts
 

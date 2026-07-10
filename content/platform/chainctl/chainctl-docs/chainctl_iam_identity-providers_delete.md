@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl iam identity-providers delete"
 slug: chainctl_iam_identity-providers_delete
-url: /platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_delete/
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers_delete/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -50,5 +50,5 @@ chainctl iam identity-providers delete IDENTITY_PROVIDER_ID|IDENTITY_PROVIDER_NA
 
 ### SEE ALSO
 
-* [chainctl iam identity-providers](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers/)	 - customer managed identity provider management
+* [chainctl iam identity-providers](/chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers/)	 - customer managed identity provider management
 

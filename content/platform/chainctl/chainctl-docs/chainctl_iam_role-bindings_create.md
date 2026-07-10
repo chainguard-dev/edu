@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl iam role-bindings create"
 slug: chainctl_iam_role-bindings_create
-url: /platform/chainctl/chainctl-docs/chainctl_iam_role-bindings_create/
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings_create/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -53,5 +53,5 @@ chainctl iam role-bindings create [--identity=IDENTITY] [--role=ROLE] [--parent 
 
 ### SEE ALSO
 
-* [chainctl iam role-bindings](/platform/chainctl/chainctl-docs/chainctl_iam_role-bindings/)	 - IAM role-bindings resource interactions.
+* [chainctl iam role-bindings](/chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings/)	 - IAM role-bindings resource interactions.
 

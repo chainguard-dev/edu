@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl skills list"
 slug: chainctl_skills_list
-url: /platform/chainctl/chainctl-docs/chainctl_skills_list/
+url: /chainguard/chainctl/chainctl-docs/chainctl_skills_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -41,5 +41,5 @@ chainctl skills list [flags]
 
 ### SEE ALSO
 
-* [chainctl skills](/platform/chainctl/chainctl-docs/chainctl_skills/)	 - Skills registry related commands.
+* [chainctl skills](/chainguard/chainctl/chainctl-docs/chainctl_skills/)	 - Skills registry related commands.
 

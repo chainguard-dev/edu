@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl skills delete"
 slug: chainctl_skills_delete
-url: /platform/chainctl/chainctl-docs/chainctl_skills_delete/
+url: /chainguard/chainctl/chainctl-docs/chainctl_skills_delete/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -49,5 +49,5 @@ chainctl skills delete <ref> [flags]
 
 ### SEE ALSO
 
-* [chainctl skills](/platform/chainctl/chainctl-docs/chainctl_skills/)	 - Skills registry related commands.
+* [chainctl skills](/chainguard/chainctl/chainctl-docs/chainctl_skills/)	 - Skills registry related commands.
 

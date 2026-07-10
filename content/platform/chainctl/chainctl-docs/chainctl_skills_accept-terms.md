@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl skills accept-terms"
 slug: chainctl_skills_accept-terms
-url: /platform/chainctl/chainctl-docs/chainctl_skills_accept-terms/
+url: /chainguard/chainctl/chainctl-docs/chainctl_skills_accept-terms/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -53,5 +53,5 @@ chainctl skills accept-terms [flags]
 
 ### SEE ALSO
 
-* [chainctl skills](/platform/chainctl/chainctl-docs/chainctl_skills/)	 - Skills registry related commands.
+* [chainctl skills](/chainguard/chainctl/chainctl-docs/chainctl_skills/)	 - Skills registry related commands.
 

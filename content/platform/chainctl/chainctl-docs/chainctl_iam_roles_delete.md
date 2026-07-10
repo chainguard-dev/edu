@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl iam roles delete"
 slug: chainctl_iam_roles_delete
-url: /platform/chainctl/chainctl-docs/chainctl_iam_roles_delete/
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_roles_delete/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -47,5 +47,5 @@ chainctl iam roles delete ROLE_NAME|ROLE_ID [--yes] [--output=id|json|table]
 
 ### SEE ALSO
 
-* [chainctl iam roles](/platform/chainctl/chainctl-docs/chainctl_iam_roles/)	 - IAM role resource interactions.
+* [chainctl iam roles](/chainguard/chainctl/chainctl-docs/chainctl_iam_roles/)	 - IAM role resource interactions.
 

@@ -2,7 +2,7 @@
 date: 2026-07-01T03:32:22Z
 title: "chainctl iam role-bindings list"
 slug: chainctl_iam_role-bindings_list
-url: /platform/chainctl/chainctl-docs/chainctl_iam_role-bindings_list/
+url: /chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
@@ -50,5 +50,5 @@ chainctl iam role-bindings list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | 
 
 ### SEE ALSO
 
-* [chainctl iam role-bindings](/platform/chainctl/chainctl-docs/chainctl_iam_role-bindings/)	 - IAM role-bindings resource interactions.
+* [chainctl iam role-bindings](/chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings/)	 - IAM role-bindings resource interactions.
 
