@@ -107,7 +107,7 @@ When configuring direct access, note that environment variables do not persist b
 
 ### Do not commit credentials to version control
 
-The Gradle `build.gradle` file is typically committed to a repository — always use environment variables for credentials rather than hardcoding token values directly in the file. Maven credentials live in ~/.m2/settings.xml, which is outside the project directory and not committed by default, but take care not to add it to your repository. Store tokens as CI secrets referenced via environment variables instead. If you accidentally commit credentials, [delete the exposed token](/chainguard/libraries/access/#pull-token-management).
+The Gradle `build.gradle` file and the Maven `pom.xml` are typically committed to a repository — always use environment variables for credentials rather than hardcoding token values directly in the file. Maven credentials live in `~/.m2/settings.xml`, which is outside the project directory and not committed by default, but take care not to add it to your repository. Store tokens as CI secrets referenced via environment variables instead. If you accidentally commit credentials, [delete the exposed token](/chainguard/libraries/access/#pull-token-management).
 
 For more secure credential management, consider using a secrets manager such as 1Password CLI or Bitwarden, which can dynamically inject environment variables at runtime without storing token values in shell profiles or env files.
 
@@ -132,62 +132,58 @@ The `https://libraries.cgr.dev/java/` endpoint is also the [Chainguard Repositor
 
 {{% tab title="Maven" %}}
 
-Create or update `~/.m2/settings.xml` to point Maven at Chainguard Libraries.
+Maven repository configuration is split across two files: repository URLs go in your project's `pom.xml`, and credentials go in `~/.m2/settings.xml`. The `server` IDs in `settings.xml` must match the `repository` IDs in `pom.xml` — Maven pairs them automatically by ID when resolving credentials.
 
-This configuration sets the Chainguard [remediated repository](/chainguard/libraries/cve-remediation/) as the first source, followed by the standard Chainguard repository, with Maven Central set as `invalid` to avoid accidental unintended fallback to the public repository:
+Add the following repositories and pluginRepositores blocks to your `pom.xml`, inside the `project` element. This configuration sets the Chainguard [remediated repository](/chainguard/libraries/cve-remediation/) as the first source, followed by the standard Chainguard repository, with Maven Central set as `invalid` to avoid accidental unintended fallback to the public repository:
 
 ```xml
-<settings>
-  <activeProfiles>
-    <activeProfile>chainguard-direct</activeProfile>
-  </activeProfiles>
-  <profiles>
-    <profile>
-      <id>chainguard-direct</id>
+<repositories>
+  <repository>
+    <id>chainguard-remediated</id>
+    <url>https://libraries.cgr.dev/java-remediated/</url>
+    <releases><enabled>true</enabled></releases>
+    <snapshots><enabled>false</enabled></snapshots>
+  </repository>
+  <repository>
+    <id>chainguard</id>
+    <url>https://libraries.cgr.dev/java/</url>
+    <releases><enabled>true</enabled></releases>
+    <snapshots><enabled>false</enabled></snapshots>
+  </repository>
+  <repository>
+    <id>central</id>
+    <url>https://invalid</url>
+    <releases><enabled>true</enabled></releases>
+    <snapshots><enabled>false</enabled></snapshots>
+  </repository>
+</repositories>
 
-      <repositories>
-        <repository>
-          <id>chainguard-remediated</id>
-          <url>https://libraries.cgr.dev/java-remediated/</url>
-          <releases><enabled>true</enabled></releases>
-          <snapshots><enabled>false</enabled></snapshots>
-        </repository>
-        <repository>
-          <id>chainguard</id>
-          <url>https://libraries.cgr.dev/java/</url>
-          <releases><enabled>true</enabled></releases>
-          <snapshots><enabled>false</enabled></snapshots>
-        </repository>
-        <repository>
-          <id>central</id>
-          <url>https://invalid</url>
-          <releases><enabled>true</enabled></releases>
-          <snapshots><enabled>false</enabled></snapshots>
-        </repository>
-      </repositories>
+<pluginRepositories>
+  <pluginRepository>
+    <id>chainguard-remediated</id>
+    <url>https://libraries.cgr.dev/java-remediated/</url>
+    <releases><enabled>true</enabled></releases>
+    <snapshots><enabled>false</enabled></snapshots>
+  </pluginRepository>
+  <pluginRepository>
+    <id>chainguard</id>
+    <url>https://libraries.cgr.dev/java/</url>
+    <releases><enabled>true</enabled></releases>
+    <snapshots><enabled>false</enabled></snapshots>
+  </pluginRepository>
+  <pluginRepository>
+    <id>central</id>
+    <url>https://invalid</url>
+    <releases><enabled>true</enabled></releases>
+    <snapshots><enabled>false</enabled></snapshots>
+  </pluginRepository>
+</pluginRepositories>
+```
 
-      <pluginRepositories>
-        <pluginRepository>
-          <id>chainguard-remediated</id>
-          <url>https://libraries.cgr.dev/java-remediated/</url>
-          <releases><enabled>true</enabled></releases>
-          <snapshots><enabled>false</enabled></snapshots>
-        </pluginRepository>
-        <pluginRepository>
-          <id>chainguard</id>
-          <url>https://libraries.cgr.dev/java/</url>
-          <releases><enabled>true</enabled></releases>
-          <snapshots><enabled>false</enabled></snapshots>
-        </pluginRepository>
-        <pluginRepository>
-          <id>central</id>
-          <url>https://invalid</url>
-          <releases><enabled>true</enabled></releases>
-          <snapshots><enabled>false</enabled></snapshots>
-        </pluginRepository>
-      </pluginRepositories>
-    </profile>
-  </profiles>
+Next, run the following command to add credentials to `~/.m2/settings.xml`: 
+
+```bash
+printf '%s\n' '<settings>
   <servers>
     <server>
       <id>chainguard-remediated</id>
@@ -200,13 +196,7 @@ This configuration sets the Chainguard [remediated repository](/chainguard/libra
       <password>${env.CHAINGUARD_JAVA_TOKEN}</password>
     </server>
   </servers>
-</settings>
-```
-
-Review the file to verify it was written correctly:
-
-```bash
-cat ~/.m2/settings.xml
+</settings>' > ~/.m2/settings.xml
 ```
 
 {{% /tab %}}
