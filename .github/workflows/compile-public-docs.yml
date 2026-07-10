@@ -7,10 +7,10 @@ on:
       - 'content/**'
       - 'scripts/compile_docs.py'
       - '.github/workflows/compile-public-docs.yml'
-  
+
   schedule:
     - cron: '0 2 * * 0'  # Weekly on Sundays at 2 AM
-  
+
   workflow_dispatch:
     inputs:
       create_release:
@@ -87,10 +87,10 @@ jobs:
         mkdir -p ../images-private
         echo "# Placeholder" > ../courses/README.md
         echo "# Placeholder" > ../images-private/README.md
-        
+
         # Run compilation with public content only
         python scripts/compile_docs.py
-        
+
         # Debug: Show where we are and what was created
         echo "Current directory: $(pwd)"
         echo "Python script output should show 'Documentation compiled successfully to: [PATH]' above"
@@ -103,7 +103,7 @@ jobs:
         echo ""
         echo "Contents of static/downloads/:"
         ls -la static/downloads/ 2>/dev/null | head -10 || echo "Directory static/downloads/ doesn't exist"
-        
+
         # Verify output was created (the script outputs to static/downloads in the current directory)
         if [ ! -f "static/downloads/chainguard-complete-docs.md" ]; then
           echo "Error: Documentation compilation failed - file not found at static/downloads/chainguard-complete-docs.md"
@@ -111,7 +111,7 @@ jobs:
           ls -la static/downloads/ || echo "Directory doesn't exist"
           exit 1
         fi
-        
+
         echo "Documentation compiled successfully"
         ls -lh static/downloads/chainguard-complete-docs.md
 
@@ -128,24 +128,24 @@ jobs:
     - name: Create compressed bundle
       run: |
         cd static/downloads
-        
+
         # Rename to more appropriate name for public-only version
         mv chainguard-complete-docs.md chainguard-ai-docs.md
-        
+
         # Create tarball
         tar -czf chainguard-ai-docs.tar.gz chainguard-ai-docs.md
-        
+
         # Create checksums
         sha256sum chainguard-ai-docs.tar.gz > checksums.txt
         sha256sum chainguard-ai-docs.md >> checksums.txt
-        
+
         echo "Bundle created successfully"
         ls -lh chainguard-ai-docs.tar.gz
 
     - name: Sign artifacts with cosign
       run: |
         cd static/downloads
-        
+
         # Sign the tarball (bundle format for cosign v3)
         cosign sign-blob chainguard-ai-docs.tar.gz \
           --yes \
@@ -161,13 +161,13 @@ jobs:
     - name: Scan for sensitive data
       run: |
         cd static/downloads
-        
+
         # Check for common secret patterns
         if grep -E "(AKIA[0-9A-Z]{16}|ghp_[0-9a-zA-Z]{36}|ghs_[0-9a-zA-Z]{36}|sk-[0-9a-zA-Z]{48})" chainguard-ai-docs.md; then
           echo "ERROR: Potential secrets detected in compiled documentation!"
           exit 1
         fi
-        
+
         echo "Security scan passed - no secrets detected"
 
 
