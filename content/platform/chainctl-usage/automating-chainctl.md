@@ -31,7 +31,7 @@ Before running any of these snippets, you need:
 - `chainctl` [installed](/chainguard/chainctl-usage/how-to-install-chainctl/)
 - An active [Chainguard account](/chainguard/chainguard-registry/authenticating/)
 - `jq` installed (`brew install jq` or `apt install jq`)
-- For CI/CD use, a [Chainguard assumable identity](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create/) configured for your pipeline
+- For CI/CD use, a [Chainguard assumable identity](/platform/chainctl/chainctl-docs/chainctl_iam_identities_create/) configured for your pipeline
 
 Many `chainctl` commands drop into an interactive selection menu when run without enough arguments. In scripts and pipelines, always supply flags like `--parent` explicitly so the command runs without waiting for input.
 
@@ -235,4 +235,4 @@ Run this script idempotently during infrastructure provisioning. If the subscrip
 
 ---
 
-For a full reference of every `chainctl` command and flag, see the [chainctl Reference](/chainguard/chainctl/).
+For a full reference of every `chainctl` command and flag, see the [chainctl Reference](/platform/chainctl/).
