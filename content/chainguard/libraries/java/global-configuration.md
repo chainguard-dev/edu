@@ -71,7 +71,7 @@ The per-tool instructions on this page vary by repository manager. The JFrog
 Artifactory and Sonatype Nexus Repository sections use the recommended
 upstream fallback approach, which Chainguard has tested with those tools. The
 Cloudsmith and Google Artifact Registry sections use the manual Maven Central
-fallback pattern; Chainguard has not yet tested the single-upstream approach
+fallback pattern; Chainguard has not yet tested the upstream fallback
 with those tools.
 
 <a name="cloudsmith"></a>
