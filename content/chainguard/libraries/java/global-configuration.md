@@ -63,10 +63,16 @@ provides.
 However, if you intentionally want to manage fallback ordering yourself, you can
 configure `https://libraries.cgr.dev/java/` as a remote repository alongside
 your Maven upstream, and combine them in a virtual or group repository with
-Chainguard as the first priority. The per-tool instructions on this page follow
-this pattern. If you configure a fallback to Maven Central, packages sourced
-from that registry are not covered by Chainguard's malware-resistance
-guarantees.
+Chainguard as the first priority. If you configure a fallback to Maven Central,
+packages sourced from that registry are not covered by Chainguard's
+malware-resistance guarantees.
+
+The per-tool instructions on this page vary by repository manager. The JFrog
+Artifactory and Sonatype Nexus Repository sections use the recommended
+single-upstream approach, which Chainguard has tested with those tools. The
+Cloudsmith and Google Artifact Registry sections use the manual Maven Central
+fallback pattern; Chainguard has not yet tested the single-upstream approach
+with those tools.
 
 <a name="cloudsmith"></a>
 
@@ -80,9 +86,12 @@ documentation](https://help.cloudsmith.io/docs/upstream-proxying-caching#create-
 for Cloudsmith for more information. Cloudsmith supports combining repositories
 by defining multiple upstream repositories.
 
+> **Note:** Chainguard has not yet tested the recommended [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) approach — a single upstream pointed at `https://libraries.cgr.dev/java/` — with Cloudsmith. The following steps instead configure Maven Central as an upstream fallback in your repository manager. Packages sourced from Maven Central are not covered by Chainguard's malware-resistance guarantees.
+
 ### Initial configuration
 
-Use the following steps to set up a repository in Cloudsmith to access Chainguard Java Libraries via the Chainguard Repository.
+Use the following steps to add a repository with the Maven Central Repository
+and the Chainguard Libraries for Java repository as Maven upstream repositories.
 
 Configure a `java-all` repository:
 
@@ -95,6 +104,19 @@ Configure a `java-all` repository:
 1. Select a storage region that is appropriate for your organization and
    infrastructure.
 1. Click **+Create Repository**.
+
+Configure an upstream proxy for the Maven Central Repository:
+
+1. Click the name of the new `java-public` repository on the repositories
+   page to configure it.
+1. Click the **Upstreams** tab, then click **+Add Upstream Proxy**.
+1. Configure an upstream proxy with the format **Maven**.
+1. Configure another upstream proxy with the following:
+    * **Name**: `java-public`
+    * **Priority**: `2`
+    * **Upstream URL**: `https://repo1.maven.org/maven2/`
+    * **Mode**: Cache and Proxy
+1. Click **Create Upstream Proxy**.
 
 Configure an upstream proxy for the Chainguard Libraries for Java repository:
 
@@ -110,8 +132,6 @@ Configure an upstream proxy for the Chainguard Libraries for Java repository:
       access](/chainguard/libraries/access/).
 1. Click **Create Upstream Proxy**.
 1. If you are using the separate repository with remediated Java libraries, repeat the preceding steps to create remote repository named `java-chainguard-remediated` with a URL set to `https://libraries.cgr.dev/java-remediated/`. Use the same authentication details.
-
-If you are manually configuring fallback, you can add an additional upstream proxy for the public Maven Central repository with a lower priority than `java-chainguard`.
 
 Use this setup for initial testing with Chainguard Libraries for Java. For
 production usage, add the `java-chainguard` upstream proxy to your production
@@ -148,7 +168,7 @@ are tagged with the name of the upstream proxy.
 
 ## Google Artifact Registry
 
-[Google Artifact Registry (GAR)](https://cloud.google.com/artifact-registry) supports
+[Google Artifact Registry](https://cloud.google.com/artifact-registry) supports
 the Maven format for hosting artifacts in **Standard** repositories and proxying
 artifacts from public repositories in **Remote** repositories. Use **Virtual**
 repositories to combine them for consumption with Maven and other build tools.
@@ -156,9 +176,13 @@ Use the [Java package documentation for Google Artifact
 Registry](https://cloud.google.com/artifact-registry/docs/java) as the starting
 point for more details.
 
+> **Note:** Chainguard has not yet tested the recommended [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) approach — a single upstream pointed at `https://libraries.cgr.dev/java/` — with Google Artifact Registry. The following steps instead configure Maven Central as an upstream fallback in your repository manager. Packages sourced from Maven Central are not covered by Chainguard's malware-resistance guarantees.
+
 ### Initial configuration
 
-Use the following steps to set up a repository in GAR to access Chainguard Java Libraries via the Chainguard Repository.
+Use the following steps to add the Maven Central Repository and the Chainguard
+Libraries for Java repository as remote repositories and combine them as a
+virtual repository:
 
 1. Log in to the Google Cloud console as a user with administrator privileges.
 1. Navigate to your project and find the **Artifact Registry** with the search.
@@ -175,10 +199,22 @@ value as retrieved with chainctl](/chainguard/libraries/access/):
 1. Set the **Secret** value to the password from your `chainctl` output.
 1. Click **Create secret**.
 
-Navigate to Artifact Registry. In the left hand navigation under Artifact Registry, select **Repositories**. Configure a remote
-repository for Chainguard Libraries for Java:
+Navigate to Artifact Registry and select **Repositories** in the left hand
+navigation under the **Artifact Registry** label to configure a remote
+repository for the Maven Central Repository:
 
 1. Click **Create a Repository** (or the **+** button).
+1. Configure the repository:
+    * **Name**: `java-public`
+    * **Format**: Maven
+    * **Mode**: Remote
+    * **Remote repository source**: Maven Central
+    * **Location type > Region**: Select a region.
+1. Click **Create**.
+
+Configure a remote repository for the Chainguard Libraries for Java repository:
+
+1. Click **+** to add another repository.
 1. Configure the repository:
     * **Name**: `java-chainguard`
     * **Format**: `Maven`
@@ -193,8 +229,6 @@ repository for Chainguard Libraries for Java:
 1. Click **Create**.
 1. If you are using the separate repository with remediated Java libraries, repeat the preceding steps to create remote repository named `java-chainguard-remediated` with a URL set to `https://libraries.cgr.dev/java-remediated/`. Use the same authentication details.
 
-If you are manually managing fallback, you can configure an additional remote repository for the public Maven Central with lower priority.
-
 Combine the repositories in a new virtual repository:
 
 1. Click the **+** button to add another repository.
@@ -206,9 +240,12 @@ Combine the repositories in a new virtual repository:
 1. Use the **Browse** button to locate and select the `java-chainguard`
    repository as **Repository 1** and set the **Policy name 1** to
    `java-chainguard`.
-1. If you are using the remediated repository or manually configuring fallback to the public Maven repository, use the **Browse** button to locate and select each repository.
+1. Use the **Browse** button to locate and select the `java-public` repository
+   as **Repository 1** and set the **Policy name 1** to `java-public`.
 1. Under **Virtual upstream repositories**, click **Add upstream repository**.
-1. Set the **Priority** values for the repositories. The priority order should be: `java-chainguard-remediated`, `java-chainguard`, then if you are manually configuring fallback to public Maven, `java-public` last.
+1. Set the **Priority** value for the `java-chainguard` policy name to a higher
+   value than the `java-public` priority value.
+    * If you are using the remediated repository, add the `java-chainguard-remediated` repository and ensure it is the first in the displayed list. If not, ensure the `java-chainguard` repository is first.
 1. Under **Location type**, choose the same suitable **Region** for your development as configured for the `java-public` repository.
 1. Click **Create**.
 
