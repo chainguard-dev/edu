@@ -19,11 +19,11 @@ Chainguard Libraries for Java provides a curated repository of packages rebuilt 
 This guide walks through migrating an existing Java project to Chainguard Libraries, covering the two most common setups:
 
 - Direct access — your build tool connects directly to libraries.cgr.dev. This option is faster for initial evaluation and smaller-scale setups.
-- Repository manager — your build tool connects to a repository manager (such as [Cloudsmith](/chainguard/libraries/java/global-configuration/#cloudsmith), [JFrog Artifactory]((/chainguard/libraries/java/global-configuration/#jfrog-artifactory)), or [Sonatype Nexus](/chainguard/libraries/java/global-configuration/#sonatype-nexus-repository)), which proxies requests to Chainguard Libraries.
+- Repository manager — your build tool connects to a repository manager ([Cloudsmith](/chainguard/libraries/java/global-configuration/#cloudsmith), [Google Artifact Registry](/chainguard/libraries/java/global-configuration/#google-artifact-registry), [JFrog Artifactory](/chainguard/libraries/java/global-configuration/#jfrog-artifactory), or [Sonatype Nexus](/chainguard/libraries/java/global-configuration/#sonatype-nexus-repository)), which proxies requests to Chainguard Libraries.
 
 ## Prerequisites
 
-Before you begin, you'll need:
+Before you begin, you need:
 
 - An existing Java project
 - [`chainctl` installed and authenticated](/chainguard/chainctl-usage/how-to-install-chainctl/)
@@ -61,7 +61,7 @@ Before making any changes, confirm your project builds cleanly against Maven Cen
 
 ```shell
 cd your-project
-mvn install
+./mvnw install
 ```
 
 {{% /tab %}}
@@ -103,7 +103,7 @@ This results in values for the `CHAINGUARD_JAVA_IDENTITY_ID` and `CHAINGUARD_JAV
 
 Learn more about command options in the [chainctl documentation](/chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token/).
 
-When configuring direct access, note that environment variables do not persist between terminal sessions. You will need to re-export them each time you open a new terminal, or add them to your shell profile. Learn more about pull tokens in the [Access documentation](https://edu.chainguard.dev/chainguard/libraries/access/).
+When configuring direct access, note that environment variables do not persist between terminal sessions. You must re-export them each time you open a new terminal, or add them to your shell profile. Learn more about pull tokens in the [Access documentation](https://edu.chainguard.dev/chainguard/libraries/access/).
 
 ### Do not commit credentials to version control
 
@@ -120,7 +120,7 @@ curl -u "$CHAINGUARD_JAVA_IDENTITY_ID:$CHAINGUARD_JAVA_TOKEN" \
   https://libraries.cgr.dev/java/
 ```
 
-The command returns an HTML page listing repository directories. If credentials are invalid or expired, you will receive a 403 error instead of the directory listing.
+The command returns an HTML page listing repository directories. If credentials are invalid or expired, the command returns a 403 error instead of the directory listing.
 
 ## Step 3: Configure repository access
 
@@ -145,7 +145,6 @@ This configuration sets the Chainguard [remediated repository](/chainguard/libra
     <profile>
       <id>chainguard-direct</id>
 
-
       <repositories>
         <repository>
           <id>chainguard-remediated</id>
@@ -166,7 +165,6 @@ This configuration sets the Chainguard [remediated repository](/chainguard/libra
           <snapshots><enabled>false</enabled></snapshots>
         </repository>
       </repositories>
-
 
       <pluginRepositories>
         <pluginRepository>
@@ -432,7 +430,7 @@ Run a full build and capture the output.
 
 ```bash
 cd your-project
-mvn install 2>&1 | tee /tmp/mvn-output.txt
+./mvnw install 2>&1 | tee /tmp/mvn-output.txt
 ```
 
 To check which repositories served completed downloads:
@@ -495,7 +493,7 @@ A checksum mismatch means the artifact came from Central rather than Chainguard.
 
 ```bash
 rm ~/.m2/repository/org/apache/commons/commons-lang3/3.13.0/commons-lang3-3.13.0.jar
-mvn dependency:get -Dartifact=org.apache.commons:commons-lang3:3.13.0
+./mvnw dependency:get -Dartifact=org.apache.commons:commons-lang3:3.13.0
 ```
 
 Then run `chainctl libraries verify` again.
