@@ -98,7 +98,7 @@ function makeTable(id, sortedData, vulnIDs) {
     .html(function (d) { return d.value; });
 
   if (vulnIDs.length == 0) {
-    document.querySelector(id).insertAdjacentHTML("beforeend", `<p style="margin: 0; padding: 24px 8px;">No vulnerabilities detected</p>`);
+    document.querySelector(id).insertAdjacentHTML("beforeend", "<p style=\"margin: 0; padding: 24px 8px;\">No vulnerabilities detected</p>");
     return;
   }
 };
@@ -106,9 +106,9 @@ function makeTable(id, sortedData, vulnIDs) {
 // toggles between absolute and ?id= URLs for each page when rendering table links
 function getEnvUrl() {
   let host = document.location.host;
-  if (host.match(`.+netlify.com.+`)) {
+  if (host.match(".+netlify.com.+")) {
     return false
-  } else if (host.match(`localhost:1313`)) {
+  } else if (host.match("localhost:1313")) {
     return false
   } else {
     return true
@@ -120,14 +120,14 @@ severityPicker.addEventListener("click", function (event) {
     return;
   }
   severityPicker.querySelector(".dropdown-content").visiblity = "hidden";
-  severityPicker.querySelector('input[type = "checkbox"]').checked = false;
+  severityPicker.querySelector("input[type = \"checkbox\"]").checked = false;
 
   let filter = event.target.dataset.severity.toLowerCase();
   filterTable("rumble-images-external", filter);
   filterTable("rumble-images-chainguard", filter);
 
   if (event.target.dataset.severity == "") {
-    severityPicker.querySelector("label span").innerHTML = `<span>Severity<span class="bi-chevron-down" style="padding-left: 2rem;"></span></span>`;
+    severityPicker.querySelector("label span").innerHTML = "<span>Severity<span class=\"bi-chevron-down\" style=\"padding-left: 2rem;\"></span></span>";
     return;
   }
 
@@ -137,7 +137,7 @@ severityPicker.addEventListener("click", function (event) {
 });
 severityPicker.addEventListener("mouseleave", function (event) {
   // severityPicker.querySelector(".dropdown-content").visiblity = "hidden";
-  severityPicker.querySelector('input[type = "checkbox"]').checked = false;
+  severityPicker.querySelector("input[type = \"checkbox\"]").checked = false;
 });
 
 const tds = document.querySelectorAll("#rumble .tables table tbody tr td");

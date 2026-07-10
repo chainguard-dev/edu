@@ -48,9 +48,9 @@ Using payload from: test-file.txt
 Generating ephemeral keys...
 Retrieving signed certificate...
 
-	Note that there may be personally identifiable information associated with this signed artifact.
-	This may include the email address associated with the account with which you authenticate.
-	This information will be used for signing this artifact and will be stored in public transparency logs and cannot be removed later.
+ Note that there may be personally identifiable information associated with this signed artifact.
+ This may include the email address associated with the account with which you authenticate.
+ This information will be used for signing this artifact and will be stored in public transparency logs and cannot be removed later.
 
 By typing 'y', you attest that you grant (or have permission to grant) and agree to have this information stored permanently in transparency logs.
 Are you sure you would like to continue? [y/N] y
@@ -73,6 +73,7 @@ using ephemeral certificate:
 (...)
 -----END CERTIFICATE-----
 Certificate wrote in the file fulcio.crt.base64
+
 ```
 
 The output indicates that Sigstore is using ephemeral keys to generate a certificate for `test-file.txt`. The certificate, which we'll verify in the next section, is saved to a file named `fulcio.crt.base64`.

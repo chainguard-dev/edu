@@ -37,7 +37,7 @@ This guide requires the following tools installed on your local machine:
 - [k3d](https://k3d.io/stable/#installation) — a CLI tool for running K3s clusters in Docker
 - [kubectl](https://kubernetes.io/docs/tasks/tools/)
 - [Helm](https://helm.sh/docs/intro/install/)
-- [chainctl](https://edu.chainguard.dev/chainguard/chainctl/) — the Chainguard CLI
+- [chainctl](https://edu.chainguard.dev/platform/chainctl/) — the Chainguard CLI
 
 Your machine should have at least 8 GB of RAM available for Docker to allocate to the cluster. GitLab deploys several services simultaneously, and insufficient memory is the most common cause of failed or stuck deployments.
 

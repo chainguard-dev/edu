@@ -91,7 +91,7 @@ Configure a `java-all` repository:
 1. On the **Repositories** page, click the **+ New repository** button.
 1. Enter the name `java-all` for your new repository. The name should
    include `java` to identify the ecosystem. This convention helps
-   avoid confusion since repositories in Cloudsmith are multi-format. 
+   avoid confusion since repositories in Cloudsmith are multi-format.
 1. Select a storage region that is appropriate for your organization and
    infrastructure.
 1. Click **+Create Repository**. 
@@ -170,7 +170,7 @@ Before configuring the repositories, you must create a secret with the [password
 value as retrieved with chainctl](/chainguard/libraries/access/):
 
 1. Navigate to the **Secret Manager**
-1. Click **Create secret**. 
+1. Click **Create secret**.
 1. Set the **Name** to `chainguard-libraries-java`.
 1. Set the **Secret** value to the password from your `chainctl` output.
 1. Click **Create secret**.
@@ -274,6 +274,9 @@ Combine the repositories in a new virtual repository:
 
 1. Scroll down to the **Repositories** section.
 1. Add the `java-chainguard` repository. If you are using the remediated repository, add the `java-chainguard-remediated` repository and ensure it is the first in the displayed list. 
+1. Add the `java-chainguard` and `java-public` repositories. Drag and drop repositories into the
+   desired position.
+    * If you are using the remediated repository, add the `java-chainguard-remediated` repository and ensure it is the first in the displayed list. If not, ensure the `java-chainguard` repository is first.
 1. Click **Create Virtual Repository**.
 
 Use this setup for initial testing with Chainguard Libraries for Java. For
@@ -297,7 +300,7 @@ curl -sSf -L \
   | sha256sum
 ```
 
-#### 2. Compute the same artifact's checksum from Artifactory
+#### 1. Compute the same artifact's checksum from Artifactory
 
 Fetch the same artifact through the Artifactory remote repository and compute its checksum:
 
@@ -308,12 +311,14 @@ curl -sSf -L \
   | sha256sum
 ```
 
+
 Replace `artifactory-host` with your Artifactory instance hostname.
 
 The checksums returned by the commands must match.
 
 If the checksum from the Artifactory remote repository differs from the direct fetch, or if the Artifactory fetch fails entirely, review the following before proceeding:
 
+* URL: The remote repository URL must be set to `https://libraries.cgr.dev/java/`.
 * URL: The remote repository URL must be set to `https://libraries.cgr.dev/java/`.
 * Credentials: You may need to regenerate your pull token with `chainctl auth pull-token --repository=java` and update the Artifactory repository credentials. Expired tokens fail silently.
 * Advanced configuration: Ensure all recommended Advanced settings from the [remote repository configuration steps](#initial-configuration-2) have been applied.
@@ -381,7 +386,7 @@ Configure a remote repository for the Chainguard Libraries for Java repository:
     * **HTTP - Authentication** Select the `username` **Authentication type**, and
    provide the [username and password values as retrieved with
    chainctl](/chainguard/libraries/access/).
-1. Click **Create repository**. 
+1. Click **Create repository**.
 1. If you are using the separate repository with remediated Java libraries, repeat the preceding steps to create remote repository named `java-chainguard-remediated` with a URL set to `https://libraries.cgr.dev/java-remediated/`. Use the same authentication details.
 
 If you are manually managing fallback, you can configure an additional `java-public` remote repository for Maven Central with lower priority.
@@ -402,7 +407,7 @@ for accessing the repository:
 1. Click **Browse** in the **Welcome** view or the browse icon (cube) in the top
    navigation bar.
 1. Locate the **URL** column for the `java-all` repository group and click
-   **Copy**. 
+   **Copy**.
      * For example, `https://repo.example.com/repository/java-all/` (with
    `repo.example.com` replaced with the hostname of your repository manager).
 1. Use your configured username and password, unless **Security > Anonymous
@@ -412,6 +417,6 @@ for accessing the repository:
 Use the URL of the repository group, such as
 `https://repo.example.com/repository/java-all/` or
 `https://repo.example.com/repository/maven-public/` in the [build
-configuration](/chainguard/libraries/java/build-configuration/) and build a 
+configuration](/chainguard/libraries/java/build-configuration/) and build a
 first test project. In a working setup the `java-chainguard` proxy repository contains
 all libraries retrieved from Chainguard.

@@ -72,6 +72,7 @@ can allowlist that name instead of hard-coding the individual addresses:
 The following list of services and methods show example HTTP headers and bodies for public facing Chainguard events.
 
 ## Service: Registry - Pull
+
 ### Method: Pulled
 
 #### Example HTTP Headers
@@ -121,7 +122,9 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: Registry - Push
+
 ### Method: Pushed
 
 #### Example HTTP Headers
@@ -170,7 +173,9 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: auth - Auth
+
 ### Method: Register
 
 #### Example HTTP Headers
@@ -207,7 +212,9 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: events - Subscriptions
+
 ### Method: Create
 
 #### Example HTTP Headers
@@ -244,6 +251,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: Delete
 
 #### Example HTTP Headers
@@ -279,7 +287,9 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: iam - ExternalGroupRoleMappings
+
 ### Method: Create
 
 #### Example HTTP Headers
@@ -319,6 +329,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: Delete
 
 #### Example HTTP Headers
@@ -354,7 +365,9 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: iam - GroupAccountAssociations
+
 ### Method: Create
 
 #### Example HTTP Headers
@@ -399,6 +412,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: Update
 
 #### Example HTTP Headers
@@ -443,6 +457,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: Delete
 
 #### Example HTTP Headers
@@ -478,7 +493,9 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: iam - GroupInvites
+
 ### Method: Create
 
 #### Example HTTP Headers
@@ -517,6 +534,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: Delete
 
 #### Example HTTP Headers
@@ -552,7 +570,9 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: iam - Groups
+
 ### Method: Create
 
 #### Example HTTP Headers
@@ -590,6 +610,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: Update
 
 #### Example HTTP Headers
@@ -627,6 +648,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: Delete
 
 #### Example HTTP Headers
@@ -662,7 +684,9 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: iam - Identities
+
 ### Method: Create
 
 #### Example HTTP Headers
@@ -704,6 +728,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: Update
 
 #### Example HTTP Headers
@@ -742,6 +767,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: Delete
 
 #### Example HTTP Headers
@@ -777,7 +803,9 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: iam - IdentityProviders
+
 ### Method: Create
 
 #### Example HTTP Headers
@@ -819,6 +847,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: Update
 
 #### Example HTTP Headers
@@ -857,6 +886,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: Delete
 
 #### Example HTTP Headers
@@ -892,7 +922,9 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: iam - RoleBindings
+
 ### Method: Create
 
 #### Example HTTP Headers
@@ -933,6 +965,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: CreateBatch
 
 #### Example HTTP Headers
@@ -974,6 +1007,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: Update
 
 #### Example HTTP Headers
@@ -1011,6 +1045,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: Delete
 
 #### Example HTTP Headers
@@ -1046,7 +1081,9 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: iam - Terms
+
 ### Method: AcceptTerms
 
 #### Example HTTP Headers
@@ -1086,7 +1123,9 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: registry - Charts
+
 ### Method: AddChart
 
 #### Example HTTP Headers
@@ -1128,7 +1167,9 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: registry - Registry
+
 ### Method: CreateRepo
 
 #### Example HTTP Headers
@@ -1169,6 +1210,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: UpdateRepo
 
 #### Example HTTP Headers
@@ -1209,6 +1251,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: DeleteRepo
 
 #### Example HTTP Headers
@@ -1244,6 +1287,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: CreateTag
 
 #### Example HTTP Headers
@@ -1281,6 +1325,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: UpdateTag
 
 #### Example HTTP Headers
@@ -1318,6 +1363,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: DeleteTag
 
 #### Example HTTP Headers
@@ -1353,7 +1399,9 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: v1 - Bindings
+
 ### Method: CreateBinding
 
 #### Example HTTP Headers
@@ -1396,6 +1444,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: UpdateBinding
 
 #### Example HTTP Headers
@@ -1438,6 +1487,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: DeleteBinding
 
 #### Example HTTP Headers
@@ -1473,7 +1523,9 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: v1 - Overrides
+
 ### Method: CreateOverride
 
 #### Example HTTP Headers
@@ -1514,6 +1566,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: DeleteOverride
 
 #### Example HTTP Headers
@@ -1549,7 +1602,9 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: v1 - Policies
+
 ### Method: CreatePolicy
 
 #### Example HTTP Headers
@@ -1594,6 +1649,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: UpdatePolicy
 
 #### Example HTTP Headers
@@ -1638,6 +1694,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: DeletePolicy
 
 #### Example HTTP Headers
@@ -1673,7 +1730,9 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: v2beta1 - AccountAssociationsService
+
 ### Method: CreateAccountAssociation
 
 #### Example HTTP Headers
@@ -1718,6 +1777,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: DeleteAccountAssociation
 
 #### Example HTTP Headers
@@ -1753,6 +1813,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: UpdateAccountAssociation
 
 #### Example HTTP Headers
@@ -1797,7 +1858,9 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: v2beta1 - ExternalGroupRoleMappingsService
+
 ### Method: CreateExternalGroupRoleMapping
 
 #### Example HTTP Headers
@@ -1837,6 +1900,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: DeleteExternalGroupRoleMapping
 
 #### Example HTTP Headers
@@ -1872,6 +1936,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: BatchDeleteExternalGroupRoleMappings
 
 #### Example HTTP Headers
@@ -1916,7 +1981,9 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: v2beta1 - GroupInvitesService
+
 ### Method: CreateGroupInvite
 
 #### Example HTTP Headers
@@ -1955,6 +2022,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: DeleteGroupInvite
 
 #### Example HTTP Headers
@@ -1990,7 +2058,9 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: v2beta1 - GroupsService
+
 ### Method: DeleteGroup
 
 #### Example HTTP Headers
@@ -2026,6 +2096,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: CreateGroup
 
 #### Example HTTP Headers
@@ -2063,6 +2134,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: UpdateGroup
 
 #### Example HTTP Headers
@@ -2100,7 +2172,9 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: v2beta1 - IdentitiesService
+
 ### Method: CreateIdentity
 
 #### Example HTTP Headers
@@ -2142,6 +2216,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: DeleteIdentity
 
 #### Example HTTP Headers
@@ -2177,6 +2252,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: UpdateIdentity
 
 #### Example HTTP Headers
@@ -2215,6 +2291,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: UpdateIdentityMetadata
 
 #### Example HTTP Headers
@@ -2251,7 +2328,9 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: v2beta1 - IdentityProvidersService
+
 ### Method: CreateIdentityProvider
 
 #### Example HTTP Headers
@@ -2293,6 +2372,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: UpdateIdentityProvider
 
 #### Example HTTP Headers
@@ -2331,6 +2411,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: DeleteIdentityProvider
 
 #### Example HTTP Headers
@@ -2366,7 +2447,9 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: v2beta1 - RoleBindingsService
+
 ### Method: CreateRoleBinding
 
 #### Example HTTP Headers
@@ -2407,6 +2490,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: DeleteRoleBinding
 
 #### Example HTTP Headers
@@ -2442,6 +2526,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: BatchCreateRoleBindings
 
 #### Example HTTP Headers
@@ -2483,6 +2568,7 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ### Method: UpdateRoleBinding
 
 #### Example HTTP Headers
@@ -2520,7 +2606,9 @@ User-Agent: Chainguard Enforce
   }
 }
 ```
+
 ## Service: v2beta1 - TermsService
+
 ### Method: AcceptTerms
 
 #### Example HTTP Headers

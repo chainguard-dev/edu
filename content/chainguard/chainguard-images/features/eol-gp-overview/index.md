@@ -19,8 +19,7 @@ Typically, specific versions of software receive updates on a schedule for a set
 
 It's recommended that when a software version reaches the EOL phase, users should migrate their projects to a later version, as [EOL software is known to accumulate vulnerabilities](/chainguard/chainguard-images/staying-secure/updating-images/how-eol-software-accumulates-cves/). However, there are cases where an organization may want to continue using a container image after it has reached end-of-life. This could be because an image reaches EOL before the organization's release schedule, or perhaps later image versions have one or more issues that prevent the organization from upgrading.
 
-To help in situations like this, Chainguard offers an end-of-life grace period for eligible Containers to all Chainguard Containers customers. This article provides an overview of Chainguard's EOL grace period, and also includes a brief introduction to using Chainguard's API to retrieve information about an image's EOL grace period status. 
-
+To help in situations like this, Chainguard offers an end-of-life grace period for eligible Containers to all Chainguard Containers customers. This article provides an overview of Chainguard's EOL grace period, and also includes a brief introduction to using Chainguard's API to retrieve information about an image's EOL grace period status.
 
 ## Understanding Chainguard's EOL Grace Period
 
@@ -34,7 +33,7 @@ Chainguard's EOL grace period gives customers access to new builds of container 
 You will be able to find the end date of a given container image version's grace period in the [Chainguard Console](https://console.chainguard.dev/). From the **Organization Images** tab, select an image. You'll be taken to that container image's **Versions** page, and the end date of each grace period will be listed under the respective version:
 
 <center><img src="eol-gp-2.png" alt="Screenshot of a portion of an image's 'Versions' tab, showing the Grace Period end dates for several versions of the image." style="width:300px;"></center>
-<br /> 
+<br />
 
 As of this writing, a container image must meet four key requirements to be eligible for coverage under the EOL grace period:
 
@@ -49,7 +48,7 @@ Be aware that the following are not covered by Chainguard's EOL grace period:
 * Backporting or cherry-picking individual commits or patches to the EOL primary package.
 * Any package labeled end-of-life for more than 6 months by its open-source creators or maintainers.
 
-Additionally, if a container image fails to build because underlying dependencies conflict with the primary package, it will no longer be supported. A failed build signals the end of support for that image. 
+Additionally, if a container image fails to build because underlying dependencies conflict with the primary package, it will no longer be supported. A failed build signals the end of support for that image.
 
 <center><img src="eol-gp-3.png" alt="Diagram representing the lifecycle of an example unsuccessful build under the EOL Grace Period. A Python image whose primary package has reached EOL goes through an automated remediation and rebuild process, resulting in an unsuccessful build because the updated dependencies break the primary package. Because the build was unsuccessful, the EOL grace period ends and the customer should migrate to a newer package version." style="width:1050px;"></center>
 <br />
@@ -78,7 +77,6 @@ To maximize the value of a grace period, we recommend the following:
     * Document any configuration changes needed
     * Prepare rollback procedures if needed
 
-
 ## Using the EOL Grace Period API
 
 Although the Chainguard Console is a useful interface, many customers would prefer to integrate EOL data with their preferred tools for faster, more convenient monitoring. For this reason, Chainguard has developed an API to serve customers with EOL data sufficient for monitoring the lifecycle of their images.
@@ -96,11 +94,11 @@ Replace `$ORGANIZATION` with the name of your organization.
 This command will return a table showing the UIDPs of every Chainguard Container the specified organization has access to:
 
 ```output
-                ID                 |      REGISTRY       |   REPO   |        BUNDLES        |    TIER 	 
+                ID                 |      REGISTRY       |   REPO   |        BUNDLES        |    TIER
 -----------------------------------+---------------------+----------+-----------------------+--------------
-  ORGANIZATION_ID/165aEXAMPLE5b7ae | cgr.dev/example.com | nginx    | application, featured | APPLICATION  
-  ORGANIZATION_ID/4408EXAMPLE4131a | cgr.dev/example.com | node     | base                  | UNKNOWN 	 
-  ORGANIZATION_ID/37a2EXAMPLE0d419 | cgr.dev/example.com | python   | base, featured        | UNKNOWN 	 
+  ORGANIZATION_ID/165aEXAMPLE5b7ae | cgr.dev/example.com | nginx    | application, featured | APPLICATION
+  ORGANIZATION_ID/4408EXAMPLE4131a | cgr.dev/example.com | node     | base                  | UNKNOWN
+  ORGANIZATION_ID/37a2EXAMPLE0d419 | cgr.dev/example.com | python   | base, featured        | UNKNOWN
 
 ```
 
@@ -110,7 +108,7 @@ With the image repository ID, you can make a request to the API endpoint with a 
 curl -H "Authorization: Bearer $(chainctl auth token)" 'https://console-api.enforce.dev/registry/v1/eoltags?uidp.childrenOf=$ORGANIZATION_ID/4408EXAMPLE4131a' | jq .
 ```
 
-Note that this example includes the `-H` argument to pass an authorization header to the API. This header is constructed with the `chainctl auth token` command which prints the local Chainguard token, allowing you to authenticate to the API. 
+Note that this example includes the `-H` argument to pass an authorization header to the API. This header is constructed with the `chainctl auth token` command which prints the local Chainguard token, allowing you to authenticate to the API.
 
 It also pipes the `curl` command's output into `jq`, a lightweight JSON processor, in order to make it easier to read.
 
@@ -166,10 +164,8 @@ This example output is derived from an API call made on a `node` image repositor
 
 Of course, you won't use `curl` to interact with the Chainguard API in most scenarios. Instead, you'll likely have some kind of application that can ingest and process this EOL data. For example, your organization could create a Slackbot that fetches data from the Chainguard EOL grace period API and posts messages about EOL tags approaching their grace period expiration to a specified Slack channel. Chainguard's [API documentation](/chainguard/api/spec/) includes request samples for many languages and platforms, including Go, Python, and Java.
 
-
 ## Learn More
 
 Chainguard's EOL grace period gives customers the opportunity to continue to receive best-effort CVE remediated updates on EOL images, while they work on transitioning to a newer upstream version.
 
 For more information on the EOL grace period, [please contact us](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). Additionally, our doc outlining the [Chainguard Containers Product Release Lifecycle](/chainguard/chainguard-images/about/versions/) can be helpful for understanding Chainguard’s approach to updates, releases, and versions within Chainguard Containers. Finally, our conceptual article on [How End-of-Life Software Accumulates Vulnerabilities](/chainguard/chainguard-images/staying-secure/updating-images/how-eol-software-accumulates-cves/) is helpful for understanding the risk involved with using end-of-life software by outlining how EOL images accrue vulnerabilities and where they accumulate.
-

@@ -34,7 +34,6 @@ PCI DSS 4.0, or Payment Card Industry Data Security Standard is intended for all
 
 PCI DSS 4.0 requires compliance with a set of requirements, each related to an information security practice or goal. All of these are intended to protect cardholder data from theft and fraud.
 
-
 ## PCI DSS 4.0 Goals and Requirements
 
 Below is a table overview with a high-level description of the goals and requirements, summarized from the PCI DSS v4.0 Quick Reference Guide from the PCI Security Standards Council, available from their [Document Library](https://east.pcisecuritystandards.org/document_library):
@@ -49,7 +48,6 @@ Below is a table overview with a high-level description of the goals and require
 | **Maintain an information security policy** | Support information security with organizational policies and programs |
 
 For a list of all required practices, see the PCI DSS documentation available in the [PCI Security Standards Council's Document Library](https://east.pcisecuritystandards.org/document_library).
-
 
 ## Browse all PCI DSS 4.0 Articles
 

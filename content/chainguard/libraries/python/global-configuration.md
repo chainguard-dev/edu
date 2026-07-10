@@ -31,12 +31,12 @@ manager with a single upstream pointed at `https://libraries.cgr.dev/python/`. T
 Chainguard Repository handles fallback and policy enforcement; your repository
 manager handles local caching and access control. Chainguard proxies and serves
 packages from the public PyPI repository on your behalf when upstream
-fallback is enabled. All packages served from Chainguard are protected with 
+fallback is enabled. All packages served from Chainguard are protected with
 malware scanning and a configurable cooldown policy.
 
 At a high level, adopting the use of Chainguard Libraries consists of the following steps:
 
-* Configure your environment to use `https://libraries.cgr.dev/python/` as the single upstream source for Python package retrieval. 
+* Configure your environment to use `https://libraries.cgr.dev/python/` as the single upstream source for Python package retrieval.
 * Add the public [PyPI](https://pypi.org/) repository as a remote repository.
 * Create a group, virtual, or polyglot repository combining these repository
   sources with any desired internal repositories. Configure the Chainguard
@@ -50,7 +50,7 @@ You should also:
   assists technical evaluation and adoption of Chainguard Libraries.
 * Remove any repositories that are no longer desired or necessary. Depending on
   your library requirements, this step can result in removal of some proxy
-  repositories or even removal of all proxy repositories. 
+  repositories or even removal of all proxy repositories.
 
 If your organization does not use a repository manager, you can still use
 Chainguard Libraries. However, this approach requires configuration of multiple
@@ -60,7 +60,7 @@ approach. Refer to the [direct access documentation for build
 tools](/chainguard/libraries/python/build-configuration/#direct-access) for more
 information.
 
-### Manually managing fallback 
+## Manually managing fallback
 
 Chainguard recommends using the [Chainguard Repository built-in upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) rather than configuring a public PyPI fallback in your repository manager. Configuring your own fallback bypasses the protection and policy behavior provided by Chainguard Repository.
 
@@ -69,7 +69,7 @@ However, if you intentionally want to manage fallback ordering yourself, you can
 ### Updating lockfile hashes
 
 If you are migrating an existing Python project to Chainguard Libraries through a repository manager, your lockfile likely contains integrity hashes generated against packages previously downloaded from PyPI or through your repository manager. The [`chainctl libraries update-hashes` command](/chainguard/chainctl/chainctl-docs/chainctl_libraries_update-hashes/) automates lockfile hash updates
-for all supported JavaScript lockfile formats. 
+for all supported JavaScript lockfile formats.
 
 When you are using a repository manager, pass the full repository manager URL with `--registry-url` and authenticate with one of the supported methods: `--username` and `--password`, `--token`, or a `.netrc` entry for the registry host. For example:
 
@@ -79,7 +79,7 @@ chainctl libraries update-hashes \
   --token "$REPO_TOKEN"
 ```
 
-After updating the lockfile, keep your repository manager configuration in place and reinstall through the same repository manager endpoint to apply the updated hashes. 
+After updating the lockfile, keep your repository manager configuration in place and reinstall through the same repository manager endpoint to apply the updated hashes.
 
 Learn more in the [Build configuration page](/chainguard/libraries/python/build-configuration/#updating-lockfile-hashes/) and in the [chainctl docs](/chainguard/chainctl/chainctl-docs/chainctl_libraries_update-hashes/).
 
@@ -93,7 +93,7 @@ with compatible formats. Refer to the [Cloudsmith Python Repository
 documentation](https://help.cloudsmith.io/docs/python-repository) and the
 [Cloudsmith documentation for creating a
 repository](https://help.cloudsmith.io/docs/create-a-repository) for more
-information. 
+information.
 
 ### Initial configuration
 
@@ -108,10 +108,10 @@ First, create a repository:
 1. At the new repository form, enter the name *python-all* for your new
    repository. The name should include *python* to identify the repository
    format. This convention helps avoid confusion, since repositories in
-   Cloudsmith are multi-format. 
+   Cloudsmith are multi-format.
 1. Select a storage region that is appropriate for your organization and
    infrastructure.
-1. Select **+Create Repository**. 
+1. Select **+Create Repository**.
 
 Next, configure the upstream proxies:
 
@@ -119,12 +119,12 @@ Next, configure the upstream proxies:
    to configure it.
 1. Access the **Upstreams** tab and click **+ Add Upstream Proxy**.
 1. Configure an upstream proxy with the format **python** and the following
-   details: 
+   details:
     * **Name**: `python-chainguard`
     * **Priority**: `1`
     * **Upstream URL**: `https://libraries.cgr.dev/python/`
     * **Mode**: `Cache and Proxy`
-   * Add the **Username** and **Password** value from [Chainguard Libraries
+    * Add the **Username** and **Password** value from [Chainguard Libraries
       access](/chainguard/libraries/access/) in **Authentication Settings**
 1. Select **Create Upstream Proxy**.
 1. If you want to use the separate repository with
@@ -173,7 +173,7 @@ Before configuring the repositories, you must create a secret with the [password
 value as retrieved with chainctl](/chainguard/libraries/access/):
 
 1. Navigate to the **Secret Manager**
-1. Click **Create secret**. 
+1. Click **Create secret**.
 1. Set the **Name** to `chainguard-libraries-python`.
 1. Use the **Password** from chainctl output to set the **Secret value**.
 1. Click **Create secret**.
@@ -200,7 +200,7 @@ preceding steps with the name `python-chainguard-remediated`, the same
 authentication details, and the URL
 `https://libraries.cgr.dev/python-remediated/`.
 
-If you are manually managing fallback rather than using the [Chainguard Repository's built-in fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls), configure an additional remote repository for the public PyPI. 
+If you are manually managing fallback rather than using the [Chainguard Repository's built-in fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls), configure an additional remote repository for the public PyPI.
 
 Combine the repositories in a new virtual repository:
 
@@ -261,7 +261,7 @@ preceding steps with the name `python-chainguard-remediated`, the same
 authentication details, and the URL
 `https://libraries.cgr.dev/python-remediated/`.
 
-If you are manually managing fallback rather than using the [Chainguard Repository's built-in fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls), configure an additional remote repository for the public PyPI index. 
+If you are manually managing fallback rather than using the [Chainguard Repository's built-in fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls), configure an additional remote repository for the public PyPI index.
 
 Combine the repositories in a new virtual repository:
 
@@ -273,7 +273,7 @@ Combine the repositories in a new virtual repository:
 
 At this point, you have a virtual repository set up in Artifactory that allows
 you or others in your organization to access Chainguard Libraries for Python,
-optionally including remediated versions, with your chosen tools. 
+optionally including remediated versions, with your chosen tools.
 
 ### Validate the remote repository
 
@@ -290,7 +290,7 @@ curl -sSf \
   | grep -o 'https://[^"]*\.whl' | head -1
 ```
 
-2. Fetch a package file directly from `libraries.cgr.dev` and compute its checksum:
+1. Fetch a package file directly from `libraries.cgr.dev` and compute its checksum:
 
 ```bash
 curl -sSf -L \
@@ -299,7 +299,7 @@ curl -sSf -L \
   | sha256sum
 ```
 
-3. Fetch the same file through the Artifactory remote repository and compute its checksum:
+1. Fetch the same file through the Artifactory remote repository and compute its checksum:
 
 ```bash
 curl -sSfL \
@@ -307,13 +307,14 @@ curl -sSfL \
   "https://<artifactory-host>/artifactory/<python-remote-repository>/${path-to-wheel}" \
   | sha256sum
 ```
+
 Replace `artifactory-host` with your Artifactory instance hostname and replace `python-remote-repository` with your remote repository name. Replace `path-to-wheel` with the path component of the URL from step 1 (for example: `/files/15f7d141c3b76b85/37e321caa85a8f41/urllib3/urllib3-1.26.9-py2.py3-none-any.whl`)
 
-The checksums returned by the commands must match. 
+The checksums returned by the commands must match.
 
 If the checksum from the Artifactory remote repository differs from the direct fetch, or if the Artifactory fetch fails entirely, review the following before proceeding:
 
-* URL: The remote repository URL must be set to `https://libraries.cgr.dev/python/`. 
+* URL: The remote repository URL must be set to `https://libraries.cgr.dev/python/`.
 * Credentials: You may need to regenerate your pull token with `chainctl auth pull-token --repository=python` and update the Artifactory repository credentials. Expired tokens fail silently.
 * Advanced Configuration: Ensure all recommended Advanced settings from the [initial configuration steps](#initial-configuration-2) have been applied.
 
@@ -356,7 +357,7 @@ Next, configure a remote repository for Chainguard Libraries for Python reposito
 1. In **HTTP - Authentication**, set the **Authentication type** to *username*
    and enter the the [username and password values as retrieved with
    chainctl](/chainguard/libraries/access/).
-1. Select **Create repository**. 
+1. Select **Create repository**.
 
 If you want to use the separate repository with [remediated Python
 libraries](/chainguard/libraries/python/overview/#cve-remediation) repeat the
@@ -364,7 +365,7 @@ preceding steps with the name `python-chainguard-remediated`, the same
 authentication details, and the URL
 `https://libraries.cgr.dev/python-remediated/`.
 
-If you are manually managing fallback rather than using the [Chainguard Repository's built-in fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls), configure an additional remote repository for the public PyPI. 
+If you are manually managing fallback rather than using the [Chainguard Repository's built-in fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls), configure an additional remote repository for the public PyPI.
 
 Finally, create a new repository group and add the repositories:
 

@@ -21,7 +21,6 @@ Chainguard's [*assumable identities*](/chainguard/administration/iam-organizatio
 
 This procedural tutorial outlines how to create an identity using Terraform, and then how to update a Bitbucket pipeline so that it can assume the identity and interact with Chainguard resources.
 
-
 ## Prerequisites
 
 To complete this guide, you will need the following.
@@ -41,7 +40,6 @@ mkdir ~/bitbucket-id && cd $_
 ```
 
 This will help make it easier to clean up your system at the end of this guide.
-
 
 ### `main.tf`
 
@@ -201,7 +199,6 @@ chainctl iam identities ls
 
 You're now ready to edit a Bitbucket pipeline in order to test out this identity.
 
-
 ## Testing the identity with a Bitbucket pipeline
 
 To test the identity you created with Terraform in the previous section, ensure you have Pipelines enabled for your repository and then create a `bitbucket-pipelines.yml` file in the root of your repository. Note that if you already have a pipeline with steps defined then you only need to add the `oidc: true` field to your pipeline to enable OIDC for the step in question.
@@ -243,7 +240,7 @@ Assuming everything works as expected, your pipeline will be able to assume the 
 
 ```
 . . .
-chainctl        	100%[===================>]  54.34M  6.78MB/s	in 13s
+chainctl         100%[===================>]  54.34M  6.78MB/s in 13s
 
 2023-05-17 13:19:45 (4.28 MB/s) - ‘chainctl’ saved [56983552/56983552]
 
@@ -267,7 +264,6 @@ You can also edit the pipeline itself to change its behavior. For example, inste
 
 Of course, the Bitbucket pipeline will only be able to perform certain actions on certain resources, depending on what kind of access you grant it.
 
-
 ## Removing Sample Resources
 
 To remove the resources Terraform created, you can run the `terraform destroy` command.
@@ -285,7 +281,6 @@ rm -r ~/bitbucket-id/
 ```
 
 Following that, all of the example resources created in this guide will be removed from your system.
-
 
 ## Learn more
 

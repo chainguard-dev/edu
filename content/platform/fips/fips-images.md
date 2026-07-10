@@ -1,7 +1,7 @@
 ---
 title: "Chainguard FIPS Containers"
 linktitle: "FIPS Containers"
-aliases: 
+aliases:
 - /chainguard/fips/fips-images/
 - /chainguard/chainguard-images/fips-images
 - /chainguard/chainguard-images/images-features/fips-images
@@ -57,4 +57,3 @@ All Chainguard FIPS Containers include [STIG hardening](/chainguard/chainguard-i
 - [Bouncy Castle FIPS Crypto package](https://www.bouncycastle.org/about/bouncy-castle-fips-faq/)
 
 Chainguard FIPS Containers are not included in the free tier. To request access, [contact Chainguard](https://www.chainguard.dev/contact).
-

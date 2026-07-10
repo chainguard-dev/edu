@@ -1,7 +1,7 @@
 ---
 title: "How To Compare Chainguard Containers with chainctl"
 linktitle: "Compare Images with chainctl"
-aliases: 
+aliases:
 - /chainguard/chainctl-usage/comparing-images/
 - /chainguard/chainguard-images/comparing-images/
 - /chainguard/chainguard-images/comparing-images/comparing-images/
@@ -27,7 +27,6 @@ Chainguard's `chainctl images diff` command provides detailed comparisons betwee
 
 The [`chainctl`](/chainguard/chainctl/) diff functionality supports informed deployment decisions by revealing package-level differences, security posture changes, and build variations between any two Chainguard container images.
 
-
 ## Prerequisites
 
 In order to use the `chainctl images diff` subcommand, you'll need to have a few tools installed.
@@ -36,7 +35,6 @@ In order to use the `chainctl images diff` subcommand, you'll need to have a few
 * Next, ensure you have Cosign installed. Our guide on [How to Install Cosign](/open-source/sigstore/cosign/how-to-install-cosign/) outlines several methods for installing Cosign.
 * You'll also need Grype installed on your local machine, as `chainctl` uses this to scan the images when performing the diff. Follow the installation instructions for your operating system on the [Grype project GitHub repository](https://github.com/anchore/grype#installation).
 * Lastly, an example command in this guide uses `jq` — a command-line JSON processor — to make the command's output more readable. You don't strictly need to have `jq` installed in order to use the `diff` subcommand, but if you'd like you can install it by following [the official documentation](https://jqlang.github.io/jq/download/).
-
 
 ## Using `chainctl images diff`
 
@@ -63,30 +61,30 @@ Fetching vulnerabilities for cgr.dev/chainguard/go@sha256:e62ce9fe5e62296186066e
   "packages": {
     "added": [
       {
-   	 "name": "sha256:e62ce9fe5e62296186066e647d22cd8d16565d8eee9c2d18541094cec9ddd7a3",
-   	 "reference": "pkg:oci/index@sha256:e62ce9fe5e62296186066e647d22cd8d16565d8eee9c2d18541094cec9ddd7a3?mediaType=application%2Fvnd.oci.image.index.v1%2Bjson"
+     "name": "sha256:e62ce9fe5e62296186066e647d22cd8d16565d8eee9c2d18541094cec9ddd7a3",
+     "reference": "pkg:oci/index@sha256:e62ce9fe5e62296186066e647d22cd8d16565d8eee9c2d18541094cec9ddd7a3?mediaType=application%2Fvnd.oci.image.index.v1%2Bjson"
       },
       {
-   	 "name": "sha256:a5910c192d3bd6e473cd98a0553d55dba1e9ddee240732a91bf4985116f893d0",
-   	 "reference": "pkg:oci/image@sha256:a5910c192d3bd6e473cd98a0553d55dba1e9ddee240732a91bf4985116f893d0?arch=amd64&mediaType=application%2Fvnd.oci.image.manifest.v1%2Bjson&os=linux"
+     "name": "sha256:a5910c192d3bd6e473cd98a0553d55dba1e9ddee240732a91bf4985116f893d0",
+     "reference": "pkg:oci/image@sha256:a5910c192d3bd6e473cd98a0553d55dba1e9ddee240732a91bf4985116f893d0?arch=amd64&mediaType=application%2Fvnd.oci.image.manifest.v1%2Bjson&os=linux"
       },
       {
-   	 "name": "sha256:35b2716760a4ec6652830a453d692cc7c55893eb8a6b4cc2afabc2bdfad2a10f",
-   	 "reference": "pkg:oci/image@sha256:35b2716760a4ec6652830a453d692cc7c55893eb8a6b4cc2afabc2bdfad2a10f?arch=arm64&mediaType=application%2Fvnd.oci.image.manifest.v1%2Bjson&os=linux"
+     "name": "sha256:35b2716760a4ec6652830a453d692cc7c55893eb8a6b4cc2afabc2bdfad2a10f",
+     "reference": "pkg:oci/image@sha256:35b2716760a4ec6652830a453d692cc7c55893eb8a6b4cc2afabc2bdfad2a10f?arch=arm64&mediaType=application%2Fvnd.oci.image.manifest.v1%2Bjson&os=linux"
       }
     ],
     "removed": [
       {
-   	 "name": "sha256:6fee3fff87854aa6e4762c7998c127436a68b09877f9c1010deca35e0f1e27bc",
-   	 "reference": "pkg:oci/index@sha256:6fee3fff87854aa6e4762c7998c127436a68b09877f9c1010deca35e0f1e27bc?mediaType=application%2Fvnd.oci.image.index.v1%2Bjson"
+     "name": "sha256:6fee3fff87854aa6e4762c7998c127436a68b09877f9c1010deca35e0f1e27bc",
+     "reference": "pkg:oci/index@sha256:6fee3fff87854aa6e4762c7998c127436a68b09877f9c1010deca35e0f1e27bc?mediaType=application%2Fvnd.oci.image.index.v1%2Bjson"
       },
       {
-   	 "name": "sha256:eaeb73fe40e46eabd28837f3b981791984fc40cac4833f872169f09c7c3cb4df",
-   	 "reference": "pkg:oci/image@sha256:eaeb73fe40e46eabd28837f3b981791984fc40cac4833f872169f09c7c3cb4df?arch=arm64&mediaType=application%2Fvnd.oci.image.manifest.v1%2Bjson&os=linux"
+     "name": "sha256:eaeb73fe40e46eabd28837f3b981791984fc40cac4833f872169f09c7c3cb4df",
+     "reference": "pkg:oci/image@sha256:eaeb73fe40e46eabd28837f3b981791984fc40cac4833f872169f09c7c3cb4df?arch=arm64&mediaType=application%2Fvnd.oci.image.manifest.v1%2Bjson&os=linux"
       },
       {
-   	 "name": "sha256:87d4c21ede568d79d4ca51271dda3bf46a4164be2bcd7405b6b85b49801d3504",
-   	 "reference": "pkg:oci/image@sha256:87d4c21ede568d79d4ca51271dda3bf46a4164be2bcd7405b6b85b49801d3504?arch=amd64&mediaType=application%2Fvnd.oci.image.manifest.v1%2Bjson&os=linux"
+     "name": "sha256:87d4c21ede568d79d4ca51271dda3bf46a4164be2bcd7405b6b85b49801d3504",
+     "reference": "pkg:oci/image@sha256:87d4c21ede568d79d4ca51271dda3bf46a4164be2bcd7405b6b85b49801d3504?arch=amd64&mediaType=application%2Fvnd.oci.image.manifest.v1%2Bjson&os=linux"
       }
     ]
   },
@@ -105,30 +103,30 @@ Fetching vulnerabilities for cgr.dev/chainguard/go@sha256:6fee3fff87854aa6e4762c
   "packages": {
     "added": [
       {
-   	 "name": "sha256:6fee3fff87854aa6e4762c7998c127436a68b09877f9c1010deca35e0f1e27bc",
-   	 "reference": "pkg:oci/index@sha256:6fee3fff87854aa6e4762c7998c127436a68b09877f9c1010deca35e0f1e27bc?mediaType=application%2Fvnd.oci.image.index.v1%2Bjson"
+     "name": "sha256:6fee3fff87854aa6e4762c7998c127436a68b09877f9c1010deca35e0f1e27bc",
+     "reference": "pkg:oci/index@sha256:6fee3fff87854aa6e4762c7998c127436a68b09877f9c1010deca35e0f1e27bc?mediaType=application%2Fvnd.oci.image.index.v1%2Bjson"
       },
       {
-   	 "name": "sha256:eaeb73fe40e46eabd28837f3b981791984fc40cac4833f872169f09c7c3cb4df",
-   	 "reference": "pkg:oci/image@sha256:eaeb73fe40e46eabd28837f3b981791984fc40cac4833f872169f09c7c3cb4df?arch=arm64&mediaType=application%2Fvnd.oci.image.manifest.v1%2Bjson&os=linux"
+     "name": "sha256:eaeb73fe40e46eabd28837f3b981791984fc40cac4833f872169f09c7c3cb4df",
+     "reference": "pkg:oci/image@sha256:eaeb73fe40e46eabd28837f3b981791984fc40cac4833f872169f09c7c3cb4df?arch=arm64&mediaType=application%2Fvnd.oci.image.manifest.v1%2Bjson&os=linux"
       },
       {
-   	 "name": "sha256:87d4c21ede568d79d4ca51271dda3bf46a4164be2bcd7405b6b85b49801d3504",
-   	 "reference": "pkg:oci/image@sha256:87d4c21ede568d79d4ca51271dda3bf46a4164be2bcd7405b6b85b49801d3504?arch=amd64&mediaType=application%2Fvnd.oci.image.manifest.v1%2Bjson&os=linux"
+     "name": "sha256:87d4c21ede568d79d4ca51271dda3bf46a4164be2bcd7405b6b85b49801d3504",
+     "reference": "pkg:oci/image@sha256:87d4c21ede568d79d4ca51271dda3bf46a4164be2bcd7405b6b85b49801d3504?arch=amd64&mediaType=application%2Fvnd.oci.image.manifest.v1%2Bjson&os=linux"
       }
     ],
     "removed": [
       {
-   	 "name": "sha256:e62ce9fe5e62296186066e647d22cd8d16565d8eee9c2d18541094cec9ddd7a3",
-   	 "reference": "pkg:oci/index@sha256:e62ce9fe5e62296186066e647d22cd8d16565d8eee9c2d18541094cec9ddd7a3?mediaType=application%2Fvnd.oci.image.index.v1%2Bjson"
+     "name": "sha256:e62ce9fe5e62296186066e647d22cd8d16565d8eee9c2d18541094cec9ddd7a3",
+     "reference": "pkg:oci/index@sha256:e62ce9fe5e62296186066e647d22cd8d16565d8eee9c2d18541094cec9ddd7a3?mediaType=application%2Fvnd.oci.image.index.v1%2Bjson"
       },
       {
-   	 "name": "sha256:a5910c192d3bd6e473cd98a0553d55dba1e9ddee240732a91bf4985116f893d0",
-   	 "reference": "pkg:oci/image@sha256:a5910c192d3bd6e473cd98a0553d55dba1e9ddee240732a91bf4985116f893d0?arch=amd64&mediaType=application%2Fvnd.oci.image.manifest.v1%2Bjson&os=linux"
+     "name": "sha256:a5910c192d3bd6e473cd98a0553d55dba1e9ddee240732a91bf4985116f893d0",
+     "reference": "pkg:oci/image@sha256:a5910c192d3bd6e473cd98a0553d55dba1e9ddee240732a91bf4985116f893d0?arch=amd64&mediaType=application%2Fvnd.oci.image.manifest.v1%2Bjson&os=linux"
       },
       {
-   	 "name": "sha256:35b2716760a4ec6652830a453d692cc7c55893eb8a6b4cc2afabc2bdfad2a10f",
-   	 "reference": "pkg:oci/image@sha256:35b2716760a4ec6652830a453d692cc7c55893eb8a6b4cc2afabc2bdfad2a10f?arch=arm64&mediaType=application%2Fvnd.oci.image.manifest.v1%2Bjson&os=linux"
+     "name": "sha256:35b2716760a4ec6652830a453d692cc7c55893eb8a6b4cc2afabc2bdfad2a10f",
+     "reference": "pkg:oci/image@sha256:35b2716760a4ec6652830a453d692cc7c55893eb8a6b4cc2afabc2bdfad2a10f?arch=arm64&mediaType=application%2Fvnd.oci.image.manifest.v1%2Bjson&os=linux"
       }
     ]
   },
@@ -138,7 +136,6 @@ Fetching vulnerabilities for cgr.dev/chainguard/go@sha256:6fee3fff87854aa6e4762c
 
 Be aware that because this is a relatively new feature, the format of the `diff` subcommand's output is subject to change.
 
-
 ## Potential use cases
 
 Being able to find the exact difference between two Chainguard Containers with a single command allows users to make more informed decisions about what container images they use in their applications. This section goes over a couple scenarios where you may want to use the `chainctl images diff` command.
@@ -146,7 +143,6 @@ Being able to find the exact difference between two Chainguard Containers with a
 One potential use case for why you would want to find the differences between two Chainguard Containers is that you're curious about the differences between available release versions. Say you're using Custom Chainguard Containers and your application is pinned to a specific version of `go`. By diffing the two container images, you could check what vulnerabilities you could remove by updating to the next patch or minor version.
 
 Another potential use could be in cases where you're interested in knowing the difference between a Chainguard Container's daily builds. For example, say you'd like to keep your images updated but only when there are significant changes between daily builds. You could diff between the running versions and the latest builds, only updating if there’s a meaningful difference.
-
 
 ## Learn more
 

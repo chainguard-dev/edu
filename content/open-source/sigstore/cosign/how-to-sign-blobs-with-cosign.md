@@ -38,7 +38,7 @@ You’ll get output similar to the following, including prompts asking you to co
 
 ```output
 Are you sure you would like to continue? [y/N] y
-Enter password for private key: 
+Enter password for private key:
 Using payload from: artifact
 Wrote bundle to file artifact.sigstore.json
 ```
@@ -48,6 +48,7 @@ You'll need your signature, which this command writes to the `artifact.sigstore.
 ```sh
 cat artifact.sigstore.json | jq | grep signature
 ```
+
 ```output
    "signature": "MEQCI************************************************************************************G0knw=="
 ```

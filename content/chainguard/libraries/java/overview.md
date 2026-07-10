@@ -14,7 +14,7 @@ weight: 051
 toc: true
 ---
 
-Chainguard Libraries for Java provides enhanced security for the Java ecosystem by rebuilding dependencies from Maven Central and other common repositories with the latest patches and comprehensive supply chain protection. This service addresses critical vulnerabilities in the vast Java/JVM ecosystem that spans hundreds of projects from organizations like the Apache Software Foundation, Eclipse Foundation, and numerous independent maintainers. 
+Chainguard Libraries for Java provides enhanced security for the Java ecosystem by rebuilding dependencies from Maven Central and other common repositories with the latest patches and comprehensive supply chain protection. This service addresses critical vulnerabilities in the vast Java/JVM ecosystem that spans hundreds of projects from organizations like the Apache Software Foundation, Eclipse Foundation, and numerous independent maintainers.
 
 Chainguard Libraries for Java provides access to all open source libraries
 commonly used. New releases of common libraries or artifacts requested by
@@ -45,7 +45,7 @@ CERN,
 Note that coverage is not exhaustive for any single repository; the index
 continues to grow, and any request for a missing library or version
 automatically triggers a process to provision the artifacts from relevant
-sources if available. 
+sources if available.
 
 ## Runtime requirements
 
@@ -59,7 +59,7 @@ Libraries for Java.
 
 You must use the [username and password retrieved with
 chainctl](/chainguard/libraries/access/) to access the Chainguard
-Libraries for Java repository. 
+Libraries for Java repository.
 
 The URL for the repository is:
 
@@ -106,7 +106,7 @@ the Chainguard Libraries repository.
 
 Typically the access is [configured globally on a repository manager for your
 organization](/chainguard/libraries/java/global-configuration/). This approach
-is strongly recommended. 
+is strongly recommended.
 
 Alternatively, you can use the token for direct access from a build tool as
 discussed in [Build
@@ -116,7 +116,7 @@ configuration](/chainguard/libraries/java/build-configuration/).
 
 Chainguard Libraries for Java includes the [CVE
 Remediation](/chainguard/libraries/cve-remediation/) feature, available in beta for Spring Boot. Remediated
-libraries include an appended local version identifier of `-0.cgr.N`. 
+libraries include an appended local version identifier of `-0.cgr.N`.
 
 For example, if `org.apache.commons:commons-lang3:3.18.0` has a remediated build, that build is published as `org.apache.commons:commons-lang3:3.18.0-0.cgr.1`. If Chainguard publishes another remediated iteration for the same base version, the trailing number increases, such as `-0.cgr.2` or `-0.cgr.3`.
 
@@ -161,7 +161,6 @@ structure follows the [Maven repository
 format](https://maven.apache.org/repository/layout.html). The `groupId` and
 `artifactId` of a library is used to create a nested directory structure,
 similar to the package structure within Java projects.
-
 
 For example, the Maven coordinates for [Apache Commons
 Lang](https://commons.apache.org/proper/commons-lang/) are the following:

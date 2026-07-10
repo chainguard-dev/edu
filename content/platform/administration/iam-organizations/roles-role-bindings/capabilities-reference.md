@@ -20,7 +20,6 @@ This reference provides an overview of all Chainguard IAM capabilities and shows
 
 For more information on roles and role-bindings within Chainguard's IAM model, please refer to our [Overview of Roles and Role-bindings](/chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
 
-
 ## Built-in Roles Summary
 
 This guide outlines the built-in Chainguard IAM roles available to most customer organizations. You can find more info about specific roles in your organization with the following `chainctl` command:
@@ -29,7 +28,7 @@ This guide outlines the built-in Chainguard IAM roles available to most customer
 chainctl iam roles list
 ```
 
-Every role has at least one of four capabilities (`create`, `list`, `update`, `delete`) in relation to at least one Chainguard resource. For example, the `owner` role can create, delete, list, and update custom roles within Chainguard, while the `viewer` role can only list them. 
+Every role has at least one of four capabilities (`create`, `list`, `update`, `delete`) in relation to at least one Chainguard resource. For example, the `owner` role can create, delete, list, and update custom roles within Chainguard, while the `viewer` role can only list them.
 
 This guide outlines the following built-in roles provided by Chainguard:
 
@@ -58,13 +57,11 @@ The administrative roles are useful for user profiles that require broad, but cl
 
 For example, the `apk.pull` role only grants `list` access for APK packages and groups. This means identities with this role can pull the organization's APK packages and retrieve information about the organization, but won't have general access to the organization's [Chainguard registry](/chainguard/chainguard-images/chainguard-registry/overview/) resources.
 
-
 ## Chainguard Role Capabilities
 
 The following table maps Chainguard resources to the built-in roles that have permissions for them. Each row represents a specific resource type (like `apk`, `repo`, `identity`, etc.), describes its purpose, and lists which built-in roles have what capabilities (create, delete, list, update) for that resource.
 
 <div style="overflow-x: auto;">
-
 
 | Resource | Purpose | Roles with access to this resource |
 |------------|---------|---------------------------|
@@ -127,9 +124,10 @@ The following table compares the general abilities of the built-in roles describ
 </div>
 
 **Notes**
-- **Pull Images/List Tags/Repos/View SBOMs**: These capabilities refer to container registry operations relating to the `manifest`, `repo`, `tag`, and `sboms` resources
-- **APK Pull**: The `apk.pull` role is specialized for APK package management, not container operations
-- **Console Viewer**: Has the same broad `list` access as `editor`, but cannot pull blobs (`apk.blobs`, `repo.blobs`) and cannot create, update, or delete event subscriptions. This makes it a safe role for inviting team members who need Console visibility without the ability to pull images or APKs.
+
+* **Pull Images/List Tags/Repos/View SBOMs**: These capabilities refer to container registry operations relating to the `manifest`, `repo`, `tag`, and `sboms` resources
+* **APK Pull**: The `apk.pull` role is specialized for APK package management, not container operations
+* **Console Viewer**: Has the same broad `list` access as `editor`, but cannot pull blobs (`apk.blobs`, `repo.blobs`) and cannot create, update, or delete event subscriptions. This makes it a safe role for inviting team members who need Console visibility without the ability to pull images or APKs.
 
 ### Pull token creator roles
 
@@ -142,11 +140,11 @@ The following roles are used for managing pull tokens for certain resources:
 
 For example, the `libraries.*.pull_token_creator` roles are focused on their respective library ecosystems and don't have container registry access.
 
-These roles are able to create pull tokens because of the `identity.create` capability. However, none of these roles have the `identity.list` capability, meaning that they aren't able to view the pull tokens they've created. 
+These roles are able to create pull tokens because of the `identity.create` capability. However, none of these roles have the `identity.list` capability, meaning that they aren't able to view the pull tokens they've created.
 
 The reason for this is that Chainguard doesn't distinguish pull token identities from other [assumable identities](/chainguard/administration/assumable-ids/assumable-ids/) at the IAM level. If these roles also had the `identity.list` capability, they would be able to view **all** the identities in that scope. By not including `identity.list` among their capabilities, the pull token creator roles have a more limited scope, as intended.
 
 ## Learn More
 
-- [Overview of Roles and Role-bindings in Chainguard](/chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/) - Conceptual overview and basic management
-- [Overview of Chainguard IAM Model](/chainguard/administration/iam-organizations/overview-of-enforce-iam-model/) - Complete IAM architecture 
+* [Overview of Roles and Role-bindings in Chainguard](/chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/) - Conceptual overview and basic management
+* [Overview of Chainguard IAM Model](/chainguard/administration/iam-organizations/overview-of-enforce-iam-model/) - Complete IAM architecture

@@ -27,7 +27,6 @@ Catalog Starter is designed as a standalone free plan, separate from paid Catalo
 
 > **Note**: Catalog Starter is best suited for small teams to get them started right away. When you are ready to standardize on Chainguard and deploy organization-wide, we have several paid plans that provide unlimited user access to the Chainguard Containers and additional features like Custom Assembly, FIPS images, EOL/EmeritOSS image versions, a contractual CVE-remediation SLA, and dedicated support.
 
-
 ## How Catalog Starter works
 
 ### 1. Sign up with your organization
@@ -49,7 +48,6 @@ After trying out Chainguard Containers with Catalog Starter, you can reach out t
 
 Moving to a paid plan means moving off Catalog Starter; the free five-image entitlement is not stacked on top of a paid subscription.
 
-
 ## Plan limitations and terms
 
 Catalog Starter allows users to try out Chainguard Containers, but it comes with certain limitations, including the following:
@@ -66,7 +64,6 @@ Catalog Starter allows users to try out Chainguard Containers, but it comes with
 * Users in a Catalog Starter organization are assigned the `limited_owner` role, which allows them to browse the Console, pull images, and create pull tokens, but does not include permission to invite other users to the organization or access features like [Custom Assembly](/chainguard/chainguard-images/features/custom-assembly/).
 * Neither Custom Assembly nor Commercial Builds, Chainguard's bespoke paid build services, are included in the Catalog Starter plan.
 * Catalog Starter cannot be combined with an existing Chainguard Containers license. Existing customers remain on their current paid plans; this free offering can’t be used to subsidize or partially offset paid image counts.
-
 
 ## Frequently asked questions
 
@@ -107,7 +104,6 @@ When you upgrade:
 * Pricing is based on the paid plan’s terms (such as developer bands for Catalog Pricing or image counts for per-image plans).
 
 Our team will work with you to map your existing Catalog Starter images into the right long-term structure.
-
 
 ## Get started
 

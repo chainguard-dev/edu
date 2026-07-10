@@ -19,7 +19,7 @@ Chainguard publishes a curated set of hardened agent skills in a public catalog 
 
 This guide walks through the full workflow: listing the available skills, inspecting one, pulling it to audit how Chainguard hardened it, installing it, and running it with an agent.
 
-{{< beta feature="Chainguard Agent Skills" access="Chainguard Containers customers who sign up for the beta program. You can sign up by visiting the [Chainguard Agent Skills product page](https://www.chainguard.dev/agent-skills) and clicking **Join the beta**" >}}
+{{< beta feature="Chainguard Agent Skills" >}}
 
 ## Prerequisites
 
@@ -35,6 +35,7 @@ Sign in, then browse the skills published in the public Chainguard catalog with 
 chainctl auth login
 chainctl skills list --group chainguard --recursive
 ```
+
 ```output
               NAME              | LATEST TAG |   UPDATED
 --------------------------------|------------|--------------
@@ -46,7 +47,7 @@ chainctl skills list --group chainguard --recursive
  anthropics/doc-coauthoring     | latest     | 21 hours ago
  anthropics/frontend-design     | latest     | 21 hours ago
  apollographql/apollo-client    | latest     | 21 hours ago
- 
+
  . . .
 ```
 
@@ -55,6 +56,7 @@ To list the skills from a single upstream owner, name it in the `--group` value:
 ```shell
 chainctl skills list --group chainguard/anthropics
 ```
+
 ```output
  TYPE  |      NAME       | LATEST TAG | UPDATED
 -------|-----------------|------------|------------
@@ -62,15 +64,16 @@ chainctl skills list --group chainguard/anthropics
  skill | frontend-design | latest     | 1 hour ago
 ```
 
-## Inspect a skill
+## Describe a skill
 
 To retrieve a skill's reference, digest, tags, and metadata, use the `describe` subcommand. The output records the upstream source and the exact commit Chainguard hardened from:
 
 ```shell
 chainctl skills describe skills.cgr.dev/chainguard/github/add-educational-comments:latest
 ```
+
 ```output
-      FIELD      |                                                    VALUE                                                     
+      FIELD      |                                                    VALUE
 -----------------|--------------------------------------------------------------------------------------------------------------
  Display Name    | add-educational-comments
  Reference       | chainguard/github/add-educational-comments
@@ -84,7 +87,7 @@ chainctl skills describe skills.cgr.dev/chainguard/github/add-educational-commen
  Tag             | cf4347e88c2e40a9aabe5801748ec6bf924c09be
  Digest          | sha256:59b781f87f82aba08ccf622b60a31ee5b8fbb27fa447ed5910850d4320505735
  Size            | 1.1 KB
- Published       | 1 day ago   
+ Published       | 1 day ago
 ```
 
 ## Pull a skill to inspect it
@@ -94,6 +97,7 @@ Where `install` drops a skill straight into your agent's skills directory, `pull
 ```shell
 chainctl skills pull skills.cgr.dev/chainguard/github/add-educational-comments:latest ./add-educational-comments
 ```
+
 ```output
 Skill written to: /home/linky/add-educational-comments
 ```
@@ -103,6 +107,7 @@ Every hardened skill ships with a `HARDENING.md` that records the upstream sourc
 ```shell
 cat add-educational-comments/HARDENING.md
 ```
+
 ```output
 # Hardening Report: github.com/github/awesome-copilot/skills/add-educational-comments
 
@@ -146,9 +151,9 @@ This command automatically detects any agents on your machine and places the ski
 
 ```output
 Installing github/add-educational-comments
-    AGENT    |                         LOCATION                          |                                   MODE                                    
+    AGENT    |                         LOCATION                          |                                   MODE
 -------------|-----------------------------------------------------------|---------------------------------------------------------------------------
- Claude Code | .claude/skills/chainguard-github-add-educational-comments | symlink → ../../.agents/skills/chainguard-github-add-educational-comments 
+ Claude Code | .claude/skills/chainguard-github-add-educational-comments | symlink → ../../.agents/skills/chainguard-github-add-educational-comments
 ```
 
 ## Run the skill from an agent
@@ -174,7 +179,7 @@ The command prompts for confirmation before removing any files:
 ```output
 This will remove skill "chainguard-github-add-educational-comments" from local agent directories.
 Proceed?
-Do you want to continue? [y,N]: 
+Do you want to continue? [y,N]:
 Uninstalled skill "chainguard-github-add-educational-comments".
 ```
 

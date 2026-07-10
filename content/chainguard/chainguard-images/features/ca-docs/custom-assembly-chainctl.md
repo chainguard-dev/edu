@@ -21,7 +21,6 @@ You can use [`chainctl`, Chainguard's command-line interface tool](/chainguard/c
 
 > **Note**: This tutorial highlights using `chainctl` to interact with Custom Assembly resources. However, you can also interact with Custom Assembly using [the Chainguard console](/chainguard/chainguard-images/features/ca-docs/custom-assembly-console/), as well as [the Chainguard API](/chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/).
 
-
 ## Adding Packages to a Customized Container Image
 
 To edit one of your organization's Custom Assembly container images, you can run the `chainctl image repo build edit` command:
@@ -133,7 +132,6 @@ cgr.dev/example.com/custom-node
 
 Note that you **must** pass the new image's name when using the `--save-as` option; `chainctl` will return an error if you don't include a new name. Additionally, you can only use this option with the `edit` subcommand; you cannot create a new image declaratively using the `apply` subcommand.
 
-
 ## Adding Custom Annotations and Environment Variables
 
 Custom Assembly lets you extend Chainguard Containers with your own metadata and runtime defaults by adding custom annotations and environment variables through `chainctl`.
@@ -198,7 +196,6 @@ environment:
 After saving and confirming these changes, Custom Assembly will add these five custom environment variables to the container image. As with packages and annotations, you can also apply custom environment variables declaratively using the `apply` subcommand, as outlined previously.
 
 Be aware that Custom Assembly blocks any environment variable that begins with `CHAINGUARD_` from being added or changed. This is to prevent conflicts with configuration details managed by Chainguard.
-
 
 ## Custom runtime repositories
 
@@ -266,7 +263,6 @@ Custom runtime repository URLs are validated when the configuration is applied. 
 * Hostnames ending in `.internal`, `.local`, or `.svc.cluster.local` aren't allowed.
 * `localhost` isn't allowed.
 * Hostnames that resolve to any of the blocked IP ranges listed earlier aren't allowed either.
-
 
 ## Retrieving Information about Custom Assembly Containers
 
@@ -340,12 +336,11 @@ chainctl images repos build apply \
 
 You can use `chainctl images repos build apply` to do things like:
 
-- Pass `--repo` multiple times: `--repo=python --repo=nginx --repo=node`
-- Use wildcards: `--repo="python-*"` or `--repo="*"` (all repos under the parent)
-- Combine with `--dry-run` to see which repos would change (drift detection) without actually updating anything.
+* Pass `--repo` multiple times: `--repo=python --repo=nginx --repo=node`
+* Use wildcards: `--repo="python-*"` or `--repo="*"` (all repos under the parent)
+* Combine with `--dry-run` to see which repos would change (drift detection) without actually updating anything.
 
 For more information, see [chainctl images repos build apply](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_apply/).
-
 
 ## Learn More
 

@@ -20,14 +20,12 @@ The Chainguard platform supports single sign-on (SSO) authentication for users. 
 
 This guide outlines how to create an Okta application and integrate it with Chainguard. After completing this guide, you'll be able to log in to Chainguard using Okta and you'll no longer be limited to the default SSO options.
 
-
 ## Prerequisites
 
 To complete this guide, you need the following.
 
 * `chainctl` installed on your system. Follow our guide on [How To Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) if you don't already have this installed.
 * An Okta account over which you have administrative access.
-
 
 ## Create an Okta App integration
 
@@ -56,7 +54,6 @@ Click **Save**. Then, navigate to the **Sign On** tab.
 There, find the **OpenID Connect ID Token** section and click **Edit**. Set the **Issuer** option to **Okta URL**, then click **Save**.
 
 With that, you've configured the Okta application. Next, you need to configure the Chainguard platform to use it by creating a custom identity provider.
-
 
 ## Configuring Chainguard to use Okta SSO
 

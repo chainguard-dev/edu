@@ -17,18 +17,16 @@ toc: true
 
 There are currently over [2,000 Chainguard Containers](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) and that number is always growing as we add more to our expanding catalog.
 
-If you would like a Chainguard Container that is not yet available, or inquire about whether we would build a given container image, Chainguard will endeavor to perform an analysis on the request. Chainguard aims to build new container images that are relevant to our customers and to support broader software security goals. However, it is not always feasible to package and build software. Please note that we have the following general criteria when considering requests.  
+If you would like a Chainguard Container that is not yet available, or inquire about whether we would build a given container image, Chainguard will endeavor to perform an analysis on the request. Chainguard aims to build new container images that are relevant to our customers and to support broader software security goals. However, it is not always feasible to package and build software. Please note that we have the following general criteria when considering requests.
 
 * The source code is freely available in a Source Code Manager (SCM) system such as GitHub or GitLab.
 * The project is licensed under a FOSS license. Non-FOSS licenses are reviewed on a case-by-case basis.
 * The project is actively maintained with supported versions. That is:
-    * There are recent commits and releases. 
+    * There are recent commits and releases.
     * The project has not reached its end of life (EOL).
-    * The project has maintained active versions. 
+    * The project has maintained active versions.
     * The project does not rely on outdated or unmaintained dependencies; for example, unsupported versions of Python, OpenSSL etc.
-    * There is usually a lead or owner. 
-* There are no technical blockers preventing us from building the container image as we’ve determined as part of an initial analysis process. 
+    * There is usually a lead or owner.
+* There are no technical blockers preventing us from building the container image as we’ve determined as part of an initial analysis process.
 
-If the software project or container image you have in mind meets the above criteria, please [contact us](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) for more information. 
-
-
+If the software project or container image you have in mind meets the above criteria, please [contact us](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) for more information.

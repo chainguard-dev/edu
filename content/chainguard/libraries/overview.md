@@ -1,8 +1,8 @@
 ---
 title: "Chainguard Libraries overview"
 linktitle: "Libraries overview"
-description: "Learn about Chainguard Libraries, providing enhanced security for 
-    Java, JavaScript, and Python dependencies through automated patching and 
+description: "Learn about Chainguard Libraries, providing enhanced security for
+    Java, JavaScript, and Python dependencies through automated patching and
     comprehensive supply chain protection."
 type: "article"
 date: 2025-03-25T08:04:00+00:00
@@ -94,7 +94,7 @@ Chainguard Libraries is available for the following library ecosystems:
 * Java and the larger Java Virtual Machine (JVM) ecosystem with
   [Chainguard Libraries for Java](/chainguard/libraries/java/overview/)
 * JavaScript and the larger ecosystem around JavaScript, TypeScript, npm, React,
-  and others with 
+  and others with
   [Chainguard Libraries for JavaScript](/chainguard/libraries/javascript/overview/)
 * Python and the larger ecosystem with
   [Chainguard Libraries for Python](/chainguard/libraries/python/overview/)
@@ -120,7 +120,7 @@ Our current minimum supported toolchains are:
 
 * **Python**: Python 3.10 and higher.
 * **Java**: Java 8 and higher.
-* **JavaScript**: Any supported, non-EOL version of Node.js. 
+* **JavaScript**: Any supported, non-EOL version of Node.js.
 
 We will attempt to rebuild any libraries that meet the [licensing and source availability criteria](#licensing-and-source-availability) using the supported toolchains.
 
@@ -129,9 +129,10 @@ We will attempt to rebuild any libraries that meet the [licensing and source ava
 When a library version reaches end of life (EOL) upstream, Chainguard Libraries continues to build packages and provide security fixes for that version for six months beyond the upstream EOL date.
 
 After that six-month window closes, Chainguard Libraries will:
-- No longer build new packages that require the EOL version
-- No longer provide security fixes for packages built against the EOL version
-- Continue to serve previously built packages
+
+* No longer build new packages that require the EOL version
+* No longer provide security fixes for packages built against the EOL version
+* Continue to serve previously built packages
 
 ## Upstream fallback and controls
 
@@ -148,13 +149,13 @@ subject to additional security controls before being served.
 
 To enable or change upstream fallback configuration, use the [`chainctl
 libraries entitlements`
-command](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/). 
+command](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/).
 
 For example, the following command creates or updates an entitlement to Chainguard Libraries
 for JavaScript, and adds the npm upstream fallback policy. Enabling upstream fallback includes a 7-day cooldown by default, which can also be configured:
 
 ```bash
-chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM 
+chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM
 ```
 
 For JavaScript, you can also enable upstream fallback in the Chainguard Console. For Java and Python, you cannot currently enable fallback or view upstream vs. Chainguard-built packages via the Chainguard Console; you must use `chainctl` to enable fallback for Java and Python.
@@ -162,6 +163,7 @@ For JavaScript, you can also enable upstream fallback in the Chainguard Console.
 ### Fallback options
 
 The following options are available:
+
 * **No upstream fallback (default)**: Only Chainguard-built packages are served.
 * **Upstream fallback enabled with default 7-day cooldown**: Upstream packages are available after passing a configurable cooldown period and malware scan. The same cooldown period is enforced across Chainguard-built packages and upstream packages, so that dependency trees resolve consistently across both sources.
 
@@ -173,7 +175,7 @@ identifies and blocks malicious and greyware packages in Chainguard Libraries
 via the Chainguard Repository. This includes packages that are publicly reported
 as malicious (including packages associated with OSV malware IDs) and packages
 that Chainguard determines are unsafe through its own malware source code
-scanning, even when no public malware advisory exists yet. 
+scanning, even when no public malware advisory exists yet.
 
 Malware detection is continuous. If a version that was previously cached is
 later identified as malicious, it is added to the block list and will be blocked
@@ -181,23 +183,23 @@ on subsequent requests.
 
 Chainguard's scanning evaluates multiple signal types, including:
 
-- **Maintainer behavior**: Flags anomalies in publisher accounts, release
+* **Maintainer behavior**: Flags anomalies in publisher accounts, release
   history, and package metadata, checking to see if a maintainer account was
   recently transferred, if a version was quietly yanked and republished, or if a
   publish timestamp falls outside any normal window. It also monitors for
   changes in publishing policy, process, or toolchain as these updates can be an
-  indicator of ownership takeover. 
-- **Package contents**: Downloads and scans the actual package that was
+  indicator of ownership takeover.
+* **Package contents**: Downloads and scans the actual package that was
   published for obfuscated code, embedded C2 domains, modified binaries, and
   other indicators that something fishy was inserted into the package before it
   hit the registry. It also triggers on newly added dependencies and significant
   changes in code or binary size.
-- **Publishing signals**: Compares the published package against its source
+* **Publishing signals**: Compares the published package against its source
   code, providing extra protection for all of the packages served via
   Chainguard’s upstream fallback. It also monitors for items such as a release
   not being tagged or being signed with an unknown key. Other publish signals
   include force pushing a tag or a commit hash not being in the event log.
-- **Dynamic execution**: Runs install scripts in a sandboxed, network-blocked
+* **Dynamic execution**: Runs install scripts in a sandboxed, network-blocked
   environment to see if there are attempts to call out to an external server,
   read system files, or execute hidden payloads.
 
@@ -205,7 +207,7 @@ Use Chainguard's [malware API endpoint](/chainguard/api/spec-api-v1/#tag/malware
 
 ### Cooldown period
 
-When fallback is enabled, upstream packages are subject to a cooldown period from their publication date before the Chainguard Repository will serve them. The cooldown is an additional layer of security that provides a window for the security community to identify and report malicious packages before your builds can pull them. 
+When fallback is enabled, upstream packages are subject to a cooldown period from their publication date before the Chainguard Repository will serve them. The cooldown is an additional layer of security that provides a window for the security community to identify and report malicious packages before your builds can pull them.
 
 The cooldown applies globally across Chainguard-built packages and upstream packages served through the fallback. This prevents installs from failing when a Chainguard-built package depends on an upstream dependency that is still under the cooldown window.
 
@@ -244,4 +246,3 @@ Blog posts
 * [Mitigating Malware in the Python Ecosystem with Chainguard Libraries](https://www.chainguard.dev/unchained/mitigating-malware-in-the-python-ecosystem-with-chainguard-libraries)
 * [Announcing Chainguard Libraries for Python: Malware-Resistant Dependencies Built Securely from Source](https://www.chainguard.dev/unchained/announcing-chainguard-libraries-for-python-malware-resistant-dependencies-built-securely-from-source)
 * [Announcing Chainguard Libraries: Guarded Java Language Dependencies Built from Source](https://www.chainguard.dev/unchained/announcing-chainguard-libraries-guarded-java-language-dependencies-built-from-source)
-

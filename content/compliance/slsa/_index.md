@@ -11,4 +11,4 @@ images: []
 weight: 015
 landingpage: "/compliance/slsa/what-is-slsa/"
 ---
-SLSA (pronounced “salsa”), or Supply chain Levels for Software Artifacts, is a framework to help you assess and improve the security of software you create or consume. 
+SLSA (pronounced “salsa”), or Supply chain Levels for Software Artifacts, is a framework to help you assess and improve the security of software you create or consume.

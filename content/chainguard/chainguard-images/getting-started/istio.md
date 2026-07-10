@@ -2,7 +2,7 @@
 title: "Getting Started with the Chainguard Istio Containers"
 type: "article"
 linktitle: "Istio"
-aliases: 
+aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-istio
 description: "Learn how to deploy Istio service mesh using Chainguard's security-hardened Istio images with reduced vulnerabilities and minimal attack surface"
 date: 2023-12-14T00:00:00+00:00
@@ -50,12 +50,12 @@ This will return output similar to the following:
 
 ```output
 Creating cluster "kind" ...
- ✓ Ensuring node image (kindest/node:v1.27.3) 🖼 
- ✓ Preparing nodes 📦  
- ✓ Writing configuration 📜 
- ✓ Starting control-plane 🕹️ 
- ✓ Installing CNI 🔌 
- ✓ Installing StorageClass 💾 
+ ✓ Ensuring node image (kindest/node:v1.27.3) 🖼
+ ✓ Preparing nodes 📦
+ ✓ Writing configuration 📜
+ ✓ Starting control-plane 🕹️
+ ✓ Installing CNI 🔌
+ ✓ Installing StorageClass 💾
 Set kubectl context to "kind-kind"
 You can now use your cluster with:
 
@@ -70,14 +70,15 @@ Following that, you can install the Istio Chainguard Containers with `istioctl`.
 
 We will be using the `istioctl` command to install Istio. In order to use the
 Chainguard Containers, we will need to set these following values:
-- `hub = cgr.dev/$ORGANIZATION`
+
+* `hub = cgr.dev/$ORGANIZATION`
 
 > **Note**: Be aware that you will need to change `cgr.dev/$ORGANIZATION` to reflect the name of your organization's repository within Chainguard's registry.
 
-- `tag = latest`
-- `values.pilot.image = istio-pilot`
-- `values.global.proxy.image = istio-proxy`
-- `values.global.proxy_init.image = istio-proxy`
+* `tag = latest`
+* `values.pilot.image = istio-pilot`
+* `values.global.proxy.image = istio-proxy`
+* `values.global.proxy_init.image = istio-proxy`
 
 We can set these values with the following `istioctl` command:
 
@@ -88,18 +89,20 @@ istioctl install --set tag=latest --set hub=cgr.dev/$ORGANIZATION \
   --set values.global.proxy_init.image=istio-proxy
 ```
 
-The Istio Chainguard Container is now running on the kind cluster you created previously. 
-In the next section, you'll set up an Istio gateway and a VirtualService to test out 
+The Istio Chainguard Container is now running on the kind cluster you created previously.
+In the next section, you'll set up an Istio gateway and a VirtualService to test out
 this container.
 
-## Stand up a Gateway and a VirtualService 
+## Stand up a Gateway and a VirtualService
 
 To see the Istio installation in action, we will create two Istio resources:
+
 * An Istio gateway serving the "http://hello.example.com" domain
 * A VirtualService to always reply with "Hello, world!" to requests to the
-  "http://hello.example.com" domain 
+  "http://hello.example.com" domain
 
-Create a YAML manifest file with the following contents to define the Istio resources: 
+Create a YAML manifest file with the following contents to define the Istio resources:
+
 ```sh
 cat > example.yaml <<EOF
 apiVersion: networking.istio.io/v1alpha3
@@ -149,9 +152,10 @@ In another terminal, send a request to the Istio Ingress Gateway:
 ```sh
 curl -H "Host: hello.example.com" localhost:8080
 ```
+
 This will return `Hello, world!` to the terminal output.
 
-## Clean up your kind cluster 
+## Clean up your kind cluster
 
 Once you are done, you can delete your kind cluster:
 
@@ -162,4 +166,5 @@ kind delete cluster
 This will delete the default cluster context, `kind`.
 
 ## Advanced Usage
+
 {{< blurb/images-advanced image="Istio" >}}

@@ -174,4 +174,3 @@ The API returns up to 10 candidates by default. For common stacks the top result
 - The source image is not a well-known public image.
 
 To request more or fewer candidates, add a `count` field to your request body. To suppress weak matches, add a `threshold` field (default: `50.0`).
-

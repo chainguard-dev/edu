@@ -58,6 +58,7 @@ docker run --rm -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract 
 ```
 
 **Container features:**
+
 - Built on Chainguard's minimal `wolfi-base` image
 - Runs as a non-root user
 - Includes verification scripts and checksums
@@ -65,6 +66,7 @@ docker run --rm -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract 
 - Rebuilt weekly
 
 **Verify the container signature:**
+
 ```bash
 cosign verify ghcr.io/chainguard-dev/ai-docs:latest \
   --certificate-identity-regexp ".*github.com/chainguard-dev/edu.*" \
@@ -83,6 +85,7 @@ docker run --rm -i ghcr.io/chainguard-dev/ai-docs:latest serve-mcp
 ```
 
 **Available MCP tools:**
+
 - `search_docs` — search across all documentation
 - `get_image_docs` — return docs for a specific container image
 - `list_images` — list and filter available images, with optional upstream mappings
@@ -131,7 +134,6 @@ docker run --rm -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract 
   </ul>
 </div>
 
-
 ### Security transparency
 
 <div style="background-color: var(--blockquote-background); border: 1px solid var(--sidebar-item-list-item-selected-background); padding: 16px; border-radius: 6px; margin: 20px 0;">
@@ -140,6 +142,7 @@ docker run --rm -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract 
 </div>
 
 Security resources:
+
 - **[Security and compilation process](/ai-docs-security)** — measures and verification steps
 - [Build logs](https://github.com/chainguard-dev/edu/actions/workflows/compile-docs.yml) — public compilation logs
 - [Source code](https://github.com/chainguard-dev/edu/tree/main/scripts) — open-source compilation scripts
@@ -156,6 +159,7 @@ Security resources:
 Once the documentation is loaded, try these prompts with your AI assistant:
 
 #### Container security and CVEs
+
 - "Search for Chainguard container security best practices and CVE management"
 - "How do I migrate from Docker Hub images to Chainguard images?"
 - "Show me examples of using Chainguard images in production"
@@ -164,6 +168,7 @@ Once the documentation is loaded, try these prompts with your AI assistant:
 - "Explain Chainguard's approach to zero CVE images"
 
 #### Development workflows
+
 - "Find information about debugging distroless containers"
 - "How do I use Chainguard images with Kubernetes?"
 - "What are the differences between Chainguard development and production images?"
@@ -172,6 +177,7 @@ Once the documentation is loaded, try these prompts with your AI assistant:
 - "Create a Dockerfile using Chainguard's Python image for a Flask app"
 
 #### Specific technologies
+
 - "Show me Chainguard's Python/Node.js/Go image documentation"
 - "Find FIPS-compliant container information"
 - "How do I use Chainguard images for AI/ML workloads?"
@@ -180,6 +186,7 @@ Once the documentation is loaded, try these prompts with your AI assistant:
 - "Show examples of using Chainguard's NGINX image with custom configs"
 
 #### Security and compliance
+
 - "Search for SBOM and supply chain security information"
 - "Find information about Chainguard's compliance certifications"
 - "How does Chainguard help with CVE remediation?"
@@ -188,6 +195,7 @@ Once the documentation is loaded, try these prompts with your AI assistant:
 - "How to generate and analyze SBOMs for Chainguard images"
 
 #### CI/CD integration
+
 - "How do I use Chainguard images in GitHub Actions?"
 - "Show me examples of using Chainguard images with GitLab CI"
 - "How to set up automated vulnerability scanning for Chainguard images"
@@ -195,6 +203,7 @@ Once the documentation is loaded, try these prompts with your AI assistant:
 - "How to use chainctl in CI/CD workflows"
 
 #### Troubleshooting
+
 - "How do I troubleshoot 'command not found' errors in distroless images?"
 - "Why is my application failing to start in a Chainguard image?"
 - "How to debug permission issues in Chainguard containers"
@@ -202,6 +211,7 @@ Once the documentation is loaded, try these prompts with your AI assistant:
 - "How to identify missing dependencies in distroless containers"
 
 #### Architecture and best practices
+
 - "Explain the architecture of Wolfi and how it differs from Alpine"
 - "What is apko and how does it relate to Chainguard images?"
 - "Best practices for minimizing image size with Chainguard"
@@ -222,6 +232,7 @@ The bundle is rebuilt weekly. The compilation date appears at the top of the dow
 ### Need help?
 
 If you have questions or need assistance:
+
 - Visit [Chainguard Support](https://support.chainguard.dev?utm=docs)
 - Join our [community Slack](https://go.chainguard.dev/slack?utm=docs)
 - Browse the [documentation site](https://edu.chainguard.dev)

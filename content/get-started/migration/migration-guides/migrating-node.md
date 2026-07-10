@@ -102,23 +102,22 @@ section of our base migration guide.
 If you are migrating from the [official Docker image](https://hub.docker.com/_/node) there are a
 few differences that are important to be aware of.
 
- - Our images run as the `node` user with UID 65532 by default. If you need elevated privileges
+- Our images run as the `node` user with UID 65532 by default. If you need elevated privileges
    for a task, such as installing a dependency, you will need to change to the root user. For
    example add a `USER root` statement into a Dockerfile. For security reasons you should make
    sure that the production application runs with a lower privilege user such as `node`.
- - `WORKDIR` is set to `/app` which is owned by the `node` user.
- - The Docker Official images have a "smart" entrypoint that interprets the CMD setting. So `docker
+- `WORKDIR` is set to `/app` which is owned by the `node` user.
+- The Docker Official images have a "smart" entrypoint that interprets the CMD setting. So `docker
    run -it node` will launch the Node.js interpreter but `docker run -it node /bin/sh` will launch a
    shell. The latter does not work with Chainguard Containers. In the non `-dev` images, there is no
    shell to launch, and in the `-dev` images you will need to change the entrypoint e.g. `docker run
    --entrypoint /bin/sh -it cgr.dev/chainguard/node`.
- - The image has a defined `NODE_PORT=3000` environment variable which can be used by applications
- - Our Node.js images include [dumb-init](https://github.com/Yelp/dumb-init) which can be used to
+- The image has a defined `NODE_PORT=3000` environment variable which can be used by applications
+- Our Node.js images include [dumb-init](https://github.com/Yelp/dumb-init) which can be used to
    wrap the Node process in order to handle signals properly and allow for graceful shutdown. You
    can use dumb-init by setting an entrypoint such as: `ENTRYPOINT ["/usr/bin/dumb-init", "--"]`
- - In general there are many fewer libraries and utilities in the Chainguard Container. You may find that
+- In general there are many fewer libraries and utilities in the Chainguard Container. You may find that
    your application has an unexpected dependency which needs to be added into the Chainguard Container.
-
 
 ## Migration example
 
@@ -175,7 +174,6 @@ Here we've changed the image to `cgr.dev/chainguard/latest-dev` and the `CMD` co
 
 We can still do better in terms of size and security. A multi-stage Dockerfile would look like:
 
-
 ```Docker
 FROM cgr.dev/chainguard/node:latest-dev AS builder
 
@@ -207,8 +205,8 @@ docker build -t node-multi-image -f Dockerfile-multi .
 
 The advantages of this build are:
 
- - we are using `dumb-init` so the container shuts down cleanly in response to `docker stop`.
- - we do not have all the build tooling in the final image, resulting in a smaller and more secure
+- we are using `dumb-init` so the container shuts down cleanly in response to `docker stop`.
+- we do not have all the build tooling in the final image, resulting in a smaller and more secure
    production image
 
 Note that in a production app you may want to use a `package-lock.json` file and the `npm ci` command
@@ -216,7 +214,7 @@ instead of `npm install` to ensure the correct version of all dependencies is us
 
 ### Using slim images
 
-If Chainguard's Node.js image has been added to your organization's Chainguard Registry, you will have access to more tags than just `latest`, including *slim tags*. These represent Chainguard's [slim variants](/chainguard/chainguard-images/about/differences-development-production/#slim-container-variants), which have an even smaller attack surface than our standard container images. In the case of Node.js, the slim variants omit some packages that are included in the standard image for compatibility purposes, including `npm` and `busybox`. 
+If Chainguard's Node.js image has been added to your organization's Chainguard Registry, you will have access to more tags than just `latest`, including *slim tags*. These represent Chainguard's [slim variants](/chainguard/chainguard-images/about/differences-development-production/#slim-container-variants), which have an even smaller attack surface than our standard container images. In the case of Node.js, the slim variants omit some packages that are included in the standard image for compatibility purposes, including `npm` and `busybox`.
 
 Because they lack these compatibility packages, the slim Node.js images are often used in multi-stage builds. The following example updates the `Dockerfile-multi` file shown previously to point to one of Chainguard's slim Node.js images:
 
@@ -249,19 +247,18 @@ To build an image with a Dockerfile like this, your organization would need to h
 
 ## Additional Resources
 
- - The [Node.js image documentation](https://images.chainguard.dev/directory/image/node/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-node)
+- The [Node.js image documentation](https://images.chainguard.dev/directory/image/node/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-node)
 contains full details on our images, including usage documentation, provenance and security
 advisories.
 
- - The [How to Port a Sample Application to Chainguard
+- The [How to Port a Sample Application to Chainguard
 Containers](/chainguard/migration/porting-apps-to-chainguard/) article contains an example of porting a
 Node.js Dockerfile for a legacy application.
 
- - The [How to Migrate a Node.js Application to Chainguard Containers](https://edu.chainguard.dev/chainguard/chainguard-images/videos/node-images/) video works through an example of porting a Node.js Dockerfile.
+- The [How to Migrate a Node.js Application to Chainguard Containers](https://edu.chainguard.dev/chainguard/chainguard-images/videos/node-images/) video works through an example of porting a Node.js Dockerfile.
 
- - Bret Fisher has an excellent [guide to creating Node.js container
+- Bret Fisher has an excellent [guide to creating Node.js container
 images](https://github.com/BretFisher/nodejs-rocks-in-docker/), including advice for using
 distroless.
 
- - The [Debugging Distroless](/chainguard/chainguard-images/debugging-distroless-images/) guide contains important information for debugging issues with distroless images. You can also refer to the [Verifying Containers](/chainguard/chainguard-images/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/) resource for details around provenance, SBOMs, and image signatures.
-
+- The [Debugging Distroless](/chainguard/chainguard-images/debugging-distroless-images/) guide contains important information for debugging issues with distroless images. You can also refer to the [Verifying Containers](/chainguard/chainguard-images/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/) resource for details around provenance, SBOMs, and image signatures.

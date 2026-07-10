@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("h2, .page-links a").forEach((h2) => {
-    const match = /Step (\d+) [—–]/.exec(h2.innerHTML);
+    const match = /Step (\d+) ([—–])/.exec(h2.innerHTML);
     if (match) {
       h2.innerHTML = `<div class="step-container">${h2.innerHTML.replace(
         match[0],
-        `Step <span class="step">${stepNumber}</span> ${dash}`
+        `Step <span class="step">${match[1]}</span> ${match[2]}`
       )}</div>`;
     }
   });

@@ -191,32 +191,32 @@ To learn more about how the Policy Controller admits images, review the [Admissi
 
 A complete Policy Controller installation consists of the following resources in a cluster:
 
-| Type |Name |
-|----------|-----|
-| ClusterRole                    | `policy-controller-policy-webhook` |
-|                                | `policy-controller-webhook` |
-| ClusterRoleBinding             | `policy-controller-policy-webhook` |
-|                                | `policy-controller-webhook` |
-| ConfigMap                      | `config-image-policies` |
-|                                | `config-policy-controller` |
-|                                | `policy-controller-policy-webhook-logging` |
-|                                | `policy-controller-webhook-logging` |
-| CustomResourceDefinition       | `clusterimagepolicies.policy.sigstore.dev` |
-| Deployment                     | `policy-controller-policy-webhook` |
-|                                | `policy-controller-webhook` |
-| MutatingWebhookConfiguration   | `defaulting.clusterimagepolicy.sigstore.dev` |
-|                                | `policy.sigstore.dev` |
-| Role                           | `policy-controller-policy-webhook` |
-|                                | `policy-controller-webhook` |
-| RoleBinding                    | `policy-controller-policy-webhook` |
-|                                | `policy-controller-webhook` |
-| Secret                         | `policy-webhook-certs` |
-|                                | `webhook-certs` |
-| Service                        | `policy-webhook` |
-|                                | `policy-controller-policy-webhook-metrics` |
-|                                | `policy-controller-webhook-metrics` |
-|                                | `webhook` |
-| ServiceAccount                 | `policy-controller-policy-webhook` |
-|                                | `policy-controller-webhook` |
+| Type | Name |
+| ---------- | ----- |
+| ClusterRole | `policy-controller-policy-webhook` |
+| | `policy-controller-webhook` |
+| ClusterRoleBinding | `policy-controller-policy-webhook` |
+| | `policy-controller-webhook` |
+| ConfigMap | `config-image-policies` |
+| | `config-policy-controller` |
+| | `policy-controller-policy-webhook-logging` |
+| | `policy-controller-webhook-logging` |
+| CustomResourceDefinition | `clusterimagepolicies.policy.sigstore.dev` |
+| Deployment | `policy-controller-policy-webhook` |
+| | `policy-controller-webhook` |
+| MutatingWebhookConfiguration | `defaulting.clusterimagepolicy.sigstore.dev` |
+| | `policy.sigstore.dev` |
+| Role | `policy-controller-policy-webhook` |
+| | `policy-controller-webhook` |
+| RoleBinding | `policy-controller-policy-webhook` |
+| | `policy-controller-webhook` |
+| Secret | `policy-webhook-certs` |
+| | `webhook-certs` |
+| Service | `policy-webhook` |
+| | `policy-controller-policy-webhook-metrics` |
+| | `policy-controller-webhook-metrics` |
+| | `webhook` |
+| ServiceAccount | `policy-controller-policy-webhook` |
+| | `policy-controller-webhook` |
 | ValidatingWebhookConfiguration | `validating.clusterimagepolicy.sigstore.dev` |
-|                                | `policy.sigstore.dev` |
+| | `policy.sigstore.dev` |

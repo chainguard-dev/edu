@@ -20,14 +20,12 @@ The Chainguard platform supports Single sign-on (SSO) authentication for users. 
 
 This guide outlines how to create a Ping Identity Application and integrate it with Chainguard. After completing this guide, you'll be able to log in to Chainguard using Ping and will no longer be limited to the default SSO options.
 
-
 ## Prerequisites
 
 To complete this guide, you will need the following.
 
 * `chainctl` installed on your system. Follow our guide on [How To Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) if you don't already have this installed.
 * A Ping Identity account over which you have administrative access.
-
 
 ## Create a Ping Identity Application
 
@@ -80,7 +78,6 @@ Finally, enable the Chainguard application by toggling the button in the top rig
 
 This completes configuration of the Ping application. You're now ready to configure the Chainguard platform to use it.
 
-
 ## Configuring Chainguard to use Ping SSO
 
 Now that your Okta application is ready, you can create the custom identity provider.
@@ -106,8 +103,9 @@ You can retrieve a list of all the Chainguard organizations you belong to — al
 ```shell
 chainctl iam organizations ls -o table
 ```
+
 ```output
-                         	ID                         	|  	  NAME    |	DESCRIPTION
+                          ID                          |     NAME    | DESCRIPTION
 --------------------------------------------------------+-------------+---------------------
   59156e77fb23e1e5ebcb1bd9c5edae471dd85c43              | sample_org  |
   . . .                                                 | . . .       |

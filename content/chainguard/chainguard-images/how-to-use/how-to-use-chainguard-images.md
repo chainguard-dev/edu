@@ -39,7 +39,6 @@ Without passing a tag or a digest, the reference to the Git image will pull down
 
 If you have your own registry, you'll need to change the `cgr.dev/chainguard` path to your own registry path.
 
-
 Chainguard free Starter container images are also available on Docker Hub. Check out [Chainguard's organization page on Docker Hub](https://hub.docker.com/u/chainguard?utm_source=academy&utm_medium=referral&utm_campaign=FY25-DockerHub-Orgprofile) for a list of all images and instructions. Note that paid Production images can only be accessed from cgr.dev.
 
 ### Pulling by Tag
@@ -143,6 +142,7 @@ It often happens that you want a [distroless](/chainguard/chainguard-images/gett
 3. Use Chainguard’s [melange and apko tooling to create a custom base image](/open-source/build-tools/melange/getting-started-with-melange/). This keeps the image as minimal as possible without sacrificing maintainability.
 
 ### Using the wolfi-base container image
+
 The `wolfi-base` image is a good starting point to try out Chainguard Containers. Unlike most of the other images, which are strictly distroless, `wolfi-base` includes the `apk` package manager, which facilitates composing additional software into it. Just keep in mind that the resulting image will be a little larger due to the extra software and won't have a comprehensive SBOM that covers all your dependencies, since the new software will be added as a layer on top of `wolfi-base`.
 
 The following command will pull the `wolfi-base` image to your local system and run an interactive shell that you can use to explore the image features:
@@ -204,7 +204,6 @@ You should get output like this, with a random piece of advice:
 ```
 
 Check also the [Wolfi Images with Dockerfiles](/open-source/wolfi/wolfi-with-dockerfiles/) guide for more examples using Wolfi-based images with Dockerfiles, and the [Getting Started with Distroless](/chainguard/chainguard-images/getting-started-distroless/) guide for more details about distroless images and how to use them in Docker multi-stage builds.
-
 
 ## A Note regarding package availability in Chainguard Containers
 

@@ -36,6 +36,7 @@ This guide covers three ways to use the WordPress Chainguard Container to build 
 {{< /details >}}
 
 ## Preparation
+
 This guide requires Docker. Download and install it from the [official Docker website](https://docs.docker.com/get-docker/) if you don't have it.
 
 The images in this guide require a free Chainguard account. Sign up at [chainguard.dev](https://www.chainguard.dev/) if you don't have one, then authenticate:
@@ -54,6 +55,7 @@ docker pull cgr.dev/chainguard/nginx
 ```
 
 ### Clone the demos repository
+
 Clone the demos repository to your local machine:
 
 ```shell
@@ -69,6 +71,7 @@ cd edu-images-demos/php/wordpress
 You'll find three directories, one for each example in this guide.
 
 ## Example 1: Testing the container image with a fresh WordPress install
+
 The `latest-dev` variant of the Chainguard WordPress Container lets you run a fresh WordPress installation and explore the setup wizard. Changes you make won't persist after you stop the environment — the next example shows how to persist customizations using a volume.
 
 The files for this example are in the `01-preview` directory. Open `docker-compose.yml` in your editor to follow along.
@@ -162,6 +165,7 @@ docker compose down
 This removes the containers and networks. The next example shows how to mount a volume so that customizations like themes and plugins persist.
 
 ## Example 2: Customizing a new WordPress installation
+
 To keep customizations — themes, plugins, and other changes — between container rebuilds, you need a volume with the correct permissions. This requires a user inside the container with the same UID as your host user. This example uses a custom Dockerfile to add a `wordpress` user with a configurable UID (defaulting to `1000`, the typical UID for a non-root user on Linux) and sets ownership of the document root accordingly.
 
 Navigate to `02-customizing` to follow along. Here's the Dockerfile:
@@ -283,6 +287,7 @@ docker compose down
 The next example shows how to build a distroless WordPress image for production.
 
 ## Example 3: Using the distroless variant of the WordPress container image
+
 This example uses a multi-stage Docker build to produce a distroless image with a smaller attack surface. The distroless image includes only the dependencies needed to run WordPress, without a shell or package manager.
 
 The key difference from the previous examples is that all WordPress files — including any customizations in `wp-content` — are baked into the image at build time rather than populated at runtime. This makes the image self-contained: it doesn't rely on init steps or host volumes. Adding custom content at build time increases the final image size, but prevents filesystem changes once the container is running.

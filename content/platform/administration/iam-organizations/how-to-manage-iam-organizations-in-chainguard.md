@@ -20,7 +20,7 @@ weight: 010
 toc: true
 ---
 
-Chainguard provides a rich Identity and Access Management (IAM) model similar to those used by AWS and GCP. This guide outlines how to manage Chainguard's IAM structures with the [`chainctl` command line tool](/chainguard/chainctl/).
+Chainguard provides a rich Identity and Access Management (IAM) model similar to those used by AWS and GCP. This guide outlines how to manage Chainguard's IAM structures with the [`chainctl` command line tool](/platform/chainctl/).
 
 > **Note**: You should work with Chainguard's Customer Success team to create or delete organizations. This will help to ensure that no users lose access to resources and that your IAM structure is configured correctly.
 

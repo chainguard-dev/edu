@@ -48,7 +48,6 @@ Then you can use the URL in this command's output to complete the login flow fro
 chainctl config set auth.device-flow chainguard
 ```
 
-
 ### Setting a default identity provider
 
 As an alternative to remembering identity provider IDs, you can set the default identity provider by editing the `chainctl` configuration file. You can do so with the following command.
@@ -73,7 +72,6 @@ chainctl config set default.identity-provider <your identity provider id here>
 ```
 
 Once set, the configured identity provider will be used automatically any time you run `chainctl auth login`.
-
 
 ### Authenticate with `chainctl` using a Verified Organization
 
@@ -102,15 +100,14 @@ To authenticate with the Chainguard Console, [open the login screen](https://con
 
 <center><img src="cg-all-signin-24.png" alt="Screenshot showing an example Chainguard login box, with all described options shown." style="width:600px;"></center>
 
-
 In each of these cases, you will be redirected to an external identity provider to authenticate and then returned to the Chainguard Console. If you are using your email and a password, authentication is handled by and credentials are stored with [Auth0](https://auth0.com/).
 
 ## Setup and Administration
 
 Chainguard SSO supports OpenID Connect (OIDC) compatible identity providers. In addition, identity providers must support the following:
 
-* The `authorization code` grant type (sometimes called the `authorization code` *flow*).
-* The standard `openid`, `email`, and `profile` scopes. Note that the Chainguard platform [will partially function](https://openid.net/specs/openid-connect-basic-1_0.html#Scopes) with only the `openid` scope, but full functionality requires the `email` and `profile` scopes as well.
+- The `authorization code` grant type (sometimes called the `authorization code` *flow*).
+- The standard `openid`, `email`, and `profile` scopes. Note that the Chainguard platform [will partially function](https://openid.net/specs/openid-connect-basic-1_0.html#Scopes) with only the `openid` scope, but full functionality requires the `email` and `profile` scopes as well.
 
 Customer-managed identity providers must also have a public, unauthenticated OIDC discovery endpoint.
 
@@ -118,35 +115,33 @@ Typically, identity providers enable you to set up SSO by creating a specific re
 
 To set up SSO for your identity provider, you must configure one of these resources to use OIDC so that the Chainguard platform can interact with the provider. Following that, you have to configure the Chainguard platform to use that application.
 
-
 ### Integration Guides for supported identity providers
 
 We have [published guides for multiple platforms](/chainguard/administration/custom-idps/), including Okta and Ping Identity. If you aren’t using one of these identity providers, you can complete the following Generic Integration Guide to configure your provider to work with Chainguard. However, be aware that Chainguard does not actively support identity providers other than the ones listed previously. If you are using an alternate identity provider, we encourage you to contact us to learn more.
-
 
 ### Generic Integration Guide
 
 For a generic OIDC-compatible identity provider, start by creating an OIDC application. If possible, set as much metadata as possible for the application so that your users can identify this application as the Chainguard platform. The following assets and details can be helpful to include in the metadata:
 
-* The Console homepage is [console.chainguard.dev/](https://console.chainguard.dev)
-* Our terms of service can be found at [chainguard.dev/terms-of-service](https://www.chainguard.dev/terms-of-service)
-* Our terms of use can be found at [chainguard.dev/terms-of-use](https://www.chainguard.dev/terms-of-use)
-* Our privacy policy is located at [chainguard.dev/privacy-notice](https://www.chainguard.dev/privacy-notice)
-* You can also add a Chainguard logo icon here to help your users visually identify this integration. The icon from the [Chainguard Console](https://console.chainguard.dev/logo512.png) will be suitable for most platforms
+- The Console homepage is [console.chainguard.dev/](https://console.chainguard.dev)
+- Our terms of service can be found at [chainguard.dev/terms-of-service](https://www.chainguard.dev/terms-of-service)
+- Our terms of use can be found at [chainguard.dev/terms-of-use](https://www.chainguard.dev/terms-of-use)
+- Our privacy policy is located at [chainguard.dev/privacy-notice](https://www.chainguard.dev/privacy-notice)
+- You can also add a Chainguard logo icon here to help your users visually identify this integration. The icon from the [Chainguard Console](https://console.chainguard.dev/logo512.png) will be suitable for most platforms
 
 Next, configure your OIDC application as follows:
 
-* Set redirect URI to `https://issuer.enforce.dev/oauth/callback`
-* Restrict grant types to **authorization code** only. It is critical that your application does not support "client credentials", "device code", "implicit" or other grant types (sometimes called “flows”)
-* Restrict response types to only authorization codes (sometimes called just “code”)
-* Enable “openid”, “email” and “profile” scopes for application
-* Disable or set PKCE to **optional**
+- Set redirect URI to `https://issuer.enforce.dev/oauth/callback`
+- Restrict grant types to **authorization code** only. It is critical that your application does not support "client credentials", "device code", "implicit" or other grant types (sometimes called “flows”)
+- Restrict response types to only authorization codes (sometimes called just “code”)
+- Enable “openid”, “email” and “profile” scopes for application
+- Disable or set PKCE to **optional**
 
 Finally, configure a set of client credentials and make note of the following details to configure Chainguard:
 
-* The issuer URL
-* Client ID
-* Client Secret
+- The issuer URL
+- Client ID
+- Client Secret
 
 Next, use `chainctl` to log in to Chainguard with an OIDC provider (such as Google, GitHub, or GitLab) to bootstrap your account.
 
@@ -180,23 +175,23 @@ The `oidc-issuer`, `oidc-client-id`, and `oidc-issuer-secret` values are require
 
 Be aware that if you don't include the `--parent` or `--default-role` options in the command, you will be prompted to select these values interactively
 
-* The `--parent` option specifies which Chainguard IAM organization your identity provider will be installed under.
-* The `--default-role` option defines the default role granted to users registering with this identity provider. The previous example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. For more information, refer to the [IAM and Security section](#iam-and-security).
+- The `--parent` option specifies which Chainguard IAM organization your identity provider will be installed under.
+- The `--default-role` option defines the default role granted to users registering with this identity provider. The previous example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. For more information, refer to the [IAM and Security section](#iam-and-security).
 
 You can retrieve a list of all your Chainguard organizations — along with their UIDPs — with the following command.
 
 ```shell
 chainctl iam organizations ls -o table
 ```
+
 ```output
-                        	ID                      	|    NAME    | DESCRIPTION
+                         ID                       |    NAME    | DESCRIPTION
 --------------------------------------------------------+------------+---------------------
-  59156e77fb23e1e5ebcb1bd9c5edae471dd85c43          	| sample_org |
-  . . .                                             	| . . .      |
+  59156e77fb23e1e5ebcb1bd9c5edae471dd85c43           | sample_org |
+  . . .                                              | . . .      |
 ```
 
 Your organization selection won’t affect how your users authenticate but will have implications on who has permission to modify the SSO configuration.
-
 
 ## Managing Existing Identity Providers
 
@@ -232,7 +227,6 @@ chainctl iam identity-provider delete
 
 For more details, check out the [`chainctl` documentation for these commands](/chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers/).
 
-
 ## IAM and Security
 
 Once an identity provider has been created on the Chainguard platform, any user that can authenticate with that identity provider will be able to use it to access the Chainguard platform. It’s important to note that users can do so even if they have no IAM capabilities with the IAM organization at which the identity provider is defined. Identity providers give access to the Chainguard platform, but not the specific IAM organization where the identity provider is defined.
@@ -244,7 +238,6 @@ The IAM capabilities `identity_providers.create`, `identity_providers.update`, `
 | `viewer`   | `identity_providers.list`   |
 | `editor`   | `identity_providers.list`   |
 | `owner`   | `identity_providers.create`, `identity_providers.list`, `identity_providers.update`, `identity_providers.delete`   |
-
 
 ## Backup accounts
 

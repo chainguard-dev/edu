@@ -20,7 +20,6 @@ In addition, you can now grant access to users using Terraform and identity prov
 
 This guide outlines one method of using Terraform to grant members of a GitHub team access to the resources managed by a Chainguard organization. It also highlights a few other Terraform configurations you can use to manage role-bindings in the Chainguard platform. Although this guide is specific to GitHub, the same approach can be used for other systems.
 
-
 ## Prerequisites
 
 To complete this guide, you will need the following.
@@ -29,7 +28,6 @@ To complete this guide, you will need the following.
 * `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up.
 * Access to a GitHub team. If you'd like, you can create a new GitHub organization and team for testing purposes. Check out [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/creating-a-team) for details on how to do this.
 * A GitHub Personal Access Token, with a minimum of **read.org** access. Follow [GitHub's documentation on the subject](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) to learn how to set one up. Additionally, you will need to [configure SSO for your personal access token](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on) if required by your organization.
-
 
 ## Setting up your Environment
 
@@ -64,10 +62,10 @@ Scroll through this command's output to find the `slug` value for the team in qu
 . . .
 
   {
-	"name": "Team Name",
-	"id": 9999999,
-	"node_id": "T_kwDOBTYtm84AbTQX",
-	"slug": "team-slug",
+ "name": "Team Name",
+ "id": 9999999,
+ "node_id": "T_kwDOBTYtm84AbTQX",
+ "slug": "team-slug",
 . . .
   },
 . . .
@@ -94,13 +92,11 @@ export CHAINGUARD_ORG="<UIDP of target Chainguard IAM organization>"
 
 Following that, you will have everything you need in place to set up the Terraform configuration.
 
-
 ## Creating your Terraform Configuration
 
 As mentioned previously, we will be using Terraform to create role-bindings for each user in a GitHub team, giving them access to resources associated with a given Chainguard organization. This guide outlines how to create two Terraform configuration files that, together, will produce a set of such role-bindings.
 
 To help explain both files' purposes, we will go over what they do and how to create each one individually.
-
 
 ### `main.tf`
 
@@ -151,7 +147,6 @@ EOF
 ```
 
 Next, you will create the other configuration file that will actually create the role-bindings for your GitHub team.
-
 
 ### `rolebindings.tf`
 
@@ -259,7 +254,6 @@ This is an escape character which will prevent the dollar sign in that line from
 
 Now that your Terraform configuration is in place, you're ready to apply it and create role-bindings for each member of your GitHub team.
 
-
 ## Applying your Terraform Configuration
 
 First, run `terraform init` to initialize Terraform's working directory.
@@ -314,7 +308,6 @@ After navigating to the Console or running the login command, they will be prese
 
 There, they must click the **Continue with GitHub** button to continue logging in under their GitHub account. Chainguard will immediately recognize their GitHub account because it is tied to the role-binding you created in the previous step, and they will be able to view the resources associated with the Chainguard organization specified in your Terraform configuration.
 
-
 ## Optional Configurations
 
 The Terraform configuration used in this guide is meant to serve as a starting point, and we encourage you to tweak and expand on it to suit your organization's needs. This section contains a few alternative configurations that you may find useful.
@@ -329,7 +322,7 @@ data "chainguard_roles" "editor" {
 resource "chainguard_rolebinding" "cg-binding" {
   for_each = toset(data.chainguard_identity.team_ids)
   identity = each.value.id
-  group	= "$CHAINGUARD_ORG"
+  group = "$CHAINGUARD_ORG"
   role     = data.chainguard_roles.editor.items[0].id
 }
 ```
@@ -353,7 +346,6 @@ data "chainguard_identity" "gh-user-chainguard-rb" {
 
 You can refer to the [Terraform language documentation](https://developer.hashicorp.com/terraform/language) for more information on extending the configuration outlined in this guide to suit your own needs.
 
-
 ## Removing Sample Resources
 
 To remove the resources Terraform created, you can run the `terraform destroy` command.
@@ -369,7 +361,6 @@ rm -r ~/github-team/
 ```
 
 Following that, all of the example resources created in this guide will be removed from your system.
-
 
 ## Learn More
 

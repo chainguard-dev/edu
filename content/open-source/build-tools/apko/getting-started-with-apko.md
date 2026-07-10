@@ -20,6 +20,7 @@ toc: true
 [apko](http://github.com/chainguard-dev/apko) is a command-line tool to build container images using a declarative language based on YAML. apko is so named as it uses the [apk](https://wiki.alpinelinux.org/wiki/Package_management) package format and is inspired by the [ko](https://github.com/google/ko) build tool. It is part of the open source tooling Chainguard developed to create the [Wolfi](/open-source/wolfi/) operating system which is used in [Chainguard Containers](/chainguard/chainguard-images/).
 
 ## Why apko
+
 Container images are typically assembled in multiple steps. A tool like Docker, for example, combines building steps (as in, running commands to copy files, build and deploy applications) and composition (as in, composing a base image with pre-built packages) in a single piece of software. apko, on the other hand, is solely a **composition** tool that focuses on producing lightweight, "flat" base images that are fully reproducible and contain auto generated [SBOM](https://www.cisa.gov/sbom) files for every successful build.
 
 Instead of building your application together with your components and system dependencies, you can build your application once and compose it into different architectures and distributions, using a tool such as [melange](https://github.com/chainguard-dev/melange) in combination with apko. For more information on how melange and apko work together, you can check this blog post: [Secure your Software Factory with melange and apko](https://www.chainguard.dev/unchained/secure-your-software-factory-with-melange-and-apko).
@@ -65,7 +66,6 @@ GitVersion:    v0.6.0
 ```
 
 In the next step, you'll build your first apko image.
-
 
 ## Step 2 — Build a Test Image
 
@@ -140,7 +140,9 @@ To test the generated image with Docker, you'll need to use the `docker load` co
 ```shell
 docker load <  wolfi-test.tar
 ```
+
 You'll get output like this:
+
 ```
 bf6e72d71c13: Loading layer [==================================================>]  5.491MB/5.491MB
 Loaded image: wolfi-base:test-amd64
@@ -168,4 +170,3 @@ In this guide, you learned what apko is and what makes it a powerful resource in
 
 If you need help debugging your build, check our [Troubleshooting apko](/open-source/apko/troubleshooting/) page for more information.
 Check the [official apko repository](https://github.com/chainguard-dev/apko/) if you want to report an issue or suggest new features.
-
