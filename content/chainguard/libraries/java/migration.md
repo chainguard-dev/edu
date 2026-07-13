@@ -132,58 +132,18 @@ The `https://libraries.cgr.dev/java/` endpoint is also the [Chainguard Repositor
 
 {{% tab title="Maven" %}}
 
-Maven repository configuration is split across two files: repository URLs go in your project's `pom.xml`, and credentials go in `~/.m2/settings.xml`. The `server` IDs in `settings.xml` must match the `repository` IDs in `pom.xml` — Maven pairs them automatically by ID when resolving credentials.
+Maven repository and credentials configuration lives in a `settings.xml` file. For a project-local setup, place this file in the `.mvn` folder of your project and pass `-s .mvn/settings.xml` when running Maven commands. 
 
-Add the following repositories and pluginRepositores blocks to your `pom.xml`, inside the `project` element. This configuration sets the Chainguard [remediated repository](/chainguard/libraries/cve-remediation/) as the first source, followed by the standard Chainguard repository, with Maven Central set as `invalid` to avoid accidental unintended fallback to the public repository:
-
-```xml
-<repositories>
-  <repository>
-    <id>chainguard-remediated</id>
-    <url>https://libraries.cgr.dev/java-remediated/</url>
-    <releases><enabled>true</enabled></releases>
-    <snapshots><enabled>false</enabled></snapshots>
-  </repository>
-  <repository>
-    <id>chainguard</id>
-    <url>https://libraries.cgr.dev/java/</url>
-    <releases><enabled>true</enabled></releases>
-    <snapshots><enabled>false</enabled></snapshots>
-  </repository>
-  <repository>
-    <id>central</id>
-    <url>https://invalid</url>
-    <releases><enabled>true</enabled></releases>
-    <snapshots><enabled>false</enabled></snapshots>
-  </repository>
-</repositories>
-
-<pluginRepositories>
-  <pluginRepository>
-    <id>chainguard-remediated</id>
-    <url>https://libraries.cgr.dev/java-remediated/</url>
-    <releases><enabled>true</enabled></releases>
-    <snapshots><enabled>false</enabled></snapshots>
-  </pluginRepository>
-  <pluginRepository>
-    <id>chainguard</id>
-    <url>https://libraries.cgr.dev/java/</url>
-    <releases><enabled>true</enabled></releases>
-    <snapshots><enabled>false</enabled></snapshots>
-  </pluginRepository>
-  <pluginRepository>
-    <id>central</id>
-    <url>https://invalid</url>
-    <releases><enabled>true</enabled></releases>
-    <snapshots><enabled>false</enabled></snapshots>
-  </pluginRepository>
-</pluginRepositories>
-```
-
-Next, run the following command to add credentials to `~/.m2/settings.xml`:
+First, create a `.mvn` directory if it doesn't already exist:
 
 ```bash
-printf '%s\n' '<settings>
+mkdir -p .mvn
+```
+
+Next, create a `.mvn/settings.xml` file with the following content. This configuration sets the Chainguard [remediated repository](/chainguard/libraries/cve-remediation/) as the first source, followed by the standard Chainguard repository, with Maven Central set as `invalid` to avoid accidental unintended fallback to the public repository:
+
+```xml
+<settings>
   <servers>
     <server>
       <id>chainguard-remediated</id>
@@ -196,8 +156,61 @@ printf '%s\n' '<settings>
       <password>${env.CHAINGUARD_JAVA_TOKEN}</password>
     </server>
   </servers>
-</settings>' > ~/.m2/settings.xml
+
+  <profiles>
+    <profile>
+      <id>chainguard</id>
+      <repositories>
+        <repository>
+          <id>chainguard-remediated</id>
+          <url>https://libraries.cgr.dev/java-remediated/</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
+        </repository>
+        <repository>
+          <id>chainguard</id>
+          <url>https://libraries.cgr.dev/java/</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
+        </repository>
+        <repository>
+          <id>central</id>
+          <url>https://invalid</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
+        </repository>
+      </repositories>
+
+      <pluginRepositories>
+        <pluginRepository>
+          <id>chainguard-remediated</id>
+          <url>https://libraries.cgr.dev/java-remediated/</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
+        </pluginRepository>
+        <pluginRepository>
+          <id>chainguard</id>
+          <url>https://libraries.cgr.dev/java/</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
+        </pluginRepository>
+        <pluginRepository>
+          <id>central</id>
+          <url>https://invalid</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>chainguard</activeProfile>
+  </activeProfiles>
+</settings>
 ```
+
+> **Note**: Add `.mvn/settings.xml` to your `.gitignore` to avoid accidentally committing it, since it references credentials via environment variables but should not itself be committed to version control.
 
 {{% /tab %}}
 
