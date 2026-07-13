@@ -237,7 +237,7 @@ curl -s \
   | jq .
 ```
 
-Check whether a package is blocked. For example, see if 
+Check whether a specific package is blocked. For example, to check for blocked `axios` packages:
 
 ```bash
 curl -s \
