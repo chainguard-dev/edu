@@ -203,7 +203,41 @@ Chainguard's scanning evaluates multiple signal types, including:
   environment to see if there are attempts to call out to an external server,
   read system files, or execute hidden payloads.
 
-Use Chainguard's [malware API endpoint](/chainguard/api/spec-api-v1/#tag/malware) to query malware scanning details.
+#### Malware API
+
+Chainguard's [malware API endpoint](/chainguard/api/spec-api-v1/#tag/malware) provides access to Chainguard's malware blocklist. You can use it to retrievve packages that have been identified as malicious and blocked by Chainguard.
+
+Expand the following section to see examples:
+
+{{< details "Malware API examples" >}}
+
+First, get an access token:
+
+```bash
+TOKEN=$(chainctl auth token --audience=https://console-api.enforce.dev)
+```
+
+Then, use the API to query malware details.
+
+List blocked packages for an ecosystem. For example, to see all Maven packages blocked:
+
+```bash
+curl -s \
+  -H "Authorization: Bearer $TOKEN" \
+  "https://console-api.enforce.dev/libraries/v1/malware/blocklist?ecosystem=MAVEN&page_size=10" \
+  | jq .
+```
+
+List packages blocked since a specified date. For example, to see PyPI packages blocked since July 1, 2026:
+
+```bash
+curl -s \
+  -H "Authorization: Bearer $TOKEN" \
+  "https://console-api.enforce.dev/libraries/v1/malware/blocklist?ecosystem=PYPI&since=2026-07-01T00:00:00Z&page_size=10" \
+  | jq .
+```
+
+{{< /details >}}
 
 ### Cooldown period
 
