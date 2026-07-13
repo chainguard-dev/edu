@@ -132,7 +132,7 @@ The `https://libraries.cgr.dev/java/` endpoint is also the [Chainguard Repositor
 
 {{% tab title="Maven" %}}
 
-Maven repository and credentials configuration lives in a `settings.xml` file. For a project-local setup, place this file in the `.mvn` folder of your project and pass `-s .mvn/settings.xml` when running Maven commands.
+Maven repository and credentials configuration lives in a `settings.xml` file. For a project-local setup, place this file in the `.mvn` folder of your project and pass `-s .mvn/settings.xml` when running Maven commands. 
 
 First, create a `.mvn` directory if it doesn't already exist:
 
@@ -209,8 +209,6 @@ Next, create a `.mvn/settings.xml` file with the following content. This configu
   </activeProfiles>
 </settings>
 ```
-
-> **Note**: Add `.mvn/settings.xml` to your `.gitignore` to avoid accidentally committing it, since it references credentials via environment variables but should not itself be committed to version control.
 
 {{% /tab %}}
 
@@ -579,7 +577,7 @@ find ~/Library/Caches/bazel -path "*cgr.dev*" -name "jackson-databind*.jar" 2>/d
 Then verify using the full path. For example:
 
 ```bash
-chainctl libraries verify ~/Library/Caches/bazel/_bazel_example/c22a55500fa8462e9bf6b663d5366abd/external/rules_jvm_external++maven+maven/v1/https/45a0c61ea6fd977f050c5fb9ac06a69eed764595/1f4231148aeda823%40libraries.cgr.dev/java/com/fasterxml/jackson/core/jackson-databind/2.9.10/jackson-databind-2.9.10.jar
+chainctl libraries verify ~/Library/Caches/bazel/_bazel_example/c22a55500...f4231148aeda823%40libraries.cgr.dev/java/com/fasterxml/jackson/core/jackson-databind/2.9.10/jackson-databind-2.9.10.jar
 ```
 
 {{% /tab %}}
