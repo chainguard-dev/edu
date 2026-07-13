@@ -205,7 +205,7 @@ Chainguard's scanning evaluates multiple signal types, including:
 
 #### Malware API
 
-Chainguard's [malware API endpoint](/chainguard/api/spec-api-v1/#tag/malware) provides access to Chainguard's malware blocklist. You can use it to retrievve packages that have been identified as malicious and blocked by Chainguard.
+Chainguard's [malware API endpoint](/chainguard/api/spec-api-v1/#tag/malware) provides access to Chainguard's malware blocklist. You can use it to retrieve packages that have been identified as malicious and blocked by Chainguard.
 
 Expand the following section to see examples:
 
@@ -219,12 +219,12 @@ TOKEN=$(chainctl auth token --audience=https://console-api.enforce.dev)
 
 Then, use the API to query malware details.
 
-List blocked packages for an ecosystem. For example, to see the 10 most recent Maven packages blocked:
+List blocked packages for an ecosystem. For example, to see the 10 most recent JavaScript packages blocked:
 
 ```bash
 curl -s \
   -H "Authorization: Bearer $TOKEN" \
-  "https://console-api.enforce.dev/libraries/v1/malware/blocklist?ecosystem=MAVEN&page_size=10" \
+  "https://console-api.enforce.dev/libraries/v1/malware/blocklist?ecosystem=NPM&page_size=10" \
   | jq .
 ```
 
@@ -234,6 +234,15 @@ List packages blocked since a specified date. For example, to see PyPI packages 
 curl -s \
   -H "Authorization: Bearer $TOKEN" \
   "https://console-api.enforce.dev/libraries/v1/malware/blocklist?ecosystem=PYPI&since=2026-07-01T00:00:00Z&page_size=10" \
+  | jq .
+```
+
+Check whether a package is blocked. For example, see if 
+
+```bash
+curl -s \
+  -H "Authorization: Bearer $TOKEN" \
+  "https://console-api.enforce.dev/libraries/v1/malware/blocklist?ecosystem=NPM&packageName=axios" \
   | jq .
 ```
 
