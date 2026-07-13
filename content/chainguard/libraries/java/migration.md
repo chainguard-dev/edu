@@ -288,7 +288,9 @@ Once configured, point your build tool at your repository manager URL. In this s
 
 {{% tab title="Maven" %}}
 
-Create or update `~/.m2/settings.xml` to point Maven at your repository manager and override Central with invalid URLs:
+Create or update `~/.m2/settings.xml` to point Maven at your repository manager and override Central with invalid URLs. See examples in [Chainguard's demo repository on GitHub](https://github.com/chainguard-demo/chainguard-libraries-java/tree/main/tools) for different repository managers. 
+
+Use a configuration similar to the following. Make sure to update the credentials in the `server` section to use your repository manager account credentials, using environment variables when possible:
 
 ```xml
 <settings>
@@ -297,7 +299,7 @@ Create or update `~/.m2/settings.xml` to point Maven at your repository manager 
     <mirror>
       <!-- Set the identifier for the server credentials for repository manager access
       must match server name in "servers" -->
-      <id>nexus</id>
+      <id>example</id>
       <!-- Send all requests to the repository manager URL -->
       <mirrorOf>*</mirrorOf>
       <!-- Ordered repository group with
@@ -354,8 +356,6 @@ Create or update `~/.m2/settings.xml` to point Maven at your repository manager 
   </servers>
 </settings>
 ```
-
-See additional examples in [Chainguard's demo repository on GitHub](https://github.com/chainguard-demo/chainguard-libraries-java/tree/main/tools).
 
 {{% /tab %}}
 
