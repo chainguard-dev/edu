@@ -288,9 +288,9 @@ Once configured, point your build tool at your repository manager URL. In this s
 
 {{% tab title="Maven" %}}
 
-Create or update `~/.m2/settings.xml` to point Maven at your repository manager and override Central with invalid URLs. See examples in [Chainguard's demo repository on GitHub](https://github.com/chainguard-demo/chainguard-libraries-java/tree/main/tools) for different repository managers. 
+Create or update `~/.m2/settings.xml` to point Maven at your repository manager and override Central with invalid URLs. See example settings files in [Chainguard's demo repository on GitHub](https://github.com/chainguard-demo/chainguard-libraries-java/tree/main/tools) for different repository managers. 
 
-Use a configuration similar to the following. Make sure to update the credentials in the `server` section to use your repository manager account credentials, using environment variables when possible:
+Use a configuration similar to the following. Make sure to update the credentials in the `server` section to use your repository manager account credentials, using environment variables when possible. This example uses environment variables for Artifactory credentials:
 
 ```xml
 <settings>
@@ -350,8 +350,8 @@ Use a configuration similar to the following. Make sure to update the credential
   <servers>
     <server>
       <id>repo-manager</id>
-      <username>YOUR_REPO_MANAGER_USERNAME</username>
-      <password>YOUR_REPO_MANAGER_PASSWORD</password>
+      <username>${env.ARTIFACTORY_USERNAME}</username>
+      <password>{env.ARTIFACTORY_PASSWORD}</password>
     </server>
   </servers>
 </settings>
