@@ -219,7 +219,7 @@ TOKEN=$(chainctl auth token --audience=https://console-api.enforce.dev)
 
 Then, use the API to query malware details.
 
-List blocked packages for an ecosystem. For example, to see all Maven packages blocked:
+List blocked packages for an ecosystem. For example, to see the 10 most recent Maven packages blocked:
 
 ```bash
 curl -s \
