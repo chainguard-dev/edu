@@ -132,7 +132,7 @@ The `https://libraries.cgr.dev/java/` endpoint is also the [Chainguard Repositor
 
 {{% tab title="Maven" %}}
 
-Maven repository and credentials configuration lives in a `settings.xml` file. For a project-local setup, place this file in the `.mvn` folder of your project and pass `-s .mvn/settings.xml` when running Maven commands. 
+Maven repository and credentials configuration lives in a `settings.xml` file. For a project-local setup, place this file in the `.mvn` folder of your project and pass `-s .mvn/settings.xml` when running Maven commands.
 
 First, create a `.mvn` directory if it doesn't already exist:
 
