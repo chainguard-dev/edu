@@ -105,11 +105,11 @@ The Dockerfile migration agent runs server-side, but its access to your environm
 
 - **Workspace analysis.** The agent scans your workspace to understand your Dockerfile and [build context](https://docs.docker.com/build/concepts/context/).
 - **Analysis tools.** During a migration, the agent has access to tools for:
-  - Searching `APKINDEX`.
-  - Finding which package provides a given binary or library.
-  - Comparing installed packages and filesystem layers between the original and migrated images.
-  - Running commands in built images.
-  - Reading build context files such as `requirements.txt`, `package.json`, and similar.
+    - Searching `APKINDEX`.
+    - Finding which package provides a given binary or library.
+    - Comparing installed packages and filesystem layers between the original and migrated images.
+    - Running commands in built images.
+    - Reading build context files such as `requirements.txt`, `package.json`, and similar.
 - **Interactive guidance.** If the agent cannot resolve an issue automatically, it prompts you for guidance with suggested alternatives. In `--non-interactive` mode it skips these prompts and automatically selects the first suggestion.
 
 ## Next steps
