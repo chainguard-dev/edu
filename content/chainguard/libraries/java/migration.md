@@ -132,7 +132,7 @@ The `https://libraries.cgr.dev/java/` endpoint is also the [Chainguard Repositor
 
 {{% tab title="Maven" %}}
 
-Maven repository and credentials configuration lives in a `settings.xml` file. For a project-local setup, place this file in the `.mvn` folder of your project and pass `-s .mvn/settings.xml` when running Maven commands. 
+Maven repository and credentials configuration lives in a `settings.xml` file. For a project-local setup, place this file in the `.mvn` folder of your project and pass `-s .mvn/settings.xml` when running Maven commands.
 
 First, create a `.mvn` directory if it doesn't already exist:
 
@@ -288,7 +288,7 @@ Once configured, point your build tool at your repository manager URL. In this s
 
 {{% tab title="Maven" %}}
 
-Create or update `~/.m2/settings.xml` to point Maven at your repository manager and override Central with invalid URLs. See example settings files in [Chainguard's demo repository on GitHub](https://github.com/chainguard-demo/chainguard-libraries-java/tree/main/tools) for different repository managers. 
+Create or update `~/.m2/settings.xml` to point Maven at your repository manager and override Central with invalid URLs. See example settings files in [Chainguard's demo repository on GitHub](https://github.com/chainguard-demo/chainguard-libraries-java/tree/main/tools) for different repository managers.
 
 Use a configuration similar to the following. Make sure to update the credentials in the `server` section to use your repository manager account credentials, using environment variables when possible. This example uses environment variables for Artifactory credentials:
 
