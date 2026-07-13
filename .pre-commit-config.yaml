@@ -43,12 +43,12 @@ repos:
   # (zizmor.yaml uploads SARIF to code scanning, actionlint.yaml adds shellcheck
   # + annotations); the hooks give the same checks locally on changed files.
   - repo: https://github.com/zizmorcore/zizmor-pre-commit
-    rev: v1.26.1
+    rev: e3eebf65325ccc992422292cb7a4baee967cf815  # frozen: v1.26.1
     hooks:
       - id: zizmor # auto-loads .github/zizmor.yml
 
   - repo: https://github.com/rhysd/actionlint
-    rev: v1.7.12
+    rev: 914e7df21a07ef503a81201c76d2b11c789d3fca  # frozen: v1.7.12
     hooks:
       - id: actionlint
         # Match the standalone actionlint.yaml workflow's shellcheck settings so
@@ -110,7 +110,7 @@ repos:
   # config (eslint.config.js). @eslint/js and globals are required by that
   # config and installed into the hook's isolated environment.
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: 8763fc929b6232999d541a3d8eb49965a6b71afb  # frozen: v10.6.0
+    rev: d5675fc20c10b8c0a3dbbbf182c82b903bf409ac  # frozen: v10.7.0
     hooks:
       - id: eslint
         files: ^(assets/js|config)/.*\.js$
