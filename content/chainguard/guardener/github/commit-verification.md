@@ -8,9 +8,11 @@ lastmod: 2026-07-08T00:00:00+00:00
 draft: false
 tags: ["GitHub", "Security"]
 images: []
+aliases:
+- /chainguard/guardener/commit-verification/
 menu:
   docs:
-    parent: "guardener"
+    parent: "guardener-github"
 weight: 040
 toc: true
 ---
@@ -93,6 +95,6 @@ spec:
 
 ## Next steps
 
-- **[Actions Security](/chainguard/guardener/actions-security/)** — Recommend and migrate GitHub Actions to hardened, SHA-pinned equivalents.
+- **[Hardened Actions](/chainguard/guardener/github/actions-security/)** — Recommend and migrate GitHub Actions to hardened, SHA-pinned equivalents.
 - **[Configuration](/chainguard/guardener/configuration/)** — Review the shared `.chainguard/` configuration model.
 - Learn more about the signing technology behind this feature in the [Sigstore documentation](/open-source/sigstore/).

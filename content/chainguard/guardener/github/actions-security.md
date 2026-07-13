@@ -1,6 +1,6 @@
 ---
-title: "Chainguard Guardener Actions Security"
-linktitle: "Actions Security"
+title: "Chainguard Guardener Hardened Actions"
+linktitle: "Hardened Actions"
 description: "Configure Chainguard Guardener to recommend and migrate your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
@@ -8,23 +8,25 @@ lastmod: 2026-07-08T00:00:00+00:00
 draft: false
 tags: ["GitHub", "Automation"]
 images: []
+aliases:
+- /chainguard/guardener/actions-security/
 menu:
   docs:
-    parent: "guardener"
+    parent: "guardener-github"
 weight: 030
 toc: true
 ---
 
-The Actions Security feature recommends and migrates your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents. Pinning actions to a specific commit SHA — rather than a mutable tag or branch — protects your workflows from supply chain attacks in which an upstream tag is moved to point at malicious code.
+The Hardened Actions feature recommends and migrates your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents. Pinning actions to a specific commit SHA — rather than a mutable tag or branch — protects your workflows from supply chain attacks in which an upstream tag is moved to point at malicious code.
 
-Actions Security operates in two independent modes:
+Hardened Actions operates in two independent modes:
 
 - **Pull request recommendations** — non-blocking review comments that suggest hardened action alternatives, with one-click suggestion blocks.
 - **Automated migration pull requests** — a periodically maintained pull request that updates workflows across your repository.
 
 You can enable either mode on its own or both together.
 
-## Enable Actions Security
+## Enable Hardened Actions
 
 Add a `.chainguard/actions.yaml` file to your repository:
 
@@ -98,5 +100,5 @@ migrate:
 
 ## Next steps
 
-- **[Commit Verification](/chainguard/guardener/commit-verification/)** — Require cryptographically signed commits in pull requests.
+- **[Commit Verification](/chainguard/guardener/github/commit-verification/)** — Require cryptographically signed commits in pull requests.
 - **[Configuration](/chainguard/guardener/configuration/)** — Review the shared `.chainguard/` configuration model.

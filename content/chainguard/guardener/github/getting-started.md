@@ -8,9 +8,11 @@ lastmod: 2026-07-08T00:00:00+00:00
 draft: false
 tags: ["GitHub", "Getting Started"]
 images: []
+aliases:
+- /chainguard/guardener/getting-started/
 menu:
   docs:
-    parent: "guardener"
+    parent: "guardener-github"
 weight: 010
 toc: true
 ---
@@ -56,7 +58,7 @@ The Guardener requests the minimum GitHub permissions needed to operate:
 | Workflows | Read & write | Read and update GitHub Actions workflow files during Actions migration. |
 | Checks | Write | Publish check runs that report the Guardener's results. |
 
-Installing the app does **not** change any repository on its own. Each feature stays disabled until you opt in with a configuration file, as described in [Configuration](/chainguard/guardener/configuration/).
+Installing the app does **not** change any repository on its own. Each feature stays disabled until you opt in with a configuration file, as described in [Configuration](/chainguard/guardener/github/configuration/).
 
 ## Step 2: Link your Chainguard organization to GitHub
 
@@ -83,7 +85,7 @@ If you need to link your own user account rather than an organization, pass your
 After linking, confirm that the Guardener is active on your repositories:
 
 - Open a repository that the Guardener can access and confirm the Guardener GitHub App appears under the repository's or organization's installed GitHub Apps.
-- Add your first configuration file (for example, `.chainguard/actions.yaml`) as described in [Configuration](/chainguard/guardener/configuration/), then open a pull request to see the Guardener respond.
+- Add your first configuration file (for example, `.chainguard/actions.yaml`) as described in [Configuration](/chainguard/guardener/github/configuration/), then open a pull request to see the Guardener respond.
 
 ## Unlinking a GitHub organization
 
@@ -110,6 +112,6 @@ For the complete set of flags and options, see the `chainctl` reference:
 
 ## Next steps
 
-- **[Configuration](/chainguard/guardener/configuration/)** — Learn the `.chainguard/` configuration model and how to enable features per repository.
-- **[Actions Security](/chainguard/guardener/actions-security/)** — Recommend and migrate GitHub Actions to hardened, SHA-pinned equivalents.
-- **[Commit Verification](/chainguard/guardener/commit-verification/)** — Require cryptographically signed commits in pull requests.
+- **[Configuration](/chainguard/guardener/github/configuration/)** — Learn the `.chainguard/` configuration model and how to enable features per repository.
+- **[Hardened Actions](/chainguard/guardener/github/actions-security/)** — Recommend and migrate GitHub Actions to hardened, SHA-pinned equivalents.
+- **[Commit Verification](/chainguard/guardener/github/commit-verification/)** — Require cryptographically signed commits in pull requests.

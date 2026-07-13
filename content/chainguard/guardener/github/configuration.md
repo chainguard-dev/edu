@@ -8,9 +8,11 @@ lastmod: 2026-07-08T00:00:00+00:00
 draft: false
 tags: ["GitHub", "Configuration"]
 images: []
+aliases:
+- /chainguard/guardener/configuration/
 menu:
   docs:
-    parent: "guardener"
+    parent: "guardener-github"
 weight: 020
 toc: true
 ---
@@ -23,7 +25,7 @@ The Guardener reads its configuration from the `.chainguard/` directory at the r
 
 ```text
 .chainguard/
-├── actions.yaml   # Actions Security
+├── actions.yaml   # Hardened Actions
 └── source.yaml    # Commit Verification
 ```
 
@@ -43,8 +45,8 @@ A repository with no `.chainguard/` files is unaffected by the Guardener even wh
 
 | Feature                                                           | Config file                | What it does                                                                |
 | ----------------------------------------------------------------- | -------------------------- | --------------------------------------------------------------------------- |
-| [Actions Security](/chainguard/guardener/actions-security/)       | `.chainguard/actions.yaml` | Recommends and migrates GitHub Actions to hardened, SHA-pinned equivalents. |
-| [Commit Verification](/chainguard/guardener/commit-verification/) | `.chainguard/source.yaml`  | Verifies that commits in a pull request are signed by an authorized signer. |
+| [Hardened Actions](/chainguard/guardener/github/actions-security/)       | `.chainguard/actions.yaml` | Recommends and migrates GitHub Actions to hardened, SHA-pinned equivalents. |
+| [Commit Verification](/chainguard/guardener/github/commit-verification/) | `.chainguard/source.yaml`  | Verifies that commits in a pull request are signed by an authorized signer. |
 
 Additional features will be added over time, each with its own `.chainguard/` file and opt-in configuration.
 
@@ -57,7 +59,7 @@ The `.github` repository is a special repository that GitHub already uses for or
 ```text
 .github/                # your organization's .github repository
 └── .chainguard/
-    ├── actions.yaml     # org-wide default for Actions Security
+    ├── actions.yaml     # org-wide default for Hardened Actions
     └── source.yaml      # org-wide default for Commit Verification
 ```
 
@@ -93,5 +95,5 @@ To add or update the Guardener configuration:
 
 ## Next steps
 
-- **[Actions Security](/chainguard/guardener/actions-security/)** — Configure `.chainguard/actions.yaml`.
-- **[Commit Verification](/chainguard/guardener/commit-verification/)** — Configure `.chainguard/source.yaml`.
+- **[Hardened Actions](/chainguard/guardener/github/actions-security/)** — Configure `.chainguard/actions.yaml`.
+- **[Commit Verification](/chainguard/guardener/github/commit-verification/)** — Configure `.chainguard/source.yaml`.
