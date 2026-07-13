@@ -8,8 +8,6 @@ lastmod: 2026-07-08T00:00:00+00:00
 draft: false
 tags: ["GitHub", "Security"]
 images: []
-aliases:
-- /chainguard/guardener/commit-verification/
 menu:
   docs:
     parent: "guardener-github"
