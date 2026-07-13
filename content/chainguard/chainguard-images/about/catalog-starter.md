@@ -19,6 +19,8 @@ Chainguard Catalog Starter is a way to try production-grade Chainguard Container
 
 {{< beta feature="Chainguard Catalog Starter" >}}
 
+To sign up for Catalog Starter, follow the steps on this page. Once set up, you can start piloting up to five secure container images from the Chainguard catalog.
+
 ## What is Catalog Starter?
 
 With Chainguard Catalog Starter, users can choose any five non-FIPS images from our catalog of secure-by-default containers. Any Helm charts that depend on those images are included and count toward the five-image limit.
@@ -27,7 +29,7 @@ Catalog Starter is designed as a standalone free plan, separate from paid Catalo
 
 > **Note**: Catalog Starter is best suited for small teams to get them started right away. When you are ready to standardize on Chainguard and deploy organization-wide, we have several paid plans that provide unlimited user access to the Chainguard Containers and additional features like Custom Assembly, FIPS images, EOL/EmeritOSS image versions, a contractual CVE-remediation SLA, and dedicated support.
 
-## How Catalog Starter works
+## Sign up for Catalog Starter
 
 ### 1. Sign up and select your images
 
@@ -115,7 +117,3 @@ When you upgrade:
 * Pricing is based on the paid plan’s terms (such as developer bands for Catalog Pricing or image counts for per-image plans).
 
 Our team will work with you to map your existing Catalog Starter images into the right long-term structure.
-
-## Get started
-
-To sign up for Catalog Starter, go to [console.chainguard.dev/signup](https://console.chainguard.dev/signup) and follow the steps above. Once set up, you can start piloting up to five secure container images from the Chainguard catalog.
