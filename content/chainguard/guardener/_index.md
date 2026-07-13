@@ -18,7 +18,7 @@ The Guardener's capabilities include:
 
 - **[Actions Security](/chainguard/guardener/actions-security/)** — Recommends and migrates your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents, either through non-blocking pull request review comments or automated migration pull requests.
 - **[Commit Verification](/chainguard/guardener/commit-verification/)** — Enforces cryptographically signed commits against a policy you control, supporting both keyless (Sigstore) signatures and static keys such as GPG.
-- **[Dockerfile migration](/chainguard/migration/the-guardener/)** — Uses AI to iteratively convert your Dockerfiles to Chainguard Containers. This capability runs locally through `chainctl agent dockerfile` commands rather than the GitHub App. See the [Dockerfile migration guide](/chainguard/migration/the-guardener/) for details.
+- **[Dockerfile migration](/chainguard/guardener/dockerfile-migration/)** — Uses AI to iteratively convert your Dockerfiles to Chainguard Containers. This capability runs locally through `chainctl agent dockerfile` commands rather than the GitHub App.
 
 Additional capabilities will be added over time, each with its own opt-in configuration.
 
@@ -28,6 +28,7 @@ Additional capabilities will be added over time, each with its own opt-in config
 - **[Configuration](/chainguard/guardener/configuration/)** — Understand the `.chainguard/` configuration model and how features are enabled per repository.
 - **[Actions Security](/chainguard/guardener/actions-security/)** — Configure hardened-action recommendations and automated migration pull requests.
 - **[Commit Verification](/chainguard/guardener/commit-verification/)** — Configure a signing policy for commits in pull requests.
+- **[Dockerfile migration](/chainguard/guardener/dockerfile-migration/)** — Migrate your Dockerfiles to Chainguard Containers using the `chainctl agent dockerfile` commands.
 
 ## How it works
 
