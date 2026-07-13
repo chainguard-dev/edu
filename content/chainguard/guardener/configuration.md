@@ -15,7 +15,7 @@ weight: 020
 toc: true
 ---
 
-Chainguard Guardener is configured entirely through files committed to the `.chainguard/` directory in each repository. This page explains the configuration model that all the Guardener features share. For the specific options of each feature, see its dedicated page.
+Chainguard Guardener is configured entirely through files committed to a `.chainguard/` directory — either in each repository, or once at the organization level in your `.github` repository. This page explains the configuration model that all the Guardener features share. For the specific options of each feature, see its dedicated page.
 
 ## The `.chainguard/` directory
 
@@ -47,6 +47,39 @@ A repository with no `.chainguard/` files is unaffected by the Guardener even wh
 | [Commit Verification](/chainguard/guardener/commit-verification/) | `.chainguard/source.yaml`  | Verifies that commits in a pull request are signed by an authorized signer. |
 
 Additional features will be added over time, each with its own `.chainguard/` file and opt-in configuration.
+
+## Organization-level configuration with the `.github` repository
+
+Rather than committing `.chainguard/` files to every repository, you can define configuration once at the organization level. The Guardener reads a `.chainguard/` directory from your organization's `.github` repository and applies it as the default for every repository in the organization.
+
+The `.github` repository is a special repository that GitHub already uses for organization-wide defaults (such as community health files and default workflows). The Guardener follows the same convention:
+
+```text
+.github/                # your organization's .github repository
+└── .chainguard/
+    ├── actions.yaml     # org-wide default for Actions Security
+    └── source.yaml      # org-wide default for Commit Verification
+```
+
+To use org-level configuration:
+
+1. Create a repository named `.github` in your organization if you don't already have one.
+2. Add the Guardener GitHub App to the `.github` repository (or install it on **All repositories**).
+3. Commit your `.chainguard/` configuration files to the default branch of the `.github` repository.
+
+Once in place, every repository the Guardener can access inherits this configuration without needing its own `.chainguard/` files.
+
+### How repository and organization configuration combine
+
+Configuration committed directly to a repository takes precedence over the organization-level configuration from the `.github` repository:
+
+- A repository with its own `.chainguard/<feature>.yaml` file uses that file for the feature, ignoring the org-level default for it.
+- A repository without a given feature file falls back to the org-level default in the `.github` repository.
+- A feature that is configured in neither place stays disabled for the repository.
+
+This lets you set a baseline for the whole organization and override it only where a specific repository needs different behavior.
+
+> **Note:** The Guardener reads the org-level configuration from the default branch (that is, `main`) of the `.github` repository, just as it does for per-repository configuration.
 
 ## Applying configuration changes
 
