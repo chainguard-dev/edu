@@ -205,7 +205,7 @@ Chainguard's scanning evaluates multiple signal types, including:
 
 #### Malware API
 
-Chainguard's [malware API endpoint](/chainguard/api/spec-api-v1/#tag/malware) provides access to Chainguard's malware blocklist. You can use it to retrieve packages that have been identified as malicious and blocked by Chainguard.
+Chainguard's [malware API endpoint](/chainguard/api/spec-api-v1/#tag/malware) provides access to Chainguard's malware blocklist. You can use it to retrieve a list of packages that have been identified as malicious and blocked by Chainguard.
 
 Expand the following section to see examples:
 
