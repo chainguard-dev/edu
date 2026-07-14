@@ -44,30 +44,6 @@ chainctl iam organizations list -o table
 chainctl iam role-bindings create --parent <group-id> --identity <identity> --role <role-with-repo.create>
 ```
 
-### Retrieving your organization's group ID
-
-The Guardener needs to know which Chainguard organization to reference when migrating Dockerfiles. For this reason, you must include your organization's group ID value (also known as the organization UID) in the `chainctl` commands you use to interact with the tool.
-
-Note that the group ID is **not** the name of your organization; it is a 40-character string used to identify your organization.
-
-To retrieve your organization's group ID value, run the following command:
-
-```shell
-chainctl iam organizations list -o table
-```
-
-```output
-                    ID                    |      NAME      |          DESCRIPTION
-------------------------------------------|----------------|-------------------------------------
- EXAMPLE05850c357EXAMPLE6e10d007c9EXAMPLE | example.com    | This is an example organization.
-```
-
-Your organization's group ID is the value that appears in the `ID` column of this command's output.
-
-You can also retrieve the ID in the Chainguard Console. After logging into the Console, [navigate to **Settings**](https://console.chainguard.dev/org/$ORGANIZATION$/settings/general) where you'll find the ID under **Organization UID**.
-
-Once you have your organization's group ID, you'll use it in the following `chainctl` commands by passing it to the `--group-id` flag.
-
 ## Usage examples
 
 `chainctl agent dockerfile` includes the following subcommands which you can use to interact with The Guardener:
@@ -85,8 +61,7 @@ To run a basic migration, provide the path to your Dockerfile and a target image
 
 ```shell
 chainctl agent dockerfile build -f Dockerfile \
-  -t myapp:chainguard \
-  --group <group-id>
+  -t myapp:chainguard
 ```
 
 If your image requires build arguments, pass them with `--build-arg`:
@@ -94,61 +69,53 @@ If your image requires build arguments, pass them with `--build-arg`:
 ```shell
 chainctl agent dockerfile build -f Dockerfile \
   -t myapp:chainguard \
-  --build-arg VERSION=1.0 \
-  --group <group-id>
+  --build-arg VERSION=1.0
 ```
 
 For CI environments or automated workflows, you can use the `--non-interactive` flag to skip prompts and automatically select the first suggestion:
 
 ```shell
 chainctl agent dockerfile build -f Dockerfile \
-  --non-interactive \
-  --group <group-id>
+  --non-interactive
 ```
 
 To resume a migration from a previously saved local state, use `--resume`:
 
 ```shell
 chainctl agent dockerfile build -f Dockerfile \
-  --resume \
-  --group <group-id>
+  --resume
 ```
 
 To optimize an already-migrated Dockerfile:
 
 ```shell
-chainctl agent dockerfile optimize -f Dockerfile \
-  --group <group-id>
+chainctl agent dockerfile optimize -f Dockerfile
 ```
 
 To run only specific optimizers, pass a comma-separated list with `--optimizers`:
 
 ```shell
 chainctl agent dockerfile optimize -f Dockerfile \
-  --optimizers=cache,security \
-  --group <group-id>
+  --optimizers=cache,security
 ```
 
 To upgrade outdated packages in a Dockerfile:
 
 ```shell
-chainctl agent dockerfile upgrade -f Dockerfile \
-  --group <group-id>
+chainctl agent dockerfile upgrade -f Dockerfile
 ```
 
 To preview what an upgrade would change without modifying any files, use the `--dry-run` flag:
 
 ```shell
 chainctl agent dockerfile upgrade -f Dockerfile \
-  --dry-run \
-  --group <group-id>
+  --dry-run
 ```
 
 To validate a migrated Dockerfile:
 
 ```shell
-chainctl agent dockerfile validate -f Dockerfile \
-  --group <group-id>
+chainctl agent dockerfile validate -f Dockerfile
 ```
 
 ## What happens during a migration

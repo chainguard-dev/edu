@@ -11,4 +11,4 @@ images: []
 weight: 045
 ---
 
-Example tutorials on integrating various Identity Providers (IDPs) with Chainguard.
+Example tutorials on integrating various Identity Providers (IdPs) with Chainguard.

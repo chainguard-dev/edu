@@ -65,7 +65,7 @@ First, log in to Chainguard with `chainctl`, using an OIDC provider like Google,
 chainctl auth login
 ```
 
-Note that you can use this bootstrap account as a [backup account](/chainguard/administration/custom-idps/custom-idps/#backup-accounts) — that is, an account you can use to log in if you ever lose access to your primary account. However, if you prefer to remove this role-binding after configuring the custom IDP, you can do so.
+Note that you can use this bootstrap account as a [backup account](/chainguard/administration/custom-idps/custom-idps/#backup-accounts) — that is, an account you can use to log in if you ever lose access to your primary account. However, if you prefer to remove this role-binding after configuring the custom IdP, you can do so.
 
 To configure the platform, make a note of the following settings from your Okta Application:
 
