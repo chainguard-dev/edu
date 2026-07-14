@@ -38,7 +38,7 @@ You should get output similar to the following:
 v0.18.0
 ```
 
-## Step 1 — Creating a Sample Go Application
+## Step 1: Creating a Sample Go Application
 
 To demonstrate Ko's capabilities, we'll create a simple Go web server that runs a minimal web application. Later on, you’ll be able to containerize it.
 
@@ -116,7 +116,7 @@ Hello from Ko! Running on port 8080
 
 Stop the application by pressing `CTRL+C` in the terminal where it's running.
 
-## Step 2 — (Re) Authenticating to the Chainguard Registry
+## Step 2: (Re) Authenticating to the Chainguard Registry
 
 In case you have previously authenticated to the Chainguard registry via `chainctl`, you might need to refresh your token by pulling an image and reauthenticating with your OIDC provider of choice. Run the following command for that:
 
@@ -126,7 +126,7 @@ docker pull cgr.dev/chainguard/static
 
 Once you’re able to pull images without being prompted to authenticate, you can proceed to the next step.
 
-## Step 3 — Building Your First Container with Ko
+## Step 3: Building Your First Container with Ko
 
 To get started, you'll build your application locally using Ko’s default configuration. Ko supports cross-compilation to other CPU architectures and operating systems via the `--platform` flag, so it can build container images for any platform that is supported by the base image. Chainguard Containers are available for both `amd64` and `arm64` architectures.
 
@@ -199,7 +199,7 @@ curl http://localhost:8080
 
 You should receive the same response as before. Stop the container by pressing `CTRL+C`.
 
-## Step 4 — Pushing Images to a Remote Registry
+## Step 4: Pushing Images to a Remote Registry
 
 Ko can build and push images to a remote registry with a single command. To push images, you’ll need to set up the `KO_DOCKER_REPO` environment variable with your preferred push registry. The value can be either your own registry URL (such as `ghcr.io/my-org/my-repo`) or your Docker username, in case you are using the Docker Hub registry.
 

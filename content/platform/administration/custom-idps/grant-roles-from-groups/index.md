@@ -53,7 +53,7 @@ Before you configure any mappings, it helps to understand how group-derived role
     - Deleting or changing a mapping takes effect within one hour, because Chainguard reads mappings fresh on every login.
     - A user whose access is only group-derived re-authenticates at least hourly.
 
-## Step 1 — Emit group membership from your IdP
+## Step 1: Emit group membership from your IdP
 
 Configure your identity provider to include the user's group memberships in the OIDC token it issues to Chainguard. The exact Console steps differ by provider and change over time, so follow your provider's own documentation. This guide relies only on the result:
 
@@ -67,7 +67,7 @@ Configure your identity provider to include the user's group memberships in the 
 
 To use group display names in Entra ID instead of GUIDs, configure the claim to emit cloud-group display names. This requires restricting the claim to groups assigned to the application, which is also the recommended way to stay under the group limit.
 
-## Step 2 — Point Chainguard at the groups claim
+## Step 2: Point Chainguard at the groups claim
 
 Update the identity provider you use to log in so Chainguard requests the groups claim and knows which claim carries group membership:
 
@@ -80,7 +80,7 @@ chainctl iam identity-providers update $IDENTITY_PROVIDER \
 - `--oidc-additional-scopes=groups` tells Chainguard to request the groups claim.
 - `--oidc-groups-claim=groups` tells Chainguard which claim carries group membership, using the name from Step 1. An empty value turns group mapping off for this provider.
 
-## Step 3 — Map a group to a role
+## Step 3: Map a group to a role
 
 Create a mapping from an IdP group to a Chainguard role:
 
@@ -103,7 +103,7 @@ To review the mappings you've configured, run the `list` subcommand:
 chainctl iam external-group-role-mappings list --parent $ORGANIZATION
 ```
 
-## Step 4 — Verify the mapping
+## Step 4: Verify the mapping
 
 1. Have a user who belongs to the mapped group log in to Chainguard through your IdP.
 2. Confirm that the user can perform actions the granted role allows. This access doesn't appear in `chainctl iam role-bindings list`, because it's session-scoped.
