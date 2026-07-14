@@ -3,11 +3,11 @@
 // Right side: Navigation columns
 // Bottom: Copyright (left) and legal links (right)
 
-footer {
+footer.footer-new {
     background: var(--footer-background); // Light gray background
     border-top: none;
     padding: 4rem 0 2rem;
-    
+
     .container.footer {
         max-width: 1368px;
         margin: 0 auto;
@@ -21,12 +21,12 @@ footer {
     flex-direction: column;
     gap: 3rem;
     padding-bottom: 3rem;
-    
+
     @media (min-width: 992px) {
         flex-direction: row;
         gap: 4rem;
     }
-    
+
     @media (min-width: 1200px) {
         padding: 0 5% 3rem 5%;
     }
@@ -40,19 +40,19 @@ footer {
     gap: 2rem;
     align-items: center;
     text-align: center;
-    
+
     @media (min-width: 992px) {
         align-items: flex-start;
         text-align: left;
         min-width: 250px;
     }
-    
+
     // Logo with icon and text
     .footer-logo {
         display: flex;
         align-items: center;
         gap: 12px;
-        
+
         .footer-logo-icon {
             height: 32px;
             width: auto;
@@ -65,7 +65,7 @@ footer {
             opacity: 1;
         }
     }
-    
+
     // Contact Us button - Blurple solid
     .footer-contact-btn {
         display: inline-flex;
@@ -86,7 +86,7 @@ footer {
             box-shadow: 0 4px 12px rgba(98, 38, 240, 0.25);
         }
     }
-    
+
     // Social icons in left section - Black on light gray
     .footer-brand-socials {
         display: flex;
@@ -127,11 +127,11 @@ footer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem 3rem;
-    
+
     @media (min-width: 768px) {
         grid-template-columns: repeat(3, 1fr);
     }
-    
+
     @media (min-width: 1200px) {
         grid-template-columns: repeat(5, 1fr);
     }
@@ -160,7 +160,7 @@ footer {
         &:hover {
             color: var(--primary-1) !important;
         }
-        
+
         // External link indicator
         span svg {
             width: 12px;
@@ -181,18 +181,18 @@ footer {
     padding-top: 2rem;
     margin-top: 2rem;
     // No border-top line
-    
+
     @media (min-width: 768px) {
         flex-direction: row;
         justify-content: space-between;
         text-align: left;
     }
-    
+
     @media (min-width: 1200px) {
         padding-left: 5%;
         padding-right: 5%;
     }
-    
+
     // Copyright text on left
     .footer-copyright {
         font-size: 13px;
@@ -244,7 +244,7 @@ footer {
 
 // Dark mode adjustments - Keep light footer even in dark mode
 :root[data-dark-mode] {
-    footer {
+    footer.footer-new {
         background: var(--footer-background); // Still light gray
         .footer-brand-section {
             .footer-contact-btn {
@@ -294,24 +294,24 @@ footer {
 
 // Mobile optimizations
 @media (max-width: 991px) {
-    footer {
+    footer.footer-new {
         padding: 3rem 0 2rem;
     }
-    
+
     .footer-main-content {
         padding-bottom: 2rem;
     }
-    
+
     .footer-brand-section {
         padding-bottom: 1rem;
         border-bottom: 1px solid rgba(13, 22, 28, 0.1);
     }
-    
+
     .footer-nav-section {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem 2rem;
     }
-    
+
     .footer-bottom-section {
         padding-top: 2rem;
         margin-top: 2rem;
