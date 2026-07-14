@@ -129,7 +129,7 @@ Once mappings are in place, you can adjust access by changing group membership w
     chainctl iam external-group-role-mappings delete --all --idp $IDENTITY_PROVIDER
     ```
 
-    This revokes the mapped roles for all users across that IdP's groups and leaves their other access intact. You can't delete an identity provider while any mappings still exist, so you must complete this cleanup step before you remove the provider.
+    This revokes the mapped roles for all users across that IdP's groups and leaves their other access intact. Note that this cleanup step is optional; deleting the identity provider also deletes any mappings that still exist. Running it first is still worth doing — the confirmation shows exactly how many mappings you're revoking before the provider itself is removed.
 
 Each of these changes takes effect at the affected user's next login, within one hour.
 
