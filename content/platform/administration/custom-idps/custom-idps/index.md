@@ -1,11 +1,11 @@
 ---
 title : "Using Custom Identity Providers to Authenticate to Chainguard"
-linktitle: "Authenticate with Custom IDPs"
+linktitle: "Authenticate with Custom IdPs"
 aliases:
 - /chainguard/chainguard-enforce/authentication/custom-idps/
 - /chainguard/administration/custom-idps/custom-idps/
-lead: "Chainguard Custom IDPs"
-description: "An introduction to and overview of Chainguard's custom IDP support features"
+lead: "Chainguard Custom IdPs"
+description: "An introduction to and overview of Chainguard's custom IdP support features"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
 lastmod: 2025-01-07T15:22:20+01:00
@@ -32,9 +32,9 @@ chainctl auth login --identity-provider=$IDP_ID
 
 You can retrieve all your identity provider's unique IDs by running `chainctl iam identity-providers list`.
 
-Note that you can also use the [`--headless` option](/chainguard/administration/iam-organizations/overview-of-chainguard-iam-model/#using-the-headless-login-flow) to log in with a custom IDP in an environment that doesn't have a browser installed, such as a container or a remote server. By including this option, `chainctl` will output a special URL. You can then navigate to the URL in another device's browser to log in with your custom IDP.
+Note that you can also use the [`--headless` option](/chainguard/administration/iam-organizations/overview-of-chainguard-iam-model/#using-the-headless-login-flow) to log in with a custom IdP in an environment that doesn't have a browser installed, such as a container or a remote server. By including this option, `chainctl` will output a special URL. You can then navigate to the URL in another device's browser to log in with your custom IdP.
 
-To log in with a custom IDP using the `--headless` option, you would run a command like the following:
+To log in with a custom IdP using the `--headless` option, you would run a command like the following:
 
 ```sh
 chainctl auth login --headless --identity-provider=$IDP_ID
@@ -42,7 +42,7 @@ chainctl auth login --headless --identity-provider=$IDP_ID
 
 Then you can use the URL in this command's output to complete the login flow from another device's browser.
 
-> **Note**: As of this writing (September 2024), using the headless login flow with a custom IDP is still an experimental feature. Please reach out to us through your customer success manager or the support portal to report any feedback. Also, until this feature becomes enabled by default, you must enable it yourself with the following command:
+> **Note**: As of this writing (September 2024), using the headless login flow with a custom IdP is still an experimental feature. Please reach out to us through your customer success manager or the support portal to report any feedback. Also, until this feature becomes enabled by default, you must enable it yourself with the following command:
 
 ```sh
 chainctl config set auth.device-flow chainguard
@@ -149,7 +149,7 @@ Next, use `chainctl` to log in to Chainguard with an OIDC provider (such as Goog
 chainctl auth login
 ```
 
-The bootstrap account can use any supported IDP -- for example you may choose to temporarily use a personal Google account. You can leave this account active as a [backup account](/chainguard/administration/custom-idps/custom-idps/#backup-accounts) or, if you prefer, you can delete the account by removing the role-binding after configuring the custom IDP.
+The bootstrap account can use any supported IdP -- for example you may choose to temporarily use a personal Google account. You can leave this account active as a [backup account](/chainguard/administration/custom-idps/custom-idps/#backup-accounts) or, if you prefer, you can delete the account by removing the role-binding after configuring the custom IdP.
 
 Create a new identity provider using the details you noted from your OIDC application. Be sure to update the details in the following example `export` commands to align with your own application/client ID, client secret, and issuer URL.
 
@@ -171,7 +171,7 @@ chainctl iam identity-provider create \
   --name=${NAME}
 ```
 
-The `oidc-issuer`, `oidc-client-id`, and `oidc-issuer-secret` values are required when setting up an OIDC configuration with `chainctl`. You must also include a unique name for each custom IDP account.
+The `oidc-issuer`, `oidc-client-id`, and `oidc-issuer-secret` values are required when setting up an OIDC configuration with `chainctl`. You must also include a unique name for each custom IdP account.
 
 Be aware that if you don't include the `--parent` or `--default-role` options in the command, you will be prompted to select these values interactively
 
