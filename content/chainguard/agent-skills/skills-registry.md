@@ -37,7 +37,9 @@ export ORG=<your-organization>
 
 ## Enabling the skills entitlement
 
-Before your org can push or install skills, create a skills entitlement:
+Before your org can push or install skills, create a skills entitlement.
+
+> **Note**: You must have the `owner` role in your organization to create a skills entitlement or accept the Skills Registry terms of service.
 
 ```shell
 chainctl skills entitlements create --parent $ORG
