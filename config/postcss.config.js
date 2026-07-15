@@ -6,8 +6,13 @@ module.exports = {
   plugins: [
     autoprefixer(),
     purgecss({
-            // Keep aria-selected (used by DocSearch dropdown)
-      dynamicAttributes: ["aria-selected"],
+      // Keep aria-selected (used by DocSearch dropdown)
+      dynamicAttributes: [
+        "aria-selected",
+        "data-theme",
+        "data-dark-mode",
+        "mode-loaded",
+      ],
       content: [
         "./node_modules/@hyas/doks/layouts/**/*.html",
         "./node_modules/@hyas/doks/content/**/*.md",
