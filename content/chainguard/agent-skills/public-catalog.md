@@ -15,7 +15,7 @@ toc: true
 weight: 003
 ---
 
-Chainguard publishes a curated set of hardened agent skills in a public catalog at `skills.cgr.dev/chainguard`. Anyone with `chainctl` can browse and install them — no entitlement and no legal terms required. The Chainguard Agent Skills public catalog is pull-only: you can install skills from the catalog, but you can't push your own skills to it.
+Chainguard publishes a curated set of hardened agent skills in a public catalog at `skills.cgr.dev/public`. Anyone with `chainctl` can browse and install them — no entitlement and no legal terms required. The Chainguard Agent Skills public catalog is pull-only: you can install skills from the catalog, but you can't push your own skills to it.
 
 This guide walks through the full workflow: listing the available skills, inspecting one, pulling it to audit how Chainguard hardened it, installing it, and running it with an agent.
 
@@ -33,7 +33,7 @@ Sign in, then browse the skills published in the public Chainguard catalog with 
 
 ```shell
 chainctl auth login
-chainctl skills list --group chainguard --recursive
+chainctl skills list --group public --recursive
 ```
 
 ```output
@@ -54,7 +54,7 @@ chainctl skills list --group chainguard --recursive
 To list the skills from a single upstream owner, name it in the `--group` value:
 
 ```shell
-chainctl skills list --group chainguard/anthropics
+chainctl skills list --group public/anthropics
 ```
 
 ```output
@@ -69,16 +69,16 @@ chainctl skills list --group chainguard/anthropics
 To retrieve a skill's reference, digest, tags, and metadata, use the `describe` subcommand. The output records the upstream source and the exact commit Chainguard hardened from:
 
 ```shell
-chainctl skills describe skills.cgr.dev/chainguard/github/add-educational-comments:latest
+chainctl skills describe skills.cgr.dev/public/github/add-educational-comments:latest
 ```
 
 ```output
       FIELD      |                                                    VALUE
 -----------------|--------------------------------------------------------------------------------------------------------------
  Display Name    | add-educational-comments
- Reference       | chainguard/github/add-educational-comments
- Install Name    | chainguard-github-add-educational-comments
- OCI URL         | skills.cgr.dev/chainguard/github/add-educational-comments:latest
+ Reference       | public/github/add-educational-comments
+ Install Name    | public-github-add-educational-comments
+ OCI URL         | skills.cgr.dev/public/github/add-educational-comments:latest
  Description     | Add educational comments to the file specified, or prompt asking for file to comment if one is not provided.
  License         | MIT
  Upstream        | github.com/github/awesome-copilot/skills/add-educational-comments
@@ -95,7 +95,7 @@ chainctl skills describe skills.cgr.dev/chainguard/github/add-educational-commen
 Where `install` drops a skill straight into your agent's skills directory, `pull` writes the skill's files to a directory you choose so you can inspect them first:
 
 ```shell
-chainctl skills pull skills.cgr.dev/chainguard/github/add-educational-comments:latest ./add-educational-comments
+chainctl skills pull skills.cgr.dev/public/github/add-educational-comments:latest ./add-educational-comments
 ```
 
 ```output
@@ -144,7 +144,7 @@ Here, the engine flagged `minimal-permissions`: the skill only needs to read and
 Download and install the skill to make it available to agents on your machine with the `install` subcommand:
 
 ```shell
-chainctl skills install skills.cgr.dev/chainguard/github/add-educational-comments:latest
+chainctl skills install skills.cgr.dev/public/github/add-educational-comments:latest
 ```
 
 This command automatically detects any agents on your machine and places the skill into their relevant directories. The following example output shows the results on a machine where Claude Code is present:
@@ -153,7 +153,7 @@ This command automatically detects any agents on your machine and places the ski
 Installing github/add-educational-comments
     AGENT    |                         LOCATION                          |                                   MODE
 -------------|-----------------------------------------------------------|---------------------------------------------------------------------------
- Claude Code | .claude/skills/chainguard-github-add-educational-comments | symlink → ../../.agents/skills/chainguard-github-add-educational-comments
+ Claude Code | .claude/skills/public-github-add-educational-comments | symlink → ../../.agents/skills/public-github-add-educational-comments
 ```
 
 ## Run the skill from an agent
@@ -168,19 +168,19 @@ The agent loads the skill and runs it, confirming it installed and loaded correc
 
 ## Uninstall the skill
 
-To remove a skill from your machine, pass its name to the `uninstall` subcommand. Use the skill's install name, which `describe` reports as the `Install Name` field — for this skill, `chainguard-github-add-educational-comments`:
+To remove a skill from your machine, pass its name to the `uninstall` subcommand. Use the skill's install name, which `describe` reports as the `Install Name` field — for this skill, `public-github-add-educational-comments`:
 
 ```shell
-chainctl skills uninstall chainguard-github-add-educational-comments
+chainctl skills uninstall public-github-add-educational-comments
 ```
 
 The command prompts for confirmation before removing any files:
 
 ```output
-This will remove skill "chainguard-github-add-educational-comments" from local agent directories.
+This will remove skill "public-github-add-educational-comments" from local agent directories.
 Proceed?
 Do you want to continue? [y,N]:
-Uninstalled skill "chainguard-github-add-educational-comments".
+Uninstalled skill "public-github-add-educational-comments".
 ```
 
 By default, `uninstall` removes the skill from every agent directory where it's installed. Use the `--agent` flag to remove it from specific agents only, or the `--global` flag to remove it from global directories instead of the current project. Add the `-y` flag to skip the confirmation prompt.
@@ -189,10 +189,10 @@ By default, `uninstall` removes the skill from every agent directory where it's 
 
 | Action | Command |
 | ----- | ----- |
-| List skills | `chainctl skills list --group chainguard --recursive` |
-| Describe a skill | `chainctl skills describe skills.cgr.dev/chainguard/<owner>/<name>:<tag>` |
-| Pull a skill | `chainctl skills pull skills.cgr.dev/chainguard/<owner>/<name>:<tag> <dir>` |
-| Install a skill | `chainctl skills install skills.cgr.dev/chainguard/<owner>/<name>:<tag>` |
+| List skills | `chainctl skills list --group public --recursive` |
+| Describe a skill | `chainctl skills describe skills.cgr.dev/public/<owner>/<name>:<tag>` |
+| Pull a skill | `chainctl skills pull skills.cgr.dev/public/<owner>/<name>:<tag> <dir>` |
+| Install a skill | `chainctl skills install skills.cgr.dev/public/<owner>/<name>:<tag>` |
 | Uninstall a skill | `chainctl skills uninstall <install-name>` |
 
 ## Next steps
