@@ -1,7 +1,9 @@
 ---
-title: "Getting started with the Chainguard Agent Skills public catalog"
-linktitle: "Public Catalog"
-description: "Browse, inspect, install, and run hardened agent skills from Chainguard's public catalog with chainctl."
+title: "Getting started with the Chainguard Agent Skills public registry"
+linktitle: "Public Registry"
+aliases:
+- /chainguard/agent-skills/public-catalog/
+description: "Browse, inspect, install, and run hardened agent skills from Chainguard's public registry with chainctl."
 type: "article"
 date: 2026-06-08T08:48:45+00:00
 lastmod: 2026-06-08T08:48:45+00:00
@@ -15,7 +17,7 @@ toc: true
 weight: 003
 ---
 
-Chainguard publishes a curated set of hardened agent skills in a public catalog at `skills.cgr.dev/public`. Anyone with `chainctl` can browse and install them — no entitlement and no legal terms required. The Chainguard Agent Skills public catalog is pull-only: you can install skills from the catalog, but you can't push your own skills to it.
+Chainguard publishes a curated set of hardened agent skills in a public registry at `skills.cgr.dev/public`. Anyone with `chainctl` can browse and install them — no entitlement and no legal terms required. The Chainguard Agent Skills public registry is pull-only: you can install skills from the registry, but you can't push your own skills to it.
 
 This guide walks through the full workflow: listing the available skills, inspecting one, pulling it to audit how Chainguard hardened it, installing it, and running it with an agent.
 
@@ -25,11 +27,11 @@ This guide walks through the full workflow: listing the available skills, inspec
 
 To follow this guide, you need `chainctl` **v0.2.282** or later, installed. Refer to our guide on [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) if you don't have it yet.
 
-Unlike a [private Chainguard Skills Registry](/chainguard/agent-skills/skills-registry/), the public catalog requires no entitlement, terms acceptance, or organization membership. You do need a Chainguard account to list and pull skills, but you don't need to be a customer.
+Unlike a [private Chainguard skills registry](/chainguard/agent-skills/skills-registry/), the public registry requires no entitlement, terms acceptance, or organization membership. You do need a Chainguard account to list and pull skills, but you don't need to be a customer.
 
 ## List available skills
 
-Sign in, then browse the skills published in the public Chainguard catalog with the `list` subcommand. The `--recursive` flag lists skills across every source in the catalog. Public skills are namespaced by their upstream source (`public/<host>/<owner>/<repo>/<name>`), so the recursive listing shows each skill's full path:
+Sign in, then browse the skills published in Chainguard's public registry with the `list` subcommand. The `--recursive` flag lists skills across every source in the registry. Public skills are namespaced by their upstream source (`public/<host>/<owner>/<repo>/<name>`), so the recursive listing shows each skill's full path:
 
 ```shell
 chainctl auth login
@@ -46,7 +48,7 @@ chainctl skills list --group public --recursive
  . . .
 ```
 
-The public catalog is large, so a full `--recursive` listing can take a while to return. To browse a single source, scope the `--group` to its path instead (shown next).
+The public registry is large, so a full `--recursive` listing can take a while to return. To browse a single source, scope the `--group` to its path instead (shown next).
 
 To list the skills under a single upstream repository, name its path in the `--group` value. Public skills are namespaced by their source, so an owner's repo lives at `public/<host>/<owner>/<repo>`:
 

@@ -21,12 +21,10 @@ your organization can pull. Each policy is a guardrail (for example,
 
 ## Availability
 
-Policies are available to all Chainguard customers. To confirm your organization
-has access, run `chainctl policies list`.
-
-To get started, see the recommended rollout in the [Examples](#examples)
-section below, which walks through enabling a policy in `DRY_RUN` mode
-before promoting it to `ENFORCE`.
+Policies is an opt-in feature. To enable it for your organization,
+contact your Chainguard Customer Success representative. If your
+organization is not entitled, `chainctl policies list` will return
+an error.
 
 ## Concepts
 
