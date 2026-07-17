@@ -3,7 +3,7 @@ module github.com/chainguard-dev/edu/tools/rumble
 go 1.25.8
 
 require (
-	cloud.google.com/go/bigquery v1.77.0
+	cloud.google.com/go/bigquery v1.79.0
 	cloud.google.com/go/storage v1.63.1
 	github.com/klauspost/compress v1.19.0
 	github.com/mattn/go-sqlite3 v1.14.48
