@@ -505,7 +505,7 @@ Chainguard Libraries supports the following types of policies:
 - **Override**: Permit a package or version that would otherwise be denied by a cooldown policy or malware and greyware blocking. Use an override when you need a specific, deliberate exception.
     - An override policy takes precedence over a block policy.
 
->Note: The commands in this section require `chainctl` v0.2.291 or newer.
+>Note: The commands in this section require `chainctl` v0.2.313 or newer.
 
 ### Identify packages with a purl
 
