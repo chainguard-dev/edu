@@ -199,14 +199,14 @@ The following questions apply to repo manager configurations for Chainguard Libr
 Follow these steps for general troubleshooting:
 
 * Verify the token and repository settings.
-  * Confirm that the token is scoped correctly, not expired, and copied correctly. Also confirm that the repository URL is the correct language-specific endpoint and that the expected remote repository settings are in place.
+    * Confirm that the token is scoped correctly, not expired, and copied correctly. Also confirm that the repository URL is the correct language-specific endpoint and that the expected remote repository settings are in place.
 * Validate pulling packages with direct access.
-  * Attempt to pull a package directly from the Chainguard endpoint from a controlled environment. This helps you confirm that the token works and that the package is available independently of Artifactory.
-  * Attempt to pull the same package through the Artifactory remote or virtual repository and compare the result.
-  * If direct access works but the Artifactory path fails, check the network path between Artifactory and the Chainguard endpoint. This is where firewall restrictions, proxy behavior, TLS inspection, or object-storage allowlisting issues may have an impact.
+    * Attempt to pull a package directly from the Chainguard endpoint from a controlled environment. This helps you confirm that the token works and that the package is available independently of Artifactory.
+    * Attempt to pull the same package through the Artifactory remote or virtual repository and compare the result.
+    * If direct access works but the Artifactory path fails, check the network path between Artifactory and the Chainguard endpoint. This is where firewall restrictions, proxy behavior, TLS inspection, or object-storage allowlisting issues may have an impact.
 * Test with a real package fetch.
-  * The **Test** button in Artifactory is not a reliable way to confirm that your integration is working as expected. Instead, use a real package fetch, install, or checksum comparison.
-* If results aren't as expected, [clear one cache layer at a time and rerun the same test](#why-might-i-experience-inconsistent-fallback-behavior-outdated-package-metadata-or-inconsistent-experience-between-users).
+    * The **Test** button in Artifactory is not a reliable way to confirm that your integration is working as expected. Instead, use a real package fetch, install, or checksum comparison.
+* If results aren't as expected, [clear one cache layer at a time and rerun the same test](#inconsistent-fallback).
 
 ### Why might I see TLS or SSL handshake errors and authentication failures after configuring Artifactory with Chainguard Libraries?
 
@@ -239,6 +239,8 @@ Proxy layers can change headers, certificate handling, path routing, protocol su
 * TLS termination point
 * HTTP/2 support where required
 * Cache behavior at each layer
+
+<a id="inconsistent-fallback"></a>
 
 ### Why might I experience inconsistent fallback behavior, outdated package metadata, or inconsistent experience between users after configuring Artifactory with Chainguard Libraries?
 
