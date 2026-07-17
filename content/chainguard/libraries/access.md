@@ -228,6 +228,26 @@ tool configuration with environment variable placeholders:
 - [Python build tool
   configuration](/chainguard/libraries/python/build-configuration/)
 
+#### uv index-scoped environment variables
+
+When using `uv` for Python, you can supply credentials through index-scoped
+environment variables instead of a shared secrets file or `.netrc`. For a named
+index, uv reads `UV_INDEX_<NAME>_USERNAME` and `UV_INDEX_<NAME>_PASSWORD`, where
+`<NAME>` is the index name uppercased with hyphens replaced by underscores.
+
+For an index named `chainguard`, set:
+
+```shell
+export UV_INDEX_CHAINGUARD_USERNAME="${CHAINGUARD_PYTHON_IDENTITY_ID}"
+export UV_INDEX_CHAINGUARD_PASSWORD="${CHAINGUARD_PYTHON_TOKEN}"
+```
+
+This pairs well with the `eval` approach above: generate the
+`CHAINGUARD_PYTHON_IDENTITY_ID` and `CHAINGUARD_PYTHON_TOKEN` variables, then
+map them to uv's index-scoped names. See the [uv build
+configuration](/chainguard/libraries/python/build-configuration/#uv) for index
+setup details.
+
 <a id="netrc"></a>
 
 ### .netrc for authentication

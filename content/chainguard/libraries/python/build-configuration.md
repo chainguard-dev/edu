@@ -482,9 +482,46 @@ authentication](/chainguard/libraries/access/#netrc).
 #### Using direct access
 
 For [direct access](#direct-access) to Chainguard Libraries for Python with
-uv, use `.netrc` or your username `CG_PULLTOKEN_USERNAME` and password
+uv, use `.netrc`, environment variables, or embed credentials directly in the
+index URL using your username `CG_PULLTOKEN_USERNAME` and password
 `CG_PULLTOKEN_PASSWORD` values from the pull token creation and the URL with the
-simple context `https://libraries.cgr.dev/python/simple/`:
+simple context `https://libraries.cgr.dev/python/simple/`.
+
+The recommended approach for CI/CD and shared configurations is to use
+uv's native index-scoped environment variables. For a named index, uv reads
+credentials from `UV_INDEX_<NAME>_USERNAME` and `UV_INDEX_<NAME>_PASSWORD`,
+where `<NAME>` is the index name uppercased with hyphens replaced by underscores.
+This avoids storing credentials in config files while keeping the index
+configuration shareable.
+
+For example, with an index named `chainguard`:
+
+```shell
+export UV_INDEX_CHAINGUARD_USERNAME=CG_PULLTOKEN_USERNAME
+export UV_INDEX_CHAINGUARD_PASSWORD=CG_PULLTOKEN_PASSWORD
+```
+
+Configure the index without embedded credentials in `pyproject.toml`:
+
+```toml
+[[tool.uv.index]]
+name = "chainguard"
+url = "https://libraries.cgr.dev/python/simple/"
+default = true
+authenticate = "always"
+```
+
+Or in `uv.toml`:
+
+```toml
+[[index]]
+name = "chainguard"
+url = "https://libraries.cgr.dev/python/simple/"
+authenticate = "always"
+```
+
+Alternatively, embed credentials directly in the URL (avoid in shared or
+version-controlled files):
 
 Example for `pyproject.toml`:
 
