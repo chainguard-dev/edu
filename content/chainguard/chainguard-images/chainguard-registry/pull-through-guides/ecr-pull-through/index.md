@@ -4,7 +4,7 @@ linktitle: "Amazon ECR"
 type: "article"
 description: "Tutorial outlining how to set up an Amazon ECR pull through cache rule for pulling Containers from Chainguard's registry."
 date: 2026-03-31T00:00:00+00:00
-lastmod: 2026-07-16T00:00:00+00:00
+lastmod: 2026-07-17T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers", "Registry"]
 images: []
@@ -17,7 +17,7 @@ weight: 007
 
 In March 2026, AWS [announced support](https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-ecr-pull-through-cache-chainguard/) for using Amazon Elastic Container Registry (ECR) as a pull through cache for Chainguard's registry. By configuring a pull through cache rule, you can pull Chainguard Containers through your own ECR private registry. ECR caches each image on the first pull and checks the upstream registry for a newer version at most once every 24 hours, which reduces your workloads' direct dependency on Chainguard's registry.
 
-This tutorial outlines how to configure a pull through cache rule for [Chainguard's registry](/chainguard/chainguard-registry/overview/) with [Amazon ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/what-is-ecr.html). Unlike some other registries, ECR treats Chainguard as an upstream that requires authentication. This means you store a Chainguard pull token in AWS Secrets Manager and reference it from a single cache rule. That one rule handles both [Free Containers](/chainguard/chainguard-images/about/images-categories/#free-containers) from Chainguard's public namespace and [Production Containers](/chainguard/chainguard-images/about/images-categories/#production-containers) from your organization's private registry.
+This tutorial outlines how to configure a pull through cache rule for [Chainguard's registry](/chainguard/chainguard-registry/overview/) with [Amazon ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/what-is-ecr.html). Unlike some other registries, ECR treats Chainguard as an upstream that requires authentication. This means you store a Chainguard pull token in AWS Secrets Manager and reference it from a cache rule. This guide scopes that rule to your organization's private namespace, so it caches your [Production Containers](/chainguard/chainguard-images/about/images-categories/#production-containers) and lets you pull them with short image paths.
 
 ## Prerequisites
 
@@ -75,7 +75,7 @@ The secret must use the two keys `username` and `accessToken`, and it must be en
 
 Note down the secret's Amazon Resource Name (ARN) from the command's output, as you'll need it when creating the cache rule with the CLI. The ARN has a format like the following:
 
-```output
+```ARN
 arn:aws:secretsmanager:us-east-2:111122223333:secret:ecr-pullthroughcache/chainguard-a1b2c3
 ```
 
@@ -85,17 +85,22 @@ Alternatively, you can create the secret in the [AWS Secrets Manager console](ht
 
 With your credentials stored, you can create a pull through cache rule that points at Chainguard's registry.
 
-To create the rule with the AWS CLI, run the following command. Replace the `--credential-arn` value with the ARN of the secret you created, and set the Region to match:
+To create the rule with the AWS CLI, run the following command. Replace `--upstream-repository-prefix` with your organization's name (this guide uses `example.com`), replace the `--credential-arn` value with the ARN of the secret you created, and set the Region to match:
 
 ```sh
 aws ecr create-pull-through-cache-rule \
     --ecr-repository-prefix cg-ecr \
     --upstream-registry-url cgr.dev \
+    --upstream-repository-prefix example.com \
     --credential-arn arn:aws:secretsmanager:us-east-2:111122223333:secret:ecr-pullthroughcache/chainguard-a1b2c3 \
     --region us-east-2
 ```
 
-This command sets an ECR repository prefix of `cg-ecr`, so ECR names each repository it creates through this rule using the scheme `cg-ecr/<upstream-repository-name>`. You can use any prefix you like; this guide uses `cg-ecr` to keep the ECR prefix distinct from Chainguard's own `chainguard` namespace. The `--upstream-registry-url` **must** be set to `cgr.dev`.
+This command creates a rule scoped to a single Chainguard namespace:
+
+* `--upstream-repository-prefix example.com` limits the rule to your organization's private namespace at `cgr.dev/example.com`. Replace `example.com` with your organization's name or ID, which you can find by running `chainctl iam organizations list -o table`. When you pull an image, ECR matches this prefix and drops it from the image path, so you don't repeat the namespace on every pull.
+* `--ecr-repository-prefix cg-ecr` sets the local namespace for the repositories ECR creates, following the scheme `cg-ecr/<image-name>`. You can use any prefix you like; this guide uses `cg-ecr` to keep the local prefix distinct from Chainguard's namespaces.
+* `--upstream-registry-url` **must** be set to `cgr.dev`.
 
 Alternatively, you can create the rule in the [Amazon ECR console](https://console.aws.amazon.com/ecr/):
 
@@ -104,10 +109,14 @@ Alternatively, you can create the rule in the [Amazon ECR console](https://conso
 3. On the **Pull through cache rules** page, click **Add rule**.
 4. On the **Specify upstream** page, select **Chainguard**, then click **Next**.
 5. On the **Configure authentication** page, choose **Use an existing AWS secret** and select the secret you created. To create the secret here instead, choose **Create an AWS secret** and enter your pull token ID and password. Click **Next**.
-6. On the **Specify namespaces** page, set the **Amazon ECR repository prefix** to `cg-ecr`, then click **Next**. ECR populates a default of `chainguard`, but this guide uses `cg-ecr` to keep the ECR prefix distinct from Chainguard's `chainguard` namespace.
+6. On the **Specify namespaces** page, set the **Cache namespace** to `cg-ecr`. ECR populates a default of `chainguard`, but this guide uses `cg-ecr` to keep the local prefix distinct from Chainguard's namespaces. For the **Upstream namespace**, select **A specific prefix** and enter your organization's name (this guide uses `example.com`) to scope the rule to your private namespace. Click **Next**.
 7. On the **Review and create** page, review the configuration and click **Create**.
 
 After creating the rule, you can [validate it](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-working-validating.html) from the console or CLI. Validation confirms that ECR can reach Chainguard's registry and authenticate with your stored credentials.
+
+{{< note >}}
+Scoping the rule to a single namespace keeps pull paths short, but it limits the rule to that one namespace. To cache any repository your credentials can access — including your other private namespaces and [Free Containers](/chainguard/chainguard-images/about/images-categories/#free-containers) from the public `chainguard` namespace — omit `--upstream-repository-prefix` on the CLI, or select **no prefix** for the **Upstream namespace** in the console. ECR then defaults to `ROOT` and caches any repository. With an unscoped rule, include the full upstream namespace in each pull path, such as `cg-ecr/example.com/chainguard-base:latest` or `cg-ecr/chainguard/go:latest`.
+{{< /note >}}
 
 ## Testing pull through from Chainguard's registry to Amazon ECR
 
@@ -117,27 +126,19 @@ Before pulling an image, authenticate Docker to your ECR private registry. Repla
 aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin <aws_account_id>.dkr.ecr.us-east-2.amazonaws.com
 ```
 
-After logging in, you can pull a Chainguard Container through ECR. Container images pulled through the rule use the following URI format, where the first path element is the repository prefix you configured (`cg-ecr`) and the remainder is the image's path in Chainguard's registry:
+After logging in, you can pull a Chainguard Container through ECR. Because the rule is scoped to your organization's namespace, ECR drops that namespace from the pull path. Container images pulled through the rule use the following URI format, where the first path element is the repository prefix you configured (`cg-ecr`) and the remainder is the image name:
 
 ```
-<aws_account_id>.dkr.ecr.<region>.amazonaws.com/cg-ecr/<chainguard-image-path>:<tag>
+<aws_account_id>.dkr.ecr.<region>.amazonaws.com/cg-ecr/<image-name>:<tag>
 ```
 
-The following example pulls the `go` Free Container, which lives in Chainguard's public `chainguard` namespace:
+The following example pulls the `chainguard-base` Production Container from the `example.com` namespace the rule is scoped to:
 
 ```sh
-docker pull <aws_account_id>.dkr.ecr.us-east-2.amazonaws.com/cg-ecr/chainguard/go:latest
+docker pull <aws_account_id>.dkr.ecr.us-east-2.amazonaws.com/cg-ecr/chainguard-base:latest
 ```
 
-Here, `cg-ecr` is your ECR repository prefix and `chainguard` is the upstream namespace in Chainguard's registry.
-
-To pull a Production Container, replace the upstream namespace with the name of your organization's registry. The following example pulls the `chainguard-base` image if your organization has access to it:
-
-```sh
-docker pull <aws_account_id>.dkr.ecr.us-east-2.amazonaws.com/cg-ecr/<organization>/chainguard-base:latest
-```
-
-Be sure to replace `<organization>` with your organization's name or ID. You can find these values by running `chainctl iam organizations list -o table`.
+Here, `cg-ecr` is your ECR repository prefix and `chainguard-base` is the image name. ECR resolves this to `cgr.dev/example.com/chainguard-base` in Chainguard's registry. You don't include `example.com` in the pull path because the rule is already scoped to it.
 
 On the first pull of an image, ECR creates a repository under the `cg-ecr/` prefix and caches the image. ECR serves subsequent pulls from that cache.
 
@@ -149,7 +150,8 @@ If you run into issues when pulling Containers from Chainguard's registry throug
 * When creating the cache rule, ensure the upstream registry URL is set to `cgr.dev`. This field **must not** contain additional components.
 * Confirm that your Secrets Manager secret uses the `username` and `accessToken` keys, and that its name begins with the `ecr-pullthroughcache/` prefix. The secret must be in the same account and Region as the cache rule.
 * Confirm that the pull token stored in the secret has not expired and that its identity has permission to pull the container images you're requesting.
-* You can troubleshoot by running `docker login` from another machine (using the pull token credentials) and pulling directly from `cgr.dev/chainguard/<image name>` or `cgr.dev/<organization>/<image name>`.
+* If you scoped the rule to a namespace, confirm your pull path omits that namespace. For a rule scoped to `example.com`, pull `cg-ecr/chainguard-base:latest`, not `cg-ecr/example.com/chainguard-base:latest`.
+* You can troubleshoot by running `docker login` from another machine (using the pull token credentials) and pulling directly from `cgr.dev/example.com/<image name>`, or from `cgr.dev/chainguard/<image name>` for Free Containers.
 * Refer to the AWS guide on [troubleshooting pull through cache issues](https://docs.aws.amazon.com/AmazonECR/latest/userguide/error-pullthroughcache.html) for common errors and their resolutions.
 
 ## Learn more
