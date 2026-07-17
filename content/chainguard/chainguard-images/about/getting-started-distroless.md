@@ -1,7 +1,7 @@
 ---
 title: "Getting Started with Distroless Container Images"
 linktitle: "Going Distroless"
-aliases: 
+aliases:
 - /chainguard/chainguard-images/getting-started-distroless/
 - /chainguard/chainguard-images/about/getting-started-distroless/
 type: "article"
@@ -19,6 +19,7 @@ toc: true
 ---
 
 ## About Distroless Container Images
+
 [Distroless](https://www.chainguard.dev/unchained/minimal-container-images-towards-a-more-secure-future) container images, like the ones built by Chainguard, are a type of container image designed to include only essential software required to run an application or service. Unlike traditional images based on Debian or Ubuntu — which include package managers, utilities, and shells — Chainguard's distroless images remove these components to significantly reduce attack surface and minimize vulnerabilities.
 
 This minimal approach offers several benefits, including:
@@ -30,6 +31,7 @@ This minimal approach offers several benefits, including:
 Chainguard offers a mix of distroless and container images, which are minimalist and contain provenance attestations for increased security, and development (or `-dev`) images, which feature development tools like a shell or package manager. Since distroless images have fewer tools and don't come with a package manager, some adaptation might be necessary when migrating from traditional base images. A typical approach is using multi stage builds to compose a final distroless image containing the additional artifacts required by the application in order to run successfully.
 
 ## Multi Stage Builds
+
 A multi stage build is a technique for creating slimmer and more efficient container images. It allows you to define multiple stages within a single Dockerfile. Each stage acts like a separate build environment with its own base image and instructions.
 
 The key benefit of multi stage builds is that they enable you to separate the build process from the final runtime environment. This separation helps in reducing the final image size by:
@@ -40,6 +42,7 @@ The key benefit of multi stage builds is that they enable you to separate the bu
 Overall, multi stage builds promote efficient container images by minimizing their size and optimizing their contents for execution.
 
 ### Example 1: Distroless images as runtime for static binaries
+
 Distroless images are typically designed to work as platforms for running workloads in as minimal an environment as possible. In the case of languages that can compile completely static binaries (such as C and Rust), the **static** base image can be used as a runtime. You'll still need to get your application compiled in a separate build stage that has the tooling necessary to build it.
 
 In this example, we'll build a distroless image to run a "Hello World" program in C. Start by creating a directory for the demo. We'll call it **distroless-demo**.
@@ -130,11 +133,13 @@ The following command will create a new `composer.json` file with a single depen
 ```shell
 docker run --rm --entrypoint composer --user=root -v ${PWD}:/app cgr.dev/chainguard/php:latest-dev require minicli/curly
 ```
+
 In this case, we had to use the **root** image user in order to be able to write files in the current host directory. The following command will fix file permissions for our current system user:
 
 ```shell
 sudo chown -R ${USER}:${USER} .
 ```
+
 Now create the PHP executable. You can call it `catfact.php`:
 
 ```shell
@@ -143,7 +148,7 @@ nano catfact.php
 
 The following code makes a query to the cat facts API, returning the quote as output. Copy the contents to your own `catfact.php` script:
 
-```catfact.php 
+```catfact.php
 <?php
 
 require __DIR__ . '/vendor/autoload.php';
@@ -205,6 +210,7 @@ Upon inspection with `docker images`, you can check the image size around 38MB:
 ```shell
 docker images distroless-demo-php
 ```
+
 ```output
 REPOSITORY            TAG       IMAGE ID       CREATED         SIZE
 distroless-demo-php   latest    8691d09f56ca   2 minutes ago   37.9MB

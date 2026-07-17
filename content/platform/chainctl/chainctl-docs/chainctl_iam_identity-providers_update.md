@@ -1,0 +1,63 @@
+---
+date: 2026-07-01T03:32:22Z
+title: "chainctl iam identity-providers update"
+slug: chainctl_iam_identity-providers_update
+url: /platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_update/
+draft: false
+tags: ["chainctl", "Reference", "Product"]
+images: []
+type: "article"
+toc: true
+---
+## chainctl iam identity-providers update
+
+Update an identity provider
+
+```
+chainctl iam identity-providers update IDENTITY_PROVIDER_ID [--name=NAME] [--description=DESCRIPTION] [--oidc-issuer=ISSUER] [--oidc-client-id=CLIENTID] [--oidc-client-secret=CLIENTSECRET] [--oidc-additional-scopes=SCOPE,...] [--default-role=ROLE] [--output=id|json|table]
+```
+
+### Examples
+
+```
+  # Update name and description of an identity provider by ID
+  chainctl iam identity-providers update fb694596eb1678321f94eec283e1e0be690f655c/a2973bac66ebfde3 --name=new-name --description=new-description
+  
+  # Update the default role for an identity provider by name
+  chainctl iam identity-providers update my-idp --default=role=viewer
+```
+
+### Options
+
+```
+      --configuration-type string            Type of identity provider. Only OIDC supported currently (default "OIDC")
+      --default-role string                  Optional role to grant users on first login
+      --description string                   Description of identity provider
+      --name string                          Name of identity provider
+      --oidc-additional-scopes stringArray   additional scopes to request for OIDC type identity provider
+      --oidc-client-id string                client id for OIDC type identity provider
+      --oidc-client-secret string            client secret for OIDC type identity provider
+      --oidc-groups-claim string             OIDC token claim carrying group memberships, used for group-to-role mappings (empty disables group mapping)
+      --oidc-issuer string                   Issuer URL for OIDC type identity provider
+  -y, --yes                                  Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+```
+
+### Options inherited from parent commands
+
+```
+      --api string         The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
+      --audience string    The Chainguard token audience to request. (default "https://console-api.enforce.dev")
+      --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
+      --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
+      --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
+      --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
+      --log-level string   Set the log level (debug, info) (default "ERROR")
+  -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
+  -v, --v int              Set the log verbosity level.
+```
+
+### SEE ALSO
+
+* [chainctl iam identity-providers](/chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers/)	 - customer managed identity provider management
+

@@ -34,11 +34,13 @@ By comparison, Octo STS tokens are short-lived (1 hour) and typically tightly sc
 ### How does Octo STS compare to GitHub's built-in GITHUB\_TOKEN?
 
 GitHub Actions provides a `GITHUB_TOKEN` automatically, but it has limitations:
+
 - Cannot update workflow files
 - Cannot trigger other workflows
 - Limited to a fixed set of permissions
 
 Octo STS tokens can:
+
 - Update workflow files (useful for Renovate)
 - Have any permissions defined in your trust policy
 - Work consistently across all automation platforms, not just GitHub Actions
@@ -56,6 +58,7 @@ Yes, Octo STS is open source and can be self-hosted. See the [Octo STS repositor
 ### How do I install Octo STS?
 
 Install the GitHub App:
+
 1. Visit [https://github.com/apps/octo-sts](https://github.com/apps/octo-sts)
 2. Click **Install**
 3. Select the organization or user account
@@ -83,6 +86,7 @@ Edit the trust policy file in your repository, commit, and push the changes. The
 ### Can I have multiple trust policies in one repository?
 
 Yes, you can create multiple policy files with different names:
+
 - `.github/chainguard/renovate.sts.yaml`
 - `.github/chainguard/deploy.sts.yaml`
 - `.github/chainguard/ci.sts.yaml`
@@ -122,6 +126,7 @@ Exact matching is more secure because it's harder to accidentally grant broader 
 ### Can I use Octo STS from a CI/CD system other than GitHub Actions?
 
 Yes, Octo STS works with any system that can:
+
 1. Obtain OIDC tokens (Jenkins, GitLab CI, CircleCI, etc.)
 2. Make HTTP requests to exchange tokens
 3. Use the resulting GitHub token
@@ -172,6 +177,7 @@ The resulting token can access all listed repositories.
 ### Token exchange fails
 
 Common causes:
+
 - **Trust policy doesn't exist**: Verify the file exists at `.github/chainguard/{identity}.sts.yaml`
 - **OIDC token doesn't match policy**: Check that issuer and subject match your OIDC token
 - **App not installed**: Ensure Octo STS is installed and has access to the repository
@@ -182,7 +188,7 @@ Common causes:
 
 ### How long do Octo STS tokens last?
 
-By default, tokens expire after 1 hour. 
+By default, tokens expire after 1 hour.
 
 ### Can I refresh Octo STS tokens?
 
@@ -191,6 +197,7 @@ No, Octo STS tokens cannot be refreshed. When a token expires, exchange a new OI
 ### What happens when Octo STS permissions are updated?
 
 Octo STS periodically adds or removes GitHub permissions to support new use cases. When this happens:
+
 - An issue is created in the Octo STS repository explaining the changes
 - You'll receive a notification to approve the updated permissions in your GitHub App installation
 - Updates are applied quarterly, with exceptions for critical changes
@@ -225,10 +232,10 @@ Report bugs in the [Octo STS GitHub repository](https://github.com/octo-sts/app/
 ### How can I contribute to Octo STS?
 
 Octo STS is open source. Contributions are welcome:
+
 - Report bugs and request features
 - Improve documentation
 - Submit pull requests for code changes
 - Share your use cases and integration patterns
 
 See the [repository](https://github.com/octo-sts/app) for contribution guidelines.
-

@@ -26,5 +26,3 @@ This presentation was recorded on November 16, 2022. Although most of the conten
 {{< /note >}}
 
 {{< youtube 2pqhLXA6NaI >}}
-
-

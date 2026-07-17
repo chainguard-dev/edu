@@ -46,5 +46,4 @@ By leveraging Chainguard’s resources, organizations can accelerate their path 
 - [Overview of CMMC 2.0 Practice/Control Groups](/compliance/cmmc-2/cmmc-practices/)
 - (Current article) How Chainguard Can Help With CMMC 2.0
 
-
 **[Get started with FIPS Chainguard Containers today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**

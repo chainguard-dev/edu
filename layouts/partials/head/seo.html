@@ -34,6 +34,8 @@
   {{ if .Paginator.HasNext -}}
     <link rel="next" href="{{ .Paginator.Next.URL | absURL }}">
   {{ end -}}
+{{ else if .Params.landingpage -}}
+  <link rel="canonical" href="{{ (.Site.GetPage .Params.landingpage).Permalink }}">
 {{ else  -}}
   <link rel="canonical" href="{{ .Permalink }}">
 {{ end -}}

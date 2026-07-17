@@ -17,19 +17,22 @@ weight: 030
 toc: true
 ---
 
-This FAQ addresses common questions about [Chainguard OS](/chainguard/chainguard-os/), the security-focused operating system that powers Chainguard's production container images and enterprise features. 
+This FAQ addresses common questions about [Chainguard OS](/chainguard/chainguard-os/), the security-focused operating system that powers Chainguard's production container images and enterprise features.
 
 ## What is Chainguard OS?
+
 Chainguard OS is a minimal, hardened Linux-based operating system designed for secure, containerized software delivery. Built in-house by Chainguard, it serves as the foundation for Chainguard’s container products and emphasizes continuous integration, immutable artifacts, and alignment with upstream software.
 
 ## What is the relationship between Chainguard OS and Wolfi?
+
 Wolfi refers to the OS of Chainguard’s [free tier container images](/chainguard/chainguard-images/about/images-categories/#starter-containers).
 
 Chainguard OS refers to the production-grade distribution that powers all other Chainguard products.
 
-Please note that mixing and matching content across Wolfi and Chainguard OS is not supported. 
+Please note that mixing and matching content across Wolfi and Chainguard OS is not supported.
 
 ## What are the core principles behind Chainguard OS?
+
 Chainguard OS is built around four core principles:
 
 1. Continuous Integration and Delivery (CI/CD)
@@ -40,6 +43,7 @@ Chainguard OS is built around four core principles:
 Each of these principles ensures that Chainguard OS can provide a more secure and efficient platform for software distribution.
 
 ## What makes Chainguard OS different from traditional Linux distributions?
+
 Chainguard OS is designed specifically for more secure and containerized application delivery. Our approach differs from traditional distros in several key ways:
 
 * No LTS model: instead of fixed major releases, Chainguard OS continuously delivers updates in alignment with upstream changes.
@@ -49,6 +53,7 @@ Chainguard OS is designed specifically for more secure and containerized applica
 * Ephemeral design: Chainguard OS embraces container-native patterns, making updates and rollbacks trivial.
 
 ## What are the benefits of using Chainguard OS?
+
 * Security — reduced attack surface, hardened builds, and continuous patching.
 * Compliance — automatically generated SBOMs and provenance metadata for all artifacts.
 * Operational efficiency — reduces long upgrade cycles and manual patching.

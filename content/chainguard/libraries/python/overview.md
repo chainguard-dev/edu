@@ -31,7 +31,7 @@ request for a library or library version missing in Chainguard Libraries
 automatically triggers a process to provision the artifacts from relevant
 sources if available. In combination with third-party software repository
 managers, you can use Chainguard Libraries for Python as a secure source of
-truth for your development process. 
+truth for your development process.
 
 ## Technical details
 
@@ -58,9 +58,9 @@ source, without remediated versions. The second index provides remediated
 libraries with high and critical CVE fixes applied to older versions. The
 separate indexes provide you the option to make remediated versions available
 for your development or to opt out of using these versions completely and
-continue to use non-remediated versions only. The third index refers to 
-CUDA version-specific indexes which include libraries with 
-GPU-accelerated Python wheels. You can find more details in the [CUDA 
+continue to use non-remediated versions only. The third index refers to
+CUDA version-specific indexes which include libraries with
+GPU-accelerated Python wheels. You can find more details in the [CUDA
 Enabled Libraries](#cuda-enabled-libraries) section.
 
 The Chainguard Libraries for Python repository does not include all packages
@@ -102,15 +102,15 @@ the version `3.9.1+cgr.2`.
 
 ## CUDA-enabled libraries
 
-Chainguard Libraries for Python includes libraries optimized for specific CUDA 
-versions. These libraries are GPU‑accelerated Python wheels that are built 
-and tested against specific NVIDIA CUDA versions. An example is `torch` built 
-for CUDA 12.8, available via the `https://libraries.cgr.dev/cu128/simple/` index. 
-These libraries are published to CUDA‑specific indexes to ensure your Python build 
-tools resolve the correct wheel versions, mirroring how other CUDA-optimized 
+Chainguard Libraries for Python includes libraries optimized for specific CUDA
+versions. These libraries are GPU‑accelerated Python wheels that are built
+and tested against specific NVIDIA CUDA versions. An example is `torch` built
+for CUDA 12.8, available via the `https://libraries.cgr.dev/cu128/simple/` index.
+These libraries are published to CUDA‑specific indexes to ensure your Python build
+tools resolve the correct wheel versions, mirroring how other CUDA-optimized
 ecosystems are commonly distributed.
 
-Chainguard Libraries for Python includes the following repositories for 
+Chainguard Libraries for Python includes the following repositories for
 GPU‑accelerated libraries, built for specific CUDA versions:
 
 ```
@@ -119,25 +119,25 @@ https://libraries.cgr.dev/cu128/simple/
 https://libraries.cgr.dev/cu129/simple/
 ```
 
-Many Python package managers and repository managers support configuring 
-multiple package indexes. You can generally treat Chainguard’s CUDA indexes 
-the same way you use other CUDA-specific indexes (for example, the PyTorch 
+Many Python package managers and repository managers support configuring
+multiple package indexes. You can generally treat Chainguard’s CUDA indexes
+the same way you use other CUDA-specific indexes (for example, the PyTorch
 CUDA wheels at https://download.pytorch.org/whl/cu128).
 
 If you use a repository manager as described in the [Global Configuration
-documentation](/chainguard/libraries/python/global-configuration/), configure 
-a remote repository that points at the appropriate Chainguard CUDA index, and 
+documentation](/chainguard/libraries/python/global-configuration/), configure
+a remote repository that points at the appropriate Chainguard CUDA index, and
 use it in place of any CUDA-specific index you previously proxied.
 
-If you choose to pull directly without an artifact manager, you can similarly 
-replace the CUDA index you previously used with the corresponding 
-Chainguard CUDA index, with your existing package management tools like 
-`pip`, `uv`, or `poetry`. 
+If you choose to pull directly without an artifact manager, you can similarly
+replace the CUDA index you previously used with the corresponding
+Chainguard CUDA index, with your existing package management tools like
+`pip`, `uv`, or `poetry`.
 
-Note that the CUDA-enabled libraries in these repositories are not dependency 
-complete, since they do not include packages from the NVIDIA CUDA toolkit. You 
-must configure your package manager to pull NVIDIA components from an 
-upstream source such as NVIDIA's index at https://pypi.nvidia.com, or from PyPI 
+Note that the CUDA-enabled libraries in these repositories are not dependency
+complete, since they do not include packages from the NVIDIA CUDA toolkit. You
+must configure your package manager to pull NVIDIA components from an
+upstream source such as NVIDIA's index at https://pypi.nvidia.com, or from PyPI
 where NVIDIA publishes them directly.
 
 ## Python version support
@@ -242,7 +242,6 @@ however, uses a suitable package from Chainguard Libraries. When using CVE remed
 this also means that remediated packages with native binaries are only used on
 Linux.
 
-
 <a id="manual"></a>
 
 ## Manual access
@@ -318,9 +317,9 @@ The option `-L` is required to follow redirects for the actual file locations.
 
 Because Chainguard rebuilds Python packages from source rather than mirroring upstream PyPI artifacts, it is expected that checksums for Chainguard-built packages differ from their PyPI counterparts, even for identical package versions. This affects any tool that pins or verifies hashes:
 
-- Tools such as `pip` verify that downloaded files match the hashes specified in requirements.txt when using `--require-hashes` or when hashes are pinned
-- Tools such as `pip`, `Poetry`, and `uv` generate lock files that include SHA-256 hashes
-- Repository managers such as JFrog Artifactory or Sonatype Nexus may have cached upstream PyPI wheels and continue serving them instead of Chainguard versions, even after you have reconfigured to use Chainguard Libraries
+* Tools such as `pip` verify that downloaded files match the hashes specified in requirements.txt when using `--require-hashes` or when hashes are pinned
+* Tools such as `pip`, `Poetry`, and `uv` generate lock files that include SHA-256 hashes
+* Repository managers such as JFrog Artifactory or Sonatype Nexus may have cached upstream PyPI wheels and continue serving them instead of Chainguard versions, even after you have reconfigured to use Chainguard Libraries
 
 Resolving these issues requires two steps: [clearing cached artifacts](#clearing-caches-before-migration) at every layer of your build pipeline, and [updating lock files or requirements files](#updating-lockfile-hashes) so they reflect Chainguard's checksums.
 
@@ -332,7 +331,7 @@ Cached packages can exist at multiple layers:
 
 **Local developer machines**
 
-Common cache locations for Python tools include `~/.cache/pip/`, `~/.cache/uv/`, and `~/.cache/pypoetry/`. 
+Common cache locations for Python tools include `~/.cache/pip/`, `~/.cache/uv/`, and `~/.cache/pypoetry/`.
 
 Clear the cache for your tool:
 
@@ -366,7 +365,7 @@ If you install through a repository manager, see [Global configuration](/chaingu
 
 #### Update lockfiles manually
 
-Alternatively, you can use the following instructions to manually update your lockfiles: 
+Alternatively, you can use the following instructions to manually update your lockfiles:
 
 {{< details "Manually updating lockfiles" >}}
 
@@ -374,12 +373,13 @@ Before regenerating lock files, ensure your tool is configured to use Chainguard
 
 To update your lock files and requirements with Chainguard's checksums:
 
-**pip with `--require-hashes`:** 
+**pip with `--require-hashes`:**
 
 If your `requirements.txt` was generated using PyPI hashes, installation will
 fail with a hash mismatch after switching to Chainguard. Once pip is configured
 to use Chainguard as the index, regenerate your requirements file to update the
 hashes:
+
 ```bash
   pip-compile --generate-hashes requirements.in -o requirements.txt
 ```
@@ -399,7 +399,7 @@ The credentials from your Chainguard pull token must be embedded in the index UR
 url = "https://<PULLTOKEN_USERNAME_PART1>%2F<PULLTOKEN_USERNAME_PART2>:<PULLTOKEN_PASSWORD>@libraries.cgr.dev/python/simple/"
 authenticate = "always"
 ```
-  
+
 **Poetry:**
 
 When the configured source changes, Poetry detects that `pyproject.toml` has changed significantly and refuses to install until the lock file is regenerated. Regenerate your lock file to update the hashes:
@@ -410,15 +410,15 @@ Poetry 1.x:
   poetry lock --no-update
 ```
 
-Poetry 2.x: 
+Poetry 2.x:
 
 ```bash
   poetry lock
 ```
 
-**Repository managers:** 
+**Repository managers:**
 
-Repository managers such as JFrog Artifactory or Sonatype Nexus may continue serving cached PyPI artifacts even after the upstream index is changed. Clear the cache or invalidate the artifact to ensure the Chainguard-built package is fetched. 
+Repository managers such as JFrog Artifactory or Sonatype Nexus may continue serving cached PyPI artifacts even after the upstream index is changed. Clear the cache or invalidate the artifact to ensure the Chainguard-built package is fetched.
 
 Before regenerating lock files, ensure your tool is configured to use Chainguard as the package index by following the [global configuration](/chainguard/libraries/python/global-configuration/) or [direct access](/chainguard/libraries/python/build-configuration/#direct-access) documentation.
 
@@ -444,8 +444,9 @@ specification](https://peps.python.org/pep-0770/) for software composition
 analytis (SCA) using the SPDX format.
 
 A wheel file contains two directories:
-- The main code directory that uses the name of the library only, and 
-- The version-specific distribution info directory `.dist.info`.
+
+* The main code directory that uses the name of the library only, and
+* The version-specific distribution info directory `.dist.info`.
 
 For example, the wheel archive for Flask version 2.0.0
 includes a directory `flask-2.0.0.dist.info`. You can also find this directory
@@ -520,7 +521,7 @@ to verify the authenticity and integrity of a signed artifact.
 A Sigstore bundle file is available
 as `bundle.json` from the integrity context at
 `https://libraries.cgr.dev/python/integrity/PACKAGE/VERSION/FILE/bundle.json`
-specifically for each package, version, and file. 
+specifically for each package, version, and file.
 
 ## Upstream fallback policy and controls
 

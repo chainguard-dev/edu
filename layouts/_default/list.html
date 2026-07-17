@@ -1,5 +1,11 @@
 {{ define "main" }}
-  {{ if eq .Params.topic true }}
+  {{ if .Params.landingpage }}
+  {{ with .Site.GetPage .Params.landingpage }}
+    {{ partial "single-body.html" . }}
+  {{ else }}
+    {{ warnf "landingpage %q on %q did not resolve to a page" $.Params.landingpage $.Path }}
+  {{ end }}
+  {{ else if eq .Params.topic true }}
   <div class="row flex-md-nowrap">
     <div class="leftnav-container">
       <div class="board-background leftnav">
@@ -35,9 +41,9 @@
           <h1 class="landing-title text-capitalize">{{ if eq .CurrentSection .FirstSection }}{{ .Section | humanize }}{{ else }}{{ .Title }}{{ end }}</h1>
           <p>{{ .Description }}</p>
           <div class="install-container">
-            <div class="card-background install-card col-lg">
+            <a href="{{ .Params.banner.link }}" class="card-background install-card col-lg">
               <img src="{{ .Params.banner.image }}" alt="Video Icon">
-            </div>
+            </a>
             <div class="install-text-container d-flex flex-column col-lg">
               <h3 class="banner-title">{{ .Params.banner.title }}</h3>
               <p>{{ .Params.banner.subtitle }}</p>

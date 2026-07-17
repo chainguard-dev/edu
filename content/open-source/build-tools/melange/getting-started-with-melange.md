@@ -98,6 +98,7 @@ docker run --rm -it -v "${PWD}":/app composer require minicli/minicli
 ```
 
 Once you receive confirmation that the download was completed, you'll need a second dependency to query the Advice Slip API. Run the following command to include `minicli/curly`, a `curl` wrapper for Minicli:
+
 ```shell
 docker run --rm -it -v "${PWD}":/app composer require minicli/curly
 ```
@@ -117,6 +118,7 @@ Gratitude is said to be the secret to happiness.
 With the application ready, you can start building your package.
 
 ## 3 — The melange YAML File
+
 The `melange.yaml` file is where you declare the details and specifications of your apk package. For code that generates self-contained binaries, this is typically where you'll build your application artifacts with compiler tools. In the case of interpreted languages, you'll likely build your application by downloading vendor dependencies, setting up relevant paths, and setting the environment up for production.
 
 The melange specification file contains three main sections:
@@ -184,6 +186,7 @@ Before building the package, you'll need to create a temporary keypair to sign i
 ```shell
 docker run --rm -v "${PWD}":/work cgr.dev/chainguard/melange keygen
 ```
+
 This will generate a `melange.rsa` and `melange.rsa.pub` files in the current directory.
 
 ```
@@ -200,6 +203,7 @@ docker run --privileged --rm -v "${PWD}":/work \
   --arch amd64,aarch64 \
   --signing-key melange.rsa
 ```
+
 This will set up a volume sharing your current folder with the location `/work` inside the container. We'll build packages for `amd64` and `aarch64` platforms and sign them using the `melange.rsa` key created in the previous command.
 
 When the build is finished, you should be able to find a `packages` folder containing the generated apks (and associated apk index files):
@@ -260,6 +264,7 @@ The following command will set up a volume sharing your current folder with the 
 docker run --rm --workdir /work -v ${PWD}:/work cgr.dev/chainguard/apko \
   build apko.yaml hello-minicli:test hello-minicli.tar --arch host
 ```
+
 This will build an OCI image based on your host system's architecture (specified by the `--arch host` flag). If you receive warnings at this point, those are likely related to the types of SBOMs being uploaded and can be safely ignored.
 
 The command will generate a few new files in the app's directory:
@@ -272,6 +277,7 @@ Next, load your image within Docker:
 ```shell
 docker load < hello-minicli.tar
 ```
+
 ```
 7cbaefdf1c30: Loading layer   13.7MB/13.7MB
 Loaded image: hello-minicli:test-%host-architecture%
@@ -284,6 +290,7 @@ Now you can run your Minicli program with:
 ```shell
 docker run --rm hello-minicli:test-%host-architecture%
 ```
+
 The demo should output an advice slip such as:
 
 ```

@@ -1,1 +1,16 @@
+# Default owners for everything not matched below.
+# Also acts as the fallback owner for infra/config/tooling folders
+# (scripts/, terraform/, iac/, .github/, root config) that have no
+# dedicated team owner.
 *   @chainguard-dev/education-team-write @chainguard-dev/devrel-team-write
+
+# Education (edu) team owns all documentation content and site tooling.
+/content/                      @chainguard-dev/education-team-write
+/tools/                        @chainguard-dev/education-team-write
+/static/                       @chainguard-dev/education-team-write
+/layouts/                      @chainguard-dev/education-team-write
+/assets/                       @chainguard-dev/education-team-write
+
+# DevRel owns learning labs only.
+# Placed last so last-match-wins overrides the /content/ rule above.
+/content/software-security/learning-labs/   @chainguard-dev/devrel-team-write

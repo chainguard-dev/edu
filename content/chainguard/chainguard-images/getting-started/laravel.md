@@ -84,11 +84,13 @@ docker run --rm -v ${PWD}:/app --entrypoint npm --user root \
     cgr.dev/chainguard/node:latest-dev \
     install
 ```
+
 Then, fix permissions on node modules with:
 
 ```shell
 sudo chown -R ${USER} node_modules/
 ```
+
 The next step is to build front end assets. You can use the `npm run build` command for that. Like with `npm install`, you'll need to set the container user to **root**.
 
 ```shell
@@ -118,6 +120,7 @@ You should now be able to access the application from your browser at `localhost
 ![Preview of the OctoFacts demo Laravel application](https://github.com/chainguard-dev/edu-images-demos/raw/main/php/octo-facts/public/octofacts.png)
 
 ## 2. Creating a LEMP Environment with Docker Compose
+
 To demonstrate a full LEMP setup using Chainguard Containers, we'll now set up a Docker Compose environment to serve the application via Nginx. This setup can be used as a more robust development environment that replicates a production setting based on secure container images.
 
 The following `docker-compose.yaml` file is already included in the root of the application folder:
@@ -242,12 +245,14 @@ First, look for the container running the `app` service and copy its name.
 ```shell
 docker compose ps
 ```
+
 ```shell
 NAME                   IMAGE                                   COMMAND                  SERVICE   CREATED          STATUS          PORTS
 octo-facts-app-1       cgr.dev/chainguard/laravel:latest-dev   "/bin/s6-svscan /sv"     app       11 seconds ago   Up 10 seconds
 octo-facts-mariadb-1   cgr.dev/chainguard/mariadb              "/usr/local/bin/dock…"   mariadb   11 seconds ago   Up 10 seconds   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp
 octo-facts-nginx-1     cgr.dev/chainguard/nginx                "/usr/sbin/nginx -c …"   nginx     11 seconds ago   Up 10 seconds   0.0.0.0:8000->8080/tcp, :::8000->8080/tcp
 ```
+
 Then, you can run migrations like this:
 
 ```shell
@@ -257,6 +262,7 @@ docker exec octo-facts-app-1 php /app/artisan migrate --seed
 You can use the same method to execute other Artisan commands while the environment is up. After running migrations and seeding the database, you should be able to reload the app from your browser at `localhost:8000` and get a new octopus fact.
 
 ## 3. Creating a Distroless Laravel Runtime for the Application
+
 So far, we have been using the `laravel:latest-dev` builder image to run the application in a development setting. For production workloads, the recommended approach for additional security is to create a [distroless](/chainguard/chainguard-images/getting-started-distroless/) runtime for the application that will contain only what's absolutely necessary for running the app on production. This is done by combining a **build** phase in a **multi-stage** Dockerfile.
 
 To demonstrate this approach, we'll now build a distroless container image and test it using the Docker Compose setup exemplified in the previous section.
@@ -301,6 +307,7 @@ If your environment is still running, you should stop it before proceeding. Hit 
 ```shell
 docker compose down
 ```
+
 This will stop and remove all containers, networks, and volumes created by the previous `docker-compose.yaml` file. You can now bring the new environment up with:
 
 ```shell

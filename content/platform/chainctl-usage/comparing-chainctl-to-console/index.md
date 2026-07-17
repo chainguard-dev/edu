@@ -19,13 +19,11 @@ toc: true
 
 Chainguard provides two powerful interfaces for managing container security resources: the web-based Console for visual exploration and the `chainctl` CLI for automation and scripting. Understanding when to use each tool maximizes your efficiency in managing Chainguard's security-hardened containers and access controls.
 
-
 ## Prerequisites
 
 To access the [Chainguard Console](/platform/console/images-directory/) you need to [create an account and sign in](https://console.chainguard.dev/auth/login). The Console is accessible to everyone, including users who aren't Chainguard customers.
 
 To use `chainctl`, start by [installing chainctl](/chainguard/chainctl-usage/how-to-install-chainctl/). See [Get Started with chainctl](/get-started/getting-started-with-chainctl/) to help you begin using it; the examples on this page assume you have `chainctl` installed and are authenticated.
-
 
 ## High-level Comparison
 
@@ -34,7 +32,6 @@ The Console is especially useful for one-off information searches, such as when 
 If you know specifically what you are looking for or what you want to accomplish, `chainctl` is a powerful way to do so. It can perform some additional tasks that are not yet available in the Console, such as [comparing images with a diff](/chainguard/chainctl-usage/comparing-images/).
 
 This guide will take the reader through a few use cases to illustrate.
-
 
 ## Find Available Images
 
@@ -48,16 +45,14 @@ To find the images available to you in the Console, do this:
 1. On the Overview page that opens, click **Organization Images** in the sidebar.
 ![Screenshot showing the Organization Images page in the Console, which lists all of the images available along with data for each including Status, Latest tag, Pull URL, and when the image was last updated.](console-org-images.png)
 
-
 ### Find Available Images with chainctl
 
 To find the images available to you using `chainctl`, use this command. The list of available images is likely to be long and will scroll past you quickly in the terminal, so it may be more useful to you by piping the output into a grep search or redirecting the output into a file.
 
-```
+```sh
 chainctl images list
 
 ```
-
 
 ## Invite Users
 
@@ -77,12 +72,11 @@ To invite a user using the Console, follow these steps:
 
 1. Enter the **Email address** of the user you are inviting and use the dropdown menu to assign a **Role** for this user. Click **Invite**.
 
-
 ### Invite Users using chainctl
 
 To invite a user using `chainctl`, use this command, substituting your organization name for ORGANIZATION along with setting the role, email address, length of time for the invite to be valid, and whether this invite may only be used once:
 
-```
+```sh
 chainctl iam invite create ORGANIZATION
 --role=viewer
 --email=sample@organization.dev
@@ -90,7 +84,6 @@ chainctl iam invite create ORGANIZATION
 --single-use
 
 ```
-
 
 ## Review Container Image History
 
@@ -105,18 +98,17 @@ To examine the history of an image using the Console:
 
 This list contains columns with data about each image release, like the Pull URL, Digest, and when it was last changed. Click the other tabs to learn more about the *latest* release version of this image.
 
-
 ### Review Container Image History using chainctl
 
 To examine the history of an image using `chainctl`, enter this, replacing ORGANIZATION with your organization:
 
-```
+```sh
 chainctl image history kubectl:latest --parent=ORGANIZATION
 ```
 
 This will return a reverse-chronological history of when a specific tag was update to point to a new manifest digest. This list can be long. Here's an excerpt:
 
-```
+```yaml
 - time: 2025-05-29 03:08:31 UTC
   digest: sha256:34798f562dffc3746cb69bab49b93ff83aa57bea393a07997e87c37bc83a62db
   architectures:
@@ -141,18 +133,16 @@ This will return a reverse-chronological history of when a specific tag was upda
 
 The details that are returned here and the details found in the Console vary in focus, but where the same details are provided they should match. See [Examine the History of Container Images](/chainguard/chainctl-usage/chainctl-images/#examine-the-history-of-container-images) for more information about this command.
 
-
 ## Learn more
 
 To learn more about `chainctl`, see:
 
 * [chainctl Usage](/chainguard/chainctl-usage/)
-* [chainctl Reference](/chainguard/chainctl/chainctl-docs/)
+* [chainctl Reference](/platform/chainctl/)
 
 To learn more about the Chainguard Console, see:
 
 * [Using the Chainguard Directory and Console](/platform/console/images-directory/).
-
 
 ### Compare a Chainguard Container to a non-Chainguard Alternative in the Console
 

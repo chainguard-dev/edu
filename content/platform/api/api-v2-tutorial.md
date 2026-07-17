@@ -41,7 +41,7 @@ This guide walks through the v2 API using real `curl` commands.
 ## Available endpoints
 
 | Domain | Resources | Operations |
-|--------|-----------|------------|
+| -------- | ----------- | ------------ |
 | **IAM** | Groups, Identities, Roles, RoleBindings, IdentityProviders, AccountAssociations, GroupInvites | List, Get, Create, Update, Delete |
 | **Registry** | Repos, Tags | List, Get |
 | **Vulnerabilities** | Advisories | List, Get |
@@ -393,7 +393,7 @@ The `skipped` field in the response confirms how many results were skipped, usef
 ### Pagination parameters
 
 | Parameter | Description |
-|-----------|-------------|
+| ----------- | ------------- |
 | `page_size` | Number of results per page (default 50, max 200) |
 | `page_token` | Opaque cursor from previous response's `nextPageToken` |
 | `order_by` | Sort field and direction, e.g. `name`, `created_at desc` |

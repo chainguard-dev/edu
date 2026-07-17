@@ -2,7 +2,7 @@
 title: "Getting Started with the Node Chainguard Container"
 type: "article"
 linktitle: "Node"
-aliases: 
+aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-node
 description: "Learn how to use Chainguard's Node.js container images for secure JavaScript applications with minimal vulnerabilities, distroless design, and built-in npm support"
 date: 2023-02-01T11:07:52+02:00
@@ -109,6 +109,7 @@ When the connection is successful, you should get output like this on the termin
 ```shell
 2023-02-07T15:48:54:2450  INFO: POST /test
 ```
+
 You can now test that the content was saved by running a GET request to the same endpoint:
 
 ```shell
@@ -130,6 +131,7 @@ In your code editor of choice, create a new Dockerfile:
 ```shell
 nano Dockerfile
 ```
+
 The following Dockerfile will:
 
 1. Start a new image based on the `cgr.dev/chainguard/node:latest` container image;
@@ -152,6 +154,7 @@ RUN npm install --omit=dev
 
 CMD [ "server.js" ]
 ```
+
 Save the file when you're finished.
 
 You can now build the container with:
@@ -174,11 +177,13 @@ curl --request POST \
   --header 'content-type: application/json' \
   --data '{"msg": "testing node wolfi image" }'
 ```
+
 You can now query the same endpoint to receive the data that was stored in memory when you run the previous command:
 
 ```shell
 curl http://localhost:8000/test
 ```
+
 ```shell
 {"code":"success","meta":{"total":1,"count":1},"payload":[{"msg":"testing node wolfi image","id":"6011f987-b9f8-4442-8253-d54166df5966","createDate":"2023-02-07T15:57:23.520Z"}]}
 ```

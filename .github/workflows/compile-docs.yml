@@ -6,11 +6,10 @@ on:
     paths:
       - 'content/**'
       - 'scripts/compile_docs.py'
-      - 'scripts/compile_docs_secure.py'
-  
+
   schedule:
     - cron: '0 2 * * 0'  # Weekly on Sundays at 2 AM
-  
+
   workflow_dispatch:
     inputs:
       create_release:
@@ -33,7 +32,7 @@ jobs:
 
     steps:
     - name: Harden the runner
-      uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4
+      uses: step-security/harden-runner@bf7454d06d71f1098171f2acdf0cd4708d7b5920 # v2.20.0
       with:
         egress-policy: block
         allowed-endpoints: >
@@ -88,7 +87,7 @@ jobs:
             exit 1
           fi
         done
-        
+
         # Check for suspicious files
         find . -name "*.sh" -o -name "*.py" | grep -v -E "(compile_docs\.py|create_compressed_docs\.sh)" | while read -r file; do
           echo "Warning: Unexpected script found: $file"
@@ -99,10 +98,10 @@ jobs:
         cd edu
         # Install security tools
         pip install bandit==1.9.4 safety==3.7.0
-        
+
         # Scan for security issues
         bandit -r scripts/compile_docs.py -f json -o bandit-report.json || true
-        
+
         # Check for critical issues
         if [ -f bandit-report.json ]; then
           critical_issues=$(python -c "import json; data=json.load(open('bandit-report.json')); print(len([i for i in data.get('results', []) if i.get('issue_severity') == 'HIGH']))")
@@ -124,10 +123,10 @@ jobs:
         cd edu
         # Create output directory
         mkdir -p "$TEMP_BUILD_DIR"
-        
+
         # Run with timeout and memory limits, output to temp directory
         timeout 600 python3 scripts/compile_docs.py --output "$TEMP_BUILD_DIR/chainguard-complete-docs.md"
-        
+
         # Verify output file size (max 50MB uncompressed)
         if [ -f "$TEMP_BUILD_DIR"/chainguard-complete-docs.md ]; then
           size=$(stat -c%s "$TEMP_BUILD_DIR/chainguard-complete-docs.md")
@@ -151,15 +150,15 @@ jobs:
     - name: Create compressed versions
       run: |
         cd "$TEMP_BUILD_DIR"
-        
+
         # Create compressed versions with integrity checks
         gzip -k -9 chainguard-complete-docs.md
         zip -9 chainguard-complete-docs.zip chainguard-complete-docs.md
         tar -czf chainguard-complete-docs.tar.gz chainguard-complete-docs.md
-        
+
         # Generate checksums
         sha256sum chainguard-complete-docs.* > checksums.txt
-        
+
         # Verify compressed files
         gzip -t chainguard-complete-docs.md.gz
         unzip -t chainguard-complete-docs.zip > /dev/null
@@ -171,7 +170,7 @@ jobs:
     - name: Sign documentation with cosign
       run: |
         cd "$TEMP_BUILD_DIR"
-        
+
         # Sign the main documentation file (bundle format for cosign v3)
         cosign sign-blob chainguard-complete-docs.md \
           --yes \
@@ -184,7 +183,7 @@ jobs:
 
         # Copy verification script
         cp "$GITHUB_WORKSPACE/edu/scripts/verification.sh" .
-        
+
         # Create release bundle with all verification files
         tar -czf chainguard-ai-docs.tar.gz \
           chainguard-complete-docs.md \
@@ -200,7 +199,7 @@ jobs:
 
     - name: Login to GHCR
       if: github.ref == 'refs/heads/main'
-      uses: docker/login-action@650006c6eb7dba73a995cc03b0b2d7f5ca915bee # v4.2.0
+      uses: docker/login-action@af1e73f918a031802d376d3c8bbc3fe56130a9b0 # v4.4.0
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
@@ -244,11 +243,11 @@ jobs:
     - name: Scan for sensitive data
       run: |
         cd edu
-        
+
         # Create a custom gitleaks config to exclude false positives from documentation
         cat > .gitleaks.toml << 'EOF'
         title = "Gitleaks config for documentation scanning"
-        
+
         [allowlist]
         description = "Allowlisted patterns for documentation"
         paths = [
@@ -263,19 +262,19 @@ jobs:
           '''-----BEGIN PRIVATE KEY-----'''
         ]
         EOF
-        
+
         # Install gitleaks (with checksum verification)
         wget -q https://github.com/gitleaks/gitleaks/releases/download/v8.18.0/gitleaks_8.18.0_linux_x64.tar.gz
         echo "6e19050a3ee0688265ed3be4c46a0362487d20456ecd547e8c7328eaed3980cb  gitleaks_8.18.0_linux_x64.tar.gz" | sha256sum -c -
         tar -xzf gitleaks_8.18.0_linux_x64.tar.gz
-        
+
         # Scan compiled documentation for secrets with custom config
         ./gitleaks detect --no-git --source "$TEMP_BUILD_DIR/" --config .gitleaks.toml --verbose --report-format json --report-path gitleaks-report.json || true
 
         # Check results - parse JSON to see if there are actual findings
         if [ -f gitleaks-report.json ]; then
           # Check if JSON array is not empty (more than just "[]")
-          findings_count=$(cat gitleaks-report.json | grep -o '"Description":' | wc -l)
+          findings_count=$(grep -o '"Description":' gitleaks-report.json | wc -l)
 
           if [ "$findings_count" -gt 0 ]; then
             echo "Potential secrets detected in compiled documentation!"
@@ -291,5 +290,3 @@ jobs:
             echo "No secrets detected in compiled documentation"
           fi
         fi
-
-

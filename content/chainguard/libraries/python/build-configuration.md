@@ -33,7 +33,7 @@ Repository](/chainguard/chainguard-repository/overview/) endpoint for Python. By
 default, it serves only Chainguard-built artifacts. When [upstream
 fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) is
 enabled for your organization, the same endpoint can also serve requested
-versions from PyPI under Chainguard security controls. 
+versions from PyPI under Chainguard security controls.
 
 See the [minimal example projects](#minimal-example-projects) on this page for demonstrations using `uv` and `pip`.
 
@@ -60,7 +60,7 @@ for accessing your organization's Cloudsmith repository manager.
    URL `...` is replaced with a default token or your personal token depending
    on your selection and `exampleorg` is replaced with the name of your
    organization. The URL contains both the name of the repository `python-all`
-   as well as `python` as an identifier for the format. 
+   as well as `python` as an identifier for the format.
 1. Alternatively, use the **API Key** and copy the URL to use in your build tool
    - for example
    `https://username:{{apiKey}}@dl.cloudsmith.io/basic/exampleorg/python-all/python/simple/`.
@@ -124,11 +124,11 @@ for accessing your organization's Sonatype Nexus repository group.
 The build configuration to retrieve artifacts **directly** from the Chainguard
 Libraries for Python repositories requires authentication with username and
 password from a pull token as detailed in [access
-documentation](/chainguard/libraries/access/#pull-token). 
+documentation](/chainguard/libraries/access/#pull-token).
 
 Note that there are multiple repositories:
 
-- `https://libraries.cgr.dev/python/` with the simple index at `https://libraries.cgr.dev/python/simple` 
+- `https://libraries.cgr.dev/python/` with the simple index at `https://libraries.cgr.dev/python/simple`
 - `https://libraries.cgr.dev/python-remediated` with the simple index at `https://libraries.cgr.dev/python-remediated/simple`
 
 Configuration for multiple index use and authentication varies for each
@@ -143,7 +143,7 @@ Once you have credentials and the index URL from your organization's repository
 manager, you're ready to set up specific build tools for local development or
 CI/CD.
 
-The recommended configuration is to use the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint rather than manually configuring fallback to upstream PyPI. 
+The recommended configuration is to use the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint rather than manually configuring fallback to upstream PyPI.
 
 ### Authentication
 
@@ -192,10 +192,10 @@ which requires authentication. Choose whichever fits your environment:
   `chainctl auth login --audience=libraries.cgr.dev` — that session is then used
   automatically.
 - **CI or non-interactive**:
-  - For a session token, pass `--token <token>` or set `CHAINCTL_AUTH_TOKEN`. The
+    - For a session token, pass `--token <token>` or set `CHAINCTL_AUTH_TOKEN`. The
     token must be scoped to the libraries registry; mint one with
     `chainctl auth token --audience=libraries.cgr.dev`.
-  - For a [pull token](/chainguard/libraries/access/#pull-token) (an identity and
+    - For a [pull token](/chainguard/libraries/access/#pull-token) (an identity and
     secret), pass it as basic auth: `--username <identity> --password <secret>`,
     or set `CHAINCTL_REGISTRY_USERNAME` / `CHAINCTL_REGISTRY_PASSWORD`.
 - **From `~/.netrc`**: Credentials for the registry host are read from `~/.netrc`
@@ -209,7 +209,7 @@ Artifactory or JFrog), authenticate with **that** registry's credentials —
 entry. Chainguard-scoped tokens are never sent to third-party hosts.
 
 By default, Chainguard hashes are appended alongside existing upstream hashes. After updating the lockfiles, to switch your environment to use Chainguard packages, configure your tool to use the Chainguard index and reinstall. The command will output
-a "Next steps" section that includes the tool-specific command for reinstalling. 
+a "Next steps" section that includes the tool-specific command for reinstalling.
 
 <a id="pip"></a>
 
@@ -269,9 +269,9 @@ When using [direct access](#direct-access) to the Chainguard Libraries for
 Python repository with `pip`, you must ensure the following are set in your
 configuration file:
 
-* Replace any `/` in the username value `CG_PULLTOKEN_USERNAME` with `_`.
-* Ensure the `simple` context is used for the URL.
-* The password value `CG_PULLTOKEN_PASSWORD` remains unchanged.
+- Replace any `/` in the username value `CG_PULLTOKEN_USERNAME` with `_`.
+- Ensure the `simple` context is used for the URL.
+- The password value `CG_PULLTOKEN_PASSWORD` remains unchanged.
 
 Example for `requirements.txt`:
 
@@ -292,7 +292,7 @@ with `extra-index-url` without any specific prioritization beyond resolving
 semantic versions. The following example uses authentication from a local
 `.netrc` file and places the remediated repository first as the primary source,
 falling back to the standard Chainguard Libraries repository when a remediated
-version is not available: 
+version is not available:
 
 ```
 --index-url https://libraries.cgr.dev/python-remediated/simple/
@@ -350,8 +350,8 @@ poetry source add python-all https://repo.example.com/../python-all/simple/
 
 Example URLs including the required `simple` context:
 
-* JFrog Artifactory: `https://example.jfrog.io/artifactory/api/pypi/python-all/simple/`
-* Sonatype Nexus: `https://repo.example.com:8443/repository/python-all/simple/`
+- JFrog Artifactory: `https://example.jfrog.io/artifactory/api/pypi/python-all/simple/`
+- Sonatype Nexus: `https://repo.example.com:8443/repository/python-all/simple/`
 
 The following configuration is added:
 
@@ -436,7 +436,7 @@ name = "PyPI"
 ```
 
 The [Poetry documentation](https://python-poetry.org/docs/) contains more
-information about your project build, dependencies, versions, and other aspects. 
+information about your project build, dependencies, versions, and other aspects.
 
 ### uv
 
@@ -444,7 +444,7 @@ information about your project build, dependencies, versions, and other aspects.
 written in Rust. It uses PyPI by default, but also [supports the use of
 alternative package indexes](https://docs.astral.sh/uv/configuration/indexes/).
 
-#### Using a repository manager 
+#### Using a repository manager
 
 To update your global configuration to use your organization's repository
 manager with `uv`, create or edit the `~/.config/uv/uv.toml` configuration file.
@@ -597,7 +597,7 @@ dependency to `flask` version `2.0.0` results in the use of version `2.0.0+cgr.1
 Use the following steps to create a minimal example project for uv with
 Chainguard Libraries for Python. For testing purposes, you can use direct access
 and environment variables as detailed in the [access
-documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials). 
+documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials).
 
 > **Migrating an existing project?** If you have an existing uv lockfile with
 > upstream hashes, use [`chainctl libraries update-hashes`](#updating-lockfile-hashes)
@@ -615,12 +615,13 @@ password ${CHAINGUARD_PYTHON_TOKEN}
 EOF
 chmod 600 ~/.netrc
 ```
+
 > **Note**: The `machine libraries.cgr.dev` entry is shared across ecosystems.
 > Make sure your entry is using a pull token with Python entitlement.
 
 In this example, the global uv index is set to the Chainguard Python repositories
 without embedded credentials, allowing uv to authenticate automatically using
-`.netrc`. 
+`.netrc`.
 
 Create the global index file `~/.config/uv/uv.toml` then open it in a text
 editor such as `nano`:
@@ -629,6 +630,7 @@ editor such as `nano`:
 mkdir -p ~/.config/uv
 nano ~/.config/uv/uv.toml
 ```
+
 Update it to include the remediated and standard Chainguard indexes:
 
 ```toml
@@ -731,7 +733,7 @@ documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-
 
 **1. Update your configuration to point to Chainguard**
 
-Once the environment variables are set, update `~/.pip/pip.conf` to point to Chainguard Libraries. 
+Once the environment variables are set, update `~/.pip/pip.conf` to point to Chainguard Libraries.
 
 You may need to create the `~/.pip` directory first:
 

@@ -32,18 +32,17 @@ The development variants of [Chainguard Containers](/chainguard/chainguard-image
 
 For example, the following table shows a comparison between the development variants of the PHP image, and which packages are included with each variant:
 
-
-|                      	| latest | latest-dev | latest-fpm |
+|                       | latest | latest-dev | latest-fpm |
 |--------------------------|--------|------------|------------|
-| `wolfi-baselayout`   	| X  	| X      	| X      	|
-| `ca-certificates-bundle` | X  	| X      	| X      	|
-| `php`                	| X  	| X      	| X      	|
-| `apk-tools`          	|    	| X      	|        	|
-| `bash`               	|    	| X      	|        	|
-| `busybox`            	|    	| X      	|        	|
-| `git`                	|    	| X      	|        	|
-| `composer`           	|    	| X      	|        	|
-| `php-fpm`            	|    	|        	| X      	|
+| `wolfi-baselayout`    | X   | X       | X       |
+| `ca-certificates-bundle` | X   | X       | X       |
+| `php`                 | X   | X       | X       |
+| `apk-tools`           |     | X       |         |
+| `bash`                |     | X       |         |
+| `busybox`             |     | X       |         |
+| `git`                 |     | X       |         |
+| `composer`            |     | X       |         |
+| `php-fpm`             |     |         | X       |
 
 You can find similar detailed package information for all [Chainguard Containers](https://images.chainguard.dev) in their respective image details pages under the SBOM section.
 
@@ -56,11 +55,13 @@ docker run -it --entrypoint /bin/sh cgr.dev/chainguard/php:latest-dev
 Having a package manager and the ability to log into the image to debug any issues is very important at development time, but becomes unnecessary (and less safe) when talking about production environments. That's why we recommend using a distroless variant for production workloads.
 
 ### Chainguard Containers in production
+
 Although the development image variants have similar security features as their distroless versions, such as complete SBOMs and signatures, they feature additional software that is typically not necessary in production environments. The general recommendation is to use the development variants to build the application and then copy all application artifacts into a distroless image, which will result in a final container image that has a minimal attack surface and won't allow package installations or logins.
 
 That being said, it's worth noting that the `-dev` variants of Chainguard Containers are still **more secure** than many popular container images based on fully-featured operating systems such as Debian and Ubuntu, because they carry less software, follow a more frequent patch cadence, and offer attestations for what is included.
 
 ### Language ecosystem guides
+
 The following guides show how to use these development images in combination with their distroless variants in order to build a final image that is also distroless, but contains everything the application needs to run:
 
 - [Getting Started with the Python Chainguard Container](/chainguard/chainguard-images/getting-started/python/)
@@ -70,7 +71,6 @@ The following guides show how to use these development images in combination wit
 - [Getting Started with the PHP Chainguard Container](/chainguard/chainguard-images/getting-started/php/)
 
 Check also the guide on [Creating Wolfi Container Images with Dockerfiles](/open-source/wolfi/wolfi-with-dockerfiles/) for guidance on how to build a custom image that can be used for development and debugging.
-
 
 ## 2. Using ephemeral debug containers
 
@@ -154,11 +154,13 @@ Kubernetes does not currently offer a built-in way to automatically replicate vo
 To work around this issue, you can manually create a copy of the pod definition with a new debug container that replicates the necessary volume mounts.
 
 Proxy the Kubernetes API:
+
 ```
 kubectl proxy
 ```
 
 Patch the pod to add an ephemeral container:
+
 ```
 curl http://localhost:8001/api/v1/namespaces/default/pods/<pod-name>/ephemeralcontainers \
 -X PATCH \
@@ -186,6 +188,7 @@ curl http://localhost:8001/api/v1/namespaces/default/pods/<pod-name>/ephemeralco
   }
 }'
 ```
+
 - Replace `<pod-name>` and `<container-name>` with your actual values.
 - Be sure to match the `volumeMounts` spec to those in your target container.
 
@@ -244,6 +247,7 @@ cat /proc/1/root/var/log/app/app.log
 This requires the ephemeral container to run as the same UID as the target process, which is why the `securityContext` fix above is a prerequisite. If security policies in your environment block `/proc/<pid>/root` access (for example, strict seccomp or AppArmor profiles), use the explicit `volumeMounts` approach instead.
 
 Attach to the debug container:
+
 ```
 kubectl attach <pod-name> -c debugger -ti
 ```
@@ -254,7 +258,7 @@ For more strategies on how to debug production distroless containers, check the 
 
 ## Resources to learn more
 
-- [Minimal Container Images: Towards a More Secure Future ](https://www.chainguard.dev/unchained/minimal-container-images-towards-a-more-secure-future) - Chainguard Blog
+- [Minimal Container Images: Towards a More Secure Future](https://www.chainguard.dev/unchained/minimal-container-images-towards-a-more-secure-future) - Chainguard Blog
 - [Why Distroless](/chainguard/chainguard-images/overview/) - Chainguard Container Documentation
 - [Ephemeral Containers](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/) - Official Kubernetes Documentation
 - [Introducing Ephemeral Containers](https://opensource.googleblog.com/2022/01/Introducing%20Ephemeral%20Containers.html) - Google Open Source Blog

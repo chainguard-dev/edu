@@ -15,13 +15,12 @@ toc: true
 [Gatekeeper](https://open-policy-agent.github.io/gatekeeper/website/) is an admission controller that enforces policies in Kubernetes clusters. This
 article describes how it can be leveraged to ensure resources follow best practices related to the use of Chainguard Containers.
 
-
 ## Prerequisites
 
 To follow the examples in this guide, you will need the following:
+
 - `kubectl` — the command line interface tool for Kubernetes — installed on your local machine.
 - Administrative access to a Kubernetes cluster where [OPA Gatekeeper is already installed](https://open-policy-agent.github.io/gatekeeper/website/docs/install).
-
 
 ## Ensure Images are Pulled From Allowed Repositories
 
@@ -70,12 +69,12 @@ spec:
       image: nginx
 EOF
 ```
+
 ```output
 Error from server (Forbidden): error when creating "STDIN": admission webhook "validation.gatekeeper.sh" denied the request: [repo-is-cgr-dev] container <nginx> has an invalid image <nginx>, allowed images are ["cgr.dev/*"]
 ```
 
 This example tries to create a pod using a container image downloaded from the Docker Hub registry, not Chainguard's registry. As this output indicates, attempting to create a non-compliant pod resulted in an error, and the request was denied.
-
 
 ## Ensure Images are Referenced By Digest
 
@@ -125,12 +124,12 @@ spec:
       image: cgr.dev/chainguard/nginx
 EOF
 ```
+
 ```output
 Error from server (Forbidden): error when creating "STDIN": admission webhook "validation.gatekeeper.sh" denied the request: [container-image-must-have-digest] container <nginx> uses an image without a digest <cgr.dev/chainguard/nginx>
 ```
 
 This example attempts to create a pod using the `nginx` Chainguard container image, but does not pull the image by its digest as required by the constraint. As the output indicates, the attempt resulted in an error and the request was denied.
-
 
 ## Warn First, Deny Later
 
@@ -147,6 +146,7 @@ You can also find non-compliant resources that exist in the cluster by reviewing
 ```shell
 kubectl get k8simagedigests container-image-must-have-digest -o json | jq -r '.status.violations[]'
 ```
+
 ```output
 {
   "enforcementAction": "warn",
@@ -160,7 +160,6 @@ kubectl get k8simagedigests container-image-must-have-digest -o json | jq -r '.s
 ```
 
 Once all the violations have been addressed, you can remove `enforcementAction: warn` and Gatekeeper will start to block the creation of resources that violate the constraint.
-
 
 ## Ensure Images Are Signed By Chainguard
 
@@ -184,7 +183,7 @@ helm install ratify \
 
 The [verifier](https://ratify.dev/docs/reference/custom%20resources/verifiers) will set up the cosign verification. This example uses the public Chainguard images.
 
-> **Note**: If you want to use a private registry, you can follow the identity patterns laid out [here](/chainguard/chainguard-images/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/#privatededicated-registry)
+> **Note**: If you want to use a private registry, you can follow the identity patterns laid out [for private and dedicated registries](/chainguard/chainguard-images/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/#privatededicated-registry)
 
 ```yaml
 apiVersion: config.ratify.deislabs.io/v1beta1
@@ -242,7 +241,6 @@ spec:
           certificateOIDCIssuer: "https://issuer.enforce.dev"
           certificateIdentityRegExp: "https://issuer.enforce.dev/(${CATALOG_SYNCER}|${APKO_BUILDER})"
 ```
-
 
 ### Create the Policy
 
@@ -322,28 +320,28 @@ spec:
 
               violation contains {"msg": msg} if {
                 some resp in responses
-              	resp.data.system_error != ""
-              	msg := sprintf("image %q verification system error: %v", [resp.image, resp.data.system_error])
+               resp.data.system_error != ""
+               msg := sprintf("image %q verification system error: %v", [resp.image, resp.data.system_error])
               }
 
               violation contains {"msg": msg} if {
                 some resp in responses
-              	count(resp.data.responses) == 0
-              	msg := sprintf("image %q returned no verification response", [resp.image])
+               count(resp.data.responses) == 0
+               msg := sprintf("image %q returned no verification response", [resp.image])
               }
 
               violation contains {"msg": msg} if {
                 some resp in responses
                 not resp.data.isSuccess
-              	reason := object.get(resp.data, "message", "verification failed")
-              	msg := sprintf("image %q is not signed by Chainguard: %v", [resp.image, reason])
+               reason := object.get(resp.data, "message", "verification failed")
+               msg := sprintf("image %q is not signed by Chainguard: %v", [resp.image, reason])
               }
 
               violation contains {"msg": msg} if {
                 some resp in responses
-              	err := resp.data.errors[_]
+               err := resp.data.errors[_]
                 err[0] == resp.image
-              	msg := sprintf("image %q verification error: %v", [resp.image, err[1]])
+               msg := sprintf("image %q verification error: %v", [resp.image, err[1]])
               }
 ```
 
@@ -370,7 +368,6 @@ spec:
 ```
 
 ### Try Deploying a Chainguard Image
-
 
 ```yaml
 apiVersion: apps/v1

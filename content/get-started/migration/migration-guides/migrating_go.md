@@ -237,7 +237,6 @@ OK, please try it out and let me know how you get on.
 
 ## Relevant Resources
 
-- [Using the static Chainguard Container](/chainguard/chainguard-images/videos/static-base-image/) (Video)
-- [Choosing an Container for your Compiled Programs](/chainguard/chainguard-images/about/images-compiled-programs/compiled-programs/) (Article)
-- [Getting Started with the Go Chainguard Container](/chainguard/chainguard-images/getting-started/go/) (Article)
-
+* [Using the static Chainguard Container](/chainguard/chainguard-images/videos/static-base-image/) (Video)
+* [Choosing an Container for your Compiled Programs](/chainguard/chainguard-images/about/images-compiled-programs/compiled-programs/) (Article)
+* [Getting Started with the Go Chainguard Container](/chainguard/chainguard-images/getting-started/go/) (Article)

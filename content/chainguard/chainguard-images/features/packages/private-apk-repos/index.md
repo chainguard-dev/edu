@@ -20,20 +20,17 @@ This guide provides a brief overview of Chainguard's private APK repositories an
 
 {{< beta feature="Private APK Repositories" access="all Chainguard Containers customers" >}}
 
-
 ## About private APK repositories
 
 Chainguard's private APK repos allow customers to pull secure apk packages from Chainguard. The list of packages available in an organization's private repository is based on the apk repositories that the organization already has access to.
 
 For example, say your organization has access to the [Chainguard MySQL container image](https://images.chainguard.dev/directory/image/mysql/versions). Along with `mysql`, this image comes with other apk packages, including `bash`, `openssl`, and `pwgen`. This means that you'll have access to these apk packages through your organization's private APK repository, along with any others that appear in Chainguard container images that your organization has access to.
 
-
 ## Contents of private APK repositories
 
 Your private APK repository contains all packages available in the container images your organization is entitled to, plus some extra utilities, like `curl`.
 
 Chainguard offers [Chainguard OS Packages](/chainguard/chainguard-os/chainguard-os-packages/), a beta feature that extends the set of available packages in your private APK repository to include the latest versions of all 30,000 packages Chainguard maintains as part of Chainguard OS and Wolfi. If you are a catalog customer, your private APK repository will contain the full set of packages built for Chainguard OS and Wolfi. If you're a per-image customer, your private APK repository will contain most of these packages, but won't contain any "main" packages for images you aren't entitled to, preventing you from recreating our images. If you're interested in expanding the set of available packages in your private APK repository and are a current customer, reach out to your account team to be added to the Beta.
-
 
 ## Your repository address
 
@@ -56,7 +53,6 @@ In order to use your private repository, you must add this URL to the list of ap
 4. Install your desired packages
 
 In the following sections, this guide will outline how to implement this process in a live container and also when building container images from a Dockerfile or using apko.
-
 
 ## Authenticating to your private APK repository
 
@@ -91,7 +87,7 @@ ORGANIZATION="chainguard.edu"
 IMAGE="chainguard-base"
 ```
 
-This command will start an interactive container and open up a shell interface. From there, you can add your organization's private APK repository to the list of apk repositories in `/etc/apk/repositories`. 
+This command will start an interactive container and open up a shell interface. From there, you can add your organization's private APK repository to the list of apk repositories in `/etc/apk/repositories`.
 
 First, you'll need to retrieve your organization's private repository address. Recall that you can find this in the **Settings** tab in the Chainguard Console.
 
@@ -110,7 +106,6 @@ apk update
 ```
 
 Following that, you can proceed to search and install packages from your private APK repository.
-
 
 ## Searching for and installing packages
 
@@ -159,6 +154,7 @@ Finally, run the same `apk policy` command you ran previously:
 ```container
 apk policy wget
 ```
+
 ```Output
 wget policy:
   1.24.5-r4:
@@ -172,7 +168,6 @@ wget policy:
 ```
 
 This output shows that the `wget` package is now installed.
-
 
 ## Using private APK repositories with Dockerfiles
 
@@ -207,6 +202,7 @@ Following that, you can verify that the image has access to the private reposito
 ```shell
 docker run --rm my-custom-image apk policy wget
 ```
+
 ```Output
 wget policy:
   1.24.5-r4:
@@ -220,12 +216,11 @@ wget policy:
 
 As this output shows, the `wget` apk package is installed in the container.
 
-
 ## Using private APK repositories with apko builds
 
-You can also use your private APK repository with [apko](/open-source/build-tools/apko/overview/) builds. One of the advantages of this method is that you can build distroless images that include only the apk packages you need in the final image. 
+You can also use your private APK repository with [apko](/open-source/build-tools/apko/overview/) builds. One of the advantages of this method is that you can build distroless images that include only the apk packages you need in the final image.
 
-As with the previous examples, you'll need to provide the `HTTP_AUTH` environment variable containing your Chainguard token to the apko runtime building the image. 
+As with the previous examples, you'll need to provide the `HTTP_AUTH` environment variable containing your Chainguard token to the apko runtime building the image.
 
 The following Dockerfile includes the private APK repository used in previous examples and installs a single package (`wget`) in the image:
 
@@ -272,7 +267,6 @@ You'll get output similar to the following, indicating that the `wget` package w
 . . .
 ```
 
-
 ## Using private APK repositories with Bazel rules for apko
 
 You can also use your private APK repository with [Bazel](https://bazel.build/) using
@@ -291,6 +285,7 @@ export HTTP_AUTH="basic:apk.cgr.dev:user:$(chainctl auth token --audience apk.cg
 ```
 
 In your `apko.yaml`, reference your private Chainguard APK repository:
+
 ```shell
 cat > apko.yaml <<EOF
 contents:
@@ -341,13 +336,14 @@ commands to set environment variables `CHAINGUARD_IDENTITY_ID` for username and
 ```shell
 chainctl auth pull-token --repository=apk --ttl=2190h --output=env --parent=ORGANIZATION
 ```
+
 ```output
 export CHAINGUARD_IDENTITY_ID=45a.....424eb0
 export CHAINGUARD_TOKEN=eeyJhbGciO..........WF0IjoxN
 ```
 
-* `--repository=apk`: create a role binding to bind the pull token identity the 
-`apk.pull` role, enabling the identity to download packages from the private APK 
+* `--repository=apk`: create a role binding to bind the pull token identity the
+`apk.pull` role, enabling the identity to download packages from the private APK
 repository of the parent organization.
 * `--ttl=2190d`: set the duration for the validity of the token, defaults to
   `720h` (equivalent to 30 days), maximum valid value is `8760h` (equivalent to
@@ -379,14 +375,13 @@ export HTTP_AUTH=basic::${CHAINGUARD_IDENTITY_ID}:${CHAINGUARD_TOKEN}
 Now you can structure your CI workflow to utilize this variable for
 authentication against the APK repository.
 
-
 ## Troubleshooting
 
 You may receive a 403 error when pulling down a package:
 
 `403 FORBIDDEN caller does not have the required capabilities`
 
-This error may mean that your Chainguard identity doesn't have the proper capabilities to download the image. To pull an image, the identity will need a role with the `apk (list)` capability. The least privileged role with this capability is `apk.role`, though more privileged roles like `owner`, `editor`, and `viewer` also have this capability. 
+This error may mean that your Chainguard identity doesn't have the proper capabilities to download the image. To pull an image, the identity will need a role with the `apk (list)` capability. The least privileged role with this capability is `apk.role`, though more privileged roles like `owner`, `editor`, and `viewer` also have this capability.
 
 You can check this and fix it by following these steps:
 
@@ -395,7 +390,6 @@ You can check this and fix it by following these steps:
 3. Try pulling the package again.
 
 If you'd like to provide feedback or need further help troubleshooting, [reach out to our Customer Support team](https://www.chainguard.dev/contact?utm=docs).
-
 
 ## Conclusion
 

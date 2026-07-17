@@ -25,10 +25,11 @@ This is how policies uses the following terms.
 - **Policy** — A reusable rule that determines whether an image is allowed. Each policy has a name, a description, and the resource types it applies to. Policies apply to registry repositories.
 - **Binding** — A link between a policy and an organization. While a binding exists, the policy is active for image pulls under that organization. Without a binding, the policy has no effect.
 - **Mode** — A binding's mode controls what happens when the policy denies an image:
-  - `ENFORCE` — Block the pull.
-  - `DRY_RUN` — Allow the pull but record the violation.
+    - `ENFORCE` — Block the pull.
+    - `DRY_RUN` — Allow the pull but record the violation.
+- **Parameter** — A configurable value declared by a policy's schema (for example, `days` on the `cooldown` policy). Supply values when you enable a policy with `--param=KEY=VALUE` (repeatable). Omitted parameters fall back to the schema's declared default. Use `chainctl policies describe --policy=$POLICY` to see which parameters a policy accepts and what defaults apply.
 
-The default mode for new bindings is `DRY_RUN`.
+The `--mode` flag is required when you enable a policy. Chainguard recommends starting with `DRY_RUN` so you can review a policy's impact before promoting it to `ENFORCE`.
 
 ## Available policies
 
@@ -244,9 +245,11 @@ Once deleted, the image is again subject to whatever the policy decides.
 
 Policies are in open beta, and we are continuously working to improve the experience. The items below are current limitations you may run into when working with overrides, along with the workaround for each.
 
-### An override is not effective immediately
+### An override/binding mutation is not effective immediately
 
 After you create an override, it does not take effect right away. The platform caches policy decisions, and it takes a short while for that cache to refresh before the override is applied. If a pull is still blocked immediately after you create an override, wait a moment and try again.
+
+The same delay applies to binding mutations, such as updating a policy's parameters. After you change a binding (for example, adjusting the `days` parameter on a `cooldown` policy), wait a moment before the new configuration takes effect.
 
 ### A single image can require two overrides
 

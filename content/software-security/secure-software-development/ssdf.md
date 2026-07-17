@@ -15,6 +15,7 @@ toc: true
 ---
 
 ## SSDF Table
+
 <table>
 <thead>
 <tr>

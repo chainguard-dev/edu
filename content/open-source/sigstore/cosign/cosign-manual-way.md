@@ -48,7 +48,7 @@ These quick commands show how easily Sigstore can be integrated into software se
 ## Tools
 
 If you want to follow along you’ll need the following installed from your package manager of choice. I’ve noted the version used in this post but different minor versions should be fine. However, keep in mind that OpenSSL can drastically vary per system.
- 
+
 * [openssl](https://www.openssl.org/source/) (3.0.8) Note: macOS uses libressl but it should still work
 * [jq](https://stedolan.github.io/jq/download/) (jq-1.6)
 * [curl](https://curl.se/download.html) (7.88.1)
@@ -64,7 +64,7 @@ A blob is an arbitrary collection of raw data like a picture or the executable b
 In our case, we’ll be signing a spooky message. Let’s write that message to a file.
 
 ```bash
-$ echo 'Beware The Blob!' > message.txt
+echo 'Beware The Blob!' > message.txt
 ```
 
 We’ll be using Cosign to sign this `.txt` file blob.
@@ -117,28 +117,28 @@ We now have our keys but this is still a bit of magic. What is a PEM and what is
 package main
 
 import (
-	"crypto/rand"
-	"crypto/rsa"
-	"crypto/x509"
-	"encoding/pem"
-	"os"
+ "crypto/rand"
+ "crypto/rsa"
+ "crypto/x509"
+ "encoding/pem"
+ "os"
 )
 
 func main() {
-	key, _ := rsa.GenerateKey(rand.Reader, 4096)
-	b := x509.MarshalPKCS1PrivateKey(key)
-	priv := pem.EncodeToMemory(&pem.Block{
-		Type:  "RSA PRIVATE KEY",
-		Bytes: b,
-	})
-	os.WriteFile("key.pem", priv, 0600)
+ key, _ := rsa.GenerateKey(rand.Reader, 4096)
+ b := x509.MarshalPKCS1PrivateKey(key)
+ priv := pem.EncodeToMemory(&pem.Block{
+  Type:  "RSA PRIVATE KEY",
+  Bytes: b,
+ })
+ os.WriteFile("key.pem", priv, 0600)
 
-	b, _ = x509.MarshalPKIXPublicKey(key.Public())
-	pub := pem.EncodeToMemory(&pem.Block{
-		Type:  "PUBLIC KEY",
-		Bytes: b,
-	})
-	os.WriteFile("pub.pem", pub, 0600)
+ b, _ = x509.MarshalPKIXPublicKey(key.Public())
+ pub := pem.EncodeToMemory(&pem.Block{
+  Type:  "PUBLIC KEY",
+  Bytes: b,
+ })
+ os.WriteFile("pub.pem", pub, 0600)
 }
 ```
 
@@ -155,7 +155,7 @@ Since PKCS1 is specific to RSA our public key is serialized to Public Key Infras
 With our keys created, we are ready to use them to sign our message. We could sign the file in its entirety, but that would require the full file when verifying the signature. This is fine for small text files but when signing and uploading 3 gigabyte containers, it's much more efficient to hash the payload and sign the digest. That way all that's needed to verify a signature is the public key and the hash value. SHA-256 is most commonly used today for computing a message digest.
 
 ```bash
-$ openssl dgst -sha256 -sign key.pem -out message.txt.sig message.txt
+openssl dgst -sha256 -sign key.pem -out message.txt.sig message.txt
 ```
 
 We can confirm our signing was successful by verifying the signature with the public key.
@@ -172,9 +172,9 @@ Now that we have our signature, we can upload everything to the Rekor transparen
 Most of the fields in Rekor's types require Base64 encoding, so let's store these values in environment variables to make writing the payload easier.
 
 ```bash
-$ SIGSTORE_SIG_CONTENT=$(cat message.txt.sig | base64 | tr -d '\n')
-$ SIGSTORE_PUBLIC_KEY=$(cat pub.pem | base64 | tr -d '\n')
-$ SIGSTORE_HASH_CONTENT=$(shasum -a 256 message.txt | cut -d " " -f 1)
+SIGSTORE_SIG_CONTENT=$(cat message.txt.sig | base64 | tr -d '\n')
+SIGSTORE_PUBLIC_KEY=$(cat pub.pem | base64 | tr -d '\n')
+SIGSTORE_HASH_CONTENT=$(shasum -a 256 message.txt | cut -d " " -f 1)
 ```
 
 Next, we'll write out the payload to a file to make it easier to inspect and use in a request.
@@ -220,7 +220,7 @@ $ cat hashedrekord.json
 We're now ready to send our data off to Rekor. Let's save the response to a file so we can poke around.
 
 ```bash
-$ curl -X POST -H "Content-Type: application/json" --data-binary @hashedrekord.json https://rekor.sigstore.dev/api/v1/log/entries > response.json
+curl -X POST -H "Content-Type: application/json" --data-binary @hashedrekord.json https://rekor.sigstore.dev/api/v1/log/entries > response.json
 ```
 
 The top-level key of the response will be the database shard ID (16 characters) + entry UUID (64 characters) in the transparency log.
@@ -251,16 +251,16 @@ $ shasum -a 256 <(cat <(printf '\x00') <(jq -rcj '.' hashedrekord.json )) | cut 
 Now let's retrieve the entry from Rekor using this ID and save it to a file. If you inspect the contents, you'll notice a handful of new fields.
 
 ```bash
-$ curl https://rekor.sigstore.dev/api/v1/log/entries/24296fb24b8ad77a7e53fd5d089af142b7909598d214e13ca76001cc575fddaad3210adbee86363e > entry.json
+curl https://rekor.sigstore.dev/api/v1/log/entries/24296fb24b8ad77a7e53fd5d089af142b7909598d214e13ca76001cc575fddaad3210adbee86363e > entry.json
 ```
 
 First, let's check that our Hashed Rekord is in the body.
 
 ```bash
-$ diff <(jq -rc '.[].body' entry.json | base64 -d) <(jq -rcj '.' hashedrekord.json)
+diff <(jq -rc '.[].body' entry.json | base64 -d) <(jq -rcj '.' hashedrekord.json)
 ```
 
-The body matches, which confirms that our entry was created, but how would the recipient of our message go about verifying and proving that for themselves? That’s where our next step comes in. 
+The body matches, which confirms that our entry was created, but how would the recipient of our message go about verifying and proving that for themselves? That’s where our next step comes in.
 
 ## Trust but Verify
 
@@ -273,15 +273,15 @@ Well, there are a few important things they must check:
 The next thing that we can verify in the entry is the Signed Entry Timestamp. I'll leave this explanation to our friend Hayden Blauzvern:
 
 > As a transparency log, Rekor provides cryptographic proofs of inclusion in a log. Fetching an inclusion proof requires querying the log. The log returns a checkpoint (signed tree head) as a commitment to the current state of the log and the inclusion proof.
-
-> Requiring an online lookup for every entry that you're verifying could cause a lot of increased latency in a verifier, and requires that the log have very high availability. Ideally, Rekor could provide an inclusion proof that could be verified offline – Rekor does this with a "signed entry timestamp" (SET). 
-
+>
+> Requiring an online lookup for every entry that you're verifying could cause a lot of increased latency in a verifier, and requires that the log have very high availability. Ideally, Rekor could provide an inclusion proof that could be verified offline – Rekor does this with a "signed entry timestamp" (SET).
+>
 > An SET is a structure signed with the same private key that signs Rekor's checkpoints. It is a "promise" of inclusion. It does not contain cryptographic proof, but since it is signed by the log, the log is committing to including the entry. A verifier that trusts Rekor can verify the SET without needing to do an online lookup. Asynchronously, for additional assurances, a log monitor can verify that an entry is truly present in the log for each SET a verifier views.
 
 We can start by fetching Rekor's current public key.
 
 ```bash
-$ curl https://rekor.sigstore.dev/api/v1/log/publicKey > rekor.pub
+curl https://rekor.sigstore.dev/api/v1/log/publicKey > rekor.pub
 ```
 
 Next we can pull the SET out of the entry into its own file.
@@ -304,8 +304,6 @@ Verified OK
 ```
 
 The last thing we need to verify is that our entry was actually included in the Merkle tree. As mentioned earlier, this is defined in [RFC 6962](https://www.rfc-editor.org/rfc/rfc6962). [RFC 9162](https://www.rfc-editor.org/rfc/rfc9162) will eventually replace 6962 and the [pseudocode](https://datatracker.ietf.org/doc/rfc9162/#:~:text=2.1.3.2.%20%20Verifying%20an%20Inclusion%20Proof) is easier to follow (read through it first).
-
-
 
 What follows is a bash implementation of this algorithm that I am equally proud of and upset by. It builds on everything we've covered so far with the addition of the `xxd` tool. `xxd` is used to convert between binary and hex and we use it to build up the binary representation of our tree nodes from the hashes in our entry. These hashes should eventually compute to the `rootHash`.
 
@@ -476,7 +474,6 @@ SHA256(0x01 | 24296fb24b8ad77a7e53fd5d089af142b7909598d214e13ca76001cc575fddaad3
         768fdb04aac9d523a34adbfeecd3268f920ff250ffc809867bae28bd10eb5f15
 …
 ```
-
 
 Stay spooky…
 

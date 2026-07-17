@@ -1,7 +1,7 @@
 ---
 title: "Strategies and Tooling for Updating Containers"
 linktitle: "Update Strategies and Tools"
-aliases: 
+aliases:
 - /chainguard/chainguard-images/recommended-practices/strategies-tools-updating-images
 - /chainguard/chainguard-images/staying-secure/updating-images/strategies-tools-updating-images
 type: "article"
@@ -21,14 +21,12 @@ toc: true
 When it comes to keeping a system secure, one of the most important measures you can take is to regularly apply updates. In modern, containerized infrastructures, this normally means updating containers to use only the latest container images that are still maintained. A casual observer might expect such a standard and important task to have agreed-on best practices and standardized tooling, but they might be surprised by the wide variety of different solutions and opinions on this problem.
 
 This conceptual article will delve into some of the options and offer guidance on which might work best for readers. This article assumes that you are familiar with [semantic versioning](https://semver.org/) (SemVer) and image tagging. If you aren't acquainted with these concepts, please check out this guide on [Considerations for Keeping Containers Up to Date](/chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/).
- 
 
 ## Updating Means Risk
 
 The core issue with applying updates is that it's a fundamentally risky endeavor; any update to software risks a change to behavior and system breakages. It's a common practice to avoid major updates for weeks or even months in order to ensure bugs have been worked out before upgrading.
 
 Larger software projects (like PostgreSQL, Java, and Node.js) often have multiple versions of their project in support at the same time. This means that users can stay on an older version and avoid the more risky updates while still getting security patches. Although this approach is helpful to operations teams, it is only practical on large projects with paid maintainers that can spend time backporting fixes. Smaller projects will often struggle with just keeping the main version up to date.
-
 
 ## Not Updating Means More Risk
 
@@ -38,7 +36,6 @@ If your application has an automated test suite with good coverage, you can be c
 
 Another way organizations test and reduce the risk of breaking changes introduced by updates is through the use of staging environments where changes are tried out before being pushed to production. An alternative approach to this is [testing in production](https://increment.com/testing/i-test-in-production/), which usually involves using techniques like [feature flags](https://www.honeycomb.io/blog/what-is-a-feature-flag-best-practices-and-use-cases) and staged updates to verify the effects of changes before they impact the majority of users.
 
-
 ## Knowing When Updates are Available
 
 The primary way of knowing when a new image is available is through the registry itself. Many registries will offer a webhook callback service ([Docker Hub](https://docs.docker.com/docker-hub/webhooks/), for example), but this is typically only for your own repositories. If you want to get notified when a public repository is updated, you'll generally have to use a third-party service like [NewReleases](https://newreleases.io/).
@@ -47,7 +44,6 @@ If you're trying to find out how outdated the images in your Kubernetes cluster 
 
 <center><img src="stay_secure_1.png" alt="Image of table titled Cluster Image Version Checks. This table is a grafana dashboard with four columns: Image, Current Version, Latest Version, and Is Latest." style="width:950px;"></center>
 <br />
-
 
 ## Updating Solutions
 
@@ -75,11 +71,9 @@ One major issue with this approach is that you lack control and reproducibility 
 
 The advantage of this approach is that it is relatively simple, requires little maintenance, and will keep up to date with changes over time, meaning it's often appropriate for simple projects, or example code. However, it's recommended that you don't deploy the `latest` tag  to production, as doing so can present its own risks.
 
-
 ### Keel
 
 [Keel](https://keel.sh/) is a Kubernetes Operator that will automatically update Kubernetes manifests and Helm charts. It has multiple options for finding updates — typically using webhooks from registries and falling back to polling for new versions. Updates are controlled through [policies](https://keel.sh/docs/#policies) which cover the normal cases.
-
 
 ### GitOps: Flux and ArgoCD
 
@@ -96,7 +90,6 @@ An [`ImageUpdateAutomation` resource](https://fluxcd.io/flux/components/image/im
 #### ArgoCD
 
 ArgoCD has a separate [Image Updater](https://github.com/argoproj-labs/argocd-image-updater) project that can be used to automate updates. Rather than creating new resources, ArgoCD relies on annotations being added to existing manifests. Update strategies are similar to Flux, with support for SemVer and regular expressions to filter tags. Unlike Flux, there is currently no support for webhooks, but this could change in the future.
- 
 
 ### ImageStreams
 
@@ -104,18 +97,17 @@ OpenShift has the concept of [ImageStreams](https://docs.openshift.com/container
 
 The underlying data for an ImageStream comes from registries, but decoupling this data means it is possible to have different versions in the ImageStream and on the registry. This in turn allows for processes such as rolling back a deployment without retagging images on the registry. The ImageStream itself is represented as a custom resource which contains a history of previous digests, ensuring that rollbacks are possible even when tags are overwritten (assuming the image isn't deleted).
 
-
 ### Frizbee and digestabot
 
 A best practice in supply chain security is to specify GitHub actions and container images by their *digest*. The digest is a content-based SHA of the image that is guaranteed to always refer to exactly the same version of the action or code, and it is also guaranteed to not have changed. In other words, digests are *immutable*, meaning that they can't be changed to point to something else. The disadvantages are that digests aren't human-readable and you need to keep updating them to stay up to date.
 
 However, It is possible to get something human-readable as well as immutable. The following are valid image references which specify both a meaningful tag and an immutable digest:
 
-``` 
+```
 cgr.dev/chainguard/wolfi-base:latest@sha256:3eff851ab805966c768d2a8107545a96218426cee1e5cc805865505edbe6ce92
 ```
 
-``` 
+```
 redis:7@sha256:01afb31d6d633451d84475ff3eb95f8c48bf0ee59ec9c948b161adb4da882053
 ```
 
@@ -133,9 +125,8 @@ Dependabot is designed to work with a variety of different package ecosystems, a
 
 [Renovate](https://github.com/renovatebot/renovate) is a similar solution to Dependabot and will open PRs to update out-of-date dependencies. The major difference is that Renovate is a self-hosted application that supports multiple repositories, like GitLab, Azure, and Bitbucket, instead of just GitHub.
 
-
 ## Conclusion
 
-Something as important as keeping packages up to date has more approaches and tooling than one might expect. This article has shied away from offering any clear recommendations, but this is a matter where every organization will need to choose a solution that suits its own needs. 
+Something as important as keeping packages up to date has more approaches and tooling than one might expect. This article has shied away from offering any clear recommendations, but this is a matter where every organization will need to choose a solution that suits its own needs.
 
 We encourage you to check out each of the solutions listed in this article and judge them on their own merits. We also suggest you read our other articles on handling EOL software, including [Considerations for Keeping Containers Up to Date](/chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/).

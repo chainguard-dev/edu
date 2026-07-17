@@ -37,7 +37,7 @@ that builds the applications or otherwise downloads and uses relevant libraries.
 
 The `https://libraries.cgr.dev/java/` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for Java. By default, it serves only Chainguard-built artifacts. When [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) is enabled for your organization, the same endpoint can also serve requested versions from Maven Central under Chainguard security controls.
 
-## Library access approaches 
+## Library access approaches
 
 ### Repo manager
 
@@ -79,11 +79,10 @@ with username and password from a pull token as detailed in
 [access documentation](/chainguard/libraries/access/#pull-token).
 
 If using Chainguard's [CVE remediation](/chainguard/libraries/cve-remediation/) for Java libraries (available in beta), set it as the top repository. The recommended ordering for repositories is:
+
 1. `https://libraries.cgr.dev/java-remediated/` for remediated Spring Boot libraries; this is available in beta as part of the [CVE Remediation](/chainguard/libraries/cve-remediation/) feature.
 1. `https://libraries.cgr.dev/java/`
 1. `https://repo1.maven.org/maven2/` or your Maven Central proxy
-
-
 
 ## Selecting remediated library versions
 
@@ -154,7 +153,7 @@ following command to delete it:
 rm -rf ~/.m2/repository
 ```
 
-### Step 2: Configure access 
+### Step 2: Configure access
 
 Before running a new build you must configure access to the Chainguard Libraries
 for Java. There are two options for configuring Maven to use Chainguard
@@ -168,7 +167,7 @@ Libraries:
 #### Configure access with a repository manager
 
 Before running a new build you must configure access to Chainguard Libraries
-for Java. If your organization uses a repository manager, configure a global mirror in `~/.m2/settings.xml` that routes all artifact requests through it. 
+for Java. If your organization uses a repository manager, configure a global mirror in `~/.m2/settings.xml` that routes all artifact requests through it.
 
 A typical setup defines a global mirror (id `repo-example` in the following example) for all artifacts and
 configures the URL of the repository group or virtual repository from your
@@ -295,7 +294,7 @@ If you are using direct access with the Chainguard Repository and you want Chain
 The following `~/.m2/settings.xml` configures direct access with Chainguard's remediated Java repository as
 the primary repository, falling back to the standard Chainguard Libraries repository when a remediated version is not available. If a library is not yet built by Chainguard and you have enabled upstream fallback, then upstream packages will be subject to malware scanning and any cooldown policies you have configured. This settings file uses [environment
 variables](/chainguard/libraries/access/#env) for the pull token detailed in
-[Chainguard Libraries access](/chainguard/libraries/access/). 
+[Chainguard Libraries access](/chainguard/libraries/access/).
 
 ```xml
 <settings>
@@ -397,7 +396,7 @@ If your `settings.xml` is using credentials set as environment variables, ensure
 ### Minimal example project
 
 Use the following steps to create a minimal example project for Maven with Chainguard Libraries for Java. For testing purposes, you can use direct access and environment variables as
-detailed in the [access documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials). 
+detailed in the [access documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials).
 
 **1. Remove the Maven cache**
 
@@ -531,7 +530,7 @@ dependency added in the example project can be found at:
 ~/.m2/repository/com/google/guava/guava/33.4.0-jre/guava-33.4.0-jre.jar
 ```
 
-To verify the artifact was built by Chainguard, use `chainctl`: 
+To verify the artifact was built by Chainguard, use `chainctl`:
 
 ```bash
 chainctl libraries verify \
@@ -558,7 +557,7 @@ ecosystem.
 Gradle uses a local cache of libraries. When adopting Chainguard Libraries for
 Java you must delete that local cache so that libraries
 are downloaded again. By default the cache is located in a hidden
-`~/.gradle/caches` directory in your user's home directory. 
+`~/.gradle/caches` directory in your user's home directory.
 
 Use the following command to delete it:
 
@@ -573,12 +572,12 @@ file:
 ```groovy
 repositories {
    ...
-    mavenLocal()    
+    mavenLocal()  
 }
 ```
 
 If this configuration is used, ensure you [delete the local Maven repository as
-well](#remove-maven-caches). 
+well](#step-1-remove-maven-caches).
 
 ### Step 2: Change Gradle configuration
 
@@ -604,7 +603,7 @@ using the repositories definition. Each project can also [declare
 repositories](https://docs.gradle.org/current/userguide/declaring_repositories_basics.html)
 separately.
 
-#### Using a repository manager 
+#### Using a repository manager
 
 A typical setup removes the direct reference to Maven Central `mavenCentral()`
 and any other repositories, and adds a replacement definition with the URL of the
@@ -626,6 +625,7 @@ repositories {
     }
 }
 ```
+
 > **Note**: Do not store credentials directly in build files; use environment
 >variables or local Gradle properties instead.
 
@@ -635,7 +635,6 @@ Example URLs for repository managers:
 * JFrog Artifactory: `https://example.jfrog.io/artifactory/java-all/`
 * Sonatype Nexus: `https://repo.example.com:8443/repository/java-all/`
 
-
 #### Direct access to Chainguard Libraries
 
 If your organization does not use a repository manager you can configure the
@@ -643,7 +642,7 @@ Chainguard Libraries for Java repository with the credentials from [Chainguard
 Libraries access](/chainguard/libraries/access/). The following `repositories` block demonstrates
 the recommended method of using [environment
 variables](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials)
-for your pull token credentials. 
+for your pull token credentials.
 
 Open `app/build.gradle` and update the `repositories` block to include the
 Chainguard repository. Ensure it is located above the `mavenCentral` repository
@@ -658,7 +657,7 @@ repositories {
       password = providers.environmentVariable("CHAINGUARD_JAVA_TOKEN").orNull
     }
   }
-    
+
     maven {
         url = uri("https://libraries.cgr.dev/java/")
         credentials {
@@ -703,7 +702,7 @@ allprojects {
 ### Minimal example project
 
 Use the following steps to create a minimal example project for Gradle with Chainguard Libraries for Java. For testing purposes, you can use direct access and environment variables as
-detailed in the [access documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials). 
+detailed in the [access documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials).
 
 **1. Clear the cache**
 
@@ -757,7 +756,7 @@ Run the following command:
 
 The project generated in this example includes `com.google.guava:guava` as a dependency via the
 version catalog in `gradle/libs.versions.toml`, so guava is downloaded from
-Chainguard Libraries as part of the build. 
+Chainguard Libraries as part of the build.
 
 Following the build, you can find the guava jar declared in the version catalog at:
 
@@ -774,7 +773,7 @@ we first use `find` to locate the jar:
 find ~/.gradle/caches/modules-2/files-2.1/com.google.guava/guava -name "*.jar" | sort
 ```
 
-Then copy the exact path to the jar and verify it with `chainctl`: 
+Then copy the exact path to the jar and verify it with `chainctl`:
 
 ```bash
 chainctl libraries verify --parent your-org /full/path/to/guava-<version>.jar
@@ -815,7 +814,7 @@ details.
 
 ### Step 2: Change Bazel configuration
 
-#### Using a repository manager 
+#### Using a repository manager
 
 Before running a new build, you must configure access to Chainguard Libraries
 for Java. If the administrator for your organization’s repository manager
@@ -825,7 +824,7 @@ configuration to use the repository manager.
 Bazel uses `MODULE.bazel` files to define external dependencies as `artifacts`.
 You can configure a Maven repository for artifact retrieval using `repositories`
 from the
-[`rules_jvm_external`](https://github.com/bazel-contrib/rules_jvm_external) rule: 
+[`rules_jvm_external`](https://github.com/bazel-contrib/rules_jvm_external) rule:
 
 Following is an example configuration for a repository manager:
 
@@ -838,7 +837,7 @@ maven.install(
     # Example dependencies to retrieve
     artifacts = [
         "com.google.guava:guava:32.0.1-jre",
-        "org.slf4j:slf4j-api:2.0.5", 
+        "org.slf4j:slf4j-api:2.0.5",
         "ch.qos.logback:logback-classic:1.4.7",
     ],
     repositories = [
@@ -849,7 +848,7 @@ maven.install(
     # auth = {
     #     "https://repo.example.com/repository/java-all/": {
     #         "type": "basic",
-    #         "username": "YOUR_USERNAME_FOR_REPOSITORY_MANAGER", 
+    #         "username": "YOUR_USERNAME_FOR_REPOSITORY_MANAGER",
     #         "password": "YOUR_PASSWORD",
     #     },
     # },
@@ -877,21 +876,21 @@ maven.install(
     # Example dependencies to retrieve
     artifacts = [
         "com.google.guava:guava:32.0.1-jre",
-        "org.slf4j:slf4j-api:2.0.5", 
+        "org.slf4j:slf4j-api:2.0.5",
         "ch.qos.logback:logback-classic:1.4.7",
     ],
-    
+
     repositories = [
         # To use Chainguard Libraries directly (requires credentials):
         "https://libraries.cgr.dev/java/",
-        
+
         # Use Maven Central as fallback
         "https://repo1.maven.org/maven2/",
     ],
     auth = {
          "https://libraries.cgr.dev/java/": {
              "type": "basic",
-             "username": "CHAINGUARD_JAVA_IDENTITY_ID", 
+             "username": "CHAINGUARD_JAVA_IDENTITY_ID",
              "password": "CHAINGUARD_JAVA_TOKEN",
          },
     },
@@ -899,7 +898,7 @@ maven.install(
 ```
 
 Ensure that the Chainguard repository is listed before any other repositories to
-prioritize it for artifact retrieval. 
+prioritize it for artifact retrieval.
 
 For more complex Bazel setups, you can use [.netrc for
 authentication](/chainguard/libraries/access/#netrc).

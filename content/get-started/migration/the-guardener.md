@@ -23,7 +23,6 @@ You interact with it through `chainctl agent dockerfile` commands. The AI runs s
 
 {{< beta feature="The Guardener" >}}
 
-
 ## Prerequisites
 
 While The Guardener is in beta, your organization will need to join the waitlist. We’ll notify you once registration becomes available. You can sign up for the waitlist on [The Guardener landing page](https://www.chainguard.dev/guardener).
@@ -32,7 +31,7 @@ Additionally, you will need the following in order to use The Guardener:
 
 - `chainctl` installed on your local machine. Refer to our [installation guide](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up if you haven't already done so
 - [Docker installed](https://docs.docker.com/engine/install/) and running locally
-- Before anyone in your organization can use The Guardener, a user with permission to accept Guardener's legal terms must accept them for the organization. The `owner` role and the `guardener.admin` role include the capabilities required to accept those terms. 
+- Before anyone in your organization can use The Guardener, a user with permission to accept Guardener's legal terms must accept them for the organization. The `owner` role and the `guardener.admin` role include the capabilities required to accept those terms.
 - To run Guardener sessions after the terms have been accepted, you must have a role that includes the Guardener user capabilities. The `guardener.user` is the minimum role for this.
     - Refer to our [Built-in Roles and Capabilities Reference](/chainguard/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for more information on roles.
 - Your Dockerfile and build context (source code and other inputs) must be present on the same machine where you run The Guardener
@@ -45,37 +44,12 @@ chainctl iam organizations list -o table
 chainctl iam role-bindings create --parent <group-id> --identity <identity> --role <role-with-repo.create>
 ```
 
-### Retrieving your organization's group ID
-
-The Guardener needs to know which Chainguard organization to reference when migrating Dockerfiles. For this reason, you must include your organization's group ID value (also known as the organization UID) in the `chainctl` commands you use to interact with the tool.
-
-Note that the group ID is **not** the name of your organization; it is a 40-character string used to identify your organization.
-
-To retrieve your organization's group ID value, run the following command:
-
-```shell
-chainctl iam organizations list -o table
-```
-
-```output
-                    ID                    |      NAME      |          DESCRIPTION          
-------------------------------------------|----------------|-------------------------------------
- EXAMPLE05850c357EXAMPLE6e10d007c9EXAMPLE | example.com    | This is an example organization.
-```
-
-Your organization's group ID is the value that appears in the `ID` column of this command's output.
-
-You can also retrieve the ID in the Chainguard Console. After logging into the Console, [navigate to **Settings**](https://console.chainguard.dev/org/$ORGANIZATION$/settings/general) where you'll find the ID under **Organization UID**.
-
-Once you have your organization's group ID, you'll use it in the following `chainctl` commands by passing it to the `--group-id` flag. 
-
-
 ## Usage examples
 
 `chainctl agent dockerfile` includes the following subcommands which you can use to interact with The Guardener:
 
 | Command | What it does |
-|---------|--------------|
+| --------- | -------------- |
 | `build` | Migrate a Dockerfile to a Chainguard equivalent image |
 | `optimize` | Optimize an already-migrated Dockerfile |
 | `upgrade` | Upgrade package versions in a Dockerfile |
@@ -87,8 +61,7 @@ To run a basic migration, provide the path to your Dockerfile and a target image
 
 ```shell
 chainctl agent dockerfile build -f Dockerfile \
-  -t myapp:chainguard \
-  --group <group-id>
+  -t myapp:chainguard
 ```
 
 If your image requires build arguments, pass them with `--build-arg`:
@@ -96,63 +69,54 @@ If your image requires build arguments, pass them with `--build-arg`:
 ```shell
 chainctl agent dockerfile build -f Dockerfile \
   -t myapp:chainguard \
-  --build-arg VERSION=1.0 \
-  --group <group-id>
+  --build-arg VERSION=1.0
 ```
 
 For CI environments or automated workflows, you can use the `--non-interactive` flag to skip prompts and automatically select the first suggestion:
 
 ```shell
 chainctl agent dockerfile build -f Dockerfile \
-  --non-interactive \
-  --group <group-id>
+  --non-interactive
 ```
 
 To resume a migration from a previously saved local state, use `--resume`:
 
 ```shell
 chainctl agent dockerfile build -f Dockerfile \
-  --resume \
-  --group <group-id>
+  --resume
 ```
 
 To optimize an already-migrated Dockerfile:
 
 ```shell
-chainctl agent dockerfile optimize -f Dockerfile \
-  --group <group-id>
+chainctl agent dockerfile optimize -f Dockerfile
 ```
 
 To run only specific optimizers, pass a comma-separated list with `--optimizers`:
 
 ```shell
 chainctl agent dockerfile optimize -f Dockerfile \
-  --optimizers=cache,security \
-  --group <group-id>
+  --optimizers=cache,security
 ```
 
 To upgrade outdated packages in a Dockerfile:
 
 ```shell
-chainctl agent dockerfile upgrade -f Dockerfile \
-  --group <group-id>
+chainctl agent dockerfile upgrade -f Dockerfile
 ```
 
 To preview what an upgrade would change without modifying any files, use the `--dry-run` flag:
 
 ```shell
 chainctl agent dockerfile upgrade -f Dockerfile \
-  --dry-run \
-  --group <group-id>
+  --dry-run
 ```
 
 To validate a migrated Dockerfile:
 
 ```shell
-chainctl agent dockerfile validate -f Dockerfile \
-  --group <group-id>
+chainctl agent dockerfile validate -f Dockerfile
 ```
-
 
 ## What happens during a migration
 
@@ -170,7 +134,6 @@ If the agent cannot resolve an issue automatically, it prompts you for guidance 
 
 The entire loop can take from five to more than thirty minutes to complete, depending on the complexity of the Dockerfile.
 
-
 ## Available optimizers
 
 When running the `optimize` subcommand, you can specify one or more of the following optimizers:
@@ -181,7 +144,6 @@ When running the `optimize` subcommand, you can specify one or more of the follo
 - `security` — Adds `--no-cache` to `apk`, flags secrets, and suggests a non-root `USER`. Skipping the `apk` cache layer reduces image size, and using a non-root user limits root access to the host and removes the ability to install new packages at runtime.
 - `multi-stage` — Transforms the Dockerfile into a multi-stage build using Chainguard runtime images. Chainguard containers come in a `-dev` variant with a package manager and shell, and a distroless runtime variant. Splitting into multiple stages produces a smaller runtime image with a reduced attack surface.
 - `native-packages` — Replaces `curl`/`bash` installs with native `apk` packages, ensuring full provenance of packages rather than just the resulting binary.
-
 
 ## Before and after example
 
@@ -206,7 +168,6 @@ WORKDIR /app
 COPY . .
 CMD ["python3", "app.py"]
 ```
-
 
 ## FAQ
 

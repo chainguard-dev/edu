@@ -542,5 +542,3 @@ Body: {
 ```
 
 Congratulations! You have signed a container with Cosign through GitHub Actions by using OIDC through Fulcio, and can verify this on the Rekor log.
-
-

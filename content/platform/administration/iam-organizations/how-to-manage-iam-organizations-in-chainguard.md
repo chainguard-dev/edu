@@ -20,7 +20,7 @@ weight: 010
 toc: true
 ---
 
-Chainguard provides a rich Identity and Access Management (IAM) model similar to those used by AWS and GCP. This guide outlines how to manage Chainguard's IAM structures with the [`chainctl` command line tool](/chainguard/chainctl/). 
+Chainguard provides a rich Identity and Access Management (IAM) model similar to those used by AWS and GCP. This guide outlines how to manage Chainguard's IAM structures with the [`chainctl` command line tool](/platform/chainctl/).
 
 > **Note**: You should work with Chainguard's Customer Success team to create or delete organizations. This will help to ensure that no users lose access to resources and that your IAM structure is configured correctly.
 
@@ -33,7 +33,6 @@ chainctl auth login
 ```
 
 A web browser window will open to prompt you to log in via your chosen OIDC flow. Select an account with which you wish to register. Once authenticated, you can set up an organization.
-
 
 ## Listing Organizations
 
@@ -55,8 +54,9 @@ You can retrieve your organizations' UIDPs by adding the `-o table` option to th
 ```sh
 chainctl iam organizations list -o table
 ```
+
 ```output
-          ID          |     NAME     |  	DESCRIPTION
+          ID          |     NAME     |   DESCRIPTION
 ----------------------+--------------+---------------------------------
   <Organization UIDP> | tutorial-org | This is a shared IAM
                       |              | organization for tutorials.
@@ -65,7 +65,6 @@ chainctl iam organizations list -o table
 ```
 
 Some other `chainctl` functions require you to know an organization's UIDP, making this a useful option to remember.
-
 
 ## Inviting Others to an Organization
 
@@ -77,7 +76,7 @@ To do so, run the following command, making sure to replace `$ORGANIZATION` with
 chainctl iam invite create $ORGANIZATION
 ```
 
-You will be prompted for the scope that the invite code will be granted. After selecting the [role-bindings](/chainguard/administration/iam-organizations/roles-role-bindings/), this command will generate both an invite code and an invite link.  If you ever lose the invite code, you can retrieve a list of active invite codes with the following `chainctl` command:
+You will be prompted for the scope that the invite code will be granted. After selecting the [role-bindings](/platform/administration/iam-organizations/roles-role-bindings/), this command will generate both an invite code and an invite link.  If you ever lose the invite code, you can retrieve a list of active invite codes with the following `chainctl` command:
 
 ```sh
 chainctl iam invite list
@@ -86,9 +85,9 @@ chainctl iam invite list
 This will provide output in the form of a table with the organization ID, a timestamp indicating when the invitation to the organization will expire, the invite code's key ID, and the selected role.
 
 ```output
-          ID          |        EXPIRATION        |     KEYID     |          	ROLE          	 
+          ID          |        EXPIRATION        |     KEYID     |           ROLE
 ----------------------+--------------------------+---------------+---------------------------------
-  <Organization UIDP> | 2024-03-23T00:55:04.813Z | <Invite code> | [editor] Editor            	 
+  <Organization UIDP> | 2024-03-23T00:55:04.813Z | <Invite code> | [editor] Editor
 ```
 
 Note that this invite code found under the `KEYID` column will be shorter than the one returned in the output of the `chainctl iam invite create` command, but they are effectively the same.
@@ -109,9 +108,8 @@ chainctl iam invite create $ORGANIZATION --email linky@example.com --ttl 24h
 
 In this example, the invitation is scoped to a user with the email address `linky@example.com`. If someone with a different email address tries to use the code it will not work. The `--ttl` option in this example means that the code will expire in 24 hours.
 
-
 ## Learn more
 
-In addition to inviting other users to your organization, you can set up [assumable identities](/chainguard/administration/iam-organizations/assumable-ids/) to allow automation systems — like Buildkite or GitHub Actions — to perform certain administrative tasks for your organization. To learn more, we encourage you to check out our [Overview of Assumable Identities](/chainguard/administration/iam-organizations/assumable-ids/) as well as our collection of [Assumable Identity Examples](/chainguard/administration/iam-organizations/identity-examples/).
+In addition to inviting other users to your organization, you can set up [assumable identities](/platform/administration/assumable-ids/assumable-ids/) to allow automation systems — like Buildkite or GitHub Actions — to perform certain administrative tasks for your organization. To learn more, we encourage you to check out our [Overview of Assumable Identities](/platform/administration/assumable-ids/assumable-ids/) as well as our collection of [Assumable Identity Examples](/platform/administration/assumable-ids/identity-examples/).
 
-You may also be interested in setting up a [Custom Identity Provider](/chainguard/administration/custom-idps/custom-idps/) for your organization. By default, users can log in with GitHub GitLab, and Google, but a Custom IDP can allow members of your organization to log in to Chainguard with a corporate identity provider like [Okta](/chainguard/administration/custom-idps/okta/), [Microsoft Entra ID](/chainguard/administration/custom-idps/ms-entra-id/), or [Ping Identity](/chainguard/administration/custom-idps/ping-id/).
+You may also be interested in setting up a [Custom Identity Provider](/platform/administration/custom-idps/custom-idps/) for your organization. By default, users can log in with GitHub GitLab, and Google, but a Custom IdP can allow members of your organization to log in to Chainguard with a corporate identity provider like [Okta](/platform/administration/custom-idps/idp-providers/okta/), [Microsoft Entra ID](/platform/administration/custom-idps/idp-providers/ms-entra-id/), or [Ping Identity](/platform/administration/custom-idps/idp-providers/ping-id/).

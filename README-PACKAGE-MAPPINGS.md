@@ -8,6 +8,7 @@
 ## Context & Decision History
 
 ### Initial Request
+
 User wanted to publish documentation about how Chainguard remaps package names from upstream distributions. Key requirement: **maximize AEO** - make it easy for LLMs to understand Chainguard's package naming.
 
 ### Key Decisions Made
@@ -43,9 +44,11 @@ User wanted to publish documentation about how Chainguard remaps package names f
 ## What Was Built
 
 ### 1. Main Documentation Page
+
 **Location:** `/content/chainguard/chainguard-images/about/package-name-mappings.md`
 
 Comprehensive guide with:
+
 - Why Chainguard remaps package names (consistency, simplification, semantic clarity)
 - Container Image Name Conventions section
 - How to use with dfc (Dockerfile Converter)
@@ -55,13 +58,16 @@ Comprehensive guide with:
 **Important:** Section order matters - user specifically requested packages before images
 
 ### 2. Automatic Data Updates
+
 **Key Feature:** Mappings are fetched fresh from the dfc repository on every site build.
 
 Modified workflows:
+
 - `.github/workflows/cloud-run.yaml` - Production deploys
 - `.github/workflows/autodocs-platform.yaml` - Platform docs builds
 
 Both workflows now include this step before `npm run build`:
+
 ```yaml
 - name: Fetch latest package mappings
   run: |
@@ -73,12 +79,15 @@ Both workflows now include this step before `npm run build`:
 ```
 
 ### 3. Hugo Data & Templates System
+
 **Data File:** `/data/package-mappings.yaml`
+
 - Fetched automatically during CI/CD builds
 - Not committed to git (in `.gitignore`)
 - Source of truth: https://github.com/chainguard-dev/dfc/blob/main/pkg/dfc/builtin-mappings.yaml
 
 **Hugo Shortcodes:** `/layouts/shortcodes/package-mappings/`
+
 - `image-mappings.html` - Renders 150+ container image mappings
 - `debian-packages.html` - Renders 60+ Debian/Ubuntu package mappings
 - `fedora-packages.html` - Renders Fedora/RedHat/UBI package mappings
@@ -86,9 +95,11 @@ Both workflows now include this step before `npm run build`:
 All shortcodes use Bootstrap 5 collapse components for collapsible tables.
 
 ### 4. Maintenance Documentation
+
 **Location:** `/docs/PACKAGE_MAPPINGS_UPDATE.md`
 
 Documents:
+
 - How the automatic updates work
 - Local development setup
 - Troubleshooting tips
@@ -97,6 +108,7 @@ Documents:
 ## How It Works
 
 ### Build-Time Flow
+
 ```
 1. GitHub Action triggers (push to main or daily schedule)
    ↓
@@ -112,12 +124,14 @@ Documents:
 ```
 
 ### User Experience
+
 - **Tables collapsed by default** - Page loads fast, not overwhelming
 - **Bootstrap 5 collapse** - Smooth animations, accessible
 - **Click to expand** - Tables expand on demand
 - **Full content in DOM** - All data present for search/LLMs
 
 ### AI/LLM Optimization
+
 - ✅ **All 200+ mappings in HTML** - Fully present in the DOM
 - ✅ **No JavaScript required** - Content is physically there, just CSS-hidden
 - ✅ **Semantic structure** - Proper tables with headers
@@ -126,7 +140,9 @@ Documents:
 ## What Gets Mapped
 
 ### Container Image Names (150+)
+
 Examples:
+
 - `alpine` → `chainguard-base:latest`
 - `golang*` → `go`
 - `nodejs*` → `node`
@@ -134,14 +150,18 @@ Examples:
 - `mongo` → `mongodb`
 
 ### Debian/Ubuntu Packages (60+)
+
 Examples:
+
 - `build-essential` → `build-base`
 - `python3` → `python-3`
 - `google-chrome-stable` → `chromium`
 - `ssh` → `openssh-client`, `openssh-server`
 
 ### Fedora/RedHat Packages (2)
+
 Examples:
+
 - `shadow-utils` → `shadow`
 - `libpq-devel` → `postgresql-devel`
 
@@ -168,13 +188,16 @@ Examples:
 ## Local Development
 
 ### First Time Setup
+
 1. Fetch the mappings data:
+
    ```bash
    curl -sL https://raw.githubusercontent.com/chainguard-dev/dfc/main/pkg/dfc/builtin-mappings.yaml \
      -o data/package-mappings.yaml
    ```
 
 2. Build the site:
+
    ```bash
    npm run build
    # or for development server:
@@ -186,18 +209,22 @@ Examples:
 ### Making Changes
 
 #### To Update the Documentation Content
+
 Edit `/content/chainguard/chainguard-images/about/package-name-mappings.md`
 
 #### To Change Table Layout/Styling
+
 Edit the shortcodes in `/layouts/shortcodes/package-mappings/`
 
 **Important:** The shortcodes use Bootstrap 5 syntax:
+
 - `data-bs-toggle="collapse"`
 - `data-bs-target="#elementId"`
 
 Don't use Bootstrap 4 syntax (`data-toggle`, `href="#id"`).
 
 #### To Manually Update Mappings
+
 ```bash
 curl -sL https://raw.githubusercontent.com/chainguard-dev/dfc/main/pkg/dfc/builtin-mappings.yaml \
   -o data/package-mappings.yaml
@@ -207,7 +234,9 @@ npm run build
 ## Technical Details & Gotchas
 
 ### Hugo Data Access
+
 **CRITICAL:** Hugo has issues with hyphenated data file names. Must use `index` function:
+
 ```go
 {{ index $.Site.Data "package-mappings" "images" }}
 {{ index $.Site.Data "package-mappings" "packages" "debian" }}
@@ -217,14 +246,17 @@ npm run build
 **DO NOT USE:** `$.Site.Data.package_mappings` (doesn't work reliably)
 
 ### Bootstrap 5 Syntax - CRITICAL
+
 **Site uses Bootstrap 5.1** - this caused a bug during implementation!
 
 **CORRECT Bootstrap 5 syntax:**
+
 ```html
 <a data-bs-toggle="collapse" data-bs-target="#tableId">
 ```
 
 **WRONG Bootstrap 4 syntax (DO NOT USE):**
+
 ```html
 <a data-toggle="collapse" href="#tableId">
 ```
@@ -232,9 +264,11 @@ npm run build
 **Bug Story:** Initially implemented with Bootstrap 4 syntax. Tables rendered but wouldn't expand when clicked. Had to update all three shortcodes to use `data-bs-toggle` and `data-bs-target`. Check `package.json` shows `"bootstrap": "^5.1"`.
 
 ### Why Bootstrap Collapse, Not `<details>`?
+
 Initially tried `<details open>` → User wanted collapsed by default → Changed to `<details>` without `open`
 
 Then user asked: "Is this well-suited for LLMs?"
+
 - Problem: `<details>` might be ignored/deprioritized by some LLMs
 - Solution: Bootstrap collapse - content is in DOM (good for LLMs), just CSS-hidden (good for UX)
 - Best of both worlds
@@ -244,36 +278,44 @@ Tables are collapsed by default (no `show` class), but all content is in the HTM
 ## Known Issues & Solutions
 
 ### Issue: Tables Not Expanding (HAPPENED DURING DEV)
+
 **Symptom:** Tables render but clicking button does nothing
 **Cause:** Using Bootstrap 4 syntax (`data-toggle`, `href`) instead of Bootstrap 5
 **Solution:** Use `data-bs-toggle="collapse"` and `data-bs-target="#id"`
 **Check:** Verify in browser inspector that buttons have `data-bs-toggle` attribute
 
 ### Issue: Empty Table Bodies (HAPPENED DURING DEV)
+
 **Symptom:** Tables render but have no rows, `<tbody>` is empty
 **Cause:** Wrong Hugo data access syntax
 **Solution:** Use `{{ index $.Site.Data "package-mappings" "packages" "debian" }}`
 **Verification:** Check source HTML has table rows with `<code>` tags
 
 ### Issue: Mappings Not Updating
+
 **Check:**
+
 1. GitHub Actions logs for "Fetch latest package mappings" step
 2. Verify curl succeeded and file size looks right (~9KB)
 3. Check `/data/package-mappings.yaml` created before Hugo build
 4. Confirm data file is NOT in git (it's in `.gitignore`)
 
 ### Issue: Build Failures Locally
+
 **Cause:** Missing `/data/package-mappings.yaml` (it's not in git)
 **Solution:**
+
 ```bash
 curl -sL https://raw.githubusercontent.com/chainguard-dev/dfc/main/pkg/dfc/builtin-mappings.yaml \
   -o data/package-mappings.yaml
 ```
+
 Then rebuild: `npm run build`
 
 ## Current State & Next Steps
 
 ### ✅ Completed & Working
+
 - [x] Main documentation page created with comprehensive explanations
 - [x] Three Hugo shortcodes for collapsible tables (Debian, Fedora, Images)
 - [x] Automatic data fetching in two GitHub Actions workflows
@@ -285,6 +327,7 @@ Then rebuild: `npm run build`
 - [x] Section order: Packages first, then Images
 
 ### 🎯 Design Constraints to Remember
+
 1. **Must maximize AEO** - This is the PRIMARY goal
 2. **Content must be in HTML** - Not external links
 3. **Bootstrap 5 syntax only** - Site is on v5.1
@@ -294,6 +337,7 @@ Then rebuild: `npm run build`
 ### 💡 If You Need to Extend This
 
 **Add a new package type (e.g., "Alpine packages" with actual mappings):**
+
 1. Upstream YAML would need new section under `packages:`
 2. Create new shortcode: `/layouts/shortcodes/package-mappings/alpine-packages.html`
 3. Copy structure from `debian-packages.html`
@@ -301,17 +345,20 @@ Then rebuild: `npm run build`
 5. Ensure unique ID for collapse div
 
 **Change table styling:**
+
 - Edit shortcodes in `/layouts/shortcodes/package-mappings/`
 - Tables use: `class="table table-striped"`
 - Buttons use: `class="btn btn-sm btn-outline-secondary"`
 - Bootstrap classes already available
 
 **If upstream YAML structure changes:**
+
 1. Compare new structure to current at `/data/package-mappings.yaml`
 2. Update Hugo template syntax in shortcodes
 3. Test locally before pushing
 
 ### 🔍 Verification Commands
+
 ```bash
 # Check mappings are in HTML
 grep -c "<code>build-base</code>" public/chainguard/chainguard-images/about/package-name-mappings/index.html
@@ -341,6 +388,7 @@ ls -lh data/package-mappings.yaml
 ## Session Summary for Context
 
 ### What User Asked For (In Order)
+
 1. "Document how Chainguard maps package names, ideal for LLMs to understand"
 2. Chose hybrid approach: full content embedded + Hugo templates
 3. "I want it to update automatically when the site is built" (not scheduled)
@@ -353,11 +401,13 @@ ls -lh data/package-mappings.yaml
 10. "Create README for AI assistant context" → This document
 
 ### Conversation Flow & Pivots
+
 - Started with scheduled automation → User wanted build-time automation
 - Started with `<details open>` → User wanted collapsed → Then optimized for LLMs
 - Had Bootstrap 4 bug → Fixed to Bootstrap 5
 
 ### Final Deliverables
+
 1. Documentation page: `/content/chainguard/chainguard-images/about/package-name-mappings.md`
 2. Three shortcodes: `/layouts/shortcodes/package-mappings/*.html`
 3. Modified workflows: `.github/workflows/cloud-run.yaml` and `autodocs-platform.yaml`

@@ -1,0 +1,67 @@
+# Copyright 2026 Chainguard, Inc.
+# SPDX-License-Identifier: Apache-2.0
+
+name: pre-commit autoupdate
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 7 * * 1" # Weekly on Monday at 07:00 UTC
+
+permissions: {}
+
+jobs:
+  autoupdate:
+    name: pre-commit autoupdate
+    runs-on: ubuntu-latest
+    if: github.repository == 'chainguard-dev/edu'
+
+    permissions:
+      contents: read  # Clone the repository
+      id-token: write # Federate a token via octo-sts
+
+    steps:
+      - uses: step-security/harden-runner@bf7454d06d71f1098171f2acdf0cd4708d7b5920 # v2.20.0
+        with:
+          egress-policy: block
+          allowed-endpoints: >
+            *.githubapp.com:443
+            api.github.com:443
+            files.pythonhosted.org:443
+            github.com:443
+            octo-sts.dev:443
+            pypi.org:443
+            release-assets.githubusercontent.com:443
+
+      - uses: octo-sts/action@f603d3be9d8dd9871a265776e625a27b00effe05 # v1.1.1
+        id: octo-sts
+        with:
+          scope: ${{ github.repository }}
+          identity: pre-commit-autoupdate
+
+      - name: Check out code
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        # zizmor: ignore[artipacked] - credentials needed for create-pull-request to push
+        with:
+          token: ${{ steps.octo-sts.outputs.token }}
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: '3.13'
+
+      - name: Run pre-commit autoupdate
+        run: |
+          pip install pre-commit
+          pre-commit autoupdate --freeze
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        with:
+          token: ${{ steps.octo-sts.outputs.token }}
+          commit-message: "chore(deps): update pre-commit hook versions"
+          title: "chore(deps): update pre-commit hook versions"
+          body: "Automated weekly update of pre-commit hook versions via `pre-commit autoupdate --freeze`."
+          branch: pre-commit-autoupdate
+          labels: dependencies

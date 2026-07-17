@@ -24,7 +24,7 @@ jobs:
     name: Action lint
     runs-on: ubuntu-latest
     steps:
-      - uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4
+      - uses: step-security/harden-runner@bf7454d06d71f1098171f2acdf0cd4708d7b5920 # v2.20.0
         with:
           egress-policy: block
           allowed-endpoints: >
@@ -50,6 +50,9 @@ jobs:
       - name: Action lint
         uses: step-security/action-actionlint@c3aa382d371c6b05513ae5907d4f77713e21813c # v1.72.0
         env:
+          # Keep these shellcheck settings in sync with the actionlint
+          # pre-commit hook in .pre-commit-config.yaml (its
+          # -shellcheck=... arg), so local hooks and CI agree.
           SHELLCHECK_OPTS: "--exclude=SC2129 --severity=error"
         with:
           actionlint_flags: ${{ steps.get_yamls.outputs.files }}

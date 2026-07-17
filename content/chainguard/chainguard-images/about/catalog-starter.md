@@ -4,7 +4,7 @@ linktitle: "Catalog Starter"
 type: "article"
 description: "Learn about Chainguard Catalog Starter, an offering allowing teams to try out five Chainguard container images for free."
 date: 2026-03-09T07:52:00+02:00
-lastmod: 2026-03-09T07:52:00+02:00
+lastmod: 2026-07-13T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -19,6 +19,8 @@ Chainguard Catalog Starter is a way to try production-grade Chainguard Container
 
 {{< beta feature="Chainguard Catalog Starter" >}}
 
+To sign up for Catalog Starter, follow the steps on this page. Once set up, you can start piloting up to five secure container images from the Chainguard catalog.
+
 ## What is Catalog Starter?
 
 With Chainguard Catalog Starter, users can choose any five non-FIPS images from our catalog of secure-by-default containers. Any Helm charts that depend on those images are included and count toward the five-image limit.
@@ -27,18 +29,22 @@ Catalog Starter is designed as a standalone free plan, separate from paid Catalo
 
 > **Note**: Catalog Starter is best suited for small teams to get them started right away. When you are ready to standardize on Chainguard and deploy organization-wide, we have several paid plans that provide unlimited user access to the Chainguard Containers and additional features like Custom Assembly, FIPS images, EOL/EmeritOSS image versions, a contractual CVE-remediation SLA, and dedicated support.
 
+## Sign up for Catalog Starter
 
-## How Catalog Starter works
+### 1. Sign up and select your images
 
-### 1. Sign up with your organization
+1. Go to [console.chainguard.dev/signup](https://console.chainguard.dev/signup).
+2. Sign in with a business email address and create a new account. Catalog Starter requires a corporate email domain — personal email addresses and social media sign-ins are not supported.
+3. Enter your company name.
+4. Click **Set up an organization**.
+5. Complete the form and click **Submit**.
+6. Click **Select images**, choose between one and five images, and confirm your selection. You can also go to the **Images** page at any time to make or change your selection.
 
-Catalog Starter is designed for business use. Sign-ups are limited to corporate email domains (for example, `@company.com`) rather than personal email addresses.
-
-In the signup form, you can enter up to five non-FIPS images to be provisioned to your organization. After you submit [the request form](https://get.chainguard.dev/signup), our team will quickly review and enable access for qualified organizations.
+Once you've added all five images, a prompt directs you to contact Chainguard if you need access to additional images.
 
 ### 2. Integrate with your registry and pipelines
 
-After your organization is enabled, you're free to use the five images you selected however you like. For example, you can pull them into your CI/CD pipelines and runtime environments, or pull them through a third-party registry like [JFrog Artifactory](/chainguard/chainguard-images/chainguard-registry/pull-through-guides/artifactory/artifactory-images-pull-through/). These container images are the same as those provided to Chainguard's paying customers, and are covered by Chainguard’s standard hardening, rebuild, and CVE-remediation processes, although they are not covered by [Chainguard's CVE SLA](https://www.chainguard.dev/legal/cve-policy).
+After you complete signup, you're free to use the five images you selected however you like. For example, you can pull them into your CI/CD pipelines and runtime environments, or pull them through a third-party registry like [JFrog Artifactory](/chainguard/chainguard-images/chainguard-registry/pull-through-guides/artifactory/artifactory-images-pull-through/). These container images are the same as those provided to Chainguard's paying customers, and are covered by Chainguard’s standard hardening, rebuild, and CVE-remediation processes, although they are not covered by [Chainguard's CVE SLA](https://www.chainguard.dev/legal/cve-policy).
 
 ### 3. Upgrade when you’re ready
 
@@ -48,7 +54,6 @@ After trying out Chainguard Containers with Catalog Starter, you can reach out t
 * Per-image pricing — a scoped set of images licensed individually, often used for tightly defined image deployments.
 
 Moving to a paid plan means moving off Catalog Starter; the free five-image entitlement is not stacked on top of a paid subscription.
-
 
 ## Plan limitations and terms
 
@@ -62,11 +67,10 @@ Catalog Starter allows users to try out Chainguard Containers, but it comes with
 * Teams using Chainguard Catalog Starter will not have access to the support services available to paying customers: they will not be added to Chainguard's support platform, be able to create support tickets, or have access to root cause analysis (RCA) or phone escalations.
     * Catalog Starter users will still have access to Chainguard resources like our [documentation](https://edu.chainguard.dev/), [courses](https://courses.chainguard.dev/), the [Community Slack channel](https://www.chainguard.dev/unchained/the-chainguard-slack-community-is-here), and the [public support knowledge base](https://support.chainguard.dev/hc/en-us).
 * [Chainguard's CVE SLA](https://www.chainguard.dev/legal/cve-policy) does not apply to container images obtained through Catalog Starter.
-* The free plan does not support user management or role-based access control (RBAC). Chainguard can add newer users from the same company to your organization after they sign up for Catalog Starter, but you cannot add them yourself. Any additional users in your organization will have access to the five images selected by the first user and cannot change them after the fact.
+* The free plan does not support user management or role-based access control (RBAC). If a colleague from the same company signs up for Catalog Starter, your organization's administrator receives an email with instructions for adding them. You cannot add users directly. Any additional users in your organization have access to the five images selected by the first user and cannot change them.
 * Users in a Catalog Starter organization are assigned the `limited_owner` role, which allows them to browse the Console, pull images, and create pull tokens, but does not include permission to invite other users to the organization or access features like [Custom Assembly](/chainguard/chainguard-images/features/custom-assembly/).
 * Neither Custom Assembly nor Commercial Builds, Chainguard's bespoke paid build services, are included in the Catalog Starter plan.
 * Catalog Starter cannot be combined with an existing Chainguard Containers license. Existing customers remain on their current paid plans; this free offering can’t be used to subsidize or partially offset paid image counts.
-
 
 ## Frequently asked questions
 
@@ -84,19 +88,25 @@ If you require FIPS-validated images or dedicated commercial build work, you’l
 
 ### Can my colleagues and I use the same Catalog Starter images?
 
-Yes. If one user signs up for Catalog Starter and selects the five images, then another user from the same company signs up, Chainguard can add the newer user to the organization started by the first user. Both will have access to the five images selected by the first user, and neither user will be able to change them later on.
+Yes. If a Catalog Starter organization already exists for your email domain, the administrator of that organization receives an email with instructions for adding you to it. Once added, you'll have access to the five images the first user selected, and neither of you will be able to change them.
 
-Note that Catalog Starter does not include user management or RBAC, meaning users cannot add others to their Chainguard organization themselves.
+Catalog Starter does not include user management or RBAC, so users can't add others to their Chainguard organization themselves.
 
 ### I’m already a Chainguard Containers customer. Can I add Catalog Starter to my account?
 
 No. Catalog Starter is a distinct, standalone free plan meant for new organizations. It can’t be combined with existing licenses or used to "carve out" a subset of images from a current subscription.
+
+If you try to sign up using an email domain already associated with a paid Chainguard account, you’ll receive an error message. Contact your Chainguard account administrator for access to your organization’s existing account.
 
 ### Can I use Catalog Starter to cover some of the images I need?
 
 No. Catalog Starter is not a discount instrument for larger deployments. You can’t, for example, license 10 images but expect to pay for only five by applying this plan to the rest.
 
 If you know you’ll need more than five images, it’s usually better to start with Catalog Pricing or per-image licensing so you can scale cleanly.
+
+### Can I sign up using a social media account?
+
+No. Catalog Starter requires a business email address. If you sign in using a social login (such as GitHub or Google), you'll be prompted to create a new account with a business email instead.
 
 ### What happens if I decide to upgrade to a paid plan?
 
@@ -107,8 +117,3 @@ When you upgrade:
 * Pricing is based on the paid plan’s terms (such as developer bands for Catalog Pricing or image counts for per-image plans).
 
 Our team will work with you to map your existing Catalog Starter images into the right long-term structure.
-
-
-## Get started
-
-To sign up for Catalog Starter, fill out [this form](https://get.chainguard.dev/signup) and our team will review the request and enable access if your organization qualifies. Once enabled, you can begin piloting up to five secure container images from the Chainguard catalog.

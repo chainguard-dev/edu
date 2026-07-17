@@ -19,7 +19,7 @@ weight: 005
 toc: true
 ---
 
-Chainguard Factory is the automated build infrastructure that continuously monitors, builds, and updates thousands of open source projects to deliver containers, libraries, and VMs with a strong security posture and the latest patches. This massive automation system tackles one of the industry's biggest challenges: keeping software dependencies current at scale while maintaining security and compatibility across the entire open source ecosystem. 
+Chainguard Factory is the automated build infrastructure that continuously monitors, builds, and updates thousands of open source projects to deliver containers, libraries, and VMs with a strong security posture and the latest patches. This massive automation system tackles one of the industry's biggest challenges: keeping software dependencies current at scale while maintaining security and compatibility across the entire open source ecosystem.
 
 ![Diagram of a factory](factory.png)
 
@@ -46,7 +46,7 @@ project](https://release-monitoring.org/), [PyPI](https://pypi.org/), [Maven
 Central](https://mvnrepository.com/repos/central) and the [npm
 registry](https://docs.npmjs.com/about-the-public-npm-registry). To give you an
 idea of how many updates happen in a short window of time, here is a screenshot
-of 5 hours of our automation finding updates to projects.  
+of 5 hours of our automation finding updates to projects.
 
 ![Screenshot showing package updates committed by Factory automation](octo-prs.png)
 
@@ -69,7 +69,7 @@ Go and their dependencies. Some of these builds will fail due to changes caused
 by the update, and will require extra attention from engineers. Updates to core
 packages like the Go compiler, OpenSSL, or glibc are major events that require
 considerable engineering effort to successfully conclude. They are also
-happening all the time. 
+happening all the time.
 
 Once an update passes through the package stage, we still need to update all
 container images that are dependent on it. For applications like PostgreSQL,
@@ -88,7 +88,7 @@ Period](/chainguard/chainguard-images/features/eol-gp-overview/)
 with Chainguard OS where we continue to build old versions).
 
 The result is a relentless, orchestrated flow of updates — ensuring our
-software remains secure, current, and reliable.  
+software remains secure, current, and reliable.
 
 ## Handling CVEs
 
@@ -100,14 +100,15 @@ advisories are ingested by [scanners](https://www.chainguard.dev/scanners?utm_so
 as grype and snyk. We use these scanners internally to alert whenever a CVE is
 identified as affecting one of our packages. Automation adds the CVE to an
 internal queue for further investigation and an advisory is issued with
-the status of `Under Investigation`. 
+the status of `Under Investigation`.
 
-After an engineer investigates the issue, the most likely outcomes are: 
+After an engineer investigates the issue, the most likely outcomes are:
+
 - We determine the advisory to be a false positive and change the status to
-    `Not Affected`. 
+    `Not Affected`.
 - We determine it to be a real issue and take further action to resolve it.
     This could mean pulling in a patch or bumping a dependency in the project,
-before rebuilding and updating the status to `Fixed`. 
+before rebuilding and updating the status to `Fixed`.
 
 See [How Chainguard Issues Security
 Advisories](/chainguard/chainguard-images/staying-secure/security-advisories/how-chainguard-issues/)
@@ -137,7 +138,7 @@ We take security in our build environment seriously and adhere to the
 [SLSA](https://slsa.dev/) guidelines for ensuring build integrity and
 provenance. The builds themselves follow [OpenSSF guidance for security
 hardening via compiler flag
-settings](https://www.chainguard.dev/unchained/enhanced-compiler-flags-for-building-chainguards-guarded-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).  
+settings](https://www.chainguard.dev/unchained/enhanced-compiler-flags-for-building-chainguards-guarded-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
 
 ## On Automation, AI and Human Engineers
 
@@ -155,4 +156,4 @@ The Chainguard Factory operates at an enormous scale. The number of builds and
 workflows that are happening every second is staggering. The factory is a
 critical component in Chainguard and effectively what our customers are paying
 for — the ability to turn open source projects into easily consumable
-containers, VMs, and libraries quickly and securely.  
+containers, VMs, and libraries quickly and securely.

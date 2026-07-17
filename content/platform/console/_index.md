@@ -8,4 +8,5 @@ date: 2026-06-10T08:48:23+00:00
 lastmod: 2026-06-10T08:48:23+00:00
 draft: false
 weight: 050
+landingpage: "/platform/console/images-directory/"
 ---

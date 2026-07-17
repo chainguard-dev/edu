@@ -104,5 +104,4 @@ cosign verify-blob test-file.txt \
 
 You will receive output following this command.
 
-
 You should receive a `Verified OK` message if the signature, certificate, and identities match.

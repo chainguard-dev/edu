@@ -103,8 +103,8 @@ Notifications fall into one of multiple categories based on content. Here's a li
 - **Breaking changes** - Changes that could disrupt regular use
 - **Incidents** - Reports and updates
 - **Product lifecycle** - Has two sub-categories:
-  - **End of life**
-  - **New releases**
+    - **End of life**
+    - **New releases**
 
 ## Troubleshooting FAQ - setting up Slack
 

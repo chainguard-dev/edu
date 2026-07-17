@@ -17,7 +17,7 @@ toc: true
 
 The [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) supports the [Rego Policy Language](https://www.openpolicyagent.org/docs/latest/policy-language/), which is a declarative policy language that is used to evaluate structured input data such as Kubernetes manifests and JSON documents. This feature enables users to apply policies that can evaluate Kubernetes admission requests and object metadata to make comprehensive decisions about the workloads that are admitted to their clusters. Rego support also enables users to enhance existing cloud-native policies by adding additional software supply chain security checks.
 
-If you would like to write a Rego policy from scratch, or learn more about how to use this format, you can follow this guide. 
+If you would like to write a Rego policy from scratch, or learn more about how to use this format, you can follow this guide.
 
 ## Rego Policy Template
 
@@ -60,9 +60,9 @@ The Rego policy itself is defined within the `policy` section. The first require
 * `includeTypeMeta:` allows access to the top level fields in the manifest, such as the `kind` and `apiVersion`.
 * `fetchConfigFile:` fetches the OCI config file from the registry, which contains metadata about the image in the registry.
 
-Rego policies must specify `type: rego` and the `data` field must contain `package sigstore`. 
+Rego policies must specify `type: rego` and the `data` field must contain `package sigstore`.
 
-For the policy to pass, the `isCompliant` field must evaluate to `true` within the curly braces. The `isCompliant` Boolean is set to `false` by default, and the logic in the braces must flip the boolean to `true` for the policy to pass. 
+For the policy to pass, the `isCompliant` field must evaluate to `true` within the curly braces. The `isCompliant` Boolean is set to `false` by default, and the logic in the braces must flip the boolean to `true` for the policy to pass.
 
 If you define multiple conditions within the `isCompliant` braces, these can be combined using the `AND` keyword to the Boolean logic, meaning that each condition must pass for `isCompliant` to resolve to `true`. You can also define multiple evaluations (meaning, multiple sets of `isCompliant` braces) in the same policy. You would combine these in your policy with the `OR` keyword, meaning that if _any_ of the stated conditions evaluate to `true`, then the `isCompliant` Boolean will _also_ be `true`.
 
@@ -70,7 +70,7 @@ This same structure must be present in all Rego-based policies.
 
 ## Rego Policy to Check Metadata Labels
 
-You can set a Rego policy to ensure that it is compliant with certain labels within your metadata. 
+You can set a Rego policy to ensure that it is compliant with certain labels within your metadata.
 
 For example, within the production environment (with the "production" label) you can ensure that the compliance team is the approver.
 
@@ -144,7 +144,7 @@ This example Rego policy will disallow privilege escalation in Pods following th
       }
 ```
 
-Setting the `allowPrivilegeEscalation` Boolean controls whether a process can gain more privileges than its parent process. This value will evaluate to `true` when the container is run as privileged. You can review more information about [how to configure a security context for a Pod or Container](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) on the Kubernetes docs. 
+Setting the `allowPrivilegeEscalation` Boolean controls whether a process can gain more privileges than its parent process. This value will evaluate to `true` when the container is run as privileged. You can review more information about [how to configure a security context for a Pod or Container](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) on the Kubernetes docs.
 
 This Rego policy shows a method of declaring a variable and using it to count up all the instances of privilege escalation across Pod types, and evaluate that the final count is `0` in order for the policy to pass.
 
@@ -174,14 +174,13 @@ Note that some build tools may fail this check due to using a fixed time (like t
       }
 ```
 
-Here, the policy defines a variable for the `maximum_age`, in this case set to `30`, which you can change to the number of days old you would permit an image to be. 
+Here, the policy defines a variable for the `maximum_age`, in this case set to `30`, which you can change to the number of days old you would permit an image to be.
 
 Within the `isCompliant` braces, the Rego policy leverages `time` to evaluate whether the current time is less than the maximum allowed age. To review the different methods of implementing `time` within Rego, review the [Time reference documentation](https://www.openpolicyagent.org/docs/latest/policy-reference/#time).
 
-
 ## Rego Policies that Define Custom Error and Warning Messages
 
-Rego policies have the added benefit of allowing you to define custom error and warning messages. 
+Rego policies have the added benefit of allowing you to define custom error and warning messages.
 
 This example `attestations` block requires clusters to have a vulnerability report in order to be deemed compliant. Notice, though, that it also defines an `errorMsg` string.
 
@@ -233,7 +232,6 @@ The following `attestations` block is similar to the previous one, but this time
 
 Defining custom error and warning messages with Rego can help with troubleshooting, as they can explain specific policy issues that otherwise may not be clearly understandable.
 
-
 ## Learn More
 
-To understand more about the Rego policy format, you can review the [Rego Policy Reference](https://www.openpolicyagent.org/docs/latest/policy-reference/) which includes details on assignment and equality, arrays, objects, sets, and rules. 
+To understand more about the Rego policy format, you can review the [Rego Policy Reference](https://www.openpolicyagent.org/docs/latest/policy-reference/) which includes details on assignment and equality, arrays, objects, sets, and rules.

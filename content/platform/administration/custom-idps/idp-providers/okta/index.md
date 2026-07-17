@@ -20,14 +20,12 @@ The Chainguard platform supports single sign-on (SSO) authentication for users. 
 
 This guide outlines how to create an Okta application and integrate it with Chainguard. After completing this guide, you'll be able to log in to Chainguard using Okta and you'll no longer be limited to the default SSO options.
 
-
 ## Prerequisites
 
 To complete this guide, you need the following.
 
 * `chainctl` installed on your system. Follow our guide on [How To Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) if you don't already have this installed.
 * An Okta account over which you have administrative access.
-
 
 ## Create an Okta App integration
 
@@ -57,7 +55,6 @@ There, find the **OpenID Connect ID Token** section and click **Edit**. Set the 
 
 With that, you've configured the Okta application. Next, you need to configure the Chainguard platform to use it by creating a custom identity provider.
 
-
 ## Configuring Chainguard to use Okta SSO
 
 Now that your Okta application is ready, you can create the custom identity provider.
@@ -68,7 +65,7 @@ First, log in to Chainguard with `chainctl`, using an OIDC provider like Google,
 chainctl auth login
 ```
 
-Note that you can use this bootstrap account as a [backup account](/chainguard/administration/custom-idps/custom-idps/#backup-accounts) — that is, an account you can use to log in if you ever lose access to your primary account. However, if you prefer to remove this role-binding after configuring the custom IDP, you can do so.
+Note that you can use this bootstrap account as a [backup account](/chainguard/administration/custom-idps/custom-idps/#backup-accounts) — that is, an account you can use to log in if you ever lose access to your primary account. However, if you prefer to remove this role-binding after configuring the custom IdP, you can do so.
 
 To configure the platform, make a note of the following settings from your Okta Application:
 

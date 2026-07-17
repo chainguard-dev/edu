@@ -12,6 +12,7 @@ menu:
     parent: "sbom"
 images: []
 toc: true
+landingpage: "/open-source/sbom/what-is-an-sbom/"
 ---
 
-A software bill of materials, or an SBOM (pronounced s-bomb), is a key resource for enabling visibility into the different software components of a codebase. 
+A software bill of materials, or an SBOM (pronounced s-bomb), is a key resource for enabling visibility into the different software components of a codebase.

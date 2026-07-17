@@ -34,7 +34,6 @@ To complete this guide, you will need the following tools.
     * [`chainctl`](/get-started/getting-started-with-chainctl/) — the Chainguard command line interface tool. Follow our guide on [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up.
     * [`terraform`](https://developer.hashicorp.com/terraform) — an Infrastructure as Code tool developed by Hashicorp. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
 
-
 ## Create the Assumable Identity
 
 This guide outlines two methods for creating an identity that can be assumed by an AWS user or IAM role: one using `chainctl` over a command-line interface, and another using Terraform.
@@ -72,11 +71,12 @@ If you're unsure which IAM identity your AWS resource is using, you can run `aws
 ```sh
 aws sts get-caller-identity
 ```
+
 ```output
 {
-	"UserId": "AROAEXAMPLEC2UL7LUB:i-05a6373examplehd2",
-	"Account": "452example43",
-	"Arn": "arn:aws:sts::452example43:assumed-role/AmazonSSMRoleForInstancesQuickSetup/i-05a6373examplehd2"
+ "UserId": "AROAEXAMPLEC2UL7LUB:i-05a6373examplehd2",
+ "Account": "452example43",
+ "Arn": "arn:aws:sts::452example43:assumed-role/AmazonSSMRoleForInstancesQuickSetup/i-05a6373examplehd2"
 }
 ```
 
@@ -130,7 +130,6 @@ output "my_identity_name_id" {
 The `my_identity_name_id` output provides the identity’s [UIDP (unique identity path)](/chainguard/administration/cloudevents/events-reference/#uidp-identifiers). You’ll need this value to assume the identity later.
 
 For a full example, refer to the [`aws-auth` example](https://github.com/chainguard-dev/platform-examples/tree/main/aws-auth) in Chainguard's public `platform-examples` repository.
-
 
 ## Assume the Identity
 

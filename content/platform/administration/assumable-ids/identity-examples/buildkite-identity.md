@@ -21,7 +21,6 @@ Chainguard's [*assumable identities*](/chainguard/administration/iam-organizatio
 
 This tutorial outlines how to create an identity using Terraform, and then how to update a Buildkite pipeline so that it can assume the identity and interact with Chainguard resources.
 
-
 ## Prerequisites
 
 To complete this guide, you must have the following in place:
@@ -29,7 +28,6 @@ To complete this guide, you must have the following in place:
 * `terraform` installed on your local machine. Terraform is an open-source Infrastructure as Code tool which this guide uses to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
 * `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up.
 * A Buildkite agent and pipeline you can use to test out the identity you'll create. We recommend following Buildkite's [Getting Started guide](https://buildkite.com/docs/tutorials/getting-started) to set these up.
-
 
 ## Creating Terraform Files
 
@@ -42,7 +40,6 @@ mkdir ~/buildkite-id && cd $_
 ```
 
 This will help make it easier to clean up your system at the end of this guide.
-
 
 ### `main.tf`
 
@@ -202,7 +199,6 @@ chainctl iam identities ls
 
 You're now ready to edit a Buildkite pipeline in order to test out this identity.
 
-
 ## Testing the Identity with a Buildkite Pipeline
 
 To test the identity you created with Terraform in the previous section, navigate to your Buildkite pipeline. From the Buildkite Dashboard, click **Pipelines** in the top navigation bar and then click on the pipeline you specified in the `buildkite.tf` file.
@@ -232,7 +228,7 @@ You could add the commands for testing the identity like this:
     docker pull cgr.dev/<organization>/<repo>:<tag>
 ```
 
-These commands instruct your Buildkite pipeline to download `chainctl` and make it executable. 
+These commands instruct your Buildkite pipeline to download `chainctl` and make it executable.
 
 The pipeline then runs a `buildkite-agent oidc request-token` command, which requests and prints an OIDC token that claims the Job ID and the specified audience. It pipes this token into a file named `.token.txt`, and then signs in to Chainguard using this token along with the Buildkite identity you generated previously.
 
@@ -333,7 +329,6 @@ You can also edit the pipeline itself to change its behavior. For example, inste
 
 Of course, the Buildkite pipeline is only able to perform certain actions on certain resources depending on what kind of access you grant it.
 
-
 ## Removing Sample Resources
 
 To remove the resources Terraform created, run the `terraform destroy` command:
@@ -351,7 +346,6 @@ rm -r ~/buildkite-id/
 ```
 
 This removes the Terraform configuration files you used to create the example Buildkite resources.
-
 
 ## Learn More
 

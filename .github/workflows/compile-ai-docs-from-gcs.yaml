@@ -27,7 +27,7 @@ jobs:
 
     steps:
     - name: Harden Runner
-      uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4
+      uses: step-security/harden-runner@bf7454d06d71f1098171f2acdf0cd4708d7b5920 # v2.20.0
       with:
         egress-policy: block
         allowed-endpoints: >
@@ -85,7 +85,7 @@ jobs:
     - name: Download documentation from GCS
       run: |
         echo "Downloading documentation bundles from GCS..."
-        
+
         # Create directories for extracted content
         mkdir -p ../images-private
         mkdir -p ../courses
@@ -115,7 +115,7 @@ jobs:
         else
           echo "⚠ edu docs not found in GCS (will use local content)"
         fi
-        
+
         # Download and extract images-private docs
         if gcloud storage cp gs://academy-all-docs/images-private/docs-export.tar.gz /tmp/images-private.tar.gz \
            --project=chainguard-academy 2>/dev/null; then
@@ -128,7 +128,7 @@ jobs:
           echo "# Images Private Documentation" > ../images-private/README.md
           echo "Documentation not yet available" >> ../images-private/README.md
         fi
-        
+
         # Download and extract courses docs
         if gcloud storage cp gs://academy-all-docs/courses/docs-export.tar.gz /tmp/courses.tar.gz \
            --project=chainguard-academy 2>/dev/null; then
@@ -167,13 +167,13 @@ jobs:
       run: |
         echo "Compiling documentation bundle..."
         python3 scripts/compile_docs.py
-        
+
         # Verify output
         if [ ! -f "static/downloads/chainguard-complete-docs.md" ]; then
           echo "Error: Documentation compilation failed"
           exit 1
         fi
-        
+
         echo "Documentation compiled successfully"
         ls -lh static/downloads/chainguard-complete-docs.md
 
@@ -190,10 +190,10 @@ jobs:
     - name: Create AI-specific bundle
       run: |
         cd static/downloads
-        
+
         # Rename for clarity
         cp chainguard-complete-docs.md chainguard-ai-docs.md
-        
+
         # Copy image catalog into downloads
         cp ../../scripts/image-catalog.json .
 
@@ -204,7 +204,7 @@ jobs:
 
         # Generate checksums
         sha256sum chainguard-ai-docs.md image-catalog.json > checksums.txt
-        
+
         echo "AI documentation bundle created:"
         ls -lh chainguard-ai-docs.*
 
@@ -214,7 +214,7 @@ jobs:
 
     - name: Login to GHCR
       if: github.ref == 'refs/heads/main'
-      uses: docker/login-action@650006c6eb7dba73a995cc03b0b2d7f5ca915bee # v4.2.0
+      uses: docker/login-action@af1e73f918a031802d376d3c8bbc3fe56130a9b0 # v4.4.0
       with:
         registry: ghcr.io
         username: ${{ github.actor }}

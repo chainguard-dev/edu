@@ -50,13 +50,13 @@ This sequence diagram outlines the token exchange process in Octo STS:
 
 ## Common Use Cases
 
- - Developing Actions that create Pull Requests (a PAT is required to trigger presubmit GitHub Actions)
+- Developing Actions that create Pull Requests (a PAT is required to trigger presubmit GitHub Actions)
 
- - Developing Actions that interact across repositories (unsupported by built-in permissions)
+- Developing Actions that interact across repositories (unsupported by built-in permissions)
 
- - Developing Actions that interact with the GitHub organization level
+- Developing Actions that interact with the GitHub organization level
 
- - Providing external services (e.g. clouds) with access to repositories
+- Providing external services (e.g. clouds) with access to repositories
 
 ## Learn More
 

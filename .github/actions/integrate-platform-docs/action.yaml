@@ -30,6 +30,48 @@ runs:
         gcloud --quiet storage cp --project="${PROJECT_ID}" \
           "${STORAGE_BUCKET}/enforce-events/events.md" content/platform/administration/cloudevents/events-reference.md
 
+    - name: normalize events-reference.md formatting
+      shell: bash
+      run: |
+        # Convert Windows CRLF line endings to Unix LF.
+        sed -i 's/\r$//' content/platform/administration/cloudevents/events-reference.md
+        # Insert blank lines around headings and fenced code blocks (MD022, MD031).
+        # The source file from GCS omits them, which fails markdownlint in CI.
+        python3 - << 'PYEOF'
+        path = 'content/platform/administration/cloudevents/events-reference.md'
+        with open(path) as f:
+            lines = f.readlines()
+        out, in_fence = [], False
+        for i, line in enumerate(lines):
+            s = line.rstrip('\n')
+            is_fence   = s.startswith('```')
+            is_heading = (not in_fence) and s.startswith('#')
+            if is_fence or is_heading:
+                if out and out[-1].strip():
+                    out.append('\n')
+            if is_fence:
+                closing = in_fence
+                in_fence = not in_fence
+                out.append(line)
+                if closing and i + 1 < len(lines) and lines[i + 1].strip():
+                    out.append('\n')
+            elif is_heading:
+                out.append(line)
+                if i + 1 < len(lines) and lines[i + 1].strip():
+                    out.append('\n')
+            else:
+                out.append(line)
+        final, prev_blank = [], False
+        for ln in out:
+            blank = not ln.strip()
+            if blank and prev_blank:
+                continue
+            final.append(ln)
+            prev_blank = blank
+        with open(path, 'w') as f:
+            f.writelines(final)
+        PYEOF
+
     - name: download chainctl docs from cloud storage
       shell: bash
       env:
@@ -43,13 +85,23 @@ runs:
       shell: bash
       run: |
         rsync -av --delete --exclude="_index.md" \
-          "/tmp/chainctl-docs/" "content/chainguard/chainctl/"
+          "/tmp/chainctl-docs/" "content/platform/chainctl/"
+
+    - name: repoint chainctl doc URLs to the platform path
+      shell: bash
+      # The upstream generator still emits `url: /chainguard/chainctl/...` in
+      # each doc's frontmatter. An explicit `url:` overrides the file location,
+      # so without this the pages publish at the old path and every link 404s.
+      # Drop this once the generator emits `/platform/chainctl/`.
+      run: |
+        sed -i 's|^url: /chainguard/chainctl/|url: /platform/chainctl/|' \
+          content/platform/chainctl/chainctl-docs/*.md
 
     - name: add tags to chainctl docs by inserting line with sed
       shell: bash
       run: |
         sed '/draft: false/a tags: ["chainctl", "Reference", "Product"]' \
-          -i content/chainguard/chainctl/chainctl-docs/*.md
+          -i content/platform/chainctl/chainctl-docs/*.md
 
     - name: add tags to cloudevents by inserting line with sed
       shell: bash

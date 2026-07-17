@@ -33,6 +33,7 @@ At Level 1, the documentation requirements are minimal, focusing on basic cyber 
 For example, organizations may maintain basic policies and procedures for access control, media protection, and physical security, along with records of security awareness training. The emphasis at this level is on demonstrating that these fundamental practices are in place, rather than producing detailed documentation, as required in higher levels.
 
 ### Example Level 1 Practices
+
 - Limiting information system access to authorized users.
 - Conducting background checks on employees.
 - Implementing basic measures such as antivirus and firewalls.
@@ -50,6 +51,7 @@ At Level 2, the documentation requirements are moderate, reflecting the need for
 Other Level 2 documentation requirements may include audit logs, incident response reports, inventory of the organization’s systems, location of [Controlled Unclassified Information](https://www.ftc.gov/policy-notices/controlled-unclassified-information) (CUI) in the organization’s environment, and other documents related to the implementation and management of cybersecurity practices.
 
 ### Example Level 2 Practices
+
 - Implementing multifactor authentication.
 - Conducting regular vulnerability assessments.
 - Establishing and maintaining an operational incident-handling capability for organizational
@@ -66,6 +68,7 @@ This level demands advanced security measures to protect CUI against advanced pe
 Level 3 requires the same documentation requirements as Level 2, including the [System Security Plan](https://csrc.nist.gov/glossary/term/system_security_plan) (SSP) and [Plan of Action and Milestones](https://csrc.nist.gov/glossary/term/poaandm) (POA&M). Further documentation requirements will be clear once the DoD determines which additional practices from NIST SP 800-172 will also be required.
 
 ### Example Level 3 Practices
+
 At the time of publication, specific Level 3 practices are still being determined. However, the Department of Defense has indicated that they will be pulled from a subset of NIST SP 800-172, Enhanced Security Requirements for Protecting Controlled Unclassified Information.
 
 Each CMMC level builds upon the previous one, ensuring that as organizations progress through the levels, their cybersecurity posture becomes more robust and capable of addressing increasingly sophisticated threats. This tiered approach allows organizations of varying sizes and capabilities to incrementally improve their cybersecurity measures while meeting the specific requirements necessary to handle sensitive information.

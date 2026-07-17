@@ -1,6 +1,7 @@
 # Tag Guidelines for Hugo Documentation
 
 ## Overview
+
 This document defines the approved tag taxonomy and usage guidelines for the Hugo documentation site. Following these guidelines ensures consistent categorization and improved discoverability of content.
 
 ## Tag Usage Rules
@@ -20,6 +21,7 @@ This document defines the approved tag taxonomy and usage guidelines for the Hug
 ## Approved Tag Taxonomy
 
 ### Product Tags
+
 - **Chainguard Containers** - For all container/image content
 - **Chainguard Libraries** - For library-specific content
 - **Chainguard Factory** - Factory platform documentation
@@ -30,6 +32,7 @@ This document defines the approved tag taxonomy and usage guidelines for the Hug
 - **Console** - Chainguard's console
 
 ### Action-Oriented Tags
+
 - **Migration** - Moving from other solutions
 - **Integration** - Connecting with other tools
 - **Configuration** - Setup and customization
@@ -40,10 +43,12 @@ This document defines the approved tag taxonomy and usage guidelines for the Hug
 - **Troubleshooting** - Problem resolution guides
 
 ### Problem-Solving Tags
+
 - **FAQ** - Common questions
 - **Recommended Practices** - Best practices and recommendations
 
 ### Content Type Tags
+
 - **Overview** - High-level introductions
 - **Procedural** - Step-by-step guides
 - **Conceptual** - Theoretical/background content
@@ -53,12 +58,14 @@ This document defines the approved tag taxonomy and usage guidelines for the Hug
 - **Workshop** - Workshop materials
 
 ### Lifecycle Tags
+
 - **Installation** - Initial setup
 - **Upgrade** - Version updates
 - **Deprecation** - Sunset features/APIs
 - **Getting Started** - Onboarding content
 
 ### Platform/Tool Tags
+
 - **AWS** - Amazon Web Services specific content
 - **GCP** - Google Cloud Platform specific content
 - **Azure** - Microsoft Azure specific content
@@ -77,6 +84,7 @@ This document defines the approved tag taxonomy and usage guidelines for the Hug
 - **Registry** - Container image registry, Chainguard's or otherwise
 
 ### Topic Tags
+
 - **Security** - Security-focused content
 - **SBOM** - Software Bill of Materials
 - **CVE** - CVE/vulnerability content
@@ -89,6 +97,7 @@ This document defines the approved tag taxonomy and usage guidelines for the Hug
 - **FIPS** - Stands for "Federal Information Processing Standards"
 
 ### Language/Framework Tags
+
 - **Python** - Python-specific content
 - **Java** - Java-specific content
 - **Go** - Go language content
@@ -100,6 +109,7 @@ This document defines the approved tag taxonomy and usage guidelines for the Hug
 - **.NET** - .NET framework content
 
 ### Tool-Specific Tags
+
 - **apko** - apko tool documentation
 - **melange** - melange tool documentation
 - **Wolfi** - Wolfi Linux distribution
@@ -111,21 +121,25 @@ This document defines the approved tag taxonomy and usage guidelines for the Hug
 ## Examples of Proper Tag Usage
 
 ### Example 1: Chainguard Images Getting Started Guide
+
 ```yaml
 tags: ["Chainguard Containers", "Getting Started", "Overview"]
 ```
 
 ### Example 2: Debugging CVEs in Python Images
+
 ```yaml
 tags: ["Chainguard Containers", "Python", "CVE", "Debugging"]
 ```
 
 ### Example 3: Terraform Provider Reference
+
 ```yaml
 tags: ["Terraform", "Reference", "Configuration"]
 ```
 
 ### Example 4: SBOM Generation with Cosign
+
 ```yaml
 tags: ["Cosign", "SBOM", "Procedural", "Security"]
 ```
@@ -133,6 +147,7 @@ tags: ["Cosign", "SBOM", "Procedural", "Security"]
 ## Adding New Tags
 
 If you need a tag that isn't in the approved list:
+
 1. Check if an existing tag could work instead
 2. Consider if the content truly needs a unique categorization
 3. Submit a PR to update this guidelines document with justification
@@ -143,16 +158,19 @@ If you need a tag that isn't in the approved list:
 A pre-commit hook validates tags against this approved list and checks spelling. The hook will:
 
 ### Tag Validation:
+
 - Warn on tags not in the approved list
 - Check tag count doesn't exceed 5
 - Verify proper case formatting
 
 ### Spell Checking:
+
 - Check for spelling errors in content (requires `aspell` to be installed)
 - Ignore code blocks, URLs, and technical terms
 - Use custom dictionary in `.aspell.en.pws` for project-specific terms
 
 To install aspell:
+
 ```bash
 # macOS
 brew install aspell
@@ -173,6 +191,7 @@ sudo pacman -S aspell
 ```
 
 To bypass the pre-commit hook temporarily:
+
 ```bash
 git commit --no-verify
 ```

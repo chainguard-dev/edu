@@ -86,12 +86,12 @@ As of this writing, Amazon Linux 2 is currently scheduled to sunset on June 30, 
 
 To guarantee connectivity, clients and servers communicating with Chainguard FIPS products must, at minimum, support the following  TLS requirements:
 
-- TLSv1.3 with the TLS_AES_256_GCM_SHA384 cipher suite
-- TLSv1.2 with
-  - ECDHE-ECDSA-AES256-GCM-SHA384 cipher string
-  - [RFC 7627](https://datatracker.ietf.org/doc/html/rfc7627) Extended Master Secret Extension support
-- Signatures using P-256 with SHA-256
-- Signatures using RSA with 2048 bits and SHA-256
+* TLSv1.3 with the TLS_AES_256_GCM_SHA384 cipher suite
+* TLSv1.2 with
+    * ECDHE-ECDSA-AES256-GCM-SHA384 cipher string
+    * [RFC 7627](https://datatracker.ietf.org/doc/html/rfc7627) Extended Master Secret Extension support
+* Signatures using P-256 with SHA-256
+* Signatures using RSA with 2048 bits and SHA-256
 
 These requirements can be approximately tested with the following OpenSSL client command:
 

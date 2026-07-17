@@ -65,7 +65,8 @@ We use Digestabot internally at Chainguard, and this pattern nicely balances the
 So please try it out and let me know if you have any questions.
 
 ## Relevant Resources
-- [Reproducible Dockerfiles with Frizbee and Digestabot](/chainguard/chainguard-images/how-to-use/digestabot_frizbee/) (Video)
-- [Reproducibility and Chainguard Containers](/chainguard/chainguard-images/videos/repro/) (Video)
-- [Considerations for Keeping Containers Up to Date](/chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/) (Article)
-- [Strategies and Tooling for Updating Containers](/chainguard/chainguard-images/recommended-practices/strategies-tools-updating-images/) (Article)
+
+* [Reproducible Dockerfiles with Frizbee and Digestabot](/chainguard/chainguard-images/how-to-use/digestabot_frizbee/) (Video)
+* [Reproducibility and Chainguard Containers](/chainguard/chainguard-images/videos/repro/) (Video)
+* [Considerations for Keeping Containers Up to Date](/chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/) (Article)
+* [Strategies and Tooling for Updating Containers](/chainguard/chainguard-images/recommended-practices/strategies-tools-updating-images/) (Article)

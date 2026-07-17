@@ -46,7 +46,7 @@ Perhaps the best place for most users to get started with migrating to Chainguar
 
 ### Development containers
 
-As mentioned previously, Chainguard's standard container images typically do not include a shell or package manager. This helps to minimize the size of containers and also reduces their potential attack surface, but many users find that they need images that include a shell or package manager to support their specific use case. For this reason, Chainguard offers development containers (also known as `-dev` variants, since their image tags are appended with `-dev`). These variants come with more tooling than our standard container images, including a shell and package manager. 
+As mentioned previously, Chainguard's standard container images typically do not include a shell or package manager. This helps to minimize the size of containers and also reduces their potential attack surface, but many users find that they need images that include a shell or package manager to support their specific use case. For this reason, Chainguard offers development containers (also known as `-dev` variants, since their image tags are appended with `-dev`). These variants come with more tooling than our standard container images, including a shell and package manager.
 
 Although development variants are still more secure than most popular container images based on other distros, for increased security on production environments we recommend combining them with a distroless variant in a multi-stage build.
 
@@ -63,7 +63,6 @@ Refer to our guide on [Chainguard's Container variants](/chainguard/chainguard-i
 Before you begin actively migrating to Chainguard Containers, review the images that your organization has access to and determine which teams and applications will be using each image. Notify the teams involved in the migration process so they can begin preparing. For teams that are new to Chainguard Containers, we recommend taking the online self-paced course, [Linky’s Guide to Chainguard Containers](https://courses.chainguard.dev/path/linkys-guide-to-chainguard-images).
 
 Next, determine which users and/or systems are going to need access to your Chainguard registry in order to begin preparing access. Most customers will need to copy images from their Chainguard registry into their organization's registry. An easy way to do this is by configuring the organization's registry as a pull-through mirror of the Chainguard registry. We have a guide on [how to configure Artifactory](/chainguard/chainguard-registry/pull-through-guides/artifactory/artifactory-images-pull-through/) for this use case.
-
 
 ## Recommended rollout approach
 
@@ -86,7 +85,7 @@ We understand that customers may have urgent timelines and need to accelerate Ch
     * Automated CI/CD with permissions restrictions and auditing.
     * Monitoring, logging and runtime security.
 
-Finally, as you plan for the migration to Chainguard Containers you should ensure there’s a clear rollback plan in case of unforeseen issues during migration. Keep the previous container image tagged and accessible for quick redeployment if necessary. 
+Finally, as you plan for the migration to Chainguard Containers you should ensure there’s a clear rollback plan in case of unforeseen issues during migration. Keep the previous container image tagged and accessible for quick redeployment if necessary.
 
 ### Adding certificates
 
@@ -104,18 +103,17 @@ Many Chainguard customers use both application and base container images, but it
 
 #### Application images
 
-When migrating to a [Chainguard Application Container](/chainguard/chainguard-images/about/images-categories/#application-containers) you should first check the image’s overview page on the [Containers  Directory](https://images.chainguard.dev) for usage details and any compatibility notes. There may be user, permissions, or volume path differences with the Chainguard Image that you should be aware of. 
+When migrating to a [Chainguard Application Container](/chainguard/chainguard-images/about/images-categories/#application-containers) you should first check the image’s overview page on the [Containers  Directory](https://images.chainguard.dev) for usage details and any compatibility notes. There may be user, permissions, or volume path differences with the Chainguard Image that you should be aware of.
 
 It is a best practice to use the same version of the Chainguard Application Image as what is currently running in your environment, if that version is available from Chainguard. Post-migration you should thoroughly test and monitor your application.
 
 #### Base images
 
-When migrating to a [Chainguard Base Container](/chainguard/chainguard-images/about/images-categories/#base-containers) you should first check the images’s overview page on the [Containers Directory](https://images.chainguard.dev) for usage details and any compatibility remarks. You should understand the libraries, runtime requirements, and operating system dependencies of the applications you plan to have running on the base image. 
+When migrating to a [Chainguard Base Container](/chainguard/chainguard-images/about/images-categories/#base-containers) you should first check the images’s overview page on the [Containers Directory](https://images.chainguard.dev) for usage details and any compatibility remarks. You should understand the libraries, runtime requirements, and operating system dependencies of the applications you plan to have running on the base image.
 
 It is a best practice to use the same versions of any languages or applications that will be running on the Chainguard Base Container as what is currently running in your environment. Do not upgrade language or application versions at the same time that you migrate. Post-migration you should test and monitor your application as outlined below in Section 6.
 
-If you need a package to use with your Chainguard Base Container, ChainguardOS packages are available using `apk`. Ensure you only use ChainguardOS packages, as Alpine APKs are not compatible with ChainguardOS. Additionally, it is important to note that vendor provided packages need to be [glibc](/chainguard/chainguard-images/about/images-compiled-programs/glibc-vs-musl/) based and their functionality should be fully tested along with the application. 
-
+If you need a package to use with your Chainguard Base Container, ChainguardOS packages are available using `apk`. Ensure you only use ChainguardOS packages, as Alpine APKs are not compatible with ChainguardOS. Additionally, it is important to note that vendor provided packages need to be [glibc](/chainguard/chainguard-images/about/images-compiled-programs/glibc-vs-musl/) based and their functionality should be fully tested along with the application.
 
 ### Extending Chainguard Containers
 
@@ -123,10 +121,10 @@ You can take advantage of Chainguard's [Custom Assembly](/chainguard/chainguard-
 
 Custom Assembly allows users to create customers container images with extra packages added. This reduces their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs.
 
-Private APK Repositories, meanwhile, allow customers to pull secure apk packages from Chainguard. The list of packages available in an organization’s private repository is based on the apk repositories that the organization already has access to. For example, say your organization has access to the [Chainguard MySQL container image](https://images.chainguard.dev/directory/image/mysql/versions). Along with `mysql`, this image comes with other apk packages, including `bash`, `openssl`, and `pwgen`. This means that you'll have access to these apk packages through your organization's private APK repository, along with any others that appear in Chainguard container images that your organization has access to. 
-
+Private APK Repositories, meanwhile, allow customers to pull secure apk packages from Chainguard. The list of packages available in an organization’s private repository is based on the apk repositories that the organization already has access to. For example, say your organization has access to the [Chainguard MySQL container image](https://images.chainguard.dev/directory/image/mysql/versions). Along with `mysql`, this image comes with other apk packages, including `bash`, `openssl`, and `pwgen`. This means that you'll have access to these apk packages through your organization's private APK repository, along with any others that appear in Chainguard container images that your organization has access to.
 
 ## Tips for migrating to Chainguard Containers
+
 Although not fully comprehensive, it can be helpful to keep the following list of tips and strategies in mind when migrating to Chainguard Containers.
 
 * Use development variants when you need a shell
@@ -138,14 +136,13 @@ Although not fully comprehensive, it can be helpful to keep the following list o
 
 Each of these tips and strategies are explained in greater detail in our guide on [Container Migration Tips](/chainguard/migration/migration-tips/).
 
-
 ## Troubleshooting
 
 The move to a distroless workflow can be confusing for both individual developers and larger teams. We recommend taking the following steps when you encounter issues as you begin using Chainguard Containers:
 
 * **Debugging Distroless Container Images**: Debugging distroless images can be challenging due to the absence of a shell and package manager.
     * **Temporary Rebuild with `-dev` Tag**: Temporarily rebuild your image using the development variant to get a shell and other debugging tools. This is useful for local troubleshooting or in developer clusters.
-        * Remember to remove the `-dev` tag before merging. 
+        * Remember to remove the `-dev` tag before merging.
     * **Ephemeral Debug Containers**: In Kubernetes, use `kubectl debug` to launch an ephemeral container attached to the existing Pod for troubleshooting.
     * **Docker Debug**: While `docker debug` is available, it requires a Docker Desktop Pro license.
     * **`cdebug` and `kubectl debug`**: These tools allow you to enter a running container for debugging and can access the target container's file system.
@@ -165,7 +162,6 @@ We also have a video on [Debugging Distroless Containers with Docker Debug](/cha
 
 Lastly, you might also find help in the [Chainguard Containers FAQs](/chainguard/chainguard-images/faq/).
 
-
 ## Migration resources
 
 Chainguard Academy hosts a number of resources that can be useful when migrating to Chainguard Containers.
@@ -181,7 +177,6 @@ In addition to these, Chainguard Academy includes several types of resources tha
 * **Getting Started Guides** — These resources outline how to work with specific Containers, with some including a sample application used in examples.
 * **Chainguard Courses** — Chainguard Courses exist to reduce onboarding friction through product-centered education.
 
-
 ### Language- or platform-specific resources
 
 We currently offer both Migration and Getting Started Guides for these Containers:
@@ -190,8 +185,7 @@ We currently offer both Migration and Getting Started Guides for these Container
 |-----------|:-------------------:|:-------------------------:|
 | Node   | [✅ (link)](/chainguard/migration/migrating-node/)   | [✅ (link)](/chainguard/chainguard-images/getting-started/node/) |
 | Python | [✅ (link)](/chainguard/migration/migrating-python/) | [✅ (link)](/chainguard/chainguard-images/getting-started/python/)
-| PHP	| [✅ (link)](/chainguard/migration/migrating-php/)	| [✅ (link)](/chainguard/chainguard-images/getting-started/php/) |
-
+| PHP | [✅ (link)](/chainguard/migration/migrating-php/) | [✅ (link)](/chainguard/chainguard-images/getting-started/php/) |
 
 ### Migration guides
 
@@ -205,14 +199,12 @@ In addition, we have a few migration guides in the form of videos:
 * [Java (video)](/chainguard/chainguard-images/videos/java-images/)
 * [Node (video)](/chainguard/chainguard-images/videos/node-images/)
 
-
 ### Compatibility guides
 
 * [Alpine](/chainguard/migration/alpine-compatibility/)
 * [Debian](/chainguard/migration/debian-compatibility/)
 * [Red Hat](/chainguard/migration/red-hat-compatibility/)
 * [Ubuntu](/chainguard/migration/ubuntu-compatibility/)
-
 
 ### Getting started guides
 
@@ -231,16 +223,16 @@ In addition, we have a few migration guides in the form of videos:
 * [Ruby](/chainguard/chainguard-images/getting-started/ruby/)
 * [WordPress](/chainguard/chainguard-images/getting-started/wordpress/)
 
-
 ### Courses
 
-In addition to the Academy resources listed above, Chainguard offers a number of courses aimed to help teams understand and use Chainguard Containers. 
+In addition to the Academy resources listed above, Chainguard offers a number of courses aimed to help teams understand and use Chainguard Containers.
 
 #### Quickstart
 
 * [Chainguard Containers Crash Course](https://courses.chainguard.dev/linkys-crash-course-on-chainguard-images): A quick overview of everything you need to know to get started ASAP.
 
 #### Getting started (developer-focused)
+
 * [Getting Started With Chainguard Containers](https://courses.chainguard.dev/path/linkys-guide-to-chainguard-images/getting-started-with-chainguard-images): Intro to everything you need to know - from basic setup to security scanning.
 * [Foundations of Supply Chain Security](https://courses.chainguard.dev/path/linkys-guide-to-chainguard-images/foundations-of-software-supply-chain-security): The what, why, and how of keeping your software supply chain secure.
 * [Migration Guidance](https://courses.chainguard.dev/path/linkys-guide-to-chainguard-images/migration-guidance): Your friendly guide to moving to Chainguard Containers without the headaches.
@@ -255,7 +247,6 @@ In addition to the Academy resources listed above, Chainguard offers a number of
 
 * [Registry Rockstar](https://courses.chainguard.dev/path/linkys-guide-to-chainguard-images/registry-rockstar): Everything you need to know about managing access, identity, and registry setup.
 * [Chainguard's Superstar Support](https://courses.chainguard.dev/path/linkys-guide-to-chainguard-images/chainguards-superstar-support): Get the most out of Chainguard's support resources and tools.
-
 
 ## Further reading
 

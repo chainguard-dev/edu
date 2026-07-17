@@ -21,11 +21,9 @@ This guide provides an overview of how to submit a request for a new resource to
 
 {{< beta feature="The Requests section" >}}
 
-
 ## Prerequisites
 
 In order to submit requests for new resources in the Chainguard Console, you must be part of a [verified organization](/chainguard/administration/iam-organizations/verified-orgs/). Users with access to only Chainguard's Free tier of container images will not be able to submit requests.
-
 
 ## The Requests section
 
@@ -48,8 +46,7 @@ Each of these tabs contains a table with the following columns:
     * **Won't build**
 * If the original requester included them, **Project Details** that describe the resource being requested
 
-Additionally, the **Community requests** tab includes a **Demand** column, showing what demand percentile the request falls into. Also, the **Active builds** tab includes an **Estimated delivery** column that shows when Chainguard expects the resource to be available. 
-
+Additionally, the **Community requests** tab includes a **Demand** column, showing what demand percentile the request falls into. Also, the **Active builds** tab includes an **Estimated delivery** column that shows when Chainguard expects the resource to be available.
 
 ## Requesting new resources
 
@@ -60,7 +57,7 @@ This window contains several fields. The following are required for you to submi
 * **Type** — Specify the type of resource you're requesting, either an **Image**, a **Package**, or a **Helm chart**.
 * **Name** — Enter the existing public name of the resource you're requesting.
 * **Open Source project repository** — Include a link to a public repository containing the source code for the open source project you're requesting.
-* **Include FIPS-validated variant?** — Select either **Yes** or **No**. 
+* **Include FIPS-validated variant?** — Select either **Yes** or **No**.
 * Additionally, you must confirm that none of Chainguard's existing artifacts or requests match your request.
 
 There are also a few optional fields you can fill in:
@@ -74,7 +71,6 @@ Although these fields aren't required, filling them in provides Chainguard with 
 After filling out the form, click **Request image** to submit your request. Your request will then appear in both the **My requests** and **Community requests** tabs, and other customers will be able to upvote it.
 
 The Chainguard team will then review the request and prioritize it based on demand, as determined by the number of upvotes the request has received from users.
-
 
 ## Limitations
 

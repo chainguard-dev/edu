@@ -53,7 +53,8 @@ At a high level, adopting the use of Chainguard Libraries consists of the follow
 
 Adopting the use of a repository manager is the recommended approach to minimize complexity. If your organization does not use a repository manager, refer to the [direct access documentation](/chainguard/libraries/javascript/build-configuration/) for build tools.
 
-### Manually managing fallback
+## Manually managing fallback
+
 Chainguard recommends using the Chainguard Repository's built-in [upstream
 fallback](/chainguard/libraries/javascript/overview/#upstream-fallback-policy-and-controls)
 rather than configuring a public registry fallback in your repo manager.
@@ -69,7 +70,7 @@ this page follow this pattern.
 ### Updating lockfile hashes
 
 If you are migrating an existing JavaScript project to Chainguard Libraries through a repository manager, your lockfile likely contains integrity hashes generated against packages previously downloaded from npm or through your repository manager. The [`chainctl libraries update-hashes` command](/chainguard/chainctl/chainctl-docs/chainctl_libraries_update-hashes/) automates lockfile hash updates
-for all supported JavaScript lockfile formats. 
+for all supported JavaScript lockfile formats.
 
 When you are using a repository manager, pass the full repository manager URL with `--registry-url` and authenticate with one of the supported methods: `--username` and `--password`, `--token`, or a `.netrc` entry for the registry host. For example:
 
@@ -79,7 +80,7 @@ chainctl libraries update-hashes \
   --token "$REPO_TOKEN"
 ```
 
-After updating the lockfile, keep your repository manager configuration in place and reinstall through the same repository manager endpoint to apply the updated hashes. 
+After updating the lockfile, keep your repository manager configuration in place and reinstall through the same repository manager endpoint to apply the updated hashes.
 
 Learn more in the [Build configuration page](/chainguard/libraries/javascript/build-configuration/#updating-lockfile-hashes/) and in the [chainctl docs](/chainguard/chainctl/chainctl-docs/chainctl_libraries_update-hashes/).
 
@@ -97,11 +98,11 @@ by defining multiple upstream repositories.
 
 ### Initial configuration
 
-Use the following steps to configure a repository with the Chainguard Libraries for 
+Use the following steps to configure a repository with the Chainguard Libraries for
 JavaScript repository as an upstream.
 
-Configure a *javascript-all* repository. This repository acts as a single access point 
-for JavaScript packages and may also include private packages or additional upstream 
+Configure a *javascript-all* repository. This repository acts as a single access point
+for JavaScript packages and may also include private packages or additional upstream
 sources, depending on your configuration.
 
 1. Log in as a user with administrator privileges.
@@ -136,7 +137,6 @@ proxy for the public npm registry with a lower priority than
 Use this setup for initial testing with Chainguard Libraries for JavaScript. For
 production usage, add the `javascript-chainguard` upstream proxy to your production
 repository.
-
 
 ### Build tool access
 
@@ -200,10 +200,8 @@ repository:
 1. Click the **Advanced** configuration tab, then check the box next to **Disable URL Normalization**.
 1. Click **Create Remote Repository**.
 
-
-
 Create a virtual repository, or add the remote repository to an existing
-virtual repository used for npm packages. A virtual repository may also include private npm packages or 
+virtual repository used for npm packages. A virtual repository may also include private npm packages or
 additional upstream sources, depending on your configuration.
 
 1. Click **Create a Repository** → **Virtual**.
@@ -230,16 +228,16 @@ To prevent this:
 
 1. Apply the following settings to your Artifactory `javascript-chainguard`
    remote repository, within in the **Advanced** tab:
-    - **Enable Bypass HEAD Requests** — prevents Artifactory from sending HEAD
+    * **Enable Bypass HEAD Requests** — prevents Artifactory from sending HEAD
       requests that may not be handled correctly by redirect-based registries.
-    - **Disable Lenient Host Authentication** — disabling this setting ensures
-      credentials are not forwarded across the redirect. 
-    - **Enable Cookie Management** - this setting is optional, but recommended
+    * **Disable Lenient Host Authentication** — disabling this setting ensures
+      credentials are not forwarded across the redirect.
+    * **Enable Cookie Management** - this setting is optional, but recommended
       by JFrog for remote repositories that involve redirects.
 2. Clear the corrupted cached tarballs: in Artifactory, right-click the
    `javascript-chainguard` repository and click **Zap Caches**, then re-run your
    install.
-    - Alternatively, you could delete specific corrupted `.tgz` artifacts from
+    * Alternatively, you could delete specific corrupted `.tgz` artifacts from
       the remote cache, rather than deleting all, before re-running the install.
 
 ### Validate the remote repository
@@ -257,7 +255,7 @@ curl -sSf -L \
   | openssl dgst -sha512 -binary | base64
 ```
 
-2. Fetch the same artifact through the Artifactory remote repository and compute its checksum:
+1. Fetch the same artifact through the Artifactory remote repository and compute its checksum:
 
 ```bash
 curl -sSf -L \
@@ -265,9 +263,10 @@ curl -sSf -L \
   https://<artifactory-host>/artifactory/api/npm/javascript-chainguard/picocolors/-/picocolors-1.1.1.tgz \
   | openssl dgst -sha512 -binary | base64
 ```
+
 Replace `artifactory-host` with your Artifactory instance hostname, and replace `${ARTIFACTORY_TOKEN}` with your Artifactory identity token.
 
-3. If your configuration includes a virtual repository combining `javascript-chainguard` with a public npm fallback, test that as well:
+1. If your configuration includes a virtual repository combining `javascript-chainguard` with a public npm fallback, test that as well:
 
 ```bash
 curl -sSf -L \
@@ -276,16 +275,15 @@ curl -sSf -L \
   | openssl dgst -sha512 -binary | base64
 ```
 
-The checksums returned by the commands must match. 
+The checksums returned by the commands must match.
 
 If the checksum from the Artifactory remote or virtual repository differ from the direct fetch, or if the Artifactory fetch fails entirely, review the following before proceeding:
 
-* URL: The remote repository URL must be set to `https://libraries.cgr.dev/javascript/`. 
+* URL: The remote repository URL must be set to `https://libraries.cgr.dev/javascript/`.
 * Credentials: You may need to regenerate your pull token with `chainctl auth pull-token --repository=javascript` and update the Artifactory repository credentials. Expired tokens fail silently.
-* [Advanced tab settings](#advanced-settings-for-redirect-handling): Confirm that **Bypass HEAD Requests** is enabled and **Lenient Host Authentication** is disabled. 
+* [Advanced tab settings](#advanced-settings-for-redirect-handling): Confirm that **Bypass HEAD Requests** is enabled and **Lenient Host Authentication** is disabled.
 
 Do not proceed to virtual repository setup or build configuration until the checksums match.
-
 
 ### Build tool access
 
@@ -322,7 +320,7 @@ npm](https://help.sonatype.com/en/npm-registry.html).
 
 ### Initial configuration
 
-For initial testing and adoption it is advised to create a separate proxy repository 
+For initial testing and adoption it is advised to create a separate proxy repository
 for the Chainguard Libraries for JavaScript repository, and include it in a repository group:
 
 1. Log in as a user with administrator privileges.
@@ -341,7 +339,7 @@ repository:
 1. In **HTTP - Authentication** with the **Authentication type** *Username*,
    provide the [username and password values as retrieved with
    chainctl](/chainguard/libraries/access/).
-1. Click **Create repository**. 
+1. Click **Create repository**.
 
 Create a repository group, or add to an existing repository group:
 
@@ -350,7 +348,7 @@ Create a repository group, or add to an existing repository group:
 1. Select the **npm (group)** recipe.
 1. Provide a new name *javascript-all*.
 1. In the section **Group - Member repositories**, move the new repository
-   `javascript-chainguard` to the right to include it in the group. Position 
+   `javascript-chainguard` to the right to include it in the group. Position
    `javascript-chainguard` at the top of the list using the arrow controls.
 
 Repository groups can include multiple repositories, such as hosted
@@ -387,6 +385,7 @@ repository contains all libraries retrieved from Chainguard.
 Google Artifact Registry (GAR) is not an officially supported repository manager for Chainguard Libraries for JavaScript. However, it has been shown to work with the following configuration.
 
 Configure two GAR remote repositories, with upstream validation disabled on the second:
+
 * First remote repository: `javascript-chainguard` pointing to `https://libraries.cgr.dev/javascript` with upstream validation enabled
 * Second remote repository: `javascript-chainguard-upstream` pointing to `https://libraries.cgr.dev/javascript-upstream` with upstream validation disabled.
 
@@ -449,7 +448,6 @@ export CGR_TOKEN="your-chainguard-token"
 ### Step 2: Mirror packages from a lockfile
 
 This guide uses a script named `npm-codeartifact-mirror.sh`. Access the bash script and learn more about it in [Chainguard's example on GitHub](https://github.com/chainguard-demo/platform-examples/tree/main/library-copy-aws-code-artifact).
-
 
 Before running the script, save it to a local working directory and make it executable:
 
@@ -563,5 +561,3 @@ If packages remain unavailable after all retry passes, Chainguard may still be i
 #### pnpm parsing issues
 
 If you use pnpm and the workflow reports zero packages or fails because of `yq`, make sure you are using the Go `mikefarah` build of `yq` v4 rather than the Python `kislyuk` implementation.
-
-

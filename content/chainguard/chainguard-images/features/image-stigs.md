@@ -98,7 +98,6 @@ _END_DOCKER_RUN
 
 Results are written to a new `out/` subdirectory in the current working directory. The `report.html` file contains a human-readable report of the scan results; `results.xml` contains the raw results.
 
-
 ## What are STIGs?
 
 "STIG" stands for Security Technical Implementation Guide. A STIG is a technology-specific implementation of a Security Requirements Guide (SRG) that a security administrator follows to ensure that a given piece of software has been hardened against cybersecurity threats.
@@ -106,7 +105,6 @@ Results are written to a new `out/` subdirectory in the current working director
 A STIG is typically written by the developer or vendor of the given piece of software against a published DOD Security Requirements Guide (SRG). STIGs are presented in the XCCDF (Extensible Configuration Checklist Description Format), allowing them to be ingested into a SCAP-validated tool to validate that a given target is in compliance with them.
 
 After drafting the STIG, the vendor will submit it to the [Defense Information Systems Agency (DISA)](https://www.disa.mil/), an agency within the DoD. One of DISA's responsibilities is publishing and maintaining STIGs on the [DoD Cyber Exchange website](https://www.cyber.mil/stigs/downloads/), and the process from a STIG being submitting to it being published by DISA can take years. As of this writing, DISA has published over 450 STIGs for a wide variety of software applications.
-
 
 ## How STIGs can be used to harden container images
 
@@ -131,7 +129,6 @@ controls and benefits from infrastructure to host OS-level remediation requireme
 
 Deploying containers on a STIG hardened host provides many of the security features that are difficult or sometimes impossible to implement inside a container. What's left then is the application-level security configuration — in particular vulnerability remediation — which Chainguard provides through our guaranteed vulnerability remediation SLAs.
 
-
 ## False positives and the General Purpose OS STIG
 
 Here we've assembled several explanations for requirements from Chainguard's General Purpose Operating System STIG that are likely to cause false positives when scanning containers, as well as the rationale for those requirements. By disambiguating these false positives, the following sections should be helpful to any administrators deploying containers in environments where STIG hardening is necessary both as a means to understand where to expend effort performing hardening and for discussions with assessors and compliance personnel.
@@ -144,13 +141,11 @@ Linux containers use their host's kernel, making it impossible to install and op
 
 Once configured, logs of container actions are written to the host's audit log files and are readable only by the host superuser account. These logs must be collected from the host for incident response and reporting. Storage capacity limits, audit process monitoring, remote upload of logs, and associated alerts are the responsibility of the host where the containers are running.
 
-
 ### Isolation
 
 Containers provide process isolation by executing their applications in a constrained environment using the Linux Namespace and cgroup subsystems. Inside the namespace, container processes are only permitted to access a limited set of system resources defined when the container is launched. Processes are further restricted by limits imposed through the cgroup for access to system resources such as system memory or CPU use.
 
 Together, namespaces and cgroups isolate security functions of the host operating system from non-security functions of applications running inside the container. This separation makes it possible for container failures to not directly impact the operation of the host and its security functions when caused through processing of invalid inputs or other runtime errors. In the event of a container failure during initialization or shutdown, for example, the host operating system's security capabilities will continue to function as configured.
-
 
 ### Minimal container images
 
@@ -160,36 +155,29 @@ This limited implementation means that only the necessary software to operate ca
 
 The host's container execution environment further reduces the risk of unauthorized modification of software through Linux container isolation capabilities including namespaces and cgroups. These restrictions prevent unauthorized modification of the host operating system environment.
 
-
 ### Address Space Layout Randomization (ASLR)
 
 ASLR configuration is the responsibility of the host operating system on which containers run. Applications running within a container on a host that has ASLR enabled will automatically be protected by the configuration. No additional action is needed to ensure that container-based applications are protected.
-
 
 ### Host firewall
 
 Linux containers inherit the firewall configuration of their host operating system which dictates which ports on the container can be accessed from the network. Selection of which ports to make accessible on the applications running on the container is the responsibility of the host firewall configuration — an additional application-level firewall inside the container is not necessary.
 
-
 ### Host filesystem
 
 Linux containers use the host's filesystem for storage of their files and configuration. To protect data at rest inside containers from unauthorized access or modification, you must modify the host operating system's configuration. As an example, you might set up encrypted virtual filesystems. The host filesystem is also responsible for the size, utilization, and capacity of the physical disks that are used by containers running on that host.
-
 
 ### Vulnerability scanning
 
 The team deploying the container is also responsible for scanning it for vulnerabilities. This scanning can be executed from the host operating system or against the container image when it is stored in a registry. Continuous scanning can be used to detect vulnerabilities that have been identified / announced since the previous scan and determine when updated images should be built and deployed in the environment.
 
-
 ### Time
 
 Linux containers inherit the system time from the underlying host; likewise, containers don't operate their own separate time services. The host owner is responsible for configuring the host's time service to generate the timestamp used by its auditing system, perform periodic synchronization, and ensure that only authorized time servers are used as the authoritative source. Time synchronization of the host clock is automatically reflected in the time used by the container.
 
-
 ### STIGs
 
 These containers can be validated against the General Purpose Operating System STIG and other applicable STIGs using the [OpenSCAP toolset](http://www.open-scap.org/tools/). OpenSCAP can validate configuration of container images by reviewing the configuration of the image filesystem and can perform interactive checks by executing commands against running containers.
-
 
 ## Learn more
 

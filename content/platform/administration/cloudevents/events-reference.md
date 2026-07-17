@@ -1,6 +1,4 @@
 ---
-aliases:
-- /chainguard/administration/cloudevents/events-reference/
 title : "Chainguard Events"
 lead: ""
 description: "Chainguard Events"
@@ -21,6 +19,7 @@ To subscribe to Chainguard events for your account, use the `chainctl` command l
 
 ```shell
 chainctl events subscriptions create –parent $YOUR_ORGANIZATION_OR_FOLDER https://<Your webhook URL>
+
 ```
 
 Once you are subscribed to Chainguard events, you will start receiving HTTP POST requests. Each request has a common set of CloudEvent header fields, denoted by the `Ce-` prefix. The event body is encoded using JSON and will have two top-level keys, `actor` and `body`.
@@ -45,6 +44,7 @@ The complete UIDP in the event's `Ce-Subject` header would be:
 
 ```
 0475f6baca584a8964a6bce6b74dbe78dd8805b6/b74ce966caf448d1/dda9aab2d2d90f9e/1a4b29ca6df80013
+
 ```
 
 ## Authorization Header
@@ -72,6 +72,7 @@ can allowlist that name instead of hard-coding the individual addresses:
 The following list of services and methods show example HTTP headers and bodies for public facing Chainguard events.
 
 ## Service: Registry - Pull
+
 ### Method: Pulled
 
 #### Example HTTP Headers
@@ -120,8 +121,11 @@ User-Agent: Chainguard Enforce
     "when": "2026-07-01T03:32:36.162481"
   }
 }
+
 ```
+
 ## Service: Registry - Push
+
 ### Method: Pushed
 
 #### Example HTTP Headers
@@ -169,8 +173,11 @@ User-Agent: Chainguard Enforce
     "when": "2026-07-01T03:32:36.162445"
   }
 }
+
 ```
+
 ## Service: auth - Auth
+
 ### Method: Register
 
 #### Example HTTP Headers
@@ -206,8 +213,11 @@ User-Agent: Chainguard Enforce
     "identity": "Chainguard UIDP"
   }
 }
+
 ```
+
 ## Service: events - Subscriptions
+
 ### Method: Create
 
 #### Example HTTP Headers
@@ -243,7 +253,9 @@ User-Agent: Chainguard Enforce
     "sink": "Webhook endpoint (http/https URL)"
   }
 }
+
 ```
+
 ### Method: Delete
 
 #### Example HTTP Headers
@@ -278,8 +290,11 @@ User-Agent: Chainguard Enforce
     "id": "UIDP identifier of the subscription to delete"
   }
 }
+
 ```
+
 ## Service: iam - ExternalGroupRoleMappings
+
 ### Method: Create
 
 #### Example HTTP Headers
@@ -318,7 +333,9 @@ User-Agent: Chainguard Enforce
     "scope": "UIDP of the group where the role applies"
   }
 }
+
 ```
+
 ### Method: Delete
 
 #### Example HTTP Headers
@@ -353,8 +370,11 @@ User-Agent: Chainguard Enforce
     "id": "UIDP of the mapping"
   }
 }
+
 ```
+
 ## Service: iam - GroupAccountAssociations
+
 ### Method: Create
 
 #### Example HTTP Headers
@@ -398,7 +418,9 @@ User-Agent: Chainguard Enforce
     "name": "group name"
   }
 }
+
 ```
+
 ### Method: Update
 
 #### Example HTTP Headers
@@ -442,7 +464,9 @@ User-Agent: Chainguard Enforce
     "name": "group name"
   }
 }
+
 ```
+
 ### Method: Delete
 
 #### Example HTTP Headers
@@ -477,8 +501,11 @@ User-Agent: Chainguard Enforce
     "group": "UIDP of the group whose associations will be deleted"
   }
 }
+
 ```
+
 ## Service: iam - GroupInvites
+
 ### Method: Create
 
 #### Example HTTP Headers
@@ -516,7 +543,9 @@ User-Agent: Chainguard Enforce
     "id": "group UIDP under which this invite resides"
   }
 }
+
 ```
+
 ### Method: Delete
 
 #### Example HTTP Headers
@@ -551,8 +580,11 @@ User-Agent: Chainguard Enforce
     "id": "UIDP of the record"
   }
 }
+
 ```
+
 ## Service: iam - Groups
+
 ### Method: Create
 
 #### Example HTTP Headers
@@ -589,7 +621,9 @@ User-Agent: Chainguard Enforce
     "name": "group name"
   }
 }
+
 ```
+
 ### Method: Update
 
 #### Example HTTP Headers
@@ -626,7 +660,9 @@ User-Agent: Chainguard Enforce
     "name": "group name"
   }
 }
+
 ```
+
 ### Method: Delete
 
 #### Example HTTP Headers
@@ -661,8 +697,11 @@ User-Agent: Chainguard Enforce
     "id": "UIDP of the record"
   }
 }
+
 ```
+
 ## Service: iam - Identities
+
 ### Method: Create
 
 #### Example HTTP Headers
@@ -703,7 +742,9 @@ User-Agent: Chainguard Enforce
     "parent_id": "The Group UIDP path under which the new Identity resides"
   }
 }
+
 ```
+
 ### Method: Update
 
 #### Example HTTP Headers
@@ -741,7 +782,9 @@ User-Agent: Chainguard Enforce
     "name": "The human readable name of identity"
   }
 }
+
 ```
+
 ### Method: Delete
 
 #### Example HTTP Headers
@@ -776,8 +819,11 @@ User-Agent: Chainguard Enforce
     "id": "UIDP of the record"
   }
 }
+
 ```
+
 ## Service: iam - IdentityProviders
+
 ### Method: Create
 
 #### Example HTTP Headers
@@ -818,7 +864,9 @@ User-Agent: Chainguard Enforce
     "parent_id": "The UIDP of the IAM group to nest this identity provider under"
   }
 }
+
 ```
+
 ### Method: Update
 
 #### Example HTTP Headers
@@ -856,7 +904,9 @@ User-Agent: Chainguard Enforce
     "name": "The human readable name of identity provider"
   }
 }
+
 ```
+
 ### Method: Delete
 
 #### Example HTTP Headers
@@ -891,8 +941,11 @@ User-Agent: Chainguard Enforce
     "id": "UIDP of the IdP"
   }
 }
+
 ```
+
 ## Service: iam - RoleBindings
+
 ### Method: Create
 
 #### Example HTTP Headers
@@ -932,7 +985,9 @@ User-Agent: Chainguard Enforce
     }
   }
 }
+
 ```
+
 ### Method: CreateBatch
 
 #### Example HTTP Headers
@@ -973,7 +1028,9 @@ User-Agent: Chainguard Enforce
     ]
   }
 }
+
 ```
+
 ### Method: Update
 
 #### Example HTTP Headers
@@ -1010,7 +1067,9 @@ User-Agent: Chainguard Enforce
     "role": "UIDP of the Role to bind"
   }
 }
+
 ```
+
 ### Method: Delete
 
 #### Example HTTP Headers
@@ -1045,8 +1104,11 @@ User-Agent: Chainguard Enforce
     "id": "UID of the record"
   }
 }
+
 ```
+
 ## Service: iam - Terms
+
 ### Method: AcceptTerms
 
 #### Example HTTP Headers
@@ -1085,8 +1147,11 @@ User-Agent: Chainguard Enforce
     "group": "Chainguard UIDP of the organization"
   }
 }
+
 ```
+
 ## Service: registry - Charts
+
 ### Method: AddChart
 
 #### Example HTTP Headers
@@ -1127,8 +1192,11 @@ User-Agent: Chainguard Enforce
     ]
   }
 }
+
 ```
+
 ## Service: registry - Registry
+
 ### Method: CreateRepo
 
 #### Example HTTP Headers
@@ -1168,7 +1236,9 @@ User-Agent: Chainguard Enforce
     }
   }
 }
+
 ```
+
 ### Method: UpdateRepo
 
 #### Example HTTP Headers
@@ -1208,7 +1278,9 @@ User-Agent: Chainguard Enforce
     }
   }
 }
+
 ```
+
 ### Method: DeleteRepo
 
 #### Example HTTP Headers
@@ -1243,7 +1315,9 @@ User-Agent: Chainguard Enforce
     "id": "The identifier of this specific repository"
   }
 }
+
 ```
+
 ### Method: CreateTag
 
 #### Example HTTP Headers
@@ -1280,7 +1354,9 @@ User-Agent: Chainguard Enforce
     "name": "The unique name of the tag"
   }
 }
+
 ```
+
 ### Method: UpdateTag
 
 #### Example HTTP Headers
@@ -1317,7 +1393,9 @@ User-Agent: Chainguard Enforce
     "name": "The unique name of the tag"
   }
 }
+
 ```
+
 ### Method: DeleteTag
 
 #### Example HTTP Headers
@@ -1352,8 +1430,11 @@ User-Agent: Chainguard Enforce
     "id": "The identifier of this specific tag"
   }
 }
+
 ```
+
 ## Service: v1 - Bindings
+
 ### Method: CreateBinding
 
 #### Example HTTP Headers
@@ -1395,7 +1476,9 @@ User-Agent: Chainguard Enforce
     "updated_at": {}
   }
 }
+
 ```
+
 ### Method: UpdateBinding
 
 #### Example HTTP Headers
@@ -1437,7 +1520,9 @@ User-Agent: Chainguard Enforce
     "updated_at": {}
   }
 }
+
 ```
+
 ### Method: DeleteBinding
 
 #### Example HTTP Headers
@@ -1472,8 +1557,11 @@ User-Agent: Chainguard Enforce
     "id": "UIDP of the binding"
   }
 }
+
 ```
+
 ## Service: v1 - Overrides
+
 ### Method: CreateOverride
 
 #### Example HTTP Headers
@@ -1513,7 +1601,9 @@ User-Agent: Chainguard Enforce
     "reason": "Justification for the waiver"
   }
 }
+
 ```
+
 ### Method: DeleteOverride
 
 #### Example HTTP Headers
@@ -1548,8 +1638,11 @@ User-Agent: Chainguard Enforce
     "id": "UIDP of the override"
   }
 }
+
 ```
+
 ## Service: v1 - Policies
+
 ### Method: CreatePolicy
 
 #### Example HTTP Headers
@@ -1593,7 +1686,9 @@ User-Agent: Chainguard Enforce
     "updated_at": {}
   }
 }
+
 ```
+
 ### Method: UpdatePolicy
 
 #### Example HTTP Headers
@@ -1637,7 +1732,9 @@ User-Agent: Chainguard Enforce
     "updated_at": {}
   }
 }
+
 ```
+
 ### Method: DeletePolicy
 
 #### Example HTTP Headers
@@ -1672,8 +1769,11 @@ User-Agent: Chainguard Enforce
     "id": "UIDP of the policy"
   }
 }
+
 ```
+
 ## Service: v2beta1 - AccountAssociationsService
+
 ### Method: CreateAccountAssociation
 
 #### Example HTTP Headers
@@ -1717,7 +1817,9 @@ User-Agent: Chainguard Enforce
     "name": "group name"
   }
 }
+
 ```
+
 ### Method: DeleteAccountAssociation
 
 #### Example HTTP Headers
@@ -1752,7 +1854,9 @@ User-Agent: Chainguard Enforce
     "group": "UIDP of the group whose associations will be deleted"
   }
 }
+
 ```
+
 ### Method: UpdateAccountAssociation
 
 #### Example HTTP Headers
@@ -1796,8 +1900,11 @@ User-Agent: Chainguard Enforce
     "name": "group name"
   }
 }
+
 ```
+
 ## Service: v2beta1 - ExternalGroupRoleMappingsService
+
 ### Method: CreateExternalGroupRoleMapping
 
 #### Example HTTP Headers
@@ -1836,7 +1943,9 @@ User-Agent: Chainguard Enforce
     "scope": "UIDP of the group where the role applies"
   }
 }
+
 ```
+
 ### Method: DeleteExternalGroupRoleMapping
 
 #### Example HTTP Headers
@@ -1871,7 +1980,9 @@ User-Agent: Chainguard Enforce
     "id": "UIDP of the mapping"
   }
 }
+
 ```
+
 ### Method: BatchDeleteExternalGroupRoleMappings
 
 #### Example HTTP Headers
@@ -1915,8 +2026,11 @@ User-Agent: Chainguard Enforce
     "parent": "UIDP of the identity provider"
   }
 }
+
 ```
+
 ## Service: v2beta1 - GroupInvitesService
+
 ### Method: CreateGroupInvite
 
 #### Example HTTP Headers
@@ -1954,7 +2068,9 @@ User-Agent: Chainguard Enforce
     "id": "group UIDP under which this invite resides"
   }
 }
+
 ```
+
 ### Method: DeleteGroupInvite
 
 #### Example HTTP Headers
@@ -1989,8 +2105,11 @@ User-Agent: Chainguard Enforce
     "id": "UIDP of the record"
   }
 }
+
 ```
+
 ## Service: v2beta1 - GroupsService
+
 ### Method: DeleteGroup
 
 #### Example HTTP Headers
@@ -2025,7 +2144,9 @@ User-Agent: Chainguard Enforce
     "id": "UIDP of the record"
   }
 }
+
 ```
+
 ### Method: CreateGroup
 
 #### Example HTTP Headers
@@ -2062,7 +2183,9 @@ User-Agent: Chainguard Enforce
     "name": "group name"
   }
 }
+
 ```
+
 ### Method: UpdateGroup
 
 #### Example HTTP Headers
@@ -2099,8 +2222,11 @@ User-Agent: Chainguard Enforce
     "name": "group name"
   }
 }
+
 ```
+
 ## Service: v2beta1 - IdentitiesService
+
 ### Method: CreateIdentity
 
 #### Example HTTP Headers
@@ -2141,7 +2267,9 @@ User-Agent: Chainguard Enforce
     "parent_id": "The Group UIDP path under which the new Identity resides"
   }
 }
+
 ```
+
 ### Method: DeleteIdentity
 
 #### Example HTTP Headers
@@ -2176,7 +2304,9 @@ User-Agent: Chainguard Enforce
     "id": "UIDP of the record"
   }
 }
+
 ```
+
 ### Method: UpdateIdentity
 
 #### Example HTTP Headers
@@ -2214,7 +2344,9 @@ User-Agent: Chainguard Enforce
     "name": "The human readable name of identity"
   }
 }
+
 ```
+
 ### Method: UpdateIdentityMetadata
 
 #### Example HTTP Headers
@@ -2250,8 +2382,11 @@ User-Agent: Chainguard Enforce
     "uid": "The caller's identity UID"
   }
 }
+
 ```
+
 ## Service: v2beta1 - IdentityProvidersService
+
 ### Method: CreateIdentityProvider
 
 #### Example HTTP Headers
@@ -2292,7 +2427,9 @@ User-Agent: Chainguard Enforce
     "parent_id": "The UIDP of the IAM group to nest this identity provider under"
   }
 }
+
 ```
+
 ### Method: UpdateIdentityProvider
 
 #### Example HTTP Headers
@@ -2330,7 +2467,9 @@ User-Agent: Chainguard Enforce
     "name": "The human readable name of identity provider"
   }
 }
+
 ```
+
 ### Method: DeleteIdentityProvider
 
 #### Example HTTP Headers
@@ -2365,8 +2504,11 @@ User-Agent: Chainguard Enforce
     "id": "UIDP of the IdP"
   }
 }
+
 ```
+
 ## Service: v2beta1 - RoleBindingsService
+
 ### Method: CreateRoleBinding
 
 #### Example HTTP Headers
@@ -2406,7 +2548,9 @@ User-Agent: Chainguard Enforce
     }
   }
 }
+
 ```
+
 ### Method: DeleteRoleBinding
 
 #### Example HTTP Headers
@@ -2441,7 +2585,9 @@ User-Agent: Chainguard Enforce
     "id": "UID of the record"
   }
 }
+
 ```
+
 ### Method: BatchCreateRoleBindings
 
 #### Example HTTP Headers
@@ -2482,7 +2628,9 @@ User-Agent: Chainguard Enforce
     ]
   }
 }
+
 ```
+
 ### Method: UpdateRoleBinding
 
 #### Example HTTP Headers
@@ -2519,8 +2667,11 @@ User-Agent: Chainguard Enforce
     "role": "UIDP of the Role to bind"
   }
 }
+
 ```
+
 ## Service: v2beta1 - TermsService
+
 ### Method: AcceptTerms
 
 #### Example HTTP Headers
@@ -2559,4 +2710,5 @@ User-Agent: Chainguard Enforce
     "group": "Chainguard UIDP of the organization"
   }
 }
+
 ```
