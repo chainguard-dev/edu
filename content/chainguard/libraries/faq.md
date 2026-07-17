@@ -194,50 +194,53 @@ Chibbies](https://www.youtube.com/watch?v=adfU9LJg3I0&t=2843s).
 
 The following questions apply to repo manager configurations for Chainguard Libraries, using JFrog Artifactory. Learn more about using a repo manager in the global configuration pages for each ecosystem: [Java](/chainguard/libraries/java/global-configuration/), [JavaScript](/chainguard/libraries/javascript/global-configuration/), [Python](/chainguard/libraries/python/global-configuration/).
 
-### What are the most common setup mistakes to check first?
+### What are the most common setup mistakes when using Artifactory with Chainguard Libraries?
 
-Start with the basics:
+Follow these steps for general troubleshooting:
 
-* Invalid or expired credentials
-* Incorrect or incomplete repository URLs
-* Wrong language-specific endpoints
-* Wrong remote-repository settings
-* Virtual repository ordering problems
-* Stale cached upstream artifacts
+* Verify the token and repository settings.
+  * Confirm that the token is scoped correctly, not expired, and copied correctly. Also confirm that the repository URL is the correct language-specific endpoint and that the expected remote repository settings are in place.
+* Validate pulling packages with direct access.
+  * Attempt to pull a package directly from the Chainguard endpoint from a controlled environment. This helps you confirm that the token works and that the package is available independently of Artifactory.
+  * Attempt to pull the same package through the Artifactory remote or virtual repository and compare the result. 
+  * If direct access works but the Artifactory path fails, check the network path between Artifactory and the Chainguard endpoint. This is where firewall restrictions, proxy behavior, TLS inspection, or object-storage allowlisting issues may have an impact. 
+* Test with a real package fetch.
+  * The **Test** button in Artifactory is not a reliable way to confirm that your integration is working as expected. Instead, use a real package fetch, install, or checksum comparison.
+* If results aren't as expected, [clear one cache layer at a time and rerun the same test](#why-might-i-experience-inconsistent-fallback-behavior-outdated-package-metadata-or-inconsistent-experience-between-users). 
 
-### Why might I see TLS or SSL handshake errors and authentication failures?
+### Why might I see TLS or SSL handshake errors and authentication failures after configuring Artifactory with Chainguard Libraries?
 
 In some cases, authentication failures or malformed token behavior are caused by traffic inspection or proxy-layer handling. When troubleshooting, check the following:
 
-* whether a proxy, TLS inspection layer, or MITM device is in path
-* whether the full certificate chain is installed correctly
-* whether the environment uses an internal CA
-* whether the runtime, package manager, and repository manager trust the same CA bundle
-* whether the proxy is modifying or normalizing headers, tokens, or request format
+* Whether a proxy, TLS inspection layer, or MITM device is in path
+* Whether the full certificate chain is installed correctly
+* Whether the environment uses an internal CA
+* Whether the runtime, package manager, and repository manager trust the same CA bundle
+* Whether the proxy is modifying or normalizing headers, tokens, or request format
 
-### Why might I experience timeouts or "connection refused" errors?
+### Why might I experience timeouts or "connection refused" errors after configuring Artifactory with Chainguard Libraries?
 
 Firewall rules can prevent dependency resolution or break integration behavior. This is often observed when the repository manager can reach one destination but not another required upstream host or storage host. When troubleshooting, check the following:
 
-* allowed outbound destinations
+* Allowed outbound destinations
 * DNS resolution
-* port restrictions
-* whether the repository manager can reach all required upstream hosts
-* whether object-storage or redirect targets also need to be allowlisted
+* Port restrictions
+* Whether the repository manager can reach all required upstream hosts
+* Whether object-storage or redirect targets also need to be allowlisted
 
-### Why might I experience authentication loops, 4xx or 5xx responses, incorrect endpoint routing, stale artifacts, or behavior that differs between direct and proxied paths?
+### Why might I experience authentication loops, 4xx or 5xx responses, incorrect endpoint routing, stale artifacts, or behavior that differs between direct and proxied paths after configuring Artifactory with Chainguard Libraries?
 
 Proxy layers can change headers, certificate handling, path routing, protocol support, and cache behavior. When troubleshooting, check the following:
 
-* whether a forward proxy, reverse proxy, or both are present
-* header rewriting
-* path rewriting
-* auth forwarding
+* Whether a forward proxy, reverse proxy, or both are present
+* Header rewriting
+* Path rewriting
+* Auth forwarding
 * TLS termination point
 * HTTP/2 support where required
-* cache behavior at each layer
+* Cache behavior at each layer
 
-### Why might I experience inconsistent fallback behavior, outdated package metadata, or inconsistent experience between users?
+### Why might I experience inconsistent fallback behavior, outdated package metadata, or inconsistent experience between users after configuring Artifactory with Chainguard Libraries?
 
 Caching is a common cause of unexpected behavior during onboarding and testing.
 Builds can continue using previously cached public-registry artifacts or stale
