@@ -15,6 +15,10 @@ module.exports = {
         "./content/**/*.md",
       ],
       safelist: [
+        // Changelog type-tag color classes are generated from a shortcode
+        // ({{< changelog-label >}}), so the modifier names never appear as
+        // literals in scanned content. Keep them all.
+        /^changelog-label/,
         "lazyloaded",
         "table",
         "thead",
@@ -37,6 +41,7 @@ module.exports = {
           "./node_modules/katex/dist/katex.css",
           "./assets/scss/*.scss",
           "./assets/scss/common/*.scss",
+          "./assets/scss/components/*.scss",
           "./node_modules/@docsearch/css/dist/modal.css",
         ]),
       ],

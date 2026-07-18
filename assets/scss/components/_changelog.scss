@@ -1,0 +1,93 @@
+// Colored type tags for the Chainguard Containers changelog
+// (content/chainguard/changelog.md). The generator emits one
+// {{< changelog-label "…" >}} shortcode per section; the shortcode turns the
+// label into `.changelog-label--<slug>`. Backgrounds all pair with white text
+// and clear WCAG AA contrast, so the pills read on both light and dark pages.
+
+.changelog-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2em 0.65em;
+  border-radius: 4px;
+  vertical-align: middle;
+
+  // Chainguard brand palette. These brand colors are vivid, so text color is
+  // chosen per pill for WCAG AA contrast: dark ink on the light ones, white
+  // only on Blurple (the sole color that reads better with white text).
+  $ink: #14002e;
+
+  // In scope now.
+  &--new-image {
+    background-color: #44fd2b; // Lime — an addition
+    color: $ink;
+  }
+
+  &--grace-period {
+    background-color: #fd2bf2; // Fuchsia — heading toward end-of-life
+    color: $ink;
+  }
+
+  // Reserved for the separate workflows we're holding off on. Defined now so
+  // the palette is coherent and the classes are ready when those land.
+  &--eol {
+    background-color: #fd3964; // Solar — end of life reached
+    color: $ink;
+  }
+
+  &--breaking-change {
+    background-color: #6226fb; // Blurple — disruptive change
+    color: #fff;
+  }
+
+  &--product-announcement {
+    background-color: #2bbafd; // Aqua — informational
+    color: $ink;
+  }
+}
+
+// The shortcode sits on its own line, so Goldmark wraps it in a paragraph.
+// Give that paragraph the section spacing (space above the tag, tight below,
+// so the tag reads as a heading for the list that follows it).
+p:has(> .changelog-label:first-child) {
+  margin-top: 1.75rem;
+  margin-bottom: 0.4rem;
+}
+
+// New-image table. A same-prefix batch is a nested table inside a full-width
+// collapsible cell. The repo only styles direct-child content tables
+// (.docs-content > table), so the nested one would otherwise pick up a default
+// background (gray in dark mode) and its own column widths. Match it to the
+// outer table so the batch reads as one continuous table. Scoped to .cl-images
+// (the outer table) so no other page's <details>/tables are touched.
+.cl-images {
+  // Let the nested table sit flush against the cell edges so its columns line
+  // up with the outer table's.
+  td[colspan="3"] {
+    padding: 0;
+  }
+
+  details > summary {
+    cursor: pointer;
+    padding: 0.4rem 0.75rem;
+  }
+
+  details table {
+    --bs-table-bg: transparent !important; // kill the default dark-mode gray
+    background: transparent;
+    table-layout: fixed; // same column algorithm as the outer table
+    width: 100%;
+    margin: 0;
+
+    // The outer table's header already labels these columns.
+    thead {
+      display: none;
+    }
+
+    :is(tbody, tr, th, td) {
+      background: transparent;
+    }
+  }
+}
