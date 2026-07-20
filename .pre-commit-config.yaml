@@ -43,7 +43,7 @@ repos:
   # (zizmor.yaml uploads SARIF to code scanning, actionlint.yaml adds shellcheck
   # + annotations); the hooks give the same checks locally on changed files.
   - repo: https://github.com/zizmorcore/zizmor-pre-commit
-    rev: e3eebf65325ccc992422292cb7a4baee967cf815  # frozen: v1.26.1
+    rev: 64a97fb7fa63188393d3215c6e312f5f9c6d0f78  # frozen: v1.27.0
     hooks:
       - id: zizmor # auto-loads .github/zizmor.yml
 
@@ -121,7 +121,7 @@ repos:
 
   # Lint Markdown content against .markdownlint-cli2.jsonc.
   - repo: https://github.com/DavidAnson/markdownlint-cli2
-    rev: 534166213006ec869b773b7ed8c6ebeaad1165d0  # frozen: v0.23.0
+    rev: 06f92c99e930c11230426b5edd775021d25e08a8  # frozen: v0.23.1
     hooks:
       - id: markdownlint-cli2
         # content/platform/chainctl/chainctl-docs/ is generated upstream (cobra
