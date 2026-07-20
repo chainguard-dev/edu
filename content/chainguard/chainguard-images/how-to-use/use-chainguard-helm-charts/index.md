@@ -36,6 +36,16 @@ The following is an instructional guide for Chainguard users that are looking fo
 
 You can use these Helm charts with Chainguard FIPS container images, but you will need to adjust the charts as they use the non-FIPS images by default. We build a single chart per application and validate that both FIPS and non-FIPS Chainguard Images work with it.
 
+## How chart updates deliver image updates
+
+Chainguard rebuilds container images regularly to pick up the latest package versions and CVE fixes. Just like images, charts are also rebuilt regularly to pick up the latest chart updates and the chart's new dependent image digests.
+
+A chart tag always refers to the chart version, not to a fixed set of images. Chainguard rolls the underlying image digests forward within a tag, so even a specific tag like `10.5.13-r1` keeps pointing at the latest images for that chart version. As with image tags, you can pick a tag fidelity that matches your upgrade appetite — `latest`, a version stream, or a specific `x.y.y-r#` version — but every chart tag rolls its dependent image digests forward.
+
+Helm will not apply these updates on its own. A release picks up newer images only when something triggers a redeploy: a `helm upgrade`, or a controller such as Argo CD or Flux reconciling the release. A chart referenced by tag then pulls the current chart digest along with its newer image digests. Running a `helm upgrade` on the same tag will resolve to its newest digest the tag pins to.
+
+To pin both the chart and its images to a fixed, reproducible set, reference the chart by digest instead of by tag. Your deployment then stays fixed to the exact images the chart referenced when you recorded that digest. To pick up newer images, update your pinned digest to the current one. The [Pin to digest](#pin-to-digest) section covers how to do this.
+
 ## Authentication
 
 You will need to authenticate to pull charts. These instructions explain how to use charts and images with the `cgr.dev` repository. If you have mirrored or copied the charts and images to an organization-specific registry, you will need to adapt these instructions to authenticate to your registry, as appropriate.
