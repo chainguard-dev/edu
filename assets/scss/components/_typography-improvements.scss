@@ -7,11 +7,11 @@
   --docs-font-size: 16px;
   --docs-small-font: 14px;
   --docs-large-font: 18px;
-  
+
   // Improve line height for documentation
   --docs-line-height: 1.7;
   --docs-heading-line-height: 1.3;
-  
+
   // Enhanced spacing
   --docs-paragraph-margin: 1.35rem;
   --docs-list-spacing: 0.45rem;
@@ -33,18 +33,18 @@ body {
     margin-bottom: var(--docs-paragraph-margin);
     font-size: var(--docs-font-size);
     line-height: var(--docs-line-height);
-  
+
   }
-  
+
   // List improvements
   ul, ol {
     margin-bottom: var(--docs-paragraph-margin);
-    
+
     li {
       margin-bottom: var(--docs-list-spacing);
       line-height: var(--docs-line-height);
       font-size: var(--docs-font-size);
-      
+
       // Nested lists
       ul, ol {
         margin-top: var(--docs-list-spacing);
@@ -52,16 +52,15 @@ body {
       }
     }
   }
-  
+
   // Code blocks readability
   pre {
     font-size: var(--docs-small-font);
     line-height: 1.5;
     border-radius: 4px;
-    
+
     code {
       font-size: inherit;
-      font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
     }
   }
 }
@@ -73,7 +72,7 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
   margin-top: 2rem;
   margin-bottom: 1rem;
-  
+
   // Better heading hierarchy
   + p {
     margin-top: 0.75rem;
@@ -84,7 +83,7 @@ h1 {
   font-size: 2rem;
   font-weight: 700;
   margin-top: 0;
-  
+
   @media (max-width: 768px) {
     font-size: 1.875rem;
   }
@@ -94,7 +93,7 @@ h2 {
   font-size: 1.625rem;
   margin-top: 2.5rem;
   padding-top: 0.5rem;
-  
+
   @media (max-width: 768px) {
     font-size: 1.5rem;
   }
@@ -103,7 +102,7 @@ h2 {
 h3 {
   font-size: 1.5rem;
   margin-top: 2rem;
-  
+
   @media (max-width: 768px) {
     font-size: 1.25rem;
   }
@@ -111,7 +110,7 @@ h3 {
 
 h4 {
   font-size: 1.25rem;
-  
+
   @media (max-width: 768px) {
     font-size: 1.125rem;
   }
@@ -121,12 +120,12 @@ h4 {
 table {
   font-size: var(--docs-small-font);
   line-height: 1.6;
-  
+
   th {
     font-weight: 600;
     padding: 0.75rem 1rem;
   }
-  
+
   td {
     padding: 0.75rem 1rem;
   }
@@ -141,10 +140,10 @@ blockquote {
   padding-left: 1.5rem;
   margin: 1.5rem 0;
   color: var(--muted-text-color);
-  
+
   p {
     margin-bottom: 0.75rem;
-    
+
     &:last-child {
       margin-bottom: 0;
     }
@@ -157,10 +156,10 @@ blockquote {
   font-size: var(--docs-font-size);
   line-height: var(--docs-line-height);
   padding: 1.25rem;
-  
+
   p {
     margin-bottom: 0.75rem;
-    
+
     &:last-child {
       margin-bottom: 0;
     }
@@ -173,11 +172,11 @@ a {
   text-decoration-thickness: 1px;
   text-underline-offset: 0.15em;
   transition: all 0.2s ease;
-  
+
   &:hover {
     text-decoration-thickness: 2px;
   }
-  
+
   // Exception for navigation links
   &.nav-link,
   &.btn {
@@ -198,12 +197,12 @@ a {
     font-size: 12pt;
     line-height: 1.5;
   }
-  
+
   h1 { font-size: 20pt; }
   h2 { font-size: 18pt; }
   h3 { font-size: 16pt; }
   h4 { font-size: 14pt; }
-  
+
   p, li {
     font-size: 12pt;
     line-height: 1.5;
