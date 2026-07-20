@@ -38,12 +38,13 @@ You can use these Helm charts with Chainguard FIPS container images, but you wil
 
 ## How chart updates deliver image updates
 
-Chainguard rebuilds container images regularly to pick up the latest package versions and CVE fixes. When an image updates, the associated chart updates too so that it pins the new image digests. How you receive those image updates depends on whether you reference the chart by tag or by digest:
+Chainguard rebuilds container images regularly to pick up the latest package versions and CVE fixes. When an image updates, the associated chart updates too so that it pins the new image digests.
 
-- **If you reference the chart by tag** (for example, `--version 10.5.13`), the tag continues to point to the latest image digests as those images update. You stay on the same chart version and pull in the latest image versions each time you install or upgrade.
-- **If you pin the chart by digest**, your deployment stays fixed to the exact images that the chart referenced when you recorded that digest. To pick up newer images, update your pinned digest to the current one.
+A chart tag always refers to the chart version, not to a fixed set of images. Chainguard rolls the underlying image digests forward within a tag, so even a specific tag like `10.5.13-r1` keeps pointing at the latest images for that chart version. As with image tags, you can pick a tag fidelity that matches your upgrade appetite — `latest`, a version stream, or a specific `x.y` version — but every chart tag rolls its dependent image digests forward.
 
-In short, referencing a chart by tag keeps you current with the latest images automatically, while pinning by digest gives you a fixed, reproducible set of images that you update on your own schedule. The [Pin to digest](#pin-to-digest) section covers how to choose between these approaches.
+Helm does not apply these updates on its own. A release picks up newer images only when something triggers a redeploy: a `helm upgrade`, or a controller such as Argo CD or Flux reconciling the release. A chart referenced by tag then pulls the current chart digest along with its newer image digests.
+
+To pin both the chart and its images to a fixed, reproducible set, reference the chart by digest instead of by tag. Your deployment then stays fixed to the exact images the chart referenced when you recorded that digest. To pick up newer images, update your pinned digest to the current one. The [Pin to digest](#pin-to-digest) section covers how to do this.
 
 ## Authentication
 
