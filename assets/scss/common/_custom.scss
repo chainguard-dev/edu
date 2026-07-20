@@ -14,14 +14,6 @@
     src: url("/fonts/Gellix-Bold.woff2") format("woff2");
 }
 
-@font-face {
-    font-family: "Space Mono";
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url("/fonts/space-mono-regular-normal-latin.woff2") format("woff2");
-}
-
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 
 @import "resets";

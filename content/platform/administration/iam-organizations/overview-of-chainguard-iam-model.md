@@ -26,25 +26,25 @@ Chainguard's Identity and Access Management (IAM) model enables more secure, fin
 
 Chainguard's IAM model consists of two structures: **Organizations** and **Folders**. An organization is a customer or group of customers working with the same Chainguard resources, while a folder is a collection of resources within a Chainguard organization.
 
-Organizations have a unique domain as their identifier and a user can belong to more than one organization. It's possible for organizations to become [verified organizations](/chainguard/administration/iam-organizations/verified-orgs/). Verification modifies some aspects of the Chainguard platform user experience to help large organizations guide their user base to the correct resource. This optional process is performed manually by Chainguard, so if you're interested in verifying your organization, please reach out to your customer support contact.
+Organizations have a unique domain as their identifier and a user can belong to more than one organization. It's possible for organizations to become [verified organizations](/platform/administration/iam-organizations/verified-orgs/). Verification modifies some aspects of the Chainguard platform user experience to help large organizations guide their user base to the correct resource. This optional process is performed manually by Chainguard, so if you're interested in verifying your organization, please reach out to your customer support contact.
 
 ## Identities
 
-In the context of Chainguard, an identity represents an individual user within an organization. Users typically join an organization after [being sent an invitation](https://edu.chainguard.dev/chainguard/administration/iam-organizations/how-to-manage-iam-organizations-in-chainguard/#inviting-others-to-an-organization). After receiving an invitation, the user can sign up with a Google, GitHub, or Gitlab account. In cases like this, the user's identity is the email address associated with the account they used to log in.
+In the context of Chainguard, an identity represents an individual user within an organization. Users typically join an organization after [being sent an invitation](/platform/administration/iam-organizations/how-to-manage-iam-organizations-in-chainguard/#inviting-others-to-an-organization). After receiving an invitation, the user can sign up with a Google, GitHub, or Gitlab account. In cases like this, the user's identity is the email address associated with the account they used to log in.
 
-> Note: If their organization has configured one, a user can sign up with a [custom identity provider](/chainguard/administration/custom-idps/custom-idps/).
+> Note: If their organization has configured one, a user can sign up with a [custom identity provider](/platform/administration/custom-idps/custom-idps/).
 
-In order to create an invitation for a new user, you must choose a role for that user and then create a role-binding to tie that user to the chosen role. Our [overview of roles and role-bindings](/chainguard/administration/iam-organizations/roles-role-bindings/) has more information.
+In order to create an invitation for a new user, you must choose a role for that user and then create a role-binding to tie that user to the chosen role. Our [overview of roles and role-bindings](/platform/administration/iam-organizations/roles-role-bindings/) has more information.
 
-You can also create assumable identities. These are typically used to allow automation tools like GitHub Actions or Amazon Lambda to connect to and manage Chainguard resources. Refer to our [guide on assumable identities](/chainguard/administration/iam-organizations/assumable-ids/) to learn more.
+You can also create assumable identities. These are typically used to allow automation tools like GitHub Actions or Amazon Lambda to connect to and manage Chainguard resources. Refer to our [guide on assumable identities](/platform/administration/iam-organizations/assumable-ids/) to learn more.
 
 ## Logging in to the Chainguard Platform
 
 There are several ways to authenticate to the Chainguard platform, each with a different focus.
 
-* [Interactive login](/chainguard/administration/iam-organizations/overview-of-chainguard-iam-model#using-the-interactive-login): This is easy and good for interactive use, but needs a browser available that the current shell can launch.
-* [Headless login](/chainguard/administration/iam-organizations/overview-of-chainguard-iam-model#using-the-headless-login-flow): This is also easy and good for interactive use. It still requires access to a browser, but not directly from within the current shell or even from the current device.
-* [Assumable identities](/chainguard/administration/iam-organizations/assumable-ids/): These are designed for CI/CD and do not require any interaction, but they do require more setting up and are not ideal outside of CI/CD-style automation.
+* [Interactive login](/platform/administration/iam-organizations/overview-of-chainguard-iam-model/#using-the-interactive-login): This is easy and good for interactive use, but needs a browser available that the current shell can launch.
+* [Headless login](/platform/administration/iam-organizations/overview-of-chainguard-iam-model/#using-the-headless-login-flow): This is also easy and good for interactive use. It still requires access to a browser, but not directly from within the current shell or even from the current device.
+* [Assumable identities](/platform/administration/iam-organizations/assumable-ids/): These are designed for CI/CD and do not require any interaction, but they do require more setting up and are not ideal outside of CI/CD-style automation.
 * [Pull tokens](/chainguard/chainguard-images/chainguard-registry/authenticating/#authenticating-with-a-pull-token): These are ideal for pulling images and libraries and can be long-lived. Pull tokens can be created using the console or with chainctl.
 
 ### Using the interactive login

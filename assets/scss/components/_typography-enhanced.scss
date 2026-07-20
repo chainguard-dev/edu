@@ -42,7 +42,7 @@ h1 {
     font-weight: $font-bold;
     line-height: 1.1;
     margin-bottom: 1.5rem;
-    
+
     @media (min-width: 768px) {
         font-size: $text-5xl;
     }
@@ -53,7 +53,7 @@ h2 {
     font-weight: $font-semibold;
     margin-top: 3rem;
     margin-bottom: 1.25rem;
-    
+
     @media (min-width: 768px) {
         font-size: $text-4xl;
     }
@@ -64,7 +64,7 @@ h3 {
     font-weight: $font-semibold;
     margin-top: 2.5rem;
     margin-bottom: 1rem;
-    
+
     @media (min-width: 768px) {
         font-size: $text-3xl;
     }
@@ -98,7 +98,7 @@ p {
     line-height: $leading-relaxed;
     margin-bottom: 1.25rem;
     color: var(--body-color);
-    
+
     &.lead {
         font-size: $text-lg;
         line-height: $leading-relaxed;
@@ -106,7 +106,7 @@ p {
         color: var(--body-color);
         opacity: 0.9;
     }
-    
+
     &.small {
         font-size: $text-sm;
     }
@@ -118,17 +118,17 @@ a {
     text-decoration: none;
     transition: color 0.2s ease;
     position: relative;
-    
+
     &:hover {
         color: var(--secondary-2);
         text-decoration: underline;
     }
-    
+
     &.link-underline {
         text-decoration: underline;
         text-decoration-thickness: 1px;
         text-underline-offset: 2px;
-        
+
         &:hover {
             text-decoration-thickness: 2px;
         }
@@ -142,15 +142,15 @@ ul, ol {
     line-height: $leading-relaxed;
     margin-bottom: 1.25rem;
     padding-left: 1.5rem;
-    
+
     li {
         margin-bottom: 0.5rem;
-        
+
         &:last-child {
             margin-bottom: 0;
         }
     }
-    
+
     ul, ol {
         margin-top: 0.5rem;
         margin-bottom: 0.5rem;
@@ -168,11 +168,11 @@ blockquote {
     border-left: 4px solid var(--primary-1);
     padding-left: 1.5rem;
     margin: 2rem 0;
-    
+
     p {
         margin-bottom: 0;
     }
-    
+
     cite {
         display: block;
         font-size: $text-sm;
@@ -180,7 +180,7 @@ blockquote {
         font-weight: $font-medium;
         margin-top: 1rem;
         opacity: 0.8;
-        
+
         &:before {
             content: "— ";
         }
@@ -193,13 +193,14 @@ code {
     font-size: 0.85em;
     padding: 0.2em 0.4em;
     background-color: var(--code-color);
+    font-variant-ligatures: none;
 }
 
 pre {
     font-family: $monoFont;
     font-size: $text-sm;
     line-height: $leading-normal;
-    
+
     code {
         padding: 0;
         background-color: transparent;
@@ -217,7 +218,7 @@ table {
         text-transform: uppercase;
         letter-spacing: 0.05em;
     }
-    
+
     td {
         font-family: $TextFont;
         font-size: $text-base;
@@ -288,12 +289,12 @@ small, .text-sm {
     body {
         font-size: $text-base;
     }
-    
+
     p {
         font-size: $text-base;
         line-height: $leading-normal;
     }
-    
+
     blockquote {
         font-size: $text-base;
         padding-left: 1rem;
