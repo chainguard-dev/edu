@@ -6,11 +6,14 @@ linktitle: "Migration"
 lead: ""
 type: "article"
 date: 2024-02-26T08:48:45+00:00
-lastmod: 2024-05-22T08:48:45+00:00
+lastmod: 2026-07-20T00:00:00+00:00
 draft: false
 images: []
 weight: 045
 topic: true
+crosslinks:
+- title: "API v1 to v2 Migration"
+  url: "/platform/api/api-v2-migration/"
 banner: {
     image: "/icon-arrows_blurple.png",
     title: "Porting Applications to Chainguard",
