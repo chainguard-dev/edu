@@ -29,6 +29,8 @@ To follow this guide, you need `chainctl` **v0.2.282** or later, installed. Refe
 
 Unlike a [private Chainguard skills registry](/chainguard/agent-skills/skills-registry/), the public registry requires no entitlement, terms acceptance, or organization membership. You do need a Chainguard account to list and pull skills, but you don't need to be a customer.
 
+The public registry is served from Chainguard's production environment, which is where `chainctl` points by default. If you've configured `chainctl` for a different environment, sign back in to production before continuing — otherwise `list` and `pull` report `public org "public" not found`. You can confirm the configured environment with `chainctl config view` (the `api` should be `https://console-api.enforce.dev`).
+
 ## List available skills
 
 Sign in, then browse the skills published in Chainguard's public registry with the `list` subcommand. The `--recursive` flag lists skills across every source in the registry. Public skills are namespaced by their upstream source (`public/<host>/<owner>/<repo>/<name>`), so the recursive listing shows each skill's full path:
