@@ -36,6 +36,15 @@ The following is an instructional guide for Chainguard users that are looking fo
 
 You can use these Helm charts with Chainguard FIPS container images, but you will need to adjust the charts as they use the non-FIPS images by default. We build a single chart per application and validate that both FIPS and non-FIPS Chainguard Images work with it.
 
+## How chart updates deliver image updates
+
+Chainguard rebuilds container images regularly to pick up the latest package versions and CVE fixes. When an image updates, the associated chart updates too so that it pins the new image digests. How you receive those image updates depends on whether you reference the chart by tag or by digest:
+
+- **If you reference the chart by tag** (for example, `--version 10.5.13`), the tag continues to point to the latest image digests as those images update. You stay on the same chart version and pull in the latest image versions each time you install or upgrade.
+- **If you pin the chart by digest**, your deployment stays fixed to the exact images that the chart referenced when you recorded that digest. To pick up newer images, update your pinned digest to the current one.
+
+In short, referencing a chart by tag keeps you current with the latest images automatically, while pinning by digest gives you a fixed, reproducible set of images that you update on your own schedule. The [Pin to digest](#pin-to-digest) section covers how to choose between these approaches.
+
 ## Authentication
 
 You will need to authenticate to pull charts. These instructions explain how to use charts and images with the `cgr.dev` repository. If you have mirrored or copied the charts and images to an organization-specific registry, you will need to adapt these instructions to authenticate to your registry, as appropriate.
