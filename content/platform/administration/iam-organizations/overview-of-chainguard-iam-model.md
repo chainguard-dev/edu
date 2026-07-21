@@ -36,7 +36,7 @@ In the context of Chainguard, an identity represents an individual user within a
 
 In order to create an invitation for a new user, you must choose a role for that user and then create a role-binding to tie that user to the chosen role. Our [overview of roles and role-bindings](/platform/administration/iam-organizations/roles-role-bindings/) has more information.
 
-You can also create assumable identities. These are typically used to allow automation tools like GitHub Actions or Amazon Lambda to connect to and manage Chainguard resources. Refer to our [guide on assumable identities](/platform/administration/iam-organizations/assumable-ids/) to learn more.
+You can also create assumable identities. These are typically used to allow automation tools like GitHub Actions or Amazon Lambda to connect to and manage Chainguard resources. Refer to our [guide on assumable identities](/platform/administration/assumable-ids/assumable-ids/) to learn more.
 
 ## Logging in to the Chainguard Platform
 
@@ -44,7 +44,7 @@ There are several ways to authenticate to the Chainguard platform, each with a d
 
 * [Interactive login](/platform/administration/iam-organizations/overview-of-chainguard-iam-model/#using-the-interactive-login): This is easy and good for interactive use, but needs a browser available that the current shell can launch.
 * [Headless login](/platform/administration/iam-organizations/overview-of-chainguard-iam-model/#using-the-headless-login-flow): This is also easy and good for interactive use. It still requires access to a browser, but not directly from within the current shell or even from the current device.
-* [Assumable identities](/platform/administration/iam-organizations/assumable-ids/): These are designed for CI/CD and do not require any interaction, but they do require more setting up and are not ideal outside of CI/CD-style automation.
+* [Assumable identities](/platform/administration/assumable-ids/assumable-ids/): These are designed for CI/CD and do not require any interaction, but they do require more setting up and are not ideal outside of CI/CD-style automation.
 * [Pull tokens](/chainguard/chainguard-images/chainguard-registry/authenticating/#authenticating-with-a-pull-token): These are ideal for pulling images and libraries and can be long-lived. Pull tokens can be created using the console or with chainctl.
 
 ### Using the interactive login
