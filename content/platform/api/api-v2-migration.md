@@ -127,6 +127,8 @@ Testing against the live beta API confirmed this `updateMask` parameter name wor
 
 Replace fetch-modify-write update logic with a PATCH call that sets only the fields you're changing. A wildcard `*` is available if you genuinely want full replacement.
 
+Repository updates (`UpdateRepo`) are a common case to migrate here. For a worked repo PATCH example, see [Partial updates with FieldMask](/platform/api/api-v2-tutorial/#7-partial-updates-with-fieldmask) in the tutorial.
+
 ### Step 5: Switch pagination to cursor-based
 
 v1 pagination relies on page numbers or offsets, and loads the full result set into memory. v2 List endpoints add:

@@ -418,6 +418,10 @@ The `skipped` field in the response confirms how many results were skipped, usef
 
 ## 4. Querying the registry
 
+Registry endpoints follow the same List, Get, and pagination patterns as the IAM examples earlier, applied to repos and tags. If your integration reads image metadata — listing repos, walking tags, or checking end-of-life status — these are the endpoints you call most.
+
+### List repos
+
 List repos scoped to your organization:
 
 ```shell
@@ -434,11 +438,91 @@ curl -s -H "Authorization: Bearer $TOKEN" \
 ]
 ```
 
-Same pagination and ordering parameters work on all List endpoints.
+The same pagination and ordering parameters work on every List endpoint.
+
+### Get a single repo
+
+Fetch one repo directly by UID, the same way you fetch a group:
+
+```shell
+# REPO_UID is a uid value from the List repos response above
+export REPO_UID=YOUR_REPO_UID
+
+curl -s -H "Authorization: Bearer $TOKEN" \
+  "$API/registry/v2/repos/$REPO_UID" | jq '{uid, name, createTime}'
+```
+
+```json
+{
+  "uid": "d9e2f1a0.../06626efd8c6b3fb7",
+  "name": "nginx",
+  "createTime": "2026-01-28T12:54:21.189Z"
+}
+```
+
+### List tags in a repo
+
+Scope a tag listing to a single repo with `uidp.children_of`. Each tag carries its `digest` and a `deprecated` flag:
+
+```shell
+curl -s -H "Authorization: Bearer $TOKEN" \
+  "$API/registry/v2/tags?uidp.children_of=$REPO_UID&page_size=3" \
+  | jq '[.tags[] | {name, digest, deprecated, updateTime}]'
+```
+
+```json
+[
+  {"name": "latest", "digest": "sha256:6b3f...", "deprecated": false, "updateTime": "2026-07-14T09:12:44.501Z"},
+  {"name": "1.27", "digest": "sha256:8c1a...", "deprecated": false, "updateTime": "2026-07-14T09:12:44.502Z"},
+  {"name": "1.26", "digest": "sha256:a90d...", "deprecated": true, "updateTime": "2026-05-02T18:30:10.114Z"}
+]
+```
+
+### Check for deprecated tags
+
+In v1, a dedicated `ListEolTags` call surfaced end-of-life tags. v2beta1 has no separate end-of-life endpoint or server-side filter. Instead, each tag carries a `deprecated` boolean, which you filter on client-side:
+
+```shell
+curl -s -H "Authorization: Bearer $TOKEN" \
+  "$API/registry/v2/tags?uidp.children_of=$REPO_UID&page_size=200" \
+  | jq '[.tags[] | select(.deprecated) | .name]'
+```
+
+> **CONFIRM WITH ENGINEERING:** v2beta1 exposes tag deprecation only as a per-tag `deprecated` field, with no server-side end-of-life filter. Confirm whether GA adds a dedicated filter or endpoint, since v1's `ListEolTags` was a common direct-API call.
 
 ---
 
-## 5. Structured errors
+## 5. Querying vulnerabilities
+
+The Vulnerabilities domain exposes advisory data. In v2beta1 it covers advisories with List and Get.
+
+### List advisories
+
+Advisories are scoped and paginated like every other List endpoint, with extra filters such as `artifactNames` and `advisoryIds`:
+
+```shell
+curl -s -H "Authorization: Bearer $TOKEN" \
+  "$API/vulnerabilities/v2/advisories?uidp.descendants_of=$ORG_ID&page_size=3" \
+  | jq '[.advisories[] | {uid, advisoryId, artifactName, updateTime}]'
+```
+
+```json
+[
+  {"uid": "d9e2f1a0.../3b1c", "advisoryId": "CGA-abcd-1234-wxyz", "artifactName": "nginx", "updateTime": "2026-07-18T21:04:11.220Z"},
+  {"uid": "d9e2f1a0.../7f2a", "advisoryId": "CGA-efgh-5678-stuv", "artifactName": "python", "updateTime": "2026-07-18T21:04:11.221Z"},
+  {"uid": "d9e2f1a0.../a1b2", "advisoryId": "CGA-ijkl-9012-mnop", "artifactName": "openssl", "updateTime": "2026-07-18T21:04:11.222Z"}
+]
+```
+
+Fetch a single advisory by UID at `/vulnerabilities/v2/advisories/{uid}`.
+
+### Vulnerability reports
+
+> **CONFIRM WITH ENGINEERING:** the v1 `GetVulnReport` and `ListVulnCountReports` calls — used heavily by direct HTTP integrations — have no equivalent in the v2beta1 spec, which exposes only advisories. Confirm whether GA adds vulnerability-report endpoints, or whether advisory data is meant to replace them. This is a real migration gap for the CI/CD audience that reads scan results programmatically.
+
+---
+
+## 6. Structured errors
 
 API v2 returns structured error responses with machine-parseable codes and details.
 
@@ -507,7 +591,7 @@ Error responses follow [Google AIP-193](https://google.aip.dev/193) with typed d
 
 ---
 
-## 6. Partial updates with FieldMask
+## 7. Partial updates with FieldMask
 
 Update specific fields without sending the full resource. Only the fields listed in `updateMask` are changed:
 
@@ -551,6 +635,27 @@ curl -s -X PATCH -H "Authorization: Bearer $TOKEN" \
 ```
 
 The `name` in the body is ignored because `updateMask` only includes `description`.
+
+### Update a repo
+
+The same PATCH-with-field-mask pattern applies to every updatable resource. Repository updates are a common case to migrate from v1, where changing one field meant sending the full resource:
+
+```shell
+curl -s -X PATCH -H "Authorization: Bearer $TOKEN" \
+  -H "Content-Type: application/json" \
+  "$API/registry/v2/repos/$REPO_UID?updateMask=description" \
+  -d '{"description": "Updated repo description"}' | jq '{uid, name, description}'
+```
+
+```json
+{
+  "uid": "d9e2f1a0.../06626efd8c6b3fb7",
+  "name": "nginx",
+  "description": "Updated repo description"
+}
+```
+
+> **Note:** The repo update path (`/registry/v2/repos/{repo.uid}`) and request body are confirmed against the published v2beta1 spec, where `name` and `description` are writable. As with the group example, `updateMask` is accepted by the live API but isn't restated in the spec, so reconfirm it holds at GA.
 
 ---
 
