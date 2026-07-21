@@ -99,4 +99,4 @@ migrate:
 ## Next steps
 
 - **[Commit Verification](/chainguard/guardener/github/commit-verification/)** — Require cryptographically signed commits in pull requests.
-- **[Configuration](/chainguard/guardener/configuration/)** — Review the shared `.chainguard/` configuration model.
+- **[Configuration](/chainguard/guardener/github/configuration/)** — Review the shared `.chainguard/` configuration model.
