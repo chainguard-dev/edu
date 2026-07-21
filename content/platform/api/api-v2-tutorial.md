@@ -218,7 +218,7 @@ curl -s -X POST -H "Authorization: Bearer $TOKEN" \
       "description": "CI/CD pipeline identity",
       "claimMatch": {
         "issuer": "https://token.actions.githubusercontent.com",
-        "subject": "repo:my-org/my-repo:ref:refs/heads/main"
+        "subject": "repo:my-org@123456/my-repo@654321:ref:refs/heads/main"
       }
     }
   }' | jq .
@@ -236,10 +236,14 @@ curl -s -X POST -H "Authorization: Bearer $TOKEN" \
   "updateTime": "2026-03-27T13:55:00.785Z",
   "claimMatch": {
     "issuer": "https://token.actions.githubusercontent.com",
-    "subject": "repo:my-org/my-repo:ref:refs/heads/main"
+    "subject": "repo:my-org@123456/my-repo@654321:ref:refs/heads/main"
   }
 }
 ```
+
+{{< note >}}
+The `subject` shown here uses GitHub's immutable format, which embeds the numeric owner ID (`123456`) and repository ID (`654321`). Match the exact subject your repository's token carries. For how to find these IDs and when the format applies, see [Create an Assumable Identity for a GitHub Actions Workflow](/platform/administration/assumable-ids/identity-examples/github-identity/#finding-your-repositorys-numeric-identifiers).
+{{< /note >}}
 
 Note the identity `uid` in the response — you will use it in the next step when binding a role.
 
@@ -283,7 +287,7 @@ curl -s -X POST -H "Authorization: Bearer $TOKEN" \
     "uid": "d9e2f1a0.../fb139588.../f462d354ca32ca9f",
     "name": "ci-bot",
     "description": "CI/CD pipeline identity",
-    "subject": "repo:my-org/my-repo:ref:refs/heads/main",
+    "subject": "repo:my-org@123456/my-repo@654321:ref:refs/heads/main",
     "issuer": "https://token.actions.githubusercontent.com"
   },
   "group": {
