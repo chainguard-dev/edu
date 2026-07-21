@@ -10,7 +10,7 @@ lead: ""
 description: "Tutorial outlining how to create a Chainguard identity that can be assumed by a GitHub Actions workflow."
 type: "article"
 date: 2023-05-04T08:48:45+00:00
-lastmod: 2025-11-28T06:00:00+00:00
+lastmod: 2026-07-21T06:00:00+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -36,15 +36,31 @@ To complete this guide, you will need the following.
 
 ## Creating an Identity
 
+{{< note >}}
+GitHub now issues OIDC tokens whose `sub` claim embeds immutable numeric IDs for the repository owner and the repository. For example, the subject `repo:my-org@123456/repo-name@654321:ref:refs/heads/main` replaces the older name-only form `repo:my-org/repo-name:ref:refs/heads/main`. This format is the default for repositories created after July 15, 2026, and is available as an opt-in for older repositories through GitHub's OIDC settings.
+
+An identity that matches the older name-only subject will not match a token that carries the immutable subject, so the workflow fails to authenticate. The examples that follow use the immutable format. If your repository still sends the name-only subject, leave out the `@<owner-id>` and `@<repo-id>` portions.
+{{< /note >}}
+
+### Finding your repository's numeric identifiers
+
+The immutable subject claim uses the numeric ID of the repository owner and the numeric ID of the repository. Retrieve both with the [GitHub CLI](https://cli.github.com/):
+
+```sh
+gh api repos/OWNER/REPO --jq '{owner_id: .owner.id, repo_id: .id}'
+```
+
+You can also preview the exact subject your repository sends from its OIDC settings in the GitHub web interface. To confirm the subject a running workflow presents, inspect the `sub` claim of the OIDC token in the workflow logs. For background on the format, see GitHub's changelog announcing [immutable subject claims for GitHub Actions OIDC tokens](https://github.blog/changelog/2026-04-23-immutable-subject-claims-for-github-actions-oidc-tokens/).
+
 ### Chainctl
 
 This command creates an identity that can be assumed by workflows in the
-`my-org/repo-name` repository. The identity is bound to the `registry.pull`
-role.
+`my-org/repo-name` repository. Substitute the owner and repository IDs you
+retrieved earlier. The identity is bound to the `registry.pull` role.
 
 ```sh
 chainctl iam identities create github my-identity-name \
-    --github-repo=my-org/repo-name \
+    --github-repo=my-org@<owner-id>/repo-name@<repo-id> \
     --role registry.pull
 ```
 
@@ -53,17 +69,17 @@ run from a specific branch. For instance, the `main` branch.
 
 ```sh
 chainctl iam identities create github my-identity-name \
-    --github-repo=my-org/repo-name \
+    --github-repo=my-org@<owner-id>/repo-name@<repo-id> \
     --github-ref=refs/heads/main \
     --role registry.pull
 ```
 
-Regex is also available. For example creating an identity that can be assumed by multiple repositories and multiple branches.
+Regex is also available. For example, you can create an identity that can be assumed by multiple repositories and multiple branches. Because every repository in an organization shares the same owner ID, a single pattern can match all of them.
 
 ```sh
-chainctl iam identitie create github my-identity-name \
-    --github-repo='my-org/.*' \
-    --github-refs='refs/heads/main|master'
+chainctl iam identities create github my-identity-name \
+    --github-repo='my-org@<owner-id>/.*' \
+    --github-ref='refs/heads/main|master' \
     --role registry.pull
 ```
 
@@ -83,8 +99,11 @@ chainctl iam identities list --name=my-identity-name
 Alternatively, you could create the identity with the [Chainguard Terraform
 provider](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest).
 
-Substitute your Chainguard organization name, GitHub organization and GitHub
-repository for `<org-name>`, `<github-org>` and `<github-repo>`, respectively.
+Substitute your Chainguard organization name, GitHub organization, and GitHub
+repository for `<org-name>`, `<github-org>`, and `<github-repo>`, respectively.
+Substitute the numeric owner and repository IDs for `<owner-id>` and
+`<repo-id>`, following the steps in
+[Finding your repository's numeric identifiers](#finding-your-repositorys-numeric-identifiers).
 
 ```hcl
 data "chainguard_group" "org" {
@@ -97,7 +116,7 @@ resource "chainguard_identity" "my_identity_name" {
 
   claim_match {
     issuer  = "https://token.actions.githubusercontent.com"
-    subject = "repo:<github-org>/<github-repo>:ref:refs/heads/main"
+    subject = "repo:<github-org>@<owner-id>/<github-repo>@<repo-id>:ref:refs/heads/main"
   }
 }
 

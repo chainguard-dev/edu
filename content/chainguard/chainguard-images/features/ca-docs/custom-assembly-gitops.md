@@ -109,6 +109,10 @@ chainctl iam identities create github-actions-identity \
 
 This creates an identity that GitHub Actions workflows in `your-org/your-repo` can assume when triggered by push events.
 
+{{< note >}}
+This example matches on the `repository` and `event_name` claims rather than the `sub` claim, so it is unaffected by GitHub's [immutable subject claims](/platform/administration/assumable-ids/identity-examples/github-identity/#finding-your-repositorys-numeric-identifiers), which change only the `sub` claim. The `repository` claim carries the repository name, and names can be reassigned. For stronger protection against namespace reuse, pin the identity to the repository's numeric ID by adding `--claim=repository_id=<repo-id>`.
+{{< /note >}}
+
 ## Step 2: Grant permissions
 
 The identity needs permission to build Custom Assembly images. You can create a [least-privilege custom role](/chainguard/chainguard-images/features/ca-docs/custom-assembly/#custom-assembly-permissions-requirements/) that contains the `repo.update` and `repo.create` permissions, then grant the necessary permission using `chainctl`:
