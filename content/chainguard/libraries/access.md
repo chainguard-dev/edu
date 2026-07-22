@@ -569,7 +569,7 @@ chainctl libraries policy enable disable-cooldown --ecosystem=JAVASCRIPT --mode=
 
 ### Describe a policy
 
-To see a policy in detail, use `describe`. For example, to see the details of a policy named `disable-cooldown`: 
+To see a policy in detail, use `describe`. For example, to see the details of a policy named `disable-cooldown`:
 
 ```bash
 chainctl libraries policy describe disable-cooldown
