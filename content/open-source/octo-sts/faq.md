@@ -109,17 +109,21 @@ Prefer exact subject matching when possible:
 
 ```yaml
 # Better: Exact match
-subject: repo:org/repo:ref:refs/heads/main
+subject: repo:org@<owner-id>/repo@<repo-id>:ref:refs/heads/main
 ```
 
 Use pattern matching only when you need flexibility:
 
 ```yaml
 # When necessary: Pattern match
-subject_pattern: "repo:org/repo:ref:refs/heads/.*"
+subject_pattern: "repo:org@<owner-id>/repo@<repo-id>:ref:refs/heads/.*"
 ```
 
 Exact matching is more secure because it's harder to accidentally grant broader access than intended.
+
+{{< note >}}
+These subjects use GitHub's immutable format, which embeds the numeric owner ID and repository ID in the `sub` claim (for example, `repo:org@123456/repo@654321:ref:refs/heads/main`). This format is the default for repositories created after July 15, 2026, and an opt-in for older repositories. Match the exact subject your repository's token carries. For how to find the IDs, see [Finding your repository's numeric identifiers](/platform/administration/assumable-ids/identity-examples/github-identity/#finding-your-repositorys-numeric-identifiers).
+{{< /note >}}
 
 ## Integration
 
@@ -159,7 +163,7 @@ Yes, use organization trust policies with a `repositories` field:
 
 ```yaml
 issuer: https://token.actions.githubusercontent.com
-subject: repo:org/automation-repo:ref:refs/heads/main
+subject: repo:org@<owner-id>/automation-repo@<repo-id>:ref:refs/heads/main
 
 permissions:
   contents: read

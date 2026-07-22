@@ -111,12 +111,12 @@ First create an identity using `chainctl`, which can be limited to only allow OI
 
 ```sh
 chainctl iam identity create github [GITHUB-IDENTITY] \
-  --github-repo=${GITHUB_ORG}/${GITHUB_REPO} \
+  --github-repo=${GITHUB_ORG}@${GITHUB_OWNER_ID}/${GITHUB_REPO}@${GITHUB_REPO_ID} \
   --github-ref=refs/heads/main \
   --role=registry.pull
 ```
 
-**Note**: The value passed to `--github-repo` should be equal to the repository name you expect to be returned in the `subject` field of the token from GitHub. If you need to further scope or change the subject you can find a number of useful examples in the ["Example subject claims"](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims) section of GitHub's OIDC documentation and then you may update the identity with [`chainctl iam identities update`](/platform/chainctl/chainctl-docs/chainctl_iam_identities_update/).
+**Note**: The value passed to `--github-repo` must equal the repository portion of the `subject` field in the token GitHub issues. GitHub now embeds immutable numeric owner and repository IDs in that subject (for example, `my-org@123456/repo-name@654321`), so `--github-repo` must include them. Populate `GITHUB_OWNER_ID` and `GITHUB_REPO_ID` with your repository's numeric IDs; for how to retrieve them and when the format applies, see [Finding your repository's numeric identifiers](/platform/administration/assumable-ids/identity-examples/github-identity/#finding-your-repositorys-numeric-identifiers). If you need to further scope or change the subject, see the ["Example subject claims"](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims) section of GitHub's OIDC documentation, then update the identity with [`chainctl iam identities update`](/platform/chainctl/chainctl-docs/chainctl_iam_identities_update/).
 
 This creates a Chainguard identity that can be assumed by a GitHub Actions workflow only for the specified GitHub repository, triggered on pushes to the specified branch (such as `refs/heads/main`), with permissions only to pull from Chainguard's registry.
 
