@@ -56,7 +56,7 @@ policy for a 14-day cooldown:
 
 ```shell
 chainctl libraries policy create --name=js-cooldown-14d --cooldown-days=14
-chainctl libraries policy enable --policy=js-cooldown-14d --ecosystem=JAVASCRIPT --mode=ENFORCE
+chainctl libraries policy enable js-cooldown-14d --ecosystem=JAVASCRIPT --mode=ENFORCE
 ```
 
 It can take up to 30 minutes for the fallback and cooldown policies to take effect.
