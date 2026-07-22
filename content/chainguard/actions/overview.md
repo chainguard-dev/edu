@@ -233,5 +233,6 @@ If an action isn't working as expected, [open an issue](https://github.com/chain
 
 ## Learn more
 
+- [Chainguard Actions telemetry and privacy](/chainguard/actions/telemetry/)
 - [Chainguard Actions product page](https://www.chainguard.dev/actions)
 - For other questions, [contact Chainguard](https://www.chainguard.dev/contact?utm=docs).

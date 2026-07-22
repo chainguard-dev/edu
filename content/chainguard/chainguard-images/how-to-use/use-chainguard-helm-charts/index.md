@@ -38,7 +38,7 @@ You can use these Helm charts with Chainguard FIPS container images, but you wil
 
 ## How chart updates deliver image updates
 
-Chainguard rebuilds container images regularly to pick up the latest package versions and CVE fixes. Just like images, charts are also rebuilt regularly to pick up the latest chart updates and the chart's new dependent image digests.
+Chainguard rebuilds container images regularly to pick up the latest package versions and CVE fixes. Chart builds run in the same pipeline: whenever Chainguard builds a new image, it automatically kicks off a build for the corresponding Helm chart, which follows shortly after. This keeps your images and charts in sync.
 
 A chart tag always refers to the chart version, not to a fixed set of images. Chainguard rolls the underlying image digests forward within a tag, so even a specific tag like `10.5.13-r1` keeps pointing at the latest images for that chart version. As with image tags, you can pick a tag fidelity that matches your upgrade appetite — `latest`, a version stream, or a specific `x.y.y-r#` version — but every chart tag rolls its dependent image digests forward.
 
