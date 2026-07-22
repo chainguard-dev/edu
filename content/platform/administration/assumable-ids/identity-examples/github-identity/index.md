@@ -37,14 +37,22 @@ To complete this guide, you will need the following.
 ## Creating an Identity
 
 {{< note >}}
-GitHub now issues OIDC tokens whose `sub` claim embeds immutable numeric IDs for the repository owner and the repository. For example, the subject `repo:my-org@123456/repo-name@654321:ref:refs/heads/main` replaces the older name-only form `repo:my-org/repo-name:ref:refs/heads/main`. This format is the default for repositories created after July 15, 2026, and is available as an opt-in for older repositories through GitHub's OIDC settings.
+GitHub issues OIDC tokens whose `sub` claim embeds immutable numeric IDs for the repository owner and the repository. For example, the subject `repo:my-org@123456/repo-name@654321:ref:refs/heads/main` replaces the older name-only form `repo:my-org/repo-name:ref:refs/heads/main`. This format is the default for repositories created after July 15, 2026, and is available as an opt-in for older repositories through GitHub's OIDC settings.
 
 An identity that matches the older name-only subject will not match a token that carries the immutable subject, so the workflow fails to authenticate. The examples that follow use the immutable format. If your repository still sends the name-only subject, leave out the `@<owner-id>` and `@<repo-id>` portions.
 {{< /note >}}
 
 ### Finding your repository's numeric identifiers
 
-The immutable subject claim uses the numeric ID of the repository owner and the numeric ID of the repository. Retrieve both with the [GitHub CLI](https://cli.github.com/):
+The immutable subject claim uses the numeric ID of the repository owner and the numeric ID of the repository.
+
+To retrieve the subject claim in the GitHub UI, modify and browse to this URL:
+
+```http
+https://github.com/<org-name>/<repo-name>/settings/actions/oidc-configuration
+```
+
+To retrieve the subject claim with the [GitHub CLI](https://cli.github.com/):
 
 ```sh
 gh api repos/OWNER/REPO --jq '{owner_id: .owner.id, repo_id: .id}'
