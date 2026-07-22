@@ -48,9 +48,7 @@ chainctl skills list --group public --recursive
  . . .
 ```
 
-The public registry is large, so a full `--recursive` listing can take a while to return. To browse a single source, scope the `--group` to its path instead (shown next).
-
-To list the skills under a single upstream repository, name its path in the `--group` value. Public skills are namespaced by their source, so an owner's repo lives at `public/<host>/<owner>/<repo>`:
+The public registry is large, so a full `--recursive` listing can take a while to return. To browse a single source, scope the `--group` to its path instead:
 
 ```shell
 chainctl skills list --group public/github.com/github/awesome-copilot
