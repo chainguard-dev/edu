@@ -572,7 +572,7 @@ chainctl libraries policy enable --policy=disable-cooldown --ecosystem=JAVASCRIP
 To see a policy in detail, use `describe`:
 
 ```bash
-chainctl libraries policy describe
+chainctl libraries policy describe <policy-name>
 ```
 
 This command returns a list of what is included in the policy, such as [blocked packages](#block-a-package-or-version), [packages on your allowlist](#override-a-blocked-package), and the [cooldown policy](#create-and-enable-a-cooldown-policy).
