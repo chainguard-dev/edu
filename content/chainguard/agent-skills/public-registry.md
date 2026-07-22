@@ -17,7 +17,7 @@ toc: true
 weight: 003
 ---
 
-Chainguard publishes a curated set of hardened agent skills in a public registry at `skills.cgr.dev/chainguard`. Anyone with `chainctl` can browse and install them — no entitlement and no legal terms required. The Chainguard Agent Skills public registry is pull-only: you can install skills from the registry, but you can't push your own skills to it.
+Chainguard publishes a curated set of hardened agent skills in a public registry at `skills.cgr.dev/public`. Anyone with `chainctl` can browse and install them — no entitlement and no legal terms required. The Chainguard Agent Skills public registry is pull-only: you can install skills from the registry, but you can't push your own skills to it.
 
 This guide walks through the full workflow: listing the available skills, inspecting one, pulling it to audit how Chainguard hardened it, installing it, and running it with an agent.
 
@@ -31,39 +31,42 @@ Unlike a [private Chainguard skills registry](/chainguard/agent-skills/skills-re
 
 ## List available skills
 
-Sign in, then browse the skills published in Chainguard's public registry with the `list` subcommand. The `--recursive` flag lists skills across every owner in the registry:
+Sign in, then browse the skills published in Chainguard's public registry with the `list` subcommand. The `--recursive` flag lists skills across every source in the registry. Public skills are namespaced by their upstream source (`public/<host>/<owner>/<repo>/<name>`), so the recursive listing shows each skill's full path:
 
 ```shell
 chainctl auth login
-chainctl skills list --group chainguard --recursive
+chainctl skills list --group public --recursive
 ```
 
 ```output
-              NAME              | LATEST TAG |   UPDATED
---------------------------------|------------|--------------
- agentspace-so/agentspace       | latest     | 21 hours ago
- antfu/antfu                    | latest     | 21 hours ago
- antfu/nuxt                     | latest     | 21 hours ago
- antfu/vitest                   | latest     | 21 hours ago
- antfu/vue                      | latest     | 21 hours ago
- anthropics/doc-coauthoring     | latest     | 21 hours ago
- anthropics/frontend-design     | latest     | 21 hours ago
- apollographql/apollo-client    | latest     | 21 hours ago
+                          NAME                           | LATEST TAG |  UPDATED
+---------------------------------------------------------|------------|------------
+ github.com/github/awesome-copilot/agent-supply-chain    | latest     | 5 days ago
+ github.com/github/awesome-copilot/game-engine           | latest     | 5 days ago
+ github.com/github/awesome-copilot/mcp-security-audit    | latest     | 5 days ago
 
  . . .
 ```
 
-To list the skills from a single upstream owner, name it in the `--group` value:
+The public registry is large, so a full `--recursive` listing can take a while to return. To browse a single source, scope the `--group` to its path instead:
 
 ```shell
-chainctl skills list --group chainguard/anthropics
+chainctl skills list --group public/github.com/github/awesome-copilot
 ```
 
 ```output
- TYPE  |      NAME       | LATEST TAG | UPDATED
--------|-----------------|------------|------------
- skill | doc-coauthoring | latest     | 1 hour ago
- skill | frontend-design | latest     | 1 hour ago
+ TYPE  |          NAME           | LATEST TAG |  UPDATED
+-------|-------------------------|------------|------------
+ skill | acreadiness-policy      | latest     | 5 days ago
+ skill | agent-supply-chain      | latest     | 5 days ago
+ skill | chrome-devtools         | latest     | 5 days ago
+ skill | codeql                  | latest     | 5 days ago
+ skill | game-engine             | latest     | 5 days ago
+ skill | mcp-security-audit      | latest     | 5 days ago
+ skill | multi-stage-dockerfile  | latest     | 5 days ago
+ skill | postgresql-optimization | latest     | 5 days ago
+
+ . . .
 ```
 
 ## Describe a skill
@@ -71,25 +74,25 @@ chainctl skills list --group chainguard/anthropics
 To retrieve a skill's reference, digest, tags, and metadata, use the `describe` subcommand. The output records the upstream source and the exact commit Chainguard hardened from:
 
 ```shell
-chainctl skills describe skills.cgr.dev/chainguard/github/add-educational-comments:latest
+chainctl skills describe skills.cgr.dev/public/github.com/github/awesome-copilot/game-engine:latest
 ```
 
 ```output
-      FIELD      |                                                    VALUE
------------------|--------------------------------------------------------------------------------------------------------------
- Display Name    | add-educational-comments
- Reference       | chainguard/github/add-educational-comments
- Install Name    | chainguard-github-add-educational-comments
- OCI URL         | skills.cgr.dev/chainguard/github/add-educational-comments:latest
- Description     | Add educational comments to the file specified, or prompt asking for file to comment if one is not provided.
+      FIELD      |                                              VALUE
+-----------------|--------------------------------------------------------------------------------------------------
+ Display Name    | game-engine
+ Reference       | public/github.com/github/awesome-copilot/game-engine
+ Install Name    | public-github.com-github-awesome-copilot-game-engine
+ OCI URL         | skills.cgr.dev/public/github.com/github/awesome-copilot/game-engine:latest
+ Description     | Expert skill for building web-based game engines and games using HTML5, Canvas, WebGL, and ...
  License         | MIT
- Upstream        | github.com/github/awesome-copilot/skills/add-educational-comments
+ Upstream        | github.com/github/awesome-copilot/skills/game-engine
  Upstream Commit | cf4347e88c2e40a9aabe5801748ec6bf924c09be
  License Source  | LICENSE
  Tag             | cf4347e88c2e40a9aabe5801748ec6bf924c09be
- Digest          | sha256:59b781f87f82aba08ccf622b60a31ee5b8fbb27fa447ed5910850d4320505735
- Size            | 1.1 KB
- Published       | 1 day ago
+ Digest          | sha256:c8a079466ef2eb8de03847f0a96efe0b5131c628d9164bf7edb887bdd5ed668d
+ Size            | 1.2 KB
+ Published       | 6 days ago
 ```
 
 ## Pull a skill to inspect it
@@ -97,65 +100,47 @@ chainctl skills describe skills.cgr.dev/chainguard/github/add-educational-commen
 Where `install` drops a skill straight into your agent's skills directory, `pull` writes the skill's files to a directory you choose so you can inspect them first:
 
 ```shell
-chainctl skills pull skills.cgr.dev/chainguard/github/add-educational-comments:latest ./add-educational-comments
+chainctl skills pull skills.cgr.dev/public/github.com/github/awesome-copilot/game-engine:latest ./game-engine
 ```
 
 ```output
-Skill written to: /home/linky/add-educational-comments
+Skill written to: /home/linky/game-engine
 ```
 
-Every hardened skill ships with a `HARDENING.md` that records the upstream source, the exact commit Chainguard hardened from, and every change the hardening engine made:
+Every hardened skill ships with a `HARDENING.md` that records the upstream source, the exact commit Chainguard hardened from, and the outcome of each hardening run:
 
 ```shell
-cat add-educational-comments/HARDENING.md
+cat game-engine/HARDENING.md
 ```
 
 ```output
-# Hardening Report: github.com/github/awesome-copilot/skills/add-educational-comments
+# Hardening report
 
-| Field | Value |
-|---|---|
-| Upstream SHA | `cf4347e88c2e40a9aabe5801748ec6bf924c09be` |
-| Hardened at | 2026-06-09T23:14:22Z |
-| Files processed | 2 |
-| .md files (clean after harden) | 1 |
-| .md files (attempts exhausted) | 0 |
-| Non-.md files (copied verbatim) | 1 |
+- skill: `github.com/github/awesome-copilot/skills/game-engine`
+- sha: `cf4347e88c2e40a9aabe5801748ec6bf924c09be`
+- harden run: 1 (outcome: completed)
+- SKILL.md modified: true
 
-## Markdown files
-
-### `SKILL.md`
-
-- Status: **clean**
-- Attempts used: 2
-- Findings + fixes applied:
-
-  | Attempt | Rule | Severity | Finding |
-  |---|---|---|---|
-  | 1 | `minimal-permissions` | high | The skill's purpose is to statically analyze and add comments to code files. It does not require the ability to execute the code to fulfill its objectives. The prompt's rules about not 'breaking execution' are constraints on the output, not a requirement to test the code by running it in a live environment. |
-
-## Verbatim files
-
-- `LICENSE`
+Hardened by the multi-model harden pipeline. The per-model fix plans, cross-model critiques, and the reconciled synthesis are recorded under `notes/harden/run_1/`. The corrected SKILL.md is this version's hardened overlay.
 ```
 
-Here, the engine flagged `minimal-permissions`: the skill only needs to read and comment on files, so the hardened version drops the implied permission to execute them.
+The report pins the exact upstream `sha` Chainguard hardened from, the outcome of the run, and whether the hardened overlay changed the skill's `SKILL.md`. Skills are hardened by a multi-model pipeline whose per-model fix plans and reconciled synthesis are recorded for the run, so you can trace exactly what was inspected and changed.
 
 ## Install a skill
 
 Download and install the skill to make it available to agents on your machine with the `install` subcommand:
 
 ```shell
-chainctl skills install skills.cgr.dev/chainguard/github/add-educational-comments:latest
+chainctl skills install skills.cgr.dev/public/github.com/github/awesome-copilot/game-engine:latest
 ```
 
 This command automatically detects any agents on your machine and places the skill into their relevant directories. The following example output shows the results on a machine where Claude Code is present:
 
 ```output
-Installing github/add-educational-comments
-    AGENT    |                         LOCATION                          |                                   MODE
--------------|-----------------------------------------------------------|---------------------------------------------------------------------------
- Claude Code | .claude/skills/chainguard-github-add-educational-comments | symlink → ../../.agents/skills/chainguard-github-add-educational-comments
+Installing github.com/github/awesome-copilot/game-engine
+    AGENT    |                              LOCATION                              |                                        MODE
+-------------|--------------------------------------------------------------------|------------------------------------------------------------------------------------
+ Claude Code | .claude/skills/public-github.com-github-awesome-copilot-game-engine | symlink → ../../.agents/skills/public-github.com-github-awesome-copilot-game-engine
 ```
 
 ## Run the skill from an agent
@@ -163,26 +148,26 @@ Installing github/add-educational-comments
 Load the skill into Claude Code or any MCP-compatible agent. In Claude Code, invoke it by name:
 
 ```Agent
-/add-educational-comments
+/game-engine
 ```
 
 The agent loads the skill and runs it, confirming it installed and loaded correctly end to end.
 
 ## Uninstall the skill
 
-To remove a skill from your machine, pass its name to the `uninstall` subcommand. Use the skill's install name, which `describe` reports as the `Install Name` field — for this skill, `chainguard-github-add-educational-comments`:
+To remove a skill from your machine, pass its name to the `uninstall` subcommand. Use the skill's install name, which `describe` reports as the `Install Name` field — for this skill, `public-github.com-github-awesome-copilot-game-engine`:
 
 ```shell
-chainctl skills uninstall chainguard-github-add-educational-comments
+chainctl skills uninstall public-github.com-github-awesome-copilot-game-engine
 ```
 
 The command prompts for confirmation before removing any files:
 
 ```output
-This will remove skill "chainguard-github-add-educational-comments" from local agent directories.
+This will remove skill "public-github.com-github-awesome-copilot-game-engine" from local agent directories.
 Proceed?
 Do you want to continue? [y,N]:
-Uninstalled skill "chainguard-github-add-educational-comments".
+Uninstalled skill "public-github.com-github-awesome-copilot-game-engine".
 ```
 
 By default, `uninstall` removes the skill from every agent directory where it's installed. Use the `--agent` flag to remove it from specific agents only, or the `--global` flag to remove it from global directories instead of the current project. Add the `-y` flag to skip the confirmation prompt.
@@ -191,10 +176,10 @@ By default, `uninstall` removes the skill from every agent directory where it's 
 
 | Action | Command |
 | ----- | ----- |
-| List skills | `chainctl skills list --group chainguard --recursive` |
-| Describe a skill | `chainctl skills describe skills.cgr.dev/chainguard/<owner>/<name>:<tag>` |
-| Pull a skill | `chainctl skills pull skills.cgr.dev/chainguard/<owner>/<name>:<tag> <dir>` |
-| Install a skill | `chainctl skills install skills.cgr.dev/chainguard/<owner>/<name>:<tag>` |
+| List skills | `chainctl skills list --group public --recursive` |
+| Describe a skill | `chainctl skills describe skills.cgr.dev/public/<host>/<owner>/<repo>/<name>:<tag>` |
+| Pull a skill | `chainctl skills pull skills.cgr.dev/public/<host>/<owner>/<repo>/<name>:<tag> <dir>` |
+| Install a skill | `chainctl skills install skills.cgr.dev/public/<host>/<owner>/<repo>/<name>:<tag>` |
 | Uninstall a skill | `chainctl skills uninstall <install-name>` |
 
 ## Next steps
