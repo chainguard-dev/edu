@@ -2,7 +2,14 @@
   <div class="page-links">
     <h3 class="righthand-title">Quick Nav</h3>
     <div class="tocLinks">
-      {{ .TableOfContents }}
+      {{ if .Params.tocEndLevel -}}
+        {{/* Per-page cap on Quick Nav depth (e.g. the changelog, which uses h3
+             subsections for manual entries that shouldn't clutter the nav).
+             Falls back to the site default below when unset. */}}
+        {{ .Fragments.ToHTML 2 (int .Params.tocEndLevel) false }}
+      {{- else -}}
+        {{ .TableOfContents }}
+      {{- end }}
     </div>
   </div>
 {{ end -}}

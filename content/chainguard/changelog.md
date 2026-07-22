@@ -10,6 +10,7 @@ tags: ["Chainguard Containers", "Changelog"]
 images: []
 weight: 070
 toc: true
+tocEndLevel: 2
 ---
 
 This page logs notable Chainguard Containers lifecycle events week by week, newest first: images that entered their end-of-life grace period, images no longer available after their grace period ended, and images newly added to the catalog. Each event is listed once, in the week it first appeared.
@@ -17,6 +18,14 @@ This page logs notable Chainguard Containers lifecycle events week by week, newe
 ## Week of 2026-07-14
 
 {{< changelog-label "EOL" >}}
+
+Chainguard offers [a grace period](/chainguard/chainguard-images/features/eol-gp-overview/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+The following images reached the end of their grace period and are no longer available:
+
+| Image | End-of-life | Grace period ended |
+| --- | --- | --- |
+| `envoy:1.33` | 2026-01-14 | 2026-07-14 |
 
 The following images reached end-of-life and entered their grace period:
 
@@ -27,15 +36,9 @@ The following images reached end-of-life and entered their grace period:
 | `affinity-clickhouse:23.3` | 2026-07-14 | 2027-01-14 |
 | `altinity-clickhouse:23.3` | 2026-07-14 | 2027-01-14 |
 
-The following images reached the end of their grace period and are no longer available:
-
-| Image | End-of-life | Grace period ended |
-| --- | --- | --- |
-| `envoy:1.33` | 2026-01-14 | 2026-07-14 |
-
 {{< changelog-label "New Image" >}}
 
-**21 new images**
+Chainguard built 21 new container images this week, including both standard and FIPS variants.
 
 <table class="cl-images">
 <thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
@@ -69,11 +72,7 @@ The following images reached the end of their grace period and are no longer ava
 
 {{< changelog-label "EOL" >}}
 
-The following images reached end-of-life and entered their grace period:
-
-| Image | End-of-life | Grace period ends |
-| --- | --- | --- |
-| `mariadb:10.6` | 2026-07-06 | 2027-01-06 |
+Chainguard offers [a grace period](/chainguard/chainguard-images/features/eol-gp-overview/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
 The following images reached the end of their grace period and are no longer available:
 
@@ -82,9 +81,15 @@ The following images reached the end of their grace period and are no longer ava
 | `coredns:1.13` | 2026-01-08 | 2026-07-08 |
 | `prometheus:3.8` | 2026-01-09 | 2026-07-09 |
 
+The following images reached end-of-life and entered their grace period:
+
+| Image | End-of-life | Grace period ends |
+| --- | --- | --- |
+| `mariadb:10.6` | 2026-07-06 | 2027-01-06 |
+
 {{< changelog-label "New Image" >}}
 
-**1 new image**
+Chainguard built 1 new container image this week.
 
 <table class="cl-images">
 <thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
@@ -97,12 +102,7 @@ The following images reached the end of their grace period and are no longer ava
 
 {{< changelog-label "EOL" >}}
 
-The following images reached end-of-life and entered their grace period:
-
-| Image | End-of-life | Grace period ends |
-| --- | --- | --- |
-| `superset:5.0` | 2026-07-01 | 2027-01-01 |
-| `perl:5.38` | 2026-07-02 | 2027-01-02 |
+Chainguard offers [a grace period](/chainguard/chainguard-images/features/eol-gp-overview/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
 The following images reached the end of their grace period and are no longer available:
 
@@ -112,9 +112,16 @@ The following images reached the end of their grace period and are no longer ava
 | `keycloak:26.4` | 2026-01-06 | 2026-07-06 |
 | `datadog-agent:7.73` | 2026-01-07 | 2026-07-07 |
 
+The following images reached end-of-life and entered their grace period:
+
+| Image | End-of-life | Grace period ends |
+| --- | --- | --- |
+| `superset:5.0` | 2026-07-01 | 2027-01-01 |
+| `perl:5.38` | 2026-07-02 | 2027-01-02 |
+
 {{< changelog-label "New Image" >}}
 
-**6 new images**
+Chainguard built 6 new container images this week, including both standard and FIPS variants.
 
 <table class="cl-images">
 <thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
@@ -130,6 +137,14 @@ The following images reached the end of their grace period and are no longer ava
 
 {{< changelog-label "EOL" >}}
 
+Chainguard offers [a grace period](/chainguard/chainguard-images/features/eol-gp-overview/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+The following images reached the end of their grace period and are no longer available:
+
+| Image | End-of-life | Grace period ended |
+| --- | --- | --- |
+| `haproxy:3.1` | 2026-01-01 | 2026-07-01 |
+
 The following images reached end-of-life and entered their grace period:
 
 | Image | End-of-life | Grace period ends |
@@ -139,15 +154,9 @@ The following images reached end-of-life and entered their grace period:
 | `kubernetes:1.33` | 2026-06-28 | 2026-12-28 |
 | `rke2-runtime:1.33` | 2026-06-28 | 2026-12-28 |
 
-The following images reached the end of their grace period and are no longer available:
-
-| Image | End-of-life | Grace period ended |
-| --- | --- | --- |
-| `haproxy:3.1` | 2026-01-01 | 2026-07-01 |
-
 {{< changelog-label "New Image" >}}
 
-**27 new images**
+Chainguard built 27 new container images this week, including both standard and FIPS variants.
 
 <table class="cl-images">
 <thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>

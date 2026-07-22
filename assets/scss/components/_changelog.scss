@@ -5,14 +5,23 @@
 // and clear WCAG AA contrast, so the pills read on both light and dark pages.
 
 .changelog-label {
-  display: inline-block;
+  // The generator emits each pill alone on its own line, so Hugo renders it as
+  // a lone <span> between the surrounding blocks (never wrapped in a <p>). Make
+  // it a block box sized to its text so we get real, predictable vertical
+  // margins — space above to separate one entry from the next, space below so
+  // the context sentence under the EOL and New Image pills has room to breathe —
+  // while fit-content keeps the colored background hugging the label text rather
+  // than stretching the full width.
+  display: block;
+  width: fit-content;
+  margin-top: 2.75rem;
+  margin-bottom: 1rem;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   padding: 0.2em 0.65em;
   border-radius: 4px;
-  vertical-align: middle;
 
   // Chainguard brand palette. These brand colors are vivid, so text color is
   // chosen per pill for WCAG AA contrast: dark ink on the light ones, white
@@ -46,14 +55,6 @@
     background-color: #2bbafd; // Aqua — informational
     color: $ink;
   }
-}
-
-// The shortcode sits on its own line, so Goldmark wraps it in a paragraph.
-// Give that paragraph the section spacing (space above the tag, tight below,
-// so the tag reads as a heading for the list that follows it).
-p:has(> .changelog-label:first-child) {
-  margin-top: 1.75rem;
-  margin-bottom: 0.4rem;
 }
 
 // New-image table. A same-prefix batch is a nested table inside a full-width
