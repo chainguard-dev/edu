@@ -18,7 +18,6 @@
   {{ $scrollRighthand := resources.Get "js/scrollRighthand.js" }}
   {{ $scrollRighthand := $scrollRighthand | minify }}
 
-  
 {{ $scss := resources.Get "scss/righthand.scss" }}
 {{ $righthand_style := $scss | css.Sass }}
 {{ $righthand_style := $righthand_style | minify }}
