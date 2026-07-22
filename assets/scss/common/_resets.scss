@@ -11,7 +11,6 @@ body[class][class][class] {
   line-height: 24px;
 
   table {
-
     th {
       font-weight: normal;
     }
@@ -43,8 +42,9 @@ blockquote {
   font-size: 16px;
   line-height: 24px;
   padding: 24px;
-  border-radius: 0px 4px 4px 0px;
+  border-radius: 0 4px 4px 0;
   display: flex;
+
   &::before {
     content: var(--info-icon-url);
     position: relative;
@@ -88,6 +88,7 @@ h3 {
   font-weight: 600;
   font-size: 20px;
   line-height: 140%;
+
   /* identical to box height, or 28px */
   letter-spacing: -0.02em;
 }
