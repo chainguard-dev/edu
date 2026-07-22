@@ -4,7 +4,7 @@ linktitle: "FAQ"
 description: "Frequently asked questions about Chainguard Libraries, including security benefits, supported ecosystems, and how automated patching protects against supply chain attacks"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-07-16T15:09:59+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 menu:
@@ -137,32 +137,6 @@ During initial migration to Chainguard Libraries, some common causes of checksum
 * Repository managers or build tools enforce strict verification
     * Example: Artifactory validating against Maven Central.
 
-## Does Chainguard Libraries for Java include CVE remediation fixes?
-
-Short answer:
-
-No. Libraries are built from source code in the secured and hardened Chainguard
-infrastructure. This eliminates any build and distribution stage
-vulnerabilities.
-
-More details:
-
-Chainguard cannot patch Java libraries and create binaries with the same
-identifier because the complete behavior and API surface of every library
-affects the use. That use however is part of the application development of each
-customer. It varies widely and any change potentially creates incompatibilities,
-different behavior or even new security issues.
-
-Chainguard collaborates with many upstream projects and can collaborate with
-customers to increase and accelerate the creation and adoption of fixes and the
-work towards new releases.
-
-Importantly, [over 95% of all known vulnerable components have a fixed version
-available](https://www.sonatype.com/blog/are-unnecessary-vulnerabilities-polluting-your-software-supply-chain)
-and, by adopting those newer versions in your application, you can remediate most
-CVEs. Chainguard Libraries for Java includes those newest versions and adds the
-build and distribution channel security.
-
 ## What’s the difference between malware‑hardened libraries and CVE remediation?
 
 Malware‑hardened libraries are the baseline Chainguard Libraries experience:
@@ -173,30 +147,28 @@ customers to consume. This closes off most supply chain malware vectors compared
 to pulling directly from public registries like Maven Central, npm, and PyPI.
 
 [CVE remediation](/chainguard/libraries/cve-remediation/) is an additional
-feature (currently focused on a subset of Python libraries) where Chainguard
-backports High and Critical vulnerability fixes from newer upstream releases to
-older versions that customers are still using, particularly when upstream
-maintainers no longer ship patches for those older versions. Remediated versions
-are:
+feature where Chainguard backports High and Critical vulnerability fixes from
+newer upstream releases to older versions that customers are still using,
+particularly when upstream maintainers no longer ship patches for those older
+versions. Remediated versions are:
 
-* Published in a separate Python index (e.g.,
-  https://libraries.cgr.dev/python-remediated/simple/).
-* Given a local version suffix like +cgr.N (for example, 2.0.0+cgr.1) so
-  dependency resolvers can distinguish them from non‑remediated upstream
-  versions while still preferring the remediated build during resolution.
+* Published in a separate repository:
+  `https://libraries.cgr.dev/python-remediated/simple/` for Python and
+  `https://libraries.cgr.dev/java-remediated/` for Java.
+* Given a local version suffix -- like `+cgr.N` for Python (for example,
+  2.0.0+cgr.1) and `-0.cgr.N` for Java -- so dependency resolvers can
+  distinguish them from non‑remediated upstream versions while still preferring
+  the remediated build during resolution.
 
-## Why might I still see 404s with fallback enabled for Chainguard Libraries for JavaScript?
+## Why might I still see 404s with fallback enabled through Chainguard Repository?
 
-For JavaScript, Chainguard offers the [Chainguard
-Repository](/chainguard/chainguard-repository/) as a unified, managed endpoint
-at `https://libraries.cgr.dev/javascript/`. This single endpoint:
+Chainguard offers upstream fallback through the [Chainguard
+Repository](/chainguard/chainguard-repository/) as a unified, managed endpoint for each ecosystem. This single endpoint:
 
 * Serves Chainguard‑built packages first, rebuilt from source.
-* Optionally falls back to upstream npm for packages or versions that are not
+* Optionally falls back to upstream for packages or versions that are not
   yet available from Chainguard.
-* Applies security controls on the upstream fallback, including a cooldown
-  window and malware detection that blocks packages associated with known
-  malware IDs from public OSV feeds.
+* Applies security controls on the upstream fallback, including malware and greyware scanning that blocks packages flagged as suspicious, and configurable policies such as cooldown periods.
 
 Because of those controls, you can still see 404s or failed fetches even when
 fallback is enabled, for example when:
@@ -208,7 +180,7 @@ fallback is enabled, for example when:
 * The requested package/version truly does not exist in either Chainguard’s
   catalog or upstream.
 
-Fallback respects security policies first, then mirrors safe content from npm.
+Fallback respects security policies first, then mirrors safe content from upstream.
 For customers, this can surface as a 404 from the Chainguard endpoint even
 though a version appears in the public registry.
 
@@ -217,3 +189,73 @@ though a version appears in the public registry.
 Chibbies is the internal codename for the Chainguard Libraries. It evolved from
 Chainguard Libraries being shortened to Chainguard Libbies, and then [finally to
 Chibbies](https://www.youtube.com/watch?v=adfU9LJg3I0&t=2843s).
+
+## JFrog Artifactory troubleshooting
+
+The following questions apply to repo manager configurations for Chainguard Libraries, using JFrog Artifactory. Learn more about using a repo manager in the global configuration pages for each ecosystem: [Java](/chainguard/libraries/java/global-configuration/), [JavaScript](/chainguard/libraries/javascript/global-configuration/), [Python](/chainguard/libraries/python/global-configuration/).
+
+### What are the most common setup mistakes when using Artifactory with Chainguard Libraries?
+
+Follow these steps for general troubleshooting:
+
+* Verify the token and repository settings.
+    * Confirm that the token is scoped correctly, not expired, and copied correctly. Also confirm that the repository URL is the correct language-specific endpoint and that the expected remote repository settings are in place.
+* Validate pulling packages with direct access.
+    * Attempt to pull a package directly from the Chainguard endpoint from a controlled environment. This helps you confirm that the token works and that the package is available independently of Artifactory.
+    * Attempt to pull the same package through the Artifactory remote or virtual repository and compare the result.
+    * If direct access works but the Artifactory path fails, check the network path between Artifactory and the Chainguard endpoint. This is where firewall restrictions, proxy behavior, TLS inspection, or object-storage allowlisting issues may have an impact.
+* Test with a real package fetch.
+    * The **Test** button in Artifactory is not a reliable way to confirm that your integration is working as expected. Instead, use a real package fetch, install, or checksum comparison.
+* If results aren't as expected, [clear one cache layer at a time and rerun the same test](#inconsistent-fallback).
+
+### Why might I see TLS or SSL handshake errors and authentication failures after configuring Artifactory with Chainguard Libraries?
+
+In some cases, authentication failures or malformed token behavior are caused by traffic inspection or proxy-layer handling. When troubleshooting, check the following:
+
+* Whether a proxy, TLS inspection layer, or MITM device is in path
+* Whether the full certificate chain is installed correctly
+* Whether the environment uses an internal CA
+* Whether the runtime, package manager, and repository manager trust the same CA bundle
+* Whether the proxy is modifying or normalizing headers, tokens, or request format
+
+### Why might I experience timeouts or "connection refused" errors after configuring Artifactory with Chainguard Libraries?
+
+Firewall rules can prevent dependency resolution or break integration behavior. This is often observed when the repository manager can reach one destination but not another required upstream host or storage host. When troubleshooting, check the following:
+
+* Allowed outbound destinations
+* DNS resolution
+* Port restrictions
+* Whether the repository manager can reach all required upstream hosts
+* Whether object-storage or redirect targets also need to be allowlisted
+
+### Why might I experience authentication loops, 4xx or 5xx responses, incorrect endpoint routing, stale artifacts, or behavior that differs between direct and proxied paths after configuring Artifactory with Chainguard Libraries?
+
+Proxy layers can change headers, certificate handling, path routing, protocol support, and cache behavior. When troubleshooting, check the following:
+
+* Whether a forward proxy, reverse proxy, or both are present
+* Header rewriting
+* Path rewriting
+* Auth forwarding
+* TLS termination point
+* HTTP/2 support where required
+* Cache behavior at each layer
+
+<a id="inconsistent-fallback"></a>
+
+### Why might I experience inconsistent fallback behavior, outdated package metadata, or inconsistent experience between users after configuring Artifactory with Chainguard Libraries?
+
+Caching is a common cause of unexpected behavior during onboarding and testing.
+Builds can continue using previously cached public-registry artifacts or stale
+metadata even after you switch a repository over to Chainguard. When
+troubleshooting, check the following:
+
+* Local package manager cache
+* Artifact repository cache
+* Proxy cache
+* CI/CD runner cache
+
+Clear one cache layer at a time and rerun the same test after each change. Avoid
+clearing multiple cache layers simultaneously unless the steps are documented.
+If you are switching an existing Artifactory repository to Chainguard,
+invalidate or zap the remote cache before concluding that the configuration is
+broken.
