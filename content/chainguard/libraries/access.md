@@ -567,6 +567,16 @@ chainctl libraries policy create --name=disable-cooldown --cooldown-days=0
 chainctl libraries policy enable disable-cooldown --ecosystem=JAVASCRIPT --mode=ENFORCE
 ```
 
+### Describe a policy
+
+To see a policy in detail, use `describe`. For example, to see the details of a policy named `disable-cooldown`:
+
+```bash
+chainctl libraries policy describe disable-cooldown
+```
+
+This command returns a list of what is included in the policy, such as [blocked packages](#block-a-package-or-version), [packages on your allowlist](#override-a-blocked-package), and the [cooldown policy](#create-and-enable-a-cooldown-policy).
+
 ### Create and enable a cooldown policy
 
 When upstream fallback is enabled, users with the Owner role can create and enable a cooldown policy with `chainctl`. The cooldown period provides an additional layer of defense on top of malware and greyware scanning, giving the broader security community time to surface threats that may not be immediately detectable.
