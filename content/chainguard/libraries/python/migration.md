@@ -70,7 +70,7 @@ Learn more about creating and managing pull tokens in the [Libraries Access docu
 
 {{% tab title="Python keyring" %}}
 
-The keyring leverages `chainctl` to fetch temporary credentials whenever your environment requests packages from Chainguard. Supported environments include local development and CI/CD platforms that can use assumable identities. 
+The keyring leverages `chainctl` to fetch temporary credentials whenever your environment requests packages from Chainguard. Supported environments include local development and CI/CD platforms that can use assumable identities.
 
 Learn how to install this package in the [Chainguard Libraries Access documentation](chainguard/libraries/access/#python-keyring-provider).
 
@@ -112,7 +112,7 @@ Check for an existing registry entry in `.netrc`:
 grep -A2 "libraries.cgr.dev" ~/.netrc
 ```
 
-Remove or correct any stale entry before proceeding. 
+Remove or correct any stale entry before proceeding.
 
 Then, configure your [pull token credentials](#authentication-prerequisites) in `.netrc`:
 
@@ -129,7 +129,7 @@ chmod 600 ~/.netrc
 
 {{% tab title="Python keyring" %}}
 
-The `keyrings-chainguard-libraries` package supplies short-lived credentials automatically via `chainctl`, avoiding static tokens on your local workstation. 
+The `keyrings-chainguard-libraries` package supplies short-lived credentials automatically via `chainctl`, avoiding static tokens on your local workstation.
 
 Follow the [instructions to install the keyring package](#python-keyring-provider).
 
@@ -285,8 +285,8 @@ chainctl libraries update-hashes requirements.txt
 When using a repo manager, run a command similar to the following:
 
 ```bash
-chainctl libraries update-hashes 
-  --registry-url https://repo.example.com/repository/python-all/ 
+chainctl libraries update-hashes
+  --registry-url https://repo.example.com/repository/python-all/
   --token "$REPO_TOKEN"
 ```
 
@@ -431,7 +431,7 @@ chainctl libraries verify --detailed $(poetry env info --path)
 
 {{< /tabs >}}
 
-A successful result shows verification coverage for your project's dependencies. 
+A successful result shows verification coverage for your project's dependencies.
 
 For full details on verification options and output, see [Verification: Analyze Python packages](/chainguard/libraries/verification/#analyze-python-packages).
 
@@ -443,7 +443,7 @@ For organization-wide rollout using a repository manager, see the [global config
 
 ## Packages not available in Chainguard Libraries
 
-Chainguard Libraries covers a large and growing collection of PyPI packages, but not every package or version is available. If a package is missing, your install will fail with a 404 unless you have configured [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls). 
+Chainguard Libraries covers a large and growing collection of PyPI packages, but not every package or version is available. If a package is missing, your install will fail with a 404 unless you have configured [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls).
 
 With upstream fallback enabled, packages not yet available from Chainguard are proxied from PyPI, subject to Chainguard's security controls. Confirm your current policy with:
 
@@ -451,7 +451,7 @@ With upstream fallback enabled, packages not yet available from Chainguard are p
 chainctl libraries entitlements list
 ```
 
-For repository manager setups, Chainguard recommends using the configurable fallback rather than configuring a separate public registry fallback in your repository manager, to preserve Chainguard’s security controls. 
+For repository manager setups, Chainguard recommends using the configurable fallback rather than configuring a separate public registry fallback in your repository manager, to preserve Chainguard’s security controls.
 
 Learn more about upstream fallback configurations in the [Libraries Overview](/chainguard/libraries/overview/#upstream-fallback-and-controls).
 
