@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl images helm"
 slug: chainctl_images_helm
 url: /platform/chainctl/chainctl-docs/chainctl_images_helm/
@@ -30,7 +30,7 @@ Helm chart related commands
 
 ### SEE ALSO
 
-* [chainctl images](/chainguard/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
-* [chainctl images helm refs](/chainguard/chainctl/chainctl-docs/chainctl_images_helm_refs/)	 - List image references pinned in a Chainguard Helm chart
-* [chainctl images helm values](/chainguard/chainctl/chainctl-docs/chainctl_images_helm_values/)	 - Generate relocation overrides for a Chainguard Helm chart
+* [chainctl images](/platform/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
+* [chainctl images helm refs](/platform/chainctl/chainctl-docs/chainctl_images_helm_refs/)	 - List image references pinned in a Chainguard Helm chart
+* [chainctl images helm values](/platform/chainctl/chainctl-docs/chainctl_images_helm_values/)	 - Generate relocation overrides for a Chainguard Helm chart
 

@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl policies list"
 slug: chainctl_policies_list
 url: /platform/chainctl/chainctl-docs/chainctl_policies_list/
@@ -61,5 +61,5 @@ chainctl policies list --parent=example.com -o json
 
 ### SEE ALSO
 
-* [chainctl policies](/chainguard/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
+* [chainctl policies](/platform/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
 

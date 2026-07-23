@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl iam roles create"
 slug: chainctl_iam_roles_create
 url: /platform/chainctl/chainctl-docs/chainctl_iam_roles_create/
@@ -53,5 +53,5 @@ chainctl iam roles create ROLE_NAME --parent ORGANIZATION_NAME | ORGANIZATION_ID
 
 ### SEE ALSO
 
-* [chainctl iam roles](/chainguard/chainctl/chainctl-docs/chainctl_iam_roles/)	 - IAM role resource interactions.
+* [chainctl iam roles](/platform/chainctl/chainctl-docs/chainctl_iam_roles/)	 - IAM role resource interactions.
 

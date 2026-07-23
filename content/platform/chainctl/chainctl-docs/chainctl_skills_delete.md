@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl skills delete"
 slug: chainctl_skills_delete
 url: /platform/chainctl/chainctl-docs/chainctl_skills_delete/
@@ -17,10 +17,16 @@ Remove a published version of a skill.
 
 Remove a published version of a skill.
 
-<ref> must include an explicit tag: org/name:tag
+Delete a single version:   org/name:tag
+A tag is required to prevent accidental deletion of "latest", and deleting the
+"latest" tag requires additional confirmation. When you delete a skill's last
+remaining version, the now-empty skill entry is removed too, so it no longer
+lingers in "skills list" with no pullable content.
 
-A tag is required to prevent accidental deletion of "latest".
-Deleting the "latest" tag requires additional confirmation.
+Clear an already-empty skill:   org/name
+A tagless reference is accepted only for a skill that has no versions left (the
+residue of versions deleted before this cleanup existed). A skill that still has
+versions requires an explicit tag.
 
 ```
 chainctl skills delete <ref> [flags]
@@ -49,5 +55,5 @@ chainctl skills delete <ref> [flags]
 
 ### SEE ALSO
 
-* [chainctl skills](/chainguard/chainctl/chainctl-docs/chainctl_skills/)	 - Skills registry related commands.
+* [chainctl skills](/platform/chainctl/chainctl-docs/chainctl_skills/)	 - Skills registry related commands.
 

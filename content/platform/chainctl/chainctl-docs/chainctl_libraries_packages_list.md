@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl libraries packages list"
 slug: chainctl_libraries_packages_list
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_packages_list/
@@ -28,6 +28,7 @@ chainctl libraries packages list --ecosystem ECOSYSTEM [--query QUERY] [--output
       --limit int32        The maximum number of packages to return; results are paginated automatically up to this limit. (default 50)
       --query string       A search string to filter packages by name. If empty, all packages in the ecosystem are returned.
       --remediated         Only return remediated packages.
+      --upstream           Also include upstream-registry packages. By default only Chainguard-built packages are listed.
 ```
 
 ### Options inherited from parent commands
@@ -47,5 +48,5 @@ chainctl libraries packages list --ecosystem ECOSYSTEM [--query QUERY] [--output
 
 ### SEE ALSO
 
-* [chainctl libraries packages](/chainguard/chainctl/chainctl-docs/chainctl_libraries_packages/)	 - Inspect Libraries packages.
+* [chainctl libraries packages](/platform/chainctl/chainctl-docs/chainctl_libraries_packages/)	 - Inspect Libraries packages.
 

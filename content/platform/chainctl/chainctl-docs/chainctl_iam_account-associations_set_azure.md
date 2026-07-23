@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl iam account-associations set azure"
 slug: chainctl_iam_account-associations_set_azure
 url: /platform/chainctl/chainctl-docs/chainctl_iam_account-associations_set_azure/
@@ -44,5 +44,5 @@ chainctl iam account-associations set azure ORGANIZATION_NAME|ORGANIZATION_ID|FO
 
 ### SEE ALSO
 
-* [chainctl iam account-associations set](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_set/)	 - Set cloud provider account associations for a location.
+* [chainctl iam account-associations set](/platform/chainctl/chainctl-docs/chainctl_iam_account-associations_set/)	 - Set cloud provider account associations for a location.
 

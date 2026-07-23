@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl iam account-associations check azure"
 slug: chainctl_iam_account-associations_check_azure
 url: /platform/chainctl/chainctl-docs/chainctl_iam_account-associations_check_azure/
@@ -34,5 +34,5 @@ chainctl iam account-associations check azure ORGANIZATION_NAME|ORGANIZATION_ID|
 
 ### SEE ALSO
 
-* [chainctl iam account-associations check](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_check/)	 - Check the OIDC federation configurations for cloud providers.
+* [chainctl iam account-associations check](/platform/chainctl/chainctl-docs/chainctl_iam_account-associations_check/)	 - Check the OIDC federation configurations for cloud providers.
 

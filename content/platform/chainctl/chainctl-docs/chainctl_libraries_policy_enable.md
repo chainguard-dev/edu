@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl libraries policy enable"
 slug: chainctl_libraries_policy_enable
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_policy_enable/
@@ -20,7 +20,7 @@ for the (organization, ecosystem, mode), its mode is updated. The default mode
 is ENFORCE.
 
 ```
-chainctl libraries policy enable --policy POLICY [--parent ORG] [--ecosystem ECOSYSTEM] [--mode ENFORCE|PREVIEW] [flags]
+chainctl libraries policy enable [POLICY] [--parent ORG] [--ecosystem ECOSYSTEM] [--mode ENFORCE|PREVIEW] [flags]
 ```
 
 ### Options
@@ -29,7 +29,7 @@ chainctl libraries policy enable --policy POLICY [--parent ORG] [--ecosystem ECO
       --ecosystem string   The ecosystem the binding applies to (JAVA, PYTHON, JAVASCRIPT).
       --mode string        The binding mode (ENFORCE or PREVIEW).
       --parent string      The name or id of the organization to scope the binding to.
-      --policy string      The name or UIDP of the policy.
+      --policy string      The name or UIDP of the policy. Provide this or the positional argument, not both.
 ```
 
 ### Options inherited from parent commands
@@ -49,5 +49,5 @@ chainctl libraries policy enable --policy POLICY [--parent ORG] [--ecosystem ECO
 
 ### SEE ALSO
 
-* [chainctl libraries policy](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy/)	 - Manage Libraries policies.
+* [chainctl libraries policy](/platform/chainctl/chainctl-docs/chainctl_libraries_policy/)	 - Manage Libraries policies.
 

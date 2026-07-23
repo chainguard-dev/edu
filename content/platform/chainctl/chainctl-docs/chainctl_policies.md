@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl policies"
 slug: chainctl_policies
 url: /platform/chainctl/chainctl-docs/chainctl_policies/
@@ -45,7 +45,7 @@ image:
 - `ENFORCE` — Block the pull.
 - `DRY_RUN` — Allow the pull but record the violation.
 
-The default mode for new bindings is `DRY_RUN`.
+Passing `--mode` is required when creating or enabling a binding.
 
 **Parameter** — A configurable value declared by a policy's schema (for
 example, `days` on the cooldown policy). Supply values when you enable a
@@ -112,12 +112,13 @@ chainctl policies disable --policy=cooldown --parent=example.com
 
 ### SEE ALSO
 
-* [chainctl](/chainguard/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
-* [chainctl policies binding](/chainguard/chainctl/chainctl-docs/chainctl_policies_binding/)	 - Manage policy bindings.
-* [chainctl policies check](/chainguard/chainctl/chainctl-docs/chainctl_policies_check/)	 - Check an image against active policies.
-* [chainctl policies decision](/chainguard/chainctl/chainctl-docs/chainctl_policies_decision/)	 - Inspect policy decisions.
-* [chainctl policies describe](/chainguard/chainctl/chainctl-docs/chainctl_policies_describe/)	 - Describe a policy and its parameter schema.
-* [chainctl policies disable](/chainguard/chainctl/chainctl-docs/chainctl_policies_disable/)	 - Disable a policy.
-* [chainctl policies enable](/chainguard/chainctl/chainctl-docs/chainctl_policies_enable/)	 - Enable a policy for an organization.
-* [chainctl policies list](/chainguard/chainctl/chainctl-docs/chainctl_policies_list/)	 - List policies.
+* [chainctl](/platform/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
+* [chainctl policies binding](/platform/chainctl/chainctl-docs/chainctl_policies_binding/)	 - Manage policy bindings.
+* [chainctl policies check](/platform/chainctl/chainctl-docs/chainctl_policies_check/)	 - Check an image against active policies.
+* [chainctl policies decision](/platform/chainctl/chainctl-docs/chainctl_policies_decision/)	 - Inspect policy decisions.
+* [chainctl policies describe](/platform/chainctl/chainctl-docs/chainctl_policies_describe/)	 - Describe a policy and its parameter schema.
+* [chainctl policies disable](/platform/chainctl/chainctl-docs/chainctl_policies_disable/)	 - Disable a policy.
+* [chainctl policies enable](/platform/chainctl/chainctl-docs/chainctl_policies_enable/)	 - Enable a policy for an organization.
+* [chainctl policies list](/platform/chainctl/chainctl-docs/chainctl_policies_list/)	 - List policies.
+* [chainctl policies override](/platform/chainctl/chainctl-docs/chainctl_policies_override/)	 - Manage policy overrides.
 

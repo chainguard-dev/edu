@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl guardener github unlink"
 slug: chainctl_guardener_github_unlink
 url: /platform/chainctl/chainctl-docs/chainctl_guardener_github_unlink/
@@ -32,7 +32,7 @@ chainctl guardener github unlink [flags]
 
 ```
       --github-org string   GitHub account login to unlink (an organization, or your own user).
-      --group string        UIDP of the Chainguard group; enables unlinking with your Chainguard credentials (no browser).
+      --group string        Name or UIDP of the Chainguard group; enables unlinking with your Chainguard credentials (no browser).
       --port int            Local loopback port for the GitHub OAuth callback. (default 8989)
 ```
 
@@ -53,5 +53,5 @@ chainctl guardener github unlink [flags]
 
 ### SEE ALSO
 
-* [chainctl guardener github](/chainguard/chainctl/chainctl-docs/chainctl_guardener_github/)	 - Link and unlink a GitHub organization to a Chainguard group.
+* [chainctl guardener github](/platform/chainctl/chainctl-docs/chainctl_guardener_github/)	 - Link and unlink a GitHub organization to a Chainguard group.
 

@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl images advisories list"
 slug: chainctl_images_advisories_list
 url: /platform/chainctl/chainctl-docs/chainctl_images_advisories_list/
@@ -72,5 +72,5 @@ chainctl images advisories list {IMAGE_REF} [--platform=PLATFORM] [--status=STAT
 
 ### SEE ALSO
 
-* [chainctl images advisories](/chainguard/chainctl/chainctl-docs/chainctl_images_advisories/)	 - Security advisory commands for images.
+* [chainctl images advisories](/platform/chainctl/chainctl-docs/chainctl_images_advisories/)	 - Security advisory commands for images.
 

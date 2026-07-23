@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl actions entitlements create"
 slug: chainctl_actions_entitlements_create
 url: /platform/chainctl/chainctl-docs/chainctl_actions_entitlements_create/
@@ -40,5 +40,5 @@ chainctl actions entitlements create --parent=PARENT [--output=json|table] [flag
 
 ### SEE ALSO
 
-* [chainctl actions entitlements](/chainguard/chainctl/chainctl-docs/chainctl_actions_entitlements/)	 - Manage Actions product entitlements.
+* [chainctl actions entitlements](/platform/chainctl/chainctl-docs/chainctl_actions_entitlements/)	 - Manage Actions product entitlements.
 

@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl images tags"
 slug: chainctl_images_tags
 url: /platform/chainctl/chainctl-docs/chainctl_images_tags/
@@ -34,7 +34,7 @@ Commands for listing and resolving image tags.
 
 ### SEE ALSO
 
-* [chainctl images](/chainguard/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
-* [chainctl images tags list](/chainguard/chainctl/chainctl-docs/chainctl_images_tags_list/)	 - List tags from repositories using --parent, --public, or --repo flags.
-* [chainctl images tags resolve](/chainguard/chainctl/chainctl-docs/chainctl_images_tags_resolve/)	 - Resolve tags for a specific image reference.
+* [chainctl images](/platform/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
+* [chainctl images tags list](/platform/chainctl/chainctl-docs/chainctl_images_tags_list/)	 - List tags from repositories using --parent, --public, or --repo flags.
+* [chainctl images tags resolve](/platform/chainctl/chainctl-docs/chainctl_images_tags_resolve/)	 - Resolve tags for a specific image reference.
 

@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl skills push"
 slug: chainctl_skills_push
 url: /platform/chainctl/chainctl-docs/chainctl_skills_push/
@@ -27,9 +27,9 @@ chainctl skills push [<path>] [flags]
 ### Options
 
 ```
-      --dry-run        Build and validate without pushing.
-  -g, --group string   Org or folder to publish under, e.g. "chainguard" or "chainguard/github" (default: current chainctl context).
-  -t, --tag string     Version tag to apply. (default "latest")
+      --dry-run           Build and validate without pushing.
+  -g, --group string      Org or folder to publish under, e.g. "chainguard" or "chainguard/github" (default: current chainctl context).
+  -t, --tag stringArray   Version tag to apply (repeatable, e.g. -t v1.0.0 -t latest). (default [latest])
 ```
 
 ### Options inherited from parent commands
@@ -49,5 +49,5 @@ chainctl skills push [<path>] [flags]
 
 ### SEE ALSO
 
-* [chainctl skills](/chainguard/chainctl/chainctl-docs/chainctl_skills/)	 - Skills registry related commands.
+* [chainctl skills](/platform/chainctl/chainctl-docs/chainctl_skills/)	 - Skills registry related commands.
 

@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl iam identities create gitlab"
 slug: chainctl_iam_identities_create_gitlab
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identities_create_gitlab/
@@ -57,5 +57,5 @@ chainctl iam identities create gitlab NAME --project-path=GITLAB-GROUP/GITLAB-PR
 
 ### SEE ALSO
 
-* [chainctl iam identities create](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create/)	 - Create a new identity.
+* [chainctl iam identities create](/platform/chainctl/chainctl-docs/chainctl_iam_identities_create/)	 - Create a new identity.
 

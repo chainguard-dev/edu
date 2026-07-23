@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl policies decision"
 slug: chainctl_policies_decision
 url: /platform/chainctl/chainctl-docs/chainctl_policies_decision/
@@ -37,6 +37,6 @@ or would have blocked, before promoting it to enforce mode.
 
 ### SEE ALSO
 
-* [chainctl policies](/chainguard/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
-* [chainctl policies decision list](/chainguard/chainctl/chainctl-docs/chainctl_policies_decision_list/)	 - List policy decisions.
+* [chainctl policies](/platform/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
+* [chainctl policies decision list](/platform/chainctl/chainctl-docs/chainctl_policies_decision_list/)	 - List policy decisions.
 

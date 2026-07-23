@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl iam organizations delete"
 slug: chainctl_iam_organizations_delete
 url: /platform/chainctl/chainctl-docs/chainctl_iam_organizations_delete/
@@ -56,5 +56,5 @@ chainctl iam organizations delete
 
 ### SEE ALSO
 
-* [chainctl iam organizations](/chainguard/chainctl/chainctl-docs/chainctl_iam_organizations/)	 - IAM organization interactions.
+* [chainctl iam organizations](/platform/chainctl/chainctl-docs/chainctl_iam_organizations/)	 - IAM organization interactions.
 

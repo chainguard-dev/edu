@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl auth configure-docker"
 slug: chainctl_auth_configure-docker
 url: /platform/chainctl/chainctl-docs/chainctl_auth_configure-docker/
@@ -50,5 +50,5 @@ chainctl auth configure-docker [flags]
 
 ### SEE ALSO
 
-* [chainctl auth](/chainguard/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
+* [chainctl auth](/platform/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
 

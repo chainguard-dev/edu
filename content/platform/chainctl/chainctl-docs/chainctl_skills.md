@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl skills"
 slug: chainctl_skills
 url: /platform/chainctl/chainctl-docs/chainctl_skills/
@@ -30,16 +30,16 @@ Skills registry related commands.
 
 ### SEE ALSO
 
-* [chainctl](/chainguard/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
-* [chainctl skills accept-terms](/chainguard/chainctl/chainctl-docs/chainctl_skills_accept-terms/)	 - Accept legal terms required to publish skills.
-* [chainctl skills delete](/chainguard/chainctl/chainctl-docs/chainctl_skills_delete/)	 - Remove a published version of a skill.
-* [chainctl skills describe](/chainguard/chainctl/chainctl-docs/chainctl_skills_describe/)	 - Show metadata for a published skill.
-* [chainctl skills entitlements](/chainguard/chainctl/chainctl-docs/chainctl_skills_entitlements/)	 - Manage skills entitlements for an organization.
-* [chainctl skills install](/chainguard/chainctl/chainctl-docs/chainctl_skills_install/)	 - Download a skill and install it into agent directories.
-* [chainctl skills list](/chainguard/chainctl/chainctl-docs/chainctl_skills_list/)	 - List skills published by an org.
-* [chainctl skills pull](/chainguard/chainctl/chainctl-docs/chainctl_skills_pull/)	 - Download a published skill to a local directory.
-* [chainctl skills push](/chainguard/chainctl/chainctl-docs/chainctl_skills_push/)	 - Package a skill directory and publish it to skills.cgr.dev.
-* [chainctl skills uninstall](/chainguard/chainctl/chainctl-docs/chainctl_skills_uninstall/)	 - Remove a skill from agent directories on the local machine.
-* [chainctl skills validate](/chainguard/chainctl/chainctl-docs/chainctl_skills_validate/)	 - Check a skill directory for spec compliance without making network calls.
-* [chainctl skills versions](/chainguard/chainctl/chainctl-docs/chainctl_skills_versions/)	 - List all published versions (tags) for a skill.
+* [chainctl](/platform/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
+* [chainctl skills accept-terms](/platform/chainctl/chainctl-docs/chainctl_skills_accept-terms/)	 - Accept legal terms required to publish skills.
+* [chainctl skills delete](/platform/chainctl/chainctl-docs/chainctl_skills_delete/)	 - Remove a published version of a skill.
+* [chainctl skills describe](/platform/chainctl/chainctl-docs/chainctl_skills_describe/)	 - Show metadata for a published skill.
+* [chainctl skills entitlements](/platform/chainctl/chainctl-docs/chainctl_skills_entitlements/)	 - Manage skills entitlements for an organization.
+* [chainctl skills install](/platform/chainctl/chainctl-docs/chainctl_skills_install/)	 - Download a skill and install it into agent directories.
+* [chainctl skills list](/platform/chainctl/chainctl-docs/chainctl_skills_list/)	 - List skills published by an org.
+* [chainctl skills pull](/platform/chainctl/chainctl-docs/chainctl_skills_pull/)	 - Download a published skill to a local directory.
+* [chainctl skills push](/platform/chainctl/chainctl-docs/chainctl_skills_push/)	 - Package a skill directory and publish it to skills.cgr.dev.
+* [chainctl skills uninstall](/platform/chainctl/chainctl-docs/chainctl_skills_uninstall/)	 - Remove a skill from agent directories on the local machine.
+* [chainctl skills validate](/platform/chainctl/chainctl-docs/chainctl_skills_validate/)	 - Check a skill directory for spec compliance without making network calls.
+* [chainctl skills versions](/platform/chainctl/chainctl-docs/chainctl_skills_versions/)	 - List all published versions (tags) for a skill.
 

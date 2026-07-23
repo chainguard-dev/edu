@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl policies binding delete"
 slug: chainctl_policies_binding_delete
 url: /platform/chainctl/chainctl-docs/chainctl_policies_binding_delete/
@@ -62,5 +62,5 @@ chainctl policies binding delete [BINDING_ID | --policy POLICY] [--parent ORG] [
 
 ### SEE ALSO
 
-* [chainctl policies binding](/chainguard/chainctl/chainctl-docs/chainctl_policies_binding/)	 - Manage policy bindings.
+* [chainctl policies binding](/platform/chainctl/chainctl-docs/chainctl_policies_binding/)	 - Manage policy bindings.
 

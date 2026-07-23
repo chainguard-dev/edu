@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl skills entitlements delete"
 slug: chainctl_skills_entitlements_delete
 url: /platform/chainctl/chainctl-docs/chainctl_skills_entitlements_delete/
@@ -47,5 +47,5 @@ chainctl skills entitlements delete --parent=PARENT [flags]
 
 ### SEE ALSO
 
-* [chainctl skills entitlements](/chainguard/chainctl/chainctl-docs/chainctl_skills_entitlements/)	 - Manage skills entitlements for an organization.
+* [chainctl skills entitlements](/platform/chainctl/chainctl-docs/chainctl_skills_entitlements/)	 - Manage skills entitlements for an organization.
 

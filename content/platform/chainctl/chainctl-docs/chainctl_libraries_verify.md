@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl libraries verify"
 slug: chainctl_libraries_verify
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_verify/
@@ -62,7 +62,8 @@ chainctl libraries verify [path...] [flags]
   # Verify npm cache (auto-detected by _cacache/index-v5/ structure)
   chainctl libraries verify "$(npm config get cache)"
 
-  # Verify pnpm store (auto-detected by v10/index/ or v11/index/ structure)
+  # Verify pnpm store (auto-detected; supports pnpm 10+ index dirs and the
+  # pnpm 11 SQLite index, and the versioned path reported by newer pnpm)
   chainctl libraries verify "$(pnpm store path)"
 
   # Verify Yarn Classic (v1.x) cache
@@ -98,5 +99,5 @@ chainctl libraries verify [path...] [flags]
 
 ### SEE ALSO
 
-* [chainctl libraries](/chainguard/chainctl/chainctl-docs/chainctl_libraries/)	 - Ecosystem library related commands.
+* [chainctl libraries](/platform/chainctl/chainctl-docs/chainctl_libraries/)	 - Ecosystem library related commands.
 

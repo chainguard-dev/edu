@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl config unset"
 slug: chainctl_config_unset
 url: /platform/chainctl/chainctl-docs/chainctl_config_unset/
@@ -45,5 +45,5 @@ chainctl config unset PROPERTY_NAME
 
 ### SEE ALSO
 
-* [chainctl config](/chainguard/chainctl/chainctl-docs/chainctl_config/)	 - Local config file commands for chainctl.
+* [chainctl config](/platform/chainctl/chainctl-docs/chainctl_config/)	 - Local config file commands for chainctl.
 

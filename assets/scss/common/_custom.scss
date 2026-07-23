@@ -1,6 +1,14 @@
+@import "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css";
+@import "resets";
+@import "fontfamilies";
+@import "breakpoints";
+@import "theming";
+@import "../components/typography-improvements";
+@import "../components/academy-rebrand";
+
 @font-face {
     font-display: swap;
-    font-family: "Gellix";
+    font-family: Gellix;
     font-style: normal;
     font-weight: 400;
     src: url("/fonts/Gellix-Regular.woff2") format("woff2");
@@ -8,20 +16,11 @@
 
 @font-face {
     font-display: swap;
-    font-family: "Gellix";
+    font-family: Gellix;
     font-style: normal;
     font-weight: 700;
     src: url("/fonts/Gellix-Bold.woff2") format("woff2");
 }
-
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
-
-@import "resets";
-@import "fontfamilies";
-@import "breakpoints";
-@import "theming";
-@import "../components/typography-improvements";
-@import "../components/academy-rebrand";
 
 // Logo base styles
 .navbar-title img,
@@ -49,7 +48,6 @@ html[data-dark-mode] .logo-purple {
 
 // Override for automatic detection
 @media (prefers-color-scheme: light) {
-
     img[src="/logos/linky-flat.svg"],
     .logo-purple {
         filter: none !important;
@@ -62,7 +60,6 @@ html[data-dark-mode] .logo-purple {
 }
 
 @media (prefers-color-scheme: dark) {
-
     html:not([data-dark-mode="false"]) img[src="/logos/linky-flat-white.svg"],
     html:not([data-dark-mode="false"]) .logo-purple {
         filter: brightness(0) invert(1) !important;
@@ -96,9 +93,8 @@ html[data-dark-mode] .logo-purple {
 }
 
 .docs-content {
-    padding-bottom: 0;
-    margin-left: 0 em;
-    padding: 0em;
+    margin-left: 0;
+    padding: 0;
 }
 
 .docs-content>h1:first-child {
@@ -108,17 +104,18 @@ html[data-dark-mode] .logo-purple {
 // tag history page image digests are long, wrap them
 .docs-content>table>tbody>tr>td:nth-child(3)>code {
     max-width: 320px;
-    word-wrap: anywhere;
+    overflow-wrap: anywhere;
 }
 
 .docs-content>table {
     --bs-table-bg: transparent !important;
+
     table-layout: fixed;
-    word-wrap: anywhere;
+    overflow-wrap: anywhere;
 }
 
 .docs-content>table>code {
-    word-wrap: anywhere;
+    overflow-wrap: anywhere;
 }
 
 // Beat <a> reset
@@ -147,7 +144,7 @@ html[data-dark-mode] .logo-purple {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #ffffff;
+    background: #fff;
     border: 1px solid rgba(13, 22, 28, 0.1);
     border-radius: 12px;
     width: 100%;
@@ -252,6 +249,7 @@ h2[id^="chainctl"] {
     border: 1px solid var(--pills-icon);
     border-radius: 4px;
     cursor: pointer;
+
     // Be under search overlay
     z-index: -1;
     position: relative;
@@ -277,8 +275,8 @@ h2[id^="chainctl"] {
 }
 
 .install-text-container {
-    padding-left: 0px !important;
-    padding-right: 0px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
     align-items: start;
 }
 
@@ -315,10 +313,10 @@ h2[id^="chainctl"] {
 }
 
 .section-row-container {
-    margin-left: 0px !important;
-    padding-left: 0px !important;
-    margin-right: 0px !important;
-    padding-right: 0px !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    margin-right: 0 !important;
+    padding-right: 0 !important;
 }
 
 .section-title {
@@ -498,20 +496,13 @@ h2[id^="chainctl"] {
 
 .search-content {
     position: absolute !important;
-    left: 32px !important;
     display: flex;
-    flex-direction: row;
-    align-items: center;
     padding: 4px 8px;
-
-    width: 216px;
-    height: 28px;
     font-family: $TextFont;
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
-
     top: 160px !important;
     height: auto;
     left: 24px !important;
@@ -662,7 +653,7 @@ header .search-container {
 
     .active {
         color: var(--tab-active-color);
-        box-shadow: 0px 1px 0px var(--tabs-active-color);
+        box-shadow: 0 1px 0 var(--tabs-active-color);
     }
 }
 
@@ -803,14 +794,17 @@ header .search-container {
     overflow-x: visible;
     padding-right: 12px;
     -ms-overflow-style: none;
+
     /* Internet Explorer 10+ */
     scrollbar-width: none;
+
     /* Firefox */
 }
 
 
 #sidebar-default::-webkit-scrollbar {
     display: none;
+
     /* Safari and Chrome */
 }
 
@@ -883,6 +877,7 @@ header .search-container {
 
 .footer-social-icons img {
     padding: .5em;
+
     // transform: scale(1);
 }
 
@@ -894,13 +889,13 @@ header .search-container {
 .footer-column-container {
     display: flex;
     padding: 0 10%;
+
     // gap: .5em;
     justify-content: center;
     flex-wrap: wrap;
 }
 
 @media (min-width: 673px) {
-
     .footer-column-left,
     .footer-column-right {
         display: contents;
@@ -1007,6 +1002,7 @@ header .search-container {
     border-color: var(--suggestions-border);
     background-color: var(--suggestions-background) !important;
     z-index: 1002;
+
     // Account for padding
     max-width: calc(100dvw - 48px);
     position: fixed !important;
@@ -1249,28 +1245,24 @@ header .search-container {
 
 // Pure CSS menu item nesting
 .sidebar-item-list-item {
-
     .sidebar-subcategory,
     .sidebar-item>button {
         padding-left: 12px;
     }
 
     .sidebar-item-list-item {
-
         .sidebar-subcategory,
         .sidebar-item>button {
             padding-left: 24px;
         }
 
         .sidebar-item-list-item {
-
             .sidebar-subcategory,
             .sidebar-item>button {
                 padding-left: 36px;
             }
 
             .sidebar-item-list-item {
-
                 .sidebar-subcategory,
                 .sidebar-item>button {
                     padding-left: 48px;
@@ -1362,7 +1354,6 @@ header .search-container {
 }
 
 @keyframes toast {
-
     0%,
     100% {
         opacity: 0;
@@ -1378,6 +1369,7 @@ header .search-container {
     display: inline-block;
     text-align: center;
     vertical-align: bottom;
+
     // With inherent text spacing, adds up to 12
     margin-right: 5px;
     width: 31px;
@@ -1423,7 +1415,6 @@ header .search-container {
 
 // Cap content to a constant on big screen size
 @media (min-width: $MaxContentLayoutWidth) {
-
     .docs-content,
     .docs-content.has-toc {
         max-width: $MaxContentWidth;
@@ -1432,7 +1423,6 @@ header .search-container {
 
 // Cap content at 100% in mobile layout
 @media (max-width: $MobileLayoutWidth) {
-
     .docs-content,
     .docs-content.has-toc {
         max-width: 100%;
@@ -1447,7 +1437,6 @@ header .search-container {
 }
 
 [data-dark-mode] .docs-content.docs-content {
-
     a.sl-block,
     a.sl-link {
         color: var(--article-link-secondary-color);
@@ -1476,7 +1465,6 @@ blockquote p a {
     font-size: 1.25em;
     text-align: center;
     max-width: 80ch;
-    word-wrap: break-word;
     overflow-wrap: break-word;
 
     a {
@@ -1508,6 +1496,7 @@ blockquote p a {
     width: auto;
     height: auto;
     object-fit: contain;
+
     /* Optional but recommended to prevent any stretching */
     scale: 1;
     transform: scale(1);
@@ -1522,6 +1511,7 @@ blockquote p a {
     width: auto;
     max-width: 100%;
 }
+
 .tabs-nav {
   display: flex;
   flex-wrap: wrap;

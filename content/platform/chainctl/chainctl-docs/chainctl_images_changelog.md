@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl images changelog"
 slug: chainctl_images_changelog
 url: /platform/chainctl/chainctl-docs/chainctl_images_changelog/
@@ -65,5 +65,5 @@ chainctl images changelog cgr.dev/chainguard/nginx:latest --output table
 
 ### SEE ALSO
 
-* [chainctl images](/chainguard/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
+* [chainctl images](/platform/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
 
