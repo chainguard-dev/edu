@@ -142,11 +142,18 @@ repos:
         # any local fix would lose on the next sync, so it is not linted here.
         exclude: ^content/platform/chainctl/chainctl-docs/
 
-  # SCSS/stylelint linting is temporarily not wired here. The previous repo-local
-  # node hook could not resolve the shared `extends`
-  # (stylelint-config-standard-scss) in CI: stylelint resolves `extends` from the
-  # config file's directory (repo root), not from the hook's isolated node
-  # environment, and the pre-commit CI has no repo-root node_modules. That made
-  # every PR touching assets/scss fail the required check. It will be re-added to
-  # run against the project's own toolchain, with a Node/npm step in the
-  # pre-commit CI job. Tracking: DOCS-81.
+  # Lint SCSS against .stylelintrc.json using the project's own stylelint
+  # (node_modules/.bin/stylelint), not a pre-commit-managed environment. stylelint
+  # resolves its shared `extends` (stylelint-config-standard-scss) from the repo's
+  # node_modules, so the toolchain must be installed: `npm install` locally and
+  # `npm ci` in CI (see .github/workflows/pre-commit.yaml). --allow-empty-input
+  # keeps the hook green when a commit touches only files excluded by
+  # .stylelintignore.
+  - repo: local
+    hooks:
+      - id: stylelint
+        name: stylelint (SCSS)
+        entry: node_modules/.bin/stylelint
+        language: system
+        args: ['--allow-empty-input']
+        files: ^assets/scss/.*\.(css|scss|sass)$
