@@ -40,6 +40,10 @@ These fail the commit, and the required CI check, when they find a problem:
 Each linter reads the repository's own configuration, for example
 `.stylelintrc.json` for SCSS and `.markdownlint-cli2.jsonc` for Markdown.
 
+The SCSS lint step runs the project's own `stylelint` from `node_modules`, so it
+needs `npm install` (see [Setting up](#setting-up)). The other linters use
+pre-commit-managed environments and need nothing more.
+
 ### Tag validation (pre-commit framework, advisory)
 
 - Checks that tags match the approved taxonomy, stay within five per article, and use the expected capitalization
@@ -68,7 +72,14 @@ Do this once per clone:
    ./setup-hooks.sh
    ```
 
-3. **Optional: install aspell** so the local spell check runs:
+3. **Install Node dependencies if you edit SCSS** (`assets/scss/`), so the
+   stylelint hook can run:
+
+   ```bash
+   npm install
+   ```
+
+4. **Optional: install aspell** so the local spell check runs:
 
    ```bash
    # macOS

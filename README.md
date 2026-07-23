@@ -141,7 +141,10 @@ brew install pre-commit        # or: pipx install pre-commit
 # 2. Enable the repository's git hook
 ./setup-hooks.sh
 
-# 3. Optional: install aspell for local spell checking
+# 3. If you edit SCSS (assets/scss/), install the Node dependencies
+npm install
+
+# 4. Optional: install aspell for local spell checking
 brew install aspell
 ```
 
@@ -151,6 +154,12 @@ pre-commit framework, so one hook covers everything. You don't need to run
 `pre-commit install`: git ignores `.git/hooks` once `core.hooksPath` is set, so a
 separately installed hook wouldn't run. To skip the hook for a single commit, use
 `git commit --no-verify`.
+
+The SCSS lint step runs the project's own `stylelint`, so it needs the Node
+dependencies from `npm install`. The other hooks use pre-commit-managed
+environments, so they need nothing beyond the framework itself. If you edit
+`assets/scss/` without installing the dependencies, that one hook fails; content
+and other contributors are unaffected.
 
 **Resources:**
 
