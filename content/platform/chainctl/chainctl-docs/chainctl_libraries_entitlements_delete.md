@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl libraries entitlements delete"
 slug: chainctl_libraries_entitlements_delete
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_delete/
@@ -41,5 +41,5 @@ chainctl libraries entitlements delete --parent=PARENT --ecosystem=LANGUAGE [fla
 
 ### SEE ALSO
 
-* [chainctl libraries entitlements](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements/)	 - Manage entitlements to language ecosystem libraries.
+* [chainctl libraries entitlements](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements/)	 - Manage entitlements to language ecosystem libraries.
 

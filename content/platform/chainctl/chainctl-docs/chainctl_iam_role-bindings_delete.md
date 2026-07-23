@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl iam role-bindings delete"
 slug: chainctl_iam_role-bindings_delete
 url: /platform/chainctl/chainctl-docs/chainctl_iam_role-bindings_delete/
@@ -47,5 +47,5 @@ chainctl iam role-bindings delete ROLE_BINDING_ID [--yes] [--output=id]
 
 ### SEE ALSO
 
-* [chainctl iam role-bindings](/chainguard/chainctl/chainctl-docs/chainctl_iam_role-bindings/)	 - IAM role-bindings resource interactions.
+* [chainctl iam role-bindings](/platform/chainctl/chainctl-docs/chainctl_iam_role-bindings/)	 - IAM role-bindings resource interactions.
 

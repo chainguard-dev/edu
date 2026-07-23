@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl config validate"
 slug: chainctl_config_validate
 url: /platform/chainctl/chainctl-docs/chainctl_config_validate/
@@ -34,5 +34,5 @@ chainctl config validate [--output=json|table] [flags]
 
 ### SEE ALSO
 
-* [chainctl config](/chainguard/chainctl/chainctl-docs/chainctl_config/)	 - Local config file commands for chainctl.
+* [chainctl config](/platform/chainctl/chainctl-docs/chainctl_config/)	 - Local config file commands for chainctl.
 

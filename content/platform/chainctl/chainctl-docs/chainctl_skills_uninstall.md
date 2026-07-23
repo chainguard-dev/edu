@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl skills uninstall"
 slug: chainctl_skills_uninstall
 url: /platform/chainctl/chainctl-docs/chainctl_skills_uninstall/
@@ -54,5 +54,5 @@ chainctl skills uninstall <name> [flags]
 
 ### SEE ALSO
 
-* [chainctl skills](/chainguard/chainctl/chainctl-docs/chainctl_skills/)	 - Skills registry related commands.
+* [chainctl skills](/platform/chainctl/chainctl-docs/chainctl_skills/)	 - Skills registry related commands.
 

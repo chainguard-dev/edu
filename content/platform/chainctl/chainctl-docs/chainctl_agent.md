@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl agent"
 slug: chainctl_agent
 url: /platform/chainctl/chainctl-docs/chainctl_agent/
@@ -30,6 +30,6 @@ Agent-powered commands.
 
 ### SEE ALSO
 
-* [chainctl](/chainguard/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
-* [chainctl agent accept-terms](/chainguard/chainctl/chainctl-docs/chainctl_agent_accept-terms/)	 - Accept required legal terms.
+* [chainctl](/platform/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
+* [chainctl agent accept-terms](/platform/chainctl/chainctl-docs/chainctl_agent_accept-terms/)	 - Accept required legal terms.
 

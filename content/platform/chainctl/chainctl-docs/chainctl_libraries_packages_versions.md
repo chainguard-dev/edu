@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl libraries packages versions"
 slug: chainctl_libraries_packages_versions
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_packages_versions/
@@ -21,6 +21,12 @@ List all versions of a single package, identified by the id returned by 'chainct
 chainctl libraries packages versions PACKAGE_ID [--output=json|table] [flags]
 ```
 
+### Options
+
+```
+      --upstream   Also include upstream-registry versions. By default only Chainguard-built versions are listed.
+```
+
 ### Options inherited from parent commands
 
 ```
@@ -38,5 +44,5 @@ chainctl libraries packages versions PACKAGE_ID [--output=json|table] [flags]
 
 ### SEE ALSO
 
-* [chainctl libraries packages](/chainguard/chainctl/chainctl-docs/chainctl_libraries_packages/)	 - Inspect Libraries packages.
+* [chainctl libraries packages](/platform/chainctl/chainctl-docs/chainctl_libraries_packages/)	 - Inspect Libraries packages.
 

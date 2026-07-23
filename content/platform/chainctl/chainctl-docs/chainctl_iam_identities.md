@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl iam identities"
 slug: chainctl_iam_identities
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identities/
@@ -30,10 +30,10 @@ Identity management.
 
 ### SEE ALSO
 
-* [chainctl iam](/chainguard/chainctl/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.
-* [chainctl iam identities create](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create/)	 - Create a new identity.
-* [chainctl iam identities delete](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_delete/)	 - Delete one or more identities.
-* [chainctl iam identities describe](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_describe/)	 - View the details of an identity.
-* [chainctl iam identities list](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_list/)	 - List identities.
-* [chainctl iam identities update](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_update/)	 - Update an identity
+* [chainctl iam](/platform/chainctl/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.
+* [chainctl iam identities create](/platform/chainctl/chainctl-docs/chainctl_iam_identities_create/)	 - Create a new identity.
+* [chainctl iam identities delete](/platform/chainctl/chainctl-docs/chainctl_iam_identities_delete/)	 - Delete one or more identities.
+* [chainctl iam identities describe](/platform/chainctl/chainctl-docs/chainctl_iam_identities_describe/)	 - View the details of an identity.
+* [chainctl iam identities list](/platform/chainctl/chainctl-docs/chainctl_iam_identities_list/)	 - List identities.
+* [chainctl iam identities update](/platform/chainctl/chainctl-docs/chainctl_iam_identities_update/)	 - Update an identity
 

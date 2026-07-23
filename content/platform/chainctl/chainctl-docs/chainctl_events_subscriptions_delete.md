@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl events subscriptions delete"
 slug: chainctl_events_subscriptions_delete
 url: /platform/chainctl/chainctl-docs/chainctl_events_subscriptions_delete/
@@ -40,5 +40,5 @@ chainctl events subscriptions delete SUBSCRIPTION_ID [--yes] [--output=id] [flag
 
 ### SEE ALSO
 
-* [chainctl events subscriptions](/chainguard/chainctl/chainctl-docs/chainctl_events_subscriptions/)	 - Subscription interactions.
+* [chainctl events subscriptions](/platform/chainctl/chainctl-docs/chainctl_events_subscriptions/)	 - Subscription interactions.
 

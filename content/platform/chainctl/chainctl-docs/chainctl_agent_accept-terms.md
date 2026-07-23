@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl agent accept-terms"
 slug: chainctl_agent_accept-terms
 url: /platform/chainctl/chainctl-docs/chainctl_agent_accept-terms/
@@ -24,7 +24,7 @@ chainctl agent accept-terms [flags]
 ### Options
 
 ```
-      --group string   UIDP of the group to accept terms for
+      --parent string   Name or UIDP of the group to accept terms for. Defaults to your configured default group; prompts if unset.
 ```
 
 ### Options inherited from parent commands
@@ -44,5 +44,5 @@ chainctl agent accept-terms [flags]
 
 ### SEE ALSO
 
-* [chainctl agent](/chainguard/chainctl/chainctl-docs/chainctl_agent/)	 - Agent-powered commands.
+* [chainctl agent](/platform/chainctl/chainctl-docs/chainctl_agent/)	 - Agent-powered commands.
 

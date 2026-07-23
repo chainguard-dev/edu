@@ -1,17 +1,35 @@
 ---
 date: 2026-07-22T19:49:10Z
-title: "chainctl images helm"
-slug: chainctl_images_helm
-url: /platform/chainctl/chainctl-docs/chainctl_images_helm/
+title: "chainctl guardener github status"
+slug: chainctl_guardener_github_status
+url: /platform/chainctl/chainctl-docs/chainctl_guardener_github_status/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl images helm
+## chainctl guardener github status
 
-Helm chart related commands
+List the GitHub organizations linked to a Chainguard group.
+
+### Synopsis
+
+List the GitHub organizations linked to a Chainguard group.
+
+Requires the guardener.association.list capability on the group (read-only; no
+GitHub authorization or browser flow is involved). When --group is omitted, you
+are prompted to pick from your groups.
+
+```
+chainctl guardener github status [flags]
+```
+
+### Options
+
+```
+      --group string   Name or UIDP of the Chainguard group to list. Prompts interactively if omitted.
+```
 
 ### Options inherited from parent commands
 
@@ -30,7 +48,5 @@ Helm chart related commands
 
 ### SEE ALSO
 
-* [chainctl images](/platform/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
-* [chainctl images helm refs](/platform/chainctl/chainctl-docs/chainctl_images_helm_refs/)	 - List image references pinned in a Chainguard Helm chart
-* [chainctl images helm values](/platform/chainctl/chainctl-docs/chainctl_images_helm_values/)	 - Generate relocation overrides for a Chainguard Helm chart
+* [chainctl guardener github](/platform/chainctl/chainctl-docs/chainctl_guardener_github/)	 - Link and unlink a GitHub organization to a Chainguard group.
 

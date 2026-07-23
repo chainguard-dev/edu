@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl libraries policy list"
 slug: chainctl_libraries_policy_list
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_policy_list/
@@ -44,5 +44,5 @@ chainctl libraries policy list [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [-
 
 ### SEE ALSO
 
-* [chainctl libraries policy](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy/)	 - Manage Libraries policies.
+* [chainctl libraries policy](/platform/chainctl/chainctl-docs/chainctl_libraries_policy/)	 - Manage Libraries policies.
 

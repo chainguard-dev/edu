@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl iam invites delete"
 slug: chainctl_iam_invites_delete
 url: /platform/chainctl/chainctl-docs/chainctl_iam_invites_delete/
@@ -41,5 +41,5 @@ chainctl iam invites delete {INVITE_ID... | --expired} [--yes] [flags]
 
 ### SEE ALSO
 
-* [chainctl iam invites](/chainguard/chainctl/chainctl-docs/chainctl_iam_invites/)	 - Manage invite codes that register identities with Chainguard.
+* [chainctl iam invites](/platform/chainctl/chainctl-docs/chainctl_iam_invites/)	 - Manage invite codes that register identities with Chainguard.
 

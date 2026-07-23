@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl events subscriptions"
 slug: chainctl_events_subscriptions
 url: /platform/chainctl/chainctl-docs/chainctl_events_subscriptions/
@@ -30,8 +30,8 @@ Subscription interactions.
 
 ### SEE ALSO
 
-* [chainctl events](/chainguard/chainctl/chainctl-docs/chainctl_events/)	 - Events related commands for the Chainguard platform.
-* [chainctl events subscriptions create](/chainguard/chainctl/chainctl-docs/chainctl_events_subscriptions_create/)	 - Subscribe to events under an organization or folder.
-* [chainctl events subscriptions delete](/chainguard/chainctl/chainctl-docs/chainctl_events_subscriptions_delete/)	 - Delete a subscription.
-* [chainctl events subscriptions list](/chainguard/chainctl/chainctl-docs/chainctl_events_subscriptions_list/)	 - List subscriptions.
+* [chainctl events](/platform/chainctl/chainctl-docs/chainctl_events/)	 - Events related commands for the Chainguard platform.
+* [chainctl events subscriptions create](/platform/chainctl/chainctl-docs/chainctl_events_subscriptions_create/)	 - Subscribe to events under an organization or folder.
+* [chainctl events subscriptions delete](/platform/chainctl/chainctl-docs/chainctl_events_subscriptions_delete/)	 - Delete a subscription.
+* [chainctl events subscriptions list](/platform/chainctl/chainctl-docs/chainctl_events_subscriptions_list/)	 - List subscriptions.
 

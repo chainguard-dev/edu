@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl packages"
 slug: chainctl_packages
 url: /platform/chainctl/chainctl-docs/chainctl_packages/
@@ -30,6 +30,6 @@ Interact with Chainguard packages
 
 ### SEE ALSO
 
-* [chainctl](/chainguard/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
-* [chainctl packages versions](/chainguard/chainctl/chainctl-docs/chainctl_packages_versions/)	 - Package version related commands for the Chainguard platform.
+* [chainctl](/platform/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
+* [chainctl packages versions](/platform/chainctl/chainctl-docs/chainctl_packages_versions/)	 - Package version related commands for the Chainguard platform.
 

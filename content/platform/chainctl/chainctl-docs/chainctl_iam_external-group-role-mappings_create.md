@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl iam external-group-role-mappings create"
 slug: chainctl_iam_external-group-role-mappings_create
 url: /platform/chainctl/chainctl-docs/chainctl_iam_external-group-role-mappings_create/
@@ -50,5 +50,5 @@ chainctl iam external-group-role-mappings create --external-group-id GROUP --rol
 
 ### SEE ALSO
 
-* [chainctl iam external-group-role-mappings](/chainguard/chainctl/chainctl-docs/chainctl_iam_external-group-role-mappings/)	 - Manage IdP group-to-role mappings.
+* [chainctl iam external-group-role-mappings](/platform/chainctl/chainctl-docs/chainctl_iam_external-group-role-mappings/)	 - Manage IdP group-to-role mappings.
 

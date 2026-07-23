@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl policies enable"
 slug: chainctl_policies_enable
 url: /platform/chainctl/chainctl-docs/chainctl_policies_enable/
@@ -20,12 +20,13 @@ If the policy is already enabled, its mode (or parameter values) is updated.
 
 This is a shortcut for "policies binding create".
 
-The default mode is DRY_RUN. Pass --param=KEY=VALUE (repeatable) to supply
-values for policies that declare a parameter schema; omitted parameters
-fall back to the schema's declared default.
+--mode is required and must be either ENFORCE or DRY_RUN. Pass
+--param=KEY=VALUE (repeatable) to supply values for policies that declare
+a parameter schema; omitted parameters fall back to the schema's declared
+default.
 
 ```
-chainctl policies enable --policy POLICY [--parent ORG] [--mode MODE] [--param KEY=VALUE] [--output=json|table] [flags]
+chainctl policies enable --policy POLICY [--parent ORG] --mode MODE [--param KEY=VALUE] [--output=json|table] [flags]
 ```
 
 ### Examples
@@ -46,7 +47,7 @@ chainctl policies enable --policy=cooldown --parent=example.com --mode=ENFORCE -
 ### Options
 
 ```
-      --mode string         The policy mode (ENFORCE or LOG).
+      --mode string         The policy mode (ENFORCE or DRY_RUN).
       --param stringArray   Parameter value as key=value. Repeatable.
       --parent string       The name or id of the organization to scope the binding to.
       --policy string       The name or UIDP of the policy to bind.
@@ -70,5 +71,5 @@ chainctl policies enable --policy=cooldown --parent=example.com --mode=ENFORCE -
 
 ### SEE ALSO
 
-* [chainctl policies](/chainguard/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
+* [chainctl policies](/platform/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
 

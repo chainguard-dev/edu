@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl auth token"
 slug: chainctl_auth_token
 url: /platform/chainctl/chainctl-docs/chainctl_auth_token/
@@ -15,6 +15,13 @@ Print the local Chainguard Token.
 
 ```
 chainctl auth token [flags]
+```
+
+### Options
+
+```
+      --capabilities strings   Request a token narrowed to the given capabilities.
+      --scope strings          Request a token with scope reduced to the given groups.
 ```
 
 ### Options inherited from parent commands
@@ -34,6 +41,6 @@ chainctl auth token [flags]
 
 ### SEE ALSO
 
-* [chainctl auth](/chainguard/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
-* [chainctl auth token capabilities](/chainguard/chainctl/chainctl-docs/chainctl_auth_token_capabilities/)	 - Print the capabilities of the local Chainguard Token.
+* [chainctl auth](/platform/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
+* [chainctl auth token capabilities](/platform/chainctl/chainctl-docs/chainctl_auth_token_capabilities/)	 - Print the capabilities of the local Chainguard Token.
 

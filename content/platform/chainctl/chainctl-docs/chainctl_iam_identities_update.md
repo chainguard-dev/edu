@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl iam identities update"
 slug: chainctl_iam_identities_update
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identities_update/
@@ -59,5 +59,5 @@ chainctl iam identities update IDENTITY_NAME | IDENTITY_ID [--description=DESC] 
 
 ### SEE ALSO
 
-* [chainctl iam identities](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities/)	 - Identity management.
+* [chainctl iam identities](/platform/chainctl/chainctl-docs/chainctl_iam_identities/)	 - Identity management.
 

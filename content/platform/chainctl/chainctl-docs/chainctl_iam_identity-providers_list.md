@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl iam identity-providers list"
 slug: chainctl_iam_identity-providers_list
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_list/
@@ -50,5 +50,5 @@ chainctl iam identity-providers list [--parent ORGANIZATION_NAME | ORGANIZATION_
 
 ### SEE ALSO
 
-* [chainctl iam identity-providers](/chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers/)	 - customer managed identity provider management
+* [chainctl iam identity-providers](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers/)	 - customer managed identity provider management
 

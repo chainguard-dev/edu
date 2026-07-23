@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl config"
 slug: chainctl_config
 url: /platform/chainctl/chainctl-docs/chainctl_config/
@@ -30,12 +30,12 @@ Local config file commands for chainctl.
 
 ### SEE ALSO
 
-* [chainctl](/chainguard/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
-* [chainctl config edit](/chainguard/chainctl/chainctl-docs/chainctl_config_edit/)	 - Edit the current chainctl config file.
-* [chainctl config reset](/chainguard/chainctl/chainctl-docs/chainctl_config_reset/)	 - Remove local chainctl config files and restore defaults.
-* [chainctl config save](/chainguard/chainctl/chainctl-docs/chainctl_config_save/)	 - Save the current chainctl config to a config file.
-* [chainctl config set](/chainguard/chainctl/chainctl-docs/chainctl_config_set/)	 - Set an individual configuration value property.
-* [chainctl config unset](/chainguard/chainctl/chainctl-docs/chainctl_config_unset/)	 - Unset a configuration property and return it to default.
-* [chainctl config validate](/chainguard/chainctl/chainctl-docs/chainctl_config_validate/)	 - Run diagnostics on local config.
-* [chainctl config view](/chainguard/chainctl/chainctl-docs/chainctl_config_view/)	 - View the current chainctl config.
+* [chainctl](/platform/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
+* [chainctl config edit](/platform/chainctl/chainctl-docs/chainctl_config_edit/)	 - Edit the current chainctl config file.
+* [chainctl config reset](/platform/chainctl/chainctl-docs/chainctl_config_reset/)	 - Remove local chainctl config files and restore defaults.
+* [chainctl config save](/platform/chainctl/chainctl-docs/chainctl_config_save/)	 - Save the current chainctl config to a config file.
+* [chainctl config set](/platform/chainctl/chainctl-docs/chainctl_config_set/)	 - Set an individual configuration value property.
+* [chainctl config unset](/platform/chainctl/chainctl-docs/chainctl_config_unset/)	 - Unset a configuration property and return it to default.
+* [chainctl config validate](/platform/chainctl/chainctl-docs/chainctl_config_validate/)	 - Run diagnostics on local config.
+* [chainctl config view](/platform/chainctl/chainctl-docs/chainctl_config_view/)	 - View the current chainctl config.
 

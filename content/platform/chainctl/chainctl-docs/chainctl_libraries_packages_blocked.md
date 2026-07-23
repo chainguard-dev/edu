@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl libraries packages blocked"
 slug: chainctl_libraries_packages_blocked
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_packages_blocked/
@@ -18,13 +18,14 @@ List blocked Libraries packages.
 List packages that were withheld by an active Libraries policy. Defaults to ENFORCE-mode events from the last 30 days.
 
 ```
-chainctl libraries packages blocked [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--ecosystem ECOSYSTEM] [--package NAME] [--mode ENFORCE|PREVIEW] [--output=json|table] [flags]
+chainctl libraries packages blocked [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--ecosystem ECOSYSTEM] [--package NAME] [--mode ENFORCE|PREVIEW] [--limit N] [--output=json|table] [flags]
 ```
 
 ### Options
 
 ```
       --ecosystem string   Only show events for this ecosystem (JAVA, PYTHON, JAVASCRIPT).
+      --limit int32        The number of blocked packages per page in an interactive terminal; otherwise the maximum number to return. (default 50)
       --mode string        Only show events in this mode (ENFORCE or PREVIEW). Defaults to ENFORCE.
       --package string     Only show events whose package name matches (exact, case-insensitive).
       --parent string      The name or id of the organization to scope events to.
@@ -47,5 +48,5 @@ chainctl libraries packages blocked [--parent ORGANIZATION_NAME | ORGANIZATION_I
 
 ### SEE ALSO
 
-* [chainctl libraries packages](/chainguard/chainctl/chainctl-docs/chainctl_libraries_packages/)	 - Inspect Libraries packages.
+* [chainctl libraries packages](/platform/chainctl/chainctl-docs/chainctl_libraries_packages/)	 - Inspect Libraries packages.
 
