@@ -141,3 +141,22 @@ repos:
         # generator-inherent violations (hard tabs, unlabeled code fences) that
         # any local fix would lose on the next sync, so it is not linted here.
         exclude: ^content/platform/chainctl/chainctl-docs/
+
+  # Lint SCSS against .stylelintrc.json. Unlike the eslint/markdown hooks above,
+  # this is a repo-local node hook rather than an external mirror: no maintained
+  # stylelint mirror exists, so pinning the toolchain in-repo via
+  # additional_dependencies avoids a third-party wrapper. pre-commit installs
+  # these into an isolated node environment, so contributors need no local
+  # `npm install` and CI needs only Python. --allow-empty-input keeps the hook
+  # green when a commit touches only files excluded by .stylelintignore.
+  - repo: local
+    hooks:
+      - id: stylelint
+        name: stylelint (SCSS)
+        entry: stylelint
+        language: node
+        args: ['--allow-empty-input']
+        files: ^assets/scss/.*\.(css|scss|sass)$
+        additional_dependencies:
+          - stylelint@^17.14.1
+          - stylelint-config-standard-scss@^17.0.0
