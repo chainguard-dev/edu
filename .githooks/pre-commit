@@ -1,16 +1,23 @@
 #!/usr/bin/env python3
-"""Git pre-commit hook: stamp date/lastmod on Hugo content files.
+"""Git pre-commit hook: stamp content dates, then run the pre-commit framework.
 
-This is kept as a native git hook (enabled via ./setup-hooks.sh) rather than a
-pre-commit-framework hook because it stamps the current time and re-stages the
-file into the same commit -- pre-commit does not auto-restage, and a "now"
-timestamp can never pass a CI idempotency check.
+This is the single local entry point for commit checks. It runs in two steps:
 
-Tag validation and spell checking now live in the pre-commit framework
-(.pre-commit-config.yaml -> scripts/hooks/content_checks.py).
+1. Stamp date/lastmod on staged Hugo content files. This stays a native hook
+   (rather than a pre-commit-framework hook) because it stamps the current time
+   and re-stages the file into the same commit -- pre-commit does not
+   auto-restage, and a "now" timestamp can never pass a CI idempotency check.
+2. Delegate to the pre-commit framework (.pre-commit-config.yaml) for linting,
+   secret scanning, tag validation, spell checking, and SCSS/stylelint.
+
+Both run from one hook on purpose. Enabling this hook sets
+core.hooksPath=.githooks (see ./setup-hooks.sh), which makes git ignore
+.git/hooks entirely -- so a separately `pre-commit install`ed hook would never
+fire. Chaining the framework from here keeps a single, conflict-free setup.
 """
 
 import re
+import shutil
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -80,6 +87,22 @@ def update_dates():
     return added, updated
 
 
+def run_framework_checks():
+    """Run the pre-commit framework on staged files (lint, secrets, tags, spell, SCSS).
+
+    Returns pre-commit's exit code so a failing check blocks the commit. If the
+    `pre-commit` binary is not installed, warn and let the commit through --
+    the same checks still run as a required check in CI.
+    """
+    if shutil.which('pre-commit') is None:
+        print("\n⚠️  'pre-commit' is not installed, so lint/secret/tag/spell/SCSS "
+              "checks did not run locally.")
+        print("   Install it so they run before you push:")
+        print("     brew install pre-commit   # or: pipx install pre-commit")
+        return 0
+    return subprocess.run(['pre-commit', 'run']).returncode
+
+
 def main():
     added, updated = update_dates()
     if added:
@@ -90,7 +113,7 @@ def main():
         print(f"📅 Updated lastmod on {len(updated)} file(s):")
         for f in updated:
             print(f"   - {f}")
-    return 0
+    return run_framework_checks()
 
 
 if __name__ == '__main__':
