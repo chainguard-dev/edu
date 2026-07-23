@@ -2,58 +2,84 @@
 
 This guide explains the automated checks that run on your content before it merges.
 
-## Two systems
+## How local checks run
 
-Content quality is enforced by two complementary systems:
+One git hook (`.githooks/pre-commit`, enabled by `./setup-hooks.sh`) runs on
+every commit and does two things:
 
-1. **The [pre-commit](https://pre-commit.com/) framework** (`.pre-commit-config.yaml`)
-   runs on `git commit` and as a **required** CI check on pull requests. It handles
-   tag validation and spell checking (plus repo-wide security/lint hooks). In CI it
-   runs only on the files a PR changes.
-2. **A native git hook** (`.githooks/pre-commit`, enabled via `./setup-hooks.sh`)
-   stamps content dates. It stays a git hook because it re-stages the stamped file
-   into your commit, which the pre-commit framework does not do.
+1. **Stamps content dates.** It adds `date` and `lastmod` to new content files
+   and refreshes `lastmod` on edited ones, then re-stages the file into your
+   commit. This stays a native git hook because the pre-commit framework doesn't
+   re-stage files, and a "now" timestamp would never pass a CI idempotency check.
+2. **Runs the [pre-commit](https://pre-commit.com/) framework**
+   (`.pre-commit-config.yaml`) for linting, secret scanning, tag validation,
+   spell checking, and SCSS/stylelint. The same framework runs as a **required**
+   check on pull requests, where it lints only the files a pull request changes.
+
+Because `./setup-hooks.sh` sets `core.hooksPath=.githooks`, git runs this hook
+and ignores anything in `.git/hooks`. You don't run `pre-commit install`: the
+hook calls the framework for you, so one setup covers everything.
 
 ## What gets checked
 
-### 1. Automatic Date Management (git hook)
+### Content date stamping (git hook step)
 
-- **New files**: Automatically adds `date` and `lastmod` fields with the current timestamp
-- **Modified files**: Automatically updates the `lastmod` field to reflect when changes were made
-- **Format**: Uses ISO 8601 format with UTC timezone (e.g., `2025-01-16T10:30:45+00:00`)
-- **No manual work needed**: You no longer need to add or update these fields yourself!
+- **New files**: Adds `date` and `lastmod` fields with the current timestamp
+- **Modified files**: Refreshes the `lastmod` field
+- **Format**: ISO 8601 with UTC timezone, for example `2025-01-16T10:30:45+00:00`
+- You don't add or update these fields yourself
 
-### 2. Tag Validation (pre-commit framework, blocking)
+### Linting and security (pre-commit framework)
 
-- Ensures all tags match our approved taxonomy
-- Checks that you haven't exceeded 5 tags per article
-- Verifies proper capitalization (Title Case vs. acronyms)
+These fail the commit, and the required CI check, when they find a problem:
 
-### 3. Spelling (pre-commit framework, advisory + local-only)
+- **Code and content linting**: JavaScript (`eslint`), Markdown (`markdownlint`), SCSS (`stylelint`), and Python (`bandit`, `black`)
+- **Security and hygiene**: secret scanning (`gitleaks`), private-key detection, large-file checks, and whitespace, end-of-file, and line-ending fixes
+- **GitHub Actions**: workflow security (`zizmor`) and linting (`actionlint`)
+
+Each linter reads the repository's own configuration, for example
+`.stylelintrc.json` for SCSS and `.markdownlint-cli2.jsonc` for Markdown.
+
+The SCSS lint step runs the project's own `stylelint` from `node_modules`, so it
+needs `npm install` (see [Setting up](#setting-up)). The other linters use
+pre-commit-managed environments and need nothing more.
+
+### Tag validation (pre-commit framework, advisory)
+
+- Checks that tags match the approved taxonomy, stay within five per article, and use the expected capitalization
+- Reports problems as warnings but never blocks a commit
+
+### Spelling (pre-commit framework, advisory and local-only)
 
 - Catches typos and misspellings; reports but never blocks a commit
-- Runs locally only — the CI check skips it (`SKIP=content-spellcheck`)
-- Ignores code blocks (between ```), Hugo shortcodes (e.g. `{{< youtube >}}`), inline code (between `), and URLs
+- Runs locally only; the CI check skips it (`SKIP=content-spellcheck`)
+- Ignores code blocks, Hugo shortcodes (for example `{{< youtube >}}`), inline code, and URLs
 - Uses a custom dictionary for technical terms (`.aspell.en.pws`)
 
 ## Setting up
 
-### One-time setup
+Do this once per clone:
 
-1. **Install and enable pre-commit** (tags, spell check, security/lint):
+1. **Install the pre-commit framework:**
 
    ```bash
    brew install pre-commit        # or: pipx install pre-commit
-   pre-commit install
    ```
 
-2. **Enable the date-stamping git hook**:
+2. **Enable the git hook:**
 
    ```bash
    ./setup-hooks.sh
    ```
 
-3. **(Optional) Install aspell** so the local spell check runs:
+3. **Install Node dependencies if you edit SCSS** (`assets/scss/`), so the
+   stylelint hook can run:
+
+   ```bash
+   npm install
+   ```
+
+4. **Optional: install aspell** so the local spell check runs:
 
    ```bash
    # macOS
@@ -72,69 +98,51 @@ Content quality is enforced by two complementary systems:
    sudo pacman -S aspell
    ```
 
-That's it! Both run automatically when you commit.
+Every commit now stamps content dates and runs the framework checks. If you
+commit before installing the `pre-commit` framework, the hook still stamps dates
+and prints a reminder to install it.
 
-## Understanding the Output
+## Understanding the output
 
-When you run `git commit`, you'll see output like this:
+When you run `git commit`, the hook prints its date-stamp result first, then the
+pre-commit framework's per-hook results.
 
-### ✅ Success Case
+### A passing commit
 
 ```text
-🔍 Running pre-commit checks...
-
-📅 Updated lastmod dates for 1 file(s)
+📅 Updated lastmod on 1 file(s):
    - content/chainguard/chainguard-images/getting-started.md
-
-✅ All checks passed!
+trim trailing whitespace.................................................Passed
+fix end of files.........................................................Passed
+Detect hardcoded secrets.................................................Passed
+markdownlint-cli2........................................................Passed
+Validate content tags....................................................Passed
 ```
 
-### ⚠️ With Warnings
+### A blocked commit
+
+A blocking hook (a linter, a secret scan, or a file-hygiene check) prints the
+failure and stops the commit. Fix the reported issue, stage the change, and
+commit again:
 
 ```text
-🔍 Running pre-commit checks...
+markdownlint-cli2........................................................Failed
+- hook id: markdownlint-cli2
+- exit code: 1
 
-📅 Added date fields to 1 new file(s)
-   - content/chainguard/new-tutorial.md
+content/chainguard/tutorial.md:14 MD012/no-multiple-blanks Multiple consecutive blank lines
+```
 
-📄 content/chainguard/getting-started.md
-   Tags: ["Chainguard Containers", "Overview", "NewTag"]
+Some hooks fix the file for you (for example, trailing-whitespace and
+end-of-file-fixer) and then fail so you can review and re-stage the change.
+
+### Advisory warnings
+
+Tag and spelling checks print warnings but don't stop the commit:
+
+```text
+Validate content tags....................................................Passed
    ⚠️  Tag not in approved list: 'NewTag'
-   📝 Spelling errors found:
-      - 'recieve' on line(s): 23
-      - 'configuation' on line(s): 45
-
-============================================================
-Pre-commit Check Summary:
-  Tag Warnings: 1
-  Tag Errors: 0
-  Files with spelling issues: 1
-
-💡 Consider reviewing TAG_GUIDELINES.md for approved tags
-
-📝 Spelling issues found. Consider:
-   - Fixing typos
-   - Adding technical terms to your personal dictionary
-   - Using 'git commit --no-verify' to skip this check
-```
-
-### ❌ With Errors (Blocks Commit)
-
-```text
-🔍 Running pre-commit checks...
-
-📄 content/chainguard/tutorial.md
-   Tags: ["CHAINGUARD", "TUTORIAL"]
-   ❌  Tag should use Title Case: 'CHAINGUARD'
-   ❌  Tag should use Title Case: 'TUTORIAL'
-
-============================================================
-Pre-commit Check Summary:
-  Tag Warnings: 0
-  Tag Errors: 2
-  Files with spelling issues: 0
-
-❌ Commit blocked due to tag errors. Please fix and try again.
 ```
 
 ## Common Scenarios
@@ -189,9 +197,9 @@ lastmod: 2025-01-16T10:45:30+00:00
 ---
 ```
 
-### Fixing Tag Errors
+### Fixing tag warnings
 
-If you see a tag error, update your frontmatter:
+If you see a tag warning, update your frontmatter so the tag matches the approved taxonomy:
 
 ```yaml
 # ❌ Wrong
