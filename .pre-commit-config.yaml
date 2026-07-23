@@ -9,17 +9,28 @@ repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c  # frozen: v6.0.0
     hooks:
-      # content/platform/chainctl/chainctl-docs/ is generated upstream and synced
-      # in verbatim (see .github/actions/integrate-platform-docs). Its cobra-
-      # generated code fences carry trailing whitespace that reappears on every
-      # sync, so exclude it from the whitespace formatters (also unlinted below).
+      # Two sets of generated files are synced in verbatim (see
+      # .github/actions/integrate-platform-docs) and excluded from the whitespace
+      # formatters, because any fix the hooks apply is clobbered on the next sync:
+      #   - content/platform/chainctl/chainctl-docs/: cobra-generated docs whose
+      #     code fences carry trailing whitespace (also unlinted below).
+      #   - static/api*.json: OpenAPI specs pulled from cloud storage that lack a
+      #     trailing newline.
       - id: trailing-whitespace
-        exclude: ^content/platform/chainctl/chainctl-docs/
+        exclude: |
+          (?x)^(
+            content/platform/chainctl/chainctl-docs/|
+            static/api[^/]*\.json$
+          )
         # Preserve two-space hard line breaks in Markdown; strip other trailing
         # whitespace as usual.
         args: ['--markdown-linebreak-ext=md']
       - id: end-of-file-fixer
-        exclude: ^content/platform/chainctl/chainctl-docs/
+        exclude: |
+          (?x)^(
+            content/platform/chainctl/chainctl-docs/|
+            static/api[^/]*\.json$
+          )
       - id: check-yaml
       - id: check-added-large-files
         args: ['--maxkb=1000']
