@@ -1,17 +1,36 @@
 ---
 date: 2026-07-22T19:49:10Z
-title: "chainctl images helm"
-slug: chainctl_images_helm
-url: /platform/chainctl/chainctl-docs/chainctl_images_helm/
+title: "chainctl policies override delete"
+slug: chainctl_policies_override_delete
+url: /platform/chainctl/chainctl-docs/chainctl_policies_override_delete/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl images helm
+## chainctl policies override delete
 
-Helm chart related commands
+Delete a policy override.
+
+### Synopsis
+
+Delete a policy override to revoke a waiver.
+
+Once deleted, the targeted artifact is again subject to the policy's
+result. Pass the override ID as a positional argument; use
+"chainctl policies override list" to find it.
+
+```
+chainctl policies override delete OVERRIDE_ID [flags]
+```
+
+### Examples
+
+```
+  # Delete an override by ID
+  chainctl policies override delete <override-id>
+```
 
 ### Options inherited from parent commands
 
@@ -30,7 +49,5 @@ Helm chart related commands
 
 ### SEE ALSO
 
-* [chainctl images](/platform/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
-* [chainctl images helm refs](/platform/chainctl/chainctl-docs/chainctl_images_helm_refs/)	 - List image references pinned in a Chainguard Helm chart
-* [chainctl images helm values](/platform/chainctl/chainctl-docs/chainctl_images_helm_values/)	 - Generate relocation overrides for a Chainguard Helm chart
+* [chainctl policies override](/platform/chainctl/chainctl-docs/chainctl_policies_override/)	 - Manage policy overrides.
 

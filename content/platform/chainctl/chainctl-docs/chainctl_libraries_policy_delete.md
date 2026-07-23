@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl libraries policy delete"
 slug: chainctl_libraries_policy_delete
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_policy_delete/
@@ -40,5 +40,5 @@ chainctl libraries policy delete POLICY [--parent ORGANIZATION_NAME | ORGANIZATI
 
 ### SEE ALSO
 
-* [chainctl libraries policy](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy/)	 - Manage Libraries policies.
+* [chainctl libraries policy](/platform/chainctl/chainctl-docs/chainctl_libraries_policy/)	 - Manage Libraries policies.
 

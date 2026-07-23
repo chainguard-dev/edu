@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl iam folders"
 slug: chainctl_iam_folders
 url: /platform/chainctl/chainctl-docs/chainctl_iam_folders/
@@ -30,9 +30,9 @@ IAM folders interactions.
 
 ### SEE ALSO
 
-* [chainctl iam](/chainguard/chainctl/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.
-* [chainctl iam folders delete](/chainguard/chainctl/chainctl-docs/chainctl_iam_folders_delete/)	 - Delete a folder.
-* [chainctl iam folders describe](/chainguard/chainctl/chainctl-docs/chainctl_iam_folders_describe/)	 - Describe a folder.
-* [chainctl iam folders list](/chainguard/chainctl/chainctl-docs/chainctl_iam_folders_list/)	 - List folders under an organization.
-* [chainctl iam folders update](/chainguard/chainctl/chainctl-docs/chainctl_iam_folders_update/)	 - Update a folder.
+* [chainctl iam](/platform/chainctl/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.
+* [chainctl iam folders delete](/platform/chainctl/chainctl-docs/chainctl_iam_folders_delete/)	 - Delete a folder.
+* [chainctl iam folders describe](/platform/chainctl/chainctl-docs/chainctl_iam_folders_describe/)	 - Describe a folder.
+* [chainctl iam folders list](/platform/chainctl/chainctl-docs/chainctl_iam_folders_list/)	 - List folders under an organization.
+* [chainctl iam folders update](/platform/chainctl/chainctl-docs/chainctl_iam_folders_update/)	 - Update a folder.
 

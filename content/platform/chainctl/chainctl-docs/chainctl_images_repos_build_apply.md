@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl images repos build apply"
 slug: chainctl_images_repos_build_apply
 url: /platform/chainctl/chainctl-docs/chainctl_images_repos_build_apply/
@@ -183,5 +183,5 @@ chainctl images repos build apply --parent=my-org --repo="*" --file=config.yaml 
 
 ### SEE ALSO
 
-* [chainctl images repos build](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build/)	 - Manage custom image builds
+* [chainctl images repos build](/platform/chainctl/chainctl-docs/chainctl_images_repos_build/)	 - Manage custom image builds
 

@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl iam account-associations unset"
 slug: chainctl_iam_account-associations_unset
 url: /platform/chainctl/chainctl-docs/chainctl_iam_account-associations_unset/
@@ -30,8 +30,8 @@ Remove cloud provider account associations from a location.
 
 ### SEE ALSO
 
-* [chainctl iam account-associations](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations/)	 - Configure and manage cloud provider account associations.
-* [chainctl iam account-associations unset aws](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_unset_aws/)	 - Remove AWS account configuration for a location.
-* [chainctl iam account-associations unset azure](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_unset_azure/)	 - Remove AZURE account configuration for a location.
-* [chainctl iam account-associations unset gcp](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_unset_gcp/)	 - Remove GCP account configuration for a location.
+* [chainctl iam account-associations](/platform/chainctl/chainctl-docs/chainctl_iam_account-associations/)	 - Configure and manage cloud provider account associations.
+* [chainctl iam account-associations unset aws](/platform/chainctl/chainctl-docs/chainctl_iam_account-associations_unset_aws/)	 - Remove AWS account configuration for a location.
+* [chainctl iam account-associations unset azure](/platform/chainctl/chainctl-docs/chainctl_iam_account-associations_unset_azure/)	 - Remove AZURE account configuration for a location.
+* [chainctl iam account-associations unset gcp](/platform/chainctl/chainctl-docs/chainctl_iam_account-associations_unset_gcp/)	 - Remove GCP account configuration for a location.
 

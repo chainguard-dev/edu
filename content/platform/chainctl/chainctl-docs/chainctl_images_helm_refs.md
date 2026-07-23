@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl images helm refs"
 slug: chainctl_images_helm_refs
 url: /platform/chainctl/chainctl-docs/chainctl_images_helm_refs/
@@ -23,6 +23,9 @@ By default each ref is printed on its own line as
 from the chart-lock's chart reference. Use --repository to override that
 prefix when emitting refs for a relocated copy of the chart's images.
 
+Use --requirement to narrow the output to refs the chart-lock template
+marks "required" or "optional"; the default empty value emits every ref.
+
 With -o json, each ref is emitted as a JSON object containing the repoName,
 tag and digest fields recorded in the chart-lock; the repository override
 does not affect the JSON output.
@@ -44,12 +47,22 @@ chainctl images helm refs cgr.dev/my-org/charts/flux:v2.18.4 -o json
 # Override the prefix to describe a relocated mirror of the images
 chainctl images helm refs cgr.dev/my-org/charts/flux:v2.18.4 \
   --repository myregistry.internal/images/chainguard
+
+# Only refs the chart-lock template marks required (and any without a
+# template entry, which default to required)
+chainctl images helm refs cgr.dev/my-org/charts/flux:v2.18.4 \
+  --requirement required
+
+# Only refs the chart-lock template marks optional
+chainctl images helm refs cgr.dev/my-org/charts/flux:v2.18.4 \
+  --requirement optional
 ```
 
 ### Options
 
 ```
-      --repository string   Override the {registry}/{org} prefix for image references (e.g., myregistry.internal/images/chainguard)
+      --repository string    Override the {registry}/{org} prefix for image references (e.g., myregistry.internal/images/chainguard)
+      --requirement string   Filter image references by chart-lock template requirement. One of: [required,optional] (default: include all)
 ```
 
 ### Options inherited from parent commands
@@ -69,5 +82,5 @@ chainctl images helm refs cgr.dev/my-org/charts/flux:v2.18.4 \
 
 ### SEE ALSO
 
-* [chainctl images helm](/chainguard/chainctl/chainctl-docs/chainctl_images_helm/)	 - Helm chart related commands
+* [chainctl images helm](/platform/chainctl/chainctl-docs/chainctl_images_helm/)	 - Helm chart related commands
 

@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl policies check"
 slug: chainctl_policies_check
 url: /platform/chainctl/chainctl-docs/chainctl_policies_check/
@@ -54,5 +54,5 @@ chainctl policies check cgr.dev/example.com/python@sha256:abc...
 
 ### SEE ALSO
 
-* [chainctl policies](/chainguard/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
+* [chainctl policies](/platform/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
 

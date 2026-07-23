@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl iam identity-providers update"
 slug: chainctl_iam_identity-providers_update
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_update/
@@ -14,7 +14,7 @@ toc: true
 Update an identity provider
 
 ```
-chainctl iam identity-providers update IDENTITY_PROVIDER_ID [--name=NAME] [--description=DESCRIPTION] [--oidc-issuer=ISSUER] [--oidc-client-id=CLIENTID] [--oidc-client-secret=CLIENTSECRET] [--oidc-additional-scopes=SCOPE,...] [--default-role=ROLE] [--output=id|json|table]
+chainctl iam identity-providers update IDENTITY_PROVIDER_ID [--name=NAME] [--description=DESCRIPTION] [--oidc-issuer=ISSUER] [--oidc-client-id=CLIENTID] [--oidc-client-secret=CLIENTSECRET] [--oidc-additional-scopes=SCOPE,...] [--oidc-pkce-enabled] [--default-role=ROLE] [--output=id|json|table]
 ```
 
 ### Examples
@@ -39,6 +39,7 @@ chainctl iam identity-providers update IDENTITY_PROVIDER_ID [--name=NAME] [--des
       --oidc-client-secret string            client secret for OIDC type identity provider
       --oidc-groups-claim string             OIDC token claim carrying group memberships, used for group-to-role mappings (empty disables group mapping)
       --oidc-issuer string                   Issuer URL for OIDC type identity provider
+      --oidc-pkce-enabled                    Include a PKCE challenge during authorization code exchange. Upstream IDP must be configured to respond.
   -y, --yes                                  Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 
@@ -59,5 +60,5 @@ chainctl iam identity-providers update IDENTITY_PROVIDER_ID [--name=NAME] [--des
 
 ### SEE ALSO
 
-* [chainctl iam identity-providers](/chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers/)	 - customer managed identity provider management
+* [chainctl iam identity-providers](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers/)	 - customer managed identity provider management
 

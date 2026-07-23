@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl actions"
 slug: chainctl_actions
 url: /platform/chainctl/chainctl-docs/chainctl_actions/
@@ -30,9 +30,9 @@ Interact with the Chainguard Actions product.
 
 ### SEE ALSO
 
-* [chainctl](/chainguard/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
-* [chainctl actions catalog](/chainguard/chainctl/chainctl-docs/chainctl_actions_catalog/)	 - Browse the public Chainguard Actions catalog.
-* [chainctl actions discover](/chainguard/chainctl/chainctl-docs/chainctl_actions_discover/)	 - Discover GitHub Actions dependencies used by your workflows.
-* [chainctl actions entitlements](/chainguard/chainctl/chainctl-docs/chainctl_actions_entitlements/)	 - Manage Actions product entitlements.
-* [chainctl actions list](/chainguard/chainctl/chainctl-docs/chainctl_actions_list/)	 - List Chainguard Actions catalog entries for an organization.
+* [chainctl](/platform/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
+* [chainctl actions catalog](/platform/chainctl/chainctl-docs/chainctl_actions_catalog/)	 - Browse the public Chainguard Actions catalog.
+* [chainctl actions discover](/platform/chainctl/chainctl-docs/chainctl_actions_discover/)	 - Discover GitHub Actions dependencies used by your workflows.
+* [chainctl actions entitlements](/platform/chainctl/chainctl-docs/chainctl_actions_entitlements/)	 - Manage Actions product entitlements.
+* [chainctl actions list](/platform/chainctl/chainctl-docs/chainctl_actions_list/)	 - List Chainguard Actions catalog entries for an organization.
 

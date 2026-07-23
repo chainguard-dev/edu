@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl images diff"
 slug: chainctl_images_diff
 url: /platform/chainctl/chainctl-docs/chainctl_images_diff/
@@ -54,5 +54,5 @@ chainctl images diff FROM_IMAGE TO_IMAGE [flags]
 
 ### SEE ALSO
 
-* [chainctl images](/chainguard/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
+* [chainctl images](/platform/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
 

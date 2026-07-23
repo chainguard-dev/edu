@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl libraries update-hashes"
 slug: chainctl_libraries_update-hashes
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_update-hashes/
@@ -152,5 +152,5 @@ chainctl libraries update-hashes [lockfile-path] [flags]
 
 ### SEE ALSO
 
-* [chainctl libraries](/chainguard/chainctl/chainctl-docs/chainctl_libraries/)	 - Ecosystem library related commands.
+* [chainctl libraries](/platform/chainctl/chainctl-docs/chainctl_libraries/)	 - Ecosystem library related commands.
 

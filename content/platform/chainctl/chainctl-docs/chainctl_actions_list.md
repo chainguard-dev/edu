@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl actions list"
 slug: chainctl_actions_list
 url: /platform/chainctl/chainctl-docs/chainctl_actions_list/
@@ -43,5 +43,5 @@ chainctl actions list --parent=PARENT [--upstream-owner=OWNER [--upstream-repo=R
 
 ### SEE ALSO
 
-* [chainctl actions](/chainguard/chainctl/chainctl-docs/chainctl_actions/)	 - Interact with the Chainguard Actions product.
+* [chainctl actions](/platform/chainctl/chainctl-docs/chainctl_actions/)	 - Interact with the Chainguard Actions product.
 

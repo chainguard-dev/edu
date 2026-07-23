@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl iam folders update"
 slug: chainctl_iam_folders_update
 url: /platform/chainctl/chainctl-docs/chainctl_iam_folders_update/
@@ -55,5 +55,5 @@ chainctl iam folders update my-folder --description ""
 
 ### SEE ALSO
 
-* [chainctl iam folders](/chainguard/chainctl/chainctl-docs/chainctl_iam_folders/)	 - IAM folders interactions.
+* [chainctl iam folders](/platform/chainctl/chainctl-docs/chainctl_iam_folders/)	 - IAM folders interactions.
 

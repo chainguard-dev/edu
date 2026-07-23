@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl events subscriptions create"
 slug: chainctl_events_subscriptions_create
 url: /platform/chainctl/chainctl-docs/chainctl_events_subscriptions_create/
@@ -41,5 +41,5 @@ chainctl events subscriptions create SINK_URL [--parent ORGANIZATION_NAME | ORGA
 
 ### SEE ALSO
 
-* [chainctl events subscriptions](/chainguard/chainctl/chainctl-docs/chainctl_events_subscriptions/)	 - Subscription interactions.
+* [chainctl events subscriptions](/platform/chainctl/chainctl-docs/chainctl_events_subscriptions/)	 - Subscription interactions.
 

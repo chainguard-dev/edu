@@ -1,17 +1,28 @@
 ---
 date: 2026-07-22T19:49:10Z
-title: "chainctl images helm"
-slug: chainctl_images_helm
-url: /platform/chainctl/chainctl-docs/chainctl_images_helm/
+title: "chainctl policies override"
+slug: chainctl_policies_override
+url: /platform/chainctl/chainctl-docs/chainctl_policies_override/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl images helm
+## chainctl policies override
 
-Helm chart related commands
+Manage policy overrides.
+
+### Synopsis
+
+A policy override is an admin-granted waiver that flips a DENIED
+policy result to ALLOWED for one specific artifact. It does not change
+the policy or its binding; it records a deliberate, attributable
+exception that the engine applies after evaluation.
+
+Each override names exactly one policy and one artifact. Creating an
+override requires the policies.override.create capability, which is
+typically held by organization owners.
 
 ### Options inherited from parent commands
 
@@ -30,7 +41,8 @@ Helm chart related commands
 
 ### SEE ALSO
 
-* [chainctl images](/platform/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
-* [chainctl images helm refs](/platform/chainctl/chainctl-docs/chainctl_images_helm_refs/)	 - List image references pinned in a Chainguard Helm chart
-* [chainctl images helm values](/platform/chainctl/chainctl-docs/chainctl_images_helm_values/)	 - Generate relocation overrides for a Chainguard Helm chart
+* [chainctl policies](/platform/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
+* [chainctl policies override create](/platform/chainctl/chainctl-docs/chainctl_policies_override_create/)	 - Create a policy override.
+* [chainctl policies override delete](/platform/chainctl/chainctl-docs/chainctl_policies_override_delete/)	 - Delete a policy override.
+* [chainctl policies override list](/platform/chainctl/chainctl-docs/chainctl_policies_override_list/)	 - List policy overrides.
 

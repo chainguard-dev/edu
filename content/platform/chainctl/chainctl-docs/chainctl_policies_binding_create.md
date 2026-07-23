@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl policies binding create"
 slug: chainctl_policies_binding_create
 url: /platform/chainctl/chainctl-docs/chainctl_policies_binding_create/
@@ -19,19 +19,18 @@ Create a binding to activate a policy for an organization.
 If the policy is already enabled with the same mode, this is a no-op. To
 change the mode of an existing binding, pass --mode explicitly.
 
-The --mode flag controls enforcement behavior:
+--mode is required and controls enforcement behavior:
   ENFORCE  Blocks image pulls that violate the policy.
   DRY_RUN  Records violations without blocking pulls.
 
-The default mode is DRY_RUN. Binding to an organization applies the policy to
-all repos within it.
+Binding to an organization applies the policy to all repos within it.
 
 Use --param=KEY=VALUE (repeatable) to supply parameter values declared by
 the policy's schema. For STRING_LIST parameters, items are comma-separated
 within a single --param value.
 
 ```
-chainctl policies binding create --policy POLICY [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--mode MODE] [--param KEY=VALUE] [--output=json|table] [flags]
+chainctl policies binding create --policy POLICY [--parent ORGANIZATION_NAME | ORGANIZATION_ID] --mode MODE [--param KEY=VALUE] [--output=json|table] [flags]
 ```
 
 ### Examples
@@ -45,7 +44,7 @@ chainctl policies binding create --policy=no-eol --parent=engineering --mode=ENF
 chainctl policies binding create --policy=no-eol --parent=engineering --mode=DRY_RUN
 
 # Create a binding with interactive organization selection
-chainctl policies binding create --policy=no-eol
+chainctl policies binding create --policy=no-eol --mode=ENFORCE
 
 # Create a binding with a parameter value
 chainctl policies binding create --policy=cooldown --parent=engineering --mode=ENFORCE --param=days=14
@@ -55,7 +54,7 @@ chainctl policies binding create --policy=cooldown --parent=engineering --mode=E
 ### Options
 
 ```
-      --mode string         The policy mode (ENFORCE or LOG).
+      --mode string         The policy mode (ENFORCE or DRY_RUN).
       --param stringArray   Parameter value as key=value. Repeatable.
       --parent string       The name or id of the organization to scope the binding to.
       --policy string       The name or UIDP of the policy to bind.
@@ -79,5 +78,5 @@ chainctl policies binding create --policy=cooldown --parent=engineering --mode=E
 
 ### SEE ALSO
 
-* [chainctl policies binding](/chainguard/chainctl/chainctl-docs/chainctl_policies_binding/)	 - Manage policy bindings.
+* [chainctl policies binding](/platform/chainctl/chainctl-docs/chainctl_policies_binding/)	 - Manage policy bindings.
 

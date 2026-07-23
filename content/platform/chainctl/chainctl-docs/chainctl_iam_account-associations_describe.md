@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl iam account-associations describe"
 slug: chainctl_iam_account-associations_describe
 url: /platform/chainctl/chainctl-docs/chainctl_iam_account-associations_describe/
@@ -42,5 +42,5 @@ chainctl iam account-associations describe ORGANIZATION_NAME|ORGANIZATION_ID|FOL
 
 ### SEE ALSO
 
-* [chainctl iam account-associations](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations/)	 - Configure and manage cloud provider account associations.
+* [chainctl iam account-associations](/platform/chainctl/chainctl-docs/chainctl_iam_account-associations/)	 - Configure and manage cloud provider account associations.
 

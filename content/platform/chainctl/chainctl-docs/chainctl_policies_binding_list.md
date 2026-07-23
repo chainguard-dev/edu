@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl policies binding list"
 slug: chainctl_policies_binding_list
 url: /platform/chainctl/chainctl-docs/chainctl_policies_binding_list/
@@ -59,5 +59,5 @@ chainctl policies binding list [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [-
 
 ### SEE ALSO
 
-* [chainctl policies binding](/chainguard/chainctl/chainctl-docs/chainctl_policies_binding/)	 - Manage policy bindings.
+* [chainctl policies binding](/platform/chainctl/chainctl-docs/chainctl_policies_binding/)	 - Manage policy bindings.
 

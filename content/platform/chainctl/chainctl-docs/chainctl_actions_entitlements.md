@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl actions entitlements"
 slug: chainctl_actions_entitlements
 url: /platform/chainctl/chainctl-docs/chainctl_actions_entitlements/
@@ -30,8 +30,8 @@ Manage Actions product entitlements.
 
 ### SEE ALSO
 
-* [chainctl actions](/chainguard/chainctl/chainctl-docs/chainctl_actions/)	 - Interact with the Chainguard Actions product.
-* [chainctl actions entitlements create](/chainguard/chainctl/chainctl-docs/chainctl_actions_entitlements_create/)	 - Enable the Actions product for an organization.
-* [chainctl actions entitlements delete](/chainguard/chainctl/chainctl-docs/chainctl_actions_entitlements_delete/)	 - Disable the Actions product for an organization.
-* [chainctl actions entitlements list](/chainguard/chainctl/chainctl-docs/chainctl_actions_entitlements_list/)	 - List Actions product entitlements for an organization.
+* [chainctl actions](/platform/chainctl/chainctl-docs/chainctl_actions/)	 - Interact with the Chainguard Actions product.
+* [chainctl actions entitlements create](/platform/chainctl/chainctl-docs/chainctl_actions_entitlements_create/)	 - Enable the Actions product for an organization.
+* [chainctl actions entitlements delete](/platform/chainctl/chainctl-docs/chainctl_actions_entitlements_delete/)	 - Disable the Actions product for an organization.
+* [chainctl actions entitlements list](/platform/chainctl/chainctl-docs/chainctl_actions_entitlements_list/)	 - List Actions product entitlements for an organization.
 

@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl iam account-associations check"
 slug: chainctl_iam_account-associations_check
 url: /platform/chainctl/chainctl-docs/chainctl_iam_account-associations_check/
@@ -30,8 +30,8 @@ Check the OIDC federation configurations for cloud providers.
 
 ### SEE ALSO
 
-* [chainctl iam account-associations](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations/)	 - Configure and manage cloud provider account associations.
-* [chainctl iam account-associations check aws](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_check_aws/)	 - Checks that the given location has been properly configured for OIDC federation with AWS
-* [chainctl iam account-associations check azure](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_check_azure/)	 - Checks that the given location has been properly configured for OIDC federation with AZURE
-* [chainctl iam account-associations check gcp](/chainguard/chainctl/chainctl-docs/chainctl_iam_account-associations_check_gcp/)	 - Checks that the given location has been properly configured for OIDC federation with GCP
+* [chainctl iam account-associations](/platform/chainctl/chainctl-docs/chainctl_iam_account-associations/)	 - Configure and manage cloud provider account associations.
+* [chainctl iam account-associations check aws](/platform/chainctl/chainctl-docs/chainctl_iam_account-associations_check_aws/)	 - Checks that the given location has been properly configured for OIDC federation with AWS
+* [chainctl iam account-associations check azure](/platform/chainctl/chainctl-docs/chainctl_iam_account-associations_check_azure/)	 - Checks that the given location has been properly configured for OIDC federation with AZURE
+* [chainctl iam account-associations check gcp](/platform/chainctl/chainctl-docs/chainctl_iam_account-associations_check_gcp/)	 - Checks that the given location has been properly configured for OIDC federation with GCP
 

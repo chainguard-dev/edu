@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl skills entitlements"
 slug: chainctl_skills_entitlements
 url: /platform/chainctl/chainctl-docs/chainctl_skills_entitlements/
@@ -30,8 +30,8 @@ Manage skills entitlements for an organization.
 
 ### SEE ALSO
 
-* [chainctl skills](/chainguard/chainctl/chainctl-docs/chainctl_skills/)	 - Skills registry related commands.
-* [chainctl skills entitlements create](/chainguard/chainctl/chainctl-docs/chainctl_skills_entitlements_create/)	 - Create a skills entitlement for an organization.
-* [chainctl skills entitlements delete](/chainguard/chainctl/chainctl-docs/chainctl_skills_entitlements_delete/)	 - Delete the skills entitlement from an organization.
-* [chainctl skills entitlements list](/chainguard/chainctl/chainctl-docs/chainctl_skills_entitlements_list/)	 - List skills entitlements of an organization.
+* [chainctl skills](/platform/chainctl/chainctl-docs/chainctl_skills/)	 - Skills registry related commands.
+* [chainctl skills entitlements create](/platform/chainctl/chainctl-docs/chainctl_skills_entitlements_create/)	 - Create a skills entitlement for an organization.
+* [chainctl skills entitlements delete](/platform/chainctl/chainctl-docs/chainctl_skills_entitlements_delete/)	 - Delete the skills entitlement from an organization.
+* [chainctl skills entitlements list](/platform/chainctl/chainctl-docs/chainctl_skills_entitlements_list/)	 - List skills entitlements of an organization.
 

@@ -1,41 +1,47 @@
 ---
 date: 2026-07-22T19:49:10Z
-title: "chainctl update"
-slug: chainctl_update
-url: /platform/chainctl/chainctl-docs/chainctl_update/
+title: "chainctl policies override list"
+slug: chainctl_policies_override_list
+url: /platform/chainctl/chainctl-docs/chainctl_policies_override_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl update
+## chainctl policies override list
 
-Update chainctl.
+List policy overrides.
 
 ### Synopsis
 
-Update chainctl to the latest release.
+List active policy overrides to see which artifacts have been
+waived and for which policy.
 
-When signature verification is enabled (currently opt-in via
-CHAINCTL_EXPERIMENTAL_UPDATE_VERIFY=true), the downloaded binary's signature is
-verified before it is installed; a binary that fails verification is never
-installed. Verification requires network access to the download host
-(dl.enforce.dev) and, at least on first use, to the Sigstore TUF CDN
-(tuf-repo-cdn.sigstore.dev). If those hosts are unreachable (for example,
-behind a restrictive proxy), the update fails and the current binary is left in
-place; as a fallback, download the latest release directly from
-https://dl.enforce.dev/chainctl/latest/.
+Filter by --parent to scope the list to a specific organization.
+Without --parent, the list is scoped to your configured default group;
+if no default is set, all accessible overrides are listed. Each
+override shows its ID, the policy it waives, the targeted artifact, and
+the reason.
 
 ```
-chainctl update [--yes] [--force]
+chainctl policies override list [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json|table] [flags]
+```
+
+### Examples
+
+```
+  # List overrides for an organization
+  chainctl policies override list --parent=engineering
+  
+  # List overrides for your default group (all accessible if no default is set)
+  chainctl policies override list
 ```
 
 ### Options
 
 ```
-      --force   Skip the version check and update chainctl regardless of the current version.
-  -y, --yes     Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+      --parent string   The name or id of the organization to list overrides for.
 ```
 
 ### Options inherited from parent commands
@@ -55,5 +61,5 @@ chainctl update [--yes] [--force]
 
 ### SEE ALSO
 
-* [chainctl](/platform/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
+* [chainctl policies override](/platform/chainctl/chainctl-docs/chainctl_policies_override/)	 - Manage policy overrides.
 

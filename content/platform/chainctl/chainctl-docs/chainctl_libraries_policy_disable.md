@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl libraries policy disable"
 slug: chainctl_libraries_policy_disable
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_policy_disable/
@@ -19,7 +19,7 @@ Disable a Libraries policy by deleting its binding. If --mode is omitted, both
 the ENFORCE and PREVIEW bindings for the (organization, ecosystem) are deleted.
 
 ```
-chainctl libraries policy disable --policy POLICY [--parent ORG] [--ecosystem ECOSYSTEM] [--mode ENFORCE|PREVIEW] [flags]
+chainctl libraries policy disable [POLICY] [--parent ORG] [--ecosystem ECOSYSTEM] [--mode ENFORCE|PREVIEW] [flags]
 ```
 
 ### Options
@@ -28,7 +28,7 @@ chainctl libraries policy disable --policy POLICY [--parent ORG] [--ecosystem EC
       --ecosystem string   The ecosystem the binding applies to (JAVA, PYTHON, JAVASCRIPT).
       --mode string        The binding mode (ENFORCE or PREVIEW).
       --parent string      The name or id of the organization to scope the binding to.
-      --policy string      The name or UIDP of the policy.
+      --policy string      The name or UIDP of the policy. Provide this or the positional argument, not both.
 ```
 
 ### Options inherited from parent commands
@@ -48,5 +48,5 @@ chainctl libraries policy disable --policy POLICY [--parent ORG] [--ecosystem EC
 
 ### SEE ALSO
 
-* [chainctl libraries policy](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy/)	 - Manage Libraries policies.
+* [chainctl libraries policy](/platform/chainctl/chainctl-docs/chainctl_libraries_policy/)	 - Manage Libraries policies.
 

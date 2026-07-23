@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-22T19:49:10Z
 title: "chainctl images repos build"
 slug: chainctl_images_repos_build
 url: /platform/chainctl/chainctl-docs/chainctl_images_repos_build/
@@ -30,9 +30,9 @@ Manage custom image builds
 
 ### SEE ALSO
 
-* [chainctl images repos](/chainguard/chainctl/chainctl-docs/chainctl_images_repos/)	 - Image repo related commands for the Chainguard platform.
-* [chainctl images repos build apply](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_apply/)	 - Apply a build config
-* [chainctl images repos build edit](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_edit/)	 - Edit a build config, optionally creating a new repo with --save-as
-* [chainctl images repos build list](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_list/)	 - List build reports
-* [chainctl images repos build logs](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_logs/)	 - Get build logs
+* [chainctl images repos](/platform/chainctl/chainctl-docs/chainctl_images_repos/)	 - Image repo related commands for the Chainguard platform.
+* [chainctl images repos build apply](/platform/chainctl/chainctl-docs/chainctl_images_repos_build_apply/)	 - Apply a build config
+* [chainctl images repos build edit](/platform/chainctl/chainctl-docs/chainctl_images_repos_build_edit/)	 - Edit a build config, optionally creating a new repo with --save-as
+* [chainctl images repos build list](/platform/chainctl/chainctl-docs/chainctl_images_repos_build_list/)	 - List build reports
+* [chainctl images repos build logs](/platform/chainctl/chainctl-docs/chainctl_images_repos_build_logs/)	 - Get build logs
 
