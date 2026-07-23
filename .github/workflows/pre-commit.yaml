@@ -58,6 +58,19 @@ jobs:
           restore-keys: |
             pre-commit-
 
+      # The SCSS stylelint hook runs the project's own stylelint
+      # (node_modules/.bin/stylelint) so its shared config, stylelint-config-
+      # standard-scss, resolves from the repo's node_modules. Install just that:
+      # --ignore-scripts skips the theme's postinstall (for example the Hugo
+      # download), which the lint hook does not need.
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        # zizmor: ignore[cache-poisoning] - no cache input is set, so setup-node creates no cache to poison
+        with:
+          node-version: 22
+      - name: Install Node dependencies for the stylelint hook
+        run: npm ci --ignore-scripts
+
       # DO NOT REMOVE: this makes the PR base sha reachable in the shallow
       # clone. Without it the --from-ref/--to-ref range below fails with
       # "fatal: Invalid revision range". If you want to drop this step, you must
