@@ -26,8 +26,8 @@ This guide walks through migrating an existing Python project to Chainguard Libr
 Before you begin, you need:
 
 * An existing, working Python project with a `requirements.txt`, `poetry.lock`, `uv.lock`, `pdm.lock`, `Pipfile.lock`, or `pylock.toml`
-* [A pull token](#create-a-pull-token) or the [Python keyring provider](/chainguard/libraries/access/#python-keyring-provider)
-  * The keyring provider requires pip 23.1 or later. Older pip versions cannot automatically discover or invoke a keyring backend.
+* [A pull token](#authentication-prerequisites) or the [Python keyring provider](/chainguard/libraries/access/#python-keyring-provider)
+    * The keyring provider requires pip 23.1 or later. Older pip versions cannot automatically discover or invoke a keyring backend.
 * **Python 3.11 or later** is recommended. Chainguard's index can return package upload timestamps with fractional-second precision that Python's `datetime.fromisoformat()` does not accept before 3.11
 * [chainctl installed and authenticated](/chainguard/chainctl-usage/how-to-install-chainctl/)
 * An [entitlement to Chainguard Libraries](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) for Python
@@ -131,7 +131,7 @@ chmod 600 ~/.netrc
 
 The `keyrings-chainguard-libraries` package supplies short-lived credentials automatically via `chainctl`, avoiding static tokens on your local workstation.
 
-Follow the [instructions to install the keyring package](#python-keyring-provider).
+Follow the [instructions to install the keyring package](/chainguard/libraries/access/#python-keyring-provider).
 
 > **Note**: After switching to Chainguard, you can [reinstall the keyring package](/chainguard/libraries/access/#python-keyring-provider) to use the Chainguard-built version.
 
