@@ -53,7 +53,7 @@
     letter-spacing: -0.01em;
 
     .step {
-      padding: 0px 5px;
+      padding: 0 5px;
       width: auto;
       font-size: 12px;
       line-height: 16px;
@@ -70,8 +70,8 @@
 
 .active-element {
   background-color: var(--active-element-background);
-  box-shadow: -1px 0px 0px 0px var(--active-element-shadow);
-  border-radius: 0px 4px 4px 0px;
+  box-shadow: -1px 0 0 0 var(--active-element-shadow);
+  border-radius: 0 4px 4px 0;
 }
 
 .active-link {

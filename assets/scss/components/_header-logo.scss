@@ -8,7 +8,7 @@
 
 .navbar-logo-link {
     display: block;
-    
+
     &:hover {
         opacity: 0.9;
     }
@@ -26,6 +26,7 @@
     width: auto;
     flex-shrink: 0;
     transition: transform 0.3s ease;
+
     // Show original purple logo color
     filter: none;
 
@@ -102,15 +103,15 @@
     .navbar-logo-container {
         gap: 8px;
     }
-    
+
     .navbar-logo-icon {
         height: 32px;
     }
-    
+
     .navbar-logo-wordmark {
         font-size: 16px;
     }
-    
+
     .navbar-logo-academy {
         font-size: 12px;
     }
@@ -123,11 +124,11 @@
             display: none; // Hide "Academy" on very small screens
         }
     }
-    
+
     .navbar-logo-icon {
         height: 30px;
     }
-    
+
     .navbar-logo-wordmark {
         font-size: 15px;
     }
