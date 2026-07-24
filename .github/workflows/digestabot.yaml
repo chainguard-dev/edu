@@ -36,7 +36,7 @@ jobs:
             release-assets.githubusercontent.com:443
             tuf-repo-cdn.sigstore.dev:443
 
-      - uses: chainguard-dev/actions/setup-gitsign@4d37df0d85a91f619edc34a8803323033cdcb124 # v1.6.27
+      - uses: chainguard-dev/actions/setup-gitsign@fabe4ed3f66ceb5f8ec86ed7ae6d0c945ca362fb # v1.6.28
 
       - uses: octo-sts/action@f603d3be9d8dd9871a265776e625a27b00effe05 # v1.1.1
         id: octo-sts
@@ -44,7 +44,7 @@ jobs:
           scope: ${{ github.repository }}
           identity: digestabot
 
-      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         # zizmor: ignore[artipacked] - credentials needed for digestabot to push and create PRs
         with:
           token: ${{ steps.octo-sts.outputs.token }}
