@@ -221,7 +221,9 @@ This will:
 - Update your Docker config file to call `docker-credential-cgr` when an auth token is needed. A browser window will open when the token needs to be refreshed.
 
 {{< note >}}
-If you have installed `chainctl` in a directory that needs root permission, you may decide to use `sudo` to allow the link to be created. If you complete the login process the credentials will be stored in `root`'s `.docker/config.json` not the user running `sudo`. So you will need to use `configure-docker` a second time.
+If you choose to use `sudo` when creating the `chainctl` symlink, and then complete login in that same `sudo` session, the Docker credentials will be written to `root`'s `.docker/config.json` instead of your user's Docker config.
+
+In that case, run `configure-docker` again outside of `sudo` so the credentials are also available to your user account.
 {{< /note >}}
 
 ### Docker credential helper on Windows
