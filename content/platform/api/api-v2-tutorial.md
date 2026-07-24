@@ -6,7 +6,7 @@ linktitle: "API v2 Tutorial"
 type: "article"
 description: "Tutorial with examples showing how you can use the Chainguard API v2."
 date: 2026-03-30T08:49:31+00:00
-lastmod: 2026-04-02T00:00:01+01:00
+lastmod: 2026-07-20T00:00:00+00:00
 draft: false
 tags: ["Chainguard Console", "Procedural"]
 images: []
@@ -14,11 +14,11 @@ toc: true
 weight: 030
 ---
 
-{{< beta feature="The Chainguard API v2" >}}
+> **Draft status:** This page has several items marked `CONFIRM WITH ENGINEERING`. Do not publish externally until those are resolved.
 
-The v2 API introduces cursor-based pagination, server-side ordering, consistent resource patterns, and structured error responses across all endpoints.
+The v2 API is now Generally Available (GA) and introduces cursor-based pagination, server-side ordering, consistent resource patterns, and structured error responses across all endpoints.
 
-This guide walks through the v2 API using real `curl` commands.
+This guide walks through the v2 API using real `curl` commands. If you're migrating an existing v1 or beta (`v2beta1`) integration, see [Migrating from API v1 to API v2](/platform/api/api-v2-migration/) instead.
 
 > **Note:** The example output in this guide was captured from a development environment. Your organization's resource names, UIDs, timestamps, and counts will differ. The response structure and field names are the same across all environments.
 
@@ -36,7 +36,7 @@ This guide walks through the v2 API using real `curl` commands.
 - **Structured errors** with typed detail payloads (AIP-193)
 - **Consistent resource patterns** — every resource has `uid`, `createTime`, `updateTime`
 - **Hydrated references** — role binding responses include full identity, group, and role objects
-- **FieldMask updates** — partial updates via `update_mask` instead of sending the full resource
+- **FieldMask updates** — partial updates via `updateMask` instead of sending the full resource
 
 ## Available endpoints
 
@@ -45,8 +45,12 @@ This guide walks through the v2 API using real `curl` commands.
 | **IAM** | Groups, Identities, Roles, RoleBindings, IdentityProviders, AccountAssociations, GroupInvites | List, Get, Create, Update, Delete |
 | **Registry** | Repos, Tags | List, Get |
 | **Vulnerabilities** | Advisories | List, Get |
+| **Ecosystems (Libraries)** | — | — |
+| **Integrations (Advisory)** | — | — |
 
-All endpoints live under `/iam/v2beta1/`, `/registry/v2beta1/`, or `/vulnerabilities/v2beta1/`.
+All endpoints live under a versioned path per domain: `/iam/v2/`, `/registry/v2/`, `/vulnerabilities/v2/`, `/libraries/v2/`, or `/advisory/v2/`.
+
+> **CONFIRM WITH ENGINEERING:** Ecosystems and Integrations are new domains at GA (beta only covered IAM, Registry, and Vulnerabilities). Get the specific resource names and supported operations for these two domains before publishing — the worked examples in this guide only cover the three domains available during beta.
 
 ## Prerequisites
 
@@ -59,15 +63,17 @@ export API=https://console-api.enforce.dev
 export ORG_ID=YOUR_ORG_ID
 ```
 
-All examples below use `$TOKEN`, `$API`, and `$ORG_ID` for brevity.
+The following examples use `$TOKEN`, `$API`, and `$ORG_ID` for brevity.
 
-## Beta notes
+## Operational notes
 
 Keep the following in mind as you work through this guide.
 
 - **Page tokens expire after 3 days** ([AIP-158](https://google.aip.dev/158)). If a token expires, the query restarts from the beginning — no error is returned.
-- **Rate limits** are not enforced during beta. They will be introduced at GA.
+- **Rate limits** are enforced starting at GA.
 - **gRPC** — all endpoints are also available via gRPC at the same host. Proto definitions are at `chainguard.dev/sdk/proto/chainguard/platform/`.
+
+> **CONFIRM WITH ENGINEERING:** specific rate limits and response headers, and whether the Go SDK client library moves from `chainguard.dev/sdk/proto/platform/clients/v2beta1` to a `v2` path at GA. Don't publish this section externally until both are confirmed.
 
 ---
 
@@ -77,7 +83,7 @@ List the first 3 groups in your organization:
 
 ```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
-  "$API/iam/v2beta1/groups?uidp.descendants_of=$ORG_ID&page_size=3&order_by=name" | jq .
+  "$API/iam/v2/groups?uidp.descendants_of=$ORG_ID&page_size=3&order_by=name" | jq .
 ```
 
 ```json
@@ -130,7 +136,7 @@ New in v2: fetch a resource directly by UID. In v1, this required a List call wi
 
 ```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
-  "$API/iam/v2beta1/groups/$GROUP_UID" | jq '{uid, name, description}'
+  "$API/iam/v2/groups/$GROUP_UID" | jq '{uid, name, description}'
 ```
 
 ```json
@@ -149,7 +155,7 @@ Find a specific group without knowing its UID:
 
 ```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
-  "$API/iam/v2beta1/groups?uidp.descendants_of=$ORG_ID&name=platform" \
+  "$API/iam/v2/groups?uidp.descendants_of=$ORG_ID&name=platform" \
   | jq '[.groups[] | {uid, name, description}]'
 ```
 
@@ -176,8 +182,8 @@ A real workflow: create an org folder, add an identity, and bind a role.
 ```shell
 curl -s -X POST -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
-  "$API/iam/v2beta1/groups/$ORG_ID" \
-  -d '{"name": "backend-team", "description": "Backend engineering team"}' | jq .
+  "$API/iam/v2/groups" \
+  -d '{"parent": "'"$ORG_ID"'", "group": {"name": "backend-team", "description": "Backend engineering team"}}' | jq .
 ```
 
 ```json
@@ -192,7 +198,9 @@ curl -s -X POST -H "Authorization: Bearer $TOKEN" \
 }
 ```
 
-> **Note:** The parent group goes in the URL path. The request body contains only the resource fields.
+> **Note:** The parent group goes in the request body, not the URL path — a change from beta. See [Migrating from API v1 to API v2](/platform/api/api-v2-migration/#step-3-move-create-calls-to-parent-in-body) for details.
+>
+> **CONFIRM WITH ENGINEERING:** this request body shape, including the `"group"` wrapper field name, is illustrative. Confirm the exact schema before publishing.
 
 ### Create an identity
 
@@ -202,16 +210,21 @@ export GROUP_UID=YOUR_GROUP_UID
 
 curl -s -X POST -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
-  "$API/iam/v2beta1/identities/$GROUP_UID" \
+  "$API/iam/v2/identities" \
   -d '{
-    "name": "ci-bot",
-    "description": "CI/CD pipeline identity",
-    "claimMatch": {
-      "issuer": "https://token.actions.githubusercontent.com",
-      "subject": "repo:my-org/my-repo:ref:refs/heads/main"
+    "parent": "'"$GROUP_UID"'",
+    "identity": {
+      "name": "ci-bot",
+      "description": "CI/CD pipeline identity",
+      "claimMatch": {
+        "issuer": "https://token.actions.githubusercontent.com",
+        "subject": "repo:my-org@123456/my-repo@654321:ref:refs/heads/main"
+      }
     }
   }' | jq .
 ```
+
+> **CONFIRM WITH ENGINEERING:** this request body shape, including the `"identity"` wrapper field name, is illustrative. Confirm the exact schema before publishing.
 
 ```json
 {
@@ -223,10 +236,14 @@ curl -s -X POST -H "Authorization: Bearer $TOKEN" \
   "updateTime": "2026-03-27T13:55:00.785Z",
   "claimMatch": {
     "issuer": "https://token.actions.githubusercontent.com",
-    "subject": "repo:my-org/my-repo:ref:refs/heads/main"
+    "subject": "repo:my-org@123456/my-repo@654321:ref:refs/heads/main"
   }
 }
 ```
+
+{{< note >}}
+The `subject` shown here uses GitHub's immutable format, which embeds the numeric owner ID (`123456`) and repository ID (`654321`). Match the exact subject your repository's token carries. For how to find these IDs and when the format applies, see [Create an Assumable Identity for a GitHub Actions Workflow](/platform/administration/assumable-ids/identity-examples/github-identity/#finding-your-repositorys-numeric-identifiers).
+{{< /note >}}
 
 Note the identity `uid` in the response — you will use it in the next step when binding a role.
 
@@ -236,7 +253,7 @@ First, find the viewer role:
 
 ```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
-  "$API/iam/v2beta1/roles" | jq '.roles[] | select(.name == "viewer") | {uid, name, description}'
+  "$API/iam/v2/roles" | jq '.roles[] | select(.name == "viewer") | {uid, name, description}'
 ```
 
 ```json
@@ -257,9 +274,11 @@ export IDENTITY_UID=YOUR_IDENTITY_UID
 
 curl -s -X POST -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
-  "$API/iam/v2beta1/roleBindings/$GROUP_UID" \
-  -d "{\"identityUid\": \"$IDENTITY_UID\", \"roleUid\": \"$ROLE_UID\"}" | jq .
+  "$API/iam/v2/roleBindings" \
+  -d "{\"parent\": \"$GROUP_UID\", \"roleBinding\": {\"identityUid\": \"$IDENTITY_UID\", \"roleUid\": \"$ROLE_UID\"}}" | jq .
 ```
+
+> **CONFIRM WITH ENGINEERING:** this request body shape, including the `"roleBinding"` wrapper field name, is illustrative. Confirm the exact schema before publishing.
 
 ```json
 {
@@ -268,7 +287,7 @@ curl -s -X POST -H "Authorization: Bearer $TOKEN" \
     "uid": "d9e2f1a0.../fb139588.../f462d354ca32ca9f",
     "name": "ci-bot",
     "description": "CI/CD pipeline identity",
-    "subject": "repo:my-org/my-repo:ref:refs/heads/main",
+    "subject": "repo:my-org@123456/my-repo@654321:ref:refs/heads/main",
     "issuer": "https://token.actions.githubusercontent.com"
   },
   "group": {
@@ -297,7 +316,7 @@ Every List endpoint supports cursor-based pagination with consistent parameters.
 
 ```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
-  "$API/iam/v2beta1/groups?uidp.descendants_of=$ORG_ID&page_size=5" \
+  "$API/iam/v2/groups?uidp.descendants_of=$ORG_ID&page_size=5" \
   | jq '{totalCount, groups: [.groups[].name], nextPageToken: .nextPageToken[:20]}'
 ```
 
@@ -313,7 +332,7 @@ Follow the cursor for the next page:
 
 ```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
-  "$API/iam/v2beta1/groups?uidp.descendants_of=$ORG_ID&page_size=5&page_token=CqQBV3lK..." \
+  "$API/iam/v2/groups?uidp.descendants_of=$ORG_ID&page_size=5&page_token=CqQBV3lK..." \
   | jq '{groups: [.groups[].name]}'
 ```
 
@@ -331,7 +350,7 @@ Sort by name:
 
 ```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
-  "$API/iam/v2beta1/groups?uidp.descendants_of=$ORG_ID&page_size=5&order_by=name" \
+  "$API/iam/v2/groups?uidp.descendants_of=$ORG_ID&page_size=5&order_by=name" \
   | jq '[.groups[].name]'
 ```
 
@@ -343,7 +362,7 @@ Reverse the order:
 
 ```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
-  "$API/iam/v2beta1/groups?uidp.descendants_of=$ORG_ID&page_size=5&order_by=name%20desc" \
+  "$API/iam/v2/groups?uidp.descendants_of=$ORG_ID&page_size=5&order_by=name%20desc" \
   | jq '[.groups[].name]'
 ```
 
@@ -355,7 +374,7 @@ Sort by creation time (newest first):
 
 ```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
-  "$API/iam/v2beta1/groups?uidp.descendants_of=$ORG_ID&page_size=5&order_by=created_at%20desc" \
+  "$API/iam/v2/groups?uidp.descendants_of=$ORG_ID&page_size=5&order_by=created_at%20desc" \
   | jq '[.groups[] | {name, createTime}]'
 ```
 
@@ -377,7 +396,7 @@ Jump directly to page 3 (skip the first 10 results):
 
 ```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
-  "$API/iam/v2beta1/groups?uidp.descendants_of=$ORG_ID&page_size=5&order_by=name&skip=10" \
+  "$API/iam/v2/groups?uidp.descendants_of=$ORG_ID&page_size=5&order_by=name&skip=10" \
   | jq '{skipped: .skipped, groups: [.groups[].name]}'
 ```
 
@@ -396,18 +415,22 @@ The `skipped` field in the response confirms how many results were skipped, usef
 | ----------- | ------------- |
 | `page_size` | Number of results per page (default 50, max 200) |
 | `page_token` | Opaque cursor from previous response's `nextPageToken` |
-| `order_by` | Sort field and direction, e.g. `name`, `created_at desc` |
+| `order_by` | Sort field and direction, for example `name` or `created_at desc` |
 | `skip` | Number of results to skip (for random-access / UI page jumping) |
 
 ---
 
 ## 4. Querying the registry
 
+Registry endpoints follow the same List, Get, and pagination patterns as the IAM examples earlier, applied to repos and tags. If your integration reads image metadata — listing repos, walking tags, or checking end-of-life status — these are the endpoints you call most.
+
+### List repos
+
 List repos scoped to your organization:
 
 ```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
-  "$API/registry/v2beta1/repos?uidp.descendants_of=$ORG_ID&page_size=3" \
+  "$API/registry/v2/repos?uidp.descendants_of=$ORG_ID&page_size=3" \
   | jq '[.repos[] | {uid, name, createTime}]'
 ```
 
@@ -419,11 +442,91 @@ curl -s -H "Authorization: Bearer $TOKEN" \
 ]
 ```
 
-Same pagination and ordering parameters work on all List endpoints.
+The same pagination and ordering parameters work on every List endpoint.
+
+### Get a single repo
+
+Fetch one repo directly by UID, the same way you fetch a group:
+
+```shell
+# REPO_UID is a uid value from the List repos response above
+export REPO_UID=YOUR_REPO_UID
+
+curl -s -H "Authorization: Bearer $TOKEN" \
+  "$API/registry/v2/repos/$REPO_UID" | jq '{uid, name, createTime}'
+```
+
+```json
+{
+  "uid": "d9e2f1a0.../06626efd8c6b3fb7",
+  "name": "nginx",
+  "createTime": "2026-01-28T12:54:21.189Z"
+}
+```
+
+### List tags in a repo
+
+Scope a tag listing to a single repo with `uidp.children_of`. Each tag carries its `digest` and a `deprecated` flag:
+
+```shell
+curl -s -H "Authorization: Bearer $TOKEN" \
+  "$API/registry/v2/tags?uidp.children_of=$REPO_UID&page_size=3" \
+  | jq '[.tags[] | {name, digest, deprecated, updateTime}]'
+```
+
+```json
+[
+  {"name": "latest", "digest": "sha256:6b3f...", "deprecated": false, "updateTime": "2026-07-14T09:12:44.501Z"},
+  {"name": "1.27", "digest": "sha256:8c1a...", "deprecated": false, "updateTime": "2026-07-14T09:12:44.502Z"},
+  {"name": "1.26", "digest": "sha256:a90d...", "deprecated": true, "updateTime": "2026-05-02T18:30:10.114Z"}
+]
+```
+
+### Check for deprecated tags
+
+In v1, a dedicated `ListEolTags` call surfaced end-of-life tags. v2beta1 has no separate end-of-life endpoint or server-side filter. Instead, each tag carries a `deprecated` boolean, which you filter on client-side:
+
+```shell
+curl -s -H "Authorization: Bearer $TOKEN" \
+  "$API/registry/v2/tags?uidp.children_of=$REPO_UID&page_size=200" \
+  | jq '[.tags[] | select(.deprecated) | .name]'
+```
+
+> **CONFIRM WITH ENGINEERING:** v2beta1 exposes tag deprecation only as a per-tag `deprecated` field, with no server-side end-of-life filter. Confirm whether GA adds a dedicated filter or endpoint, since v1's `ListEolTags` was a common direct-API call.
 
 ---
 
-## 5. Structured errors
+## 5. Querying vulnerabilities
+
+The Vulnerabilities domain exposes advisory data. In v2beta1 it covers advisories with List and Get.
+
+### List advisories
+
+Advisories are scoped and paginated like every other List endpoint, with extra filters such as `artifactNames` and `advisoryIds`:
+
+```shell
+curl -s -H "Authorization: Bearer $TOKEN" \
+  "$API/vulnerabilities/v2/advisories?uidp.descendants_of=$ORG_ID&page_size=3" \
+  | jq '[.advisories[] | {uid, advisoryId, artifactName, updateTime}]'
+```
+
+```json
+[
+  {"uid": "d9e2f1a0.../3b1c", "advisoryId": "CGA-abcd-1234-wxyz", "artifactName": "nginx", "updateTime": "2026-07-18T21:04:11.220Z"},
+  {"uid": "d9e2f1a0.../7f2a", "advisoryId": "CGA-efgh-5678-stuv", "artifactName": "python", "updateTime": "2026-07-18T21:04:11.221Z"},
+  {"uid": "d9e2f1a0.../a1b2", "advisoryId": "CGA-ijkl-9012-mnop", "artifactName": "openssl", "updateTime": "2026-07-18T21:04:11.222Z"}
+]
+```
+
+Fetch a single advisory by UID at `/vulnerabilities/v2/advisories/{uid}`.
+
+### Vulnerability reports
+
+> **CONFIRM WITH ENGINEERING:** the v1 `GetVulnReport` and `ListVulnCountReports` calls — used heavily by direct HTTP integrations — have no equivalent in the v2beta1 spec, which exposes only advisories. Confirm whether GA adds vulnerability-report endpoints, or whether advisory data is meant to replace them. This is a real migration gap for the CI/CD audience that reads scan results programmatically.
+
+---
+
+## 6. Structured errors
 
 API v2 returns structured error responses with machine-parseable codes and details.
 
@@ -432,8 +535,8 @@ API v2 returns structured error responses with machine-parseable codes and detai
 ```shell
 curl -s -X POST -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
-  "$API/iam/v2beta1/groups/$ORG_ID" \
-  -d '{}' | jq .
+  "$API/iam/v2/groups" \
+  -d '{"parent": "'"$ORG_ID"'", "group": {}}' | jq .
 ```
 
 ```json
@@ -492,14 +595,14 @@ Error responses follow [Google AIP-193](https://google.aip.dev/193) with typed d
 
 ---
 
-## 6. Partial updates with FieldMask
+## 7. Partial updates with FieldMask
 
 Update specific fields without sending the full resource. Only the fields listed in `updateMask` are changed:
 
 ```shell
 curl -s -X PATCH -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
-  "$API/iam/v2beta1/groups/$GROUP_UID" \
+  "$API/iam/v2/groups/$GROUP_UID" \
   -d '{
     "description": "Updated description — only this field changes"
   }' | jq '{uid, name, description}'
@@ -520,7 +623,7 @@ To be explicit about which fields to update, pass `updateMask`:
 ```shell
 curl -s -X PATCH -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
-  "$API/iam/v2beta1/groups/$GROUP_UID?updateMask=description" \
+  "$API/iam/v2/groups/$GROUP_UID?updateMask=description" \
   -d '{
     "description": "Only this field is updated",
     "name": "this-is-ignored"
@@ -537,16 +640,32 @@ curl -s -X PATCH -H "Authorization: Bearer $TOKEN" \
 
 The `name` in the body is ignored because `updateMask` only includes `description`.
 
+### Update a repo
+
+The same PATCH-with-field-mask pattern applies to every updatable resource. Repository updates are a common case to migrate from v1, where changing one field meant sending the full resource:
+
+```shell
+curl -s -X PATCH -H "Authorization: Bearer $TOKEN" \
+  -H "Content-Type: application/json" \
+  "$API/registry/v2/repos/$REPO_UID?updateMask=description" \
+  -d '{"description": "Updated repo description"}' | jq '{uid, name, description}'
+```
+
+```json
+{
+  "uid": "d9e2f1a0.../06626efd8c6b3fb7",
+  "name": "nginx",
+  "description": "Updated repo description"
+}
+```
+
+> **Note:** The repo update path (`/registry/v2/repos/{repo.uid}`) and request body are confirmed against the published v2beta1 spec, where `name` and `description` are writable. As with the group example, `updateMask` is accepted by the live API but isn't restated in the spec, so reconfirm it holds at GA.
+
 ---
 
 ## Migration from v1
 
-v2 is additive — v1 endpoints remain available. You can migrate at your own pace:
-
-- Replace `/iam/v1/` with `/iam/v2beta1/` in your API calls
-- Update field names: `id` → `uid`, `createdAt` → `createTime`, `updatedAt` → `updateTime`
-- Add pagination handling for List endpoints (or set `page_size` high for small result sets)
-- v1 will have a deprecation window after v2 reaches GA
+v2 is additive — v1 endpoints remain available during a transition period, so you can migrate at your own pace. For the full field-by-field mapping and migration timeline, see [Migrating from API v1 to API v2](/platform/api/api-v2-migration/).
 
 ---
 
@@ -557,9 +676,9 @@ Delete resources you created during this walkthrough:
 ```shell
 # Delete in reverse order: role binding, identity, group
 # BINDING_UID is the uid value returned in the Bind a role response above
-curl -s -X DELETE -H "Authorization: Bearer $TOKEN" "$API/iam/v2beta1/roleBindings/$BINDING_UID"
-curl -s -X DELETE -H "Authorization: Bearer $TOKEN" "$API/iam/v2beta1/identities/$IDENTITY_UID"
-curl -s -X DELETE -H "Authorization: Bearer $TOKEN" "$API/iam/v2beta1/groups/$GROUP_UID"
+curl -s -X DELETE -H "Authorization: Bearer $TOKEN" "$API/iam/v2/roleBindings/$BINDING_UID"
+curl -s -X DELETE -H "Authorization: Bearer $TOKEN" "$API/iam/v2/identities/$IDENTITY_UID"
+curl -s -X DELETE -H "Authorization: Bearer $TOKEN" "$API/iam/v2/groups/$GROUP_UID"
 ```
 
 Each DELETE returns an empty response body on success.
