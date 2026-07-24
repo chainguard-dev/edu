@@ -264,6 +264,49 @@ Custom runtime repository URLs are validated when the configuration is applied. 
 * `localhost` isn't allowed.
 * Hostnames that resolve to any of the blocked IP ranges listed earlier aren't allowed either.
 
+### Custom runtime keys
+
+Custom Assembly images trust only Chainguard's APK signing key by default. If your mirror re-signs packages with its own key — as Artifactory virtual repositories and Sonatype Nexus Alpine repositories do — runtime `apk add` commands reject packages from that mirror. Custom runtime keys let you embed your mirror's public signing key in the image's `/etc/apk/keys` directory so that `apk` can verify re-signed packages.
+
+To add a runtime key, pass the public key file to the `--with-runtime-keyring` option:
+
+```shell
+chainctl image repo build edit --parent $ORGANIZATION --repo $CONTAINER --with-runtime-keyring=key-ee8fa0a3.rsa.pub
+```
+
+Each file becomes a key in `/etc/apk/keys` named after the file's basename. The name must match the filename referenced by your repository's APKINDEX signature (`.SIGN.RSA256.<name>`), because `apk` looks up the key by that name during verification. `chainctl` uses filenames verbatim and returns an error if two files share the same basename.
+
+You can also define runtime keys in the editor or in a YAML manifest by adding a `runtime_keyring` field under `contents`. Each entry has a `name` and the key's PEM `content`:
+
+```yaml
+contents:
+  packages:
+    - curl
+    - jq
+  runtime_repositories:
+    - https://apk-mirror.example.com/chainguard
+  runtime_keyring:
+    - name: key-ee8fa0a3.rsa.pub
+      content: |
+        -----BEGIN PUBLIC KEY-----
+        ...
+        -----END PUBLIC KEY-----
+```
+
+Apply the manifest with the `apply` subcommand as with other customizations. In the confirmation diff, each key appears as the SHA-256 digest of its content rather than the raw PEM text. To confirm that a digest matches a local key file, run `sha256sum <keyfile>`.
+
+When you run the `edit` subcommand, the editor buffer includes any existing runtime keys. Keep the `runtime_keyring` section to preserve the keys, edit an entry to replace a key, or delete the field to remove all custom keys from the image.
+
+#### Key validation rules
+
+Runtime keys are validated when the configuration is applied. The following rules apply:
+
+* Each entry must contain exactly one PEM-encoded RSA public key: a single `PUBLIC KEY` block with no other content before or after it. Certificates, OpenSSH keys, and EC keys aren't accepted.
+* Key names must be unique.
+* Key names can't be empty, begin with a dot, or contain path separators.
+* Key names can't begin with `chainguard` or `wolfi`; these prefixes are reserved.
+* The combined size of all keys can't exceed 512 KB.
+
 ## Retrieving Information about Custom Assembly Containers
 
 You can also use the `list` subcommand to retrieve every one of a customized image's builds from the past 24 hours:
