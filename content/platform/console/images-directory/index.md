@@ -6,7 +6,7 @@ aliases:
 type: "article"
 description: "A walkthrough of the Chainguard Console."
 date: 2024-02-23T11:07:52+02:00
-lastmod: 2026-03-16T08:07:42+02:00
+lastmod: 2026-07-24T15:09:10+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -31,7 +31,11 @@ If you would like to open the console with your Organization already selected, y
 https://console.chainguard.dev/auth/login?org=ORGANIZATION
 ```
 
-## Browse container images and details in the console
+## Browse Chainguard Libraries in the console
+
+Learn more browsing Chainguard Libraries in the console on the [Libraries Browsing page](/chainguard/libraries/browse/).
+
+## Browse container images and details in the Console
 
 After signing in to the [Chainguard Console](https://console.chainguard.dev), your browser will take you to the Overview page. The following screenshot shows the Overview Page for an organization that hasn't paid for access to any container images:
 
