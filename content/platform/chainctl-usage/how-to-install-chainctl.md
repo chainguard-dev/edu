@@ -216,9 +216,13 @@ You can configure a Docker credential helper with chainctl by running:
 chainctl auth configure-docker
 ```
 
-This will update your Docker config file to call chainctl when an auth token is needed. A browser window will open when the token needs to be refreshed.
+This will:
+- Create a link for `docker-credential-cgr` in the same directory as `chainctl`.
+- Update your Docker config file to call `docker-credential-cgr` when an auth token is needed. A browser window will open when the token needs to be refreshed.
 
-For guidance on pull tokens, please review [authenticating with a pull token](/chainguard/chainguard-registry/authenticating/#authenticating-with-a-pull-token).
+{{< note >}}
+If you have installed `chainctl` in a directory that needs root permission, you may decide to use `sudo` to allow the link to be created. If you complete the login process the credentials will be stored in `root`'s `.docker/config.json` not the user running `sudo`. So you will need to use `configure-docker` a second time.
+{{< /note >}}
 
 ### Docker credential helper on Windows
 
