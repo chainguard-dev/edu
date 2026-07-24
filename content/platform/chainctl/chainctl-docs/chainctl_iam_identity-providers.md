@@ -1,5 +1,5 @@
 ---
-date: 2026-07-22T19:49:10Z
+date: 2026-07-23T16:28:18Z
 title: "chainctl iam identity-providers"
 slug: chainctl_iam_identity-providers
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identity-providers/
@@ -34,5 +34,6 @@ customer managed identity provider management
 * [chainctl iam identity-providers create](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_create/)	 - Create an identity provider
 * [chainctl iam identity-providers delete](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_delete/)	 - Delete an identity provider.
 * [chainctl iam identity-providers list](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_list/)	 - List identity providers.
+* [chainctl iam identity-providers scim](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim/)	 - Manage SCIM provisioning for an identity provider.
 * [chainctl iam identity-providers update](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_update/)	 - Update an identity provider
 
