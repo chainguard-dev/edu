@@ -41,7 +41,7 @@ When you open a pull request, describe how you tested the change so reviewers kn
 
 ## 📑 Contributing
 
-If you identify something that is a major change, please file an [issue](https://github.com/chainguard-dev/edu/issues/new). If you identify a minor change like a typo that needs to be updated, or tech tooling that has a newer package, you are welcome to open a pull request for review from the team.
+If you are a newer contributor and identify something that is a major change, please file a [DOCS issue in Linear](https://linear.app/chainguard/team/DOCS/overview). If you identify a minor change like a typo that needs to be updated, or tech tooling that has a newer package, you are welcome to open a pull request for review from the team.
 
 ### Date Format
 
