@@ -268,10 +268,10 @@ Custom runtime repository URLs are validated when the configuration is applied. 
 
 Custom Assembly images trust only Chainguard's APK signing key by default. If your mirror re-signs packages with its own key — as Artifactory virtual repositories and Sonatype Nexus Alpine repositories do — runtime `apk add` commands reject packages from that mirror. Custom runtime keys let you embed your mirror's public signing key in the image's `/etc/apk/keys` directory so that `apk` can verify re-signed packages.
 
-To add a runtime key, pass the public key file to the `--with-runtime-keyring` option:
+To add a runtime key, pass the public key file to the `--with-runtime-keys` option:
 
 ```shell
-chainctl image repo build edit --parent $ORGANIZATION --repo $CONTAINER --with-runtime-keyring=key-ee8fa0a3.rsa.pub
+chainctl image repo build edit --parent $ORGANIZATION --repo $CONTAINER --with-runtime-keys=key-ee8fa0a3.rsa.pub
 ```
 
 Each file becomes a key in `/etc/apk/keys` named after the file's basename. The name must match the filename referenced by your repository's APKINDEX signature (`.SIGN.RSA256.<name>`), because `apk` looks up the key by that name during verification. `chainctl` uses filenames verbatim and returns an error if two files share the same basename.
