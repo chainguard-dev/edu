@@ -66,7 +66,6 @@ All examples below use `$TOKEN`, `$API`, and `$ORG_ID` for brevity.
 Keep the following in mind as you work through this guide.
 
 - **Page tokens expire after 3 days** ([AIP-158](https://google.aip.dev/158)). If a token expires, the query restarts from the beginning — no error is returned.
-- **Rate limits** are not enforced during beta. They will be introduced at GA.
 - **gRPC** — all endpoints are also available via gRPC at the same host. Proto definitions are at `chainguard.dev/sdk/proto/chainguard/platform/`.
 
 ---
@@ -546,7 +545,7 @@ v2 is additive — v1 endpoints remain available. You can migrate at your own pa
 - Replace `/iam/v1/` with `/iam/v2beta1/` in your API calls
 - Update field names: `id` → `uid`, `createdAt` → `createTime`, `updatedAt` → `updateTime`
 - Add pagination handling for List endpoints (or set `page_size` high for small result sets)
-- v1 will have a deprecation window after v2 reaches GA
+- v1 remains available; migrate at your own pace (sunset timing announced separately)
 
 ---
 
