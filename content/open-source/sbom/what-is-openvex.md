@@ -4,7 +4,7 @@ description: "A conceptual overview of OpenVex"
 lead: "A conceptual overview of OpenVex"
 type: "article"
 date: 2023-01-31T15:21:01+02:00
-lastmod: 2026-07-27T15:39:06+00:00
+lastmod: 2026-07-27T15:48:10+00:00
 contributors:
 draft: false
 tags: ["SBOM", "VEX", "Conceptual"]
@@ -60,18 +60,24 @@ For example, an OpenVEX document with one statement could be written like this:
 
 ```json
 {
-  "@context": "https://openvex.dev/ns",
+  "@context": "https://openvex.dev/ns/v0.2.0",
   "@id": "https://openvex.dev/docs/example/vex-9fb3463de1b57",
   "author": "Wolfi J Inkinson",
   "role": "Document Creator",
   "timestamp": "2023-01-08T18:02:03.647787998-06:00",
-  "version": "1",
+  "version": 1,
   "statements": [
     {
-      "vulnerability": "CVE-2023-12345",
+      "vulnerability": {
+        "name": "CVE-2023-12345"
+      },
       "products": [
-        "pkg:apk/wolfi/git@2.39.0-r1?arch=armv7",
-        "pkg:apk/wolfi/git@2.39.0-r1?arch=x86_64"
+        {
+          "@id": "pkg:apk/wolfi/git@2.39.0-r1?arch=armv7"
+        },
+        {
+          "@id": "pkg:apk/wolfi/git@2.39.0-r1?arch=x86_64"
+        }
       ],
       "status": "fixed"
     }
@@ -83,9 +89,13 @@ The OpenVEX specification details additional information you can include in an O
 
 ```json
   {
-      "vulnerability": "CVE-2023-12345",
+      "vulnerability": {
+        "name": "CVE-2023-12345"
+      },
       "products": [
-        "pkg:apk/wolfi/product@1.23.0-r1?arch=armv7",
+        {
+          "@id": "pkg:apk/wolfi/product@1.23.0-r1?arch=armv7"
+        }
       ],
       "status": "not_affected",
       "justification": "component_not_present",

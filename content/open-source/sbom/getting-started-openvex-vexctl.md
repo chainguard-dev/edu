@@ -5,7 +5,7 @@ description: "Using vexctl to manage vulnerability communications"
 lead: "A guide to SBOM quality"
 type: "article"
 date: 2023-01-30T15:21:01+02:00
-lastmod: 2026-07-27T15:39:06+00:00
+lastmod: 2026-07-27T15:48:10+00:00
 draft: false
 tags: ["SBOM", "VEX", "Procedural"]
 images: []
@@ -80,30 +80,30 @@ This command notes the following:
 * The current status — `status` — which can be `not_affected`, `affected`, `fixed`, or `under_investigation`
 * When the `status` is noted as `not_affected`, the reason for the status — `justification` — must be included, and can read `inline_mitigations_already_exist` or `component_not_present`
 
-The `vexctl create` command above renders the following document.
+The `vexctl create` command above renders a document similar to the following. The `@id` and timestamps will differ on each run.
 
 ```json
 {
   "@context": "https://openvex.dev/ns/v0.2.0",
-  "@id": "https://openvex.dev/docs/public/vex-cfaef18d38537412a0307ec266bed56aa88fa58b7c1f2c6b8c9ef997028ba4bd",
+  "@id": "https://openvex.dev/docs/public/vex-b6081638d51cd5cdf2e810d120353dd48d3c829c169123df3037979ec824df94",
   "author": "Unknown Author",
-  "timestamp": "2023-01-10T20:24:50.498233798-06:00",
   "version": 1,
   "statements": [
     {
       "vulnerability": {
         "name": "CVE-2014-123456"
       },
-      "timestamp": "2023-01-10T20:24:50.498234-06:00",
       "products": [
         {
           "@id": "pkg:apk/wolfi/git@2.38.1-r0?arch=x86_64"
         }
       ],
       "status": "not_affected",
-      "justification": "inline_mitigations_already_exist"
+      "justification": "inline_mitigations_already_exist",
+      "timestamp": "2026-07-27T15:46:08.152188473Z"
     }
-  ]
+  ],
+  "timestamp": "2026-07-27T15:46:08Z"
 }
 ```
 
@@ -189,34 +189,41 @@ The resulting document combines the VEX statements that express data about `bash
 
 ```json
 {
-  "@context": "",
-  "@id": "merged-vex-67124ea942ef30e1f42f3f2bf405fbbc4f5a56e6e87684fc5cd957212fa3e025",
+  "@context": "https://openvex.dev/ns/v0.2.0",
+  "@id": "merged-vex-6b33f63783819578804350ba1cde277ddd8f90aa2bbcb706d19a61d211a8443f",
   "author": "Unknown Author",
-  "role": "Document Creator",
-  "timestamp": "2023-02-03T21:48:39.582648-05:00",
-  "version": "",
+  "version": 1,
   "statements": [
     {
-      "vulnerability": "CVE-1234-5678",
-      "timestamp": "2022-12-22T16:36:43-05:00",
+      "vulnerability": {
+        "name": "CVE-1234-5678"
+      },
       "products": [
-        "pkg:apk/wolfi/bash@1.0.0"
+        {
+          "@id": "pkg:apk/wolfi/bash@1.0.0"
+        }
       ],
-      "status": "under_investigation"
+      "status": "under_investigation",
+      "timestamp": "2023-12-05T05:04:34.77929922Z"
     },
     {
-      "vulnerability": "CVE-1234-5678",
-      "timestamp": "2022-12-22T20:56:05-05:00",
+      "vulnerability": {
+        "name": "CVE-1234-5678"
+      },
       "products": [
-        "pkg:apk/wolfi/bash@1.0.0"
+        {
+          "@id": "pkg:apk/wolfi/bash@1.0.0"
+        }
       ],
-      "status": "fixed"
+      "status": "fixed",
+      "timestamp": "2023-12-05T05:06:38.099731287Z"
     }
-  ]
+  ],
+  "timestamp": "2026-07-27T15:46:08Z"
 }
 ```
 
-This final document tells the whole story of how `CVE-1234-5678` was `under_investigation` and then `fixed` four hours later, all documented in a single VEX file that was merged with `vexctl`.
+This final document tells the whole story of how `CVE-1234-5678` was `under_investigation` and then `fixed` about two minutes later, all documented in a single VEX file that was merged with `vexctl`. The merged document preserves each statement's original timestamp, so the order of events is retained.
 
 ## Attesting and attaching VEX documents
 
