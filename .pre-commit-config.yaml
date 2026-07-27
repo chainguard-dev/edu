@@ -54,7 +54,7 @@ repos:
   # (zizmor.yaml uploads SARIF to code scanning, actionlint.yaml adds shellcheck
   # + annotations); the hooks give the same checks locally on changed files.
   - repo: https://github.com/zizmorcore/zizmor-pre-commit
-    rev: 64a97fb7fa63188393d3215c6e312f5f9c6d0f78  # frozen: v1.27.0
+    rev: 067260dc5fe6ea86b7551bfd6f8b3ba4e6c93129  # frozen: v1.28.0
     hooks:
       - id: zizmor # auto-loads .github/zizmor.yml
 
@@ -121,7 +121,7 @@ repos:
   # config (eslint.config.js). @eslint/js and globals are required by that
   # config and installed into the hook's isolated environment.
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: d5675fc20c10b8c0a3dbbbf182c82b903bf409ac  # frozen: v10.7.0
+    rev: eb9cff43594f41e8fc47ce8d1964a4500f26493c  # frozen: v10.8.0
     hooks:
       - id: eslint
         files: ^(assets/js|config)/.*\.js$
@@ -132,7 +132,7 @@ repos:
 
   # Lint Markdown content against .markdownlint-cli2.jsonc.
   - repo: https://github.com/DavidAnson/markdownlint-cli2
-    rev: 06f92c99e930c11230426b5edd775021d25e08a8  # frozen: v0.23.1
+    rev: b82a6c8896e491b9cb377a99ff3412131920681b  # frozen: v0.23.2
     hooks:
       - id: markdownlint-cli2
         # content/platform/chainctl/chainctl-docs/ is generated upstream (cobra

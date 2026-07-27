@@ -75,7 +75,7 @@ Further, any entity that handles covered data and does not comply with PCI DSS r
 
 These consequences may further result in cancelled contracts, additional revenue losses, and even closures.
 
-Achieving compliance with PCI DSS 4.0 is not just an industry self-regulatory requirement but a critical step in safeguarding payment information. To prepare your organization for PCI DSS 4.0, read about [how Chainguard Containers can help simplify fulfilling PCI DSS 4.0 requirements](/compliance/pci-dss-4/pci-dss-chainguard).
+Achieving compliance with PCI DSS 4.0 is not just an industry self-regulatory requirement but a critical step in safeguarding payment information. To prepare your organization for PCI DSS 4.0, read about [how Chainguard Containers can help simplify fulfilling PCI DSS 4.0 requirements](/compliance/pci-dss-4/pci-dss-chainguard/).
 
 ## Browse all PCI DSS 4.0 Articles
 

@@ -4163,11 +4163,16 @@
             "description": "The type of policy (system or custom).\nSystem policies are created automatically by the system and may not be modified.\nCustom policies may be created and modified by users with the relevant IAM permissions.",
             "readOnly": true
           },
+          "supportedResourceType": {
+            "description": "Immutable: set at creation and cannot be changed on update. A policy's\nname and supported_resource_type together identify it, so changing the\ntype would move the policy into a different identity.",
+            "title": "The resource type this policy supports.\nThe value is a Chainguard API resource type with a version suffix\n(e.g. \"registry.chainguard.dev/Repo@v1\"). The version determines\nwhich PolicyInput schema is used when evaluating the policy expression.\nSupported resource types:\n  - registry.chainguard.dev/Repo@v1",
+            "type": "string"
+          },
           "supportedResourceTypes": {
+            "description": "Deprecated: use supported_resource_type. This repeated field is retained\nfor backward compatibility with existing SDK consumers; the server\npopulates it with the single supported_resource_type value. New code\nshould read and write supported_resource_type instead.",
             "items": {
               "type": "string"
             },
-            "title": "The resource types this policy supports.\nEach value is a Chainguard API resource type with a version suffix\n(e.g. \"registry.chainguard.dev/Repo@v1\"). The version determines\nwhich PolicyInput schema is used when evaluating the policy expression.\nSupported resource types:\n  - registry.chainguard.dev/Repo@v1",
             "type": "array"
           },
           "updatedAt": {
@@ -4220,11 +4225,16 @@
             "description": "The type of policy (system or custom).\nSystem policies are created automatically by the system and may not be modified.\nCustom policies may be created and modified by users with the relevant IAM permissions.",
             "readOnly": true
           },
+          "supportedResourceType": {
+            "description": "Immutable: set at creation and cannot be changed on update. A policy's\nname and supported_resource_type together identify it, so changing the\ntype would move the policy into a different identity.",
+            "title": "The resource type this policy supports.\nThe value is a Chainguard API resource type with a version suffix\n(e.g. \"registry.chainguard.dev/Repo@v1\"). The version determines\nwhich PolicyInput schema is used when evaluating the policy expression.\nSupported resource types:\n  - registry.chainguard.dev/Repo@v1",
+            "type": "string"
+          },
           "supportedResourceTypes": {
+            "description": "Deprecated: use supported_resource_type. This repeated field is retained\nfor backward compatibility with existing SDK consumers; the server\npopulates it with the single supported_resource_type value. New code\nshould read and write supported_resource_type instead.",
             "items": {
               "type": "string"
             },
-            "title": "The resource types this policy supports.\nEach value is a Chainguard API resource type with a version suffix\n(e.g. \"registry.chainguard.dev/Repo@v1\"). The version determines\nwhich PolicyInput schema is used when evaluating the policy expression.\nSupported resource types:\n  - registry.chainguard.dev/Repo@v1",
             "type": "array"
           },
           "updatedAt": {

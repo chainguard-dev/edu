@@ -4315,7 +4315,7 @@
       },
       "chainguard.platform.iam.v2beta1.IdentityProvider.SCIM.CredentialState": {
         "default": "CREDENTIAL_STATE_UNSPECIFIED",
-        "description": "CredentialState is the server-derived lifecycle state of the SCIM\nbearer credential. It describes the credential only; whether\nprovisioning is on is the separate `enabled` switch.\n\n - CREDENTIAL_STATE_UNSPECIFIED: The state is not reported (for example on List responses, which omit\nSCIM status).\n - CREDENTIAL_STATE_NOT_ISSUED: No token has ever been generated for this identity provider.\n - CREDENTIAL_STATE_LIVE: The current token authenticates.\n - CREDENTIAL_STATE_EXPIRED: The current token passed its declared expiry and no longer\nauthenticates. Regenerate to issue a replacement.\n - CREDENTIAL_STATE_REVOKED: The token was explicitly revoked; nothing authenticates and\nprovisioning was switched off. Regenerating issues a new credential\nbut does not re-enable provisioning.\n - CREDENTIAL_STATE_ROTATING: A regeneration overlap is active: the previous token keeps\nauthenticating until previous_token_expire_time, alongside the current\ntoken unless the current token's own expiry has already passed.",
+        "description": "CredentialState is the server-derived lifecycle state of the SCIM\nbearer credential. It describes the credential only; whether\nprovisioning is on is the separate `enabled` switch.\n\n - CREDENTIAL_STATE_UNSPECIFIED: The state is not reported (for example on List responses, which omit\nSCIM status).\n - CREDENTIAL_STATE_NOT_ISSUED: No token has ever been generated for this identity provider.\n - CREDENTIAL_STATE_LIVE: The current token authenticates.\n - CREDENTIAL_STATE_EXPIRED: The current token passed its declared expiry and no longer\nauthenticates. Regenerate to issue a replacement.\n - CREDENTIAL_STATE_REVOKED: The token was explicitly revoked; nothing authenticates until a new\ncredential is issued. The enabled switch is unchanged: regenerating\nissues a credential that serves under the existing enabled state.\n - CREDENTIAL_STATE_ROTATING: A regeneration overlap is active: the previous token keeps\nauthenticating until previous_token_expire_time, alongside the current\ntoken unless the current token's own expiry has already passed.",
         "enum": [
           "CREDENTIAL_STATE_UNSPECIFIED",
           "CREDENTIAL_STATE_NOT_ISSUED",
@@ -4375,7 +4375,7 @@
         "description": "SetScimEnabledRequest starts or pauses SCIM provisioning for an identity\nprovider.",
         "properties": {
           "enabled": {
-            "description": "The desired provisioning state. Enabling requires a live current token;\ndisabling pauses provisioning while leaving the credential, provisioned\nusers, and bindings intact.",
+            "description": "The desired provisioning state. Enabling does not require a live token\n(a dead credential rejects provisioning requests until a new one is\nissued); disabling pauses provisioning while leaving the credential,\nprovisioned users, and bindings intact.",
             "type": "boolean"
           },
           "etag": {
@@ -4722,10 +4722,10 @@
         "type": "object"
       },
       "chainguard.platform.iam.v2beta1.RevokeScimTokenResponse": {
-        "description": "RevokeScimTokenResponse reports the resulting disabled/revoked state for\nauditing and subsequent optimistic concurrency.",
+        "description": "RevokeScimTokenResponse reports the resulting credential and provisioning\nstate for auditing and subsequent optimistic concurrency.",
         "properties": {
           "enabled": {
-            "description": "Whether provisioning is enabled after the revocation: always false, since\nrevocation switches provisioning off as part of containment.",
+            "description": "Whether provisioning is enabled after the revocation. Revocation never\nchanges this switch: the dead credential is itself the containment, and\nan explicit SetScimEnabled call turns provisioning off when that is also\nwanted.",
             "type": "boolean"
           },
           "etag": {
@@ -6866,11 +6866,16 @@
             "description": "The type of policy (system or custom).\nSystem policies are created automatically by the system and may not be modified.\nCustom policies may be created and modified by users with the relevant IAM permissions.",
             "readOnly": true
           },
+          "supportedResourceType": {
+            "description": "Immutable: set at creation and cannot be changed on update. A policy's\nname and supported_resource_type together identify it, so changing the\ntype would move the policy into a different identity.",
+            "title": "The resource type this policy supports.\nThe value is a Chainguard API resource type with a version suffix\n(e.g. \"registry.chainguard.dev/Repo@v1\"). The version determines\nwhich PolicyInput schema is used when evaluating the policy expression.\nSupported resource types:\n  - registry.chainguard.dev/Repo@v1",
+            "type": "string"
+          },
           "supportedResourceTypes": {
+            "description": "Deprecated: use supported_resource_type. This repeated field is retained\nfor backward compatibility with existing SDK consumers; the server\npopulates it with the single supported_resource_type value. New code\nshould read and write supported_resource_type instead.",
             "items": {
               "type": "string"
             },
-            "title": "The resource types this policy supports.\nEach value is a Chainguard API resource type with a version suffix\n(e.g. \"registry.chainguard.dev/Repo@v1\"). The version determines\nwhich PolicyInput schema is used when evaluating the policy expression.\nSupported resource types:\n  - registry.chainguard.dev/Repo@v1",
             "type": "array"
           },
           "updatedAt": {
@@ -6923,11 +6928,16 @@
             "description": "The type of policy (system or custom).\nSystem policies are created automatically by the system and may not be modified.\nCustom policies may be created and modified by users with the relevant IAM permissions.",
             "readOnly": true
           },
+          "supportedResourceType": {
+            "description": "Immutable: set at creation and cannot be changed on update. A policy's\nname and supported_resource_type together identify it, so changing the\ntype would move the policy into a different identity.",
+            "title": "The resource type this policy supports.\nThe value is a Chainguard API resource type with a version suffix\n(e.g. \"registry.chainguard.dev/Repo@v1\"). The version determines\nwhich PolicyInput schema is used when evaluating the policy expression.\nSupported resource types:\n  - registry.chainguard.dev/Repo@v1",
+            "type": "string"
+          },
           "supportedResourceTypes": {
+            "description": "Deprecated: use supported_resource_type. This repeated field is retained\nfor backward compatibility with existing SDK consumers; the server\npopulates it with the single supported_resource_type value. New code\nshould read and write supported_resource_type instead.",
             "items": {
               "type": "string"
             },
-            "title": "The resource types this policy supports.\nEach value is a Chainguard API resource type with a version suffix\n(e.g. \"registry.chainguard.dev/Repo@v1\"). The version determines\nwhich PolicyInput schema is used when evaluating the policy expression.\nSupported resource types:\n  - registry.chainguard.dev/Repo@v1",
             "type": "array"
           },
           "updatedAt": {
@@ -17803,7 +17813,7 @@
     },
     "/iam/v2beta1/identityProviders/{identityProviderUid}:revokeScimToken": {
       "post": {
-        "description": "RevokeScimToken immediately invalidates the current and overlap SCIM bearer\ntokens for an identity provider; inbound provisioning stops on the next\nrequest and disables provisioning. A later RegenerateScimToken installs a\ncredential but leaves provisioning disabled until explicitly enabled.",
+        "description": "RevokeScimToken immediately invalidates the current and overlap SCIM bearer\ntokens for an identity provider; inbound provisioning stops on the next\nrequest because no credential authenticates. The enabled switch is not\nchanged (token lifecycle and enablement are independent controls), so a\nlater RegenerateScimToken installs a credential that serves under the\nexisting enabled state.",
         "operationId": "IdentityProvidersService_RevokeScimToken",
         "parameters": [
           {
@@ -17858,7 +17868,7 @@
     },
     "/iam/v2beta1/identityProviders/{identityProviderUid}:setScimEnabled": {
       "post": {
-        "description": "SetScimEnabled explicitly starts or pauses SCIM provisioning. Enabling\nrequires a live current token and fails with FAILED_PRECONDITION for an\norganization with fewer than two manually assigned owner-tier role\nbindings, so SCIM can never take over an organization's only owner. Token\ngeneration and rotation never change this switch; revocation always turns\nit off.",
+        "description": "SetScimEnabled explicitly starts or pauses SCIM provisioning. Enabling\nfails with FAILED_PRECONDITION for an organization with fewer than two\nmanually assigned owner-tier role bindings, so SCIM can never take over\nan organization's only owner. Enabling does not require a live token: an\nexpired or revoked credential simply rejects every provisioning request\nuntil a new one is issued. Token generation, regeneration, and revocation\nnever change this switch.",
         "operationId": "IdentityProvidersService_SetScimEnabled",
         "parameters": [
           {

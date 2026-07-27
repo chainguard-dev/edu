@@ -286,4 +286,4 @@ chainctl policies override create \
 
 With both digests waived, the pull is allowed. Remember that the override is subject to the cache refresh described above, so allow a short delay before retrying the pull.
 
-See `chainctl policies --help` or the [chainctl reference pages](/chainguard/chainctl) for more information.
+See `chainctl policies --help` or the [chainctl reference pages](/platform/chainctl/) for more information.
