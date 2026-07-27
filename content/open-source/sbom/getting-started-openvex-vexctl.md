@@ -5,7 +5,7 @@ description: "Using vexctl to manage vulnerability communications"
 lead: "A guide to SBOM quality"
 type: "article"
 date: 2023-01-30T15:21:01+02:00
-lastmod: 2026-07-27T15:48:10+00:00
+lastmod: 2026-07-27T17:03:50+00:00
 draft: false
 tags: ["SBOM", "VEX", "Procedural"]
 images: []
@@ -80,7 +80,7 @@ This command notes the following:
 * The current status — `status` — which can be `not_affected`, `affected`, `fixed`, or `under_investigation`
 * When the `status` is noted as `not_affected`, the reason for the status — `justification` — must be included, and can read `inline_mitigations_already_exist` or `component_not_present`
 
-The `vexctl create` command above renders a document similar to the following. The `@id` and timestamps will differ on each run.
+The `vexctl create` command renders a document similar to the following. The `@id` and timestamps will differ on each run.
 
 ```json
 {
