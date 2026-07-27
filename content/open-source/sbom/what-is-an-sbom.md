@@ -5,7 +5,7 @@ description: "Learn what Software Bill of Materials (SBOM) are, why they're esse
 lead: "Software Bill of Materials (SBOMs) provide comprehensive visibility into software components, enabling organizations to identify vulnerabilities and manage supply chain security - a core feature of Chainguard's security approach."
 type: "article"
 date: 2022-08-04T15:21:01+02:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-07-27T15:26:42+00:00
 contributors:
 draft: false
 tags: ["SBOM", "Conceptual"]
@@ -51,6 +51,8 @@ Ideally, SBOMs should be generated during the build process, which enables a hig
 ### SBOM formats
 
 When selecting an SBOM generation tool, it’s important to make sure it supports the format you wish to use. Though there are a variety of available SBOM formats, most SBOMs follow either CycloneDX or SPDX, both of which are approved by the National Telecommunications and Information Administration for fulfilling the executive order’s SBOM requirement.
+
+Your choice of format also affects which downstream tools can read the SBOM. Vulnerability scanners and software composition analysis (SCA) tools vary in how completely they parse each format, so confirm that the tools in your pipeline support the format you generate or consume.
 
 ### Quality measurement tools
 
