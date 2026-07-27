@@ -25,6 +25,14 @@ Chainguard rebuilds open source software into products you can adopt directly, d
 
 You pull Chainguard Containers and Libraries from a single, policy-aware endpoint, the [Chainguard Repository](/chainguard/chainguard-repository/overview/).
 
+Containers and Libraries are where most teams start, but Chainguard secures more than these. Its other products include:
+
+- **[Chainguard OS](/chainguard/chainguard-os/overview/)**, the hardened Linux foundation the other products build on.
+- **[Chainguard VMs](/chainguard/vms/overview/)**, minimal virtual machine images for cloud and hypervisor workloads.
+- **[Chainguard Actions](/chainguard/actions/overview/)**, hardened replacements for popular GitHub Actions.
+- **[Chainguard Guardener](/chainguard/guardener/)**, tooling to harden your own source code.
+- **[Chainguard Agent Skills](/chainguard/agent-skills/overview/)**, security-reviewed skills for AI agents.
+
 ## The Chainguard Factory
 
 Behind these products is the [Chainguard Factory](/platform/factory/overview/), the automated build system at the heart of what Chainguard does. The Factory continuously monitors thousands of open source projects. When a new upstream release appears, it fetches the source, verifies it, rebuilds it, retests it, and publishes signed packages built from source along with SBOMs and provenance metadata.
