@@ -6,7 +6,7 @@ aliases:
 type: "article"
 description: "The life cycle of Chainguard-Issued Security Advisories"
 date: 2024-07-26T18:09:12+00:00
-lastmod: 2025-04-11T12:26:23+00:00
+lastmod: 2026-07-27T16:03:25+00:00
 draft: false
 tags: ["Chainguard Containers", "CVE"]
 images: []
@@ -68,7 +68,7 @@ The newly detected CVE is then moved into the next phase where it waits for a te
 
 ### Stage 4: Advisory is Updated
 
-With an advisory issued for the package, further investigation is often needed to determine the impact of the CVE. In some cases, it will be determined that the CVE is not truly present in the package, therefore making it a [false positive](/chainguard/chainguard-images/recommended-practices/false-results/). The associated security advisory would have its status updated to "Not Affected", and further updates to the advisory would not occur.
+With an advisory issued for the package, further investigation is often needed to determine the impact of the CVE. In some cases, it will be determined that the CVE is not truly present in the package, therefore making it a [false positive](/chainguard/chainguard-images/staying-secure/working-with-scanners/false-results/). The associated security advisory would have its status updated to "Not Affected", and further updates to the advisory would not occur.
 
 If the vulnerability is a true positive finding, then it is present in the package and further action must be taken. When an  upstream fix is available, such as a newer package version which remediates the CVE, then this update will be made and the advisory modified to state the vulnerability is now "Fixed".
 
