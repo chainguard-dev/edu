@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-07-27T14:56:42+00:00
+lastmod: 2026-07-27T19:38:41+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -55,7 +55,7 @@ For authentication, you need a pull token or the Python keyring provider.
 If you plan to use a repository manager, or a non-interactive environment such as CI/CD, you will need a pull token. You must be an Owner or have the `libraries.python.pull_token_creator` permission to create one.
 
 ```shell
-chainctl auth pull-token --repository=python --name=my-python-token --ttl=720h
+chainctl auth pull-token create --repository=python --name=my-python-token --ttl=720h
 ```
 
 To export environment variables directly:
