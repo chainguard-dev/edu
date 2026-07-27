@@ -5,7 +5,7 @@ description: "Using vexctl to manage vulnerability communications"
 lead: "A guide to SBOM quality"
 type: "article"
 date: 2023-01-30T15:21:01+02:00
-lastmod: 2024-05-21T15:21:01+02:00
+lastmod: 2026-07-27T15:39:06+00:00
 draft: false
 tags: ["SBOM", "VEX", "Procedural"]
 images: []
@@ -24,7 +24,7 @@ This tutorial will walk you through some common commands in `vexctl`.
 
 ## Installing vexctl
 
-If you would like to install `vexctl` on your local or virtual machine, you will need Go 1.16 or higher. You can install by following the official [Go documentation](https://go.dev/doc/install).
+If you would like to install `vexctl` on your local or virtual machine, you will need a current, supported release of Go. You can install it by following the official [Go documentation](https://go.dev/doc/install).
 
 Using Go, run the following to install `vexctl`:
 
@@ -34,7 +34,7 @@ go install github.com/openvex/vexctl@latest
 
 This command will install the latest version of `vexctl` on your machine.
 
-## Confirming Installation
+## Confirming installation
 
 You can confirm that `vexctl` was installed and is ready to use by running the following command:
 
@@ -60,7 +60,7 @@ Platform:     ...
 
 This indicates the current version of `vexctl` on your working machine. You are ready to proceed with working with `vexctl`.
 
-## Creating VEX Documents
+## Creating VEX documents
 
 With `vexctl`, VEX data can be created to a file on disk, or it can be captured in a signed attestation that can be attached to a container image. You can create a VEX document by using the `vexctl create` command.
 
@@ -84,24 +84,27 @@ The `vexctl create` command above renders the following document.
 
 ```json
 {
-  "@context": "https://openvex.dev/ns",
+  "@context": "https://openvex.dev/ns/v0.2.0",
   "@id": "https://openvex.dev/docs/public/vex-cfaef18d38537412a0307ec266bed56aa88fa58b7c1f2c6b8c9ef997028ba4bd",
   "author": "Unknown Author",
-  "role": "Document Creator",
   "timestamp": "2023-01-10T20:24:50.498233798-06:00",
-  "version": "1",
+  "version": 1,
   "statements": [
     {
-      "vulnerability": "CVE-2014-123456",
+      "vulnerability": {
+        "name": "CVE-2014-123456"
+      },
+      "timestamp": "2023-01-10T20:24:50.498234-06:00",
       "products": [
-        "pkg:apk/wolfi/trivy@0.36.1-r0?arch=x86_64"
+        {
+          "@id": "pkg:apk/wolfi/git@2.38.1-r0?arch=x86_64"
+        }
       ],
       "status": "not_affected",
-      "justification": "component_not_present"
+      "justification": "inline_mitigations_already_exist"
     }
   ]
 }
-
 ```
 
 You can also create a VEX document with abbreviated information. For instance, when a given CVE was addressed in the image and you want to attest that it has been fixed.
@@ -112,7 +115,7 @@ vexctl create "pkg:apk/wolfi/git@2.39.0-r1?arch=x86_64" CVE-2023-12345 fixed
 
 The above workflow demonstrates how to create a VEX document with `vexctl` on the command line.
 
-## Merging Existing VEX Documents
+## Merging existing VEX documents
 
 When more than one stakeholder is issuing VEX metadata about a piece of software, `vexctl` can merge the documents to get the most up-to-date impact assessment of a vulnerability.
 
@@ -213,9 +216,9 @@ The resulting document combines the VEX statements that express data about `bash
 }
 ```
 
-This final document tells the whole story of how `CVE-2014-123456` was `under_investigation` and then `fixed` four hours later, all documented in a single VEX file that was merged with `vexctl`.
+This final document tells the whole story of how `CVE-1234-5678` was `under_investigation` and then `fixed` four hours later, all documented in a single VEX file that was merged with `vexctl`.
 
-## Attesting and Attaching VEX Documents
+## Attesting and attaching VEX documents
 
 To attest to and attach VEX statements within a given document to a container image, you can use the `vexctl attest` command with the `--attach` and `--sign` flags.
 
@@ -241,7 +244,7 @@ Successfully verified SCT...
 
 This attestation with `.att` extension will now live in the container registry as an attachment to your container.
 
-## Chronology and VEX Documents
+## Chronology and VEX documents
 
 Assessing the impact of CVEs on a software product is a process that takes time and the status will change over time. VEX is designed to communicate with users as the status changes, and there may therefore be multiple VEX documents associated with a product.
 
@@ -256,7 +259,7 @@ When analyzing the VEX documents associated with _Linky App_, `vexctl` will revi
 
 If a SARIF report is formatted as a VEX document with `vexctl`, any entries alerting of `CVE-2014-123456` will be filtered out.
 
-## Learn More
+## Learn more
 
 The `vexctl` tool is open source, you can review the [`vexctl` repository on GitHub](https://github.com/openvex/vexctl), as well as the [`go-vex` Go library](https://github.com/openvex/go-vex) for generating, consuming, and operating on VEX documents.
 

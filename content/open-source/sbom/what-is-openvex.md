@@ -4,7 +4,7 @@ description: "A conceptual overview of OpenVex"
 lead: "A conceptual overview of OpenVex"
 type: "article"
 date: 2023-01-31T15:21:01+02:00
-lastmod: 2024-11-21T15:21:01+02:00
+lastmod: 2026-07-27T15:39:06+00:00
 contributors:
 draft: false
 tags: ["SBOM", "VEX", "Conceptual"]
@@ -29,7 +29,7 @@ Incorporating [software bills of materials (SBOMs)](/open-source/sbom/what-is-an
 
 In this way, SBOMs represent a significant step forward in security management by enabling software users to quickly identify vulnerabilities, which can otherwise require a significant amount of labor. For example, [one federal agency reportedly spent 33,000 hours responding to the Log4j vulnerability](https://federalnewsnetwork.com/commentary/2023/01/application-security-a-pillar-of-zero-trust/) at the expense of other priorities.
 
-Though the SBOM's improvement of visibility can greatly improve an organization's security posture, it can also be accompanied by an overproduction of false positives. In this context, [false positives](/chainguard/chainguard-images/recommended-practices/false-results/) are vulnerabilities that are associated with an organization's codebase but have been determined to not be exploitable in specific circumstances.
+Though the SBOM's improvement of visibility can greatly improve an organization's security posture, it can also be accompanied by an overproduction of false positives. In this context, [false positives](/chainguard/chainguard-images/staying-secure/working-with-scanners/false-results/) are vulnerabilities that are associated with an organization's codebase but have been determined to not be exploitable in specific circumstances.
 
 This increase in false positives can hinder an SBOM's security utility as organizations are tasked with investigating the broadened list of vulnerabilities to see which ones pose genuine threats to their codebase. In cases like this, organizations may once again struggle to efficiently identify and respond to vulnerabilities before it is too late.
 
@@ -46,7 +46,7 @@ Though VEX documents do not need to be used with an SBOM, together they offer a 
 
 VEX has value for stakeholders across the supply chain, enabling collaboration across suppliers, operators, and end users that can save the community significant amounts of time investigating and mitigating vulnerabilities. Software suppliers can use VEX to let their users know when they’ve already investigated a vulnerability and whether that vulnerability affects the product or if further action needs to be taken by the user. And in the case that end users investigate potential vulnerabilities without a security advisory, they can encode their findings in a VEX document to share with the supplier or track for future or ongoing investigations.
 
-## How to Leverage VEX and SBOMs with OpenVEX
+## How to leverage VEX and SBOMs with OpenVEX
 
 To help software suppliers and users leverage VEX, Chainguard developed OpenVEX, an open source specification, library, and suite of tools based on the VEX standard. Developed in collaboration with CISA’s VEX Working Group, OpenVEX is the first format to meet the VEX Minimum Requirements and is designed to be lightweight in order to help support community adoption.
 
@@ -153,7 +153,7 @@ This command will return output showing vulnerabilities from the scanner that ar
 
 To learn about other commands and capabilities of the `vexctl` tool, visit the [OpenVEX repo](https://github.com/openvex/vexctl).
 
-## Learn More
+## Learn more
 
 OpenVEX is actively evolving to support VEX adoption across the community, and will continue building out tooling and adjusting its specification to meet community needs.
 
