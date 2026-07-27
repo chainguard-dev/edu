@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-07-14T00:00:00+00:00
+lastmod: 2026-07-27T14:56:42+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -379,11 +379,8 @@ pip install --force-reinstall --no-cache-dir -r requirements.txt
 
 {{% tab title="uv" %}}
 
-Delete the virtual environment outright and let uv rebuild it from the current lockfile:
-
 ```bash
-rm -rf .venv
-uv sync
+uv sync --reinstall
 ```
 
 {{% /tab %}}
