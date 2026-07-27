@@ -45,7 +45,7 @@ The list includes the following columns:
 * **Latest version**: The latest released and available version of the library
   and the total number of available versions.
 * **Updated**: The most recent date when any version of this library was built
-  and published by Chainguard.
+and published by Chainguard, or cached from the upstream fallback (when upstream fallback is enabled).
 
 At the bottom of the page, see a total count of available libraries.
 
