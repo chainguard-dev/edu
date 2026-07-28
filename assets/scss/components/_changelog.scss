@@ -16,43 +16,43 @@
   width: fit-content;
   margin-top: 2.75rem;
   margin-bottom: 1rem;
-  font-size: 0.7rem;
+  // Sized to hold its own against the section headings around it: a step above
+  // body text (1rem) rather than the fine print a default badge would give.
+  // Padding is in em, so it scales with any change to this size.
+  font-size: 1.05rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  padding: 0.2em 0.65em;
-  border-radius: 4px;
+  padding: 0.3em 0.8em;
+  border-radius: 5px;
 
   // Chainguard brand palette. These brand colors are vivid, so text color is
   // chosen per pill for WCAG AA contrast: dark ink on the light ones, white
   // only on Blurple (the sole color that reads better with white text).
+  //
+  // The shortcode slugifies the label text into the modifier class, so these
+  // names must track the labels the generator emits (see layouts/shortcodes/
+  // changelog-label.html). Every label but EOL is plural.
   $ink: #14002e;
 
-  // In scope now.
-  &--new-image {
-    background-color: #44fd2b; // Lime — an addition
+  &--product-announcements {
+    background-color: #2bbafd; // Aqua — informational
     color: $ink;
   }
 
-  &--grace-period {
-    background-color: #fd2bf2; // Fuchsia — heading toward end-of-life
-    color: $ink;
+  &--breaking-changes {
+    background-color: #6226fb; // Blurple — disruptive change
+    color: #fff;
   }
 
-  // Reserved for the separate workflows we're holding off on. Defined now so
-  // the palette is coherent and the classes are ready when those land.
   &--eol {
     background-color: #fd3964; // Solar — end of life reached
     color: $ink;
   }
 
-  &--breaking-change {
-    background-color: #6226fb; // Blurple — disruptive change
-    color: #fff;
-  }
-
-  &--product-announcement {
-    background-color: #2bbafd; // Aqua — informational
+  &--new-images {
+    background-color: #44fd2b; // Lime — an addition
     color: $ink;
   }
 }
