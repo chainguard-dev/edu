@@ -47,7 +47,7 @@ The security work happens upstream, before you or your agent ever touches the sk
 
 Chainguard Agent Skills involves two registries, both served from `skills.cgr.dev`:
 
-- **The public catalog**, maintained by Chainguard at `skills.cgr.dev/chainguard/<skill>`. This is the hardened catalog described above. Anyone can pull from it, and the skills in it are reviewed and re-hardened on an ongoing basis.
+- **The public catalog**, maintained by Chainguard at `skills.cgr.dev/public`. This is the hardened catalog described above. Anyone can pull from it, and the skills in it are reviewed and re-hardened on an ongoing basis. Public skills are namespaced by their upstream source (`public/<host>/<owner>/<repo>/<name>`).
 - **Your organization's private registry**, available to customers with access, at `skills.cgr.dev/<your-org>/<skill>`. You can use it to publish, manage, and distribute your own skills scoped to your organization, and you control who can push and install them.
 
 To interact with either of these registries, use the [`chainctl skills` commands](/platform/chainctl/chainctl-docs/chainctl_skills/).
