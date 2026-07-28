@@ -1,5 +1,5 @@
 ---
-date: 2026-07-23T16:28:18Z
+date: 2026-07-27T18:08:10Z
 title: "chainctl images repos build apply"
 slug: chainctl_images_repos_build_apply
 url: /platform/chainctl/chainctl-docs/chainctl_images_repos_build_apply/
@@ -36,10 +36,10 @@ How it works:
 You can customize the image by providing configuration through a YAML file,
 certificates, runtime repositories, or any combination.
 
-At least one of --file, --with-certificates, or --with-runtime-repositories must be
-provided. When --file is used alone, the YAML configuration from the file is
-applied as-is. When --with-certificates or --with-runtime-repositories is used alone,
-only those values will be applied to the image. When multiple flags are provided,
+At least one of --file, --with-certificates, --with-runtime-repositories, or
+--with-runtime-keys must be provided. When --file is used alone, the YAML
+configuration from the file is applied as-is. When only flags are used, only
+those values will be applied to the image. When multiple inputs are provided,
 they are merged together.
 
 The command validates the resulting configuration and displays a diff comparing
@@ -72,6 +72,14 @@ Customizable sections:
     Add APK repositories to /etc/apk/repositories in the image for runtime
     package installation. When set, these replace the default virtualapk.cgr.dev
     repositories. Must be HTTPS URLs.
+
+  contents.runtime_keyring
+    Trust additional APK signing public keys for the runtime repositories
+    (e.g., a re-signing mirror). Each entry has a name and a PEM PUBLIC KEY
+    content; the key is written to /etc/apk/keys under its name, which must
+    match the filename referenced by the repository's APKINDEX signature
+    (.SIGN.RSA256.<name>). Keys can also be loaded from files using the
+    --with-runtime-keys flag.
 
   environment
     Set environment variables that will be available in the image. Variables
@@ -162,6 +170,7 @@ chainctl images repos build apply --parent=my-org --repo="*" --file=config.yaml 
       --repo stringArray                    The name or id of the repo to apply build config. Supports wildcards (*, ?, [abc]). Can be specified multiple times.
       --save-as string                      Create a new repo with the edited configuration instead of updating the existing one.
       --with-certificates strings           Comma separated list of files to read the custom certificates from.
+      --with-runtime-keys strings           Comma separated list of files to read customer APK signing public keys from. Each file becomes a key in /etc/apk/keys named after the file's basename, which must match the filename referenced by the repository's APKINDEX signature (.SIGN.RSA256.<name>).
       --with-runtime-repositories strings   Comma separated list of runtime APK repository URLs to write to /etc/apk/repositories in the image.
   -y, --yes                                 Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```

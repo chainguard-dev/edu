@@ -1748,7 +1748,7 @@
             "type": "string"
           },
           "clientSecret": {
-            "description": "Client secret of the identity provider. This is a sensitive value\nand is not returned for list/get calls.",
+            "description": "Client secret of the identity provider. This is a sensitive value\nand is not returned for list/get calls. Required for a confidential\nclient; may be omitted for a public client, which instead authenticates\nwith PKCE (set pkce_enabled). At least one of client_secret or\npkce_enabled must be provided.\n\nOn update, an empty client_secret means \"keep the existing secret\"\nunless oidc.client_secret is named explicitly in the update mask, in\nwhich case the empty value clears the stored secret (transitioning a\nconfidential client to a public, PKCE-only client). A direct HTTP REST\nrequest that does not set the update mask explicitly infers it from the\nfields present in the request body, so sending an empty client_secret\nwill clear it; set the update mask explicitly (or use the generated\ngRPC clients, which send only the fields you set) to avoid this.",
             "type": "string"
           },
           "groupsClaim": {
@@ -1766,8 +1766,7 @@
         },
         "required": [
           "issuer",
-          "clientId",
-          "clientSecret"
+          "clientId"
         ],
         "type": "object"
       },
