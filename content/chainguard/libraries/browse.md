@@ -4,7 +4,7 @@ linktitle: "Browsing"
 description: "Searching, browsing, and inspecting Chainguard Libraries in the console"
 type: "article"
 date: 2025-07-03T14:00:00+00:00
-lastmod: 2026-07-28T15:05:15+00:00
+lastmod: 2026-07-28T18:29:46+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -14,10 +14,10 @@ weight: 007
 toc: true
 ---
 
-Chainguard Libraries includes thousands of libraries and many more individual
-library versions and artifacts. In the Chainguard Console, you can
-browse all available libraries and their versions, and inspect their
-characteristics before using them in your application development.
+Chainguard Libraries provides access to millions of Java, JavaScript, and
+Python artifacts rebuilt from source. In the Chainguard Console,
+you can browse available libraries and versions, inspect package details, and
+evaluate dependencies before using them in your application development.
 
 ## Access libraries in the Chainguard Console
 
