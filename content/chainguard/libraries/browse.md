@@ -4,7 +4,7 @@ linktitle: "Browsing"
 description: "Searching, browsing, and inspecting Chainguard Libraries in the console"
 type: "article"
 date: 2025-07-03T14:00:00+00:00
-lastmod: 2026-07-28T14:03:08+00:00
+lastmod: 2026-07-28T15:05:15+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -91,7 +91,7 @@ For the JavaScript and Python ecosystems, click the **Malware** tab to learn how
 
 The list at the bottom of the page displays all blocked packages, including the package name, blocked version, the date it was blocked on, its MAL ID if available, and signals detected.
 
-#### Malicious signal categories
+#### Malware and greyware signal categories
 
 Some categories describe confirmed malicious behavior, while others describe greyware or supply-chain risk indicators that may justify blocking even when there is no public malware advisory. Categories include:
 
