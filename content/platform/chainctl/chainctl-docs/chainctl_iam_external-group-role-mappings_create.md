@@ -1,5 +1,5 @@
 ---
-date: 2026-07-23T16:28:17Z
+date: 2026-07-27T18:08:10Z
 title: "chainctl iam external-group-role-mappings create"
 slug: chainctl_iam_external-group-role-mappings_create
 url: /platform/chainctl/chainctl-docs/chainctl_iam_external-group-role-mappings_create/
@@ -21,16 +21,16 @@ chainctl iam external-group-role-mappings create --external-group-id GROUP --rol
 
 ```
   # Map IdP group "Platform-SRE" to the owner role at the org root
-  chainctl iam external-group-role-mappings create --external-group-id "Platform-SRE" --role owner --scope ORG_UIDP --idp IDP_UIDP
+  chainctl iam external-group-role-mappings create --external-group-id "Platform-SRE" --role owner --scope my-org --idp my-idp
 ```
 
 ### Options
 
 ```
       --external-group-id string   IdP group identifier (the claim value from the IdP token)
-      --idp string                 Identity provider UIDP that owns this mapping
+      --idp string                 Identity provider (name or UIDP) that owns this mapping
       --role string                Role UIDP or name to grant
-      --scope string               Group UIDP where the role applies (the organization root)
+      --scope string               Organization or group (name or UIDP) where the role applies
 ```
 
 ### Options inherited from parent commands

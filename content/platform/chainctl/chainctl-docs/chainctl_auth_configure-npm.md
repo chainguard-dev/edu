@@ -1,5 +1,5 @@
 ---
-date: 2026-07-23T16:28:17Z
+date: 2026-07-27T18:08:10Z
 title: "chainctl auth configure-npm"
 slug: chainctl_auth_configure-npm
 url: /platform/chainctl/chainctl-docs/chainctl_auth_configure-npm/
@@ -49,10 +49,10 @@ chainctl auth configure-npm [flags]
 ```
       --headless                   Skip browser authentication and use device flow.
       --identity string            The unique ID of the identity to assume when logging in.
-      --identity-provider string   The unique ID of the customer managed identity provider to authenticate with
+      --identity-provider string   The unique ID of the customer managed identity provider to authenticate with. Mutually exclusive with --org-name.
       --identity-token string      Use an explicit passed identity token or token path.
       --name string                Optional name for the pull token. (default "pull-token")
-      --org-name string            Organization to use for authentication. If configured the organization's custom identity provider will be used
+      --org-name string            Organization to use for authentication. If configured the organization's custom identity provider will be used. Mutually exclusive with --identity-provider.
       --parent string              The IAM organization or folder with which the pull-token identity is associated.
       --pull-token                 Whether to create a pull token for npm authentication.
       --social-login string        Which of the default identity providers to use for authentication. Must be one of: email, google, github, gitlab

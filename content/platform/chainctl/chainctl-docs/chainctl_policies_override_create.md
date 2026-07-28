@@ -1,5 +1,5 @@
 ---
-date: 2026-07-23T16:28:18Z
+date: 2026-07-27T18:08:10Z
 title: "chainctl policies override create"
 slug: chainctl_policies_override_create
 url: /platform/chainctl/chainctl-docs/chainctl_policies_override_create/
@@ -39,10 +39,11 @@ chainctl policies override create --policy POLICY --digest DIGEST --reason REASO
 ### Options
 
 ```
-      --digest string   The image manifest digest to waive (e.g. sha256:abc...).
-      --parent string   The name or id of the organization to scope the override to.
-      --policy string   The name or UIDP of the policy to override.
-      --reason string   The justification for the override.
+      --digest string          The image manifest digest to waive (e.g. sha256:abc...).
+      --parent string          The name or id of the organization to scope the override to.
+      --policy string          The name or UIDP of the policy to override.
+      --reason string          The justification for the override.
+      --resource-type string   Resource type used to disambiguate a policy referenced by name (shorthand: Repo, Python, Java, Javascript; or a full type). Ignored when the policy is given by UIDP.
 ```
 
 ### Options inherited from parent commands
