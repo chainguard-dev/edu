@@ -7,7 +7,7 @@ type: "article"
 description: "Use Cosign to verify non-container software artifacts"
 lead: "Cosign can verify software artifacts beyond containers"
 date: 2022-12-21T15:22:20+01:00
-lastmod: 2025-12-26T15:16:50+01:00
+lastmod: 2026-07-27T16:03:25+00:00
 draft: false
 tags: ["Cosign", "Procedural"]
 images: []
@@ -18,7 +18,7 @@ weight: 006
 toc: true
 ---
 
-Cosign can be used to verify binary artifacts ("blobs") using provided signatures as long as they are published to an OCI registry. In this tutorial, we’ll verify a binary artifact — in this case, a release of [`apko`](/open-source/apko/overview/), a command-line tool for building container images using a declarative language based on YAML. The methods in this tutorial apply to any blob file Cosign has signed with a keyless signature.
+Cosign can be used to verify binary artifacts ("blobs") using provided signatures as long as they are published to an OCI registry. In this tutorial, we’ll verify a binary artifact — in this case, a release of [`apko`](/open-source/build-tools/apko/overview/), a command-line tool for building container images using a declarative language based on YAML. The methods in this tutorial apply to any blob file Cosign has signed with a keyless signature.
 
 This tutorial assumes you [have Cosign installed](/open-source/sigstore/cosign/how-to-install-cosign/).
 

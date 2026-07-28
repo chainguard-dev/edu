@@ -2436,6 +2436,33 @@
         },
         "type": "object"
       },
+      "chainguard.platform.iam.GenerateScimTokenResponse": {
+        "description": "GenerateScimTokenResponse carries the one-time plaintext token and the SCIM\nendpoint to configure in the identity provider.",
+        "properties": {
+          "endpointUrl": {
+            "description": "endpoint_url is the SCIM endpoint the identity provider must be configured\nto call.",
+            "type": "string"
+          },
+          "etag": {
+            "description": "etag is the opaque version of the SCIM configuration after this call, for\noptimistic concurrency on subsequent lifecycle mutations.",
+            "type": "string"
+          },
+          "expireTime": {
+            "description": "expire_time is the effective server-selected token expiry. Unset only for\nnever_expires.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "identityProviderId": {
+            "description": "identity_provider_id is the UIDP the token was generated for, echoed for\nattribution.",
+            "type": "string"
+          },
+          "token": {
+            "description": "token is the plaintext SCIM bearer token, returned exactly once. Store it\nnow: it is never retrievable again, and only its SHA-256 digest is\npersisted. Format: \"cgscim_\" followed by 64 hexadecimal characters.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.iam.Group": {
         "properties": {
           "description": {
@@ -2943,6 +2970,14 @@
           },
           "oidc": {
             "$ref": "#/components/schemas/chainguard.platform.iam.IdentityProvider.OIDC"
+          },
+          "scim": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.IdentityProvider.SCIM"
+              }
+            ],
+            "description": "scim reports SCIM provisioning status for this identity provider.\n\nSCIM is a provisioning protocol independent of the authentication mechanism\nin configuration, so it is a top-level field rather than a member of the\noneof. Output only: populated on reads and ignored on create and update.\nToken state changes only through the SCIM token methods, and enabling\nprovisioning is its own gated action."
           }
         },
         "type": "object"
@@ -2977,6 +3012,55 @@
         },
         "type": "object"
       },
+      "chainguard.platform.iam.IdentityProvider.SCIM": {
+        "description": "SCIM holds the System for Cross-domain Identity Management provisioning\nconfiguration for an identity provider.",
+        "properties": {
+          "credentialState": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.IdentityProvider.SCIM.CredentialState"
+              }
+            ],
+            "description": "credential_state is the explicit credential lifecycle state, derived by\nthe server. Reported on reads when SCIM provisioning is deployed."
+          },
+          "enabled": {
+            "description": "enabled reports whether SCIM provisioning is enabled for this identity\nprovider. Changing it is a dedicated gated action, not an identity\nprovider write.",
+            "type": "boolean"
+          },
+          "endpointUrl": {
+            "description": "endpoint_url is the server-derived SCIM endpoint URL for this identity\nprovider, computed from its UIDP. Not user-configurable and never\npersisted; the token method responses carry the same derived value.",
+            "type": "string"
+          },
+          "etag": {
+            "description": "etag is an opaque version for optimistic concurrency on lifecycle\nmutations.",
+            "type": "string"
+          },
+          "previousTokenExpireTime": {
+            "description": "previous_token_expire_time is when a previous token remains valid during\nrotation overlap.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "tokenExpireTime": {
+            "description": "token_expire_time is when the current SCIM bearer token stops\nauthenticating. Unset when no token has been issued or the token does not\nexpire; a past value means the token is expired or revoked. Reported on\nreads when SCIM provisioning is deployed.",
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.IdentityProvider.SCIM.CredentialState": {
+        "default": "CREDENTIAL_STATE_UNSPECIFIED",
+        "description": "CredentialState is the server-derived lifecycle state of the SCIM bearer\ncredential. It describes the credential only; whether provisioning is on\nis the separate enabled switch.\n\n - CREDENTIAL_STATE_UNSPECIFIED: The state is not reported (for example when SCIM is not deployed, or\non write responses that do not carry SCIM status).\n - CREDENTIAL_STATE_NOT_ISSUED: No token has ever been generated for this identity provider.\n - CREDENTIAL_STATE_LIVE: The current token authenticates.\n - CREDENTIAL_STATE_EXPIRED: The current token passed its declared expiry and no longer\nauthenticates. Regenerate to issue a replacement.\n - CREDENTIAL_STATE_REVOKED: The token was explicitly revoked; nothing authenticates until a new\ncredential is issued. The enabled switch is unchanged.\n - CREDENTIAL_STATE_ROTATING: A regeneration overlap is active: the previous token keeps\nauthenticating until previous_token_expire_time.",
+        "enum": [
+          "CREDENTIAL_STATE_UNSPECIFIED",
+          "CREDENTIAL_STATE_NOT_ISSUED",
+          "CREDENTIAL_STATE_LIVE",
+          "CREDENTIAL_STATE_EXPIRED",
+          "CREDENTIAL_STATE_REVOKED",
+          "CREDENTIAL_STATE_ROTATING"
+        ],
+        "type": "string"
+      },
       "chainguard.platform.iam.IdentityProviderList": {
         "properties": {
           "items": {
@@ -2984,6 +3068,62 @@
               "$ref": "#/components/schemas/chainguard.platform.iam.IdentityProvider"
             },
             "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.IdentityProviders.GenerateScimTokenBody": {
+        "description": "GenerateScimTokenRequest asks for an identity provider's first SCIM bearer\ntoken.",
+        "properties": {
+          "expireTime": {
+            "description": "expire_time is an optional expiry for the generated token, at most two\nyears from now. When neither this nor never_expires is set, the server\ndefaults to one year.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "neverExpires": {
+            "description": "never_expires requests a token without a planned expiry. Setting this\ntogether with expire_time is invalid.",
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.IdentityProviders.RegenerateScimTokenBody": {
+        "description": "RegenerateScimTokenRequest asks for a replacement SCIM bearer token for an\nidentity provider.",
+        "properties": {
+          "etag": {
+            "description": "etag returned by a read or a prior lifecycle response. Required to prevent\nconcurrent reveal-once rotations from silently invalidating one another.",
+            "type": "string"
+          },
+          "expireTime": {
+            "description": "expire_time is an optional expiry for the new token, at most two years from\nnow. When neither this nor never_expires is set, the server defaults to one\nyear.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "neverExpires": {
+            "description": "never_expires requests a token without a planned expiry. Setting this\ntogether with expire_time is invalid.",
+            "type": "boolean"
+          },
+          "overlap": {
+            "description": "overlap is how long the previous token keeps authenticating after the\nregeneration (make-before-break), capped server-side at 24h. Zero means\nimmediate cutover; when omitted the server defaults to one hour. A token\nthat is already expired or revoked stays dead regardless.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.IdentityProviders.RevokeScimTokenBody": {
+        "description": "RevokeScimTokenRequest immediately invalidates an identity provider's SCIM\nbearer tokens (current and regeneration-overlap).",
+        "type": "object"
+      },
+      "chainguard.platform.iam.IdentityProviders.SetScimEnabledBody": {
+        "description": "SetScimEnabledRequest starts or pauses SCIM provisioning for an identity\nprovider.",
+        "properties": {
+          "enabled": {
+            "description": "enabled is the desired provisioning state. Enabling does not require a live\ntoken; disabling pauses provisioning while leaving the credential,\nprovisioned users, and bindings intact.",
+            "type": "boolean"
+          },
+          "etag": {
+            "description": "etag returned by a read or a token lifecycle response. Required so a switch\ncannot race a concurrent lifecycle mutation.",
+            "type": "string"
           }
         },
         "type": "object"
@@ -3002,6 +3142,14 @@
           },
           "oidc": {
             "$ref": "#/components/schemas/chainguard.platform.iam.IdentityProvider.OIDC"
+          },
+          "scim": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.IdentityProvider.SCIM"
+              }
+            ],
+            "description": "scim reports SCIM provisioning status for this identity provider.\n\nSCIM is a provisioning protocol independent of the authentication mechanism\nin configuration, so it is a top-level field rather than a member of the\noneof. Output only: populated on reads and ignored on create and update.\nToken state changes only through the SCIM token methods, and enabling\nprovisioning is its own gated action."
           }
         },
         "type": "object"
@@ -3044,8 +3192,67 @@
         ],
         "type": "string"
       },
+      "chainguard.platform.iam.RegenerateScimTokenResponse": {
+        "description": "RegenerateScimTokenResponse carries the one-time plaintext replacement token\nand the SCIM endpoint to configure in the identity provider.",
+        "properties": {
+          "endpointUrl": {
+            "description": "endpoint_url is the SCIM endpoint the identity provider must be configured\nto call.",
+            "type": "string"
+          },
+          "etag": {
+            "description": "etag is the opaque version of the SCIM configuration after this call, for\noptimistic concurrency on subsequent lifecycle mutations.",
+            "type": "string"
+          },
+          "expireTime": {
+            "description": "expire_time is the effective server-selected token expiry. Unset only for\nnever_expires.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "identityProviderId": {
+            "description": "identity_provider_id is the UIDP the token was regenerated for, echoed for\nattribution.",
+            "type": "string"
+          },
+          "previousTokenExpireTime": {
+            "description": "previous_token_expire_time is when the previous token stops authenticating\n(the effective end of the make-before-break overlap). Unset when the\nprevious token was already dead, so no overlap is active.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "requestedOverlap": {
+            "description": "requested_overlap is the overlap requested by the caller after server\ndefaulting. Audit events carry this separately from the effective\nprevious-token cutoff so operator intent remains reconstructable.",
+            "type": "string"
+          },
+          "token": {
+            "description": "token is the plaintext SCIM bearer token, returned exactly once. Store it\nnow: it is never retrievable again, and only its SHA-256 digest is\npersisted. Format: \"cgscim_\" followed by 64 hexadecimal characters.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.iam.RequestGroupAccessResponse": {
         "description": "RequestGroupAccessResponse is the response message for RequestGroupAccess.\nIt is intentionally empty; the access request is delivered out of band.",
+        "type": "object"
+      },
+      "chainguard.platform.iam.RevokeScimTokenResponse": {
+        "description": "RevokeScimTokenResponse reports the resulting credential and provisioning\nstate for auditing and subsequent optimistic concurrency.",
+        "properties": {
+          "enabled": {
+            "description": "enabled is whether provisioning is enabled after the revocation. Revocation\nnever changes this switch: the dead credential is itself the containment.",
+            "type": "boolean"
+          },
+          "etag": {
+            "description": "etag is the opaque version of the SCIM configuration after this call, for\noptimistic concurrency on subsequent lifecycle mutations.",
+            "type": "string"
+          },
+          "identityProviderId": {
+            "description": "identity_provider_id is the UIDP whose tokens were revoked, echoed for\nattribution.",
+            "type": "string"
+          },
+          "revokeTime": {
+            "description": "revoke_time is when the revocation took effect.",
+            "format": "date-time",
+            "type": "string"
+          }
+        },
         "type": "object"
       },
       "chainguard.platform.iam.Role": {
@@ -3230,6 +3437,24 @@
           "GUARDENER"
         ],
         "type": "string"
+      },
+      "chainguard.platform.iam.SetScimEnabledResponse": {
+        "description": "SetScimEnabledResponse reports the resulting provisioning state.",
+        "properties": {
+          "enabled": {
+            "description": "enabled is the provisioning state after this call.",
+            "type": "boolean"
+          },
+          "etag": {
+            "description": "etag is the opaque version of the SCIM configuration after this call, for\noptimistic concurrency on subsequent lifecycle mutations.",
+            "type": "string"
+          },
+          "identityProviderId": {
+            "description": "identity_provider_id is the UIDP, echoed for attribution.",
+            "type": "string"
+          }
+        },
+        "type": "object"
       },
       "chainguard.platform.iam.StoredGroupInvite": {
         "properties": {
@@ -4248,7 +4473,7 @@
             "type": "string"
           },
           "clientSecret": {
-            "description": "Client secret of the identity provider. This is a sensitive value\nand is not returned for list/get calls.",
+            "description": "Client secret of the identity provider. This is a sensitive value\nand is not returned for list/get calls. Required for a confidential\nclient; may be omitted for a public client, which instead authenticates\nwith PKCE (set pkce_enabled). At least one of client_secret or\npkce_enabled must be provided.\n\nOn update, an empty client_secret means \"keep the existing secret\"\nunless oidc.client_secret is named explicitly in the update mask, in\nwhich case the empty value clears the stored secret (transitioning a\nconfidential client to a public, PKCE-only client). A direct HTTP REST\nrequest that does not set the update mask explicitly infers it from the\nfields present in the request body, so sending an empty client_secret\nwill clear it; set the update mask explicitly (or use the generated\ngRPC clients, which send only the fields you set) to avoid this.",
             "type": "string"
           },
           "groupsClaim": {
@@ -4266,8 +4491,7 @@
         },
         "required": [
           "issuer",
-          "clientId",
-          "clientSecret"
+          "clientId"
         ],
         "type": "object"
       },
@@ -7642,6 +7866,24 @@
         },
         "type": "object"
       },
+      "chainguard.platform.registry.ChartImageBinding": {
+        "description": "ChartImageBinding describes a chart in the CG catalog\nthat references a specific image, populated by the registry ingester\nentries derived from chart-lock attestations.",
+        "properties": {
+          "chartRepo": {
+            "description": "The bare name of the chart repo that references the image (e.g. \"akhq\").",
+            "type": "string"
+          },
+          "requirement": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.ChartImageRequirement"
+              }
+            ],
+            "description": "Whether the image is required or optional for this chart."
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.registry.ChartImageRequirement": {
         "default": "REQUIREMENT_UNSPECIFIED",
         "description": "ChartImageRequirement indicates whether a chart image is required or\noptional for the chart to deploy.",
@@ -8241,6 +8483,18 @@
           "max": {
             "format": "int32",
             "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.ListChartsByImageRepoResponse": {
+        "properties": {
+          "chartImageBindings": {
+            "description": "Chart-image bindings for the given image repo, sorted\nby chart_repo.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.ChartImageBinding"
+            },
+            "type": "array"
           }
         },
         "type": "object"
@@ -14808,6 +15062,226 @@
           }
         },
         "summary": "List",
+        "tags": [
+          "IdentityProviders"
+        ]
+      }
+    },
+    "/iam/v1/identityProviders/{identityProviderId}:generateScimToken": {
+      "post": {
+        "description": "GenerateScimToken issues the first SCIM bearer token for an identity\nprovider, creating its SCIM provisioning configuration in a disabled state.\nTokens and enablement are separate controls: provisioning stays off until\nSCIM is explicitly enabled. The plaintext token is returned exactly once;\nonly its SHA-256 digest is persisted and it is never logged. This\nreveal-once operation is not idempotent. Returns FAILED_PRECONDITION if the\nprovider already has a SCIM token (regenerate it instead).",
+        "operationId": "IdentityProviders_GenerateScimToken",
+        "parameters": [
+          {
+            "description": "identity_provider_id is the UIDP of the identity provider to generate a\nSCIM bearer token for.",
+            "in": "path",
+            "name": "identityProviderId",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.iam.IdentityProviders.GenerateScimTokenBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.GenerateScimTokenResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Generate Scim Token",
+        "tags": [
+          "IdentityProviders"
+        ]
+      }
+    },
+    "/iam/v1/identityProviders/{identityProviderId}:regenerateScimToken": {
+      "post": {
+        "description": "RegenerateScimToken re-keys an identity provider's SCIM bearer token. When\nthe current token is live, the replacement is make-before-break: the\nprevious token keeps authenticating for the requested overlap (capped\nserver-side at 24h). The new plaintext token is returned exactly once. This\nreveal-once operation is not safe to retry after an ambiguous transport\nfailure. Returns NOT_FOUND if the provider has never had a SCIM token.",
+        "operationId": "IdentityProviders_RegenerateScimToken",
+        "parameters": [
+          {
+            "description": "identity_provider_id is the UIDP of the identity provider whose SCIM bearer\ntoken is being regenerated.",
+            "in": "path",
+            "name": "identityProviderId",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.iam.IdentityProviders.RegenerateScimTokenBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.RegenerateScimTokenResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Regenerate Scim Token",
+        "tags": [
+          "IdentityProviders"
+        ]
+      }
+    },
+    "/iam/v1/identityProviders/{identityProviderId}:revokeScimToken": {
+      "post": {
+        "description": "RevokeScimToken immediately invalidates the current and overlap SCIM bearer\ntokens; inbound provisioning stops on the next request because no credential\nauthenticates. The enabled switch is not changed, so a later\nRegenerateScimToken installs a credential that serves under the existing\nenabled state.",
+        "operationId": "IdentityProviders_RevokeScimToken",
+        "parameters": [
+          {
+            "description": "identity_provider_id is the UIDP of the identity provider whose SCIM bearer\ntoken is being revoked.",
+            "in": "path",
+            "name": "identityProviderId",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.iam.IdentityProviders.RevokeScimTokenBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.RevokeScimTokenResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Revoke Scim Token",
+        "tags": [
+          "IdentityProviders"
+        ]
+      }
+    },
+    "/iam/v1/identityProviders/{identityProviderId}:setScimEnabled": {
+      "post": {
+        "description": "SetScimEnabled explicitly starts or pauses SCIM provisioning. Enabling fails\nwith FAILED_PRECONDITION for an organization with fewer than two manually\nassigned owner-tier role bindings, so SCIM can never take over an\norganization's only owner. Enabling does not require a live token. Token\ngeneration, regeneration, and revocation never change this switch.",
+        "operationId": "IdentityProviders_SetScimEnabled",
+        "parameters": [
+          {
+            "description": "identity_provider_id is the UIDP of the identity provider whose\nprovisioning is being switched.",
+            "in": "path",
+            "name": "identityProviderId",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.iam.IdentityProviders.SetScimEnabledBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.SetScimEnabledResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Set Scim Enabled",
         "tags": [
           "IdentityProviders"
         ]
@@ -23151,6 +23625,50 @@
         "summary": "Add Chart",
         "tags": [
           "Charts"
+        ]
+      }
+    },
+    "/registry/v1/repos/{repoId}/chart-image-bindings": {
+      "get": {
+        "description": "ListChartsByImageRepo returns every chart that depends on the\ngiven image repo. Backed by the chart_image_dependency reverse index\npopulated from chart-lock attestations on catalog pushes",
+        "operationId": "Registry_ListChartsByImageRepo",
+        "parameters": [
+          {
+            "description": "The UIDP of the image repo to look up chart-image bindings for.",
+            "in": "path",
+            "name": "repoId",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.registry.ListChartsByImageRepoResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Charts By Image Repo",
+        "tags": [
+          "Registry"
         ]
       }
     },

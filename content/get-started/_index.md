@@ -9,7 +9,7 @@ images: []
 weight: 1
 ---
 
-New to Chainguard? Pick the path that matches what you're trying to do:
+New to Chainguard? Start with [What is Chainguard?](/get-started/what-is-chainguard/) for a high-level overview of the company and its products. Otherwise, pick the path that matches what you're trying to do:
 
 ## Build with containers
 
@@ -21,7 +21,7 @@ Swap your existing dependencies for Chainguard Libraries — rebuilt from verifi
 
 ## Evaluate trust
 
-Deciding whether Chainguard is right for your organization? Review how Chainguard images are built, what guarantees they carry, and how they compare on CVEs.
+Deciding whether Chainguard is right for your organization? Review how Chainguard Containers are built, what guarantees they carry, and how they compare on CVEs.
 
 ## Migrate an organization
 

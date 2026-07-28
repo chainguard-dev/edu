@@ -1,5 +1,5 @@
 ---
-date: 2026-07-23T16:28:18Z
+date: 2026-07-27T18:08:10Z
 title: "chainctl policies decision list"
 slug: chainctl_policies_decision_list
 url: /platform/chainctl/chainctl-docs/chainctl_policies_decision_list/
@@ -47,12 +47,13 @@ chainctl policies decision list [--parent ORG] [--repo REPO] [--policy POLICY] [
 ### Options
 
 ```
-      --mode string     Only show decisions evaluated in this mode (ENFORCE or DRY_RUN).
-      --parent string   The name or id of the organization to list decisions for.
-      --policy string   Only show decisions for this policy (name or UIDP).
-      --repo string     Only show decisions for this repository.
-      --result string   Only show decisions with this outcome (ALLOWED, DENIED, or ERROR).
-      --since string    Only show decisions pulled within this many days, e.g. 7d.
+      --mode string            Only show decisions evaluated in this mode (ENFORCE or DRY_RUN).
+      --parent string          The name or id of the organization to list decisions for.
+      --policy string          Only show decisions for this policy (name or UIDP).
+      --repo string            Only show decisions for this repository.
+      --resource-type string   Resource type used to disambiguate a policy referenced by name (shorthand: Repo, Python, Java, Javascript; or a full type). Ignored when the policy is given by UIDP.
+      --result string          Only show decisions with this outcome (ALLOWED, DENIED, or ERROR).
+      --since string           Only show decisions pulled within this many days, e.g. 7d.
 ```
 
 ### Options inherited from parent commands

@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "How to get SBOM for container images: Chainguard provides Software Bill of Materials for every image - retrieve with Cosign for complete supply chain transparency"
 date: 2023-11-17T11:07:52+02:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-07-27T15:26:42+00:00
 draft: false
 tags: ["Chainguard Containers", "SBOM"]
 images: []
@@ -179,6 +179,16 @@ As an example, a snippet of a binary package SPDX stanza with license, version, 
 ```
 
 This snippet shows that the `glibc-locale-posix` binary package is distributed under LGPL license, built from the `glibc-2.39.tar.xz` upstream tarball, using the `glibc.yaml` file from the `wolfi-dev/os` repository.
+
+### Source code references in CycloneDX SBOMs
+
+CycloneDX SBOMs contain the same package, license, and source code information as their SPDX counterparts, arranged to follow the [CycloneDX specification](https://cyclonedx.org/specification/overview/). The structure differs from SPDX in a few ways:
+
+- Installed packages appear as top-level `library` components instead of being nested inside container or directory wrapper components.
+- A dependency tree links the image to each installed package, and links each package to any modules bundled within it, such as Go modules.
+- Build and source provenance appears in the top-level `externalReferences` field on the BOM rather than as components. The melange build definitions use the `build-meta` reference type, and upstream source code references use `source-distribution`. SPDX records this same provenance in each package's `externalRefs` field.
+
+Because packages appear as standard components and provenance is kept in external references, these CycloneDX SBOMs import cleanly into software composition analysis (SCA) tools such as Mend.
 
 ## Learn more
 

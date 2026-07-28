@@ -1,5 +1,5 @@
 ---
-date: 2026-07-23T16:28:17Z
+date: 2026-07-27T18:08:10Z
 title: "chainctl iam identity-providers create"
 slug: chainctl_iam_identity-providers_create
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_create/
@@ -14,17 +14,24 @@ toc: true
 Create an identity provider
 
 ```
-chainctl iam identity-providers create --parent ORGANIZATION_NAME | ORGANIZATION_ID [--name=NAME] [--description=DESCRIPTION] --oidc-issuer=ISSUER --oidc-client-id=CLIENT_ID --oidc-client-secret=CLIENT_SECRET [--oidc-additional-scopes=SCOPE,...] [--oidc-pkce-enabled] --default-role=ROLE [--output=id|json|table]
+chainctl iam identity-providers create --parent ORGANIZATION_NAME | ORGANIZATION_ID [--name=NAME] [--description=DESCRIPTION] --oidc-issuer=ISSUER --oidc-client-id=CLIENT_ID {--oidc-client-secret=CLIENT_SECRET | --oidc-pkce-enabled} [--oidc-additional-scopes=SCOPE,...] --default-role=ROLE [--output=id|json|table]
 ```
 
 ### Examples
 
 ```
-  # Setup a custom OIDC provider and bind new users to the viewer role
+  # Setup a confidential OIDC provider and bind new users to the viewer role
   chainctl iam identity-providers create --name=google --parent=example \
   --oidc-issuer=https://accounts.google.com \
   --oidc-client-id=foo \
   --oidc-client-secret=bar \
+  --default-role=viewer
+  
+  # Setup a public OIDC provider
+  chainctl iam identity-providers create --name=google --parent=example \
+  --oidc-issuer=https://accounts.google.com \
+  --oidc-client-id=foo \
+  --oidc-pkce-enabled \
   --default-role=viewer
 ```
 
