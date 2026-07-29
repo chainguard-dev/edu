@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for JavaScript in your organization"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2025-06-05T09:00:00+00:00
+lastmod: 2026-07-29T13:35:56+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 images: []
@@ -235,10 +235,8 @@ To prevent this:
     * **Enable Cookie Management** - this setting is optional, but recommended
       by JFrog for remote repositories that involve redirects.
 2. Clear the corrupted cached tarballs: in Artifactory, right-click the
-   `javascript-chainguard` repository and click **Zap Caches**, then re-run your
+   `javascript-chainguard` repository and locate the specific corrupted `.tgz` artifacts from the remote cache. Right click the artifact, select **Delete content**, then re-run your
    install.
-    * Alternatively, you could delete specific corrupted `.tgz` artifacts from
-      the remote cache, rather than deleting all, before re-running the install.
 
 ### Validate the remote repository
 
