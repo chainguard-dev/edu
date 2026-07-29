@@ -1,8 +1,9 @@
 # Chainguard AI Documentation Container
 # Provides secure distribution of compiled documentation with MCP server support
 
-# Use wolfi-base which includes a shell but is still minimal and secure
-FROM cgr.dev/chainguard/wolfi-base:latest AS final
+# Use wolfi-base which includes a shell but is still minimal and secure.
+# Pinned by digest for reproducible builds; digestabot keeps it current.
+FROM cgr.dev/chainguard/wolfi-base:latest@sha256:003627df3c1e1bba0c4116afcddb314aca9594ee2328c7e876a8081a6c988b2e AS final
 
 # Add metadata labels
 LABEL org.opencontainers.image.source="https://github.com/chainguard-dev/edu"
