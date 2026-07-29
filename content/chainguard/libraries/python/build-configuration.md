@@ -4,7 +4,7 @@ linktitle: "Build configuration"
 description: "Configuring Chainguard Libraries for Python on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2025-04-07T14:11:00+00:00
+lastmod: 2026-07-29T14:25:06+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 menu:
@@ -173,7 +173,12 @@ Or specify a lockfile path directly:
 chainctl libraries update-hashes path/to/requirements.txt
 ```
 
-When using a repo manager, pass the full repository URL with `--registry-url`.
+If you install through a repository manager rather than pulling from Chainguard directly, pass the full repository URL with `--registry-url` so the hashes are updated against the same source your project actually installs from. For example:
+
+```bash
+chainctl libraries update-hashes --registry-url https://your-org.jfrog.io/artifactory/api/pypi/chainguard-libraries/simple
+```
+
 Learn about using this command with repo managers in the [Global
 configuration](/chainguard/libraries/python/global-configuration/) page.
 
