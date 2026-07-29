@@ -1,0 +1,53 @@
+name: MCP image smoke test
+
+# Shift-left gate for the AI-docs MCP server (DOCS-93). The deploy-time gate in
+# compile-ai-docs-from-gcs.yaml only runs on main, so a breaking dependency or
+# base-image bump (which arrives as a PR) would otherwise merge green and fail
+# later at deploy. Build the image and smoke-test it here so it fails on the PR.
+
+on:
+  pull_request:
+    paths:
+      - scripts/**
+      - .github/workflows/mcp-image-smoke-test.yaml
+
+permissions: {}
+
+jobs:
+  smoke-test:
+    if: github.repository == 'chainguard-dev/edu'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+    - name: Harden Runner
+      uses: step-security/harden-runner@bf7454d06d71f1098171f2acdf0cd4708d7b5920 # v2.20.0
+      with:
+        egress-policy: block
+        allowed-endpoints: >
+          api.github.com:443
+          apk.cgr.dev:443
+          cgr.dev:443
+          files.pythonhosted.org:443
+          github.com:443
+          objects.githubusercontent.com:443
+          pypi.org:443
+          release-assets.githubusercontent.com:443
+
+    - name: Checkout edu repository
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      with:
+        persist-credentials: false
+
+    - name: Build and smoke-test the MCP server image
+      run: |
+        # The Dockerfile COPYs docs artifacts that only exist after the full
+        # GCS pipeline runs. This check validates the MCP server layer, not the
+        # docs content, so stub those artifacts to let the image build.
+        cd scripts
+        echo "# placeholder for PR smoke test" > chainguard-ai-docs.md
+        echo '{}' > image-catalog.json
+        echo "placeholder" > checksums.txt
+        cd ..
+        docker build -f scripts/Dockerfile.ai-docs -t ai-docs:pr-smoke scripts/
+        scripts/smoke-test-mcp.sh ai-docs:pr-smoke
