@@ -4,7 +4,7 @@ linktitle: "EOL Grace Period"
 type: "article"
 description: "Understanding Chainguard's end-of-life (EOL) grace period."
 date: 2025-05-14T08:49:31+00:00
-lastmod: 2026-07-29T12:53:45+00:00
+lastmod: 2026-07-29T13:03:37+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -54,7 +54,7 @@ Additionally, if a container image fails to build because underlying dependencie
 {{< note >}}
 **Installing updated versions of packages:** Chainguard won't remediate CVEs by installing updated versions of packages in instances where the new package version no longer supports the EOL version of the image's main package. If we did, this would cause test failures and a broken image forcing an end of support for that image, so we're sticking with the old version of the package to avoid that and give you a little longer to migrate.
 
-You can attempt to use `apk upgrade` at you own risk to try to update those packages.
+You can attempt to use `apk upgrade` at your own risk to try to update those packages.
 {{< /note >}}
 
 <center><img src="eol-gp-3.png" alt="Diagram representing the lifecycle of an example unsuccessful build under the EOL Grace Period. A Python image whose primary package has reached EOL goes through an automated remediation and rebuild process, resulting in an unsuccessful build because the updated dependencies break the primary package. Because the build was unsuccessful, the EOL grace period ends and the customer should migrate to a newer package version." style="width:1050px;"></center>
