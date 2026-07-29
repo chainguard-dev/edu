@@ -1,5 +1,5 @@
 ---
-date: 2026-07-27T18:08:10Z
+date: 2026-07-28T17:26:25Z
 title: "chainctl auth token capabilities"
 slug: chainctl_auth_token_capabilities
 url: /platform/chainctl/chainctl-docs/chainctl_auth_token_capabilities/

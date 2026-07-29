@@ -1,5 +1,5 @@
 ---
-date: 2026-07-27T18:08:10Z
+date: 2026-07-28T17:26:25Z
 title: "chainctl policies decision list"
 slug: chainctl_policies_decision_list
 url: /platform/chainctl/chainctl-docs/chainctl_policies_decision_list/
@@ -24,8 +24,11 @@ for a specific organization, by --repo for all decisions recorded on a
 single repository, by --policy for a single policy, by --mode or
 --result for a subset of outcomes, and by --since for a time window.
 
+Decisions are listed most recent first. By default the 20 most recent
+are shown; use --limit (1-100) to change how many are returned.
+
 ```
-chainctl policies decision list [--parent ORG] [--repo REPO] [--policy POLICY] [--mode MODE] [--result RESULT] [--since DAYS] [--output=json|table] [flags]
+chainctl policies decision list [--parent ORG] [--repo REPO] [--policy POLICY] [--mode MODE] [--result RESULT] [--since DAYS] [--limit N] [--output=json|table] [flags]
 ```
 
 ### Examples
@@ -40,6 +43,9 @@ chainctl policies decision list [--parent ORG] [--repo REPO] [--policy POLICY] [
   # List all decisions recorded for a single repository
   chainctl policies decision list --parent=engineering --repo=nginx
   
+  # Show the 50 most recent decisions
+  chainctl policies decision list --parent=engineering --limit=50
+  
   # List decisions in JSON format for scripting
   chainctl policies decision list --parent=engineering -o json
 ```
@@ -47,6 +53,7 @@ chainctl policies decision list [--parent ORG] [--repo REPO] [--policy POLICY] [
 ### Options
 
 ```
+      --limit int              Maximum number of decisions to return, most recent first (1-100). (default 20)
       --mode string            Only show decisions evaluated in this mode (ENFORCE or DRY_RUN).
       --parent string          The name or id of the organization to list decisions for.
       --policy string          Only show decisions for this policy (name or UIDP).
