@@ -4,7 +4,7 @@ aliases:
 title: "Container Pull Policies"
 linktitle: "Container Pull Policies"
 type: "article"
-description: "Configure and enforce policies that control which Chainguard container and artifact versions your organization can pull, using chainctl or the Chainguard Console"
+description: "Configure and enforce policies that control which Chainguard container and artifact versions your organization can pull, using chainctl"
 date: 2026-05-21T08:48:45+00:00
 lastmod: 2026-05-21T08:48:45+00:00
 draft: false
@@ -30,6 +30,8 @@ This is how policies uses the following terms.
 - **Parameter** — A configurable value declared by a policy's schema (for example, `days` on the `cooldown` policy). Supply values when you enable a policy with `--param=KEY=VALUE` (repeatable). Omitted parameters fall back to the schema's declared default. Use `chainctl policies describe --policy=$POLICY` to see which parameters a policy accepts and what defaults apply.
 
 The `--mode` flag is required when you enable a policy. Chainguard recommends starting with `DRY_RUN` so you can review a policy's impact before promoting it to `ENFORCE`.
+
+Multiple policies can be active at the same time, and they compose: an image is allowed only when *every* active policy allows it. A single policy in `ENFORCE` mode returning `DENIED` is enough to block the pull.
 
 ## Available policies
 
@@ -142,7 +144,7 @@ Note that a `DRY_RUN` denial also produces a non-zero exit, so a passing `check`
 
 ## Policy decisions
 
-Every time an image is pulled and evaluated against an active policy, the platform records the outcome as a *decision*. A decision is the result of evaluating a single image digest against a single policy at pull time. It captures the policy, the digest, the mode the policy ran under (`ENFORCE` or `DRY_RUN`), the outcome (`ALLOWED`, `DENIED`, or `ERROR`), a reason when one is available, and the day the pull happened.
+Every time an image is pulled and evaluated against an active policy, the platform records the outcome as a *decision*. A decision is the result of evaluating a single image digest against a single policy at pull time. It captures the policy, the digest, the mode the policy ran under (`ENFORCE` or `DRY_RUN`), the outcome (`ALLOWED`, `DENIED`, or `ERROR`), and the day the pull happened.
 
 Decisions are recorded for all evaluations, regardless of mode or outcome. Together they form an audit log of what your policies did against real pull traffic. Use them to answer questions like "why was this image blocked?", "what has this policy decided over the past month?", and "what would this policy block if I enforced it?".
 
@@ -176,6 +178,12 @@ chainctl policies decision list --parent=$ORGANIZATION --repo=nginx:latest
 ```
 
 Decisions are deduplicated per day, so repeated pulls of the same digest under the same policy and outcome appear once for that day rather than once per pull.
+
+Decisions are listed newest first. The command returns at most 20 decisions by default; use `--limit` to change the page size, which accepts a value from `1` to `100`:
+
+```shell
+chainctl policies decision list --parent=$ORGANIZATION --limit=50
+```
 
 ## Example: staging a policy with dry run
 
