@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Java project to pull dependencies from Chainguard Libraries"
 date: 2026-07-02T00:00:00+00:00
-lastmod: 2026-07-02T00:00:00+00:00
+lastmod: 2026-07-30T19:56:46+00:00
 tags: ["Chainguard Libraries", "Java"]
 menu:
   docs:
@@ -505,6 +505,8 @@ If all artifacts download from Central, your credentials may be invalid or expir
 
 To check whether a specific artifact was built by Chainguard, use `chainctl libraries verify /full/path/to/artifact.jar`. Verify artifacts immediately after a clean build, before any repackaging.
 
+When upstream fallback is enabled, [packages that aren't built by Chainguard] are subject to Chainguard's security controls.
+
 {{< tabs >}}
 
 {{% tab title="Maven" %}}
@@ -584,9 +586,23 @@ chainctl libraries verify ~/Library/Caches/bazel/_bazel_example/c22a55500...f423
 
 {{< /tabs >}}
 
-A successfully verified artifact produces output similar to:
+A successful result shows what percentage of your project's dependencies were built by Chainguard:
 
 ```bash
 Artifact: /path/to/artifact.jar
 Verification Coverage: 100.00%
 ```
+
+## Packages not available in Chainguard Libraries
+
+Chainguard Libraries covers a large and growing collection of Java packages, but not every package or version is available. If a package is missing, your install will fail with a 404 unless you have configured [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls).
+
+With upstream fallback enabled, packages not yet available from Chainguard are proxied from Maven Central, subject to Chainguard's security controls. Confirm your current policy with:
+
+```shell
+chainctl libraries entitlements list
+```
+
+For repository manager setups, Chainguard recommends using the configurable fallback rather than configuring a separate public registry fallback in your repository manager, to preserve Chainguard’s security controls.
+
+Learn more about upstream fallback configurations in the [Libraries Overview](/chainguard/libraries/overview/#upstream-fallback-and-controls).
