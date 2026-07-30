@@ -9,7 +9,7 @@ lastmod: 2026-07-02T08:48:45+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
-weight: 7
+weight: 015
 ---
 
 By default, users can authenticate to the Chainguard platform with a built-in social login provider: GitHub, GitLab, or Google. After you [configure a custom identity provider](/chainguard/administration/custom-idps/custom-idps/#setup-and-administration) for single sign-on (SSO), you may want to require that everyone in your organization authenticate through that provider instead.
