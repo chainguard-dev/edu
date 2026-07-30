@@ -60,7 +60,7 @@ Next, configure the OIDC application. Navigate to the **Configuration** tab and 
 To configure the application, add the following settings.
 
 * **Response Type**: Select the **Code** checkbox.
-* **Grant Type**: Select the **Authorization Code** checkbox, and set PKCE Enforcement to "Optional."
+* **Grant Type**: Select the **Authorization Code** checkbox, and set PKCE Enforcement to "Optional." You can instead set this to "Required" if you [enable PKCE for the token exchange](/platform/administration/custom-idps/enabling-pkce/) on the Chainguard side.
 
 > Warning: Setting a grant type other than **Authorization Code** may compromise your security posture.
 
