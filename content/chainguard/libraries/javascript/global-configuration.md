@@ -228,8 +228,6 @@ To prevent this:
 
 1. Apply the following settings to your Artifactory `javascript-chainguard`
    remote repository, within in the **Advanced** tab:
-    * **Enable Bypass HEAD Requests** — prevents Artifactory from sending HEAD
-      requests that may not be handled correctly by redirect-based registries.
     * **Disable Lenient Host Authentication** — disabling this setting ensures
       credentials are not forwarded across the redirect.
     * **Enable Cookie Management** - this setting is optional, but recommended
