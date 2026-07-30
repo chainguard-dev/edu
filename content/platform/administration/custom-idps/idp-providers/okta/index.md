@@ -33,6 +33,8 @@ To integrate your Okta identity provider with the Chainguard platform, [log in t
 
 Select **OIDC - OpenID Connect** as the sign-in method and **Web Application** as the application type.
 
+> **Note**: A Web Application is a confidential client and always expects a client secret. You can [add PKCE to the token exchange](/platform/administration/custom-idps/enabling-pkce/) on top of that secret. To use a secret-free public client instead, select **Native** or **SPA** here, since Okta doesn't let you change an application's type after you create it.
+
 Next, in the **General Settings** window, configure the application as follows:
 
 * **App integration name**: Enter a descriptive name (like "Chainguard") here.

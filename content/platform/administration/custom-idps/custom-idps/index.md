@@ -8,7 +8,7 @@ lead: "Chainguard Custom IdPs"
 description: "An introduction to and overview of Chainguard's custom IdP support features"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2025-01-07T15:22:20+01:00
+lastmod: 2026-07-29T15:22:20+01:00
 draft: false
 tags: ["Chainguard Containers", "Overview"]
 images: []
@@ -115,6 +115,22 @@ Typically, identity providers enable you to set up SSO by creating a specific re
 
 To set up SSO for your identity provider, you must configure one of these resources to use OIDC so that the Chainguard platform can interact with the provider. Following that, you have to configure the Chainguard platform to use that application.
 
+### Confidential and public applications
+
+OAuth classifies client applications as either confidential or public, and most identity providers use this terminology when you register an application. The classification determines whether your application authenticates with a client secret.
+
+- **Confidential applications** can store credentials securely, so they authenticate with a client secret. A web application backed by a server is the typical example, and identity providers usually label these as "Web" applications.
+- **Public applications** can't store credentials securely, because their code runs where the user can reach it. Native, mobile, desktop, and single-page applications fall here, and identity providers usually label these as "Native" or "SPA" applications.
+
+A public application has no secret to prove its identity, so it uses PKCE (Proof Key for Code Exchange) instead. PKCE binds the authorization code to the client that requested it, so an intercepted code is useless to anyone else.
+
+Chainguard supports both models:
+
+- **Confidential**: a client ID and client secret. The integration guides describe this setup, and you can also [add PKCE on top of the client secret](/platform/administration/custom-idps/enabling-pkce/).
+- **Public**: a client ID and PKCE, with no client secret. OAuth 2.1 requires this model for public clients going forward.
+
+Identity providers usually tie this classification to the application *type* you select at registration rather than to a separate setting, and some don't let you change the type afterward. If you want a public application, choose the matching type when you first register it. For the underlying definitions, refer to [section 2.1 of RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749#section-2.1); your identity provider's documentation names the application types it offers.
+
 ### Integration Guides for supported identity providers
 
 We have [published guides for multiple platforms](/chainguard/administration/custom-idps/), including Okta and Ping Identity. If you aren’t using one of these identity providers, you can complete the following Generic Integration Guide to configure your provider to work with Chainguard. However, be aware that Chainguard does not actively support identity providers other than the ones listed previously. If you are using an alternate identity provider, we encourage you to contact us to learn more.
@@ -135,7 +151,7 @@ Next, configure your OIDC application as follows:
 - Restrict grant types to **authorization code** only. It is critical that your application does not support "client credentials", "device code", "implicit" or other grant types (sometimes called “flows”)
 - Restrict response types to only authorization codes (sometimes called just “code”)
 - Enable “openid”, “email” and “profile” scopes for application
-- Disable or set PKCE to **optional**
+- Set PKCE to **optional**. Chainguard supports PKCE for the OAuth token exchange, so you can also set it to **required** if you [enable PKCE on the Chainguard side](/platform/administration/custom-idps/enabling-pkce/). Don't disable PKCE if you plan to enable it for Chainguard.
 
 Finally, configure a set of client credentials and make note of the following details to configure Chainguard:
 
