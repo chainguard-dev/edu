@@ -16,6 +16,7 @@
   width: fit-content;
   margin-top: 2.75rem;
   margin-bottom: 1rem;
+
   // Sized to hold its own against the section headings around it: a step above
   // body text (1rem) rather than the fine print a default badge would give.
   // Padding is in em, so it scales with any change to this size.
@@ -77,6 +78,7 @@
 
   details table {
     --bs-table-bg: transparent !important; // kill the default dark-mode gray
+
     background: transparent;
     table-layout: fixed; // same column algorithm as the outer table
     width: 100%;
