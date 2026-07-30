@@ -6,7 +6,7 @@ description: "Learn about Chainguard Libraries, providing enhanced security for
     comprehensive supply chain protection."
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-07-30T14:25:45+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 menu:
@@ -183,25 +183,13 @@ on subsequent requests.
 
 Chainguard's scanning evaluates multiple signal types, including:
 
-* **Maintainer behavior**: Flags anomalies in publisher accounts, release
-  history, and package metadata, checking to see if a maintainer account was
-  recently transferred, if a version was quietly yanked and republished, or if a
-  publish timestamp falls outside any normal window. It also monitors for
-  changes in publishing policy, process, or toolchain as these updates can be an
-  indicator of ownership takeover.
-* **Package contents**: Downloads and scans the actual package that was
-  published for obfuscated code, embedded C2 domains, modified binaries, and
-  other indicators that something fishy was inserted into the package before it
-  hit the registry. It also triggers on newly added dependencies and significant
-  changes in code or binary size.
-* **Publishing signals**: Compares the published package against its source
-  code, providing extra protection for all of the packages served via
-  Chainguard’s upstream fallback. It also monitors for items such as a release
-  not being tagged or being signed with an unknown key. Other publish signals
-  include force pushing a tag or a commit hash not being in the event log.
-* **Dynamic execution**: Runs install scripts in a sandboxed, network-blocked
-  environment to see if there are attempts to call out to an external server,
-  read system files, or execute hidden payloads.
+* **Credential and data theft**: The package harvests secrets (for example, GitHub tokens or SSH keys) and sends sensitive data out of the environment.
+* **Backdoors and malicious behavior**: The package obfuscates malicious behavior, including backdoor setup, remote access, staged payloads, and more. The code may contact known malicious infrastructure to fetch or run additional payloads.
+* **Install-time script execution**: The package automatically executes malicious behavior through pre-install and post-install lifecycle scripts.
+* **Typosquatting and impersonation**: The package is named or brand-engineered to deceive users into downloading the wrong package.
+* **Compromised or untrusted releases**: The package exhibits signs that a release cannot be trusted.
+
+You can view blocked packages [in the Chainguard Console](/chainguard/libraries/browse/#view-malware-information) or [using `chainctl` commands](/chainguard/libraries/access/#check-blocked-packages).
 
 #### Malware API
 

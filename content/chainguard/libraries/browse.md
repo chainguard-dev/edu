@@ -4,7 +4,7 @@ linktitle: "Browsing"
 description: "Searching, browsing, and inspecting Chainguard Libraries in the console"
 type: "article"
 date: 2025-07-03T14:00:00+00:00
-lastmod: 2026-07-30T13:53:55+00:00
+lastmod: 2026-07-30T14:25:45+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -14,10 +14,14 @@ weight: 007
 toc: true
 ---
 
-Chainguard Libraries provides access to millions of Java, JavaScript, and
-Python artifacts rebuilt from source. In the Chainguard Console,
-you can browse available libraries and versions, inspect package details, and
-evaluate dependencies before using them in your application development.
+Chainguard Libraries is a malware-free catalog of Java, JavaScript, and Python
+artifacts that have passed through multiple layers of security controls,
+including malware and greyware scanning, building from source, cooldowns, and
+additional policies.
+
+In the Chainguard Console, you can browse available
+libraries and versions, inspect package details, and evaluate dependencies
+before pulling them into your environment.
 
 ## Access libraries in the Chainguard Console
 
@@ -71,10 +75,10 @@ Click into a row to view a [specific library page](#library-page).
 ### View remediated libraries
 
 [CVE remediation](/chainguard/libraries/cve-remediation/) is available for a
-subset of Chainguard Libraries for Python and Java. You can view remediated libraries in
+subset of Chainguard Libraries for Java (available in beta) and Python. You can view remediated libraries in
 the Chainguard Console.
 
-In the Python and Java libraries directories, click the **Remediated** tab to view a list
+In the Java and Python libraries directories, click the **Remediated** tab to view a list
 of remediated libraries. Click into a library to see which versions have
 remediated CVEs.
 
@@ -87,13 +91,13 @@ Libraries](/chainguard/libraries/cve-remediation/#about-cve-remediation).
 
 ### View malware information
 
-For the JavaScript and Python ecosystems, click the **Malware** tab to learn how many packages have been blocked by Chainguard due to malware or greyware detection.
+For the JavaScript and Python ecosystems, click the **Malware** tab to learn how many packages have been blocked by Chainguard due to [malware or greyware detection](/chainguard/libraries/overview/#malware-and-greyware-detection).
 
 The list at the bottom of the page displays automatically blocked packages, including the package name, blocked version, the date it was blocked on, its MAL ID if available, and signals detected.
 
 #### Malware and greyware signals detected
 
-Some signals describe confirmed malicious behavior, while others describe greyware or supply-chain risk indicators that may justify blocking even when there is no public malware advisory. The detected signals fall under the following categories:
+Some signals describe confirmed malicious behavior, while others describe greyware or supply-chain risk indicators that may justify blocking even when there is no public malware advisory. Next to each blocked version, Chainguard provides the reason it was blocked when there is no public malware advisory. The detected signals fall under the following categories:
 
 * **Credential and data theft**: The package harvests secrets (for example, GitHub tokens or SSH keys) and sends sensitive data out of the environment.
     * Signals: Accesses credentials, Data exfiltration, Contains an exposed secret
