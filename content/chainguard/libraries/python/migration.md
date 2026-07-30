@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-07-30T18:03:19+00:00
+lastmod: 2026-07-30T19:08:49+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -445,7 +445,7 @@ poetry install
 
 ## Step 5: Verify your libraries
 
-After reinstalling, verify that your dependencies are sourced from Chainguard:
+After reinstalling, you can use `chainctl` to verify which dependencies are built by Chainguard. When upstream fallback is enabled, [libraries that aren't built by Chainguard](#packages-not-available-in-chainguard-libraries) are subject to Chainguard's security controls.
 
 {{< tabs >}}
 
@@ -475,7 +475,7 @@ chainctl libraries verify --detailed $(poetry env info --path)
 
 {{< /tabs >}}
 
-A successful result shows verification coverage for your project's dependencies.
+A successful result shows what percentage of your project's dependencies were built by Chainguard.
 
 For full details on verification options and output, see [Verification: Analyze Python packages](/chainguard/libraries/verification/#analyze-python-packages).
 
