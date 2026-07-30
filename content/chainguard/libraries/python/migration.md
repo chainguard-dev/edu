@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-07-30T19:08:49+00:00
+lastmod: 2026-07-30T19:13:03+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -28,7 +28,6 @@ Before you begin, you need:
 * An existing, working Python project with a `requirements.txt`, `poetry.lock`, `uv.lock`, `pdm.lock`, `Pipfile.lock`, or `pylock.toml`
 * [A pull token](#authentication-prerequisites) or the [Python keyring provider](/chainguard/libraries/access/#python-keyring-provider)
     * The keyring provider requires pip 23.1 or later. Older pip versions cannot automatically discover or invoke a keyring backend.
-* **Python 3.11 or later** is recommended. Chainguard's index can return package upload timestamps with fractional-second precision that Python's `datetime.fromisoformat()` does not accept before 3.11
 * [chainctl installed and authenticated](/chainguard/chainctl-usage/how-to-install-chainctl/)
 * An [entitlement to Chainguard Libraries](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) for Python
 
@@ -315,7 +314,7 @@ Your existing lockfile or hash-pinned requirements.txt contains checksums genera
 
 ### Recommended: Update checksums in place
 
-Use `chainctl libraries update-hashes` to rewrite only the integrity hashes in your existing lockfile to match Chainguard's artifacts, without re-resolving your dependency graph. Supported formats include `requirements.txt`, `poetry.lock`, `uv.lock`, `pdm.lock`, `Pipfile.lock`, and `pylock.toml`.
+Use `chainctl libraries update-hashes` to rewrite only the integrity hashes in your existing lockfile or requirements file to match Chainguard's artifacts, without re-resolving your dependency graph. Supported formats include `requirements.txt`, `poetry.lock`, `uv.lock`, `pdm.lock`, `Pipfile.lock`, and `pylock.toml`.
 
 Run the following command to auto-detect and update the lockfile in the current project:
 
@@ -501,17 +500,13 @@ Learn more about upstream fallback configurations in the [Libraries Overview](/c
 
 ## Troubleshooting
 
-### 403 Forbidden from the index despite a working keyring
+### "403 Forbidden" from the index despite a working keyring
 
 Check for an old or incorrectly scoped `.netrc` entry for `libraries.cgr.dev`, which silently takes priority over keyring authentication. Run with full verbosity to confirm the credential source:
 
 ```shell
 pip install -vvv <package> 2>&1 | grep -B2 -A2 "credentials\|40[13]"
 ```
-
-### ValueError: Invalid isoformat string during install
-
-Your version of Python cannot parse the timestamp format used in some Chainguard index responses. Upgrade to Python 3.11 or later.
 
 ### A pinned dependency shows "not verified" after running `chainctl libraries verify`
 
