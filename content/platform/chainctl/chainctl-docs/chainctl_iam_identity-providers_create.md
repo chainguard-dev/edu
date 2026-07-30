@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-28T17:26:25Z
 title: "chainctl iam identity-providers create"
 slug: chainctl_iam_identity-providers_create
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_create/
@@ -14,17 +14,24 @@ toc: true
 Create an identity provider
 
 ```
-chainctl iam identity-providers create --parent ORGANIZATION_NAME | ORGANIZATION_ID [--name=NAME] [--description=DESCRIPTION] --oidc-issuer=ISSUER --oidc-client-id=CLIENT_ID --oidc-client-secret=CLIENT_SECRET [--oidc-additional-scopes=SCOPE,...] --default-role=ROLE [--output=id|json|table]
+chainctl iam identity-providers create --parent ORGANIZATION_NAME | ORGANIZATION_ID [--name=NAME] [--description=DESCRIPTION] --oidc-issuer=ISSUER --oidc-client-id=CLIENT_ID {--oidc-client-secret=CLIENT_SECRET | --oidc-pkce-enabled} [--oidc-additional-scopes=SCOPE,...] --default-role=ROLE [--output=id|json|table]
 ```
 
 ### Examples
 
 ```
-  # Setup a custom OIDC provider and bind new users to the viewer role
+  # Setup a confidential OIDC provider and bind new users to the viewer role
   chainctl iam identity-providers create --name=google --parent=example \
   --oidc-issuer=https://accounts.google.com \
   --oidc-client-id=foo \
   --oidc-client-secret=bar \
+  --default-role=viewer
+  
+  # Setup a public OIDC provider
+  chainctl iam identity-providers create --name=google --parent=example \
+  --oidc-issuer=https://accounts.google.com \
+  --oidc-client-id=foo \
+  --oidc-pkce-enabled \
   --default-role=viewer
 ```
 
@@ -40,6 +47,7 @@ chainctl iam identity-providers create --parent ORGANIZATION_NAME | ORGANIZATION
       --oidc-client-secret string            client secret for OIDC type identity provider
       --oidc-groups-claim string             OIDC token claim carrying group memberships, used for group-to-role mappings (empty disables group mapping)
       --oidc-issuer string                   Issuer URL for OIDC type identity provider
+      --oidc-pkce-enabled                    Include a PKCE challenge during authorization code exchange. Upstream IDP must be configured to respond.
       --parent string                        The name or ID of the location the identity provider belongs to.
   -y, --yes                                  Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
@@ -61,5 +69,5 @@ chainctl iam identity-providers create --parent ORGANIZATION_NAME | ORGANIZATION
 
 ### SEE ALSO
 
-* [chainctl iam identity-providers](/chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers/)	 - customer managed identity provider management
+* [chainctl iam identity-providers](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers/)	 - customer managed identity provider management
 

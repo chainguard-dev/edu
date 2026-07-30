@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "An overview of the differences between attestations and SBOMs"
 date: 2023-03-19T15:56:52-07:00
-lastmod: 2023-03-19T15:56:52-07:00
+lastmod: 2026-07-27T15:39:06+00:00
 draft: false
 tags: ["Cosign", "SBOM", "Conceptual"]
 images: []
@@ -25,7 +25,7 @@ One of the first steps to improving your software supply chain security is to es
 
 However, these commands don't work the same way. This guide outlines the differences between these two subcommands and provides guidance for when you might want to use one over the other.
 
-## SBOMs vs. Attestations
+## SBOMs vs. attestations
 
 An SBOM is essentially an electronic packing slip: it's a list of all the components that went into making a given piece of software. But unless you have some indication of when the software was produced, who produced it, and how it was produced, then you can't say with any certainty that the components listed in the SBOM are actually part of the software you're running.
 
@@ -65,4 +65,4 @@ There are many tools available today — both proprietary and open source — th
 
 For example, SBOMs generated from source code can be valuable. But ultimately, you have no way of knowing whether the image has been tampered with between the time the SBOM was generated and the time you actually run the image.
 
-[apko](/open-source/apko/overview/) is a command-line tool that allows users to build container images using a declarative language based on YAML. When building a container image, apko will generate an SBOM outlining each of the apks it uses to build it. When combined with [melange](/open-source/melange/overview/), an apk builder tool that uses declarative pipelines to create apk packages, these tools can serve as a good starting point for a secure container image factory. Checkout ["Secure Your Software Factory with melange and apko"](https://www.chainguard.dev/unchained/secure-your-software-factory-with-melange-and-apko) to learn more.
+[apko](/open-source/build-tools/apko/overview/) is a command-line tool that allows users to build container images using a declarative language based on YAML. When building a container image, apko will generate an SBOM outlining each of the apks it uses to build it. When combined with [melange](/open-source/build-tools/melange/overview/), an apk builder tool that uses declarative pipelines to create apk packages, these tools can serve as a good starting point for a secure container image factory. Checkout ["Secure Your Software Factory with melange and apko"](https://www.chainguard.dev/unchained/secure-your-software-factory-with-melange-and-apko) to learn more.

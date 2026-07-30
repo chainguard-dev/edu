@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-28T17:26:25Z
 title: "chainctl auth login"
 slug: chainctl_auth_login
 url: /platform/chainctl/chainctl-docs/chainctl_auth_login/
@@ -39,10 +39,10 @@ chainctl auth login [--invite-code=INVITE_CODE] [--identity-token=PATH_TO_TOKEN]
       --audience stringArray         The Chainguard token audience to request. Can be specified multiple times to create separate tokens.
       --headless                     Skip browser authentication and use device flow.
       --identity string              The unique ID of the identity to assume when logging in.
-      --identity-provider string     The unique ID of the customer managed identity provider to authenticate with
+      --identity-provider string     The unique ID of the customer managed identity provider to authenticate with. Mutually exclusive with --org-name.
       --identity-token string        Use an explicit passed identity token or token path.
       --invite-code string           Registration invite code.
-      --org-name string              Organization to use for authentication. If configured the organization's custom identity provider will be used
+      --org-name string              Organization to use for authentication. If configured the organization's custom identity provider will be used. Mutually exclusive with --identity-provider.
       --prefer-ambient-credentials   Auth with ambient credentials, if present, before using a supplied identity token.
       --refresh                      Enable auto refresh of the Chainguard token (for workloads).
       --refresh-only                 Only refresh existing tokens, skip initial token creation (implies --refresh). Must authenticate separately.
@@ -66,5 +66,5 @@ chainctl auth login [--invite-code=INVITE_CODE] [--identity-token=PATH_TO_TOKEN]
 
 ### SEE ALSO
 
-* [chainctl auth](/chainguard/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
+* [chainctl auth](/platform/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
 

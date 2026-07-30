@@ -1,3 +1,6 @@
 # MCP Server dependencies for Chainguard AI Docs
-mcp>=1.28.1
+# Cap mcp below 2.0: the 2.0 SDK (released 2026-07-28) is a major rework that
+# removes the low-level Server.list_tools()/call_tool() decorators this server
+# uses, so 2.x crashes the container at startup. Upgrade tracked in DOCS-85.
+mcp>=1.28.1,<2
 httpx>=0.28.1

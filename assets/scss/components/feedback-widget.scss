@@ -36,14 +36,14 @@
     transition: all 0.2s ease;
     white-space: nowrap;
     min-width: 80px;
-    
+
     &:hover {
       background: var(--watch-btn-hover-background);
       border-color: var(--primary-1);
       color: var(--primary-1);
       transform: translateY(-1px);
     }
-    
+
     &:active {
       transform: translateY(0) scale(0.98);
     }
@@ -52,17 +52,17 @@
       outline: 2px solid var(--primary-1);
       outline-offset: 2px;
     }
-    
+
     &.feedback-selected {
       background: var(--primary-1);
       border-color: var(--primary-1);
-      color: #ffffff;
+      color: #fff;
       cursor: default;
-      
+
       &:hover {
         background: var(--primary-1);
         border-color: var(--primary-1);
-        color: #ffffff;
+        color: #fff;
         transform: none;
       }
     }
@@ -154,7 +154,7 @@
     .feedback-submit-btn {
       background: var(--primary-1);
       border-color: var(--primary-1);
-      color: #ffffff;
+      color: #fff;
 
       &:hover {
         background: var(--secondary-2);
@@ -209,7 +209,7 @@
       background: var(--secondary-2);
       border-color: var(--secondary-2);
       color: var(--primary-2);
-      
+
       &:hover {
         background: var(--secondary-2);
         border-color: var(--secondary-2);
@@ -231,7 +231,7 @@
         &:hover {
           background: var(--primary-1);
           border-color: var(--primary-1);
-          color: #ffffff;
+          color: #fff;
         }
       }
 
@@ -293,6 +293,7 @@
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -311,7 +312,7 @@
     opacity: 0;
     transform: translateY(-10px);
   }
-  
+
   &[style*="display: block"] {
     opacity: 1;
     transform: translateY(0);

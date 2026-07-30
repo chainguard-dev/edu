@@ -4,7 +4,7 @@ linktitle: "Build configuration"
 description: "Configuring Chainguard Libraries for Python on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2025-04-07T14:11:00+00:00
+lastmod: 2026-07-29T14:25:06+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 menu:
@@ -173,7 +173,12 @@ Or specify a lockfile path directly:
 chainctl libraries update-hashes path/to/requirements.txt
 ```
 
-When using a repo manager, pass the full repository URL with `--registry-url`.
+If you install through a repository manager rather than pulling from Chainguard directly, pass the full repository URL with `--registry-url` so the hashes are updated against the same source your project actually installs from. For example:
+
+```bash
+chainctl libraries update-hashes --registry-url https://your-org.jfrog.io/artifactory/api/pypi/chainguard-libraries/simple
+```
+
 Learn about using this command with repo managers in the [Global
 configuration](/chainguard/libraries/python/global-configuration/) page.
 
@@ -482,9 +487,46 @@ authentication](/chainguard/libraries/access/#netrc).
 #### Using direct access
 
 For [direct access](#direct-access) to Chainguard Libraries for Python with
-uv, use `.netrc` or your username `CG_PULLTOKEN_USERNAME` and password
+uv, use `.netrc`, environment variables, or embed credentials directly in the
+index URL using your username `CG_PULLTOKEN_USERNAME` and password
 `CG_PULLTOKEN_PASSWORD` values from the pull token creation and the URL with the
-simple context `https://libraries.cgr.dev/python/simple/`:
+simple context `https://libraries.cgr.dev/python/simple/`.
+
+The recommended approach for CI/CD and shared configurations is to use
+uv's native index-scoped environment variables. For a named index, uv reads
+credentials from `UV_INDEX_<NAME>_USERNAME` and `UV_INDEX_<NAME>_PASSWORD`,
+where `<NAME>` is the index name uppercased with hyphens replaced by underscores.
+This avoids storing credentials in config files while keeping the index
+configuration shareable.
+
+For example, with an index named `chainguard`:
+
+```shell
+export UV_INDEX_CHAINGUARD_USERNAME=CG_PULLTOKEN_USERNAME
+export UV_INDEX_CHAINGUARD_PASSWORD=CG_PULLTOKEN_PASSWORD
+```
+
+Configure the index without embedded credentials in `pyproject.toml`:
+
+```toml
+[[tool.uv.index]]
+name = "chainguard"
+url = "https://libraries.cgr.dev/python/simple/"
+default = true
+authenticate = "always"
+```
+
+Or in `uv.toml`:
+
+```toml
+[[index]]
+name = "chainguard"
+url = "https://libraries.cgr.dev/python/simple/"
+authenticate = "always"
+```
+
+Alternatively, embed credentials directly in the URL (avoid in shared or
+version-controlled files):
 
 Example for `pyproject.toml`:
 

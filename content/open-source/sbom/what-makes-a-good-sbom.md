@@ -4,14 +4,14 @@ description: "An explanation of what makes a good SBOM"
 lead: "A guide to SBOM quality"
 type: "article"
 date: 2022-08-04T15:21:01+02:00
-lastmod: 2022-08-04T15:21:01+02:00
+lastmod: 2026-07-27T15:39:06+00:00
 contributors: ["John Speed Meyers"]
 draft: false
 tags: ["SBOM", "Conceptual"]
 images: []
 menu:
   docs:
-    parent: "software-security"
+    parent: "sbom"
 weight: 10
 toc: true
 ---
@@ -20,7 +20,7 @@ A [software bill of materials](/software-security/glossary/#sbom), or an SBOM (p
 
 As awareness and adoption of SBOM has grown, there has been a gradual acknowledgement that [not all SBOMs are created equal](https://www.chainguard.dev/unchained/not-all-sboms-are-created-equal), some are more or less useful, depending on the goals of the SBOM user and the contents of the SBOM. This guide exists to provide some guidance on evaluating the quality of an SBOM, suggesting common use cases and the data fields that support these use cases and open source SBOM quality tools.
 
-## Basic SBOM Use Cases and Required SBOM Data
+## Basic SBOM use cases and required SBOM data
 
 **Identifying Vulnerable Components**: SBOMs can help organizations and individuals know the unfixed vulnerabilities in their software. By providing an inventory of components, this allows a software maintainer to check whether the versions of their component are associated with any known vulnerabilities. The software maintainer can then update or patch any components with known vulnerabilities.
 
@@ -36,14 +36,16 @@ Providing checksums for packages or files within the SBOM enables machine-verifi
 
 Note: There are [other SBOM use cases](https://www.atlanticcouncil.org/in-depth-research-reports/issue-brief/the-cases-for-using-sboms/), such as mapping broader ecosystem risks, but this guide currently focuses on the arguably three relatively well-established SBOM use cases.
 
-## Measuring SBOM Quality
+## Measuring SBOM quality
 
 The tools for measuring SBOM quality — like the overall concept of SBOM quality itself — are nascent. There are currently two tools that are worth watching to evaluate SBOMs.
 
 [SBOM Scorecard](https://github.com/eBay/sbom-scorecard) analyzes both major SBOM formats and returns a composite quality score indicating the extent to which an SBOM possesses key fields, including whether the components in the SBOM contain a purl and whether there are licenses associated with each component.
 
-[NTIA Conformance Checker](https://github.com/spdx/ntia-conformance-checker) analyzes whether [SPDX](https://spdx.dev/) SBOM documents possess the data fields associated with the so-called "NTIA minimum elements." [The U.S. National Telecommunications and Information Administration "minimum elements"](https://www.ntia.doc.gov/files/ntia/publications/sbom_minimum_elements_report.pdf) include the data fields deemed essential for basic SBOM use cases, including the identification of vulnerable components and the identification of component licenses.
+[NTIA Conformance Checker](https://github.com/spdx/ntia-conformance-checker) analyzes whether [SPDX](https://spdx.dev/) SBOM documents possess the data fields associated with the so-called "NTIA minimum elements." [The U.S. National Telecommunications and Information Administration "minimum elements"](https://ntia.gov/sites/default/files/publications/sbom_minimum_elements_report_0.pdf) include the data fields deemed essential for basic SBOM use cases, including the identification of vulnerable components and the identification of component licenses.
 
-## Learn More
+Stewardship of this guidance has since moved from the NTIA to the U.S. Cybersecurity and Infrastructure Security Agency (CISA), which published an updated [_Framing Software Component Transparency_](https://www.cisa.gov/sites/default/files/2024-10/SBOM%20Framing%20Software%20Component%20Transparency%202024.pdf) report in 2024 and released a draft update to the minimum elements in 2025. The core data fields remain consistent, so an SBOM that satisfies the NTIA minimum elements is a sound baseline today.
+
+## Learn more
 
 Check out Chainguard's blog post on ["Are SBOMs Any Good?"](https://www.chainguard.dev/unchained/are-sboms-any-good-preliminary-measurement-of-the-quality-of-open-source-project-sboms) to see an application of these SBOM quality tools to a dataset of open source project SBOMs. You can also learn about the complications for SBOM quality created by ["software dark matter."](https://www.chainguard.dev/unchained/software-dark-matter-is-the-enemy-of-software-transparency).

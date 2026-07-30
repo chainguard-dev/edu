@@ -121,36 +121,48 @@ You can review our current list of [Tags](https://edu.chainguard.dev/tags).
 ### Pre-commit
 
 This repository uses the [pre-commit](https://pre-commit.com/) framework to check
-changes before they merge. The `pre-commit` check is **required** on pull requests,
-and it runs only on the files a PR changes (a pre-existing backlog is not gated).
-It checks:
+changes before they merge. The `pre-commit` check is **required** on pull
+requests and runs only on the files a pull request changes (a pre-existing
+backlog is not gated). Run the same checks locally to catch problems before you
+push. They cover:
 
-- Secret scanning, private keys, large files, and file hygiene (whitespace, EOF, line endings)
+- Secret scanning, private keys, large files, and file hygiene such as trailing whitespace and end-of-file newlines
 - GitHub Actions security (`zizmor`) and linting (`actionlint`)
-- JavaScript (`eslint`), Markdown (`markdownlint`), and Python (`bandit`, `black`)
-- **Content tag validation** against the approved taxonomy (blocking)
-- **Spell checking** of prose with aspell — advisory and local-only (skipped in CI)
+- JavaScript (`eslint`), Markdown (`markdownlint`), SCSS (`stylelint`), and Python (`bandit`, `black`)
+- Content tag validation against the approved taxonomy (advisory: it warns but never blocks a commit)
+- Prose spell checking with aspell (advisory and local-only; skipped in CI)
 
-**Setup (one-time):**
+**One-time setup:**
+
 ```sh
-# Install pre-commit
+# 1. Install the pre-commit framework
 brew install pre-commit        # or: pipx install pre-commit
 
-# Enable it in your clone
-pre-commit install
+# 2. Enable the repository's git hook
+./setup-hooks.sh
 
-# Optional: enable local prose spell checking
+# 3. If you edit SCSS (assets/scss/), install the Node dependencies
+npm install
+
+# 4. Optional: install aspell for local spell checking
 brew install aspell
 ```
 
-Separately, a native git hook stamps `date`/`lastmod` on content files (it
-re-stages into the same commit, so it stays a git hook rather than a pre-commit
-hook). Enable it once with:
-```sh
-./setup-hooks.sh
-```
+`setup-hooks.sh` points git at the `.githooks/` directory. On each commit, that
+hook stamps `date` and `lastmod` on changed content files, then runs the
+pre-commit framework, so one hook covers everything. You don't need to run
+`pre-commit install`: git ignores `.git/hooks` once `core.hooksPath` is set, so a
+separately installed hook wouldn't run. To skip the hook for a single commit, use
+`git commit --no-verify`.
+
+The SCSS lint step runs the project's own `stylelint`, so it needs the Node
+dependencies from `npm install`. The other hooks use pre-commit-managed
+environments, so they need nothing beyond the framework itself. If you edit
+`assets/scss/` without installing the dependencies, that one hook fails; content
+and other contributors are unaffected.
 
 **Resources:**
-- 📖 [Complete Pre-commit Hook Guide for Contributors](docs/pre-commit-hook-guide.md) - Detailed guide with examples
-- 📋 [Tag Guidelines](TAG_GUIDELINES.md) - Complete approved tag taxonomy
-- 📝 [Custom Dictionary](.aspell.en.pws) - Technical terms for spell checker
+
+- [Complete pre-commit hook guide for contributors](docs/pre-commit-hook-guide.md) — detailed guide with examples
+- [Tag guidelines](TAG_GUIDELINES.md) — the approved tag taxonomy
+- [Custom dictionary](.aspell.en.pws) — technical terms for the spell checker

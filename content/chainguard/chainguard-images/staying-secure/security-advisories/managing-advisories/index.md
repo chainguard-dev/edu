@@ -6,7 +6,7 @@ aliases:
 type: "article"
 description: "Guide on how to use the wolfictl tool to create, update, and manage security advisories"
 date: 2024-08-05T20:23:51+00:00
-lastmod: 2024-08-09T14:55:03+00:00
+lastmod: 2026-07-27T16:03:25+00:00
 draft: false
 tags: ["Chainguard Containers", "CVE"]
 images: []
@@ -177,7 +177,7 @@ Type:
 Fixed Version: 2.39-r7
 ```
 
-The same process can be followed for other status updates, whether you wish to mark a vulnerability as “Not affected” in the case of a [false positive finding](/chainguard/chainguard-images/recommended-practices/false-results/), “Fix not planned”, or another applicable status.
+The same process can be followed for other status updates, whether you wish to mark a vulnerability as “Not affected” in the case of a [false positive finding](/chainguard/chainguard-images/staying-secure/working-with-scanners/false-results/), “Fix not planned”, or another applicable status.
 
 ## Further Reading
 

@@ -1,42 +1,44 @@
 const themeButtons = document.getElementsByClassName("bottom-mode");
 
+function applyTheme(dark) {
+  if (dark) {
+    document.documentElement.setAttribute("data-dark-mode", "");
+    document.documentElement.setAttribute("data-theme", "dark");
+  } else {
+    document.documentElement.removeAttribute("data-dark-mode");
+    document.documentElement.removeAttribute("data-theme");
+  }
+}
+
 if (themeButtons.length !== 0) {
   window
     .matchMedia("(prefers-color-scheme: dark)")
     .addEventListener("change", (event) => {
-      if (event.matches) {
-        localStorage.setItem("theme", "dark");
-        document.documentElement.setAttribute("data-dark-mode", "");
-      } else {
-        localStorage.setItem("theme", "light");
-        document.documentElement.removeAttribute("data-dark-mode");
-      }
+      localStorage.setItem("theme", event.matches ? "dark" : "light");
+      applyTheme(event.matches);
     });
 
   for (const themeButton of themeButtons) {
     themeButton.addEventListener("click", () => {
-      document.documentElement.toggleAttribute("data-dark-mode");
-      localStorage.setItem(
-        "theme",
-        document.documentElement.hasAttribute("data-dark-mode")
-          ? "dark"
-          : "light"
-      );
+      const dark = !document.documentElement.hasAttribute("data-dark-mode");
+      applyTheme(dark);
+      localStorage.setItem("theme", dark ? "dark" : "light");
     });
   }
 
-  if (localStorage.getItem("theme") === "dark") {
-    document.documentElement.setAttribute("data-dark-mode", "");
-  } else {
-    document.documentElement.removeAttribute("data-dark-mode");
-  }
+  const storedTheme = localStorage.getItem("theme");
+  applyTheme(
+    storedTheme
+      ? storedTheme === "dark"
+      : window.matchMedia("(prefers-color-scheme: dark)").matches
+  );
 }
 
 if (
   window.location.search &&
   window.location.search.includes("forcedarkmode=true")
 ) {
-  document.documentElement.setAttribute("data-dark-mode", "");
+  applyTheme(true);
 }
 
 document.documentElement.setAttribute("mode-loaded", "");

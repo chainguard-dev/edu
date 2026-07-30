@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-28T17:26:25Z
 title: "chainctl policies describe"
 slug: chainctl_policies_describe
 url: /platform/chainctl/chainctl-docs/chainctl_policies_describe/
@@ -15,9 +15,10 @@ Describe a policy and its parameter schema.
 
 ### Synopsis
 
-Show the full definition of a policy: its description, type, and the set
-of configurable parameters it accepts. The output includes a copyable
-example invocation suitable for `chainctl policies enable`.
+Show the full definition of a policy: its description, type, resource
+type, and the set of configurable parameters it accepts. The output
+includes a copyable example invocation suitable for
+`chainctl policies enable`.
 
 Use this command to discover what's configurable on a system policy
 before enabling it for your organization.
@@ -41,8 +42,9 @@ chainctl policies describe --policy=cooldown --parent=example.com -o json
 ### Options
 
 ```
-      --parent string   The name or id of the organization to scope the lookup to.
-      --policy string   The name or UIDP of the policy to describe.
+      --parent string          The name or id of the organization to scope the lookup to.
+      --policy string          The name or UIDP of the policy to describe.
+      --resource-type string   Resource type used to disambiguate a policy referenced by name (shorthand: Repo, Python, Java, Javascript; or a full type). Ignored when the policy is given by UIDP.
 ```
 
 ### Options inherited from parent commands
@@ -62,5 +64,5 @@ chainctl policies describe --policy=cooldown --parent=example.com -o json
 
 ### SEE ALSO
 
-* [chainctl policies](/chainguard/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
+* [chainctl policies](/platform/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
 

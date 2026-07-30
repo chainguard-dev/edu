@@ -23,7 +23,7 @@ article,
         border-bottom: none !important;
         border: none !important;
     }
-    
+
     // Remove any pseudo-element borders
     .article-wrapper::after,
     .article::after,
@@ -38,18 +38,18 @@ article,
 }
 
 // Ensure footer has no top border
-footer {
+footer.footer-new {
     border-top: none !important;
-    
+
     &::before {
         display: none !important;
     }
 }
 
 // Dark mode specific footer border removal
-:root[data-dark-mode] footer {
+:root[data-dark-mode] footer.footer-new {
     border-top: none !important;
-    
+
     &::before {
         display: none !important;
     }

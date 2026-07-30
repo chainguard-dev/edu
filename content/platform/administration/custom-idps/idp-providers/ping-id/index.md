@@ -60,7 +60,7 @@ Next, configure the OIDC application. Navigate to the **Configuration** tab and 
 To configure the application, add the following settings.
 
 * **Response Type**: Select the **Code** checkbox.
-* **Grant Type**: Select the **Authorization Code** checkbox, and set PKCE Enforcement to "Optional."
+* **Grant Type**: Select the **Authorization Code** checkbox, and set PKCE Enforcement to "Optional." You can instead set this to "Required" if you [enable PKCE for the token exchange](/platform/administration/custom-idps/enabling-pkce/) on the Chainguard side.
 
 > Warning: Setting a grant type other than **Authorization Code** may compromise your security posture.
 
@@ -88,7 +88,7 @@ First, log in to Chainguard with `chainctl`, using an OIDC provider like Google,
 chainctl auth login
 ```
 
-Note that this bootstrap account can be used as a [backup account](/chainguard/administration/custom-idps/custom-idps/#backup-accounts) (that is, a backup account you can use to log in if you ever lose access to your primary account). However, if you prefer to remove this role-binding after configuring the custom IDP, you may also do so.
+Note that this bootstrap account can be used as a [backup account](/chainguard/administration/custom-idps/custom-idps/#backup-accounts) (that is, a backup account you can use to log in if you ever lose access to your primary account). However, if you prefer to remove this role-binding after configuring the custom IdP, you may also do so.
 
 To configure Chainguard make a note of the following settings from your Ping application. These can be found in the Ping console under the **Configuration** tab of the **Application** page.
 

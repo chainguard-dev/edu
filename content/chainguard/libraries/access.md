@@ -228,6 +228,26 @@ tool configuration with environment variable placeholders:
 - [Python build tool
   configuration](/chainguard/libraries/python/build-configuration/)
 
+#### uv index-scoped environment variables
+
+When using `uv` for Python, you can supply credentials through index-scoped
+environment variables instead of a shared secrets file or `.netrc`. For a named
+index, uv reads `UV_INDEX_<NAME>_USERNAME` and `UV_INDEX_<NAME>_PASSWORD`, where
+`<NAME>` is the index name uppercased with hyphens replaced by underscores.
+
+For an index named `chainguard`, set:
+
+```shell
+export UV_INDEX_CHAINGUARD_USERNAME="${CHAINGUARD_PYTHON_IDENTITY_ID}"
+export UV_INDEX_CHAINGUARD_PASSWORD="${CHAINGUARD_PYTHON_TOKEN}"
+```
+
+This pairs well with the `eval` approach above: generate the
+`CHAINGUARD_PYTHON_IDENTITY_ID` and `CHAINGUARD_PYTHON_TOKEN` variables, then
+map them to uv's index-scoped names. See the [uv build
+configuration](/chainguard/libraries/python/build-configuration/#uv) for index
+setup details.
+
 <a id="netrc"></a>
 
 ### .netrc for authentication
@@ -505,7 +525,7 @@ Chainguard Libraries supports the following types of policies:
 - **Override**: Permit a package or version that would otherwise be denied by a cooldown policy or malware and greyware blocking. Use an override when you need a specific, deliberate exception.
     - An override policy takes precedence over a block policy.
 
->Note: The commands in this section require `chainctl` v0.2.291 or newer.
+>Note: The commands in this section require `chainctl` v0.2.313 or newer.
 
 ### Identify packages with a purl
 
@@ -533,7 +553,7 @@ To understand the impact before enforcing a policy, use `--mode=PREVIEW` with th
 In the following example, a policy called `3day-cooldown` has already been created. To preview what would have been blocked if that policy had been enforced, run this command:
 
 ```bash
-chainctl libraries policy enable --policy=3day-cooldown --ecosystem=JAVASCRIPT --mode=PREVIEW
+chainctl libraries policy enable 3day-cooldown --ecosystem=JAVASCRIPT --mode=PREVIEW
 ```
 
 This returns a list of successful installs that would have been blocked by this policy over the last 30 days.
@@ -544,8 +564,18 @@ After creating a policy, use `--mode=ENFORCE` to enable it for the ecosystem whe
 
 ```bash
 chainctl libraries policy create --name=disable-cooldown --cooldown-days=0
-chainctl libraries policy enable --policy=disable-cooldown --ecosystem=JAVASCRIPT --mode=ENFORCE
+chainctl libraries policy enable disable-cooldown --ecosystem=JAVASCRIPT --mode=ENFORCE
 ```
+
+### Describe a policy
+
+To see a policy in detail, use `describe`. For example, to see the details of a policy named `disable-cooldown`:
+
+```bash
+chainctl libraries policy describe disable-cooldown
+```
+
+This command returns a list of what is included in the policy, such as [blocked packages](#block-a-package-or-version), [packages on your allowlist](#override-a-blocked-package), and the [cooldown policy](#create-and-enable-a-cooldown-policy).
 
 ### Create and enable a cooldown policy
 
@@ -555,7 +585,7 @@ In the following example, a 10-day cooldown policy is created, then it is enforc
 
 ```bash
 chainctl libraries policy create --name=js-cooldown --cooldown-days=10
-chainctl libraries policy enable --policy=js-cooldown --ecosystem=JAVASCRIPT --mode=ENFORCE
+chainctl libraries policy enable js-cooldown --ecosystem=JAVASCRIPT --mode=ENFORCE
 ```
 
 The default cooldown period is 7 days.
@@ -570,7 +600,7 @@ To disable the cooldown, set it to 0. In the example below, the policy is create
 
 ```bash
 chainctl libraries policy create --name=no-cooldown --cooldown-days=0
-chainctl libraries policy enable --policy=no-cooldown --ecosystem=JAVA --mode=ENFORCE
+chainctl libraries policy enable no-cooldown --ecosystem=JAVA --mode=ENFORCE
 ```
 
 ### Block a package or version
@@ -580,19 +610,19 @@ Create a custom policy with one or more `--block` entries to deny packages expli
 For example, if your organization standardizes on React and wants to prevent teams from pulling in Angular, you can add a `--block` entry for each Angular package you want to deny. In the following example, a policy called `team-policy` has previously been created, and this command is run to update the policy to add blocks of specific Angular packages:
 
 ```bash
-chainctl libraries policy update --name=team-policy \
+chainctl libraries policy update team-policy \
   --block=purl=pkg:npm/%40angular/core \
   --block=purl=pkg:npm/%40angular/common \
   --block=purl=pkg:npm/%40angular/router
-chainctl libraries policy enable --name=team-policy --ecosystem=JAVASCRIPT --mode=ENFORCE
+chainctl libraries policy enable team-policy --ecosystem=JAVASCRIPT --mode=ENFORCE
 ```
 
 To block one specific version, include the version in the purl. For example, if a particular release is flagged with a known vulnerability that you want to block within your organization, you can block just the affected version while allowing the other versions. Use a command like the following:
 
 ```bash
-chainctl libraries policy update --name=team-policy \
+chainctl libraries policy update team-policy \
   --block=purl=pkg:npm/ua-parser-js@0.7.29
-chainctl libraries policy enable --name=team-policy --ecosystem=JAVASCRIPT --mode=ENFORCE
+chainctl libraries policy enable team-policy --ecosystem=JAVASCRIPT --mode=ENFORCE
 ```
 
 To block all versions of a package, omit the version. For example, the following command updates the existing `team-policy` to add a block of all versions of a package:
@@ -600,7 +630,7 @@ To block all versions of a package, omit the version. For example, the following
 ```bash
 chainctl libraries policy update team-policy \
   --block=purl=pkg:pypi/<name>
-chainctl libraries policy enable --name=team-policy --ecosystem=PYTHON --mode=ENFORCE
+chainctl libraries policy enable team-policy --ecosystem=PYTHON --mode=ENFORCE
 ```
 
 You can also combine `block` rules with a custom cooldown in the same policy. The following example creates a policy that blocks `colourama`, a typosquat of the `colorama` package. In addition, a cooldown is included:
@@ -609,7 +639,7 @@ You can also combine `block` rules with a custom cooldown in the same policy. Th
 chainctl libraries policy create --name=team-policy \
   --cooldown-days=2 \
   --block=purl=pkg:pypi/colourama
-chainctl libraries policy enable --name=team-policy --ecosystem=PYTHON --mode=ENFORCE
+chainctl libraries policy enable team-policy --ecosystem=PYTHON --mode=ENFORCE
 ```
 
 #### Check blocked packages
@@ -623,7 +653,7 @@ chainctl libraries packages blocked --ecosystem=JAVASCRIPT
 If you have policies enabled in Preview mode, you can check successful pulls that *would have been blocked* in the last 30 days if the policy were to be enforced. For example:
 
 ```bash
-chainctl libraries policy enable --policy=example-policy --ecosystem=JAVASCRIPT --mode=PREVIEW
+chainctl libraries policy enable example-policy --ecosystem=JAVASCRIPT --mode=PREVIEW
 chainctl libraries packages blocked --mode=PREVIEW --ecosystem=JAVASCRIPT
 ```
 

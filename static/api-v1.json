@@ -852,6 +852,36 @@
         },
         "type": "object"
       },
+      "chainguard.platform.argos.DumpOSVMetadata": {
+        "description": "DumpOSVMetadata is the first message in a Dump stream, carrying archive\nprovenance. Subsequent messages carry raw tar.gz chunks via DumpOSVResponse.",
+        "properties": {
+          "generated_at": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string"
+          },
+          "size_bytes": {
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.DumpOSVResponse": {
+        "description": "DumpOSVResponse is either the leading metadata frame or a raw archive chunk.",
+        "properties": {
+          "chunk": {
+            "format": "byte",
+            "type": "string"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/chainguard.platform.argos.DumpOSVMetadata"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.argos.Event": {
         "properties": {
           "fixed": {
@@ -993,6 +1023,11 @@
             "type": "array"
           },
           "summary": {
+            "type": "string"
+          },
+          "withdrawn": {
+            "description": "withdrawn is the time the entry should be considered withdrawn, per OSV\nspec. Unset means the record has not been withdrawn.",
+            "format": "date-time",
             "type": "string"
           }
         },
@@ -1522,6 +1557,38 @@
         ],
         "type": "string"
       },
+      "chainguard.platform.iam.BatchDeleteExternalGroupRoleMappingsRequest": {
+        "properties": {
+          "ids": {
+            "description": "ids are the UIDPs of the mappings to delete. Ids that no longer exist\nunder parent_id are silently skipped; ids whose parent differs from\nparent_id return INVALID_ARGUMENT.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "parentId": {
+            "description": "parent_id is the UIDP of the identity provider the mappings belong to.\nEvery id must be one of its mappings.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.BatchDeleteExternalGroupRoleMappingsResponse": {
+        "properties": {
+          "items": {
+            "description": "The mappings that were deleted.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.iam.ExternalGroupRoleMapping"
+            },
+            "type": "array"
+          },
+          "parentId": {
+            "description": "parent_id is the UIDP of the identity provider the delete targeted. Echoed\nso the operation can be attributed even when no mappings matched.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.iam.CheckEligibilityResponse": {
         "description": "CheckEligibilityResponse is the response message for CheckEligibility.",
         "properties": {
@@ -1569,6 +1636,33 @@
               "$ref": "#/components/schemas/chainguard.platform.iam.ExternalGroupRoleMapping"
             },
             "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.GenerateScimTokenResponse": {
+        "description": "GenerateScimTokenResponse carries the one-time plaintext token and the SCIM\nendpoint to configure in the identity provider.",
+        "properties": {
+          "endpointUrl": {
+            "description": "endpoint_url is the SCIM endpoint the identity provider must be configured\nto call.",
+            "type": "string"
+          },
+          "etag": {
+            "description": "etag is the opaque version of the SCIM configuration after this call, for\noptimistic concurrency on subsequent lifecycle mutations.",
+            "type": "string"
+          },
+          "expireTime": {
+            "description": "expire_time is the effective server-selected token expiry. Unset only for\nnever_expires.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "identityProviderId": {
+            "description": "identity_provider_id is the UIDP the token was generated for, echoed for\nattribution.",
+            "type": "string"
+          },
+          "token": {
+            "description": "token is the plaintext SCIM bearer token, returned exactly once. Store it\nnow: it is never retrievable again, and only its SHA-256 digest is\npersisted. Format: \"cgscim_\" followed by 64 hexadecimal characters.",
+            "type": "string"
           }
         },
         "type": "object"
@@ -2080,6 +2174,14 @@
           },
           "oidc": {
             "$ref": "#/components/schemas/chainguard.platform.iam.IdentityProvider.OIDC"
+          },
+          "scim": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.IdentityProvider.SCIM"
+              }
+            ],
+            "description": "scim reports SCIM provisioning status for this identity provider.\n\nSCIM is a provisioning protocol independent of the authentication mechanism\nin configuration, so it is a top-level field rather than a member of the\noneof. Output only: populated on reads and ignored on create and update.\nToken state changes only through the SCIM token methods, and enabling\nprovisioning is its own gated action."
           }
         },
         "type": "object"
@@ -2106,9 +2208,62 @@
           "issuer": {
             "title": "Issuer URL (e.g https://accounts.google.com)",
             "type": "string"
+          },
+          "pkceEnabled": {
+            "description": "pkce_enabled is whether to use PKCE (RFC 7636) when exchanging authorization codes\nwith this upstream identity provider. Required by OAuth 2.1.",
+            "type": "boolean"
           }
         },
         "type": "object"
+      },
+      "chainguard.platform.iam.IdentityProvider.SCIM": {
+        "description": "SCIM holds the System for Cross-domain Identity Management provisioning\nconfiguration for an identity provider.",
+        "properties": {
+          "credentialState": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.IdentityProvider.SCIM.CredentialState"
+              }
+            ],
+            "description": "credential_state is the explicit credential lifecycle state, derived by\nthe server. Reported on reads when SCIM provisioning is deployed."
+          },
+          "enabled": {
+            "description": "enabled reports whether SCIM provisioning is enabled for this identity\nprovider. Changing it is a dedicated gated action, not an identity\nprovider write.",
+            "type": "boolean"
+          },
+          "endpointUrl": {
+            "description": "endpoint_url is the server-derived SCIM endpoint URL for this identity\nprovider, computed from its UIDP. Not user-configurable and never\npersisted; the token method responses carry the same derived value.",
+            "type": "string"
+          },
+          "etag": {
+            "description": "etag is an opaque version for optimistic concurrency on lifecycle\nmutations.",
+            "type": "string"
+          },
+          "previousTokenExpireTime": {
+            "description": "previous_token_expire_time is when a previous token remains valid during\nrotation overlap.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "tokenExpireTime": {
+            "description": "token_expire_time is when the current SCIM bearer token stops\nauthenticating. Unset when no token has been issued or the token does not\nexpire; a past value means the token is expired or revoked. Reported on\nreads when SCIM provisioning is deployed.",
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.IdentityProvider.SCIM.CredentialState": {
+        "default": "CREDENTIAL_STATE_UNSPECIFIED",
+        "description": "CredentialState is the server-derived lifecycle state of the SCIM bearer\ncredential. It describes the credential only; whether provisioning is on\nis the separate enabled switch.\n\n - CREDENTIAL_STATE_UNSPECIFIED: The state is not reported (for example when SCIM is not deployed, or\non write responses that do not carry SCIM status).\n - CREDENTIAL_STATE_NOT_ISSUED: No token has ever been generated for this identity provider.\n - CREDENTIAL_STATE_LIVE: The current token authenticates.\n - CREDENTIAL_STATE_EXPIRED: The current token passed its declared expiry and no longer\nauthenticates. Regenerate to issue a replacement.\n - CREDENTIAL_STATE_REVOKED: The token was explicitly revoked; nothing authenticates until a new\ncredential is issued. The enabled switch is unchanged.\n - CREDENTIAL_STATE_ROTATING: A regeneration overlap is active: the previous token keeps\nauthenticating until previous_token_expire_time.",
+        "enum": [
+          "CREDENTIAL_STATE_UNSPECIFIED",
+          "CREDENTIAL_STATE_NOT_ISSUED",
+          "CREDENTIAL_STATE_LIVE",
+          "CREDENTIAL_STATE_EXPIRED",
+          "CREDENTIAL_STATE_REVOKED",
+          "CREDENTIAL_STATE_ROTATING"
+        ],
+        "type": "string"
       },
       "chainguard.platform.iam.IdentityProviderList": {
         "properties": {
@@ -2117,6 +2272,62 @@
               "$ref": "#/components/schemas/chainguard.platform.iam.IdentityProvider"
             },
             "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.IdentityProviders.GenerateScimTokenBody": {
+        "description": "GenerateScimTokenRequest asks for an identity provider's first SCIM bearer\ntoken.",
+        "properties": {
+          "expireTime": {
+            "description": "expire_time is an optional expiry for the generated token, at most two\nyears from now. When neither this nor never_expires is set, the server\ndefaults to one year.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "neverExpires": {
+            "description": "never_expires requests a token without a planned expiry. Setting this\ntogether with expire_time is invalid.",
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.IdentityProviders.RegenerateScimTokenBody": {
+        "description": "RegenerateScimTokenRequest asks for a replacement SCIM bearer token for an\nidentity provider.",
+        "properties": {
+          "etag": {
+            "description": "etag returned by a read or a prior lifecycle response. Required to prevent\nconcurrent reveal-once rotations from silently invalidating one another.",
+            "type": "string"
+          },
+          "expireTime": {
+            "description": "expire_time is an optional expiry for the new token, at most two years from\nnow. When neither this nor never_expires is set, the server defaults to one\nyear.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "neverExpires": {
+            "description": "never_expires requests a token without a planned expiry. Setting this\ntogether with expire_time is invalid.",
+            "type": "boolean"
+          },
+          "overlap": {
+            "description": "overlap is how long the previous token keeps authenticating after the\nregeneration (make-before-break), capped server-side at 24h. Zero means\nimmediate cutover; when omitted the server defaults to one hour. A token\nthat is already expired or revoked stays dead regardless.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.IdentityProviders.RevokeScimTokenBody": {
+        "description": "RevokeScimTokenRequest immediately invalidates an identity provider's SCIM\nbearer tokens (current and regeneration-overlap).",
+        "type": "object"
+      },
+      "chainguard.platform.iam.IdentityProviders.SetScimEnabledBody": {
+        "description": "SetScimEnabledRequest starts or pauses SCIM provisioning for an identity\nprovider.",
+        "properties": {
+          "enabled": {
+            "description": "enabled is the desired provisioning state. Enabling does not require a live\ntoken; disabling pauses provisioning while leaving the credential,\nprovisioned users, and bindings intact.",
+            "type": "boolean"
+          },
+          "etag": {
+            "description": "etag returned by a read or a token lifecycle response. Required so a switch\ncannot race a concurrent lifecycle mutation.",
+            "type": "string"
           }
         },
         "type": "object"
@@ -2135,6 +2346,14 @@
           },
           "oidc": {
             "$ref": "#/components/schemas/chainguard.platform.iam.IdentityProvider.OIDC"
+          },
+          "scim": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.IdentityProvider.SCIM"
+              }
+            ],
+            "description": "scim reports SCIM provisioning status for this identity provider.\n\nSCIM is a provisioning protocol independent of the authentication mechanism\nin configuration, so it is a top-level field rather than a member of the\noneof. Output only: populated on reads and ignored on create and update.\nToken state changes only through the SCIM token methods, and enabling\nprovisioning is its own gated action."
           }
         },
         "type": "object"
@@ -2177,8 +2396,67 @@
         ],
         "type": "string"
       },
+      "chainguard.platform.iam.RegenerateScimTokenResponse": {
+        "description": "RegenerateScimTokenResponse carries the one-time plaintext replacement token\nand the SCIM endpoint to configure in the identity provider.",
+        "properties": {
+          "endpointUrl": {
+            "description": "endpoint_url is the SCIM endpoint the identity provider must be configured\nto call.",
+            "type": "string"
+          },
+          "etag": {
+            "description": "etag is the opaque version of the SCIM configuration after this call, for\noptimistic concurrency on subsequent lifecycle mutations.",
+            "type": "string"
+          },
+          "expireTime": {
+            "description": "expire_time is the effective server-selected token expiry. Unset only for\nnever_expires.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "identityProviderId": {
+            "description": "identity_provider_id is the UIDP the token was regenerated for, echoed for\nattribution.",
+            "type": "string"
+          },
+          "previousTokenExpireTime": {
+            "description": "previous_token_expire_time is when the previous token stops authenticating\n(the effective end of the make-before-break overlap). Unset when the\nprevious token was already dead, so no overlap is active.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "requestedOverlap": {
+            "description": "requested_overlap is the overlap requested by the caller after server\ndefaulting. Audit events carry this separately from the effective\nprevious-token cutoff so operator intent remains reconstructable.",
+            "type": "string"
+          },
+          "token": {
+            "description": "token is the plaintext SCIM bearer token, returned exactly once. Store it\nnow: it is never retrievable again, and only its SHA-256 digest is\npersisted. Format: \"cgscim_\" followed by 64 hexadecimal characters.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.iam.RequestGroupAccessResponse": {
         "description": "RequestGroupAccessResponse is the response message for RequestGroupAccess.\nIt is intentionally empty; the access request is delivered out of band.",
+        "type": "object"
+      },
+      "chainguard.platform.iam.RevokeScimTokenResponse": {
+        "description": "RevokeScimTokenResponse reports the resulting credential and provisioning\nstate for auditing and subsequent optimistic concurrency.",
+        "properties": {
+          "enabled": {
+            "description": "enabled is whether provisioning is enabled after the revocation. Revocation\nnever changes this switch: the dead credential is itself the containment.",
+            "type": "boolean"
+          },
+          "etag": {
+            "description": "etag is the opaque version of the SCIM configuration after this call, for\noptimistic concurrency on subsequent lifecycle mutations.",
+            "type": "string"
+          },
+          "identityProviderId": {
+            "description": "identity_provider_id is the UIDP whose tokens were revoked, echoed for\nattribution.",
+            "type": "string"
+          },
+          "revokeTime": {
+            "description": "revoke_time is when the revocation took effect.",
+            "format": "date-time",
+            "type": "string"
+          }
+        },
         "type": "object"
       },
       "chainguard.platform.iam.Role": {
@@ -2359,9 +2637,28 @@
           "SEDIMENTOLOGY",
           "SKILLUP",
           "MATERIALIZER",
-          "MICROFLOW"
+          "MICROFLOW",
+          "GUARDENER"
         ],
         "type": "string"
+      },
+      "chainguard.platform.iam.SetScimEnabledResponse": {
+        "description": "SetScimEnabledResponse reports the resulting provisioning state.",
+        "properties": {
+          "enabled": {
+            "description": "enabled is the provisioning state after this call.",
+            "type": "boolean"
+          },
+          "etag": {
+            "description": "etag is the opaque version of the SCIM configuration after this call, for\noptimistic concurrency on subsequent lifecycle mutations.",
+            "type": "string"
+          },
+          "identityProviderId": {
+            "description": "identity_provider_id is the UIDP, echoed for attribution.",
+            "type": "string"
+          }
+        },
+        "type": "object"
       },
       "chainguard.platform.iam.StoredGroupInvite": {
         "properties": {
@@ -2458,7 +2755,7 @@
             "type": "integer"
           },
           "ecosystems": {
-            "description": "ecosystems are the Libraries ecosystems the subscription covers.",
+            "description": "ecosystems are the Libraries ecosystems the subscription covers.\nAthena tiers are not available through AWS Marketplace.",
             "items": {
               "$ref": "#/components/schemas/chainguard.platform.libraries.Ecosystem"
             },
@@ -2515,7 +2812,7 @@
             "type": "integer"
           },
           "ecosystems": {
-            "description": "ecosystems are the Libraries ecosystems to subscribe to (one or more).",
+            "description": "ecosystems are the Libraries ecosystems to subscribe to (one or more).\nAthena tiers are not available through AWS Marketplace.",
             "items": {
               "$ref": "#/components/schemas/chainguard.platform.libraries.Ecosystem"
             },
@@ -2612,8 +2909,16 @@
             "type": "string"
           },
           "id": {
-            "description": "A unique identifier for this version of the artifact.",
+            "description": "A unique identifier for this version of the artifact, formatted as\n\"\u003cartifact-id\u003e:\u003cversion\u003e:\u003csource_type\u003e\". The same version string can be\npresent under more than one source_type (e.g. a Chainguard-built version\nand its upstream-registry origin), each returned as a distinct entry with\nits own id.",
             "type": "string"
+          },
+          "malwareMalicious": {
+            "description": "Whether this version was flagged as malicious by a malware scan.",
+            "type": "boolean"
+          },
+          "malwareScanned": {
+            "description": "Whether this version has been scanned for malware.",
+            "type": "boolean"
           },
           "name": {
             "description": "The name of the artifact.",
@@ -2624,8 +2929,21 @@
             "format": "int64",
             "type": "string"
           },
+          "sourceType": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.SourceType"
+              }
+            ],
+            "description": "The origin of this version."
+          },
           "updatedAt": {
             "description": "When this version was last published to Chainguard Libraries.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "upstreamPublishedDate": {
+            "description": "When this version was published to its upstream registry, if known.",
             "format": "date-time",
             "type": "string"
           },
@@ -2649,12 +2967,15 @@
       },
       "chainguard.platform.libraries.Ecosystem": {
         "default": "UNKNOWN",
-        "description": "Ecosystem represents the language libraries an org can be entitled to.",
+        "description": "Ecosystem represents the language libraries an org can be entitled to.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.",
         "enum": [
           "UNKNOWN",
           "JAVA",
           "PYTHON",
-          "JAVASCRIPT"
+          "JAVASCRIPT",
+          "JAVA_ATHENA",
+          "PYTHON_ATHENA",
+          "JAVASCRIPT_ATHENA"
         ],
         "type": "string"
       },
@@ -2782,6 +3103,13 @@
             },
             "type": "array"
           },
+          "blockedLicenses": {
+            "description": "SPDX license identifiers that withhold a matching version (deny-list).\nMatching is case-insensitive and token-based: a candidate version's\ndeclared license is tokenized (SPDX operators AND/OR/WITH and grouping\nparentheses stripped) and the version is withheld when any token equals a\nlisted identifier. Distinct identifiers do not cross-match: blocking\n\"GPL-3.0\" does not block \"GPL-3.0-only\"; list each identifier to block.\nThe license gate cannot be bypassed by allow-list entries. Empty disables\nthe gate. At most 100 entries of up to 128 characters each.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
           "cooldownDays": {
             "description": "The cooldown window in days. Unset = inherit default (7); 0 = disabled;\n1-30 = explicit. Values above 30 are rejected.",
             "format": "int32",
@@ -2836,6 +3164,13 @@
             "description": "PURL-keyed entries that withhold a package regardless of other gates.",
             "items": {
               "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryBlockListEntry"
+            },
+            "type": "array"
+          },
+          "blockedLicenses": {
+            "description": "SPDX license identifiers that withhold a matching version (deny-list).\nMatching is case-insensitive and token-based: a candidate version's\ndeclared license is tokenized (SPDX operators AND/OR/WITH and grouping\nparentheses stripped) and the version is withheld when any token equals a\nlisted identifier. Distinct identifiers do not cross-match: blocking\n\"GPL-3.0\" does not block \"GPL-3.0-only\"; list each identifier to block.\nThe license gate cannot be bypassed by allow-list entries. Empty disables\nthe gate. At most 100 entries of up to 128 characters each.",
+            "items": {
+              "type": "string"
             },
             "type": "array"
           },
@@ -3387,6 +3722,17 @@
         ],
         "type": "string"
       },
+      "chainguard.platform.libraries.SourceType": {
+        "default": "SOURCE_TYPE_UNSPECIFIED",
+        "description": "SourceType indicates the origin of an artifact version.\n\n - SOURCE_TYPE_UNSPECIFIED: Unspecified or unknown origin.\n - SOURCE_TYPE_INTERNAL: A Chainguard-built internal version.\n - SOURCE_TYPE_INTERNAL_REMEDIATED: A remediated rebuild of a version.\n - SOURCE_TYPE_UPSTREAM_REGISTRY: A version mirrored from its upstream registry.",
+        "enum": [
+          "SOURCE_TYPE_UNSPECIFIED",
+          "SOURCE_TYPE_INTERNAL",
+          "SOURCE_TYPE_INTERNAL_REMEDIATED",
+          "SOURCE_TYPE_UPSTREAM_REGISTRY"
+        ],
+        "type": "string"
+      },
       "chainguard.platform.libraries.SubscriptionStatus": {
         "default": "SUBSCRIPTION_STATUS_UNSPECIFIED",
         "description": "SubscriptionStatus is the lifecycle state of an AWS Marketplace subscription.\n\n - SUBSCRIPTION_STATUS_PENDING: PENDING: created, awaiting AWS subscribe confirmation.\n - SUBSCRIPTION_STATUS_ACTIVE: ACTIVE: confirmed and metering-eligible.\n - SUBSCRIPTION_STATUS_UNSUBSCRIBE_PENDING: UNSUBSCRIBE_PENDING: cancellation in progress (final metering window).\n - SUBSCRIPTION_STATUS_UNSUBSCRIBED: UNSUBSCRIBED: cancelled; no further metering.\n - SUBSCRIPTION_STATUS_EXPIRED: EXPIRED: subscription has expired (e.g. a free trial).",
@@ -3881,6 +4227,14 @@
         },
         "type": "object"
       },
+      "chainguard.platform.policies.v1.ExpressionType": {
+        "default": "EXPRESSION_TYPE_UNSPECIFIED",
+        "enum": [
+          "EXPRESSION_TYPE_UNSPECIFIED",
+          "EXPRESSION_TYPE_REGO"
+        ],
+        "type": "string"
+      },
       "chainguard.platform.policies.v1.Override": {
         "description": "Override is an admin-granted waiver of a policy decision for one specific\nimage. It does not change the policy or its binding; it records a deliberate,\nattributable exception applied by the engine after evaluation.",
         "properties": {
@@ -4034,11 +4388,16 @@
             "description": "The type of policy (system or custom).\nSystem policies are created automatically by the system and may not be modified.\nCustom policies may be created and modified by users with the relevant IAM permissions.",
             "readOnly": true
           },
+          "supportedResourceType": {
+            "description": "Immutable: set at creation and cannot be changed on update. A policy's\nname and supported_resource_type together identify it, so changing the\ntype would move the policy into a different identity.",
+            "title": "The resource type this policy supports.\nThe value is a Chainguard API resource type with a version suffix\n(e.g. \"registry.chainguard.dev/Repo@v1\"). The version determines\nwhich PolicyInput schema is used when evaluating the policy expression.\nSupported resource types:\n  - registry.chainguard.dev/Repo@v1",
+            "type": "string"
+          },
           "supportedResourceTypes": {
+            "description": "Deprecated: use supported_resource_type. This repeated field is retained\nfor backward compatibility with existing SDK consumers; the server\npopulates it with the single supported_resource_type value. New code\nshould read and write supported_resource_type instead.",
             "items": {
               "type": "string"
             },
-            "title": "The resource types this policy supports.\nEach value is a Chainguard API resource type with a version suffix\n(e.g. \"registry.chainguard.dev/Repo@v1\"). The version determines\nwhich PolicyInput schema is used when evaluating the policy expression.\nSupported resource types:\n  - registry.chainguard.dev/Repo@v1",
             "type": "array"
           },
           "updatedAt": {
@@ -4091,17 +4450,39 @@
             "description": "The type of policy (system or custom).\nSystem policies are created automatically by the system and may not be modified.\nCustom policies may be created and modified by users with the relevant IAM permissions.",
             "readOnly": true
           },
+          "supportedResourceType": {
+            "description": "Immutable: set at creation and cannot be changed on update. A policy's\nname and supported_resource_type together identify it, so changing the\ntype would move the policy into a different identity.",
+            "title": "The resource type this policy supports.\nThe value is a Chainguard API resource type with a version suffix\n(e.g. \"registry.chainguard.dev/Repo@v1\"). The version determines\nwhich PolicyInput schema is used when evaluating the policy expression.\nSupported resource types:\n  - registry.chainguard.dev/Repo@v1",
+            "type": "string"
+          },
           "supportedResourceTypes": {
+            "description": "Deprecated: use supported_resource_type. This repeated field is retained\nfor backward compatibility with existing SDK consumers; the server\npopulates it with the single supported_resource_type value. New code\nshould read and write supported_resource_type instead.",
             "items": {
               "type": "string"
             },
-            "title": "The resource types this policy supports.\nEach value is a Chainguard API resource type with a version suffix\n(e.g. \"registry.chainguard.dev/Repo@v1\"). The version determines\nwhich PolicyInput schema is used when evaluating the policy expression.\nSupported resource types:\n  - registry.chainguard.dev/Repo@v1",
             "type": "array"
           },
           "updatedAt": {
             "description": "When the policy was last updated.",
             "format": "date-time",
             "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.policies.v1.PolicyDiagnostic": {
+        "description": "PolicyDiagnostic is a single problem reported by ValidatePolicy.",
+        "properties": {
+          "column": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "line": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "message": {
             "type": "string"
           }
         },
@@ -4163,6 +4544,50 @@
           "RESULT_ERROR"
         ],
         "type": "string"
+      },
+      "chainguard.platform.policies.v1.ValidatePolicyRequest": {
+        "properties": {
+          "expression": {
+            "description": "The policy expression to validate. Not persisted.",
+            "type": "string"
+          },
+          "parameterSchemas": {
+            "description": "Optional parameter schemas to validate alongside the expression.\nWhen set, the response's `errors` array contains diagnostics for both\nexpression and schema problems.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.policies.v1.ParameterSchema"
+            },
+            "type": "array"
+          },
+          "type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.policies.v1.ExpressionType"
+              }
+            ],
+            "description": "The expression's language. Only EXPRESSION_TYPE_REGO is supported today."
+          }
+        },
+        "required": [
+          "expression",
+          "type"
+        ],
+        "type": "object"
+      },
+      "chainguard.platform.policies.v1.ValidatePolicyResponse": {
+        "properties": {
+          "errors": {
+            "description": "Structural or compile problems that would cause CreatePolicy /\nUpdatePolicy to reject the expression.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.policies.v1.PolicyDiagnostic"
+            },
+            "type": "array"
+          },
+          "valid": {
+            "description": "True when the expression is valid — parses, declares the expected\npackage + `allow` rule, and compiles against the safe capability\nallowlist. Equivalent to `len(errors) == 0`.",
+            "type": "boolean"
+          }
+        },
+        "type": "object"
       },
       "chainguard.platform.registry.AddChartResponse": {
         "description": "AddChartResponse contains the result of an AddChart operation.",
@@ -4483,6 +4908,7 @@
             "type": "string"
           },
           "uid": {
+            "description": "uid/gid mirror apko's nullable PathMutation UID/GID (apko#2281,\nv1.2.19+): absent means ownership is left untouched; an explicit 0\nchowns to root. `optional` preserves that distinction on the wire,\nlike User.gid above (apko#1449).",
             "format": "int64",
             "type": "integer"
           }
@@ -4657,6 +5083,10 @@
             "description": "The version of the app contained in the chart.",
             "type": "string"
           },
+          "changelog": {
+            "description": "Raw CHANGELOG.md content, if present in the chart.",
+            "type": "string"
+          },
           "dependencies": {
             "description": "The chart's dependencies.",
             "items": {
@@ -4730,6 +5160,24 @@
               }
             ],
             "description": "Whether this image is required for the chart to deploy, or optional.\nSourced from the chart-lock attestation's cg.json template; UNSPECIFIED\nfor charts that do not carry a chart-lock predicate."
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.ChartImageBinding": {
+        "description": "ChartImageBinding describes a chart in the CG catalog\nthat references a specific image, populated by the registry ingester\nentries derived from chart-lock attestations.",
+        "properties": {
+          "chartRepo": {
+            "description": "The bare name of the chart repo that references the image (e.g. \"akhq\").",
+            "type": "string"
+          },
+          "requirement": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.ChartImageRequirement"
+              }
+            ],
+            "description": "Whether the image is required or optional for this chart."
           }
         },
         "type": "object"
@@ -5150,6 +5598,16 @@
             },
             "description": "Aggregated quota usage per tier. Keys are CatalogTier string names.",
             "type": "object"
+          },
+          "swapQuota": {
+            "description": "The organization's rolling 30-day catalog-image swap quota, aggregated\nacross its active entitlements. Customer-initiated image removals count\nagainst this quota. A value of -1 means unlimited (no swap limit is\nenforced); 0 means no swaps are permitted. Removals beyond the quota\nwithin the window consume per-tier image capacity until they age out.",
+            "format": "int32",
+            "type": "integer"
+          },
+          "swapsUsed": {
+            "description": "Customer-initiated catalog-image removals in the current rolling 30-day\nwindow. When this exceeds swap_quota, the excess reduces the per-tier\nimage capacity available for new additions.",
+            "format": "int32",
+            "type": "integer"
           }
         },
         "type": "object"
@@ -5283,12 +5741,33 @@
             },
             "type": "array"
           },
+          "runtimeKeyring": {
+            "description": "Customer-supplied APK signing public keys. Mirrors apko's\ncontents.runtime_keyring (same name, shape, and placement), which\ncarries these keys into the build.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.ImageContents.RuntimeKeyringEntry"
+            },
+            "type": "array"
+          },
           "runtimeRepositories": {
             "description": "Custom APK repository URLs to write to /etc/apk/repositories in the\nassembled image. When set, these replace the default virtualapk.cgr.dev\nrepositories.",
             "items": {
               "type": "string"
             },
             "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.ImageContents.RuntimeKeyringEntry": {
+        "description": "RuntimeKeyringEntry is a single customer-supplied APK signing public\nkey, written to /etc/apk/keys so runtime `apk add` can verify packages\nfrom mirrors that re-sign them. Inline key content, not URLs.",
+        "properties": {
+          "content": {
+            "description": "PEM-encoded RSA public key content.",
+            "type": "string"
+          },
+          "name": {
+            "description": "Key filename under /etc/apk/keys (a safe filename; dots allowed,\nbut not as the first character). Must match the filename the\nrepository's APKINDEX signature references (.SIGN.RSA256.\u003cname\u003e),\nor apk will not find the key at runtime.",
+            "type": "string"
           }
         },
         "type": "object"
@@ -5302,6 +5781,18 @@
           "max": {
             "format": "int32",
             "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.ListChartsByImageRepoResponse": {
+        "properties": {
+          "chartImageBindings": {
+            "description": "Chart-image bindings for the given image repo, sorted\nby chart_repo.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.ChartImageBinding"
+            },
+            "type": "array"
           }
         },
         "type": "object"
@@ -8326,16 +8817,14 @@
         "tags": [
           "ArgosDocuments"
         ]
-      }
-    },
-    "/argos/v1/documents/{parentId}": {
+      },
       "post": {
         "operationId": "ArgosDocuments_Create",
         "parameters": [
           {
             "description": "parent_id is the exact UIDP of the organization (root group) to nest this\ndocument under.",
             "in": "path",
-            "name": "parentId",
+            "name": "id",
             "required": true,
             "schema": {
               "pattern": ".+",
@@ -8553,6 +9042,46 @@
         "summary": "Batch Get",
         "tags": [
           "ArgosVulns"
+        ]
+      }
+    },
+    "/argos/v1/osv/dump": {
+      "get": {
+        "operationId": "ArgosOSV_Dump",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/google.rpc.Status"
+                    },
+                    "result": {
+                      "$ref": "#/components/schemas/chainguard.platform.argos.DumpOSVResponse"
+                    }
+                  },
+                  "title": "Stream result of chainguard.platform.argos.DumpOSVResponse",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "A successful response.(streaming responses)"
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Dump",
+        "tags": [
+          "ArgosOSV"
         ]
       }
     },
@@ -8923,16 +9452,14 @@
         "tags": [
           "Subscriptions"
         ]
-      }
-    },
-    "/events/v1/subscriptions/{parentId}": {
+      },
       "post": {
         "operationId": "Subscriptions_Create",
         "parameters": [
           {
             "description": "parent_id, The Group UIDP path under which the new subscription is associated.",
             "in": "path",
-            "name": "parentId",
+            "name": "id",
             "required": true,
             "schema": {
               "pattern": ".+",
@@ -9354,15 +9881,53 @@
         "tags": [
           "ExternalGroupRoleMappings"
         ]
-      }
-    },
-    "/iam/v1/externalGroupRoleMappings/{parentId}": {
+      },
+      "get": {
+        "operationId": "ExternalGroupRoleMappings_Get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.ExternalGroupRoleMapping"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get",
+        "tags": [
+          "ExternalGroupRoleMappings"
+        ]
+      },
       "post": {
         "operationId": "ExternalGroupRoleMappings_Create",
         "parameters": [
           {
             "in": "path",
-            "name": "parentId",
+            "name": "id",
             "required": true,
             "schema": {
               "pattern": ".+",
@@ -9409,26 +9974,27 @@
         ]
       }
     },
-    "/iam/v1/externalGroupRoleMappings/{uid}": {
-      "get": {
-        "operationId": "ExternalGroupRoleMappings_Get",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "uid",
-            "required": true,
-            "schema": {
-              "pattern": ".+",
-              "type": "string"
+    "/iam/v1/externalGroupRoleMappings:batchDelete": {
+      "post": {
+        "description": "BatchDelete deletes the named mappings under an identity provider in one\ncall, for cleanup, offboarding, or teardown.",
+        "operationId": "ExternalGroupRoleMappings_BatchDelete",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.iam.BatchDeleteExternalGroupRoleMappingsRequest"
+              }
             }
-          }
-        ],
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
         "responses": {
           "200": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.ExternalGroupRoleMapping"
+                  "$ref": "#/components/schemas/chainguard.platform.iam.BatchDeleteExternalGroupRoleMappingsResponse"
                 }
               }
             },
@@ -9445,7 +10011,7 @@
             "description": "An unexpected error response."
           }
         },
-        "summary": "Get",
+        "summary": "Batch Delete",
         "tags": [
           "ExternalGroupRoleMappings"
         ]
@@ -9509,6 +10075,47 @@
       }
     },
     "/iam/v1/group_invites/{group}": {
+      "delete": {
+        "operationId": "GroupInvites_Delete",
+        "parameters": [
+          {
+            "description": "id is the exact UIDP of the record.",
+            "in": "path",
+            "name": "group",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Delete",
+        "tags": [
+          "GroupInvites"
+        ]
+      },
       "post": {
         "operationId": "GroupInvites_Create",
         "parameters": [
@@ -9557,49 +10164,6 @@
           }
         },
         "summary": "Create",
-        "tags": [
-          "GroupInvites"
-        ]
-      }
-    },
-    "/iam/v1/group_invites/{id}": {
-      "delete": {
-        "operationId": "GroupInvites_Delete",
-        "parameters": [
-          {
-            "description": "id is the exact UIDP of the record.",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "pattern": ".+",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            },
-            "description": "A successful response."
-          },
-          "default": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/google.rpc.Status"
-                }
-              }
-            },
-            "description": "An unexpected error response."
-          }
-        },
-        "summary": "Delete",
         "tags": [
           "GroupInvites"
         ]
@@ -9794,6 +10358,59 @@
           "Groups"
         ]
       },
+      "post": {
+        "operationId": "Groups_Create",
+        "parameters": [
+          {
+            "description": "parent, The Group UIDP path under which the new Group resides.\nThis is effectively the iam_scope for Create requests, but because\nwe also allow users to create new \"root\" groups, we check the scoping\nmanually. Parent is allowed to be a prefix of a UIDP of a Group within\nscope, or the name of a Group in scope.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.iam.Group"
+              }
+            }
+          },
+          "description": "Group to create.",
+          "required": true,
+          "x-originalParamName": "group"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.Group"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create",
+        "tags": [
+          "Groups"
+        ]
+      },
       "put": {
         "operationId": "Groups_Update",
         "parameters": [
@@ -9842,61 +10459,6 @@
           }
         },
         "summary": "Update",
-        "tags": [
-          "Groups"
-        ]
-      }
-    },
-    "/iam/v1/groups/{parent}": {
-      "post": {
-        "operationId": "Groups_Create",
-        "parameters": [
-          {
-            "description": "parent, The Group UIDP path under which the new Group resides.\nThis is effectively the iam_scope for Create requests, but because\nwe also allow users to create new \"root\" groups, we check the scoping\nmanually. Parent is allowed to be a prefix of a UIDP of a Group within\nscope, or the name of a Group in scope.",
-            "in": "path",
-            "name": "parent",
-            "required": true,
-            "schema": {
-              "pattern": ".+",
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "*/*": {
-              "schema": {
-                "$ref": "#/components/schemas/chainguard.platform.iam.Group"
-              }
-            }
-          },
-          "description": "Group to create.",
-          "required": true,
-          "x-originalParamName": "group"
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.Group"
-                }
-              }
-            },
-            "description": "A successful response."
-          },
-          "default": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/google.rpc.Status"
-                }
-              }
-            },
-            "description": "An unexpected error response."
-          }
-        },
-        "summary": "Create",
         "tags": [
           "Groups"
         ]
@@ -10183,6 +10745,59 @@
           "IAMIdentities"
         ]
       },
+      "post": {
+        "operationId": "Identities_Create",
+        "parameters": [
+          {
+            "description": "parent_id, The Group UIDP path under which the new Identity resides.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.iam.Identity"
+              }
+            }
+          },
+          "description": "Identity to create.",
+          "required": true,
+          "x-originalParamName": "identity"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.Identity"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create",
+        "tags": [
+          "IAMIdentities"
+        ]
+      },
       "put": {
         "operationId": "Identities_Update",
         "parameters": [
@@ -10231,61 +10846,6 @@
           }
         },
         "summary": "Update",
-        "tags": [
-          "IAMIdentities"
-        ]
-      }
-    },
-    "/iam/v1/identities/{parentId}": {
-      "post": {
-        "operationId": "Identities_Create",
-        "parameters": [
-          {
-            "description": "parent_id, The Group UIDP path under which the new Identity resides.",
-            "in": "path",
-            "name": "parentId",
-            "required": true,
-            "schema": {
-              "pattern": ".+",
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "*/*": {
-              "schema": {
-                "$ref": "#/components/schemas/chainguard.platform.iam.Identity"
-              }
-            }
-          },
-          "description": "Identity to create.",
-          "required": true,
-          "x-originalParamName": "identity"
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.Identity"
-                }
-              }
-            },
-            "description": "A successful response."
-          },
-          "default": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/google.rpc.Status"
-                }
-              }
-            },
-            "description": "An unexpected error response."
-          }
-        },
-        "summary": "Create",
         "tags": [
           "IAMIdentities"
         ]
@@ -10383,6 +10943,226 @@
         ]
       }
     },
+    "/iam/v1/identityProviders/{identityProviderId}:generateScimToken": {
+      "post": {
+        "description": "GenerateScimToken issues the first SCIM bearer token for an identity\nprovider, creating its SCIM provisioning configuration in a disabled state.\nTokens and enablement are separate controls: provisioning stays off until\nSCIM is explicitly enabled. The plaintext token is returned exactly once;\nonly its SHA-256 digest is persisted and it is never logged. This\nreveal-once operation is not idempotent. Returns FAILED_PRECONDITION if the\nprovider already has a SCIM token (regenerate it instead).",
+        "operationId": "IdentityProviders_GenerateScimToken",
+        "parameters": [
+          {
+            "description": "identity_provider_id is the UIDP of the identity provider to generate a\nSCIM bearer token for.",
+            "in": "path",
+            "name": "identityProviderId",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.iam.IdentityProviders.GenerateScimTokenBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.GenerateScimTokenResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Generate Scim Token",
+        "tags": [
+          "IdentityProviders"
+        ]
+      }
+    },
+    "/iam/v1/identityProviders/{identityProviderId}:regenerateScimToken": {
+      "post": {
+        "description": "RegenerateScimToken re-keys an identity provider's SCIM bearer token. When\nthe current token is live, the replacement is make-before-break: the\nprevious token keeps authenticating for the requested overlap (capped\nserver-side at 24h). The new plaintext token is returned exactly once. This\nreveal-once operation is not safe to retry after an ambiguous transport\nfailure. Returns NOT_FOUND if the provider has never had a SCIM token.",
+        "operationId": "IdentityProviders_RegenerateScimToken",
+        "parameters": [
+          {
+            "description": "identity_provider_id is the UIDP of the identity provider whose SCIM bearer\ntoken is being regenerated.",
+            "in": "path",
+            "name": "identityProviderId",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.iam.IdentityProviders.RegenerateScimTokenBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.RegenerateScimTokenResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Regenerate Scim Token",
+        "tags": [
+          "IdentityProviders"
+        ]
+      }
+    },
+    "/iam/v1/identityProviders/{identityProviderId}:revokeScimToken": {
+      "post": {
+        "description": "RevokeScimToken immediately invalidates the current and overlap SCIM bearer\ntokens; inbound provisioning stops on the next request because no credential\nauthenticates. The enabled switch is not changed, so a later\nRegenerateScimToken installs a credential that serves under the existing\nenabled state.",
+        "operationId": "IdentityProviders_RevokeScimToken",
+        "parameters": [
+          {
+            "description": "identity_provider_id is the UIDP of the identity provider whose SCIM bearer\ntoken is being revoked.",
+            "in": "path",
+            "name": "identityProviderId",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.iam.IdentityProviders.RevokeScimTokenBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.RevokeScimTokenResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Revoke Scim Token",
+        "tags": [
+          "IdentityProviders"
+        ]
+      }
+    },
+    "/iam/v1/identityProviders/{identityProviderId}:setScimEnabled": {
+      "post": {
+        "description": "SetScimEnabled explicitly starts or pauses SCIM provisioning. Enabling fails\nwith FAILED_PRECONDITION for an organization with fewer than two manually\nassigned owner-tier role bindings, so SCIM can never take over an\norganization's only owner. Enabling does not require a live token. Token\ngeneration, regeneration, and revocation never change this switch.",
+        "operationId": "IdentityProviders_SetScimEnabled",
+        "parameters": [
+          {
+            "description": "identity_provider_id is the UIDP of the identity provider whose\nprovisioning is being switched.",
+            "in": "path",
+            "name": "identityProviderId",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.iam.IdentityProviders.SetScimEnabledBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.SetScimEnabledResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Set Scim Enabled",
+        "tags": [
+          "IdentityProviders"
+        ]
+      }
+    },
     "/iam/v1/identityProviders/{id}": {
       "delete": {
         "operationId": "IdentityProviders_Delete",
@@ -10421,6 +11201,58 @@
           }
         },
         "summary": "Delete",
+        "tags": [
+          "IdentityProviders"
+        ]
+      },
+      "post": {
+        "operationId": "IdentityProviders_Create",
+        "parameters": [
+          {
+            "description": "parent_id is the exact UIDP of the IAM group to nest this identity provider under",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.iam.IdentityProvider"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "identityProvider"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.IdentityProvider"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create",
         "tags": [
           "IdentityProviders"
         ]
@@ -10473,60 +11305,6 @@
           }
         },
         "summary": "Update",
-        "tags": [
-          "IdentityProviders"
-        ]
-      }
-    },
-    "/iam/v1/identityProviders/{parentId}": {
-      "post": {
-        "operationId": "IdentityProviders_Create",
-        "parameters": [
-          {
-            "description": "parent_id is the exact UIDP of the IAM group to nest this identity provider under",
-            "in": "path",
-            "name": "parentId",
-            "required": true,
-            "schema": {
-              "pattern": ".+",
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "*/*": {
-              "schema": {
-                "$ref": "#/components/schemas/chainguard.platform.iam.IdentityProvider"
-              }
-            }
-          },
-          "required": true,
-          "x-originalParamName": "identityProvider"
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.IdentityProvider"
-                }
-              }
-            },
-            "description": "A successful response."
-          },
-          "default": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/google.rpc.Status"
-                }
-              }
-            },
-            "description": "An unexpected error response."
-          }
-        },
-        "summary": "Create",
         "tags": [
           "IdentityProviders"
         ]
@@ -10716,6 +11494,59 @@
           "RoleBindings"
         ]
       },
+      "post": {
+        "operationId": "RoleBindings_Create",
+        "parameters": [
+          {
+            "description": "parent, The Group UIDP path under which the new RoleBinding resides.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.iam.RoleBinding"
+              }
+            }
+          },
+          "description": "RoleBinding to create.",
+          "required": true,
+          "x-originalParamName": "roleBinding"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.RoleBinding"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create",
+        "tags": [
+          "RoleBindings"
+        ]
+      },
       "put": {
         "operationId": "RoleBindings_Update",
         "parameters": [
@@ -10764,61 +11595,6 @@
           }
         },
         "summary": "Update",
-        "tags": [
-          "RoleBindings"
-        ]
-      }
-    },
-    "/iam/v1/rolebindings/{parent}": {
-      "post": {
-        "operationId": "RoleBindings_Create",
-        "parameters": [
-          {
-            "description": "parent, The Group UIDP path under which the new RoleBinding resides.",
-            "in": "path",
-            "name": "parent",
-            "required": true,
-            "schema": {
-              "pattern": ".+",
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "*/*": {
-              "schema": {
-                "$ref": "#/components/schemas/chainguard.platform.iam.RoleBinding"
-              }
-            }
-          },
-          "description": "RoleBinding to create.",
-          "required": true,
-          "x-originalParamName": "roleBinding"
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.RoleBinding"
-                }
-              }
-            },
-            "description": "A successful response."
-          },
-          "default": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/google.rpc.Status"
-                }
-              }
-            },
-            "description": "An unexpected error response."
-          }
-        },
-        "summary": "Create",
         "tags": [
           "RoleBindings"
         ]
@@ -10966,6 +11742,59 @@
           "Roles"
         ]
       },
+      "post": {
+        "operationId": "Roles_Create",
+        "parameters": [
+          {
+            "description": "parent_id, The Group UIDP path under which the new Role resides.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.iam.Role"
+              }
+            }
+          },
+          "description": "Role to create.",
+          "required": true,
+          "x-originalParamName": "role"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.Role"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create",
+        "tags": [
+          "Roles"
+        ]
+      },
       "put": {
         "operationId": "Roles_Update",
         "parameters": [
@@ -11014,61 +11843,6 @@
           }
         },
         "summary": "Update",
-        "tags": [
-          "Roles"
-        ]
-      }
-    },
-    "/iam/v1/roles/{parentId}": {
-      "post": {
-        "operationId": "Roles_Create",
-        "parameters": [
-          {
-            "description": "parent_id, The Group UIDP path under which the new Role resides.",
-            "in": "path",
-            "name": "parentId",
-            "required": true,
-            "schema": {
-              "pattern": ".+",
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "*/*": {
-              "schema": {
-                "$ref": "#/components/schemas/chainguard.platform.iam.Role"
-              }
-            }
-          },
-          "description": "Role to create.",
-          "required": true,
-          "x-originalParamName": "role"
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.iam.Role"
-                }
-              }
-            },
-            "description": "A successful response."
-          },
-          "default": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/google.rpc.Status"
-                }
-              }
-            },
-            "description": "An unexpected error response."
-          }
-        },
-        "summary": "Create",
         "tags": [
           "Roles"
         ]
@@ -11219,7 +11993,7 @@
         "operationId": "Artifacts_List",
         "parameters": [
           {
-            "description": "The language ecosystems to return artifacts for.",
+            "description": "The language ecosystems to return artifacts for.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.",
             "in": "query",
             "name": "ecosystems",
             "schema": {
@@ -11228,7 +12002,10 @@
                   "UNKNOWN",
                   "JAVA",
                   "PYTHON",
-                  "JAVASCRIPT"
+                  "JAVASCRIPT",
+                  "JAVA_ATHENA",
+                  "PYTHON_ATHENA",
+                  "JAVASCRIPT_ATHENA"
                 ],
                 "type": "string"
               },
@@ -11255,6 +12032,14 @@
             "description": "Flag to return only remediated packages for the ecosystems",
             "in": "query",
             "name": "remediated",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "Flag to also include upstream-registry packages. By default only\nChainguard-built packages are returned.",
+            "in": "query",
+            "name": "includeUpstream",
             "schema": {
               "type": "boolean"
             }
@@ -11319,7 +12104,7 @@
         "operationId": "Artifacts_GetArtifactCount",
         "parameters": [
           {
-            "description": "The language ecosystems to request the artifact counts for.",
+            "description": "The language ecosystems to request the artifact counts for.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.",
             "in": "query",
             "name": "ecosystems",
             "schema": {
@@ -11328,7 +12113,10 @@
                   "UNKNOWN",
                   "JAVA",
                   "PYTHON",
-                  "JAVASCRIPT"
+                  "JAVASCRIPT",
+                  "JAVA_ATHENA",
+                  "PYTHON_ATHENA",
+                  "JAVASCRIPT_ATHENA"
                 ],
                 "type": "string"
               },
@@ -11376,6 +12164,14 @@
             "schema": {
               "pattern": "[^/]+",
               "type": "string"
+            }
+          },
+          {
+            "description": "Flag to also include upstream-registry versions. By default only\nChainguard-built versions are returned.",
+            "in": "query",
+            "name": "includeUpstream",
+            "schema": {
+              "type": "boolean"
             }
           }
         ],
@@ -11526,126 +12322,14 @@
         "tags": [
           "AWSMarketplaceSubscriptions"
         ]
-      }
-    },
-    "/libraries/v1/aws-marketplace-subscriptions/{id}:cancel": {
-      "post": {
-        "description": "Cancel unsubscribes the org's subscription on our side: it stops future\nmetering and removes the associated Libraries entitlements, moving the\nsubscription to UNSUBSCRIBED. The AWS Marketplace subscription itself is\nunaffected (AWS has no partner-initiated cancellation); the record is\nretained for billing history.",
-        "operationId": "AWSMarketplaceSubscriptions_Cancel",
-        "parameters": [
-          {
-            "description": "id is the exact uidp of the subscription to cancel.",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "pattern": ".+",
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "*/*": {
-              "schema": {
-                "$ref": "#/components/schemas/chainguard.platform.libraries.AWSMarketplaceSubscriptions.CancelBody"
-              }
-            }
-          },
-          "required": true,
-          "x-originalParamName": "body"
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.libraries.AWSMarketplaceSubscription"
-                }
-              }
-            },
-            "description": "A successful response."
-          },
-          "default": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/google.rpc.Status"
-                }
-              }
-            },
-            "description": "An unexpected error response."
-          }
-        },
-        "summary": "Cancel",
-        "tags": [
-          "AWSMarketplaceSubscriptions"
-        ]
-      }
-    },
-    "/libraries/v1/aws-marketplace-subscriptions/{parentId}": {
-      "post": {
-        "description": "Create provisions a subscription for an org from an AWS Marketplace\nregistration token. aws_token is exchanged server-side and doubles\nas an authorization gate: only a token minted by AWS Marketplace\nresolves, so a caller without one cannot create a subscription.\nThe caller must additionally hold the create capability on parent_id.",
-        "operationId": "AWSMarketplaceSubscriptions_Create",
-        "parameters": [
-          {
-            "description": "parent_id is the org (group uidp) to provision the subscription under.",
-            "in": "path",
-            "name": "parentId",
-            "required": true,
-            "schema": {
-              "pattern": ".+",
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "*/*": {
-              "schema": {
-                "$ref": "#/components/schemas/chainguard.platform.libraries.AWSMarketplaceSubscriptions.CreateBody"
-              }
-            }
-          },
-          "required": true,
-          "x-originalParamName": "body"
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.libraries.AWSMarketplaceSubscription"
-                }
-              }
-            },
-            "description": "A successful response."
-          },
-          "default": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/google.rpc.Status"
-                }
-              }
-            },
-            "description": "An unexpected error response."
-          }
-        },
-        "summary": "Create",
-        "tags": [
-          "AWSMarketplaceSubscriptions"
-        ]
-      }
-    },
-    "/libraries/v1/aws-marketplace-subscriptions/{subscription.id}": {
+      },
       "patch": {
         "operationId": "AWSMarketplaceSubscriptions_Update",
         "parameters": [
           {
             "description": "id is the uidp of the subscription, a child of the org group.",
             "in": "path",
-            "name": "subscription.id",
+            "name": "id",
             "required": true,
             "schema": {
               "pattern": ".+",
@@ -11669,7 +12353,7 @@
                     "type": "integer"
                   },
                   "ecosystems": {
-                    "description": "ecosystems are the Libraries ecosystems the subscription covers.",
+                    "description": "ecosystems are the Libraries ecosystems the subscription covers.\nAthena tiers are not available through AWS Marketplace.",
                     "items": {
                       "$ref": "#/components/schemas/chainguard.platform.libraries.Ecosystem"
                     },
@@ -11728,6 +12412,114 @@
         "tags": [
           "AWSMarketplaceSubscriptions"
         ]
+      },
+      "post": {
+        "description": "Create provisions a subscription for an org from an AWS Marketplace\nregistration token. aws_token is exchanged server-side and doubles\nas an authorization gate: only a token minted by AWS Marketplace\nresolves, so a caller without one cannot create a subscription.\nThe caller must additionally hold the create capability on parent_id.",
+        "operationId": "AWSMarketplaceSubscriptions_Create",
+        "parameters": [
+          {
+            "description": "parent_id is the org (group uidp) to provision the subscription under.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.AWSMarketplaceSubscriptions.CreateBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.AWSMarketplaceSubscription"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create",
+        "tags": [
+          "AWSMarketplaceSubscriptions"
+        ]
+      }
+    },
+    "/libraries/v1/aws-marketplace-subscriptions/{id}:cancel": {
+      "post": {
+        "description": "Cancel unsubscribes the org's subscription on our side: it stops future\nmetering and removes the associated Libraries entitlements, moving the\nsubscription to UNSUBSCRIBED. The AWS Marketplace subscription itself is\nunaffected (AWS has no partner-initiated cancellation); the record is\nretained for billing history.",
+        "operationId": "AWSMarketplaceSubscriptions_Cancel",
+        "parameters": [
+          {
+            "description": "id is the exact uidp of the subscription to cancel.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.AWSMarketplaceSubscriptions.CancelBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.AWSMarketplaceSubscription"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Cancel",
+        "tags": [
+          "AWSMarketplaceSubscriptions"
+        ]
       }
     },
     "/libraries/v1/blocked-packages": {
@@ -11743,7 +12535,7 @@
             }
           },
           {
-            "description": "Only events for this ecosystem (UNKNOWN = all).",
+            "description": "Only events for this ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.",
             "in": "query",
             "name": "ecosystem",
             "schema": {
@@ -11752,7 +12544,10 @@
                 "UNKNOWN",
                 "JAVA",
                 "PYTHON",
-                "JAVASCRIPT"
+                "JAVASCRIPT",
+                "JAVA_ATHENA",
+                "PYTHON_ATHENA",
+                "JAVASCRIPT_ATHENA"
               ],
               "type": "string"
             }
@@ -11845,7 +12640,7 @@
             }
           },
           {
-            "description": "ecosystems are the language ecosystems to list entitlements for. If empty, all entitlements for the group will be listed.",
+            "description": "ecosystems are the language ecosystems to list entitlements for. If empty, all entitlements for the group will be listed.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.",
             "in": "query",
             "name": "ecosystems",
             "schema": {
@@ -11854,7 +12649,10 @@
                   "UNKNOWN",
                   "JAVA",
                   "PYTHON",
-                  "JAVASCRIPT"
+                  "JAVASCRIPT",
+                  "JAVA_ATHENA",
+                  "PYTHON_ATHENA",
+                  "JAVASCRIPT_ATHENA"
                 ],
                 "type": "string"
               },
@@ -11931,16 +12729,14 @@
         "tags": [
           "LibrariesEntitlements"
         ]
-      }
-    },
-    "/libraries/v1/entitlements/{parentId}": {
+      },
       "post": {
         "operationId": "Entitlements_Create",
         "parameters": [
           {
             "description": "parent_id is the group to create the entitlement for.",
             "in": "path",
-            "name": "parentId",
+            "name": "id",
             "required": true,
             "schema": {
               "pattern": ".+",
@@ -12047,6 +12843,14 @@
             }
           },
           {
+            "description": "package_search filters to packages whose name contains this value, matched\ncase-insensitively. Unlike the exact package_name filter, it supports\npartial searches (e.g. \"turbo\" matches \"turbod\"). When both are set, an\nentry must satisfy both. When empty, no substring filter is applied.",
+            "in": "query",
+            "name": "packageSearch",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "description": "source filters by entry origin (e.g. \"osv\"). When empty, all sources match.",
             "in": "query",
             "name": "source",
@@ -12055,7 +12859,7 @@
             }
           },
           {
-            "description": "since returns only entries blocked at or after this time. When unset, no\ntime filter is applied.",
+            "description": "since returns only entries blocked at or after this time. When unset, no\nlower time bound is applied.",
             "in": "query",
             "name": "since",
             "schema": {
@@ -12091,6 +12895,15 @@
             "in": "query",
             "name": "pageToken",
             "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "before returns only entries blocked strictly before this time. When unset,\nno upper time bound is applied. Combine with since to query a bounded range\n(e.g. a single calendar month).",
+            "in": "query",
+            "name": "before",
+            "schema": {
+              "format": "date-time",
               "type": "string"
             }
           }
@@ -12393,6 +13206,59 @@
           "LibraryPolicies"
         ]
       },
+      "post": {
+        "description": "CreatePolicy creates a custom policy under an org. expression is rejected\n(INVALID_ARGUMENT); cooldown_days above 30 is rejected; an allow-list entry\nwith bypass_malware=true requires a non-empty justification.",
+        "operationId": "LibraryPolicies_CreatePolicy",
+        "parameters": [
+          {
+            "description": "The org Group UIDP under which the policy is created.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryPolicy"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "policy"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryPolicy"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create Policy",
+        "tags": [
+          "LibraryPolicies"
+        ]
+      },
       "put": {
         "description": "UpdatePolicy updates a custom policy. Returns PERMISSION_DENIED for SYSTEM\npolicies and applies the same validation as CreatePolicy.",
         "operationId": "LibraryPolicies_UpdatePolicy",
@@ -12446,61 +13312,6 @@
         ]
       }
     },
-    "/libraries/v1/policies/{parentId}": {
-      "post": {
-        "description": "CreatePolicy creates a custom policy under an org. expression is rejected\n(INVALID_ARGUMENT); cooldown_days above 30 is rejected; an allow-list entry\nwith bypass_malware=true requires a non-empty justification.",
-        "operationId": "LibraryPolicies_CreatePolicy",
-        "parameters": [
-          {
-            "description": "The org Group UIDP under which the policy is created.",
-            "in": "path",
-            "name": "parentId",
-            "required": true,
-            "schema": {
-              "pattern": ".+",
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "*/*": {
-              "schema": {
-                "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryPolicy"
-              }
-            }
-          },
-          "required": true,
-          "x-originalParamName": "policy"
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryPolicy"
-                }
-              }
-            },
-            "description": "A successful response."
-          },
-          "default": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/google.rpc.Status"
-                }
-              }
-            },
-            "description": "An unexpected error response."
-          }
-        },
-        "summary": "Create Policy",
-        "tags": [
-          "LibraryPolicies"
-        ]
-      }
-    },
     "/libraries/v1/policy-bindings": {
       "get": {
         "operationId": "LibraryPolicyBindings_ListBindings",
@@ -12514,7 +13325,7 @@
             }
           },
           {
-            "description": "Only return bindings for this ecosystem (UNKNOWN = all).",
+            "description": "Only return bindings for this ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.",
             "in": "query",
             "name": "ecosystem",
             "schema": {
@@ -12523,7 +13334,10 @@
                 "UNKNOWN",
                 "JAVA",
                 "PYTHON",
-                "JAVASCRIPT"
+                "JAVASCRIPT",
+                "JAVA_ATHENA",
+                "PYTHON_ATHENA",
+                "JAVASCRIPT_ATHENA"
               ],
               "type": "string"
             }
@@ -12627,6 +13441,59 @@
           "LibraryPolicyBindings"
         ]
       },
+      "post": {
+        "description": "CreateBinding activates a policy. Returns ALREADY_EXISTS if a binding for\nthe same (org, ecosystem, mode) already exists; use UpdateBinding instead.\nA JAVA ecosystem is rejected (INVALID_ARGUMENT) until enforcement exists.",
+        "operationId": "LibraryPolicyBindings_CreateBinding",
+        "parameters": [
+          {
+            "description": "The org Group UIDP under which the binding is created.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryPolicyBinding"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "binding"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryPolicyBinding"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create Binding",
+        "tags": [
+          "LibraryPolicyBindings"
+        ]
+      },
       "put": {
         "operationId": "LibraryPolicyBindings_UpdateBinding",
         "parameters": [
@@ -12674,61 +13541,6 @@
           }
         },
         "summary": "Update Binding",
-        "tags": [
-          "LibraryPolicyBindings"
-        ]
-      }
-    },
-    "/libraries/v1/policy-bindings/{parentId}": {
-      "post": {
-        "description": "CreateBinding activates a policy. Returns ALREADY_EXISTS if a binding for\nthe same (org, ecosystem, mode) already exists; use UpdateBinding instead.\nA JAVA ecosystem is rejected (INVALID_ARGUMENT) until enforcement exists.",
-        "operationId": "LibraryPolicyBindings_CreateBinding",
-        "parameters": [
-          {
-            "description": "The org Group UIDP under which the binding is created.",
-            "in": "path",
-            "name": "parentId",
-            "required": true,
-            "schema": {
-              "pattern": ".+",
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "*/*": {
-              "schema": {
-                "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryPolicyBinding"
-              }
-            }
-          },
-          "required": true,
-          "x-originalParamName": "binding"
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.libraries.LibraryPolicyBinding"
-                }
-              }
-            },
-            "description": "A successful response."
-          },
-          "default": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/google.rpc.Status"
-                }
-              }
-            },
-            "description": "An unexpected error response."
-          }
-        },
-        "summary": "Create Binding",
         "tags": [
           "LibraryPolicyBindings"
         ]
@@ -12957,6 +13769,57 @@
           "Bindings"
         ]
       },
+      "post": {
+        "operationId": "Bindings_CreateBinding",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.policies.v1.Binding"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "binding"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.policies.v1.Binding"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create Binding",
+        "tags": [
+          "Bindings"
+        ]
+      },
       "put": {
         "operationId": "Bindings_UpdateBinding",
         "parameters": [
@@ -13005,59 +13868,6 @@
           }
         },
         "summary": "Update Binding",
-        "tags": [
-          "Bindings"
-        ]
-      }
-    },
-    "/policies/v1/bindings/{parentId}": {
-      "post": {
-        "operationId": "Bindings_CreateBinding",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "parentId",
-            "required": true,
-            "schema": {
-              "pattern": ".+",
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "*/*": {
-              "schema": {
-                "$ref": "#/components/schemas/chainguard.platform.policies.v1.Binding"
-              }
-            }
-          },
-          "required": true,
-          "x-originalParamName": "binding"
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.policies.v1.Binding"
-                }
-              }
-            },
-            "description": "A successful response."
-          },
-          "default": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/google.rpc.Status"
-                }
-              }
-            },
-            "description": "An unexpected error response."
-          }
-        },
-        "summary": "Create Binding",
         "tags": [
           "Bindings"
         ]
@@ -13422,15 +14232,13 @@
         "tags": [
           "Overrides"
         ]
-      }
-    },
-    "/policies/v1/overrides/{parentId}": {
+      },
       "post": {
         "operationId": "Overrides_CreateOverride",
         "parameters": [
           {
             "in": "path",
-            "name": "parentId",
+            "name": "id",
             "required": true,
             "schema": {
               "pattern": ".+",
@@ -13595,6 +14403,48 @@
         ]
       }
     },
+    "/policies/v1/policies/validate": {
+      "post": {
+        "operationId": "Policies_ValidatePolicy",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.policies.v1.ValidatePolicyRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.policies.v1.ValidatePolicyResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Validate Policy",
+        "tags": [
+          "Policies"
+        ]
+      }
+    },
     "/policies/v1/policies/{id}": {
       "delete": {
         "operationId": "Policies_DeletePolicy",
@@ -13633,6 +14483,59 @@
           }
         },
         "summary": "Delete Policy",
+        "tags": [
+          "Policies"
+        ]
+      },
+      "post": {
+        "operationId": "Policies_CreatePolicy",
+        "parameters": [
+          {
+            "description": "The id of the policy's parent.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.policies.v1.Policy"
+              }
+            }
+          },
+          "description": "The policy to create.",
+          "required": true,
+          "x-originalParamName": "policy"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.policies.v1.Policy"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create Policy",
         "tags": [
           "Policies"
         ]
@@ -13684,61 +14587,6 @@
           }
         },
         "summary": "Update Policy",
-        "tags": [
-          "Policies"
-        ]
-      }
-    },
-    "/policies/v1/policies/{parentId}": {
-      "post": {
-        "operationId": "Policies_CreatePolicy",
-        "parameters": [
-          {
-            "description": "The id of the policy's parent.",
-            "in": "path",
-            "name": "parentId",
-            "required": true,
-            "schema": {
-              "pattern": ".+",
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "*/*": {
-              "schema": {
-                "$ref": "#/components/schemas/chainguard.platform.policies.v1.Policy"
-              }
-            }
-          },
-          "description": "The policy to create.",
-          "required": true,
-          "x-originalParamName": "policy"
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.policies.v1.Policy"
-                }
-              }
-            },
-            "description": "A successful response."
-          },
-          "default": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/google.rpc.Status"
-                }
-              }
-            },
-            "description": "An unexpected error response."
-          }
-        },
-        "summary": "Create Policy",
         "tags": [
           "Policies"
         ]
@@ -14008,13 +14856,13 @@
         ]
       }
     },
-    "/registry/v1/entitlements/{id}": {
+    "/registry/v1/entitlements/{parent}": {
       "delete": {
         "operationId": "Entitlements_DeleteEntitlement",
         "parameters": [
           {
             "in": "path",
-            "name": "id",
+            "name": "parent",
             "required": true,
             "schema": {
               "pattern": ".+",
@@ -14048,9 +14896,7 @@
         "tags": [
           "RegistryEntitlements"
         ]
-      }
-    },
-    "/registry/v1/entitlements/{parent}": {
+      },
       "get": {
         "operationId": "Entitlements_ListEntitlements",
         "parameters": [
@@ -14230,7 +15076,7 @@
     },
     "/registry/v1/entitlements/{parent}:addImages": {
       "post": {
-        "description": "AddEntitlementImages adds catalog images to an organization's entitlements.\nImages are specified by name and resolved against the catalog.\nThe backend selects an eligible entitlement with matching tier capacity,\npreferring the newest, unless an explicit entitlement_id is provided.",
+        "description": "May return RESOURCE_EXHAUSTED when the organization has exceeded its\nrolling 30-day catalog-image swap quota: customer-initiated removals\nbeyond the quota consume per-tier image capacity until they age out of the\nwindow, reducing what can be added. See GetEffectiveEntitlements\n(swap_quota, swaps_used) for the current budget.",
         "operationId": "Entitlements_AddEntitlementImages",
         "parameters": [
           {
@@ -14371,7 +15217,7 @@
     },
     "/registry/v1/entitlements/{parent}:removeImages": {
       "post": {
-        "description": "Removal is a soft delete: the underlying rows are retained with a deletion\ntimestamp so that history can be reconstructed for audit purposes.",
+        "description": "Removal is a soft delete: the underlying rows are retained with a deletion\ntimestamp so that history can be reconstructed for audit purposes.\n\nCustomer-initiated removals count against the organization's rolling\n30-day catalog-image swap quota (see GetEffectiveEntitlements). Removals\nbeyond the quota reduce the per-tier image capacity available for future\nadditions until they age out of the window.",
         "operationId": "Entitlements_RemoveEntitlementImages",
         "parameters": [
           {
@@ -14759,66 +15605,12 @@
           "Registry"
         ]
       },
-      "put": {
-        "operationId": "Registry_UpdateRepo",
-        "parameters": [
-          {
-            "description": "id is the identifier of this specific repository.",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "pattern": ".+",
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "*/*": {
-              "schema": {
-                "$ref": "#/components/schemas/chainguard.platform.registry.Registry.UpdateRepoBody"
-              }
-            }
-          },
-          "required": true,
-          "x-originalParamName": "body"
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.registry.Repo"
-                }
-              }
-            },
-            "description": "A successful response."
-          },
-          "default": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/google.rpc.Status"
-                }
-              }
-            },
-            "description": "An unexpected error response."
-          }
-        },
-        "summary": "Update Repo",
-        "tags": [
-          "Registry"
-        ]
-      }
-    },
-    "/registry/v1/repos/{parentId}": {
       "post": {
         "operationId": "Registry_CreateRepo",
         "parameters": [
           {
             "in": "path",
-            "name": "parentId",
+            "name": "id",
             "required": true,
             "schema": {
               "pattern": ".+",
@@ -14871,16 +15663,14 @@
         "tags": [
           "Registry"
         ]
-      }
-    },
-    "/registry/v1/repos/{parentId}/deployment": {
-      "post": {
-        "operationId": "Registry_CreateDeployment",
+      },
+      "put": {
+        "operationId": "Registry_UpdateRepo",
         "parameters": [
           {
-            "description": "parent_id is the Repo UIDP under which to create the deployment.",
+            "description": "id is the identifier of this specific repository.",
             "in": "path",
-            "name": "parentId",
+            "name": "id",
             "required": true,
             "schema": {
               "pattern": ".+",
@@ -14892,7 +15682,7 @@
           "content": {
             "*/*": {
               "schema": {
-                "$ref": "#/components/schemas/chainguard.platform.registry.Registry.CreateDeploymentBody"
+                "$ref": "#/components/schemas/chainguard.platform.registry.Registry.UpdateRepoBody"
               }
             }
           },
@@ -14904,7 +15694,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.registry.Deployment"
+                  "$ref": "#/components/schemas/chainguard.platform.registry.Repo"
                 }
               }
             },
@@ -14921,7 +15711,7 @@
             "description": "An unexpected error response."
           }
         },
-        "summary": "Create Deployment",
+        "summary": "Update Repo",
         "tags": [
           "Registry"
         ]
@@ -14982,6 +15772,50 @@
         ]
       }
     },
+    "/registry/v1/repos/{repoId}/chart-image-bindings": {
+      "get": {
+        "description": "ListChartsByImageRepo returns every chart that depends on the\ngiven image repo. Backed by the chart_image_dependency reverse index\npopulated from chart-lock attestations on catalog pushes",
+        "operationId": "Registry_ListChartsByImageRepo",
+        "parameters": [
+          {
+            "description": "The UIDP of the image repo to look up chart-image bindings for.",
+            "in": "path",
+            "name": "repoId",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.registry.ListChartsByImageRepoResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Charts By Image Repo",
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
     "/registry/v1/repos/{repoId}/deployment": {
       "get": {
         "operationId": "Registry_GetDeployment",
@@ -15020,6 +15854,58 @@
           }
         },
         "summary": "Get Deployment",
+        "tags": [
+          "Registry"
+        ]
+      },
+      "post": {
+        "operationId": "Registry_CreateDeployment",
+        "parameters": [
+          {
+            "description": "parent_id is the Repo UIDP under which to create the deployment.",
+            "in": "path",
+            "name": "repoId",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.registry.Registry.CreateDeploymentBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.registry.Deployment"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create Deployment",
         "tags": [
           "Registry"
         ]
@@ -16052,6 +16938,57 @@
           "Registry"
         ]
       },
+      "post": {
+        "operationId": "Registry_CreateTag",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.registry.Tag"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "tag"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.registry.Tag"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create Tag",
+        "tags": [
+          "Registry"
+        ]
+      },
       "put": {
         "operationId": "Registry_UpdateTag",
         "parameters": [
@@ -16159,59 +17096,6 @@
           }
         },
         "summary": "List Tag History",
-        "tags": [
-          "Registry"
-        ]
-      }
-    },
-    "/registry/v1/tags/{repoId}": {
-      "post": {
-        "operationId": "Registry_CreateTag",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "repoId",
-            "required": true,
-            "schema": {
-              "pattern": ".+",
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "*/*": {
-              "schema": {
-                "$ref": "#/components/schemas/chainguard.platform.registry.Tag"
-              }
-            }
-          },
-          "required": true,
-          "x-originalParamName": "tag"
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/chainguard.platform.registry.Tag"
-                }
-              }
-            },
-            "description": "A successful response."
-          },
-          "default": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/google.rpc.Status"
-                }
-              }
-            },
-            "description": "An unexpected error response."
-          }
-        },
-        "summary": "Create Tag",
         "tags": [
           "Registry"
         ]
@@ -16637,16 +17521,14 @@
         "tags": [
           "SkillsEntitlements"
         ]
-      }
-    },
-    "/skills/v1/entitlements/{parentId}": {
+      },
       "post": {
         "operationId": "Entitlements_Create",
         "parameters": [
           {
             "description": "parent_id is the org group to create the entitlement for.",
             "in": "path",
-            "name": "parentId",
+            "name": "id",
             "required": true,
             "schema": {
               "pattern": ".+",

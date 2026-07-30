@@ -5,7 +5,7 @@ description: "An overview of the structure, contents, and applications of contai
 lead: "An overview of the structure, contents, and applications of container technology"
 type: "article"
 date: 2023-10-17T20:02:23+00:00
-lastmod: 2026-06-04T00:00:00+00:00
+lastmod: 2026-07-27T16:03:25+00:00
 contributors: ["Michelle McAveety"]
 draft: false
 tags: ["Conceptual", "Overview"]
@@ -31,7 +31,7 @@ To build a container for your application, start with a *container image*. A con
 
 To create a container image, select a *base image*. A base image is a foundational image that you extend by adding image *layers*. Typically, base images include a Linux distribution, though minimal or distroless images omit the full userland to reduce size and attack surface. Each distribution differs in its size, dependencies, and functionality, making certain distributions better suited for certain images than others.
 
-After selecting a base image, you add layers containing your application-specific code and dependencies. Tools such as [Docker](https://www.docker.com/) and [Podman](https://podman.io/) ingest a [*Dockerfile*](https://docs.docker.com/reference/dockerfile/), a configuration file that specifies the instructions to assemble a multi-layer image. You can also use tools such as [apko](/open-source/apko/overview/) and [ko](https://github.com/ko-build/ko), which produce images using a single-layer construction method.
+After selecting a base image, you add layers containing your application-specific code and dependencies. Tools such as [Docker](https://www.docker.com/) and [Podman](https://podman.io/) ingest a [*Dockerfile*](https://docs.docker.com/reference/dockerfile/), a configuration file that specifies the instructions to assemble a multi-layer image. You can also use tools such as [apko](/open-source/build-tools/apko/overview/) and [ko](https://github.com/ko-build/ko), which produce images using a single-layer construction method.
 
 For example, say you want to build a container to run your Python application. You can start with a Python base image, such as a [Wolfi-based image](/open-source/wolfi/wolfi-with-dockerfiles/), then add your application and its dependencies through Dockerfile layers. The resulting image is ready to deploy with your application bundled inside.
 

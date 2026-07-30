@@ -1,14 +1,14 @@
 ---
 title : "Using Custom Identity Providers to Authenticate to Chainguard"
-linktitle: "Authenticate with Custom IDPs"
+linktitle: "Authenticate with Custom IdPs"
 aliases:
 - /chainguard/chainguard-enforce/authentication/custom-idps/
 - /chainguard/administration/custom-idps/custom-idps/
-lead: "Chainguard Custom IDPs"
-description: "An introduction to and overview of Chainguard's custom IDP support features"
+lead: "Chainguard Custom IdPs"
+description: "An introduction to and overview of Chainguard's custom IdP support features"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2025-01-07T15:22:20+01:00
+lastmod: 2026-07-29T15:22:20+01:00
 draft: false
 tags: ["Chainguard Containers", "Overview"]
 images: []
@@ -32,9 +32,9 @@ chainctl auth login --identity-provider=$IDP_ID
 
 You can retrieve all your identity provider's unique IDs by running `chainctl iam identity-providers list`.
 
-Note that you can also use the [`--headless` option](/chainguard/administration/iam-organizations/overview-of-chainguard-iam-model/#using-the-headless-login-flow) to log in with a custom IDP in an environment that doesn't have a browser installed, such as a container or a remote server. By including this option, `chainctl` will output a special URL. You can then navigate to the URL in another device's browser to log in with your custom IDP.
+Note that you can also use the [`--headless` option](/chainguard/administration/iam-organizations/overview-of-chainguard-iam-model/#using-the-headless-login-flow) to log in with a custom IdP in an environment that doesn't have a browser installed, such as a container or a remote server. By including this option, `chainctl` will output a special URL. You can then navigate to the URL in another device's browser to log in with your custom IdP.
 
-To log in with a custom IDP using the `--headless` option, you would run a command like the following:
+To log in with a custom IdP using the `--headless` option, you would run a command like the following:
 
 ```sh
 chainctl auth login --headless --identity-provider=$IDP_ID
@@ -42,7 +42,7 @@ chainctl auth login --headless --identity-provider=$IDP_ID
 
 Then you can use the URL in this command's output to complete the login flow from another device's browser.
 
-> **Note**: As of this writing (September 2024), using the headless login flow with a custom IDP is still an experimental feature. Please reach out to us through your customer success manager or the support portal to report any feedback. Also, until this feature becomes enabled by default, you must enable it yourself with the following command:
+> **Note**: As of this writing (September 2024), using the headless login flow with a custom IdP is still an experimental feature. Please reach out to us through your customer success manager or the support portal to report any feedback. Also, until this feature becomes enabled by default, you must enable it yourself with the following command:
 
 ```sh
 chainctl config set auth.device-flow chainguard
@@ -115,6 +115,22 @@ Typically, identity providers enable you to set up SSO by creating a specific re
 
 To set up SSO for your identity provider, you must configure one of these resources to use OIDC so that the Chainguard platform can interact with the provider. Following that, you have to configure the Chainguard platform to use that application.
 
+### Confidential and public applications
+
+OAuth classifies client applications as either confidential or public, and most identity providers use this terminology when you register an application. The classification determines whether your application authenticates with a client secret.
+
+- **Confidential applications** can store credentials securely, so they authenticate with a client secret. A web application backed by a server is the typical example, and identity providers usually label these as "Web" applications.
+- **Public applications** can't store credentials securely, because their code runs where the user can reach it. Native, mobile, desktop, and single-page applications fall here, and identity providers usually label these as "Native" or "SPA" applications.
+
+A public application has no secret to prove its identity, so it uses PKCE (Proof Key for Code Exchange) instead. PKCE binds the authorization code to the client that requested it, so an intercepted code is useless to anyone else.
+
+Chainguard supports both models:
+
+- **Confidential**: a client ID and client secret. The integration guides describe this setup, and you can also [add PKCE on top of the client secret](/platform/administration/custom-idps/enabling-pkce/).
+- **Public**: a client ID and PKCE, with no client secret. OAuth 2.1 requires this model for public clients going forward.
+
+Identity providers usually tie this classification to the application *type* you select at registration rather than to a separate setting, and some don't let you change the type afterward. If you want a public application, choose the matching type when you first register it. For the underlying definitions, refer to [section 2.1 of RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749#section-2.1); your identity provider's documentation names the application types it offers.
+
 ### Integration Guides for supported identity providers
 
 We have [published guides for multiple platforms](/chainguard/administration/custom-idps/), including Okta and Ping Identity. If you aren’t using one of these identity providers, you can complete the following Generic Integration Guide to configure your provider to work with Chainguard. However, be aware that Chainguard does not actively support identity providers other than the ones listed previously. If you are using an alternate identity provider, we encourage you to contact us to learn more.
@@ -135,7 +151,7 @@ Next, configure your OIDC application as follows:
 - Restrict grant types to **authorization code** only. It is critical that your application does not support "client credentials", "device code", "implicit" or other grant types (sometimes called “flows”)
 - Restrict response types to only authorization codes (sometimes called just “code”)
 - Enable “openid”, “email” and “profile” scopes for application
-- Disable or set PKCE to **optional**
+- Set PKCE to **optional**. Chainguard supports PKCE for the OAuth token exchange, so you can also set it to **required** if you [enable PKCE on the Chainguard side](/platform/administration/custom-idps/enabling-pkce/). Don't disable PKCE if you plan to enable it for Chainguard.
 
 Finally, configure a set of client credentials and make note of the following details to configure Chainguard:
 
@@ -149,7 +165,7 @@ Next, use `chainctl` to log in to Chainguard with an OIDC provider (such as Goog
 chainctl auth login
 ```
 
-The bootstrap account can use any supported IDP -- for example you may choose to temporarily use a personal Google account. You can leave this account active as a [backup account](/chainguard/administration/custom-idps/custom-idps/#backup-accounts) or, if you prefer, you can delete the account by removing the role-binding after configuring the custom IDP.
+The bootstrap account can use any supported IdP -- for example you may choose to temporarily use a personal Google account. You can leave this account active as a [backup account](/chainguard/administration/custom-idps/custom-idps/#backup-accounts) or, if you prefer, you can delete the account by removing the role-binding after configuring the custom IdP.
 
 Create a new identity provider using the details you noted from your OIDC application. Be sure to update the details in the following example `export` commands to align with your own application/client ID, client secret, and issuer URL.
 
@@ -171,7 +187,7 @@ chainctl iam identity-provider create \
   --name=${NAME}
 ```
 
-The `oidc-issuer`, `oidc-client-id`, and `oidc-issuer-secret` values are required when setting up an OIDC configuration with `chainctl`. You must also include a unique name for each custom IDP account.
+The `oidc-issuer`, `oidc-client-id`, and `oidc-issuer-secret` values are required when setting up an OIDC configuration with `chainctl`. You must also include a unique name for each custom IdP account.
 
 Be aware that if you don't include the `--parent` or `--default-role` options in the command, you will be prompted to select these values interactively
 

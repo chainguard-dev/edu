@@ -204,11 +204,11 @@ This is an example of a minimal configuration:
 
 Push this file to the `main` branch of your repository.
 
-Next, create an assumable identity for your GitHub repository:
+Next, create an assumable identity for your GitHub repository. The `--github-repo` value embeds GitHub's immutable numeric owner and repository IDs; see [Finding your repository's numeric identifiers](/platform/administration/assumable-ids/identity-examples/github-identity/#finding-your-repositorys-numeric-identifiers) for how to retrieve them and when the format applies.
 
 ```shell
 chainctl iam identities create github <identity-name> \
-  --github-repo=<github-org>/<github-repo-name> \
+  --github-repo=<github-org>@<owner-id>/<github-repo-name>@<repo-id> \
   --github-ref=refs/heads/main \
   --role=registry.pull
 ```

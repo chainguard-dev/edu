@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-28T17:26:25Z
 title: "chainctl iam external-group-role-mappings delete"
 slug: chainctl_iam_external-group-role-mappings_delete
 url: /platform/chainctl/chainctl-docs/chainctl_iam_external-group-role-mappings_delete/
@@ -31,7 +31,7 @@ chainctl iam external-group-role-mappings delete {MAPPING_ID | --all --idp IDP} 
 
 ```
       --all          Delete all mappings for the identity provider given by --idp
-      --idp string   Identity provider UIDP whose mappings to delete (with --all)
+      --idp string   Identity provider (name or UIDP) whose mappings to delete (with --all)
   -y, --yes          Skip confirmation prompt
 ```
 
@@ -52,5 +52,5 @@ chainctl iam external-group-role-mappings delete {MAPPING_ID | --all --idp IDP} 
 
 ### SEE ALSO
 
-* [chainctl iam external-group-role-mappings](/chainguard/chainctl/chainctl-docs/chainctl_iam_external-group-role-mappings/)	 - Manage IdP group-to-role mappings.
+* [chainctl iam external-group-role-mappings](/platform/chainctl/chainctl-docs/chainctl_iam_external-group-role-mappings/)	 - Manage IdP group-to-role mappings.
 

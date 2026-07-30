@@ -17,7 +17,7 @@ toc: true
 
 The Dockerfile migration feature converts your Dockerfiles to use Chainguard Containers. It uses AI to iteratively translate instructions, build images, compare results, and fix issues until the migrated Dockerfile works as expected.
 
-Unlike the Guardener's [Actions Security](/chainguard/guardener/actions-security/) and [Commit Verification](/chainguard/guardener/commit-verification/) features, Dockerfile migration does not run through the GitHub App or the `.chainguard/` configuration directory. Instead, you drive it locally through `chainctl agent dockerfile` commands. The AI runs server-side and scans your workspace to perform its analysis, while Docker builds and file access remain local to your machine.
+Unlike the Guardener's [Hardened Actions](/chainguard/guardener/github/actions-security/) and [Commit Verification](/chainguard/guardener/github/commit-verification/) features, Dockerfile migration does not run through the GitHub App or the `.chainguard/` configuration directory. Instead, you drive it locally through `chainctl agent dockerfile` commands. The AI runs server-side and scans your workspace to perform its analysis, while Docker builds and file access remain local to your machine.
 
 {{< beta feature="The Guardener" >}}
 
@@ -115,5 +115,5 @@ The Dockerfile migration agent runs server-side, but its access to your environm
 ## Next steps
 
 - **[Dockerfile migration guide](/chainguard/migration/the-guardener/)** — Full walkthrough, prerequisites, optimizers, and FAQ.
-- **[Actions Security](/chainguard/guardener/actions-security/)** — Recommend and migrate GitHub Actions to hardened, SHA-pinned equivalents.
-- **[Commit Verification](/chainguard/guardener/commit-verification/)** — Require cryptographically signed commits in pull requests.
+- **[Hardened Actions](/chainguard/guardener/github/actions-security/)** — Recommend and migrate GitHub Actions to hardened, SHA-pinned equivalents.
+- **[Commit Verification](/chainguard/guardener/github/commit-verification/)** — Require cryptographically signed commits in pull requests.

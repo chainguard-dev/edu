@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-28T17:26:25Z
 title: "chainctl policies disable"
 slug: chainctl_policies_disable
 url: /platform/chainctl/chainctl-docs/chainctl_policies_disable/
@@ -57,5 +57,5 @@ chainctl policies disable --policy=no-eol --parent=example.com
 
 ### SEE ALSO
 
-* [chainctl policies](/chainguard/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
+* [chainctl policies](/platform/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
 

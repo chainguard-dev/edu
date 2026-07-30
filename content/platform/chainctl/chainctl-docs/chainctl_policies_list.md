@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-28T17:26:25Z
 title: "chainctl policies list"
 slug: chainctl_policies_list
 url: /platform/chainctl/chainctl-docs/chainctl_policies_list/
@@ -17,7 +17,7 @@ List policies.
 
 List the policies available for an organization.
 
-Each available policy is shown with its name and description.
+Each available policy is shown with its name, resource type, and description.
 
 ```
 chainctl policies list [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json|table] [flags]
@@ -61,5 +61,5 @@ chainctl policies list --parent=example.com -o json
 
 ### SEE ALSO
 
-* [chainctl policies](/chainguard/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
+* [chainctl policies](/platform/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
 

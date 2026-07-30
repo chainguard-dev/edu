@@ -46,7 +46,7 @@
   height: calc(100vh - 100px) !important;
   max-height: calc(100vh - 100px) !important;
   padding: 1rem !important;
-  
+
   .leftnav-container {
     display: block !important;
     width: 100%;
@@ -63,13 +63,13 @@
     max-height: none !important;
     position: static !important;
   }
-  
+
   // Hide search container in sidebar menu within offcanvas
   #sidebar-default .search-container,
   .leftnav .search-container {
     display: none !important;
   }
-  
+
   .navbar-title-padding {
     display: none !important;  // Also hide the logo/title that comes with search
   }
@@ -80,7 +80,7 @@
     position: static !important;
     height: auto !important;
     overflow: visible !important;
-    
+
     >div {
       margin-top: 0 !important;
       width: 100%;
@@ -89,7 +89,7 @@
       position: static !important;
     }
   }
-  
+
   // Ensure text is visible
   a, span, p, .sidebar-category, .sidebar-item, .sidebar-subcategory {
     color: var(--body-color) !important;
@@ -115,7 +115,6 @@
 }
 
 @media (max-width: $MobileLayoutWidth) {
-
   // Collapse leftnav on mobile width
   .leftnav-container {
     display: none;
@@ -130,29 +129,29 @@
     background: none;
     padding: 0;
     display: block !important; // Ensure it's visible
-    
+
     // Fix search input padding for mobile header
     .search.form-control,
     .search.is-search {
       padding-left: 40px !important;
       padding-right: 40px !important;
-      
+
       // Fix placeholder color to be gray, not pink
       &::placeholder {
         color: #6c757d !important;
         opacity: 1 !important;
       }
     }
-    
+
     // Fix vertical alignment of search icon
     .doks-search {
       position: relative;
-      
+
       &::before {
         top: 50% !important;
         transform: translateY(-50%) !important;
       }
-      
+
       &::after {
         top: 50% !important;
         transform: translateY(-50%) !important;
@@ -275,7 +274,7 @@
     background-color: var(--board-background-color) !important;
     height: calc(100vh - 48px) !important;
     max-height: calc(100vh - 48px) !important;
-    
+
     .leftnav {
       overflow-x: hidden;
       overflow-y: auto;
@@ -283,7 +282,7 @@
       height: auto !important;
       position: static !important;
     }
-    
+
     // Ensure all sidebar content is visible
     .sidebar-category,
     .sidebar-item,
@@ -294,7 +293,7 @@
       visibility: visible !important;
       color: var(--body-color) !important;
     }
-    
+
     // Make sure sidebar sections show
     .show, .collapse.show {
       display: block !important;
@@ -310,30 +309,30 @@
   .sidebar-bottom .toggle-icon {
     display: none !important;
   }
-  
+
   // Hide the sidebar-bottom toggle in offcanvas on mobile
   .offcanvas .sidebar-bottom .toggle-icon,
   .offcanvas .sidebar-bottom .bottom-mode {
     display: none !important;
   }
-  
+
   // Fix duplicate toggle icons in offcanvas header
   .offcanvas-header {
     .toggle-dark {
       display: block !important;
     }
-    
+
     .toggle-light {
       display: none !important;
     }
   }
-  
+
   // In dark mode, swap the icons
   :root[data-dark-mode] .offcanvas-header {
     .toggle-dark {
       display: none !important;
     }
-    
+
     .toggle-light {
       display: block !important;
     }
@@ -350,7 +349,7 @@
     position: static !important;
     height: auto !important;
   }
-  
+
   .sidebar-bottom {
     display: block !important;
   }

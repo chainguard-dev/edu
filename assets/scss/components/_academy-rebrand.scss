@@ -3,7 +3,7 @@
 
 // Top Navigation Bar (www style)
 .top-nav-bar {
-  background: #ffffff;
+  background: #fff;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   padding: 0;
   position: sticky;
@@ -54,12 +54,12 @@
   }
 
   @media (prefers-color-scheme: dark) {
-    color: #ffffff;
+    color: #fff;
   }
 }
 
 :root[data-dark-mode] .top-nav-logo {
-  color: #ffffff;
+  color: #fff;
 }
 
 .top-nav-logo-img {
@@ -492,6 +492,7 @@
   0%, 100% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
@@ -544,7 +545,7 @@
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  color: #FFFFFF;
+  color: #FFF;
   margin: 0;
 
   @media (max-width: 768px) {
@@ -558,7 +559,7 @@
   justify-content: center;
   gap: 12px;
   padding: 16px 32px;
-  background: #FFFFFF;
+  background: #FFF;
   color: #6226FB !important;
   font-size: 18px;
   font-weight: 600;
@@ -604,8 +605,9 @@
 
 @keyframes float {
   0%, 100% {
-    transform: translateY(0px);
+    transform: translateY(0);
   }
+
   50% {
     transform: translateY(-10px);
   }
@@ -669,12 +671,12 @@
 
 // Keep white text in dark mode
 :root[data-dark-mode] .footer-main-title {
-  color: #FFFFFF !important;
+  color: #FFF !important;
 }
 
 @media (prefers-color-scheme: dark) {
   .footer-main-title {
-    color: #FFFFFF !important;
+    color: #FFF !important;
   }
 }
 
@@ -696,7 +698,7 @@
   gap: 12px;
   padding: 16px 32px;
   background: #6226FB;
-  color: #FFFFFF !important;
+  color: #FFF !important;
   font-family: $titleFont;
   font-size: 18px;
   font-weight: 600;
@@ -1002,7 +1004,7 @@
   gap: 8px;
   padding: 12px 24px;
   background: #6226FB;
-  color: #FFFFFF !important;
+  color: #FFF !important;
   font-family: $titleFont;
   font-size: 16px;
   font-weight: 600;

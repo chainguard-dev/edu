@@ -37,7 +37,6 @@ $sev-unknown: #8C8C8C;
   vertical-align: middle;
   font-size: 16px;
   padding: 0 1rem 0 2rem;
-
   background: var(--search-icon-url) !important;
   background-repeat: no-repeat !important;
   background-color: var(--severity-search-background) !important;
@@ -76,7 +75,7 @@ $sev-unknown: #8C8C8C;
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
-  letter-spacing: 0em;
+  letter-spacing: 0;
   text-align: left;
   height: 42px;
   color: var(--segmented-button-color);
@@ -131,8 +130,9 @@ th {
 
   table {
     --bs-table-bg: none;
+
     border-collapse: separate;
-    border-spacing: 0px;
+    border-spacing: 0;
     margin: 0 !important;
 
     tbody {
@@ -251,7 +251,8 @@ blockquote::before {
   .dropdown-content {
     list-style: none;
     position: absolute;
-    //top: 3em;
+
+    // top: 3em;
     width: 130px;
     visibility: hidden;
     z-index: 100;
@@ -269,7 +270,7 @@ blockquote::before {
     float: left;
     padding: 8px 12px;
     cursor: pointer;
-    box-shadow: 0px 8px 16px 0px #3443F41F;
+    box-shadow: 0 8px 16px 0 #3443F41F;
 
     &:first-child {
       border-radius: 8px 8px 0 0;
@@ -282,13 +283,11 @@ blockquote::before {
   }
 
   .dropdown-content li:hover {
-    background: var(--severity-background);
     border-radius: 4px;
     background: var(--severity-hover-background);
   }
 
   .dropdown-content li span {
-
     // don't show highlighted text selections
     &::selection {
       background: none;
@@ -301,7 +300,8 @@ blockquote::before {
 
   .dropdown:focus-within .dropdown-content {
     visibility: visible;
-    //box-shadow: 0px 8px 16px 0px #3443F41F;
+
+    // box-shadow: 0px 8px 16px 0px #3443F41F;
   }
 
   // used to toggle dropdown menu

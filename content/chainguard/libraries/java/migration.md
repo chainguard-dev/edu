@@ -44,7 +44,7 @@ You can also configure cooldown policies after you create the entitlement. For e
 
 ```shell
 chainctl libraries policy create --name=java-disable-cooldown --cooldown-days=0
-chainctl libraries policy enable --policy=java-disable-cooldown --ecosystem=JAVA --mode=ENFORCE
+chainctl libraries policy enable java-disable-cooldown --ecosystem=JAVA --mode=ENFORCE
 ```
 
 It can take up to 30 minutes for the fallback and cooldown policies to take effect. Learn more about cooldown and other policies in the [Chainguard Libraries Access documentation](/chainguard/libraries/access/#manage-library-policies).

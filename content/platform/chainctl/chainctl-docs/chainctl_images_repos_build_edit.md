@@ -1,5 +1,5 @@
 ---
-date: 2026-07-01T03:32:22Z
+date: 2026-07-28T17:26:25Z
 title: "chainctl images repos build edit"
 slug: chainctl_images_repos_build_edit
 url: /platform/chainctl/chainctl-docs/chainctl_images_repos_build_edit/
@@ -59,6 +59,14 @@ Customizable sections:
     package installation. When set, these replace the default virtualapk.cgr.dev
     repositories. Must be HTTPS URLs.
 
+  contents.runtime_keyring
+    Trust additional APK signing public keys for the runtime repositories
+    (e.g., a re-signing mirror). Each entry has a name and a PEM PUBLIC KEY
+    content; the key is written to /etc/apk/keys under its name, which must
+    match the filename referenced by the repository's APKINDEX signature
+    (.SIGN.RSA256.<name>). Keys can also be loaded from files using the
+    --with-runtime-keys flag.
+
   environment
     Set environment variables that will be available in the image. Variables
     with the 'CHAINGUARD_' prefix are reserved and cannot be used.
@@ -113,6 +121,21 @@ chainctl images repos build edit --file=config.yaml --save-as=my-new-python
 # Add custom certificates (interactive mode)
 chainctl images repos build edit --repo=my-custom-python --with-certificates=ca1.pem --with-certificates=ca2.pem
 
+# Add a customer APK signing key for a re-signing mirror (the file's basename
+# must match the key name the mirror's APKINDEX signature references)
+chainctl images repos build edit --repo=my-custom-python --with-runtime-keys=key-ee8fa0a3.rsa.pub
+
+# Keys can also be set in a --file manifest; the name must match the filename
+# referenced by the mirror's APKINDEX signature (.SIGN.RSA256.<name>):
+#
+#   contents:
+#     runtime_keyring:
+#       - name: key-ee8fa0a3.rsa.pub
+#         content: |
+#           -----BEGIN PUBLIC KEY-----
+#           ...
+#           -----END PUBLIC KEY-----
+
 # Combine file-based config with certificates
 chainctl images repos build edit --file=config.yaml --with-certificates=internal-ca.pem
 
@@ -126,6 +149,7 @@ chainctl images repos build edit --file=config.yaml --with-certificates=internal
       --repo string                         The name or id of the repo to apply build config.
       --save-as string                      Create a new repo with the edited configuration instead of updating the existing one.
       --with-certificates strings           Comma separated list of files to read the custom certificates from.
+      --with-runtime-keys strings           Comma separated list of files to read customer APK signing public keys from. Each file becomes a key in /etc/apk/keys named after the file's basename, which must match the filename referenced by the repository's APKINDEX signature (.SIGN.RSA256.<name>).
       --with-runtime-repositories strings   Comma separated list of runtime APK repository URLs to write to /etc/apk/repositories in the image.
 ```
 
@@ -146,5 +170,5 @@ chainctl images repos build edit --file=config.yaml --with-certificates=internal
 
 ### SEE ALSO
 
-* [chainctl images repos build](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build/)	 - Manage custom image builds
+* [chainctl images repos build](/platform/chainctl/chainctl-docs/chainctl_images_repos_build/)	 - Manage custom image builds
 
