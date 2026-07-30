@@ -93,7 +93,7 @@ Next, test a login from end to end:
 chainctl auth login --identity-provider=$IDENTITY_PROVIDER
 ```
 
-If your organization is verified, you can log in with your organization name instead:
+You can also log in with your organization name:
 
 ```sh
 chainctl auth login --org-name=example.com
