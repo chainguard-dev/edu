@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-07-27T19:38:41+00:00
+lastmod: 2026-07-30T18:03:19+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -39,8 +39,6 @@ To create an entitlement to Chainguard Libraries for Python and enable upstream 
 ```shell
 chainctl libraries entitlements create --ecosystems=PYTHON --policy=CHAINGUARD_AND_UPSTREAM
 ```
-
-Alternatively, you can create an entitlement and pull token in the Chainguard Console: while viewing the Python ecosystem page, follow the prompts to create an access token.
 
 It can take up to 30 minutes for fallback policy changes to take effect.
 
@@ -98,15 +96,17 @@ The `https://libraries.cgr.dev/python/` endpoint is also the [Chainguard Reposit
 
 #### Configure authentication
 
-First, configure authentication using a pull token in `.netrc` or the Python keyring provider.
+First, configure authentication using a pull token or the Python keyring provider.
+
+Setting pull token credentials in `.netrc` is a common approach for individual work stations. Setting authentication in `pip.conf` is preferred for CI/CD, where you need credentials isolated per project or per pipeline rather than a single shared home-directory file.
 
 {{< tabs >}}
 
-{{% tab title="Pull token" %}}
+{{% tab title="Pull token in .netrc" %}}
 
-`.netrc` only supports one set of credentials per hostname. Since all Chainguard Libraries are served from `libraries.cgr.dev`, configuring `.netrc` for Python will override credentials for any other ecosystem.
+> **Note**: `.netrc` only supports one set of credentials per hostname. Since all Chainguard Libraries are served from `libraries.cgr.dev`, configuring `.netrc` for Python will override credentials for any other ecosystem.
 
-Check for an existing registry entry in `.netrc`:
+First, check for an existing registry entry in `.netrc`:
 
 ```shell
 grep -A2 "libraries.cgr.dev" ~/.netrc
@@ -124,6 +124,49 @@ password ${CHAINGUARD_PYTHON_TOKEN}
 EOF
 chmod 600 ~/.netrc
 ```
+
+{{% /tab %}}
+
+{{% tab title="Pull token in pip.conf" %}}
+
+Unlike `.netrc`, `pip.conf` can be scoped per project or per pipeline rather than shared globally across a whole workstation.
+
+First, check whether an index or credentials are already configured
+elsewhere, since a global `pip.conf` or environment variable can silently
+override a project-scoped one:
+
+```shell
+pip config list -v
+env | grep -i pip
+```
+
+Then create a project-scoped config file rather than editing the global
+`~/.pip/pip.conf`. This example sets the remediated repository first, with
+the standard repository as a fallback, and embeds [pull token credentials](#authentication-prerequisites) directly in
+each URL:
+
+```shell
+mkdir -p .pip
+cat > .pip/pip.conf << EOF
+[global]
+index-url = https://${CHAINGUARD_PYTHON_IDENTITY_ID}:${CHAINGUARD_PYTHON_TOKEN}@libraries.cgr.dev/python-remediated/simple/
+extra-index-url = https://${CHAINGUARD_PYTHON_IDENTITY_ID}:${CHAINGUARD_PYTHON_TOKEN}@libraries.cgr.dev/python/simple/
+EOF
+```
+
+Point pip at it with the `PIP_CONFIG_FILE` environment variable, scoped to
+your current shell or CI job:
+
+```shell
+export PIP_CONFIG_FILE="$(pwd)/.pip/pip.conf"
+```
+
+This method sets both the index and its credentials in one step.
+
+> **Note**: Do not commit credentials to version control. Generate `.pip/pip.conf`
+> at build time from CI secrets, as shown in this section, rather than committing a
+> version with a literal token embedded in the URL. Add `.pip/` to
+> `.gitignore` if you create it locally with real credentials for testing.
 
 {{% /tab %}}
 
@@ -149,12 +192,16 @@ Note that Chainguard publishes both standard and [remediated Python indexes](/ch
 
 {{% tab title="pip" %}}
 
-Run the following commands to set the remediated repository first, then the simple repository:
+If you configured authentication via `.netrc` or the Python keyring provider, run the following commands to set the remediated repository first, then the simple repository:
 
 ```bash
 pip config set global.index-url https://libraries.cgr.dev/python-remediated/simple/
 pip config set global.extra-index-url https://libraries.cgr.dev/python/simple/
 ```
+
+If you configured authentication via pull token credentials in `pip.conf`, this step
+is already done; the `index-url` you set in `.pip/pip.conf` already points
+at Chainguard with credentials embedded.
 
 {{% /tab %}}
 
@@ -264,7 +311,7 @@ For authentication details specific to your repository manager, see the [global 
 
 ## Step 2: Update your lockfile
 
-Your existing lockfile or hash-pinned requirements.txt contains checksums generated against packages downloaded from PyPI or through your repository manager. Because Chainguard rebuilds packages from verified source rather than mirroring upstream artifacts, checksums differ even for identical version numbers. If your file uses `--hash` entries or `--require-hashes`, installation will fail with a hash mismatch after switching to Chainguard until these are updated.
+Your existing lockfile or hash-pinned requirements.txt contains checksums generated against packages downloaded from PyPI or through your repository manager. Because Chainguard rebuilds packages from verified source as well as providing security controls for upstream artifacts, checksums differ even for identical version numbers. If your file uses `--hash` entries or `--require-hashes`, installation will fail with a hash mismatch after switching to Chainguard until these are updated.
 
 ### Recommended: Update checksums in place
 
