@@ -6,7 +6,7 @@ description:
   Libraries using the chainctl tool for enhanced supply chain security"
 type: "article"
 date: 2025-07-03T12:00:00+00:00
-lastmod: 2026-01-06T15:09:59+00:00
+lastmod: 2026-07-30T19:49:39+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -16,17 +16,15 @@ weight: 004
 toc: true
 ---
 
-## Overview
-
 Chainguard's `chainctl` tool with the command [`libraries
 verify`](/chainguard/chainctl/chainctl-docs/chainctl_libraries_verify/) verifies
-that your language ecosystem dependencies come from Chainguard Libraries,
+which of your language ecosystem dependencies were built by Chainguard,
 providing critical visibility into your software supply chain security. By
-verifying binary artifacts across your projects and repositories, you can ensure
-dependencies are sourced from Chainguard's hardened build environment rather
-than potentially compromised public repositories, identify opportunities to
+verifying binary artifacts across your projects and repositories, you can confirm which dependencies came from Chainguard's hardened build environment, identify opportunities to
 improve security posture, and maintain compliance with supply chain security
 policies.
+
+For packages that aren't built by Chainguard, you can enable [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) to apply additional configurable security controls.
 
 Command characteristics:
 
