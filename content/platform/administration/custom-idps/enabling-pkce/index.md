@@ -4,8 +4,8 @@ linktitle: "Enable PKCE"
 lead: ""
 description: "How to add PKCE to your custom identity provider's OAuth token exchange with Chainguard, either alongside a client secret or as a secret-free public client."
 type: "article"
-date: 2026-07-29T08:48:45+00:00
-lastmod: 2026-07-29T08:48:45+00:00
+date: 2026-07-30T08:48:45+00:00
+lastmod: 2026-07-30T08:48:45+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
