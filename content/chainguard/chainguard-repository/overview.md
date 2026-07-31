@@ -52,7 +52,7 @@ All upstream packages are checked against public malware identifier feeds, and a
 
 > **Note**: With fallback enabled, Chainguard's malware and greyware scanning covers upstream packages, which addresses the primary risk a cooldown period is meant to mitigate. A cooldown period can still add a small buffer against issues the broader community surfaces after publication and is applied globally across your organization, but it also adds operational complexity and can introduce breakage. Choose a cooldown policy based on your own risk tolerance and priorities.
 
-See [Libraries Overview](/chainguard/libraries/overview/#upstream-fallback-and-controls) for more information.
+See [Libraries Policies](/chainguard/chainguard-repository/library-policies/) for more information.
 
 ## Policies for Chainguard Containers
 
@@ -67,7 +67,7 @@ Available policies include:
 
 The packages that make up Chainguard Images are checked against public malware identifier feeds, and any package with a known malware idenitifier is remediated before being used in any image.
 
-See [Container Pull Policies](/chainguard/chainguard-images/staying-secure/policies/) for more information.
+See [Container Pull Policies](/chainguard/chainguard-repository/container-policies/) for more information.
 
 ## Management
 
