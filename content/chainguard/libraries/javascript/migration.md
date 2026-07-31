@@ -625,10 +625,12 @@ Then check the `packages` section in `bun.lock` to verify that package source UR
 
 ## Step 6: Verify your libraries
 
-After reinstalling, verify that your JavaScript dependencies are sourced from
+After reinstalling, you can verify which of your JavaScript dependencies are built by
 Chainguard by scanning your local package manager cache or `node_modules`
 directory. `chainctl libraries verify` auto-detects npm and pnpm caches by
 their directory structure.
+
+When upstream fallback is enabled, [packages that aren't built by Chainguard](#packages-not-available-in-chainguard-libraries) are subject to Chainguard's security controls.
 
 {{< tabs >}}
 
@@ -683,7 +685,7 @@ chainctl libraries verify ./node_modules
 
 {{< /tabs >}}
 
-A successful result shows verification coverage for the scanned packages. For example:
+A successful result shows what percentage of your project's dependencies were built by Chainguard. For example:
 
 ```
 Artifact: ./node_modules
