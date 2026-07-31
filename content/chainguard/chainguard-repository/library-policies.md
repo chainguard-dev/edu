@@ -4,7 +4,7 @@ linktitle: "Library Policies"
 description: "Configure and enforce policies that control which Chainguard Libraries package versions your organization can pull"
 type: "article"
 date: 2026-07-31T00:00:00+00:00
-lastmod: 2026-07-31T00:00:00+00:00
+lastmod: 2026-07-31T18:08:18+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -20,7 +20,7 @@ Policies can delay newly published upstream packages, block specific packages or
 
 One custom policy per ecosystem can be enabled at a time. This policy should include all the rules you need, which may include a cooldown period, package block rules, and any overrides.
 
-> **Note**: [Upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) must be enabled for an ecosystem before you can use library policies. Library policies require `chainctl` v0.2.313 or newer.
+> **Note**: [Upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) must be enabled for an ecosystem before you can use library policies. Library policies require `chainctl` v0.2.313 or newer; see the [`chainctl` documentation](/get-started/getting-started-with-chainctl/#update-chainctl-to-the-latest-release) for instructions on updating.
 
 ## Policy types and definitions
 
@@ -219,3 +219,9 @@ A malware override should be used sparingly and only after your security team ha
 chainctl libraries policy update team-policy \
   --allow='purl=pkg:npm/node-ipc@10.1.3,override-malware=true,justification="approved in SEC-1234"'
 ```
+
+## Troubleshooting and FAQ
+
+### Why does `chainctl` return "Invalid argument: enable takes no arguments"?
+
+Prior to `chainctl` v0.2.313, when enabling a policy, you needed to include the `--policy` flag to pass in the policy name. In v.0.2.313 and later, you do not need to include a flag. For example, to enable a policy called `3day-cooldown`, run the following command: `chainctl libraries policy enable 3day-cooldown`. [Update `chainctl` to the latest version](/get-started/getting-started-with-chainctl/#update-chainctl-to-the-latest-release) to use this functionality.
