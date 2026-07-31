@@ -5,6 +5,19 @@ spec:
   authorities:
     - keyless:
         url: https://fulcio.sigstore.dev
+        # Accept keyless gitsign signatures from a chainguard.dev identity via
+        # either the GitHub or the Google OIDC connector. Without these explicit
+        # identities, commits signed through the Google connector are rejected
+        # ("certificate does not satisfy any policy authority").
+        identities:
+          - issuer: https://github.com/login/oauth
+            subjectRegExp: .+@chainguard.dev$
+          - issuer: https://accounts.google.com
+            subjectRegExp: .+@chainguard.dev$
+          # TODO(IT/security): add the CI/bot workflow identities that sign
+          # commits in this repo (issuer https://token.actions.githubusercontent.com,
+          # subject https://github.com/chainguard-dev/edu/.github/workflows/<file>.yaml@refs/heads/main)
+          # so automated commits keep passing. Confirm the full set before merge.
       ctlog:
         url: https://rekor.sigstore.dev
     - key:
