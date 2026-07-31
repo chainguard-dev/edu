@@ -93,7 +93,7 @@ Libraries](/chainguard/libraries/cve-remediation/#about-cve-remediation).
 
 For the JavaScript and Python ecosystems, click the **Malware** tab to learn how many packages have been blocked by Chainguard due to [malware or greyware detection](/chainguard/libraries/overview/#malware-and-greyware-detection).
 
-The list at the bottom of the page displays automatically blocked packages, including the package name, blocked version, the date it was blocked on, its MAL ID if available, and signals detected.
+The list at the bottom of the page displays automatically blocked packages, including the package name, blocked version(s), the date it was blocked on, its MAL ID if available, and signals detected.
 
 #### Malware and greyware signals detected
 
