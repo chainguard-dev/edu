@@ -1,5 +1,5 @@
 ---
-date: 2026-07-28T17:26:25Z
+date: 2026-07-30T18:28:05Z
 title: "chainctl policies binding list"
 slug: chainctl_policies_binding_list
 url: /platform/chainctl/chainctl-docs/chainctl_policies_binding_list/
@@ -18,9 +18,18 @@ List policy bindings.
 List active policy bindings to see which policies are enabled and
 in which mode.
 
-Filter by --parent to see bindings for a specific scope. Without a
-filter, all accessible bindings are listed. Each binding shows the
-policy it activates and the enforcement mode (enforced or dry-run).
+Bindings are scoped to one organization: pass --parent, or omit it to
+use your configured default group, or (with no default configured) the
+single organization you can access — you are prompted when several are
+available. Each binding shows the policy it activates and the
+enforcement mode (enforced or dry-run).
+
+Each binding's parameters are cross-checked against the referenced
+policy's current parameters. The STATUS column reports OK,
+INVALID (parameters no longer satisfy the schema), or UNKNOWN.
+Rows flagged INVALID are elaborated below the table with the
+concrete reasons; the JSON output carries the same detail when at
+least one binding is invalidated.
 
 ```
 chainctl policies binding list [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json|table] [flags]
@@ -29,11 +38,11 @@ chainctl policies binding list [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [-
 ### Examples
 
 ```
-  # List bindings for an organization to see which policies are active
-  chainctl policies binding list --parent=engineering
-  
-  # List all accessible bindings
+  # List bindings for your default (or only) organization
   chainctl policies binding list
+  
+  # List bindings for a specific organization
+  chainctl policies binding list --parent=engineering
 ```
 
 ### Options

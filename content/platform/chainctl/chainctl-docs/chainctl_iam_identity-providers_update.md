@@ -1,5 +1,5 @@
 ---
-date: 2026-07-28T17:26:25Z
+date: 2026-07-30T18:28:05Z
 title: "chainctl iam identity-providers update"
 slug: chainctl_iam_identity-providers_update
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_update/
@@ -24,7 +24,7 @@ chainctl iam identity-providers update IDENTITY_PROVIDER_ID [--name=NAME] [--des
   chainctl iam identity-providers update fb694596eb1678321f94eec283e1e0be690f655c/a2973bac66ebfde3 --name=new-name --description=new-description
   
   # Update the default role for an identity provider by name
-  chainctl iam identity-providers update my-idp --default=role=viewer
+  chainctl iam identity-providers update my-idp --default-role=viewer
 ```
 
 ### Options
@@ -37,7 +37,7 @@ chainctl iam identity-providers update IDENTITY_PROVIDER_ID [--name=NAME] [--des
       --oidc-additional-scopes stringArray   additional scopes to request for OIDC type identity provider
       --oidc-client-id string                client id for OIDC type identity provider
       --oidc-client-secret string            client secret for OIDC type identity provider
-      --oidc-groups-claim string             OIDC token claim carrying group memberships, used for group-to-role mappings (empty disables group mapping)
+      --oidc-groups-claim string             OIDC token claim carrying group memberships, used for group-to-role mappings (empty disables group mapping). Manage the mappings with 'chainctl iam identity-providers group-mappings'.
       --oidc-issuer string                   Issuer URL for OIDC type identity provider
       --oidc-pkce-enabled                    Include a PKCE challenge during authorization code exchange. Upstream IDP must be configured to respond.
   -y, --yes                                  Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.

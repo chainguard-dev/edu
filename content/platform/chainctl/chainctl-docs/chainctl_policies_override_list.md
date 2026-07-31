@@ -1,5 +1,5 @@
 ---
-date: 2026-07-28T17:26:25Z
+date: 2026-07-30T18:28:05Z
 title: "chainctl policies override list"
 slug: chainctl_policies_override_list
 url: /platform/chainctl/chainctl-docs/chainctl_policies_override_list/
@@ -18,11 +18,11 @@ List policy overrides.
 List active policy overrides to see which artifacts have been
 waived and for which policy.
 
-Filter by --parent to scope the list to a specific organization.
-Without --parent, the list is scoped to your configured default group;
-if no default is set, all accessible overrides are listed. Each
-override shows its ID, the policy it waives, the targeted artifact, and
-the reason.
+Overrides are scoped to one organization: pass --parent, or omit it to
+use your configured default group, or (with no default configured) the
+single organization you can access — you are prompted when several are
+available. Each override shows its ID, the policy it waives, the
+targeted artifact, and the reason.
 
 ```
 chainctl policies override list [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json|table] [flags]
@@ -31,11 +31,11 @@ chainctl policies override list [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [
 ### Examples
 
 ```
-  # List overrides for an organization
-  chainctl policies override list --parent=engineering
-  
-  # List overrides for your default group (all accessible if no default is set)
+  # List overrides for your default (or only) organization
   chainctl policies override list
+  
+  # List overrides for a specific organization
+  chainctl policies override list --parent=engineering
 ```
 
 ### Options

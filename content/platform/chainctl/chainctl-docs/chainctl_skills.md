@@ -1,5 +1,5 @@
 ---
-date: 2026-07-28T17:26:25Z
+date: 2026-07-30T18:28:05Z
 title: "chainctl skills"
 slug: chainctl_skills
 url: /platform/chainctl/chainctl-docs/chainctl_skills/
@@ -38,7 +38,7 @@ Skills registry related commands.
 * [chainctl skills install](/platform/chainctl/chainctl-docs/chainctl_skills_install/)	 - Download a skill and install it into agent directories.
 * [chainctl skills list](/platform/chainctl/chainctl-docs/chainctl_skills_list/)	 - List skills published by an org.
 * [chainctl skills pull](/platform/chainctl/chainctl-docs/chainctl_skills_pull/)	 - Download a published skill to a local directory.
-* [chainctl skills push](/platform/chainctl/chainctl-docs/chainctl_skills_push/)	 - Package a skill directory and publish it to skills.cgr.dev.
+* [chainctl skills push](/platform/chainctl/chainctl-docs/chainctl_skills_push/)	 - Package a skill directory and publish it to uploads.cgr.dev.
 * [chainctl skills uninstall](/platform/chainctl/chainctl-docs/chainctl_skills_uninstall/)	 - Remove a skill from agent directories on the local machine.
 * [chainctl skills validate](/platform/chainctl/chainctl-docs/chainctl_skills_validate/)	 - Check a skill directory for spec compliance without making network calls.
 * [chainctl skills versions](/platform/chainctl/chainctl-docs/chainctl_skills_versions/)	 - List all published versions (tags) for a skill.

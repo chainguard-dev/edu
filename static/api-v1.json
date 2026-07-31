@@ -703,6 +703,14 @@
       "chainguard.platform.argos.ArgosDocument": {
         "description": "ArgosDocument is an organization-scoped record describing a\nclient-side-encrypted document. The actual ciphertext (the upload\nenvelope: client-AES-encrypted plaintext + RSA-wrapped AES key) lives in\nGCS; ArgosDocument tracks only the metadata.",
         "properties": {
+          "bindings": {
+            "description": "bindings is the document's file manifest joined to per-file analysis\noutcomes: one entry per markdown file in the uploaded archive, carrying\nthe analysis status and the CGP identifiers attributed to that file.\nThe platform derives the manifest from the submission itself; bindings\nare empty until that derivation has run (and stay empty for uploads\nthat are not zip archives of markdown files).",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.argos.ArgosDocumentFileBinding"
+            },
+            "readOnly": true,
+            "type": "array"
+          },
           "cgpIds": {
             "description": "cgp_ids are the Chainguard vulnerability identifiers (CGP-...) this\nsubmission resolved to, populated once processing completes.",
             "items": {
@@ -749,6 +757,42 @@
           "STATUS_READY",
           "STATUS_FAILED",
           "STATUS_FALSE_POSITIVE"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.argos.ArgosDocumentFileBinding": {
+        "description": "ArgosDocumentFileBinding is one archive file joined to its per-file\nanalysis outcome. Deliberately filename-keyed: the platform-internal\ncontent digest is NOT exposed here, since an unsalted digest of\ncustomer-authored content would let any org reader test whether exact\ncandidate content was uploaded (a content-membership oracle bypassing\nthe gated plaintext path).",
+        "properties": {
+          "cgpIds": {
+            "description": "cgp_ids are the Chainguard vulnerability identifiers (CGP-...) this\nfile's analysis resolved to, sorted.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "filename": {
+            "description": "filename is the archive-relative path from the manifest.",
+            "type": "string"
+          },
+          "status": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.argos.ArgosDocumentFileBinding.Status"
+              }
+            ],
+            "description": "status is the analysis outcome attributable to this file."
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.ArgosDocumentFileBinding.Status": {
+        "default": "STATUS_UNSPECIFIED",
+        "description": " - STATUS_UNSPECIFIED: No per-file outcome is attributable: the file was not analyzed as its\nown unit, or the analysis predates per-file tracking.\n - STATUS_PENDING: Analysis is still in progress.\n - STATUS_ANALYZED: Analysis completed; cgp_ids carries any identifiers it resolved.\n - STATUS_FAILED: Analysis failed for this file.",
+        "enum": [
+          "STATUS_UNSPECIFIED",
+          "STATUS_PENDING",
+          "STATUS_ANALYZED",
+          "STATUS_FAILED"
         ],
         "type": "string"
       },
@@ -3712,6 +3756,177 @@
         ],
         "type": "string"
       },
+      "chainguard.platform.libraries.ResolutionCache.SetOptOutBody": {
+        "properties": {
+          "ecosystem": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.Ecosystem"
+              }
+            ],
+            "description": "ecosystem scopes the change to one ecosystem. UNKNOWN means every\necosystem."
+          },
+          "optedOut": {
+            "description": "opted_out is the desired state.",
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.ResolutionCache.ZapBody": {
+        "description": "ZapResolutionCacheRequest selects the scope of a zap, from widest to\nnarrowest:\n  - org-wide: no ecosystem, no package fields.\n  - ecosystem: ecosystem only.\n  - group/scope: ecosystem + package_prefix (e.g. a Maven group or npm\n    scope).\n  - package: ecosystem + package_name.\n  - version: ecosystem + package_name + version.",
+        "properties": {
+          "dryRun": {
+            "description": "dry_run reports the count of entries the zap would retire without\nchanging anything. Counts are advisory: they race concurrent recording.",
+            "type": "boolean"
+          },
+          "ecosystem": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.Ecosystem"
+              }
+            ],
+            "description": "ecosystem scopes the zap to one ecosystem. UNKNOWN means every ecosystem\n(org-wide zap; package fields must be empty)."
+          },
+          "idempotencyKey": {
+            "description": "idempotency_key makes a retried zap safe: a retry carrying the key of the\norg's most recent zap returns the original result instead of zapping\nagain. Replay is guaranteed only until the next zap on the same\n(org, ecosystem).",
+            "type": "string"
+          },
+          "packageName": {
+            "description": "package_name retires entries for one normalized package name (java:\n\"group:artifact\"). Requires ecosystem.",
+            "type": "string"
+          },
+          "packagePrefix": {
+            "description": "package_prefix retires entries whose normalized package name starts with\nthis prefix followed by a separator (\".\", \":\" or \"/\"), e.g. a Maven group\n(\"com.fasterxml.jackson\") or an npm scope (\"@angular\"). Mutually\nexclusive with package_name; requires ecosystem.",
+            "type": "string"
+          },
+          "registry": {
+            "description": "registry narrows a package or prefix zap to one registry. Empty means all\nregistries.",
+            "type": "string"
+          },
+          "version": {
+            "description": "version narrows a package zap to a single version. Requires package_name.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.ResolutionCacheEntry": {
+        "description": "ResolutionCacheEntry is one recorded resolution: the org was served this\ntier for this package version and keeps receiving it until zapped.",
+        "properties": {
+          "digest": {
+            "description": "digest of the artifact that was served when the entry was recorded.",
+            "type": "string"
+          },
+          "ecosystem": {
+            "$ref": "#/components/schemas/chainguard.platform.libraries.Ecosystem"
+          },
+          "id": {
+            "description": "id is the entry's UIDP.",
+            "type": "string"
+          },
+          "live": {
+            "description": "live reports whether the entry is at the current generation (governing\nserving) or retired by a zap.",
+            "type": "boolean"
+          },
+          "observedAt": {
+            "description": "observed_at is when the recorded serve decision was made.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "packageName": {
+            "type": "string"
+          },
+          "registry": {
+            "description": "registry within the ecosystem; empty is the default registry.",
+            "type": "string"
+          },
+          "tier": {
+            "$ref": "#/components/schemas/chainguard.platform.libraries.Tier"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.ResolutionCacheEntryList": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.ResolutionCacheEntry"
+            },
+            "type": "array"
+          },
+          "nextCursor": {
+            "type": "string"
+          },
+          "totalCount": {
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.ResolutionCacheOptOut": {
+        "description": "ResolutionCacheOptOut reports the org's opt-out state after a change.",
+        "properties": {
+          "id": {
+            "description": "id is the org group UIDP.",
+            "type": "string"
+          },
+          "watermarks": {
+            "description": "watermarks holds the affected ecosystems' state.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.ResolutionCacheWatermark"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.ResolutionCacheStatus": {
+        "description": "ResolutionCacheStatus reports the org's per-ecosystem resolution cache\nstate. Ecosystems without a watermark are in the default state (recording,\nnever zapped, not opted out) and are omitted.",
+        "properties": {
+          "id": {
+            "description": "id is the org group UIDP.",
+            "type": "string"
+          },
+          "watermarks": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.ResolutionCacheWatermark"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.ResolutionCacheWatermark": {
+        "properties": {
+          "ecosystem": {
+            "$ref": "#/components/schemas/chainguard.platform.libraries.Ecosystem"
+          },
+          "generation": {
+            "description": "generation is the current zap generation; entries recorded under older\ngenerations are retired.",
+            "format": "int64",
+            "type": "string"
+          },
+          "lastZappedAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "optedOut": {
+            "description": "opted_out reports whether the ecosystem is opted out of the resolution\ncache.",
+            "type": "boolean"
+          },
+          "zapCount": {
+            "description": "zap_count is how many zaps (of any scope) the org has run for the\necosystem.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.libraries.Source": {
         "default": "SOURCE_UNKNOWN",
         "description": "Source indicates how an entitlement was created.\n\n - SOURCE_UNKNOWN: default; treat as SOURCE_TRIAL for backwards compatibility\n - SOURCE_TRIAL: self-service trial entitlement\n - SOURCE_SFDC: created or managed via Salesforce",
@@ -3745,6 +3960,63 @@
           "SUBSCRIPTION_STATUS_EXPIRED"
         ],
         "type": "string"
+      },
+      "chainguard.platform.libraries.Tier": {
+        "default": "TIER_UNSPECIFIED",
+        "description": "Tier identifies where an artifact's bytes come from.\n\n - TIER_CHAINGUARD: Chainguard-built artifacts.\n - TIER_UPSTREAM: Upstream artifacts mirrored or proxied from the public registry.",
+        "enum": [
+          "TIER_UNSPECIFIED",
+          "TIER_CHAINGUARD",
+          "TIER_UPSTREAM"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.libraries.ZapResolutionCacheResult": {
+        "properties": {
+          "ecosystem": {
+            "$ref": "#/components/schemas/chainguard.platform.libraries.Ecosystem"
+          },
+          "generation": {
+            "description": "generation after the zap.",
+            "format": "int64",
+            "type": "string"
+          },
+          "retiredCount": {
+            "description": "retired_count is how many live entries the zap retired (or would retire,\nfor dry runs).",
+            "format": "int64",
+            "type": "string"
+          },
+          "zappedAt": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.ZapResolutionCacheSummary": {
+        "description": "ZapResolutionCacheSummary reports the outcome of a zap.",
+        "properties": {
+          "dryRun": {
+            "description": "dry_run echoes whether this was a dry run.",
+            "type": "boolean"
+          },
+          "id": {
+            "description": "id is the org group UIDP the zap ran against.",
+            "type": "string"
+          },
+          "replayed": {
+            "description": "replayed is true when the response was served from a stored\nidempotency-key result instead of performing a new zap.",
+            "type": "boolean"
+          },
+          "results": {
+            "description": "results holds one entry per affected ecosystem.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.ZapResolutionCacheResult"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
       },
       "chainguard.platform.matcher.ImageMatch": {
         "properties": {
@@ -5562,6 +5834,20 @@
           "TAG_INACTIVE"
         ],
         "type": "string"
+      },
+      "chainguard.platform.registry.FindChartResponse": {
+        "description": "FindChartResponse carries the resolved source chart repo.",
+        "properties": {
+          "name": {
+            "description": "The resolved chart name.",
+            "type": "string"
+          },
+          "sourceRepoId": {
+            "description": "The UIDP of the resolved source chart repo, suitable for\nAddChartRequest.source_repo_id.",
+            "type": "string"
+          }
+        },
+        "type": "object"
       },
       "chainguard.platform.registry.GetEffectiveEntitlementsResponse": {
         "properties": {
@@ -13546,6 +13832,283 @@
         ]
       }
     },
+    "/libraries/v1/resolutioncache/{parentId}/entries": {
+      "get": {
+        "description": "List pages through the org's resolution cache entries.",
+        "operationId": "ResolutionCache_List",
+        "parameters": [
+          {
+            "description": "parent_id is the org whose entries to list. Required.",
+            "in": "path",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          },
+          {
+            "description": "ecosystem lists entries for one ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.",
+            "in": "query",
+            "name": "ecosystem",
+            "schema": {
+              "default": "UNKNOWN",
+              "enum": [
+                "UNKNOWN",
+                "JAVA",
+                "PYTHON",
+                "JAVASCRIPT",
+                "JAVA_ATHENA",
+                "PYTHON_ATHENA",
+                "JAVASCRIPT_ATHENA"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "registry lists entries for one registry (empty = all).",
+            "in": "query",
+            "name": "registry",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "package_name lists entries for one normalized package name. Requires\necosystem.",
+            "in": "query",
+            "name": "packageName",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "package_prefix lists entries whose package name starts with the prefix,\nwith the same separator-boundary rule as ZapResolutionCacheRequest.\nMutually exclusive with package_name; requires ecosystem.",
+            "in": "query",
+            "name": "packagePrefix",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "tier lists entries recording one tier (UNSPECIFIED = all).\n\n - TIER_CHAINGUARD: Chainguard-built artifacts.\n - TIER_UPSTREAM: Upstream artifacts mirrored or proxied from the public registry.",
+            "in": "query",
+            "name": "tier",
+            "schema": {
+              "default": "TIER_UNSPECIFIED",
+              "enum": [
+                "TIER_UNSPECIFIED",
+                "TIER_CHAINGUARD",
+                "TIER_UPSTREAM"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "live_only lists only entries at the current generation (the ones that\ngovern serving).",
+            "in": "query",
+            "name": "liveOnly",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.ResolutionCacheEntryList"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List",
+        "tags": [
+          "LibrariesResolutionCache"
+        ]
+      }
+    },
+    "/libraries/v1/resolutioncache/{parentId}/status": {
+      "get": {
+        "description": "Status reports the org's per-ecosystem resolution cache state: current\ngeneration, how many zaps have run, opt-out state, and the most recent\nzap time.",
+        "operationId": "ResolutionCache_Status",
+        "parameters": [
+          {
+            "description": "parent_id is the org to report on.",
+            "in": "path",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.ResolutionCacheStatus"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Status",
+        "tags": [
+          "LibrariesResolutionCache"
+        ]
+      }
+    },
+    "/libraries/v1/resolutioncache/{parentId}:optout": {
+      "post": {
+        "description": "SetOptOut sets or clears the org's resolution cache opt-out. An opted-out\norg neither records new resolutions nor has recorded ones enforced; its\nentries are retained so opting back in resumes from the recorded state.",
+        "operationId": "ResolutionCache_SetOptOut",
+        "parameters": [
+          {
+            "description": "parent_id is the org whose opt-out to change.",
+            "in": "path",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.ResolutionCache.SetOptOutBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.ResolutionCacheOptOut"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Set Opt Out",
+        "tags": [
+          "LibrariesResolutionCache"
+        ]
+      }
+    },
+    "/libraries/v1/resolutioncache/{parentId}:zap": {
+      "post": {
+        "description": "Zap retires resolution cache entries at the requested scope: a group or\nscope prefix, a package, a single version, an ecosystem, or the whole\norg. With dry_run set it reports how many entries the zap would retire\nwithout changing anything.",
+        "operationId": "ResolutionCache_Zap",
+        "parameters": [
+          {
+            "description": "parent_id is the org whose resolution cache to zap.",
+            "in": "path",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.ResolutionCache.ZapBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.ZapResolutionCacheSummary"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Zap",
+        "tags": [
+          "LibrariesResolutionCache"
+        ]
+      }
+    },
     "/packages/v1/entitlements": {
       "get": {
         "operationId": "Entitlements_List",
@@ -14811,6 +15374,62 @@
         "summary": "Get Build Status",
         "tags": [
           "Registry"
+        ]
+      }
+    },
+    "/registry/v1/charts:find": {
+      "get": {
+        "description": "FindChart resolves a chart name to its source repo within a managed chart\ncatalog. The lookup runs server-side under the catalog identity, so callers\nneed no catalog-scoped credentials; the returned source_repo_id is then\npassed to AddChart. Mirrors the browse-then-add flow the console performs\nvia the graphql catalog interceptor.",
+        "operationId": "Charts_FindChart",
+        "parameters": [
+          {
+            "description": "Which managed chart catalog to search.\n\n - CHART_CATALOG_COMMUNITY: The community chart catalog (the default).\n - CHART_CATALOG_IAMGUARDED: The iamguarded chart catalog.",
+            "in": "query",
+            "name": "catalog",
+            "schema": {
+              "default": "CHART_CATALOG_UNSPECIFIED",
+              "enum": [
+                "CHART_CATALOG_UNSPECIFIED",
+                "CHART_CATALOG_COMMUNITY",
+                "CHART_CATALOG_IAMGUARDED"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "The chart name to resolve (e.g. \"argo-cd\").",
+            "in": "query",
+            "name": "name",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.registry.FindChartResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Find Chart",
+        "tags": [
+          "Charts"
         ]
       }
     },
@@ -18562,6 +19181,10 @@
     },
     {
       "name": "LibraryPolicyBlockEvents"
+    },
+    {
+      "description": "Libraries Resolution Cache API",
+      "name": "LibrariesResolutionCache"
     },
     {
       "name": "ImageMatcher"
