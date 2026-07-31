@@ -1,5 +1,5 @@
 ---
-date: 2026-07-28T17:26:25Z
+date: 2026-07-30T18:28:05Z
 title: "chainctl policies decision list"
 slug: chainctl_policies_decision_list
 url: /platform/chainctl/chainctl-docs/chainctl_policies_decision_list/
@@ -18,23 +18,39 @@ List policy decisions.
 List recorded policy decisions to see which image digests a policy
 allowed or denied at pull time.
 
-Each decision shows the digest, the policy that evaluated it, the mode,
-the outcome, and the reason when one is available. Filter by --parent
-for a specific organization, by --repo for all decisions recorded on a
-single repository, by --policy for a single policy, by --mode or
---result for a subset of outcomes, and by --since for a time window.
+Each decision shows the repository, the digest, the policy that
+evaluated it, the mode, the outcome, and when it was pulled.
+
+Decisions are scoped to one organization: pass --parent, or omit it to
+use your configured default group, or (with no default configured) the
+single organization you can access — you are prompted when several are
+available. Within that scope, filter by --repo for a single repository,
+by --policy for a single policy, by --mode or --result for a subset of
+outcomes, and by --since for a time window.
 
 Decisions are listed most recent first. By default the 20 most recent
 are shown; use --limit (1-100) to change how many are returned.
 
+For a multi-arch image the DIGEST column may show the index digest,
+while pulls are enforced against the per-platform child manifest; run
+"chainctl policies check" to find the child digest an override must
+target.
+
+With -o json the output is an object with an "items" array (one entry
+per decision) and a string "totalCount"; read .items[] rather than
+treating the output as a top-level array.
+
 ```
-chainctl policies decision list [--parent ORG] [--repo REPO] [--policy POLICY] [--mode MODE] [--result RESULT] [--since DAYS] [--limit N] [--output=json|table] [flags]
+chainctl policies decision list [--parent ORG] [--repo REPO] [--policy POLICY] [--mode MODE] [--result RESULT] [--since Nd] [--limit N] [--output=json|table] [flags]
 ```
 
 ### Examples
 
 ```
-  # List decisions for an organization
+  # List decisions for your default (or only) organization
+  chainctl policies decision list
+  
+  # List decisions for a specific organization
   chainctl policies decision list --parent=engineering
   
   # List what the cooldown policy would have blocked in the last day
@@ -46,21 +62,21 @@ chainctl policies decision list [--parent ORG] [--repo REPO] [--policy POLICY] [
   # Show the 50 most recent decisions
   chainctl policies decision list --parent=engineering --limit=50
   
-  # List decisions in JSON format for scripting
-  chainctl policies decision list --parent=engineering -o json
+  # List decisions as JSON for scripting; the payload is an object, so read .items[]
+  chainctl policies decision list --parent=engineering -o json | jq '.items[]'
 ```
 
 ### Options
 
 ```
       --limit int              Maximum number of decisions to return, most recent first (1-100). (default 20)
-      --mode string            Only show decisions evaluated in this mode (ENFORCE or DRY_RUN).
+      --mode string            Only show decisions evaluated in this mode (ENFORCE or DRY_RUN; the POLICY_MODE_ prefixed value from -o json is also accepted).
       --parent string          The name or id of the organization to list decisions for.
       --policy string          Only show decisions for this policy (name or UIDP).
       --repo string            Only show decisions for this repository.
       --resource-type string   Resource type used to disambiguate a policy referenced by name (shorthand: Repo, Python, Java, Javascript; or a full type). Ignored when the policy is given by UIDP.
-      --result string          Only show decisions with this outcome (ALLOWED, DENIED, or ERROR).
-      --since string           Only show decisions pulled within this many days, e.g. 7d.
+      --result string          Only show decisions with this outcome (ALLOWED, DENIED, or ERROR; the RESULT_ prefixed value from -o json is also accepted).
+      --since string           Only show decisions pulled within a window given as a positive whole number of days followed by d, e.g. 7d.
 ```
 
 ### Options inherited from parent commands

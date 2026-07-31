@@ -1,5 +1,5 @@
 ---
-date: 2026-07-28T17:26:25Z
+date: 2026-07-30T18:28:05Z
 title: "chainctl policies"
 slug: chainctl_policies
 url: /platform/chainctl/chainctl-docs/chainctl_policies/
@@ -115,6 +115,7 @@ chainctl policies disable --policy=cooldown --parent=example.com
 * [chainctl](/platform/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
 * [chainctl policies binding](/platform/chainctl/chainctl-docs/chainctl_policies_binding/)	 - Manage policy bindings.
 * [chainctl policies check](/platform/chainctl/chainctl-docs/chainctl_policies_check/)	 - Check an image against active policies.
+* [chainctl policies custom](/platform/chainctl/chainctl-docs/chainctl_policies_custom/)	 - Manage your custom policies.
 * [chainctl policies decision](/platform/chainctl/chainctl-docs/chainctl_policies_decision/)	 - Inspect policy decisions.
 * [chainctl policies describe](/platform/chainctl/chainctl-docs/chainctl_policies_describe/)	 - Describe a policy and its parameter schema.
 * [chainctl policies disable](/platform/chainctl/chainctl-docs/chainctl_policies_disable/)	 - Disable a policy.

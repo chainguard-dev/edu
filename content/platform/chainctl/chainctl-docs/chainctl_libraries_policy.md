@@ -1,5 +1,5 @@
 ---
-date: 2026-07-28T17:26:25Z
+date: 2026-07-30T18:28:05Z
 title: "chainctl libraries policy"
 slug: chainctl_libraries_policy
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_policy/
