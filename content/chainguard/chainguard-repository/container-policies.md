@@ -1,7 +1,8 @@
 ---
 aliases:
 - /chainguard/administration/policies/
-title: "Container Pull Policies"
+- /chainguard/chainguard-images/staying-secure/policies/
+title: "Chainguard Container Image Pull Policies"
 linktitle: "Container Pull Policies"
 type: "article"
 description: "Configure and enforce policies that control which Chainguard container and artifact versions your organization can pull, using chainctl"
@@ -20,15 +21,15 @@ Policies enable you to filter and restrict Chainguard artifact updates. You do t
 
 ## Definitions
 
-This is how policies uses the following terms.
+This page uses the following terms:
 
-- **Policy** — A reusable rule that determines whether an image is allowed. Each policy has a name, a description, and the resource type it applies to. The system policies on this page apply to registry repositories.
-- **Binding** — A link between a policy and an organization. While a binding exists, the policy is active for image pulls under that organization. Without a binding, the policy has no effect.
-- **Mode** — A binding's mode controls what happens when the policy denies an image:
-    - `ENFORCE` — Block the pull.
-    - `DRY_RUN` — Allow the pull but record the violation.
-- **Parameter** — A configurable value declared by a policy's schema (for example, `days` on the `cooldown` policy). Supply values when you enable a policy with `--param=KEY=VALUE` (repeatable). Omitted parameters fall back to the schema's declared default. Use `chainctl policies describe --policy=$POLICY` to see which parameters a policy accepts and what defaults apply.
-- **Policy type** — Whether a policy is authored by Chainguard or by you. See [Policy types](#policy-types).
+* **Policy**: A reusable rule that determines whether an image is allowed. Each policy has a name, a description, and the resource type it applies to. The system policies on this page apply to registry repositories.
+* **Binding**: A link between a policy and an organization. While a binding exists, the policy is active for image pulls under that organization. Without a binding, the policy has no effect.
+* **Mode**: A binding's mode controls what happens when the policy denies an image:
+    * `ENFORCE`: Block the pull.
+    * `DRY_RUN`: Allow the pull but record the violation.
+* **Parameter**: A configurable value declared by a policy's schema (for example, `days` on the `cooldown` policy). Supply values when you enable a policy with `--param=KEY=VALUE` (repeatable). Omitted parameters fall back to the schema's declared default. Use `chainctl policies describe --policy=$POLICY` to see which parameters a policy accepts and what defaults apply.
+* **Policy type**: Whether a policy is authored by Chainguard or by you. See [Policy types](#policy-types).
 
 The `--mode` flag is required when you enable a policy. Chainguard recommends starting with `DRY_RUN` so you can review a policy's impact before promoting it to `ENFORCE`.
 
@@ -52,9 +53,9 @@ Both types appear together in `chainctl policies list`, distinguished by a type 
 
 To author and manage your own policies, see:
 
-- [Writing custom policies](#writing-custom-policies) — the `allow` rule convention, the input fields a policy can read, and the Rego subset available to it.
-- [Managing custom policies with chainctl](#managing-custom-policies-with-chainctl) — the manifest format and the `validate`, `create`, `update`, and `delete` subcommands.
-- [Custom policies FAQ](#custom-policies-faq) — debugging denials, write-time rejections, and testing a policy before you enforce it.
+* [Writing custom policies](#writing-custom-policies) — the `allow` rule convention, the input fields a policy can read, and the Rego subset available to it.
+* [Managing custom policies with chainctl](#managing-custom-policies-with-chainctl) — the manifest format and the `validate`, `create`, `update`, and `delete` subcommands.
+* [Custom policies FAQ](#custom-policies-faq) — debugging denials, write-time rejections, and testing a policy before you enforce it.
 
 ## Available policies
 
@@ -294,9 +295,9 @@ allow if {
 
 Three rules are non-negotiable, and Chainguard rejects the policy at write time if any is missing:
 
-- **The package must be `chainguard.policies`.** Any other package name is an error.
-- **The expression must define a rule named `allow`.** This is the only rule Chainguard reads. Its value decides the outcome: `true` allows the artifact, anything else denies it.
-- **The expression must compile**, using only the builtins listed under [The available Rego subset](#the-available-rego-subset).
+* **The package must be `chainguard.policies`.** Any other package name is an error.
+* **The expression must define a rule named `allow`.** This is the only rule Chainguard reads. Its value decides the outcome: `true` allows the artifact, anything else denies it.
+* **The expression must compile**, using only the builtins listed under [The available Rego subset](#the-available-rego-subset).
 
 Beyond that, the module is ordinary Rego. You can define helper rules, comprehensions, and functions freely, as long as `allow` ends up defined.
 
@@ -403,25 +404,25 @@ Custom policies may use most of the OPA standard library. Referencing a blocked 
 
 The blocked builtins are:
 
-- `http.send`
-- Everything under `net.`, including `net.lookup_ip_addr`
-- Everything under `opa.`, including `opa.runtime`
-- Everything under `rego.`, for example `rego.metadata.chain`
-- `trace` and `print`
-- The certificate and key parsers: `crypto.x509.parse_certificates`, `crypto.x509.parse_and_verify_certificates`, `crypto.x509.parse_certificate_request`, `crypto.x509.parse_keypair`, `crypto.x509.parse_rsa_private_key`, and `crypto.parse_private_keys`
+* `http.send`
+* Everything under `net.`, including `net.lookup_ip_addr`
+* Everything under `opa.`, including `opa.runtime`
+* Everything under `rego.`, for example `rego.metadata.chain`
+* `trace` and `print`
+* The certificate and key parsers: `crypto.x509.parse_certificates`, `crypto.x509.parse_and_verify_certificates`, `crypto.x509.parse_certificate_request`, `crypto.x509.parse_keypair`, `crypto.x509.parse_rsa_private_key`, and `crypto.parse_private_keys`
 
 The `import rego.v1` statement is not affected by the `rego.` entry above — that entry covers builtin functions, not language imports. Use `import rego.v1` as shown in the examples on this page.
 
 Everything else in the OPA standard library is available, including the namespaces most policies need:
 
-- String handling — `strings.*`, `sprintf`, `format_int`, `concat`, `contains`, `startswith`, `endswith`, `upper`, `lower`, `split`, `trim`
-- Numbers and aggregates — `numbers.*`, `count`, `sum`, `min`, `max`, `product`, `sort`, `all`, `any`, `round`, `abs`
-- Collections — `arrays.*`, `objects.*`, `sets.*`
-- Time — `time.*`, including `time.now_ns`, `time.parse_ns`, `time.parse_rfc3339_ns`, and `time.add_date`
-- Pattern matching — `regex.*`, `glob.*`
-- Encoding — `json.*`, `yaml.*`, `base64.*`, `hex.*`
-- Versions — `semver.*`, useful for comparing `input.main_package_version.version` against a floor
-- Hashing — the non-parsing parts of `crypto.*`, and `units.*`
+* String handling: `strings.*`, `sprintf`, `format_int`, `concat`, `contains`, `startswith`, `endswith`, `upper`, `lower`, `split`, `trim`
+* Numbers and aggregates: `numbers.*`, `count`, `sum`, `min`, `max`, `product`, `sort`, `all`, `any`, `round`, `abs`
+* Collections: `arrays.*`, `objects.*`, `sets.*`
+* Time: `time.*`, including `time.now_ns`, `time.parse_ns`, `time.parse_rfc3339_ns`, and `time.add_date`
+* Pattern matching: `regex.*`, `glob.*`
+* Encoding: `json.*`, `yaml.*`, `base64.*`, `hex.*`
+* Versions: `semver.*`, useful for comparing `input.main_package_version.version` against a floor
+* Hashing: the non-parsing parts of `crypto.*`, and `units.*`
 
 ## Managing custom policies with chainctl
 
@@ -555,10 +556,10 @@ Creation validates the policy before storing it. A rejected policy reports one d
 
 Names are validated on create and update. A name must:
 
-- Be at most 255 characters
-- Start and end with an alphanumeric character, which rejects leading and trailing whitespace
-- Contain no control characters
-- Be unique within the organization for its resource type
+* Be at most 255 characters
+* Start and end with an alphanumeric character, which rejects leading and trailing whitespace
+* Contain no control characters
+* Be unique within the organization for its resource type
 
 ### Updating a policy
 
@@ -739,10 +740,10 @@ Finally, if you need to let one specific image through while you sort the policy
 
 At launch, the input document carries lifecycle data about the artifact's main package and nothing else:
 
-- `input.main_package` — the main package name
-- `input.main_package_version` — version metadata, including `version`, `latestVersion`, `eolDate`, `releaseDate`, `exists`, `fips`, `lts`, `eolBroken`, and `versionSource`
-- `input.create_time` — the image creation timestamp, as RFC 3339
-- `input.parameters.<name>` — values for the parameters your policy declares
+* `input.main_package` — the main package name
+* `input.main_package_version` — version metadata, including `version`, `latestVersion`, `eolDate`, `releaseDate`, `exists`, `fips`, `lts`, `eolBroken`, and `versionSource`
+* `input.create_time` — the image creation timestamp, as RFC 3339
+* `input.parameters.<name>` — values for the parameters your policy declares
 
 The [input document reference](#the-input-document) has the full table with types and descriptions.
 
