@@ -97,7 +97,7 @@ The list at the bottom of the page displays automatically blocked packages, incl
 
 #### Malware and greyware signals detected
 
-Some signals describe confirmed malicious behavior, while others describe greyware or supply-chain risk indicators that may justify blocking even when there is no public malware advisory. Next to each blocked version, Chainguard provides the reason it was blocked when there is no public malware advisory. The detected signals fall under the following categories:
+Some signals describe confirmed malicious behavior, while others describe greyware or supply-chain risk indicators that may justify blocking even when there is no public malware advisory. Next to each blocked package, Chainguard provides the reason it was blocked when there is no public malware advisory. The detected signals fall under the following categories:
 
 * **Credential and data theft**: The package harvests secrets (for example, GitHub tokens or SSH keys) and sends sensitive data out of the environment.
     * Signals: Accesses credentials, Data exfiltration, Contains an exposed secret
