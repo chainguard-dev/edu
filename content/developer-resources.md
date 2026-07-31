@@ -234,5 +234,5 @@ The bundle is rebuilt weekly. The compilation date appears at the top of the dow
 If you have questions or need assistance:
 
 - Visit [Chainguard Support](https://support.chainguard.dev?utm=docs)
-- Join our [community Slack](https://go.chainguard.dev/slack?utm=docs)
+- Join our [community Slack](https://join.slack.com/t/chainguardcommunity/shared_invite/zt-3nttdr807-V9BJHayWvsB0KbHsfZO5Rw)
 - Browse the [documentation site](https://edu.chainguard.dev)

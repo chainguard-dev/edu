@@ -407,5 +407,5 @@ docker pull ghcr.io/chainguard-dev/ai-docs:latest
 ## Need help?
 
 - [Chainguard Support](https://support.chainguard.dev?utm=docs)
-- [Community Slack](https://go.chainguard.dev/slack?utm=docs)
+- [Community Slack](https://join.slack.com/t/chainguardcommunity/shared_invite/zt-3nttdr807-V9BJHayWvsB0KbHsfZO5Rw)
 - [GitHub Issues](https://github.com/chainguard-dev/edu/issues)
