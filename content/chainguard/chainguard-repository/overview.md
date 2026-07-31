@@ -8,14 +8,14 @@ lead: "The Chainguard Repository is a single, policy-aware endpoint for all arti
 description: "Chainguard Repository Overview"
 type: "article"
 date: 2026-03-16T08:48:23+00:00
-lastmod: 2026-03-24T00:48:23+00:00
+lastmod: 2026-07-31T14:10:35+00:00
 draft: false
 weight: 010
 ---
 
 The Chainguard Repository is a single, policy-managed experience for pulling artifacts that Chainguard either builds or distributes. It gives your organization one place to pull open source artifacts, configure security policies that govern how they are consumed, and monitor coverage and policy enforcement across your environment.
 
-All artifacts served through the Chainguard Repository are either rebuilt by Chainguard from verifiable source in a SLSA L2-compliant build environment, or sourced from upstream public registries with configurable policy controls. As Chainguard builds more artifacts from source, your organization's risk shrinks automatically without any changes to your configuration or developer workflows.
+All artifacts served through the Chainguard Repository are either rebuilt by Chainguard from verifiable source in a SLSA L3-compliant build environment, or sourced from upstream public registries with configurable policy controls. As Chainguard builds more artifacts from source, your organization's risk shrinks automatically without any changes to your configuration or developer workflows.
 
 ## Artifact types
 
