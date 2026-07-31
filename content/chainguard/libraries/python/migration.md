@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-07-30T19:13:03+00:00
+lastmod: 2026-07-31T18:47:05+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -26,14 +26,10 @@ This guide walks through migrating an existing Python project to Chainguard Libr
 Before you begin, you need:
 
 * An existing, working Python project with a `requirements.txt`, `poetry.lock`, `uv.lock`, `pdm.lock`, `Pipfile.lock`, or `pylock.toml`
-* [A pull token](#authentication-prerequisites) or the [Python keyring provider](/chainguard/libraries/access/#python-keyring-provider)
-    * The keyring provider requires pip 23.1 or later. Older pip versions cannot automatically discover or invoke a keyring backend.
 * [chainctl installed and authenticated](/chainguard/chainctl-usage/how-to-install-chainctl/)
-* An [entitlement to Chainguard Libraries](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) for Python
+* An [entitlement to Chainguard Libraries](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) for Python.
 
-### Create an entitlement
-
-To create an entitlement to Chainguard Libraries for Python and enable upstream fallback, run:
+If you do not have an entitlement to Chainguard Libraries for Python yet, run the following command to create an entitlement and enable upstream fallback:
 
 ```shell
 chainctl libraries entitlements create --ecosystems=PYTHON --policy=CHAINGUARD_AND_UPSTREAM
@@ -49,7 +45,7 @@ For authentication, you need a pull token or the Python keyring provider.
 
 {{% tab title="Pull token" %}}
 
-If you plan to use a repository manager, or a non-interactive environment such as CI/CD, you will need a pull token. You must be an Owner or have the `libraries.python.pull_token_creator` permission to create one.
+If you plan to use a repository manager, or a non-interactive environment such as CI/CD, you will need a pull token. You must have the `owner` role or have the `libraries.python.pull_token_creator` permission to create one.
 
 ```shell
 chainctl auth pull-token create --repository=python --name=my-python-token --ttl=720h
@@ -67,7 +63,7 @@ Learn more about creating and managing pull tokens in the [Libraries Access docu
 
 {{% tab title="Python keyring" %}}
 
-The keyring leverages `chainctl` to fetch temporary credentials whenever your environment requests packages from Chainguard. Supported environments include local development and CI/CD platforms that can use assumable identities.
+The keyring leverages `chainctl` to fetch temporary credentials whenever your environment requests packages from Chainguard. Supported environments include local development and CI/CD platforms that can use assumable identities. The keyring provider requires pip 23.1 or later.
 
 Learn how to install this package in the [Chainguard Libraries Access documentation](chainguard/libraries/access/#python-keyring-provider).
 
@@ -306,11 +302,11 @@ Example URLs by repository manager:
 | Google Artifact Registry | `https://<location>-python.pkg.dev/<project>/python-all/simple/` |
 | Cloudsmith | `https://dl.cloudsmith.io/.../<org>/python-all/python/simple/` |
 
-For authentication details specific to your repository manager, see the [global configuration documentation](/chainguard/libraries/python/global-configuration/).
+For authentication details specific to your repository manager, refer to the [global configuration documentation](/chainguard/libraries/python/global-configuration/).
 
 ## Step 2: Update your lockfile
 
-Your existing lockfile or hash-pinned requirements.txt contains checksums generated against packages downloaded from PyPI or through your repository manager. Because Chainguard rebuilds packages from verified source as well as providing security controls for upstream artifacts, checksums differ even for identical version numbers. If your file uses `--hash` entries or `--require-hashes`, installation will fail with a hash mismatch after switching to Chainguard until these are updated.
+Your existing lockfile or hash-pinned `requirements.txt` contains checksums generated against packages downloaded from PyPI or through your repository manager. Because Chainguard rebuilds packages from verified source as well as providing security controls for upstream artifacts, checksums differ even for identical version numbers. If your file uses `--hash` entries or `--require-hashes`, installation will fail with a hash mismatch after switching to Chainguard until these are updated.
 
 ### Recommended: Update checksums in place
 
@@ -340,11 +336,11 @@ By default, Chainguard hashes are appended alongside your existing hashes rather
 
 ### Alternative: Regenerate the lockfile
 
-Regenerating is **not recommended** as a first approach. Dependency resolvers pick the newest version satisfying your constraints, which may not yet be available from Chainguard, and may also introduce unrelated dependency upgrades.
+Regenerating is **not recommended** as a first approach. Dependency resolvers pick the newest version satisfying your constraints, which may not yet be available from Chainguard, and may also introduce unrelated dependency upgrades. Expand the following section for instructions on regenerating lockfiles.
 
 {{< details "Delete and regenerate a lockfile" >}}
 
-If you have a specific reason to regenerate - for example, if you are intentionally refreshing your dependency versions -  use the following commands:
+If you have a specific reason to regenerate - for example, if you are intentionally refreshing your dependency versions - use the following commands:
 
 pip:
 
@@ -374,6 +370,9 @@ poetry lock
 {{< /details >}}
 
 ## Step 3: Clear caches
+
+Reinstalling after switching indexes can silently reuse a cached artifact
+from your previous index, with no error indicating this happened. To avoid this, clear caches.
 
 {{< tabs >}}
 
@@ -476,13 +475,13 @@ chainctl libraries verify --detailed $(poetry env info --path)
 
 A successful result shows what percentage of your project's dependencies were built by Chainguard.
 
-For full details on verification options and output, see [Verification: Analyze Python packages](/chainguard/libraries/verification/#analyze-python-packages).
+For full details on verification options and output, check out [Verification: Analyze Python packages](/chainguard/libraries/verification/#analyze-python-packages).
 
 ## Step 6: Commit and roll out
 
 Commit the updated lockfile and any non-sensitive configuration changes. Apply the same index, cache, and hash-update steps to other developer workstations and build servers as you migrate them, including CI/CD platforms and any infrastructure that builds the application or installs dependencies.
 
-For organization-wide rollout using a repository manager, see the [global configuration documentation](/chainguard/libraries/python/global-configuration/).
+For organization-wide rollout using a repository manager, refer to the [global configuration documentation](/chainguard/libraries/python/global-configuration/).
 
 ## Packages not available in Chainguard Libraries
 
@@ -514,6 +513,6 @@ Check your install output for a local wheel build (`Building wheel for <package>
 
 ## Next steps
 
-* To apply this configuration across your whole organization using a repository manager, see the [global configuration](/chainguard/libraries/python/global-configuration/) documentation.  
-* To verify downloaded packages were built by Chainguard, see the [verification](/chainguard/libraries/verification/) documentation.  
-* For full per-tool configuration reference, see the [build configuration](/chainguard/libraries/python/build-configuration/) documentation.
+* To apply this configuration across your whole organization using a repository manager, refer to the [global configuration](/chainguard/libraries/python/global-configuration/) documentation.  
+* To verify downloaded packages were built by Chainguard, refer to the [verification](/chainguard/libraries/verification/) documentation.  
+* For full per-tool configuration reference, refer to the [build configuration](/chainguard/libraries/python/build-configuration/) documentation.
