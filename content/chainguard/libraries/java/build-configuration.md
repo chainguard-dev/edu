@@ -4,7 +4,7 @@ linktitle: "Build configuration"
 description: "Configuring Chainguard Libraries for Java on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2025-04-21T13:22:00+00:00
+lastmod: 2026-07-31T15:01:57+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java"]
 menu:
@@ -941,4 +941,4 @@ or not known
 
 The `https://invalid` URL in the error indicates that Chainguard blocked the artifact rather than serving it, and the fallback to Central was also blocked. This happens when a recently published package falls within the cooldown window — a security feature that holds newly published artifacts for a configurable period before serving them, to allow time for malware scanning.
 
-To avoid build failures, you can [disable the cooldown or decrease its length](/chainguard/libraries/access/#policy).
+To avoid build failures, you can [disable the cooldown or decrease its length](/chainguard/chainguard-repository/library-policies/#cooldown-policies).

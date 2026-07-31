@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Java project to pull dependencies from Chainguard Libraries"
 date: 2026-07-02T00:00:00+00:00
-lastmod: 2026-07-02T00:00:00+00:00
+lastmod: 2026-07-31T15:01:57+00:00
 tags: ["Chainguard Libraries", "Java"]
 menu:
   docs:
@@ -47,7 +47,7 @@ chainctl libraries policy create --name=java-disable-cooldown --cooldown-days=0
 chainctl libraries policy enable java-disable-cooldown --ecosystem=JAVA --mode=ENFORCE
 ```
 
-It can take up to 30 minutes for the fallback and cooldown policies to take effect. Learn more about cooldown and other policies in the [Chainguard Libraries Access documentation](/chainguard/libraries/access/#manage-library-policies).
+It can take up to 30 minutes for the fallback and cooldown policies to take effect. Learn more about cooldown and other policies in the [Libraries Policies documentation](/chainguard/chainguard-repository/libraries-policies/).
 
 > **Note**: If you choose to manage your own fallback to upstream repositories, see the following docs pages for more information: [Build configuration](/chainguard/libraries/java/build-configuration/) for direct access instructions or [Global configuration](/chainguard/libraries/java/global-configuration/) for repo manager instructions. Note that configuring a public fallback bypasses the protections provided by Chainguard.
 

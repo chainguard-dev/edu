@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing JavaScript project to pull dependencies from Chainguard Libraries"
 date: 2026-06-01T00:00:00+00:00
-lastmod: 2026-06-01T00:00:00+00:00
+lastmod: 2026-07-31T15:01:57+00:00
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
   docs:
@@ -59,7 +59,7 @@ chainctl libraries policy create --name=js-cooldown-14d --cooldown-days=14
 chainctl libraries policy enable js-cooldown-14d --ecosystem=JAVASCRIPT --mode=ENFORCE
 ```
 
-It can take up to 30 minutes for the fallback and cooldown policies to take effect.
+It can take up to 30 minutes for the fallback and cooldown policies to take effect. Learn more about cooldown and other policies in the [Libraries Policies documentation](/chainguard/chainguard-repository/libraries-policies/).
 
 ### Create a pull token
 

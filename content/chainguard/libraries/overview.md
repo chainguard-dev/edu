@@ -6,7 +6,7 @@ description: "Learn about Chainguard Libraries, providing enhanced security for
     comprehensive supply chain protection."
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-07-31T15:01:57+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 menu:
@@ -256,7 +256,7 @@ The cooldown applies globally across Chainguard-built packages and upstream pack
 
 If a requested package version falls within the cooldown period, the package manager will output a 404 error. The package becomes available once it has passed the cooldown period and cleared malware scanning.
 
-Learn how to create, enforce, disable, and list policies in the [Libraries Access](/chainguard/libraries/access/#policy) page.
+Learn how to create, enforce, disable, and list policies in the [Libraries Policies documentation](/chainguard/chainguard-repository/library-policies/) page.
 
 ### How package resolution works
 
