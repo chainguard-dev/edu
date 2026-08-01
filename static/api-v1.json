@@ -5890,6 +5890,11 @@
             "format": "int32",
             "type": "integer"
           },
+          "swapRefillTime": {
+            "description": "Time at which the next swap becomes available. Set only when no swaps are\navailable now (swaps_used \u003e= swap_quota); unset when a swap is already\navailable or when the quota is either 0 or unlimited.\nClients should check swap_quota first before using this field.",
+            "format": "date-time",
+            "type": "string"
+          },
           "swapsUsed": {
             "description": "Customer-initiated catalog-image removals in the current rolling 30-day\nwindow. When this exceeds swap_quota, the excess reduces the per-tier\nimage capacity available for new additions.",
             "format": "int32",

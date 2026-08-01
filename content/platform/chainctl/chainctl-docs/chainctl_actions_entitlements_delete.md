@@ -1,5 +1,5 @@
 ---
-date: 2026-07-30T18:28:05Z
+date: 2026-07-31T18:12:39Z
 title: "chainctl actions entitlements delete"
 slug: chainctl_actions_entitlements_delete
 url: /platform/chainctl/chainctl-docs/chainctl_actions_entitlements_delete/

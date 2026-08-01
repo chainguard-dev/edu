@@ -1,17 +1,17 @@
 ---
 date: 2026-07-31T18:12:39Z
-title: "chainctl iam account-associations set"
-slug: chainctl_iam_account-associations_set
-url: /platform/chainctl/chainctl-docs/chainctl_iam_account-associations_set/
+title: "chainctl guardener github migrate"
+slug: chainctl_guardener_github_migrate
+url: /platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam account-associations set
+## chainctl guardener github migrate
 
-Set cloud provider account associations for a location.
+Migrate a repository's GitHub Actions to their Chainguard equivalents.
 
 ### Options inherited from parent commands
 
@@ -30,8 +30,7 @@ Set cloud provider account associations for a location.
 
 ### SEE ALSO
 
-* [chainctl iam account-associations](/platform/chainctl/chainctl-docs/chainctl_iam_account-associations/)	 - Configure and manage cloud provider account associations.
-* [chainctl iam account-associations set aws](/platform/chainctl/chainctl-docs/chainctl_iam_account-associations_set_aws/)	 - Set AWS account association for a location.
-* [chainctl iam account-associations set azure](/platform/chainctl/chainctl-docs/chainctl_iam_account-associations_set_azure/)	 - Set AZURE account association for a location.
-* [chainctl iam account-associations set gcp](/platform/chainctl/chainctl-docs/chainctl_iam_account-associations_set_gcp/)	 - Set GCP account association for a location.
+* [chainctl guardener github](/platform/chainctl/chainctl-docs/chainctl_guardener_github/)	 - Link and unlink a GitHub organization to a Chainguard group.
+* [chainctl guardener github migrate create](/platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate_create/)	 - Enqueue a GitHub Actions migration for a repository.
+* [chainctl guardener github migrate get](/platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate_get/)	 - Show the state of a migration operation.
 

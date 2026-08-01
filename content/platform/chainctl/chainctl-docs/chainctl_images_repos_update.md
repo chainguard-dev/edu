@@ -1,5 +1,5 @@
 ---
-date: 2026-07-30T18:28:05Z
+date: 2026-07-31T18:12:39Z
 title: "chainctl images repos update"
 slug: chainctl_images_repos_update
 url: /platform/chainctl/chainctl-docs/chainctl_images_repos_update/
@@ -25,6 +25,7 @@ chainctl images repos update {REPO_NAME|REPO_ID} --parent ORGANIZATION_NAME | OR
       --expiration time      Sync expiration time (e.g., 1970-01-01).
       --name string          Updated name for the repo.
       --parent string        The name or id of the parent location of the repo to update.
+      --source string        Repository ID to sync from.
       --tier string          Catalog tier. One of: [APPLICATION,BASE,FIPS,AI,DEVTOOLS,COMMERCIAL]
 ```
 
