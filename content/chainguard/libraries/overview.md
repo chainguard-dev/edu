@@ -6,7 +6,7 @@ description: "Learn about Chainguard Libraries, providing enhanced security for
     comprehensive supply chain protection."
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-07-31T15:01:57+00:00
+lastmod: 2026-08-03T14:51:58+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 menu:
@@ -98,6 +98,11 @@ Chainguard Libraries is available for the following library ecosystems:
   [Chainguard Libraries for JavaScript](/chainguard/libraries/javascript/overview/)
 * Python and the larger ecosystem with
   [Chainguard Libraries for Python](/chainguard/libraries/python/overview/)
+
+To move an existing project over, follow the migration guide for
+[Java](/chainguard/libraries/java/migration/),
+[JavaScript](/chainguard/libraries/javascript/migration/), or
+[Python](/chainguard/libraries/python/migration/).
 
 ## Chainguard criteria for building a library
 

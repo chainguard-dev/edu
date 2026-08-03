@@ -4,7 +4,7 @@ linktitle: "Quick Start"
 description: "Learn how to get started with Chainguard Libraries"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-07-29T19:28:59+00:00
+lastmod: 2026-08-03T14:51:58+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -37,6 +37,7 @@ pages:
 
 * [Java migration guide](/chainguard/libraries/java/migration/)
 * [JavaScript migration guide](/chainguard/libraries/javascript/migration/)
+* [Python migration guide](/chainguard/libraries/python/migration/)
 
 ## Prerequisites
 

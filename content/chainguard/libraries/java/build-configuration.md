@@ -4,7 +4,7 @@ linktitle: "Build configuration"
 description: "Configuring Chainguard Libraries for Java on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-07-31T15:01:57+00:00
+lastmod: 2026-08-03T14:51:58+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java"]
 menu:
@@ -36,6 +36,10 @@ on any build server such as Jenkins, TeamCity, GitHub or other infrastructure
 that builds the applications or otherwise downloads and uses relevant libraries.
 
 The `https://libraries.cgr.dev/java/` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for Java. By default, it serves only Chainguard-built artifacts. When [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) is enabled for your organization, the same endpoint can also serve requested versions from Maven Central under Chainguard security controls.
+
+If you are migrating an existing project to Chainguard Libraries, follow the
+[Java migration guide](/chainguard/libraries/java/migration/) for a step-by-step
+walkthrough.
 
 ## Library access approaches
 
