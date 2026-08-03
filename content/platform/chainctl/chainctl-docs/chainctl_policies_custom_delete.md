@@ -1,5 +1,5 @@
 ---
-date: 2026-07-30T18:28:05Z
+date: 2026-07-31T18:12:39Z
 title: "chainctl policies custom delete"
 slug: chainctl_policies_custom_delete
 url: /platform/chainctl/chainctl-docs/chainctl_policies_custom_delete/

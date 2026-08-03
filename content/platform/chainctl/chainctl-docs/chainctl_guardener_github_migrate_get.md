@@ -1,17 +1,39 @@
 ---
 date: 2026-07-31T18:12:39Z
-title: "chainctl iam account-associations set"
-slug: chainctl_iam_account-associations_set
-url: /platform/chainctl/chainctl-docs/chainctl_iam_account-associations_set/
+title: "chainctl guardener github migrate get"
+slug: chainctl_guardener_github_migrate_get
+url: /platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate_get/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam account-associations set
+## chainctl guardener github migrate get
 
-Set cloud provider account associations for a location.
+Show the state of a migration operation.
+
+### Synopsis
+
+Show the state of a migration operation returned by "migrate create".
+
+OPERATION is the operation name (operations/migrate/{group}/{id}). The owning
+group is derived from the name unless --group is given. Pass --wait to poll until
+the operation completes.
+
+Requires the guardener.actions.migrate capability on the group.
+
+```
+chainctl guardener github migrate get OPERATION [flags]
+```
+
+### Options
+
+```
+      --group string       Name or UIDP of the owning group. Derived from the operation name if omitted.
+      --timeout duration   How long to poll when --wait is set. (default 10m0s)
+      --wait               Poll until the migration operation completes.
+```
 
 ### Options inherited from parent commands
 
@@ -30,8 +52,5 @@ Set cloud provider account associations for a location.
 
 ### SEE ALSO
 
-* [chainctl iam account-associations](/platform/chainctl/chainctl-docs/chainctl_iam_account-associations/)	 - Configure and manage cloud provider account associations.
-* [chainctl iam account-associations set aws](/platform/chainctl/chainctl-docs/chainctl_iam_account-associations_set_aws/)	 - Set AWS account association for a location.
-* [chainctl iam account-associations set azure](/platform/chainctl/chainctl-docs/chainctl_iam_account-associations_set_azure/)	 - Set AZURE account association for a location.
-* [chainctl iam account-associations set gcp](/platform/chainctl/chainctl-docs/chainctl_iam_account-associations_set_gcp/)	 - Set GCP account association for a location.
+* [chainctl guardener github migrate](/platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate/)	 - Migrate a repository's GitHub Actions to their Chainguard equivalents.
 
