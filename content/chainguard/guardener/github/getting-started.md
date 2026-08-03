@@ -110,6 +110,7 @@ For the complete set of flags and options, refer to the `chainctl` reference:
 
 ## Next steps
 
+- **[App Connections](/chainguard/guardener/github/app-connections/)** — Inspect, change, and remove the connections between your Chainguard organization and your GitHub organizations.
 - **[Configuration](/chainguard/guardener/github/configuration/)** — Learn the `.chainguard/` configuration model and how to enable features per repository.
 - **[Hardened Actions](/chainguard/guardener/github/actions-security/)** — Recommend and migrate GitHub Actions to hardened, SHA-pinned equivalents.
 - **[Commit Verification](/chainguard/guardener/github/commit-verification/)** — Require cryptographically signed commits in pull requests.
