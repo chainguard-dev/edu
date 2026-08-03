@@ -26,9 +26,9 @@ For a first-time walkthrough, refer to [Getting Started](/chainguard/guardener/g
 A connection has two halves, one on each side:
 
 1. **A GitHub App installation** — the [Guardener GitHub App](https://github.com/apps/chainguard-guardener) installed on a GitHub organization (or personal account). The installation is what grants the Guardener access to repositories and delivers repository events to it. GitHub assigns each installation a numeric **installation ID**.
-2. **A link** — an association, stored on the Chainguard platform, between that installation and a Chainguard organization. The link is what tells the Guardener which Chainguard organization the GitHub activity belongs to, and it is what entitles the organization to use the Guardener.
+2. **A link** — an association, stored on the Chainguard platform, between that installation and a Chainguard organization. The link is what tells the Guardener which Chainguard organization the GitHub activity belongs to.
 
-Both halves are required. Installing the app without linking leaves the Guardener inactive; linking fails if the app is not installed.
+The two halves do different jobs. Installing the app is enough for the Guardener to start responding on **public** repositories — each feature still has to be enabled with a configuration file, but no link is needed. The link adds the Chainguard side: it attributes the activity to your Chainguard organization and unlocks the features that need one, such as covering **private** repositories (subject to the [repository visibility scope](#repository-visibility-scope)) and group-scoped operations like triggering an Actions migration with `chainctl`. Linking fails if the app is not installed.
 
 A few rules govern connections:
 
@@ -163,7 +163,7 @@ Unlinking accepts either side's authority:
 - **Chainguard credentials.** When you pass `--group` and hold the `guardener.association.manage` capability on that organization, the unlink completes with no browser involved.
 - **GitHub ownership.** Otherwise — including when you have lost access to the Chainguard organization — `chainctl` falls back to the GitHub authorization flow, and proving that you own the GitHub organization is sufficient. You must still be logged in to Chainguard (`chainctl auth login`), but no access to the linked organization is required.
 
-Unlinking stops the Guardener from acting on the organization's repositories. To fully remove the Guardener, also uninstall the GitHub App from your GitHub organization's **Settings → GitHub Apps** page. Uninstalling only the app (without unlinking) also stops the Guardener, but leaves a dangling association; prefer unlinking first.
+Unlinking removes only the Chainguard-side half of the connection: the Guardener stops covering the organization's private repositories and group-scoped operations, but features enabled on public repositories keep working for as long as the app remains installed. To stop the Guardener entirely, also uninstall the GitHub App from your GitHub organization's **Settings → GitHub Apps** page. Uninstalling the app without unlinking also stops the Guardener, but leaves a dangling association behind; prefer unlinking first.
 
 ## Troubleshooting
 
