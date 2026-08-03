@@ -107,6 +107,14 @@
                   </li>
                   {{ end }}
                   {{ end }}
+
+                  {{/* Deeper subsection cross-links: pointers defined in this second-level subsection's _index.md. */}}
+                  {{ range .Params.crosslinks }}
+                  {{ $active := eq $currentPage.RelPermalink (.url | relURL) }}
+                  <li class="sidebar-item-list-item {{ if $active }} sidebar-item-list-item-selected {{ end }}">
+                    <a class="sidebar-subcategory docs-link rounded {{ if $active }} sidebar-item-active active {{ end }} sidebar-item" href="{{ .url | relURL }}">{{ .title }} <i class="bi bi-box-arrow-up-right" style="font-size:.7em;opacity:.6"></i></a>
+                  </li>
+                  {{ end }}
                 </ul>
               </div>
             </li>
