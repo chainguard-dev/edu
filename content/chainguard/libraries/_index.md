@@ -4,7 +4,7 @@ linktitle: "Chainguard Libraries"
 description: "Chainguard Libraries provide enhanced security for Java and Python dependencies with automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-03T14:51:58+00:00
+lastmod: 2026-08-03T15:05:54+00:00
 draft: false
 images: []
 weight: 030
@@ -33,12 +33,7 @@ tutorials: [
     description: "Secure npm packages for your JavaScript projects",
     url: "/chainguard/libraries/javascript/"
   },
-  {
-    title: "Quick Start",
-    description: "Configure your build to pull from Chainguard Libraries",
-    url: "/chainguard/libraries/quickstart/"
-  },
-  {
+    {
     title: "Migrate a Java project",
     description: "Switch an existing Maven or Gradle project to Chainguard Libraries",
     url: "/chainguard/libraries/java/migration/"
@@ -52,6 +47,11 @@ tutorials: [
     title: "Migrate a Python project",
     description: "Switch an existing pip, uv, or Poetry project to Chainguard Libraries",
     url: "/chainguard/libraries/python/migration/"
+  },
+  {
+    title: "Quick Start",
+    description: "Configure your build to pull from Chainguard Libraries",
+    url: "/chainguard/libraries/quickstart/"
   },
   {
     title: "Access",
