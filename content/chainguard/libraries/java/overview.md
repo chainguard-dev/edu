@@ -113,7 +113,7 @@ discussed in [Build
 configuration](/chainguard/libraries/java/build-configuration/).
 
 For a step-by-step walkthrough of moving an existing Maven or Gradle project to
-Chainguard Libraries, see the [Java migration
+Chainguard Libraries, check out the [Java migration
 guide](/chainguard/libraries/java/migration/).
 
 ## CVE remediation
