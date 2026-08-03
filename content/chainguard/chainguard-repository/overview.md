@@ -8,7 +8,7 @@ lead: "The Chainguard Repository is a single, policy-aware endpoint for all arti
 description: "Chainguard Repository Overview"
 type: "article"
 date: 2026-03-16T08:48:23+00:00
-lastmod: 2026-07-31T14:10:35+00:00
+lastmod: 2026-08-03T12:43:21+00:00
 draft: false
 weight: 010
 ---
@@ -60,8 +60,9 @@ As with Libraries, you can also set policies for Chainguard Containers to define
 
 Available policies include:
 
-* **no-eol**: Prevent end-of-life container images from being used.
 * **cooldown**: Block newly published container image versions for a defined period before they can be pulled, giving the security community time to detect threats. The cooldown is configurable (0 to 3650 days) with a default of 7 days. It is applied globally across all packages to prevent dependency resolution errors.
+* **no-eol**: Prevent end-of-life container images from being used.
+* **support-window**: Requires an image's primary package to have a minimum remaining support period, measured as the span between the package's release date and its EOL date. An image is allowed when that span is greater than or equal to the configured number of months, or when the package has no recorded EOL date.
 
 > **Note**: Chainguard recommends a 7-day cooldown when enabling upstream fallback, to block a large share of malicious packages identified shortly after publication. Shorter cooldown periods increase the risk of pulling malicious or compromised upstream packages before the broader ecosystem can detect and report them.
 
