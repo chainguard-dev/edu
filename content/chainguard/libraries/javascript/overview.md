@@ -95,7 +95,7 @@ Configure this endpoint [globally through a repository manager](/chainguard/libr
 
 Existing JavaScript lockfiles usually contain upstream integrity hashes. Because Chainguard rebuilds packages from verified source, those hashes must be updated before reinstalling. Use `chainctl libraries update-hashes` to update them in place. Learn more in [Build configuration](/chainguard/libraries/javascript/build-configuration/#updating-lockfile-hashes/).
 
-For a step-by-step walkthrough of moving an existing project to Chainguard Libraries, see the [JavaScript migration guide](/chainguard/libraries/javascript/migration/).
+For a step-by-step walkthrough of moving an existing project to Chainguard Libraries, check out the [JavaScript migration guide](/chainguard/libraries/javascript/migration/).
 
 If you install through a repository manager, see [Global configuration](/chainguard/libraries/javascript/global-configuration/#updating-lockfile-hashes/).
 
