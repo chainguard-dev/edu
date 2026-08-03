@@ -4,7 +4,7 @@ lead: "AI-ready documentation bundle for development"
 description: "Compiled Chainguard documentation optimized for use with AI coding assistants"
 type: "article"
 date: 2025-07-29T10:00:00+00:00
-lastmod: 2026-05-20T00:00:00+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 images: []
 weight: 50
@@ -109,7 +109,7 @@ Add this block to `claude_desktop_config.json`:
 }
 ```
 
-To use the hosted server instead of running a container locally, see the [hosted server instructions](/mcp-server-ai-docs/#hosted-server-recommended) — Claude Desktop reaches it through the [`mcp-remote`](https://github.com/geelen/mcp-remote) bridge. A [standalone Python script](/mcp-server-ai-docs/#standalone-installation-without-docker) is also available for setups without Docker.
+To use the hosted server instead of running a container locally, refer to the [hosted server instructions](/mcp-server-ai-docs/#hosted-server-recommended) — Claude Desktop reaches it through the [`mcp-remote`](https://github.com/geelen/mcp-remote) bridge. A [standalone Python script](/mcp-server-ai-docs/#standalone-installation-without-docker) is also available for setups without Docker.
 
 [**Full MCP server documentation →**](/mcp-server-ai-docs/)
 

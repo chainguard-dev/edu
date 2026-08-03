@@ -7,7 +7,7 @@ aliases:
 - /chainguard/chainguard-images/staying-secure/scanners/trivy-tutorial
 description: "Learn to use Trivy to analyze container images and other software artifacts for a variety of issues"
 date: 2024-07-03T20:00:00+02:00
-lastmod: 2024-07-03T20:00:00+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 tags: ["Conceptual", "CVE"]
 draft: false
 images: []
@@ -219,7 +219,7 @@ In addition to the log and brief summary, Trivy provides an itemized list of iss
 
 When scanning for vulnerabilities, information on fixed version can show which CVEs can be resolved by bumping the library version. Trivy also provides a short prose description of the nature of each issue.
 
-By default, Trivy's table output is relatively verbose, and Trivy does not respect the traditional 80-character line limit on terminal output. See [Output Formats and Verbosity](#output-formats-and-verbosity) for information on more granular control over Trivy's output.
+By default, Trivy's table output is relatively verbose, and Trivy does not respect the traditional 80-character line limit on terminal output. Refer to [Output Formats and Verbosity](#output-formats-and-verbosity) for information on more granular control over Trivy's output.
 
 ## Scanners
 
@@ -296,7 +296,7 @@ The CycloneDX, SPDX, and SPDX-JSON output formats are considered SBOMs, and can 
 trivy image -f cyclonedx -o results.cdx.json nginx
 ```
 
-See [Scanning SBOMs](#scanning-sboms) for more on scanning these output formats.
+Refer to [Scanning SBOMs](#scanning-sboms) for more on scanning these output formats.
 
 ### Generating a Report from a Template
 

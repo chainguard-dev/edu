@@ -6,7 +6,7 @@ lead: "Chainguard's chainctl iam commands provide enterprise-grade identity and 
 description: "Learn how to use chainctl iam commands to manage identity, access controls, and role-based permissions for Chainguard's container security platform"
 type: "article"
 date: 2025-03-06T08:49:15+00:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["chainctl", "iam"]
 images: []
@@ -17,7 +17,7 @@ Chainguard's identity and access management (IAM) system provides fine-grained c
 
 For the following, assume that returned information only includes that which your account has permissions to view. Also, actions such as `create` and `delete` are similarly limited.
 
-This page is intended as an introductory overview of IAM with chainctl. For a full reference of all commands with details and switches, see [chainctl Reference](/chainguard/chainctl/).
+This page is intended as an introductory overview of IAM with chainctl. For a full reference of all commands with details and switches, refer to [chainctl Reference](/chainguard/chainctl/).
 
 ## List Folders
 
@@ -39,7 +39,7 @@ chainctl iam folders list chainguard.edu
 [chainguard.edu] Developer Enablement images catalog
 ```
 
-This command can also delete, describe, and update folders by replacing `list` with `delete`, `describe`, or `update`. See the reference guide for more details.
+This command can also delete, describe, and update folders by replacing `list` with `delete`, `describe`, or `update`. Refer to the reference guide for more details.
 
 ## List and Describe Identities
 
@@ -55,7 +55,7 @@ Because this command requests a large amount of information, you may find it use
 chainctl iam identities describe {IDENTITY_NAME | IDENTITY_ID}
 ```
 
-This command can also create, delete, describe, and update identities by replacing `list` with `create`, `delete`, `describe`, or `update`. See the reference guide for more details.
+This command can also create, delete, describe, and update identities by replacing `list` with `create`, `delete`, `describe`, or `update`. Refer to the reference guide for more details.
 
 ## List and Create Identity Providers
 
@@ -65,7 +65,7 @@ This command enables you to manage your own identity management provider, such a
 chainctl iam identity-providers list
 ```
 
-This command can also create, delete, and update your organization's identity providers by replacing `list` with `create`, `delete`, or `update`. See the reference guide for more details.
+This command can also create, delete, and update your organization's identity providers by replacing `list` with `create`, `delete`, or `update`. Refer to the reference guide for more details.
 
 To tell chainctl about your OIDC provider and enable users to start using it, use create:
 
@@ -87,7 +87,7 @@ chainctl iam invites list
 
 This will return a list of invites by ID with information about the invite's expiration date, associated roles, and keyID.
 
-This command can also create and delete invites by replacing `list` with `create` or `delete`. See the reference guide for more details.
+This command can also create and delete invites by replacing `list` with `create` or `delete`. Refer to the reference guide for more details.
 
 To create a new invite, use create, like in this example that defines a role, an email address to tie the invite to, the valid length of the invitation, and that it can only be used once:
 
@@ -109,7 +109,7 @@ chainctl iam organizations list
 
 Most users will only be associated with one organization, but admin and support users may find using this command especially useful to determine whether they have needed permissions to interact with specific organizations when help is needed.
 
-This command can also delete and describe organizations by replacing `list` with `delete` or `describe`. See the reference guide for more details.
+This command can also delete and describe organizations by replacing `list` with `delete` or `describe`. Refer to the reference guide for more details.
 
 ## List roles
 

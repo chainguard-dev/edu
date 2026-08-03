@@ -8,7 +8,7 @@ type: "article"
 description: "Learn how to use Chainguard Containers in your applications, including pulling images, extending base images, and migrating from traditional container images"
 lead: "Chainguard Containers provide more secure, minimal base images that work with standard container tools like Docker and Kubernetes, making migration straightforward while improving security posture."
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -25,7 +25,7 @@ In this guide, you'll find general instructions on how to get started using Chai
 
 ## Quickstart: Using Chainguard Containers
 
-To get up and running with Chainguard Containers, you can use `docker` commands to pull and run images. For each specific image, you'll find this guidance on its overview page (for example, see [Node](https://images.chainguard.dev/directory/image/node/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images), [Python](https://images.chainguard.dev/directory/image/python/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images), or [NGINX](https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images)).
+To get up and running with Chainguard Containers, you can use `docker` commands to pull and run images. For each specific image, you'll find this guidance on its overview page (for example, refer to [Node](https://images.chainguard.dev/directory/image/node/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images), [Python](https://images.chainguard.dev/directory/image/python/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images), or [NGINX](https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images)).
 
 ### Pulling a Chainguard Container
 

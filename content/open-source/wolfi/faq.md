@@ -3,7 +3,7 @@ title: "Wolfi FAQs"
 type: "article"
 description: "Frequently asked questions about Wolfi, a Linux undistro"
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2025-01-08T08:49:31+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Wolfi", "FAQ"]
 images: []
@@ -53,4 +53,4 @@ We intend for Wolfi to be a community-driven project, which means over time it w
 
 ## Where can I get security feeds for Wolfi?
 
-See [SECURITY.md](https://github.com/wolfi-dev/.github/blob/main/SECURITY.md) for information about reporting security incidents concerning and consuming security data about Wolfi.
+Refer to [SECURITY.md](https://github.com/wolfi-dev/.github/blob/main/SECURITY.md) for information about reporting security incidents concerning and consuming security data about Wolfi.

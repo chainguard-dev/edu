@@ -4,7 +4,7 @@ linktitle: "SLSA at Chainguard"
 description: "A brief overview of SLSA and Chainguard's compliance efforts."
 type: "article"
 date: 2025-07-23T01:24:23+00:00
-lastmod: 2025-07-23T01:24:23+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 contributors: []
 draft: false
 aliases:
@@ -44,7 +44,7 @@ With SLSA 3, every Chainguard artifact comes with detailed metadata and document
 
 Reaching SLSA Level 3 compliance with any product is a major achievement, but even more is planned.
 
-See [the blog post announcement](http://chainguard.dev/unchained/this-shit-is-hard-slsa-l3-and-beyond) for more details.
+Refer to [the blog post announcement](http://chainguard.dev/unchained/this-shit-is-hard-slsa-l3-and-beyond) for more details.
 
 ## Sample Provenance Code
 

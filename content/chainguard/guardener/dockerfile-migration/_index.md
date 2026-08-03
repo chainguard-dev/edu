@@ -4,7 +4,7 @@ linktitle: "Dockerfile Migration"
 description: "Use Chainguard Guardener to migrate, optimize, upgrade, and validate your Dockerfiles against Chainguard Containers with AI-driven, iterative conversion."
 type: "article"
 date: 2026-07-13T00:00:00+00:00
-lastmod: 2026-07-13T00:00:00+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["GitHub", "AI", "Chainguard Containers"]
 images: []
@@ -21,7 +21,7 @@ Unlike the Guardener's [Hardened Actions](/chainguard/guardener/github/actions-s
 
 {{< beta feature="The Guardener" >}}
 
-This page is a reference for the `chainctl agent dockerfile` commands. For a full walkthrough — including prerequisites, a step-by-step migration, available optimizers, a before-and-after example, and FAQ — see the [Dockerfile migration guide](/chainguard/migration/the-guardener/).
+This page is a reference for the `chainctl agent dockerfile` commands. For a full walkthrough — including prerequisites, a step-by-step migration, available optimizers, a before-and-after example, and FAQ — refer to the [Dockerfile migration guide](/chainguard/migration/the-guardener/).
 
 ## How it works
 
@@ -56,7 +56,7 @@ Access to Dockerfile migration is governed by Chainguard IAM roles:
 | Accepting the Guardener legal terms for your organization (required once before anyone can run sessions) | `guardener.admin` or `owner` |
 | Running Dockerfile migration sessions                                                                    | `guardener.user`             |
 
-See the [Built-in Roles and Capabilities Reference](/chainguard/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for details.
+Refer to the [Built-in Roles and Capabilities Reference](/chainguard/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for details.
 
 ## Commands
 
@@ -97,7 +97,7 @@ chainctl agent dockerfile upgrade -f Dockerfile \
   --dry-run
 ```
 
-For the complete set of usage examples, see [Usage examples](/chainguard/migration/the-guardener/#usage-examples) in the migration guide.
+For the complete set of usage examples, refer to [Usage examples](/chainguard/migration/the-guardener/#usage-examples) in the migration guide.
 
 ## Agent access
 

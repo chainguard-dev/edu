@@ -4,7 +4,7 @@ linktitle: "Build configuration"
 description: "Configuring Chainguard Libraries for Java on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-03T14:51:58+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java"]
 menu:
@@ -395,7 +395,7 @@ details must remain within the settings file.
 
 If your `settings.xml` is using credentials set as environment variables, ensure the variables are exported.
 
->Note: Upstream fallback includes a 7-day cooldown by default. If you have a cooldown policy configured, your build will fail if a package falls within the cooldown window. See [the FAQ](#build-fails-with-unknown-host-invalid-or-nodename-nor-servname-provided) on this page for more information.
+>Note: Upstream fallback includes a 7-day cooldown by default. If you have a cooldown policy configured, your build will fail if a package falls within the cooldown window. Refer to [the FAQ](#build-fails-with-unknown-host-invalid-or-nodename-nor-servname-provided) on this page for more information.
 
 ### Minimal example project
 

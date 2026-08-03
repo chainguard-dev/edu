@@ -4,7 +4,7 @@ linktitle: "Jib"
 type: "article"
 description: "In this tutorial, you'll learn how to build minimal Java containers using Jib and Chainguard base images"
 date: 2025-09-23T00:49:31+00:00
-lastmod: 2025-09-23T00:49:31+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -560,7 +560,7 @@ In these examples, you've been editing the pom.xml to configure the execution go
 mvn install jib:dockerBuild
 ```
 
-For full details of Jib plugin configuration and features, see the [guide on GitHub](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin).
+For full details of Jib plugin configuration and features, refer to the [guide on GitHub](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin).
 
 ## Next Steps
 

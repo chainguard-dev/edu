@@ -4,7 +4,7 @@ linktitle: "Authenticate"
 type: "article"
 description: "A guide on authenticating to Chainguard's registry to get container images"
 date: 2023-03-21T15:10:16+00:00
-lastmod: 2025-08-11T15:22:20+01:00
+lastmod: 2026-08-03T18:16:45+00:00
 tags: ["Chainguard Containers", "Registry"]
 draft: false
 images: []
@@ -116,7 +116,7 @@ chainctl iam identity create github [GITHUB-IDENTITY] \
   --role=registry.pull
 ```
 
-**Note**: The value passed to `--github-repo` must equal the repository portion of the `subject` field in the token GitHub issues. GitHub now embeds immutable numeric owner and repository IDs in that subject (for example, `my-org@123456/repo-name@654321`), so `--github-repo` must include them. Populate `GITHUB_OWNER_ID` and `GITHUB_REPO_ID` with your repository's numeric IDs; for how to retrieve them and when the format applies, see [Finding your repository's numeric identifiers](/platform/administration/assumable-ids/identity-examples/github-identity/#finding-your-repositorys-numeric-identifiers). If you need to further scope or change the subject, see the ["Example subject claims"](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims) section of GitHub's OIDC documentation, then update the identity with [`chainctl iam identities update`](/platform/chainctl/chainctl-docs/chainctl_iam_identities_update/).
+**Note**: The value passed to `--github-repo` must equal the repository portion of the `subject` field in the token GitHub issues. GitHub now embeds immutable numeric owner and repository IDs in that subject (for example, `my-org@123456/repo-name@654321`), so `--github-repo` must include them. Populate `GITHUB_OWNER_ID` and `GITHUB_REPO_ID` with your repository's numeric IDs; for how to retrieve them and when the format applies, refer to [Finding your repository's numeric identifiers](/platform/administration/assumable-ids/identity-examples/github-identity/#finding-your-repositorys-numeric-identifiers). If you need to further scope or change the subject, refer to the ["Example subject claims"](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims) section of GitHub's OIDC documentation, then update the identity with [`chainctl iam identities update`](/platform/chainctl/chainctl-docs/chainctl_iam_identities_update/).
 
 This creates a Chainguard identity that can be assumed by a GitHub Actions workflow only for the specified GitHub repository, triggered on pushes to the specified branch (such as `refs/heads/main`), with permissions only to pull from Chainguard's registry.
 
@@ -202,7 +202,7 @@ workflows:
       - install-and-authenticate
 ```
 
-See the [CircleCI documentation](https://circleci.com/docs/openid-connect-tokens/#format-of-the-openid-connect-id-token) to learn more about using OpenID Connect tokens in CircleCI jobs.
+Refer to the [CircleCI documentation](https://circleci.com/docs/openid-connect-tokens/#format-of-the-openid-connect-id-token) to learn more about using OpenID Connect tokens in CircleCI jobs.
 
 ## Authenticating with Microsoft Entra ID OIDC Token
 

@@ -7,7 +7,7 @@ aliases:
 - /chainguard/administration/manage-chainctl-config
 type: "article"
 date: 2023-07-07T05:56:52-07:00
-lastmod: 2026-07-07T00:00:00+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["chainctl"]
 images: []
@@ -231,7 +231,7 @@ To return a property to its default, use `unset`:
 chainctl config unset output.color.pass
 ```
 
-Both `set` and `unset` write to the configuration file immediately. See the [`chainctl config set` reference page](/chainguard/chainctl/chainctl-docs/chainctl_config_set/) for more detail.
+Both `set` and `unset` write to the configuration file immediately. Refer to the [`chainctl config set` reference page](/chainguard/chainctl/chainctl-docs/chainctl_config_set/) for more detail.
 
 ## Save a configuration file
 

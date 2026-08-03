@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "In this article, we'll discuss a few different strategies to debug distroless images, considering these images typically don't include a shell or package managers."
 date: 2023-05-18T08:49:31+00:00
-lastmod: 2023-08-22T08:49:31+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -28,7 +28,7 @@ Before moving a workload to a distroless runtime image, it is important to make 
 
 The development variants of [Chainguard Containers](/chainguard/chainguard-images/) are designed to replicate the same packages of their distroless version, but with additional software that helps in developing, building, and debugging applications in different language ecosystems. These are sometimes referred to as `-dev` variants since they are tagged with `:latest-dev`.
 
-> **Note**: If you're debugging a workload that crashes because it expects packages from its previous upstream image, a *full* variant may help. Available for a number of our most popular Containers and tagged `-full`, these variants map their upstream equivalent. See [Full container variants](/chainguard/chainguard-images/about/differences-development-production/#full-container-variants).
+> **Note**: If you're debugging a workload that crashes because it expects packages from its previous upstream image, a *full* variant may help. Available for a number of our most popular Containers and tagged `-full`, these variants map their upstream equivalent. Refer to [Full container variants](/chainguard/chainguard-images/about/differences-development-production/#full-container-variants).
 
 For example, the following table shows a comparison between the development variants of the PHP image, and which packages are included with each variant:
 

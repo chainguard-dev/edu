@@ -4,7 +4,7 @@ linktitle: "Skills Registry"
 description: "Enable the Chainguard Skills Registry, then push, install, and run an agent skill scoped to your organization."
 type: "article"
 date: 2026-06-05T08:48:45+00:00
-lastmod: 2026-06-05T08:48:45+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Agent Skills", "Overview"]
 images: []
@@ -25,7 +25,7 @@ This guide walks through the full workflow, including how to enable the registry
 
 To follow this guide, you need:
 
-* `chainctl` **v0.2.275** or later, installed and authenticated. See [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) if you don't have it yet.
+* `chainctl` **v0.2.275** or later, installed and authenticated. Refer to [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) if you don't have it yet.
 * An active Chainguard organization.
 * Owner access on the organization.
 

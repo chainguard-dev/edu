@@ -6,7 +6,7 @@ linktitle: "Migration Checklist"
 type: "article"
 description: "Recommended Practices when Migrating to Chainguard Containers"
 date: 2025-02-03T10:42:57+00:00
-lastmod: 2025-07-23T16:52:56+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -26,7 +26,7 @@ Chainguard container images are designed to be minimal and to include special fe
 - Chainguard Containers typically don’t run as root, so a `USER root` statement may be required before installing software.
 - Chainguard Containers are based on **apk**. If you’re coming from Debian or Ubuntu you’ll need to replace `apt` commands with their `apk` equivalents. This also applies for other distros that are not based on **apk**.
 - Some images may behave differently than their equivalent in other distros, due to differences in entrypoint and shell availability. Always check the image documentation for usage details.
-- For a number of our most popular Containers, a **full** variant (tagged `-full`) maps to the upstream image to ease initial migration. It's a useful starting point if your pipeline depends on packages from your previous image, though we recommend moving to a slimmer variant once you've migrated. See [Full container variants](/chainguard/chainguard-images/about/differences-development-production/#full-container-variants).
+- For a number of our most popular Containers, a **full** variant (tagged `-full`) maps to the upstream image to ease initial migration. It's a useful starting point if your pipeline depends on packages from your previous image, though we recommend moving to a slimmer variant once you've migrated. Refer to [Full container variants](/chainguard/chainguard-images/about/differences-development-production/#full-container-variants).
 
 ## Migration checklist
 

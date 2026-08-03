@@ -7,7 +7,7 @@ lead: "Using Chainguard container images and libraries in AI-generated code with
 description: "Using Chainguard container images and libraries in AI-generated code with Cursor"
 type: "article"
 date: 2026-04-20T14:00:00-04:00
-lastmod: 2026-04-20T14:00:00-04:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 weight: 010
 ---
@@ -79,7 +79,7 @@ Learn more about Chainguard's container images in the [Containers documentation]
 
 You can browse available packages in the [Chainguard Console](https://console.chainguard.dev/), under the **Libraries** section.
 
-> **Note**: Chainguard Libraries does not mirror every package available on public registries. If a required package is unavailable, your build may fail. See [Package not found / build fails after migration](#package-not-found--build-fails-after-migration) for ecosystem-specific fallback options.
+> **Note**: Chainguard Libraries does not mirror every package available on public registries. If a required package is unavailable, your build may fail. Refer to [Package not found / build fails after migration](#package-not-found--build-fails-after-migration) for ecosystem-specific fallback options.
 
 Learn more about configuring libraries in the documentation for each ecosystem:
 

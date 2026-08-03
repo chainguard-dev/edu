@@ -4,7 +4,7 @@ linktitle: "EOL Grace Period"
 type: "article"
 description: "Understanding Chainguard's end-of-life (EOL) grace period."
 date: 2025-05-14T08:49:31+00:00
-lastmod: 2026-07-29T13:49:57+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -46,7 +46,7 @@ Be aware that the following are not covered by Chainguard's EOL grace period:
 
 * Updating an image’s EOL primary package.
 * Backporting or cherry-picking individual commits or patches to the EOL primary package.
-* Installing updated versions of packages in instances where the new package version no longer supports the EOL version of the image's main package (see note).
+* Installing updated versions of packages in instances where the new package version no longer supports the EOL version of the image's main package (refer to the note).
 * Any package labeled end-of-life for more than 6 months by its open-source creators or maintainers.
 
 Additionally, if a container image fails to build because underlying dependencies conflict with the primary package, it will no longer be supported. A failed build signals the end of support for that image.

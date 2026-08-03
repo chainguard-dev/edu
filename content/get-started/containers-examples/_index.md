@@ -5,7 +5,7 @@ lead: ""
 description: "Build your first image with a Chainguard Container: short, language- and service-specific getting-started guides for nginx, PostgreSQL, Python, and Go."
 type: "article"
 date: 2026-06-17T08:48:23+00:00
-lastmod: 2026-06-17T08:48:23+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 images: []
 weight: 020
@@ -22,7 +22,7 @@ crosslinks:
 
 Pick a stack and build your first image. Each guide walks through pulling a Chainguard Container, running it, and adapting it to your own application.
 
-These are a starting point. Chainguard publishes getting-started guides for many more languages and services — see the full set under [Chainguard Containers](/chainguard/chainguard-images/getting-started/).
+These are a starting point. Chainguard publishes getting-started guides for many more languages and services — refer to the full set under [Chainguard Containers](/chainguard/chainguard-images/getting-started/).
 
 ## Featured guides
 

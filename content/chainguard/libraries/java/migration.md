@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Java project to pull dependencies from Chainguard Libraries"
 date: 2026-07-02T00:00:00+00:00
-lastmod: 2026-07-31T15:01:57+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 tags: ["Chainguard Libraries", "Java"]
 menu:
   docs:
@@ -49,7 +49,7 @@ chainctl libraries policy enable java-disable-cooldown --ecosystem=JAVA --mode=E
 
 It can take up to 30 minutes for the fallback and cooldown policies to take effect. Learn more about cooldown and other policies in the [Libraries Policies documentation](/chainguard/chainguard-repository/libraries-policies/).
 
-> **Note**: If you choose to manage your own fallback to upstream repositories, see the following docs pages for more information: [Build configuration](/chainguard/libraries/java/build-configuration/) for direct access instructions or [Global configuration](/chainguard/libraries/java/global-configuration/) for repo manager instructions. Note that configuring a public fallback bypasses the protections provided by Chainguard.
+> **Note**: If you choose to manage your own fallback to upstream repositories, refer to the following docs pages for more information: [Build configuration](/chainguard/libraries/java/build-configuration/) for direct access instructions or [Global configuration](/chainguard/libraries/java/global-configuration/) for repo manager instructions. Note that configuring a public fallback bypasses the protections provided by Chainguard.
 
 ## Step 1: Confirm your baseline build
 
@@ -286,7 +286,7 @@ Once configured, point your build tool at your repository manager URL. In this s
 
 {{% tab title="Maven" %}}
 
-Create or update `~/.m2/settings.xml` to point Maven at your repository manager and override Central with invalid URLs. See example settings files in [Chainguard's demo repository on GitHub](https://github.com/chainguard-demo/chainguard-libraries-java/tree/main/tools) for different repository managers.
+Create or update `~/.m2/settings.xml` to point Maven at your repository manager and override Central with invalid URLs. Refer to example settings files in [Chainguard's demo repository on GitHub](https://github.com/chainguard-demo/chainguard-libraries-java/tree/main/tools) for different repository managers.
 
 Use a configuration similar to the following. Make sure to update the credentials in the `server` section to use your repository manager account credentials, using environment variables when possible. This example uses environment variables for Artifactory credentials:
 

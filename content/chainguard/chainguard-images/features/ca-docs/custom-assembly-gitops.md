@@ -4,7 +4,7 @@ linktitle: "Manage with GitOps"
 type: "article"
 description: "How to use GitOps to manage Custom Assembly resources."
 date: 2026-01-29T11:07:52+02:00
-lastmod: 2026-01-29T11:07:52+02:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural", "Custom Assembly"]
 images: []
@@ -31,7 +31,7 @@ Before getting started, you should have:
     * In this guide, we use GitHub Actions as an example.
 * A Git repository to host your apko configuration files
 * A configured assumable identity for your CI workload
-    * If you have not yet set up CI identities, see [Chainguard's tutorials for creating and assuming identities](/chainguard/administration/assumable-ids/identity-examples/).
+    * If you have not yet set up CI identities, refer to [Chainguard's tutorials for creating and assuming identities](/chainguard/administration/assumable-ids/identity-examples/).
 * The full IDs for your [catalog_syncer and apko_builder identities](/chainguard/chainguard-images/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/#chainguards-signing-identities/).
 
 Also note that Chainguard's [demo workflow](https://github.com/chainguard-demo/custom-assembly-as-code) uses [octo-sts](https://www.chainguard.dev/unchained/the-end-of-github-pats-you-cant-leak-what-you-dont-have), a tool that generates short-lived GitHub tokens instead of using long-lived Personal Access Tokens (PATs). While octo-sts is optional for Custom Assembly builds, it's recommended for workflows that need GitHub API access alongside Chainguard operations.

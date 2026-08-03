@@ -5,7 +5,7 @@ lead: "Model Context Protocol server for Chainguard documentation"
 description: "Access Chainguard documentation through MCP for AI assistants and automation"
 type: "article"
 date: 2026-01-02T21:00:00+00:00
-lastmod: 2026-05-20T00:00:00+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 images: []
 weight: 600
@@ -348,7 +348,7 @@ docker run --rm -v $(pwd):/output \
   ghcr.io/chainguard-dev/ai-docs:latest extract /output
 ```
 
-See the [Developer Resources](/developer-resources/) page for more on static extraction.
+Refer to the [Developer Resources](/developer-resources/) page for more on static extraction.
 
 ## Security features
 

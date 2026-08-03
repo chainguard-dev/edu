@@ -4,7 +4,7 @@ linktitle: "Manage with chainctl"
 type: "article"
 description: "How to use chainctl to manage Custom Assembly resources."
 date: 2025-05-01T11:07:52+02:00
-lastmod: 2025-07-15T11:07:52+02:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural", "Custom Assembly"]
 images: []
@@ -383,7 +383,7 @@ You can use `chainctl images repos build apply` to do things like:
 * Use wildcards: `--repo="python-*"` or `--repo="*"` (all repos under the parent)
 * Combine with `--dry-run` to see which repos would change (drift detection) without actually updating anything.
 
-For more information, see [chainctl images repos build apply](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_apply/).
+For more information, refer to [chainctl images repos build apply](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_apply/).
 
 ## Learn More
 

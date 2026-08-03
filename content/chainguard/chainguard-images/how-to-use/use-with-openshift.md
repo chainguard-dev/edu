@@ -4,7 +4,7 @@ linktitle: "Using With OpenShift"
 type: "article"
 description: "Learn how to deploy Chainguard Containers on Red Hat OpenShift, including security context adjustments and permission configurations for enhanced security"
 date: 2025-06-17T08:49:31+00:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Containers", "OpenShift"]
 images: []
@@ -21,7 +21,7 @@ Chainguard Containers are fully compatible with Red Hat OpenShift Container Plat
 
 Using Chainguard Containers in your OpenShift deployment significantly reduces CVE remediation efforts and accelerates security compliance through minimal attack surface and daily security updates.
 
-When [Using Chainguard Containers](/chainguard/chainguard-images/how-to-use/how-to-use-chainguard-images/) with OpenShift, there are some adjustments that need to be made to the usual process. This guide provides guidance. See the [OpenShift docs](https://docs.redhat.com/en/documentation/openshift_container_platform/) for more details.
+When [Using Chainguard Containers](/chainguard/chainguard-images/how-to-use/how-to-use-chainguard-images/) with OpenShift, there are some adjustments that need to be made to the usual process. This guide provides guidance. Refer to the [OpenShift docs](https://docs.redhat.com/en/documentation/openshift_container_platform/) for more details.
 
 ## Adjust Ownership and Permissions
 
@@ -76,7 +76,7 @@ ENTRYPOINT ["dotnet", "Sample.Service.dll"]
 
 ## Use Special Container Images for Hard-coded User IDs
 
-There are cases where Red Hat hard codes UIDs for specific applications, for example, the user for Postgres is set to UID 26. See the [Red Hat documentation](https://access.redhat.com/solutions/6996195) for more details.
+There are cases where Red Hat hard codes UIDs for specific applications, for example, the user for Postgres is set to UID 26. Refer to the [Red Hat documentation](https://access.redhat.com/solutions/6996195) for more details.
 
 In this instance, Chainguard has built a special image for Postgres on OpenShift with a different release tag. Where the Postgres release version is `17.5` and the regular Chainguard Container would be released with the tag `17.5`, there is another image released with the tag `17.5-openshift`.
 
