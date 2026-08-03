@@ -315,7 +315,7 @@ The option `-L` is required to follow redirects for the actual file locations.
 
 ## Hash verification when migrating to Chainguard Libraries
 
-For a step-by-step walkthrough of moving an existing project to Chainguard Libraries, see the [Python migration guide](/chainguard/libraries/python/migration/). This section covers hash verification, one part of that process.
+For a step-by-step walkthrough of moving an existing project to Chainguard Libraries, check out the [Python migration guide](/chainguard/libraries/python/migration/). This section covers hash verification, one part of that process.
 
 Because Chainguard rebuilds Python packages from source rather than mirroring upstream PyPI artifacts, it is expected that checksums for Chainguard-built packages differ from their PyPI counterparts, even for identical package versions. This affects any tool that pins or verifies hashes:
 
