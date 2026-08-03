@@ -4,7 +4,7 @@ linktitle: "Install"
 type: "article"
 description: "An overview of how to instal rekor-cli to query the Sigstore transparency log"
 date: 2022-08-20T08:49:31+00:00
-lastmod: 2022-08-20T08:49:31+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Rekor", "Procedural"]
 images: []
@@ -20,7 +20,7 @@ _An earlier version of this material was published in the [Rekor chapter](https:
 
 Follow this tutorial for an overview of how to install `rekor-cli`.
 
-To install the Rekor command line interface (rekor-cli) with Go, you will need Go version 1.16 or greater. For Go installation instructions, see the [official Go documentation](https://go.dev/doc/install). If you have Go installed already, you can check your Go version via this command.
+To install the Rekor command line interface (rekor-cli) with Go, you will need Go version 1.16 or greater. For Go installation instructions, refer to the [official Go documentation](https://go.dev/doc/install). If you have Go installed already, you can check your Go version via this command.
 
 ```sh
 go version

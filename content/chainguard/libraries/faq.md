@@ -4,7 +4,7 @@ linktitle: "FAQ"
 description: "Frequently asked questions about Chainguard Libraries, including security benefits, supported ecosystems, and how automated patching protects against supply chain attacks"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-07-16T15:09:59+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 menu:
@@ -53,7 +53,7 @@ of the software supply chain for libraries across different language ecosystems:
 * Attackers pushed out four malicious versions of the Ultralytics YOLO project over the course of a week (8.3.41, 8.3.42, 8.3.45, 8.3.46).
 * Ultralytics YOLO is a widely-used fast object detection neural network library downloaded about five million times per month. Users affected during this period were infected with cryptomining malware.
 * Chainguard Libraries would have prevented this attack by building the project from clean source. No source code was modified by attackers during this incident.
-* See also [PyPI attack analysis](https://blog.pypi.org/posts/2024-12-11-ultralytics-attack-analysis/) and
+* Refer also to [PyPI attack analysis](https://blog.pypi.org/posts/2024-12-11-ultralytics-attack-analysis/) and
   [bleepingcomputer blog post](https://www.bleepingcomputer.com/news/security/ultralytics-ai-model-hijacked-to-infect-thousands-with-cryptominer/).
 
 {{< /details >}}
@@ -64,7 +64,7 @@ of the software supply chain for libraries across different language ecosystems:
 * Token used to upload a compromised version of Lottie Player.
 * The malicious package drained crypto wallet funds.
 * Chainguard Libraries would have prevented this attack by building the project from clean source. No source code was modified by attackers during this incident.
-* See also [npm package Lottie-Player compromised in supply chain attack, Nov 2024](https://www.infosecurity-magazine.com/news/npm-package-lottieplayer-supply/).
+* Refer also to [npm package Lottie-Player compromised in supply chain attack, Nov 2024](https://www.infosecurity-magazine.com/news/npm-package-lottieplayer-supply/).
 
 {{< /details >}}
 
@@ -77,7 +77,7 @@ of the software supply chain for libraries across different language ecosystems:
 * MavenGate relied on the use of multiple repositories and any attack with the
   proposed mechanism would not publish source code. Chainguard Libraries replace other repositories and the use of Chainguard Libraries, based on
   building from the original source, would have prevented an attack using this approach
-* See also [_The Hacker News_ article](https://thehackernews.com/2024/01/hackers-hijack-popular-java-and-android.html),
+* Refer also to [_The Hacker News_ article](https://thehackernews.com/2024/01/hackers-hijack-popular-java-and-android.html),
   [_Oversecured_ blog post](https://blog.oversecured.com/Introducing-MavenGate-a-supply-chain-attack-method-for-Java-and-Android-applications/),
   and [Sonatype's take as Maven Central
   operator](https://www.sonatype.com/sonatypes-ongoing-commitment-to-maven-central).
@@ -96,7 +96,7 @@ of the software supply chain for libraries across different language ecosystems:
   would be prevented by Chainguard Libraries
 * XZ Utils is written in C and therefore not available as an ecosystem protected by Chainguard Libraries. However, Chainguard Containers include XZ Utils packages. These are also built
   from source and are not affected.
-* See also [Wikipedia article](https://en.wikipedia.org/wiki/XZ_Utils_backdoor)
+* Refer also to [Wikipedia article](https://en.wikipedia.org/wiki/XZ_Utils_backdoor)
   and [official page from the XZ data compression](https://tukaani.org/xz-backdoor/).
 
 {{< /details >}}

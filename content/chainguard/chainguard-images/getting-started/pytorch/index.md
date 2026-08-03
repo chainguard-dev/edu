@@ -7,7 +7,7 @@ aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-pytorch
 description: "Learn how to use Chainguard's PyTorch container image for deep learning with enhanced security, minimal CVEs, and GPU acceleration support"
 date: 2024-04-25T08:00:00+02:00
-lastmod: 2025-07-23T16:52:56+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 tags: ["Chainguard Containers", "AI"]
 draft: false
 images: []
@@ -78,7 +78,7 @@ In this section, we'll download prepared data to your environment, download a mo
 
 First check that `curl` and `tar` are available on your system, and install them if necessary. [Docker Engine](https://docs.docker.com/engine/install/) will also need to be installed.
 
-Run the following to download necessary files and train the model. If there is an issue with the command, see the [manual step-by-step instructions](#manual-steps-to-fine-tune-the-model) below.
+Run the following to download necessary files and train the model. If there is an issue with the command, refer to the [manual step-by-step instructions](#manual-steps-to-fine-tune-the-model) below.
 
 Note: if you're following this tutorial in an environment without access to GPU, remove the `--gpus all \` line below before running.
 

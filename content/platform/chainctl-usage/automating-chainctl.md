@@ -5,7 +5,7 @@ type: "article"
 lead: "Practical shell and CI/CD snippets for using chainctl beyond the interactive command line."
 description: "Learn how to use chainctl in scripts and pipelines with a set of example snippets"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-07-08T00:00:00+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["chainctl"]
 images: []
@@ -56,7 +56,7 @@ chainctl auth login \
 export CHAINGUARD_TOKEN=$(chainctl auth token)
 ```
 
-`$PATH_TO_OIDC_TOKEN` is the path to a file containing the OIDC token provided by your CI platform. See the OIDC-aware CI platforms section below for platform-specific examples.
+`$PATH_TO_OIDC_TOKEN` is the path to a file containing the OIDC token provided by your CI platform. Refer to the OIDC-aware CI platforms section below for platform-specific examples.
 
 Pass the token to Docker or `crane` to authenticate to `cgr.dev`:
 
@@ -140,7 +140,7 @@ chainctl images diff \
   "cgr.dev/$ORG/$IMAGE:$NEW_TAG"
 ```
 
-Capture the output with `| tee diff-report.txt` to attach it to a pull request or deployment ticket. See [Compare Chainguard Containers with chainctl diff](/chainguard/chainguard-images/how-to-use/comparing-images/) for details on reading the diff output.
+Capture the output with `| tee diff-report.txt` to attach it to a pull request or deployment ticket. Refer to [Compare Chainguard Containers with chainctl diff](/chainguard/chainguard-images/how-to-use/comparing-images/) for details on reading the diff output.
 
 ## Audit role bindings for compliance
 
@@ -235,4 +235,4 @@ Run this script idempotently during infrastructure provisioning. If the subscrip
 
 ---
 
-For a full reference of every `chainctl` command and flag, see the [chainctl Reference](/platform/chainctl/).
+For a full reference of every `chainctl` command and flag, refer to the [chainctl Reference](/platform/chainctl/).

@@ -6,7 +6,7 @@ description:
   Libraries using the chainctl tool for enhanced supply chain security"
 type: "article"
 date: 2025-07-03T12:00:00+00:00
-lastmod: 2026-07-30T19:49:39+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -143,7 +143,7 @@ Verifying a JAR file is performed by looking up checksums and provenance
 information from the Chainguard repositories. This requires network access and
 can take longer if you analyze multiple files or archives that contain multiple
 libraries. Typically, you find the JAR files in the local Maven repository cache
-in `~/.m2/repository`. For best results, verify individual JAR files from this cache before packaging your application. See [Java fat JAR limitations](#java-fat-jar-limitations) for more details.
+in `~/.m2/repository`. For best results, verify individual JAR files from this cache before packaging your application. Refer to [Java fat JAR limitations](#java-fat-jar-limitations) for more details.
 
 Analyze a deployment archive for your custom application that contains other
 libraries:
@@ -153,7 +153,7 @@ chainctl libraries verify example-application.tar.gz
 ```
 
 Note that if your deployment archive is a fat JAR, uber JAR, or shaded JAR,
-verification returns 0% coverage. This is expected behavior; see [Java fat JAR limitations](#java-fat-jar-limitations) for the recommended verification
+verification returns 0% coverage. This is expected behavior; refer to [Java fat JAR limitations](#java-fat-jar-limitations) for the recommended verification
 approach.
 
 For other archive types such as tarballs that contain individual unmodified JAR

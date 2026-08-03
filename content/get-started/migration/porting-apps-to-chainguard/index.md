@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "This article works through porting a small but complete application to use Chainguard Containers. As we'll see, this is relatively straightforward, but it is important to be aware of some of the differences to other common images."
 date: 2024-04-10T12:56:52-00:00
-lastmod: 2025-02-05T14:44:52-00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -588,7 +588,7 @@ If you now run `docker compose up --build`, you should have a working applicatio
 
 There are some differences between this version and the original. The environment variable used for switching between image variants has been removed and the ports have changed to reflect the default port used in gunicorn.
 
-This Compose file doesn't contain support for a development workflow currently – ideally we would be able to quickly iterate on our code without building a new image. The original file used volumes to achieve this, but this isn't something we want to do with the production image. One solution is to have a separate development Compose file, which will build the development image and use a volume to mount code at runtime for immediate feedback. New versions of Docker also support [Compose Watch](https://docs.docker.com/compose/file-watch/) which can be a more efficient and granular solution than volume mounts. See [What is Docker Compose Watch and what problem does it solve?](https://collabnix.com/what-is-docker-compose-watch-and-what-problem-does-it-solve/) for an introductory tutorial on using Compose Watch.
+This Compose file doesn't contain support for a development workflow currently – ideally we would be able to quickly iterate on our code without building a new image. The original file used volumes to achieve this, but this isn't something we want to do with the production image. One solution is to have a separate development Compose file, which will build the development image and use a volume to mount code at runtime for immediate feedback. New versions of Docker also support [Compose Watch](https://docs.docker.com/compose/file-watch/) which can be a more efficient and granular solution than volume mounts. Refer to [What is Docker Compose Watch and what problem does it solve?](https://collabnix.com/what-is-docker-compose-watch-and-what-problem-does-it-solve/) for an introductory tutorial on using Compose Watch.
 
 ## Conclusion
 

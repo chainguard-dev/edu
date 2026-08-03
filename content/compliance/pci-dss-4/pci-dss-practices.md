@@ -4,7 +4,7 @@ description: "Learn about the practices required for PCI DSS 4.0"
 lead: "Learn about the practices required for PCI DSS 4.0"
 type: "article"
 date: 2024-08-21T14:05:09+00:00
-lastmod: 2024-08-21T14:05:09+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 contributors: []
 draft: false
 aliases:
@@ -47,7 +47,7 @@ Below is a table overview with a high-level description of the goals and require
 | **Regularly monitor and test networks** | Log and monitor all access to system components and cardholder data, test security of all systems regularly |
 | **Maintain an information security policy** | Support information security with organizational policies and programs |
 
-For a list of all required practices, see the PCI DSS documentation available in the [PCI Security Standards Council's Document Library](https://east.pcisecuritystandards.org/document_library).
+For a list of all required practices, refer to the PCI DSS documentation available in the [PCI Security Standards Council's Document Library](https://east.pcisecuritystandards.org/document_library).
 
 ## Browse all PCI DSS 4.0 Articles
 

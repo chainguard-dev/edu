@@ -6,7 +6,7 @@ aliases:
 description: "JavaScript libraries for your application development"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-08-03T14:51:58+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript", "Overview"]
 menu:
@@ -89,7 +89,7 @@ We recommend configuring the Chainguard Repository (or a repository manager that
 
 You can continue to use additional registries alongside Chainguard for needs outside this scope, such as your own private or scoped packages from npm or another internal registry.
 
-Configure this endpoint [globally through a repository manager](/chainguard/libraries/javascript/global-configuration/) for centralized access control across your organization, or use it for [direct access](/chainguard/libraries/javascript/build-configuration/) from individual build tools. If you prefer to manage your own npm fallback rather than using the built-in upstream fallback, see the [global configuration documentation](/chainguard/libraries/javascript/global-configuration/) for setup guides per repository manager.
+Configure this endpoint [globally through a repository manager](/chainguard/libraries/javascript/global-configuration/) for centralized access control across your organization, or use it for [direct access](/chainguard/libraries/javascript/build-configuration/) from individual build tools. If you prefer to manage your own npm fallback rather than using the built-in upstream fallback, refer to the [global configuration documentation](/chainguard/libraries/javascript/global-configuration/) for setup guides per repository manager.
 
 ## Updating lockfile hashes
 
@@ -97,7 +97,7 @@ Existing JavaScript lockfiles usually contain upstream integrity hashes. Because
 
 For a step-by-step walkthrough of moving an existing project to Chainguard Libraries, check out the [JavaScript migration guide](/chainguard/libraries/javascript/migration/).
 
-If you install through a repository manager, see [Global configuration](/chainguard/libraries/javascript/global-configuration/#updating-lockfile-hashes/).
+If you install through a repository manager, refer to [Global configuration](/chainguard/libraries/javascript/global-configuration/#updating-lockfile-hashes/).
 
 ## Provenance and attestations
 
@@ -115,7 +115,7 @@ You can verify a package tarball in a single command using `chainctl`:
 chainctl libraries verify PACKAGE-VERSION.tgz
 ```
 
-See [Verification](/chainguard/libraries/verification/) for setup and usage details.
+Refer to [Verification](/chainguard/libraries/verification/) for setup and usage details.
 
 ### Verify attestation manually
 

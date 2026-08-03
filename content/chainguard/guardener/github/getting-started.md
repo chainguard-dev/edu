@@ -4,7 +4,7 @@ linktitle: "Getting Started"
 description: "Install the Chainguard Guardener GitHub App and link your Chainguard organization to your GitHub organization to start using the Guardener."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-07-08T00:00:00+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["GitHub", "Getting Started"]
 images: []
@@ -30,7 +30,7 @@ Linking your Chainguard organization to your GitHub organization is what entitle
 Before you begin, make sure you have the following:
 
 - **`chainctl` installed and authenticated.** If you haven't installed it yet, follow the [chainctl installation guide](/chainguard/chainctl-usage/how-to-install-chainctl/), then run `chainctl auth login`.
-- **A Chainguard organization** where you are an owner, or where you otherwise hold the `guardener.association.manage` capability. This capability is required to link a GitHub organization to your Chainguard group. See the [Built-in Roles and Capabilities Reference](/chainguard/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for more information on roles.
+- **A Chainguard organization** where you are an owner, or where you otherwise hold the `guardener.association.manage` capability. This capability is required to link a GitHub organization to your Chainguard group. Refer to the [Built-in Roles and Capabilities Reference](/chainguard/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for more information on roles.
 - **Owner (admin) access to the GitHub organization** you want to link. Installing the app and authorizing the link both require GitHub organization ownership.
 
 The `chainctl guardener` commands identify your Chainguard organization by its group name — you don't need to look up a group ID. Pass the name with `--group`, or omit the flag entirely and `chainctl` will prompt you to select from the organizations you have access to.
@@ -72,7 +72,7 @@ chainctl guardener github link \
 
 If you omit `--group`, `chainctl` prompts you to select the Chainguard organization to link.
 
-A browser window opens to authorize with GitHub. This step proves that you own the GitHub organization. The Guardener GitHub App must already be installed on the organization (see [Step 1](#step-1-install-the-guardener-github-app)) for the link to succeed.
+A browser window opens to authorize with GitHub. This step proves that you own the GitHub organization. The Guardener GitHub App must already be installed on the organization (refer to [Step 1](#step-1-install-the-guardener-github-app)) for the link to succeed.
 
 > **Note**: Linking requires that you are an owner of the Chainguard group (specifically, that you hold the `guardener.association.manage` capability) **and** an owner of the GitHub organization.
 
@@ -101,7 +101,7 @@ Unlinking stops the Guardener from acting on the organization's repositories. To
 
 ## Command reference
 
-For the complete set of flags and options, see the `chainctl` reference:
+For the complete set of flags and options, refer to the `chainctl` reference:
 
 - [`chainctl guardener`](/chainguard/chainctl/chainctl-docs/chainctl_guardener/)
 - [`chainctl guardener github`](/chainguard/chainctl/chainctl-docs/chainctl_guardener_github/)

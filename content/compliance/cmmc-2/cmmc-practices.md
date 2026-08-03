@@ -4,7 +4,7 @@ description: "Learn about the 14 different domains of practices required for CMM
 lead: "Learn about the 14 different domains of practices required for CMMC 2.0"
 type: "article"
 date: 2024-08-09T19:10:09+00:00
-lastmod: 2024-08-15T19:10:09+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 contributors: []
 draft: false
 aliases:
@@ -51,7 +51,7 @@ Below is a table overview of the domains:
 | **System and Communications Protection (SC)** | Secure communications and data transmitted across networks to protect information from interception and unauthorized access. | SC.L2-3.13.3 - Separate user functionality from system management functionality. |
 | **System and Information Integrity (SI)** | Ensure the integrity of systems and information by monitoring for unauthorized changes, protecting against malicious code, and applying updates to maintain system security. | SI.L2-3.14.7 - Identify unauthorized use of organizational systems. |
 
-For a list of all required practices, see pages 9 to 18 in the [Cybersecurity Maturity Model Certification - Model Overview](https://dodcio.defense.gov/Portals/0/Documents/CMMC/ModelOverview_V2.0_FINAL2_20211202_508.pdf) published by Carnegie Mellon University and The Johns Hopkins University Applied
+For a list of all required practices, refer to pages 9 to 18 in the [Cybersecurity Maturity Model Certification - Model Overview](https://dodcio.defense.gov/Portals/0/Documents/CMMC/ModelOverview_V2.0_FINAL2_20211202_508.pdf) published by Carnegie Mellon University and The Johns Hopkins University Applied
 Physics Laboratory LLC and funded by the Department of Defense (DoD).
 
 To learn more about requirements for tracking compliance, continue to the next article in our guide, [CMMC 2.0 Documentation Requirements](/compliance/cmmc-2/cmmc-chainguard/)

@@ -7,7 +7,7 @@ linktitle: "Container Pull Policies"
 type: "article"
 description: "Configure and enforce policies that control which Chainguard container and artifact versions your organization can pull, using chainctl"
 date: 2026-05-21T08:48:45+00:00
-lastmod: 2026-07-31T18:56:10+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Overview"]
 images: []
@@ -29,7 +29,7 @@ This page uses the following terms:
     * `ENFORCE`: Block the pull.
     * `DRY_RUN`: Allow the pull but record the violation.
 * **Parameter**: A configurable value declared by a policy's schema (for example, `days` on the `cooldown` policy). Supply values when you enable a policy with `--param=KEY=VALUE` (repeatable). Omitted parameters fall back to the schema's declared default. Use `chainctl policies describe --policy=$POLICY` to see which parameters a policy accepts and what defaults apply.
-* **Policy type**: Whether a policy is authored by Chainguard or by you. See [Policy types](#policy-types).
+* **Policy type**: Whether a policy is authored by Chainguard or by you. Refer to [Policy types](#policy-types).
 
 The `--mode` flag is required when you enable a policy. Chainguard recommends starting with `DRY_RUN` so you can review a policy's impact before promoting it to `ENFORCE`.
 
@@ -91,7 +91,7 @@ chainctl policies enable --policy=support-window --mode=DRY_RUN --param=months=1
 
 ## Usage
 
-Policies are managed using `chainctl`. System policies are shipped with the platform; to author your own, see [Managing custom policies with chainctl](#managing-custom-policies-with-chainctl).
+Policies are managed using `chainctl`. System policies are shipped with the platform; to author your own, refer to [Managing custom policies with chainctl](#managing-custom-policies-with-chainctl).
 
 See which policies are available to your organization:
 
@@ -337,9 +337,9 @@ The fields below are what is available for policies whose resource type is `regi
 | Field | Type | Description |
 |---|---|---|
 | `input.main_package` | string | Name of the image's main package. |
-| `input.main_package_version` | object | Version metadata for the main package. See below. |
+| `input.main_package_version` | object | Version metadata for the main package. Refer to the details below. |
 | `input.create_time` | string | When the image was created, as an RFC 3339 timestamp. Derived from the image's `org.opencontainers.image.created` annotation. |
-| `input.parameters` | object | Values for the parameters your policy declares. See [Parameters](#parameters-in-custom-policies). |
+| `input.parameters` | object | Values for the parameters your policy declares. Refer to [Parameters](#parameters-in-custom-policies). |
 
 `input.main_package_version` carries these fields:
 
@@ -471,7 +471,7 @@ expression: |
 | Field | Required | Description |
 |---|---|---|
 | `name` | Yes | The policy name. Must be unique within the organization for the given resource type. |
-| `expression` | Yes | The Rego expression. See [Writing custom policies](#writing-custom-policies). |
+| `expression` | Yes | The Rego expression. Refer to [Writing custom policies](#writing-custom-policies). |
 | `supported_resource_type` | Yes | The single resource type this policy applies to. |
 | `description` | No | A human-readable description, shown in `chainctl policies list` and `describe`. |
 | `expression_type` | No | Defaults to `EXPRESSION_TYPE_REGO`, which is the only accepted value. |
@@ -720,7 +720,7 @@ Read the table per row. The pull is blocked only when a policy in `ENFORCE` mode
 
 Once you know which policy is responsible, work through the usual causes in this order:
 
-**1. A field you referenced is absent.** This is by far the most common cause. Fields with no value are omitted from the input document entirely, so a reference to an absent field makes the surrounding rule body undefined, `allow` falls through to its default of `false`, and everything is denied. See [The input document](#the-input-document) for the fields a policy can read.
+**1. A field you referenced is absent.** This is by far the most common cause. Fields with no value are omitted from the input document entirely, so a reference to an absent field makes the surrounding rule body undefined, `allow` falls through to its default of `false`, and everything is denied. Refer to [The input document](#the-input-document) for the fields a policy can read.
 
 **2. A nested field name is misspelled.** Write-time validation catches typos in the top-level fields (`input.crete_time` fails), but it does **not** check inside `input.main_package_version`. A misspelled `input.main_package_version.eolDte` compiles cleanly and never matches. Watch the casing in particular: top-level fields are snake_case (`main_package`, `create_time`) while the fields under `main_package_version` are camelCase (`eolDate`, `releaseDate`, `latestVersion`).
 
@@ -765,7 +765,7 @@ Chainguard validates every expression before storing it, so a policy that would 
 
 **A typo in a top-level input field.** `input.crete_time` and `input.mian_package` both fail validation. Only the top level is checked this way — misspellings inside `input.main_package_version` are not caught.
 
-**A blocked builtin.** Some OPA builtins cannot be used in a custom policy. See [The available Rego subset](#the-available-rego-subset) for the full list and what remains available.
+**A blocked builtin.** Some OPA builtins cannot be used in a custom policy. Refer to [The available Rego subset](#the-available-rego-subset) for the full list and what remains available.
 
 **An ordinary syntax or type error.** Standard Rego compile errors surface the same way, with line and column.
 
@@ -899,4 +899,4 @@ chainctl policies override create \
 
 With both digests waived, the pull is allowed. Remember that the override is subject to the cache refresh described above, so allow a short delay before retrying the pull.
 
-See `chainctl policies --help` or the [chainctl reference pages](/platform/chainctl/) for more information.
+Refer to `chainctl policies --help` or the [chainctl reference pages](/platform/chainctl/) for more information.

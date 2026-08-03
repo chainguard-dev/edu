@@ -6,7 +6,7 @@ type: "article"
 description: "A primer on how to use Chainguard-produced iamguarded Helm charts to deploy Chainguard container images"
 lead: "A primer on how to use Chainguard-produced iamguarded Helm charts to deploy Chainguard container images"
 date: 2025-07-11T08:49:31+00:00
-lastmod: 2026-01-29T08:49:31+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Containers", "Helm charts", "iamguarded", "Product"]
 images: []
@@ -286,4 +286,4 @@ To get the `values.yaml` so you can examine it, run:
 helm show values oci://cgr.dev/chainguard-private/iamguarded-charts/rabbitmq
 ```
 
-See the [Helm commands documentation](https://helm.sh/docs/helm/) for more information.
+Refer to the [Helm commands documentation](https://helm.sh/docs/helm/) for more information.

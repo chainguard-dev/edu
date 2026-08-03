@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "Reference guide outlining Chainguard's Shared Responsibility model: a framework that clarifies security obligations for hardened container images."
 date: 2024-10-17T11:07:52+02:00
-lastmod: 2025-01-13T11:07:52+02:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Conceptual", "Chainguard Containers"]
 images: []
@@ -44,7 +44,7 @@ It is a customer’s responsibility to stay on a supported version of the softwa
 
 Upstream projects are responsible for staying on supported releases of their own dependencies, such as with an automatic dependency update tool like [dependabot](https://github.com/dependabot) or [Renovate](https://docs.renovatebot.com/). Upstream projects are also, at a minimum, responsible for staying on an API-compatible version of libraries they depend on transitively.
 
-Chainguard is responsible for assembling container images from fully patched upstream software. You can find more details on this in our [SLA for CVEs](https://www.chainguard.dev/cve-sla). Chainguard will also attempt to rebuild upstream software with [the latest toolchain](https://www.chainguard.dev/unchained/chainguard-patches-3-silent-golang-cves-in-under-24-hours) and their dependencies updated where that can be done without breaking changes (see the following [Testing section](#testing)).
+Chainguard is responsible for assembling container images from fully patched upstream software. You can find more details on this in our [SLA for CVEs](https://www.chainguard.dev/cve-sla). Chainguard will also attempt to rebuild upstream software with [the latest toolchain](https://www.chainguard.dev/unchained/chainguard-patches-3-silent-golang-cves-in-under-24-hours) and their dependencies updated where that can be done without breaking changes (refer to the following [Testing section](#testing)).
 
 Customers are responsible for building on or with fully patched Chainguard Container Images, and for patching any components they add to the Chainguard Container Image.
 

@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing JavaScript project to pull dependencies from Chainguard Libraries"
 date: 2026-06-01T00:00:00+00:00
-lastmod: 2026-07-31T15:01:57+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
   docs:
@@ -364,7 +364,7 @@ Example URLs by repository manager:
 | JFrog Artifactory | `https://example.jfrog.io/artifactory/javascript-all/` |
 | Sonatype Nexus | `https://repo.example.com:8443/repository/javascript-all/` |
 
-For authentication details specific to your repository manager, see the [global
+For authentication details specific to your repository manager, refer to the [global
 configuration documentation](/chainguard/libraries/javascript/global-configuration/).
 
 ## Step 2: Verify authentication
@@ -451,7 +451,7 @@ intentionally refreshing your dependency versions — use the following commands
 
 If you hit 404 errors after regenerating, the most likely cause is that the
 resolved version is not yet available in Chainguard Libraries or is still within
-the cooldown window. See [Packages not available in Chainguard
+the cooldown window. Refer to [Packages not available in Chainguard
 Libraries](#packages-not-available-in-chainguard-libraries) for next steps.
 
 {{< /details >}}
@@ -692,7 +692,7 @@ Artifact: ./node_modules
 Verification Coverage: 100.00%
 ```
 
-For full details on verification options and output, see [Verification: Analyze
+For full details on verification options and output, refer to [Verification: Analyze
 JavaScript packages](/chainguard/libraries/verification/#analyze-javascript-packages).
 
 ## Step 7: Commit and roll out
@@ -702,7 +702,7 @@ contain literal credentials. Apply the same registry, cache, and hash update
 steps to other developer workstations and build servers as you migrate them - including Jenkins, TeamCity, GitHub or other infrastructure
 that builds the applications or downloads dependencies.
 
-For organization-wide rollout using a repository manager, see the [global
+For organization-wide rollout using a repository manager, refer to the [global
 configuration documentation](/chainguard/libraries/javascript/global-configuration/).
 
 ## Packages not available in Chainguard Libraries
@@ -715,7 +715,7 @@ upstream fallback](/chainguard/libraries/javascript/overview/#upstream-fallback-
 - For direct access, the Chainguard Repository includes a built-in, configurable
 npm upstream fallback. When fallback is enabled, packages not available from
 Chainguard are proxied from npm and subject to a configurable cooldown period
-and malware scanning before being served. See the [JavaScript Libraries
+and malware scanning before being served. Refer to the [JavaScript Libraries
 overview](/chainguard/libraries/javascript/overview/#upstream-fallback-policy-and-controls)
 for details.
 - For repository manager setups, Chainguard recommends using the built-in fallback
@@ -724,7 +724,7 @@ manager, to preserve Chainguard's security controls.
 
 If you have private scoped packages published to npm under a prefix like
 `@your-org/`, you can route them back to npm using per-scope registry
-configuration. See [Using private npm packages alongside Chainguard
+configuration. Refer to [Using private npm packages alongside Chainguard
 Repository](/chainguard/libraries/javascript/build-configuration/#using-private-npm-packages-alongside-chainguard-repository)
 for details.
 
@@ -740,7 +740,7 @@ regenerate the lockfile.
 The requested package or version may not yet be available in Chainguard
 Libraries, or may still be within the cooldown window. Check the [Chainguard
 Console](https://console.chainguard.dev/libraries/javascript), try an earlier
-version, or enable upstream fallback. See [Packages not available in Chainguard
+version, or enable upstream fallback. Refer to [Packages not available in Chainguard
 Libraries](#packages-not-available-in-chainguard-libraries). Also note that
 upstream fallback and cooldown policies can take up to 30 minutes to go into
 effect.
@@ -764,10 +764,10 @@ page](/chainguard/libraries/javascript/build-configuration/).
 ## Next steps
 
 - To apply this configuration across your whole organization using a repository
-  manager, see the [global configuration](/chainguard/libraries/javascript/global-configuration/)
+  manager, refer to the [global configuration](/chainguard/libraries/javascript/global-configuration/)
   documentation.
 - To verify downloaded packages were built by Chainguard, see the
   [verification](/chainguard/libraries/verification/) documentation.
-- For full per-tool configuration reference, see the [build
+- For full per-tool configuration reference, refer to the [build
   configuration](/chainguard/libraries/javascript/build-configuration/)
   documentation.

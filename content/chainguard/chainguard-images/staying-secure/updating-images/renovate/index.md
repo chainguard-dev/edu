@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "How to use Renovate to automatically keep Chainguard Containers updated"
 date: 2023-09-05T11:07:52+02:00
-lastmod: 2025-09-18T11:07:52+02:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -204,7 +204,7 @@ This is an example of a minimal configuration:
 
 Push this file to the `main` branch of your repository.
 
-Next, create an assumable identity for your GitHub repository. The `--github-repo` value embeds GitHub's immutable numeric owner and repository IDs; see [Finding your repository's numeric identifiers](/platform/administration/assumable-ids/identity-examples/github-identity/#finding-your-repositorys-numeric-identifiers) for how to retrieve them and when the format applies.
+Next, create an assumable identity for your GitHub repository. The `--github-repo` value embeds GitHub's immutable numeric owner and repository IDs; refer to [Finding your repository's numeric identifiers](/platform/administration/assumable-ids/identity-examples/github-identity/#finding-your-repositorys-numeric-identifiers) for how to retrieve them and when the format applies.
 
 ```shell
 chainctl iam identities create github <identity-name> \

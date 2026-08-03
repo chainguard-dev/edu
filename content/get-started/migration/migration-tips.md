@@ -6,7 +6,7 @@ linktitle: "Migration Tips"
 type: "article"
 description: "This guide outlines a number of tips and strategies to keep in mind for when your organization begins migrating to Chainguard Containers."
 date: 2025-05-29T12:56:52-00:00
-lastmod: 2025-05-29T12:56:52-00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -235,7 +235,7 @@ Chainguard Containers are built with minimalism in mind, and thus contain the ba
 
 If a Chainguard Container is missing certain packages that are required for your application, we recommend using a base image and installing the required dependencies on top of it, preferably in a multi-stage Docker build. Our guides on [How to Use Chainguard Containers](/chainguard/chainguard-images/how-to-use-chainguard-images/#extending-chainguard-base-images) and [Getting Started with Distroless](/chainguard/migration/migrations-overview/) include guidance on how you can extend Chainguard base images.
 
-For a number of our most popular Containers, Chainguard offers a *full* variant (tagged `-full`) that maps to the upstream image, including the packages you'd expect from the third-party alternative. If a full variant is available for an image you're migrating, it can serve as a low-friction starting point while you determine which packages your workload actually needs. See [Full container variants](/chainguard/chainguard-images/about/differences-development-production/#full-container-variants) for details.
+For a number of our most popular Containers, Chainguard offers a *full* variant (tagged `-full`) that maps to the upstream image, including the packages you'd expect from the third-party alternative. If a full variant is available for an image you're migrating, it can serve as a low-friction starting point while you determine which packages your workload actually needs. Refer to [Full container variants](/chainguard/chainguard-images/about/differences-development-production/#full-container-variants) for details.
 
 Alternatively, you can take advantage of Chainguard's [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) and [Private APK Repositories](/chainguard/chainguard-images/features/private-apk-repos/) features to extend your container images. Custom Assembly allows users to create customers container images with extra packages added. This reduces their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs.
 

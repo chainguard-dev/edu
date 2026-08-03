@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "How to get SBOM for container images: Chainguard provides Software Bill of Materials for every image - retrieve with Cosign for complete supply chain transparency"
 date: 2023-11-17T11:07:52+02:00
-lastmod: 2026-07-27T15:26:42+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Containers", "SBOM"]
 images: []
@@ -23,7 +23,7 @@ toc: true
 
 Chainguard provides a Software Bill of Materials (SBOM) with every container image, enabling complete transparency about package contents and dependencies for security and compliance requirements. These SBOMs are cryptographically signed and attached as attestations, making them retrievable and verifiable. By including only the minimum packages needed, Chainguard Containers reduce attack surface while the SBOM ensures you can verify exactly what's in each image.
 
-Even though they contain the minimum number of packages, there may come a time when you want to know exactly what's running inside of a certain Chainguard Container. For this reason, Chainguard includes a signed SBOM with each image in the form of a [software attestation](https://slsa.dev/attestation-model), allowing you to verify the contents and meet compliance requirements. Chainguard publishes several different types of attestations; see the options under the [Available attestation types](#available-attestation-types) section on this page.
+Even though they contain the minimum number of packages, there may come a time when you want to know exactly what's running inside of a certain Chainguard Container. For this reason, Chainguard includes a signed SBOM with each image in the form of a [software attestation](https://slsa.dev/attestation-model), allowing you to verify the contents and meet compliance requirements. Chainguard publishes several different types of attestations; refer to the options under the [Available attestation types](#available-attestation-types) section on this page.
 
 ## Retrieve a container image's attestation
 
@@ -59,7 +59,7 @@ You can include the following flags when retrieving attestations:
 
 - The `--platform` flag, which selects the target platform for the image, such as `linux/amd64` or `linux/arm64`.
     - This flag requires Cosign version 2.2.1 or newer.
-- The `--predicate-type` flag, required to specify which type of attestation to retrieve. You can use the full URI or the shorthand version as the value of the flag. See the [Available attestation types](#available-attestation-types) section for a list of options.
+- The `--predicate-type` flag, required to specify which type of attestation to retrieve. You can use the full URI or the shorthand version as the value of the flag. Refer to the [Available attestation types](#available-attestation-types) section for a list of options.
 
 ### Retrieve a container image attestation in the Chainguard Console
 

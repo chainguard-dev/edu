@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "Learn how to verify Chainguard Container signatures and attestations with Cosign for supply chain security, ensuring image authenticity and integrity"
 date: 2024-03-18T08:59:52-07:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -110,7 +110,7 @@ cosign verify \
 
 Attestations are signed metadata about the artifact, which can include SBOMs, vulnerability scans, or other custom predicates.
 
-The [attestations](https://slsa.dev/attestation-model) for a container image can be obtained and verified using Cosign or directly in the Chainguard Console. See [How to retrieve attestations and SBOMs for Chainguard Containers](/chainguard/chainguard-images/how-to-use/retrieve-image-sboms/) for more information.
+The [attestations](https://slsa.dev/attestation-model) for a container image can be obtained and verified using Cosign or directly in the Chainguard Console. Refer to [How to retrieve attestations and SBOMs for Chainguard Containers](/chainguard/chainguard-images/how-to-use/retrieve-image-sboms/) for more information.
 
 ### Public Registry
 

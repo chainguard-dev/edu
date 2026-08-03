@@ -4,7 +4,7 @@ linktitle: "Python overview"
 description: "Learn about Chainguard Libraries for Python, providing enhanced security for PyPI packages through automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-04-09T04:00:00+00:00
-lastmod: 2026-08-03T14:51:58+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python", "Overview"]
 menu:
@@ -363,7 +363,7 @@ docker build --no-cache
 
 Existing Python lockfiles usually contain upstream integrity hashes. Because Chainguard rebuilds packages from verified source, those hashes must be updated before reinstalling. Use `chainctl libraries update-hashes` to update them in place. Learn more in [Build configuration](/chainguard/libraries/python/build-configuration/).
 
-If you install through a repository manager, see [Global configuration](/chainguard/libraries/python/global-configuration/#updating-lockfile-hashes/).
+If you install through a repository manager, refer to [Global configuration](/chainguard/libraries/python/global-configuration/#updating-lockfile-hashes/).
 
 #### Update lockfiles manually
 

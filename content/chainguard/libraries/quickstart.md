@@ -4,7 +4,7 @@ linktitle: "Quick Start"
 description: "Learn how to get started with Chainguard Libraries"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-08-03T14:51:58+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -32,7 +32,7 @@ for the packages they already use, with no breaking changes.
 
 This guide covers the high-level steps to get up and running with Chainguard
 Libraries. For full reference documentation on any step, follow the links
-provided throughout this page. For ecosystem-specific guides, see the following
+provided throughout this page. For ecosystem-specific guides, refer to the following
 pages:
 
 * [Java migration guide](/chainguard/libraries/java/migration/)
@@ -140,7 +140,7 @@ Learn more about pull tokens, and using environment variables for pull token cre
 ## Step 3: Configure your build tools
 
 Once you have a pull token, you can configure your build tool. Configuration
-steps vary by build tool and ecosystem. See the ecosystem-specific documentation
+steps vary by build tool and ecosystem. Refer to the ecosystem-specific documentation
 pages for instructions.
 
 If you [configure upstream fallback](/chainguard/libraries/overview/#upstream-fallback-policy-and-controls), the same ecosystem endpoint can serve both:
@@ -263,4 +263,4 @@ Learn more in [Chainguard Libraries verification](/chainguard/libraries/verifica
 
 ## FAQs
 
-See the [Chainguard Libraries FAQ page](/chainguard/libraries/faq/) for common questions and issues.
+Refer to the [Chainguard Libraries FAQ page](/chainguard/libraries/faq/) for common questions and issues.

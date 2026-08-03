@@ -8,7 +8,7 @@ lead: "The Chainguard Repository is a single, policy-aware endpoint for all arti
 description: "Chainguard Repository Overview"
 type: "article"
 date: 2026-03-16T08:48:23+00:00
-lastmod: 2026-08-03T12:43:21+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 weight: 010
 ---
@@ -52,7 +52,7 @@ All upstream packages are checked against public malware identifier feeds, and a
 
 > **Note**: With fallback enabled, Chainguard's malware and greyware scanning covers upstream packages, which addresses the primary risk a cooldown period is meant to mitigate. A cooldown period can still add a small buffer against issues the broader community surfaces after publication and is applied globally across your organization, but it also adds operational complexity and can introduce breakage. Choose a cooldown policy based on your own risk tolerance and priorities.
 
-See [Libraries Policies](/chainguard/chainguard-repository/library-policies/) for more information.
+Refer to [Libraries Policies](/chainguard/chainguard-repository/library-policies/) for more information.
 
 ## Policies for Chainguard Containers
 
@@ -68,7 +68,7 @@ Available policies include:
 
 The packages that make up Chainguard Images are checked against public malware identifier feeds, and any package with a known malware idenitifier is remediated before being used in any image.
 
-See [Container Pull Policies](/chainguard/chainguard-repository/container-policies/) for more information.
+Refer to [Container Pull Policies](/chainguard/chainguard-repository/container-policies/) for more information.
 
 ## Management
 

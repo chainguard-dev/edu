@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "Getting started with the CVE Visualization feature."
 date: 2024-12-19T11:07:52+02:00
-lastmod: 2025-03-21T11:07:52+02:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -92,4 +92,4 @@ Some container images do not currently have a comparative alternative. In these 
 
 The CVE data used in these reports is from the [Grype vulnerability scanner](/chainguard/chainguard-images/staying-secure/working-with-scanners/grype-tutorial/). Vulnerability data is constantly evolving, so we scan container images each day and store the results. The results shown are the vulnerabilities found on the day in question; scanning the container images again with a newer database will show different results.
 
-For more information on CVEs see [What Are Software Vulnerabilities and CVEs](/software-security/cves/cve-intro/). You may also find our guide on [Using the Chainguard Directory and Console](/platform/console/images-directory/) to be of interest.
+For more information on CVEs refer to [What Are Software Vulnerabilities and CVEs](/software-security/cves/cve-intro/). You may also find our guide on [Using the Chainguard Directory and Console](/platform/console/images-directory/) to be of interest.

@@ -5,7 +5,7 @@ type: "article"
 lead: "Frequently asked questions about Octo STS, including troubleshooting, security considerations, and common use cases"
 description: "Learn about Octo STS for GitHub token federation, including setup issues, security best practices, and integration patterns"
 date: 2025-12-22T15:04:05+01:00
-lastmod: 2025-12-22T15:04:05+01:00
+lastmod: 2026-08-03T18:16:45+00:00
 tags: ["octo-sts", "FAQ"]
 draft: false
 images: []
@@ -51,7 +51,7 @@ Yes, Octo STS is open source and the hosted service at octo-sts.dev is free to u
 
 ### Can I self-host Octo STS?
 
-Yes, Octo STS is open source and can be self-hosted. See the [Octo STS repository](https://github.com/octo-sts/app) for deployment instructions.
+Yes, Octo STS is open source and can be self-hosted. Refer to the [Octo STS repository](https://github.com/octo-sts/app) for deployment instructions.
 
 ## Setup and Configuration
 
@@ -122,7 +122,7 @@ subject_pattern: "repo:org@<owner-id>/repo@<repo-id>:ref:refs/heads/.*"
 Exact matching is more secure because it's harder to accidentally grant broader access than intended.
 
 {{< note >}}
-These subjects use GitHub's immutable format, which embeds the numeric owner ID and repository ID in the `sub` claim (for example, `repo:org@123456/repo@654321:ref:refs/heads/main`). This format is the default for repositories created after July 15, 2026, and an opt-in for older repositories. Match the exact subject your repository's token carries. For how to find the IDs, see [Finding your repository's numeric identifiers](/platform/administration/assumable-ids/identity-examples/github-identity/#finding-your-repositorys-numeric-identifiers).
+These subjects use GitHub's immutable format, which embeds the numeric owner ID and repository ID in the `sub` claim (for example, `repo:org@123456/repo@654321:ref:refs/heads/main`). This format is the default for repositories created after July 15, 2026, and an opt-in for older repositories. Match the exact subject your repository's token carries. For how to find the IDs, refer to [Finding your repository's numeric identifiers](/platform/administration/assumable-ids/identity-examples/github-identity/#finding-your-repositorys-numeric-identifiers).
 {{< /note >}}
 
 ## Integration
@@ -242,4 +242,4 @@ Octo STS is open source. Contributions are welcome:
 - Submit pull requests for code changes
 - Share your use cases and integration patterns
 
-See the [repository](https://github.com/octo-sts/app) for contribution guidelines.
+Refer to the [repository](https://github.com/octo-sts/app) for contribution guidelines.

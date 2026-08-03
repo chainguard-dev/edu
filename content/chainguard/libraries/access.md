@@ -4,7 +4,7 @@ linktitle: "Access"
 description: "Learn how to access Chainguard Libraries for enhanced security in Java and Python dependencies, including authentication and organization setup"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-07-31T15:01:57+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -46,7 +46,7 @@ configuration. This option allows for faster initial setup, but it does not
 allow for global configuration. It requires configuration per project and
 workstation, which creates more overhead as you scale across teams and projects.
 
-Both approaches require pull tokens for authentication; see [Pull token
+Both approaches require pull tokens for authentication; refer to [Pull token
 characteristics and use](#pull-token-characteristics-and-use) for more information.
 
 > NOTE: For Python users, the [Chainguard keyring
@@ -244,7 +244,7 @@ export UV_INDEX_CHAINGUARD_PASSWORD="${CHAINGUARD_PYTHON_TOKEN}"
 
 This pairs well with the `eval` approach above: generate the
 `CHAINGUARD_PYTHON_IDENTITY_ID` and `CHAINGUARD_PYTHON_TOKEN` variables, then
-map them to uv's index-scoped names. See the [uv build
+map them to uv's index-scoped names. Refer to the [uv build
 configuration](/chainguard/libraries/python/build-configuration/#uv) for index
 setup details.
 
