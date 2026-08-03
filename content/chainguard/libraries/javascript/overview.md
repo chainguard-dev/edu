@@ -6,7 +6,7 @@ aliases:
 description: "JavaScript libraries for your application development"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2025-06-05T09:00:00+00:00
+lastmod: 2026-08-03T14:51:58+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript", "Overview"]
 menu:
@@ -94,6 +94,8 @@ Configure this endpoint [globally through a repository manager](/chainguard/libr
 ## Updating lockfile hashes
 
 Existing JavaScript lockfiles usually contain upstream integrity hashes. Because Chainguard rebuilds packages from verified source, those hashes must be updated before reinstalling. Use `chainctl libraries update-hashes` to update them in place. Learn more in [Build configuration](/chainguard/libraries/javascript/build-configuration/#updating-lockfile-hashes/).
+
+For a step-by-step walkthrough of moving an existing project to Chainguard Libraries, see the [JavaScript migration guide](/chainguard/libraries/javascript/migration/).
 
 If you install through a repository manager, see [Global configuration](/chainguard/libraries/javascript/global-configuration/#updating-lockfile-hashes/).
 

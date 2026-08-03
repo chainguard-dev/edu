@@ -4,7 +4,7 @@ linktitle: "Java overview"
 description: "Learn about Chainguard Libraries for Java, providing enhanced security for Maven dependencies through automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-08-03T14:51:58+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java", "Overview"]
 menu:
@@ -111,6 +111,10 @@ is strongly recommended.
 Alternatively, you can use the token for direct access from a build tool as
 discussed in [Build
 configuration](/chainguard/libraries/java/build-configuration/).
+
+For a step-by-step walkthrough of moving an existing Maven or Gradle project to
+Chainguard Libraries, see the [Java migration
+guide](/chainguard/libraries/java/migration/).
 
 ## CVE remediation
 

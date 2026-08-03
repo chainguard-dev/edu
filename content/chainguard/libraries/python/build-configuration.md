@@ -4,7 +4,7 @@ linktitle: "Build configuration"
 description: "Configuring Chainguard Libraries for Python on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-07-29T14:25:06+00:00
+lastmod: 2026-08-03T14:51:58+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 menu:
@@ -34,6 +34,10 @@ default, it serves only Chainguard-built artifacts. When [upstream
 fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) is
 enabled for your organization, the same endpoint can also serve requested
 versions from PyPI under Chainguard security controls.
+
+If you are migrating an existing project to Chainguard Libraries, follow the
+[Python migration guide](/chainguard/libraries/python/migration/) for a
+step-by-step walkthrough.
 
 See the [minimal example projects](#minimal-example-projects) on this page for demonstrations using `uv` and `pip`.
 
