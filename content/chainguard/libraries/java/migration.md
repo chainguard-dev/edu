@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Java project to pull dependencies from Chainguard Libraries"
 date: 2026-07-02T00:00:00+00:00
-lastmod: 2026-07-02T00:00:00+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 tags: ["Chainguard Libraries", "Java"]
 menu:
   docs:
@@ -47,9 +47,9 @@ chainctl libraries policy create --name=java-disable-cooldown --cooldown-days=0
 chainctl libraries policy enable java-disable-cooldown --ecosystem=JAVA --mode=ENFORCE
 ```
 
-It can take up to 30 minutes for the fallback and cooldown policies to take effect. Learn more about cooldown and other policies in the [Chainguard Libraries Access documentation](/chainguard/libraries/access/#manage-library-policies).
+It can take up to 30 minutes for the fallback and cooldown policies to take effect. Learn more about cooldown and other policies in the [Libraries Policies documentation](/chainguard/chainguard-repository/libraries-policies/).
 
-> **Note**: If you choose to manage your own fallback to upstream repositories, see the following docs pages for more information: [Build configuration](/chainguard/libraries/java/build-configuration/) for direct access instructions or [Global configuration](/chainguard/libraries/java/global-configuration/) for repo manager instructions. Note that configuring a public fallback bypasses the protections provided by Chainguard.
+> **Note**: If you choose to manage your own fallback to upstream repositories, refer to the following docs pages for more information: [Build configuration](/chainguard/libraries/java/build-configuration/) for direct access instructions or [Global configuration](/chainguard/libraries/java/global-configuration/) for repo manager instructions. Note that configuring a public fallback bypasses the protections provided by Chainguard.
 
 ## Step 1: Confirm your baseline build
 
@@ -286,7 +286,7 @@ Once configured, point your build tool at your repository manager URL. In this s
 
 {{% tab title="Maven" %}}
 
-Create or update `~/.m2/settings.xml` to point Maven at your repository manager and override Central with invalid URLs. See example settings files in [Chainguard's demo repository on GitHub](https://github.com/chainguard-demo/chainguard-libraries-java/tree/main/tools) for different repository managers.
+Create or update `~/.m2/settings.xml` to point Maven at your repository manager and override Central with invalid URLs. Refer to example settings files in [Chainguard's demo repository on GitHub](https://github.com/chainguard-demo/chainguard-libraries-java/tree/main/tools) for different repository managers.
 
 Use a configuration similar to the following. Make sure to update the credentials in the `server` section to use your repository manager account credentials, using environment variables when possible. This example uses environment variables for Artifactory credentials:
 
@@ -505,6 +505,8 @@ If all artifacts download from Central, your credentials may be invalid or expir
 
 To check whether a specific artifact was built by Chainguard, use `chainctl libraries verify /full/path/to/artifact.jar`. Verify artifacts immediately after a clean build, before any repackaging.
 
+When upstream fallback is enabled, [packages that aren't built by Chainguard] are subject to Chainguard's security controls.
+
 {{< tabs >}}
 
 {{% tab title="Maven" %}}
@@ -584,9 +586,23 @@ chainctl libraries verify ~/Library/Caches/bazel/_bazel_example/c22a55500...f423
 
 {{< /tabs >}}
 
-A successfully verified artifact produces output similar to:
+A successful result shows what percentage of your project's dependencies were built by Chainguard:
 
 ```bash
 Artifact: /path/to/artifact.jar
 Verification Coverage: 100.00%
 ```
+
+## Packages not available in Chainguard Libraries
+
+Chainguard Libraries covers a large and growing collection of Java packages, but not every package or version is available. If a package is missing, your install will fail with a 404 unless you have configured [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls).
+
+With upstream fallback enabled, packages not yet available from Chainguard are proxied from Maven Central, subject to Chainguard's security controls. Confirm your current policy with:
+
+```shell
+chainctl libraries entitlements list
+```
+
+For repository manager setups, Chainguard recommends using the configurable fallback rather than configuring a separate public registry fallback in your repository manager, to preserve Chainguard’s security controls.
+
+Learn more about upstream fallback configurations in the [Libraries Overview](/chainguard/libraries/overview/#upstream-fallback-and-controls).

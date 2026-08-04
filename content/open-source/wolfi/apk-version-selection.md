@@ -3,7 +3,7 @@ title: "Package Version Selection"
 type: "article"
 draft: false
 date: 2023-11-06T08:49:31+00:00
-lastmod: 2023-11-06T08:49:31+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 tags: ["Chainguard Containers", "Wolfi", "apk", "melange"]
 images: []
 menu:
@@ -35,7 +35,7 @@ apk add go
 
 This will install the latest stable version of Go. This is nearly always what you want, since it gives you stable software, with as many updates and vulnerability fixes as possible.
 
-See below for information on the behavior of pre-release versions.
+Refer to the section below for information on the behavior of pre-release versions.
 
 ## Fuzzy Matching
 

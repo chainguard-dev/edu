@@ -166,3 +166,15 @@ and other contributors are unaffected.
 - [Complete pre-commit hook guide for contributors](docs/pre-commit-hook-guide.md) — detailed guide with examples
 - [Tag guidelines](TAG_GUIDELINES.md) — the approved tag taxonomy
 - [Custom dictionary](.aspell.en.pws) — technical terms for the spell checker
+
+### Commit signing
+
+Every commit in a pull request must be cryptographically signed. This repository
+uses [gitsign](https://github.com/sigstore/gitsign) for keyless signing, and the
+**Enforce - Commit Signing** check verifies each commit. Commits made through the
+GitHub web interface, such as merges and applied suggestions, are signed by GitHub
+and pass automatically.
+
+To sign your commits, install and configure gitsign with your Chainguard identity.
+See [Chainguard Guardener commit verification](https://edu.chainguard.dev/chainguard/guardener/github/commit-verification/)
+for how the check works, and [gitsign](https://github.com/sigstore/gitsign) for setup.

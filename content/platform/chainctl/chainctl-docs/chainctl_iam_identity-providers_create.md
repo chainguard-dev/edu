@@ -1,5 +1,5 @@
 ---
-date: 2026-07-27T18:08:10Z
+date: 2026-07-31T18:12:39Z
 title: "chainctl iam identity-providers create"
 slug: chainctl_iam_identity-providers_create
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_create/
@@ -45,7 +45,7 @@ chainctl iam identity-providers create --parent ORGANIZATION_NAME | ORGANIZATION
       --oidc-additional-scopes stringArray   additional scopes to request for OIDC type identity provider
       --oidc-client-id string                client id for OIDC type identity provider
       --oidc-client-secret string            client secret for OIDC type identity provider
-      --oidc-groups-claim string             OIDC token claim carrying group memberships, used for group-to-role mappings (empty disables group mapping)
+      --oidc-groups-claim string             OIDC token claim carrying group memberships, used for group-to-role mappings (empty disables group mapping). Manage the mappings with 'chainctl iam identity-providers group-mappings'.
       --oidc-issuer string                   Issuer URL for OIDC type identity provider
       --oidc-pkce-enabled                    Include a PKCE challenge during authorization code exchange. Upstream IDP must be configured to respond.
       --parent string                        The name or ID of the location the identity provider belongs to.

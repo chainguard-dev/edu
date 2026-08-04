@@ -4,7 +4,7 @@ linktitle: "Python overview"
 description: "Learn about Chainguard Libraries for Python, providing enhanced security for PyPI packages through automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-04-09T04:00:00+00:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python", "Overview"]
 menu:
@@ -315,6 +315,8 @@ The option `-L` is required to follow redirects for the actual file locations.
 
 ## Hash verification when migrating to Chainguard Libraries
 
+For a step-by-step walkthrough of moving an existing project to Chainguard Libraries, check out the [Python migration guide](/chainguard/libraries/python/migration/). This section covers hash verification, one part of that process.
+
 Because Chainguard rebuilds Python packages from source rather than mirroring upstream PyPI artifacts, it is expected that checksums for Chainguard-built packages differ from their PyPI counterparts, even for identical package versions. This affects any tool that pins or verifies hashes:
 
 * Tools such as `pip` verify that downloaded files match the hashes specified in requirements.txt when using `--require-hashes` or when hashes are pinned
@@ -361,7 +363,7 @@ docker build --no-cache
 
 Existing Python lockfiles usually contain upstream integrity hashes. Because Chainguard rebuilds packages from verified source, those hashes must be updated before reinstalling. Use `chainctl libraries update-hashes` to update them in place. Learn more in [Build configuration](/chainguard/libraries/python/build-configuration/).
 
-If you install through a repository manager, see [Global configuration](/chainguard/libraries/python/global-configuration/#updating-lockfile-hashes/).
+If you install through a repository manager, refer to [Global configuration](/chainguard/libraries/python/global-configuration/#updating-lockfile-hashes/).
 
 #### Update lockfiles manually
 

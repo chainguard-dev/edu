@@ -8,14 +8,14 @@ lead: "The Chainguard Repository is a single, policy-aware endpoint for all arti
 description: "Chainguard Repository Overview"
 type: "article"
 date: 2026-03-16T08:48:23+00:00
-lastmod: 2026-03-24T00:48:23+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 weight: 010
 ---
 
 The Chainguard Repository is a single, policy-managed experience for pulling artifacts that Chainguard either builds or distributes. It gives your organization one place to pull open source artifacts, configure security policies that govern how they are consumed, and monitor coverage and policy enforcement across your environment.
 
-All artifacts served through the Chainguard Repository are either rebuilt by Chainguard from verifiable source in a SLSA L2-compliant build environment, or sourced from upstream public registries with configurable policy controls. As Chainguard builds more artifacts from source, your organization's risk shrinks automatically without any changes to your configuration or developer workflows.
+All artifacts served through the Chainguard Repository are either rebuilt by Chainguard from verifiable source in a SLSA L3-compliant build environment, or sourced from upstream public registries with configurable policy controls. As Chainguard builds more artifacts from source, your organization's risk shrinks automatically without any changes to your configuration or developer workflows.
 
 ## Artifact types
 
@@ -52,7 +52,7 @@ All upstream packages are checked against public malware identifier feeds, and a
 
 > **Note**: With fallback enabled, Chainguard's malware and greyware scanning covers upstream packages, which addresses the primary risk a cooldown period is meant to mitigate. A cooldown period can still add a small buffer against issues the broader community surfaces after publication and is applied globally across your organization, but it also adds operational complexity and can introduce breakage. Choose a cooldown policy based on your own risk tolerance and priorities.
 
-See [Libraries Overview](/chainguard/libraries/overview/#upstream-fallback-and-controls) for more information.
+Refer to [Libraries Policies](/chainguard/chainguard-repository/library-policies/) for more information.
 
 ## Policies for Chainguard Containers
 
@@ -60,14 +60,15 @@ As with Libraries, you can also set policies for Chainguard Containers to define
 
 Available policies include:
 
-* **no-eol**: Prevent end-of-life container images from being used.
 * **cooldown**: Block newly published container image versions for a defined period before they can be pulled, giving the security community time to detect threats. The cooldown is configurable (0 to 3650 days) with a default of 7 days. It is applied globally across all packages to prevent dependency resolution errors.
+* **no-eol**: Prevent end-of-life container images from being used.
+* **support-window**: Requires an image's primary package to have a minimum remaining support period, measured as the span between the package's release date and its EOL date. An image is allowed when that span is greater than or equal to the configured number of months, or when the package has no recorded EOL date.
 
 > **Note**: Chainguard recommends a 7-day cooldown when enabling upstream fallback, to block a large share of malicious packages identified shortly after publication. Shorter cooldown periods increase the risk of pulling malicious or compromised upstream packages before the broader ecosystem can detect and report them.
 
 The packages that make up Chainguard Images are checked against public malware identifier feeds, and any package with a known malware idenitifier is remediated before being used in any image.
 
-See [Container Pull Policies](/chainguard/chainguard-images/staying-secure/policies/) for more information.
+Refer to [Container Pull Policies](/chainguard/chainguard-repository/container-policies/) for more information.
 
 ## Management
 

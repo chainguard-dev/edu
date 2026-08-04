@@ -4,7 +4,7 @@ linktitle: "Configuration"
 description: "Understand Chainguard Guardener's .chainguard/ configuration model and how to enable features per repository."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-07-08T00:00:00+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["GitHub", "Configuration"]
 images: []
@@ -15,7 +15,7 @@ weight: 020
 toc: true
 ---
 
-Chainguard Guardener is configured entirely through files committed to a `.chainguard/` directory — either in each repository, or once at the organization level in your `.github` repository. This page explains the configuration model that all the Guardener features share. For the specific options of each feature, see its dedicated page.
+Chainguard Guardener is configured entirely through files committed to a `.chainguard/` directory — either in each repository, or once at the organization level in your `.github` repository. This page explains the configuration model that all the Guardener features share. For the specific options of each feature, refer to its dedicated page.
 
 ## The `.chainguard/` directory
 

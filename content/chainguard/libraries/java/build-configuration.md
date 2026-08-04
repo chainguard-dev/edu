@@ -4,7 +4,7 @@ linktitle: "Build configuration"
 description: "Configuring Chainguard Libraries for Java on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2025-04-21T13:22:00+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java"]
 menu:
@@ -36,6 +36,10 @@ on any build server such as Jenkins, TeamCity, GitHub or other infrastructure
 that builds the applications or otherwise downloads and uses relevant libraries.
 
 The `https://libraries.cgr.dev/java/` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for Java. By default, it serves only Chainguard-built artifacts. When [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) is enabled for your organization, the same endpoint can also serve requested versions from Maven Central under Chainguard security controls.
+
+If you are migrating an existing project to Chainguard Libraries, follow the
+[Java migration guide](/chainguard/libraries/java/migration/) for a step-by-step
+walkthrough.
 
 ## Library access approaches
 
@@ -391,7 +395,7 @@ details must remain within the settings file.
 
 If your `settings.xml` is using credentials set as environment variables, ensure the variables are exported.
 
->Note: Upstream fallback includes a 7-day cooldown by default. If you have a cooldown policy configured, your build will fail if a package falls within the cooldown window. See [the FAQ](#build-fails-with-unknown-host-invalid-or-nodename-nor-servname-provided) on this page for more information.
+>Note: Upstream fallback includes a 7-day cooldown by default. If you have a cooldown policy configured, your build will fail if a package falls within the cooldown window. Refer to [the FAQ](#build-fails-with-unknown-host-invalid-or-nodename-nor-servname-provided) on this page for more information.
 
 ### Minimal example project
 
@@ -941,4 +945,4 @@ or not known
 
 The `https://invalid` URL in the error indicates that Chainguard blocked the artifact rather than serving it, and the fallback to Central was also blocked. This happens when a recently published package falls within the cooldown window — a security feature that holds newly published artifacts for a configurable period before serving them, to allow time for malware scanning.
 
-To avoid build failures, you can [disable the cooldown or decrease its length](/chainguard/libraries/access/#policy).
+To avoid build failures, you can [disable the cooldown or decrease its length](/chainguard/chainguard-repository/library-policies/#cooldown-policies).

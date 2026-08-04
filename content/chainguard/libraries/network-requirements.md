@@ -4,7 +4,7 @@ linktitle: "Network requirements"
 description: "Learn the network requirements for accessing Chainguard Libraries, including domains needed for authentication, package downloads, and verification tools"
 type: "article"
 date: 2025-06-04T09:30:00+00:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-08-03T13:34:48+00:00
 draft: false
 tags: ["Chainguard Libraries", "Reference"]
 menu:
@@ -18,7 +18,7 @@ toc: true
 
 ## Access for chainctl and other tools
 
-For initial configuration with chainctl as well as for verification of
+For initial configuration with chainctl and for verification of
 downloaded libraries with cosign and other tools, you must allow HTTPS access to
 the following domains:
 
@@ -29,16 +29,21 @@ the following domains:
 * `console.chainguard.dev` for the Chainguard Console to administrate and use your
   Chainguard accounts.
 
-## Access for development tools
+## Access for repository managers
 
 When using a repository manager, ensure your network allows outbound HTTPS access
 to the following domains from your repository manager. Your workstations and build
 infrastructure typically require no additional network access, as libraries are
-served through your repository manager. If accessing Chainguard Libraries directly
-for testing with curl or builds, ensure your network allows outbound HTTPS access
-to these domains from your workstation:
+served through your repository manager.
 
 * `libraries.cgr.dev` and `9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com` for library access
-* `issuer.enforce.dev` for authentication
+
+## Access for development tools
+
+If accessing Chainguard Libraries directly — for example, testing with curl or running builds without a repository manager — ensure your network allows outbound HTTPS access to the following domains from your workstation:
+
+* `libraries.cgr.dev` and `9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com` for library access
+
+If you're also using `chainctl` to verify downloaded libraries in this workflow, see [Access for chainctl and other tools](#access-for-chainctl-and-other-tools) for the additional domains required.
 
 > Note that the `9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com` host is used to serve files via `libraries.cgr.dev`. The same host is also used to serve Chainguard Container images.

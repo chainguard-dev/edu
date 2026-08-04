@@ -4,7 +4,7 @@ linktitle: "Build configuration"
 description: "Configuring Chainguard Libraries for JavaScript on your workstation"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2025-10-22T20:44:26+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
@@ -57,11 +57,11 @@ Libraries for JavaScript repository at `https://libraries.cgr.dev/javascript/`
 requires authentication with username and password from a pull token as detailed
 in [access documentation](/chainguard/libraries/access/#pull-token).
 
-See the minimal example projects on this page for demonstrations using direct access for each build tool.
+Refer to the minimal example projects on this page for demonstrations using direct access for each build tool.
 
 > Note: Direct access requires per-project and per-workstation configuration.
 For organizations with multiple teams, proxying through an artifact manager is
-recommended. See the [global
+recommended. Refer to the [global
 configuration](/chainguard/libraries/javascript/global-configuration/) for setup
 guides.
 
@@ -81,8 +81,10 @@ Learn more in the [JavaScript migration guide](/chainguard/libraries/javascript/
 
 ### Authentication
 
-`update-hashes` fetches checksums from Chainguard Libraries (`libraries.cgr.dev`),
-which requires authentication. Choose whichever fits your environment:
+`update-hashes` fetches checksums from Chainguard Libraries,
+which requires authentication. Where it fetches from depends on your environment: some setups authenticate directly to `libraries.cgr.dev`, but if your build routes through a repository manager configured as a pull-through proxy for Chainguard Libraries, point `update-hashes` there instead with `--registry-url` so it validates against the same source your build used.
+
+Authenticating to `libraries.cgr.dev` directly:
 
 - **Logged in locally**: Run the command while authenticated; if you have no
   other credential it prompts for an organization and authenticates with a
@@ -100,14 +102,17 @@ which requires authentication. Choose whichever fits your environment:
     secret), pass it as basic auth: `--username <identity> --password <secret>`,
     or set `CHAINCTL_REGISTRY_USERNAME` / `CHAINCTL_REGISTRY_PASSWORD`.
 - **From `~/.netrc`**: Credentials for the registry host are read from `~/.netrc`
-  (or `$NETRC`); see [.netrc for authentication](/chainguard/libraries/access/#netrc).
+  (or `$NETRC`); refer to [.netrc for authentication](/chainguard/libraries/access/#netrc).
   Pass `--ignore-netrc` to skip an unrelated entry.
 
-When you target a repository manager with `--registry-url` (for example
-Artifactory or JFrog), authenticate with **that** registry's credentials —
+Authenticating to a repository manager:
+
+When you target a repository manager with `--registry-url`, authenticate with **that** registry's credentials —
 `--username`/`--password`, the `CHAINCTL_REGISTRY_USERNAME` /
 `CHAINCTL_REGISTRY_PASSWORD` environment variables, or a matching `~/.netrc`
 entry. Chainguard-scoped tokens are never sent to third-party hosts.
+
+Learn more about using a repository manager in the [global configuration documentation](/chainguard/libraries/javascript/global-configuration/).
 
 <a id="npm"></a>
 
@@ -363,7 +368,7 @@ other desired packages for further testing.
 
 [pnpm](https://pnpm.io/) is a fast, disk space-efficient package manager for
 JavaScript, designed as an alternative to npm and Yarn. For
-more information, see the [pnpm documentation](https://pnpm.io/motivation).
+more information, refer to the [pnpm documentation](https://pnpm.io/motivation).
 
 **Limitations**
 

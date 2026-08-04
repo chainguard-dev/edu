@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "Learn how to use the Chainguard Containers Tag History API to fetch the tag history of image variants."
 date: 2023-05-26T08:49:31+00:00
-lastmod: 2025-06-16T15:22:20+01:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -27,7 +27,7 @@ A container image digest is a unique identifier that is generated for each and e
 
 If you have a container environment that was working fine but suddenly breaks with a new build, using a previous container image build version by declaring an image digest instead of a tag is a way to keep things up and running until you're able to assert that a new version of a container environment works as expected with your application.
 
-> NOTE: If you are looking for a quick way to learn the tag history of a container image, you may want to consider using the `chainctl images history` command instead of the API. See **[Examine the History of Container Images](/chainguard/chainctl-usage/chainctl-images/#examine-the-history-of-container-images)** for more information.
+> NOTE: If you are looking for a quick way to learn the tag history of a container image, you may want to consider using the `chainctl images history` command instead of the API. Refer to **[Examine the History of Container Images](/chainguard/chainctl-usage/chainctl-images/#examine-the-history-of-container-images)** for more information.
 
 ## Obtaining a Registry Token
 

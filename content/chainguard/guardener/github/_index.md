@@ -4,7 +4,7 @@ linktitle: "GitHub App"
 description: "The Chainguard Guardener GitHub App secures and maintains your repositories through capabilities you enable per repository with .chainguard/ configuration files."
 type: "article"
 date: 2026-07-13T00:00:00+00:00
-lastmod: 2026-07-13T00:00:00+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["GitHub"]
 images: []
@@ -22,6 +22,7 @@ The Chainguard Guardener GitHub App is a single, hardened bot that runs against 
 ## Getting set up
 
 - **[Getting started](/chainguard/guardener/github/getting-started/)** — Install the GitHub App and link your Chainguard organization to your GitHub organization.
+- **[App Connections](/chainguard/guardener/github/app-connections/)** — Set up, inspect, and remove the connections between your Chainguard organization and your GitHub organizations.
 - **[Configuration](/chainguard/guardener/github/configuration/)** — Understand the `.chainguard/` configuration model that all the GitHub App capabilities share.
 
 ## Capabilities
@@ -31,4 +32,4 @@ The Chainguard Guardener GitHub App is a single, hardened bot that runs against 
 
 Each capability is configured with its own file in the `.chainguard/` directory.
 
-> **Note:** For Dockerfile migration, which runs locally through `chainctl agent dockerfile` rather than the GitHub App, see [Dockerfile migration](/chainguard/guardener/dockerfile-migration/).
+> **Note:** For Dockerfile migration, which runs locally through `chainctl agent dockerfile` rather than the GitHub App, refer to [Dockerfile migration](/chainguard/guardener/dockerfile-migration/).

@@ -1,5 +1,5 @@
 ---
-date: 2026-07-27T18:08:10Z
+date: 2026-07-31T18:12:39Z
 title: "chainctl iam external-group-role-mappings"
 slug: chainctl_iam_external-group-role-mappings
 url: /platform/chainctl/chainctl-docs/chainctl_iam_external-group-role-mappings/
@@ -11,7 +11,7 @@ toc: true
 ---
 ## chainctl iam external-group-role-mappings
 
-Manage IdP group-to-role mappings.
+Manage IdP group-to-role mappings (also available under 'iam identity-providers group-mappings').
 
 ### Options inherited from parent commands
 

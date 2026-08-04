@@ -6,7 +6,7 @@ aliases:
 description: "Browse, inspect, install, and run hardened agent skills from Chainguard's public registry with chainctl."
 type: "article"
 date: 2026-06-08T08:48:45+00:00
-lastmod: 2026-06-08T08:48:45+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Agent Skills", "Overview"]
 images: []
@@ -184,4 +184,4 @@ By default, `uninstall` removes the skill from every agent directory where it's 
 
 ## Next steps
 
-To publish, install, and run skills scoped to your own organization, see [Getting started with the Chainguard Skills Registry](/chainguard/agent-skills/skills-registry/).
+To publish, install, and run skills scoped to your own organization, refer to [Getting started with the Chainguard Skills Registry](/chainguard/agent-skills/skills-registry/).

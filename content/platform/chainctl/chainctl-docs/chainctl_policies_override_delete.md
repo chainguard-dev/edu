@@ -1,5 +1,5 @@
 ---
-date: 2026-07-27T18:08:10Z
+date: 2026-07-31T18:12:39Z
 title: "chainctl policies override delete"
 slug: chainctl_policies_override_delete
 url: /platform/chainctl/chainctl-docs/chainctl_policies_override_delete/
@@ -17,8 +17,13 @@ Delete a policy override.
 
 Delete a policy override to revoke a waiver.
 
-Once deleted, the targeted artifact is again subject to the policy's
-result. Pass the override ID as a positional argument; use
+Deletion happens immediately and is not confirmed: there is no prompt
+and no --force flag, so the override is removed as soon as you run the
+command. Once removed, the targeted artifact is again subject to the
+policy's result.
+
+Pass the override's full ID (a UIDP) as the positional argument; it is
+globally unique, so no --parent is needed. Use
 "chainctl policies override list" to find it.
 
 ```

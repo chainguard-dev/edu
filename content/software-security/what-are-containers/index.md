@@ -5,7 +5,7 @@ description: "An overview of the structure, contents, and applications of contai
 lead: "An overview of the structure, contents, and applications of container technology"
 type: "article"
 date: 2023-10-17T20:02:23+00:00
-lastmod: 2026-07-27T16:03:25+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 contributors: ["Michelle McAveety"]
 draft: false
 tags: ["Conceptual", "Overview"]
@@ -53,4 +53,4 @@ To learn more, refer to [Selecting a base image](/software-security/selecting-a-
 
 ## Learn more
 
-To get started, see [Chainguard Containers](/chainguard/chainguard-images/), hardened minimal images for secure containerized applications. To build your own images, see [Wolfi](/open-source/wolfi/), a Linux undistro designed as a base for lightweight containers. To understand the standards that govern container image formats, runtimes, and distribution, see [What is the Open Container Initiative?](/open-source/oci/what-is-the-oci/).
+To get started, refer to [Chainguard Containers](/chainguard/chainguard-images/), hardened minimal images for secure containerized applications. To build your own images, refer to [Wolfi](/open-source/wolfi/), a Linux undistro designed as a base for lightweight containers. To understand the standards that govern container image formats, runtimes, and distribution, refer to [What is the Open Container Initiative?](/open-source/oci/what-is-the-oci/).

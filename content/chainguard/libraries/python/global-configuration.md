@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for Python in your organization"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2025-04-07T14:42:00+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 images: []
@@ -141,7 +141,7 @@ Next, configure the upstream proxies:
 
 ### Build tool access
 
-See the page on [build tool configuration for Chainguard Libraries for
+Refer to the page on [build tool configuration for Chainguard Libraries for
 Python](/chainguard/libraries/python/build-configuration/#cloudsmith) for
 information on accessing credentials and setting up build tools.
 
@@ -322,7 +322,7 @@ Do not proceed to virtual repository setup or build configuration until the chec
 
 ### Build tool access
 
-See the page on [build tool configuration for Chainguard Libraries for
+Refer to the page on [build tool configuration for Chainguard Libraries for
 Python](/chainguard/libraries/python/build-configuration/#artifactory) for
 information on accessing credentials and setting up build tools.
 
@@ -378,6 +378,6 @@ Finally, create a new repository group and add the repositories:
 
 ### Build tool access
 
-See the page on [build tool configuration for Chainguard Libraries for
+Refer to the page on [build tool configuration for Chainguard Libraries for
 Python](/chainguard/libraries/python/build-configuration/#nexus) for information on
 accessing credentials and setting up build tools.

@@ -6,6 +6,7 @@ linktitle: "Find a Matching Image"
 description: "How to call the Chainguard Image Matcher API with an existing SBOM to find the closest Chainguard image equivalent."
 type: "article"
 date: 2026-05-26T00:00:00+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 weight: 02
 draft: false
 tags: ["Chainguard Images", "Migration", "SBOM", "API"]
@@ -13,7 +14,7 @@ tags: ["Chainguard Images", "Migration", "SBOM", "API"]
 
 This guide walks through calling the [Chainguard Image Matcher API](/chainguard/api/spec-api-v1/#tag/imagematcher) to find the best Chainguard equivalent for an existing container image. It assumes you already have an SBOM for the image you want to migrate.
 
-For background on how the matcher works and how it scores recommendations, see [Image Matcher Overview](/chainguard/migration/image-matcher/overview/).
+For background on how the matcher works and how it scores recommendations, refer to [Image Matcher Overview](/chainguard/migration/image-matcher/overview/).
 
 ## Prerequisites
 

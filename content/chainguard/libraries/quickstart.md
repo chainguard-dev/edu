@@ -4,6 +4,7 @@ linktitle: "Quick Start"
 description: "Learn how to get started with Chainguard Libraries"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -19,20 +20,24 @@ verifiable source, or as a malicious install-time script that runs the moment a
 dependency is pulled. Recent attacks on LiteLLM, Telnyx, and Axios all followed
 this pattern.
 
-Chainguard Libraries are rebuilt from verified source in an isolated build
-environment, making them malware-resistant by design. When a package is
-available as a Chainguard-built library, that rebuilt package is served first.
-When you use the [upstream
+Chainguard Libraries for Java, JavaScript, and Python are rebuilt from verified
+source in an isolated build environment, making them malware-resistant by
+design. When a package is available as a Chainguard-built library, that rebuilt
+package is served first. When you use the [upstream
 fallback](/chainguard/libraries/overview/#upstream-fallback-policy-and-controls),
 the same ecosystem endpoint can also serve eligible upstream packages that
 Chainguard has not yet built, subject to configurable policy controls such as
-cooldown and malware scanning.
+cooldown and malware scanning. This gives your engineers drop-in replacements
+for the packages they already use, with no breaking changes.
 
-This gives your engineers drop-in replacements for the packages they already
-use, with no breaking changes.
+This guide covers the high-level steps to get up and running with Chainguard
+Libraries. For full reference documentation on any step, follow the links
+provided throughout this page. For ecosystem-specific guides, refer to the following
+pages:
 
-This guide covers the high-level steps to get up and running. For full reference
-documentation on any step, follow the links provided.
+* [Java migration guide](/chainguard/libraries/java/migration/)
+* [JavaScript migration guide](/chainguard/libraries/javascript/migration/)
+* [Python migration guide](/chainguard/libraries/python/migration/)
 
 ## Prerequisites
 
@@ -56,7 +61,7 @@ Before getting started:
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT
 ```
 
-The available `ecosystems` are `JAVASCRIPT`, `JAVA`, and `PYTHON`.
+The available `ecosystems` are `JAVA`, `JAVASCRIPT`, and `PYTHON`.
 
 Alternatively, you can create an entitlement and pull token in the Chainguard Console: while viewing a library ecosystem page, follow the prompts to create an access token.
 
@@ -66,21 +71,14 @@ There are two ways to access Chainguard Libraries: using an [artifact manager](#
 
 ### Artifact manager
 
-Configure credentials once in a tool like JFrog Artifactory, Sonatype Nexus, or Cloudsmith. This centralizes policy, logging, and fallback behavior, and is the safest approach for organizations with multiple teams and applications.
+Configure credentials once in a tool like JFrog Artifactory, Sonatype Nexus, or
+Cloudsmith. This centralizes policy, logging, and fallback behavior, and is the
+safest approach for organizations with multiple teams and applications.
 
-If you [configure upstream fallback](/chainguard/libraries/overview/#upstream-fallback-policy-and-controls), the same ecosystem endpoint can serve both:
-
-* Libraries rebuilt from source by Chainguard, and
-* Eligible packages from the upstream public registry when Chainguard has not built that package or version yet
-
-Upstream packages served through the Chainguard Repository are subject to configurable policy controls such as cooldown and malware protection. It is strongly recommended that you follow this approach.
-
-Alternatively, you can configure your repository manager to fallback to the upstream public repositories for packages not available from Chainguard Libraries, as described in the global configuration docs for each ecosystem. Packages sourced from public registries are **not** covered by Chainguard's
-malware-resistance guarantees. If you choose this option, we strongly recommend
-configuring a quarantine or cooldown period on your fallback repository so that
-newly published or updated packages are not immediately available to developers.
-Chainguard has no control over malware protection for packages sourced from
-public registries.
+Learn how to configure a repository manager in the global configuration
+documentation for [Java](/chainguard/libraries/java/global-configuration/),
+[JavaScript](/chainguard/libraries/javascript/global-configuration/), and
+[Python](/chainguard/libraries/python/global-configuration/).
 
 ### Direct access
 
@@ -91,29 +89,21 @@ per-workstation configuration. This increases the risk of credentials being
 committed to source control or going stale.
 
 Learn how to set up direct access in the build configuration documentation for
-[Python](/chainguard/libraries/python/build-configuration/),
+[Java](/chainguard/libraries/java/build-configuration/),
 [JavaScript](/chainguard/libraries/javascript/build-configuration/), and
-[Java](/chainguard/libraries/java/build-configuration/).
+[Python](/chainguard/libraries/python/build-configuration/).
 
 ## Step 2: Create a pull token
 
 [Pull tokens](/chainguard/libraries/access/#creating-pull-tokens-for-libraries)
-are required for authentication. You can create one using `chainctl`:
+are required for authentication. You can [create one using `chainctl`](/platform/chainctl/chainctl-docs/chainctl_auth_pull-token_create/):
 
 {{< tabs >}}
 
 {{% tab title="Java" %}}
 
 ```bash
-chainctl auth pull-token --repository=java --ttl=720h
-```
-
-{{% /tab %}}
-
-{{% tab title="Python" %}}
-
-```bash
-chainctl auth pull-token --repository=python --ttl=720h
+chainctl auth pull-token create --repository=java --ttl=720h
 ```
 
 {{% /tab %}}
@@ -121,7 +111,15 @@ chainctl auth pull-token --repository=python --ttl=720h
 {{% tab title="JavaScript" %}}
 
 ```bash
-chainctl auth pull-token --repository=javascript --ttl=720h
+chainctl auth pull-token create --repository=javascript --ttl=720h
+```
+
+{{% /tab %}}
+
+{{% tab title="Python" %}}
+
+```bash
+chainctl auth pull-token create --repository=python --ttl=720h
 ```
 
 {{% /tab %}}
@@ -142,10 +140,15 @@ Learn more about pull tokens, and using environment variables for pull token cre
 ## Step 3: Configure your build tools
 
 Once you have a pull token, you can configure your build tool. Configuration
-steps vary by build tool and ecosystem. See the ecosystem-specific documentation
+steps vary by build tool and ecosystem. Refer to the ecosystem-specific documentation
 pages for instructions.
 
-If you configure [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-policy-and-controls), the same endpoint can serve both Chainguard-built artifacts and upstream arfifacts through the Chainguard Repository.
+If you [configure upstream fallback](/chainguard/libraries/overview/#upstream-fallback-policy-and-controls), the same ecosystem endpoint can serve both:
+
+* Libraries rebuilt from source by Chainguard, and
+* Eligible packages from the upstream public registry when Chainguard has not built that package or version yet
+
+Upstream packages served through the Chainguard Repository are subject to configurable policy controls such as cooldown and malware protection. It is strongly recommended that you follow this approach.
 
 {{< tabs >}}
 
@@ -171,6 +174,35 @@ Check out minimal example projects for
 [Maven](/chainguard/libraries/java/build-configuration/#minimal-example-project)
 and
 [Gradle](/chainguard/libraries/java/build-configuration/#minimal-example-project-1) to understand how to use these repositories.
+
+{{% /tab %}}
+
+{{% tab title="JavaScript" %}}
+
+### JavaScript
+
+* [Repository
+  manager](/chainguard/libraries/javascript/global-configuration/): Add the Chainguard Libraries registry as a remote repository
+  and configure it as the first choice for package resolution, with npm as a
+  fallback only where necessary.
+* [Direct access](/chainguard/libraries/javascript/build-configuration/): Configure your `.npmrc` to use `https://libraries.cgr.dev/javascript/` as the registry.
+
+Check out minimal example projects for
+[npm](/chainguard/libraries/javascript/build-configuration/#minimal-example-project),
+[pnpm](/chainguard/libraries/javascript/build-configuration/#minimal-example-project-1),
+[Yarn](/chainguard/libraries/javascript/build-configuration/#minimal-example-project-2),
+[Yarn
+Classic](/chainguard/libraries/javascript/build-configuration/#minimal-example-project-3),
+and
+[Bun](/chainguard/libraries/javascript/build-configuration/#minimal-example-project-4) to understand how to use these repositories.
+
+> **Migrating an existing JavaScript project?** If you have an
+> existing lockfile with upstream hashes, use `chainctl libraries update-hashes`
+> to update checksums to Chainguard's automatically, without regenerating your
+> lockfile from scratch. The command authenticates to Chainguard Libraries; see
+> the authentication options in the
+> [JavaScript](/chainguard/libraries/javascript/build-configuration/#update-hashes-auth)
+> build configuration page.
 
 {{% /tab %}}
 
@@ -203,56 +235,9 @@ Check out minimal example projects for
 > **Migrating an existing Python project?** If you have an
 > existing lockfile with upstream hashes, use `chainctl libraries update-hashes`
 > to update checksums to Chainguard's automatically, without regenerating your
-> lockfile from scratch.
-
-{{% /tab %}}
-
-{{% tab title="JavaScript" %}}
-
-### JavaScript
-
-* [Repository
-  manager](/chainguard/libraries/javascript/global-configuration/): Add the Chainguard Libraries registry as a remote repository
-  and configure it as the first choice for package resolution, with npm as a
-  fallback only where necessary.
-* [Direct access](/chainguard/libraries/javascript/build-configuration/): Configure your `.npmrc` to use `https://libraries.cgr.dev/javascript/` as the registry.
-
-<a id="upstream-note"></a>
-
-> **Note on upstream fallback for JavaScript**: The npm upstream fallback is
-> available as an opt-in setting for both repository manager or direct access
-> approaches, and is turned off by default. Upstream packages are proxied
-> directly from npm and are not rebuilt or authored by Chainguard as part of our
-> Libraries product. The cooldown period and malware scanning provide a
-> supplemental baseline of protection to your own security practices, but you
-> are solely responsible for independently evaluating and validating all
-> upstream artifacts before use in your environment.  
-> <br>Learn more about upstream
-> fallback policy and controls in the [Libraries
-> overview](/chainguard/libraries/overview/#upstream-fallback-and-controls).
-
-Check out minimal example projects for
-[npm](/chainguard/libraries/javascript/build-configuration/#minimal-example-project),
-[pnpm](/chainguard/libraries/javascript/build-configuration/#minimal-example-project-1),
-[Yarn](/chainguard/libraries/javascript/build-configuration/#minimal-example-project-2),
-[Yarn
-Classic](/chainguard/libraries/javascript/build-configuration/#minimal-example-project-3),
-and
-[Bun](/chainguard/libraries/javascript/build-configuration/#minimal-example-project-4) to understand how to use these repositories.
-
-> **Migrating an existing Python or JavaScript project?** If you have an
-> existing lockfile with upstream hashes, use `chainctl libraries update-hashes`
-> to update checksums to Chainguard's automatically, without regenerating your
 > lockfile from scratch. The command authenticates to Chainguard Libraries; see
 > the authentication options in the
-> [Python](/chainguard/libraries/python/build-configuration/#update-hashes-auth) and
-> [JavaScript](/chainguard/libraries/javascript/build-configuration/#update-hashes-auth)
-> build configuration guides.
-> **Migrating an existing JavaScript project?** If you have an existing lockfile
-> with upstream hashes, use `chainctl libraries update-hashes` to update
-> checksums to Chainguard's automatically, without regenerating your lockfile
-> from scratch. See the [JavaScript migration
-> guide](/chainguard/libraries/javascript/migration/) for instructions.
+> [Python build configuration page](/chainguard/libraries/python/build-configuration/#update-hashes-auth).
 
 {{% /tab %}}
 
@@ -278,4 +263,4 @@ Learn more in [Chainguard Libraries verification](/chainguard/libraries/verifica
 
 ## FAQs
 
-See the [Chainguard Libraries FAQ page](/chainguard/libraries/faq/) for common questions and issues.
+Refer to the [Chainguard Libraries FAQ page](/chainguard/libraries/faq/) for common questions and issues.

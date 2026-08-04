@@ -7,7 +7,7 @@ type: "article"
 description: "Learn about Chainguard Factory, the automated build system that continuously updates thousands of containers, libraries, and VMs with the latest security patches"
 lead: "An introduction to Chainguard’s Factory; the powerhouse of engineering and automation that continuously transforms the chaos of open source into secure, up-to-date containers, libraries, and VMs at massive scale."
 date: 2025-07-15T08:49:31+00:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Containers", "Chainguard VMs"]
 images: []
@@ -80,7 +80,7 @@ cluster (sometimes even a specially provisioned EKS cluster for images such as
 [eks-distro-kube-proxy!](https://images.chainguard.dev/directory/image/eks-distro-kube-proxy/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)).
 
 On top of this, software is constantly going End-of-Life (EOL). When software
-is no longer supported upstream, we will cease updating it in Wolfi (see [Wolfi
+is no longer supported upstream, we will cease updating it in Wolfi (refer to [Wolfi
 Packages in Chainguard
 Containers](/chainguard/chainguard-images/about/versions/#wolfi-packages-in-chainguard-containers)).
 Customers benefit from an extended [EOL Grace
@@ -110,7 +110,7 @@ After an engineer investigates the issue, the most likely outcomes are:
     This could mean pulling in a patch or bumping a dependency in the project,
 before rebuilding and updating the status to `Fixed`.
 
-See [How Chainguard Issues Security
+Refer to [How Chainguard Issues Security
 Advisories](/chainguard/chainguard-images/staying-secure/security-advisories/how-chainguard-issues/)
 for full information on the lifecycle of advisories.
 

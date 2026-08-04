@@ -99,6 +99,11 @@ Chainguard Libraries is available for the following library ecosystems:
 * Python and the larger ecosystem with
   [Chainguard Libraries for Python](/chainguard/libraries/python/overview/)
 
+To move an existing project over, follow the migration guide for
+[Java](/chainguard/libraries/java/migration/),
+[JavaScript](/chainguard/libraries/javascript/migration/), or
+[Python](/chainguard/libraries/python/migration/).
+
 ## Chainguard criteria for building a library
 
 Chainguard Libraries includes thousands of Java, JavaScript, and Python libraries, and coverage is continuously growing as we add more packages and versions over time. Chainguard aims to build libraries that are relevant to our customers and that support broader software supply chain security goals. However, it is not always feasible or safe to rebuild and redistribute every package from public registries such as Maven Central, npm, or PyPI.
@@ -244,7 +249,7 @@ The cooldown applies globally across Chainguard-built packages and upstream pack
 
 If a requested package version falls within the cooldown period, the package manager will output a 404 error. The package becomes available once it has passed the cooldown period and cleared malware scanning.
 
-Learn how to create, enforce, disable, and list policies in the [Libraries Access](/chainguard/libraries/access/#policy) page.
+Learn how to create, enforce, disable, and list policies in the [Libraries Policies documentation](/chainguard/chainguard-repository/library-policies/) page.
 
 ### How package resolution works
 

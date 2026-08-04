@@ -10,7 +10,7 @@ lead: ""
 description: "Tutorial outlining how to create a Chainguard identity that can be assumed by a GitHub Actions workflow."
 type: "article"
 date: 2023-05-04T08:48:45+00:00
-lastmod: 2026-07-21T06:00:00+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -58,7 +58,7 @@ To retrieve the subject claim with the [GitHub CLI](https://cli.github.com/):
 gh api repos/OWNER/REPO --jq '{owner_id: .owner.id, repo_id: .id}'
 ```
 
-You can also preview the exact subject your repository sends from its OIDC settings in the GitHub web interface. To confirm the subject a running workflow presents, inspect the `sub` claim of the OIDC token in the workflow logs. For background on the format, see GitHub's changelog announcing [immutable subject claims for GitHub Actions OIDC tokens](https://github.blog/changelog/2026-04-23-immutable-subject-claims-for-github-actions-oidc-tokens/).
+You can also preview the exact subject your repository sends from its OIDC settings in the GitHub web interface. To confirm the subject a running workflow presents, inspect the `sub` claim of the OIDC token in the workflow logs. For background on the format, refer to GitHub's changelog announcing [immutable subject claims for GitHub Actions OIDC tokens](https://github.blog/changelog/2026-04-23-immutable-subject-claims-for-github-actions-oidc-tokens/).
 
 ### Chainctl
 

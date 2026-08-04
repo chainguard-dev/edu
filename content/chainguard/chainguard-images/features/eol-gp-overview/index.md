@@ -4,7 +4,7 @@ linktitle: "EOL Grace Period"
 type: "article"
 description: "Understanding Chainguard's end-of-life (EOL) grace period."
 date: 2025-05-14T08:49:31+00:00
-lastmod: 2024-06-11T08:49:31+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -46,9 +46,14 @@ Be aware that the following are not covered by Chainguard's EOL grace period:
 
 * Updating an image’s EOL primary package.
 * Backporting or cherry-picking individual commits or patches to the EOL primary package.
+* Installing updated versions of packages in instances where the new package version no longer supports the EOL version of the image's main package (refer to the note).
 * Any package labeled end-of-life for more than 6 months by its open-source creators or maintainers.
 
 Additionally, if a container image fails to build because underlying dependencies conflict with the primary package, it will no longer be supported. A failed build signals the end of support for that image.
+
+{{< note >}}
+When an image's primary package reaches EOL, newer versions of some dependency packages may no longer support it. In these cases, Chainguard does not update those packages solely to remediate CVEs, because doing so could introduce compatibility issues or result in a broken image. Instead, the existing package versions are retained to preserve image functionality while providing additional time to migrate to a supported image. You can attempt to install newer package versions at your own risk, using `apk upgrade`.
+{{< /note >}}
 
 <center><img src="eol-gp-3.png" alt="Diagram representing the lifecycle of an example unsuccessful build under the EOL Grace Period. A Python image whose primary package has reached EOL goes through an automated remediation and rebuild process, resulting in an unsuccessful build because the updated dependencies break the primary package. Because the build was unsuccessful, the EOL grace period ends and the customer should migrate to a newer package version." style="width:1050px;"></center>
 <br />

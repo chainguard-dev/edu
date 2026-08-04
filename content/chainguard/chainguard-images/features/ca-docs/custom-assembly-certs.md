@@ -4,7 +4,7 @@ linktitle: "Custom Certificates"
 type: "article"
 description: "How to add custom certificates to customized images with Custom Assembly."
 date: 2026-03-12T11:07:52+02:00
-lastmod: 2026-03-12T11:07:52+02:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural", "Custom Assembly"]
 images: []
@@ -143,7 +143,7 @@ certificates.additional (+1, ~0, -0, final: 1):
 Plan: 1 to add, 0 to change, 0 to remove
 ```
 
-The non-interactive approach is particularly useful for CI/CD pipelines and automation. You can also perform bulk operations across multiple repos. See [Making bulk changes across repos](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/#making-bulk-changes-across-repos) to learn more.
+The non-interactive approach is particularly useful for CI/CD pipelines and automation. You can also perform bulk operations across multiple repos. Refer to [Making bulk changes across repos](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/#making-bulk-changes-across-repos) to learn more.
 
 ## Verifying that certificates were added
 

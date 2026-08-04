@@ -5,7 +5,7 @@ lead: "Model Context Protocol server for Chainguard documentation"
 description: "Access Chainguard documentation through MCP for AI assistants and automation"
 type: "article"
 date: 2026-01-02T21:00:00+00:00
-lastmod: 2026-05-20T00:00:00+00:00
+lastmod: 2026-08-04T18:22:06+00:00
 draft: false
 images: []
 weight: 600
@@ -35,7 +35,7 @@ The Chainguard AI Documentation MCP server gives AI assistants and automation to
 
 ### Hosted server (recommended)
 
-Chainguard hosts a public MCP server at `https://mcp.edu.chainguard.dev/mcp/`. This is the fastest way to get started — no Docker or local setup required.
+Chainguard hosts a public MCP server at `https://mcp.edu.chainguard.dev/mcp`. This is the fastest way to get started — no Docker or local setup required.
 
 How you register the server depends on your MCP client. Clients that support HTTP transport natively can connect to the URL directly. Clients that only spawn local processes (including Claude Desktop) need a small bridge such as [`mcp-remote`](https://github.com/geelen/mcp-remote).
 
@@ -44,7 +44,7 @@ How you register the server depends on your MCP client. Clients that support HTT
 Run this command:
 
 ```bash
-claude mcp add --transport http chainguard-docs https://mcp.edu.chainguard.dev/mcp/
+claude mcp add --transport http chainguard-docs https://mcp.edu.chainguard.dev/mcp
 ```
 
 The server is available immediately. Verify it with `claude mcp list`.
@@ -62,7 +62,7 @@ Claude Desktop reads MCP servers from a JSON file but does not yet support HTTP 
       "command": "npx",
       "args": [
         "mcp-remote",
-        "https://mcp.edu.chainguard.dev/mcp/"
+        "https://mcp.edu.chainguard.dev/mcp"
       ]
     }
   }
@@ -84,7 +84,7 @@ Add the server URL to your client's MCP configuration:
 {
   "mcpServers": {
     "chainguard-docs": {
-      "url": "https://mcp.edu.chainguard.dev/mcp/"
+      "url": "https://mcp.edu.chainguard.dev/mcp"
     }
   }
 }
@@ -156,18 +156,16 @@ Get documentation for a specific Chainguard container image.
 
 ### `list_images`
 
-List Chainguard container images with optional filtering. When the image catalog is available, results include metadata such as documentation status and alternative mappings.
+List Chainguard container images with optional filtering. When the image catalog is available, each result includes the image's registry reference and whether documentation is available.
 
 **Parameters:**
 
-- `filter` (string, optional): Filter images by name or alternate mapping (for example, "python", "nginx", "apache")
-- `include_upstream` (boolean, optional): Include alternate image mappings and variants in results (default: `false`)
+- `filter` (string, optional): Filter images by name (for example, "python", "nginx", "apache")
 
 **Example prompts:**
 
 - "List all Chainguard images"
 - "Show me images related to Python"
-- "List images with equivalent mappings included"
 
 ### `get_security_docs`
 
@@ -348,7 +346,7 @@ docker run --rm -v $(pwd):/output \
   ghcr.io/chainguard-dev/ai-docs:latest extract /output
 ```
 
-See the [Developer Resources](/developer-resources/) page for more on static extraction.
+Refer to the [Developer Resources](/developer-resources/) page for more on static extraction.
 
 ## Security features
 
@@ -373,7 +371,7 @@ The container image follows the standard Chainguard pattern:
 Test the hosted server with `curl`:
 
 ```bash
-curl -X POST https://mcp.edu.chainguard.dev/mcp/ \
+curl -X POST https://mcp.edu.chainguard.dev/mcp \
   -H "Content-Type: application/json" \
   -H "Accept: application/json, text/event-stream" \
   -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"test","version":"1.0"}}}'
@@ -407,5 +405,5 @@ docker pull ghcr.io/chainguard-dev/ai-docs:latest
 ## Need help?
 
 - [Chainguard Support](https://support.chainguard.dev?utm=docs)
-- [Community Slack](https://go.chainguard.dev/slack?utm=docs)
+- [Community Slack](https://join.slack.com/t/chainguardcommunity/shared_invite/zt-3nttdr807-V9BJHayWvsB0KbHsfZO5Rw)
 - [GitHub Issues](https://github.com/chainguard-dev/edu/issues)

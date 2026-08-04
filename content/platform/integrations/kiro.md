@@ -7,7 +7,7 @@ lead: "Using Chainguard container images and libraries in AI-assisted developmen
 description: "Install the Chainguard Power for Kiro and use it to migrate projects to Chainguard container images and libraries."
 type: "article"
 date: 2026-06-18T00:00:00-04:00
-lastmod: 2026-06-18T00:00:00-04:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 weight: 020
 ---
@@ -128,7 +128,7 @@ In this example, Kiro may also point out that:
 * a production runtime image may use a different tag
 * Chainguard images run as non-root by default
 
-To browse available images and tags, see the [Chainguard Containers directory](https://images.chainguard.dev/).
+To browse available images and tags, refer to the [Chainguard Containers directory](https://images.chainguard.dev/).
 
 ### Use Chainguard Libraries with Kiro
 

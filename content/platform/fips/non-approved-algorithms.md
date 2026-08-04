@@ -6,7 +6,7 @@ linktitle: "FIPS and Non-Approved Algorithms"
 type: "article"
 description: "Technical deep-dive into Chainguard FIPS images access to non-approved algorithms such as MD5 and SHA1"
 date: 2025-10-28T08:00:00+00:00
-lastmod: 2025-10-28T08:00:00+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["FIPS", "MD5"]
 images: []
@@ -60,8 +60,8 @@ The one functionality that errs on the side of non-security function is calculat
 
 Examples of such non-security usage are:
 
-* Webpack 4 uses MD4 to precompute perfect hashtables from trusted input at build time, see [this issue](https://github.com/webpack/webpack/issues/14560).
-* Amazon S3 supports many algorithms for object integrity checking over trusted channel, including MD5 and SHA1, see [the official docs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity-upload.html). Many client implementations default to MD5.
+* Webpack 4 uses MD4 to precompute perfect hashtables from trusted input at build time, refer to [this issue](https://github.com/webpack/webpack/issues/14560).
+* Amazon S3 supports many algorithms for object integrity checking over trusted channel, including MD5 and SHA1, refer to [the official docs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity-upload.html). Many client implementations default to MD5.
 * Google Cloud Storage can use CRC32C or MD5, and clients typically default to MD5 for object integrity during uploads [docs](https://docs.cloud.google.com/storage/docs/data-validation)
 * PDF document identifiers require MD5 by standard, and no newer version of the standard exists.
 
@@ -115,7 +115,7 @@ If there is C/C++ software that uses OpenSSL APIs and needs access to MD5 and do
 
 ### Python FIPS and MD5
 
-The Python standard library has a keyword argument to specify using a digest for security purposes, see [the Python documentation](https://docs.python.org/3/library/hashlib.html#hashlib.md5).
+The Python standard library has a keyword argument to specify using a digest for security purposes, refer to [the Python documentation](https://docs.python.org/3/library/hashlib.html#hashlib.md5).
 
 Here are examples:
 

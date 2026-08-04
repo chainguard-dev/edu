@@ -4,7 +4,7 @@ linktitle: "Build configuration"
 description: "Configuring Chainguard Libraries for Python on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2025-04-07T14:11:00+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 menu:
@@ -35,7 +35,11 @@ fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) is
 enabled for your organization, the same endpoint can also serve requested
 versions from PyPI under Chainguard security controls.
 
-See the [minimal example projects](#minimal-example-projects) on this page for demonstrations using `uv` and `pip`.
+If you are migrating an existing project to Chainguard Libraries, follow the
+[Python migration guide](/chainguard/libraries/python/migration/) for a
+step-by-step walkthrough.
+
+Refer to the [minimal example projects](#minimal-example-projects) on this page for demonstrations using `uv` and `pip`.
 
 ## Step 1: Retrieve authentication credentials
 
@@ -135,7 +139,7 @@ Configuration for multiple index use and authentication varies for each
 packaging tool. Typically Python tools include support for
 [.netrc](/chainguard/libraries/access/#netrc).
 
-See examples using `uv` and `pip` under [Minimal example projects](#minimal-example-projects).
+Refer to examples using `uv` and `pip` under [Minimal example projects](#minimal-example-projects).
 
 ## Step 2: Configure your build tools
 
@@ -173,7 +177,12 @@ Or specify a lockfile path directly:
 chainctl libraries update-hashes path/to/requirements.txt
 ```
 
-When using a repo manager, pass the full repository URL with `--registry-url`.
+If you install through a repository manager rather than pulling from Chainguard directly, pass the full repository URL with `--registry-url` so the hashes are updated against the same source your project actually installs from. For example:
+
+```bash
+chainctl libraries update-hashes --registry-url https://your-org.jfrog.io/artifactory/api/pypi/chainguard-libraries/simple
+```
+
 Learn about using this command with repo managers in the [Global
 configuration](/chainguard/libraries/python/global-configuration/) page.
 
@@ -199,7 +208,7 @@ which requires authentication. Choose whichever fits your environment:
     secret), pass it as basic auth: `--username <identity> --password <secret>`,
     or set `CHAINCTL_REGISTRY_USERNAME` / `CHAINCTL_REGISTRY_PASSWORD`.
 - **From `~/.netrc`**: Credentials for the registry host are read from `~/.netrc`
-  (or `$NETRC`); see [.netrc for authentication](/chainguard/libraries/access/#netrc).
+  (or `$NETRC`); refer to [.netrc for authentication](/chainguard/libraries/access/#netrc).
   Pass `--ignore-netrc` to skip an unrelated entry.
 
 When you target a repository manager with `--registry-url` (for example
@@ -304,7 +313,7 @@ prioritizing Chainguard Libraries for Python, we recommend using a repository
 manager. Alternatively, other Python package managers, detailed in the following
 sections, provide support for index priority resolution behavior.
 
-See a demonstration using `pip` under [Minimal example projects](#pip-minimal).
+Refer to a demonstration using `pip` under [Minimal example projects](#pip-minimal).
 
 <a id="poetry"></a>
 
@@ -539,7 +548,7 @@ Example for `uv.toml`:
 url = "https://CG_PULLTOKEN_USERNAME:CG_PULLTOKEN_PASSWORD@libraries.cgr.dev/python/simple/"
 ```
 
-See a demonstration using `uv` under [Minimal example projects](#uv-minimal).
+Refer to a demonstration using `uv` under [Minimal example projects](#uv-minimal).
 
 #### Multiple indexes
 

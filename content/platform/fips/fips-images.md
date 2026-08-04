@@ -10,7 +10,7 @@ aliases:
 type: "article"
 description: "Learn about Chainguard's FIPS-validated container images for federal compliance, featuring kernel-independent design and simplified deployment for FedRAMP and government requirements"
 date: 2024-02-08T15:56:52-07:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Containers", "FIPS"]
 images: []
@@ -41,7 +41,7 @@ Chainguard FIPS Containers use a userspace entropy source (the Jitterentropy lib
 
 **Limitations**: Some workloads (certain Kubernetes CNI plugins, LUKS2 encryption, StrongSwan VPN) still require a kernel configured in FIPS mode. As of August 2025, Java-based FIPS images support kernel-independent operation.
 
-For technical details, see [Kernel-Independent FIPS Containers](https://www.chainguard.dev/unchained/kernel-independent-fips-images).
+For technical details, refer to [Kernel-Independent FIPS Containers](https://www.chainguard.dev/unchained/kernel-independent-fips-images).
 
 ## Using FIPS Containers
 
