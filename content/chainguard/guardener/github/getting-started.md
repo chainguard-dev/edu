@@ -21,7 +21,7 @@ This guide walks you through everything you need to start using Chainguard Guard
 2. [Link your Chainguard organization to your GitHub organization](#step-2-link-your-chainguard-organization-to-github).
 3. [Verify the link](#step-3-verify-the-link) and enable your first feature.
 
-Linking your Chainguard organization to your GitHub organization is what entitles you to use the Guardener — there is no separate entitlement step.
+Once the app is installed, the Guardener can respond on your public repositories. Linking connects that activity to your Chainguard organization and unlocks the features that require one, such as private repository coverage — there is no separate entitlement step.
 
 {{< beta feature="Chainguard Guardener" access="organizations that have installed and linked the Chainguard Guardener GitHub App" >}}
 
@@ -97,7 +97,7 @@ chainctl guardener github unlink \
 
 When you pass `--group` and hold the `guardener.association.manage` capability on that group, the organization is unlinked using your Chainguard credentials with no browser involved. Otherwise, `chainctl` falls back to the GitHub authorization flow to prove you own the organization. Either way, you must be logged in to Chainguard.
 
-Unlinking stops the Guardener from acting on the organization's repositories. To fully remove the Guardener, also uninstall the GitHub App from your GitHub organization settings.
+Unlinking stops the Guardener's Chainguard-connected features, such as private repository coverage; features enabled on public repositories keep working while the app is installed. To fully remove the Guardener, also uninstall the GitHub App from your GitHub organization settings.
 
 ## Command reference
 
@@ -110,6 +110,7 @@ For the complete set of flags and options, refer to the `chainctl` reference:
 
 ## Next steps
 
+- **[App Connections](/chainguard/guardener/github/app-connections/)** — Inspect, change, and remove the connections between your Chainguard organization and your GitHub organizations.
 - **[Configuration](/chainguard/guardener/github/configuration/)** — Learn the `.chainguard/` configuration model and how to enable features per repository.
 - **[Hardened Actions](/chainguard/guardener/github/actions-security/)** — Recommend and migrate GitHub Actions to hardened, SHA-pinned equivalents.
 - **[Commit Verification](/chainguard/guardener/github/commit-verification/)** — Require cryptographically signed commits in pull requests.
