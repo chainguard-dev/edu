@@ -70,7 +70,7 @@
         {{ if .Params.tags -}}
         <div class="tag-container">
           {{ range $index, $tag := .Params.tags -}}
-            <a class="tag" href="{{ "/tags/" | absURL }}{{ . | urlize }}/" role="button">{{ . }}</a>
+            <a class="tag" href="{{ "/tags/" | absURL }}{{ . | urlize }}/">{{ . }}</a>
           {{end}}
         </div>
         {{end}}
