@@ -5,7 +5,7 @@ lead: "Model Context Protocol server for Chainguard documentation"
 description: "Access Chainguard documentation through MCP for AI assistants and automation"
 type: "article"
 date: 2026-01-02T21:00:00+00:00
-lastmod: 2026-08-04T16:23:13+00:00
+lastmod: 2026-08-04T18:22:06+00:00
 draft: false
 images: []
 weight: 600
@@ -35,7 +35,7 @@ The Chainguard AI Documentation MCP server gives AI assistants and automation to
 
 ### Hosted server (recommended)
 
-Chainguard hosts a public MCP server at `https://mcp.edu.chainguard.dev/mcp/`. This is the fastest way to get started — no Docker or local setup required.
+Chainguard hosts a public MCP server at `https://mcp.edu.chainguard.dev/mcp`. This is the fastest way to get started — no Docker or local setup required.
 
 How you register the server depends on your MCP client. Clients that support HTTP transport natively can connect to the URL directly. Clients that only spawn local processes (including Claude Desktop) need a small bridge such as [`mcp-remote`](https://github.com/geelen/mcp-remote).
 
@@ -44,7 +44,7 @@ How you register the server depends on your MCP client. Clients that support HTT
 Run this command:
 
 ```bash
-claude mcp add --transport http chainguard-docs https://mcp.edu.chainguard.dev/mcp/
+claude mcp add --transport http chainguard-docs https://mcp.edu.chainguard.dev/mcp
 ```
 
 The server is available immediately. Verify it with `claude mcp list`.
@@ -62,7 +62,7 @@ Claude Desktop reads MCP servers from a JSON file but does not yet support HTTP 
       "command": "npx",
       "args": [
         "mcp-remote",
-        "https://mcp.edu.chainguard.dev/mcp/"
+        "https://mcp.edu.chainguard.dev/mcp"
       ]
     }
   }
@@ -84,7 +84,7 @@ Add the server URL to your client's MCP configuration:
 {
   "mcpServers": {
     "chainguard-docs": {
-      "url": "https://mcp.edu.chainguard.dev/mcp/"
+      "url": "https://mcp.edu.chainguard.dev/mcp"
     }
   }
 }
@@ -371,7 +371,7 @@ The container image follows the standard Chainguard pattern:
 Test the hosted server with `curl`:
 
 ```bash
-curl -X POST https://mcp.edu.chainguard.dev/mcp/ \
+curl -X POST https://mcp.edu.chainguard.dev/mcp \
   -H "Content-Type: application/json" \
   -H "Accept: application/json, text/event-stream" \
   -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"test","version":"1.0"}}}'
