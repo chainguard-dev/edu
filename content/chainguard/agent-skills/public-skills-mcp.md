@@ -130,11 +130,11 @@ Under the hood, the server advertises five tools that Claude chooses between. Yo
 
 | Tool | Use it to… |
 | ----- | ----- |
-| `search_skills` | Find a skill by keyword — the primary way to discover one |
-| `read_skill` | Inspect a skill by name (its `SKILL.md` plus the list of files it ships) |
-| `run_skill` | Load a skill in full — every file — to install and run it |
-| `read_skill_reference` | Read a single supporting file from a skill |
 | `list_skills` | Browse the whole catalog one page at a time |
+| `read_skill` | Inspect a skill by name (its `SKILL.md` plus the list of files it ships) |
+| `read_skill_reference` | Fetch the text of one supporting file a skill ships — a script, reference doc, or template named in `read_skill`'s `references` list |
+| `run_skill` | Load a skill in full — every file — to install and run it |
+| `search_skills` | Find a skill by keyword — the primary way to discover one |
 
 ### search_skills
 
@@ -170,12 +170,14 @@ Returns `{ name, files, instructions }`, where `files` maps each relative path t
 
 ### read_skill_reference
 
-Read a single supporting file that a skill ships (a script, a reference doc, and so on). Only request paths listed in the `references` field of that skill's `read_skill` response — paths are validated, and traversal outside the skill directory is rejected.
+Fetch the text content of a single supporting file that a skill ships — one of the scripts, reference docs, or templates that its `SKILL.md` points at. Use it to pull a specific file `read_skill` named in its `references` list, rather than loading the whole skill with `run_skill`. Only request paths from that `references` list: paths are validated against the skill's directory, and any attempt to traverse outside it (for example `../another-skill/...`) is rejected.
 
 | Parameter | Type | Required | Description |
 | ----- | ----- | ----- | ----- |
 | `name` | string | yes | The skill name |
 | `path` | string | yes | Path to the file, relative to the skill directory (for example, `references/shell-scripting.md`) |
+
+Returns `{ content }` — the file's text. A path that isn't part of the skill, or one that escapes its directory, returns an error.
 
 ### list_skills
 
@@ -192,11 +194,11 @@ An empty `next_page_token` means the last page.
 
 | Tool | Purpose | Key parameters |
 | ----- | ----- | ----- |
-| `search_skills` | Ranked keyword search of the catalog | `query`, `page_size`, `page_token` |
 | `list_skills` | Browse the whole catalog, paginated | `page_size`, `page_token` |
 | `read_skill` | Load a skill's `SKILL.md` + its file manifest | `name` |
-| `read_skill_reference` | Read one supporting file from a skill | `name`, `path` |
+| `read_skill_reference` | Read the text of one supporting file from a skill | `name`, `path` |
 | `run_skill` | Load a skill's full bundle to install and run | `name` |
+| `search_skills` | Ranked keyword search of the catalog | `query`, `page_size`, `page_token` |
 
 ## Next steps
 
