@@ -6,15 +6,13 @@ linktitle: "API v2 tutorial"
 type: "article"
 description: "Tutorial with examples showing how you can use the Chainguard API v2."
 date: 2026-03-30T08:49:31+00:00
-lastmod: 2026-07-20T00:00:00+00:00
+lastmod: 2026-08-04T13:01:07+00:00
 draft: false
 tags: ["Chainguard Console", "Procedural"]
 images: []
 toc: true
 weight: 030
 ---
-
-> **Draft status:** This page has several items marked `CONFIRM WITH ENGINEERING`. Do not publish externally until those are resolved.
 
 The v2 API is now Generally Available (GA) and introduces cursor-based pagination, server-side ordering, consistent resource patterns, and structured error responses across all endpoints.
 
@@ -42,15 +40,16 @@ This guide walks through the v2 API using real `curl` commands. If you're migrat
 
 | Domain | Resources | Operations |
 | -------- | ----------- | ------------ |
-| **IAM** | Groups, Identities, Roles, RoleBindings, IdentityProviders, AccountAssociations, GroupInvites | List, Get, Create, Update, Delete |
-| **Registry** | Repos, Tags | List, Get |
+| **IAM** | Groups, Identities, Roles, RoleBindings, IdentityProviders, AccountAssociations, GroupInvites, Terms, ExternalGroupRoleMappings | List, Get, Create, Update, Delete |
+| **Registry** | Repos, Tags, Images | List, Get, Create, Update, Delete |
 | **Vulnerabilities** | Advisories | List, Get |
-| **Ecosystems (Libraries)** | — | — |
-| **Integrations (Advisory)** | — | — |
+| **Ecosystems (Libraries)** | Artifacts | List, Get (read-only) |
+| **Integrations (Advisory)** | SecurityAdvisory (documents, metadata, resolved-vuln reports) | List (read-only) |
+| **Events** | Subscriptions | List, Get, Create, Delete |
 
-All endpoints live under a versioned path per domain: `/iam/v2/`, `/registry/v2/`, `/vulnerabilities/v2/`, `/libraries/v2/`, or `/advisory/v2/`.
+All endpoints live under a versioned path per domain: `/iam/v2/`, `/registry/v2/`, `/vulnerabilities/v2/`, `/libraries/v2/`, `/advisory/v2/`, or `/events/v2/`.
 
-> **CONFIRM WITH ENGINEERING:** Ecosystems and Integrations are new domains at GA (beta only covered IAM, Registry, and Vulnerabilities). Get the specific resource names and supported operations for these two domains before publishing — the worked examples in this guide only cover the three domains available during beta.
+The worked examples in this guide focus on IAM, Registry, and Vulnerabilities. The other domains follow the same request and response conventions.
 
 ## Prerequisites
 
@@ -70,10 +69,7 @@ The following examples use `$TOKEN`, `$API`, and `$ORG_ID` for brevity.
 Keep the following in mind as you work through this guide.
 
 - **Page tokens expire after 3 days** ([AIP-158](https://google.aip.dev/158)). If a token expires, the query restarts from the beginning — no error is returned.
-- **Rate limits** are enforced starting at GA.
-- **gRPC** — all endpoints are also available via gRPC at the same host. Proto definitions are at `chainguard.dev/sdk/proto/chainguard/platform/`.
-
-> **CONFIRM WITH ENGINEERING:** specific rate limits and response headers, and whether the Go SDK client library moves from `chainguard.dev/sdk/proto/platform/clients/v2beta1` to a `v2` path at GA. Don't publish this section externally until both are confirmed.
+- **gRPC** — all endpoints are also available via gRPC at the same host. Proto definitions are at `chainguard.dev/sdk/proto/chainguard/platform/`, and the Go SDK clients live under `chainguard.dev/sdk/proto/chainguard/platform/clients/v2`.
 
 ---
 
@@ -182,8 +178,8 @@ A real workflow: create an org folder, add an identity, and bind a role.
 ```shell
 curl -s -X POST -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
-  "$API/iam/v2/groups" \
-  -d '{"parent": "'"$ORG_ID"'", "group": {"name": "backend-team", "description": "Backend engineering team"}}' | jq .
+  "$API/iam/v2/groups/$ORG_ID" \
+  -d '{"name": "backend-team", "description": "Backend engineering team"}' | jq .
 ```
 
 ```json
@@ -198,9 +194,7 @@ curl -s -X POST -H "Authorization: Bearer $TOKEN" \
 }
 ```
 
-> **Note:** The parent group goes in the request body, not the URL path — a change from beta. See [Migrating from API v1 to API v2](/platform/api/api-v2-migration/#step-3-move-create-calls-to-parent-in-body) for details.
->
-> **CONFIRM WITH ENGINEERING:** this request body shape, including the `"group"` wrapper field name, is illustrative. Confirm the exact schema before publishing.
+> **Note:** The parent group goes in the URL path (`/groups/{parent}`). The request body carries only the resource fields — the same pattern as v1.
 
 ### Create an identity
 
@@ -210,21 +204,16 @@ export GROUP_UID=YOUR_GROUP_UID
 
 curl -s -X POST -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
-  "$API/iam/v2/identities" \
+  "$API/iam/v2/identities/$GROUP_UID" \
   -d '{
-    "parent": "'"$GROUP_UID"'",
-    "identity": {
-      "name": "ci-bot",
-      "description": "CI/CD pipeline identity",
-      "claimMatch": {
-        "issuer": "https://token.actions.githubusercontent.com",
-        "subject": "repo:my-org@123456/my-repo@654321:ref:refs/heads/main"
-      }
+    "name": "ci-bot",
+    "description": "CI/CD pipeline identity",
+    "claimMatch": {
+      "issuer": "https://token.actions.githubusercontent.com",
+      "subject": "repo:my-org@123456/my-repo@654321:ref:refs/heads/main"
     }
   }' | jq .
 ```
-
-> **CONFIRM WITH ENGINEERING:** this request body shape, including the `"identity"` wrapper field name, is illustrative. Confirm the exact schema before publishing.
 
 ```json
 {
@@ -274,11 +263,9 @@ export IDENTITY_UID=YOUR_IDENTITY_UID
 
 curl -s -X POST -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
-  "$API/iam/v2/roleBindings" \
-  -d "{\"parent\": \"$GROUP_UID\", \"roleBinding\": {\"identityUid\": \"$IDENTITY_UID\", \"roleUid\": \"$ROLE_UID\"}}" | jq .
+  "$API/iam/v2/roleBindings/$GROUP_UID" \
+  -d "{\"identityUid\": \"$IDENTITY_UID\", \"roleUid\": \"$ROLE_UID\"}" | jq .
 ```
-
-> **CONFIRM WITH ENGINEERING:** this request body shape, including the `"roleBinding"` wrapper field name, is illustrative. Confirm the exact schema before publishing.
 
 ```json
 {
@@ -484,7 +471,7 @@ curl -s -H "Authorization: Bearer $TOKEN" \
 
 ### Check for deprecated tags
 
-In v1, a dedicated `ListEolTags` call surfaced end-of-life tags. v2beta1 has no separate end-of-life endpoint or server-side filter. Instead, each tag carries a `deprecated` boolean, which you filter on client-side:
+In v1, a dedicated `ListEolTags` call surfaced end-of-life tags. v2 has no separate end-of-life endpoint or server-side filter. Instead, each tag carries a `deprecated` boolean, which you filter on client-side:
 
 ```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
@@ -492,13 +479,13 @@ curl -s -H "Authorization: Bearer $TOKEN" \
   | jq '[.tags[] | select(.deprecated) | .name]'
 ```
 
-> **CONFIRM WITH ENGINEERING:** v2beta1 exposes tag deprecation only as a per-tag `deprecated` field, with no server-side end-of-life filter. Confirm whether GA adds a dedicated filter or endpoint, since v1's `ListEolTags` was a common direct-API call.
+> **Note:** Client-side filtering on `deprecated` is the intended approach in v2. A v2 equivalent of `ListEolTags` is on the backlog with no committed date; until it ships, the v1 `ListEolTags` endpoint remains available.
 
 ---
 
 ## 5. Querying vulnerabilities
 
-The Vulnerabilities domain exposes advisory data. In v2beta1 it covers advisories with List and Get.
+The Vulnerabilities domain exposes advisory data. In v2 it covers advisories with List and Get.
 
 ### List advisories
 
@@ -522,7 +509,7 @@ Fetch a single advisory by UID at `/vulnerabilities/v2/advisories/{uid}`.
 
 ### Vulnerability reports
 
-> **CONFIRM WITH ENGINEERING:** the v1 `GetVulnReport` and `ListVulnCountReports` calls — used heavily by direct HTTP integrations — have no equivalent in the v2beta1 spec, which exposes only advisories. Confirm whether GA adds vulnerability-report endpoints, or whether advisory data is meant to replace them. This is a real migration gap for the CI/CD audience that reads scan results programmatically.
+The v1 `GetVulnReport` and `ListVulnCountReports` calls have no v2 equivalent today, and advisories are not a replacement — they serve a different, advisory-feed purpose. The `ListResolvedVulnsReports` endpoint under `/advisory/v2/` is also advisory-feed oriented, not a vulnerability-report replacement. If your integration reads vulnerability reports, continue using the v1 endpoints, which remain fully supported. v2 coverage arrives with the Vulnerabilities domain's migration.
 
 ---
 
@@ -535,8 +522,8 @@ API v2 returns structured error responses with machine-parseable codes and detai
 ```shell
 curl -s -X POST -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
-  "$API/iam/v2/groups" \
-  -d '{"parent": "'"$ORG_ID"'", "group": {}}' | jq .
+  "$API/iam/v2/groups/$ORG_ID" \
+  -d '{}' | jq .
 ```
 
 ```json
@@ -659,7 +646,7 @@ curl -s -X PATCH -H "Authorization: Bearer $TOKEN" \
 }
 ```
 
-> **Note:** The repo update path (`/registry/v2/repos/{repo.uid}`) and request body are confirmed against the published v2beta1 spec, where `name` and `description` are writable. As with the group example, `updateMask` is accepted by the live API but isn't restated in the spec, so reconfirm it holds at GA.
+> **Note:** Repo updates follow the same PATCH-with-field-mask pattern as groups; `name` and `description` are writable.
 
 ---
 
