@@ -6,7 +6,7 @@ linktitle: "API v1 to v2 Migration"
 type: "article"
 description: "How to migrate a direct integration with the Chainguard API from v1 to the GA API v2."
 date: 2026-07-20T00:00:00+00:00
-lastmod: 2026-08-04T13:01:07+00:00
+lastmod: 2026-08-04T14:31:22+00:00
 draft: false
 tags: ["Chainguard Console", "Procedural"]
 images: []
@@ -25,7 +25,7 @@ v1 continues to work during a transition period, so nothing breaks today. Migrat
 You'll need:
 
 - A valid Chainguard identity with access to the resources you're calling.
-- `chainctl` installed, to mint a token for testing (`chainctl auth token`).
+- [`chainctl` installed](/platform/chainctl-usage/how-to-install-chainctl/), to mint a token for testing (`chainctl auth token`).
 
 Set up your environment for the following examples:
 
@@ -38,11 +38,11 @@ export ORG_ID=YOUR_ORG_ID
 
 ## What's not changing
 
-- **Authentication** — same OIDC token model as v1.
-- **Authorization** — same identity-based access control.
-- **Scoping** — same `uidp.descendants_of` / `uidp.children_of` hierarchy filters.
-- **Host** — same API host (`console-api.enforce.dev` in production).
-- **CREATE shape** — the parent resource stays in the URL path (`/groups/{parent}`), and the request body carries the resource fields directly. This is unchanged from v1.
+- **Authentication**: same OIDC token model as v1.
+- **Authorization**: same identity-based access control.
+- **Scoping**: same `uidp.descendants_of` / `uidp.children_of` hierarchy filters.
+- **Host**: same API host (`console-api.enforce.dev` in production).
+- **CREATE shape**: the parent resource stays in the URL path (`/groups/{parent}`), and the request body carries the resource fields directly. This is unchanged from v1.
 
 If your integration already authenticates against v1 successfully, no credential or auth-flow changes are needed to call v2.
 
@@ -105,11 +105,11 @@ Repository updates (`UpdateRepo`) are a common case to migrate here. For a worke
 
 v1 pagination relies on page numbers or offsets, and loads the full result set into memory. v2 List endpoints add:
 
-- `page_size` — how many items to return per page.
-- `page_token` — the opaque cursor from the previous response's `next_page_token`, used to fetch the next page. Omit it for the first page.
-- `skip` — number of items to skip, for jumping directly to a specific page without walking the cursor sequentially.
-- `order_by` — server-side ordering, instead of sorting client-side after fetching.
-- `total_count` — total matching items, so you don't have to infer it from page math.
+- `page_size`: how many items to return per page.
+- `page_token`: the opaque cursor from the previous response's `next_page_token`, used to fetch the next page. Omit it for the first page.
+- `skip`: number of items to skip, for jumping directly to a specific page without walking the cursor sequentially.
+- `order_by`: server-side ordering, instead of sorting client-side after fetching.
+- `total_count`: total matching items, so you don't have to infer it from page math.
 
 ```shell
 curl -H "Authorization: Bearer $TOKEN" \
@@ -135,10 +135,10 @@ In v1, an empty or ambiguous result can mean several different things — no mat
 
 v2 returns proper status codes (for example, `NOT_FOUND` / HTTP 404) with structured error details, following the same error model used across Google Cloud APIs:
 
-- **ErrorInfo** — a machine-readable reason code and error domain.
-- **BadRequest** — per-field validation errors.
-- **ResourceInfo** — which specific resource type and name wasn't found.
-- **PreconditionFailure** — why a request was blocked (for example, a delete blocked by a dependent resource).
+- **ErrorInfo**: a machine-readable reason code and error domain.
+- **BadRequest**: per-field validation errors.
+- **ResourceInfo**: which specific resource type and name wasn't found.
+- **PreconditionFailure**: why a request was blocked (for example, a delete blocked by a dependent resource).
 
 If your integration currently treats an empty v1 result as ambiguous, or works around that ambiguity with extra calls, update it to branch on the v2 status code and structured error details instead. Re-test your error-handling paths, not just the happy path.
 
@@ -197,6 +197,6 @@ This guide. If you're on the account or support team and hit something this guid
 
 ## Next steps
 
-- [Chainguard API v2 Tutorial](/platform/api/api-v2-tutorial/) — worked examples of the v2 endpoints you'll be migrating to.
-- [Chainguard API v2 Specification](/platform/api/spec-api-v2/) — full OpenAPI reference.
+- [Chainguard API v2 Tutorial](/platform/api/api-v2-tutorial/): worked examples of the v2 endpoints you'll be migrating to.
+- [Chainguard API v2 Specification](/platform/api/spec-api-v2/): full OpenAPI reference.
 - Reach out to your Chainguard account team or [Chainguard Support](https://support.chainguard.dev/) if you run into issues migrating.
