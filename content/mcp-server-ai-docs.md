@@ -5,7 +5,7 @@ lead: "Model Context Protocol server for Chainguard documentation"
 description: "Access Chainguard documentation through MCP for AI assistants and automation"
 type: "article"
 date: 2026-01-02T21:00:00+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-08-04T16:23:13+00:00
 draft: false
 images: []
 weight: 600
@@ -156,18 +156,16 @@ Get documentation for a specific Chainguard container image.
 
 ### `list_images`
 
-List Chainguard container images with optional filtering. When the image catalog is available, results include metadata such as documentation status and alternative mappings.
+List Chainguard container images with optional filtering. When the image catalog is available, each result includes the image's registry reference and whether documentation is available.
 
 **Parameters:**
 
-- `filter` (string, optional): Filter images by name or alternate mapping (for example, "python", "nginx", "apache")
-- `include_upstream` (boolean, optional): Include alternate image mappings and variants in results (default: `false`)
+- `filter` (string, optional): Filter images by name (for example, "python", "nginx", "apache")
 
 **Example prompts:**
 
 - "List all Chainguard images"
 - "Show me images related to Python"
-- "List images with equivalent mappings included"
 
 ### `get_security_docs`
 
