@@ -186,6 +186,186 @@ This configures Renovate to update the digest for a reference but not the tag.
 
 The benefit of this approach is that it allows you to define your update strategy for each image reference by the use of a mutable tag, rather than having separate rules for different images in your Renovate configuration, similar to Chainguard's [Digestabot](https://github.com/chainguard-dev/digestabot) Github Action.
 
+## Updating Chainguard Helm Charts in Helmfiles
+
+Renovate supports updating [Helmfile](https://helmfile.readthedocs.io/) releases with its [built-in `helmfile` manager](https://docs.renovatebot.com/modules/manager/helmfile/). However, it doesn't presently support updating [digest references](/chainguard/chainguard-images/how-to-use/container-image-digests/) for OCI chart URLs, which is a [recommended practice when deploying Chainguard Helm charts](/chainguard/chainguard-images/how-to-use/use-chainguard-helm-charts/#pin-to-digest). See [renovatebot/renovate#45054](https://github.com/renovatebot/renovate/discussions/45054) for more details.
+
+To pin Chainguard Helm charts to digests and update them with Renovate, you can use a [custom `jsonata` manager](https://docs.renovatebot.com/modules/manager/custom.jsonata/) as a workaround.
+
+Given a `helmfile.yaml` such as:
+
+```yaml
+releases:
+  - name: kube-prometheus-stack
+    chart: oci://cgr.dev/<org>/charts/kube-prometheus-stack@sha256:833bd55297054df0afdbe47750013b8e2eff930059c63c0746447fa8d0b729d3
+    version: 87.4.0
+    namespace: monitoring
+  - name: nginx
+    chart: oci://cgr.dev/<org>/iamguarded-charts/nginx@sha256:7b88d44da254fc764171da809471d10c6cf15b9ab0ddcb4b475b9a8f380aeb79
+    version: 22.1.0
+    namespace: nginx
+```
+
+Configure Renovate with the example below, replacing every instance of `cgr.dev/<org>` with your Chainguard organization or internal mirror/proxy.
+
+```json
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "matchManagers": ["helmfile"],
+      "matchPackagePatterns": [
+        "^cgr\\.dev/<org>/(charts|iamguarded-charts)/"
+      ],
+      "enabled": false
+    }
+  ],
+  "customManagers": [
+    {
+      "customType": "jsonata",
+      "fileFormat": "yaml",
+      "fileMatch": ["(^|/)helmfile\\.ya?ml$"],
+      "matchStrings": [
+        "releases[$contains(chart, 'cgr.dev/<org>/charts/')].($n := $substringAfter($substringBefore(chart & '@', '@'), 'charts/'); $exists(version) ? { 'depName': $n, 'packageName': 'cgr.dev/<org>/charts/' & $n, 'currentValue': version, 'currentDigest': $substringAfter(chart, '@') } : { 'depName': $n, 'packageName': 'cgr.dev/<org>/charts/' & $n, 'currentDigest': $substringAfter(chart, '@') })"
+      ],
+      "datasourceTemplate": "docker"
+    },
+    {
+      "customType": "jsonata",
+      "fileFormat": "yaml",
+      "fileMatch": ["(^|/)helmfile\\.ya?ml$"],
+      "matchStrings": [
+        "releases[$contains(chart, 'cgr.dev/<org>/iamguarded-charts/')].($n := $substringAfter($substringBefore(chart & '@', '@'), 'iamguarded-charts/'); $exists(version) ? { 'depName': $n, 'packageName': 'cgr.dev/<org>/iamguarded-charts/' & $n, 'currentValue': version, 'currentDigest': $substringAfter(chart, '@') } : { 'depName': $n, 'packageName': 'cgr.dev/<org>/iamguarded-charts/' & $n, 'currentDigest': $substringAfter(chart, '@') })"
+      ],
+      "datasourceTemplate": "docker"
+    }
+  ]
+}
+```
+
+## Updating Chainguard Helm Charts in ArgoCD Applications
+
+Renovate supports updating [ArgoCD](https://argo-cd.readthedocs.io/) `Application` manifests with its [built-in `argocd` manager](https://docs.renovatebot.com/modules/manager/argocd/). However, it doesn't presently support updating [digest references](/chainguard/chainguard-images/how-to-use/container-image-digests/) for OCI chart URLs, which is a [recommended practice when deploying Chainguard Helm charts](/chainguard/chainguard-images/how-to-use/use-chainguard-helm-charts/#pin-to-digest). See [renovatebot/renovate#45055](https://github.com/renovatebot/renovate/discussions/45055) for more details.
+
+To pin Chainguard Helm charts to digests and update them with Renovate, you can use a [custom `jsonata` manager](https://docs.renovatebot.com/modules/manager/custom.jsonata/) as a workaround.
+
+Given `Application` manifests such as:
+
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kube-prometheus-stack
+spec:
+  source:
+    repoURL: oci://cgr.dev/<org>/charts
+    chart: kube-prometheus-stack
+    targetRevision: 87.4.0@sha256:833bd55297054df0afdbe47750013b8e2eff930059c63c0746447fa8d0b729d3
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx
+spec:
+  source:
+    repoURL: oci://cgr.dev/<org>/iamguarded-charts
+    chart: nginx
+    targetRevision: 22.1.0@sha256:7b88d44da254fc764171da809471d10c6cf15b9ab0ddcb4b475b9a8f380aeb79
+```
+
+Configure Renovate as in the example below, replacing every instance of `cgr.dev/<org>` with your Chainguard organization or internal mirror/proxy.
+
+```json
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "matchManagers": ["argocd"],
+      "matchPackagePatterns": [
+        "^cgr\\.dev/<org>/(charts|iamguarded-charts)/"
+      ],
+      "enabled": false
+    }
+  ],
+  "customManagers": [
+    {
+      "customType": "jsonata",
+      "fileFormat": "yaml",
+      "fileMatch": ["\\.ya?ml$"],
+      "matchStrings": [
+        "spec.source[$contains(repoURL, 'cgr.dev/<org>/charts')].($tr := targetRevision; $substring($tr, 0, 7) = 'sha256:' ? { 'depName': chart, 'packageName': 'cgr.dev/<org>/charts/' & chart, 'currentDigest': $tr } : { 'depName': chart, 'packageName': 'cgr.dev/<org>/charts/' & chart, 'currentValue': $substringBefore($tr & '@', '@'), 'currentDigest': $substringAfter($tr, '@') })"
+      ],
+      "datasourceTemplate": "docker"
+    },
+    {
+      "customType": "jsonata",
+      "fileFormat": "yaml",
+      "fileMatch": ["\\.ya?ml$"],
+      "matchStrings": [
+        "spec.source[$contains(repoURL, 'cgr.dev/<org>/iamguarded-charts')].($tr := targetRevision; $substring($tr, 0, 7) = 'sha256:' ? { 'depName': chart, 'packageName': 'cgr.dev/<org>/iamguarded-charts/' & chart, 'currentDigest': $tr } : { 'depName': chart, 'packageName': 'cgr.dev/<org>/iamguarded-charts/' & chart, 'currentValue': $substringBefore($tr & '@', '@'), 'currentDigest': $substringAfter($tr, '@') })"
+      ],
+      "datasourceTemplate": "docker"
+    }
+  ]
+}
+```
+
+## Updating Chainguard Helm Charts in Flux
+
+Renovate natively supports updating [Flux](https://fluxcd.io/) `OCIRepository` resources with its [built-in `flux` manager](https://docs.renovatebot.com/modules/manager/flux/).
+
+Given a Flux manifest such as:
+
+```yaml
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: OCIRepository
+metadata:
+  name: kube-prometheus-stack
+  namespace: monitoring
+spec:
+  interval: 5m
+  url: oci://cgr.dev/<org>/charts/kube-prometheus-stack
+  ref:
+    tag: 87.4.0
+    digest: sha256:833bd55297054df0afdbe47750013b8e2eff930059c63c0746447fa8d0b729d3
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: kube-prometheus-stack
+  namespace: monitoring
+spec:
+  interval: 5m
+  chartRef:
+    kind: OCIRepository
+    name: kube-prometheus-stack
+```
+
+Configure Renovate with the example below, adjusting the `flux.fileMatch` patterns to cover your repository layout. The `pinDigests` rule enforces the [recommended practice of pinning charts to a digest](/chainguard/chainguard-images/how-to-use/use-chainguard-helm-charts/#pin-to-digest): if an `OCIRepository` has a `tag` but no `digest`, Renovate opens a PR to add one.
+
+```json
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "flux": {
+    "fileMatch": [
+      "(^|/)flux\\.ya?ml$",
+      "(^|/)gotk-components\\.ya?ml$"
+    ]
+  },
+  "packageRules": [
+    {
+      "matchManagers": ["flux"],
+      "matchDatasources": ["docker"],
+      "matchPackagePatterns": [
+        "^cgr\\.dev/<org>/(charts|iamguarded-charts)/"
+      ],
+      "pinDigests": true
+    }
+  ]
+}
+```
+
 ## Running Renovate in Github Actions
 
 You can use [`renovatebot/github-action`](https://github.com/renovatebot/github-action) to run Renovate from a GitHub Actions workflow. This can be combined with an [assumable identity](/chainguard/administration/assumable-ids/assumable-ids/) to authenticate to `cgr.dev` and update references to Chainguard container images in your repository.
