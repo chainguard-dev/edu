@@ -47,7 +47,7 @@
         <span>
           <a target="_blank" href="{{ .URL }}">
             <img src="/iconography/socials/{{ .Params.icon }}" alt="Follow Chainguard on {{ .Name}}">
-          </a>              
+          </a>
         </span>
         {{ end }}
     </span>
@@ -57,7 +57,7 @@
       <span class="footer-separator">|</span>
       <a class="footer-item" href="https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement">Contact Us</a>
     </div>
-    
+
     <div class="footer-copyright-legal">
       <span>
         <a class="footer-item" href="https://www.chainguard.dev">©{{ time.Now.Year }} Chainguard. All Rights Reserved.</a>
@@ -70,7 +70,7 @@
   </div>
 </footer>
 
-<div id="notification">
+<div id="notification" aria-live="polite">
   <i class="bi bi-files-opposite"></i>
   <div id="notification-text"></div>
 </div>

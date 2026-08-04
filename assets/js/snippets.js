@@ -111,6 +111,7 @@ const customizeUI = (pre) => {
 
   const copyButton = document.createElement("button");
   copyButton.classList.add("tooltip-container");
+  copyButton.setAttribute("aria-label", "Copy code to clipboard");
   const copyIcon = document.createElement("i");
   copyIcon.classList.add("bi", "bi-files");
   const copyText = document.createElement("span");
