@@ -8,11 +8,21 @@ Documentation: CC BY-SA 4.0 | Code Examples: Apache 2.0
 ---
 
 ## Full Documentation
+{{ range .Site.RegularPages.GroupBy "Section" -}}
+{{- $section := .Key -}}
+{{- $heading := cond (eq $section "") "General Resources" ($section | replaceRE "-" " " | title) -}}
+{{/* Collect only pages the site wants advertised: skip anything marked noindex or excluded from the sitemap. */}}
+{{- $visible := slice -}}
+{{- range .Pages -}}
+{{- $robots := "" -}}
+{{- with .Params.seo }}{{ $robots = .robots | default "" }}{{ end -}}
+{{- $excluded := or (in $robots "noindex") (eq .Params.sitemap_exclude true) -}}
+{{- if not $excluded }}{{ $visible = $visible | append . }}{{ end -}}
+{{- end -}}
+{{- if $visible }}
+## {{ $heading }}
 
-{{ range $section, $pages := .Site.RegularPages.GroupBy "Section" }}
-## Section: {{ $section | title }}
-
-{{ range $pages.Pages }}
+{{ range $visible }}
 ### {{ .Title }}
 
 URL: {{ .Permalink | replaceRE "/$" ".md" }}
@@ -26,4 +36,5 @@ Tags: {{ delimit .Params.tags ", " }}
 ---
 
 {{ end }}
-{{ end }}
+{{- end -}}
+{{- end }}
