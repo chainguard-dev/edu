@@ -6,7 +6,7 @@ description: "Learn about Chainguard Libraries, providing enhanced security for
     comprehensive supply chain protection."
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-05T14:56:25+00:00
+lastmod: 2026-08-05T15:44:08+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 menu:
@@ -200,7 +200,7 @@ You can view blocked packages [in the Chainguard Console](/chainguard/libraries/
 
 #### Malware API
 
-Chainguard's [malware API endpoint](/chainguard/api/spec-api-v1/#tag/malware/) provides access to Chainguard's malware blocklist. You can use it to retrieve a list of packages that have been identified as malicious and blocked by Chainguard.
+Chainguard's malware API endpoint provides access to Chainguard's malware blocklist. You can use it to retrieve a list of packages that have been identified as malicious and blocked by Chainguard. Learn more about it in the [API documentation](/platform/api/spec-api-v1/#tag/malware/).
 
 Expand the following section to see examples:
 
