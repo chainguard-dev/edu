@@ -6,7 +6,7 @@ description: "Learn about Chainguard Libraries, providing enhanced security for
     comprehensive supply chain protection."
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-07-30T14:25:45+00:00
+lastmod: 2026-08-05T15:47:45+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 menu:
@@ -194,11 +194,13 @@ Chainguard's scanning evaluates multiple signal types, including:
 * **Typosquatting and impersonation**: The package is named or brand-engineered to deceive users into downloading the wrong package.
 * **Compromised or untrusted releases**: The package exhibits signs that a release cannot be trusted.
 
-You can view blocked packages [in the Chainguard Console](/chainguard/libraries/browse/#view-malware-information) or [using `chainctl` commands](/chainguard/libraries/access/#check-blocked-packages).
+#### View blocked packages
+
+You can view blocked packages [in the Chainguard Console](/chainguard/libraries/browse/#view-malware-information), [using `chainctl` commands](/platform/chainctl/chainctl-docs/chainctl_libraries_packages_malware_list/), or [via the API](#malware-api).
 
 #### Malware API
 
-Chainguard's [malware API endpoint](/chainguard/api/spec-api-v1/#tag/malware) provides access to Chainguard's malware blocklist. You can use it to retrieve a list of packages that have been identified as malicious and blocked by Chainguard.
+Chainguard's malware API endpoint provides access to Chainguard's malware blocklist. You can use it to retrieve a list of packages that have been identified as malicious and blocked by Chainguard. Learn more about it in the [API documentation](/platform/api/spec-api-v1/).
 
 Expand the following section to see examples:
 

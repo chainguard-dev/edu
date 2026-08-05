@@ -4,7 +4,7 @@ linktitle: "Library Policies"
 description: "Configure and enforce policies that control which Chainguard Libraries package versions your organization can pull"
 type: "article"
 date: 2026-07-31T00:00:00+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-08-05T14:52:37+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -177,7 +177,7 @@ chainctl libraries policy enable team-policy --ecosystem=PYTHON --mode=ENFORCE
 
 ### Check blocked packages
 
-Use `chainctl libraries packages blocked` to review what a policy has blocked. By default, this shows pull events that were blocked under any enforced policies. For example:
+Use `chainctl libraries packages blocked` to review what has been blocked by your organization's policy. By default, this shows pull events that were blocked under any enforced policies. For example:
 
 ```bash
 chainctl libraries packages blocked --ecosystem=JAVASCRIPT
@@ -191,6 +191,8 @@ chainctl libraries packages blocked --mode=PREVIEW --ecosystem=JAVASCRIPT
 ```
 
 Replace `example-policy` with the name of the policy you want to preview.
+
+To check packages that have been blocked by [Chainguard's global malware/greyware blocklist](/chainguard/libraries/overview/#malware-and-greyware-detection), use [`chainctl libraries packages malware list`](/platform/chainctl/chainctl-docs/chainctl_libraries_packages_malware_list/).
 
 ## Override policies
 
