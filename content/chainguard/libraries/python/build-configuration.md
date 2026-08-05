@@ -4,7 +4,7 @@ linktitle: "Build configuration"
 description: "Configuring Chainguard Libraries for Python on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-08-05T18:42:36+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 menu:
@@ -164,6 +164,8 @@ If you are migrating an existing Python project to Chainguard Libraries, your lo
 The [`chainctl libraries update-hashes` command](/chainguard/chainctl/chainctl-docs/chainctl_libraries_update-hashes/) automates lockfile hash updates for all supported Python lockfile formats. Rather than manually regenerating lock files with each tool, you can run the command directly against your existing lockfile to update hashes to Chainguard checksums while preserving your locked dependency versions, without re-resolving your dependency graph.
 
 Supported formats include `requirements.txt` (pip-tools `--hash` style), `poetry.lock`, `uv.lock`, `pdm.lock`, `Pipfile.lock`, and `pylock.toml`.
+
+> **Note**: Running `chainctl libraries update-hashes` requires an [entitlement to Chainguard Libraries](/chainguard/libraries/access/#entitlement) for Python and the `libraries.python.pull` permission.
 
 Run the command in your project directory to auto-detect the lockfile:
 

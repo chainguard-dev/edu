@@ -6,7 +6,7 @@ description:
   Libraries using the chainctl tool for enhanced supply chain security"
 type: "article"
 date: 2025-07-03T12:00:00+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-08-05T18:42:36+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -51,7 +51,10 @@ You also need:
 - A Linux, macOS, or Windows system (x86_64 or arm64)
 - Sufficient [network access](/chainguard/libraries/network-requirements/)
 - Your organization [must include entitlement for access to Chainguard
-  Libraries](/chainguard/libraries/access/#entitlement)
+  Libraries](/chainguard/libraries/access/#entitlement) for the ecosystem you're
+  verifying, and your identity must have the matching pull permission
+  (`libraries.java.pull`, `libraries.javascript.pull`, or
+  `libraries.python.pull`)
 
 Confirm that `chainctl` and `cosign` are installed and available on the `PATH`
 with the following commands:

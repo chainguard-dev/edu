@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing JavaScript project to pull dependencies from Chainguard Libraries"
 date: 2026-06-01T00:00:00+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-08-05T18:42:36+00:00
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
   docs:
@@ -402,6 +402,8 @@ Chainguard's artifacts, without regenerating the lockfile from scratch. This
 preserves your pinned dependency versions. Supported formats include `package-lock.json` (npm v2/v3), `yarn.lock` (Yarn
 Classic and Berry), `pnpm-lock.yaml`, and `bun.lock`.
 
+> **Note**: Running `chainctl libraries update-hashes` requires an [entitlement to Chainguard Libraries](/chainguard/libraries/access/#entitlement) for JavaScript and the `libraries.javascript.pull` permission.
+
 Run the command in the directory containing the lockfile:
 
 ```shell
@@ -631,6 +633,8 @@ directory. `chainctl libraries verify` auto-detects npm and pnpm caches by
 their directory structure.
 
 When upstream fallback is enabled, [packages that aren't built by Chainguard](#packages-not-available-in-chainguard-libraries) are subject to Chainguard's security controls.
+
+> **Note**: Running `chainctl libraries verify` requires an [entitlement to Chainguard Libraries](/chainguard/libraries/access/#entitlement) for JavaScript and the `libraries.javascript.pull` permission.
 
 {{< tabs >}}
 

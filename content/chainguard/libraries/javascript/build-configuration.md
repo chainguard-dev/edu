@@ -4,7 +4,7 @@ linktitle: "Build configuration"
 description: "Configuring Chainguard Libraries for JavaScript on your workstation"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-08-05T18:42:36+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
@@ -83,6 +83,8 @@ Learn more in the [JavaScript migration guide](/chainguard/libraries/javascript/
 
 `update-hashes` fetches checksums from Chainguard Libraries,
 which requires authentication. Where it fetches from depends on your environment: some setups authenticate directly to `libraries.cgr.dev`, but if your build routes through a repository manager configured as a pull-through proxy for Chainguard Libraries, point `update-hashes` there instead with `--registry-url` so it validates against the same source your build used.
+
+> **Note**: Running `chainctl libraries update-hashes` requires an [entitlement to Chainguard Libraries](/chainguard/libraries/access/#entitlement) for JavaScript and the `libraries.javascript.pull` permission.
 
 Authenticating to `libraries.cgr.dev` directly:
 

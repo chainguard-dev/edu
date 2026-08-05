@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-07-31T18:47:05+00:00
+lastmod: 2026-08-05T18:42:36+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -312,6 +312,8 @@ Your existing lockfile or hash-pinned `requirements.txt` contains checksums gene
 
 Use `chainctl libraries update-hashes` to rewrite only the integrity hashes in your existing lockfile or requirements file to match Chainguard's artifacts, without re-resolving your dependency graph. Supported formats include `requirements.txt`, `poetry.lock`, `uv.lock`, `pdm.lock`, `Pipfile.lock`, and `pylock.toml`.
 
+> **Note**: Running `chainctl libraries update-hashes` requires an [entitlement to Chainguard Libraries](/chainguard/libraries/access/#entitlement) for Python and the `libraries.python.pull` permission.
+
 Run the following command to auto-detect and update the lockfile in the current project:
 
 ```bash
@@ -444,6 +446,8 @@ poetry install
 ## Step 5: Verify your libraries
 
 After reinstalling, you can use `chainctl` to verify which dependencies are built by Chainguard. When upstream fallback is enabled, [libraries that aren't built by Chainguard](#packages-not-available-in-chainguard-libraries) are subject to Chainguard's security controls.
+
+> **Note**: Running `chainctl libraries verify` requires an [entitlement to Chainguard Libraries](/chainguard/libraries/access/#entitlement) for Python and the `libraries.python.pull` permission.
 
 {{< tabs >}}
 
