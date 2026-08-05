@@ -15,26 +15,23 @@ weight: 011
 toc: true
 ---
 
-Chainguard's [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) is a tool that allows customers to create customized container images with extra packages and annotations added. This enables customers to reduce their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs. It can be managed in the [Chainguard Console](/chainguard/chainguard-images/features/ca-docs/custom-assembly-console/), [with chainctl](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/), [with the API](/chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/), or via CI/CD.
+Chainguard's [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) is a tool that lets customers create customized container images with extra packages and annotations added. This enables customers to reduce their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs. It can be managed in the [Chainguard Console](/chainguard/chainguard-images/features/ca-docs/custom-assembly-console/), [with `chainctl`](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/), [with the API](/chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/), or from a CI/CD pipeline.
 
-This guide shows how to use Chainguard Custom Assembly as code via CI/CD, storing your configuration in Git and using automation to apply changes and trigger builds. The examples in this guide focus on GitHub Actions, as seen in [Chainguard's custom-assembly-as-code demo repository](https://github.com/chainguard-demo/custom-assembly-as-code).
+This guide shows how to use Chainguard Custom Assembly as code from a CI/CD pipeline, storing your configuration in Git and using automation to apply changes and trigger builds. The examples in this guide focus on GitHub Actions, and are adapted from [Chainguard's custom-assembly-as-code demo repository](https://github.com/chainguard-demo/custom-assembly-as-code).
 
 > **NOTE**: `chainctl` is an API client that handles common tasks like authentication and applying configuration files. You can manage Custom Assembly [interactively using `chainctl`](/chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/). Running `chainctl` non-interactively is a common pattern for implementing GitOps workflows.
 
 ## Prerequisites
 
-Before getting started, you should have:
+Before getting started, you need the following:
 
-* A Chainguard organization with access to Custom Assembly
-* Permission to manage Custom Assembly configuration for your organization/repository
-* A CI/CD platform in place
-    * In this guide, we use GitHub Actions as an example.
+* A Chainguard organization with access to Custom Assembly, as well as permission to manage Custom Assembly for your organization
+* A CI/CD platform in place. This guide uses GitHub Actions as an example
+    * Custom Assembly builds need no GitHub credentials beyond the token `actions/checkout` uses by default, so the example workflow in this guide does not authenticate to the GitHub API.
 * A Git repository to host your apko configuration files
 * A configured assumable identity for your CI workload
     * If you have not yet set up CI identities, refer to [Chainguard's tutorials for creating and assuming identities](/chainguard/administration/assumable-ids/identity-examples/).
-* The full IDs for your [catalog_syncer and apko_builder identities](/chainguard/chainguard-images/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/#chainguards-signing-identities/).
-
-Also note that Chainguard's [demo workflow](https://github.com/chainguard-demo/custom-assembly-as-code) uses [octo-sts](https://www.chainguard.dev/unchained/the-end-of-github-pats-you-cant-leak-what-you-dont-have), a tool that generates short-lived GitHub tokens instead of using long-lived Personal Access Tokens (PATs). While octo-sts is optional for Custom Assembly builds, it's recommended for workflows that need GitHub API access alongside Chainguard operations.
+* The full IDs for your [image-syncer and custom-image-builder identities](/chainguard/chainguard-images/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/#chainguards-signing-identities), named `catalog_syncer` and `apko_builder` in older organizations
 
 ### Understanding apko overlay files
 
@@ -80,10 +77,10 @@ certificates:
 
 ### Repository structure
 
-We recommend organizing your configuration YAML files in a dedicated directory. For example:
+Chainguard recommends organizing your configuration YAML files in a dedicated directory, as in the following example repository structure:
 
 ```
-your-repo/
+<github-repository>/
 ├── .github/
 │   └── workflows/
 │       └── build-custom-images.yaml
@@ -98,37 +95,47 @@ In this example, the `ca-images-iac/` directory contains the apko overlay files,
 
 ## Step 1: Create an assumable identity
 
-First, create an identity that your CI/CD platform can assume. The process varies by platform, but here's a GitHub Actions example:
+First, create an identity that your CI/CD platform can assume. The process varies by platform; the following example uses GitHub Actions.
 
 ```bash
 chainctl iam identities create github-actions-identity \
   --description="GitHub Actions identity for Custom Assembly" \
-  --claim=repository=your-org/your-repo \
-  --claim=event_name=push
+  --identity-issuer=https://token.actions.githubusercontent.com \
+  --subject-pattern=".*" \
+  --claim-pattern=repository:<github-organization>/<github-repository> \
+  --claim-pattern='event_name:^(push|workflow_dispatch)$'
 ```
 
-This creates an identity that GitHub Actions workflows in `your-org/your-repo` can assume when triggered by push events.
+Replace `<github-organization>/<github-repository>` with the repository that holds your workflow. This creates an identity that GitHub Actions workflows in that repository can assume, whether triggered by a push or started manually from the Actions tab.
 
-{{< note >}}
-This example matches on the `repository` and `event_name` claims rather than the `sub` claim, so it is unaffected by GitHub's [immutable subject claims](/platform/administration/assumable-ids/identity-examples/github-identity/#finding-your-repositorys-numeric-identifiers), which change only the `sub` claim. The `repository` claim carries the repository name, and names can be reassigned. For stronger protection against namespace reuse, pin the identity to the repository's numeric ID by adding `--claim=repository_id=<repo-id>`.
-{{< /note >}}
+Claim values are patterns, not literal strings, so `^(push|workflow_dispatch)$` matches either event. Match both: the workflow later in this guide triggers on `push` and `workflow_dispatch`, and the testing steps start a run manually. An identity pinned to `event_name:push` alone rejects manual runs with `token has invalid "event_name": workflow_dispatch`. Be sure to quote the pattern so your shell does not interpret the `|` as a pipe.
+
+Repeat `--claim-pattern` once per claim, as shown in this example. Passing several `claim:pattern` pairs as a single comma-separated value does not create separate claims — `chainctl` treats the entire string as one pattern, matching a `repository` claim whose literal value is `<github-organization>/<github-repository>,event_name:push`. This fails silently, producing an identity that no workflow can assume.
+
+This example matches on the `repository` and `event_name` claims rather than the `sub` claim, so it is unaffected by GitHub's [immutable subject claims](/platform/administration/assumable-ids/identity-examples/github-identity/#finding-your-repositorys-numeric-identifiers), which change only the `sub` claim. The `repository` claim carries the repository name, and names can be reassigned. For stronger protection against namespace reuse, pin the identity to the repository's numeric ID by adding `--claim-pattern=repository_id:<github-repository-id>`.
 
 ## Step 2: Grant permissions
 
-The identity needs permission to build Custom Assembly images. You can create a [least-privilege custom role](/chainguard/chainguard-images/features/ca-docs/custom-assembly/#custom-assembly-permissions-requirements/) that contains the `repo.update` and `repo.create` permissions, then grant the necessary permission using `chainctl`:
+The identity needs permission to build Custom Assembly images. You can create a [least-privilege custom role](/chainguard/chainguard-images/features/ca-docs/custom-assembly/#custom-assembly-permissions-requirements) that contains the `repo.update` and `repo.create` permissions, then grant the necessary permission using `chainctl`.
 
-```bash
-# Get your identity ID
+After creating the custom role, set an environment variable named `IDENTITY_ID` to the UIDP of the `github-actions-identity` identity you just created:
+
+```shell
 IDENTITY_ID=$(chainctl iam identities list -o json | jq -r '.items[] | select(.name=="github-actions-identity") | .id')
-
-# Grant image build permissions
-chainctl iam role-bindings create \
-  --identity=$IDENTITY_ID \
-  --role=custom-role \
-  --group=your-group-id
 ```
 
-## Step 3: Note Your identity ID
+Then use this variable to create a role binding that grants the custom role to the identity:
+
+```shell
+chainctl iam role-bindings create \
+  --identity=$IDENTITY_ID \
+  --role=<custom-role> \
+  --parent=<chainguard-org>
+```
+
+Be sure to replace `<custom-role>` with the name of the custom role you created and `<chainguard-org>` with the name of your Chainguard organization.
+
+## Step 3: Note your identity ID
 
 You'll need your identity ID for your CI/CD workflow configuration. Save it for use in the next section:
 
@@ -136,14 +143,14 @@ You'll need your identity ID for your CI/CD workflow configuration. Save it for 
 chainctl iam identities list -o table
 ```
 
-## Trigger builds via chainctl in CI/CD workflows
+## Trigger builds with `chainctl` in CI/CD workflows
 
-Regardless of which CI/CD platform you use, Custom Assembly builds are triggered with the same chainctl command:
+Regardless of which CI/CD platform you use, you trigger Custom Assembly builds with the same `chainctl images repos build apply` command:
 
 ```bash
 chainctl images repos build apply --file ca-images-iac/custom-jre.yaml \
-  --parent your-parent-group \
-  --repo your-repo \
+  --parent <chainguard-org> \
+  --repo <image-name> \
   --yes
 ```
 
@@ -154,7 +161,7 @@ This command:
 * Reads your apko overlay configuration from the YAML file
 * Applies it to build a custom image
 * Pushes the result to your Chainguard registry
-* Skips the interactive confirmation via the `--yes` flag, making it suitable for automated workflows
+* Skips the interactive confirmation when you pass `--yes`, making it suitable for automated workflows
 
 ### GitHub Actions example
 
@@ -172,10 +179,16 @@ on:
       - 'ca-images-iac/custom-jre.yaml'
   workflow_dispatch:
 
+# Images are signed by either the image-syncer or custom-image-builder identity in
+# your organization. Find these values under "Assumed Identities" in your
+# organization settings. They are defined here, at workflow level, so every step can
+# read them.
 env:
-  CUSTOM_IMAGE: "cgr.dev/your-org/your-image"
+  CUSTOM_IMAGE: "cgr.dev/<chainguard-org>/<image-name>"
+  IMAGE_SYNCER: "<chainguard-org-id>/<image-syncer-id>"
+  CUSTOM_IMAGE_BUILDER: "<chainguard-org-id>/<custom-image-builder-id>"
 
-# Top-level permissions set to principle of least privilege. Job-level permissions grant only what's needed.
+# Top-level permissions follow the principle of least privilege. Job-level permissions grant only what's needed.
 permissions: {}
 
 jobs:
@@ -201,13 +214,6 @@ jobs:
         with:
           cache: false
 
-      # Use octo-sts for GitHub authentication (no PAT needed)
-      - uses: octo-sts/action@6177b4481c00308b3839969c3eca88c96a91775f # v1.0.0
-        id: octo-sts
-        with:
-          scope: your-org/your-repo
-          identity: build
-
       - name: Install Crane
         run: go install github.com/google/go-containerregistry/cmd/crane@latest
 
@@ -217,53 +223,68 @@ jobs:
       # Authenticate to Chainguard using assumable identity
       - uses: chainguard-dev/setup-chainctl@8d93dcbef466d3cf3533f67084f52eb74ef9d262 # v0.2.4
         with:
-          identity: "your-org-id/your-identity-id"
+          identity: "<chainguard-org-id>/<chainguard-identity-id>"
 
       - name: 'Auth to Registry'
         run: |
           chainctl auth configure-docker
           chainctl auth status
 
-      # Verify existing image signature before rebuilding. Find these identity IDs in your organization's "Assumed Identities" settings.
+      # Verify existing image signature before rebuilding.
       - name: Verify signature && pull existing image
         id: cosign-verify
         continue-on-error: false
         run: |
-          # Images are signed by either CATALOG_SYNCER or APKO_BUILDER identity in your org.
-          # Find these values in your organization settings under "Assumed Identities"
-          CATALOG_SYNCER="your-org-id/catalog-syncer-id"
-          APKO_BUILDER="your-org-id/apko-builder-id"
           cosign verify \
             --certificate-oidc-issuer=https://issuer.enforce.dev \
-            --certificate-identity-regexp="https://issuer.enforce.dev/(${CATALOG_SYNCER}|${APKO_BUILDER})" \
-            $CUSTOM_IMAGE:latest | jq
+            --certificate-identity-regexp="https://issuer.enforce.dev/(${IMAGE_SYNCER}|${CUSTOM_IMAGE_BUILDER})" \
+            "$CUSTOM_IMAGE:latest" | jq
 
       # Extract and display packages from the SBOM attestation.
       - name: Print created time and list packages
         id: crane-config
         continue-on-error: false
         run: |
-          echo "Created time: $(crane config $CUSTOM_IMAGE:latest | jq -r .created)"
-          crane manifest $CUSTOM_IMAGE:latest | \
-            jq -r '.manifests[] | \
-            select (.platform.architecture=="amd64") | \
-            .digest' | \
+          echo "Created time: $(crane config "$CUSTOM_IMAGE:latest" | jq -r .created)"
+          crane manifest "$CUSTOM_IMAGE:latest" |
+            jq -r '.manifests[]
+              | select(.platform.architecture=="amd64")
+              | .digest' |
             xargs -I {} cosign verify-attestation --type=spdx \
-            --certificate-oidc-issuer=https://issuer.enforce.dev \
-            --certificate-identity-regexp="https://issuer.enforce.dev/(${CATALOG_SYNCER}|${APKO_BUILDER})" \
-            $CUSTOM_IMAGE@{} 2> /dev/null | \
-            jq -r .payload | base64 -d | jq '.predicate' | \
-            jq '.packages[] | select(.externalRefs[]?.referenceCategory == "PACKAGE_MANAGER") | \
-            .externalRefs[] | select(.referenceCategory == "PACKAGE_MANAGER") | .referenceLocator'
+              --certificate-oidc-issuer=https://issuer.enforce.dev \
+              --certificate-identity-regexp="https://issuer.enforce.dev/(${IMAGE_SYNCER}|${CUSTOM_IMAGE_BUILDER})" \
+              "$CUSTOM_IMAGE@{}" 2> /dev/null |
+            jq -r .payload | base64 -d | jq '.predicate' |
+            jq '.packages[]
+              | select(.externalRefs[]?.referenceCategory == "PACKAGE_MANAGER")
+              | .externalRefs[]
+              | select(.referenceCategory == "PACKAGE_MANAGER")
+              | .referenceLocator'
 
       # Apply the apko configuration file to trigger the build. The --yes flag skips the confirmation prompt.
       - name: Trigger custom build
         id: start-custom-build
         continue-on-error: false
         run: |
-          chainctl image repo build apply -f ca-images-iac/custom-jre.yaml \
-            --parent your-parent-group --repo your-repo --yes
+          chainctl images repos build apply -f ca-images-iac/custom-jre.yaml \
+            --parent <chainguard-org> --repo <image-name> --yes
 ```
+
+#### Extending the workflow with GitHub API access
+
+Some extensions to this workflow do need GitHub credentials, such as committing an updated overlay file, opening a pull request that reports which CVEs a rebuild fixed, or commenting build results on an existing pull request.
+
+Rather than storing a long-lived Personal Access Token, add an [Octo STS](https://github.com/apps/octo-sts) step. Octo STS exchanges the workflow's OIDC token for a GitHub token that is scoped to the permissions you declare and expires with the run:
+
+```yaml
+      - uses: octo-sts/action@6177b4481c00308b3839969c3eca88c96a91775f # v1.0.0
+        id: octo-sts
+        with:
+          scope: <github-organization>/<github-repository>
+          identity: build
+```
+
+Pass the result to whichever step needs it as `${{ steps.octo-sts.outputs.token }}`. Using Octo STS also requires installing its GitHub App on your organization and committing a trust policy to `.github/chainguard/build.sts.yaml`, where `build` matches the `identity` input. Refer to the [Octo STS overview](/open-source/octo-sts/overview/) for more information.
 
 ## Testing your workflow
 
@@ -273,18 +294,21 @@ Before deploying your CI/CD workflow to production, test it thoroughly to ensure
 
 Before using the GitHub action in this guide, make sure to update the placeholders:
 
-* `your-org/your-repo`: Your GitHub repository (e.g., `acme/infrastructure`)
-* `your-org-id/your-identity-id`: Your full Chainguard identity ID
-* `CUSTOM_IMAGE: "cgr.dev/your-org/your-image"`: Your image registry path
-* `CATALOG_SYNCER="your-org-id/catalog-syncer-id"`: Your catalog syncer identity
-* `APKO_BUILDER="your-org-id/apko-builder-id"`: Your APKO builder identity
-* `--parent your-parent-group --repo your-repo`: Your Chainguard group and repo names
-* `ca-images-iac/custom-jre.yaml`: Your repo's directory that holds the apko overlay files, and the overlay file name
+* `<chainguard-org-id>/<chainguard-identity-id>`: The full ID of the identity you created in Step 1
+* `CUSTOM_IMAGE: "cgr.dev/<chainguard-org>/<image-name>"`: Your image registry path
+* `IMAGE_SYNCER: "<chainguard-org-id>/<image-syncer-id>"`: Your `image-syncer` identity
+* `CUSTOM_IMAGE_BUILDER: "<chainguard-org-id>/<custom-image-builder-id>"`: Your `custom-image-builder` identity
+* `--parent <chainguard-org> --repo <image-name>`: Your Chainguard organization and image repository names
+* `ca-images-iac/custom-jre.yaml`: The directory in your GitHub repository that holds the apko overlay files, and the overlay file name
+
+{{< note >}}
+Older Chainguard organizations name the `image-syncer` and `custom-image-builder` identities `catalog_syncer` and `apko_builder` instead. The names are interchangeable: each pair points at the same account association, so the signatures verify the same way. The workflow's environment variable names are arbitrary — only the identity IDs they hold matter.
+{{< /note >}}
 
 To test your GitHub Action:
 
-1. In GitHub, go to **Actions tab > Select workflow > Run workflow**.
-2. View the detailed logs for each step.
+1. In GitHub, go to the **Actions** tab, select your workflow, then click **Run workflow**.
+2. Check the detailed logs for each step.
 3. Confirm that the images appear in your Chainguard registry.
 
 ## Additional resources
