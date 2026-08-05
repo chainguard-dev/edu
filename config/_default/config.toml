@@ -163,6 +163,9 @@ notAlternative = true
     target = "assets/css/vendor/scalar"
     includeFiles = ["/style.css"]
   [[module.mounts]]
+    source = "node_modules/bootstrap-icons/font/fonts"
+    target = "static/fonts"
+  [[module.mounts]]
     source = "assets"
     target = "assets"
   [[module.mounts]]
