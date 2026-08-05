@@ -1,5 +1,5 @@
 ---
-date: 2026-07-31T18:12:39Z
+date: 2026-08-04T12:12:40Z
 title: "chainctl guardener github unlink"
 slug: chainctl_guardener_github_unlink
 url: /platform/chainctl/chainctl-docs/chainctl_guardener_github_unlink/
@@ -17,7 +17,7 @@ Unlink a GitHub organization from its Chainguard group.
 
 Unlink a GitHub organization from its Chainguard group.
 
-If --group is set, this first tries your Chainguard credentials: if you hold
+If --parent is set, this first tries your Chainguard credentials: if you hold
 guardener.association.manage on the group, the org is unlinked with no browser
 involved. Otherwise (or if those credentials are insufficient) it falls back to
 the GitHub authorization flow, which proves you own the organization. Either way
@@ -32,7 +32,7 @@ chainctl guardener github unlink [flags]
 
 ```
       --github-org string   GitHub account login to unlink (an organization, or your own user).
-      --group string        Name or UIDP of the Chainguard group; enables unlinking with your Chainguard credentials (no browser).
+      --parent string       Name or UIDP of the Chainguard group; enables unlinking with your Chainguard credentials (no browser).
       --port int            Local loopback port for the GitHub OAuth callback. (default 8989)
 ```
 

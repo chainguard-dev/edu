@@ -1286,6 +1286,13 @@
       },
       "chainguard.platform.auth.WhoAmI.Capability": {
         "properties": {
+          "capabilities": {
+            "description": "Set only when role is unset: the group's verbatim token capability set\nfor an entry that matches no known role. When role is resolved, its\ncapabilities are on the role instead and this is empty. A group's\nentries together cover its full token set.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
           "group": {
             "allOf": [
               {
@@ -1300,7 +1307,7 @@
                 "$ref": "#/components/schemas/chainguard.platform.iam.Role"
               }
             ],
-            "description": "role of the bound identity."
+            "description": "role of the bound identity. Unset when the token's capability set for\nthis group matches no known role; capabilities below still describe it."
           }
         },
         "title": "--- Upstream fields ---",
@@ -3011,7 +3018,7 @@
       },
       "chainguard.platform.libraries.Ecosystem": {
         "default": "UNKNOWN",
-        "description": "Ecosystem represents the language libraries an org can be entitled to.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.",
+        "description": "Ecosystem represents the language libraries an org can be entitled to.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.",
         "enum": [
           "UNKNOWN",
           "JAVA",
@@ -3019,7 +3026,9 @@
           "JAVASCRIPT",
           "JAVA_ATHENA",
           "PYTHON_ATHENA",
-          "JAVASCRIPT_ATHENA"
+          "JAVASCRIPT_ATHENA",
+          "DOTNET",
+          "DOTNET_ATHENA"
         ],
         "type": "string"
       },
@@ -12284,7 +12293,7 @@
         "operationId": "Artifacts_List",
         "parameters": [
           {
-            "description": "The language ecosystems to return artifacts for.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.",
+            "description": "The language ecosystems to return artifacts for.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.",
             "in": "query",
             "name": "ecosystems",
             "schema": {
@@ -12296,7 +12305,9 @@
                   "JAVASCRIPT",
                   "JAVA_ATHENA",
                   "PYTHON_ATHENA",
-                  "JAVASCRIPT_ATHENA"
+                  "JAVASCRIPT_ATHENA",
+                  "DOTNET",
+                  "DOTNET_ATHENA"
                 ],
                 "type": "string"
               },
@@ -12395,7 +12406,7 @@
         "operationId": "Artifacts_GetArtifactCount",
         "parameters": [
           {
-            "description": "The language ecosystems to request the artifact counts for.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.",
+            "description": "The language ecosystems to request the artifact counts for.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.",
             "in": "query",
             "name": "ecosystems",
             "schema": {
@@ -12407,7 +12418,9 @@
                   "JAVASCRIPT",
                   "JAVA_ATHENA",
                   "PYTHON_ATHENA",
-                  "JAVASCRIPT_ATHENA"
+                  "JAVASCRIPT_ATHENA",
+                  "DOTNET",
+                  "DOTNET_ATHENA"
                 ],
                 "type": "string"
               },
@@ -12826,7 +12839,7 @@
             }
           },
           {
-            "description": "Only events for this ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.",
+            "description": "Only events for this ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.",
             "in": "query",
             "name": "ecosystem",
             "schema": {
@@ -12838,7 +12851,9 @@
                 "JAVASCRIPT",
                 "JAVA_ATHENA",
                 "PYTHON_ATHENA",
-                "JAVASCRIPT_ATHENA"
+                "JAVASCRIPT_ATHENA",
+                "DOTNET",
+                "DOTNET_ATHENA"
               ],
               "type": "string"
             }
@@ -12931,7 +12946,7 @@
             }
           },
           {
-            "description": "ecosystems are the language ecosystems to list entitlements for. If empty, all entitlements for the group will be listed.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.",
+            "description": "ecosystems are the language ecosystems to list entitlements for. If empty, all entitlements for the group will be listed.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.",
             "in": "query",
             "name": "ecosystems",
             "schema": {
@@ -12943,7 +12958,9 @@
                   "JAVASCRIPT",
                   "JAVA_ATHENA",
                   "PYTHON_ATHENA",
-                  "JAVASCRIPT_ATHENA"
+                  "JAVASCRIPT_ATHENA",
+                  "DOTNET",
+                  "DOTNET_ATHENA"
                 ],
                 "type": "string"
               },
@@ -13616,7 +13633,7 @@
             }
           },
           {
-            "description": "Only return bindings for this ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.",
+            "description": "Only return bindings for this ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.",
             "in": "query",
             "name": "ecosystem",
             "schema": {
@@ -13628,7 +13645,9 @@
                 "JAVASCRIPT",
                 "JAVA_ATHENA",
                 "PYTHON_ATHENA",
-                "JAVASCRIPT_ATHENA"
+                "JAVASCRIPT_ATHENA",
+                "DOTNET",
+                "DOTNET_ATHENA"
               ],
               "type": "string"
             }
@@ -13853,7 +13872,7 @@
             }
           },
           {
-            "description": "ecosystem lists entries for one ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.",
+            "description": "ecosystem lists entries for one ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.",
             "in": "query",
             "name": "ecosystem",
             "schema": {
@@ -13865,7 +13884,9 @@
                 "JAVASCRIPT",
                 "JAVA_ATHENA",
                 "PYTHON_ATHENA",
-                "JAVASCRIPT_ATHENA"
+                "JAVASCRIPT_ATHENA",
+                "DOTNET",
+                "DOTNET_ATHENA"
               ],
               "type": "string"
             }
