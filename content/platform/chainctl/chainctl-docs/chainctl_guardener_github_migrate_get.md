@@ -1,5 +1,5 @@
 ---
-date: 2026-07-31T18:12:39Z
+date: 2026-08-04T12:12:40Z
 title: "chainctl guardener github migrate get"
 slug: chainctl_guardener_github_migrate_get
 url: /platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate_get/
@@ -18,8 +18,8 @@ Show the state of a migration operation.
 Show the state of a migration operation returned by "migrate create".
 
 OPERATION is the operation name (operations/migrate/{group}/{id}). The owning
-group is derived from the name unless --group is given. Pass --wait to poll until
-the operation completes.
+group is derived from the name unless --parent is given. Pass --wait to poll
+until the operation completes.
 
 Requires the guardener.actions.migrate capability on the group.
 
@@ -30,7 +30,7 @@ chainctl guardener github migrate get OPERATION [flags]
 ### Options
 
 ```
-      --group string       Name or UIDP of the owning group. Derived from the operation name if omitted.
+      --parent string      Name or UIDP of the owning group. Derived from the operation name if omitted.
       --timeout duration   How long to poll when --wait is set. (default 10m0s)
       --wait               Poll until the migration operation completes.
 ```

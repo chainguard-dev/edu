@@ -1,5 +1,5 @@
 ---
-date: 2026-07-31T18:12:39Z
+date: 2026-08-04T12:12:40Z
 title: "chainctl guardener github migrate create"
 slug: chainctl_guardener_github_migrate_create
 url: /platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate_create/
@@ -36,7 +36,7 @@ chainctl guardener github migrate create REPOSITORY [flags]
 ### Options
 
 ```
-      --group string       Name or UIDP of the Chainguard group that owns the installation. Prompts interactively if omitted.
+      --parent string      Name or UIDP of the Chainguard group that owns the installation. Prompts interactively if omitted.
       --timeout duration   How long to wait for the migration when --wait is set. (default 10m0s)
       --wait               Wait for the migration operation to complete before returning. (default true)
 ```
