@@ -204,18 +204,23 @@ jobs:
         with:
           egress-policy: audit
 
+      # Nothing after this step uses git or the GitHub API, so there is no reason to
+      # leave the checkout token behind in .git/config.
       - name: Checkout repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           ref: main
+          persist-credentials: false
 
       - name: Setup Go environment
         uses: actions/setup-go@41dfa10bad2bb2ae585af6ee5bb4d7d973ad74ed # v5.1.0
         with:
           cache: false
 
+      # Pin Crane to a release rather than @latest so a run cannot pick up an
+      # unreviewed version. Check for newer releases periodically.
       - name: Install Crane
-        run: go install github.com/google/go-containerregistry/cmd/crane@latest
+        run: go install github.com/google/go-containerregistry/cmd/crane@v0.21.9
 
       - name: Install Cosign
         uses: sigstore/cosign-installer@dc72c7d5c4d10cd6bcb8cf6e3fd625a9e5e537da # v3.7.0
