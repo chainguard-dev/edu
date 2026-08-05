@@ -4,7 +4,7 @@ linktitle: "Build configuration"
 description: "Configuring Chainguard Libraries for Java on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-05T18:42:36+00:00
+lastmod: 2026-08-05T19:13:35+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java"]
 menu:
@@ -536,12 +536,12 @@ dependency added in the example project can be found at:
 
 To verify the artifact was built by Chainguard, use `chainctl`:
 
-> **Note**: Running `chainctl libraries verify` requires an [entitlement to Chainguard Libraries](/chainguard/libraries/access/#entitlement) for Java and the `libraries.java.pull` permission.
-
 ```bash
 chainctl libraries verify \
   ~/.m2/repository/com/google/guava/guava/33.4.0-jre/guava-33.4.0-jre.jar
 ```
+
+> **Note**: Running `chainctl libraries verify` requires the `libraries.java.pull` permission or the Owner role.
 
 A successfully verified artifact produces output similar to the following:
 
@@ -781,11 +781,11 @@ find ~/.gradle/caches/modules-2/files-2.1/com.google.guava/guava -name "*.jar" |
 
 Then copy the exact path to the jar and verify it with `chainctl`:
 
-> **Note**: Running `chainctl libraries verify` requires an [entitlement to Chainguard Libraries](/chainguard/libraries/access/#entitlement) for Java and the `libraries.java.pull` permission.
-
 ```bash
 chainctl libraries verify --parent your-org /full/path/to/guava-<version>.jar
 ```
+
+> **Note**: Running `chainctl libraries verify` requires the `libraries.java.pull` permission or the Owner role.
 
 A successfully verified artifact produces output similar to the following:
 

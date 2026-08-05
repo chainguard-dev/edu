@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Java project to pull dependencies from Chainguard Libraries"
 date: 2026-07-02T00:00:00+00:00
-lastmod: 2026-08-05T18:42:36+00:00
+lastmod: 2026-08-05T19:13:35+00:00
 tags: ["Chainguard Libraries", "Java"]
 menu:
   docs:
@@ -505,8 +505,6 @@ If all artifacts download from Central, your credentials may be invalid or expir
 
 To check whether a specific artifact was built by Chainguard, use `chainctl libraries verify /full/path/to/artifact.jar`. Verify artifacts immediately after a clean build, before any repackaging.
 
-> **Note**: Running `chainctl libraries verify` requires an [entitlement to Chainguard Libraries](/chainguard/libraries/access/#entitlement) for Java and the `libraries.java.pull` permission.
-
 When upstream fallback is enabled, [packages that aren't built by Chainguard] are subject to Chainguard's security controls.
 
 {{< tabs >}}
@@ -587,6 +585,8 @@ chainctl libraries verify ~/Library/Caches/bazel/_bazel_example/c22a55500...f423
 {{% /tab %}}
 
 {{< /tabs >}}
+
+> **Note**: Running `chainctl libraries verify` requires the `libraries.java.pull` permission or the Owner role.
 
 A successful result shows what percentage of your project's dependencies were built by Chainguard:
 

@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing JavaScript project to pull dependencies from Chainguard Libraries"
 date: 2026-06-01T00:00:00+00:00
-lastmod: 2026-08-05T18:42:36+00:00
+lastmod: 2026-08-05T19:13:35+00:00
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
   docs:
@@ -402,13 +402,13 @@ Chainguard's artifacts, without regenerating the lockfile from scratch. This
 preserves your pinned dependency versions. Supported formats include `package-lock.json` (npm v2/v3), `yarn.lock` (Yarn
 Classic and Berry), `pnpm-lock.yaml`, and `bun.lock`.
 
-> **Note**: Running `chainctl libraries update-hashes` requires an [entitlement to Chainguard Libraries](/chainguard/libraries/access/#entitlement) for JavaScript and the `libraries.javascript.pull` permission.
-
 Run the command in the directory containing the lockfile:
 
 ```shell
 chainctl libraries update-hashes
 ```
+
+> **Note**: Running `chainctl libraries update-hashes` requires the `libraries.javascript.pull` permission or the Owner role.
 
 If your build tool appends the Chainguard hashes to your lock file, include the flag `--replace` to ensure the hashes are replaced with Chainguard hashes. When using a repo manager, pass the full repository URL with `--registry-url`.
 
@@ -634,8 +634,6 @@ their directory structure.
 
 When upstream fallback is enabled, [packages that aren't built by Chainguard](#packages-not-available-in-chainguard-libraries) are subject to Chainguard's security controls.
 
-> **Note**: Running `chainctl libraries verify` requires an [entitlement to Chainguard Libraries](/chainguard/libraries/access/#entitlement) for JavaScript and the `libraries.javascript.pull` permission.
-
 {{< tabs >}}
 
 {{% tab title="npm" %}}
@@ -688,6 +686,8 @@ chainctl libraries verify ./node_modules
 {{% /tab %}}
 
 {{< /tabs >}}
+
+> **Note**: Running `chainctl libraries verify` requires the `libraries.javascript.pull` permission or the Owner role.
 
 A successful result shows what percentage of your project's dependencies were built by Chainguard. For example:
 

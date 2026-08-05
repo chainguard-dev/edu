@@ -4,7 +4,7 @@ linktitle: "Quick Start"
 description: "Learn how to get started with Chainguard Libraries"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-08-05T18:42:36+00:00
+lastmod: 2026-08-05T19:13:35+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -255,11 +255,11 @@ Check out minimal example projects for
 
 After setup, you can verify which dependencies were built from source by Chainguard:
 
-> **Note**: Running `chainctl libraries verify` requires an [entitlement to Chainguard Libraries](/chainguard/libraries/access/#entitlement) for the ecosystem you're verifying and the matching pull permission (`libraries.java.pull`, `libraries.javascript.pull`, or `libraries.python.pull`).
-
 ```bash
 chainctl libraries verify /path/to/artifact
 ```
+
+> **Note**: Running `chainctl libraries verify` requires one of the `libraries.java.pull`, `libraries.javascript.pull`, or `libraries.python.pull` permissions, or the Owner role.
 
 Learn more in [Chainguard Libraries verification](/chainguard/libraries/verification/).
 

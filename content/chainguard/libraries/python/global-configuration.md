@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for Python in your organization"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-05T18:42:36+00:00
+lastmod: 2026-08-05T19:13:35+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 images: []
@@ -71,8 +71,6 @@ However, if you intentionally want to manage fallback ordering yourself, you can
 If you are migrating an existing Python project to Chainguard Libraries through a repository manager, your lockfile likely contains integrity hashes generated against packages previously downloaded from PyPI or through your repository manager. The [`chainctl libraries update-hashes` command](/chainguard/chainctl/chainctl-docs/chainctl_libraries_update-hashes/) automates lockfile hash updates
 for all supported Python lockfile formats.
 
-> **Note**: Running `chainctl libraries update-hashes` requires an [entitlement to Chainguard Libraries](/chainguard/libraries/access/#entitlement) for Python and the `libraries.python.pull` permission.
-
 When you are using a repository manager, pass the full repository manager URL with `--registry-url` and authenticate with one of the supported methods: `--username` and `--password`, `--token`, or a `.netrc` entry for the registry host. For example:
 
 ```bash
@@ -80,6 +78,8 @@ chainctl libraries update-hashes \
   --registry-url https://repo.example.com:8443/repository/python-all/ \
   --token "$REPO_TOKEN"
 ```
+
+> **Note**: Running `chainctl libraries update-hashes` requires the `libraries.python.pull` permission or the Owner role.
 
 After updating the lockfile, keep your repository manager configuration in place and reinstall through the same repository manager endpoint to apply the updated hashes.
 
