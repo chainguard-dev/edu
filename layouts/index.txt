@@ -1,31 +1,25 @@
 # Chainguard Academy
 
 > Documentation, tutorials, and resources for Chainguard products and software supply chain security.
+{{ range .Site.RegularPages.GroupBy "Section" -}}
+{{- $section := .Key -}}
+{{- $heading := cond (eq $section "") "General Resources" ($section | replaceRE "-" " " | title) -}}
+{{/* Collect only pages the site wants advertised: skip anything marked noindex or excluded from the sitemap. */}}
+{{- $visible := slice -}}
+{{- range .Pages -}}
+{{- $robots := "" -}}
+{{- with .Params.seo }}{{ $robots = .robots | default "" }}{{ end -}}
+{{- $excluded := or (in $robots "noindex") (eq .Params.sitemap_exclude true) -}}
+{{- if not $excluded }}{{ $visible = $visible | append . }}{{ end -}}
+{{- end -}}
+{{- if $visible }}
+## {{ $heading }}
 
-## Chainguard Products
-
-{{ range where .Site.RegularPages "Section" "chainguard" -}}
+{{ range $visible -}}
 - [{{ .Title }}]({{ .Permalink | replaceRE "/$" ".md" }}){{ with .Description }}: {{ . }}{{ end }}
 {{ end }}
-
-## Open Source
-
-{{ range where .Site.RegularPages "Section" "open-source" -}}
-- [{{ .Title }}]({{ .Permalink | replaceRE "/$" ".md" }}){{ with .Description }}: {{ . }}{{ end }}
-{{ end }}
-
-## Software Security
-
-{{ range where .Site.RegularPages "Section" "software-security" -}}
-- [{{ .Title }}]({{ .Permalink | replaceRE "/$" ".md" }}){{ with .Description }}: {{ . }}{{ end }}
-{{ end }}
-
-## Compliance
-
-{{ range where .Site.RegularPages "Section" "compliance" -}}
-- [{{ .Title }}]({{ .Permalink | replaceRE "/$" ".md" }}){{ with .Description }}: {{ . }}{{ end }}
-{{ end }}
-
+{{- end -}}
+{{- end }}
 ## API Reference
 
 - [Chainguard API (Combined)](https://edu.chainguard.dev/api.json): OpenAPI spec for all Chainguard API versions (JSON)
