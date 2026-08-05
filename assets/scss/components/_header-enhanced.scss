@@ -8,7 +8,7 @@
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(20, 0, 61, 0.08);
     transition: all 0.3s ease;
-    
+
     // Add subtle shadow on scroll
     &.scrolled {
         box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
@@ -19,21 +19,21 @@
 .navbar {
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
-    
+
     .navbar-brand {
         font-weight: 600;
         transition: opacity 0.2s ease;
-        
+
         &:hover {
             opacity: 0.8;
         }
-        
+
         img {
             height: 32px;
             width: auto;
         }
     }
-    
+
     .navbar-nav {
         .nav-link {
             color: var(--body-color);
@@ -42,12 +42,12 @@
             border-radius: 4px;
             transition: all 0.2s ease;
             position: relative;
-            
+
             &:hover {
                 background-color: rgba(117, 69, 251, 0.08);
                 color: var(--primary-1);
             }
-            
+
             &.active {
                 color: var(--primary-1);
                 background-color: rgba(117, 69, 251, 0.1);
@@ -64,19 +64,19 @@
         border-radius: 4px;
         padding: 0.5rem 1rem;
         transition: all 0.2s ease;
-        
+
         &:focus {
             border-color: var(--primary-1);
             box-shadow: 0 0 0 3px rgba(117, 69, 251, 0.1);
             background: var(--body-background);
         }
-        
+
         &::placeholder {
             color: var(--placeholder-color);
             opacity: 0.7;
         }
     }
-    
+
     .search-icon {
         color: var(--primary-1);
     }
@@ -87,31 +87,31 @@
     .offcanvas-header {
         border-bottom: 1px solid rgba(20, 0, 61, 0.08);
         padding: 1rem 1.5rem;
-        
+
         .btn-close {
             opacity: 0.5;
             transition: opacity 0.2s ease;
-            
+
             &:hover {
                 opacity: 1;
             }
         }
     }
-    
+
     .offcanvas-body {
         padding: 1.5rem;
-        
+
         .nav-link {
             padding: 0.75rem 1rem;
             margin-bottom: 0.25rem;
             border-radius: 4px;
             transition: all 0.2s ease;
-            
+
             &:hover {
                 background-color: rgba(117, 69, 251, 0.08);
                 transform: translateX(4px);
             }
-            
+
             &.active {
                 background-color: rgba(117, 69, 251, 0.1);
                 color: var(--primary-1);
@@ -131,11 +131,11 @@
         font-size: 0.9rem;
         transition: all 0.2s ease;
         cursor: pointer;
-        
+
         &:hover {
             border-color: var(--primary-1);
         }
-        
+
         &:focus {
             border-color: var(--primary-1);
             box-shadow: 0 0 0 3px rgba(117, 69, 251, 0.1);
@@ -152,15 +152,15 @@
     padding: 4px 12px;
     cursor: pointer;
     transition: all 0.2s ease;
-    
+
     &:hover {
         background: var(--primary-1);
-        
+
         .toggle-icon {
             color: white;
         }
     }
-    
+
     .toggle-icon {
         font-size: 1rem;
         transition: color 0.2s ease;
@@ -172,25 +172,25 @@
     background: transparent;
     padding: 0.5rem 0;
     margin-bottom: 1rem;
-    
+
     .breadcrumb-item {
         font-size: 0.875rem;
-        
+
         + .breadcrumb-item::before {
             color: var(--body-color);
             opacity: 0.5;
         }
-        
+
         a {
             color: var(--body-color);
             text-decoration: none;
             transition: color 0.2s ease;
-            
+
             &:hover {
                 color: var(--primary-1);
             }
         }
-        
+
         &.active {
             color: var(--primary-1);
             font-weight: 500;
@@ -214,12 +214,12 @@
 :root[data-dark-mode] {
     .header-background {
         border-bottom-color: rgba(255, 255, 255, 0.1);
-        
+
         &.scrolled {
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
         }
     }
-    
+
     .navbar {
         .navbar-nav {
             .nav-link {
@@ -227,7 +227,7 @@
                     background-color: rgba(122, 240, 254, 0.08);
                     color: var(--primary-2);
                 }
-                
+
                 &.active {
                     color: var(--primary-2);
                     background-color: rgba(122, 240, 254, 0.1);
@@ -235,7 +235,7 @@
             }
         }
     }
-    
+
     .search-container {
         .form-control {
             &:focus {
@@ -244,27 +244,66 @@
             }
         }
     }
-    
+
     .language-selector {
         select {
             border-color: rgba(255, 255, 255, 0.1);
-            
+
             &:hover {
                 border-color: var(--primary-2);
             }
-            
+
             &:focus {
                 border-color: var(--primary-2);
                 box-shadow: 0 0 0 3px rgba(122, 240, 254, 0.1);
             }
         }
     }
-    
+
     .dark-mode-toggle {
         border-color: var(--primary-2);
-        
+
         &:hover {
             background: var(--primary-2);
         }
+    }
+}
+
+.ask-ai-header {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 44px;
+    padding: 0 14px;
+    font-size: 14px;
+    white-space: nowrap;
+    color: var(--body-color);
+    background: var(--search-background);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    touch-action: manipulation;
+
+    .bi {
+        font-size: 18px;
+    }
+
+    &:hover {
+        color: var(--primary-1);
+        background: var(--watch-btn-hover-background);
+        border-color: var(--primary-1);
+    }
+
+    :root[data-dark-mode] &:hover {
+        color: var(--primary-2);
+        border-color: var(--primary-2);
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--primary-2);
+        outline-offset: 2px;
+    }
+
+    @media (max-width: 575.98px) {
+        padding: 0 10px;
     }
 }
