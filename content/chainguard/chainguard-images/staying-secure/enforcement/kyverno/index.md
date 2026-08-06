@@ -193,7 +193,7 @@ Chainguard signs all container images to ensure supply chain security and enable
 
 You can use a `verifyImages` rule in a `ClusterPolicy` to ensure that images are signed by Chainguard.
 
-To begin, retrieve the IDs of the `catalog_syncer` and `apko_builder` identities for your organization as described [on this page](/chainguard/chainguard-images/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/#chainguards-signing-identities).
+To begin, retrieve the IDs of the `image-syncer` and `custom-image-builder` identities for your organization as described [on this page](/chainguard/chainguard-images/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/#chainguards-signing-identities).
 
 Next, create `verify-image-signatures.yaml` with this content. Be sure to replace `<catalog-syncer-id>` and `<apko-builder-id>` with the appropriate values:
 

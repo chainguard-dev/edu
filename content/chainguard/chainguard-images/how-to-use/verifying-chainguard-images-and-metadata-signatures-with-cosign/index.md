@@ -25,53 +25,57 @@ This guide outlines how you can use Cosign to download and verify container imag
 
 ## Prerequisites
 
-The following examples require [Cosign](/open-source/sigstore/cosign/how-to-install-cosign/) and [jq](https://stedolan.github.io/jq/) to be installed on your machine in order to download and verify image attestations.
+The following examples require [Cosign](/open-source/sigstore/cosign/how-to-install-cosign/) and [jq](https://stedolan.github.io/jq/) to be installed on your machine to download and verify image attestations.
 
-## Registry and Tags for Chainguard Containers
+## Registry and tags for Chainguard Containers
 
 Attestations are provided per image build, so you'll need to specify the correct tag and registry when pulling attestations from an image with `cosign`. This guide works with Chainguard's public and private registries:
 
-- `cgr.dev/chainguard`: The public registry contains Chainguard's **Free container images**, which typically comprise the `:latest` versions of an image.
+- `cgr.dev/chainguard`: The public registry contains Chainguard's **Free container images**, which only include the `:latest` versions of an image.
 - `cgr.dev/YOUR-ORGANIZATION`: A private/dedicated registry contains your organization's **Production container images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
-The commands listed on this page will default to the `:latest` tag, but you can specify a different tag to fetch attestations for.
+The commands listed on this page default to the `:latest` tag, but you can specify a different tag to fetch attestations for.
 
-## Chainguard's Signing Identities
+## Chainguard's signing identities
 
 Chainguard uses an identity associated with its official GitHub account to sign images in the public registry that contains the Free tier of images.
 
 For private images, Chainguard signs all images in your private registry with one of two different identities in your organization:
 
-- The `catalog_syncer` identity is used to sign images that have been imported directly from the Chainguard Containers catalog.
-- The `apko_builder` identity is used to sign any images that have been customized for your organization, such as those built with [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/).
+- The `image-syncer` identity is used to sign images that have been imported directly from the Chainguard Containers catalog.
+- The `custom-image-builder` identity is used to sign any images that have been customized for your organization, such as those built with [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/).
+
+{{< note >}}
+Older Chainguard organizations use `catalog_syncer` and `apko_builder` instead of these identities. Each pair is functionally identical, because each references the same account association: `image-syncer` and `catalog_syncer` both reference the `CATALOG_SYNCER` association, while `custom-image-builder` and `apko_builder` both reference the `APKO_BUILDER` association.
+{{< /note >}}
 
 These identities are created and added to every [verified Chainguard organization](/chainguard/administration/iam-organizations/verified-orgs/) automatically.
 
-To follow along with the **Private Registry** examples in this guide, you will need the *unique identifier paths* (UIDPs) of these Chainguard identities. To this end, create a few environment variables, the first of which should point to the name of your Chainguard organization:
+To follow along with the **Private Registry** examples in this guide, you need the *unique identifier paths* (UIDPs) of these Chainguard identities. To this end, create a few environment variables, the first of which should point to the name of your Chainguard organization:
 
 ```shell
 PARENT=your-organization
 ```
 
-Next, create two more variables to hold the UIDPs of your organization's `catalog_syncer` and `apko_builder` identities, respectively:
+Next, create two more variables to hold the UIDPs of your organization's `image-syncer` and `custom-image-builder` identities (`catalog_syncer` and `apko_builder` for older organizations), respectively:
 
 ```shell
-CATALOG_SYNCER=$(chainctl iam account-associations describe $PARENT -o json | jq -r '.[].chainguard.service_bindings.CATALOG_SYNCER')
-APKO_BUILDER=$(chainctl iam account-associations describe $PARENT -o json | jq -r '.[].chainguard.service_bindings.APKO_BUILDER')
+IMAGE_SYNCER=$(chainctl iam account-associations describe $PARENT -o json | jq -r '.[].chainguard.service_bindings.CATALOG_SYNCER')
+CUSTOM_IMAGE_BUILDER=$(chainctl iam account-associations describe $PARENT -o json | jq -r '.[].chainguard.service_bindings.APKO_BUILDER')
 ```
 
-The **Private Registry** examples in this guide will include these environment variables, allowing you to verify that they were used to sign the given image.
+The **Private Registry** examples in this guide include these environment variables, letting you verify that Chainguard used those identities to sign the given image.
 
-Be aware that you can also find these values in the Chainguard Console. After logging in, click on **Settings**, and then **Users**. From there, scroll or search for either `catalog_syncer` or `apko_builder` and click on its row to find the identity's UIDP:
+You can also find these values in the Chainguard Console. After logging in, go to **Settings**, and then **Users**. From there, scroll or search for either `image-syncer` or `custom-image-builder` (or `catalog_syncer` or `apko_builder` for older organizations) and click its row to find the identity's UIDP:
 
-<center><img src="verify-sigs-1.png" alt="Screenshot of the catalog-syncer identity's entry in the Chainguard console, showing its ID, name, an description." style="width:650px;"></center>
+<center><img src="verify-sigs-1.png" alt="Screenshot of the image-syncer identity's entry in the Chainguard Console, showing its ID (blurred), name, and description." style="width:650px;"></center>
 <br />
 
-## Verifying Container Image Signatures
+## Verifying container image signatures
 
-Chainguard Containers are signed using Sigstore and you can check the included signatures using `cosign`. The `cosign verify` command will pull detailed information about all signatures found for the provided image.
+Chainguard signs its containers with Sigstore, and you can check the included signatures using `cosign`. The `cosign verify` command pulls detailed information about all signatures found for the provided image.
 
-### Public Registry
+### Public registry
 
 ```shell
 IMAGE=go
@@ -81,38 +85,38 @@ cosign verify \
   cgr.dev/chainguard/${IMAGE} | jq
 ```
 
-### Private/Dedicated Registry
+### Private/dedicated registry
 
 ```shell
 IMAGE=go
 cosign verify \
   --certificate-oidc-issuer=https://issuer.enforce.dev \
-  --certificate-identity-regexp="https://issuer.enforce.dev/(${CATALOG_SYNCER}|${APKO_BUILDER})" \
+  --certificate-identity-regexp="https://issuer.enforce.dev/(${IMAGE_SYNCER}|${CUSTOM_IMAGE_BUILDER})" \
   cgr.dev/${PARENT}/${IMAGE} | jq
 ```
 
-Be aware that you will need to change the `IMAGE` environment variable to reflect a container image your organization is entitled to.
+Be aware that you need to change the `IMAGE` environment variable to reflect a container image your organization is entitled to.
 
 > **Note**: The environment variables used in this command (other than `${IMAGE}`) were created in the previous section.
 
-By default, this command will fetch signatures for the `:latest` tag. If you'd like, you can specify the tag you want to fetch signatures for:
+By default, this command fetches signatures for the `:latest` tag. If you'd like, you can specify the tag you want to fetch signatures for:
 
 ```shell
 IMAGE=go
 TAG=1.23.8
 cosign verify \
   --certificate-oidc-issuer=https://issuer.enforce.dev \
-  --certificate-identity-regexp="https://issuer.enforce.dev/(${CATALOG_SYNCER}|${APKO_BUILDER})" \
+  --certificate-identity-regexp="https://issuer.enforce.dev/(${IMAGE_SYNCER}|${CUSTOM_IMAGE_BUILDER})" \
   cgr.dev/${PARENT}/${IMAGE}:${TAG} | jq
 ```
 
-## Downloading Container Attestations
+## Downloading container attestations
 
 Attestations are signed metadata about the artifact, which can include SBOMs, vulnerability scans, or other custom predicates.
 
 The [attestations](https://slsa.dev/attestation-model) for a container image can be obtained and verified using Cosign or directly in the Chainguard Console. Refer to [How to retrieve attestations and SBOMs for Chainguard Containers](/chainguard/chainguard-images/how-to-use/retrieve-image-sboms/) for more information.
 
-### Public Registry
+### Public registry
 
 ```shell
 IMAGE=go
@@ -122,7 +126,7 @@ cosign download attestation \
   cgr.dev/chainguard/${IMAGE} | jq -r .payload | base64 -d | jq .predicate
 ```
 
-### Private/Dedicated Registry
+### Private/dedicated registry
 
 ```shell
 IMAGE=go
@@ -132,11 +136,11 @@ cosign download attestation \
   cgr.dev/${PARENT}/${IMAGE} | jq -r .payload | base64 -d | jq .predicate
 ```
 
-## Verifying Image Attestations
+## Verifying container image attestations
 
 You can use the `cosign verify-attestation` command to check the signatures of the desired container image [attestations](https://slsa.dev/attestation-model):
 
-### Public Registry
+### Public registry
 
 ```shell
 IMAGE=go
@@ -147,7 +151,7 @@ cosign verify-attestation \
   cgr.dev/chainguard/${IMAGE} | jq
 ```
 
-This will pull in the signature for the attestation specified by the `--type` parameter, which in this case is the SPDX attestation for SBOMs. You will receive output that verifies the SBOM attestation signature in Cosign's transparency log:
+This pulls in the signature for the attestation specified by the `--type` parameter, which in this case is the SPDX attestation for SBOMs. The output verifies the SBOM attestation signature in Cosign's transparency log:
 
 ```shell
 Verification for cgr.dev/chainguard/go --
@@ -165,27 +169,27 @@ GitHub Workflow Ref: refs/heads/main
 ...
 ```
 
-### Private/Dedicated Registry
+### Private/dedicated registry
 
 ```shell
 IMAGE=go
 cosign verify-attestation \
   --type https://spdx.dev/Document \
   --certificate-oidc-issuer=https://issuer.enforce.dev \
-  --certificate-identity-regexp="https://issuer.enforce.dev/(${CATALOG_SYNCER}|${APKO_BUILDER})" \
+  --certificate-identity-regexp="https://issuer.enforce.dev/(${IMAGE_SYNCER}|${CUSTOM_IMAGE_BUILDER})" \
   cgr.dev/${PARENT}/${IMAGE} | jq
 ```
 
-## Note About the Examples in this Guide
+## Note about the examples in this guide
 
 The examples in this guide invariably pass command output through `jq`, a JSON processor. This is helpful, as it makes the output more easily readable.
 
-However, if you're running these commands in a script, this can cause problems if validation fails. For example, if Cosign returns an error but it is passed into `jq`, then `jq` will overwrite the exit codes from Cosign, causing them to be silently ignored.
+However, if you're running these commands in a script, this can cause problems if validation fails. For example, if Cosign returns an error but it is passed into `jq`, then `jq` overwrites the exit codes from Cosign, causing them to be silently ignored.
 
 To avoid this problem, you could include either or both of the following `set` options in your script:
 
 - `set -e` ensures that your script exits with an error if any of the commands in your script exit with an error.
-- `set -o pipefail` ensures that status codes from Cosign aren't masked when piped to jq.
+- `set -o pipefail` ensures that status codes from Cosign aren't masked when piped to `jq`.
 
 ## Learn more
 
