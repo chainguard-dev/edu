@@ -2,14 +2,16 @@
 title: "Containers Examples"
 linktitle: "Containers Examples"
 lead: ""
-description: "Build your first image with a Chainguard Container: short, language- and service-specific getting-started guides for nginx, PostgreSQL, Python, and Go."
+description: "Build your first image with a Chainguard Container: a quickstart plus short, language- and service-specific getting-started guides for nginx, PostgreSQL, Python, and Go."
 type: "article"
 date: 2026-06-17T08:48:23+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-08-03T19:00:00+00:00
 draft: false
 images: []
 weight: 020
 crosslinks:
+- title: "Quickstart"
+  url: "/chainguard/chainguard-images/quickstart/"
 - title: "nginx"
   url: "/chainguard/chainguard-images/getting-started/nginx/"
 - title: "PostgreSQL"
@@ -20,7 +22,9 @@ crosslinks:
   url: "/chainguard/chainguard-images/getting-started/go/"
 ---
 
-Pick a stack and build your first image. Each guide walks through pulling a Chainguard Container, running it, and adapting it to your own application.
+Start with the [quickstart](/chainguard/chainguard-images/quickstart/), which pulls a public Chainguard Container, builds an application on top of it, and verifies the image's signature and SBOM.
+
+From there, pick a stack and build your first image. Each guide walks through pulling a Chainguard Container, running it, and adapting it to your own application.
 
 These are a starting point. Chainguard publishes getting-started guides for many more languages and services — refer to the full set under [Chainguard Containers](/chainguard/chainguard-images/getting-started/).
 
