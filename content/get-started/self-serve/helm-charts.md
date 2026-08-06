@@ -4,7 +4,7 @@ linktitle: "Self-serve Helm charts"
 description: "Provision Chainguard Helm charts and their required images from the Chainguard Console as a Catalog customer"
 type: "article"
 date: 2026-08-06T00:00:01+00:00
-lastmod: 2026-08-06T13:21:30+00:00
+lastmod: 2026-08-06T17:57:19+00:00
 draft: false
 weight: 020
 toc: true
@@ -34,14 +34,28 @@ Provisioning runs in the background. The Console shows in-progress and completio
 You can perform the same action from the command line with `chainctl`. For a Catalog customer, the following command resolves the chart's image dependencies and creates any missing chart and image repositories in your organization, matching the Console flow:
 
 ```shell
-chainctl images helm add chart $CHART
+chainctl images helm add-chart $CHART
 ```
 
-Replace `$CHART` with the chart you want to add.
+Replace `$CHART` with the chart you want to add. The command will output a small chart showing the name of every image in the Helm chart and the image status, such as whether it already exists in your org or is being added.
 
 {{< note >}}
 This command is available starting in a specific `chainctl` release. If it isn't available in your installation, update `chainctl` to the latest version.
 {{< /note >}}
+
+You can use the command to add `iamguarded` charts, too:
+
+```shell
+chainctl images helm add-chart iamguarded-charts/$CHART
+```
+
+If you want to test the process before actually adding the chart, use:
+
+```shell
+chainctl images helm add chart $CHART --dry-run
+```
+
+To learn more, use `chainctl images helm add-chart --help` or refer to the [`chainctl` Reference documentation](/content/platform/chainctl/).
 
 ## Per-image pricing customers
 
