@@ -6,7 +6,7 @@ type: "article"
 description: "A primer on how to use Chainguard-provided upstream Helm charts to deploy Chainguard container images"
 lead: "A primer on how to use Chainguard-provided upstream Helm charts to deploy Chainguard container images"
 date: 2025-07-11T08:49:31+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-08-06T13:12:06+00:00
 draft: false
 tags: ["Chainguard Containers", "Helm charts", "Product"]
 images: []
@@ -31,6 +31,8 @@ The community charts have been tested by Chainguard to confirm they produce expe
 Chainguard makes the provenance of these charts clear. Helm charts are packaged as [OCI artifacts](/open-source/oci/what-are-oci-artifacts/) using the upstream version adding an appended revision suffix for updates that include material changes to the chart; otherwise, tags will float based as their dependent images update. The OCI artifacts are signed and generate provenance attestations that link to the exact image digests used to ensure that all artifacts are cryptographically verifiable end-to-end for integrity and origin.
 
 You can find Helm charts in the [Chainguard Console](/platform/console/images-directory/#find-helm-charts-in-the-chainguard-console) and in the [Chainguard Directory](/chainguard/chainguard-images/how-to-use/chainguard-directory/#find-helm-charts-in-the-chainguard-directory).
+
+Before you can use a chart, it must be added to your organization. Catalog customers can add charts and their required images from the Chainguard Console. For instructions, see [Self-serve Helm charts](/get-started/self-serve/helm-charts/).
 
 The following is an instructional guide for Chainguard users that are looking for Helm charts to use with their Chainguard container images.
 
