@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing JavaScript project to pull dependencies from Chainguard Libraries"
 date: 2026-06-01T00:00:00+00:00
-lastmod: 2026-08-06T13:19:30+00:00
+lastmod: 2026-08-06T19:08:57+00:00
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
   docs:
@@ -29,6 +29,8 @@ Libraries, covering the two most common setups:
 - **Repository manager** — your build tool connects to a repository manager
   (such as JFrog Artifactory or Sonatype Nexus), which proxies requests to
   Chainguard Libraries. This option is recommended for teams and organizations.
+
+To follow along with a ready-made project instead of your own, use the [Chainguard Libraries for JavaScript demo repository](https://github.com/chainguard-demo/chainguard-libraries-javascript). It provides example projects for npm, pnpm, Yarn, and Bun, each with a `demo.sh` script that configures access and installs sample packages.
 
 ## Prerequisites
 
