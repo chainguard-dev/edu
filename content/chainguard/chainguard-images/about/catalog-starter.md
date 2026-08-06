@@ -4,7 +4,7 @@ linktitle: "Catalog Starter"
 type: "article"
 description: "Learn about Chainguard Catalog Starter, an offering allowing teams to try out five Chainguard container images for free."
 date: 2026-03-09T07:52:00+02:00
-lastmod: 2026-08-06T13:12:06+00:00
+lastmod: 2026-08-06T18:00:35+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -61,7 +61,7 @@ As an alternative to the Console, you can sign up for and manage Catalog Starter
 
 ### Sign up with `chainctl`
 
-To sign up with a new account, use the following interactive command:
+To sign up for a new account, use the following interactive command:
 
 ```shell
 chainctl starter init
@@ -78,12 +78,20 @@ This requires selection of a valid authentication option:
 
 Use the arrow keys and press **Enter** to select an option, which launches a browser window to the Chainguard Console to complete sign-up.
 
+### Request access with `chainctl`
+
+If your organization already has a Catalog Starter plan, request access to it with:
+
+```shell
+chainctl starter request-access
+```
+
 ### Add images with `chainctl`
 
 You can see which images are available [using the Chainguard Directory](/chainguard/chainguard-images/how-to-use/chainguard-directory/). To add one or more images, run the following command, substituting the desired image names for the variables:
 
 ```shell
-chainctl starter add-images $IMAGE1 [$IMAGE2]
+chainctl starter add-images $IMAGE1 [$IMAGE2] ... [$IMAGE4]
 ```
 
 After the Chainguard system has processed your request, the images become accessible. This can take up to a few hours. When available, you can pull the images like this, replacing `$ORGANIZATION` with your organization's name and `$IMAGE` with the desired image's name:
@@ -98,14 +106,6 @@ To show the status of your Catalog Starter organization, including the registry 
 
 ```shell
 chainctl starter status
-```
-
-### Request access with `chainctl`
-
-If your organization already has a Catalog Starter plan, request access to it with:
-
-```shell
-chainctl starter request-access
 ```
 
 ## Plan limitations and terms

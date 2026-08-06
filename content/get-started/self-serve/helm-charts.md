@@ -4,7 +4,7 @@ linktitle: "Self-serve Helm charts"
 description: "Provision Chainguard Helm charts and their required images from the Chainguard Console as a Catalog customer"
 type: "article"
 date: 2026-08-06T00:00:01+00:00
-lastmod: 2026-08-06T17:57:19+00:00
+lastmod: 2026-08-06T18:00:35+00:00
 draft: false
 weight: 020
 toc: true
@@ -22,8 +22,7 @@ To add Helm charts to your organization from the Console, complete the following
 
 1. In the Chainguard Console, go to the **Helm charts** section in the sidebar.
 1. Review the available charts. Charts already enabled for your organization are marked.
-1. Select one or more charts to add.
-1. The Console checks whether your organization already has the container images each chart requires, then lists any missing images by name.
+1. Select one or more charts to add. The Console checks whether your organization already has the container images each chart requires, then lists any missing images by name.
 1. Optional: If your organization is entitled to FIPS images, select the FIPS option to add FIPS variants where they are available.
 1. Confirm your selection to add the charts and their required images to your organization.
 
