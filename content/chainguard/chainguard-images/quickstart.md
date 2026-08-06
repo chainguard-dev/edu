@@ -15,14 +15,15 @@ toc: true
 
 This quickstart covers one full cycle of working with a [Chainguard Container](/chainguard/chainguard-images/overview/): pull an image from Chainguard's registry, run your own code on it, and verify where it came from. The example uses the Node container, but the same workflow applies to every image in the [Chainguard Containers Directory](https://images.chainguard.dev/).
 
-These steps link to reference documentation instead of explaining each concept in place. Follow the links whenever you want the full picture.
+These steps link to reference documentation instead of explaining each concept in place. Follow the links whenever you want additional details and context.
 
 ## Prerequisites
 
 To follow this quickstart, you need:
 
-* [Docker](https://docs.docker.com/engine/install/) or another OCI-compatible container runtime.
-* [Cosign](/open-source/sigstore/cosign/how-to-install-cosign/) and [jq](https://jqlang.github.io/jq/download/), which you use in Step 4 to verify a container image.
+* [Docker](https://docs.docker.com/engine/install/) or another OCI-compatible container runtime installed on your local machine.
+* [Cosign](/open-source/sigstore/cosign/how-to-install-cosign/), which you use in Step 4 to verify a container image, installed.
+* [jq](https://jqlang.github.io/jq/download/) installed. jq is a lightweight, command-line JSON processor; this guide uses it in Step 4 to make Cosign output more easily readable.
 
 You don't need a Chainguard account. Every image in this guide is a [Free Container](/chainguard/chainguard-images/about/images-categories/#free-containers): publicly available, with no authentication required. Production Containers, which add version-specific tags and patch SLAs, require [authenticating to the registry](/chainguard/chainguard-images/chainguard-registry/authenticating/).
 
