@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-07-31T18:47:05+00:00
+lastmod: 2026-08-05T19:13:35+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -318,6 +318,8 @@ Run the following command to auto-detect and update the lockfile in the current 
 chainctl libraries update-hashes
 ```
 
+> **Note**: Running `chainctl libraries update-hashes` requires the `libraries.python.pull` permission or the Owner role.
+
 Or specify the lockfile when running the command. For example:
 
 ```bash
@@ -472,6 +474,8 @@ chainctl libraries verify --detailed $(poetry env info --path)
 {{% /tab %}}
 
 {{< /tabs >}}
+
+> **Note**: Running `chainctl libraries verify` requires the `libraries.python.pull` permission or the Owner role.
 
 A successful result shows what percentage of your project's dependencies were built by Chainguard.
 

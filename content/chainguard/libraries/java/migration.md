@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Java project to pull dependencies from Chainguard Libraries"
 date: 2026-07-02T00:00:00+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-08-05T19:13:35+00:00
 tags: ["Chainguard Libraries", "Java"]
 menu:
   docs:
@@ -585,6 +585,8 @@ chainctl libraries verify ~/Library/Caches/bazel/_bazel_example/c22a55500...f423
 {{% /tab %}}
 
 {{< /tabs >}}
+
+> **Note**: Running `chainctl libraries verify` requires the `libraries.java.pull` permission or the Owner role.
 
 A successful result shows what percentage of your project's dependencies were built by Chainguard:
 

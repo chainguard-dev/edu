@@ -6,7 +6,7 @@ description:
   Libraries using the chainctl tool for enhanced supply chain security"
 type: "article"
 date: 2025-07-03T12:00:00+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-08-05T19:13:35+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -117,6 +117,8 @@ Analyze a Python wheel file in the current directory:
 ```sh
 chainctl libraries verify flask-3.0.1-py3-none-any.whl
 ```
+
+> **Note**: Running `chainctl libraries verify` requires one of the `libraries.java.pull`, `libraries.javascript.pull`, or `libraries.python.pull` permissions, or the Owner role.
 
 The analysis of wheel files is fast because the provenance information is
 available within the archive. Python development tools often unpack the wheel
