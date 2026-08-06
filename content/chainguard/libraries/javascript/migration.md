@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing JavaScript project to pull dependencies from Chainguard Libraries"
 date: 2026-06-01T00:00:00+00:00
-lastmod: 2026-08-06T19:08:57+00:00
+lastmod: 2026-08-06T20:06:46+00:00
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
   docs:
@@ -180,8 +180,11 @@ registry URL and credentials from your current Chainguard session:
 chainctl auth configure-npm
 ```
 
-Because [this command](/chainguard/chainctl/chainctl-docs/chainctl_auth_configure-npm/) uses a session-backed bearer token, you will need to re-run it when the token expires. If the command returns an error, ensure you are
-using the [latest version of chainctl](/chainguard/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
+Because [this
+command](/chainguard/chainctl/chainctl-docs/chainctl_auth_configure-npm/) uses a
+session-backed bearer token, you will need to re-run it when the token expires.
+If the command returns an error, ensure you are using the [latest version of
+chainctl](/chainguard/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
 
 For pnpm and Yarn, [configure the .npmrc
 manually](#manual-registry-configuration). `chainctl auth configure-npm`
