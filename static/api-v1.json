@@ -886,12 +886,11 @@
             "type": "string"
           },
           "sink_locator": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/chainguard.platform.argos.SinkLocator"
-              }
-            ],
-            "description": "sink_locator is the structured sink of the defect within the upstream\npackage's own source. Unset for non-flow defects."
+            "description": "sink_locator lists every confirmed sink of the defect within the\nupstream package's own source. Empty for non-flow defects. The list is\nunordered and no entry is privileged; the same sink identity (class +\nmethod) may appear more than once with different file_line values when\nthe code moved between releases — each entry is a dated observation (see\nobserved_versions), not an affected-range claim. Version applicability\nlives in the OSV `ranges` on the Affected entry.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.argos.SinkLocator"
+            },
+            "type": "array"
           }
         },
         "type": "object"
@@ -1131,7 +1130,7 @@
         "type": "object"
       },
       "chainguard.platform.argos.SinkLocator": {
-        "description": "SinkLocator locates a defect's sink within the upstream package source.",
+        "description": "SinkLocator locates one confirmed sink of a defect within the upstream\npackage source. A DatabaseSpecific carries a repeated, unordered list of\nthese; each entry is a dated observation of the sink at the versions in\nobserved_versions.",
         "properties": {
           "arg_signature": {
             "description": "arg_signature is the sink's argument signature, when known.",
@@ -1148,6 +1147,13 @@
           "method": {
             "description": "method is the symbolic method/function at the sink.",
             "type": "string"
+          },
+          "observed_versions": {
+            "description": "observed_versions lists the package versions at which this exact\nlocation (class + method + file_line) was confirmed by analysis. It is\nan observation record, not an affected-range claim — version\napplicability lives in the OSV `ranges` on the Affected entry. Empty on\nrecords that predate the field.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
           }
         },
         "type": "object"
