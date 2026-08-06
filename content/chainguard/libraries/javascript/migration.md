@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing JavaScript project to pull dependencies from Chainguard Libraries"
 date: 2026-06-01T00:00:00+00:00
-lastmod: 2026-08-05T19:13:35+00:00
+lastmod: 2026-08-06T13:19:30+00:00
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
   docs:
@@ -181,18 +181,19 @@ chainctl auth configure-npm
 Because [this command](/chainguard/chainctl/chainctl-docs/chainctl_auth_configure-npm/) uses a session-backed bearer token, you will need to re-run it when the token expires. If the command returns an error, ensure you are
 using the [latest version of chainctl](/chainguard/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
 
-For pnpm and Yarn, [configure the .npmrc manually](#manual-registry-configuration).
-`chainctl auth configure-npm` generates path-scoped credentials (`//libraries.cgr.dev/javascript/:_auth`)
-that do not cover pnpm's upstream-fallback path, causing HTTP 401 errors on packages
+For pnpm and Yarn, [configure the .npmrc
+manually](#manual-registry-configuration). `chainctl auth configure-npm`
+generates path-scoped credentials (`//libraries.cgr.dev/javascript/:_auth`) that
+do not cover pnpm's upstream-fallback path, causing HTTP 401 errors on packages
 Chainguard has not yet rebuilt.
 
 #### CI/CD and automated environments
 
-For CI/CD environments, [assumable identities](/chainguard/administration/assumable-ids/assumable-ids/)
-are the recommended approach. Rather than managing a static token, an assumable
-identity lets your CI/CD workload authenticate directly with Chainguard using
-its own platform identity; no long-lived credentials to rotate or accidentally
-expose.
+For CI/CD environments, [assumable
+identities](/chainguard/administration/assumable-ids/assumable-ids/) are the
+recommended approach. Rather than managing a static token, an assumable identity
+lets your CI/CD workload authenticate directly with Chainguard using its own
+platform identity; no long-lived credentials to rotate or accidentally expose.
 
 Once configured, authenticate and write the registry configuration in your
 pipeline. For example, in a GitHub Actions workflow using npm:
