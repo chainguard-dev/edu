@@ -43,7 +43,7 @@
     "@babel/core": "^8.0",
     "@babel/preset-env": "^8.0",
     "@eslint/js": "^9.39.0",
-    "@fullhuman/postcss-purgecss": "^4.1",
+    "@fullhuman/postcss-purgecss": "^8.0",
     "@hyas/doks": "^0.4",
     "auto-changelog": "^2.4.0",
     "autoprefixer": "^10.4",
