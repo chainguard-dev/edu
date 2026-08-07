@@ -1,5 +1,5 @@
 ---
-date: 2026-08-05T11:11:55Z
+date: 2026-08-06T11:47:15Z
 title: "chainctl iam roles list"
 slug: chainctl_iam_roles_list
 url: /platform/chainctl/chainctl-docs/chainctl_iam_roles_list/
@@ -14,7 +14,7 @@ toc: true
 List IAM roles.
 
 ```
-chainctl iam roles list [--name=NAME] [--capabilities=CAPABILITY,...] [--parent=PARENT | --managed] [--output=id|json|table]
+chainctl iam roles list [--name=NAME] [--capabilities=CAPABILITY,...] [--parent=PARENT | --managed] [--recursive] [--output=id|json|table]
 ```
 
 ### Examples
@@ -28,6 +28,9 @@ chainctl iam roles list [--name=NAME] [--capabilities=CAPABILITY,...] [--parent=
   
   # List all roles that can create groups
   chainctl iam roles list --capabilities=groups.create
+  
+  # List only roles directly in an organization, excluding nested locations
+  chainctl iam roles list --parent=my-org --recursive=false
 ```
 
 ### Options
@@ -37,6 +40,7 @@ chainctl iam roles list [--name=NAME] [--capabilities=CAPABILITY,...] [--parent=
       --managed                Only list managed (built-in) roles.
       --name string            The exact name of roles to list.
       --parent string          Location to list roles from.
+      --recursive              List roles from the parent location and all nested locations. Set to false to list only the parent location. (default true)
 ```
 
 ### Options inherited from parent commands

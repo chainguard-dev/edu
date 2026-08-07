@@ -1,5 +1,5 @@
 ---
-date: 2026-08-05T11:11:55Z
+date: 2026-08-06T11:47:15Z
 title: "chainctl iam role-bindings create"
 slug: chainctl_iam_role-bindings_create
 url: /platform/chainctl/chainctl-docs/chainctl_iam_role-bindings_create/
