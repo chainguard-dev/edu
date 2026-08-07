@@ -61,7 +61,7 @@
     "markdownlint-cli2": "^0.23.0",
     "netlify-plugin-submit-sitemap": "^0.3.0",
     "postcss": "^8.5",
-    "postcss-cli": "^9.1",
+    "postcss-cli": "^11.0",
     "purgecss-whitelister": "^2.4",
     "shx": "^0.3",
     "stylelint": "^17.14.1",
