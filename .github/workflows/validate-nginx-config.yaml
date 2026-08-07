@@ -33,7 +33,7 @@ jobs:
 
       - name: Build project
         run: |
-          npm install
+          npm ci
           npm run build
 
       - name: Run Nginx validation

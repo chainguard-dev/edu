@@ -53,8 +53,8 @@ jobs:
     - name: Update themes
       run: git submodule update --init --recursive
 
-    - name: npm install
-      run: npm install
+    - name: npm ci
+      run: npm ci
 
     - name: Fetch latest package mappings
       run: |
