@@ -1,6 +1,8 @@
 ---
 title: "Chainguard Libraries policies"
 linktitle: "Library Policies"
+aliases:
+  - /chainguard/chainguard-repository/libraries-policies/
 description: "Configure and enforce policies that control which Chainguard Libraries package versions your organization can pull"
 type: "article"
 date: 2026-07-31T00:00:00+00:00
