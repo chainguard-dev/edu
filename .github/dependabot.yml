@@ -7,6 +7,8 @@ updates:
     cooldown:
       default-days: 3
     open-pull-requests-limit: 10
+    assignees:
+      - "matthewhelmke"
     groups:
       gomod:
         update-types:
@@ -19,8 +21,8 @@ updates:
     cooldown:
       default-days: 3
     open-pull-requests-limit: 10
-    reviewers:
-      - "security-team"
+    assignees:
+      - "matthewhelmke"
     labels:
       - "dependencies"
       - "github-actions"
@@ -30,7 +32,7 @@ updates:
         update-types:
           - "minor"
           - "patch"
-          
+
   # Python dependencies for documentation compilation
   - package-ecosystem: "pip"
     directory: "/scripts"
@@ -38,9 +40,28 @@ updates:
       interval: "weekly"
     cooldown:
       default-days: 3
-    reviewers:
-      - "security-team"
+    assignees:
+      - "matthewhelmke"
     labels:
       - "dependencies"
       - "security"
       - "documentation"
+
+  # npm dependencies for the site theme and tooling (root package.json)
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    cooldown:
+      default-days: 3
+    open-pull-requests-limit: 10
+    assignees:
+      - "matthewhelmke"
+    labels:
+      - "dependencies"
+      - "security"
+    groups:
+      npm:
+        update-types:
+          - "minor"
+          - "patch"
