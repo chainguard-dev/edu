@@ -84,7 +84,7 @@
     --pre-container-border: #dcdcdc;
     --righthand-title-color: var(--primary-3);
     --search-background: #F5F5FB;
-    --search-box-background: inherit;
+    --search-box-background: var(--search-background);
     --search-slash-border: #dcdcdc;
     --segmented-button-background: #F5F5FB;
     --segmented-button-checked: var(--primary-1);

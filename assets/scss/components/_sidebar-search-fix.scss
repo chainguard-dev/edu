@@ -82,12 +82,10 @@
     background: var(--search-background);
     border-radius: 4px;
 
-    svg {
+    .bi {
         margin-right: 4px;
-
-        path {
-            fill: #3443f4;
-        }
+        font-size: 18px;
+        color: #3443f4;
     }
 
     &:hover {
@@ -104,10 +102,8 @@
             color: var(--primary-2);
         }
 
-        svg {
-            path {
-                fill: #fff;
-            }
+        .bi {
+            color: #fff;
         }
     }
 }
@@ -215,4 +211,13 @@
     ul li {
         margin-bottom: unset;
     }
+}
+
+.DocSearch-Container {
+    z-index: 1500;
+}
+
+#kapa-widget-container {
+    position: relative;
+    z-index: 1500;
 }

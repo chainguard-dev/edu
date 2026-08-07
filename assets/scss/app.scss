@@ -38,6 +38,9 @@
 @import "layouts/posts";
 @import "layouts/sidebar";
 
+/** Import DocSearch */
+@import "@docsearch/css/dist/style.scss";
+
 /** Import custom styles */
 @import "common/custom";
 @import "common/mobile";
@@ -50,6 +53,3 @@
 @import "components/footer-border-fix";
 @import "components/header-logo";
 @import "components/changelog";
-
-/** Import DocSearch */
-@import "@docsearch/css/dist/style.scss";
