@@ -1,5 +1,5 @@
 ---
-title: "PCI DSS Practices"
+title: "PCI DSS practices"
 description: "Learn about the practices required for PCI DSS 4.0"
 lead: "Learn about the practices required for PCI DSS 4.0"
 type: "article"
@@ -34,7 +34,7 @@ PCI DSS 4.0, or Payment Card Industry Data Security Standard is intended for all
 
 PCI DSS 4.0 requires compliance with a set of requirements, each related to an information security practice or goal. All of these are intended to protect cardholder data from theft and fraud.
 
-## PCI DSS 4.0 Goals and Requirements
+## PCI DSS 4.0 goals and requirements
 
 Below is a table overview with a high-level description of the goals and requirements, summarized from the PCI DSS v4.0 Quick Reference Guide from the PCI Security Standards Council, available from their [Document Library](https://east.pcisecuritystandards.org/document_library):
 
@@ -49,10 +49,10 @@ Below is a table overview with a high-level description of the goals and require
 
 For a list of all required practices, refer to the PCI DSS documentation available in the [PCI Security Standards Council's Document Library](https://east.pcisecuritystandards.org/document_library).
 
-## Browse all PCI DSS 4.0 Articles
+## Browse all PCI DSS 4.0 articles
 
 - [Introduction to PCI DSS 4.0](/compliance/pci-dss-4/intro-pci-dss-4/)
 - (Current article) Overview of PCI DSS 4.0 Practices/Requirements
-- [How Chainguard Can Help With PCI DSS 4.0](/compliance/pci-dss-4/pci-dss-chainguard/)
+- [How Chainguard can help with PCI DSS 4.0](/compliance/pci-dss-4/pci-dss-chainguard/)
 
-**[Get started with Chainguard FIPS Images today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**
+**[Get started with Chainguard FIPS images today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**

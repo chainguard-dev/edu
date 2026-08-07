@@ -22,7 +22,7 @@ Learn answers to your questions about [Chainguard Containers](https://www.chaing
 
 Chainguard Containers are based on [Wolfi](/open-source/wolfi/), a Linux _undistro_ we built specifically to address software supply chain security issues. We call it an undistro because it doesn't contain certain software you'd normally find in a traditional Linux distribution such as Debian or Alpine. Wolfi is a minimal Linux distribution designed specifically to be used as a base for stripped-down container images.
 
-## How do Chainguard Containers relate to the Google Distroless Container Images?
+## How do Chainguard Containers relate to the Google distroless container images?
 
 The [Google distroless](https://github.com/GoogleContainerTools/distroless) images follow a similar philosophy to many of our images: they are minimal images that don't include package managers or shells. The main difference is in the implementation. The Google distroless images are built with [Bazel](https://bazel.build) and based on the Debian distribution, whereas Chainguard Containers are built with [apko](/open-source/build-tools/apko/) and based on [Wolfi](/open-source/wolfi/). We believe our approach is more maintainable and extensible.
 
@@ -41,9 +41,9 @@ Free | Production
 Free for everyone, anywhere | [Contact us](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) for pricing
 Latest versions | Major and minor versions
 Community support | Enterprise SLAs
-[Developer Docs](/chainguard/chainguard-images/) | Customer support
+[Developer docs](/chainguard/chainguard-images/) | Customer support
 
-You can read more about the differences between Free and Production Containers in our [Containers Overview](/chainguard/chainguard-images/overview/#production-and-starter-images).
+You can read more about the differences between Free and Production Containers in our [Containers overview](/chainguard/chainguard-images/overview/#production-and-free-containers).
 
 ## Are Chainguard Containers available on Docker Hub?
 

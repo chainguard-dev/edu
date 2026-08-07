@@ -32,13 +32,13 @@ In a nutshell, distroless images don't include a package manager or a shell, bei
 {{< blurb/multistage >}}
 {{< /details >}}
 
-For a deeper exploration of distroless images and their differences from standard base images, refer to the guide on [Getting Started with Distroless images](/chainguard/chainguard-images/getting-started-distroless/).
+For a deeper exploration of distroless images and their differences from standard base images, refer to the guide on [Getting started with distroless images](/chainguard/chainguard-images/getting-started-distroless/).
 
 ## Migrating from non-apk systems
 
 When migrating from distributions that are not based on the `apk` ecosystem, you'll need to update your Dockerfile accordingly. Our high-level guide on [Migrating to Chainguard Containers](/chainguard/migration/migrating-to-chainguard-images/) contains details about distro-based migration and package compatibility when migrating from Debian, Ubuntu, and Red Hat UBI base images.
 
-## Installing PHP Extensions
+## Installing PHP extensions
 
 Wolfi offers several PHP extensions as optional packages you can install with `apk`. Because PHP extensions are system-level packages, they require `apk` which is only available in our development image variants. The following extensions are already included within all Chainguard PHP image variants:
 
@@ -101,7 +101,7 @@ php-xmlreader-8.2.11-r1
 php-xmlwriter-8.2.11-r1
 ```
 
-For more searching tips, check the [Searching for Packages](/chainguard/migration/migrating-to-chainguard-images/#searching-for-packages) section of our base migration guide.
+For more searching tips, check the [Searching for packages](/chainguard/migration/migrating-to-chainguard-images/#searching-for-packages) section of our base migration guide.
 
 ## Migrating PHP CLI workloads to use Chainguard Containers
 
@@ -124,11 +124,11 @@ COPY --from=builder /app /app
 ENTRYPOINT [ "php", "/app/myscript.php" ]
 ```
 
-Our [PHP Getting Started](/chainguard/chainguard-images/getting-started/php/) guide has step-by-step instructions on how to build and run a PHP CLI application with Chainguard Containers.
+Our [PHP getting started](/chainguard/chainguard-images/getting-started/php/) guide has step-by-step instructions on how to build and run a PHP CLI application with Chainguard Containers.
 
-## Migrating PHP Web applications to use Chainguard Containers
+## Migrating PHP web applications to use Chainguard Containers
 
-For PHP web applications that serve content through a web server, you should use the `latest-fpm` and `latest-fpm-dev` variants of our PHP image. Combine it with our [Nginx image](https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-php) and an optional database for a traditional LEMP setup.
+For PHP web applications that serve content through a web server, you should use the `latest-fpm` and `latest-fpm-dev` variants of our PHP image. Combine it with our [nginx image](https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-php) and an optional database for a traditional LEMP setup.
 
 The overall migration process is essentially the same as described in the previous section, with the difference that you won't set up application entry points, since these images run as services. Your Dockerfile may require additional steps to set up front-end dependencies, initialize databases, and perform any additional tasks needed for the application to run through a web server.
 
@@ -209,13 +209,13 @@ http {
 }
 ```
 
-## Migrating Laravel Applications to use Chainguard Containers
+## Migrating Laravel applications to use Chainguard Containers
 
 Chainguard has a dedicated [Laravel image](https://images.chainguard.dev/directory/image/laravel/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-php) designed for applications built on top of the [Laravel](https://laravel.com) PHP Framework. This image is based on the `php:latest-fpm` variant, with additional extensions required by Laravel. Migration should follow the same steps described in previous sections, with the `laravel:latest-dev` variant as builder and `laravel:latest` as the distroless variant of this image.
 
-In addition to including extensions required by Laravel by default, the image includes a **laravel** system user that facilitates running `composer` and `artisan` commands from a host environment, which enables users to create and develop Laravel applications with the `-dev` variant of this image. Check the section on [Developing Laravel Applications](#developing-laravel-applications) for more information on how to use the development variant of the Laravel image for development environments.
+In addition to including extensions required by Laravel by default, the image includes a **laravel** system user that facilitates running `composer` and `artisan` commands from a host environment, which enables users to create and develop Laravel applications with the `-dev` variant of this image. Check the section on [Developing Laravel applications](#developing-laravel-applications) for more information on how to use the development variant of the Laravel image for development environments.
 
-## Using Development Containers
+## Using development containers
 
 Our PHP development images are minimal yet versatile images that include `apk` and `composer`. You can use these images to create and develop PHP applications on a containerized development environment.
 
@@ -247,7 +247,7 @@ You'll need to fix file permissions once installation is finished:
 sudo chown -R ${USER}:${USER} .
 ```
 
-### Running the Built-in Web Server
+### Running the built-in web server
 
 You can use the built-in PHP web server to preview web applications using a `docker run` command with a port redirect.
 
@@ -261,7 +261,7 @@ docker run -p 8000:8000 --rm -it -v ${PWD}:/work \
 
 The preview should be live at `localhost:8000`.
 
-### Developing Laravel Applications
+### Developing Laravel applications
 
 The `laravel:latest-dev` image has a system user with uid `1000` that can be used for development. This facilitates handling file permissions when working with shared volumes in a development environment.
 
@@ -297,8 +297,8 @@ docker run -p 8000:8000 --rm -it -v ${PWD}:/app --entrypoint /app/artisan --user
 
 The preview should be live at `localhost:8000`.
 
-## Additional Resources
+## Additional resources
 
-Our [PHP image documentation](https://images.chainguard.dev/directory/image/php/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-php) covers details about all PHP image variants, including the list of available tags for both development and production images. For another example of a LEMP setup using MariaDB, check our guide on [Getting Started with the MariaDB Chainguard Container](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/mariadb/).
+Our [PHP image documentation](https://images.chainguard.dev/directory/image/php/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-php) covers details about all PHP image variants, including the list of available tags for both development and production images. For another example of a LEMP setup using MariaDB, check our guide on [Getting started with the MariaDB Chainguard Container](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/mariadb/).
 
-The [Debugging Distroless](/chainguard/chainguard-images/debugging-distroless-images/) guide contains important information for debugging issues with distroless images. You can also refer to the [Verifying Containers](/chainguard/chainguard-images/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/) resource for details around provenance, SBOMs, and image signatures.
+The [Debugging distroless](/chainguard/chainguard-images/debugging-distroless-images/) guide contains important information for debugging issues with distroless images. You can also refer to the [Verifying containers](/chainguard/chainguard-images/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/) resource for details around provenance, SBOMs, and image signatures.

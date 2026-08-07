@@ -50,7 +50,7 @@ After you complete signup, you're free to use the five images you selected howev
 
 After trying out Chainguard Containers with Catalog Starter, you can reach out to our sales team to upgrade to one of Chainguard's paid plans:
 
-* [Catalog Pricing](/chainguard/chainguard-images/about/pricing/) — a subscription that grants broad access to the full Chainguard Containers catalog with self-service provisioning through the Console.
+* [Catalog pricing](/chainguard/chainguard-images/about/pricing/) — a subscription that grants broad access to the full Chainguard Containers catalog with self-service provisioning through the Console.
 * Per-image pricing — a scoped set of images licensed individually, often used for tightly defined image deployments.
 
 Moving to a paid plan means moving off Catalog Starter; the free five-image entitlement is not stacked on top of a paid subscription.
@@ -62,7 +62,7 @@ Catalog Starter allows users to try out Chainguard Containers, but it comes with
 * You can select up to five non-FIPS images. Once chosen, these images cannot be swapped or replaced during the lifetime of the free plan.
 * The following types of Chainguard Containers are not included in the Catalog Starter plan:
     * [FIPS-validated images](/chainguard/fips/fips-images/)
-    * Images that fall under the [EOL Grace Period](/chainguard/chainguard-images/features/eol-gp-overview/#understanding-chainguards-eol-grace-period)
+    * Images that fall under the [EOL grace period](/chainguard/chainguard-images/features/eol-gp-overview/#understanding-chainguards-eol-grace-period)
     * Images whose software is part of [Chainguard EmeritOSS](https://github.com/chainguard-forks/)
 * Teams using Chainguard Catalog Starter will not have access to the support services available to paying customers: they will not be added to Chainguard's support platform, be able to create support tickets, or have access to root cause analysis (RCA) or phone escalations.
     * Catalog Starter users will still have access to Chainguard resources like our [documentation](https://edu.chainguard.dev/), [courses](https://courses.chainguard.dev/), the [Community Slack channel](https://www.chainguard.dev/unchained/the-chainguard-slack-community-is-here), and the [public support knowledge base](https://support.chainguard.dev/hc/en-us).
@@ -80,7 +80,7 @@ No. Once you’ve selected your five images under Catalog Starter, that selectio
 
 If you anticipate needing different images over time, we recommend talking to our team about Catalog Pricing or per-image licensing.
 
-### Does Catalog Starter include FIPS images or Chainguard Commercial Builds?
+### Does Catalog Starter include FIPS images or Chainguard commercial builds?
 
 No. FIPS images and Chainguard Commercial Builds are not included in the Catalog Starter plan.
 

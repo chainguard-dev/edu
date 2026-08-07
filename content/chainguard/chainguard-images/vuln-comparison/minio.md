@@ -1,5 +1,5 @@
 ---
-title: "Vulnerability Comparison: minio"
+title: "Vulnerability comparison: minio"
 type: "article"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00

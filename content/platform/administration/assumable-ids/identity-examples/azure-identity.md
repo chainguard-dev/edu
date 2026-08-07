@@ -1,7 +1,7 @@
 ---
 aliases:
 - /chainguard/administration/assumable-ids/identity-examples/azure-identity/
-title: "Create an Assumable Identity to Authenticate from Azure"
+title: "Create an assumable identity to authenticate from Azure"
 linktitle: "Azure"
 lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by an Azure workload using a managed identity."
@@ -34,7 +34,7 @@ To complete this guide, you will need the following.
 
 - `chainctl` — the Chainguard command line interface tool — installed on your
   local machine. Follow our guide on
-  [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/)
+  [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/)
   to set this up.
 - The [Azure CLI (`az`)](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli),
   authenticated with `az login`.
@@ -45,7 +45,7 @@ To complete this guide, you will need the following.
 - To follow the Terraform example, [`terraform`](https://developer.hashicorp.com/terraform/install)
   installed locally.
 
-## Find your Tenant ID
+## Find your tenant ID
 
 Each Entra ID tenant has its own OIDC issuer URL, which has the following
 format:
@@ -60,7 +60,7 @@ Retrieve the tenant ID of your current Azure session with:
 az account show --query tenantId --output tsv
 ```
 
-## Create the Entra ID Application
+## Create the Entra ID application
 
 Register an Entra ID application to serve as the audience for tokens issued
 to managed identities in your tenant. We'll grant it no API permissions and
@@ -95,7 +95,7 @@ managed identity requests a token for it.
 az ad sp create --id <client-id>
 ```
 
-## Create the Managed Identity
+## Create the managed identity
 
 If you don't already have a
 [user-assigned managed identity](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities)
@@ -113,7 +113,7 @@ Note down the `principalId` from the output — we'll use this as the subject of
 the Chainguard identity in the next step. Note the `clientId` too, as the
 workload will need it later to request a token.
 
-## Create the Assumable Identity
+## Create the assumable identity
 
 This guide outlines two methods for creating the Chainguard identity: one
 using `chainctl` over a command-line interface, and another using Terraform.
@@ -260,7 +260,7 @@ App, see the
 [`image-copy-acr` example](https://github.com/chainguard-demo/platform-examples/tree/main/image-copy-acr)
 in Chainguard's public `platform-examples` repository.
 
-## Assume the Identity
+## Assume the identity
 
 Attach the managed identity to the Azure workload you want to authenticate
 from. For example, to attach it to an existing VM:
@@ -353,7 +353,7 @@ do the token exchange for you. The
 [`image-copy-acr` example](https://github.com/chainguard-demo/platform-examples/tree/main/image-copy-acr)
 demonstrates this pattern.
 
-## Clean Up
+## Clean up
 
 Delete the Chainguard identity.
 

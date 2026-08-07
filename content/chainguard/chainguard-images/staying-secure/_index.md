@@ -1,6 +1,6 @@
 ---
-title: "Staying Secure"
-linktitle: "Staying Secure"
+title: "Staying secure"
+linktitle: "Staying secure"
 aliases:
 - /chainguard/chainguard-images/recommended-practices/
 description: "Best practices for container security with Chainguard: vulnerability management, SBOM verification, supply chain protection, and enterprise-grade hardening techniques"
@@ -11,6 +11,6 @@ draft: false
 images: []
 weight: 035
 crosslinks:
-- title: "Container Pull Policies"
+- title: "Container pull policies"
   url: "/chainguard/chainguard-repository/container-policies/"
 ---

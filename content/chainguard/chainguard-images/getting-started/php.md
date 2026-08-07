@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with the PHP Chainguard Container"
+title: "Getting started with the PHP Chainguard Container"
 type: "article"
 linktitle: "PHP"
 aliases:
@@ -39,7 +39,7 @@ This tutorial requires Docker to be installed on your local machine. If you don'
 {{< blurb/images >}}
 {{< /details >}}
 
-## 1. Setting up a (CLI) Demo Application
+## 1. Setting up a (CLI) demo application
 
 We'll start by getting the demo application ready. This CLI app generates random names based on a list of nouns and adjectives. To exemplify usage with Composer, the app has a single dependency on [minicli](https://github.com/minicli/minicli), a minimalist CLI framework for PHP.
 
@@ -130,7 +130,7 @@ ludicrous-walrus
 
 In the next step, you'll build the application in a multi-stage Dockerfile.
 
-## 2. Building a Distroless Container for the Application
+## 2. Building a distroless container for the application
 
 We'll now build a distroless container for the application. To be able to install dependencies with Composer, our build will consist of **two** stages. First, we'll build the application using the development variant, a Wolfi-based image that includes Composer and other useful tools for development. Then, we'll create a separate stage for the final container. The resulting container will be based on the distroless PHP Wolfi image, which means it doesn't come with Composer or even a shell.
 
@@ -229,7 +229,7 @@ In such cases, the last `FROM` section from the Dockerfile is the one that compo
 
 It's worth highlighting that nothing is carried from one stage to the other unless you copy it. That facilitates creating a slim final image with only what's necessary to execute the application.
 
-## 3. Working with the PHP-FPM Image Variant
+## 3. Working with the PHP-FPM image variant
 
 The `latest-fpm` image variant is suitable for running PHP applications over FastCGI, to be served by a web server such as Nginx. In this section, we'll run a Docker Compose setup using the `latest-fpm` image variant and the Chainguard Nginx image.
 
@@ -335,6 +335,6 @@ curl 'http://localhost:8000?animal=cat'
 
 To stop the services, you can press `Ctrl+C` in the terminal where you ran `docker-compose up`.
 
-## Advanced Usage
+## Advanced usage
 
 {{< blurb/images-advanced image="PHP" >}}

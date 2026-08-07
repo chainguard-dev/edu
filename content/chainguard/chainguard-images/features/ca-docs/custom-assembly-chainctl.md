@@ -1,5 +1,5 @@
 ---
-title: "Using chainctl to Manage Custom Assembly Resources"
+title: "Using chainctl to manage Custom Assembly resources"
 linktitle: "Manage with chainctl"
 type: "article"
 description: "How to use chainctl to manage Custom Assembly resources."
@@ -19,9 +19,9 @@ Chainguard's [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/cu
 
 You can use [`chainctl`, Chainguard's command-line interface tool](/chainguard/chainctl/), to further customize your Custom Assembly builds and retrieve information about them. This guide provides an overview of the relevant `chainctl` commands and outlines how you can edit the configuration of Custom Assembly containers, as well as retrieve a list of a customized image's builds and its build logs.
 
-> **Note**: This tutorial highlights using `chainctl` to interact with Custom Assembly resources. However, you can also interact with Custom Assembly using [the Chainguard console](/chainguard/chainguard-images/features/ca-docs/custom-assembly-console/), as well as [the Chainguard API](/chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/).
+> **Note**: This tutorial highlights using `chainctl` to interact with Custom Assembly resources. However, you can also interact with Custom Assembly using [the Chainguard Console](/chainguard/chainguard-images/features/ca-docs/custom-assembly-console/), as well as [the Chainguard API](/chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/).
 
-## Adding Packages to a Customized Container Image
+## Adding packages to a customized container image
 
 To edit one of your organization's Custom Assembly container images, you can run the `chainctl image repo build edit` command:
 
@@ -132,7 +132,7 @@ cgr.dev/example.com/custom-node
 
 Note that you **must** pass the new image's name when using the `--save-as` option; `chainctl` will return an error if you don't include a new name. Additionally, you can only use this option with the `edit` subcommand; you cannot create a new image declaratively using the `apply` subcommand.
 
-## Adding Custom Annotations and Environment Variables
+## Adding custom annotations and environment variables
 
 Custom Assembly lets you extend Chainguard Containers with your own metadata and runtime defaults by adding custom annotations and environment variables through `chainctl`.
 
@@ -307,7 +307,7 @@ Runtime keys are validated when the configuration is applied. The following rule
 * Key names can't begin with `chainguard` or `wolfi`; these prefixes are reserved.
 * The combined size of all keys can't exceed 512 KB.
 
-## Retrieving Information about Custom Assembly Containers
+## Retrieving information about Custom Assembly containers
 
 You can also use the `list` subcommand to retrieve every one of a customized image's builds from the past 24 hours:
 
@@ -385,8 +385,8 @@ You can use `chainctl images repos build apply` to do things like:
 
 For more information, refer to [chainctl images repos build apply](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_apply/).
 
-## Learn More
+## Learn more
 
-You can also use `chainctl` to add custom certificates to your Custom Assembly images. Refer to our guide on [Adding Custom Certificates with Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly-certs/#using-chainctl-to-add-custom-certificates-using-custom-assembly) for more information.
+You can also use `chainctl` to add custom certificates to your Custom Assembly images. Refer to our guide on [Adding custom certificates with Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly-certs/#using-chainctl-to-add-custom-certificates-using-custom-assembly) for more information.
 
-Additionally, you can interact with Custom Assembly with the [Chainguard API](/chainguard/api/spec/). Our tutorial on [Using the Chainguard API to Manage Custom Assembly Resources](/chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/) outlines how to run a demo application that updates the configuration of a Custom Assembly container through the Chainguard API.
+Additionally, you can interact with Custom Assembly with the [Chainguard API](/chainguard/api/spec/). Our tutorial on [Using the Chainguard API to manage Custom Assembly resources](/chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/) outlines how to run a demo application that updates the configuration of a Custom Assembly container through the Chainguard API.

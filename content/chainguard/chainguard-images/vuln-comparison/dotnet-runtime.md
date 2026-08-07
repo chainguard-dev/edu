@@ -1,5 +1,5 @@
 ---
-title: "Vulnerability Comparison: dotnet-runtime"
+title: "Vulnerability comparison: dotnet-runtime"
 type: "article"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00

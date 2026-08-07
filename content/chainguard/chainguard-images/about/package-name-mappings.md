@@ -1,6 +1,6 @@
 ---
-title: "Package and Image Name Mappings"
-linktitle: "Package Name Mappings"
+title: "Package and image name mappings"
+linktitle: "Package name mappings"
 type: "article"
 description: "Understanding how Chainguard maps upstream package and image names to Chainguard Containers"
 date: 2025-10-23T11:07:52+02:00
@@ -17,7 +17,7 @@ toc: true
 
 When migrating to Chainguard Containers, you may notice that some package and image names differ from their upstream counterparts. This guide explains why these mappings exist and provides a comprehensive reference of how Chainguard maps image and package names to our container ecosystem.
 
-## Why Chainguard Remaps Package Names
+## Why Chainguard remaps package names
 
 Different Linux distributions often use different names for the same software. For example, Debian calls its C compiler package `build-essential`, while Alpine calls the equivalent package `build-base` and Fedora uses `gcc` and related packages. Chainguard Containers standardize these names to provide consistency regardless of which distribution you're migrating from.
 
@@ -39,7 +39,7 @@ When you're using Chainguard's [Dockerfile Converter (dfc)](/chainguard/migratio
 
 For manual migrations, you can reference the following tables to find the correct package or image name you need.
 
-## Package Name Mappings
+## Package name mappings
 
 ### Debian/Ubuntu packages
 
@@ -57,12 +57,12 @@ The following table shows how Fedora, RedHat, and UBI package names (used with `
 
 Alpine Linux package names generally align with Chainguard's package names, as both use `apk` and share similar package management philosophies. In most cases, no mapping is necessary when migrating from Alpine to Chainguard Containers.
 
-## Image Name Mappings
+## Image name mappings
 
 The following table shows how upstream container image names map to Chainguard Containers. Note that wildcard patterns (indicated by `*`) match multiple variants of an image name.
 
 {{< package-mappings/image-mappings >}}
 
-## Learn More
+## Learn more
 
-For more information about working with Chainguard Containers and package management, you can check out our overview of [Chainguard's Package Model](/chainguard/chainguard-images/features/packages/package-model/). Additionally, you may find our doc on [Using the Dockerfile Converter](/chainguard/migration/dockerfile-conversion/) to be useful.
+For more information about working with Chainguard Containers and package management, you can check out our overview of [Chainguard's package model](/chainguard/chainguard-images/features/packages/package-model/). Additionally, you may find our doc on [Using the Dockerfile Converter](/chainguard/migration/dockerfile-conversion/) to be useful.

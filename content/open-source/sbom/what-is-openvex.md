@@ -1,5 +1,5 @@
 ---
-title: "What is OpenVex?"
+title: "What is OpenVEX?"
 description: "A conceptual overview of OpenVex"
 lead: "A conceptual overview of OpenVex"
 type: "article"

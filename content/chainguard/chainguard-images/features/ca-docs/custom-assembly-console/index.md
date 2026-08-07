@@ -1,5 +1,5 @@
 ---
-title: "Using the Chainguard Console to Manage Custom Assembly Resources"
+title: "Using the Chainguard Console to manage Custom Assembly resources"
 linktitle: "Manage in the Console"
 type: "article"
 description: "How to use Chainguard's Custom Assembly tool in the Chainguard console."
@@ -21,7 +21,7 @@ By the end of this guide, you'll be able to create, customize, and manage your o
 
 > **Note**: This overview highlights using the Chainguard console's UI to interact with Custom Assembly resources. However, you can also interact with Custom Assembly using [`chainctl`, Chainguard's command-line interface tool](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/), as well as [the Chainguard API](/chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/).
 
-## Selecting Packages and Building a Customized Container
+## Selecting packages and building a customized container
 
 After logging in to the [Chainguard console](https://console.chainguard.dev/auth/login), you will be greeted with your account overview page. If you belong to more than one organization, be sure to select an organization with access to Custom Assembly from the drop-down menu in the top-left corner:
 
@@ -59,7 +59,7 @@ If you're satisfied with the selection of packages, click the **Apply changes** 
 
 If a build fails, you'll need to make the appropriate changes before attempting another build. You can check the build's logs for information about what went wrong and what to fix.
 
-## Listing Builds and Viewing Logs
+## Listing builds and viewing logs
 
 You can view a list of all the available builds of your customized container image by clicking the customized image's **Builds** tab in the console:
 
@@ -84,7 +84,7 @@ You can click on the row of any build listed in the Builds tab to access its log
 <center><img src="ca-6.png" alt="Screenshot of a customized container image build's logs, showing a successful build." style="width:650px;"></center>
 <br />
 
-## Making Changes to a Customized Container Image
+## Making changes to a customized container image
 
 If you need to make further modifications to a customized image, or revert changes you've already made, you can do so with just a few clicks in the Chainguard console.
 
@@ -97,7 +97,7 @@ You can add more packages to the customized image by following the process outli
 
 To remove all of the container image's customizations, click the **More Actions** button at the top right then select **Remove customizations**. Removing all the added packages will return the image to its original state.
 
-Note that you can also edit the packages in a customized image [using the `chainctl image repo build edit` command](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/#editing-a-customized-container-image).
+Note that you can also edit the packages in a customized image [using the `chainctl image repo build edit` command](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/#adding-packages-to-a-customized-container-image).
 
 If you elected to create a new container image with Custom Assembly, you can rename it by clicking the **Rename** button (next to the **Customize image** button) and entering a new name for the image. Note that after renaming the customized image, any references to the previous name will no longer work.
 
@@ -106,8 +106,8 @@ You can also delete new container images that you've created with Custom Assembl
 <center><img src="ca-8.png" alt="Screenshot of the image deletion window for the customized_node container image. It shows a warning reading 'This action cannot be undone. The image will be permanently deleted from your organization and will no longer be available.' The name of the image ('customized_node') has been entered into the prompt." style="width:650px;"></center>
 <br />
 
-## Learn More
+## Learn more
 
-You can also use the Chainguard Console to add Chainguard-managed certificates to Custom Assembly images. Refer to our guide on [Adding Custom Certificates with Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly-certs/#changuard-managed-certificate-bundles) for more information.
+You can also use the Chainguard Console to add Chainguard-managed certificates to Custom Assembly images. Refer to our guide on [Adding custom certificates with Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly-certs/#chainguard-managed-certificate-bundles) for more information.
 
 For more advanced workflows or automation, consider exploring the [`chainctl` CLI tool](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/) or the [Chainguard API](/chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/) for programmatic access to Custom Assembly features.

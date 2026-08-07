@@ -1,5 +1,5 @@
 ---
-title : "Create an Assumable Identity for a Bitbucket Pipeline"
+title : "Create an assumable identity for a Bitbucket pipeline"
 linktitle: "Bitbucket"
 aliases:
 - /chainguard/chainguard-enforce/authentication/identity-examples/enforce-bitbucket-identity/
@@ -26,10 +26,10 @@ This procedural tutorial outlines how to create an identity using Terraform, and
 To complete this guide, you will need the following.
 
 * `terraform` installed on your local machine. Terraform is an open-source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
-* `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up.
+* `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up.
 * A Bitbucket pipeline you can use to test out the identity you'll create. We recommend following Bitbucket's [Getting Started guide](https://support.atlassian.com/bitbucket-cloud/docs/get-started-with-bitbucket-pipelines/) to set this up. If you need to enable pipelines for your repository, visit Bitbucket's [Configure your first pipeline](https://support.atlassian.com/bitbucket-cloud/docs/configure-your-first-pipeline/) page to get started.
 
-## Creating Terraform Files
+## Creating Terraform files
 
 We will be using Terraform to create an identity for a Bitbucket pipeline to assume. This step outlines how to create three Terraform configuration files that, together, will produce such an identity.
 
@@ -142,7 +142,7 @@ Run the following command to create this file with each of these sections. Be su
 
 Following that, your Terraform configuration will be ready. Now you can run a few `terraform` commands to create the resources defined in your `.tf` files.
 
-## Creating Your Resources
+## Creating your resources
 
 First, run `terraform init` to initialize Terraform's working directory.
 
@@ -264,7 +264,7 @@ You can also edit the pipeline itself to change its behavior. For example, inste
 
 Of course, the Bitbucket pipeline will only be able to perform certain actions on certain resources, depending on what kind of access you grant it.
 
-## Removing Sample Resources
+## Removing sample resources
 
 To remove the resources Terraform created, you can run the `terraform destroy` command.
 

@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with the Ruby Chainguard Container"
+title: "Getting started with the Ruby Chainguard Container"
 linktitle: "Ruby"
 aliases:
 - /chainguard/chainguard-images/getting-started/getting-started-ruby
@@ -39,11 +39,11 @@ In this guide, we'll build two example applications that demonstrate how to use 
 {{< blurb/images >}}
 {{< /details >}}
 
-## Example 1: Minimal Ruby Container in Single Stage Build
+## Example 1: Minimal Ruby container in single stage build
 
 We'll start by creating a small command-line Ruby application to serve as a demo. This application has no external dependencies; it will read from a text file containing facts about octopuses, and output a random line from that file. This demo is also available in our [demos repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/ruby), if you want to review the source files before building it.
 
-### Step 1: Setting up the Application
+### Step 1: Setting up the application
 
 First, create a directory and then move into it for your app. Here we'll use `octo-facts`:
 
@@ -143,13 +143,13 @@ docker run --rm octo-ruby-demo
 
 And you should get output similar to what you got before, with a random octopus fact.
 
-## Example 2: Multi-Stage Build for Ruby Application Runtime
+## Example 2: Multi-stage build for Ruby application runtime
 
 To demonstrate how to containerize a more complex application that requires the installation of third party dependencies, we'll create a second demo that uses a [Docker multi-stage build](https://docs.docker.com/build/building/multi-stage/), which will combine the `cgr.dev/chainguard/ruby:latest-dev` development image to build the application and the `cgr.dev/chainguard/ruby:latest` distroless image to run it.
 
 This demo will use the [rainbow](https://rubygems.org/gems/rainbow) Ruby gem to output to the command line interface a colorful quote, inspired by _cowsay_.
 
-### Step 1: Setting up the Application
+### Step 1: Setting up the application
 
 First, create a directory for your app. Here we'll use `linky-says`:
 
@@ -220,7 +220,7 @@ curl -O https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/r
 
 With everything in place, you can now work on the Dockerfile that will install the application dependencies and execute your Ruby script.
 
-### Step 2: Setting Up the Dockerfile
+### Step 2: Setting up the Dockerfile
 
 To make sure our final container is _distroless_ while still being able to install Rubygems, our build will consist of **two** stages: first, we'll build the application using the `dev` image variant, a Wolfi-based image that includes the Gem executable, Bundler, and other useful tools for development. Then, we'll create a separate stage for the final container. The resulting container will be based on the distroless Ruby Wolfi image, which means it doesn't come with the Gem executable or even a shell.
 
@@ -328,6 +328,6 @@ In such cases, the last `FROM` section from the Dockerfile is the one that compo
 
 It's worth highlighting that no code or data is carried from one stage to the other unless you use a `COPY` command to explicitly copy it. This approach facilitates creating a slim final image with only what's absolutely necessary to execute the application. Using a multi-stage build like this, without shell tools and interactive language interpreters built in also makes your final container image more secure.
 
-## Advanced Usage
+## Advanced usage
 
 {{< blurb/images-advanced image="Ruby" >}}

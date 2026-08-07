@@ -1,7 +1,7 @@
 ---
 aliases:
 - /chainguard/chainctl-usage/chainctl-version-update/
-title: "Find and Update Your chainctl Release Version"
+title: "Find and update your chainctl release version"
 lead: "Keep your chainctl CLI updated to access the latest Chainguard security features and performance improvements for container management."
 description: "Learn how to check your chainctl version and update to the latest release for enhanced security features and improved container management capabilities"
 type: "article"
@@ -15,7 +15,7 @@ weight: 040
 
 Chainguard regularly releases updates to `chainctl` with new security features, performance improvements, and expanded capabilities for container management. This guide explains how to check your current version and update to the latest release.
 
-For a full reference of all commands with details and switches, refer to [chainctl Reference](/chainguard/chainctl/).
+For a full reference of all commands with details and switches, refer to [chainctl reference](/chainguard/chainctl/).
 
 ## View your chainctl version
 

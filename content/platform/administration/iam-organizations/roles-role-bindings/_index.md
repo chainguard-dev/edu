@@ -1,7 +1,7 @@
 ---
 aliases:
 - /chainguard/administration/iam-organizations/roles-role-bindings/
-title: "Roles and Role-bindings"
+title: "Roles and role-bindings"
 lead: ""
 type: "article"
 date: 2025-01-16T15:22:20+01:00

@@ -1,5 +1,5 @@
 ---
-title: "Package Version Selection"
+title: "Package version selection"
 type: "article"
 draft: false
 date: 2023-11-06T08:49:31+00:00
@@ -27,7 +27,7 @@ environment:
     - python3    # install the latest stable version of python3.
 ```
 
-## Basic Usage
+## Basic usage
 
 ```sh
 apk add go
@@ -37,7 +37,7 @@ This will install the latest stable version of Go. This is nearly always what yo
 
 Refer to the section below for information on the behavior of pre-release versions.
 
-## Fuzzy Matching
+## Fuzzy matching
 
 You can also use fuzzy version matching.
 
@@ -71,7 +71,7 @@ For example, `erlang=~26` will match any release of Erlang in the 26 major versi
 
 `erlang~2` will _not_ match Erlang 26 or 27. It only fuzzy matches whole segments of a semantic versioning version string.
 
-## Version Constraints
+## Version constraints
 
 To request a minimum or maximum acceptable version of a package to install, you can use `>`, `<`, `>=` and `<=`:
 
@@ -86,7 +86,7 @@ This comparison logic is aware of semantic versioning semantics, so `1.9.10` is 
 
 Version constraints can be useful when you want to ensure a minimum or maximum major or minor version, but still want to receive minor or patch updates. Fuzzy matching can produce the same behavior – `go~1.20` is equivalent to `go>=1.20` for example.
 
-## Installing Future Versions
+## Installing future versions
 
 Using `apk add go` installs the latest _stable_ release of Go. For most packages, there is no distinction between the "latest" and "latest stable" release. Some projects, like Go, Node, Python, etc., produce pre-release versions before, or have more nuanced release maturity and support processes. Please refer to the respective larger project for more information.
 
@@ -100,7 +100,7 @@ Note that this string uses a dash (`-`), which means it's specifying the full na
 
 When Go 1.22 is fully released, it will become the latest release of Go and `provides:[go=$version]`, so `apk add go` will install Go 1.22.0.
 
-## Exact Version Matching
+## Exact version matching
 
 You can also specify an exact version and epoch to install:
 

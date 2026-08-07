@@ -1,5 +1,5 @@
 ---
-title: "Chainguard Containers Features"
+title: "Chainguard Containers features"
 linktitle: "Features"
 aliases:
 - /chainguard/chainguard-images/images-features
@@ -14,11 +14,11 @@ weight: 020
 topic: true
 banner: {
     image: "/icon-box-fill.svg",
-    title: "FIPS-enabled Containers",
+    title: "FIPS-enabled containers",
     cta: "Read more",
     link: "/chainguard/chainguard-images/features/fips-images/"
 }
-sectiontitle: "Chainguard Containers Features & Resources"
+sectiontitle: "Chainguard Containers features and resources"
 tutorials: [
   {
     title: "Custom Assembly",
@@ -31,12 +31,12 @@ tutorials: [
     url: "/chainguard/chainguard-images/features/image-stigs/"
   },
   {
-    title: "Custom Certificates",
+    title: "Custom certificates",
     description: "",
     url: "/chainguard/chainguard-images/features/incert-custom-certs/"
   },
   {
-    title: "CVE Visualizations",
+    title: "CVE visualizations",
     description: "",
     url: "/chainguard/chainguard-images/features/cve_visualizations/"
   },
@@ -46,7 +46,7 @@ tutorials: [
     url: "/chainguard/chainguard-images/features/using-the-tag-history-api/"
   },
   {
-    title: "EOL Notifications",
+    title: "EOL notifications",
     description: "",
     url: "/chainguard/chainguard-images/features/eol-notifications/"
   },

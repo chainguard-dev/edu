@@ -43,7 +43,7 @@ Updates happen constantly and at high speed. There are over 1,500 containers, pl
 
 Updates to foundational packages require cascading rebuilds of all dependent packages and images. For updates to core dependencies, this results in rebuilds of hundreds, or even thousands, of packages and containers. Major updates like these receive additional engineering focus to ensure a smooth transition.
 
-## How does Chainguard handle software that goes End-of-Life (EOL) upstream?
+## How does Chainguard handle software that goes end-of-life (EOL) upstream?
 
 After a package goes EOL, it is no longer supported upstream, and updates will cease in the Wolfi repository. However, customers benefit from an extended EOL Grace Period with Chainguard OS, during which Chainguard continues to build old versions for an additional timeframe.
 

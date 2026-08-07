@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with the Laravel Chainguard Container"
+title: "Getting started with the Laravel Chainguard Container"
 type: "article"
 linktitle: "Laravel"
 description: "Learn how to use Chainguard's Laravel container image for secure PHP web applications, featuring built-in Laravel tooling and minimal vulnerabilities"
@@ -37,7 +37,7 @@ This tutorial requires Docker to be installed on your local machine. If you don'
 {{< blurb/images >}}
 {{< /details >}}
 
-## 1. Setting Up a Demo Application
+## 1. Setting up a demo application
 
 We'll start by getting the demo application ready. The demo is called **OctoFacts**, and it shows a random fact about Octopuses alongside a random Octopus image each time the page is reloaded. Quotes are loaded from a `.txt` file into the database through a database migration.
 
@@ -119,7 +119,7 @@ You should now be able to access the application from your browser at `localhost
 
 ![Preview of the OctoFacts demo Laravel application](https://github.com/chainguard-dev/edu-images-demos/raw/main/php/octo-facts/public/octofacts.png)
 
-## 2. Creating a LEMP Environment with Docker Compose
+## 2. Creating a LEMP environment with Docker Compose
 
 To demonstrate a full LEMP setup using Chainguard Containers, we'll now set up a Docker Compose environment to serve the application via Nginx. This setup can be used as a more robust development environment that replicates a production setting based on secure container images.
 
@@ -261,7 +261,7 @@ docker exec octo-facts-app-1 php /app/artisan migrate --seed
 
 You can use the same method to execute other Artisan commands while the environment is up. After running migrations and seeding the database, you should be able to reload the app from your browser at `localhost:8000` and get a new octopus fact.
 
-## 3. Creating a Distroless Laravel Runtime for the Application
+## 3. Creating a distroless Laravel runtime for the application
 
 So far, we have been using the `laravel:latest-dev` builder image to run the application in a development setting. For production workloads, the recommended approach for additional security is to create a [distroless](/chainguard/chainguard-images/getting-started-distroless/) runtime for the application that will contain only what's absolutely necessary for running the app on production. This is done by combining a **build** phase in a **multi-stage** Dockerfile.
 
@@ -322,6 +322,6 @@ docker exec octo-facts-app-1  php /app/artisan migrate --seed
 
 You should now be able to reload your browser and obtain a new octopus fact.
 
-## Advanced Usage
+## Advanced usage
 
 {{< blurb/images-advanced image="Laravel" >}}

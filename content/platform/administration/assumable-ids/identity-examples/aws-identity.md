@@ -1,8 +1,8 @@
 ---
 aliases:
 - /chainguard/administration/assumable-ids/identity-examples/aws-identity/
-title : "Create an Assumable Identity to Authenticate from AWS (Legacy)"
-linktitle: "AWS (Legacy)"
+title : "Create an assumable identity to authenticate from AWS (legacy)"
+linktitle: "AWS (legacy)"
 lead: ""
 description: "Tutorial outlining how to create a Chainguard identity that can be assumed by an AWS user or role."
 type: "article"
@@ -31,10 +31,10 @@ To complete this guide, you will need the following tools.
 
 * The AWS CLI. Review the official documentation for information on [how to install or update to the latest version of the tool](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 * To create the assumable identity, you will need one of the following tools:
-    * [`chainctl`](/get-started/getting-started-with-chainctl/) — the Chainguard command line interface tool. Follow our guide on [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up.
+    * [`chainctl`](/get-started/getting-started-with-chainctl/) — the Chainguard command line interface tool. Follow our guide on [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up.
     * [`terraform`](https://developer.hashicorp.com/terraform) — an Infrastructure as Code tool developed by Hashicorp. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
 
-## Create the Assumable Identity
+## Create the assumable identity
 
 This guide outlines two methods for creating an identity that can be assumed by an AWS user or IAM role: one using `chainctl` over a command-line interface, and another using Terraform.
 
@@ -131,7 +131,7 @@ The `my_identity_name_id` output provides the identity’s [UIDP (unique identit
 
 For a full example, refer to the [`aws-auth` example](https://github.com/chainguard-dev/platform-examples/tree/main/aws-auth) in Chainguard's public `platform-examples` repository.
 
-## Assume the Identity
+## Assume the identity
 
 Unlike other supported platforms, AWS does not issue OIDC tokens for its IAM entities. To facilitate assumable identities from AWS workloads, Chainguard accepts a custom token format that is constructed by Base64 encoding a signed AWS API request to [`GetCallerIdentity`](https://docs.aws.amazon.com/STS/latest/APIReference/API_GetCallerIdentity.html).
 
@@ -185,6 +185,6 @@ The [Chainguard SDK For Go](https://pkg.go.dev/chainguard.dev/sdk) provides an [
 
 For an example of how to leverage this function, refer to the [`aws-auth` example](https://github.com/chainguard-dev/platform-examples/tree/main/aws-auth) in Chainguard's public `platform-examples` repository.
 
-## Learn More
+## Learn more
 
 By following this guide, you will have created a Chainguard identity that you can use to authenticate to Chainguard from AWS. For more information about how assumable identities work in Chainguard, check out our [conceptual overview of assumable identities](/chainguard/administration/assumable-ids/assumable-ids/). Additionally, we encourage you to read through the rest of our documentation on [Administering Chainguard resources](/chainguard/administration/).

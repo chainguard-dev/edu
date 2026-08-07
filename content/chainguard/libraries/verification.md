@@ -418,8 +418,8 @@ A 0% coverage result is expected when verifying a fat JAR, uber JAR, or shaded J
 
 ## Resources
 
-- [Chainguard Libraries Overview](/chainguard/libraries/overview/)
-- [Chainguard Libraries Authentication](/chainguard/libraries/access/)
+- [Chainguard Libraries overview](/chainguard/libraries/overview/)
+- [Chainguard Libraries authentication](/chainguard/libraries/access/)
 - [`chainctl libraries verify` reference documentation](/chainguard/chainctl/chainctl-docs/chainctl_libraries_verify/)
 - [{{<icon "play-circle-fill">}} Learning Lab: Chainguard Libraries for Java](/software-security/learning-labs/ll202505/)
 - [{{<icon "play-circle-fill">}} Learning Lab: Chainguard Libraries for Python](/software-security/learning-labs/ll202506/)

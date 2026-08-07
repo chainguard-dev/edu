@@ -1,6 +1,6 @@
 ---
-title: "How to Use Chainguard Containers with OpenShift"
-linktitle: "Using With OpenShift"
+title: "How to use Chainguard Containers with OpenShift"
+linktitle: "Using with OpenShift"
 type: "article"
 description: "Learn how to deploy Chainguard Containers on Red Hat OpenShift, including security context adjustments and permission configurations for enhanced security"
 date: 2025-06-17T08:49:31+00:00
@@ -23,7 +23,7 @@ Using Chainguard Containers in your OpenShift deployment significantly reduces C
 
 When [Using Chainguard Containers](/chainguard/chainguard-images/how-to-use/how-to-use-chainguard-images/) with OpenShift, there are some adjustments that need to be made to the usual process. This guide provides guidance. Refer to the [OpenShift docs](https://docs.redhat.com/en/documentation/openshift_container_platform/) for more details.
 
-## Adjust Ownership and Permissions
+## Adjust ownership and permissions
 
 By default, OpenShift Container Platform runs containers using an arbitrarily assigned User ID (UID), as described in the [Red Hat documentation](https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/images/creating-images#use-uid_create-images).
 
@@ -39,7 +39,7 @@ RUN chgrp -R 0 /some/directory && \
     chmod -R g=u /some/directory
 ```
 
-## Create `/app` Directory and `HOME`
+## Create `/app` directory and `HOME`
 
 When running on OpenShift clusters, you will find that the OpenShift user cannot create config files inside their home directory. This is because [OpenShift is designed to start container instances using a random User ID](https://www.redhat.com/en/blog/a-guide-to-openshift-and-uids).
 
@@ -74,13 +74,13 @@ ENV HOME=/app
 ENTRYPOINT ["dotnet", "Sample.Service.dll"]
  ```
 
-## Use Special Container Images for Hard-coded User IDs
+## Use special container images for hard-coded user IDs
 
 There are cases where Red Hat hard codes UIDs for specific applications, for example, the user for Postgres is set to UID 26. Refer to the [Red Hat documentation](https://access.redhat.com/solutions/6996195) for more details.
 
 In this instance, Chainguard has built a special image for Postgres on OpenShift with a different release tag. Where the Postgres release version is `17.5` and the regular Chainguard Container would be released with the tag `17.5`, there is another image released with the tag `17.5-openshift`.
 
-## Understand Security Context Constraints (SCCs)
+## Understand security context constraints (SCCs)
 
 OpenShift Container Platform includes [security context constraints](https://docs.redhat.com/en/documentation/openshift_container_platform/4.18/html-single/authentication_and_authorization/index#managing-pod-security-policies) (SCCs) that you can use to control permissions for the pods in your cluster. SCCs determine the actions that a pod can perform and what resources it can access.
 

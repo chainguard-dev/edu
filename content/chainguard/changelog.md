@@ -1,5 +1,5 @@
 ---
-title: "Chainguard Products Changelog"
+title: "Chainguard products changelog"
 linktitle: "Changelog"
 type: "article"
 description: "Weekly changelog of Chainguard product updates — product announcements, breaking changes, container images reaching end-of-life or leaving the catalog, and images newly added to it."
@@ -94,7 +94,7 @@ _Launched July 22, 2026._
 
 Administrators can map identity provider groups — Okta or Microsoft Entra ID, for example — directly to Chainguard roles, instead of assigning roles one user at a time. Anyone who authenticates with a mapped group in their token receives that role for the session.
 
-For more information, including setup steps, refer to [Grant Chainguard Roles from Identity Provider Groups](/platform/administration/custom-idps/grant-roles-from-groups/).
+For more information, including setup steps, refer to [Grant Chainguard roles from identity provider groups](/platform/administration/custom-idps/grant-roles-from-groups/).
 
 {{< changelog-label "EOL" >}}
 

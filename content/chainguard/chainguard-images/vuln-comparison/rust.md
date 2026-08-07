@@ -1,5 +1,5 @@
 ---
-title: "Vulnerability Comparison: rust"
+title: "Vulnerability comparison: rust"
 type: "article"
 date: 2022-11-01T11:07:52+02:00
 lastmod: 2022-11-01T11:07:52+02:00

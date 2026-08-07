@@ -2,7 +2,7 @@
 aliases:
 - /chainguard/administration/cloudevents/events-example/
 title: "Subscribing to Chainguard CloudEvents"
-linktitle: "Subscribe to Events"
+linktitle: "Subscribe to events"
 type: "article"
 description: "."
 date: 2025-04-24T15:22:20+01:00
@@ -21,7 +21,7 @@ Chainguard implements [CloudEvents](/chainguard/administration/cloudevents/event
 
 This article includes an example of how to use `chainctl` to create an event subscription. It also includes details on how to validate events from Chainguard and highlights some potential use cases for them. This article is primarily focused on Registry `push` and `pull` events. *Push* events occur when an image in your entitlement is added or updated. *Pull* events occur when an image is pulled from your Chainguard repository. Be aware, though, that there are also events related to IAM, such as user creation and adding identity providers.
 
-## Subscribing to Events
+## Subscribing to events
 
 To subscribe to Chainguard events for your account, use the following `chainctl` command:
 
@@ -119,13 +119,13 @@ This sample request has the following headers:
 
 This shows that you have successfully subscribed the test service to Chainguard Events.
 
-## Filtering Events
+## Filtering events
 
 The webhook will get all events for your organization. You will need to filter them to only the events you are interested in, which can be done using the `ce-type` header. For pull events the type is `dev.chainguard.registry.pull.v1` and push events are of type `dev.chainguard.registry.push.v1`.
 
 A full description of all events and their types is [available on Chainguard Academy](/chainguard/administration/cloudevents/events-reference/).
 
-## Validating Events
+## Validating events
 
 Before processing an event from Chainguard, you should ensure that it is valid. Every Chainguard event has a JSON Web Token (JWT) formatted OIDC ID token in its Authorization header. For authorization purposes, validate the first two fields; then, verify the third:
 
@@ -135,7 +135,7 @@ Before processing an event from Chainguard, you should ensure that it is valid. 
 
 Validating these fields before processing the JWT token using a verification library can save resources, as well as alert you about suspicious traffic or misconfigured Chainguard organization settings.
 
-## Use Cases
+## Use cases
 
 Events can be used to drive a wide range of processing scenarios, including the following:
 
@@ -146,6 +146,6 @@ Events can be used to drive a wide range of processing scenarios, including the 
 
 Chainguard's [platform-examples](https://github.com/chainguard-dev/platform-examples) repository contains example code for implementing workflows based on events. Most examples are based on Terraform and work with the Google Cloud Platform, but should be portable to other environments.
 
-## Learn More
+## Learn more
 
 This article outlined details on what Chainguard Events are, how to use them, and some common use cases. For more information on CloudEvents, you can refer to [cloudevents.io](http://cloudevents.io/). You can also find more details in [Chainguard's CloudEvents reference documentation](/chainguard/administration/cloudevents/).

@@ -20,11 +20,11 @@ toc: true
 
 Achieving Cybersecurity Maturity Model Certification (CMMC) 2.0 Level 2 or Level 3 certification can be a complex and resource-intensive process, particularly for organizations managing containerized environments and addressing vulnerabilities. Chainguard simplifies this journey by offering specialized solutions that drastically reduce the time and effort needed to meet compliance requirements. Our FIPS-compliant [Federal Information Processing Standard](/chainguard/chainguard-images/working-with-images/fips-images/) images, combined with detailed SBOM (Software Bill of Materials) and STIG-hardened (Security Technical Implementation Guide) configurations, provide a strong foundation for meeting the requirements of CMMC 2.0.
 
-## What are STIG-Hardened FIPS Images?
+## What are STIG-hardened FIPS images?
 
 STIG-hardened FIPS images are pre-configured container images that have been secured according to the Security Technical Implementation Guide (STIG) standards set by the Defense Information Systems Agency (DISA). These images meet stringent federal security requirements, combining FIPS-compliant encryption with robust security configurations that protect against vulnerabilities and threats. By using STIG-hardened FIPS images, organizations ensure that their systems adhere to federal encryption standards and best practices for cybersecurity, making them particularly valuable in environments that require high levels of security, such as those governed by CMMC 2.0.
 
-## Why STIG-Hardened FIPS Images for CMMC 2.0?
+## Why STIG-hardened FIPS images for CMMC 2.0?
 
 STIG-hardened FIPS images are highly beneficial for achieving CMMC 2.0 compliance due to their enhanced security features and adherence to strict guidelines. Here’s how they can support your CMMC 2.0 efforts:
 
@@ -39,11 +39,11 @@ STIG-hardened FIPS images are highly beneficial for achieving CMMC 2.0 complianc
 
 By leveraging Chainguard’s resources, organizations can accelerate their path to CMMC 2.0 certification while effectively managing and reporting on critical security controls. Our integrated approach not only ensures that compliance requirements are met but also enhances overall security posture, allowing organizations to focus on their core operations with confidence.
 
-## Browse all CMMC 2.0 Articles
+## Browse all CMMC 2.0 articles
 
 - [Introduction to CMMC 2.0](/compliance/cmmc-2/intro-cmmc-2/)
-- [CMMC 2.0 Maturity Levels](/compliance/cmmc-2/cmmc-2-levels/)
-- [Overview of CMMC 2.0 Practice/Control Groups](/compliance/cmmc-2/cmmc-practices/)
+- [CMMC 2.0 maturity levels](/compliance/cmmc-2/cmmc-2-levels/)
+- [Overview of CMMC 2.0 practice/control groups](/compliance/cmmc-2/cmmc-practices/)
 - (Current article) How Chainguard Can Help With CMMC 2.0
 
 **[Get started with FIPS Chainguard Containers today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**

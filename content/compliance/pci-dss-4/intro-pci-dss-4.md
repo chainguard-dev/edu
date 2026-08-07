@@ -24,7 +24,7 @@ Cashless transactions have become the norm around the world. This is a convenien
 
 This guide will provide a comprehensive overview of PCI DSS 4.0, detailing its practices, the importance of compliance, and practical guidance on meeting its requirements. At the end of this guide, you will learn how Chainguard Containers can be used to significantly reduce the toil and time needed to achieve PCI DSS 4.0 compliance.
 
-## Who is Required to be Compliant?
+## Who is required to be compliant?
 
 The PCI Security Standards Council (PCI SSC) is a global forum for the industry to come together to develop, enhance, disseminate, and assist with the understanding of security standards for payment account security.
 
@@ -45,7 +45,7 @@ Participation in the PCI SCC is encouraged for all industry stakeholders and is 
 
 Regardless of membership status, all entities that store, process, or transmit cardholder data and/or sensitive authentication data are expected to comply with PCI DSS requirements.
 
-## What is the Importance of Protecting Payment Account Data?
+## What is the importance of protecting payment account data?
 
 Lax security enables criminals to steal and use consumer financial information from payment transactions and processing systems for fraudulent purposes. Vulnerabilities may appear anywhere in the card-processing ecosystem, including but not limited to:
 
@@ -62,7 +62,7 @@ These vulnerabilities may also extend to systems operated by service providers, 
 
 Compliance with PCI DSS helps to alleviate these vulnerabilities and protect payment account data.
 
-## Impact of Non-Compliance
+## Impact of non-compliance
 
 PCI DSS is designed to protect both customers and entities that handle payment data. Beyond the following, a failure to comply leaves you and your customers vulnerable to data and financial losses, most of which are preventable.
 
@@ -77,10 +77,10 @@ These consequences may further result in cancelled contracts, additional revenue
 
 Achieving compliance with PCI DSS 4.0 is not just an industry self-regulatory requirement but a critical step in safeguarding payment information. To prepare your organization for PCI DSS 4.0, read about [how Chainguard Containers can help simplify fulfilling PCI DSS 4.0 requirements](/compliance/pci-dss-4/pci-dss-chainguard/).
 
-## Browse all PCI DSS 4.0 Articles
+## Browse all PCI DSS 4.0 articles
 
 - (Current article) Introduction to PCI DSS 4.0
-- [Overview of PCI DSS 4.0 Practices/Requirements](/compliance/pci-dss-4/pci-dss-practices/)
-- [How Chainguard Can Help With PCI DSS 4.0](/compliance/pci-dss-4/pci-dss-chainguard/)
+- [Overview of PCI DSS 4.0 practices/requirements](/compliance/pci-dss-4/pci-dss-practices/)
+- [How Chainguard can help with PCI DSS 4.0](/compliance/pci-dss-4/pci-dss-chainguard/)
 
 **[Get started with FIPS Chainguard Containers today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**

@@ -1,7 +1,7 @@
 ---
 aliases:
 - /chainguard/administration/iam-organizations/verified-orgs/
-title : "Verified Organizations"
+title : "Verified organizations"
 lead: ""
 description: "An overview of how to verify your organization and the implications"
 type: "article"
@@ -17,12 +17,12 @@ weight: 015
 toc: true
 ---
 
-Resources on the Chainguard platform are organized in a hierarchical structure called [IAM Organizations](https://edu.chainguard.dev/chainguard/administration/iam-organizations/overview-of-chainguard-iam-model/). Single customers or organizations typically use a single root-level _Organization_ to manage their
+Resources on the Chainguard platform are organized in a hierarchical structure called [IAM organizations](https://edu.chainguard.dev/chainguard/administration/iam-organizations/overview-of-chainguard-iam-model/). Single customers or organizations typically use a single root-level _Organization_ to manage their
 Chainguard resources.
 
 Organizations can optionally be verified. Verification modifies some aspects of the Chainguard platform user experience to help large organizations guide their user base to the correct resources.
 
-## Verifying your Organization
+## Verifying your organization
 
 Verification is currently a manual process. To verify your organization, please contact your customer support contact. You can check if your organization is verified using [`chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/).
 
@@ -46,7 +46,7 @@ Verified organizations will have a field `verified: true` set.
 ]
 ```
 
-## Verified Organizations and Custom Identity providers
+## Verified organizations and custom identity providers
 
 If you've configured a [custom identity provider](/chainguard/administration/custom-idps/custom-idps/) and your organization is verified, you can select your identity provider by providing the name of your organization when authenticating.
 
@@ -79,10 +79,10 @@ Once set, the configured identity provider will be used automatically any time y
 
 When authenticating via the Chainguard Console, your organization name is detected from your email address in most cases. If your organization name does not match your email domain, it can be input manually to select your custom identity provider.
 
-## Verified Organizations and Chainguard Containers
+## Verified organizations and Chainguard Containers
 
 If your organization has access to Chainguard Containers, your container images are available in a private repository within the Chainguard registry. Your Chainguard container images are available to pull from `cgr.dev/<org_id>/<image_name>`, where `<org_id>` is the unique identifier for your organization. Once your organization is verified, you can use the name of your organization instead of your organization identifier. For example, if your organization is named `example.com` and is verified, you can pull private images with a command like `docker pull cgr.dev/example.com/<image_name>`.
 
-## Restrictions for Verified Organizations
+## Restrictions for verified organizations
 
 Once an organization is verified, its name can be used interchangeably with the organization's unique ID. Changes to the name can break image pulls from your organization's repository within the Chainguard registry and break authentication for users that have configured custom identity providers. For that reason, modifying the name of a verified organization is not currently possible. If you need to modify the name of your verified organization, please contact support.

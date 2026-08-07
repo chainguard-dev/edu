@@ -1,5 +1,5 @@
 ---
-title: "Setting Up a Minecraft Server with the JRE Chainguard Container"
+title: "Setting up a Minecraft server with the JRE Chainguard Container"
 type: "article"
 linktitle: "JRE + Minecraft"
 description: "Learn how to set up a secure Minecraft Java server using Chainguard's JRE container image with minimal vulnerabilities and enhanced security features"
@@ -38,7 +38,7 @@ cd ~/minecraft-server
 
 Unless otherwise specified, all commands from this guide should be executed from this folder.
 
-## 1 – Creating a Basic Setup with Docker and Docker Compose
+## 1 – Creating a basic setup with Docker and Docker Compose
 
 We’ll start with a basic setup that we’ll improve in the next steps. Our first task is to set up a basic Dockerfile that is able to run the Minecraft Java server with default options, using `cgr.dev/chainguard/jre:latest-dev` as base image. This Dockerfile will:
 
@@ -173,7 +173,7 @@ Go around and explore, but keep in mind that because this setup is isolated and 
 
 When you’re ready to continue, hit `CTRL+C` to stop the server. In the next step, we’ll improve your setup to facilitate server customization.
 
-## 2 – Configuring the Server
+## 2 – Configuring the server
 
 You now have a server that runs with default options, but we need to be able to customize some settings. Minecraft servers use a [configuration file](https://minecraft.wiki/w/Server.properties) called `server.properties`, located in the root of the server directory (where you unpacked the original `.jar` file). In our setup, this file lives in the `/usr/share/minecraft` folder.
 
@@ -297,7 +297,7 @@ If you join the server now, you should spawn close to a nice village.
 
 ![Minecraft Java client - spawning near a village](spawn-point.png)
 
-## 3 – Setting Up Automatic Updates
+## 3 – Setting up automatic updates
 
 Your server is now fully customizable through environment variables, but we're still missing something important: updates. The Minecraft server download is statically defined in the Dockerfile, so it will go stale pretty quickly. We need a programmatic way to fetch the latest version of the server so that we don’t need to update the Dockerfile each time a new version of the server is out.
 
@@ -418,7 +418,7 @@ docker build --build-arg VERSION=1.21.4 . -t guardcraft-java
 
 You now have a containerized setup that automatically downloads the latest version of the Minecraft Java server (or a version of your choice), fully customizable through environment variables. There’s one last thing to take care of now: persisting world data. We’ll see how to go about that in the next step.
 
-## 4 – Persisting World Data
+## 4 – Persisting world data
 
 So far, we’ve run a Minecraft server with an ephemeral world: anytime you remove the containers and recreate the environment, a new world is created, so you’ll lose any progress you have made, such as builds and achievements.
 
@@ -506,13 +506,13 @@ advancements  data  datapacks  DIM-1  DIM1  entities  level.dat  level.dat_old p
 
 You can now destroy and recreate your environment multiple times, but your world will be kept intact.
 
-## 5 – Securing your Minecraft Server
+## 5 – Securing your Minecraft server
 
 You now have a flexible containerized setup for your Minecraft server, using a low-to-zero CVE image from Chainguard. To keep your server secure, there are a few additional strategies you should consider, even if you're running the server in a local network. Let’s go through each of them.
 
 ### Keep your image up-to-date
 
-It is important to always keep your image always up to date with the most recent version of system dependencies and the Minecraft server software. Outdated images accumulate vulnerabilities over time, becoming a target for exploitation by malicious actors. The [Image Update Considerations](https://edu.chainguard.dev/chainguard/chainguard-images/staying-secure/updating-images/considerations-for-image-updates/) article on Chainguard Academy has more guidance on what you should take into account when deciding on an update strategy.
+It is important to always keep your image always up to date with the most recent version of system dependencies and the Minecraft server software. Outdated images accumulate vulnerabilities over time, becoming a target for exploitation by malicious actors. The [Image update considerations](https://edu.chainguard.dev/chainguard/chainguard-images/staying-secure/updating-images/considerations-for-image-updates/) article on Chainguard Academy has more guidance on what you should take into account when deciding on an update strategy.
 
 If you followed all steps in this guide so far, you should have set up an installation script that automatically downloads the latest version available for the server software. However, this happens at build time, which means you’ll need to rebuild the container in order to update.
 
@@ -553,4 +553,4 @@ The [online-mode](https://minecraft.wiki/w/Server.properties#online-mode) proper
 
 In this tutorial, you learned how to set up a low-to-zero CVE Minecraft server using Chainguard’s Java runtime (JRE) container image. We started with a basic setup that we improved with bash scripts for installing and configuring the Java server. We also discussed some strategies for making your server more secure.
 
-Our [Staying Secure](https://edu.chainguard.dev/chainguard/chainguard-images/staying-secure/) section on Chainguard Academy has more resources on container security and CVEs. For more details about Java and other Chainguard Containers, please refer to the [Containers Directory](https://images.chainguard.dev).
+Our [Staying secure](https://edu.chainguard.dev/chainguard/chainguard-images/staying-secure/) section on Chainguard Academy has more resources on container security and CVEs. For more details about Java and other Chainguard Containers, please refer to the [Containers Directory](https://images.chainguard.dev).

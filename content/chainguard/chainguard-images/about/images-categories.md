@@ -1,6 +1,6 @@
 ---
-title: "Understanding Chainguard's Container Image Categories"
-linktitle: "Container Categories"
+title: "Understanding Chainguard's container image categories"
+linktitle: "Container categories"
 type: "article"
 description: "Reference guide outlining how Chainguard Containers are categorized."
 date: 2025-04-03T11:07:52+02:00
@@ -27,7 +27,7 @@ Within the [Chainguard Containers Directory](https://images.chainguard.dev/), Ch
 
 This conceptual article will outline each of these categories in turn, including their uses as well as examples of images from each category. It will also highlight important considerations one should make when using images from these categories.
 
-## Free Containers
+## Free containers
 
 Chainguard offers a set of container images that are publicly available and don’t require authentication for download and use; they are free to use for everyone. We refer to these as our *Free Containers*, and they cover several use cases for different language ecosystems. Free Containers are limited to the latest build of a given image, and are always tagged as `latest` and `latest-dev`.
 
@@ -47,13 +47,13 @@ Note that you won't have access to the organization's repository used in this ex
 
 For a complete list of Free images that are currently available, check out the [**Free** category on Chainguard Containers Directory](https://images.chainguard.dev/?category=free). Registered users can also access all Free and available Production images in the [Chainguard Console](https://console.chainguard.dev/overview). After logging in you will be able to find all the currently available Free Containers in the **Public images** tab.
 
-### Production Containers
+### Production containers
 
 The rest of Chainguard Containers, those that **are not** Free images and not included in the free tier of images, are referred to as *Production Containers*. Production images are enterprise-ready images that come with patch SLAs and features such as Federal Information Processing Standard (FIPS) readiness and unique time-stamped tags. Unlike Free images, which are typically paired with only the latest version of an upstream package, Production images offer specific major and minor versions of open source software.
 
 As with the Free Container category, any container image considered a Production image will also fall into at least one of the other categories listed in this guide. To view the Production container images that your organization has access to, select the appropriate organization in the drop-down menu above the left-hand navigation and then click the **Organization images** tab.
 
-## Base Containers
+## Base containers
 
 Base Containers are meant to be extended by users with their own packages and applications. Examples include [chainguard-base](https://images.chainguard.dev/directory/image/chainguard-base/overview), [Go](https://images.chainguard.dev/directory/image/go/overview), and [Python](https://images.chainguard.dev/directory/image/python/overview).
 
@@ -63,11 +63,11 @@ When migrating to a Chainguard Base container image you should first check the i
 
 It is a best practice to use the same versions of any languages or applications that will be running on the Chainguard Base container image as what is currently running in your environment. Do not upgrade language or application versions at the same time that you migrate. Following the migration, you should thoroughly test and monitor your application.
 
-If you need a package to use with your Chainguard Base Container, Wolfi packages are available using `apk`. Ensure you only use Wolfi packages, as Alpine APK’s are not compatible with Wolfi. Additionally, it is important to note that vendor-provided packages need to be glibc-based and their functionality should be fully tested along with the application. For additional tips, please refer to our guide on [Troubleshooting apko Builds](/open-source/build-tools/apko/troubleshooting/).
+If you need a package to use with your Chainguard Base Container, Wolfi packages are available using `apk`. Ensure you only use Wolfi packages, as Alpine APK’s are not compatible with Wolfi. Additionally, it is important to note that vendor-provided packages need to be glibc-based and their functionality should be fully tested along with the application. For additional tips, please refer to our guide on [Troubleshooting apko builds](/open-source/build-tools/apko/troubleshooting/).
 
 > **Note**: Base Containers often require more customization by the user. Be aware that Chainguard offers a customization platform called [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) to streamline this requirement without customers having to stand up their own custom pipelines.
 
-## Application Containers
+## Application containers
 
 In contrast with Base container images, which are intended to be built upon, Application Containers are designed to be used directly, often by plugging into systems like Helm. Some examples of Chainguard's Application images include [nginx](https://images.chainguard.dev/directory/image/nginx/overview), [Fulcio](https://images.chainguard.dev/directory/image/fulcio/overview), and [apko](https://images.chainguard.dev/directory/image/apko/overview).
 
@@ -75,7 +75,7 @@ When it comes to maintaining Application container images, Chainguard is respons
 
 When migrating to a Chainguard Application container image you should first check the image’s overview page on the Containers Directory for usage details and any compatibility notes. There may be user ID, permissions, or volume path differences with the Chainguard image that you should be aware of. It is a best practice to use the same version of the Chainguard Application container image as what is currently running in your environment.
 
-## AI Container
+## AI container
 
 Artificial intelligence and machine learning (AI/ML) systems are used in a wide variety of high-stakes applications, including information retrieval, medical research, fraud identification, military operations, autonomous vehicle navigation, and more. If compromised by malicious actors, the consequences could be disastrous and far reaching.
 
@@ -85,7 +85,7 @@ These images are hardened, minimal, and optimized for efficient AI development a
 
 To learn more about Chainguard's AI Containers and their uses, we encourage you to check out our course on [Securing the AI/ML Supply Chain](https://courses.chainguard.dev/securing-ai).
 
-## FIPS Containers
+## FIPS containers
 
 FIPS — or, Federal Information Processing Standards — are publicly announced standards developed by the National Institute of Standards and Technology (NIST). Chainguard offers images that use FIPS-validated cryptographic software modules to help users ensure that their applications meet FIPS standards.
 
@@ -93,7 +93,7 @@ Chainguard offers FIPS versions of many of its container images, so FIPS Contain
 
 For more information, please refer to our conceptual article on [FIPS Chainguard Containers](/platform/fips/fips-images/).
 
-## Container Image Type Considerations
+## Container image type considerations
 
 There is some overlap between the different container image categories outlined in this guide. For example, the [PyTorch](https://images.chainguard.dev/directory/image/pytorch/overview) image is an AI image, but it is also part of our free tier, meaning it's also a Free image.
 
@@ -107,7 +107,7 @@ A common requirement for many customers is to add a company-specific certificate
 
 The process of adding or updating certificates, configuring APK repositories, and implementing other organization-specific customizations into an image is commonly known as creating a "Golden Image". This approach enables these standard modifications to be applied once and then distributed across all teams, thereby reducing the risk of errors and minimizing friction during the migration process.
 
-## Learn More
+## Learn more
 
 By reading this guide, you should have a better understanding of how Chainguard categorizes its container images and what these categories mean. To recap:
 

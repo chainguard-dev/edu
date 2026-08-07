@@ -1,5 +1,5 @@
 ---
-title : "Create an Assumable Identity for a GitHub Actions Workflow"
+title : "Create an assumable identity for a GitHub Actions workflow"
 linktitle: "GitHub Actions"
 aliases:
 - /chainguard/chainguard-enforce/iam-groups/enforce-github-identity/
@@ -30,11 +30,11 @@ This tutorial outlines how to create an identity, and then create a GitHub Actio
 To complete this guide, you will need the following.
 
 * One of:
-    * `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up.
+    * `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up.
     * `terraform` installed on your local machine. Terraform is an Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
 * A GitHub repository you can use for testing out GitHub identity federation. To complete this guide, you must have permissions to create GitHub Actions on this testing repo.
 
-## Creating an Identity
+## Creating an identity
 
 {{< note >}}
 GitHub issues OIDC tokens whose `sub` claim embeds immutable numeric IDs for the repository owner and the repository. For example, the subject `repo:my-org@123456/repo-name@654321:ref:refs/heads/main` replaces the older name-only form `repo:my-org/repo-name:ref:refs/heads/main`. This format is the default for repositories created after July 15, 2026, and is available as an opt-in for older repositories through GitHub's OIDC settings.
@@ -154,7 +154,7 @@ The `my_identity_name_id` output provides the identity's [UIDP (unique identity
 path)](/chainguard/administration/cloudevents/events-reference/#uidp-identifiers).
 You'll need this value to set up the GitHub Actions workflow.
 
-## Creating and Testing a GitHub Actions Workflow
+## Creating and testing a GitHub Actions workflow
 
 This example workflow definition assumes an identity with the [`setup-chainctl`](https://github.com/chainguard-dev/setup-chainctl)
 GitHub Action, lists repositories with `chainctl` and pulls an

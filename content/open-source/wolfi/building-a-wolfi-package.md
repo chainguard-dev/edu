@@ -1,5 +1,5 @@
 ---
-title: "Building a Wolfi Package"
+title: "Building a Wolfi package"
 type: "article"
 description: "A deep-dive into the process of getting a new package into Wolfi OS"
 date: 2023-08-21T08:49:31+00:00
@@ -22,7 +22,7 @@ That being said, it's important to note that Wolfi is rather new; it just recent
 
 > Note: Many of the examples shown in this article are based on the [Wolfi PHP package](https://github.com/wolfi-dev/os/blob/main/php-8.2.yaml), which is a slightly complex build that generates several subpackages from a single melange YAML file. You can keep that link open in a separate tab to use as reference as you go through this guide.
 
-## How Does it Compile?
+## How does it compile?
 
 The first step in building a new Wolfi package is finding official documentation with guidance on how to build the package from source. All Wolfi packages need to be built from source in order to assure provenance and authenticity of package contents.
 
@@ -30,11 +30,11 @@ Because Wolfi uses [apk](https://wiki.alpinelinux.org/wiki/Alpine_Package_Keeper
 
 If you aren't very familiar with building packages from source using tools such as `cmake` and `autoconf`, it's a good idea to compile the package locally first - you don't need to run `make install`  at the end to get the package installed on your own system, but running the `configure` and `make` processes will give you a better understanding of the build requirements and configure options.
 
-## The melange YAML File
+## The melange YAML file
 
 The melange YAML file is where you'll define the details about the package and its build pipeline. If you are familiar with GitHub Actions, you'll find out that melange definitions are very similar to GitHub Actions workflows.
 
-### The `package` Section
+### The `package` section
 
 The melange YAML file starts with a `package` section, used to define metadata information and runtime dependencies. The following excerpt demonstrates how this section is declared in the Wolfi [PHP package](https://github.com/wolfi-dev/os/blob/34aa71ac4898c2b7c529548eafa51b0ea7a4dbd3/php.yaml#L1C3-L1C3) YAML:
 
@@ -58,7 +58,7 @@ package:
 - **License**: the package license. It is important to note that only packages with OSI-approved licenses can be included in Wolfi. You can check the relevant package info in the [licenses page at opensource.org](https://opensource.org/licenses/).
 - **Runtime dependencies**: any dependencies needed by your package at runtime. Not to be confused with build dependencies, these will come up in the environment section of the file.
 
-### The `environment` Section
+### The `environment` section
 
 The next section is the `environment` section. It defines how the build environment should look in order to build your package. Packages listed in this section won't be included in the final package, because they are only needed at build time.
 
@@ -112,7 +112,7 @@ Don't worry if you don't know everything you'll need upfront at build time. Even
 
 One thing that may happen during this process is finding out that one or more dependencies needed by your package are not yet available in Wolfi, so they need to be built first. It is a normal part of the process, so don't worry — you will be able to build incrementally and test everything locally.
 
-### The `pipeline` Section
+### The `pipeline` section
 
 With package metadata and build environment defined, it's time to create the pipeline that will build your package. The `pipeline` section has a structure similar to a GitHub Actions workflow, defining a series of steps that must be executed in the same order they are defined, creating output that will be packaged into one or more apk packages.
 
@@ -183,7 +183,7 @@ As indicated, a pipeline step will have either a `uses` or a `run` directive. Yo
 
 You can find more details about available pipelines in the [melange pipelines documentation](https://github.com/chainguard-dev/melange/blob/main/docs/PIPELINES.md).
 
-### The `subpackages` Section
+### The `subpackages` section
 
 As mentioned previously, a package may extract parts of its contents into subpackages in order to make for a slimmer final apk. Many packages have resources that are not required at execution time, including development headers, man pages, shared libraries that are optional. This part is really important in Wolfi, because we want packages to be minimal. The `subpackages` section of the melange YAML file looks a lot like the pipeline section, and it essentially works the same way. You'll just have to make sure you place any subpackage files in the `targets.subpkgdir` location.
 
@@ -198,7 +198,7 @@ For example, this is how a step in the subpackages section would be written, usi
       - uses: split/dev
 ```
 
-### Looping with Ranges
+### Looping with ranges
 
 In some cases, you may find yourself repeating the same task over and over with just a couple different values (such as package names). In such scenarios, you can define a range of data that you can "loop" through in a step. For example, let's have a look at how the PHP package uses this feature to create its subpackages.
 
@@ -242,7 +242,7 @@ In the subpackages section, we define a pipeline for that range:
 
 And this will loop through all values of the `extensions` range and execute the described pipeline.
 
-### The `update` Section
+### The `update` section
 
 This final section of the YAML file is only required when submitting the package to the Wolfi OS repository. The `update` section is used by Wolfi CI/CD systems to detect new package releases.
 
@@ -272,13 +272,13 @@ update:
 
 Again, this section is only required when submitting the package to Wolfi. For more details about Wolfi's automated package updates, check [the official docs](https://github.com/wolfi-dev/os/blob/main/docs/UPDATES.md) on the subject.
 
-## Building Packages
+## Building packages
 
 When you feel your YAML is good for a first run, it's time to build the package with melange. In this guide we'll use Docker to execute melange in a local environment, using [Wolfi's SDK](https://github.com/wolfi-dev/tools/pkgs/container/sdk) image. This image contains everything you need to build Wolfi packages with melange and Wolfi-based images with apko.
 
-The procedure to build apk packages with melange is explained in more detail in our [Getting Started with melange](/open-source/build-tools/melange/getting-started-with-melange/) tutorial.
+The procedure to build apk packages with melange is explained in more detail in our [Getting started with melange](/open-source/build-tools/melange/getting-started-with-melange/) tutorial.
 
-### Setting Up a Local Development Environment
+### Setting up a local development environment
 
 Start by cloning the [Wolfi-os](https://github.com/wolfi-dev/os) repository to your local machine. If you plan on sending a pull request to Wolfi later, you may want to create a fork now and clone your fork instead.
 
@@ -310,7 +310,7 @@ Welcome to the development environment!
 
 You are now ready to build your Wolfi package.
 
-### Building a Package
+### Building a package
 
 To build a package, run the following command from your Wolfi SDK environment:
 
@@ -411,11 +411,11 @@ Check the packages folder, you should find a directory for each built architectu
 
 In the next section, we'll demonstrate how you can use the Wolfi SDK for running these checks.
 
-## Testing your Packages
+## Testing your packages
 
 With a successful build, it's time to test the packages to make sure they are installable and functional, and also to verify they are free of CVEs.
 
-### Local Installation
+### Local installation
 
 The first test you'll want to run with your package is to check if you can use `apk` to install it without errors. For that, we'll use the `local-wolfi` environment, which brings up a new container environment using the Wolfi-base image, with additional settings to make your new package available in the test environment alongside the melange keys that were created to sign your package at build time. We'll call this your **Wolfi Test Environment**.
 
@@ -453,7 +453,7 @@ From your **Wolfi development environment**, run the following command, providin
 
 For more information about patching CVEs in Wolfi, check [the official docs on this subject](https://github.com/wolfi-dev/os/blob/main/HOW_TO_PATCH_CVES.md).
 
-## Submitting the Package to Wolfi OS
+## Submitting the package to Wolfi OS
 
 Once you are satisfied with your set of packages and subpackages, you may consider submitting your package to [Wolfi OS](https://github.com/wolfi-dev/os).
 
@@ -469,7 +469,7 @@ From this point, the process is essentially the following:
 
 The [Wolfi Contributing Guide](https://github.com/wolfi-dev/os/blob/main/CONTRIBUTING.md) on GitHub has more details about this process.
 
-## Resources to Learn More
+## Resources to learn more
 
 If you haven't yet, check the [Wolfi PHP package source file](https://github.com/wolfi-dev/os/blob/main/php-8.2.yaml) for a more comprehensive view of the melange YAML structure and how that looks in a more complex build.
 

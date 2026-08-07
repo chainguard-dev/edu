@@ -1,5 +1,5 @@
 ---
-title : "Chainguard Products"
+title : "Chainguard products"
 linktitle: "Products"
 lead: ""
 description: "Chainguard product documentation: enterprise container security platform with zero CVE images, SBOMs, SLSA compliance, and comprehensive supply chain protection"

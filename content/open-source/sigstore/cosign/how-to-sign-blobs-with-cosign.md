@@ -1,6 +1,6 @@
 ---
-title: "How to Sign Blobs and Standard Files with Cosign"
-linktitle: "Sign Blobs and Files"
+title: "How to sign blobs and standard files with Cosign"
+linktitle: "Sign blobs and files"
 type: "article"
 description: "Use Cosign to sign non-container software artifacts"
 lead: "Cosign can sign software artifacts beyond containers"

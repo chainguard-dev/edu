@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with the MariaDB Chainguard Container"
+title: "Getting started with the MariaDB Chainguard Container"
 type: "article"
 linktitle: "MariaDB"
 aliases:
@@ -187,6 +187,6 @@ To close the MariaDB prompt, you can enter the following command.
 
 Of course, you likely won't be regularly managing your containerized databases over the command line. The purpose of this section is to only show that you can interact with the database running in this container just like you would with any other MariaDB database.
 
-## Advanced Usage
+## Advanced usage
 
 {{< blurb/images-advanced image="MariaDB" >}}

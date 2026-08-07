@@ -1,5 +1,5 @@
 ---
-title: "Minimum Attestation References"
+title: "Minimum attestation references"
 type: "wide"
 date: 2023-05-10T15:21:01+02:00
 lastmod: 2023-05-10T15:21:01+02:00

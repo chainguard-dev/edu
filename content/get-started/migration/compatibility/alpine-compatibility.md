@@ -1,5 +1,5 @@
 ---
-title: "Alpine Compatibility"
+title: "Alpine compatibility"
 linktitle: "Alpine"
 aliases:
 - /chainguard/migration/alpine-compatibility/

@@ -1,9 +1,9 @@
 ---
-title: "apko Overview"
+title: "apko overview"
 aliases:
 - /open-source/apko/overview
 type: "article"
-description: "apko Overview"
+description: "apko overview"
 date: 2022-10-10T11:07:52+02:00
 lastmod: 2024-05-02T11:07:52+02:00
 draft: false

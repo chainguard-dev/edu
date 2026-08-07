@@ -1,5 +1,5 @@
 ---
-title: "CMMC Maturity Levels"
+title: "CMMC maturity levels"
 description: "Learn about the differences between CMMC 2.0's maturity levels"
 lead: "Learn about the differences between CMMC 2.0's maturity levels"
 type: "article"
@@ -26,13 +26,13 @@ The  **Cybersecurity Maturity Model Certification (CMMC) 2.0** integrates variou
 
 Contractors and subcontractors who handle only [Federal Contract Information](https://isoo.blogs.archives.gov/2020/06/19/%E2%80%8Bfci-and-cui-what-is-the-difference/) (FCI) typically need this level of certification. This is particularly relevant for small businesses that provide basic products or services without dealing with sensitive information. For example, a company supplying standard office supplies to a government agency would fall under this category. The focus at this level is on maintaining basic safeguards by implementing 17 fundamental cybersecurity practices. These practices are primarily derived from the Federal Acquisition Regulation (FAR) 52.204-21, a set of rules for government procurement in the United States. They are designed to protect FCI by ensuring that essential, straightforward protections are in place.
 
-### Documentation Requirements
+### Documentation requirements
 
 At Level 1, the documentation requirements are minimal, focusing on basic cyber hygiene through the implementation of 17 foundational cybersecurity practices. The purpose is to establish essential protections without the need for extensive documentation.
 
 For example, organizations may maintain basic policies and procedures for access control, media protection, and physical security, along with records of security awareness training. The emphasis at this level is on demonstrating that these fundamental practices are in place, rather than producing detailed documentation, as required in higher levels.
 
-### Example Level 1 Practices
+### Example level 1 practices
 
 - Limiting information system access to authorized users.
 - Conducting background checks on employees.
@@ -44,13 +44,13 @@ Contractors and subcontractors who handle [Controlled Unclassified Information](
 
 Level two consists of implementing a subset of the security requirements specified in NIST SP 800-171, totaling 110 practices. This level is designed as a transitional step for organizations aiming to achieve Level 3, building upon the foundational practices established in Level 1.
 
-### Documentation Requirements
+### Documentation requirements
 
 At Level 2, the documentation requirements are moderate, reflecting the need for intermediate cyber hygiene and addressing a subset of the NIST SP 800-171 requirements. Organizations must maintain a System Security Plan (SSP) that outlines security strategies and vulnerability assessment and remediation plans. They must also create a Plan of Action and Milestones (POA&M) addressing any aspects of the organization which are not yet implemented.
 
 Other Level 2 documentation requirements may include audit logs, incident response reports, inventory of the organization’s systems, location of [Controlled Unclassified Information](https://www.ftc.gov/policy-notices/controlled-unclassified-information) (CUI) in the organization’s environment, and other documents related to the implementation and management of cybersecurity practices.
 
-### Example Level 2 Practices
+### Example level 2 practices
 
 - Implementing multifactor authentication.
 - Conducting regular vulnerability assessments.
@@ -63,23 +63,23 @@ Contractors handling highly sensitive CUI and involved in critical defense progr
 
 This level demands advanced security measures to protect CUI against advanced persistent threats (APTs), such as cyber-espionage campaigns, zero-day exploits, and coordinated attacks targeting vulnerabilities in critical infrastructure. It requires three government-led assessments a year to maintain compliance.
 
-### Documentation Requirements
+### Documentation requirements
 
 Level 3 requires the same documentation requirements as Level 2, including the [System Security Plan](https://csrc.nist.gov/glossary/term/system_security_plan) (SSP) and [Plan of Action and Milestones](https://csrc.nist.gov/glossary/term/poaandm) (POA&M). Further documentation requirements will be clear once the DoD determines which additional practices from NIST SP 800-172 will also be required.
 
-### Example Level 3 Practices
+### Example level 3 practices
 
 At the time of publication, specific Level 3 practices are still being determined. However, the Department of Defense has indicated that they will be pulled from a subset of NIST SP 800-172, Enhanced Security Requirements for Protecting Controlled Unclassified Information.
 
 Each CMMC level builds upon the previous one, ensuring that as organizations progress through the levels, their cybersecurity posture becomes more robust and capable of addressing increasingly sophisticated threats. This tiered approach allows organizations of varying sizes and capabilities to incrementally improve their cybersecurity measures while meeting the specific requirements necessary to handle sensitive information.
 
-To learn more about the specific required practices of CMMC 2.0, continue to the [Overview of CMMC 2.0 Practice/Control Groups](/compliance/cmmc-2/cmmc-practices/).
+To learn more about the specific required practices of CMMC 2.0, continue to the [Overview of CMMC 2.0 practice/control groups](/compliance/cmmc-2/cmmc-practices/).
 
-## Browse all CMMC 2.0 Articles
+## Browse all CMMC 2.0 articles
 
 - [Introduction to CMMC 2.0](/compliance/cmmc-2/intro-cmmc-2/)
 - (Current article) CMMC 2.0 Maturity Levels
-- [Overview of CMMC 2.0 Practice/Control Groups](/compliance/cmmc-2/cmmc-practices/)
-- [How Chainguard Can Help With CMMC 2.0](/compliance/cmmc-2/cmmc-chainguard/)
+- [Overview of CMMC 2.0 practice/control groups](/compliance/cmmc-2/cmmc-practices/)
+- [How Chainguard can help with CMMC 2.0](/compliance/cmmc-2/cmmc-chainguard/)
 
-**[Get started with Chainguard FIPS Images today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**
+**[Get started with Chainguard FIPS images today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**

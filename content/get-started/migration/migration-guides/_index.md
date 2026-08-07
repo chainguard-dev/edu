@@ -1,6 +1,6 @@
 ---
-title: "Migration Guides"
-linktitle: "Migration Guides"
+title: "Migration guides"
+linktitle: "Migration guides"
 aliases:
 - /chainguard/migration-guides
 - /chainguard/migration/migration-guides/

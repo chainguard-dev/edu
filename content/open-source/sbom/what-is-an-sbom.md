@@ -1,8 +1,8 @@
 ---
 title: "What is an SBOM (software bill of materials)?"
 linktitle: "What is an SBOM?"
-description: "Learn what Software Bill of Materials (SBOM) are, why they're essential for supply chain security, and how tools like Chainguard use SBOMs to enhance transparency"
-lead: "Software Bill of Materials (SBOMs) provide comprehensive visibility into software components, enabling organizations to identify vulnerabilities and manage supply chain security - a core feature of Chainguard's security approach."
+description: "Learn what software bill of materials (SBOM) are, why they're essential for supply chain security, and how tools like Chainguard use SBOMs to enhance transparency"
+lead: "Software bill of materials (SBOMs) provide comprehensive visibility into software components, enabling organizations to identify vulnerabilities and manage supply chain security - a core feature of Chainguard's security approach."
 type: "article"
 date: 2022-08-04T15:21:01+02:00
 lastmod: 2026-07-27T15:39:06+00:00
@@ -71,6 +71,6 @@ In this guide, you have learned about the purpose of SBOMs and why proponents se
 
 SBOM practices and tooling are actively evolving. To learn more about SBOMs, check out related research by Chainguard Labs, such as:
 
-* [What Makes a Good SBOM?](/open-source/sbom/what-makes-a-good-sbom/)
+* [What makes a good SBOM?](/open-source/sbom/what-makes-a-good-sbom/)
 * [Are SBOMs Any Good? Preliminary Measurement of the Quality of Open Source Project SBOMs](https://www.chainguard.dev/unchained/are-sboms-any-good-preliminary-measurement-of-the-quality-of-open-source-project-sboms)
 * [Are SBOMs Good Enough for Government Work?](https://www.chainguard.dev/unchained/are-sboms-good-enough-for-government-work)

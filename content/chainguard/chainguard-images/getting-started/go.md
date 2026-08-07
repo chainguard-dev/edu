@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with the Go Chainguard Container"
+title: "Getting started with the Go Chainguard Container"
 type: "article"
 linktitle: "Go"
 aliases:
@@ -43,7 +43,7 @@ The examples in this guide recommend executing Go binaries from one of our runti
 
 This tutorial requires Docker to be installed on your local machine. If you don't have Docker installed, you can download and install it from the [official Docker website](https://docs.docker.com/get-docker/). The third and optional example requires the installation of [ko](https://ko.build/), which you can install by following the instructions on the official site.
 
-### Cloning the Demos Repository
+### Cloning the demos repository
 
 Start by cloning the demos repository to your local machine:
 
@@ -59,7 +59,7 @@ cd edu-images-demos/go
 
 Here you will find three folders, each with a different demo that we'll cover in this guide.
 
-## Example 1: CLI Application in Multi-Stage Build
+## Example 1: CLI application in multi-stage build
 
 The following example demonstrates a command line application with support for flags and positional arguments. The application prints a modifiable greeting message and provides usage information if the wrong number of arguments are passed by a user or the user passes an unrecognized flag.
 
@@ -134,7 +134,7 @@ docker inspect go-greeter | jq -c 'first' | jq .Size | numfmt --to iec --format 
 
 The final size, `3.309M`, is orders of magnitude smaller than it would be running the application using a Go image. However, if your application is dynamically linked to shared objects, consider using the `glibc-dynamic` Chainguard Container for your runtime or take extra steps to build your Go binary statically. In the next example, we'll build a web application and use the `glibc-dynamic` Chainguard Container as runtime.
 
-## Example 2: Web Application
+## Example 2: Web application
 
 The second example demonstrates an application that's accessible by HTTP server. The application renders a simple message that changes based on the URI.
 
@@ -185,7 +185,7 @@ Hello, Chainguard Customer!
 
 The application will also share version information at [http://0.0.0.0:8080/version](http://0.0.0.0:8080/version).
 
-## Example 3: Minimal Go Chainguard Container Built with ko
+## Example 3: Minimal Go Chainguard Container built with ko
 
 In this example, we'll build a distroless Go Chainguard Container with [ko](https://ko.build/). ko offers fast container image builds for Go applications without requiring a Dockerfile. Additionally, ko produces [SBOMs](/open-source/sbom/what-is-an-sbom/) by default, supporting a holistic approach to software security.
 
@@ -262,6 +262,6 @@ docker run --rm ko.local/go-digester-edc0ed689c7fb820a565f76425bed013:0914a85d80
 The latest digest of the mariadb Chainguard Container is sha256:6ba5d792d463b69f93e8d99541384d11b0f9b274e93efdeb91497f8f0aae03d1
 ```
 
-## Advanced Usage
+## Advanced usage
 
 {{< blurb/images-advanced image="Go" >}}

@@ -1,6 +1,6 @@
 ---
-title: "Chainguard End-of-Life Grace Period for Containers"
-linktitle: "EOL Grace Period"
+title: "Chainguard end-of-life grace period for containers"
+linktitle: "EOL grace period"
 type: "article"
 description: "Understanding Chainguard's end-of-life (EOL) grace period."
 date: 2025-05-14T08:49:31+00:00
@@ -21,7 +21,7 @@ It's recommended that when a software version reaches the EOL phase, users shoul
 
 To help in situations like this, Chainguard offers an end-of-life grace period for eligible Containers to all Chainguard Containers customers. This article provides an overview of Chainguard's EOL grace period, and also includes a brief introduction to using Chainguard's API to retrieve information about an image's EOL grace period status.
 
-## Understanding Chainguard's EOL Grace Period
+## Understanding Chainguard's EOL grace period
 
 Chainguard's EOL grace period gives customers access to new builds of container images whose primary package has entered its end-of-life phase for up to six months after they have reached EOL. During this time, Chainguard will address vulnerabilities and update any non-EOL packages within the container image (other than the image's primary package). Chainguard will continue to rebuild the image a maximum of six months after the primary package enters its EOL phase or until the build fails.
 
@@ -38,7 +38,7 @@ You will be able to find the end date of a given container image version's grace
 As of this writing, a container image must meet four key requirements to be eligible for coverage under the EOL grace period:
 
 1. It is listed as part of the current available or EOL versions for a version stream package present in our catalog
-2. Has [multiple release tracks](/chainguard/chainguard-images/about/versions/#multiple-releases-maintained-by-a-given-open-source-project)
+2. Has [multiple release tracks](/chainguard/chainguard-images/about/versions/#how-versions-are-maintained)
 3. Is within six months of their official EOL date (as declared by upstream project maintainers)
 4. Its release and EOL dates are available on the [`endoflife.date`](https://endoflife.date/) website
 
@@ -82,7 +82,7 @@ To maximize the value of a grace period, we recommend the following:
     * Document any configuration changes needed
     * Prepare rollback procedures if needed
 
-## Using the EOL Grace Period API
+## Using the EOL grace period API
 
 Although the Chainguard Console is a useful interface, many customers would prefer to integrate EOL data with their preferred tools for faster, more convenient monitoring. For this reason, Chainguard has developed an API to serve customers with EOL data sufficient for monitoring the lifecycle of their images.
 
@@ -169,8 +169,8 @@ This example output is derived from an API call made on a `node` image repositor
 
 Of course, you won't use `curl` to interact with the Chainguard API in most scenarios. Instead, you'll likely have some kind of application that can ingest and process this EOL data. For example, your organization could create a Slackbot that fetches data from the Chainguard EOL grace period API and posts messages about EOL tags approaching their grace period expiration to a specified Slack channel. Chainguard's [API documentation](/chainguard/api/spec/) includes request samples for many languages and platforms, including Go, Python, and Java.
 
-## Learn More
+## Learn more
 
 Chainguard's EOL grace period gives customers the opportunity to continue to receive best-effort CVE remediated updates on EOL images, while they work on transitioning to a newer upstream version.
 
-For more information on the EOL grace period, [please contact us](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). Additionally, our doc outlining the [Chainguard Containers Product Release Lifecycle](/chainguard/chainguard-images/about/versions/) can be helpful for understanding Chainguard’s approach to updates, releases, and versions within Chainguard Containers. Finally, our conceptual article on [How End-of-Life Software Accumulates Vulnerabilities](/chainguard/chainguard-images/staying-secure/updating-images/how-eol-software-accumulates-cves/) is helpful for understanding the risk involved with using end-of-life software by outlining how EOL images accrue vulnerabilities and where they accumulate.
+For more information on the EOL grace period, [please contact us](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). Additionally, our doc outlining the [Chainguard Containers product release lifecycle](/chainguard/chainguard-images/about/versions/) can be helpful for understanding Chainguard’s approach to updates, releases, and versions within Chainguard Containers. Finally, our conceptual article on [How end-of-life software accumulates vulnerabilities](/chainguard/chainguard-images/staying-secure/updating-images/how-eol-software-accumulates-cves/) is helpful for understanding the risk involved with using end-of-life software by outlining how EOL images accrue vulnerabilities and where they accumulate.

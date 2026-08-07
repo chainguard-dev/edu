@@ -84,7 +84,7 @@ with username and password from a pull token as detailed in
 
 If using Chainguard's [CVE remediation](/chainguard/libraries/cve-remediation/) for Java libraries (available in beta), set it as the top repository. The recommended ordering for repositories is:
 
-1. `https://libraries.cgr.dev/java-remediated/` for remediated Spring Boot libraries; this is available in beta as part of the [CVE Remediation](/chainguard/libraries/cve-remediation/) feature.
+1. `https://libraries.cgr.dev/java-remediated/` for remediated Spring Boot libraries; this is available in beta as part of the [CVE remediation](/chainguard/libraries/cve-remediation/) feature.
 1. `https://libraries.cgr.dev/java/`
 1. `https://repo1.maven.org/maven2/` or your Maven Central proxy
 

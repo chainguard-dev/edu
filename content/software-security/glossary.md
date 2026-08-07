@@ -1,5 +1,5 @@
 ---
-title: "Chainguard Glossary"
+title: "Chainguard glossary"
 lead: "Software supply chain security vocabulary"
 description: "Software supply chain security vocabulary"
 type: "article"
@@ -171,7 +171,7 @@ Tekton provides a cloud-native solution for building CI/CD systems with a focus 
 
 ## Attacks and vulnerabilities
 
-### Codecov Hack
+### Codecov hack
 
 An example of a software supply chain attack that took place in early 2021. The code coverage tool Codecov experienced a sophisticated attack in which their Bash uploader script was modified by a malicious actor. The affected script allowed the attacker to extract customer credentials passing through Codecov’s continuous integration (CI) platform, exposing services accessible with these credentials to further exploitation.
 
@@ -183,7 +183,7 @@ An internet vulnerability involving a nearly ubiquitous piece of software, Log4j
 
 ---
 
-### SolarWinds Hack
+### SolarWinds hack
 
 The commonly used term to refer to the software supply chain breach that involved the SolarWinds Orion system, which occurred in 2020. Hackers gained access to networks, systems, and data of thousands of SolarWinds customers, and compromised the systems of over 30,000 organizations who relied on Orion software. This was one of the largest software supply chain attacks of its kind recorded to date.
 

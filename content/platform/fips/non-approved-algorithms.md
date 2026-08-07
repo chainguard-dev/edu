@@ -1,8 +1,8 @@
 ---
 aliases:
 - /chainguard/fips/non-approved-algorithms/
-title: "FIPS and Non-Approved Algorithms"
-linktitle: "FIPS and Non-Approved Algorithms"
+title: "FIPS and non-approved algorithms"
+linktitle: "FIPS and non-approved algorithms"
 type: "article"
 description: "Technical deep-dive into Chainguard FIPS images access to non-approved algorithms such as MD5 and SHA1"
 date: 2025-10-28T08:00:00+00:00
@@ -28,7 +28,7 @@ The FIPS 140-3 I.G. 2.4.A "Definition and Use of a non-Approved Security Functio
 
 Skipping to additional comments, let's focus on these statements (current edition, refer to the current [FIPS 140-3 I.G.](https://csrc.nist.gov/projects/cryptographic-module-validation-program/fips-140-3-ig-announcements) for any changes).
 
-### FIPS 140-3 I.G. 2.4.A Additional comment
+### FIPS 140-3 I.G. 2.4.A additional comment
 
 The vendor must provide clear documentation and reasoning as to why the non-approved cryptographic algorithms can be used in an approved mode, that is, not being used to meet the requirements of FIPS 140-3 sections 6 and 7. It is at the discretion of the CMVP to determine if such usage of an algorithm fits within the guidance laid out in this implementation guidance (IG).
 
@@ -42,9 +42,9 @@ In addition, attempts to make use of this IG to include algorithms in the approv
    1) a cryptographic or mathematical operation applied for “good measure” but not for providing sound security (that is XORing a CSP with a secret value, using a proprietary algorithm, or using non-approved algorithms to obfuscate stored CSPs which are considered plaintext);
 1) the algorithm’s non-approved use and purpose (from 3, above) is unambiguous to the operator and can’t be easily confused for a security function.
 
-### Chainguard FIPS Commitment
+### Chainguard FIPS commitment
 
-As documented in the [Chainguard FIPS Commitment](https://www.chainguard.dev/legal/fips-commitment), our FIPS images enable only approved services and algorithms by default. This simplifies reasoning, audit and testing about what is or isn't a security function, since we are using only approved services. For example, Chainguard [gradle-fips](https://images.chainguard.dev/directory/image/gradle-fips/versions) has been modified to use an approved keystore to store build settings. While not a security function, this ensured that no unapproved keystore could leak into the build process and testing.
+As documented in the [Chainguard FIPS commitment](https://www.chainguard.dev/legal/fips-commitment), our FIPS images enable only approved services and algorithms by default. This simplifies reasoning, audit and testing about what is or isn't a security function, since we are using only approved services. For example, Chainguard [gradle-fips](https://images.chainguard.dev/directory/image/gradle-fips/versions) has been modified to use an approved keystore to store build settings. While not a security function, this ensured that no unapproved keystore could leak into the build process and testing.
 
 All cases of usage that might be related to a security function are also made to only use approved services. This includes but is not limited to:
 
@@ -147,7 +147,7 @@ If there are Python projects that need MD5 access in FIPS mode and currently do 
 
 If you are compiling pycryptography or installing it from PyPI, it may come with a vendored and statically linked copy of a cryptographic library and will not operate in FIPS mode. In such cases, all usage of it may be non-approved.
 
-If you install pycryptography through [custom assembly](https://edu.chainguard.dev/chainguard/chainguard-images/features/ca-docs/custom-assembly/), it will be linked with Chainguard OpenSSL and will correctly enforce FIPS compliance and operating in approved mode.
+If you install pycryptography through [Custom Assembly](https://edu.chainguard.dev/chainguard/chainguard-images/features/ca-docs/custom-assembly/), it will be linked with Chainguard OpenSSL and will correctly enforce FIPS compliance and operating in approved mode.
 
 ### .NET FIPS and MD5
 

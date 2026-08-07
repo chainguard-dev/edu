@@ -297,4 +297,4 @@ subject to additional security controls before being served, including source co
 
 For Java, Chainguard's scanning inspects compiled `.class` files, package metadata, and extracted `.jar`, `.war`, and `.ear` archive contents for suspicious patterns and malicious signals.
 
-Learn more in the [Chainguard Libraries Overview](/chainguard/libraries/overview/).
+Learn more in the [Chainguard Libraries overview](/chainguard/libraries/overview/).

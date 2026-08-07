@@ -1,6 +1,6 @@
 ---
-title: "Chainguard Containers Product Release Lifecycle"
-linktitle: "Product Release Lifecycle"
+title: "Chainguard Containers product release lifecycle"
+linktitle: "Product release lifecycle"
 aliases:
 - /chainguard/chainguard-images/versions/
 - /chainguard/chainguard-images/features/eol-notifications/
@@ -133,7 +133,7 @@ support](https://support.chainguard.dev?utm=docs).
 ## Versions available by tier
 
 If you use [Chainguard Free
-Containers](/chainguard/chainguard-images/about/images-categories/#starter-containers),
+Containers](/chainguard/chainguard-images/about/images-categories/#free-containers),
 you will have access to the `:latest` version of any Container available to the
 public. In some cases, you will also have access to the `:latest-dev` version,
 which includes a shell and package manager. For example, the Python container
@@ -236,7 +236,7 @@ patch SLAs apply only to the latest version and corresponding version tags of
 the upstream projects. Containers that use open source applications that have
 reached their end of life are no longer patched.
 
-## End of Life and End of Support software
+## End of life and end of support software
 
 When an open source application version is no longer maintained by the upstream
 project or has otherwise met its end of life (EOL), Chainguard will generally no
@@ -274,7 +274,7 @@ information.
 There are a number of ways that you can inspect and understand the version
 lifecycle of your Chainguard Containers.
 
-### List Active Tags
+### List active tags
 
 #### Active tags in the Chainguard Console
 
@@ -354,7 +354,7 @@ chainctl image repo list --repo=python -o json | jq -r '.items[].activeTags'
 ]
 ```
 
-### List Package Version Information
+### List package version information
 
 You can list the version information for packages that have multiple release
 tracks with `chainctl package versions list`, which uses the [List Repos
@@ -385,7 +385,7 @@ Refer to the [`chainctl`
 documentation](/chainguard/chainctl/chainctl-docs/chainctl_packages_versions_list/)
 for the full list of options that can be passed to the command.
 
-### EOL Grace Period API
+### EOL grace period API
 
 The [EOL Grace Period
 API](/chainguard/chainguard-images/features/eol-gp-overview/#using-the-eol-grace-period-api)

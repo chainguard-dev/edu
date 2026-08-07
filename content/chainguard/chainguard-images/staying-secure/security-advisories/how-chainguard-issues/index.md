@@ -1,10 +1,10 @@
 ---
-title: "How Chainguard Issues Security Advisories"
-linktitle: "Advisory Life Cycle"
+title: "How Chainguard issues Security Advisories"
+linktitle: "Advisory life cycle"
 aliases:
 - /chainguard/chainguard-images/working-with-images/security-advisories/how-chainguard-issues/
 type: "article"
-description: "The life cycle of Chainguard-Issued Security Advisories"
+description: "The life cycle of Chainguard-issued Security Advisories"
 date: 2024-07-26T18:09:12+00:00
 lastmod: 2026-07-27T16:03:25+00:00
 draft: false
@@ -21,7 +21,7 @@ When you scan a newly-built Chainguard Container with a vulnerability scanner, t
 
 > **Note:** Advisory timestamps represent when updates are made to the advisory page, not when they were first detected and triaged by Chainguard.
 
-In alignment with the [Chainguard Container Product Release Lifecycle](/chainguard/chainguard-images/about/versions/#what-chainguard-supports-and-maintains-for-chainguard-containers), our vulnerability management strategy focuses on the latest versions of any given release track, as these are the versions we actively maintain and secure. Accordingly, we only publish new CVE advisories for packages that fall within our defined support scope.
+In alignment with the [Chainguard Containers product release lifecycle](/chainguard/chainguard-images/about/versions/#examples-of-what-chainguard-supports-and-maintains-for-chainguard-containers), our vulnerability management strategy focuses on the latest versions of any given release track, as these are the versions we actively maintain and secure. Accordingly, we only publish new CVE advisories for packages that fall within our defined support scope.
 
 We do not actively monitor non-supported versions of a package or image. Our efforts are centered on keeping the latest versions up-to-date and as close to zero CVEs as we can, while encouraging customers to upgrade and stay on supported versions.
 
@@ -29,7 +29,7 @@ On this page, learn about [how to access Security Advisories](#accessing-securit
 
 ## Accessing Security Advisories
 
-### In the Chainguard images Directory
+### In the Chainguard images directory
 
 Chainguard publishes its security advisories to a dedicated [Security Advisories page](https://images.chainguard.dev/security/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-security-advisories-how-chainguard-issues) on the container images Directory. There, you can find a complete listing of CVEs found in various Chainguard Containers, including their CVE ID, affected packages, and vulnerability status. Each advisory is built from the metadata associated with a security vulnerability.
 
@@ -44,15 +44,15 @@ For automated vulnerability monitoring and integration with CI/CD pipelines, Cha
 
 These machine-readable feeds can be consumed programmatically by vulnerability scanners, security tools, and custom automation scripts. You can find more information regarding these security feeds at our [foundational concepts overview page](https://github.com/chainguard-dev/vulnerability-scanner-support/blob/main/docs/foundational_concepts.md) in our [vulnerability scanner support](https://github.com/chainguard-dev/vulnerability-scanner-support/tree/main) GitHub repository.
 
-## Stages of a Security Advisory
+## Stages of a security advisory
 
 If you’re wondering how these security advisories are made, you’re in the right place! In this section, we will walk through the life of a security advisory -- starting from a CVE’s disclosure, all the way to its remediation. We’ll also explore what happens after an advisory is released and how its record may be updated over time.
 
-### Stage 1: A CVE is Disclosed
+### Stage 1: A CVE is disclosed
 
 All security advisories begin with the disclosure of a security vulnerability. The [CVE Project](https://www.cve.org/) coordinates the processing of reported vulnerabilities through a network of CVE Numbering Authorities (CNAs). CNAs assign CVE IDs to new entries, and they are then added to a CVE Catalog. Each catalog entry contains information such as what packages or components are affected by the vulnerability, their versions, and remediation procedures, if applicable.
 
-### Stage 2: Scanners Detect the CVE
+### Stage 2: Scanners detect the CVE
 
 The [National Vulnerability Database (NVD)](https://nvd.nist.gov/), the U.S. government vulnerability repository, will pick up these CVE records and review them further. During this secondary review process, the CVE entry is enriched with details that scanners later use to identify affected software. This process can take some time, so there will be issued CVEs that have not yet been analyzed by the NVD. These CVEs pending review will be marked as such by the NVD, as shown in the following image.
 
@@ -60,13 +60,13 @@ The [National Vulnerability Database (NVD)](https://nvd.nist.gov/), the U.S. gov
 
 In addition to the NVD, vulnerability scanners also reference other databases such as the [GitHub Advisory Database](https://github.com/advisories) (GHSA) and the [Go Vulnerability Database](https://vuln.go.dev/).
 
-### Stage 3: Advisory is Issued
+### Stage 3: Advisory is issued
 
 Once a CVE has been reviewed by the NVD, it will be picked up by vulnerability scanners and reported in any affected container images. Chainguard uses [Grype](https://github.com/anchore/grype), an open-source vulnerability scanner from Anchore, as its primary tool for vulnerability detection.
 
 The newly detected CVE is then moved into the next phase where it waits for a team member to assess it. A security advisory will be issued with the status of "Under Investigation" to alert downstream users that Chainguard is aware of its presence. Security advisories are issued per package, as one CVE may impact different packages in different ways. From there, this security advisory will be updated over time.
 
-### Stage 4: Advisory is Updated
+### Stage 4: Advisory is updated
 
 With an advisory issued for the package, further investigation is often needed to determine the impact of the CVE. In some cases, it will be determined that the CVE is not truly present in the package, therefore making it a [false positive](/chainguard/chainguard-images/staying-secure/working-with-scanners/false-results/). The associated security advisory would have its status updated to "Not Affected", and further updates to the advisory would not occur.
 
@@ -80,7 +80,7 @@ Sometimes, a vulnerability may be present in a piece of software, but remediatio
 
 Rarely, a vulnerability is found in a package but there is no current status update on whether it can be remediated, or if plans exist to remediate it. In these few situations, the package is simply marked as being "Affected" by the vulnerability. This status is likely to be updated soon as the next steps towards remediation are established.
 
-### Summary of Advisory Statuses
+### Summary of advisory statuses
 
 <table>
 <thead>
@@ -120,11 +120,11 @@ Rarely, a vulnerability is found in a package but there is no current status upd
 </tr>
 </table>
 
-## Further Reading
+## Further reading
 
 Chainguard’s Security Advisory feed is a helpful tool to have at hand when scanning your containers for the presence of vulnerabilities. Though you won’t need it often thanks to the low CVE counts of our container images, it is a useful reference when working with your scans, giving you insight into how you can approach and fix any vulnerabilities which pop up.
 
-For more information on how to use Chainguard’s Security Advisories page to inform your vulnerability remediation, consider reading our article on [How to Use Chainguard Security Advisories](
+For more information on how to use Chainguard’s Security Advisories page to inform your vulnerability remediation, consider reading our article on [How to use Chainguard Security Advisories](
 /chainguard/chainguard-images/staying-secure/security-advisories/how-to-use/).
 
 If you are using Chainguard Containers at your organization or want to learn more about advisories for enterprise container images, please [contact us](https://www.chainguard.dev/contact).

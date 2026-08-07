@@ -1,8 +1,8 @@
 ---
 aliases:
 - /chainguard/fips/kernel-independent-architecture/
-title: "Kernel-Independent FIPS Architecture"
-linktitle: "Kernel-Independent FIPS"
+title: "Kernel-independent FIPS architecture"
+linktitle: "Kernel-independent FIPS"
 type: "article"
 description: "Technical deep-dive into Chainguard's kernel-independent FIPS implementation using userspace entropy sources"
 date: 2025-10-16T08:00:00+00:00
@@ -20,9 +20,9 @@ Chainguard FIPS Containers use a userspace entropy source instead of relying on 
 
 This architectural approach addresses a longstanding limitation in deploying FIPS-compliant workloads (FIPS being the U.S. federal cryptographic standard) by removing kernel dependencies that previously restricted deployment options, prevented local development, and limited cloud platform choices.
 
-## Chainguard's Architecture
+## Chainguard's architecture
 
-### Core Components
+### Core components
 
 **Jitterentropy library**: A userspace entropy generator that produces randomness from CPU execution timing variations. This library runs entirely within the container and has its own NIST SP 800-90B Entropy Source Validation (ESV).
 
@@ -30,7 +30,7 @@ This architectural approach addresses a longstanding limitation in deploying FIP
 
 **Self-contained packaging**: Both the entropy source and cryptographic module are bundled in the container image, making each container self-sufficient for FIPS compliance.
 
-### How It Works
+### How it works
 
 When a Chainguard FIPS container starts:
 
@@ -41,7 +41,7 @@ When a Chainguard FIPS container starts:
 
 The FIPS cryptographic boundary is entirely within the container. The host kernel is not part of the compliance story.
 
-### Validation Architecture
+### Validation architecture
 
 The design relies on two separate NIST certifications:
 
@@ -51,9 +51,9 @@ The design relies on two separate NIST certifications:
 
 The entropy source sits outside the cryptographic boundary but is independently validated. This architecture is sound and meets NIST requirements.
 
-## Why This Matters
+## Why this matters
 
-### The Problem with Traditional FIPS Containers
+### The problem with traditional FIPS containers
 
 Before kernel-independent FIPS, containers relied on the host kernel to provide SP 800-90B validated entropy through `/dev/random`. This meant:
 
@@ -69,7 +69,7 @@ Before kernel-independent FIPS, containers relied on the host kernel to provide 
 
 **CI/CD complexity**: Testing FIPS applications required dedicated infrastructure with FIPS-enabled kernels.
 
-### Chainguard's Solution Benefits
+### Chainguard's solution benefits
 
 **Any Linux kernel**: Deploy on any recent kernel without FIPS mode configuration. Use latest kernels with security patches and performance improvements.
 
@@ -83,7 +83,7 @@ Before kernel-independent FIPS, containers relied on the host kernel to provide 
 
 **Simplified operations**: Container updates handle FIPS compliance. No separate kernel maintenance track.
 
-## Supported Runtimes and Languages
+## Supported runtimes and languages
 
 Kernel-independent FIPS is available for:
 
@@ -101,7 +101,7 @@ Kernel-independent FIPS is available for:
 
 **Java** (versions 11, 17, 21): As of August 2025, supports kernel-independent FIPS using Bouncy Castle Entropy Provider with Jitterentropy.
 
-### Java's Transition
+### Java's transition
 
 Java deserves special mention as it recently gained kernel-independent capability.
 
@@ -111,7 +111,7 @@ Java deserves special mention as it recently gained kernel-independent capabilit
 
 Read more: [Kernel-Independent FIPS for Java](https://www.chainguard.dev/unchained/announcing-kernel-independent-fips-for-java)
 
-## What Still Requires Kernel FIPS Mode
+## What still requires kernel FIPS mode
 
 A few use cases remain kernel-dependent:
 
@@ -123,7 +123,7 @@ A few use cases remain kernel-dependent:
 
 These involve kernel-level operations where userspace entropy cannot be substituted. For these workloads, configure the host kernel in FIPS mode.
 
-## Verifying Kernel Independence
+## Verifying kernel independence
 
 Check an image's SBOM (Software Bill of Materials) to verify kernel independence.
 
@@ -144,9 +144,9 @@ cosign download sbom cgr.dev/ORGANIZATION/IMAGE:TAG
 
 Then search for the required packages and versions.
 
-## Architecture Comparison
+## Architecture comparison
 
-### Traditional FIPS Stack
+### Traditional FIPS stack
 
 ```
 ┌─────────────────────────┐
@@ -167,7 +167,7 @@ Then search for the required packages and versions.
 └─────────────────────────┘
 ```
 
-### Chainguard Kernel-Independent Stack
+### Chainguard kernel-independent stack
 
 ```
 ┌─────────────────────────┐
@@ -185,7 +185,7 @@ Then search for the required packages and versions.
 └─────────────────────────┘
 ```
 
-### Feature Comparison
+### Feature comparison
 
 | Aspect | Traditional FIPS | Chainguard Kernel-Independent |
 | -------- | ------------------ | ------------------------------- |
@@ -199,7 +199,7 @@ Then search for the required packages and versions.
 | **Container portability** | Limited | Full portability |
 | **Maintenance** | Kernel + container updates | Container updates only |
 
-## Performance Considerations
+## Performance considerations
 
 Userspace entropy generation raises performance questions, but testing shows minimal impact.
 
@@ -213,9 +213,9 @@ Userspace entropy generation raises performance questions, but testing shows min
 
 If you encounter performance issues, profile your application to identify the actual bottleneck before assuming entropy generation is the cause.
 
-## Technical Deep Dive
+## Technical deep dive
 
-### Cryptographic Boundaries
+### Cryptographic boundaries
 
 Understanding what's inside versus outside the FIPS boundary is essential.
 
@@ -233,7 +233,7 @@ Understanding what's inside versus outside the FIPS boundary is essential.
 
 The entropy source validation satisfies the cryptographic module's requirements without being inside the CMVP boundary. This separation is architecturally appropriate and compliant.
 
-### Entropy Generation
+### Entropy generation
 
 Jitterentropy works by:
 
@@ -244,7 +244,7 @@ Jitterentropy works by:
 
 This approach is entirely in userspace and doesn't require hardware random number generators or kernel support.
 
-### OpenSSL Configuration
+### OpenSSL configuration
 
 Chainguard configures OpenSSL at build time to:
 
@@ -255,9 +255,9 @@ Chainguard configures OpenSSL at build time to:
 
 The `openssl-config-fipshardened` package implements these configurations. Applications using OpenSSL automatically get FIPS-validated cryptography without code changes.
 
-## Next Steps
+## Next steps
 
-- [Getting Started with FIPS](/chainguard/fips/getting-started/) - Deploy your first FIPS container
-- [Frequently Asked Questions](/chainguard/fips/faqs/) - Common questions about FIPS implementation
+- [Getting started with FIPS](/chainguard/fips/getting-started/) - Deploy your first FIPS container
+- [Frequently asked questions](/chainguard/fips/faqs/) - Common questions about FIPS implementation
 - [Blog: Kernel-Independent FIPS Images](https://www.chainguard.dev/unchained/kernel-independent-fips-images) - Original announcement with additional details
 - [Blog: Kernel-Independent FIPS for Java](https://www.chainguard.dev/unchained/announcing-kernel-independent-fips-for-java) - Java-specific implementation

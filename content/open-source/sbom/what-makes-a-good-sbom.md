@@ -1,5 +1,5 @@
 ---
-title: "What Makes a Good SBOM?"
+title: "What makes a good SBOM?"
 description: "An explanation of what makes a good SBOM"
 lead: "A guide to SBOM quality"
 type: "article"

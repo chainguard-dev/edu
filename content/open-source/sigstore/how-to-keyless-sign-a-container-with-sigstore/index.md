@@ -1,9 +1,9 @@
 ---
-title: "How to Keyless Sign a Container Image with Sigstore"
-linktitle: "Keyless Signing"
+title: "How to keyless sign a container image with Sigstore"
+linktitle: "Keyless signing"
 type: "article"
 lead: "Using GitHub Actions with Cosign"
-description: "Use Cosign and GitHub Actions to Keyless Sign a Django Container Image"
+description: "Use Cosign and GitHub Actions to keyless sign a Django container image"
 date: 2022-08-24T08:49:31+00:00
 lastmod: 2022-08-24T08:49:31+00:00
 draft: false
@@ -25,7 +25,7 @@ This tutorial will bring some of the components of Sigstore together in an examp
 You should have the following in place before continuing:
 
 * The latest version of [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/) installed, and an account on Docker Hub. At the time of writing (June 2022), Docker Engine should be version 20.10 and Docker Compose should be version 2.6. If you are on macOS, you will need to use [Docker Desktop; refer to the official documentation](https://docs.docker.com/desktop/) for your operating system to ensure that your system meets the necessary requirements. Docker Desktop should be version 4.8 or higher.
-* Cosign installed, follow [How to Install Cosign](/open-source/sigstore/cosign/how-to-install-cosign/).
+* Cosign installed, follow [How to install Cosign](/open-source/sigstore/cosign/how-to-install-cosign/).
 * The Rekor CLI installed, follow the [installation guide](/open-source/sigstore/rekor/how-to-install-rekor/)
 * Familiarity with Git, GitHub, and GitHub Actions is helpful, but we'll provide some context and also walk you through setting up a GitHub account.
 
@@ -41,13 +41,13 @@ If you are not familiar with Git and GitHub, you can review the official GitHub 
 
 [GitHub Actions](https://docs.github.com/en/actions) can perform CI/CD on your repository. You can learn more about GitHub Actions through the official GitHub docs. We will walk you through the relevant files here.
 
-## Create a GitHub Repository
+## Create a GitHub repository
 
 When you are logged into GitHub, create a new repository by clicking on the **+** button in the upper right-hand corner of the page (next to your user icon). The menu will drop down and you can select **New repository**.
 
 On the Create a new repository page, you can create a repository, you can leave the defaults, but write a meaningful name for the Repository name field, such as django-keyless-signing. Note that you’ll need to keep the repository public so that the signed image you build will be able to be uploaded to Rekor’s public transparency log.
 
-## Create a Local Directory for the Repository
+## Create a local directory for the repository
 
 Now, you’ll need to create a local directory for this repository. For our example, we’ll want our path to be `~/Documents/GitHub/django-keyless-signing`, but you can choose an alternate path. Create the GitHub directory if necessary, and then navigate into that folder.
 
@@ -63,7 +63,7 @@ mkdir django-keyless-signing && cd $_
 
 You’ll be making a few files in this directory that you’ll then push up to the GitHub repository.
 
-## Create Django Container Files
+## Create Django container files
 
 First, create a `requirements.txt` file for your Django container. This is a common file in Python projects that you can run to get the necessary dependencies at the right versions. The Django Docker container will pull from this file to set up the image.
 
@@ -159,7 +159,7 @@ tree
 
 If your output matches the output above, you are all set to continue.
 
-## Steps to Automate Keyless Signing
+## Steps to automate keyless signing
 
 We next create a GitHub Actions YAML file. There is some boilerplate in this file common to GitHub Actions, but the high-level overview of this is that we need to enable OIDC, install Cosign, build and push the container image, and then sign the container image.
 
@@ -215,7 +215,7 @@ Because we are doing a public repository, this will automatically be pushed to t
 
 Now that you understand the main pieces of the YAML file, let’s create it and review the contents of the entire file.
 
-## Create GitHub Actions File
+## Create GitHub Actions file
 
 You’ll next create a hidden directory called `.github` and a subdirectory called workflows. Ensure that you are in your `django-keyless-signing` and create these two directories.
 
@@ -309,7 +309,7 @@ tree -a
 
 If your setup matches, we can proceed.
 
-## Generate GitHub Personal Access Token
+## Generate GitHub personal access token
 
 In order to use GitHub on the command line and run GitHub Actions, you’ll need a personal access token.
 
@@ -325,7 +325,7 @@ With this filled out, you can click on the green **Generate token** button at th
 
 _Be sure to copy this token_; you won’t have access to it again. You’ll be using this token to authenticate on the command line.
 
-## Initialize Git Repository and Push Changes
+## Initialize Git repository and push changes
 
 From your local repository of `django-keyless-signing` you will be initializing your repository to use with Git.
 
@@ -412,7 +412,7 @@ branch 'main' set up to track 'origin/main'.
 
 With this complete, you can navigate to the URL of your GitHub repository.
 
-## Confirm Keyless Signing via GitHub Actions
+## Confirm keyless signing via GitHub Actions
 
 With your repository set up, you can move to the **Actions** tab of your GitHub repository.
 
@@ -442,7 +442,7 @@ This provides a bit of information, including the SHA, the Rekor log index numbe
 
 You can also inspect the image itself under **Packages** on the main page of your repository. If you would like, you can pull down the Docker image. This is not necessary for our next step, where we will check that the signature was signed and that the signature is in the Rekor transparency log.
 
-## Verify Signatures
+## Verify signatures
 
 With your container signed by Cosign keyless signing in GitHub Actions, you next need to verify that everything worked as expected and that the container is indeed signed, and that an entry for that was generated in Rekor.
 

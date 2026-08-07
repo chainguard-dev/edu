@@ -25,7 +25,7 @@ Chainguard OS is a minimal, hardened Linux-based operating system designed for s
 
 ## What is the relationship between Chainguard OS and Wolfi?
 
-Wolfi refers to the OS of Chainguard’s [free tier container images](/chainguard/chainguard-images/about/images-categories/#starter-containers).
+Wolfi refers to the OS of Chainguard’s [free tier container images](/chainguard/chainguard-images/about/images-categories/#free-containers).
 
 Chainguard OS refers to the production-grade distribution that powers all other Chainguard products.
 

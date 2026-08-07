@@ -4,7 +4,7 @@ aliases:
 title: "Dockerfile Converter"
 linktitle: "Dockerfile Converter"
 type: "article"
-description: "User Guide for Chainguard's Dockerfile Converter (dfc)"
+description: "User guide for Chainguard's Dockerfile Converter (dfc)"
 date: 2025-03-18T15:22:20+01:00
 lastmod: 2025-04-30T15:22:20+01:00
 draft: false
@@ -58,11 +58,11 @@ You will receive output indicating which version of dfc you have installed, such
 dfc version v0.9.3
 ```
 
-## Getting Started
+## Getting started
 
 DFC supports inline conversion of entire Dockerfiles and single `FROM` and `RUN` instructions. It can also read Dockerfiles from files or standard input (stdin). The converted Dockerfile will use Chainguard Containers as the base image, which are available at `cgr.dev/<org>`.
 
-### Inline Usage
+### Inline usage
 
 With inline usage, you can convert single instructions or entire Dockerfiles. For example, to convert a single `FROM` line, you can run:
 
@@ -107,9 +107,9 @@ USER root
 RUN apk add --no-cache nano
 ```
 
-Notice the `USER root` directive that has been included here to allow for package installations. You'll find details of why that happens in the [How it Works](#package-installations) section of this guide.
+Notice the `USER root` directive that has been included here to allow for package installations. You'll find details of why that happens in the [How it works](#package-installations) section of this guide.
 
-### Usage with Regular Dockerfiles
+### Usage with regular Dockerfiles
 
 Unless specified, dfc will not make any direct changes to your Dockerfile, writing the results to the default output stream. To convert a Dockerfile and save the output to a new file called `Dockerfile.converted`, run the following command:
 
@@ -123,11 +123,11 @@ You can also pipe the Dockerfile’s contents from stdin:
 cat ./Dockerfile | dfc -
 ```
 
-## How it Works
+## How it works
 
 DFC was designed to work offline by default, which means it doesn't validate image names or check for the existence of images in a live registry. Instead, it relies on a set of rules and mappings to convert Dockerfiles to use Chainguard Containers. This includes not only the change of base image used in a Dockerfile, but also the conversion of package managers and commands used in `RUN` instructions.
 
-### FROM Conversion
+### FROM conversion
 
 DFC will convert the `FROM` instruction in a Dockerfile using two main mechanisms:
 
@@ -146,7 +146,7 @@ You will receive the following output:
 FROM cgr.dev/ORG/node:latest
 ```
 
-### Tag Mappings
+### Tag mappings
 
 The tag conversion process follows a set of rules:
 
@@ -169,7 +169,7 @@ More Examples:
 * `FROM golang:1.19-alpine` → `FROM cgr.dev/ORG/go:1.19-dev` (if stage has RUN commands)
 * `FROM node:${VERSION}` → `FROM cgr.dev/ORG/node:${VERSION}-dev` (if stage has RUN commands)
 
-### Package Installations
+### Package installations
 
 When a Dockerfile uses package managers such as `apt`, `dnf`, or `yum` to install software, `dfc` automatically translates these commands to their `apk` equivalents. This conversion leverages an internal mapping file to resolve package name differences between distributions, ensuring accurate and compatible package installation within the Chainguard Containers environment.
 
@@ -214,7 +214,7 @@ EXPOSE 8080
 CMD ["python", "/src/index.py"]
 ```
 
-### Busybox Changes for User and Group Management
+### BusyBox changes for user and group management
 
 DFC will automatically change any `useradd` and `groupadd` instructions in your Dockerfile to `adduser` and `addgroup` to match Busybox’s syntax. This ensures that user and group creation commands execute correctly within the Chainguard Containers environment, maintaining consistent behavior and preventing build failures.
 
@@ -330,9 +330,9 @@ CMD ["python", "/app/main.py"]
 
 As you will notice, DFC used a _distroless_ Python Chainguard Container for the final runtime stage: `cgr.dev/ORG/python:3.9`. That is possible because DFC didn't detect any `RUN` instruction in the final stage. If we had system-level dependencies installed via `apk` or other `RUN` instructions in the runtime stage, DFC would instead default to the regular, fully-featured Python image from Chainguard Containers, which in this case would be `cgr.dev/ORG/python:3.9-dev`.
 
-For more details on distroless and how to work with multi-stage builds, check our guide on [Getting Started with Distroless](/chainguard/chainguard-images/about/getting-started-distroless/).
+For more details on distroless and how to work with multi-stage builds, check our guide on [Getting started with distroless](/chainguard/chainguard-images/about/getting-started-distroless/).
 
-## Customizing the Conversion
+## Customizing the conversion
 
 There are several ways to customize the conversion process of Dockerfiles using `dfc`.
 
@@ -352,7 +352,7 @@ You will receive output similar to this:
 FROM cgr.dev/chainguard/node:latest
 ```
 
-### Using a Custom Registry
+### Using a custom registry
 
 You can also specify a custom registry to use for the conversion. This is useful if you have your own registry. To do this, use the `--registry` flag followed by the desired registry URL. For example, if you want to use `myregistry.example.com` as the registry, you can run:
 
@@ -368,7 +368,7 @@ FROM myregistry.example.com/node:latest
 
 One thing to note is that the `--registry` flag will override the `--org` flag, so if you specify both, the `--registry` will take precedence.
 
-### Using Custom Mappings
+### Using custom mappings
 
 You can also provide a custom mapping file to `dfc` using the `--mapping` flag. This allows you to define your own rules for converting Dockerfiles, such as specific image names or package names that should be translated differently.
 
@@ -419,9 +419,9 @@ COPY . /application/
 RUN cd /application && composer install
 ```
 
-## Advanced Topics
+## Advanced topics
 
-### Making In Place Changes
+### Making in-place changes
 
 By default, dfc will print the converted Dockerfile to stdout, and won’t make any changes to your original Dockerfile. You can use the `--in-place` flag to make dfc overwrite the original file. This will also create a `.bak` file to back up the original file contents.
 
@@ -436,7 +436,7 @@ dfc Dockerfile --in-place
 
 This method does not work with inline input.
 
-### Working with JSON Output
+### Working with JSON output
 
 If you plan on using `dfc` programmatically, the JSON output can come in handy. For example, the following will convert an inline Dockerfile and output the results in JSON format, parsed by `jq` for readability:
 
@@ -480,13 +480,13 @@ DOCKERFILE
 
 Check also the [Useful jq formulas](https://github.com/chainguard-dev/dfc?tab=readme-ov-file#useful-jq-formulas) section from the dfc repository as reference on how to use jq to filter the JSON output.
 
-### Using dfc as a Go Library
+### Using dfc as a Go library
 
 You can import the package `github.com/chainguard-dev/dfc/pkg/dfc` and use it directly from Go code to parse and convert Dockerfiles on your own, without the dfc CLI. This way, you can integrate dfc into your own Go applications or scripts, which can be especially useful if you have a large number of Dockerfiles to convert or if you want to further customize the output produced by dfc.
 
 Check the [Using from Go](https://github.com/chainguard-dev/dfc?tab=readme-ov-file#using-from-go) section on the dfc repository for examples on how to use it as a Go library.
 
-### Usage via AI Agent (MCP Server)
+### Usage via AI agent (MCP server)
 
 While dfc operates completely offline and does not in itself use AI to perform conversion of Dockerfiles, it can be leveraged as an MCP (Model Context Protocol) Server to integrate with an AI-based prompt engineering workflow.
 
@@ -494,6 +494,6 @@ This experimental capability allows AI agents to utilize DFC’s powerful conver
 
 For more information on how to use DFC with AI agents, check the [Project's README on GitHub](https://github.com/chainguard-dev/dfc#usage-via-ai-agent-mcp-server).
 
-## Learn More
+## Learn more
 
 If you'd like to learn more about our Dockerfile Converter, including how to get involved with the project, you can check out the [dfc repository on GitHub](https://github.com/chainguard-dev/dfc). We welcome contributions and feedback from the community.

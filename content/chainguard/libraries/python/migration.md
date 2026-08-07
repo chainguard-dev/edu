@@ -59,7 +59,7 @@ To export environment variables directly:
 eval $(chainctl auth pull-token --output env --repository=python --name=my-python-token)
 ```
 
-Learn more about creating and managing pull tokens in the [Libraries Access documentation](/chainguard/libraries/access/#creating-pull-tokens-for-libraries).
+Learn more about creating and managing pull tokens in the [Libraries access documentation](/chainguard/libraries/access/#creating-pull-tokens-for-libraries).
 
 {{% /tab %}}
 
@@ -67,7 +67,7 @@ Learn more about creating and managing pull tokens in the [Libraries Access docu
 
 The keyring leverages `chainctl` to fetch temporary credentials whenever your environment requests packages from Chainguard. Supported environments include local development and CI/CD platforms that can use assumable identities. The keyring provider requires pip 23.1 or later.
 
-Learn how to install this package in the [Chainguard Libraries Access documentation](chainguard/libraries/access/#python-keyring-provider).
+Learn how to install this package in the [Chainguard Libraries access documentation](/chainguard/libraries/access/#python-keyring-provider).
 
 Note that `.netrc` takes precedence over the keyring. Verify that you do not have an existing registry entry in `.netrc` for Chainguard Libraries:
 
@@ -481,7 +481,7 @@ chainctl libraries verify --detailed $(poetry env info --path)
 
 A successful result shows what percentage of your project's dependencies were built by Chainguard.
 
-For full details on verification options and output, check out [Verification: Analyze Python packages](/chainguard/libraries/verification/#analyze-python-packages).
+For full details on verification options and output, check out [Verification: Analyze a Python wheel file](/chainguard/libraries/verification/#analyze-a-python-wheel-file).
 
 ## Step 6: Commit and roll out
 
@@ -501,7 +501,7 @@ chainctl libraries entitlements list
 
 For repository manager setups, Chainguard recommends using the configurable fallback rather than configuring a separate public registry fallback in your repository manager, to preserve Chainguard’s security controls.
 
-Learn more about upstream fallback configurations in the [Libraries Overview](/chainguard/libraries/overview/#upstream-fallback-and-controls).
+Learn more about upstream fallback configurations in the [Libraries overview](/chainguard/libraries/overview/#upstream-fallback-and-controls).
 
 ## Troubleshooting
 

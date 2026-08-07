@@ -27,12 +27,12 @@ tutorials: [
     url: "/open-source/wolfi/faq/"
   },
   {
-    title: "Wolfi Image",
+    title: "Wolfi image",
     description: "Wolfi-base Chainguard Image reference",
     url: "https://images.chainguard.dev/directory/image/wolfi-base/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-open-source-wolfi"
   },
   {
-    title: "Creating Wolfi Images",
+    title: "Creating Wolfi images",
     description: "How to build a Wolfi image from scratch",
     url: "/open-source/wolfi/wolfi-with-dockerfiles/"
   },
@@ -42,7 +42,7 @@ tutorials: [
     url: "/open-source/wolfi/apk-package-manager/"
   },
   {
-    title: "Wolfi Workshop",
+    title: "Wolfi workshop",
     description: "Community workshop kit about Wolfi for beginners",
     url: "/open-source/wolfi/hello-wolfi/"
   },

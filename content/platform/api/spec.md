@@ -1,6 +1,6 @@
 ---
-title : "Chainguard OpenAPI Specification"
-linktitle: "API Unified Spec"
+title : "Chainguard OpenAPI specification"
+linktitle: "API unified spec"
 aliases:
 - /chainguard/api/spec/
 - /chainguard/chainguard-enforce/chainguard-enforce-kubernetes/api/

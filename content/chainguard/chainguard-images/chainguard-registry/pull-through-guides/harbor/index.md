@@ -1,5 +1,5 @@
 ---
-title: "How to Sync Images from Chainguard's Registry to Harbor"
+title: "How to sync images from Chainguard's registry to Harbor"
 linktitle: "Harbor"
 type: "article"
 description: "Tutorial outlining how to sync images from Chainguard's registry to Harbor."
@@ -27,10 +27,10 @@ This tutorial outlines how to sync images from Chainguard's registry to a Harbor
 You need the following in order to complete this tutorial:
 
 * Administrative privileges over a Harbor instance. Refer to the [official Harbor documentation](https://goharbor.io/docs/2.13.0/) to learn how to set this up.
-* `chainctl` — Chainguard's command-line interface — installed on your local machine. If you don't have `chainctl` installed, refer to our [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) guide to set this up.
+* `chainctl` — Chainguard's command-line interface — installed on your local machine. If you don't have `chainctl` installed, refer to our [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) guide to set this up.
 * Access to an account with permissions to pull Chainguard container images from your organization's repository within the Chainguard registry. This is necessary, as you will create a pull token for Harbor to use to access the registry, and you cannot generate a pull token that grants broader access than your own.
 
-## Create a Registry Endpoint
+## Create a registry endpoint
 
 Before configuring a proxy cache or replication rule, you must create a registry endpoint for the Chainguard registry.
 
@@ -65,7 +65,7 @@ Next, open up the Harbor UI and perform the following steps:
 
 After creating the endpoint, you can move on to creating a proxy cache.
 
-## Create a Proxy Cache
+## Create a proxy cache
 
 A [*proxy* cache](https://goharbor.io/docs/2.1.0/administration/configure-proxy-cache/) allows Harbor to proxy and cache images from the Chainguard registry.
 
@@ -90,7 +90,7 @@ docker pull $HARBOR_URL/cgr-proxy/$ORGANIZATION/$IMAGE:$TAG
 
 Be sure to replace the placeholder values (`$HARBOR_URL`, `$ORGANIZATION`, `$IMAGE`, and `$TAG`) to reflect your own setup.
 
-## Create a Replication Rule
+## Create a replication rule
 
 A [*replication rule*](https://goharbor.io/docs/2.1.0/administration/configuring-replication/create-replication-rules/) is an alternative approach to a proxy cache. This section outlines how to configure a replication rule that copies images from the Chainguard registry to a Harbor project.
 
@@ -131,8 +131,8 @@ docker pull $HARBOR_URL/cgr-mirror/$IMAGE:$TAG
 
 Again, be sure to replace this command's placeholder values as necessary.
 
-## Learn More
+## Learn more
 
-If you haven't already done so, you may find it useful to review our [Registry Overview](/chainguard/chainguard-registry/overview/) to learn more about Chainguard's registry. You can also learn more about Chainguard Containers by checking out our [Containers documentation](/chainguard/chainguard-images/overview/).
+If you haven't already done so, you may find it useful to review our [Registry overview](/chainguard/chainguard-registry/overview/) to learn more about Chainguard's registry. You can also learn more about Chainguard Containers by checking out our [Containers documentation](/chainguard/chainguard-images/overview/).
 
 Additionally, if you'd like to learn more about Harbor, we encourage you to refer to the [official Harbor documentation](https://goharbor.io/docs).

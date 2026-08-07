@@ -1,5 +1,5 @@
 ---
-title: "Rego Policies"
+title: "Rego policies"
 aliases:
 - /chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-rego-policies/
 type: "article"
@@ -19,7 +19,7 @@ The [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/ove
 
 If you would like to write a Rego policy from scratch, or learn more about how to use this format, you can follow this guide.
 
-## Rego Policy Template
+## Rego policy template
 
 ```bash
 # Copyright 2022 Chainguard, Inc.
@@ -68,7 +68,7 @@ If you define multiple conditions within the `isCompliant` braces, these can be 
 
 This same structure must be present in all Rego-based policies.
 
-## Rego Policy to Check Metadata Labels
+## Rego policy to check metadata labels
 
 You can set a Rego policy to ensure that it is compliant with certain labels within your metadata.
 
@@ -84,7 +84,7 @@ For example, within the production environment (with the "production" label) you
 
 Here, the policy is requiring and checking that the labels exist in the `ObjectMeta` data. This policy will evaluate to true only if both labels exist in the metadata portion of the manifest.
 
-## Rego Policy to Check Kubernetes Pod Security
+## Rego policy to check Kubernetes pod security
 
 As a cluster-level resource, a Kubernetes Pod Security Policy allows a cluster administrator to control security-sensitive aspects of a Pod's specification. This defines a set of conditions that a Pod must meet so that it can be allowed into the cluster. You can think of it as a built-in admission controller which enforces security policies on Pods across a cluster.
 

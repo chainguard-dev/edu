@@ -2,7 +2,7 @@
 aliases:
 - /chainguard/migration/migration-tips/
 title: "Tips for migrating to Chainguard Containers"
-linktitle: "Migration Tips"
+linktitle: "Migration tips"
 type: "article"
 description: "This guide outlines a number of tips and strategies to keep in mind for when your organization begins migrating to Chainguard Containers."
 date: 2025-05-29T12:56:52-00:00
@@ -233,11 +233,11 @@ Container images are usually meant to support every possible use case. Because o
 
 Chainguard Containers are built with minimalism in mind, and thus contain the bare minimum packages needed for an image to function. However, this also means that Chainguard Containers may not contain the packages that you'd expect to find in third-party alternatives.
 
-If a Chainguard Container is missing certain packages that are required for your application, we recommend using a base image and installing the required dependencies on top of it, preferably in a multi-stage Docker build. Our guides on [How to Use Chainguard Containers](/chainguard/chainguard-images/how-to-use-chainguard-images/#extending-chainguard-base-images) and [Getting Started with Distroless](/chainguard/migration/migrations-overview/) include guidance on how you can extend Chainguard base images.
+If a Chainguard Container is missing certain packages that are required for your application, we recommend using a base image and installing the required dependencies on top of it, preferably in a multi-stage Docker build. Our guides on [How to use Chainguard Containers](/chainguard/chainguard-images/how-to-use-chainguard-images/#extending-chainguard-base-containers) and [Getting started with distroless](/chainguard/migration/migrations-overview/) include guidance on how you can extend Chainguard base images.
 
 For a number of our most popular Containers, Chainguard offers a *full* variant (tagged `-full`) that maps to the upstream image, including the packages you'd expect from the third-party alternative. If a full variant is available for an image you're migrating, it can serve as a low-friction starting point while you determine which packages your workload actually needs. Refer to [Full container variants](/chainguard/chainguard-images/about/differences-development-production/#full-container-variants) for details.
 
-Alternatively, you can take advantage of Chainguard's [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) and [Private APK Repositories](/chainguard/chainguard-images/features/private-apk-repos/) features to extend your container images. Custom Assembly allows users to create customers container images with extra packages added. This reduces their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs.
+Alternatively, you can take advantage of Chainguard's [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) and [Private APK repositories](/chainguard/chainguard-images/features/private-apk-repos/) features to extend your container images. Custom Assembly allows users to create customers container images with extra packages added. This reduces their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs.
 
 Private APK Repositories, meanwhile, allow customers to pull secure apk packages from Chainguard. The list of packages available in an organization’s private repository is based on the apk repositories that the organization already has access to. For example, say your organization has access to the [Chainguard MySQL container image](https://images.chainguard.dev/directory/image/mysql/versions). Along with `mysql`, this image comes with other apk packages, including `bash`, `openssl`, and `pwgen`. This means that you'll have access to these apk packages through your organization's private APK repository, along with any others that appear in Chainguard container images that your organization has access to.
 
@@ -245,4 +245,4 @@ In some cases you may have Docker builds that copy in binaries to run agents or 
 
 ## Learn more
 
-For more resources on migrating to Chainguard Containers, please refer to our [Containers Migration documentation](/chainguard/migration/). In particular, our [Migration Overview](/chainguard/migration/migrations-overview/) may be of interest. Chainguard Academy also hosts a number of [Compatibility Resources](/chainguard/migration/compatibility/) and [Migration Guides](/chainguard/migration/migration-guides/) for specific platforms and tools.
+For more resources on migrating to Chainguard Containers, please refer to our [Containers migration documentation](/chainguard/migration/). In particular, our [Migration overview](/chainguard/migration/migrations-overview/) may be of interest. Chainguard Academy also hosts a number of [Compatibility resources](/chainguard/migration/compatibility/) and [Migration guides](/chainguard/migration/migration-guides/) for specific platforms and tools.

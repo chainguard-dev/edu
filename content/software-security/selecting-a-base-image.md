@@ -1,6 +1,6 @@
 ---
-title: "Selecting a Base Container Image"
-linktitle: "Selecting a Base Image"
+title: "Selecting a base container image"
+linktitle: "Selecting a base image"
 description: "How to choose more secure container base images: essential criteria including CVE count, SBOM availability, update frequency, and why Chainguard excels in each category"
 lead: "What to look for when choosing a hardened, minimal base image"
 type: "article"

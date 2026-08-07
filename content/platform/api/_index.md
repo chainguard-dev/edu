@@ -1,7 +1,7 @@
 ---
 aliases:
 - /chainguard/api/
-title: "API Reference"
+title: "API reference"
 lead: ""
 description: "Chainguard API reference documentation"
 type: "article"

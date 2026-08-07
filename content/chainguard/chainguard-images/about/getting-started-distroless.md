@@ -1,6 +1,6 @@
 ---
-title: "Getting Started with Distroless Container Images"
-linktitle: "Going Distroless"
+title: "Getting started with distroless container images"
+linktitle: "Going distroless"
 aliases:
 - /chainguard/chainguard-images/getting-started-distroless/
 - /chainguard/chainguard-images/about/getting-started-distroless/
@@ -18,7 +18,7 @@ weight: 010
 toc: true
 ---
 
-## About Distroless Container Images
+## About distroless container images
 
 [Distroless](https://www.chainguard.dev/unchained/minimal-container-images-towards-a-more-secure-future) container images, like the ones built by Chainguard, are a type of container image designed to include only essential software required to run an application or service. Unlike traditional images based on Debian or Ubuntu — which include package managers, utilities, and shells — Chainguard's distroless images remove these components to significantly reduce attack surface and minimize vulnerabilities.
 
@@ -30,7 +30,7 @@ This minimal approach offers several benefits, including:
 
 Chainguard offers a mix of distroless and container images, which are minimalist and contain provenance attestations for increased security, and development (or `-dev`) images, which feature development tools like a shell or package manager. Since distroless images have fewer tools and don't come with a package manager, some adaptation might be necessary when migrating from traditional base images. A typical approach is using multi stage builds to compose a final distroless image containing the additional artifacts required by the application in order to run successfully.
 
-## Multi Stage Builds
+## Multi stage builds
 
 A multi stage build is a technique for creating slimmer and more efficient container images. It allows you to define multiple stages within a single Dockerfile. Each stage acts like a separate build environment with its own base image and instructions.
 
@@ -116,7 +116,7 @@ If you look into the image layers with `docker inspect c-distroless`, you'll als
         },
 ```
 
-### Example 2: Incorporating Application-Level Dependencies in Distroless Images
+### Example 2: Incorporating application-level dependencies in distroless images
 
 When working with language ecosystems that have their own dependency management tools such as PHP (Composer) and Node (npm), a multi stage build is necessary to include application dependencies within the final distroless runtime.
 
@@ -224,8 +224,8 @@ REPOSITORY   TAG          IMAGE ID       CREATED      SIZE
 php          cli-alpine   7879e816aba0   6 days ago   104MB
 ```
 
-## Final Considerations
+## Final considerations
 
 Distroless images offer a compelling approach to creating minimal and secure container images by stripping away system components that are unnecessary at execution time, such as package managers and shells. While such images offer many advantages, they might require some adjustments in your existing development and deployment workflows. In this guide we demonstrated how to use multi stage builds to create final distroless images that include additional components, such as static binaries and application-level dependencies.
 
-You can find more examples in our [Getting Started Guides](/chainguard/chainguard-images/getting-started/) page. Check also our article on [Debugging Distroless Images](/chainguard/chainguard-images/debugging-distroless-images/) for important tips when you run into issues and need to debug containers running distroless images.
+You can find more examples in our [Getting started guides](/chainguard/chainguard-images/getting-started/) page. Check also our article on [Debugging distroless images](/chainguard/chainguard-images/debugging-distroless-images/) for important tips when you run into issues and need to debug containers running distroless images.

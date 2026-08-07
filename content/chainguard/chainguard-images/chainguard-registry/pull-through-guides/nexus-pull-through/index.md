@@ -1,5 +1,5 @@
 ---
-title: "How to Set Up Pull Through from Chainguard's Registry to Nexus"
+title: "How to set up pull through from Chainguard's registry to Nexus"
 linktitle: "Nexus"
 aliases:
 - /chainguard/chainguard-registry/nexus-pull-through/
@@ -33,9 +33,9 @@ In order to complete this tutorial, you will need the following:
 * Privileges to create a pull token on a Chainguard registry. (For private Chainguard repository access)
 * A spare port on the Nexus server to serve the repository (Nexus limits you to 20 ports). Or an alternative solution — such as a reverse proxy — which is beyond the scope of this guide.
 
-## Setting up Nexus as a pull through for Free containers
+## Setting up Nexus as a pull through for free containers
 
-[Free container images](/chainguard/chainguard-images/about/images-categories/#starter-containers) are free to use, publicly available, and always represent versions tagged as `:latest`.
+[Free container images](/chainguard/chainguard-images/about/images-categories/#free-containers) are free to use, publicly available, and always represent versions tagged as `:latest`.
 
 To set up a remote repository in Nexus from which you can pull Free containers, log in to Nexus with an **admin** account. Once there, click on the Administration mode cog in the top bar, click **Repository** in the left-hand navigation menu, and then select **Repositories**. On the Repositories page, click the **Create Repository** button and select the **docker (proxy)** Recipe.
 
@@ -51,7 +51,7 @@ Following that, click the **Create repository** button at the bottom of the page
 
 Your Nexus URL is the hostname of the Nexus server AND the port number you chose; for example, `myrepo.local:5051`. If your Nexus server is running from a Docker container, your Nexus URL would be something like `localhost:5051`.
 
-### Testing pull through of a Free container
+### Testing pull through of a free container
 
 If your setup requires authentication, log in with a valid Nexus username and password:
 
@@ -69,7 +69,7 @@ docker pull <Nexus URL>/chainguard/wolfi-base
 
 Be sure the `docker pull` command contains the correct Nexus URL for your repository.
 
-## Setting up Nexus as a pull through for Production containers
+## Setting up Nexus as a pull through for production containers
 
 Production Chainguard Containers are enterprise-ready images that come with patch SLAs and features such as [Federal Information Processing Standard](/chainguard/chainguard-images/working-with-images/fips-images/) (FIPS) readiness. The process for setting up an Nexus repository that you can use as a pull through cache for Production images is similar to the one outlined previously for Free containers, but with a few extra steps.
 
@@ -87,7 +87,7 @@ Enter the `username` and `password` from the pull token in the respective fields
 
 Click the **Save** button to apply the changes.
 
-### Testing pull through of a Production container image:
+### Testing pull through of a production container image:
 
 If your setup requires authentication, log in with a valid Nexus username and password:
 
@@ -116,4 +116,4 @@ If you run into issues when trying to pull Containers from Chainguard's Registry
 
 ## Learn more
 
-If you haven't already done so, you may find it useful to review our [Registry Overview](/chainguard/chainguard-registry/overview/) to learn more about Chainguard's registry. You can also learn more about Chainguard Containers by checking out our [Containers documentation](/chainguard/chainguard-images/overview/). If you'd like to learn more about Sonatype Nexus, we encourage you to refer to the [official Nexus documentation](https://help.sonatype.com/en/sonatype-nexus-repository.html).
+If you haven't already done so, you may find it useful to review our [Registry overview](/chainguard/chainguard-registry/overview/) to learn more about Chainguard's registry. You can also learn more about Chainguard Containers by checking out our [Containers documentation](/chainguard/chainguard-images/overview/). If you'd like to learn more about Sonatype Nexus, we encourage you to refer to the [official Nexus documentation](https://help.sonatype.com/en/sonatype-nexus-repository.html).

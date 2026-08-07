@@ -1,7 +1,7 @@
 ---
 aliases:
 - /chainguard/administration/custom-idps/idp-providers/
-title: "Identity Provider Examples"
+title: "Identity provider examples"
 lead: ""
 type: "article"
 date: 2025-01-16T08:49:15+00:00

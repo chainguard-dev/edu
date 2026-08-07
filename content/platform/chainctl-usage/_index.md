@@ -1,7 +1,7 @@
 ---
 aliases:
 - /chainguard/chainctl-usage/
-title: "chainctl Usage"
+title: "chainctl usage"
 lead: "Chainguard's chainctl CLI provides command-line access to manage container images, IAM, and security resources with enhanced control over your software supply chain."
 description: "Learn how to use chainctl, Chainguard's command-line interface for managing container images, identity and access management, and security resources"
 type: "article"
@@ -23,12 +23,12 @@ To install `chainctl`, follow our <ins>[installation guide](/platform/chainctl-u
 
 Once installed, these will help you on your path to success:
 
-* <ins>[Get Started with chainctl](/get-started/getting-started-with-chainctl/)</ins>
-* <ins>[Authenticate to Chainguard's Registry](/chainguard/chainguard-images/chainguard-registry/authenticating/)</ins> - This page includes links to register for a Chainguard account, which is needed to do anything with `chainctl`. You must authenticate to Chainguard to use `chainctl`.
-* <ins>[Manage Your chainctl Configuration](/platform/chainctl-usage/manage-chainctl-config/)</ins>
-* <ins>[Find and Update Your chainctl Release Version](/platform/chainctl-usage/chainctl-version-update/)</ins>
-* <ins>[Compare Chainguard Images with chainctl diff](/platform/chainctl-usage/comparing-images/)</ins>
-* <ins>[Using chainctl to Manage Custom Assembly Resources](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/)
+* <ins>[Get started with chainctl](/get-started/getting-started-with-chainctl/)</ins>
+* <ins>[Authenticate to Chainguard's registry](/chainguard/chainguard-images/chainguard-registry/authenticating/)</ins> - This page includes links to register for a Chainguard account, which is needed to do anything with `chainctl`. You must authenticate to Chainguard to use `chainctl`.
+* <ins>[Manage your chainctl configuration](/platform/chainctl-usage/manage-chainctl-config/)</ins>
+* <ins>[Find and update your chainctl release version](/platform/chainctl-usage/chainctl-version-update/)</ins>
+* <ins>[Compare Chainguard images with chainctl diff](/platform/chainctl-usage/comparing-images/)</ins>
+* <ins>[Using chainctl to manage Custom Assembly resources](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/)
 * <ins>[Automating with chainctl](/platform/chainctl-usage/automating-chainctl/)</ins>
 * <ins>[chainctl events](/platform/chainctl-usage/chainctl-events/)</ins>
 * <ins>[chainctl iam](/platform/chainctl-usage/chainctl-iam/)</ins>

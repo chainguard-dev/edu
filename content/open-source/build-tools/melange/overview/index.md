@@ -1,9 +1,9 @@
 ---
-title: "melange Overview"
+title: "melange overview"
 aliases:
 - /open-source/melange/overview
 type: "article"
-description: "melange Overview"
+description: "melange overview"
 date: 2022-10-17T11:07:52+02:00
 lastmod: 2024-08-01T11:07:52+02:00
 draft: false

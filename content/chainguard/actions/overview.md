@@ -33,7 +33,7 @@ This page provides enough to get you started. Refer to the [Chainguard Actions R
 
 To follow this guide, you need:
 
-- `chainctl` **v0.2.261** or later, installed and authenticated. Refer to [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) if you don't have it yet.
+- `chainctl` **v0.2.261** or later, installed and authenticated. Refer to [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) if you don't have it yet.
 - An active Chainguard organization.
 - Owner access on the organization.
 

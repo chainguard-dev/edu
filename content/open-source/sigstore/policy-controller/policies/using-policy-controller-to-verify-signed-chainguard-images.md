@@ -1,9 +1,9 @@
 ---
-title: "Verify Signed Chainguard Containers"
+title: "Verify signed Chainguard Containers"
 aliases:
 - /open-source/sigstore/policy-controller/using-policy-controller-to-verify-signed-chainguard-images/
 type: "article"
-description: "Using Policy Controller to Verify Signed Chainguard Containers"
+description: "Using Policy Controller to verify signed Chainguard Containers"
 lead: "Verify Chainguard Containers with Policy Controller"
 date: 2023-02-22T13:11:29+08:29
 lastmod: 2024-05-10T13:11:29+08:29
@@ -25,11 +25,11 @@ To follow along with this guide, you will need the following:
 
 * A Kubernetes cluster with administrative access. You can set up a local cluster using [**kind**](https://kind.sigs.k8s.io/docs/user/quick-start/#installation) or use an existing cluster.
 * **kubectl** — to work with your cluster. Install `kubectl` for your operating system by following the official [Kubernetes kubectl documentation](https://kubernetes.io/docs/tasks/tools/#kubectl).
-* [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) installed in your cluster. Follow our [How To Install Sigstore Policy Controller](/open-source/sigstore/policy-controller/how-to-install-policy-controller/) guide if you do not have it installed, and be sure to label any namespace that you intend to use with the `policy.sigstore.dev/include=true` label.
+* [Sigstore Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) installed in your cluster. Follow our [How to install Sigstore Policy Controller](/open-source/sigstore/policy-controller/how-to-install-policy-controller/) guide if you do not have it installed, and be sure to label any namespace that you intend to use with the `policy.sigstore.dev/include=true` label.
 
 Once you have everything in place you can continue to the first step and confirm that the Policy Controller is working as expected.
 
-## Step 1 - Checking the Policy Controller is Denying Admission
+## Step 1 - Checking the Policy Controller is denying admission
 
 Before creating a `ClusterImagePolicy`, check that the Policy Controller is deployed and that your `default` namespace is labeled correctly. Run the following to check that the deployment is complete:
 

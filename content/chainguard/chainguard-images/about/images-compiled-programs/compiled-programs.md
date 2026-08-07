@@ -1,6 +1,6 @@
 ---
-title: "Choosing a Container for your Compiled Programs"
-linktitle: "Selecting a Container"
+title: "Choosing a container for your compiled programs"
+linktitle: "Selecting a container"
 aliases:
 - /chainguard/chainguard-images/working-with-images/compiled-programs/
 - /chainguard/chainguard-images/working-with-images/images-compiled-programs/compiled-programs
@@ -23,7 +23,7 @@ When selecting the right base image for your application, there are a variety of
 
 In this guide, we will explore a variety of Chainguard Containers which are suitable for different compiled applications. We will take a look at their availability and use-case differences so you can move closer to settling on the best base image for your specific needs.
 
-## Available Containers
+## Available containers
 
 ### wolfi-base
 
@@ -131,13 +131,13 @@ The following packages are included in the `glibc-openssl:latest` Chainguard Con
 
 You can find the complete inventory of packages for the `glibc-openssl` Chainguard Container at [its listing on Chainguard's registry](https://images.chainguard.dev/directory/image/glibc-openssl/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-compiled-programs-compiled-programs).
 
-## What About `musl`?
+## What about `musl`?
 
 At the time of this writing, no Chainguard Containers come packaged with `musl`. Chainguard builds `glibc`-based container images because `glibc` is commonly used, which makes it easier for most developers to start consuming Chainguard Containers in their environments. Additionally, `glibc` is widely tested, making it a dependable choice for a C standard library implementation. As `glibc` is a well-established option, choosing to use `glibc` ensures more applications will be compatible with new images.
 
 Though `musl` is sometimes chosen because of its minimal footprint, Chainguard’s distroless approach based on [Wolfi](https://www.chainguard.dev/unchained/introducing-wolfi-the-first-linux-un-distro) often results in a container image of comparable (or smaller) size than official `musl` based images. For more information, please refer to our [glibc vs. musl](/chainguard/chainguard-images/about/images-compiled-programs/glibc-vs-musl/) article.
 
-## Next Steps
+## Next steps
 
 Understanding the differences between various Chainguard Containers allows you to make informed decisions about what images to choose for your compiled applications. You can check out our complete suite of Chainguard Containers on [Chainguard's registry](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-compiled-programs-compiled-programs). To learn more about using Chainguard Containers, head to the [Chainguard Academy](/chainguard/chainguard-images/), where you can find documentation to help you start incorporating them into your workflow.
 

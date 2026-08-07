@@ -1,10 +1,10 @@
 ---
-title: "How to Install Sigstore Policy Controller"
+title: "How to install Sigstore Policy Controller"
 linktitle: "Install"
 aliases:
 - /open-source/sigstore/policy-controller/enforce-sbom-attestation-with-policy-controller/
 type: "article"
-description: "Install the Sigstore Policy Controller into a Kubernetes Cluster"
+description: "Install the Sigstore Policy Controller into a Kubernetes cluster"
 lead: "Installing Sigstore Policy Controller"
 date: 2023-02-21T13:11:29+08:29
 lastmod: 2024-05-10T13:11:29+08:29
@@ -33,7 +33,7 @@ To follow along with this guide, you will need the following:
 
 Once you have everything in place you can continue to the next step and install the Policy Controller.
 
-## Step 1 — Creating the `cosign-system` Kubernetes Namespace
+## Step 1 — Creating the `cosign-system` Kubernetes namespace
 
 The first step that you need to complete is to create a Kubernetes `namespace` for the Policy Controller to run in. Call it `cosign-system` and run the following command to create it:
 
@@ -95,7 +95,7 @@ deployment.apps/policy-controller-webhook condition met
 deployment.apps/policy-controller-policy-webhook condition met
 ```
 
-A full list of the resources that the Policy Controller deploys into your cluster is available at the end of this guide in [Appendix — Resource Types](#appendix--resource-types).
+A full list of the resources that the Policy Controller deploys into your cluster is available at the end of this guide in [Appendix — Resource types](#appendix--resource-types).
 
 You have now deployed the Policy Controller into your cluster. The next step is to enable it for the namespaces that you want to enforce policies in.
 
@@ -187,7 +187,7 @@ kubectl delete pod nginx
 
 To learn more about how the Policy Controller admits images, review the [Admission of images page](https://docs.sigstore.dev/policy-controller/overview/#admission-of-images) Sigstore documentation.
 
-## Appendix — Resource Types
+## Appendix — Resource types
 
 A complete Policy Controller installation consists of the following resources in a cluster:
 

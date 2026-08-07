@@ -1,6 +1,6 @@
 ---
-title: "Building Minimal Container Images for Applications with Runtimes"
-linktitle: "Minimal Runtime Containers"
+title: "Building minimal container images for applications with runtimes"
+linktitle: "Minimal runtime containers"
 aliases:
 - /chainguard/chainguard-images/videos/minimal-runtime-images/
 - /chainguard/chainguard-images/how-to-use/minimal-runtime-images/

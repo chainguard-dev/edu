@@ -28,11 +28,11 @@ On top of this, you must authenticate into Chainguard to use Chainguard Containe
 
 Our FIPS-compliant [Federal Information Processing Standard](/chainguard/chainguard-images/working-with-images/fips-images/) images, combined with  STIG-hardened (Security Technical Implementation Guide) configurations, provide an even stronger foundation for meeting the requirements of PCI DSS because they are hardened further to meet the more stringent FedRAMP requirements.
 
-## What are STIG-Hardened FIPS Images?
+## What are STIG-hardened FIPS images?
 
 STIG-hardened FIPS images are pre-configured container images that have been secured according to the Security Technical Implementation Guide (STIG) standards set by the Defense Information Systems Agency (DISA). These images meet stringent federal security requirements, combining FIPS-compliant encryption with robust security configurations that protect against vulnerabilities and threats. By using STIG-hardened FIPS images, organizations ensure that their systems adhere to federal encryption standards and best practices for cybersecurity, making them particularly valuable in environments that require high levels of security.
 
-## How do Chainguard Containers Help?
+## How do Chainguard Containers help?
 
 One of the main requirements of PCI DSS is to maintain a vulnerability management program. PCI DSS requires you to scan for vulnerabilities once every three months (Requirement 11.3.1) and triage and address all vulnerabilities (Requirement 11.3.11). Chainguard protects you from malicious attacks by supplying you with images where CVEs have already been dealt with, removing vulnerabilities for you.
 
@@ -48,10 +48,10 @@ Chainguard Containers are carefully engineered to contain low-to-no CVEs. Organi
 - **Less ongoing human overhead**: Every new Chainguard Container version is carefully scanned and any addressable CVEs are fixed. ‍
 - **Trust in our industry-leading CVE SLA**: We are committed to supplying secure software and commit to fixing CVEs [quickly](https://www.chainguard.dev/cve-sla) so you don’t have to.
 
-## Browse all CMMC 2.0 Articles
+## Browse all CMMC 2.0 articles
 
 - [Introduction to PCI DSS 4.0](/compliance/pci-dss-4/intro-pci-dss-4/)
-- [Overview of PCI DSS 4.0 Practices/Requirements](/compliance/pci-dss-4/pci-dss-practices/)
+- [Overview of PCI DSS 4.0 practices/requirements](/compliance/pci-dss-4/pci-dss-practices/)
 - (Current article) How Chainguard Can Help With PCI DSS 4.0
 
 **[Get started with FIPS Chainguard Containers today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**

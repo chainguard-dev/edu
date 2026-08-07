@@ -19,13 +19,13 @@ toc: true
 
 This page answers frequently asked questions about Octo STS, including setup, security, troubleshooting, and common use cases.
 
-## General Questions
+## General questions
 
 ### What is Octo STS?
 
 Octo STS is a GitHub App developed by Chainguard that acts as a Security Token Service for GitHub. It allows workloads with OIDC tokens from various identity providers (GitHub Actions, cloud providers, Kubernetes, etc.) to exchange those tokens for short-lived GitHub access tokens. The primary goal is to eliminate the need for long-lived Personal Access Tokens (PATs).
 
-### Why should I use Octo STS instead of Personal Access Tokens?
+### Why should I use Octo STS instead of personal access tokens?
 
 Personal Access Tokens pose security risks as they provide persistent access to resources and are not tied to a given workload. Attackers regularly abuse leaked PATs to gain access to systems and resources.
 
@@ -53,7 +53,7 @@ Yes, Octo STS is open source and the hosted service at octo-sts.dev is free to u
 
 Yes, Octo STS is open source and can be self-hosted. Refer to the [Octo STS repository](https://github.com/octo-sts/app) for deployment instructions.
 
-## Setup and Configuration
+## Setup and configuration
 
 ### How do I install Octo STS?
 
@@ -188,7 +188,7 @@ Common causes:
 - **Wrong branch**: Trust policies are typically read from the default branch (main/master)
 - **Invalid permissions**: The policy requests permissions that don't exist or can't be granted by the app
 
-## Operational Questions
+## Operational questions
 
 ### How long do Octo STS tokens last?
 
@@ -221,7 +221,7 @@ Octo STS periodically adds or removes GitHub permissions to support new use case
 
 Yes, you can use both during a transition period. This allows gradual migration and rollback capability if issues arise.
 
-## Getting Help
+## Getting help
 
 ### Where can I report bugs?
 

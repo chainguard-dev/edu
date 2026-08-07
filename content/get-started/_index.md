@@ -1,5 +1,5 @@
 ---
-title: "Get Started"
+title: "Get started"
 lead: "New to Chainguard? Start here. Orient yourself, then pick the path that matches what you're trying to do — build with containers, build with libraries, evaluate trust, or migrate an organization."
 description: "Get started with Chainguard: orient yourself, then choose your path — build with containers, build with libraries, evaluate trust, or migrate an existing organization."
 date: 2026-06-09T08:48:23+00:00

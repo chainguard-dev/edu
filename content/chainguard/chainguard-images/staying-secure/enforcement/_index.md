@@ -1,5 +1,5 @@
 ---
-title: "Ensuring Containers are Used Securely"
+title: "Ensuring containers are used securely"
 linktitle: "Enforcement"
 description: "Guides on enforcing best practices and security requirements related to Chainguard Containers."
 type: "article"

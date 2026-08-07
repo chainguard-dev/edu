@@ -1,6 +1,6 @@
 ---
-title: "How End-of-Life Software Accumulates Vulnerabilities"
-linktitle: "EOL Vulnerabilities"
+title: "How end-of-life software accumulates vulnerabilities"
+linktitle: "EOL vulnerabilities"
 aliases:
 - /chainguard/chainguard-images/recommended-practices/how-eol-software-accumulates-cves
 - /chainguard/chainguard-images/staying-secure/updating-images/how-eol-software-accumulates-cves
@@ -113,10 +113,10 @@ Following the release of version 2.9.10, 55 vulnerabilities were reported: four 
 
 - ‍[CVE-2023-5363](https://nvd.nist.gov/vuln/detail/CVE-2023-5363): An out-of-bounds write within OpenSSL, a dependency of the base image [Alpine 3.17](https://github.com/traefik/traefik-library-image/blob/v2.9.10/alpine/Dockerfile#L1) used by Traefik (impacts `libcrypto3` and `libssl3`). The Chainguard Container of Trafeik uses the [wolfi-base image](https://github.com/chainguard-images/images/tree/main/images/wolfi-base), which runs the updated versions of libcrypto3 and libssl3.
 
-## Learn More
+## Learn more
 
 End-of-life software represents a significant security risk. This issue becomes particularly critical when vulnerabilities are found directly in the target application of the image.
 
 The only option when that occurs is to update. However, the vast majority of vulnerabilities that appear in an EOL image will come from its additional components, meaning that updating just the application software may not significantly reduce the overall number of vulnerabilities. Thus the best option is to have a plan to keep your software updated to the latest versions promptly.
 
-To learn more about keeping container images up to date, we encourage you to check out our article on [Considerations for Keeping Containers Up to Date](/chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/) as well as our overview of [Strategies and Tooling for Updating Containers](/chainguard/chainguard-images/recommended-practices/strategies-tools-updating-images/).
+To learn more about keeping container images up to date, we encourage you to check out our article on [Considerations for keeping containers up to date](/chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/) as well as our overview of [Strategies and tooling for updating containers](/chainguard/chainguard-images/recommended-practices/strategies-tools-updating-images/).

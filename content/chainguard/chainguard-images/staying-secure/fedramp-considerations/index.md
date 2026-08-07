@@ -1,8 +1,8 @@
 ---
-title: "FedRAMP Technical Considerations & Risk Factors"
-linktitle: "FedRAMP Considerations"
+title: "FedRAMP technical considerations and risk factors"
+linktitle: "FedRAMP considerations"
 type: "article"
-description: "A conceptual overview of Chainguard FIPS Containers."
+description: "A conceptual overview of Chainguard FIPS containers."
 date: 2025-01-29T15:56:52-07:00
 lastmod: 2025-01-29T15:56:52-07:00
 draft: false
@@ -17,7 +17,7 @@ toc: true
 
 Many frequently asked questions revolve around how organizations are meant to stay on top of the changing landscape for FedRAMP, PMOS, Revisions, and Certificates. This article outlines various considerations and risk factors that organizations should keep in mind when working to become and stay FedRAMP authorized.
 
-## Important Considerations for PMO Revision Trends
+## Important considerations for PMO revision trends
 
 There are a number of things one should keep in mind when analyzing revision trends from the FedRAMP Program Management Office (PMO) — which oversees the development of the FedRAMP program — and the changes in [FIPS 140-3](https://csrc.nist.gov/projects/fips-140-3-transition-effort). The following are of particular importance:
 
@@ -33,7 +33,7 @@ There are a number of things one should keep in mind when analyzing revision tre
 
 While FIPS 140-3 is not immediately on the horizon for 2025, it will become the law of the land in 2026. As organizations begin analyzing their requirements and architecture constraints this year, it will be crucial to review and plan for the upcoming changes that are outlined in this section.
 
-## Ongoing FIPS Maintenance Risks (and How Chainguard Can Help)
+## Ongoing FIPS maintenance risks (and how Chainguard can help)
 
 An organization's upfront FIPS configuration is important, but the real difficulties often come later on. While organizations frequently pass an audit with their initial configuration, there is a high level of risk associated with ongoing maintenance. This section highlights some of the risks associated with ongoing FIPS maintenance and how Chainguard can resolve them.
 
@@ -59,7 +59,7 @@ While FIPS modules can be easier to implement within the base layer of an image,
 
 Furthermore, many open source projects, such as Cassandra, cannot even support FIPS validation in their current state until they change the architecture and source code to be able to support this. Knowing which projects can support FIPS and which cannot is very useful in analyzing images within scope. Since Chainguard’s catalog consists of 100s of FIPS validated images, we have done the heavy lifting of this analysis, and continue to do so for new requests from our customers.
 
-## Revision 5 Key Requirements Solved with Chainguard Container Images
+## Revision 5 key requirements solved with Chainguard container images
 
 Using Chainguard Containers eliminates the manual toil of container security hassles. Hardened and low CVE images save you time and money by making sure you always meet the security standards needed for government work.
 
@@ -68,9 +68,9 @@ The following table highlights the features of Chainguard Containers as mapped t
 <center><img src="fedramp-considerations-1.png" alt="Table showing Chainguard Containers features mapped to FedRAMP Rev 5 baselines. The table has two columns: Features and Rev 5 Control. The Features Column categorizes features into three categories, each showing three features and their explanations. The first is 'Continuous Vulnerability Management and Automation,' which includes the features Almost No Vulnerabilities, Automatic Fixes, and Security advisories. These are mapped to RA-5 Vulnerability Scanning, CA-7 Continuous Monitoring, and SI-2 Flaw Remediation. The second category is 'Secure by Default' with the features Minimal Images, Strong Encryption, and Hardened Images. These are mapped to SA-10 Developer Configuration Management and SA-11 Developer Security Testing and Evaluation. The final category is 'Asset Management Best Practices' which includes the features Build time SBOMs for Each Image, OCI Standard Images, and Signed with Sigstore. These are mapped to SC - 8 Protection of Information in Transit and SC-28 Protection of Information at Rest." style="width:1100px;"></center>
 <br />
 
-Additionally, Chainguard helps support CM-6 configuration settings requirements. Chainguard announced the release of a STIG for the General Purpose Operating System (GPOS) SRG which specifies security requirements for general purpose operating systems running in a network. The goal for this STIG is that it will help customers confidently and securely integrate Chainguard Containers into their workflows. Please refer to our [STIGS Overview](https://edu.chainguard.dev/chainguard/chainguard-images/working-with-images/image-stigs/#how-stigs-can-be-used-to-harden-images) for more information.
+Additionally, Chainguard helps support CM-6 configuration settings requirements. Chainguard announced the release of a STIG for the General Purpose Operating System (GPOS) SRG which specifies security requirements for general purpose operating systems running in a network. The goal for this STIG is that it will help customers confidently and securely integrate Chainguard Containers into their workflows. Please refer to our [STIGs overview](https://edu.chainguard.dev/chainguard/chainguard-images/working-with-images/image-stigs/#how-stigs-can-be-used-to-harden-images) for more information.
 
-## Kernel-Independent FIPS Container Images
+## Kernel-independent FIPS container images
 
 Cryptographic protection relies on the secure implementation of a trusted algorithm and a random bit generator that cannot be reasonably predicted at any greater accuracy than random chance. To certify these implementations, NIST operates a cryptographic certification program called the Cryptographic Module Validation Program ([CMVP](https://csrc.nist.gov/projects/cryptographic-module-validation-program)). CMVP validates that implementation is compliant with the relevant standards:
 

@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with the MinIO Chainguard Container"
+title: "Getting started with the MinIO Chainguard Container"
 type: "article"
 linktitle: "MinIO"
 description: "Learn how to deploy MinIO object storage with Chainguard's secure, minimal container images for S3-compatible storage solutions with reduced vulnerabilities"
@@ -43,7 +43,7 @@ In this guide, we'll demonstrate how to deploy and use MinIO with Chainguard Con
 
 This tutorial requires Docker to be installed on your local machine. If you don't have Docker installed, you can download and install it from the [official Docker website](https://docs.docker.com/get-docker/).
 
-### Cloning the Demos Repository
+### Cloning the demos repository
 
 Start by cloning the demos repository to your local machine:
 
@@ -138,7 +138,7 @@ Note that the data will persist in the `minio-data` volume even after stopping t
 docker compose down -v
 ```
 
-## Example 2: Building a Python Client Application with Multi-Stage Build
+## Example 2: Building a Python client application with multi-stage build
 
 This example demonstrates how to build containerized applications that interact with MinIO programmatically using the S3 API. This pattern is common in production systems for automated workflows such as CI/CD pipelines that upload build artifacts, data processing jobs that read and write large datasets, backup systems that archive files to object storage, or microservices that store and retrieve user-generated content.
 
@@ -153,7 +153,7 @@ The demo includes a Python script that performs the following operations:
 - Downloading objects
 - Deleting objects
 
-### Step 1: Understanding the Application Structure
+### Step 1: Understanding the application structure
 
 The application consists of three main files:
 
@@ -190,7 +190,7 @@ def get_minio_client():
 
 The application includes functions for common operations like creating buckets, uploading objects, and listing contents. It demonstrates best practices such as connection retry logic and proper error handling.
 
-### Step 2: Understanding the Multi-Stage Dockerfile
+### Step 2: Understanding the multi-stage Dockerfile
 
 The `Dockerfile` uses a multi-stage build to keep the final image minimal and secure:
 
@@ -234,7 +234,7 @@ This Dockerfile will:
 5. Run as a non-root user for enhanced security;
 6. Set the application as the container's entry point.
 
-### Step 3: Running the Complete Example
+### Step 3: Running the complete example
 
 The `docker-compose.yml` file includes both the MinIO server and the Python application:
 
@@ -333,7 +333,7 @@ To stop all services, run:
 docker compose down
 ```
 
-### Step 4: Extending the Application for Your Use Case
+### Step 4: Extending the application for your use case
 
 This demo application provides a foundation for building production object storage workflows. You can extend it to meet specific requirements such as:
 
@@ -344,7 +344,7 @@ This demo application provides a foundation for building production object stora
 
 The MinIO Python SDK supports the full S3 API, enabling you to implement any S3-compatible functionality required for your use case. This makes it a suitable replacement for AWS S3 in development environments, or for production deployments where you need control over your storage infrastructure.
 
-## Using MinIO Images from Docker Hub
+## Using MinIO images from Docker Hub
 
 The demo repository includes alternative configurations using the older Docker Hub images (`minio/minio:latest` and `python:3.13-slim`) for comparison purposes. However, these images are no longer recommended for production use.
 
@@ -363,7 +363,7 @@ docker compose -f docker-compose.dockerhub.yml up
 - **SBOM included** - Complete software bill of materials for compliance
 - **Free and publicly available** - No authentication required to pull the image
 
-## Video Walkthrough: Multi-Stage Build and Image Scanning
+## Video walkthrough: Multi-stage build and image scanning
 
 This video demonstrates the workflow covered in Example 2, showing how to build the Python client application using a multi-stage Docker build with Chainguard images. The walkthrough also includes scanning both the Chainguard MinIO image and the Docker Hub alternative with Grype to compare their security profiles, illustrating the vulnerability differences between maintained and unmaintained container images.
 

@@ -57,7 +57,7 @@ At the bottom of the page, see a total count of available libraries.
 
 The upstream fallback is available for JavaScript, Python, and Java Libraries. The upstream fallback can be enabled or disabled using the `chainctl libraries entitlements` commands, per ecosystem. Currently, the Chainguard Console can be used to enable, disable, and view the status of the upstream fallback for JavaScript only. At the top of the JavaScript page in the Console, you can see whether [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) is enabled.
 
-Learn more in the [Libraries Overview documentation](/chainguard/libraries/overview/#upstream-fallback-and-controls).
+Learn more in the [Libraries overview documentation](/chainguard/libraries/overview/#upstream-fallback-and-controls).
 
 When fallback is configured for your organization, you will see all JavaScript packages -- including those built by Chainguard and those that are mirrored from upstream npm -- in the Console. For a given package, you can see whether it is being served from Chainguard's rebuilt artifacts or proxied from upstream npm. For Java and Python, you cannot currently view upstream vs. Chainguard-built packages via the Chainguard Console.
 
@@ -138,4 +138,4 @@ The Chainguard Console provides visibility into your repository configuration an
 ## Other resources
 
 * [Chainguard Console](/platform/console/): Learn about using the Chainguard Console to browse container images.
-* [Libraries Overview](/chainguard/libraries/overview/): Learn about criteria for building a library, upstream fallback and policy controls, and more.
+* [Libraries overview](/chainguard/libraries/overview/): Learn about criteria for building a library, upstream fallback and policy controls, and more.

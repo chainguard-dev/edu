@@ -1,6 +1,6 @@
 ---
-title: "How to Use Chainguard iamguarded Helm Charts"
-linktitle: "Using Chainguard iamguarded Helm Charts"
+title: "How to use Chainguard iamguarded Helm charts"
+linktitle: "Using Chainguard iamguarded Helm charts"
 aliases:
 type: "article"
 description: "A primer on how to use Chainguard-produced iamguarded Helm charts to deploy Chainguard container images"
@@ -21,7 +21,7 @@ toc: true
 
 Chainguard offers this limited iamguarded set of Helm charts to go with a set of Chainguard-created containers labeled as iamguarded, designed specifically to support organizations migrating off of Bitnami. The iamguarded charts are forked from upstream Bitnami charts, but now configured out-of-the box for use with Chainguard’s hardened container images. These charts only receive edits necessary to make them work with Chainguard container images and retain the intended functionality of the originals they are based on. Because the iamguarded charts are forks, they may be susceptible to breaking changes introduced by the upstream. In such cases, customers should plan to transition to a community-provided alternative (or an equivalent one from Chainguard) where possible.
 
-> For organizations looking to deploy their Chainguard container images with Helm and who don't need or want the iamguarded charts, Chainguard provides upstream-produced Helm charts. Learn more about these in [How to use Chainguard Helm Charts](/chainguard/chainguard-images/how-to-use/use-chainguard-helm-charts/).
+> For organizations looking to deploy their Chainguard container images with Helm and who don't need or want the iamguarded charts, Chainguard provides upstream-produced Helm charts. Learn more about these in [How to use Chainguard Helm charts](/chainguard/chainguard-images/how-to-use/use-chainguard-helm-charts/).
 
 These iamguarded charts have been tested by Chainguard to confirm they produce expected deployment results using the following policies:
 
@@ -35,7 +35,7 @@ The following is an instructional guide for Chainguard users that are looking fo
 
 You can use these Helm charts with Chainguard FIPS container images, but you will need to adjust the charts as they use the non-FIPS images by default. We build a single chart per application and validate that both FIPS and non-FIPS Chainguard Images work with it.
 
-## Configuration Requirements
+## Configuration requirements
 
 If you are pulling container images directly from Chainguard, then you must set a `global.org` value. You don't need this if you are pulling from your own internal registry.
 
@@ -242,7 +242,7 @@ Then you refer to the file like this:
 helm install test oci://cgr.dev/chainguard-private/iamguarded-charts/rabbitmq --values ./values.yaml
 ```
 
-### Install on AWS Elastic Kubernetes Service (EKS) Auto Mode
+### Install on AWS Elastic Kubernetes Service (EKS) auto mode
 
 When installing on EKS Auto Mode, you may need to create a storage class for the Helm chart's pod(s). This can be done by creating a storage class:
 
