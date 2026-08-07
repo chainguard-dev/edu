@@ -6,7 +6,7 @@ linktitle: "API v1 to v2 Migration"
 type: "article"
 description: "How to migrate a direct integration with the Chainguard API from v1 to the GA API v2."
 date: 2026-07-20T00:00:00+00:00
-lastmod: 2026-08-04T14:31:22+00:00
+lastmod: 2026-08-07T13:02:36+00:00
 draft: false
 tags: ["Chainguard Console", "Procedural"]
 images: []
@@ -93,7 +93,7 @@ v1 uses PUT semantics: changing one field means sending the entire resource back
 
 ```shell
 curl -X PATCH -H "Authorization: Bearer $TOKEN" \
-  "$API/iam/v2/groups/$GROUP_UID?updateMask=description" \
+  "$API/registry/v2/repos/$REPO_UID?updateMask=description" \
   -d '{"description": "updated description"}'
 ```
 
@@ -113,7 +113,7 @@ v1 pagination relies on page numbers or offsets, and loads the full result set i
 
 ```shell
 curl -H "Authorization: Bearer $TOKEN" \
-  "$API/iam/v2/groups?uidp.descendants_of=$ORG_ID&page_size=3&order_by=name" | jq .
+  "$API/registry/v2/repos?uidp.descendants_of=$ORG_ID&page_size=3&order_by=name" | jq .
 ```
 
 Replace any page-number or offset logic with a loop that follows `page_token` until the response stops returning one. Use `skip` instead if you need to jump to an arbitrary page. Adopt `order_by` and drop any client-side sort you were doing to compensate.
@@ -124,7 +124,7 @@ v1 typically requires filtering a List call to fetch a single resource. v2 adds 
 
 ```shell
 curl -H "Authorization: Bearer $TOKEN" \
-  "$API/iam/v2/groups/$GROUP_UID"
+  "$API/registry/v2/repos/$REPO_UID"
 ```
 
 Replace any "list and filter to one item" pattern with the dedicated Get endpoint for that resource.
@@ -146,34 +146,30 @@ If your integration currently treats an empty v1 result as ambiguous, or works a
 
 All v2 endpoints are also available directly via gRPC, at the same host. Proto definitions are at `chainguard.dev/sdk/proto/chainguard/platform/`. At GA the `v2beta1` designation is dropped across REST paths, gRPC proto packages, and the Go SDK. If you call the API via generated gRPC clients, regenerate them against the `v2` packages; the Go SDK clients aggregation moves to `chainguard.dev/sdk/proto/chainguard/platform/clients/v2`.
 
-## Full example: listing and deleting groups
+## Full example: listing and deleting repos
 
 **Before (v1):**
 
 ```shell
 curl -H "Authorization: Bearer $TOKEN" \
-  "$API/iam/v1/groups?uidp.descendants_of=$ORG_ID"
+  "$API/registry/v1/repos?uidp.descendants_of=$ORG_ID"
 ```
 
 **After (v2):**
 
 ```shell
 curl -H "Authorization: Bearer $TOKEN" \
-  "$API/iam/v2/groups?uidp.descendants_of=$ORG_ID&page_size=3&order_by=name" | jq .
+  "$API/registry/v2/repos?uidp.descendants_of=$ORG_ID&page_size=3&order_by=name" | jq .
 ```
 
-Delete calls follow the same path-prefix change, with no other behavior change:
+Delete follows the same path-prefix change, with no other behavior change:
 
 ```shell
 curl -X DELETE -H "Authorization: Bearer $TOKEN" \
-  "$API/iam/v2/roleBindings/$BINDING_UID"
-curl -X DELETE -H "Authorization: Bearer $TOKEN" \
-  "$API/iam/v2/identities/$IDENTITY_UID"
-curl -X DELETE -H "Authorization: Bearer $TOKEN" \
-  "$API/iam/v2/groups/$GROUP_UID"
+  "$API/registry/v2/repos/$REPO_UID"
 ```
 
-Each `DELETE` returns an empty response body on success, same as v1. A delete blocked by a dependent resource now returns a `PreconditionFailure` error detail explaining why, instead of an ambiguous failure.
+A `DELETE` returns an empty response body on success, same as v1. A delete blocked by a dependent resource now returns a `PreconditionFailure` error detail explaining why, instead of an ambiguous failure.
 
 ## Timeline
 
