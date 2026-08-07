@@ -2,6 +2,9 @@
 {{ $css := resources.Get "css/vendor/scalar/style.css" | fingerprint "sha512" -}}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
 <style>
+  html {
+    scroll-behavior: auto !important;
+  }
   .scalar-app ul {
     padding-left: 0;
     margin-bottom: 0;
