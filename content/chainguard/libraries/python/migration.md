@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-08-05T19:13:35+00:00
+lastmod: 2026-08-06T19:08:57+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -20,6 +20,8 @@ This guide walks through migrating an existing Python project to Chainguard Libr
 
 * **Direct access**: Your build tool connects directly to `libraries.cgr.dev`. This option is faster for initial evaluation and smaller-scale setups.  
 * **Repository manager**: Your build tool connects to a repository manager (such as JFrog Artifactory or Sonatype Nexus), which proxies requests to Chainguard Libraries. This option is recommended for teams and organizations.
+
+To follow along with a ready-made project instead of your own, use the [Chainguard Libraries for Python demo repository](https://github.com/chainguard-demo/chainguard-libraries-python). It provides example projects for pip, uv, and Poetry, each with a `demo.sh` script that configures access and installs sample packages.
 
 ## Prerequisites
 

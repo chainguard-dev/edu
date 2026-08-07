@@ -5,7 +5,7 @@ lead: ""
 description: "Swap in your first secure dependency with Chainguard Libraries: a quickstart and migration walkthroughs for Java, JavaScript, and Python."
 type: "article"
 date: 2026-06-26T00:00:00+00:00
-lastmod: 2026-08-03T14:51:58+00:00
+lastmod: 2026-08-06T19:08:57+00:00
 draft: false
 images: []
 weight: 025
@@ -30,3 +30,11 @@ These on-ramp guides link to the published Chainguard Libraries documentation. L
 - **[Migrate a Java project](/chainguard/libraries/java/migration/)** — switch an existing Maven or Gradle project over to Chainguard Libraries.
 - **[Migrate a JavaScript project](/chainguard/libraries/javascript/migration/)** — switch an existing npm project over to Chainguard Libraries.
 - **[Migrate a Python project](/chainguard/libraries/python/migration/)** — switch an existing pip, uv, or Poetry project over to Chainguard Libraries.
+
+## Example projects
+
+For hands-on testing, each ecosystem has a demo repository with example projects you can clone and run:
+
+- **[Chainguard Libraries for Java](https://github.com/chainguard-demo/chainguard-libraries-java)** — Maven and Gradle projects, including a Spring Boot application and CVE remediation demos.
+- **[Chainguard Libraries for JavaScript](https://github.com/chainguard-demo/chainguard-libraries-javascript)** — npm, pnpm, Yarn, and Bun examples, each with a `demo.sh` script.
+- **[Chainguard Libraries for Python](https://github.com/chainguard-demo/chainguard-libraries-python)** — pip, uv, and Poetry examples, each with a `demo.sh` script.

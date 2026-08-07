@@ -4,7 +4,7 @@ linktitle: "Manage with Chainguard's API"
 type: "article"
 description: "How to use the Chainguard API to manage Custom Assembly resources."
 date: 2025-05-01T11:07:52+02:00
-lastmod: 2025-07-15T11:07:52+02:00
+lastmod: 2026-08-07T13:38:58+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural", "Custom Assembly"]
 images: []
@@ -158,10 +158,10 @@ These functions come together in the `main()` function, which performs five main
 
 To accomplish all this, the application's functions perform the following API calls:
 
-* [ListBuildReports](/chainguard/api/spec/#/operations/Registry_ListBuildReports)
-* [ListRepos](/chainguard/api/spec/#/operations/Registry_ListRepos)
-* [UpdateRepo](/chainguard/api/spec/#/operations/Registry_UpdateRepo)
-* [Groups_List](/chainguard/api/spec/#/operations/Groups_List)
+* [ListBuildReports](/platform/api/spec/#tag/registry/GET/registry/v1/buildreports)
+* [ListRepos](/platform/api/spec/#tag/registry/GET/registry/v1/repos)
+* [UpdateRepo](/platform/api/spec/#tag/registry/PUT/registry/v1/repos/{id})
+* [Groups_List](/platform/api/spec/#tag/groups/GET/iam/v1/groups)
 
 For a deeper understanding of what each function does and how the application works overall, we encourage you to closely review the `main.go` file before running it. You may also benefit from reviewing our [OpenAPI Specification reference document](/chainguard/api/spec/).
 

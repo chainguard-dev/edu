@@ -4,7 +4,7 @@ linktitle: "EOL Grace Period"
 type: "article"
 description: "Understanding Chainguard's end-of-life (EOL) grace period."
 date: 2025-05-14T08:49:31+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-08-07T13:38:58+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -86,7 +86,7 @@ To maximize the value of a grace period, we recommend the following:
 
 Although the Chainguard Console is a useful interface, many customers would prefer to integrate EOL data with their preferred tools for faster, more convenient monitoring. For this reason, Chainguard has developed an API to serve customers with EOL data sufficient for monitoring the lifecycle of their images.
 
-The API endpoint you can reach for EOL data is [`Registry_ListEolTags`](/chainguard/api/spec/#/operations/Registry_ListEolTags). This section outlines how you can use `curl` to make a call to this API endpoint.
+The API endpoint you can reach for EOL data is [`Registry_ListEolTags`](/platform/api/spec/#tag/registry/GET/registry/v1/eoltags). This section outlines how you can use `curl` to make a call to this API endpoint.
 
 To follow along, you'll need to know the unique ID path (UIDP) of the container image repository you'd like to retrieve end-of-life data for. You can find this with the following `chainctl` command:
 
