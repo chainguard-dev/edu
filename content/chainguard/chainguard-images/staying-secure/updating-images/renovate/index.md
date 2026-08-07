@@ -190,7 +190,7 @@ The benefit of this approach is that it allows you to define your update strateg
 
 Renovate supports updating [Helmfile](https://helmfile.readthedocs.io/) releases with its [built-in `helmfile` manager](https://docs.renovatebot.com/modules/manager/helmfile/). However, it doesn't presently support updating [digest references](/chainguard/chainguard-images/how-to-use/container-image-digests/) for OCI chart URLs, which is a [recommended practice when deploying Chainguard Helm charts](/chainguard/chainguard-images/how-to-use/use-chainguard-helm-charts/#pin-to-digest). See [renovatebot/renovate#45054](https://github.com/renovatebot/renovate/discussions/45054) for more details.
 
-To pin Chainguard Helm charts to digests and update them with Renovate, you can use a [custom `jsonata` manager](https://docs.renovatebot.com/modules/manager/custom.jsonata/) as a workaround.
+To pin Chainguard Helm charts to digests and update them with Renovate, you can use a [custom `jsonata` manager](https://docs.renovatebot.com/modules/manager/jsonata/) as a workaround.
 
 Given a `helmfile.yaml` such as:
 
