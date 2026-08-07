@@ -1,5 +1,5 @@
 ---
-date: 2026-08-05T11:11:55Z
+date: 2026-08-06T11:47:15Z
 title: "chainctl iam identity-providers list"
 slug: chainctl_iam_identity-providers_list
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_list/
@@ -14,7 +14,7 @@ toc: true
 List identity providers.
 
 ```
-chainctl iam identity-providers list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--output=json|table|tree]
+chainctl iam identity-providers list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--recursive] [--output=json|table|tree]
 ```
 
 ### Examples
@@ -25,12 +25,16 @@ chainctl iam identity-providers list [--parent ORGANIZATION_NAME | ORGANIZATION_
   
   # Filter list by location
   chainctl iam identity-providers list --parent=my-org
+  
+  # List only identity providers directly in an organization, excluding nested locations
+  chainctl iam identity-providers list --parent=my-org --recursive=false
 ```
 
 ### Options
 
 ```
-      --parent string   List identity providers in this location and its descendants.
+      --parent string   List identity providers from this location.
+      --recursive       List identity providers from the parent location and all nested locations. Set to false to list only the parent location. (default true)
 ```
 
 ### Options inherited from parent commands
