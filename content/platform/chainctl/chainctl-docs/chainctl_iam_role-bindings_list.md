@@ -1,5 +1,5 @@
 ---
-date: 2026-08-05T11:11:55Z
+date: 2026-08-06T11:47:15Z
 title: "chainctl iam role-bindings list"
 slug: chainctl_iam_role-bindings_list
 url: /platform/chainctl/chainctl-docs/chainctl_iam_role-bindings_list/
@@ -14,7 +14,7 @@ toc: true
 List role-bindings.
 
 ```
-chainctl iam role-bindings list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--output=json|table|tree]
+chainctl iam role-bindings list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--recursive] [--output=json|table|tree]
 ```
 
 ### Examples
@@ -25,12 +25,16 @@ chainctl iam role-bindings list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | 
   
   # Filter role-bindings by organization
   chainctl iam role-bindings list --parent=my-org
+  
+  # List only role-bindings directly in an organization, excluding nested locations
+  chainctl iam role-bindings list --parent=my-org --recursive=false
 ```
 
 ### Options
 
 ```
       --parent string   List role-bindings from this location.
+      --recursive       List role-bindings from the parent location and all nested locations. Set to false to list only the parent location. (default true)
 ```
 
 ### Options inherited from parent commands
