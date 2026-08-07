@@ -6,7 +6,7 @@ linktitle: "API v2 tutorial"
 type: "article"
 description: "Tutorial with examples showing how you can use the Chainguard API v2."
 date: 2026-03-30T08:49:31+00:00
-lastmod: 2026-08-04T13:01:07+00:00
+lastmod: 2026-08-07T13:02:36+00:00
 draft: false
 tags: ["Chainguard Console", "Procedural"]
 images: []
@@ -75,46 +75,37 @@ Keep the following in mind as you work through this guide.
 
 ## 1. Your first v2 request
 
-List the first 3 groups in your organization:
+List the first 3 repos in your organization:
 
 ```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
-  "$API/iam/v2/groups?uidp.descendants_of=$ORG_ID&page_size=3&order_by=name" | jq .
+  "$API/registry/v2/repos?uidp.descendants_of=$ORG_ID&page_size=3&order_by=name" | jq .
 ```
 
 ```json
 {
-  "groups": [
+  "repos": [
     {
-      "uid": "d9e2f1a0.../9f1c889071ceb6bf",
-      "name": "api",
-      "description": "API services and backend",
-      "resourceLimits": {},
-      "verified": false,
-      "createTime": "2026-03-27T13:20:03.456Z",
-      "updateTime": "2026-03-27T13:20:03.456Z"
+      "uid": "d9e2f1a0.../06626efd8c6b3fb7",
+      "name": "nginx",
+      "createTime": "2026-01-28T12:54:21.189Z",
+      "updateTime": "2026-01-28T12:54:21.189Z"
     },
     {
-      "uid": "d9e2f1a0.../822b6e789e77ebb9",
-      "name": "base-images",
-      "description": "Base image maintenance",
-      "resourceLimits": {},
-      "verified": false,
-      "createTime": "2026-03-27T13:20:03.123Z",
-      "updateTime": "2026-03-27T13:20:03.123Z"
+      "uid": "d9e2f1a0.../0ed18f0f929f4c60",
+      "name": "python",
+      "createTime": "2026-01-23T14:54:42.774Z",
+      "updateTime": "2026-01-23T14:54:42.774Z"
     },
     {
-      "uid": "d9e2f1a0.../251da0851a321620",
-      "name": "ci-cd",
-      "description": "CI/CD pipelines and automation",
-      "resourceLimits": {},
-      "verified": false,
-      "createTime": "2026-03-27T13:20:03.789Z",
-      "updateTime": "2026-03-27T13:20:03.789Z"
+      "uid": "d9e2f1a0.../12b4208b23740c37",
+      "name": "static",
+      "createTime": "2026-01-23T14:54:39.021Z",
+      "updateTime": "2026-01-23T14:54:39.021Z"
     }
   ],
   "nextPageToken": "CqQBV3lK...",
-  "totalCount": "14",
+  "totalCount": "12",
   "skipped": 0
 }
 ```
@@ -131,15 +122,18 @@ Every v2 response follows the same shape:
 New in v2: fetch a resource directly by UID. In v1, this required a List call with an ID filter.
 
 ```shell
+# REPO_UID is a uid value from the List repos response above
+export REPO_UID=YOUR_REPO_UID
+
 curl -s -H "Authorization: Bearer $TOKEN" \
-  "$API/iam/v2/groups/$GROUP_UID" | jq '{uid, name, description}'
+  "$API/registry/v2/repos/$REPO_UID" | jq '{uid, name, createTime}'
 ```
 
 ```json
 {
-  "uid": "d9e2f1a0.../04b8bc5bcb561945",
-  "name": "engineering",
-  "description": "Engineering department"
+  "uid": "d9e2f1a0.../06626efd8c6b3fb7",
+  "name": "nginx",
+  "createTime": "2026-01-28T12:54:21.189Z"
 }
 ```
 
@@ -147,20 +141,20 @@ Use direct UID lookups when you already know the resource identifier — they ar
 
 ### Filter by name
 
-Find a specific group without knowing its UID:
+Find a specific repo without knowing its UID:
 
 ```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
-  "$API/iam/v2/groups?uidp.descendants_of=$ORG_ID&name=platform" \
-  | jq '[.groups[] | {uid, name, description}]'
+  "$API/registry/v2/repos?uidp.descendants_of=$ORG_ID&name=nginx" \
+  | jq '[.repos[] | {uid, name, createTime}]'
 ```
 
 ```json
 [
   {
-    "uid": "d9e2f1a0.../04b8bc5bcb561945/3af5754ef8e5dd4d",
-    "name": "platform",
-    "description": "Platform team — infrastructure and developer tools"
+    "uid": "d9e2f1a0.../06626efd8c6b3fb7",
+    "name": "nginx",
+    "createTime": "2026-01-28T12:54:21.189Z"
   }
 ]
 ```
@@ -171,40 +165,16 @@ Name filtering returns exact matches. Combine with `uidp.descendants_of` to scop
 
 ## 2. Set up access for a new team
 
-A real workflow: create an org folder, add an identity, and bind a role.
+A common workflow: create a CI identity at your organization and bind a role to it.
 
-### Create a group
-
-```shell
-curl -s -X POST -H "Authorization: Bearer $TOKEN" \
-  -H "Content-Type: application/json" \
-  "$API/iam/v2/groups/$ORG_ID" \
-  -d '{"name": "backend-team", "description": "Backend engineering team"}' | jq .
-```
-
-```json
-{
-  "uid": "d9e2f1a0.../fb139588d99c8efe",
-  "name": "backend-team",
-  "description": "Backend engineering team",
-  "resourceLimits": {},
-  "verified": false,
-  "createTime": "2026-03-27T13:55:00.423Z",
-  "updateTime": "2026-03-27T13:55:00.423Z"
-}
-```
-
-> **Note:** The parent group goes in the URL path (`/groups/{parent}`). The request body carries only the resource fields — the same pattern as v1.
+> **Note:** Create identities under your root organization group (`$ORG_ID`) so they can reach the resources that live there, including your registry. An identity created under a subgroup is scoped to that subgroup and won't see your registry — so it can't pull images.
 
 ### Create an identity
 
 ```shell
-# GROUP_UID is the uid value returned in the Create a group response above
-export GROUP_UID=YOUR_GROUP_UID
-
 curl -s -X POST -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
-  "$API/iam/v2/identities/$GROUP_UID" \
+  "$API/iam/v2/identities/$ORG_ID" \
   -d '{
     "name": "ci-bot",
     "description": "CI/CD pipeline identity",
@@ -217,7 +187,7 @@ curl -s -X POST -H "Authorization: Bearer $TOKEN" \
 
 ```json
 {
-  "uid": "d9e2f1a0.../fb139588d99c8efe/f462d354ca32ca9f",
+  "uid": "d9e2f1a0.../f462d354ca32ca9f",
   "name": "ci-bot",
   "description": "CI/CD pipeline identity",
   "lastSeenTime": "2026-03-27T13:55:00.783Z",
@@ -263,24 +233,24 @@ export IDENTITY_UID=YOUR_IDENTITY_UID
 
 curl -s -X POST -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
-  "$API/iam/v2/roleBindings/$GROUP_UID" \
+  "$API/iam/v2/roleBindings/$ORG_ID" \
   -d "{\"identityUid\": \"$IDENTITY_UID\", \"roleUid\": \"$ROLE_UID\"}" | jq .
 ```
 
 ```json
 {
-  "uid": "d9e2f1a0.../fb139588.../9b822036a7075d75",
+  "uid": "d9e2f1a0.../9b822036a7075d75",
   "identity": {
-    "uid": "d9e2f1a0.../fb139588.../f462d354ca32ca9f",
+    "uid": "d9e2f1a0.../f462d354ca32ca9f",
     "name": "ci-bot",
     "description": "CI/CD pipeline identity",
     "subject": "repo:my-org@123456/my-repo@654321:ref:refs/heads/main",
     "issuer": "https://token.actions.githubusercontent.com"
   },
   "group": {
-    "uid": "d9e2f1a0.../fb139588d99c8efe",
-    "name": "backend-team",
-    "description": "Backend engineering team"
+    "uid": "d9e2f1a0...",
+    "name": "my-org",
+    "description": "Root organization group"
   },
   "role": {
     "uid": "63921b2c44617e3f2603851537be0123af4a57d7",
@@ -303,14 +273,14 @@ Every List endpoint supports cursor-based pagination with consistent parameters.
 
 ```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
-  "$API/iam/v2/groups?uidp.descendants_of=$ORG_ID&page_size=5" \
-  | jq '{totalCount, groups: [.groups[].name], nextPageToken: .nextPageToken[:20]}'
+  "$API/registry/v2/repos?uidp.descendants_of=$ORG_ID&page_size=5" \
+  | jq '{totalCount, repos: [.repos[].name], nextPageToken: .nextPageToken[:20]}'
 ```
 
 ```json
 {
-  "totalCount": "14",
-  "groups": ["api", "base-images", "ci-cd", "containers", "engineering"],
+  "totalCount": "12",
+  "repos": ["apko", "busybox", "go", "jdk", "nginx"],
   "nextPageToken": "CqQBV3lKbE16Z3dPVE0y"
 }
 ```
@@ -319,13 +289,13 @@ Follow the cursor for the next page:
 
 ```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
-  "$API/iam/v2/groups?uidp.descendants_of=$ORG_ID&page_size=5&page_token=CqQBV3lK..." \
-  | jq '{groups: [.groups[].name]}'
+  "$API/registry/v2/repos?uidp.descendants_of=$ORG_ID&page_size=5&page_token=CqQBV3lK..." \
+  | jq '{repos: [.repos[].name]}'
 ```
 
 ```json
 {
-  "groups": ["incident-response", "platform", "production", "registry-ops", "root"]
+  "repos": ["node", "php", "postgres", "python", "redis"]
 }
 ```
 
@@ -337,41 +307,41 @@ Sort by name:
 
 ```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
-  "$API/iam/v2/groups?uidp.descendants_of=$ORG_ID&page_size=5&order_by=name" \
-  | jq '[.groups[].name]'
+  "$API/registry/v2/repos?uidp.descendants_of=$ORG_ID&page_size=5&order_by=name" \
+  | jq '[.repos[].name]'
 ```
 
 ```json
-["api", "base-images", "ci-cd", "containers", "engineering"]
+["apko", "busybox", "go", "jdk", "nginx"]
 ```
 
 Reverse the order:
 
 ```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
-  "$API/iam/v2/groups?uidp.descendants_of=$ORG_ID&page_size=5&order_by=name%20desc" \
-  | jq '[.groups[].name]'
+  "$API/registry/v2/repos?uidp.descendants_of=$ORG_ID&page_size=5&order_by=name%20desc" \
+  | jq '[.repos[].name]'
 ```
 
 ```json
-["vuln-scanning", "staging", "security", "sandbox", "root"]
+["static", "ruby", "redis", "python", "postgres"]
 ```
 
 Sort by creation time (newest first):
 
 ```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
-  "$API/iam/v2/groups?uidp.descendants_of=$ORG_ID&page_size=5&order_by=created_at%20desc" \
-  | jq '[.groups[] | {name, createTime}]'
+  "$API/registry/v2/repos?uidp.descendants_of=$ORG_ID&page_size=5&order_by=created_at%20desc" \
+  | jq '[.repos[] | {name, createTime}]'
 ```
 
 ```json
 [
-  {"name": "sandbox", "createTime": "2026-03-27T13:20:05.488Z"},
-  {"name": "production", "createTime": "2026-03-27T13:20:05.135Z"},
-  {"name": "staging", "createTime": "2026-03-27T13:20:04.814Z"},
-  {"name": "incident-response", "createTime": "2026-03-27T13:20:04.257Z"},
-  {"name": "vuln-scanning", "createTime": "2026-03-27T13:20:03.915Z"}
+  {"name": "redis", "createTime": "2026-02-14T09:11:05.488Z"},
+  {"name": "postgres", "createTime": "2026-02-10T17:02:05.135Z"},
+  {"name": "node", "createTime": "2026-02-03T11:48:04.814Z"},
+  {"name": "nginx", "createTime": "2026-01-28T12:54:21.189Z"},
+  {"name": "python", "createTime": "2026-01-23T14:54:42.774Z"}
 ]
 ```
 
@@ -383,14 +353,14 @@ Jump directly to page 3 (skip the first 10 results):
 
 ```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
-  "$API/iam/v2/groups?uidp.descendants_of=$ORG_ID&page_size=5&order_by=name&skip=10" \
-  | jq '{skipped: .skipped, groups: [.groups[].name]}'
+  "$API/registry/v2/repos?uidp.descendants_of=$ORG_ID&page_size=5&order_by=name&skip=10" \
+  | jq '{skipped: .skipped, repos: [.repos[].name]}'
 ```
 
 ```json
 {
   "skipped": 10,
-  "groups": ["sandbox", "security", "staging", "vuln-scanning"]
+  "repos": ["ruby", "static"]
 }
 ```
 
@@ -407,53 +377,13 @@ The `skipped` field in the response confirms how many results were skipped, usef
 
 ---
 
-## 4. Querying the registry
+## 4. Tags and end-of-life
 
-Registry endpoints follow the same List, Get, and pagination patterns as the IAM examples earlier, applied to repos and tags. If your integration reads image metadata — listing repos, walking tags, or checking end-of-life status — these are the endpoints you call most.
-
-### List repos
-
-List repos scoped to your organization:
-
-```shell
-curl -s -H "Authorization: Bearer $TOKEN" \
-  "$API/registry/v2/repos?uidp.descendants_of=$ORG_ID&page_size=3" \
-  | jq '[.repos[] | {uid, name, createTime}]'
-```
-
-```json
-[
-  {"uid": "d9e2f1a0.../06626efd8c6b3fb7", "name": "nginx", "createTime": "2026-01-28T12:54:21.189Z"},
-  {"uid": "d9e2f1a0.../0ed18f0f929f4c60", "name": "python", "createTime": "2026-01-23T14:54:42.774Z"},
-  {"uid": "d9e2f1a0.../12b4208b23740c37", "name": "static", "createTime": "2026-01-23T14:54:39.021Z"}
-]
-```
-
-The same pagination and ordering parameters work on every List endpoint.
-
-### Get a single repo
-
-Fetch one repo directly by UID, the same way you fetch a group:
-
-```shell
-# REPO_UID is a uid value from the List repos response above
-export REPO_UID=YOUR_REPO_UID
-
-curl -s -H "Authorization: Bearer $TOKEN" \
-  "$API/registry/v2/repos/$REPO_UID" | jq '{uid, name, createTime}'
-```
-
-```json
-{
-  "uid": "d9e2f1a0.../06626efd8c6b3fb7",
-  "name": "nginx",
-  "createTime": "2026-01-28T12:54:21.189Z"
-}
-```
+Tags live under a repo. List them with the same patterns you used for repos, scoped to a single repo with `uidp.children_of`.
 
 ### List tags in a repo
 
-Scope a tag listing to a single repo with `uidp.children_of`. Each tag carries its `digest` and a `deprecated` flag:
+Each tag carries its `digest` and a `deprecated` flag:
 
 ```shell
 curl -s -H "Authorization: Bearer $TOKEN" \
@@ -522,7 +452,7 @@ API v2 returns structured error responses with machine-parseable codes and detai
 ```shell
 curl -s -X POST -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
-  "$API/iam/v2/groups/$ORG_ID" \
+  "$API/iam/v2/identities/$ORG_ID" \
   -d '{}' | jq .
 ```
 
@@ -589,7 +519,7 @@ Update specific fields without sending the full resource. Only the fields listed
 ```shell
 curl -s -X PATCH -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
-  "$API/iam/v2/groups/$GROUP_UID" \
+  "$API/registry/v2/repos/$REPO_UID" \
   -d '{
     "description": "Updated description — only this field changes"
   }' | jq '{uid, name, description}'
@@ -597,8 +527,8 @@ curl -s -X PATCH -H "Authorization: Bearer $TOKEN" \
 
 ```json
 {
-  "uid": "d9e2f1a0.../fb139588d99c8efe",
-  "name": "backend-team",
+  "uid": "d9e2f1a0.../06626efd8c6b3fb7",
+  "name": "nginx",
   "description": "Updated description — only this field changes"
 }
 ```
@@ -610,7 +540,7 @@ To be explicit about which fields to update, pass `updateMask`:
 ```shell
 curl -s -X PATCH -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
-  "$API/iam/v2/groups/$GROUP_UID?updateMask=description" \
+  "$API/registry/v2/repos/$REPO_UID?updateMask=description" \
   -d '{
     "description": "Only this field is updated",
     "name": "this-is-ignored"
@@ -619,34 +549,13 @@ curl -s -X PATCH -H "Authorization: Bearer $TOKEN" \
 
 ```json
 {
-  "uid": "d9e2f1a0.../fb139588d99c8efe",
-  "name": "backend-team",
+  "uid": "d9e2f1a0.../06626efd8c6b3fb7",
+  "name": "nginx",
   "description": "Only this field is updated"
 }
 ```
 
-The `name` in the body is ignored because `updateMask` only includes `description`.
-
-### Update a repo
-
-The same PATCH-with-field-mask pattern applies to every updatable resource. Repository updates are a common case to migrate from v1, where changing one field meant sending the full resource:
-
-```shell
-curl -s -X PATCH -H "Authorization: Bearer $TOKEN" \
-  -H "Content-Type: application/json" \
-  "$API/registry/v2/repos/$REPO_UID?updateMask=description" \
-  -d '{"description": "Updated repo description"}' | jq '{uid, name, description}'
-```
-
-```json
-{
-  "uid": "d9e2f1a0.../06626efd8c6b3fb7",
-  "name": "nginx",
-  "description": "Updated repo description"
-}
-```
-
-> **Note:** Repo updates follow the same PATCH-with-field-mask pattern as groups; `name` and `description` are writable.
+The `name` in the body is ignored because `updateMask` only includes `description`. This PATCH-with-field-mask pattern applies to every updatable resource.
 
 ---
 
@@ -661,11 +570,10 @@ v2 is additive — v1 endpoints remain available during a transition period, so 
 Delete resources you created during this walkthrough:
 
 ```shell
-# Delete in reverse order: role binding, identity, group
+# Delete in reverse order: role binding, then identity
 # BINDING_UID is the uid value returned in the Bind a role response above
 curl -s -X DELETE -H "Authorization: Bearer $TOKEN" "$API/iam/v2/roleBindings/$BINDING_UID"
 curl -s -X DELETE -H "Authorization: Bearer $TOKEN" "$API/iam/v2/identities/$IDENTITY_UID"
-curl -s -X DELETE -H "Authorization: Bearer $TOKEN" "$API/iam/v2/groups/$GROUP_UID"
 ```
 
 Each DELETE returns an empty response body on success.
