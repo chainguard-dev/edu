@@ -4,7 +4,7 @@ linktitle: "Catalog Starter"
 type: "article"
 description: "Learn about Chainguard Catalog Starter, an offering allowing teams to try out five Chainguard container images for free."
 date: 2026-03-09T07:52:00+02:00
-lastmod: 2026-08-06T18:00:35+00:00
+lastmod: 2026-08-07T12:10:22+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -61,7 +61,7 @@ As an alternative to the Console, you can sign up for and manage Catalog Starter
 
 ### Sign up with `chainctl`
 
-To sign up for a new account, use the following interactive command:
+To sign up for a new account, run the interactive [`chainctl starter init`](/platform/chainctl/chainctl-docs/chainctl_starter_init/) command:
 
 ```shell
 chainctl starter init
@@ -80,7 +80,7 @@ Use the arrow keys and press **Enter** to select an option, which launches a bro
 
 ### Request access with `chainctl`
 
-If your organization already has a Catalog Starter plan, request access to it with:
+If your organization already has a Catalog Starter plan, request access to it with [`chainctl starter request-access`](/platform/chainctl/chainctl-docs/chainctl_starter_request-access/):
 
 ```shell
 chainctl starter request-access
@@ -88,7 +88,7 @@ chainctl starter request-access
 
 ### Add images with `chainctl`
 
-You can see which images are available [using the Chainguard Directory](/chainguard/chainguard-images/how-to-use/chainguard-directory/). To add one or more images, run the following command, substituting the desired image names for the variables:
+You can see which images are available [using the Chainguard Directory](/chainguard/chainguard-images/how-to-use/chainguard-directory/). To add one or more images, run [`chainctl starter add-images`](/platform/chainctl/chainctl-docs/chainctl_starter_add-images/), substituting the desired image names for the variables:
 
 ```shell
 chainctl starter add-images $IMAGE1 [$IMAGE2] ... [$IMAGE4]
@@ -102,7 +102,7 @@ docker pull cgr.dev/$ORGANIZATION/$IMAGE:latest
 
 ### Check status with `chainctl`
 
-To show the status of your Catalog Starter organization, including the registry path, account provisioning status, image quota usage, and per-image readiness, use:
+To show the status of your Catalog Starter organization, including the registry path, account provisioning status, image quota usage, and per-image readiness, run [`chainctl starter status`](/platform/chainctl/chainctl-docs/chainctl_starter_status/):
 
 ```shell
 chainctl starter status
