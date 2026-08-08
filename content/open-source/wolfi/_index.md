@@ -46,7 +46,7 @@ tutorials: [
     description: "Community workshop kit about Wolfi for beginners",
     url: "/open-source/wolfi/hello-wolfi/"
   },
-  
+
 ]
 
 ---
