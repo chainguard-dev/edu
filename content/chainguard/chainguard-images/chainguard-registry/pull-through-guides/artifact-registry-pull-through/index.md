@@ -1,10 +1,10 @@
 ---
-title: "How to Set Up Pull Through from Chainguard's Registry to Google Artifact Registry"
+title: "How to set up pull through from Chainguard's registry to Google Artifact Registry"
 linktitle: "Google Artifact Registry"
 aliases:
 - /chainguard/chainguard-registry/pull-through-guides/artifact-registry-pull-through/
 type: "article"
-description: "Tutorial outlining how to set up a Google Artifact Registry repository to pull Containers through from Chainguard's registry."
+description: "Tutorial outlining how to set up a Google Artifact Registry repository to pull containers through from Chainguard's registry."
 date: 2024-07-08T15:56:52-07:00
 lastmod: 2024-08-19T15:56:52-07:00
 draft: false
@@ -30,7 +30,7 @@ In order to complete this tutorial, you will need the following:
 * If you plan to set up an Artifact Registry repository to serve as a pull through cache for Production containers, then you will also need to have privileges to create a pull token from Chainguard.
     * Additionally, you'll need `chainctl` installed to create the pull token. If you haven't already installed this, follow the [installation guide](/chainguard/chainctl-usage/how-to-install-chainctl/).
 
-## Setting up Google Artifact Registry as a Pull Through for Free Containers
+## Setting up Google Artifact Registry as a pull through for free containers
 
 Chainguard's Free container images are free to use, publicly available, and always represent versions tagged as `:latest`.
 
@@ -47,7 +47,7 @@ On the **Create Repository** page, enter the following details for your new remo
 
 Following that, choose the Location, Encryption and Cleanup policy options for your repository. This guide's examples will use the location `us-central1`, but you can choose the location that best suits your needs. Finally, click the **Create** button to create the repository.
 
-### Testing pull through of a Free container image
+### Testing pull through of a free container image
 
 By default, the Artifact Registry repository requires authentication. Log in with a valid Google Artifact Registry:
 
@@ -68,7 +68,7 @@ This command first specifies the location of the Artifact Registry repository we
 
 If you run into issues with this command, be sure that it contains the correct Google Artifact Registry URL for your repository, including the location and project ID.
 
-## Setting up Google Artifact Registry as a Pull Through for Production Containers
+## Setting up Google Artifact Registry as a pull through for production containers
 
 Chainguard's Production container images are enterprise-ready container images that come with patch SLAs and features such as [Federal Information Processing Standard](/chainguard/chainguard-images/working-with-images/fips-images/) (FIPS) readiness. The process for setting up a Google Artifact Registry repository that you can use as a pull through cache for Chainguard Production container images is similar to the one outlined previously for Free containers, but with a few extra steps.
 
@@ -126,7 +126,7 @@ Enter the pull token `username` value in the **Username** field. In the **Passwo
 
 Click the **Save** button to apply the changes.
 
-### Testing pull through of a Production container:
+### Testing pull through of a production container:
 
 As with testing pull through of a Free container, you'll first need to authenticate to the Artifact Registry:
 
@@ -144,7 +144,7 @@ docker pull us-central1-docker.pkg.dev/<your-project-id>/chainguard-pull-through
 
 Be sure the `docker pull` command you run includes the name of your Chainguard organization's registry.
 
-## Debugging Pull Through from Chainguard's Registry to Google Artifact Registry
+## Debugging pull through from Chainguard's registry to Google Artifact Registry
 
 If you run into issues when trying to pull Containers from Chainguard's registry to Google Artifact Registry, please ensure the following requirements are met:
 
@@ -153,6 +153,6 @@ If you run into issues when trying to pull Containers from Chainguard's registry
 * You can troubleshoot by running `docker login` from another node (using the Google Artifact Registry pull token credentials) and try pulling an image from `cgr.dev/chainguard/<image name>` or `cgr.dev/<company domain>/<image name>`.
 * It could be that your Google Artifact Registry repository was misconfigured. In this case, create and configure a new Google Artifact Registry repository to test with.
 
-## Learn More
+## Learn more
 
-If you haven't already done so, you may find it useful to review our [Registry Overview](/chainguard/chainguard-registry/overview/) to learn more about Chainguard's registry. You can also learn more about Chainguard Containers by checking out our [Containers documentation](/chainguard/chainguard-images/overview/). If you'd like to learn more about Google Artifact Registry, we encourage you to refer to the [official Google Artifact Registry documentation](https://cloud.google.com/artifact-registry/docs/overview).
+If you haven't already done so, you may find it useful to review our [Registry overview](/chainguard/chainguard-registry/overview/) to learn more about Chainguard's registry. You can also learn more about Chainguard Containers by checking out our [Containers documentation](/chainguard/chainguard-images/overview/). If you'd like to learn more about Google Artifact Registry, we encourage you to refer to the [official Google Artifact Registry documentation](https://cloud.google.com/artifact-registry/docs/overview).

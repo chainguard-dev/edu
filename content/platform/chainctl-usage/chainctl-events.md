@@ -1,7 +1,7 @@
 ---
 aliases:
 - /chainguard/chainctl-usage/chainctl-events/
-title: "Create, View, and Delete chainctl Events"
+title: "Create, view, and delete chainctl events"
 lead: "Chainguard's chainctl events commands enable CloudEvents-based monitoring and alerting for container security events and supply chain activities."
 description: "Learn how to use chainctl events commands to create, view, and manage CloudEvents subscriptions for monitoring Chainguard security events and container activities"
 type: "article"

@@ -1,5 +1,5 @@
 ---
-title: "Using Trivy to Scan Software Artifacts"
+title: "Using Trivy to scan software artifacts"
 type: "article"
 linktitle: "Trivy"
 aliases:
@@ -22,7 +22,7 @@ toc: true
 
 ## Installation
 
-### Package Managers
+### Package managers
 
 For Homebrew, use:
 
@@ -32,7 +32,7 @@ brew install trivy
 
 Aqua Security [maintains sources and packages for a variety of additional operating systems and distributions](https://trivy.dev/docs/latest/getting-started/installation/) on their installation page.
 
-### Binary Installation
+### Binary installation
 
 Aqua Security provides an [installation script for Trivy](https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh). To install Trivy with the script, change the `/usr/local/bin` argument to the desired installation location on your path before running the following command:
 
@@ -48,7 +48,7 @@ curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/inst
 
 You can also manually install Trivy by downloading the binary for your operating system and architecture from the [Trivy releases page](https://github.com/aquasecurity/trivy/releases/tag/v0.52.2) and manually placing the binary on your path.
 
-### Container Image
+### Container image
 
 Container images for Trivy are hosted on a variety of registries. When running Trivy as a container image, it is recommended to mount a cache directory as a volume. For scanning container images, it is also recommended to mount `docker.sock`.
 
@@ -62,7 +62,7 @@ docker run \
   image nginx
 ```
 
-## Basic Usage
+## Basic usage
 
 Throughout this tutorial, we'll use the `trivy` command to run Trivy. If you're running Trivy as a container image, replace this command with the [appropriate `docker run` command](#container-image).
 
@@ -74,11 +74,11 @@ trivy image python
 
 Trivy will output a series of informational messages, a short summary of CVEs found, including severity, and an itemized list of CVEs.
 
-### Valid Targets
+### Valid targets
 
 Trivy can scan a wide variety of artifacts, collections, or deployments, collectively called targets. Each type of software artifact has a specific set of Trivy scanners enabled by default. For example, when scanning container images, Trivy will look for vulnerabilities and exposed secrets by default.
 
-### Scanning a Container Image
+### Scanning a container image
 
 To scan a container image on Docker Hub, use the `image` subcommand and the name of the image as an  argument:
 
@@ -92,7 +92,7 @@ For images on other registries:
 trivy image cgr.dev/chainguard/nginx:latest
 ```
 
-### Scanning a Filesystem
+### Scanning a filesystem
 
 Trivy can recursively scan directories on a local machine. To start a filesystem scan, run:
 
@@ -123,7 +123,7 @@ trivy fs .
 
 You should see a summary and itemized list of CVEs for the outdated Node package.
 
-### Scanning Clusters
+### Scanning clusters
 
 To scan a Kubernetes cluster:
 
@@ -177,7 +177,7 @@ trivy image --sbom-sources rekor --rekor-url https://rekor.sigstore.dev/ cgr.dev
 
 Learn more about SBOMs and other output formats in the section on [specifying output formats](#specifying-output-formats).
 
-## Comprehending Trivy Output
+## Comprehending Trivy output
 
 When run with default output and formatting, Trivy first prints a series of informational messages and warnings, then the name of the image and a one-line summary of the number and severity of issues found, and finally a table itemizing each issue.
 
@@ -193,7 +193,7 @@ You will receive output similar to the following:
 
 ![Screenshot of Trivy output showing first informational messages on which scanners are enabled, then the name of the image, then a listing of issues by severity, and finally a table formatted with ASCII separator (pipes and underscores) showing itemized issues](trivy_output.png)
 
-### Interpreting Trivy Output
+### Interpreting Trivy output
 
 The initial logging portion of Trivy's output indicates which [scanners](#scanners) are enabled and shows warnings if Trivy has an issue performing the scan.
 
@@ -219,11 +219,11 @@ In addition to the log and brief summary, Trivy provides an itemized list of iss
 
 When scanning for vulnerabilities, information on fixed version can show which CVEs can be resolved by bumping the library version. Trivy also provides a short prose description of the nature of each issue.
 
-By default, Trivy's table output is relatively verbose, and Trivy does not respect the traditional 80-character line limit on terminal output. Refer to [Output Formats and Verbosity](#output-formats-and-verbosity) for information on more granular control over Trivy's output.
+By default, Trivy's table output is relatively verbose, and Trivy does not respect the traditional 80-character line limit on terminal output. Refer to [Output formats and verbosity](#output-formats-and-verbosity) for information on more granular control over Trivy's output.
 
 ## Scanners
 
-### Specifying Scanners
+### Specifying scanners
 
 Trivy can scan not only for known vulnerabilities, but also for misconfigurations, exposed secrets, and license risks. When scanning container images or filesystems, Trivy scans for vulnerabilities and exposed secrets by default.
 
@@ -241,7 +241,7 @@ trivy fs --scanners secret .
 
 This will perform a recursive scan of all files and folders in the current working directory.
 
-### License Scanning
+### License scanning
 
 Trivy provides an opinionated license scan that flags license clauses that may pose a business risk. To perform a license scan on a container image:
 
@@ -257,9 +257,9 @@ trivy image --scanners license --license-full nginx
 
 Using the `--license-full`flag will also show results for "loose" licenses, such as those provided as text files in project folders.
 
-## Output Formats and Verbosity
+## Output formats and verbosity
 
-### Specifying Output Formats
+### Specifying output formats
 
 Trivy allows output in JSON, SARIF, CycloneDX, SPDX, SPDX-JSON, and GitHub formats. If no output or format flags are specified, Trivy first prints a series of informative messages and warnings to `stderr` and then prints a table of results to `stdout`.
 
@@ -298,7 +298,7 @@ trivy image -f cyclonedx -o results.cdx.json nginx
 
 Refer to [Scanning SBOMs](#scanning-sboms) for more on scanning these output formats.
 
-### Generating a Report from a Template
+### Generating a report from a template
 
 Trivy can generate reports in additional formats from user-contributed templates. To use templates, first clone the Trivy GitHub repository to your home folder:
 
@@ -318,7 +318,7 @@ This HTML output can be significantly more readable than Trivy's default table o
 
 Other template-based output formats can be browsed in the [Trivy contrib directory](https://github.com/aquasecurity/trivy/tree/main/contrib).
 
-## Trivy Resources
+## Trivy resources
 
 The following resources may complement your use of Trivy:
 

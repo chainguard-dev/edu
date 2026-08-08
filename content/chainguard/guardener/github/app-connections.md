@@ -1,6 +1,6 @@
 ---
-title: "Managing GitHub App Connections"
-linktitle: "App Connections"
+title: "Managing GitHub App connections"
+linktitle: "App connections"
 description: "Set up, inspect, and remove the connections between your Chainguard organization and your GitHub organizations for Chainguard Guardener."
 type: "article"
 date: 2026-08-03T00:00:00+00:00
@@ -17,7 +17,7 @@ toc: true
 
 Chainguard Guardener acts on your GitHub repositories on behalf of your Chainguard organization. The bridge between the two is a **connection**: a Guardener GitHub App installation on a GitHub organization, linked to a Chainguard organization. This page explains how connections work and how to set up, inspect, change, and remove them.
 
-For a first-time walkthrough, refer to [Getting Started](/chainguard/guardener/github/getting-started/). This page is the fuller reference for managing connections over time.
+For a first-time walkthrough, refer to [Getting started](/chainguard/guardener/github/getting-started/). This page is the fuller reference for managing connections over time.
 
 {{< beta feature="Chainguard Guardener" access="organizations that have installed and linked the Chainguard Guardener GitHub App" >}}
 
@@ -47,7 +47,7 @@ The `chainctl guardener github` commands check permissions on both sides of the 
 | List connections (`status`) | The `guardener.association.list` capability on the Chainguard organization. |
 | Unlink (`unlink`) | **Either**: the `guardener.association.manage` capability on the Chainguard organization, **or** ownership of the GitHub organization (refer to [Removing a connection](#removing-a-connection)). |
 
-Refer to the [Built-in Roles and Capabilities Reference](/chainguard/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for how capabilities map to roles.
+Refer to the [Built-in roles and capabilities reference](/chainguard/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for how capabilities map to roles.
 
 Commands that prove GitHub organization ownership (`link`, and the fallback path of `unlink`) open a browser window to authorize with GitHub. Listing connections with `status` is read-only and never involves a browser.
 

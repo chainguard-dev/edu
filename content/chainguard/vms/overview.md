@@ -1,6 +1,6 @@
 ---
-title: "Chainguard VMs Overview"
-linktitle: "VMs Overview"
+title: "Chainguard VMs overview"
+linktitle: "VMs overview"
 description: "Chainguard VMs are designed for minimalism, security, and operational clarity."
 type: "article"
 date: 2025-10-21T08:04:00+00:00
@@ -28,7 +28,7 @@ For platform engineers and DevOps teams, this means:
 * **Improved boot and runtime security**: Minimal, hardened images reduce the chances of privilege escalation, kernel exploits, and lateral movement.
 * **Operational consistency**: The same secure-by-default toolchain that powers Chainguard Containers now extends to your VMs, making it easier to manage and audit infrastructure uniformly across environments.
 
-## VMs and Containers Compared
+## VMs and containers compared
 
 To understand the applicability of Chainguard VMs to your organization, it might be helpful to compare the features of Chainguard VMs to Chainguard Containers. In a nutshell, the main differences come from the fact that Chainguard VMs boot from and run with their own hardened kernel as part of Chainguard OS, while Chainguard Containers rely on the host system's kernel.
 
@@ -40,7 +40,7 @@ To understand the applicability of Chainguard VMs to your organization, it might
 | Security Boundaries | Dependent on host kernel isolation | Stronger isolation via hypervisor and custom kernel controls, secure boot, SELinux policies |
 | Use Case Focus | Microservices, CI/CD, ephemeral workloads | Secure cloud workloads, edge VMs, kernel-level policy control, high performance |
 
-## Chainguard VM Types
+## Chainguard VM types
 
 We currently offer 3 distinct types of virtual machine images:
 

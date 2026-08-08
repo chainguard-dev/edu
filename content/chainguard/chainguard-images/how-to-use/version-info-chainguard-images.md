@@ -1,6 +1,6 @@
 ---
-title: "Getting Software Versions from Chainguard Containers"
-linktitle: "Software Versions"
+title: "Getting software versions from Chainguard Containers"
+linktitle: "Software versions"
 aliases:
 - /chainguard/chainguard-images/videos/version-info-chainguard-images/
 - /chainguard/chainguard-images/how-to-use/version-info-chainguard-images/

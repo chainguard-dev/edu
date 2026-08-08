@@ -1,8 +1,8 @@
 ---
 title: "Quickstart for Chainguard Containers"
 linktitle: "Quickstart"
-lead: "Pull a Free Chainguard Container, build an application on top of it, and verify what you pulled."
-description: "An end-to-end walkthrough of Chainguard Containers: pull a Free container, run a small Node.js application on it, and verify the image's signature and SBOM."
+lead: "Pull a free Chainguard Container, build an application on top of it, and verify what you pulled."
+description: "An end-to-end walkthrough of Chainguard Containers: pull a free container, run a small Node.js application on it, and verify the image's signature and SBOM."
 type: "article"
 date: 2026-08-05T00:00:00+00:00
 lastmod: 2026-08-05T00:00:00+00:00
@@ -25,7 +25,7 @@ To follow this quickstart, you need:
 * [Cosign](/open-source/sigstore/cosign/how-to-install-cosign/), which you use in Step 4 to verify a container image, installed.
 * [jq](https://jqlang.github.io/jq/download/) installed. jq is a lightweight, command-line JSON processor; this guide uses it in Step 4 to make Cosign output more easily readable.
 
-You don't need a Chainguard account. Every image in this guide is a [Free Container](/chainguard/chainguard-images/about/images-categories/#free-containers): publicly available, with no authentication required. Production Containers, which add version-specific tags and patch SLAs, require [authenticating to the registry](/chainguard/chainguard-images/chainguard-registry/authenticating/).
+You don't need a Chainguard account. Every image in this guide is a [Free container](/chainguard/chainguard-images/about/images-categories/#free-containers): publicly available, with no authentication required. Production Containers, which add version-specific tags and patch SLAs, require [authenticating to the registry](/chainguard/chainguard-images/chainguard-registry/authenticating/).
 
 ## Step 1: Pull and run a container
 

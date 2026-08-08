@@ -1,13 +1,13 @@
 ---
-title: "Unique Tags for Chainguard Containers"
-linktitle: "Unique Tags"
+title: "Unique tags for Chainguard Containers"
+linktitle: "Unique tags"
 aliases:
   - /chainguard/chainguard-images/unique-tags
   - /chainguard/chainguard-images/images-features/unique-tags
   - /chainguard/chainguard-images/working-with-images/unique-tags/
   - /chainguard/chainguard-images/features/unique-tags/
 type: "article"
-description: "Learn about Chainguard's Unique Tags feature for production container images, enabling precise version tracking and automated deployment workflows with timestamped tags"
+description: "Learn about Chainguard's unique tags feature for production container images, enabling precise version tracking and automated deployment workflows with timestamped tags"
 date: 2024-02-29T08:49:31+00:00
 lastmod: 2025-07-23T15:09:59+00:00
 draft: false
@@ -20,7 +20,7 @@ weight: 035
 toc: true
 ---
 
-Chainguard's Unique Tags feature provides unique timestamped tags for every container image build, addressing enterprise requirements for precise version tracking and automated deployment workflows. Many organizations rely on distinct tags to trigger automated deployments and maintain audit trails, making traditional floating tags like 'latest' unsuitable for production use.
+Chainguard's unique tags feature provides unique timestamped tags for every container image build, addressing enterprise requirements for precise version tracking and automated deployment workflows. Many organizations rely on distinct tags to trigger automated deployments and maintain audit trails, making traditional floating tags like 'latest' unsuitable for production use.
 
 To help with cases like this, Chainguard offers Unique Tags for private registries. Unique Tags are ideal for organizations that require a strict tag per release or update of their images. They benefit teams looking for precise tracking and management of container images.
 
@@ -28,7 +28,7 @@ Unique Tags are an opt-in feature that is only available for private registries.
 
 This guide provides an overview of what these Unique Tags are, the kinds of problems they aim to solve, and how you can access them in the Chainguard Console.
 
-## Chainguard's Unique Tags
+## Chainguard's unique tags
 
 Unique Tags are only available for private registries, as Chainguard's public registry only has the `:latest` or, in some cases, the `:latest-dev` tags available. Unique Tags feature an opt-in feature, which allows customers the flexibility to enable it based on their specific operational and security requirements.
 
@@ -42,7 +42,7 @@ This granular level of control ensures that organizations can implement unique t
 
 Additionally, the Unique Tags feature is integrated with Chainguard's [Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/) and [event notifications](/chainguard/administration/cloudevents/events-reference/). These integrations allow you to track changes over time.
 
-## How do I find Unique Tags?
+## How do I find unique tags?
 
 After signing into the Chainguard Console, click on **Organization images** in the left-hand navigation. This will take you to your organization's container images directory where you'll be presented with a list of all the Chainguard Production container images you can access.
 
@@ -58,7 +58,7 @@ To illustrate, toggle this button on and then click on any paid Production conta
 
 Here there are a number of container image versions with tags similar to `:openjdk-17-202412120223`. This means that this particular version of the container image was last updated on December 12, 2024, at 2:23 AM. You can use this version's **Pull URL** (`cgr.dev/$ORGANIZATION/jdk-fips:openjdk-17-202412120223`) to download this container image, and you can be confident that this Pull URL will always refer to the same container image.
 
-## Unique vs Immutable Tags aka are unique tags right for me?
+## Unique vs immutable tags aka are unique tags right for me?
 
 By design, container image tags are mutable and can change over time. Although Unique Tags are meant to serve as a solution for teams whose internal workflows require unique tags, for true image immutability we recommend pinning images by digest (`{repo}:{tag}@{digest}`) to ensure immutability and reproducibility whenever possible, rather than Unique Tags.
 
@@ -73,8 +73,8 @@ Some things to be aware of before opting into Unique Tags:
 
 For all of these reasons, digests are a stronger mechanism for ensuring immutability than unique tags for almost everyone.
 
-Check out the ["Pulling by Digest" section](/chainguard/chainguard-images/how-to-use-chainguard-images/#pulling-by-digest) of our guide on How to Use Chainguard Containers for more information.
-You may also find our video on [How to Use Container Image Digests to Improve Reproducibility](/chainguard/chainguard-images/videos/container-image-digests/) to be useful.
+Check out the ["Pulling by digest" section](/chainguard/chainguard-images/how-to-use-chainguard-images/#pulling-by-digest) of our guide on How to Use Chainguard Containers for more information.
+You may also find our video on [How to use container image digests to improve reproducibility](/chainguard/chainguard-images/videos/container-image-digests/) to be useful.
 
 Additionally, you may find our three-part blog series on Chainguard's image tagging philosophy to be of interest.
 

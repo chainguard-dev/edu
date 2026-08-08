@@ -1,5 +1,5 @@
 ---
-title: "How to Retrieve SBOMs and attestations for Chainguard Containers"
+title: "How to retrieve SBOMs and attestations for Chainguard Containers"
 linktitle: "Retrieve SBOMs"
 aliases:
 - /chainguard/chainguard-images/retrieve-image-sboms
@@ -63,7 +63,7 @@ You can include the following flags when retrieving attestations:
 
 ### Retrieve a container image attestation in the Chainguard Console
 
-You can also find container image SBOMs in the [Chainguard Console](https://console.chainguard.dev). After signing in to the Console and clicking either the **Public images** or, if available, **Organization images** you'll be presented with a list of images. Click on any of these to navigate that image's landing page. From there, navigate to the [**SBOM** tab](/platform/console/images-directory/#sbom-tab) to find and download the SBOM for the given image.
+You can also find container image SBOMs in the [Chainguard Console](https://console.chainguard.dev). After signing in to the Console and clicking either the **Public images** or, if available, **Organization images** you'll be presented with a list of images. Click on any of these to navigate that image's landing page. From there, navigate to the [**SBOM** tab](/platform/console/images-directory/#sbom) to find and download the SBOM for the given image.
 
 You can use the drop-down menus above the table to select which version and architecture of the image you want to view. You can also use the search box to find specific packages in the SBOM or use the button to the right of the search box to download the SBOM to your machine.
 
@@ -102,7 +102,7 @@ Chainguard publishes several different types of attestations. Not every image wi
     - Contains Syft-based SBOM attestation.
     - Not available on all images; this predicate is less common.
 
-## License Information and Source Code references
+## License information and source code references
 
 The SBOM downloaded using either Cosign or Console methods described previously contain identical information. It lists binary packages present in the image, their licensing information using [SPDX license](https://spdx.org/licenses/) and [exceptions lists](https://spdx.org/licenses/exceptions-index.html), and external source code references.
 

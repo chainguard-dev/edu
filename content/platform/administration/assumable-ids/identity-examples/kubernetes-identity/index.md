@@ -1,5 +1,5 @@
 ---
-title : "Create an Assumable Identity for a Kubernetes Pod"
+title : "Create an assumable identity for a Kubernetes pod"
 linktitle: "Kubernetes"
 aliases:
 - /chainguard/administration/assumable-ids/identity-examples/kubernetes-identity/
@@ -27,12 +27,12 @@ To complete this guide, you will need the following.
 
 * `chainctl` — the Chainguard command line interface tool — installed on your
   local machine. Follow our guide on
-  [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/)
+  [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/)
   to set this up.
 * `kubectl` - the command line interface tool for Kubernetes.
 * Access to a Kubernetes cluster.
 
-## Find the Issuer URL of the Kubernetes Cluster
+## Find the issuer URL of the Kubernetes cluster
 
 A Kubernetes cluster operates as an OIDC issuer. How you find the URL for that
 issuer depends on where the cluster is running.
@@ -73,7 +73,7 @@ claim with [`jwt`](https://github.com/mike-engel/jwt-cli).
 kubectl create token default | jwt decode -
 ```
 
-## Create an Assumable Identity
+## Create an assumable identity
 
 Run this `chainctl` command to create an identity for the `default` service
 account in the `default` namespace and assign it the `registry.pull` role.
@@ -106,7 +106,7 @@ creates a static identity that expires after a period of time. The default
 duration is 30 days. In this scenario you should regularly recreate the
 identity with the latest JWKS.
 
-## Assume the Identity in a Pod
+## Assume the identity in a pod
 
 Create `pod.yaml` with this content. Replace `<identity-id>` in the
 list of environment variables with the ID of the identity you created in the
@@ -170,7 +170,7 @@ the repositories in your organization.
 kubectl -n default logs assumable-id-demo
 ```
 
-## Clean Up
+## Clean up
 
 Delete the pod.
 

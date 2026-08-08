@@ -1,5 +1,5 @@
 ---
-title: "How to Use Chainguard Containers"
+title: "How to use Chainguard Containers"
 linktitle: "Using Chainguard Containers"
 aliases:
 - /chainguard/chainguard-images/how-to-use-chainguard-images/
@@ -41,7 +41,7 @@ If you have your own registry, you'll need to change the `cgr.dev/chainguard` pa
 
 Chainguard free Starter container images are also available on Docker Hub. Check out [Chainguard's organization page on Docker Hub](https://hub.docker.com/u/chainguard?utm_source=academy&utm_medium=referral&utm_campaign=FY25-DockerHub-Orgprofile) for a list of all images and instructions. Note that paid Production images can only be accessed from cgr.dev.
 
-### Pulling by Tag
+### Pulling by tag
 
 You can also add a relevant tag that you have access to. In the case of the public Git image, you can always pull the `:latest` tag. [Note that not all tags are available for public container images](/chainguard/chainguard-images/faq/#do-i-need-to-authenticate-into-chainguard-to-use-chainguard-containers).
 
@@ -53,7 +53,7 @@ You may use tags to pull a specific version of a software like Git, or programmi
 
 You can learn about the Chainguard Containers tags history in our guide about [Using the Tag History API](/chainguard/chainguard-images/using-the-tag-history-api/).
 
-### Pulling by Digest
+### Pulling by digest
 
 Pulling a Chainguard Container by its digest guarantees reproducibility, as it will ensure that you are using the same image each time (versus the tag that may receive updates).
 
@@ -69,9 +69,9 @@ docker pull cgr.dev/chainguard/git@sha256:f6658e10edde332c6f1dc804f0f664676dc40d
 
 When you pull this image, you'll receive output of the digest which should match the exact digest you have pulled.
 
-To learn more about image digests, you can review our video [How to Use Container Image Digests to Improve Reproducibility](/chainguard/chainguard-images/videos/container-image-digests/).
+To learn more about image digests, you can review our video [How to use container image digests to improve reproducibility](/chainguard/chainguard-images/videos/container-image-digests/).
 
-### Specifying Architecture
+### Specifying architecture
 
 As Chainguard Containers are [built for both AMD64 and ARM64 architecture](/chainguard/chainguard-images/overview/#architecture), you can specify the architecture you would like to use by employing the `--platform` flag with the `docker pull` command. In this example, we'll specify using the `linux/arm64` architecture with the Go image.
 
@@ -133,7 +133,7 @@ This will start a Wolfi container where you can explore the file system and inve
 
 Continue reading the next section to learn more about building off of the Wolfi base image.
 
-## Extending Chainguard Base Containers
+## Extending Chainguard base containers
 
 It often happens that you want a [distroless](/chainguard/chainguard-images/getting-started-distroless/) image with one or two extra packages, for example you may have a binary with a dependency on `curl` or `git`. Ideally you’d like a base image with this dependency already installed. There are a few options here:
 
@@ -203,9 +203,9 @@ You should get output like this, with a random piece of advice:
 "Big things have small beginnings."
 ```
 
-Check also the [Wolfi Images with Dockerfiles](/open-source/wolfi/wolfi-with-dockerfiles/) guide for more examples using Wolfi-based images with Dockerfiles, and the [Getting Started with Distroless](/chainguard/chainguard-images/getting-started-distroless/) guide for more details about distroless images and how to use them in Docker multi-stage builds.
+Check also the [Wolfi images with Dockerfiles](/open-source/wolfi/wolfi-with-dockerfiles/) guide for more examples using Wolfi-based images with Dockerfiles, and the [Getting started with distroless](/chainguard/chainguard-images/getting-started-distroless/) guide for more details about distroless images and how to use them in Docker multi-stage builds.
 
-## A Note regarding package availability in Chainguard Containers
+## A note regarding package availability in Chainguard Containers
 
 Chainguard Containers only contain packages that come from the [Wolfi Project](https://github.com/wolfi-dev) or those that are built and maintained internally by Chainguard.
 

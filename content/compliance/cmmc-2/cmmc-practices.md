@@ -1,5 +1,5 @@
 ---
-title: "CMMC 2.0 Practices"
+title: "CMMC 2.0 practices"
 description: "Learn about the 14 different domains of practices required for CMMC 2.0"
 lead: "Learn about the 14 different domains of practices required for CMMC 2.0"
 type: "article"
@@ -22,7 +22,7 @@ Cybersecurity Maturity Model Certification (CMMC) 2.0 requires a progressive set
 
 Wait, you may be wondering. Are “practices” the same as “controls” or “requirements?” This can be a point of confusion, as CMMC 2.0 refers to its requirements as “practices”, yet the majority are taken from NIST SP 800-171 and NIST SP 800-172 standards or requirements.
 
-## Naming Conventions for CMMC 2.0 Practices/Controls
+## Naming conventions for CMMC 2.0 practices/controls
 
 CMMC 2.0 practices are labeled using the format “DD.L#-REQ”, where:
 
@@ -30,7 +30,7 @@ CMMC 2.0 practices are labeled using the format “DD.L#-REQ”, where:
 - L# is the level number
 - REQ is the NIST SP 800-171 Rev 2 or NIST SP 800-172 security requirement number
 
-## CMMC 2.0 Practice/Control Domains
+## CMMC 2.0 practice/control domains
 
 Below is a table overview of the domains:
 
@@ -54,13 +54,13 @@ Below is a table overview of the domains:
 For a list of all required practices, refer to pages 9 to 18 in the [Cybersecurity Maturity Model Certification - Model Overview](https://dodcio.defense.gov/Portals/0/Documents/CMMC/ModelOverview_V2.0_FINAL2_20211202_508.pdf) published by Carnegie Mellon University and The Johns Hopkins University Applied
 Physics Laboratory LLC and funded by the Department of Defense (DoD).
 
-To learn more about requirements for tracking compliance, continue to the next article in our guide, [CMMC 2.0 Documentation Requirements](/compliance/cmmc-2/cmmc-chainguard/)
+To learn more about requirements for tracking compliance, continue to the next article in our guide, [CMMC 2.0 documentation requirements](/compliance/cmmc-2/cmmc-chainguard/)
 
-## Browse all CMMC 2.0 Articles
+## Browse all CMMC 2.0 articles
 
 - [Introduction to CMMC 2.0](/compliance/cmmc-2/intro-cmmc-2/)
-- [CMMC 2.0 Maturity Levels](/compliance/cmmc-2/cmmc-2-levels/)
+- [CMMC 2.0 maturity levels](/compliance/cmmc-2/cmmc-2-levels/)
 - (Current article) Overview of CMMC 2.0 Practice/Control Groups
-- [How Chainguard Can Help With CMMC 2.0](/compliance/cmmc-2/cmmc-chainguard/)
+- [How Chainguard can help with CMMC 2.0](/compliance/cmmc-2/cmmc-chainguard/)
 
-**[Get started with Chainguard FIPS Images today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**
+**[Get started with Chainguard FIPS images today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**

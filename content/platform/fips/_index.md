@@ -5,7 +5,7 @@ aliases:
 - /chainguard/fips/
 - /chainguard/chainguard-images/features/fips/
 lead: ""
-description: "Chainguard FIPS Documentation"
+description: "Chainguard FIPS documentation"
 type: "article"
 date: 2025-01-10T08:48:45+00:00
 lastmod: 2025-01-10T08:48:45+00:00

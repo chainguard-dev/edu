@@ -1,13 +1,13 @@
 ---
-title: "Overview of the Chainguard IAM Model"
-linktitle: "IAM Overview"
+title: "Overview of the Chainguard IAM model"
+linktitle: "IAM overview"
 aliases:
 - /chainguard/administration/iam-organizations/overview-of-chainguard-iam-model/
 - /chainguard/chainguard-enforce/chainguard-enforce-kubernetes/overview-of-enforce-iam-model/
 - /chainguard/administration/iam-organizations/overview-of-enforce-iam-model/
 type: "article"
-description: "Learn how Chainguard's Identity and Access Management (IAM) model works with organizations, folders, and role-based access control for more secure resource management"
-lead: "Chainguard's Identity and Access Management (IAM) provides enterprise-grade access control for container registries and security resources through organizations, folders, and fine-grained permissions."
+description: "Learn how Chainguard's identity and access management (IAM) model works with organizations, folders, and role-based access control for more secure resource management"
+lead: "Chainguard's identity and access management (IAM) provides enterprise-grade access control for container registries and security resources through organizations, folders, and fine-grained permissions."
 date: 2022-07-15T15:22:20+01:00
 lastmod: 2025-07-23T16:52:56+00:00
 draft: false
@@ -20,9 +20,9 @@ weight: 005
 toc: true
 ---
 
-Chainguard's Identity and Access Management (IAM) model enables more secure, fine-grained control over container registries and security resources, using familiar concepts from cloud providers like AWS and GCP. This enterprise-grade IAM system allows organizations to implement least-privilege access, delegate permissions, and integrate with existing identity providers for seamless authentication and authorization.
+Chainguard's identity and access management (IAM) model enables more secure, fine-grained control over container registries and security resources, using familiar concepts from cloud providers like AWS and GCP. This enterprise-grade IAM system allows organizations to implement least-privilege access, delegate permissions, and integrate with existing identity providers for seamless authentication and authorization.
 
-## Organizations and Folders
+## Organizations and folders
 
 Chainguard's IAM model consists of two structures: **Organizations** and **Folders**. An organization is a customer or group of customers working with the same Chainguard resources, while a folder is a collection of resources within a Chainguard organization.
 
@@ -38,7 +38,7 @@ In order to create an invitation for a new user, you must choose a role for that
 
 You can also create assumable identities. These are typically used to allow automation tools like GitHub Actions or Amazon Lambda to connect to and manage Chainguard resources. Refer to our [guide on assumable identities](/platform/administration/assumable-ids/assumable-ids/) to learn more.
 
-## Logging in to the Chainguard Platform
+## Logging in to the Chainguard platform
 
 There are several ways to authenticate to the Chainguard platform, each with a different focus.
 

@@ -1,7 +1,7 @@
 ---
 aliases:
 - /chainguard/administration/assumable-ids/identity-examples/aws-identity-oidc/
-title : "Create an Assumable Identity to Authenticate from AWS"
+title : "Create an assumable identity to authenticate from AWS"
 linktitle: "AWS"
 lead: ""
 description: "Tutorial outlining how to create a Chainguard identity that can be assumed by an AWS user or role using outbound identity federation."
@@ -26,10 +26,10 @@ You will also need the following tools.
 
 * The AWS CLI. Review the official documentation for information on [how to install or update to the latest version of the tool](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 * To create the assumable identity, you will need one of the following tools:
-    * [`chainctl`](/get-started/getting-started-with-chainctl/) — the Chainguard command line interface tool. Follow our guide on [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up.
+    * [`chainctl`](/get-started/getting-started-with-chainctl/) — the Chainguard command line interface tool. Follow our guide on [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up.
     * [`terraform`](https://developer.hashicorp.com/terraform) — an Infrastructure as Code tool developed by Hashicorp. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
 
-## Retrieve Token Issuer URL
+## Retrieve token issuer URL
 
 Each AWS account has a different issuer URL for outbound identity federation. You can retrieve it from the AWS Console UI by navigating to `IAM > Account settings > STS` as described in [the official getting started guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_outbound_getting_started.html).
 
@@ -39,7 +39,7 @@ The token issuer URL will align with the following format:
 https://<uuid>.tokens.sts.global.api.aws
 ```
 
-## Create the Identity
+## Create the identity
 
 This guide outlines two methods for creating an identity that can be assumed by an AWS user or IAM role: one using `chainctl` over a command-line interface, and another using Terraform.
 
@@ -201,7 +201,7 @@ output "my_identity_name_id" {
 
 The `my_identity_name_id` output provides the identity’s [UIDP (unique identity path)](/chainguard/administration/cloudevents/events-reference/#uidp-identifiers). You’ll need this value to assume the identity later.
 
-## Assume the Identity
+## Assume the identity
 
 After creating an identity with either method outlined previously, generate a token with `aws sts get-web-identity-token`:
 
@@ -223,6 +223,6 @@ Now you will be able to issue `chainctl` commands under this assumed identity. F
 chainctl image repo list
 ```
 
-## Learn More
+## Learn more
 
 By following this guide, you will have created a Chainguard identity that you can use to authenticate to Chainguard from AWS. For more information about how assumable identities work in Chainguard, check out our [conceptual overview of assumable identities](/chainguard/administration/assumable-ids/assumable-ids/). Additionally, we encourage you to read through the rest of our documentation on [Administering Chainguard resources](/chainguard/administration/).

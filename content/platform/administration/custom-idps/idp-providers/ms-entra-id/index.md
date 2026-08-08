@@ -1,5 +1,5 @@
 ---
-title : "How To Integrate Microsoft Entra ID SSO with Chainguard"
+title : "How to integrate Microsoft Entra ID SSO with Chainguard"
 linktitle: "Microsoft Entra ID"
 aliases:
 - /chainguard/chainguard-enforce/authentication/example-idps/azure-ad/
@@ -7,7 +7,7 @@ aliases:
 - /chainguard/administration/custom-idps/ms-entra-id/
 - /chainguard/administration/custom-idps/idp-providers/ms-entra-id/
 lead: ""
-description: "Procedural tutorial on how to register a Microsoft Entra ID Application and integrate it with the Chainguard platform."
+description: "Procedural tutorial on how to register a Microsoft Entra ID application and integrate it with the Chainguard platform."
 type: "article"
 date: 2023-04-17T08:48:45+00:00
 lastmod: 2024-10-28T15:22:20+01:00
@@ -25,12 +25,12 @@ This guide outlines how to create a Microsoft Entra ID (formerly Azure Active Di
 
 To complete this guide, you will need the following.
 
-* `chainctl` installed on your system. Follow our guide on [How To Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) if you don't already have this installed.
+* `chainctl` installed on your system. Follow our guide on [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) if you don't already have this installed.
 * An Azure account with Admin permissions you can use to set up an Microsoft Entra ID application.
 
   **_NOTE:_** Without Admin permissions on your Azure account, you will not be able to assign users to the created Entra ID Application.
 
-## Create a Microsoft Entra ID Application
+## Create a Microsoft Entra ID application
 
 To integrate Microsoft Entra ID with the Chainguard platform, log in to [Azure](https://azure.microsoft.com). In the left-hand navigation menu, select **Microsoft Entra ID**.
 
@@ -131,9 +131,9 @@ chainctl iam identity-provider create \
 
 > Customers using Azure Government Cloud should set ISSUER="https://login.microsoftonline.us/${TENANT_ID}/v2.0"
 
-Note the `--default-role` option. This defines the default role granted to users registering with this identity provider. This example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. If you don't include this option, you'll be prompted to specify the role interactively. For more information, refer to the [IAM and Security section](/chainguard/administration/custom-idps/custom-idps/#iam-and-security) of our Introduction to Custom Identity Providers in Chainguard tutorial.
+Note the `--default-role` option. This defines the default role granted to users registering with this identity provider. This example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. If you don't include this option, you'll be prompted to specify the role interactively. For more information, refer to the [IAM and security section](/chainguard/administration/custom-idps/custom-idps/#iam-and-security) of our Introduction to Custom Identity Providers in Chainguard tutorial.
 
-You can refer to our [Generic Integration Guide](/chainguard/administration/custom-idps/custom-idps/#generic-integration-guide) in our Introduction to Custom Identity Providers doc for more information about the `chainctl iam identity-provider create` command and its required options.
+You can refer to our [Generic integration guide](/chainguard/administration/custom-idps/custom-idps/#generic-integration-guide) in our Introduction to Custom Identity Providers doc for more information about the `chainctl iam identity-provider create` command and its required options.
 
 To log in to the Chainguard Console with the new identity provider you just created, navigate to [console.chainguard.dev](https://console.chainguard.dev) and click **Use Your Identity Provider**. Next, click **Use Your Organization Name** and enter the name of the organization associated with the new identity provider. Finally, click the **Login with Provider** button. This will open up a new window with the Microsoft Entra ID login flow, allowing you to complete the login process through there.
 

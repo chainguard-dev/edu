@@ -1,9 +1,9 @@
 ---
 aliases:
 - /chainguard/fips/verify-fips/
-title: "Verify that Chainguard FIPS Containers are Configured to Use FIPS Modules"
-linktitle: "FIPS Verification"
-description: "Learn how to verify that Chainguard FIPS Containers are properly configured to use various FIPS modules."
+title: "Verify that Chainguard FIPS containers are configured to use FIPS modules"
+linktitle: "FIPS verification"
+description: "Learn how to verify that Chainguard FIPS containers are properly configured to use various FIPS modules."
 type: "article"
 date: 2025-11-23T08:04:00+00:00
 lastmod: 2025-11-23T15:09:59+00:00
@@ -20,7 +20,7 @@ Chainguard offers hundreds of FIPS container image variants covering language ru
 
 This guide outlines how to verify that Chainguard's FIPS images are properly configured to use these FIPS modules.
 
-## Why Verify FIPS Configuration?
+## Why verify FIPS configuration?
 
 FIPS (Federal Information Processing Standards) 140 is a U.S. government standard that specifies security requirements for cryptographic modules. Organizations in regulated industries—including federal agencies, defense contractors, healthcare organizations, and financial services—must verify that their containers are correctly using FIPS-validated modules to maintain compliance.
 
@@ -235,7 +235,7 @@ If verification checks fail, consider these common issues:
 
 For additional support, contact Chainguard support or consult the FIPS documentation.
 
-## Related Resources
+## Related resources
 
 - [Chainguard FIPS Images](https://images.chainguard.dev/directory?fips=true) - Browse all available FIPS-validated container images
 - [NIST CMVP Certificate Search](https://csrc.nist.gov/projects/cryptographic-module-validation-program/validated-modules/search) - Verify cryptographic module certifications

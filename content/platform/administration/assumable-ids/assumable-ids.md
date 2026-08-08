@@ -1,6 +1,6 @@
 ---
-title : "Overview of Assumable Identities in Chainguard"
-linktitle: "Assumable IDs Overview"
+title : "Overview of assumable identities in Chainguard"
+linktitle: "Assumable IDs overview"
 aliases:
 - /chainguard/chainguard-enforce/authentication/assumable-ids/
 - /chainguard/chainguard-enforce/iam-groups/assumable-ids/
@@ -23,7 +23,7 @@ In such cases, you can create a Chainguard identity for these systems to assume,
 
 This guide provides a general overview of assumable identities in Chainguard, outlining how they work and how to create them.
 
-## About Assumable Identities
+## About assumable identities
 
 Chainguard's *assumable identities* are identities that can be assumed by workflows in order to complete tasks without manual authorization. In many ways, these are similar to AWS roles or Google Service accounts, as Chainguard identities allow you to delegate access to your Chainguard resources to external applications or services.
 
@@ -36,7 +36,7 @@ This enables you to create identities that can only be assumed by specific autom
 * [GitHub](/platform/administration/assumable-ids/identity-examples/github-identity/)
 * [GitLab](/platform/administration/assumable-ids/identity-examples/gitlab-identity/)
 * [AWS](/platform/administration/assumable-ids/identity-examples/aws-identity-oidc/)
-* [AWS (Legacy)](/platform/administration/assumable-ids/identity-examples/aws-identity/)
+* [AWS (legacy)](/platform/administration/assumable-ids/identity-examples/aws-identity/)
 * [Jenkins with Terraform](/platform/administration/assumable-ids/identity-examples/jenkins-terraform/) or [Jenkins with chainctl](/platform/administration/assumable-ids/identity-examples/jenkins-chainctl/)
 * [Buildkite](/platform/administration/assumable-ids/identity-examples/buildkite-identity/)
 * [Bitbucket](/platform/administration/assumable-ids/identity-examples/bitbucket-identity/)
@@ -156,7 +156,7 @@ chainctl iam identities delete <identity-name>
 
 For more detailed information on managing identities with `chainctl`, we encourage you to check out the [`chainctl` reference documentation](/platform/chainctl/chainctl-docs/chainctl_iam_identities/).
 
-## Assuming an Identity
+## Assuming an identity
 
 Whether you create an identity with `chainctl` or with Terraform, Chainguard will generate a UIDP (unique identifier path) tied to the identity. You can retrieve a list of all the identities you've created — along with their UIDPs — with the following command.
 
@@ -236,6 +236,6 @@ curl -sSf \
 The API token issued by `/sts/exchange` will be valid for up to an hour. You
 will need to fetch a new token after it has expired.
 
-## Learn More
+## Learn more
 
 As mentioned previously, we've published a few tutorials that outline how you can [set up an identity for a CI/CD workflow to assume](/platform/administration/assumable-ids/identity-examples/). We strongly encourage you to follow these guides to better understand how assumable identities work in Chainguard.

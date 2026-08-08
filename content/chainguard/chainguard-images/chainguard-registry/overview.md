@@ -1,5 +1,5 @@
 ---
-title: "Registry Overview"
+title: "Registry overview"
 type: "article"
 description: "Learn about Chainguard's container registry, including public access to free images, authenticated access for production images, and network requirements"
 date: 2023-03-21T16:36:47+00:00
@@ -26,11 +26,11 @@ If you would like to learn more about **Chainguard Containers**, you can review 
 
 You can check the status of Chainguard's registry at [https://status.cgr.dev](https://status.cgr.dev/).
 
-## Network Requirements
+## Network requirements
 
-Refer to our [Network Requirements](/chainguard/chainguard-images/network-requirements/) reference page for details about how to ensure access to Chainguard's registry in environments using firewalls, access control lists, and proxies.
+Refer to our [Network requirements](/chainguard/chainguard-images/network-requirements/) reference page for details about how to ensure access to Chainguard's registry in environments using firewalls, access control lists, and proxies.
 
-## Using a Caching Proxy with Chainguard's registry
+## Using a caching proxy with Chainguard's registry
 
 Chainguard does not offer an SLA for uptime for the Chainguard's registry. In order to minimize production dependency on the Chainguard's registry, we recommend that customers use a pull-through proxy for maximum reliability.
 

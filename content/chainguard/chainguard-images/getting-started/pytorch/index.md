@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with the PyTorch Chainguard Container"
+title: "Getting started with the PyTorch Chainguard Container"
 type: "article"
 linktitle: "PyTorch"
 aliases:
@@ -30,7 +30,7 @@ Chainguard's [PyTorch container image](https://images.chainguard.dev/directory/i
 
 This guide is designed for use in an environment with access to one or more NVIDIA GPUs. However, the code below is written to also run in a CPU-only environment. Please note that tuning the model will take significantly longer in a CPU-only environment.
 
-## Testing Access to GPUs
+## Testing access to GPUs
 
 Our first step is to check whether our PyTorch-CUDA environment has access to connected GPUs.
 
@@ -62,7 +62,7 @@ If the CUDA computing environment is accessible to PyTorch, `torch.cuda.is_avail
 
 Once you've determined that your environment has access to CUDA and connected GPUs, exit the container by typing `Control-d` or by typing `exit()` and pressing `Enter`. You should be returned to the prompt of your host machine.
 
-## Training and Inference Overview
+## Training and inference overview
 
 A common workflow in deep learning is to collect labeled data, train a model using that data, and store the model. Later, this model can be loaded and used for inference, or making predictions based on novel inputs not in the training set. For example, we might train a model to recognize animals, then store the model as a serialized and compressed file. Later, and possibly in a new environment, we can load the model and use it to perform a classification task on novel data, such as an image of a whale provided by a user.
 
@@ -72,7 +72,7 @@ In this tutorial, we'll fine-tune a pretrained model for an image classification
 
 For the training step, we'll be accessing the container image as root. This allows us to save the model to a volume and preserve it on the host system. In our inference step, we'll access the container as the non-root user, an approach that will be more secure for a production use case.
 
-## Fine-Tuning the Model
+## Fine-tuning the model
 
 In this section, we'll download prepared data to your environment, download a model training script, and run the script to train and save the model. These tasks will all be performed by running the below command. Further details on the Docker command, input data, and script are provided later in the section.
 
@@ -103,7 +103,7 @@ README.md  image_classification.py
 data       octopus_whale_penguin_model.pt
 ```
 
-## Manual Steps to Fine-Tune the Model
+## Manual steps to fine-tune the model
 
 Below are manual steps to perform the above download and training procedure interactively. You may wish to follow these steps if you need to modify the above for your own use case, if you'd like to better understand the steps involved, or if you have difficulty running the above command in your environment. These steps use `git clone` rather than `curl`. Also note that this manual process uses the `:latest-dev` version of the container image, since the `:latest` container image does not include shells such as bash for increased security.
 
@@ -177,7 +177,7 @@ In the below steps, the prompt of your host machine will be denoted as `(host) $
     octopus_whale_penguin_model.pt image_classification.py data
     ```
 
-## Running Inference
+## Running inference
 
 You have now downloaded the resnet18 pretrained model and fine-tuned it to detect three classes of images: octopuses, whales, and penguins. Now that the model is trained, we can load it, pass in a new image, and receive the model's prediction. Using an existing model for prediction is called inference, and in many common scenarios inference is run in a production environment. For this reason, we'll access our existing model with the nonroot user in this section.
 
@@ -208,7 +208,7 @@ octopus
 
 Feel free to try the above inference on other images of octopuses, whales, and penguins. The model should have high accuracy for images similar to those in the training set, which consists of photorealistic images.
 
-## Notes on the Script
+## Notes on the script
 
 In this section, we'll review the script provided in the above steps, highlighting some common options and approaches and a few ways the script might be adapted to other use cases. Deep learning is a complex and emerging field, so this section can only provide a high-level overview and a few recommendations for moving forward.
 

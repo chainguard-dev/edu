@@ -1,5 +1,5 @@
 ---
-title: "Ubuntu Compatibility"
+title: "Ubuntu compatibility"
 linktitle: "Ubuntu"
 aliases:
 - /chainguard/migration/ubuntu-compatibility/

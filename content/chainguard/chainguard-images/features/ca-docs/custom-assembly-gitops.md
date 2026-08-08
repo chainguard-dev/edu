@@ -1,5 +1,5 @@
 ---
-title: "Using GitOps to Manage Custom Assembly Resources"
+title: "Using GitOps to manage Custom Assembly resources"
 linktitle: "Manage with GitOps"
 type: "article"
 description: "How to use GitOps to manage Custom Assembly resources."
@@ -318,8 +318,8 @@ To test your GitHub Action:
 
 ## Additional resources
 
-* [Custom Assembly Overview](/chainguard/chainguard-images/features/ca-docs/custom-assembly/)
-* [apko Overview](/open-source/build-tools/apko/overview/)
-* [Assumable Identity Documentation](/chainguard/administration/assumable-ids/assumable-ids/)
+* [Custom Assembly overview](/chainguard/chainguard-images/features/ca-docs/custom-assembly/)
+* [apko overview](/open-source/build-tools/apko/overview/)
+* [Assumable identity documentation](/chainguard/administration/assumable-ids/assumable-ids/)
 * [Demo Repository: custom-assembly-as-code](https://github.com/chainguard-demo/custom-assembly-as-code)
 * [Chainguard Support](https://support.chainguard.dev)

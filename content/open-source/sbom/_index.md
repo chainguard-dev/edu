@@ -1,7 +1,7 @@
 ---
 title: "SBOMs"
-lead: "Software Bill of Materials"
-description: "Software Bill of Materials"
+lead: "Software bill of materials"
+description: "Software bill of materials"
 type: "article"
 date: 2023-01-26T08:49:15+00:00
 lastmod: 2023-01-26T08:49:15+00:00

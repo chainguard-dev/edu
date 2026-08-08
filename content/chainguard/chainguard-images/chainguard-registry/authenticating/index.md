@@ -17,17 +17,17 @@ aliases:
 - /chainguard/chainguard-registry/authenticating/
 ---
 
-## Public Container Images
+## Public container images
 
 Chainguard offers a collection of images that are publicly available, don't require authentication, and are free to use by anyone. However, logging in with a Chainguard account and authenticating when pulling from the registry gives you access to the Chainguard Console, and provides a mechanism for Chainguard to contact you if there are any issues with images you are pulling. This may enable Chainguard to notify you of upcoming deprecations, changes in behavior, critical vulnerabilities and remediations for images you have recently pulled.
 
-## Signing Up
+## Signing up
 
 You can register a Chainguard account through our [sign up form](https://console.chainguard.dev/auth/login?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). This will create your account and a [Chainguard IAM organization](/platform/administration/iam-organizations/overview-of-chainguard-iam-model/). If you already have an account, you can log in through the [login page](https://console.chainguard.dev/auth/login?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
 
 For more details on signing in, you can review our [sign in guidance](/platform/administration/iam-organizations/how-to-manage-iam-organizations-in-chainguard/#logging-in). If your organization is interested in (or already using) custom identity providers like Okta, you can read [how to authenticate to Chainguard with custom identity providers](/platform/administration/custom-idps/custom-idps/).
 
-## Authenticating with the `chainctl` Credential Helper
+## Authenticating with the `chainctl` credential helper
 
 You can configure authentication by using the credential helper included with `chainctl`. This is the workflow recommended by Chainguard.
 
@@ -41,7 +41,7 @@ This will update your Docker config file to call `chainctl` when an auth token i
 
 Pulls authenticated in this way are associated with your user.
 
-## Authenticating with a Pull Token
+## Authenticating with a pull token
 
 You can also create a "pull token" using `chainctl`. This generates a longer-lived token that can be used to pull images from other environments that don't support OIDC, such as some CI environments, Kubernetes clusters, or with registry mirroring tools like Artifactory.
 
@@ -67,13 +67,13 @@ You can also export the pull token details into environment variables for
 [authentication in automated
 systems](/chainguard/chainguard-images/features/packages/private-apk-repos/#pull-token-automation).
 
-### Note on Multiple Pull Tokens
+### Note on multiple pull tokens
 
 Running the `chainctl auth configure-docker --pull-token` command multiple times will result in multiple pull tokens being created. However, the tokens stored in your Docker config when using `--save` will overwrite old tokens.
 
 Tokens cannot be retrieved once they have been overwritten so they must be extracted from the local Docker config and saved elsewhere if multiple are required.
 
-### Revoking a Pull Token
+### Revoking a pull token
 
 Pull tokens are associated with Chainguard identities so they can be viewed with:
 
@@ -87,7 +87,7 @@ To revoke a token, delete the associated identity.
 chainctl iam identity delete <identity UUID>
 ```
 
-### Managing Pull Tokens in the Chainguard Console
+### Managing pull tokens in the Chainguard Console
 
 You can also create and view pull tokens in the [Chainguard Console](https://console.chainguard.dev/).
 
@@ -147,7 +147,7 @@ Pulls authenticated in this way are associated with the Chainguard identity you 
 
 If the identity is configured to only work with GitHub Actions workflow runs from a given repo and branch, that identity will not be able to pull from other repos or branches, including pull requests targeting the specified branch.
 
-## Authenticating with CircleCI OIDC Token
+## Authenticating with CircleCI OIDC token
 
 You can configure authentication with OIDC-aware CircleCI platform.
 
@@ -204,7 +204,7 @@ workflows:
 
 Refer to the [CircleCI documentation](https://circleci.com/docs/openid-connect-tokens/#format-of-the-openid-connect-id-token) to learn more about using OpenID Connect tokens in CircleCI jobs.
 
-## Authenticating with Microsoft Entra ID OIDC Token
+## Authenticating with Microsoft Entra ID OIDC token
 
 You can configure authentication with OIDC using Microsoft Entra ID (formerly Azure Active Directory).
 

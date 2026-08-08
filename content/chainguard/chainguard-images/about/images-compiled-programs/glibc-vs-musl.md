@@ -23,7 +23,7 @@ When developing [Wolfi](/open-source/wolfi/overview/), the "undistro" on which a
 
 > **Note**: Several sections of this guide present data about the differences between glibc and musl across various categories. You can recreate some of these examples used to find this data with the Dockerfiles and C program files hosted in the `glibc-vs-musl` directory of the [Chainguard Academy Containers Demos repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/glibc-vs-musl).
 
-## High-level Differences between glibc and musl
+## High-level differences between glibc and musl
 
 The GNU C Library ([glibc](https://www.gnu.org/software/libc/)), driven by the [GNU Project](https://www.gnu.org/gnu/thegnuproject.en.html), was first released in 1988. glibc aims to provide a consistent interface for developers to help them write software that will work across multiple platforms. Today, glibc has become the default implementation of the C standard library across the majority of Linux distributions, including Ubuntu, Debian, Fedora, and even Chainguard's Wolfi.
 
@@ -49,7 +49,7 @@ Be aware that binaries are not compatible between Alpine and Wolfi. You **should
 
 > **Note**: As mentioned previously, several of the remaining sections in this guide present data about the differences between glibc and musl across various categories. You can recreate some of these examples by following the same procedure of setting creating and testing container images based on the Dockerfiles and program files relevant to the example you're exploring. You can find the appropriate files in the `glibc-vs-musl` directory of the [Chainguard Academy Containers Demos repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/glibc-vs-musl).
 
-## Library and Binary Size
+## Library and binary size
 
 musl is significantly smaller than glibc. A primary reason for this is due to the differing approaches adhering to the Portable Operating System Interface ([POSIX](https://en.wikipedia.org/wiki/POSIX)). POSIX is a family of standards specified by the IEEE Computer Society to ensure consistent application behavior across different systems. musl adheres strictly to POSIX standards without incorporating additional extensions.
 
@@ -66,11 +66,11 @@ The following table shows the difference in binary size of statically and dynami
 
 The smaller the binary size, the better the system is at debloating. You can find the Dockerfiles used in this setup in the [`binary-bloat` directory of this guide's example's repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/glibc-vs-musl/binary-bloat).
 
-## Portability of Applications
+## Portability of applications
 
 The *portability* of an application refers to its ability to run on various hardware or software environments without requiring significant modifications. In practice, many developers target glibc specifically rather than a generic POSIX C library, much like writing scripts for bash rather than a POSIX-compliant shell. Consequently, developers can encounter portability issues when moving an application from one libc implementation to another. That said, [Hyrum's Law](https://www.hyrumslaw.com/) reminds us that achieving perfect portability is tough. Even when you design an application to be portable, it might still unintentionally depend on certain quirks of the environment or libc implementation.
 
-## Building from Source Performance
+## Building from source performance
 
 We've compared the build from source performance for individual projects using the [musl-gcc compiler](https://wiki.musl-libc.org/getting-started.html) toolchain used in Alpine and [gcc compiler](https://gcc.gnu.org/) toolchain used in [Chainguard Wolfi](https://github.com/wolfi-dev/os/blob/main/gcc.yaml). We compare the build from source times of both ecosystems.
 
@@ -93,7 +93,7 @@ This table shows that musl-gcc has **a lower compilation time** than gcc on Wolf
 
 musl-gcc fails to compile binutils-gdb because it conforms to POSIX standards, and binutils-gdb uses certain code features that are not conformant to these standards.
 
-## Python Builds
+## Python builds
 
 A common way to use existing Python packages is through precompiled binary wheels distributed from the Python Package Index ([PyPI](https://pypi.org/)). Python wheels are typically built against glibc; because musl and glibc are different implementations of the C standard library, binaries compiled against glibc may not work correctly or at all on systems using musl. Due to this incompatibility, PyPI defaults to compiling from source on Alpine Linux. This implies you need to **compile all the C source code** required for every Python package.
 
@@ -134,7 +134,7 @@ RUN pip3 install pwn
 
 As this Dockerfile shows, `pwntools` requires a set of other packages. These in turn require the most up-to-date versions of Rust and cmake, which are not available in the default prebuilt packages in Alpine. You would have to build both from source before installing the Python dependencies and, finally, `pwntools`. Such dependencies will have to be identified iteratively through a process of trial and error while building from source.
 
-## Runtime Performance
+## Runtime performance
 
 Time is critical. One common bottleneck occurs when allocating large chunks of memory repeatedly. We compare this memory allocation performance between Wolfi and the latest Alpine [this benchmark script](https://github.com/chainguard-dev/edu-images-demos/blob/main/glibc-vs-musl/musl-performance-issues/allocations-slowdown.sh). The benchmark uses JSON dumping, a highly memory intensive operation.
 
@@ -161,7 +161,7 @@ glibc and musl both serve well as C implementations. Our goal for this article i
 
 If you spot anything we've overlooked regarding glibc or musl or have additional insights to contribute, please feel free to raise the issue in [chainguard-dev/edu](https://github.com/chainguard-dev/edu). We welcome further discussion on weaknesses in glibc, such as its larger codebase and complexity compared to musl. Additionally, insights into the intricacies of compiler toolchains for cross-compilation are welcomed, especially when dealing with glibc and musl.
 
-## Additional References
+## Additional references
 
 For more information, we recommend the following resources:
 

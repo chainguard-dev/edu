@@ -25,16 +25,16 @@ toc: true
 
 Recording of [Beyond Zero: Eliminating Vulnerabilities in PyTorch Container Images](https://pytorch2024.sched.com/event/1fHmE/lightning-talk-beyond-zero-eliminating-vulnerabilities-in-pytorch-container-images-patrick-smyth-dan-fernandez-srishti-hegde-chainguard) presented by Dan Fernandez, Srishti Hegde, and Patrick Smyth at [PyTorch 2024](https://pytorch.org/blog/pytorch-conference-2024-recap/)
 
-## Session Description
+## Session description
 
 Container images are increasingly the future of production applications at scale, providing reproducibility, robustness, and transparency. As PyTorch images get deployed to production, however, security becomes a major concern. PyTorch has a large attack surface, and building secure PyTorch images can be a challenge. Currently, the official PyTorch runtime container image has 1 CVE (known vulnerabilities) rated critical and 5 CVEs rated high. Improving this situation could secure many deployments that incorporate PyTorch for cloud-based inference or training. In this fast-paced session, we took a deep dive on the official PyTorch image from a vulnerability mitigation perspective, looking hard at included packages, executables, and active CVEs. We identify low-hanging fruit for increasing security, including stripping bloat and building fresh. We also talk about the next level of security practiced in Chainguard's PyTorch image builds, such as including SBOMs and going distroless. Finally, we consider emerging tools and approaches for analyzing AI artifacts such as models and how these systems can benefit PyTorch in production.
 
-## Resources from this Video
+## Resources from this video
 
 - [PyTorch Chainguard Container](https://images.chainguard.dev/directory/image/pytorch/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-videos-beyond_zero_pytorch_2024)
 - [Course: Securing the AI/ML Supply Chain](https://courses.chainguard.dev/securing-ai) <!--  -->
 - [Learning Lab: Chainguard's AI Containers](https://www.chainguard.dev/events/chainguards-ai-images)
-- [Chainguard Academy: Getting Started with the PyTorch Chainguard Container](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/pytorch/)
+- [Chainguard Academy: Getting started with the PyTorch Chainguard Container](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/pytorch/)
 - [Overview: Chainguard's AI Containers](https://www.chainguard.dev/solutions/ai-images)
 
 ## Transcript

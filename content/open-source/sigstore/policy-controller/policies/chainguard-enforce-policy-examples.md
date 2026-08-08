@@ -1,5 +1,5 @@
 ---
-title: "Example Policies"
+title: "Example policies"
 aliases:
 - /chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-policy-examples/
 type: "article"

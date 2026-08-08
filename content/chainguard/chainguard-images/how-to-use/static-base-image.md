@@ -1,6 +1,6 @@
 ---
-title: "Using the Chainguard Static Base Container Image"
-linktitle: "Using the Static Base Container"
+title: "Using the Chainguard static base container image"
+linktitle: "Using the static base container"
 aliases:
 - /chainguard/chainguard-images/videos/static-base-image/
 - /chainguard/chainguard-images/how-to-use/static-base-image/

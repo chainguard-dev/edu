@@ -1,8 +1,8 @@
 ---
 aliases:
 - /chainguard/migration/image-matcher/overview/
-title: "Image Matcher Overview"
-linktitle: "Image Matcher Overview"
+title: "Image Matcher overview"
+linktitle: "Image Matcher overview"
 description: "Learn how the Chainguard Image Matcher uses SBOMs to recommend the closest Chainguard image equivalent for your existing container images."
 type: "article"
 date: 2026-05-26T00:00:00+00:00

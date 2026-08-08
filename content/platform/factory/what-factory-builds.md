@@ -2,7 +2,7 @@
 aliases:
 - /chainguard/factory/what-factory-builds/
 title: "What does the Chainguard Factory build?"
-linktitle: "What the Factory Builds"
+linktitle: "What the Factory builds"
 type: "article"
 description: "Interview with Dustin Kirkland about the products and artifacts created by the Chainguard Factory"
 date: 2025-08-02T16:00:00+00:00

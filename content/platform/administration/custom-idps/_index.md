@@ -1,7 +1,7 @@
 ---
 aliases:
 - /chainguard/administration/custom-idps/
-title: "Custom Identity Providers"
+title: "Custom identity providers"
 lead: ""
 type: "article"
 date: 2023-04-13T08:49:15+00:00

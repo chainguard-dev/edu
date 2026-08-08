@@ -49,7 +49,7 @@ chainctl libraries policy create --name=java-disable-cooldown --cooldown-days=0
 chainctl libraries policy enable java-disable-cooldown --ecosystem=JAVA --mode=ENFORCE
 ```
 
-It can take up to 30 minutes for the fallback and cooldown policies to take effect. Learn more about cooldown and other policies in the [Libraries Policies documentation](/chainguard/chainguard-repository/libraries-policies/).
+It can take up to 30 minutes for the fallback and cooldown policies to take effect. Learn more about cooldown and other policies in the [Libraries policies documentation](/chainguard/chainguard-repository/library-policies/).
 
 > **Note**: If you choose to manage your own fallback to upstream repositories, refer to the following docs pages for more information: [Build configuration](/chainguard/libraries/java/build-configuration/) for direct access instructions or [Global configuration](/chainguard/libraries/java/global-configuration/) for repo manager instructions. Note that configuring a public fallback bypasses the protections provided by Chainguard.
 
@@ -609,4 +609,4 @@ chainctl libraries entitlements list
 
 For repository manager setups, Chainguard recommends using the configurable fallback rather than configuring a separate public registry fallback in your repository manager, to preserve Chainguard’s security controls.
 
-Learn more about upstream fallback configurations in the [Libraries Overview](/chainguard/libraries/overview/#upstream-fallback-and-controls).
+Learn more about upstream fallback configurations in the [Libraries overview](/chainguard/libraries/overview/#upstream-fallback-and-controls).

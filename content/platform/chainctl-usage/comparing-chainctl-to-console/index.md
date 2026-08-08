@@ -23,9 +23,9 @@ Chainguard provides two powerful interfaces for managing container security reso
 
 To access the [Chainguard Console](/platform/console/images-directory/) you need to [create an account and sign in](https://console.chainguard.dev/auth/login). The Console is accessible to everyone, including users who aren't Chainguard customers.
 
-To use `chainctl`, start by [installing chainctl](/chainguard/chainctl-usage/how-to-install-chainctl/). Refer to [Get Started with chainctl](/get-started/getting-started-with-chainctl/) to help you begin using it; the examples on this page assume you have `chainctl` installed and are authenticated.
+To use `chainctl`, start by [installing chainctl](/chainguard/chainctl-usage/how-to-install-chainctl/). Refer to [Get started with chainctl](/get-started/getting-started-with-chainctl/) to help you begin using it; the examples on this page assume you have `chainctl` installed and are authenticated.
 
-## High-level Comparison
+## High-level comparison
 
 The Console is especially useful for one-off information searches, such as when you don't know precisely what you want to know. The Console provides detailed information, but may require a few clicks to hone in on precisely what you are looking for. You can perform useful container-related query tasks from within the Console, as this page will demonstrate with some examples.
 
@@ -33,9 +33,9 @@ If you know specifically what you are looking for or what you want to accomplish
 
 This guide will take the reader through a few use cases to illustrate.
 
-## Find Available Images
+## Find available images
 
-### Find Available Images in the Console
+### Find available images in the Console
 
 To find the images available to you in the Console, do this:
 
@@ -45,7 +45,7 @@ To find the images available to you in the Console, do this:
 1. On the Overview page that opens, click **Organization Images** in the sidebar.
 ![Screenshot showing the Organization Images page in the Console, which lists all of the images available along with data for each including Status, Latest tag, Pull URL, and when the image was last updated.](console-org-images.png)
 
-### Find Available Images with chainctl
+### Find available images with chainctl
 
 To find the images available to you using `chainctl`, use this command. The list of available images is likely to be long and will scroll past you quickly in the terminal, so it may be more useful to you by piping the output into a grep search or redirecting the output into a file.
 
@@ -54,9 +54,9 @@ chainctl images list
 
 ```
 
-## Invite Users
+## Invite users
 
-### Invite Users in the Console
+### Invite users in the Console
 
 To invite a user using the Console, follow these steps:
 
@@ -72,7 +72,7 @@ To invite a user using the Console, follow these steps:
 
 1. Enter the **Email address** of the user you are inviting and use the dropdown menu to assign a **Role** for this user. Click **Invite**.
 
-### Invite Users using chainctl
+### Invite users using chainctl
 
 To invite a user using `chainctl`, use this command, substituting your organization name for ORGANIZATION along with setting the role, email address, length of time for the invite to be valid, and whether this invite may only be used once:
 
@@ -85,9 +85,9 @@ chainctl iam invite create ORGANIZATION
 
 ```
 
-## Review Container Image History
+## Review container image history
 
-### Review Container Image History in the Console
+### Review container image history in the Console
 
 To examine the history of an image using the Console:
 
@@ -98,7 +98,7 @@ To examine the history of an image using the Console:
 
 This list contains columns with data about each image release, like the Pull URL, Digest, and when it was last changed. Click the other tabs to learn more about the *latest* release version of this image.
 
-### Review Container Image History using chainctl
+### Review container image history using chainctl
 
 To examine the history of an image using `chainctl`, enter this, replacing ORGANIZATION with your organization:
 
@@ -131,23 +131,23 @@ This will return a reverse-chronological history of when a specific tag was upda
 
 ```
 
-The details that are returned here and the details found in the Console vary in focus, but where the same details are provided they should match. Refer to [Examine the History of Container Images](/chainguard/chainctl-usage/chainctl-images/#examine-the-history-of-container-images) for more information about this command.
+The details that are returned here and the details found in the Console vary in focus, but where the same details are provided they should match. Refer to [Examine the history of container images](/chainguard/chainctl-usage/chainctl-images/#examine-the-history-of-container-images) for more information about this command.
 
 ## Learn more
 
 To learn more about `chainctl`, see:
 
-* [chainctl Usage](/chainguard/chainctl-usage/)
-* [chainctl Reference](/platform/chainctl/)
+* [chainctl usage](/chainguard/chainctl-usage/)
+* [chainctl reference](/platform/chainctl/)
 
 To learn more about the Chainguard Console, see:
 
 * [Using the Chainguard Directory and Console](/platform/console/images-directory/).
 
-### Compare a Chainguard Container to a non-Chainguard Alternative in the Console
+### Compare a Chainguard Container to a non-Chainguard alternative in the Console
 
-This is a feature unique to the Console and is described in detail in [Using CVE Visualizations](/chainguard/chainguard-images/features/cve_visualizations/).
+This is a feature unique to the Console and is described in detail in [Using CVE visualizations](/chainguard/chainguard-images/features/cve_visualizations/).
 
-### Compare Two Chainguard Containers With chainctl
+### Compare two Chainguard Containers with chainctl
 
-This is a feature unique to `chainctl` and is described in detail in [How To Compare Chainguard Containers with chainctl](/chainguard/chainctl-usage/comparing-images/).
+This is a feature unique to `chainctl` and is described in detail in [How to compare Chainguard Containers with chainctl](/chainguard/chainctl-usage/comparing-images/).

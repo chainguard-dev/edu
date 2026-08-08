@@ -54,7 +54,7 @@ deeper exploration of distroless images and their differences from standard base
 the guide on [Getting Started with Distroless
 images](/chainguard/chainguard-images/getting-started-distroless/).
 
-## Migrating From Other Distributions
+## Migrating from other distributions
 
 Dockerfiles will often contain commands specific to the Linux Distribution they are based on. Most
 commonly this will be package installation instructions (e.g. `apt` vs `yum` vs `apk`) but also
@@ -63,7 +63,7 @@ Our high-level guide on [Migrating to Chainguard Containers](/chainguard/migrati
 contains details about distro-based migration and package compatibility when migrating from Debian,
 Alpine, Ubuntu and Red Hat UBI base images.
 
-## Installing Further Dependencies
+## Installing further dependencies
 
 Sometimes your applications will require further dependencies, either at build-time, runtime or
 both. Wolfi has large number of software packages available, so you are likely to be able to
@@ -245,7 +245,7 @@ This example specifies the `:25-slim` tag, but be aware that Chainguard includes
 
 To build an image with a Dockerfile like this, your organization would need to have Chainguard's Node.js image included in its registry. You would also need to update `$ORGANIZATION` to reflect the name of your organization's registry.
 
-## Additional Resources
+## Additional resources
 
 - The [Node.js image documentation](https://images.chainguard.dev/directory/image/node/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-node)
 contains full details on our images, including usage documentation, provenance and security
@@ -255,10 +255,10 @@ advisories.
 Containers](/chainguard/migration/porting-apps-to-chainguard/) article contains an example of porting a
 Node.js Dockerfile for a legacy application.
 
-- The [How to Migrate a Node.js Application to Chainguard Containers](https://edu.chainguard.dev/chainguard/chainguard-images/videos/node-images/) video works through an example of porting a Node.js Dockerfile.
+- The [How to migrate a Node.js application to Chainguard Containers](https://edu.chainguard.dev/chainguard/chainguard-images/videos/node-images/) video works through an example of porting a Node.js Dockerfile.
 
 - Bret Fisher has an excellent [guide to creating Node.js container
 images](https://github.com/BretFisher/nodejs-rocks-in-docker/), including advice for using
 distroless.
 
-- The [Debugging Distroless](/chainguard/chainguard-images/debugging-distroless-images/) guide contains important information for debugging issues with distroless images. You can also refer to the [Verifying Containers](/chainguard/chainguard-images/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/) resource for details around provenance, SBOMs, and image signatures.
+- The [Debugging distroless](/chainguard/chainguard-images/debugging-distroless-images/) guide contains important information for debugging issues with distroless images. You can also refer to the [Verifying containers](/chainguard/chainguard-images/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/) resource for details around provenance, SBOMs, and image signatures.

@@ -52,7 +52,7 @@ Although there are many reasons why production images should be secure, the reas
 
 Chainguard offers minimal runtime images designed for running production workloads, and development images that contain a shell and some development tooling. With that said, both development and production images are slimmed down and updated regularly to be free of CVEs. Because of their minimal and secure-by-default nature, Chainguard Containers are ideal for use in a secure development process.
 
-## Building a Go Dev Container using an Example Repository
+## Building a Go Dev Container using an example repository
 
 The following is an example of how to set up a dev container using a Go project. Here, we will take the content of the `chainguard-go-devcontainer` directory in [Chainguard's demo GitHub repository](https://github.com/chainguard-dev/edu-images-demos) and push it to the root of an empty repository.
 
@@ -205,7 +205,7 @@ To add `sudo`, you can add the following line to the `Dockerfile` in the section
 RUN apk add sudo-rs shadow && echo "nonroot ALL = (ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers && echo y | pwck -q || true
 ```
 
-## Usage Notes
+## Usage notes
 
 [GitHub CodeSpaces](https://github.com/features/codespaces) support dev containers. However, at present they only work when the config is stored at the root directory.
 

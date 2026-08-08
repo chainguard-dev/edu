@@ -76,7 +76,7 @@ packages or wheel files that Chainguard does not currently serve directly. Confi
 access control across your organization, or use it [directly from individual
 build tools](/chainguard/libraries/python/build-configuration/).
 
-Follow the steps detailed in [Manual Access](#manual) to browse the Python index
+Follow the steps detailed in [Manual access](#manual) to browse the Python index
 and find available packages, package versions, source distribution (sdist), and
 Python wheel files for standard and remediated package version.
 
@@ -233,7 +233,7 @@ for use on Windows or MacOS.
 
 When using Chainguard Libraries for Python on these platforms, retrieval for
 these libraries, and therefore application builds, fail. The suggested
-deployment, detailed in [Technical Details](#technical-details) and [Global
+deployment, detailed in [Technical details](#technical-details) and [Global
 Configuration](/chainguard/libraries/python/global-configuration/), involves a
 repository manager that uses PyPI as a fall back for such packages. With this
 configuration, any build on Windows or MacOS continues to work and pulls the
@@ -533,4 +533,4 @@ Repository](/chainguard/chainguard-repository/overview/). By default, the endpoi
 only Chainguard-built packages. When the upstream fallback is enabled, upstream packages are
 subject to additional security controls before being served.
 
-Learn about managing fallback and cooldown controls in the [Chainguard Libraries Overview](/chainguard/libraries/overview/).
+Learn about managing fallback and cooldown controls in the [Chainguard Libraries overview](/chainguard/libraries/overview/).

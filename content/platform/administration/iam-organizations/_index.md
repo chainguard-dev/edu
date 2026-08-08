@@ -1,7 +1,7 @@
 ---
 aliases:
 - /chainguard/administration/iam-organizations/
-title: "IAM & Organizations"
+title: "IAM and organizations"
 lead: ""
 type: "article"
 date: 2023-04-13T08:49:15+00:00

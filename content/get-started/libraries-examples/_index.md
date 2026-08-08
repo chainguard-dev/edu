@@ -1,6 +1,6 @@
 ---
-title: "Libraries Examples"
-linktitle: "Libraries Examples"
+title: "Libraries examples"
+linktitle: "Libraries examples"
 lead: ""
 description: "Swap in your first secure dependency with Chainguard Libraries: a quickstart and migration walkthroughs for Java, JavaScript, and Python."
 type: "article"

@@ -1,5 +1,5 @@
 ---
-title: "Kubernetes Policy Enforcement with Kyverno"
+title: "Kubernetes policy enforcement with Kyverno"
 linktitle: "Kyverno"
 type: "article"
 description: "How to enforce best practices and ensure compliance with Kyverno."
@@ -21,7 +21,7 @@ To follow the examples in this guide, you will need the following:
 - `kubectl` — the command line interface tool for Kubernetes — installed on your local machine.
 - Administrative access to a Kubernetes cluster where [Kyverno is already installed](https://kyverno.io/docs/installation/).
 
-## Ensure Images are Pulled from Allowed Repositories
+## Ensure images are pulled from allowed repositories
 
 You can use the [`ClusterPolicy` policy type](https://kyverno.io/docs/policy-types/cluster-policy/overview/) to ensure that images are only pulled from a list of allowed repositories.
 
@@ -96,7 +96,7 @@ To clean up, delete the policy:
 kubectl delete -f restrict-image-registries.yaml
 ```
 
-## Ensure Images are Referenced by Digest
+## Ensure images are referenced by digest
 
 Chainguard Containers are updated frequently to incorporate CVE fixes and package updates. The tags for Chainguard's container images are highly mutable, meaning that the underlying image changes frequently, even for very specific tags like `v1.2.3-r1`.
 
@@ -187,7 +187,7 @@ To clean up, delete the `require-image-digest` policy:
 kubectl delete -f require-image-digest.yaml
 ```
 
-## Verify Image Signatures
+## Verify image signatures
 
 Chainguard signs all container images to ensure supply chain security and enable verification of image authenticity. These cryptographic signatures allow you to confirm that your container images come from Chainguard and haven’t been tampered with.
 
@@ -265,7 +265,7 @@ To clean up, delete the policy:
 kubectl delete -f verify-image-signatures.yaml
 ```
 
-## Audit First, Enforce Later
+## Audit first, enforce later
 
 When introducing new policies into a cluster, it is a good idea to initially configure rules with [`failureAction: Audit`](https://kyverno.io/docs/policy-types/cluster-policy/validate/#failure-action) so as to avoid blocking existing workloads.
 
@@ -314,7 +314,7 @@ kubectl get policyreport -o json | jq -r '.items[] | .metadata.ownerReferences a
 
 Once all the failures have been addressed, you can switch to `failureAction: Enforce` and Kyverno will start to block the creation of resources that violate the policy.
 
-## Learn More
+## Learn more
 
 By combining Kyverno with Chainguard Containers, you gain a powerful way to enforce security and compliance across your Kubernetes clusters. Kyverno ensures that only container images meeting your defined policies are deployed, while Chainguard Containers provide a minimal, hardened foundation to reduce risk from the start. Together, they help teams ship software more securely and confidently, without slowing down development.
 

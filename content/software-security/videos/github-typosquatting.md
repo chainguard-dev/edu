@@ -1,5 +1,5 @@
 ---
-title: "WTF is a Typo Squatting Attack?"
+title: "WTF is a typo squatting attack?"
 lead: "What really happened with GitHub’s typo squatting attack?"
 description: "GitHub’s typo squatting attack"
 type: "article"

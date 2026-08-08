@@ -1,5 +1,5 @@
 ---
-title: "An Introduction to Fulcio"
+title: "An introduction to Fulcio"
 linktitle: "Introduction"
 type: "article"
 lead: "A primer to the Fulcio certificate authority"
@@ -33,7 +33,7 @@ Below is an example of an X.509 certificate used to authenticate a secure websit
 
 ![Example of X.509 Certificate](Example_of_X.509_Certificate.png)
 
-## Certificate Authority
+## Certificate authority
 
 You rely on certificate authorities every time you open a browser and make a connection to a website. These certificate authorities, such as Let’s Encrypt, sign certificates that link a particular domain with a particular public key, allowing users to use HTTPS securely, knowing that a malicious third party is not pretending to be the real website. When a user visits a website, the user’s browser checks that a certificate authority trusted by the browser vouches for that certificate.
 
@@ -43,7 +43,7 @@ As a certificate authority, Fulcio operates analogously to the certificate autho
 
 To return to the digital passport metaphor, each national government, the entities that issue passports, is equivalent to a certificate authority.
 
-## OpenID Connect (OIDC) Tokens
+## OpenID Connect (OIDC) tokens
 
 [OpenID Connect](https://auth0.com/docs/authenticate/protocols/openid-connect-protocol) (or OIDC) is a protocol that enables authentication without the service provider having to store and manage passwords. Authentication refers to establishing that the person operating an application or using a browser is who they claim to be. Allowing the service, like Sigstore, to rely on OIDC means that the service transfers responsibility of authenticating the subject to other OIDC providers like GitHub, Google, and Microsoft, solving the key management issues that many online service providers prefer to avoid.
 
@@ -51,13 +51,13 @@ The use of the OIDC protocol by Sigstore means that a user can rely on workflows
 
 Returning again to the digital passport metaphor, the OIDC protocol is similar to how a passport can be used at an airport to prove your identity. The airport did not issue the passport (that is, the certificate) but it trusts the proof provided via the certificate.
 
-## How Fulcio Issues Certificates
+## How Fulcio issues certificates
 
 The user initiates a login to Fulcio using an OIDC provider such as GitHub, Google, or Microsoft. The user and an OIDC provider (for instance, GitHub) then engage in the OIDC protocol where the user logs in to GitHub to prove their identity. The OIDC provider, if the login is successful, returns an “access token,” which proves to Fulcio that the user controls the email address they claim to control. Fulcio then creates a certificate and timestamps it, returning the timestamp to the user and placing the certificate in the Rekor transparency log too.
 
 The process described above, in reality, can be decomposed into even more steps. For a full understanding with helpful diagrams, consult the [Fulcio documentation](https://github.com/sigstore/fulcio/blob/main/docs/how-certificate-issuing-works.md).
 
-## The Purpose and Contributions of Fulcio
+## The purpose and contributions of Fulcio
 
 The main task of Fulcio is to link public keys to email addresses. The detailed explanation earlier simply elaborates on how Fulcio binds public keys to email addresses.
 

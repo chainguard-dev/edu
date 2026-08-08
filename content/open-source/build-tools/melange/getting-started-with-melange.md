@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with melange"
+title: "Getting started with melange"
 aliases:
 - /open-source/melange/getting-started-with-melange
 - /open-source/melange/tutorials/getting-started-with-melange
@@ -30,7 +30,7 @@ Our guide is compatible with operating systems that support Docker and shared vo
 
 You won't need PHP or Composer installed on your system, since we'll be using Docker to build the demo app.
 
-### Note for Linux Users
+### Note for Linux users
 
 In order to be able to build apks for multiple architectures using Docker, you may need to register additional QEMU headers within your kernel. This is done automatically for Docker Desktop users, so if you are on macOS you don't need to run this additional step.
 
@@ -42,7 +42,7 @@ docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 
 You should now be able to build apks for all architectures supported by melange.
 
-## 1 — Downloading the melange Image
+## 1 — Downloading the melange image
 
 The fastest way to get melange up and running on your system is by using the [official melange image](https://images.chainguard.dev/directory/image/melange/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-open-source-build-tools-melange-getting-started-with-melange) with Docker. Start by pulling the melange image into your local system:
 
@@ -80,7 +80,7 @@ Platform:      linux/amd64
 
 With melange installed, you’re ready to proceed.
 
-## 2 — Cloning the Demo Repository
+## 2 — Cloning the demo repository
 
 To demonstrate melange's features with a minimalist application that has real-world functionality, our demo consists of a PHP command line app that queries the [Slip advice](https://api.adviceslip.com/) API and outputs a random piece of advice. The app is a single-file script built with [Minicli](https://github.com/minicli).
 
@@ -117,7 +117,7 @@ Gratitude is said to be the secret to happiness.
 
 With the application ready, you can start building your package.
 
-## 3 — The melange YAML File
+## 3 — The melange YAML file
 
 The `melange.yaml` file is where you declare the details and specifications of your apk package. For code that generates self-contained binaries, this is typically where you'll build your application artifacts with compiler tools. In the case of interpreted languages, you'll likely build your application by downloading vendor dependencies, setting up relevant paths, and setting the environment up for production.
 
@@ -224,7 +224,7 @@ packages
 
 You have successfully built a multi-architecture software package with melange!
 
-## 5 — Building a Container Image with apko
+## 5 — Building a container image with apko
 
 With the apk packages and apk index in place, you can now build a container image and have your apk(s) installed within it.
 
@@ -301,6 +301,6 @@ You have successfully built a minimalist container image with your apk package i
 
 ## Conclusion
 
-In this guide, we packaged a PHP command-line app with melange. We also built a container image to install and run our custom apk, using the apko tool. For more information about apko, check our [Getting Started with apko](/open-source/apko/getting-started-with-apko/) guide.
+In this guide, we packaged a PHP command-line app with melange. We also built a container image to install and run our custom apk, using the apko tool. For more information about apko, check our [Getting started with apko](/open-source/apko/getting-started-with-apko/) guide.
 
 The demo files are available at the [melange-php-demos](https://github.com/chainguard-dev/melange-php-demos) repository, in the `hello-minicli` subfolder. For additional information on how to debug your builds and other features, check the [melange](https://github.com/chainguard-dev/melange) and [apko](https://github.com/chainguard-dev/apko) repositories on GitHub.

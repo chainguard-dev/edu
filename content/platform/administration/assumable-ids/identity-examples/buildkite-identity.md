@@ -1,5 +1,5 @@
 ---
-title : "Create an Assumable Identity for a Buildkite Pipeline"
+title : "Create an assumable identity for a Buildkite pipeline"
 linktitle: "Buildkite"
 aliases:
 - /chainguard/chainguard-enforce/authentication/identity-examples/enforce-buildkite-identity/
@@ -26,10 +26,10 @@ This tutorial outlines how to create an identity using Terraform, and then how t
 To complete this guide, you must have the following in place:
 
 * `terraform` installed on your local machine. Terraform is an open-source Infrastructure as Code tool which this guide uses to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
-* `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up.
+* `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up.
 * A Buildkite agent and pipeline you can use to test out the identity you'll create. We recommend following Buildkite's [Getting Started guide](https://buildkite.com/docs/tutorials/getting-started) to set these up.
 
-## Creating Terraform Files
+## Creating Terraform files
 
 This guide outlines using Terraform to create an identity for a Buildkite pipeline to assume. This step outlines how to create three Terraform configuration files that, together, produce such an identity.
 
@@ -137,7 +137,7 @@ resource "chainguard_rolebinding" "view-stuff" {
 
 After creating the `buildkite.tf` file with each of these sections, your Terraform configuration will be ready. Now you can run a few `terraform` commands to create the resources defined in your `.tf` files.
 
-## Creating Your Resources
+## Creating your resources
 
 First, run `terraform init` to initialize Terraform's working directory:
 
@@ -199,7 +199,7 @@ chainctl iam identities ls
 
 You're now ready to edit a Buildkite pipeline in order to test out this identity.
 
-## Testing the Identity with a Buildkite Pipeline
+## Testing the identity with a Buildkite pipeline
 
 To test the identity you created with Terraform in the previous section, navigate to your Buildkite pipeline. From the Buildkite Dashboard, click **Pipelines** in the top navigation bar and then click on the pipeline you specified in the `buildkite.tf` file.
 
@@ -329,7 +329,7 @@ You can also edit the pipeline itself to change its behavior. For example, inste
 
 Of course, the Buildkite pipeline is only able to perform certain actions on certain resources depending on what kind of access you grant it.
 
-## Removing Sample Resources
+## Removing sample resources
 
 To remove the resources Terraform created, run the `terraform destroy` command:
 
@@ -347,6 +347,6 @@ rm -r ~/buildkite-id/
 
 This removes the Terraform configuration files you used to create the example Buildkite resources.
 
-## Learn More
+## Learn more
 
 For more information about how assumable identities work in Chainguard, check out our [conceptual overview of assumable identities](/chainguard/administration/iam-organizations/assumable-ids/). Additionally, the Terraform documentation includes a section on [recommended best practices](https://developer.hashicorp.com/terraform/cloud-docs/recommended-practices) which you can refer to if you'd like to build on this Terraform configuration for a production environment. Likewise, for more information on using Buildkite, we encourage you to check out the [official project documentation](https://buildkite.com/docs), particularly their [documentation on Buildkite OIDC](https://buildkite.com/docs/agent/v3/cli-oidc).

@@ -24,7 +24,7 @@ This tutorial uses the publicly available .NET container images from Chainguard'
 
 To follow along, you must have Docker installed on your local machine. If you don't have Docker installed, you can download and install it from the [official Docker website](https://docs.docker.com/get-docker/). Optionally, you can install [Grype](https://github.com/anchore/grype) to scan container images for vulnerabilities and compare the security posture of different base images.
 
-## Retrieving the Demo Application Files
+## Retrieving the demo application files
 
 This step involves downloading the demo application code to your local machine. To prevent the application files from remaining on your system, navigate to a temporary directory like `/tmp/`:
 
@@ -69,7 +69,7 @@ This directory holds a single .NET application along with two Dockerfiles that b
 
 Both Dockerfiles compile the same `Program.cs` and `dotnetapp.csproj`, so the only difference between the two images comes from the base images each Dockerfile uses.
 
-## Understanding the Demo Application
+## Understanding the demo application
 
 The demo application is a .NET console program that displays runtime and system information, including:
 
@@ -85,7 +85,7 @@ This sample application is based on Microsoft's [dotnet-runtimeinfo sample](http
 
 In the following sections, we'll build and compare both versions of the application.
 
-## Building with Microsoft's .NET Images
+## Building with Microsoft's .NET images
 
 Start by building and running the application with the .NET container images provided by Microsoft to establish a baseline for comparison.
 
@@ -160,7 +160,7 @@ TotalAvailableMemoryBytes: 16472748032 (15.34 GiB)
 
 Running the container returns system information, including a stylized ASCII art banner followed by runtime details.
 
-## Building with Chainguard's .NET Container Images
+## Building with Chainguard's .NET container images
 
 Next, build the application with Chainguard's .NET container images. Inspect `linky.Dockerfile` to understand the differences:
 
@@ -270,7 +270,7 @@ TotalAvailableMemoryBytes: 16472748032 (15.34 GiB)
 
 This output is nearly identical to what the `dotnet-example:notlinky` image returned. The differences reflect the underlying base image: the operating system is `Wolfi` rather than Ubuntu, and the application runs as `nonroot` rather than `app`. Otherwise, the two applications function identically.
 
-## Comparing the Results
+## Comparing the results
 
 If you have Grype installed, you can scan both of the container images you've built for vulnerabilities. Start by scanning the `dotnet-example:notlinky` image:
 
@@ -342,7 +342,7 @@ This output shows that the `dotnet-example:linky` container image is significant
 
 > **Note**: The command outputs shown in these examples were validated at the time of this writing. Over time, the number of vulnerabilities in either image is likely to change, though you can always expect the Chainguard-based image to contain fewer vulnerabilities.
 
-## .NET Migration Considerations and Best Practices
+## .NET migration considerations and best practices
 
 When migrating a .NET application to use Chainguard Containers, keep the following considerations in mind:
 
@@ -370,7 +370,7 @@ Choose the runtime image based on the type of application:
 
 If a build stage needs a shell or package manager, use a [development variant](/chainguard/chainguard-images/about/differences-development-production/) of the relevant Chainguard container image.
 
-## Learn More
+## Learn more
 
 Migrating .NET applications from Microsoft's official images to Chainguard's container images provides significant security benefits with minimal code changes. The multi-stage build pattern remains the same, with the primary differences being:
 
@@ -383,5 +383,5 @@ These small changes result in containerized applications with few-to-zero vulner
 For detailed information about Chainguard's .NET container images and additional configuration options, refer to the following resources:
 
 - The [.NET SDK](https://images.chainguard.dev/directory/image/dotnet-sdk/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-dotnet) and [.NET Runtime](https://images.chainguard.dev/directory/image/dotnet-runtime/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-dotnet) documentation pages contain full details on Chainguard's .NET images, including usage documentation, provenance, and security advisories.
-- Our [General Migration Guidance](/chainguard/migration/migrating-to-chainguard-images/) is helpful for understanding migration best practices.
+- Our [General migration guidance](/chainguard/migration/migrating-to-chainguard-images/) is helpful for understanding migration best practices.
 - [The Guardener](/chainguard/migration/the-guardener/) is an AI-powered agent that iteratively converts, builds, and validates your Dockerfiles for use with Chainguard Containers.

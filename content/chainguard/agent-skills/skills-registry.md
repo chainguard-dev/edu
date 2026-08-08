@@ -25,7 +25,7 @@ This guide walks through the full workflow, including how to enable the registry
 
 To follow this guide, you need:
 
-* `chainctl` **v0.2.275** or later, installed and authenticated. Refer to [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) if you don't have it yet.
+* `chainctl` **v0.2.275** or later, installed and authenticated. Refer to [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) if you don't have it yet.
 * An active Chainguard organization.
 * Owner access on the organization.
 

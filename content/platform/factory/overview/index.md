@@ -1,7 +1,7 @@
 ---
 aliases:
 - /chainguard/factory/overview/
-title: "Overview of The Chainguard Factory"
+title: "Overview of the Chainguard Factory"
 linktitle: "Overview"
 type: "article"
 description: "Learn about Chainguard Factory, the automated build system that continuously updates thousands of containers, libraries, and VMs with the latest security patches"
@@ -37,7 +37,7 @@ If you look inside the factory, you will find a complex build system running
 parallel builds at high speed, constantly being updated and refined by
 engineers supported by AI.
 
-## The Pace of Updates
+## The pace of updates
 
 Open source projects are constantly evolving and updating. The factory keeps up
 through vigilant and automated monitoring that leverages the [GitHub
@@ -81,9 +81,9 @@ cluster (sometimes even a specially provisioned EKS cluster for images such as
 
 On top of this, software is constantly going End-of-Life (EOL). When software
 is no longer supported upstream, we will cease updating it in Wolfi (refer to [Wolfi
-Packages in Chainguard
+Packages in chainguard
 Containers](/chainguard/chainguard-images/about/versions/#wolfi-packages-in-chainguard-containers)).
-Customers benefit from an extended [EOL Grace
+Customers benefit from an extended [EOL grace
 Period](/chainguard/chainguard-images/features/eol-gp-overview/)
 with Chainguard OS where we continue to build old versions).
 
@@ -110,11 +110,11 @@ After an engineer investigates the issue, the most likely outcomes are:
     This could mean pulling in a patch or bumping a dependency in the project,
 before rebuilding and updating the status to `Fixed`.
 
-Refer to [How Chainguard Issues Security
+Refer to [How Chainguard issues security
 Advisories](/chainguard/chainguard-images/staying-secure/security-advisories/how-chainguard-issues/)
 for full information on the lifecycle of advisories.
 
-## Identifying Malware and Malicious Updates
+## Identifying malware and malicious updates
 
 It is essential that the factory is secure and we do not inadvertently publish
 malware. There have been multiple cases of supply chain attacks where reputable
@@ -127,7 +127,7 @@ unexpected changes in the functionality of software from an update. For
 example: an update would be flagged as suspicious if it makes new network
 connections but there are no references to this in the project's changelog.
 
-## Infrastructure and Build Security
+## Infrastructure and build security
 
 We use GitHub for source code management, but our builds themselves run on Kubernetes
 clusters to provide the scaling and observability we require. As you can
@@ -140,7 +140,7 @@ provenance. The builds themselves follow [OpenSSF guidance for security
 hardening via compiler flag
 settings](https://www.chainguard.dev/unchained/enhanced-compiler-flags-for-building-chainguards-guarded-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
 
-## On Automation, AI and Human Engineers
+## On automation, AI and human engineers
 
 To keep the factory running at the pace it does, we leverage automation and AI
 to streamline operations. But the vast number of changes results in constant

@@ -1,5 +1,5 @@
 ---
-title: "How to Migrate a Java Application to Chainguard Containers"
+title: "How to migrate a Java application to Chainguard Containers"
 linktitle: "Video: Java"
 aliases:
 - /chainguard/migration/migration-guides/java-images/

@@ -1,6 +1,6 @@
 ---
-title: "Considerations for Keeping Containers Up to Date"
-linktitle: "Container Update Considerations"
+title: "Considerations for keeping containers up to date"
+linktitle: "Container update considerations"
 aliases:
 - /chainguard/chainguard-images/considerations-for-images-updates
 - /chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/
@@ -70,7 +70,7 @@ Many systems will default to using the `latest` tag in certain cases if you don'
 
 One of the most important features of container builds is their *reproducibility* as you would like to ensure that you are using the same image each time. However, container tags are mutable, meaning that they can change over time. If you pin your application to a specific image tag and then the image associated with that tag gets updated and you redeploy or pull the image again, your application will be using a different image than it was before. Eventually, the image could change to the point that it no longer works with your application.
 
-When it comes to container versions, pinning an application to a major version is usually an acceptable practice since minor version increases typically won't break things. That being said, the potential for "jumping” across minor or major versions without warning means that pinning an application to a major or minor tag isn't suitable for many production workflows. To avoid this problem, it's recommended to [pin projects to an *image digest*](/chainguard/chainguard-images/about/versions/#single-release-track-maintained-by-a-given-open-source-project). A digest is a content-based hash of the image contents and is guaranteed to be immutable. Because a digest will always point to the same image, its reproducibility is guaranteed. To find the digest for an image, users can run a command like the following.
+When it comes to container versions, pinning an application to a major version is usually an acceptable practice since minor version increases typically won't break things. That being said, the potential for "jumping” across minor or major versions without warning means that pinning an application to a major or minor tag isn't suitable for many production workflows. To avoid this problem, it's recommended to pin projects to an *image digest*. A digest is a content-based hash of the image contents and is guaranteed to be immutable. Because a digest will always point to the same image, its reproducibility is guaranteed. To find the digest for an image, users can run a command like the following.
 
 ```sh
 docker images --digests cgr.dev/chainguard/wolfi-base
@@ -99,6 +99,6 @@ There are many factors to consider when developing a process for keeping your im
 
 To reiterate, there's no one-size-fits-all approach to keeping one's images up to date. Our goal for this article is to introduce some of the important factors one should consider when developing a container image update plan for their application. If you'd like to learn more about the subjects touched on in this guide, we encourage you to check out the following resources.
 
-* [How to Use Chainguard Containers](/chainguard/chainguard-images/how-to-use-chainguard-images/)
-* [How to Use Container Container Digests to Improve Reproducibility](/chainguard/chainguard-images/videos/container-image-digests/)
-* [How To Compare Chainguard Containers with chainctl](/chainguard/chainguard-images/how-to-use/comparing-images/)
+* [How to use Chainguard Containers](/chainguard/chainguard-images/how-to-use-chainguard-images/)
+* [How to use container image digests to improve reproducibility](/chainguard/chainguard-images/videos/container-image-digests/)
+* [How to compare Chainguard Containers with chainctl](/chainguard/chainguard-images/how-to-use/comparing-images/)

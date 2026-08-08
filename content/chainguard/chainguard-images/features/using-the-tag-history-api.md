@@ -27,13 +27,13 @@ A container image digest is a unique identifier that is generated for each and e
 
 If you have a container environment that was working fine but suddenly breaks with a new build, using a previous container image build version by declaring an image digest instead of a tag is a way to keep things up and running until you're able to assert that a new version of a container environment works as expected with your application.
 
-> NOTE: If you are looking for a quick way to learn the tag history of a container image, you may want to consider using the `chainctl images history` command instead of the API. Refer to **[Examine the History of Container Images](/chainguard/chainctl-usage/chainctl-images/#examine-the-history-of-container-images)** for more information.
+> NOTE: If you are looking for a quick way to learn the tag history of a container image, you may want to consider using the `chainctl images history` command instead of the API. Refer to **[Examine the history of container images](/chainguard/chainctl-usage/chainctl-images/#examine-the-history-of-container-images)** for more information.
 
-## Obtaining a Registry Token
+## Obtaining a registry token
 
 Before making API calls, you'll need to generate a token within [Chainguard's registry](/chainguard/chainguard-registry/overview/).
 
-### Public Containers
+### Public containers
 
 The Registry API endpoint for obtaining the token is:
 
@@ -52,7 +52,7 @@ auth_header="Authorization: Bearer $(curl 'https://cgr.dev/token?scope=repositor
   | jq -r .token)"
 ```
 
-### Private Containers
+### Private containers
 
 You'll need to use your Chainguard Docker credentials. This assumes you've set up authentication with [chainctl auth configure-docker](https://edu.chainguard.dev/chainguard/chainguard-registry/authenticating/):
 
@@ -170,7 +170,7 @@ Both of these examples filter the `curl` command's output through [`jq`](https:/
 
 Please note that the Tag History API will return a maximum of 1000 records on a single request. For tags with many digests, since the oldest digests are ordered first, it may be necessary to specify the timestamp of the desired digests - for this, the `start` and `end` parameters may be used as specified above.
 
-## Using Container Digests within a Dockerfile
+## Using container digests within a Dockerfile
 
 Setting up your Dockerfile to use an older build is a matter of modifying your `FROM` line to use a container image digest instead of a tag. For instance, let's say you want to make sure you keep using the current latest build of the Python image. In a previous section of this page we obtained the tag history of the Python image, and the most recent build digest is listed as `sha256:81c334de6dd4583897f9e8d0691cbb75ad41613474360740824d8a7fa6a8fecb`. With that information, you can edit your Dockerfile and replace:
 

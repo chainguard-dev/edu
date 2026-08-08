@@ -1,6 +1,6 @@
 ---
-title: "Verifying Chainguard Containers and Metadata Signatures with Cosign"
-linktitle: "Verifying Containers"
+title: "Verifying Chainguard Containers and metadata signatures with Cosign"
+linktitle: "Verifying containers"
 aliases:
   - /chainguard/chainguard-images/verifying-images-with-cosign
   - /chainguard/chainguard-images/verifying-chainguard-images-and-metadata-signatures-with-cosign/
@@ -193,6 +193,6 @@ To avoid this problem, you could include either or both of the following `set` o
 
 ## Learn more
 
-To get up to speed with Sigstore, you can review the [Sigstore](/open-source/sigstore/) section of Chainguard Academy, visit the upstream [Sigstore Docs](https://docs.sigstore.dev/) site, and check out the [Sigstore organization on GitHub](https://github.com/sigstore). You can learn more about verifying software artifacts with Cosign by reading [How to Verify File Signatures with Cosign](/open-source/sigstore/cosign/how-to-verify-file-signatures-with-cosign/).
+To get up to speed with Sigstore, you can review the [Sigstore](/open-source/sigstore/) section of Chainguard Academy, visit the upstream [Sigstore Docs](https://docs.sigstore.dev/) site, and check out the [Sigstore organization on GitHub](https://github.com/sigstore). You can learn more about verifying software artifacts with Cosign by reading [How to verify file signatures with Cosign](/open-source/sigstore/cosign/how-to-verify-file-signatures-with-cosign/).
 
-Navigate to our [container images](/chainguard/chainguard-images/) landing page or [Getting Started Guides](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/) to understand more about Chainguard Containers and how they offer low-to-zero CVEs.
+Navigate to our [container images](/chainguard/chainguard-images/) landing page or [Getting started guides](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/) to understand more about Chainguard Containers and how they offer low-to-zero CVEs.

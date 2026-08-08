@@ -1,8 +1,8 @@
 ---
 aliases:
 - /chainguard/fips/getting-started/
-title: "Getting Started with FIPS Containers"
-linktitle: "Getting Started"
+title: "Getting started with FIPS containers"
+linktitle: "Getting started"
 type: "article"
 description: "Deploy and verify your first Chainguard FIPS container"
 date: 2025-10-16T08:00:00+00:00
@@ -28,7 +28,7 @@ FIPS containers work on any recent Linux kernel, including:
 - macOS (Docker Desktop)
 - Windows (WSL2 with Docker Desktop)
 
-## Choosing a FIPS Image
+## Choosing a FIPS image
 
 Chainguard offers 400+ FIPS image variants. Choose based on your use case:
 
@@ -54,11 +54,11 @@ Chainguard offers 400+ FIPS image variants. Choose based on your use case:
 
 Browse the complete catalog at [images.chainguard.dev/?category=fips](https://images.chainguard.dev/?category=fips).
 
-## Your First FIPS Container
+## Your first FIPS container
 
 Let's start with a Python example to verify FIPS is working.
 
-### Pull the Image
+### Pull the image
 
 Replace `ORGANIZATION` with your organization name in the Chainguard Registry:
 
@@ -66,7 +66,7 @@ Replace `ORGANIZATION` with your organization name in the Chainguard Registry:
 docker pull cgr.dev/$ORGANIZATION/python-fips:latest
 ```
 
-### Run a Test Script
+### Run a test script
 
 Create a Python script that uses cryptography:
 
@@ -104,7 +104,7 @@ FIPS cryptography is active
 
 This confirms the container is using OpenSSL for cryptographic operations.
 
-## Verifying FIPS Configuration
+## Verifying FIPS configuration
 
 ### Check the SBOM
 
@@ -121,7 +121,7 @@ Look for:
 
 These packages indicate kernel-independent FIPS configuration.
 
-### Inspect OpenSSL Configuration
+### Inspect OpenSSL configuration
 
 Run a container interactively to check OpenSSL configuration:
 
@@ -137,9 +137,9 @@ cat /etc/ssl/fipsmodule.cnf
 
 You should see configuration for the FIPS provider. This file's presence and validity are essential for FIPS operation.
 
-## Building Applications with FIPS
+## Building applications with FIPS
 
-### Multi-Stage Build Pattern
+### Multi-stage build pattern
 
 The recommended pattern is to build with a FIPS SDK image and run with a minimal FIPS runtime image.
 
@@ -170,7 +170,7 @@ This pattern:
 - Produces a minimal runtime image with only the binary and FIPS runtime
 - Maintains FIPS compliance throughout
 
-### Build and Run
+### Build and run
 
 ```bash
 docker build -t myapp-fips .
@@ -179,9 +179,9 @@ docker run --rm myapp-fips
 
 The resulting container runs on any Linux kernel and maintains FIPS validation.
 
-## Common Patterns
+## Common patterns
 
-### Python Application with Requirements
+### Python application with requirements
 
 ```dockerfile
 FROM cgr.dev/$ORGANIZATION/python-fips:latest
@@ -195,7 +195,7 @@ COPY . .
 CMD ["python", "app.py"]
 ```
 
-### Node.js Application
+### Node.js application
 
 ```dockerfile
 FROM cgr.dev/$ORGANIZATION/node-fips:latest AS builder
@@ -214,7 +214,7 @@ COPY --from=builder /app .
 CMD ["node", "server.js"]
 ```
 
-### Java Application
+### Java application
 
 ```dockerfile
 FROM cgr.dev/$ORGANIZATION/jdk-fips:latest AS builder
@@ -230,7 +230,7 @@ COPY --from=builder /app/*.class .
 CMD ["java", "MyApp"]
 ```
 
-## Testing FIPS Enforcement
+## Testing FIPS enforcement
 
 To verify that FIPS mode is enforced, you can intentionally break the FIPS configuration and confirm the application fails.
 
@@ -264,9 +264,9 @@ Restore the config to fix:
 cp /tmp/fipsmodule.cnf.bak /etc/ssl/fipsmodule.cnf
 ```
 
-## Development Workflow
+## Development workflow
 
-### Local Development
+### Local development
 
 FIPS containers work on any kernel, so you can develop and test locally:
 
@@ -288,7 +288,7 @@ docker run --rm -it \
 
 Inside, install development dependencies and run your app.
 
-### CI/CD Integration
+### CI/CD integration
 
 FIPS containers work in standard CI/CD pipelines without special infrastructure.
 
@@ -339,7 +339,7 @@ No special runners or kernel configurations required.
 
 **Solution**: Verify your organization has FIPS access. Contact support if needed.
 
-## Next Steps
+## Next steps
 
 Now that you've deployed your first FIPS container:
 

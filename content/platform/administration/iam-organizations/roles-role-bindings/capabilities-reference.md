@@ -1,8 +1,8 @@
 ---
 aliases:
 - /chainguard/administration/iam-organizations/roles-role-bindings/capabilities-reference/
-title: "Built-in Roles and Capabilities Reference"
-linktitle: "Built-in Roles & Capabilities"
+title: "Built-in roles and capabilities reference"
+linktitle: "Built-in roles and capabilities"
 lead: "Reference for Chainguard's built-in roles and their specific capabilities"
 description: "A resource documenting the capabilities and permissions of Chainguard's built-in IAM roles."
 type: "article"
@@ -18,9 +18,9 @@ Chainguard provides customers with a set of built-in roles as part of its Identi
 
 This reference provides an overview of all Chainguard IAM capabilities and shows which built-in roles include each capability. Each capability represents a specific permission or action that can be performed within the Chainguard platform.
 
-For more information on roles and role-bindings within Chainguard's IAM model, please refer to our [Overview of Roles and Role-bindings](/chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
+For more information on roles and role-bindings within Chainguard's IAM model, please refer to our [Overview of roles and role-bindings](/chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
 
-## Built-in Roles Summary
+## Built-in roles summary
 
 This guide outlines the built-in Chainguard IAM roles available to most customer organizations. You can find more info about specific roles in your organization with the following `chainctl` command:
 
@@ -57,7 +57,7 @@ The administrative roles are useful for user profiles that require broad, but cl
 
 For example, the `apk.pull` role only grants `list` access for APK packages and groups. This means identities with this role can pull the organization's APK packages and retrieve information about the organization, but won't have general access to the organization's [Chainguard registry](/chainguard/chainguard-images/chainguard-registry/overview/) resources.
 
-## Chainguard Role Capabilities
+## Chainguard role capabilities
 
 The following table maps Chainguard resources to the built-in roles that have permissions for them. Each row represents a specific resource type (like `apk`, `repo`, `identity`, etc.), describes its purpose, and lists which built-in roles have what capabilities (create, delete, list, update) for that resource.
 
@@ -96,7 +96,7 @@ The following table maps Chainguard resources to the built-in roles that have pe
 
 </div>
 
-## Role Capabilities Comparison
+## Role capabilities comparison
 
 The following table compares the general abilities of the built-in roles described in the [previous summary](#built-in-roles-summary):
 
@@ -144,7 +144,7 @@ These roles are able to create pull tokens because of the `identity.create` capa
 
 The reason for this is that Chainguard doesn't distinguish pull token identities from other [assumable identities](/chainguard/administration/assumable-ids/assumable-ids/) at the IAM level. If these roles also had the `identity.list` capability, they would be able to view **all** the identities in that scope. By not including `identity.list` among their capabilities, the pull token creator roles have a more limited scope, as intended.
 
-## Learn More
+## Learn more
 
-* [Overview of Roles and Role-bindings in Chainguard](/chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/) - Conceptual overview and basic management
-* [Overview of Chainguard IAM Model](/chainguard/administration/iam-organizations/overview-of-enforce-iam-model/) - Complete IAM architecture
+* [Overview of roles and role-bindings in Chainguard](/chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/) - Conceptual overview and basic management
+* [Overview of Chainguard IAM model](/chainguard/administration/iam-organizations/overview-of-enforce-iam-model/) - Complete IAM architecture

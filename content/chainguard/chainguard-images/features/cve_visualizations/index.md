@@ -1,11 +1,11 @@
 ---
-title: "Using CVE Visualizations"
-linktitle: "CVE Visualizations"
+title: "Using CVE visualizations"
+linktitle: "CVE visualizations"
 aliases:
 - /chainguard/chainguard-images/working-with-images/cve_visualizations/
 - /chainguard/chainguard-images/features/cve_visualizations/
 type: "article"
-description: "Getting started with the CVE Visualization feature."
+description: "Getting started with the CVE visualization feature."
 date: 2024-12-19T11:07:52+02:00
 lastmod: 2026-08-03T18:16:45+00:00
 draft: false
@@ -22,7 +22,7 @@ Chainguard provides CVE Visualizations for all of its container images. This fea
 
 This guide outlines how you can access a container image's CVE Visualization in both the Chainguard Console and in the Containers Directory.
 
-## Accessing CVE Visualizations in the Console
+## Accessing CVE visualizations in the Console
 
 You can find CVE Visualizations and reports two separate places in the [Chainguard Console](https://console.chainguard.dev): in the **Reports** section of the left-hand navigation menu and in the **Comparison** tab of an individual Container's overview.
 
@@ -75,7 +75,7 @@ By default, you will be taken to the container image's **Versions** tab. Click o
 <center><img src="cve-viz-5.png" alt="Screenshot of the Chainguard PHP image's Comparison tab in the Browse Containers section of the Chainguard Console, with data showing how it compares against the php:latest image." style="width:1100px;"></center>
 <br />
 
-## Accessing CVE Visualizations in the Containers Directory
+## Accessing CVE visualizations in the Containers Directory
 
 Similar to the CVE reports found in the **Browse Containers** and **Organization Containers** section of the Chainguard Console, you can find CVE reports for every one of Chainguard's container images in the [Containers Directory](https://images.chainguard.dev/).
 
@@ -88,8 +88,8 @@ After navigating to the directory, click on or search for any container image yo
 
 Some container images do not currently have a comparative alternative. In these cases, the Comparison report will only show data for the Chainguard Container.
 
-## Learn More
+## Learn more
 
 The CVE data used in these reports is from the [Grype vulnerability scanner](/chainguard/chainguard-images/staying-secure/working-with-scanners/grype-tutorial/). Vulnerability data is constantly evolving, so we scan container images each day and store the results. The results shown are the vulnerabilities found on the day in question; scanning the container images again with a newer database will show different results.
 
-For more information on CVEs refer to [What Are Software Vulnerabilities and CVEs](/software-security/cves/cve-intro/). You may also find our guide on [Using the Chainguard Directory and Console](/platform/console/images-directory/) to be of interest.
+For more information on CVEs refer to [What are software vulnerabilities and CVEs](/software-security/cves/cve-intro/). You may also find our guide on [Using the Chainguard Directory and Console](/platform/console/images-directory/) to be of interest.

@@ -18,7 +18,7 @@ The [Open Container Initiative](https://opencontainers.org/) (OCI) is a Linux Fo
 
 The OCI is committed to promoting common, minimal, and open standards and specifications with the aim of protecting interoperability without sacrificing developers’ ability to innovate. These standards and specifications play a critical role in enabling developers to trust that their containers will work regardless of the infrastructure, cloud provider, and DevOps tooling they choose to use. They also are vital in modern software supply chain security as they provide a strong foundation for developing security tooling and best practices related to container technology. Understanding the purpose and use of OCI specifications can help you understand the conditions of container interoperability and prepare you to learn emerging methods for securing and trusting container applications.
 
-## What are the OCI Specifications?
+## What are the OCI specifications?
 
 The OCI currently manages three specifications: the Runtime Specification, the Image Specification, and the Distribution Specification. These specifications work together to ensure that any OCI-compliant image can be run on any OCI-compliant runtime, and that OCI-compliant registries (such as Docker, Amazon Elastic Container Registry, or Google Container Registry) are able to distribute OCI images according to OCI guidelines.
 
@@ -26,7 +26,7 @@ The OCI offers a testing and peer validation process for individuals and organiz
 
 The three OCI specifications are outlined in the following sections.
 
-## OCI Image Format Specification
+## OCI image format specification
 
 This specification defines an OCI Image as consisting of an image manifest, an optional image index, a set of filesystem layers, and a configuration.
 
@@ -77,13 +77,13 @@ The configuration document includes basic information like the author and creati
 
 For more guidance on image configuration, visit the [official OCI documentation](https://github.com/opencontainers/image-spec/blob/main/config.md).
 
-## Runtime Specification  
+## Runtime specification
 
 A container runtime is the software used to run and manage containers; essentially they create and run containers using specified images. The goal of the OCI Runtime Specification is to ensure consistency between different runtime environments and define common actions to manage a container’s lifecycle. An OCI-compliant image should run reliably on any OCI-compliant runtime.  More information about the Runtime Specification can be found in the [OCI documentation](https://github.com/opencontainers/runtime-spec/blob/main/spec.md).
 
 In addition to overseeing this specification, OCI develops the runtime `runc`, a command line client for creating, configuring, and managing containers. Originally developed by Docker, `runc` was donated to OCI as the reference for the specification and serves as the foundation for a variety of popular container tools such as containerd and Podman.
 
-## Distribution Specification
+## Distribution specification
 
 The OCI Distribution Specification aims to standardize the way container registries and runtime tools push and pull container images and other content types. It is based on the specification for the Docker Registry HTTP API V2 protocol apdx-1, and has been adopted by major registries such as Amazon Elastic Container Registry, Google Container Registry, Azure Container Registry, and Github Container Registry. Any registry that is OCI-compliant supports interactions outlined by this specification, such as pushing, pulling, or storing images.  More information about the Distribution Specification can be found in the OCI documentation [here](https://github.com/opencontainers/distribution-spec/blob/main/spec.md).
 

@@ -1,7 +1,7 @@
 ---
-title: "Getting Started with the nginx Chainguard Container"
+title: "Getting started with the nginx Chainguard Container"
 type: "article"
-linktitle: "nginx "
+linktitle: "nginx"
 aliases:
 - /chainguard/chainguard-images/getting-started/nginx
 description: "Learn how to deploy nginx web server using Chainguard's security-hardened container image with minimal vulnerabilities and distroless runtime"
@@ -43,7 +43,7 @@ You will need to have [nginx](https://nginx.org/en/download.html) and [Docker En
 
 For this tutorial, you will be copying code to files you create locally. You can find the demo code throughout this tutorial, or you can find the complete demo at the [demo GitHub repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/nginx).
 
-## Step 1: Setting up a Demo Website
+## Step 1: Setting up a demo website
 
 We'll start by serving static content to a local web server with nginx.
 
@@ -279,7 +279,7 @@ When you are done with your container, you can stop it with the following comman
 docker container stop nginxcontainer
 ```
 
-## Advanced Usage
+## Advanced usage
 
 In this demo, we did not copy the configuration file into the container image built from the Dockerfile. This is because the default configuration file in the image was sufficient for the scope of this demo. If you wish to use a custom configuration file, you must ensure that file paths, ports, and other system-specific settings are configured to match the container environment. You can find more information about making these changes at the [Chainguard nginx Container Overview](https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-nginx).
 

@@ -49,7 +49,7 @@ tutorials: [
     url: "/chainguard/libraries/python/migration/"
   },
   {
-    title: "Quick Start",
+    title: "Quickstart",
     description: "Configure your build to pull from Chainguard Libraries",
     url: "/chainguard/libraries/quickstart/"
   },

@@ -1,6 +1,6 @@
 ---
-title: "How Chainguard Containers are Tested"
-linktitle: "How We Test"
+title: "How Chainguard Containers are tested"
+linktitle: "How we test"
 aliases:
 - /chainguard/chainguard-images/images-testing/
 - /chainguard/chainguard-images/about/images-testing/
@@ -74,4 +74,4 @@ Additionally, Chainguard performs automated tests on every *package* included in
 
 Chainguard's rigorous container image testing standards and frequent updates ensure that they will work as expected with few (and often zero) vulnerabilities. If you're having trouble working with a specific Chainguard Container, we encourage you to check out its relevant Overview page in our [Chainguard Containers Directory](https://images.chainguard.dev/directory?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-images-testing).
 
-For general help with using Chainguard Containers, you can refer to our [Debugging Distroless Container Images](/chainguard/chainguard-images/debugging-distroless-images/) guide or our [Chainguard Containers FAQs](/chainguard/chainguard-images/faq/). For help with specific issues or questions not covered in these resources, please [contact our support team](https://support.chainguard.dev?utm=docs).
+For general help with using Chainguard Containers, you can refer to our [Debugging distroless container images](/chainguard/chainguard-images/debugging-distroless-images/) guide or our [Chainguard Containers FAQs](/chainguard/chainguard-images/faq/). For help with specific issues or questions not covered in these resources, please [contact our support team](https://support.chainguard.dev?utm=docs).

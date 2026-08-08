@@ -1,6 +1,6 @@
 ---
 title: "Can anybody build Chainguard Containers themselves?"
-linktitle: "Can Anybody Build Containers"
+linktitle: "Can anybody build containers"
 type: "article"
 description: "Dustin Kirkland discusses whether users can build Chainguard Containers on their own"
 date: 2025-08-02T16:00:00+00:00

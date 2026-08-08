@@ -1,6 +1,6 @@
 ---
-title: "How to Set Up An Instance of Rekor Instance Locally"
-linktitle: "Set Up Local Instance"
+title: "How to set up an instance of Rekor locally"
+linktitle: "Set up local instance"
 type: "article"
 lead: "Make your own transparency log instance"
 description: "Create your own instance of the Rekor transparency log"

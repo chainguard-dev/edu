@@ -1,6 +1,6 @@
 ---
 title: "CISA Secure Software Development Attestation Form (Draft)"
-linktitle: "Self-Attestation Form"
+linktitle: "Self-attestation form"
 type: "article"
 date: 2023-05-10T15:21:01+02:00
 lastmod: 2023-05-10T15:21:01+02:00
@@ -14,7 +14,7 @@ weight: 10
 toc: true
 ---
 
-## Attestation and Signature
+## Attestation and signature
 
 On behalf of the above-specified company, I attest that [software producer] presently makes consistent use of the following practices, drawn from the secure software development
 framework (SSDF), in developing the software identified in Section I:

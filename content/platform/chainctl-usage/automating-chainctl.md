@@ -73,8 +73,8 @@ Many CI platforms can provide a short-lived OIDC token that `chainctl` uses to a
 Tested examples are available for the following platforms:
 
 - [Authenticating with GitHub Actions](/chainguard/chainguard-registry/authenticating/#authenticating-with-github-actions)
-- [Authenticating with CircleCI OIDC Token](/chainguard/chainguard-registry/authenticating/#authenticating-with-circleci-oidc-token)
-- [Authenticating with Microsoft Entra ID OIDC Token](/chainguard/chainguard-registry/authenticating/#authenticating-with-microsoft-entra-id-oidc-token)
+- [Authenticating with CircleCI OIDC token](/chainguard/chainguard-registry/authenticating/#authenticating-with-circleci-oidc-token)
+- [Authenticating with Microsoft Entra ID OIDC token](/chainguard/chainguard-registry/authenticating/#authenticating-with-microsoft-entra-id-oidc-token)
 
 ## Pin an image by its digest
 
@@ -235,4 +235,4 @@ Run this script idempotently during infrastructure provisioning. If the subscrip
 
 ---
 
-For a full reference of every `chainctl` command and flag, refer to the [chainctl Reference](/platform/chainctl/).
+For a full reference of every `chainctl` command and flag, refer to the [chainctl reference](/platform/chainctl/).

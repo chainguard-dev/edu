@@ -1,5 +1,5 @@
 ---
-title: "Manage Chainguard Container Images with chainctl"
+title: "Manage Chainguard container images with chainctl"
 aliases:
 - /chainguard/chainctl-usage/chainctl-images/
 - /chainguard/chainctl-usage/chainctl-images-history
@@ -16,9 +16,9 @@ weight: 070
 
 Chainguard's `chainctl images` commands provide comprehensive tools for managing security-hardened container images in your organization's registry. These commands enable you to discover available images, analyze version histories, examine security metadata, and compare different image versions to make informed deployment decisions.
 
-For a full reference of all commands with details and switches, refer to [chainctl Reference](/chainguard/chainctl/).
+For a full reference of all commands with details and switches, refer to [chainctl reference](/chainguard/chainctl/).
 
-## List Available Chainguard Container Images
+## List available Chainguard container images
 
 When you want to know which Chainguard Containers are available to your account, use the following command:
 
@@ -68,7 +68,7 @@ Here's an abbreviated example of what will be returned:
 
 This will continue until all images (like `python` above) are listed with all their variants (releases like `3.13.3`). Notice that the list is not necessarily in order of release.
 
-## List Available Container Repos
+## List available container repos
 
 For a list of image repositories available to your account, use:
 
@@ -76,7 +76,7 @@ For a list of image repositories available to your account, use:
 chainctl images repos list
 ```
 
-## Examine the History of Container Images
+## Examine the history of container images
 
 To examine the history of an image tag in chainctl, like when it was updated and the associated digests for each update, use `chainctl images history`. This will also return information such as how many times a variant has been built and for which platforms, along with the time and digests for each.
 
@@ -157,7 +157,7 @@ This will present you with a menu like this:
 
 Once you make a selection, the details will be returned for that variant.
 
-## Compare Chainguard Container Images
+## Compare Chainguard container images
 
 When you want to compare two Chainguard images, enter:
 
@@ -165,4 +165,4 @@ When you want to compare two Chainguard images, enter:
 chainctl images diff $FROM_IMAGE $TO_IMAGE
 ```
 
-See <ins>[How To Compare Chainguard Containers with chainctl](/chainguard/chainguard-images/how-to-use/comparing-images/)</ins> to learn more.
+See <ins>[How to compare Chainguard Containers with chainctl](/chainguard/chainguard-images/how-to-use/comparing-images/)</ins> to learn more.

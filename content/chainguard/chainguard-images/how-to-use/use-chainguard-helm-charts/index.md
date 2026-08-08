@@ -1,6 +1,6 @@
 ---
-title: "How to Use Chainguard Helm Charts"
-linktitle: "Using Chainguard Helm Charts"
+title: "How to use Chainguard Helm charts"
+linktitle: "Using Chainguard Helm charts"
 aliases:
 type: "article"
 description: "A primer on how to use Chainguard-provided upstream Helm charts to deploy Chainguard container images"
@@ -21,7 +21,7 @@ toc: true
 
 For organizations looking to deploy their Chainguard container images with Helm, Chainguard provides upstream-produced Helm charts. These charts are available from the Chainguard Registry and are intended for customers who are either looking to get started with Helm or are looking for better, trusted alternatives to the public charts they may already be using.
 
-> Chainguard also offers a limited set of Helm charts to go with a set of Chainguard-created containers labeled as iamguarded, designed specifically to support organizations migrating off of Bitnami. Learn more about these in [How to use Chainguard iamguarded Helm Charts](/chainguard/chainguard-images/how-to-use/use-chainguard-iamguarded-helm-charts/).
+> Chainguard also offers a limited set of Helm charts to go with a set of Chainguard-created containers labeled as iamguarded, designed specifically to support organizations migrating off of Bitnami. Learn more about these in [How to use Chainguard iamguarded Helm charts](/chainguard/chainguard-images/how-to-use/use-chainguard-iamguarded-helm-charts/).
 
 The community charts have been tested by Chainguard to confirm they produce expected deployment results using the following policies:
 
@@ -267,7 +267,7 @@ helm install grafana oci://cgr.dev/$ORGANIZATION/charts/grafana \
   --values ./values.yaml
 ```
 
-### Install on AWS Elastic Kubernetes Service (EKS) Auto Mode
+### Install on AWS Elastic Kubernetes Service (EKS) auto mode
 
 When installing on EKS Auto Mode, you may need to create a storage class for the Helm chart's pod(s). This can be done by creating a storage class:
 

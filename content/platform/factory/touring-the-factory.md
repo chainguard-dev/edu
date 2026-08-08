@@ -2,7 +2,7 @@
 aliases:
 - /chainguard/factory/touring-the-factory/
 title: "Touring the Chainguard Factory"
-linktitle: "Factory Tour"
+linktitle: "Factory tour"
 type: "article"
 description: "Take a guided tour through the Chainguard Factory with Dustin Kirkland to see how secure software is built"
 date: 2025-08-02T16:00:00+00:00

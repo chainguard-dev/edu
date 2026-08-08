@@ -53,7 +53,7 @@ Yes. Each image comes with:
 
 These tools help you understand exactly what's inside your container.
 
-## Is Custom Assembly Covered by an SLA?
+## Is Custom Assembly covered by an SLA?
 
 Today, Chainguard delivers an [SLA for CVE remediation](https://www.chainguard.dev/legal/cve-sla?utm_source=docs) for all our container images.
 
@@ -65,7 +65,7 @@ One bit of nuance in all this is that the SLA doesn’t directly apply to the im
 
 When you use Custom Assembly, you’re not just randomly sticking together packages from anywhere. You’re assembling from the curated, protected library of packages that your organization has been granted access to by Chainguard. And if a vulnerability crops up in an entitled package? We’re already on it.
 
-## What Isn’t Covered by an SLA?
+## What isn’t covered by an SLA?
 
 So customized images benefit from Chainguard’s CVE SLA — that’s great! But what isn’t supported?
 
@@ -106,17 +106,17 @@ Use only packages from Chainguard images you’re entitled to, which are covered
 
 Custom Assembly provides the tools and defaults for secure image creation — but ongoing vigilance is key.
 
-## Why Not Use `apk add` to Add Packages?
+## Why not use `apk add` to add packages?
 
 {{< blurb/why_ca >}}
 
-## How do tags work for a custom assembly image (base image vs. added packages)?
+## How do tags work for a Custom Assembly image (base image vs. added packages)?
 
 For a Custom Assembly image, the semantic tag (for example, `vX.Y.Z`) always reflects the version of the Chainguard container image on which it is based. Any added packages do not get their own version tags.
 
 When an added package is updated and available, your Custom Assembly image is rebuilt automatically and the new build that includes the updated package becomes the `latest` image. The semantic tag remains tied to the same base image digest until the base image itself is updated and a new semantic tag is created.
 
-## Custom Assembly Troubleshooting
+## Custom Assembly troubleshooting
 
 Build failures can occur for a number of reasons, including the following:
 

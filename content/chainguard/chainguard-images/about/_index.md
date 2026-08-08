@@ -11,39 +11,39 @@ weight: 015
 topic: true
 banner: {
     image: "/icon-box-fill.svg",
-    title: "Chainguard Shared Responsibility Model",
+    title: "Chainguard shared responsibility model",
     cta: "Read more",
     link: "/chainguard/chainguard-images/about/shared-responsibility-model/"
 }
 sectiontitle: "More on Chainguard Containers"
 tutorials: [
   {
-    title: "Getting Started with Distroless",
+    title: "Getting started with distroless",
     description: "",
     url: "/chainguard/chainguard-images/about/getting-started-distroless/"
   },
   {
-    title: "How Chainguard Containers are Tested",
+    title: "How Chainguard Containers are tested",
     description: "",
     url: "/chainguard/chainguard-images/about/images-testing/"
   },
   {
-    title: "Why Our Containers Have Low-to-No CVEs",
+    title: "Why our containers have low-to-no CVEs",
     description: "",
     url: "/chainguard/chainguard-images/about/zerocve/"
   },
   {
-    title: "Containers for Compiled Programs",
+    title: "Containers for compiled programs",
     description: "",
     url: "/chainguard/chainguard-images/working-with-images/about/images-compiled-programs/compiled-programs"
   },
   {
-    title: "Container Variants",
+    title: "Container variants",
     description: "",
     url: "/chainguard/chainguard-images/about/differences-development-production/"
   },
     {
-    title: "Product Release Lifecycle",
+    title: "Product release lifecycle",
     description: "",
     url: "/chainguard/chainguard-images/about/versions/"
   },

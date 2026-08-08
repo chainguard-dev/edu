@@ -1,5 +1,5 @@
 ---
-title: "How to Use Chainguard Notifications"
+title: "How to use Chainguard Notifications"
 linktitle: "Using Chainguard Notifications"
 aliases:
 - /chainguard/chainguard-images/how-to-use/use-chainguard-notifications/

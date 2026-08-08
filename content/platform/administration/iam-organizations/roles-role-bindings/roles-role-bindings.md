@@ -1,8 +1,8 @@
 ---
 aliases:
 - /chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/
-title : "Overview of Roles and Role-bindings in Chainguard"
-linktitle: "Roles and Role-bindings Overview"
+title : "Overview of roles and role-bindings in Chainguard"
+linktitle: "Roles and role-bindings overview"
 lead: ""
 description: "An overview of Chainguard's identities, roles, and role-bindings, as well as instructions for how to manage roles and role-bindings with chainctl."
 type: "article"
@@ -161,4 +161,4 @@ Note that in order to use the `--identity` option like this, you will need to kn
 
 You can create a Chainguard identity for an automation system (such as Buildkite or GitHub Actions) to assume. This process involves choosing a role for the assumable identity and then creating a role-binding for it. Check out our [overview of assumable identities](/platform/administration/assumable-ids/assumable-ids/) — as well as our [collection of assumable identity examples](/platform/administration/assumable-ids/identity-examples/) — to learn more.
 
-If you'd like to learn more about Chainguard's IAM model and structures, we encourage you to read our [Overview of the Chainguard IAM Model](/platform/administration/iam-organizations/overview-of-chainguard-iam-model/).
+If you'd like to learn more about Chainguard's IAM model and structures, we encourage you to read our [Overview of the Chainguard IAM model](/platform/administration/iam-organizations/overview-of-chainguard-iam-model/).

@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with the Python Chainguard Container"
+title: "Getting started with the Python Chainguard Container"
 type: "article"
 linktitle: "Python"
 aliases:
@@ -43,7 +43,7 @@ In this guide, we'll cover two examples to showcase Python container images base
 
 In this example, we'll build and run a distroless Python Chainguard Container in a single-stage build process. We'll first make a demonstration app and then build and run it.
 
-### Step 1: Setting up a Demo Application
+### Step 1: Setting up a demo application
 
 We'll start by creating a basic command-line Python application to serve as a demo. This app will generate random octopus facts based on a list in a text file. This app will use the `random` module from the Python standard library.
 
@@ -152,13 +152,13 @@ Octopuses can breathe and see through their skin.
 
 You have successfully completed the single-stage Python Chainguard Container. At this point, you can continue to the [multi-stage example](#example-2-multi-stage-build-for-python-chainguard-container) or [advanced usage](#advanced-usage).
 
-## Example 2 — Multi-Stage Build for Python Chainguard Container
+## Example 2 — Multi-stage build for Python Chainguard Container
 
 In this example, we'll build and run a multi-stage Python Chainguard Container. We'll have a build image
 that includes pip and a shell before creating a final distroless image without these development
 tools for production.
 
-### Step 1: Setting up a Demo Application
+### Step 1: Setting up a demo application
 
 We'll start by creating a Python application that will take in an image file and convert it to ANSI escape sequences on the CLI to render an image.
 
@@ -290,6 +290,6 @@ docker run --rm linky
 
 And you should get output similar to what you got before, with a printed Linky on the command line.
 
-## Advanced Usage
+## Advanced usage
 
 {{< blurb/images-advanced image="Python" >}}

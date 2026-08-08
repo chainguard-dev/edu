@@ -1,5 +1,5 @@
 ---
-title: "How to Install chainctl"
+title: "How to install chainctl"
 linktitle: "Install chainctl"
 aliases:
 - /chainguard/chainctl-usage/how-to-install-chainctl/
@@ -119,7 +119,7 @@ scoop install main/chainctl
 
 ## Verifying the `chainctl` binary with Cosign
 
-Before running `chainctl` for the first time, you should verify the integrity of the downloaded binary using Cosign. This ensures the binary has not been tampered with. Ensure that you have the latest version of Cosign installed by following our [How to Install Cosign guide](/open-source/sigstore/cosign/how-to-install-cosign/).
+Before running `chainctl` for the first time, you should verify the integrity of the downloaded binary using Cosign. This ensures the binary has not been tampered with. Ensure that you have the latest version of Cosign installed by following our [How to install Cosign guide](/open-source/sigstore/cosign/how-to-install-cosign/).
 
 If you are continuing in the same terminal session as the installation step above, `PLATFORM` and `VERSION` are already set. Otherwise, resolve them again first. Then verify the binary you just downloaded, pulling the signature and certificate from the same pinned version:
 

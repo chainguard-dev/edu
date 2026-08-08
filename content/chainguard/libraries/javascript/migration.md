@@ -1,5 +1,5 @@
 ---
-title: "Migrating a JavaScript Project to Chainguard Libraries"
+title: "Migrating a JavaScript project to Chainguard Libraries"
 type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing JavaScript project to pull dependencies from Chainguard Libraries"
@@ -61,7 +61,7 @@ chainctl libraries policy create --name=js-cooldown-14d --cooldown-days=14
 chainctl libraries policy enable js-cooldown-14d --ecosystem=JAVASCRIPT --mode=ENFORCE
 ```
 
-It can take up to 30 minutes for the fallback and cooldown policies to take effect. Learn more about cooldown and other policies in the [Libraries Policies documentation](/chainguard/chainguard-repository/libraries-policies/).
+It can take up to 30 minutes for the fallback and cooldown policies to take effect. Learn more about cooldown and other policies in the [Libraries policies documentation](/chainguard/chainguard-repository/library-policies/).
 
 ### Create a pull token
 
@@ -402,7 +402,7 @@ satisfied, and source URLs will still point to `registry.npmjs.org`.
 
 ### Recommended: Update checksums in place
 
-Use [`chainctl libraries update-hashes`](/chainguard/libraries/javascript/build-configuration/#updating-lockfile-hashes-for-existing-projects)
+Use [`chainctl libraries update-hashes`](/chainguard/libraries/javascript/build-configuration/#updating-lockfile-hashes)
 to rewrite only the integrity hashes in your existing lockfile to match
 Chainguard's artifacts, without regenerating the lockfile from scratch. This
 preserves your pinned dependency versions. Supported formats include `package-lock.json` (npm v2/v3), `yarn.lock` (Yarn

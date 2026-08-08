@@ -1,6 +1,6 @@
 ---
-title: "Using wolfictl to Manage Security Advisories"
-linktitle: "Managing Advisories"
+title: "Using wolfictl to manage Security Advisories"
+linktitle: "Managing advisories"
 aliases:
 - /chainguard/chainguard-images/working-with-images/security-advisories/managing-advisories/
 type: "article"
@@ -25,7 +25,7 @@ In this guide, you will walk through using `wolfictl` to create an advisory for 
 
 This guide will focus on the packages and advisories issued for Wolfi.
 
-## How to Install `wolfictl`
+## How to install `wolfictl`
 
 To work with security advisories, you will need to install the `wolfictl` tool onto your machine. First, execute the following command in your terminal to clone the `wolfictl` repository locally, and navigate to it.
 
@@ -68,7 +68,7 @@ Platform:      darwin/arm64
 
 In the next section, you will complete your local setup so you can begin using the `wolfictl` tool to work with advisories.
 
-## Cloning Package and Advisory Repositories
+## Cloning package and advisory repositories
 
 Before you can interact with security advisories, the  `wolfictl` tool will need access to existing Wolfi package and advisory information.
 
@@ -81,7 +81,7 @@ git clone git@github.com:wolfi-dev/advisories.git && cd advisories
 
 With `wolfictl` installed and these two repositories cloned locally, you are now ready to interact with the security advisory database.
 
-## Viewing Existing Advisories
+## Viewing existing advisories
 
 First we will take a look at the existing advisories issued for packages in Wolfi. Keep in mind that the results shown here, and on your own machine, are snapshots in time. You should regularly check for changes to the upstream repository as new packages and advisories are issued.
 
@@ -118,7 +118,7 @@ From this snapshot, you can get an idea of the timeline of a vulnerability’s r
 
 We encourage you to experiment with these flags to find what information you can gather from your various searches.
 
-## Creating and Updating Advisories
+## Creating and updating advisories
 
 To begin creating and updating security advisories, you will need to navigate back to the Wolfi package repository you cloned.
 
@@ -179,9 +179,9 @@ Fixed Version: 2.39-r7
 
 The same process can be followed for other status updates, whether you wish to mark a vulnerability as “Not affected” in the case of a [false positive finding](/chainguard/chainguard-images/staying-secure/working-with-scanners/false-results/), “Fix not planned”, or another applicable status.
 
-## Further Reading
+## Further reading
 
 In this guide, you learned how to use the `wolfictl` tool to interact with Chainguard’s Security Advisories feed. You used `wolfictl` to explore existing advisories, and also created and updated a new security advisory. The steps shown in this guide allowed you to make local changes to your advisory feed. If you wish to contribute to the open-source Wolfi OS advisory feed, please read through our [How To Patch CVEs](
-https://github.com/wolfi-dev/os/blob/main/HOW_TO_PATCH_CVES.md) guide and our [How Chainguard Issues Security Advisories](/chainguard/chainguard-images/staying-secure/security-advisories/how-chainguard-issues/) article first.
+https://github.com/wolfi-dev/os/blob/main/HOW_TO_PATCH_CVES.md) guide and our [How Chainguard issues Security Advisories](/chainguard/chainguard-images/staying-secure/security-advisories/how-chainguard-issues/) article first.
 
 Be sure to routinely check [our Security Advisories page](https://images.chainguard.dev/security/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-security-advisories-managing-advisories) when your scanners pick up new CVEs in your images. If you want to learn more about how you can interpret a security advisory and what its status means for your security, read our [article on using advisories](/chainguard/chainguard-images/staying-secure/security-advisories/how-to-use/).

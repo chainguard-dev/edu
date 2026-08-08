@@ -1,5 +1,5 @@
 ---
-title: "Use Terraform to Create an Assumable Identity for a Jenkins Pipeline"
+title: "Use Terraform to create an assumable identity for a Jenkins pipeline"
 linktitle: "Jenkins with Terraform"
 aliases:
 - /chainguard/administration/assumable-ids/identity-examples/jenkins-terraform/
@@ -8,7 +8,7 @@ aliases:
 - /chainguard/administration/iam-organizations/identity-examples/jenkins-identity/
 - /chainguard/administration/assumable-ids/identity-examples/jenkins-identity/
 lead: ""
-description: "Procedural tutorial outlining how to create a Chainguard identity with Terraform that can be assumed by a Jenkins Pipeline."
+description: "Procedural tutorial outlining how to create a Chainguard identity with Terraform that can be assumed by a Jenkins pipeline."
 type: "article"
 date: 2025-09-07T08:48:45+00:00
 lastmod: 2025-09-07T08:48:45+00:00
@@ -20,17 +20,17 @@ weight: 030
 
 Chainguard's [*assumable identities*](/chainguard/administration/iam-organizations/assumable-ids/) are identities that can be assumed by external applications or workflows in order to perform certain tasks that would otherwise have to be done by a human.
 
-This procedural tutorial outlines how to create an identity using Terraform, and then how to update a Jenkins pipeline so that it can assume the identity and interact with Chainguard resources. If you would like to follow this guide using `chainctl`, Chainguard's command line tool, you can review [Use chainctl to Create an Assumable Identity for a Jenkins Pipeline](/chainguard/administration/assumable-ids/identity-examples/jenkins-chainctl/).
+This procedural tutorial outlines how to create an identity using Terraform, and then how to update a Jenkins pipeline so that it can assume the identity and interact with Chainguard resources. If you would like to follow this guide using `chainctl`, Chainguard's command line tool, you can review [Use chainctl to create an assumable identity for a Jenkins pipeline](/chainguard/administration/assumable-ids/identity-examples/jenkins-chainctl/).
 
 ## Prerequisites
 
 To complete this guide, you will need the following.
 
 * `terraform` installed on your local machine. Terraform is an open-source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
-* `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up.
+* `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up.
 * A Jenkins server with the [OpenID Connect Provider plugin](https://plugins.jenkins.io/oidc-provider/) installed and configured, as well as a pipeline you can use to test out the identity you'll create.
 
-## Creating Terraform Files
+## Creating Terraform files
 
 We will be using Terraform to create an identity for a Jenkins pipeline to assume. This step outlines how to create three Terraform configuration files that, together, will produce such an identity.
 
@@ -157,7 +157,7 @@ resource "chainguard_rolebinding" "view-stuff" {
 
 Following that, your Terraform configuration will be ready. Now you can run a few `terraform` commands to create the resources defined in your `.tf` files.
 
-## Creating Your Resources
+## Creating your resources
 
 First, run `terraform init` to initialize Terraform's working directory.
 
@@ -291,7 +291,7 @@ You can also edit the pipeline itself to change its behavior. For example, inste
 
 Of course, the Jenkins pipeline will only be able to perform certain actions on certain resources, depending on what kind of access you grant it.
 
-## Removing Sample Resources
+## Removing sample resources
 
 To remove the resources Terraform created, you can run the `terraform destroy` command.
 

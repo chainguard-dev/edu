@@ -1,6 +1,6 @@
 ---
-title: "Getting Started with Chainguard Containers"
-linktitle: "Getting Started Guides"
+title: "Getting started with Chainguard Containers"
+linktitle: "Getting started guides"
 description: "Start using Chainguard containers designed for minimal CVEs and reduced attack surface - comprehensive guides for migrating to hardened, enterprise-grade container images"
 type: "article"
 date: 2023-09-10T08:49:15+00:00
@@ -15,7 +15,7 @@ banner: {
     cta: "Read more",
     link: "/chainguard/chainguard-images/getting-started/getting-started-go/"
 }
-sectiontitle: "More Getting Started Guides"
+sectiontitle: "More getting started guides"
 tutorials: [
   {
     title: "Node",

@@ -21,7 +21,7 @@ banner: {
 sectiontitle: "Administration topics"
 tutorials: [
   {
-    title: "IAM & Organizations",
+    title: "IAM and organizations",
     description: "Manage users, roles, groups, and your organization structure",
     url: "/platform/administration/iam-organizations/"
   },
@@ -31,17 +31,17 @@ tutorials: [
     url: "/platform/administration/cloudevents/"
   },
   {
-    title: "Assumable Identities",
+    title: "Assumable identities",
     description: "Grant workloads short-lived, federated access to Chainguard",
     url: "/platform/administration/assumable-ids/"
   },
   {
-    title: "Custom Identity Providers",
+    title: "Custom identity providers",
     description: "Connect your own identity provider for authentication",
     url: "/platform/administration/custom-idps/"
   },
   {
-    title: "Terraform Provider",
+    title: "Terraform provider",
     description: "Manage Chainguard resources as code with Terraform",
     url: "/platform/administration/terraform-provider/"
   },

@@ -235,8 +235,8 @@ If you just need a very minimal image with Glibc and nothing else to run your ap
 
 OK, please try it out and let me know how you get on.
 
-## Relevant Resources
+## Relevant resources
 
 * [Using the static Chainguard Container](/chainguard/chainguard-images/videos/static-base-image/) (Video)
-* [Choosing an Container for your Compiled Programs](/chainguard/chainguard-images/about/images-compiled-programs/compiled-programs/) (Article)
-* [Getting Started with the Go Chainguard Container](/chainguard/chainguard-images/getting-started/go/) (Article)
+* [Choosing a container for your compiled programs](/chainguard/chainguard-images/about/images-compiled-programs/compiled-programs/) (Article)
+* [Getting started with the Go Chainguard Container](/chainguard/chainguard-images/getting-started/go/) (Article)

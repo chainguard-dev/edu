@@ -1,5 +1,5 @@
 ---
-title: "Kubernetes Policy Enforcement with OPA Gatekeeper"
+title: "Kubernetes policy enforcement with OPA Gatekeeper"
 linktitle: "OPA Gatekeeper"
 type: "article"
 description: "How to enforce best practices and ensure compliance with OPA Gatekeeper."
@@ -22,7 +22,7 @@ To follow the examples in this guide, you will need the following:
 - `kubectl` — the command line interface tool for Kubernetes — installed on your local machine.
 - Administrative access to a Kubernetes cluster where [OPA Gatekeeper is already installed](https://open-policy-agent.github.io/gatekeeper/website/docs/install).
 
-## Ensure Images are Pulled From Allowed Repositories
+## Ensure images are pulled from allowed repositories
 
 You can use the [`K8sAllowedReposV2` constraint](https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/general/allowedreposv2) from the [Gatekeeper Library](https://github.com/open-policy-agent/gatekeeper-library) to ensure that images are only pulled from a list of allowed repositories.
 
@@ -76,7 +76,7 @@ Error from server (Forbidden): error when creating "STDIN": admission webhook "v
 
 This example tries to create a pod using a container image downloaded from the Docker Hub registry, not Chainguard's registry. As this output indicates, attempting to create a non-compliant pod resulted in an error, and the request was denied.
 
-## Ensure Images are Referenced By Digest
+## Ensure images are referenced by digest
 
 Chainguard Containers are updated frequently to incorporate CVE fixes and package updates. The tags for Chainguard's container images are highly mutable, meaning that the underlying image changes frequently, even for very specific tags like `v1.2.3-r1`.
 
@@ -131,7 +131,7 @@ Error from server (Forbidden): error when creating "STDIN": admission webhook "v
 
 This example attempts to create a pod using the `nginx` Chainguard container image, but does not pull the image by its digest as required by the constraint. As the output indicates, the attempt resulted in an error and the request was denied.
 
-## Warn First, Deny Later
+## Warn first, deny later
 
 When introducing new constraints into a cluster, it is a good idea to initially configure them with [`enforcementAction: warn`](https://open-policy-agent.github.io/gatekeeper/website/docs/violations/#warn-enforcement-action) so as to avoid blocking existing workloads.
 
@@ -161,7 +161,7 @@ kubectl get k8simagedigests container-image-must-have-digest -o json | jq -r '.s
 
 Once all the violations have been addressed, you can remove `enforcementAction: warn` and Gatekeeper will start to block the creation of resources that violate the constraint.
 
-## Ensure Images Are Signed By Chainguard
+## Ensure images are signed by Chainguard
 
 This will require having [Gatekeeper](https://open-policy-agent.github.io/gatekeeper/website/) external data enabled.
 
@@ -179,7 +179,7 @@ helm install ratify \
     --set policy.useRego=true
 ```
 
-### Create a Verifier
+### Create a verifier
 
 The [verifier](https://ratify.dev/docs/reference/custom%20resources/verifiers) will set up the cosign verification. This example uses the public Chainguard images.
 
@@ -242,7 +242,7 @@ spec:
           certificateIdentityRegExp: "https://issuer.enforce.dev/(${CATALOG_SYNCER}|${APKO_BUILDER})"
 ```
 
-### Create the Policy
+### Create the policy
 
 Create the Ratify [policy](https://ratify.dev/docs/reference/custom%20resources/policies/#policy). This defines a policy evaluating the verification results for a subject.
 
@@ -259,7 +259,7 @@ spec:
       default: "any"
 ```
 
-### Create the Constraint Template
+### Create the constraint template
 
 By default, a Gatekeeper [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/constrainttemplates) uses Rego v0 syntax. This enables v1 syntax. If you want to use v0 syntax the policy will need to be updated. This example also adds an exempt images array to allow specific non-signed images.
 
@@ -345,7 +345,7 @@ spec:
               }
 ```
 
-### Create the Constraint
+### Create the constraint
 
 The constraint ties the constraint template to the Kubernetes kinds you define.
 
@@ -367,7 +367,7 @@ spec:
 
 ```
 
-### Try Deploying a Chainguard Image
+### Try deploying a Chainguard image
 
 ```yaml
 apiVersion: apps/v1
@@ -393,7 +393,7 @@ spec:
 
 This should successfully create a deployment.
 
-### Try Deploying a non-Chainguard Image
+### Try deploying a non-Chainguard image
 
 ```yaml
 apiVersion: apps/v1
@@ -425,7 +425,7 @@ Error from server (Forbidden): error when creating "bad-deployment.yaml": admiss
 5bee612ff4a9d18774f8c7caf6399d6e8985e97e28eb751c18" is not signed by Chainguard: verification failed
 ```
 
-## Learn More
+## Learn more
 
 By combining OPA Gatekeeper with Chainguard container images, you gain a powerful way to enforce security and compliance across your Kubernetes clusters. Gatekeeper ensures that only container images meeting your defined policies are deployed, while Chainguard Containers provide a minimal, hardened foundation to reduce risk from the start. Together, they help teams ship software more securely and confidently, without slowing down development.
 

@@ -1,7 +1,7 @@
 ---
 aliases:
 - /chainguard/administration/assumable-ids/
-title: "Assumable Identities"
+title: "Assumable identities"
 lead: ""
 type: "article"
 date: 2025-01-16T15:22:20+01:00

@@ -1,5 +1,5 @@
 ---
-title: "Using Grype to Scan Software Artifacts"
+title: "Using Grype to scan software artifacts"
 type: "article"
 linktitle: "Grype"
 aliases:
@@ -24,7 +24,7 @@ Grype is appropriate for one-off detection for manual CVE mitigation and in auto
 
 ## Installation
 
-### Container Images
+### Container images
 
 Grype is readily available as a container image. To pull the low-to-no-CVE Chainguard Container for Grype and perform a scan on the official Docker nginx image, run the following:
 
@@ -38,7 +38,7 @@ Alternatively, you can scan using the official Grype Docker image:
 docker run -it anchore/grype:latest nginx
 ```
 
-### Binary Installation
+### Binary installation
 
 Grype provides an installation script. To use it, change the path following the `-b` flag to a preferred installation location on your system path, such as `/usr/bin`.
 
@@ -48,7 +48,7 @@ curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh 
 
 Alternatively, find and download the appropriate package file or binary from the [official releases page](https://github.com/anchore/grype/releases). Place the binary on your system path or install the package using the conventions for your OS and distribution.
 
-### Install via Package Manager
+### Install via package manager
 
 Grype can be installed using the following commands specific to your OS and distribution:
 
@@ -65,11 +65,11 @@ brew install grype
 choco install grype -y
 ```
 
-## Basic Usage
+## Basic usage
 
 Throughout this tutorial, we'll use the `grype` command to run Grype. If you're running Grype as a container image, replace this command with the appropriate `docker run` command, such as `docker run -it cgr.dev/chainguard/grype`.
 
-### Scan an Image in a Registry
+### Scan an image in a registry
 
 To run Grype on an image on Docker Hub, pass the image name as an argument:
 
@@ -83,7 +83,7 @@ For images on other registries:
 grype cgr.dev/chainguard/nginx
 ```
 
-### Scan a .tar File
+### Scan a .tar file
 
 To scan an image stored to `.tar`, pass the path to the archive file as an argument:
 
@@ -93,7 +93,7 @@ docker save cgr.dev/chainguard/nginx > nginx_chainguard_image.tar.gz
 grype nginx_chainguard_image.tar.gz
 ```
 
-### Scan a Local Directory
+### Scan a local directory
 
 Grype can scan local directories, such as Python virtual environments (venv) or `node_modules` folders.
 
@@ -150,7 +150,7 @@ cat sbom.json | grype
 
 You should see Grype results based on the packages itemized in the SBOM.
 
-## Comprehending Grype Output
+## Comprehending Grype output
 
 By default, Grype output is divided into two sections: a summary of information on the scanned artifact and an itemized list of CVEs.
 
@@ -189,7 +189,7 @@ ssl_client     1.36.1-r28  1.36.1-r29  apk     CVE-2023-42365       Medium
 ssl_client     1.36.1-r28  1.36.1-r29  apk     CVE-2023-42364       Medium
 ```
 
-### Interpreting the Summary
+### Interpreting the summary
 
 In the initial portion of its results output, Grype summarizes information on the scanned artifact and gives an overview of known vulnerabilities. In the case of a scanned image, the output includes the image digest, a unique hash of the image that can be used as an identifier.
 
@@ -231,9 +231,9 @@ grype --file report.txt python:3.10.14-alpine3.20
 
 Redirecting output can also be useful to suppress a long list of CVEs, making the summary more immediately accessible.
 
-## Output Formats
+## Output formats
 
-### Standard Formats
+### Standard formats
 
 You can use Grype to write itemized CVEs to a number of formats, including the XML- or JSON-based [cyclonedx](https://cyclonedx.org/) SBOM standard and the [SARIF](https://sarifweb.azurewebsites.net/) static analysis format. To maximize the information provided by Grype, use the JSON output type:
 
@@ -243,7 +243,7 @@ You can use Grype to write itemized CVEs to a number of formats, including the X
 
 When using these more detailed formats, Grype provides additional useful fields, such as the data source of the CVE, URLs to information on the CVE, advisories, related vulnerabilities, and details on how the vulnerability was detected.
 
-### Output Templates
+### Output templates
 
 Additional output formats are available as Hugo templates. These include output templates for HTML and CSV, and a [full list](https://github.com/anchore/grype/tree/main/templates) can be found at the Grype GitHub repository.
 
