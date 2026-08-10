@@ -4,7 +4,7 @@ linktitle: "GitHub App"
 description: "The Chainguard Guardener GitHub App secures and maintains your repositories through capabilities you enable per repository with .chainguard/ configuration files."
 type: "article"
 date: 2026-07-13T00:00:00+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-08-10T00:00:00+00:00
 draft: false
 tags: ["GitHub"]
 images: []
@@ -27,7 +27,7 @@ The Chainguard Guardener GitHub App is a single, hardened bot that runs against 
 
 ## Capabilities
 
-- **[Hardened Actions](/chainguard/guardener/github/actions-security/)** — Recommends and migrates your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents, either through non-blocking pull request review comments or automated migration pull requests.
+- **[Hardened Actions](/chainguard/guardener/github/actions-security/)** — Recommends and migrates your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents, through non-blocking pull request review comments or automated migration pull requests. Migration pull requests run on a schedule and can also be [triggered on demand](/chainguard/guardener/github/actions-security/#run-an-on-demand-migration) with `chainctl`.
 - **[Commit Verification](/chainguard/guardener/github/commit-verification/)** — Enforces cryptographically signed commits against a policy you control, supporting both keyless (Sigstore) signatures and static keys such as GPG.
 
 Each capability is configured with its own file in the `.chainguard/` directory.

@@ -17,7 +17,7 @@ Chainguard Guardener is a tool for managing and hardening your source code. Rath
 The Guardener's capabilities fall into two groups:
 
 - **[GitHub App](/chainguard/guardener/github/)** — Capabilities that run through the Guardener GitHub App and are enabled per repository with `.chainguard/` configuration files:
-    - **[Hardened Actions](/chainguard/guardener/github/actions-security/)** — Recommends and migrates your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents, either through non-blocking pull request review comments or automated migration pull requests.
+    - **[Hardened Actions](/chainguard/guardener/github/actions-security/)** — Recommends and migrates your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents, through non-blocking pull request review comments or migration pull requests that run on a schedule or [on demand](/chainguard/guardener/github/actions-security/#run-an-on-demand-migration).
     - **[Commit Verification](/chainguard/guardener/github/commit-verification/)** — Enforces cryptographically signed commits against a policy you control, supporting both keyless (Sigstore) signatures and static keys such as GPG.
 - **[Dockerfile migration](/chainguard/guardener/dockerfile-migration/)** — Uses AI to iteratively convert your Dockerfiles to Chainguard Containers. This capability runs locally through `chainctl agent dockerfile` commands.
 
