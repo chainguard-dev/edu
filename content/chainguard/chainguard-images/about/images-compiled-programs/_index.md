@@ -1,6 +1,6 @@
 ---
-title: "Working with Containers for Compiled Programs"
-linktitle: "Compiled Programs"
+title: "Working with containers for compiled programs"
+linktitle: "Compiled programs"
 aliases:
 - /chainguard/chainguard-images/working-with-images/compiled-programs
 - /chainguard/chainguard-images/working-with-images/images-compiled-programs

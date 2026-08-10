@@ -1,6 +1,6 @@
 ---
-title: "Using Init Containers with Chainguard Containers"
-linktitle: "Using Init Containers"
+title: "Using init containers with Chainguard Containers"
+linktitle: "Using init containers"
 lead: ""
 description: "Example showing how to use an init container to configure Chainguard's minimal nginx container image."
 type: "article"
@@ -30,7 +30,7 @@ In order to follow this guide, you will need the following:
 * A container registry you can push the init container image to. This guide assumes you have access to a [Docker Hub registry](https://hub.docker.com/), though the example can be adjusted for other registries.
 * Access to a Kubernetes cluster. This could be a cluster that you run locally with a tool like [minikube](https://minikube.sigs.k8s.io/docs/) or [kind](https://kind.sigs.k8s.io/), or a cloud-hosted cluster such as [Amazon EKS](https://aws.amazon.com/eks/) or [Google GKE](https://cloud.google.com/kubernetes-engine).
 
-## Benefits of Init Containers
+## Benefits of init containers
 
 Init containers are specialized containers that run before application containers within a Kubernetes pod. Init containers are temporary: they run and complete their given tasks before the main application container starts, and then immediately exit.
 
@@ -40,7 +40,7 @@ You can also use init containers to create directories, set file permissions, in
 
 Put together, this allows you to separate initialization logic from your app code, making both more manageable. Init containers can also run in sequence, so you can control the order of operations. If one init container fails, Kubernetes will restart the pod and run the init containers again until they succeed.
 
-## Configuring Chainguard's `nginx` Container with an Init Container
+## Configuring Chainguard's `nginx` container with an init container
 
 Say your organization uses an nginx container to host an application. You've typically used the [default nginx container image from Docker Hub](https://hub.docker.com/_/nginx) for this purpose.
 
@@ -250,8 +250,8 @@ This confirms that the workload is indeed running and nginx is working as expect
 
 Note that this example copies over only an `nginx.conf` file, but you can use this strategy to set up other nginx configurations. For example, you could also copy a `mime.types` file over to the Chainguard nginx container image.
 
-## Learn More
+## Learn more
 
 Init Containers provide a powerful, flexible mechanism to set up application environments and help with migration challenges associated with nginx images. By providing a fresh environment without requiring modifications to existing app containers, init containers can streamline the setup process for migrating to Chainguard images and enhance compatibility with existing workflows.
 
-This tutorial is centered around Chainguard's nginx container image, but the concepts outlined here are applicable when migrating to other Chainguard Containers as well. We have a number of resources available on migrating to Chainguard Containers, and we encourage you to get started with our [Overview of Migrating to Chainguard Containers](/chainguard/migration/migrations-overview/). For more information on working with Chainguard's nginx container image, check out our guide on [Getting Started with nginx](/chainguard/chainguard-images/getting-started/nginx/).
+This tutorial is centered around Chainguard's nginx container image, but the concepts outlined here are applicable when migrating to other Chainguard Containers as well. We have a number of resources available on migrating to Chainguard Containers, and we encourage you to get started with our [Overview of migrating to Chainguard Containers](/chainguard/migration/migrations-overview/). For more information on working with Chainguard's nginx container image, check out our guide on [Getting started with nginx](/chainguard/chainguard-images/getting-started/nginx/).

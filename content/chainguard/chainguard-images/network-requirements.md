@@ -1,6 +1,6 @@
 ---
-title: "Chainguard Containers Network Requirements"
-linktitle: "Network Requirements"
+title: "Chainguard Containers network requirements"
+linktitle: "Network requirements"
 aliases:
 - /chainguard/network-requirements
 - /chainguard/administration/network-requirements/
@@ -20,7 +20,7 @@ This document provides an overview of network requirements for using [Chainguard
 
 Chainguard Containers do not call Chainguard services while running, so no network changes would be required to the runtime environment. Review the **Notes** column for more info on each Hostname.
 
-## Chainguard Containers Hosts
+## Chainguard Containers hosts
 
 This table lists the DNS hostnames, associated ports, and protocols that will need to be allowed through firewalls and proxies to use Chainguard Containers:
 
@@ -40,7 +40,7 @@ This table lists the DNS hostnames, associated ports, and protocols that will ne
 
 > If you experience networking issues while trying to use Chainguard Containers, please ensure that your firewall allows traffic to and from these hosts, and that it doesn't have any rules to block `.dev` domains.
 
-## Chainguard Containers Third-party Hosts
+## Chainguard Containers third-party hosts
 
 This table lists the third-party DNS hostnames, associated ports, and protocols that will need to be allowed through firewalls and proxies to use Chainguard Containers:
 
@@ -51,13 +51,13 @@ This table lists the third-party DNS hostnames, associated ports, and protocols 
 
 > Note that the `9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com` host is used to serve both image data and packages via `*.cgr.dev`.
 
-## Ingress and Egress
+## Ingress and egress
 
 Connections to the hosts listed on this page are generally initiated as new outbound connections. If you are using stateless firewall rules, then you will need to add symmetric rules to ensure that traffic flows correctly.
 
 You will need egress rules that allow new traffic to the hosts listed here. You will need corresponding ingress rules that allow related and established traffic.
 
-## DNS Records and TTLs
+## DNS records and TTLs
 
 Many of the hosts listed on this page use multiple DNS A records or CNAME aliases. Additionally, many A records have a short time to live of 60 seconds, and the majority are less than an hour (3600s).
 

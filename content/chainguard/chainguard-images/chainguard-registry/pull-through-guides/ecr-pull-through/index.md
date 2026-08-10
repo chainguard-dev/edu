@@ -2,7 +2,7 @@
 title: "How to set up pull through from Chainguard's registry to Amazon ECR"
 linktitle: "Amazon ECR"
 type: "article"
-description: "Tutorial outlining how to set up an Amazon ECR pull through cache rule for pulling Containers from Chainguard's registry."
+description: "Tutorial outlining how to set up an Amazon ECR pull through cache rule for pulling containers from Chainguard's registry."
 date: 2026-03-31T00:00:00+00:00
 lastmod: 2026-07-17T00:00:00+00:00
 draft: false
@@ -17,7 +17,7 @@ weight: 007
 
 In March 2026, AWS [announced support](https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-ecr-pull-through-cache-chainguard/) for using Amazon Elastic Container Registry (ECR) as a pull through cache for Chainguard's registry. By configuring a pull through cache rule, you can pull Chainguard Containers through your own ECR private registry. ECR caches each image on the first pull and checks the upstream registry for a newer version at most once every 24 hours, which reduces your workloads' direct dependency on Chainguard's registry.
 
-This tutorial outlines how to configure a pull through cache rule for [Chainguard's registry](/chainguard/chainguard-registry/overview/) with [Amazon ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/what-is-ecr.html). Unlike some other registries, ECR treats Chainguard as an upstream that requires authentication. This means you store a Chainguard pull token in AWS Secrets Manager and reference it from a cache rule. This guide scopes that rule to your organization's private namespace, so it caches your [Production Containers](/chainguard/chainguard-images/about/images-categories/#production-containers) and lets you pull them with short image paths.
+This tutorial outlines how to configure a pull through cache rule for [Chainguard's registry](/chainguard/chainguard-registry/overview/) with [Amazon ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/what-is-ecr.html). Unlike some other registries, ECR treats Chainguard as an upstream that requires authentication. This means you store a Chainguard pull token in AWS Secrets Manager and reference it from a cache rule. This guide scopes that rule to your organization's private namespace, so it caches your [Production containers](/chainguard/chainguard-images/about/images-categories/#production-containers) and lets you pull them with short image paths.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ To complete this tutorial, you need the following:
 * Docker installed on your local machine. Refer to [the official documentation](https://docs.docker.com/engine/install/) to set this up.
 * `chainctl`, Chainguard's command-line interface tool, installed on your local machine. If you haven't already installed it, follow our [`chainctl` installation guide](/chainguard/chainctl-usage/how-to-install-chainctl/).
 
-To pull Production Containers, you also need permissions to pull images from your organization's private Chainguard registry. At minimum, you must be granted the `registry.pull` role, though other built-in roles like `owner`, `editor`, or `viewer` also work. Refer to our [Built-in Roles and Capabilities Reference](/chainguard/administration/iam-organizations/roles-role-bindings/capabilities-reference/#pull-token-creator-roles) for more details. If you don't already have access to Production Containers, you can [contact our sales team](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
+To pull Production Containers, you also need permissions to pull images from your organization's private Chainguard registry. At minimum, you must be granted the `registry.pull` role, though other built-in roles like `owner`, `editor`, or `viewer` also work. Refer to our [Built-in roles and capabilities reference](/chainguard/administration/iam-organizations/roles-role-bindings/capabilities-reference/#pull-token-creator-roles) for more details. If you don't already have access to Production Containers, you can [contact our sales team](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
 
 ## Creating a Chainguard pull token
 
@@ -115,7 +115,7 @@ Alternatively, you can create the rule in the [Amazon ECR console](https://conso
 After creating the rule, you can [validate it](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-working-validating.html) from the console or CLI. Validation confirms that ECR can reach Chainguard's registry and authenticate with your stored credentials.
 
 {{< note >}}
-Scoping the rule to a single namespace keeps pull paths short, but it limits the rule to that one namespace. To cache any repository your credentials can access — including your other private namespaces and [Free Containers](/chainguard/chainguard-images/about/images-categories/#free-containers) from the public `chainguard` namespace — omit `--upstream-repository-prefix` on the CLI, or select **No prefix** for the **Upstream namespace** in the console. ECR then defaults to `ROOT` and caches any repository. With an unscoped rule, include the full upstream namespace in each pull path, such as `cg-ecr/example.com/chainguard-base:latest` or `cg-ecr/chainguard/go:latest`.
+Scoping the rule to a single namespace keeps pull paths short, but it limits the rule to that one namespace. To cache any repository your credentials can access — including your other private namespaces and [Free containers](/chainguard/chainguard-images/about/images-categories/#free-containers) from the public `chainguard` namespace — omit `--upstream-repository-prefix` on the CLI, or select **No prefix** for the **Upstream namespace** in the console. ECR then defaults to `ROOT` and caches any repository. With an unscoped rule, include the full upstream namespace in each pull path, such as `cg-ecr/example.com/chainguard-base:latest` or `cg-ecr/chainguard/go:latest`.
 {{< /note >}}
 
 ## Testing pull through from Chainguard's registry to Amazon ECR
@@ -156,4 +156,4 @@ If you run into issues when pulling Containers from Chainguard's registry throug
 
 ## Learn more
 
-If you haven't already done so, you may find it useful to review our [Registry Overview](/chainguard/chainguard-registry/overview/) to learn more about Chainguard's registry. You can also learn more about Chainguard Containers by checking out our [Containers documentation](/chainguard/chainguard-images/overview/). If you'd like to learn more about Amazon ECR pull through cache rules, refer to the [official AWS documentation](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache.html).
+If you haven't already done so, you may find it useful to review our [Registry overview](/chainguard/chainguard-registry/overview/) to learn more about Chainguard's registry. You can also learn more about Chainguard Containers by checking out our [Containers documentation](/chainguard/chainguard-images/overview/). If you'd like to learn more about Amazon ECR pull through cache rules, refer to the [official AWS documentation](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache.html).

@@ -1,9 +1,9 @@
 ---
-title: "Octo STS Overview"
+title: "Octo STS overview"
 linktitle: "Overview"
 type: "article"
-lead: "A security token service that eliminates the need for GitHub Personal Access Tokens by enabling OIDC-based federation for GitHub API access"
-description: "Learn about Octo STS, an open source security token service for GitHub that uses OIDC federation to eliminate long-lived Personal Access Tokens"
+lead: "A security token service that eliminates the need for GitHub personal access tokens by enabling OIDC-based federation for GitHub API access"
+description: "Learn about Octo STS, an open source security token service for GitHub that uses OIDC federation to eliminate long-lived personal access tokens"
 date: 2025-12-23T15:04:05+01:00
 lastmod: 2025-12-24T15:04:05+01:00
 tags: ["octo-sts", "Overview", "OIDC", "Security"]
@@ -19,7 +19,7 @@ toc: true
 
 Octo STS is a GitHub App developed by Chainguard that acts as a Security Token Service (STS) for the GitHub API. It enables workloads running anywhere that can produce OIDC tokens to federate with GitHub, exchanging those tokens for short-lived GitHub access tokens. The primary goal is to eliminate the need for GitHub Personal Access Tokens (PATs), which are long-lived credentials that pose significant security risks.
 
-## Why Octo STS Matters
+## Why Octo STS matters
 
 Long-lived access tokens are a common target in security incidents. When attackers gain access to a PAT, they can exploit it to access repositories, make changes, and pivot to other resources. These tokens often have broad permissions and no expiration date, making them particularly dangerous if compromised.
 
@@ -31,7 +31,7 @@ Octo STS addresses this problem by:
 - **Implementing fine-grained access control**: Grant only the permissions needed for specific tasks
 - **Supporting multiple identity providers**: Works with GitHub Actions, cloud providers (AWS, GCP, Azure), Kubernetes, and any OIDC-compliant system
 
-## How Octo STS Works
+## How Octo STS works
 
 Octo STS operates through a trust policy model. The steps to install and use Octo STS are:
 
@@ -42,13 +42,13 @@ Octo STS operates through a trust policy model. The steps to install and use Oct
 
 The Octo STS app needs to request a large number of permissions. This set of permissions is reviewed on a quarterly basis to ensure it meets common use cases without being overly broad.
 
-### The Token Exchange Process
+### The token exchange process
 
 This sequence diagram outlines the token exchange process in Octo STS:
 
 <center><img src="octo-arch.webp" alt="Octo STS sequence diagram showing order of network requests" style="width:950px;"></center>
 
-## Common Use Cases
+## Common use cases
 
 - Developing Actions that create Pull Requests (a PAT is required to trigger presubmit GitHub Actions)
 
@@ -58,7 +58,7 @@ This sequence diagram outlines the token exchange process in Octo STS:
 
 - Providing external services (e.g. clouds) with access to repositories
 
-## Learn More
+## Learn more
 
 Refer to our [Octo STS FAQ](/open-source/octo-sts/faq/) for answers to frequently asked questions and troubleshooting recommendations.
 

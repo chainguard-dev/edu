@@ -1,6 +1,6 @@
 ---
-title: "Disabling Default Social Logins"
-linktitle: "Disable Social Logins"
+title: "Disabling default social logins"
+linktitle: "Disable social logins"
 lead: ""
 description: "How to stop users from authenticating to Chainguard with social logins by blocking the Chainguard app in your identity provider, using Google Workspace as an example"
 type: "article"

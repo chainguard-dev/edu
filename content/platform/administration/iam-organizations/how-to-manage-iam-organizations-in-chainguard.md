@@ -1,13 +1,13 @@
 ---
-title: "How to Manage Chainguard IAM Organizations"
-linktitle: "Manage IAM Organizations"
+title: "How to manage Chainguard IAM organizations"
+linktitle: "Manage IAM organizations"
 aliases:
 - /chainguard/administration/iam-organizations/how-to-manage-iam-organizations-in-chainguard/
 - /chainguard/chainguard-enforce/chainguard-enforce-kubernetes/how-to-manage-iam-groups-in-chainguard-enforce/
 - /chainguard/administration/iam-organizations/how-to-manage-iam-groups-in-chainguard-enforce/
 - /chainguard/administration/iam-organizations/how-to-manage-iam-groups-in-chainguard/
 type: "article"
-description: "Using Identity and Access Management in Chainguard"
+description: "Using identity and access management in Chainguard"
 date: 2022-07-15T15:22:20+01:00
 lastmod: 2024-04-03T15:22:20+01:00
 draft: false
@@ -34,7 +34,7 @@ chainctl auth login
 
 A web browser window will open to prompt you to log in via your chosen OIDC flow. Select an account with which you wish to register. Once authenticated, you can set up an organization.
 
-## Listing Organizations
+## Listing organizations
 
 At any time, you can list the organizations your account has access to by using the `list` subcommand. To make it more human readable, you can output the information as a table by passing `-o table` to the end of the command.
 
@@ -66,7 +66,7 @@ chainctl iam organizations list -o table
 
 Some other `chainctl` functions require you to know an organization's UIDP, making this a useful option to remember.
 
-## Inviting Others to an Organization
+## Inviting others to an organization
 
 You can use `chainctl` to generate invite codes in order to invite others to a specific organization.
 
@@ -110,6 +110,6 @@ In this example, the invitation is scoped to a user with the email address `link
 
 ## Learn more
 
-In addition to inviting other users to your organization, you can set up [assumable identities](/platform/administration/assumable-ids/assumable-ids/) to allow automation systems — like Buildkite or GitHub Actions — to perform certain administrative tasks for your organization. To learn more, we encourage you to check out our [Overview of Assumable Identities](/platform/administration/assumable-ids/assumable-ids/) as well as our collection of [Assumable Identity Examples](/platform/administration/assumable-ids/identity-examples/).
+In addition to inviting other users to your organization, you can set up [assumable identities](/platform/administration/assumable-ids/assumable-ids/) to allow automation systems — like Buildkite or GitHub Actions — to perform certain administrative tasks for your organization. To learn more, we encourage you to check out our [Overview of assumable identities](/platform/administration/assumable-ids/assumable-ids/) as well as our collection of [Assumable identity examples](/platform/administration/assumable-ids/identity-examples/).
 
-You may also be interested in setting up a [Custom Identity Provider](/platform/administration/custom-idps/custom-idps/) for your organization. By default, users can log in with GitHub GitLab, and Google, but a Custom IdP can allow members of your organization to log in to Chainguard with a corporate identity provider like [Okta](/platform/administration/custom-idps/idp-providers/okta/), [Microsoft Entra ID](/platform/administration/custom-idps/idp-providers/ms-entra-id/), or [Ping Identity](/platform/administration/custom-idps/idp-providers/ping-id/).
+You may also be interested in setting up a [Custom identity provider](/platform/administration/custom-idps/custom-idps/) for your organization. By default, users can log in with GitHub GitLab, and Google, but a Custom IdP can allow members of your organization to log in to Chainguard with a corporate identity provider like [Okta](/platform/administration/custom-idps/idp-providers/okta/), [Microsoft Entra ID](/platform/administration/custom-idps/idp-providers/ms-entra-id/), or [Ping Identity](/platform/administration/custom-idps/idp-providers/ping-id/).

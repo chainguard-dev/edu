@@ -1,7 +1,7 @@
 ---
 aliases:
 - /chainguard/migration/
-title: "Migration Guides"
+title: "Migration guides"
 linktitle: "Migration"
 lead: ""
 type: "article"
@@ -13,7 +13,7 @@ weight: 045
 topic: true
 banner: {
     image: "/icon-arrows_blurple.png",
-    title: "Porting Applications to Chainguard",
+    title: "Porting applications to Chainguard",
     subtitle: "Step through migrating a full application to Chainguard Containers",
     cta: "Learn how",
     link: "/chainguard/migration/porting-apps-to-chainguard/"
@@ -21,33 +21,33 @@ banner: {
 sectiontitle: "Tutorials and compatibility charts"
 tutorials: [
   {
-    title: "Migration Guidance",
+    title: "Migration guidance",
     description: "",
     url: "/chainguard/migration/migrating-to-chainguard-images/"
   },
   {
-    title: "Python Migration",
+    title: "Python migration",
     description: "",
     url: "/chainguard/migration/migrating-python/"
   },
   {
-    title: "Node Migration",
+    title: "Node migration",
     description: "",
     url: "/chainguard/migration/migrating-node/"
   },
   {
-    title: "PHP Migration",
+    title: "PHP migration",
     description: "",
     url: "/chainguard/migration/migrating-php/"
   },
 
   {
-    title: "Alpine Compatibility",
+    title: "Alpine compatibility",
     description: "",
     url: "/chainguard/migration/alpine-compatibility/"
   },
   {
-    title: "Ubuntu Compatibility",
+    title: "Ubuntu compatibility",
     description: "",
     url: "/chainguard/migration/ubuntu-compatibility/"
   },

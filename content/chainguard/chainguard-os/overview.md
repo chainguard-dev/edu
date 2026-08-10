@@ -28,7 +28,7 @@ Chainguard OS adheres to four key principles:
 
 On this page, we'll discuss each of these components and how Chainguard OS differs from the operating system status quo.
 
-## Continuous Integration and Continuous Delivery (CI/CD)
+## Continuous integration and continuous delivery (CI/CD)
 
 Chainguard OS emphasizes the continuous integration, testing, and release of upstream software packages, ensuring a streamlined and efficient development pipeline through automation.
 
@@ -38,7 +38,7 @@ Leveraging event-driven automation, Chainguard OS ensures that every package in 
 
 With Chainguard OS, users can rely on products that take advantage of an ever-growing catalog of open source and enterprise software packages. Rather than picking a favorite version of every software project every couple of years and attempting to maintain that for a decade or more, Chainguard OS takes a different approach: it enables [continuous support and EOL](/chainguard/chainguard-images/about/versions/) for the same versions that the upstream project maintainers recommend.
 
-## Nano Updates and Rebuilds
+## Nano updates and rebuilds
 
 Favoring incremental updates and rebuilds over major release upgrades, Chainguard OS supports smoother transitions that minimize disruptive changes. Our goal is for engineers adopting Chainguard products to never have to think about major OS version upgrades that dominate a roadmap for months at a time every two years. Through continuously introduced daily nano upgrades, paced through staging and testing gates, any offending regression can be readily pinpointed, reported, and addressed in subsequent updates hours or days later.
 
@@ -46,7 +46,7 @@ Both minor “updates” and major “upgrades” are simultaneously delivered t
 
 Chainguard OS takes advantage of the ephemeral application layer of container images being separate from the persistent storage and unique configuration data; it is able to simultaneously instantiate new containers running the updated and upgraded application and destroy the previous instantiation running the down-level application version. In this way, updates (patches) and upgrades (major changes) are introduced instantly, and rollbacks to previous versions can be done by launching the previous container’s image.
 
-## Minimal, Hardened, Immutable Artifacts
+## Minimal, hardened, immutable artifacts
 
 Chainguard OS produces container images that are minimal in scope, stripped of non-essential components, and hardened for secure use in production environments. The resulting artifacts are immutable and designed to include only the dependencies necessary for a given application to run.
 
@@ -54,7 +54,7 @@ Unlike traditional Linux distributions, which aim to be general-purpose and incl
 
 This design reduces the system's overall attack surface, improves performance by eliminating unused software, and supports strict control over what is present in a given execution environment. All images are produced through hardened build processes and are validated against defined security policies.
 
-## Delta Minimization
+## Delta minimization
 
 Chainguard OS maintains a close alignment with upstream open source projects. Extra patches are introduced only when necessary, such as for addressing critical issues or applying hardening measures, and are kept in place only until equivalent changes are integrated upstream.
 
@@ -66,23 +66,23 @@ By integrating changes continuously and aligning with upstream maintainers’ de
 
 Chainguard OS is a minimal Linux-based operating system designed to support more secure deployment of containerized applications. It integrates tightly with Chainguard tooling to provide measurable improvements in vulnerability management, compliance, and software supply chain integrity.
 
-### Vulnerability Management
+### Vulnerability management
 
 Chainguard OS minimizes exposure to known vulnerabilities by automating detection, triage, and remediation processes. It continuously rebuilds included applications and dependencies using up-to-date toolchains and a hardened image pipeline. The OS includes only essential packages, reducing the attack surface.
 
-### Continuous Compliance
+### Continuous compliance
 
 The system architecture and toolchain used in Chainguard OS support the automation of compliance efforts. By consistently regenerating software artifacts in a controlled environment, Chainguard OS ensures that applications and their dependencies remain compliant with common security and regulatory frameworks.
 
-### Software Supply Chain Security
+### Software supply chain security
 
 All software components in Chainguard OS are built from source in the [Chainguard Factory](https://www.youtube.com/watch?v=iU9hmW6hrGs) — a hardened build environment that conforms to [SLSA](https://slsa.dev/) standards. This process mitigates risks of tampering in the build and delivery pipeline. The system also generates cryptographically verifiable artifacts, including signed Software Bills of Materials ([SBOMs](/open-source/sbom/what-is-an-sbom/)) and provenance metadata.
 
-### Operational Efficiency
+### Operational efficiency
 
 By integrating upstream open source updates directly into the build and delivery process, Chainguard OS reduces the need for manual patching and vulnerability triage. Engineering teams can allocate resources toward feature development rather than maintenance overhead.
 
-## System Architecture and Design Philosophy
+## System architecture and design philosophy
 
 Traditional Linux distributions often bundle a broad set of packages and features, which can introduce unnecessary complexity and security risk. Chainguard OS adopts a minimal and purpose-built approach, optimized for containerized environments.
 

@@ -1,9 +1,9 @@
 ---
 aliases:
 - /chainguard/administration/assumable-ids/identity-examples/jenkins-chainctl/
-title: "Use chainctl to Create an Assumable Identity for a Jenkins Pipeline"
+title: "Use chainctl to create an assumable identity for a Jenkins pipeline"
 linktitle: "Jenkins with chainctl"
-description: "How to use chainctl to create a Chainguard identity that can be assumed by a Jenkins Pipeline."
+description: "How to use chainctl to create a Chainguard identity that can be assumed by a Jenkins pipeline."
 type: "article"
 date: 2025-09-07T08:48:45+00:00
 lastmod: 2025-09-07T08:48:45+00:00
@@ -17,7 +17,7 @@ weight: 025
 
 This guide explains how to use `chainctl` to create an assumable identity and configure Jenkins to use that identity to authenticate to Chainguard. To accomplish this, create an OIDC token credential in Jenkins and a matching Chainguard identity that uses the Jenkins OIDC URL, then put the process into an example Jenkins build pipeline.
 
-To do this using Terraform, follow the instructions in [Use Terraform to Create an Assumable Identity for a Jenkins Pipeline](/chainguard/administration/assumable-ids/identity-examples/jenkins-terraform/).
+To do this using Terraform, follow the instructions in [Use Terraform to create an assumable identity for a Jenkins pipeline](/chainguard/administration/assumable-ids/identity-examples/jenkins-terraform/).
 
 ## Prerequisites
 
@@ -59,7 +59,7 @@ chainctl iam identities create jenkins-ci \
   --output json
 ```
 
-Bind the identity to a role. We chose `registry.pull` for this example, but you should adjust according to your needs. Refer to [Overview of Roles and Role-bindings in Chainguard](https://edu.chainguard.dev/chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/) to learn more:
+Bind the identity to a role. We chose `registry.pull` for this example, but you should adjust according to your needs. Refer to [Overview of roles and role-bindings in Chainguard](https://edu.chainguard.dev/chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/) to learn more:
 
 ```shell
 chainctl iam role-bindings create \
@@ -130,5 +130,5 @@ After you run this pipeline, check to see that the requested Chainguard image wa
 In this guide you used `chainctl` to create an assumable identity and configure Jenkins to use that identity to authenticate to Chainguard. Refer to the following to learn more about how Chainguard has designed assumable IDs, `chainctl`, and authentication.
 
 - [Assumable IDs](/chainguard/administration/assumable-ids/)
-- [How to Install chainctl](/chainguard/chainctl-usage/how-to-install-chainctl/)
-- [Authenticating with Chainguard Registry](/chainguard/chainguard-images/chainguard-registry/authenticating/)
+- [How to install chainctl](/chainguard/chainctl-usage/how-to-install-chainctl/)
+- [Authenticating with Chainguard registry](/chainguard/chainguard-images/chainguard-registry/authenticating/)

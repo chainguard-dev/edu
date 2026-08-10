@@ -15,23 +15,23 @@ The Chainguard Factory is our automated build system that continuously monitors,
 
 ## Documentation
 
-- [Factory Overview](/platform/factory/overview/) - Technical details about how the Factory works
+- [Factory overview](/platform/factory/overview/) - Technical details about how the Factory works
 - [Factory FAQ](/platform/factory/faq/) - Frequently asked questions
 
-## Video Resources
+## Video resources
 
 Learn about the Factory through these informative videos, each with full transcripts:
 
-### Getting Started
+### Getting started
 
 - [What is the Chainguard Factory?](/platform/factory/what-is-factory/) - An introduction to the Factory concept
 - [Touring the Chainguard Factory](/platform/factory/touring-the-factory/) - A guided tour through the Factory components
 
-### Deep Dives
+### Deep dives
 
 - [What does the Chainguard Factory build?](/platform/factory/what-factory-builds/) - Understanding the Factory's outputs
 - [Inside the Chainguard Factory - Assemble 2025](/platform/factory/assemble/) - Full conference presentation
 
-### Looking Forward
+### Looking forward
 
 - [What is the future of the Chainguard Factory?](/platform/factory/future-of-factory/) - Roadmap and vision

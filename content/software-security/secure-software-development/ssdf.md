@@ -1,5 +1,5 @@
 ---
-title: "Secure Software Development Framework (SSDF) Table, NIST SP 800-218"
+title: "Secure Software Development Framework (SSDF) table, NIST SP 800-218"
 linktitle: "Table of NIST SSDF"
 type: "wide"
 date: 2023-05-10T15:21:01+02:00
@@ -14,7 +14,7 @@ weight: 15
 toc: true
 ---
 
-## SSDF Table
+## SSDF table
 
 <table>
 <thead>

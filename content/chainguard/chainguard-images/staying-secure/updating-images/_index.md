@@ -1,6 +1,6 @@
 ---
-title: "Keeping Containers Up to Date"
-linktitle: "Updating Containers"
+title: "Keeping containers up to date"
+linktitle: "Updating containers"
 aliases:
 - /chainguard/chainguard-images/staying-secure/updating-images
 description: "Guides on how to keep Chainguard Containers up to date"

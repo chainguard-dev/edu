@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with the Chainguard Istio Containers"
+title: "Getting started with the Chainguard Istio Containers"
 type: "article"
 linktitle: "Istio"
 aliases:
@@ -93,7 +93,7 @@ The Istio Chainguard Container is now running on the kind cluster you created pr
 In the next section, you'll set up an Istio gateway and a VirtualService to test out
 this container.
 
-## Stand up a Gateway and a VirtualService
+## Stand up a gateway and a VirtualService
 
 To see the Istio installation in action, we will create two Istio resources:
 
@@ -165,6 +165,6 @@ kind delete cluster
 
 This will delete the default cluster context, `kind`.
 
-## Advanced Usage
+## Advanced usage
 
 {{< blurb/images-advanced image="Istio" >}}

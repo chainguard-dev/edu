@@ -1,6 +1,6 @@
 ---
-title: "Manage Your chainctl configuration"
-linktitle: "Manage Your chainctl configuration"
+title: "Manage your chainctl configuration"
+linktitle: "Manage your chainctl configuration"
 aliases:
 - /chainguard/chainctl-usage/manage-chainctl-config/
 - /chainguard/chainguard-enforce/manage-chainctl-config/

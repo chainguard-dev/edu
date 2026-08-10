@@ -1,6 +1,6 @@
 ---
 title: "What is software supply chain security"
-linktitle: "Software Supply Chain Security"
+linktitle: "Software supply chain security"
 description: "What is software supply chain security and why it matters: protect against attacks like SolarWinds with tools like Chainguard's SLSA-compliant containers and SBOMs"
 lead: "A beginner's guide to software supply chain security"
 type: "article"

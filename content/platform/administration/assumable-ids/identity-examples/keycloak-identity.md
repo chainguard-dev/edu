@@ -1,5 +1,5 @@
 ---
-title : "Create an Assumable Identity for a CLI session authenticated with Keycloak"
+title : "Create an assumable identity for a CLI session authenticated with Keycloak"
 linktitle: "Keycloak"
 aliases:
 - /chainguard/administration/iam-groups/identity-examples/keycloak-identity/
@@ -25,10 +25,10 @@ This procedural tutorial outlines how to create an identity using Terraform, and
 To complete this guide, you will need the following.
 
 * `terraform` installed on your local machine. Terraform is an open-source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
-* `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up.
+* `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up.
 * A Keycloak deployment. [Keycloak](https://www.keycloak.org/) is an Open Source identity provider which Chainguard provides as an [image](https://images.chainguard.dev/directory/image/keycloak/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-administration-iam-organizations-identity-examples-keycloak-identity)
 
-## Creating Terraform Files
+## Creating Terraform files
 
 We will be using Terraform to create an identity for a Keycloak user to assume. This step outlines how to create three Terraform configuration files that, together, will produce such an identity.
 
@@ -145,7 +145,7 @@ resource "chainguard_rolebinding" "view-stuff" {
 
 Following that, your Terraform configuration will be ready. Now you can run a few `terraform` commands to create the resources defined in your `.tf` files.
 
-## Creating Your Resources
+## Creating your resources
 
 First, run `terraform init` to initialize Terraform's working directory.
 
@@ -266,7 +266,7 @@ chainctl iam roles list
 
 This command's output will also include any custom roles you are able to grant.
 
-## Removing Sample Resources
+## Removing sample resources
 
 To remove the resources Terraform created, you can run the `terraform destroy` command.
 

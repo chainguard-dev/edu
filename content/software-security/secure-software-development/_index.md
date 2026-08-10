@@ -1,5 +1,5 @@
 ---
-title: "Secure Software Recommendations"
+title: "Secure software recommendations"
 description: "Guidance from the DHS, CISA, and NIST"
 type: "article"
 date: 2023-05-10T08:49:15+00:00

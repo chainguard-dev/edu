@@ -1,8 +1,8 @@
 ---
-title: "Chainguard Container Catalog Pricing"
-linktitle: "Catalog Pricing"
+title: "Chainguard container catalog pricing"
+linktitle: "Catalog pricing"
 type: "article"
-description: "Overview of Chainguard's Container Catalog Pricing model and how to add container images to your organization through the Self-Serve Catalog Experience."
+description: "Overview of Chainguard's container catalog pricing model and how to add container images to your organization through the self-serve catalog experience."
 date: 2025-08-19T08:49:31+00:00
 lastmod: 2025-11-04T08:49:31+00:00
 draft: false
@@ -19,7 +19,7 @@ Chainguard offers Catalog Pricing for our library of secure container images, pr
 
 This article highlights the benefits of the Catalog Pricing plan and outlines how you can provision container images through the Self-Serve Experience.
 
-## Catalog Pricing
+## Catalog pricing
 
 The Catalog Pricing model provides a single subscription that grants unlimited access to the full catalog of container images maintained by Chainguard. This model removes the need for per-repository licensing and offers predictable monthly or annual costs. Subscriptions can include FIPS-compliant images, depending on the selected tier.
 
@@ -29,13 +29,13 @@ You can also add multiple instances of the same container image to your organiza
 
 This model is best suited for organizations that use many different Chainguard images across teams or projects. It allows platform and security teams to standardize on Chainguard images while giving developers unrestricted access to pull the images they need. Once a subscription is in place, any image from the catalog can be pulled and used without additional approvals or per-image fees.
 
-## Self-Serve Catalog Experience
+## Self-serve catalog experience
 
 Organizations that have signed up for Catalog Pricing can add container images through [Chainguard's Self-Serve Catalog Experience](http://chainguard.dev/unchained/introducing-the-self-serve-catalog-experience). This allows customers to independently add Chainguard Containers to their organization's catalog directly within the console, without needing to file support tickets or wait for Chainguard to provision resources manually.
 
 In order for a user to add images to their organization through the Self-Serve Experience, they must be bound to a role with the `repo (create, list, update)` capabilities. Additionally, it may be helpful for users working with the Self-Serve Experience to have the `registry.entitlement (list)` capability in order to understand their organization's registry access entitlements.
 
-The only built-in role with all of these capabilities is the `owner` role. Users intending to work with the Self-Serve Catalog Experience should be bound to the `owner` role or a custom role with the appropriate capabilities. Refer to our documentation [Roles and Role-bindings](/chainguard/administration/iam-organizations/roles-role-bindings/) for more details.
+The only built-in role with all of these capabilities is the `owner` role. Users intending to work with the self-serve catalog experience should be bound to the `owner` role or a custom role with the appropriate capabilities. Refer to our documentation [Roles and role-bindings](/chainguard/administration/iam-organizations/roles-role-bindings/) for more details.
 
 To add a container to your organization through the Self-Serve Experience, start by logging in to the [Chainguard Console](https://console.chainguard.dev). After logging in, click **Images** in the left-hand navigation.
 
@@ -109,10 +109,10 @@ If you happen to rename an image in error, you can change it back using the same
 chainctl images repo update php-new --parent=example.com --name=php
 ```
 
-## Learn More
+## Learn more
 
 Chainguard's Catalog Pricing provides access across Chainguard's library of container images. To learn more about the Catalog Pricing model, we encourage you to [reach out for more information](https://www.chainguard.dev/contact?utm=docs). Additionally, you may find the following resources to be helpful:
 
 - [Blog announcement: Unlock the Full Chainguard Containers Catalog – Now with a Catalog Pricing Option](https://www.chainguard.dev/unchained/unlock-the-full-chainguard-containers-catalog-now-with-a-catalog-pricing-option?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)
-- [Blog announcement: Introducing the Self-Serve Catalog Experience](http://chainguard.dev/unchained/introducing-the-self-serve-catalog-experience)
+- [Blog announcement: Introducing the self-serve catalog experience](http://chainguard.dev/unchained/introducing-the-self-serve-catalog-experience)
 - [Chainguard Pricing](https://www.chainguard.dev/pricing?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)

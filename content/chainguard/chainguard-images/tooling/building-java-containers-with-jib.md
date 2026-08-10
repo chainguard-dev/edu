@@ -1,5 +1,5 @@
 ---
-title: "Build Java Containers with Jib"
+title: "Build Java containers with Jib"
 linktitle: "Jib"
 type: "article"
 description: "In this tutorial, you'll learn how to build minimal Java containers using Jib and Chainguard base images"
@@ -38,7 +38,7 @@ Before proceeding, you'll need to meet the following requirements:
 - [Maven 3.6+](https://maven.apache.org/install.html) installed
 - [Docker](https://docs.docker.com/engine/install/) to test the containerized application
 
-## Understanding Chainguard Java Images
+## Understanding Chainguard Java images
 
 Chainguard provides several Java-related images optimized for different use
 cases. Understanding which image to use depends on your application's
@@ -69,7 +69,7 @@ OpenJDK 64-Bit Server VM (build 25+-wolfi-r1, mixed mode, sharing)
 Note that the latest version of the JRE (currently 25) is freely available from
 Chainguard but access to other versions requires a subscription.
 
-## Stage 1 — Creating a Demo Java Application
+## Stage 1 — Creating a demo Java application
 
 Start by creating a demo Java application to demonstrate Jib's containerization
 capabilities. This example uses a basic Spring Boot application, but the
@@ -266,7 +266,7 @@ The configuration specifies several settings:
 - **Port**: Documents that port `8080` is used for the Spring Boot application
 - **Creation time**: Uses the current timestamp
 
-## Stage 3 — Building Container Images with Jib
+## Stage 3 — Building container images with Jib
 
 With Jib configured, you can now build your containerized Java application.
 Because we have specified `dockerBuild` as the execution goal, this step will
@@ -335,7 +335,7 @@ No vulnerabilities found
 
 In this case, there were no CVEs found. Try comparing those results to images built with different base images.
 
-## Stage 4 — Testing the Containerized Application
+## Stage 4 — Testing the containerized application
 
 After building your container image, test it to ensure it works correctly.
 Start by running the container locally:
@@ -473,7 +473,7 @@ when pulling:
 docker pull --platform amd64 ttl.sh/jib-demo-20250925104449:20m
 ```
 
-## Other Features
+## Other features
 
 ### Building a tar archive
 
@@ -562,7 +562,7 @@ mvn install jib:dockerBuild
 
 For full details of Jib plugin configuration and features, refer to the [guide on GitHub](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin).
 
-## Next Steps
+## Next steps
 
 You've now successfully containerized a Java application using Jib and Chainguard's
 minimal container images. You have seen how Jib and Chainguard combine to provide

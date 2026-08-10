@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with the PostgreSQL Chainguard Container"
+title: "Getting started with the PostgreSQL Chainguard Container"
 type: "article"
 linktitle: "PostgreSQL"
 aliases:
@@ -191,7 +191,7 @@ To close the `psql` prompt, you can enter the following command.
 
 Of course, you likely won't be regularly managing your containerized databases over the command line. The purpose of this section is to only show that you can interact with the database running in this container just like you would with any other Postgres database.
 
-## Advanced Usage
+## Advanced usage
 
 {{< blurb/images-advanced image="PostgreSQL" >}}
 

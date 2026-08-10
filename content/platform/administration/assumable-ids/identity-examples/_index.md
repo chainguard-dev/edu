@@ -1,5 +1,5 @@
 ---
-title: "Identity Examples"
+title: "Identity examples"
 lead: ""
 aliases:
 - /chainguard/chainguard-enforce/authentication/identity-examples/

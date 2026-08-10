@@ -33,7 +33,7 @@ At the heart of that is a factory, and we really call it that because flowing th
 
 Just a little bit about my background: I have spent two halves of my career—one as an engineer and a second as a product manager. I've also spent two halves of my career—one with some of the world's biggest companies (IBM, Google, and Goldman Sachs) and then another in startups and growth mode. And so with that comes a lot of experience and a real personal interest in solving the operating system Linux distro security problem and fitting that into the overall mission of Chainguard to secure the software supply chain.
 
-### Our SLA: The Foundation
+### Our SLA: The foundation
 
 All right, we're going to kick this off and start with our SLA—our service level agreement. This is what it says, this is on our website. Not everyone publishes their SLA on the website—we do publish our SLA on the website, and this is the fine print. This says that Chainguard will remediate security vulnerabilities that are rated critical within seven calendar days and highs, mediums, and lows within 14 calendar days. Seven and 14—we remediate criticals within seven, highs, mediums, and lows within 14.
 
@@ -45,7 +45,7 @@ Now I said seven and 14. In actuality, it takes us less than two days typically 
 
 Here's a pie chart of all of the CVEs that we've known about since January 1st of this year. So this is year to date with 65% within two days, 28% within seven, the pink within 14—6% within 14. What's that last sliver? Less than a half a percent. These are CVEs that are either still awaiting an upstream fix typically, at which point we work as quickly as possible to patch and remediate that, rebuild that as soon as upstream has that fix available.
 
-### How We Do It: The Factory
+### How we do it: The Factory
 
 How do we do that? It's the factory. We are continuously rebuilding the entirety of the Chainguard OS. So let's dig into some of those pieces.
 
@@ -53,29 +53,29 @@ First of all, this is the hard part: we build from source. Yes, everything, cons
 
 And so a change in GCC, the C compiler that underpins almost everything including Python, including Java and C bindings—we rebuild everything up from that. That takes a lot of, first of all, expertise, but a whole lot of automation in order to do that.
 
-### The Wolfi OS Repository
+### The Wolfi OS repository
 
 So this is just one piece of our OS. This is the Wolfi Dev OS. This is a snapshot from GitHub. You can see that this gigantic mono repo had 2,600 entries, and it shows a thousand but there's another 2,600. These are our source packages. And it's just for the piece that we call Wolfi, which is this open source core, with 63,000 commits, and that's going up by a couple hundred commits per day. Many of those are driven by our automation. Our automation is a bot that we call Octos, and it's what enables us to securely do this in GitHub and GitHub Actions itself.
 
-### Package Building Example: sed
+### Package building example: sed
 
 Securely, this is what a single package looks like to build, and this is a lot simpler. I've long been a packager of Debian packages and Fedora packages. The fact that we can define the entirety of the sed package—my favorite editor, I don't know, anyone else a sed fan? If I need to edit a file, this is the way I'm going to do it.
 
 This is sed 4.9, which is the latest version. You can see the version, the name, the epoch, the build, and then the URI—the URL where to get that from. And this is a GNU package, the tarball and the expected SHA. If that changes—and we have monitors that are constantly watching this—as soon as that changes upstream, our automation will kick in and download the new tarball. We'll apply these same build rules, the build configure rules, the test against it. We'll then, if it passes, we'll republish that, and then we'll restart building all the images that might include sed inside of it.
 
-### Vim Example
+### Vim example
 
 For those who are not sed fans for editing their files, we've also got a Vim example. All of 77 lines. And again, to compare this to another distro's package manager, that's going to be dozens of files in a directory. It's going to be probably hundreds of lines of code and a stack of carried patches. There are no carried patches against either of these, so this is farm-to-market pure, straight from the upstream source with easy to view build rules, configure build rules.
 
 And you can see some of these have, you know, security implications. Without X, this is going to be a command line-only Vim that cuts out a whole bunch of code and vulnerabilities that might come along with code that's not necessarily needed. There's also a handful of tests, so every almost every one of our packages itself includes tests that have to run and execute and succeed at the package build time, or else the package itself doesn't get published, which means that, you know, we'll hold that back and that will need to get attention from one of our engineers who's going to dig into what we need to fix in order to satisfy that build or those tests.
 
-### Git-based Packages
+### Git-based packages
 
 So this one is just slightly different in that we're not fetching a tarball. We actually prefer, much prefer to fetch directly from a git repo at a particular tagged version. And again, we will check that expected commit and that hash. Again, we've got these watchers—event-driven automation that's constantly watching for a new commit to, or sorry, a new tagged release from any of the 6,000 source packages that we're monitoring. As soon as that happens, within minutes we trigger a whole new build, which then creates this entire directed acyclic graph, a DAG tree of all the other things that we're going to need to do based on the success criteria of each of those.
 
 Vim is a little bit interesting in that the way that this open source project is set up, with every single commit, Vim auto-tags a new release, which is kind of crazy to think about. But typically within 30 minutes of the upstream Vim developer making a commit to Vim, we've already built and tested and published a whole new version of that package. Now this, of course, is a, you know, human interactive thing. This isn't making its way typically into your production containers, but to me it's just a great example of how fast we've taken that farm to market from that upstream open source developer straight to, you know, this distro itself and tested it.
 
-### Automated Updates
+### Automated updates
 
 And this is what an update looks like. This was merged by Octos—that's our automated bot. This is all it took to bump the Vim package from version 9.1.189 to 9.1.194: a change in the version which affected the variable of the tag itself and then the difference in commit. With that, this package automatically rebuilt, retested, and made its way through the entirety of the process.
 
@@ -85,7 +85,7 @@ That's largely how we solve the lows and mediums, right? The highs and criticals
 
 Now we can and do carry patches when we have to, but it's typically for a very small period of time. It's usually just until that upstream maintainer tags a new release, then we can discard that patch and get right back onto the vanilla interpretation of that upstream maintainer's code. For the most part, you know, we have really good signals from maintainers who really prefer this approach. We're not creating some Frankenstein of the code that they've put their heart and soul into developing and building and maintaining. What we've done is really just taken a secure snapshot of that, and we keep it moving forward.
 
-### Real-world Impact
+### Real-world impact
 
 So this is like a random two-hour window from a couple of weeks ago of our backend build system catching new releases. And you can see that Grafana had a fix, had a new release going from 10.4 to 10.4.16 that addressed a CVE. You can see GitLab, you can see Helm and Argo and GCP and Azure. This was just like one little piece of one page during one hour of the automation doing its work, and you can see it fixing CVEs along the way.
 
@@ -97,17 +97,17 @@ So we start minimal, we fast forward, the third piece of the puzzle is publishin
 
 This is what an advisory looks like, and these files can go on for hundreds and hundreds of lines. But I grabbed one for containerd. Containerd will have this stanza that tags a particular unique vulnerability. You can see this is 2023 CVE-2023-45283. There's a timestamp for when it was first found. Our research—and this one did involve human research—was that it was a false positive determination, and we documented why. This particular vulnerability only affects code in Windows. This is a container that is not running—this is not containerd running on Windows. Therefore, we provide this, we publish this, we attest this, and then we feed that information to the scanners. The scanners read these advisory files, and the scanner itself is able to provide you, the customer, the user of containerd scanning containerd with better information on is this actually a vulnerability. Because it's no good if you just get this fire hose of information that is, you know, unreadable. You know, if you're overwhelmed by false positives, you really stop trusting the value of your scanner itself.
 
-### Scanner Partnerships
+### Scanner partnerships
 
 This is something that you can't just DIY. You know, we're often asked, "Look, I've got a team," you know, we may be talking to a director of platform engineering, "Hey, I've got a team, they handle the vulnerability fixes." Well, what do they do? "Well, they're constantly apt-get update, apt-get upgrading our distro, and you know, we've got all the patches that the upstream distro has provided." Yeah, but what about the false positives? "Well, I mean, those we just kind of have to ignore."
 
 Becoming a trusted source of advisory data to the actual scanner itself—that's a very privileged position. And we're delighted to partner with Snyk and Wiz and Grype and Trivy and X-Ray and Prisma amongst others as well and provide those advisories to them in a machine-readable format that's able to make the quality of that scanner information even better. If your favorite scanner isn't up here, please do come talk to the product team. We've definitely got people busy working on the right partnerships and ensuring that our trusted advisory data is accessible to them as well.
 
-### The Build and Test Pipeline
+### The build and test pipeline
 
 Okay, so with all of that, we're able to build, test, sign, publish packages as soon as any upstream project tags a release. And so this is what happens. I showed you the first piece—this is what's actually happening inside of the testing. You can see these are 19 checks and growing that we run. And you can see the Wiz scanners are running, we've got Malcontent, which is running looking for malicious data that might have been injected in the build. We've got static analysis, lint analysis, as well as the actual build process. I showed you the testing that we actually execute those binaries. We check the libraries, we check the SO files, we ensure that Python modules are loadable, Ruby modules are loadable and listable. And then, you know, we've got logs that we can drill into.
 
-### Testing at Scale
+### Testing at scale
 
 Now I really want to double down on the testing—the testing part. If I really have to talk about, you know, the place that we've invested most heavily, once we completed the initial build—build is great, but man, how do you trust a rolling distro? A distro that every time an upstream maintainer presses a release button that worked for them on their laptop, how do you trust that that's going to make its way through the Chainguard automation into production in your environment? And that is the testing.
 
@@ -115,23 +115,23 @@ So hopefully some people perked up at the quality part of the discussion. So I s
 
 This is just one example. We've got, you know, somewhere around 3,500 open source package specifications in Wolfi itself, the vast majority of which have, you know, various degrees of testing. But that's just the functional verification—that's the FVT on the package itself.
 
-### Image Testing
+### Image testing
 
 If we go into the actual image testing, this is what an image test file is going to look like. And I'll zoom into, you know, once we've actually put that image together, we go and docker run that. And this is RabbitMQ, so we're actually running the RabbitMQ image and running it through its own tests—one, two, three, four shown right here. And we do that for every single image, and we ensure that that goes all the way through before we publish that image.
 
 In some other cases, we've actually got to start up an entire Kubernetes, and we'll use K3s or we'll use EKS in Amazon. We've got to spin up a whole Kubernetes to test some of these images. And some of these image tests take orders of magnitude longer than the actual build. We may be able to build it within the first five or 10 or 15 minutes, but it may take a couple of hours to really put a core and critical image through full testing.
 
-### The Results: Our Image Catalog
+### The results: Our image catalog
 
 All right, so how does that work in practice? And for those of you who might be prospects and not yet customers, maybe that sounds great, but you know, you don't believe us yet. Dan mentioned in the keynote we've got over 1,200 images. Again, these images were taken a couple of weeks ago—this was at 1,254 images, 1,200 and counting. There's a handful of different types of images that we've sort of grouped things into. We've got some customers who are more interested in the AI front, others are more interested in the base or the starter front. We've got, you know, some customers who use a single image and they start there. We've got others that leverage a handful, five or 10 images and get started. And then we've got some other customers who've gone all in on this, and Chainguard is the only way that their developers are allowed to build on, or they're encouraged to use.
 
-### Public Image View: PostgreSQL FIPS Example
+### Public image view: PostgreSQL FIPS example
 
 All right, so it's the factory that enables all of this at scale. Now let me show you what this looks like publicly. You could see this on images.chainguard.dev. This is PostgreSQL FIPS. This is the PostgreSQL database, this is with FIPS encryption enabled. So this is compiled against our OpenSSL FIPS libraries and ensures that if you're storing data and doing any cryptographic transactions on that data in PostgreSQL, you're doing so in accordance with the FIPS cryptography standard.
 
 Here, starting on this page, you can see the versions. We've of course got multiple versions of that PostgreSQL FIPS image available. The latest and latest-dev are floating tags that move. You can see the dotted versions, you can see 17, 17.4, 16.8, all the way back to 15.12. You can see the last time those changed. And you know, the 24/7 rebuilding means that something inside of that PostgreSQL image changed, which meant that we had to rebuild that image because there was probably a security vulnerability somewhere in that image that needed to be addressed, and we addressed that by sucking in a newer version of that.
 
-### Beyond Containers: Virtual Machines
+### Beyond containers: Virtual machines
 
 Now what we heard from a number of customers over the last year was, "You know, that thing that you've done for containers, can you do that for our virtual machines and our libraries?" In particular on the virtual machine front, we had some customers who said, "Look, this is great. We've deployed Chainguard everywhere we can deploy it inside of the containers, but those containers are running on Amazon Linux hosts in AWS or EKS. They're a couple of years old, there's hundreds of unpatched vulnerabilities. I feel great about my container estate, but what about the thing running under my containers? And I've got hundreds of thousands of those."
 
@@ -147,11 +147,11 @@ The other piece are our libraries. And we started very much with Java. The signa
 
 So we've started rebuilding Java itself—Java archives, JARs—from source. To date, we've got 20,000 JARs, which include from our analysis the most heavily depended upon JARs across the last five years. And this covers about 98, 99% of the most used JARs over the last five years in dependencies. If it's not on the list, we can—we have a process by which we can add others as well. Java is the start. We're working on Python next. PyPI is the next target. That's a work in progress, and definitely come talk to us if you're interested in that.
 
-### The Chainguard Operating System
+### The Chainguard operating system
 
 So that's containers, VMs, libraries, all built from source the hard way. It's that same factory that I've spent the last 30, 40 minutes talking about cranking through that. And then ultimately it's the Chainguard operating system that's powering all of this. It's at the core of it. It's not the value that we project as, you know, the thing that we've built, but it's the thing behind what we've built that enables all of this to go and go really fast.
 
-### A Personal Story
+### A personal story
 
 So I thought I would tell you one little story, and this is pretty much the end of the presentation. I grew up in South Louisiana, and I was about 10 or 11 years old, and my uncle invited me to come help him dig a well—a water well. And I remember this like it was yesterday. Has anyone ever dug a well before? Wow, okay. I'm going to tell you how digging a well in South Louisiana works.
 
@@ -163,7 +163,7 @@ What I learned from this is that there are some things in life I love doing myse
 
 [Applause]
 
-### Q&A Session
+### Q&A session
 
 **Sam**: Thank you, Dustin. We got about 10 minutes for questions. I believe we have somebody with a microphone, so I'll go ahead and open up the floor if anybody has any questions on what you just heard. We got some in the front here.
 

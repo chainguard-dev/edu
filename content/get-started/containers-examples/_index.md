@@ -1,6 +1,6 @@
 ---
-title: "Containers Examples"
-linktitle: "Containers Examples"
+title: "Containers examples"
+linktitle: "Containers examples"
 lead: ""
 description: "Build your first image with a Chainguard Container: a quickstart plus short, language- and service-specific getting-started guides for nginx, PostgreSQL, Python, and Go."
 type: "article"

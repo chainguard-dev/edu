@@ -1,6 +1,6 @@
 ---
 title: "Chainguard Libraries policies"
-linktitle: "Library Policies"
+linktitle: "Library policies"
 aliases:
   - /chainguard/chainguard-repository/libraries-policies/
 description: "Configure and enforce policies that control which Chainguard Libraries package versions your organization can pull"

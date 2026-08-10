@@ -1,6 +1,6 @@
 ---
-title: "How to Use Chainguard Containers"
-linktitle: "How to Use"
+title: "How to use Chainguard Containers"
+linktitle: "How to use"
 description: "How to use Chainguard containers effectively: retrieve SBOMs, verify signatures, compare CVEs, and migrate from DockerHub for enhanced container security"
 type: "article"
 date: 2024-12-19T08:49:15+00:00
@@ -11,7 +11,7 @@ weight: 025
 topic: true
 banner: {
     image: "/icon-box-fill.svg",
-    title: "How to Use Chainguard Containers",
+    title: "How to use Chainguard Containers",
     cta: "Read more",
     link: "/chainguard/chainguard-images/how-to-use/how-to-use-chainguard-images/"
 }
@@ -23,27 +23,27 @@ tutorials: [
     url: "/platform/console/images-directory/"
   },
   {
-    title: "How to Retrieve SBOMs",
+    title: "How to retrieve SBOMs",
     description: "",
     url: "/chainguard/chainguard-images/how-to-use/retrieve-image-sboms/"
   },
   {
-    title: "Compare Container Images with chainctl",
+    title: "Compare container images with chainctl",
     description: "",
     url: "/chainguard/chainguard-images/how-to-use/comparing-images/"
   },
   {
-    title: "Software Versions",
+    title: "Software versions",
     description: "",
     url: "/chainguard/chainguard-images/how-to-use/version-info-chainguard-images/"
   },
   {
-    title: "Using the Static Base Container Image",
+    title: "Using the static base container image",
     description: "",
     url: "/chainguard/chainguard-images/how-to-use/static-base-image/"
   },
   {
-    title: "Verifying Container Images",
+    title: "Verifying container images",
     description: "",
     url: "/chainguard/chainguard-images/how-to-use/verifying-images-with-cosign"
   },

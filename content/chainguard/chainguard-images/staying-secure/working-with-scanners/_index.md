@@ -1,6 +1,6 @@
 ---
-title: "Working with Container Image Scanners"
-linktitle: "Working with Scanners"
+title: "Working with container image scanners"
+linktitle: "Working with scanners"
 aliases:
 - /chainguard/chainguard-images/working-with-images/scanners
 - /chainguard/chainguard-images/staying-secure/working-with-scanners

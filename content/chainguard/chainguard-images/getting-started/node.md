@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with the Node Chainguard Container"
+title: "Getting started with the Node Chainguard Container"
 type: "article"
 linktitle: "Node"
 aliases:
@@ -39,7 +39,7 @@ This tutorial requires Docker, Node, and Npm to be installed on your local machi
 {{< blurb/images >}}
 {{< /details >}}
 
-## Step 1: Setting up a Demo Application
+## Step 1: Setting up a demo application
 
 We'll start by creating a small Node application to serve as a demo. This application uses a mock server to test GET and POST requests, and is based on the [Docker Node example](https://docs.docker.com/language/nodejs/build-images/).
 
@@ -188,7 +188,7 @@ curl http://localhost:8000/test
 {"code":"success","meta":{"total":1,"count":1},"payload":[{"msg":"testing node wolfi image","id":"6011f987-b9f8-4442-8253-d54166df5966","createDate":"2023-02-07T15:57:23.520Z"}]}
 ```
 
-## Advanced Usage
+## Advanced usage
 
 Chainguard offers [slim variants](/chainguard/chainguard-images/about/differences-development-production/#slim-container-variants) of its Node.js container image. These have a smaller footprint than our standard Node.js images and are useful for building images with a minimal attack surface in multi-stage builds. Check out our [Node migration guide](/chainguard/migration/migration-guides/migrating-node/#using-slim-images) to learn more.
 

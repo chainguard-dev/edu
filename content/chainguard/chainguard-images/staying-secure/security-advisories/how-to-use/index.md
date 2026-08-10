@@ -1,5 +1,5 @@
 ---
-title: "How to Use Chainguard Security Advisories"
+title: "How to use Chainguard Security Advisories"
 linktitle: "Using Advisories"
 aliases:
 - /chainguard/chainguard-images/security-advisories
@@ -24,7 +24,7 @@ When using scanners such as [Grype](https://github.com/anchore/grype) or [Docker
 
 To help demystify the nature of CVEs within Chainguard Containers, we've created a self-service [Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-security-advisories-how-to-use) that lists every security advisory published for Chainguard Containers. Having this information available allows you to view whether Chainguard is aware of a specific vulnerability reported to exist within a Chainguard Container and whether we've mitigated or are planning to mitigate the CVE.
 
-In alignment with the [Chainguard Container Product Release Lifecycle](/chainguard/chainguard-images/about/versions/#what-chainguard-supports-and-maintains-for-chainguard-containers), our vulnerability management strategy focuses on the latest versions of any given release track, as these are the versions we actively maintain and secure. Accordingly, we only publish new CVE advisories for packages that fall within our defined support scope.
+In alignment with the [Chainguard Containers product release lifecycle](/chainguard/chainguard-images/about/versions/#examples-of-what-chainguard-supports-and-maintains-for-chainguard-containers), our vulnerability management strategy focuses on the latest versions of any given release track, as these are the versions we actively maintain and secure. Accordingly, we only publish new CVE advisories for packages that fall within our defined support scope.
 
 We do not actively monitor non-supported versions of a package or image. Our efforts are centered on keeping the latest versions up-to-date and as close to zero CVEs as we can, while encouraging customers to upgrade and stay on supported versions.
 
@@ -40,7 +40,7 @@ To follow along with these examples, you'll need the following tools installed.
 * [`chainctl`](/chainguard/chainctl/) — Chainguard's command-line interface tool. To install `chainctl`, follow our [installation guide](/chainguard/chainctl-usage/how-to-install-chainctl/).
 * [`jq`](https://jqlang.github.io/jq/) — `jq` is a command-line JSON processor that allows you to filter and manipulate streaming JSON data. Although it isn’t strictly necessary for the purposes of this guide, this tutorial includes commands that use `jq` to filter command output that would otherwise be difficult to read. You can install `jq` by following the instructions on [the project’s Download jq page](https://jqlang.github.io/jq/download/).
 
-Lastly, note that this guide includes examples involving a sample organization with a private registry provided by Chainguard and named `example.com`. If you would like to follow along with your own private Chainguard Containers, be sure to change this where relevant to reflect your own setup. If you don't have access to a private registry, you can also follow along using Chainguard's public [Free Containers](/chainguard/chainguard-images/about/images-categories/#starter-containers), but be aware that these are limited to only the `latest` or `latest-dev` tags. You can download Free Containers from the `cgr.dev/chainguard` registry, as in `cgr.dev/chainguard/go:latest`.
+Lastly, note that this guide includes examples involving a sample organization with a private registry provided by Chainguard and named `example.com`. If you would like to follow along with your own private Chainguard Containers, be sure to change this where relevant to reflect your own setup. If you don't have access to a private registry, you can also follow along using Chainguard's public [Free containers](/chainguard/chainguard-images/about/images-categories/#free-containers), but be aware that these are limited to only the `latest` or `latest-dev` tags. You can download Free Containers from the `cgr.dev/chainguard` registry, as in `cgr.dev/chainguard/go:latest`.
 
 ## So you've encountered a CVE in a Chainguard Container
 
@@ -102,7 +102,7 @@ As with the Security Advisories landing page, you can filter by package name her
 
 As the previous screenshot highlights, for CVE-2023-44487, the `nghttp2` package's **Status** is marked as **Fixed** in version `1.57.0-r0` as of October 11, 2023.
 
-## Comparing Containers
+## Comparing containers
 
 Chainguard's Security Advisories have told us that the CVE-2023-44487 was fixed and removed from `nghttp2` with a more recent version than the one available in Chainguard's `go:1.21.2` image. However, we don't have to take that report at face value; we can inspect a later version of the same container image and compare it with version `1.21.2` to determine whether the vulnerability is still present in the later version.
 
@@ -140,7 +140,7 @@ This example will return a lot of output, as there are significant differences f
 
 As this output indicates, `CVE-2023-44487` is no longer present in later versions of the Go Chainguard Container. If you were using version `1.21.2`, you should seriously consider upgrading to a later version.
 
-## Learn More
+## Learn more
 
 The Security Advisories page serves as a helpful resource for anyone who wants to learn more about CVEs reported within Chainguard Containers. You can search the database of advisories to learn more about any CVEs you encounter as you work with Chainguard Containers.
 

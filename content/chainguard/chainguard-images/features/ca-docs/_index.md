@@ -1,5 +1,5 @@
 ---
-title: "Custom Assembly Resources"
+title: "Custom Assembly resources"
 linktitle: "Custom Assembly"
 description: "Resources on working with Chainguard's Custom Assembly tool."
 type: "article"

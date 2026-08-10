@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with the C/C++ Chainguard Containers"
+title: "Getting started with the C/C++ Chainguard Containers"
 type: "article"
 linktitle: "C/C++"
 aliases:
@@ -20,7 +20,7 @@ toc: true
 
 Chainguard provides security-hardened container images for C and C++ development, offering minimal runtime environments with significantly reduced vulnerabilities compared to traditional base images. Built on Chainguard's own OS, these containers enable more secure deployment of compiled programs through purpose-built images for different linking scenarios. This guide demonstrates three approaches to compiling and running C/C++ applications using Chainguard's specialized containers.
 
-The container image with which you choose to run your compiled program depends on the nature of your binaries. Static binaries can be executed in the minimal `static` Chainguard Container, while dynamically linked binaries can be run in the `glibc-dynamic` Container. For this demonstration, you will first compile a C binary using the `gcc-glibc` Chainguard Container, and then learn how to use a multi-stage build to run the resulting binary in the `glibc-dynamic` image. You'll also cover an example showing the multi-stage build process for the C++ programming language. To learn more about the differences between these container images, read our article on [Choosing an Container for your Compiled Programs](/chainguard/chainguard-images/about/images-compiled-programs/compiled-programs/).
+The container image with which you choose to run your compiled program depends on the nature of your binaries. Static binaries can be executed in the minimal `static` Chainguard Container, while dynamically linked binaries can be run in the `glibc-dynamic` Container. For this demonstration, you will first compile a C binary using the `gcc-glibc` Chainguard Container, and then learn how to use a multi-stage build to run the resulting binary in the `glibc-dynamic` image. You'll also cover an example showing the multi-stage build process for the C++ programming language. To learn more about the differences between these container images, read our article on [Choosing a container for your compiled programs](/chainguard/chainguard-images/about/images-compiled-programs/compiled-programs/).
 
 {{< details "What is distroless?" >}}
 {{< blurb/distroless >}}
@@ -50,7 +50,7 @@ To follow along with this guide, you will need to have [Docker Engine](https://d
 
 ## Example 1 --- Minimal C Chainguard Container
 
-### Step 1: Setting up a Demo Application
+### Step 1: Setting up a demo application
 
 To start, let's create a demo C application to run in your container. First you will create a folder to contain your demo files. The following command will create a new directory `cguide` and navigate to it.
 
@@ -170,7 +170,7 @@ My code was written in C.
 
 In the next example, we will look at an alternative way to run your binary using a multi-stage build.
 
-## Example 2 --- Multi-Stage Build for C Applications
+## Example 2 --- Multi-stage build for C applications
 
 In our first example, you successfully compiled and executed your C binary in the `gcc-glibc` image. To go a step further, you can use a multi-stage build, allowing you to compile your program in one image and execute it in another image.
 
@@ -240,11 +240,11 @@ My code was written in C.
 
 Having your program execute from a smaller container image with less packages reduces your potential attack surface, making it a more secure approach for production-facing builds.
 
-## Example 3 --- Multi-Stage Build for C++ Applications
+## Example 3 --- Multi-stage build for C++ applications
 
 So far, our demonstrations have featured a program coded in C. A similar image building process applies to binaries compiled for the C++ programming language.
 
-### Step 1: Setting up a Demo Application
+### Step 1: Setting up a demo application
 
 In your terminal, create a new file called `hello.cpp`.
 
@@ -361,7 +361,7 @@ My code was written in C++.
 
 With that, you have successfully performed a multi-stage image build for both C and C++ programs.
 
-## Clean Up
+## Clean up
 
 After completing the previous examples, you will have containers, images, and files remaining on your local machine. This section will show you how to remove these artifacts.
 
@@ -385,6 +385,6 @@ rm -r ~/cguide
 
 Following these commands, all artifacts introduced in this guide will now be removed from your machine.
 
-## Advanced Usage
+## Advanced usage
 
 {{< blurb/images-advanced image="C/C++" >}}

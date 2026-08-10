@@ -5,7 +5,7 @@ aliases:
 - /chainguard/administration/policies/
 - /platform/administration/policies/
 lead: "The Chainguard Repository is a single, policy-aware endpoint for all artifacts that Chainguard builds and distributes — libraries, containers, VMs, and OS."
-description: "Chainguard Repository Overview"
+description: "Chainguard Repository overview"
 type: "article"
 date: 2026-03-16T08:48:23+00:00
 lastmod: 2026-08-03T18:16:45+00:00
@@ -39,7 +39,7 @@ Each artifact type is accessible via its own endpoint:
 
 See each artifact type's documentation for authentication and configuration details.
 
-## Policies for Libraries
+## Policies for Chainguard Libraries
 
 The Chainguard Repository includes a policy engine that lets you define rules governing which artifacts can be consumed and under what conditions. Policies can be configured in the Chainguard Console or with `chainctl`, and are enforced automatically across your environment.
 
@@ -52,7 +52,7 @@ All upstream packages are checked against public malware identifier feeds, and a
 
 > **Note**: With fallback enabled, Chainguard's malware and greyware scanning covers upstream packages, which addresses the primary risk a cooldown period is meant to mitigate. A cooldown period can still add a small buffer against issues the broader community surfaces after publication and is applied globally across your organization, but it also adds operational complexity and can introduce breakage. Choose a cooldown policy based on your own risk tolerance and priorities.
 
-Refer to [Libraries Policies](/chainguard/chainguard-repository/library-policies/) for more information.
+Refer to [Libraries policies](/chainguard/chainguard-repository/library-policies/) for more information.
 
 ## Policies for Chainguard Containers
 
@@ -68,11 +68,11 @@ Available policies include:
 
 The packages that make up Chainguard Images are checked against public malware identifier feeds, and any package with a known malware idenitifier is remediated before being used in any image.
 
-Refer to [Container Pull Policies](/chainguard/chainguard-repository/container-policies/) for more information.
+Refer to [Container pull policies](/chainguard/chainguard-repository/container-policies/) for more information.
 
 ## Management
 
-The Chainguard Console and `chainctl` can be used for configuring and managing policies across your organization. Learn more in [Using the Chainguard Console](/platform/console/images-directory/) and [Get Started with chainctl](/get-started/getting-started-with-chainctl/).
+The Chainguard Console and `chainctl` can be used for configuring and managing policies across your organization. Learn more in [Using the Chainguard Console](/platform/console/images-directory/) and [Get started with chainctl](/get-started/getting-started-with-chainctl/).
 
 Access the Console at [console.chainguard.dev](https://console.chainguard.dev).
 

@@ -1,5 +1,5 @@
 ---
-title: "An Introduction to Rekor"
+title: "An introduction to Rekor"
 linktitle: "Introduction"
 type: "article"
 lead: "The Rekor transparency log"

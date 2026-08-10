@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with apko"
+title: "Getting started with apko"
 aliases:
 - /open-source/apko/getting-started-with-apko
 type: "article"
@@ -35,7 +35,7 @@ If you want to run apko on CI/CD pipelines built on top of GitHub Actions, check
 
 The instructions in this document were validated on an Ubuntu 22.04 workstation running Docker 20.10.
 
-## Step 1 — Download the apko Image
+## Step 1 — Download the apko image
 
 Start by pulling the official apko image into your local system:
 
@@ -67,7 +67,7 @@ GitVersion:    v0.6.0
 
 In the next step, you'll build your first apko image.
 
-## Step 2 — Build a Test Image
+## Step 2 — Build a test image
 
 To test that you're able to build images, you can use one of the example `yaml` definition files that are included in the [official apko code repository](https://github.com/chainguard-dev/apko/tree/main/examples). Here we'll use the `wolfi-base.yaml` for demonstration.
 
@@ -133,7 +133,7 @@ Mar 15 20:17:04.420 [INFO] [arch:x86_64] Final index tgz at: wolfi-test.tar
 
 From the output, you can notice that the image was successfully built as `wolfi-test.tar` in the container, which is shared with your local folder on the host thanks to the volume you created when running the `docker run` command.
 
-## Step 3 — Test the Image with Docker
+## Step 3 — Test the image with Docker
 
 To test the generated image with Docker, you'll need to use the `docker load` command and import the `.tar` file you created in the previous step:
 

@@ -1,5 +1,5 @@
 ---
-title: "Wolfi Overview"
+title: "Wolfi overview"
 type: "article"
 description: "Getting started with Wolfi, the Linux undistro for secure container images"
 lead: "Introducing Wolfi, the Linux undistro for secure container images"
@@ -19,13 +19,13 @@ toc: true
 
 Building our own undistro also allows us to ensure packages have full provenance and metadata for supporting modern supply-chain security needs.
 
-## Why Undistro
+## Why undistro
 
 We call Wolfi an undistro because unlike a [typical Linux distribution](https://en.wikipedia.org/wiki/Linux_distribution) designed to run on bare-metal, Wolfi is a stripped-down distro designed for the cloud-native era. It doesn't have a kernel of its own, instead relying on the environment (such as the container runtime) to provide one. This separation of concerns in Wolfi means it is adaptable to a range of environments.
 
 Wolfi is the base we use to build [Chainguard Containers](/chainguard/chainguard-images/overview/), our open source distroless images that are available free of charge.
 
-## Wolfi Features
+## Wolfi features
 
 Wolfi, whose name was inspired by the [world's smallest octopus](https://en.wikipedia.org/wiki/Octopus_wolfi), has some key features that differentiates it from other distributions that focus on container/cloud-native environments:
 

@@ -28,7 +28,7 @@ Before you begin, you'll need:
     * Chainguard authentication should be configured in the environment where Cursor runs commands.
     * Your Chainguard pull token credentials should be injected via environment variables, and not hard-coded in source.
 
-## Install the Chainguard Plugin
+## Install the Chainguard plugin
 
 The Chainguard integration is delivered as an official plugin through the Cursor marketplace. To get started:
 
@@ -73,7 +73,7 @@ This Dockerfile references both the `python` image's `latest` and `latest-dev` v
 
 Learn more about Chainguard's container images in the [Containers documentation](/chainguard/chainguard-images/).
 
-### Using Chainguard libraries
+### Using Chainguard Libraries
 
 [Chainguard Libraries](/chainguard/libraries/) provide malware-resistant Python, Java, and JavaScript packages. When Cursor migrates a project, it reconfigures your build files to pull dependencies from Chainguard instead of public registries.
 

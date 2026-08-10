@@ -1,9 +1,9 @@
 ---
-title: "Updating Container Images with Renovate (and no PATs!)"
-linktitle: "Renovate Video Tutorial"
+title: "Updating container images with Renovate (and no PATs!)"
+linktitle: "Renovate video tutorial"
 type: "article"
-lead: "Learn how to use Renovate with Octo STS to update container images without Personal Access Tokens"
-description: "Video tutorial showing how to set up Renovate as a GitHub Action with Octo STS to eliminate the need for Personal Access Tokens"
+lead: "Learn how to use Renovate with Octo STS to update container images without personal access tokens"
+description: "Video tutorial showing how to set up Renovate as a GitHub Action with Octo STS to eliminate the need for personal access tokens"
 date: 2025-12-23T09:30:00+01:00
 lastmod: 2025-12-23T09:30:00+01:00
 tags: ["octo-sts", "Renovate", "Video", "Tutorial", "GitHub Actions"]
@@ -22,7 +22,7 @@ In this video, Developer Relations Engineer Adrian Mouat shows you how you can u
 
 {{< youtube I0hWRMtdUyI >}}
 
-## What You'll Learn
+## What you'll learn
 
 - How to set up Renovate as a GitHub Action
 - Using Octo STS to eliminate Personal Access Tokens
@@ -38,7 +38,7 @@ Another thing we talk a lot about is getting rid of long-lived tokens. So, long-
 
 Do know in this video I'll be focusing on container images and updating container images, not packages. So the FROM lines in your Dockerfiles, not the APK add lines.
 
-### Setting Up the Demo
+### Setting up the demo
 
 Okay, let's jump to the demo. What I'm going to do is fork this demo application and set up Renovate to run as a GitHub action to update everything. And this demo application's a little bit old, so I know it needs updates to both the Dockerfiles and the GitHub action workflows. There is this version Dockerfile, and this one's interesting as it uses the cgr.dev organization. So that's going to require OAuth. So we'll see how to set up OAuth so Renovate can check out if there's new images available in this repo.
 
@@ -60,7 +60,7 @@ The other thing I should say at this point is we're going to be running Renovate
 
 We have some workflows for building images. There's also an old one for the Jester bot that we're not going to worry about in this talk. Dependabot does do something similar to Renovate and it helps you update image digests. So, do take a look at it if you're interested, but this video is going to focus on Renovate.
 
-### The Renovate Workflow
+### The Renovate workflow
 
 And we're going to copy our Renovate workflow over here. So let's take a look at that. Yeah. So, we schedule it to run at 3:00 a.m. every morning. It runs on Ubuntu latest. Because we're doing stuff with the GitHub token, we need to ask for write permissions to ID token. I know "write" sounds a bit weird, but that's the way GitHub does it and write permissions to the repo.
 
@@ -70,7 +70,7 @@ And then we've got Octo STS, which is the magic that allows us to get rid of the
 
 Oh yeah. So that's about the Renovate JSON. Let's jump back.
 
-### Setting Up Chainguard Identity
+### Setting up Chainguard identity
 
 And what we're going to do is start by setting up chainctl. This is only for people—for Chainguard customers—that need to access a private registry. If you're just using a free tier of Chainguard images, you don't need this because you don't need to auth to the registry.
 
@@ -82,7 +82,7 @@ So, it's going to replace this one.
 
 So, that should be all we need to set up the assumed identity.
 
-### Setting Up Octo STS
+### Setting up Octo STS
 
 Next thing we're going to look at is setting up Octo STS. So let's jump back to the web browser so I can show you that. So this is the GitHub app page for Octo STS and it describes a bit about what it is, what it does, you know getting rid of personal access tokens, which is exactly what we're doing in this use case. Certain workload trust, trust policies, etc., and federating a token, which is exactly what we're going to be doing here. And some more low-level stuff. Also a link to the Octo STS page where you can go and look at all the source code. It's a relatively small project so you can actually look at the source code and understand what's going on and what's happening.
 
@@ -96,7 +96,7 @@ Right. So, issuer is the GitHub token issuer and the repo is `amouat/production-
 
 And then we're going to say the permissions we are asking for. So in this case we're asking for quite a lot of permissions, which is all the stuff that Renovate needs for creating pull requests and checking projects etc. And that's about it.
 
-### Testing the Setup
+### Testing the setup
 
 So, I think the next step is just to check in this code and push it back up to the repo.
 
@@ -124,7 +124,7 @@ One thing to note is I do have 15 PRs here which is a little bit hard to deal wi
 
 Yeah, it looked like that works. It successfully updated our version of Go here. And we really did it with just a few clicks. So you can see it's really powerful, relatively easy to use once it's set up. We're using it here without the need for a PAT via Octo STS, which makes me very happy indeed. So please try it out. Let me know how you get on.
 
-## Key Takeaways
+## Key takeaways
 
 - Renovate can automatically update container images and GitHub Actions
 - Octo STS eliminates the need for Personal Access Tokens by using OIDC federation
@@ -132,7 +132,7 @@ Yeah, it looked like that works. It successfully updated our version of Go here.
 - Regular small updates are better than occasional large breaking updates
 - Pinning to digests improves both security and reproducibility
 
-## Related Resources
+## Related resources
 
 - [FAQ](/open-source/octo-sts/faq/)
 - [Octo STS GitHub Repository](https://github.com/octo-sts/app)

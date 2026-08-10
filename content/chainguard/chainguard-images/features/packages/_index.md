@@ -1,8 +1,8 @@
 ---
-title: "Chainguard Package Repositories"
+title: "Chainguard package repositories"
 linkTitle: "Packages"
 lead: ""
-description: "Chainguard Package Repositories Documentation"
+description: "Chainguard package repositories documentation"
 type: "article"
 date: 2025-09-12T08:48:45+00:00
 lastmod: 2025-09-12T08:48:45+00:00

@@ -1,6 +1,6 @@
 ---
-title: "How to Port a Sample Application to Chainguard Containers"
-linktitle: "Porting a Sample Application"
+title: "How to port a sample application to Chainguard Containers"
+linktitle: "Porting a sample application"
 aliases:
 - /chainguard/migration-guides/porting-apps-to-chainguard/
 - /chainguard/migration/porting-apps-to-chainguard/
@@ -18,19 +18,19 @@ weight: 010
 toc: true
 ---
 
-## Porting Key Points
+## Porting key points
 
 * Chainguard's distroless Containers have no shell or package manager by default. This is great for security, but sometimes you need these things, especially in builder images. For those cases we have `-dev` variants (such as `cgr.dev/chainguard/python:latest-dev`) which do include a shell and package manager.
 * Chainguard Containers typically don't run as root, so a `USER root` statement may be required before installing software. This should be a temporary escalation only; after completing any root-level operations, you should create and switch to a dedicated non-root user (for example, using `addgroup` and `adduser`) or use the image's built-in non-root user. Leaving the container running as root defeats the security purpose of using minimal images.
 * The `-dev` variants and `wolfi-base` / `chainguard-base` use BusyBox by default, so any `groupadd` or `useradd` commands will need to be ported to `addgroup` and `adduser`.
-* The [Free tier](/chainguard/chainguard-images/about/images-categories/#starter-containers) of Containers provides `:latest` and `:latest-dev` versions. Our paid Production Containers offer tags for major and minor versions.
+* The [Free tier](/chainguard/chainguard-images/about/images-categories/#free-containers) of Containers provides `:latest` and `:latest-dev` versions. Our paid Production Containers offer tags for major and minor versions.
 * We use apk tooling, so `apt install` commands will become `apk add`.
 * Chainguard Containers are based on `glibc` and our packages cannot be mixed with Alpine packages.
 * In some cases, the entrypoint in Chainguard Containers can be different from equivalent container images based on other distros, which can lead to unexpected behavior. You should always check the image's specific documentation to understand how the entrypoint works.
 * When needed, Chainguard recommends using a Base Container like `chainguard-base` or a `-dev` variant to install an application's OS-level dependencies.
 * Although `-dev` variants are still more secure than most popular container images based on other distros, for increased security on production environments we recommend combining them with a distroless variant in a multi-stage build.
 
-## The Sample Application
+## The sample application
 
 The application in question is [identidock](https://github.com/using-docker/identidock). This application was written for the book [Using Docker](https://learning.oreilly.com/library/view/using-docker/9781491915752/) about ten years ago, which shows that we can still migrate software of this age to a new container while realizing the benefits of a no-to-low CVE count. The application itself will create [identicons](https://en.wikipedia.org/wiki/Identicon) for a user name, similar to what [GitHub generates for users with no avatar](https://github.blog/2013-08-14-identicons/). It was designed at the time to demonstrate a "microservices" approach, and as such it's made up of 3 services:
 
@@ -41,7 +41,7 @@ The application in question is [identidock](https://github.com/using-docker/iden
 
 The services are put together as shown in the below diagram. The user only talks to the identidock service. The identidock service will first check the cache to see if it has already created an identicon for the input and, if not, requests a new identicon from the dnmonster service. The identicon is then returned to the user and saved to the cache if required.
 
-![Diagram of Identidock Architecture](arch.png)
+![Diagram of Identidock architecture](arch.png)
 
 The book walked through using various orchestrators to deploy the application, some of which have since fallen out of usage (anyone remember [fleet](https://github.com/coreos/fleet)?). For the sake of this tutorial, we'll use Docker Compose, which is arguably the simplest surviving orchestrator covered in the book.
 
@@ -55,7 +55,7 @@ cd identidock-cg
 git switch v1
 ```
 
-## Updating the Node.js Microservice
+## Updating the Node.js microservice
 
 To begin, we'll update the heart of the application â€“ the dnmonster service. dnmonster is based on [monsterid.js](https://github.com/KevinGaudin/monsterid.js/) by Kevin Gaudin. The dnmonster container hosts an API which returns an [identicon](https://en.wikipedia.org/wiki/Identicon) based on the input it's given.
 
@@ -363,7 +363,7 @@ curl --output ./monster.png 'localhost:8080/monster/wolfi?size=100'
 
 > **Note:** If you receive a "port is already allocated" error, be sure to clean up the previous container. Check what containers are running with `docker container ls` and remove it with `docker rm -f <container-name>`. There are still more tweaks that could be made. Bret Fisher has some [excellent resources on building Node.js containers in this GitHub repo](https://github.com/BretFisher/nodejs-rocks-in-docker). But for the purposes of this example app, we've made excellent progress.
 
-## Updating the Python Microservice
+## Updating the Python microservice
 
 The next service we will look at updating is Identidock, the main entrypoint for the application. Identidock is responsible for looking up requests in the cache and falling-back to calling the dnmonster service if they're not present.
 
@@ -558,9 +558,9 @@ python-3.13  3.13.1-r5            apk   CVE-2025-0938  Unknown
 
 The result of all these changes is that the production image is only 122 MB (down from 1.51GB, so an enormous saving of over a GB) and has 1 CVE (down from hundreds). This is a huge improvement!
 
-Further information on using Chainguard Containers with Python can be found in our [Getting Started guide](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/python/).
+Further information on using Chainguard Containers with Python can be found in our [Getting started guide](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/python/).
 
-## Replacing the Redis Container and Updating the Docker Compose File
+## Replacing the Redis container and updating the Docker Compose file
 
 Updating Redis is straightforward. We're not making any changes to the application image, so all we need to do is directly update the reference to `redis:7` in the Docker Compose file to `cgr.dev/chainguard/redis`. The new container image requires no extra configuration, but we go from a 195 MB image with 129 vulnerabilities to a 33 MB image with 0 CVEs (again according to Grype).
 
@@ -594,7 +594,7 @@ This Compose file doesn't contain support for a development workflow currently â
 
 Porting our application to Chainguard Containers was relatively straightforward. There were some gotchas around differences to other images, such as different entrypoint settings and names for packages. The largest part of the puzzle was moving from single image builds to multistage builds that take advantage of the minimal Chainguard runtime images for Python and NodeJS. Once all this was done, we ended up with a much smaller set of images and with a drastically reduced number of CVEs.
 
-### Cleaning Up
+### Cleaning up
 
 To clean up the resources used in this guide, first stop any containers started by Compose:
 

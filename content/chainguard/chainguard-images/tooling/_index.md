@@ -1,5 +1,5 @@
 ---
-title: "Container Tooling"
+title: "Container tooling"
 linktitle: "Tooling"
 description: "Complementary resources on how to use Chainguard Containers with alternative container building tools such as Ko and Jib"
 type: "article"

@@ -1,5 +1,5 @@
 [[docs]]
-  name = "Get Started"
+  name = "Get started"
   identifier = "get-started"
   url = "/get-started/"
   weight = 5
@@ -11,13 +11,13 @@
   weight = 10
 
 [[docs]]
-  name = "Platform & Tools"
+  name = "Platform and tools"
   identifier = "platform"
   url = "/platform/"
   weight = 15
 
 [[docs]]
-  name = "Open Source"
+  name = "Open source"
   identifier = "open-source"
   url = "/open-source/"
   weight = 20
@@ -29,13 +29,13 @@
   weight = 30
 
 [[docs]]
-  name = "Software Security"
+  name = "Software security"
   identifier = "security"
   url = "/software-security/"
   weight = 40
 
 [[main]]
-  name = "Get Started"
+  name = "Get started"
   identifier = "menu-getstarted"
   weight = 5
 
@@ -45,12 +45,12 @@
   weight = 10
 
 [[main]]
-  name = "Platform & Tools"
+  name = "Platform and tools"
   identifier = "menu-platform"
   weight = 15
 
 [[main]]
-  name = "Open Source"
+  name = "Open source"
   identifier = "menu-oss"
   weight = 20
 
@@ -60,7 +60,7 @@
   weight = 30
 
 [[main]]
-  name = "API Reference"
+  name = "API reference"
   url = "/platform/api/"
   parent = "menu-platform"
   weight = 10
@@ -79,7 +79,7 @@
   weight = 20
 
 [[main]]
-  name = "Network Requirements"
+  name = "Network requirements"
   url = "/chainguard/network-requirements/"
   parent = "menu-chainguard"
   weight = 25
@@ -139,7 +139,7 @@
   weight = 30
 
 [[main]]
-  name = "Software Security"
+  name = "Software security"
   identifier = "menu-security"
   weight = 20
 
@@ -156,13 +156,13 @@
   weight = 40
 
 [[main]]
-  name = "What is Software Supply Chain Security"
+  name = "What is software supply chain security"
   url = "/software-security/what-is-software-supply-chain-security/"
   parent = "menu-security"
   weight = 20
 
 [[main]]
-  name = "How to Select a Secure Base Image"
+  name = "How to select a secure base image"
   url = "/software-security/selecting-a-base-image/"
   parent = "menu-security"
   weight = 25

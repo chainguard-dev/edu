@@ -1,6 +1,6 @@
 ---
-title: "Grant Chainguard Roles from Identity Provider Groups"
-linktitle: "Map IdP Groups to Roles"
+title: "Grant Chainguard roles from identity provider groups"
+linktitle: "Map IdP groups to roles"
 lead: ""
 description: "How to map groups from a custom identity provider to Chainguard roles so access follows group membership."
 type: "article"
@@ -20,7 +20,7 @@ This guide covers Okta and Microsoft Entra ID. The Chainguard-side steps (2 thro
 
 To complete this guide, you need the following:
 
-- A custom identity provider (such as [Okta](/platform/administration/custom-idps/idp-providers/okta/) or [Microsoft Entra ID](/platform/administration/custom-idps/idp-providers/ms-entra-id/)) already configured for login to Chainguard. If you haven't set one up yet, refer to our guide [Using Custom Identity Providers to Authenticate to Chainguard](/platform/administration/custom-idps/custom-idps/).
+- A custom identity provider (such as [Okta](/platform/administration/custom-idps/idp-providers/okta/) or [Microsoft Entra ID](/platform/administration/custom-idps/idp-providers/ms-entra-id/)) already configured for login to Chainguard. If you haven't set one up yet, refer to our guide [Using custom identity providers to authenticate to Chainguard](/platform/administration/custom-idps/custom-idps/).
 - An IAM role that can manage identity providers and role-bindings in your organization, such as the `owner` role.
 - [`chainctl` installed](/chainguard/chainctl-usage/how-to-install-chainctl/) on your local machine. You must also authenticate with `chainctl auth login`.
 
@@ -151,9 +151,9 @@ Identity providers cap how many groups a token can carry. Past that limit, the I
 
 ## Related resources
 
-- [Using Custom Identity Providers to Authenticate to Chainguard](/platform/administration/custom-idps/custom-idps/)
-- [How To Integrate Okta SSO with Chainguard](/platform/administration/custom-idps/idp-providers/okta/)
-- [How To Integrate Microsoft Entra ID SSO with Chainguard](/platform/administration/custom-idps/idp-providers/ms-entra-id/)
-- [Overview of the Chainguard IAM Model](/platform/administration/iam-organizations/overview-of-chainguard-iam-model/)
-- [Manage Identity and Access with chainctl](/chainguard/chainctl-usage/chainctl-iam/)
+- [Using custom identity providers to authenticate to Chainguard](/platform/administration/custom-idps/custom-idps/)
+- [How to integrate Okta SSO with Chainguard](/platform/administration/custom-idps/idp-providers/okta/)
+- [How to integrate Microsoft Entra ID SSO with Chainguard](/platform/administration/custom-idps/idp-providers/ms-entra-id/)
+- [Overview of the Chainguard IAM model](/platform/administration/iam-organizations/overview-of-chainguard-iam-model/)
+- [Manage identity and access with chainctl](/chainguard/chainctl-usage/chainctl-iam/)
 - [Subscribe to Chainguard Events](/platform/administration/cloudevents/events-example/)

@@ -22,9 +22,9 @@ FIPS is a **U.S. federal standard** that establishes requirements for cryptograp
 
 FIPS compliance ensures that cryptographic security services within applications meet strict security and integrity standards, and are implemented and configured correctly. According to NIST guidance, "Non-validated cryptography is viewed as providing no protection… the data would be considered unprotected plaintext."
 
-## Who Needs FIPS Validation?
+## Who needs FIPS validation?
 
-### U.S. Federal and Government Requirements
+### U.S. federal and government requirements
 
 **U.S. Federal agencies** are required to use FIPS-validated cryptography for protecting sensitive information under FISMA.
 
@@ -34,7 +34,7 @@ FIPS compliance ensures that cryptographic security services within applications
 
 **U.S. Government contractors** working with federal data often must demonstrate FIPS compliance as part of their contractual obligations.
 
-### Global Organizations Working with U.S. Entities
+### Global organizations working with U.S. entities
 
 Organizations outside the United States may need FIPS validation when:
 
@@ -43,7 +43,7 @@ Organizations outside the United States may need FIPS validation when:
 - Operating systems that handle U.S. federal data
 - Seeking to demonstrate cryptographic security using a recognized standard
 
-### Regulated Industries
+### Regulated industries
 
 Beyond government mandates, FIPS validation is recommended or required for:
 
@@ -52,7 +52,7 @@ Beyond government mandates, FIPS validation is recommended or required for:
 - **Critical infrastructure**: Energy, telecommunications, and transportation sectors
 - **Defense contractors**: Companies in the defense industrial base
 
-### Why Alternative Approaches Fall Short
+### Why alternative approaches fall short
 
 Some organizations attempt to achieve compliance through alternative means, but these approaches have limitations:
 
@@ -62,9 +62,9 @@ Some organizations attempt to achieve compliance through alternative means, but 
 
 **FIPS-enabled host OS alone** doesn't force userspace applications to use FIPS modules. Applications must be explicitly configured, and this approach restricts you to older kernel versions.
 
-## FIPS Standards Overview
+## FIPS standards overview
 
-### FIPS 140: Cryptographic Module Validation
+### FIPS 140: Cryptographic module validation
 
 FIPS 140 defines security requirements for cryptographic modules.
 
@@ -79,19 +79,19 @@ The transition from 140-2 to 140-3 represents a significant upgrade in:
 - Conformance criteria clarity
 - Alignment with international standards (ISO/IEC 19790)
 
-### FIPS 186: Digital Signature Standard
+### FIPS 186: Digital signature standard
 
 **FIPS 186-5**, published by NIST in 2023, approved the EdDSA (Edwards-curve Digital Signature Algorithm) for digital signatures using Ed25519 and Ed448 schemes.
 
 Ed25519 offers improved speed and smaller key sizes compared to RSA, making it attractive for modern cryptographic implementations. This standard enables more efficient digital signatures while maintaining security guarantees.
 
-### SP 800-90B: Entropy Source Validation
+### SP 800-90B: Entropy source validation
 
 SP 800-90B defines requirements for entropy sources used by random bit generators. Cryptographic operations require high-quality randomness that cannot be reasonably predicted.
 
 Entropy Source Validation (ESV) certifies that a random number generator produces sufficient entropy to meet cryptographic requirements. This validation is separate from but complementary to CMVP (Cryptographic Module Validation Program) certification.
 
-## The CMVP Validation Process
+## The CMVP validation process
 
 ### What is CMVP?
 
@@ -99,7 +99,7 @@ The Cryptographic Module Validation Program (CMVP) is a joint effort between NIS
 
 A validated module receives a certificate number that organizations can reference for compliance purposes. Chainguard's OpenSSL FIPS provider, for example, holds CMVP Certificate [#4282](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4282).
 
-### Validation Timeline
+### Validation timeline
 
 The CMVP process is lengthy and complex:
 
@@ -118,11 +118,11 @@ This extended timeline creates challenges for software vendors, as:
 - New features cannot be added without restarting validation
 - Projects with rapid release cycles struggle to maintain current certifications
 
-### Module in Process (MIP)
+### Module in process (MIP)
 
 Modules awaiting validation appear on NIST's [Module in Process list](https://csrc.nist.gov/Projects/cryptographic-module-validation-program/modules-in-process/modules-in-process-list). This indicates formal submission but not yet completed validation.
 
-## Cryptographic Boundaries
+## Cryptographic boundaries
 
 A cryptographic boundary defines what is inside the validated module versus what is outside. Understanding boundaries is essential for compliance.
 
@@ -138,7 +138,7 @@ For example, Chainguard's kernel-independent FIPS design places:
 
 The entropy source validation satisfies the cryptographic module's entropy requirements without being part of the CMVP certificate itself.
 
-## Approved vs. Non-Approved Algorithms
+## Approved vs. non-approved algorithms
 
 FIPS distinguishes between approved and non-approved cryptographic algorithms.
 
@@ -148,7 +148,7 @@ FIPS distinguishes between approved and non-approved cryptographic algorithms.
 
 **Approved-only mode** means the cryptographic module only permits approved algorithms. Chainguard FIPS images operate in approved-only mode and cannot be switched to allow non-approved algorithms. This design prevents accidental non-compliance.
 
-## Security Policies
+## Security policies
 
 Each validated cryptographic module includes a security policy document describing:
 
@@ -160,7 +160,7 @@ Each validated cryptographic module includes a security policy document describi
 
 Security policies are publicly available on the NIST website for each validated module. Review these policies to understand module capabilities and limitations.
 
-## Maintaining Compliance
+## Maintaining compliance
 
 FIPS compliance is not set-and-forget:
 
@@ -172,11 +172,11 @@ FIPS compliance is not set-and-forget:
 
 **Audit preparation**: Document which modules are in use, their certificate numbers, and configuration evidence for auditors.
 
-## Next Steps
+## Next steps
 
 Now that you understand FIPS fundamentals, explore:
 
-- [Kernel-Independent FIPS Architecture](/chainguard/fips/kernel-independent-architecture/) - Learn how Chainguard's approach simplifies FIPS deployment
-- [Chainguard FIPS Containers](/chainguard/fips/fips-images/) - Overview of available FIPS images
+- [Kernel-independent FIPS architecture](/chainguard/fips/kernel-independent-architecture/) - Learn how Chainguard's approach simplifies FIPS deployment
+- [Chainguard FIPS containers](/chainguard/fips/fips-images/) - Overview of available FIPS images
 - [FIPS Commitment](https://www.chainguard.dev/legal/fips-commitment) - Chainguard's warranties and certifications
 - [NIST CMVP](https://csrc.nist.gov/projects/cryptographic-module-validation-program) - Official validation program information

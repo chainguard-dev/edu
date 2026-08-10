@@ -1,8 +1,8 @@
 ---
 aliases:
 - /chainguard/api/api-v2-tutorial/
-title: "Chainguard API v2 Tutorial"
-linktitle: "API v2 Tutorial"
+title: "Chainguard API v2 tutorial"
+linktitle: "API v2 tutorial"
 type: "article"
 description: "Tutorial with examples showing how you can use the Chainguard API v2."
 date: 2026-03-30T08:49:31+00:00

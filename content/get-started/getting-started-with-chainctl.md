@@ -1,7 +1,7 @@
 ---
 aliases:
 - /chainguard/chainctl-usage/getting-started-with-chainctl/
-title: "Get Started with chainctl"
+title: "Get started with chainctl"
 lead: "Chainguard's chainctl CLI enables more secure management of container images and IAM resources through command-line operations for DevOps and security workflows."
 description: "Get started with chainctl basics including authentication, organization management, and essential commands for Chainguard's container security platform"
 type: "article"
@@ -13,9 +13,9 @@ images: []
 weight: 030
 ---
 
-Chainguard's `chainctl` provides command-line access to manage container images, identity resources, and security configurations across your organization. This guide covers essential commands to begin using `chainctl` effectively in your security and DevOps workflows. For comprehensive command documentation, refer to the [chainctl Reference](/chainguard/chainctl/).
+Chainguard's `chainctl` provides command-line access to manage container images, identity resources, and security configurations across your organization. This guide covers essential commands to begin using `chainctl` effectively in your security and DevOps workflows. For comprehensive command documentation, refer to the [chainctl reference](/chainguard/chainctl/).
 
-## Authenticate and Check Auth Status
+## Authenticate and check auth status
 
 To use `chainctl`, the first thing you must do is [authenticate with the Chainguard platform](/chainguard/chainguard-registry/authenticating/). Do so with:
 
@@ -49,7 +49,7 @@ chainctl auth configure-docker
 
 > **Note**: {{< blurb/noproxy >}}
 
-## Update chainctl to the Latest Release
+## Update chainctl to the latest release
 
 To see which `chainctl` version you have installed, use:
 
@@ -79,9 +79,9 @@ If you make a mistake and can't recall the original settings, reset the configur
 chainctl config reset
 ```
 
-Learn more at [How to Manage chainctl Configuration](/chainguard/chainctl-usage/manage-chainctl-config/).
+Learn more at [How to manage chainctl configuration](/chainguard/chainctl-usage/manage-chainctl-config/).
 
-## List Available Images
+## List available images
 
 To see which Chainguard Containers are available to your account, use:
 
@@ -91,7 +91,7 @@ chainctl images list
 
 Be warned, that list may take a while to generate and is likely to scroll past quickly in your command line terminal.
 
-## Compare Two Image Versions
+## Compare two image versions
 
 Let's say you want to compare two versions of an image for the same package. You need to know the URL for your repo, the image name, and the two versions you want to compare. For versions, you can use release numbers like `8.12.0` or you can use `latest` or `latest-dev`.
 
@@ -103,9 +103,9 @@ chainctl images diff cgr.dev/chainguard.edu/$IMAGENAME:latest cgr.dev/chainguard
 
 If a requested image or release being requested is not available in the repo you are using, this will return a `Forbidden` error, just like if you tried to pull an image you did not have access to or from a repository your account is not authorized to use.
 
-Learn more at [How To Compare Chainguard Containers with chainctl](/chainguard/chainguard-images/how-to-use/comparing-images/).
+Learn more at [How to compare Chainguard Containers with chainctl](/chainguard/chainguard-images/how-to-use/comparing-images/).
 
-## List Available Package Versions
+## List available package versions
 
 If you want to get details about the various package versions available that can be used in images, use:
 
@@ -115,7 +115,7 @@ chainctl packages versions list $PACKAGENAME
 
 This will list all the versions that Chainguard has built and the end-of-life date for each version that has one assigned. It will also list older package versions that are no longer available.
 
-## Output Formats
+## Output formats
 
 Commands may have a default format for output, but that doesn't mean you have to stick with it. There is an option available to tell `chainctl` the output format to use, like this:
 

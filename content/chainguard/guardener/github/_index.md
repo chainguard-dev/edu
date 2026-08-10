@@ -22,7 +22,7 @@ The Chainguard Guardener GitHub App is a single, hardened bot that runs against 
 ## Getting set up
 
 - **[Getting started](/chainguard/guardener/github/getting-started/)** — Install the GitHub App and link your Chainguard organization to your GitHub organization.
-- **[App Connections](/chainguard/guardener/github/app-connections/)** — Set up, inspect, and remove the connections between your Chainguard organization and your GitHub organizations.
+- **[App connections](/chainguard/guardener/github/app-connections/)** — Set up, inspect, and remove the connections between your Chainguard organization and your GitHub organizations.
 - **[Configuration](/chainguard/guardener/github/configuration/)** — Understand the `.chainguard/` configuration model that all the GitHub App capabilities share.
 
 ## Capabilities

@@ -1,5 +1,5 @@
 ---
-title: "Chainguard VMs Compliance Features"
+title: "Chainguard VMs compliance features"
 linktitle: "Compliance"
 description: "Learn about supported compliance features for Chainguard VMs"
 type: "article"
@@ -27,7 +27,7 @@ Chainguard VMs provide pre-hardened, audit-ready Linux virtual machine images de
 
 Chainguard FIPS 140-3 validated and hardened VM images serve as ready-to-use replacements for standard operating systems across AWS, Azure, and GCP, allowing organizations to maintain existing infrastructure and workflows while achieving immediate compliance. This guide outlines the compliance features of Chainguard VMs and how they can help reduce engineering toil for your organization.
 
-## FIPS 140-3 Validated Cryptography
+## FIPS 140-3 validated cryptography
 
 Chainguard VMs include FIPS 140-3 validated software cryptographic modules, backed by a NIST Cryptographic Module Validation Program (CMVP) certificate.
 
@@ -41,7 +41,7 @@ Chainguard VMs include FIPS 140-3 validated software cryptographic modules, back
 
 This setup allows teams to consume an OS image that is already FIPS-conformant at the platform layer rather than building and validating crypto modules in-house.
 
-## STIG Hardening
+## STIG hardening
 
 Chainguard VMs provide variants hardened to DISA Security Technical Implementation Guide (STIG) requirements which are used across U.S. federal and defense environments.
 
@@ -50,7 +50,7 @@ Chainguard VMs provide variants hardened to DISA Security Technical Implementati
 
 Chainguard can also provide SCAP scan outputs aligned with STIG requirements, helping teams demonstrate compliance with control requirements during audits.
 
-## CIS Benchmark Compliance
+## CIS Benchmark compliance
 
 For organizations standardizing on CIS controls, Chainguard offers images hardened to **CIS Level 1** benchmarks. Chainguard VMs use a hybrid baseline combining CIS Level 1 benchmarks with STIG requirements and industry-recognized secure defaults to provide defense-in-depth hardening.
 
@@ -67,7 +67,7 @@ All Chainguard VM images support **Secure Boot enabled by default** across:
 
 Secure Boot ensures only cryptographically signed and trusted components participate in the boot chain, preventing tampering with early-boot components such as the bootloader and kernel.
 
-## Compliance Evidence and Reporting
+## Compliance evidence and reporting
 
 Chainguard VMs are designed to simplify the generation of compliance artifacts often required in audits, ATO processes, and customer security reviews.
 
@@ -79,7 +79,7 @@ Available artifacts include:
 
 By shipping this evidence with the images, Chainguard significantly shortens the time required to build audit packages and meet regulatory reporting needs.
 
-## Vulnerability Management and Lifecycle
+## Vulnerability management and lifecycle
 
 Chainguard VMs are built and maintained with an explicit [**CVE remediation SLA**](https://www.chainguard.dev/legal/cve-policy):
 

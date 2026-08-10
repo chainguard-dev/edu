@@ -1,5 +1,5 @@
 ---
-title: "Red Hat UBI Compatibility"
+title: "Red Hat UBI compatibility"
 linktitle: "Red Hat"
 aliases:
 - /chainguard/migration/red-hat-compatibility/

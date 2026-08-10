@@ -1,6 +1,6 @@
 ---
-title: "How to Sign a Container with Cosign"
-linktitle: "Sign a Container"
+title: "How to sign a container with Cosign"
+linktitle: "Sign a container"
 type: "article"
 lead: "Container signing using Cosign"
 description: "Signing containers with Cosign"
@@ -26,9 +26,9 @@ Let’s step through signing a container with Cosign. We are using a container t
 
 Before beginning this section, ensure that you have Docker installed and that you are running Docker Desktop if that is relevant for your operating system. For guidance on installing and using Docker, refer to the [official Docker documentation](https://docs.docker.com/get-docker/). In order to push to the Docker container registry, you will need a [Docker Hub account](https://hub.docker.com/signup). If you are familiar with using a different container registry, feel free to use that.
 
-Additionally, you will need Cosign installed, which you can achieve by following our [How to Install Cosign guide](/open-source/sigstore/cosign/how-to-install-cosign/).
+Additionally, you will need Cosign installed, which you can achieve by following our [How to install Cosign guide](/open-source/sigstore/cosign/how-to-install-cosign/).
 
-## Creating a Container
+## Creating a container
 
 You’ll now be creating a new container. Create a new directory within your user directory that is the same as your Docker username and, within that, a directory called `hello-container`. If you will be opting to use a registry other than Docker, feel free to use the relevant username for that registry:
 
@@ -61,7 +61,7 @@ This file is instructing the container to use the Alpine Linux distribution, whi
 
 Once you are satisfied that your Dockerfile is the same as the text above, you can save and close the file. Now you are ready to build the container.
 
-## Building and Running a Container
+## Building and running a container
 
 Within the same `hello-container` directory, you can build the container. You should use the format `docker-username/image-name` to tag your image, since you'll be publishing it to a registry:
 
@@ -104,7 +104,7 @@ Your output will be similar to the above, but the timestamps and name will be di
 
 Now that you have built your container and are satisfied that it is working as expected, you can publish and sign your container.
 
-## Publishing a Container to a Registry
+## Publishing a container to a registry
 
 We will be publishing our container to the Docker registry. If you are opting to use a different registry, your steps will be similar.
 
@@ -118,7 +118,7 @@ docker push docker-username/hello-container
 
 You should be able to now access your published container via your Docker Hub account. Once you ensure that this is there, you are ready to push a signature to the container.
 
-## Signing a Container and Pushing the Signature to a Registry
+## Signing a container and pushing the signature to a registry
 
 Now that the container is in a registry (in our example, it is in Docker Hub), you are ready to sign the container and push that signature to the registry.
 
@@ -144,7 +144,7 @@ Your browser will now be opened to:
 
 In the case of Docker Hub, on the web interface there should be a SHA (secure hash algorithm) added to the tag, enabling you to confirm that your pushed signature was registered. We’ll now manually verify the signature with Cosign.
 
-## Verify a Container’s Signature
+## Verify a container’s signature
 
 We’ll be demonstrating this on the container we just pushed to a registry, but you can also verify a signature on any other signed container using the same steps. While you will more likely be verifying signatures in workloads versus manually, it is still helpful to understand how everything works and is formatted.
 

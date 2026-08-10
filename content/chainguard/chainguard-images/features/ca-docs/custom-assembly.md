@@ -28,7 +28,7 @@ demand.
 
 This overview of Custom Assembly outlines how it works, its limitations, and how you can use container images customized with Custom Assembly. For a more hands-on tutorial on using Custom Assembly, Chainguard Academy currently has documentation for the following methods of managing the tool:
 
-* [Using the Chainguard console](/chainguard/chainguard-images/features/ca-docs/custom-assembly-console/)
+* [Using the Chainguard Console](/chainguard/chainguard-images/features/ca-docs/custom-assembly-console/)
 * [Using `chainctl`, Chainguard's command-line interface tool](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/)
 * [Using Chainguard's API](/chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/)
 
@@ -82,7 +82,7 @@ To create such a custom role, you can use the `chainctl iam roles create` comman
 chainctl iam roles create ca-role --parent=$ORGANIZATION --capabilities=repo.create,repo.update,build_report.list,account_associations.list,apk.list,group_invites.list,groups.list,identity.list,identity_providers.list,libraries.artifacts.list,libraries.entitlements.list,manifest.list,manifest.metadata.list,record_signatures.list,registry.entitlements.list,repo.list,roles.list,sboms.list,subscriptions.list,tag.list,version.list,vuln_report.list,vuln_reports.list
 ```
 
-After creating this custom role, you would need to bind it to any identities in your organization that you want to be able to manage Custom Assembly resources. Check out our [Overview of Roles and Role-bindings in Chainguard](/chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/) to learn more.
+After creating this custom role, you would need to bind it to any identities in your organization that you want to be able to manage Custom Assembly resources. Check out our [Overview of roles and role-bindings in Chainguard](/chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/) to learn more.
 
 ## Using customized containers
 
@@ -108,7 +108,7 @@ Pulling container images by digest can [improve reproducibility](/chainguard/cha
 
 ### Installing packages from a Chainguard private APK repository
 
-Chainguard offers [Private APK Repositories](/chainguard/chainguard-images/features/private-apk-repos/) which you can use to access the apk packages available to your organization. You can use your organization's private APK repository to further customize your Custom Assembly containers.
+Chainguard offers [Private APK repositories](/chainguard/chainguard-images/features/private-apk-repos/) which you can use to access the apk packages available to your organization. You can use your organization's private APK repository to further customize your Custom Assembly containers.
 
 > Note: [Chainguard OS Packages](https://edu.chainguard.dev/chainguard/chainguard-images/features/packages/private-apk-repos/#chainguard-os-packages)&mdash;available to larger customers who already build their own images from packages using tools like Bazel, Dockerfiles, and `rules_apko`&mdash;is not currently available for use with Chainguard Custom Assembly.
 
@@ -175,7 +175,7 @@ Executing busybox-1.37.0-r0.trigger
 OK: 719 MiB in 78 packages
 ```
 
-To learn more, refer to our [Private APK Repositories documentation](/chainguard/chainguard-images/features/private-apk-repos/).
+To learn more, refer to our [Private APK repositories documentation](/chainguard/chainguard-images/features/private-apk-repos/).
 
 ## Custom runtime repositories
 
@@ -219,11 +219,11 @@ In any case, you won't know whether a container image build fails until after it
 
 This article provided a high-level overview of Custom Assembly. As a next step, we encourage you to checkout our guide on [managing Custom Assembly resources through the Chainguard Console](/chainguard/chainguard-images/features/ca-docs/custom-assembly-console/). You can also interact with Custom Assembly using [`chainctl`](/chainguard/chainguard-images/features/ca-docs/custom-assembly-chainctl/) as well as [the Chainguard API](/chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/).
 
-You can also add custom certificates to Custom Assembly images. Refer to our guide on [Adding Custom Certificates with Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly-certs/) for more information.
+You can also add custom certificates to Custom Assembly images. Refer to our guide on [Adding custom certificates with Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly-certs/) for more information.
 
 We encourage you to check out our resources on our other [Chainguard Containers features](/chainguard/chainguard-images/features/), including the following:
 
-* [Unique Tags](/chainguard/chainguard-images/features/unique-tags/)
-* [CVE Visualizations](/chainguard/chainguard-images/features/cve_visualizations/)
+* [Unique tags](/chainguard/chainguard-images/features/unique-tags/)
+* [CVE visualizations](/chainguard/chainguard-images/features/cve_visualizations/)
 
-Additionally, for more information on working with Chainguard Containers, refer to our docs on [How to Use Chainguard Containers](/chainguard/chainguard-images/how-to-use/).
+Additionally, for more information on working with Chainguard Containers, refer to our docs on [How to use Chainguard Containers](/chainguard/chainguard-images/how-to-use/).

@@ -1,10 +1,10 @@
 ---
-title: "How to Set Up Pull Through from Chainguard's Registry to Cloudsmith"
+title: "How to set up pull through from Chainguard's registry to Cloudsmith"
 linktitle: "Cloudsmith"
 aliases:
 - /chainguard/chainguard-registry/pull-through-guides/cloudsmith-pull-through/
 type: "article"
-description: "Tutorial outlining how to set up a Cloudsmith repository to pull Containers through from Chainguard's Registry."
+description: "Tutorial outlining how to set up a Cloudsmith repository to pull containers through from Chainguard's registry."
 date: 2024-07-16T15:56:52-07:00
 lastmod: 2024-08-19T15:56:52-07:00
 draft: false
@@ -30,9 +30,9 @@ In order to complete this tutorial, you will need the following:
 * If you plan to set up a Cloudsmith repository to serve as a pull through cache for Production container images, then you will also need to have privileges to create a pull token from Chainguard.
     * Additionally, you'll need `chainctl` installed to create the pull token. If you haven't already installed this, follow the [installation guide](/chainguard/chainctl-usage/how-to-install-chainctl/).
 
-## Setting up Cloudsmith as a Pull Through for Free Containers
+## Setting up Cloudsmith as a pull through for free containers
 
-Chainguard's [Free container images](/chainguard/chainguard-images/about/images-categories/#starter-containers) are free to use, publicly available, and always represent versions tagged as `:latest`.
+Chainguard's [Free container images](/chainguard/chainguard-images/about/images-categories/#free-containers) are free to use, publicly available, and always represent versions tagged as `:latest`.
 
 To set up a remote repository in Cloudsmith through which you can pull Free container images, log in to the [Cloudsmith App](https://cloudsmith.io/user/login/). Once there, navigate to the **Repositories** tab and click **+ Create Repository**.
 
@@ -57,7 +57,7 @@ Lastly, be sure that the **Mode** is set to **Cache and Proxy** and the **Verify
 
 If you entered all the details correctly, then the upstream proxy will be created successfully and you can test pulling a Free container image through Cloudsmith.
 
-### Testing pull through of a Free container image
+### Testing pull through of a free container image
 
 Before testing whether you can pull a Free container through Cloudsmith, you'll need to log in to the Cloudsmith registry with `docker`:
 
@@ -81,7 +81,7 @@ If everything worked correctly, the image will appear in your repository:
 
 If you run into issues pulling images like this, ensure that your `docker pull` command specifies the correct Cloudsmith organization and repository.
 
-## Setting up Cloudsmith as a Pull Through for Production Container Images
+## Setting up Cloudsmith as a pull through for production container images
 
 Production Chainguard Containers are enterprise-ready images that come with patch SLAs and features such as [Federal Information Processing Standard](/chainguard/chainguard-images/working-with-images/fips-images/) (FIPS) readiness. The process for setting up a Cloudsmith repository that you can use as a pull through cache for Production containers is similar to the one outlined previously for Free containers, but with a few extra steps.
 
@@ -117,7 +117,7 @@ Lastly, you need to add the username and password you received when you generate
 
 Finally, click **Create upstream proxy**. With that, you're ready to test a Chainguard Production Container through Cloudsmith.
 
-### Testing pull through of a Chainguard Production Container:
+### Testing pull through of a Chainguard production container:
 
 As with testing pull through of a Free container image, you'll first need to authenticate to Cloudsmith:
 
@@ -145,7 +145,7 @@ Once this command is completed you will find the Production container you pulled
 
 If you run into issues pulling images like this, be sure that your `docker pull` command specifies the correct Cloudsmith organization and repository as well as the correct Chainguard registry.
 
-## Debugging Pull Through from Chainguard's registry to Cloudsmith
+## Debugging pull through from Chainguard's registry to Cloudsmith
 
 If you run into issues when trying to pull Containers from Chainguard's registry to Cloudsmith, please make sure the following requirements are met:
 
@@ -154,6 +154,6 @@ If you run into issues when trying to pull Containers from Chainguard's registry
 * You can troubleshoot by running `docker login` from another node (using the Cloudsmith pull token credentials) and try pulling an image from `cgr.dev/chainguard/<image name>` or `cgr.dev/<example.com>/<image name>`, using your own organization's registry name in place of `<example.com>`.
 * It could be that your Cloudsmith repository was misconfigured. In this case, create and configure a new Cloudsmith repository to test with.
 
-## Learn More
+## Learn more
 
-If you haven't already done so, you may find it useful to review our [Registry Overview](/chainguard/chainguard-registry/overview/) to learn more about Chainguard's registry. You can also learn more about Chainguard Containers by checking out our [Containers documentation](/chainguard/chainguard-images/overview/). If you'd like to learn more about Cloudsmith, we encourage you to refer to the [official documentation](https://help.cloudsmith.io/docs/welcome-to-cloudsmith-docs).
+If you haven't already done so, you may find it useful to review our [Registry overview](/chainguard/chainguard-registry/overview/) to learn more about Chainguard's registry. You can also learn more about Chainguard Containers by checking out our [Containers documentation](/chainguard/chainguard-images/overview/). If you'd like to learn more about Cloudsmith, we encourage you to refer to the [official documentation](https://help.cloudsmith.io/docs/welcome-to-cloudsmith-docs).

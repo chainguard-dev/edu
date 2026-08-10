@@ -1,6 +1,6 @@
 ---
-title: "Proxy and cache Helm Charts with Artifactory"
-linktitle: "Proxy and Cache Helm Charts"
+title: "Proxy and cache Helm charts with Artifactory"
+linktitle: "Proxy and cache Helm charts"
 aliases:
 type: "article"
 description: "Use Artifactory to proxy and cache Chainguard iamguarded Helm charts"

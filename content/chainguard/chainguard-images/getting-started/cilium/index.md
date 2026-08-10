@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with the Cilium Chainguard Containers"
+title: "Getting started with the Cilium Chainguard Containers"
 type: "article"
 linktitle: "Cilium"
 aliases:
@@ -194,6 +194,6 @@ Once you are done exploring Cilium, you can clean up your K3s cluster by running
 k3d cluster delete
 ```
 
-## Advanced Usage
+## Advanced usage
 
 {{< blurb/images-advanced image="Cilium" >}}

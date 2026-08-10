@@ -1,6 +1,6 @@
 ---
-title: "Adding Custom Certificates with Custom Assembly"
-linktitle: "Custom Certificates"
+title: "Adding custom certificates with Custom Assembly"
+linktitle: "Custom certificates"
 type: "article"
 description: "How to add custom certificates to customized images with Custom Assembly."
 date: 2026-03-12T11:07:52+02:00
@@ -17,7 +17,7 @@ toc: true
 
 Many enterprise environments use internal certificate authorities (CAs) to issue certificates for internal services. These custom certificates need to be trusted by containers that communicate with the internal services. Custom Assembly allows you to build custom certificates directly into your container images, ensuring they trust your organization's internal services without requiring manual certificate mounting at runtime.
 
-> **Note**: If you are looking for a way to embed certificates at build time, refer to our guide on [How To Use incert to Create Container Images with Built-in Custom Certificates](/chainguard/chainguard-images/features/incert-custom-certs/).
+> **Note**: If you are looking for a way to embed certificates at build time, refer to our guide on [How to use incert to create container images with built-in custom certificates](/chainguard/chainguard-images/features/incert-custom-certs/).
 
 ## Prerequisites and limitations
 
@@ -25,7 +25,7 @@ Before getting started, you'll need the following:
 
 * Access to Chainguard's Custom Assembly tool, which is available to any organization with access to Production Chainguard Containers.
 * Permissions in your Chainguard organization to use Custom Assembly.
-    * Review the [Custom Assembly Permissions Requirements](https://edu.chainguard.dev/chainguard/chainguard-images/features/ca-docs/custom-assembly/#custom-assembly-permissions-requirements) for more information
+    * Review the [Custom Assembly permissions requirements](https://edu.chainguard.dev/chainguard/chainguard-images/features/ca-docs/custom-assembly/#custom-assembly-permissions-requirements) for more information
 * [`chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) installed and configured.
 * One or more PEM-encoded certificate files that you want to add to your container.
     * Each certificate must be a PEM-encoded string of an x509v3 certificate.

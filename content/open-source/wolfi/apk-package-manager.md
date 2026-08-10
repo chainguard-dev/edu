@@ -19,7 +19,7 @@ toc: true
 [apko](/open-source/build-tools/apko/getting-started-with-apko/) uses the [apk](https://wiki.alpinelinux.org/wiki/Package_management) package manager to compose container images based on declarative pipelines.
 The apk format was introduced by [Alpine Linux](https://www.alpinelinux.org/) to address specific design requirements that could not be met by existing package managers such as `apt` and `dnf`. But what makes it different, and why does that matter in the context of apko?
 
-## Manipulating the Desired State
+## Manipulating the desired state
 
 In traditional package managers like `dnf` and `apt`, requesting the installation or removal of packages causes those packages to be directly installed or removed, after a consistency check.
 
@@ -29,13 +29,13 @@ Because of this design, you can also add conflicts to the desired system state t
 
 Another result of this design is that `apk` will never commit a change to the system that leaves it unbootable. If it cannot verify the correctness of the requested change, it will back out adding the constraint before attempting to change what packages are actually installed on the system. This allows the apk dependency solver to be rigid: there is no way to override or defeat the solver other than providing a scenario that results in a valid solution.
 
-## Verification and Unpacking in Parallel to Package Fetching
+## Verification and unpacking in parallel to package fetching
 
 Unlike other package managers, `apk` is completely driven by the package fetching I/O when installing or upgrading packages. When the package data is fetched, it is verified and unpacked on the fly. This allows package installations and upgrades to be extremely fast.
 
 To make this safe, package contents are initially unpacked to temporary files and then atomically renamed once the verification steps are complete and the package is ready to be committed to disk.
 
-## Constrained Solver
+## Constrained solver
 
 Lately, traditional package managers have promoted their advanced [SAT solvers](https://en.wikipedia.org/wiki/SAT_solver) for resolving complicated constraint issues automatically. For example, [aptitude is capable of solving Sudoku puzzles](https://web.archive.org/web/20080823224640/http://algebraicthunk.net/~dburrows/blog/entry/package-management-sudoku/). `apk`'s lack of these solvers can actually be considered a feature.
 
@@ -43,11 +43,11 @@ While it is true that `apk` does have a deductive dependency solver, it does not
 
 Trying to make a smart solver instead of appropriately constraining the problem can indicate a poor design choice. The fact that `apt`, `aptitude`, and `dnf` have all written code to constrain their SAT solvers in various ways proves this point.
 
-## Fast and Safe Package Management
+## Fast and safe package management
 
 Package managers can be made to go fast — and can be safe while doing so — but require a careful design that is well-constrained. `apk` makes its own tradeoffs: a less powerful but easy to audit solver, trickier parallel execution instead of phase-based execution. These were the right decisions for `apk`, but may not be the right decisions for other distributions.
 
-## Final Considerations
+## Final considerations
 
 The reproducible nature of apk makes it the ideal solution for declarative pipelines, since it allows you to describe your desired system state without having to implement a series of individual steps that are not guaranteed to reach completion. When the apk dependency solver is unable to reach an installable set of packages, the build fails, without causing incomplete system changes.
 This is the ideal behavior for automated pipelines since it eliminates the need for rollbacks, in addition to avoiding the risks of inconsistent environments.

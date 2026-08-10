@@ -1,5 +1,5 @@
 ---
-title: "How to Install Cosign"
+title: "How to install Cosign"
 linktitle: "Install"
 type: "article"
 lead: "Details for installing Cosign across operating systems to sign software artifacts"
@@ -34,7 +34,7 @@ brew install cosign
 
 To update Cosign in the future, you can run `brew upgrade cosign` to get the newest version.
 
-## Installing Cosign with Linux Package Managers
+## Installing Cosign with Linux package managers
 
 Cosign is supported by the Arch Linux, Alpine Linux, and Nix package managers.
 
@@ -128,7 +128,7 @@ go install github.com/sigstore/cosign/v2/cmd/cosign@v3.0.2
 
 The resulting binary from this installation will be placed at `$GOPATH/bin/cosign`. Check the [release page]([Cosign GitHub releases page](https://github.com/sigstore/cosign/releases) for additional releases.
 
-## Installing Cosign with the Cosign Binary
+## Installing Cosign with the Cosign binary
 
 Installing Cosign via its binary offers you greater control over your installation, but this method also requires you to manage your installation yourself. In order to install via binary, check for the most updated version in the open source GitHub repository for Cosign under the [releases page](https://github.com/sigstore/cosign/releases).
 

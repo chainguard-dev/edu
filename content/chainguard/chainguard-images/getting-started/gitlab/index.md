@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with the GitLab Chainguard Containers"
+title: "Getting started with the GitLab Chainguard Containers"
 type: "article"
 linktitle: "GitLab"
 description: "Learn how to deploy GitLab using Chainguard's security-hardened container images with reduced vulnerabilities, verifiable provenance, and daily security updates"
@@ -313,7 +313,7 @@ When you're done, delete the cluster to remove all resources:
 k3d cluster delete gitlab-demo
 ```
 
-## Advanced Usage
+## Advanced usage
 
 {{< blurb/images-advanced image="GitLab" >}}
 

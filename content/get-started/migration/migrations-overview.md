@@ -1,6 +1,6 @@
 ---
 title: "Overview of migrating to Chainguard Containers"
-linktitle: "Migration Overview"
+linktitle: "Migration overview"
 aliases:
 - /chainguard/migration/migrations-overview/
 - /chainguard/migration-guides/migration-overview/
@@ -42,7 +42,7 @@ Because of their minimalist design, Chainguard Containers sometimes require user
 * In some cases, the entrypoint in Chainguard Containers can be different from equivalent images based on other distros, which can lead to unexpected behavior. You should always check the image's specific documentation to understand how the entrypoint works.
 * When needed, Chainguard recommends using a base image like `chainguard-base` or a development variant to install an application's OS-level dependencies.
 
-Perhaps the best place for most users to get started with migrating to Chainguard Containers is by following our guide on [How to Port a Sample Application to Chainguard Containers](/chainguard/migration/porting-apps-to-chainguard/). This guide involves updating a sample application made up of three services to use Chainguard Containers. Although the application involved is fairly simple, the concepts outlined in the guide can also be useful for migrating more complex applications.
+Perhaps the best place for most users to get started with migrating to Chainguard Containers is by following our guide on [How to port a sample application to Chainguard Containers](/chainguard/migration/porting-apps-to-chainguard/). This guide involves updating a sample application made up of three services to use Chainguard Containers. Although the application involved is fairly simple, the concepts outlined in the guide can also be useful for migrating more complex applications.
 
 ### Development containers
 
@@ -79,7 +79,7 @@ We understand that customers may have urgent timelines and need to accelerate Ch
     * Familiarity with tools used to build images and run containers such as Docker CLI, Dockerfiles (including multi-stage builds), and orchestration platforms (Kubernetes, ECS, etc).
     * Experience using appropriate deployment security standards (such as the [Kubernetes Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/)).
     * Experience debugging containers that have no shell.
-* Review and understand concepts in the [Shared Responsibility Model](/chainguard/chainguard-images/about/shared-responsibility-model/).
+* Review and understand concepts in the [Shared responsibility model](/chainguard/chainguard-images/about/shared-responsibility-model/).
 * Your organization should already have a mature container strategy in place, including:
     * Mature and Established UAT and regression testing processes.
     * Automated CI/CD with permissions restrictions and auditing.
@@ -117,7 +117,7 @@ If you need a package to use with your Chainguard Base Container, ChainguardOS p
 
 ### Extending Chainguard Containers
 
-You can take advantage of Chainguard's [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) and [Private APK Repositories](/chainguard/chainguard-images/features/private-apk-repos/) features to extend your container images
+You can take advantage of Chainguard's [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) and [Private APK repositories](/chainguard/chainguard-images/features/private-apk-repos/) features to extend your container images
 
 Custom Assembly allows users to create customers container images with extra packages added. This reduces their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs.
 
@@ -134,7 +134,7 @@ Although not fully comprehensive, it can be helpful to keep the following list o
 * Be aware that Chainguard Containers typically do not run as root by default
 * If packages you need are missing, install them into a base image, preferably as part of a multi-stage build
 
-Each of these tips and strategies are explained in greater detail in our guide on [Container Migration Tips](/chainguard/migration/migration-tips/).
+Each of these tips and strategies are explained in greater detail in our guide on [Container migration tips](/chainguard/migration/migration-tips/).
 
 ## Troubleshooting
 
@@ -156,9 +156,9 @@ The move to a distroless workflow can be confusing for both individual developer
 
 ### Troubleshooting resources
 
-To help with troubleshooting issues that can occur, Chainguard Academy has a guide on [Debugging Distroless Containers](/chainguard/chainguard-images/debugging-distroless-images/).
+To help with troubleshooting issues that can occur, Chainguard Academy has a guide on [Debugging distroless containers](/chainguard/chainguard-images/debugging-distroless-images/).
 
-We also have a video on [Debugging Distroless Containers with Docker Debug](/chainguard/chainguard-images/videos/debugging_distroless/).
+We also have a video on [Debugging distroless containers with Docker Debug](/chainguard/chainguard-images/videos/debugging_distroless/).
 
 Lastly, you might also find help in the [Chainguard Containers FAQs](/chainguard/chainguard-images/faq/).
 
@@ -166,7 +166,7 @@ Lastly, you might also find help in the [Chainguard Containers FAQs](/chainguard
 
 Chainguard Academy hosts a number of resources that can be useful when migrating to Chainguard Containers.
 
-As mentioned previously, most new users of Chainguard Containers would benefit from following our guide on [How to Port a Sample Application to Chainguard Containers](/chainguard/migration/porting-apps-to-chainguard/#tldr-porting-key-points). You may also find our [Migration Best Practices and Checklist](/chainguard/migration/migration-checklist/) guide to be helpful.
+As mentioned previously, most new users of Chainguard Containers would benefit from following our guide on [How to port a sample application to Chainguard Containers](/chainguard/migration/porting-apps-to-chainguard/#porting-key-points). You may also find our [Migration best practices and checklist](/chainguard/migration/migration-checklist/) guide to be helpful.
 
 To automate Dockerfile migration, [The Guardener](/chainguard/migration/the-guardener/) is an AI-powered agent that iteratively converts, builds, and validates your Dockerfiles for use with Chainguard Containers.
 
@@ -235,7 +235,7 @@ In addition to the Academy resources listed above, Chainguard offers a number of
 
 * [Getting Started With Chainguard Containers](https://courses.chainguard.dev/path/linkys-guide-to-chainguard-images/getting-started-with-chainguard-images): Intro to everything you need to know - from basic setup to security scanning.
 * [Foundations of Supply Chain Security](https://courses.chainguard.dev/path/linkys-guide-to-chainguard-images/foundations-of-software-supply-chain-security): The what, why, and how of keeping your software supply chain secure.
-* [Migration Guidance](https://courses.chainguard.dev/path/linkys-guide-to-chainguard-images/migration-guidance): Your friendly guide to moving to Chainguard Containers without the headaches.
+* [Migration guidance](https://courses.chainguard.dev/path/linkys-guide-to-chainguard-images/migration-guidance): Your friendly guide to moving to Chainguard Containers without the headaches.
 
 #### Level up (next level courses)
 
@@ -251,6 +251,6 @@ In addition to the Academy resources listed above, Chainguard offers a number of
 ## Further reading
 
 * [Overview of Chainguard Containers](/chainguard/chainguard-images/overview/)
-* [How to Use Chainguard Containers](/chainguard/chainguard-images/how-to-use-chainguard-images/)
+* [How to use Chainguard Containers](/chainguard/chainguard-images/how-to-use-chainguard-images/)
 * [How to transition to secure container images with new migration guides (Blog)](https://www.chainguard.dev/unchained/how-to-transition-to-secure-container-images-with-new-migration-guides)
-* [Getting Started with Distroless Containers](/chainguard/chainguard-images/getting-started-distroless/)
+* [Getting started with distroless containers](/chainguard/chainguard-images/getting-started-distroless/)

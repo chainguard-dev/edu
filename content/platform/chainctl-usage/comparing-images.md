@@ -1,6 +1,6 @@
 ---
-title: "How To Compare Chainguard Containers with chainctl"
-linktitle: "Compare Images with chainctl"
+title: "How to compare Chainguard Containers with chainctl"
+linktitle: "Compare images with chainctl"
 aliases:
 - /chainguard/chainctl-usage/comparing-images/
 - /chainguard/chainguard-images/comparing-images/
@@ -31,8 +31,8 @@ The [`chainctl`](/chainguard/chainctl/) diff functionality supports informed dep
 
 In order to use the `chainctl images diff` subcommand, you'll need to have a few tools installed.
 
-* You'll need `chainctl` installed on your local machine. Follow our guide on [How to Install chainctl](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up. If you already have `chainctl` installed, be sure to update it to the latest version with `chainctl update`.
-* Next, ensure you have Cosign installed. Our guide on [How to Install Cosign](/open-source/sigstore/cosign/how-to-install-cosign/) outlines several methods for installing Cosign.
+* You'll need `chainctl` installed on your local machine. Follow our guide on [How to install chainctl](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up. If you already have `chainctl` installed, be sure to update it to the latest version with `chainctl update`.
+* Next, ensure you have Cosign installed. Our guide on [How to install Cosign](/open-source/sigstore/cosign/how-to-install-cosign/) outlines several methods for installing Cosign.
 * You'll also need Grype installed on your local machine, as `chainctl` uses this to scan the images when performing the diff. Follow the installation instructions for your operating system on the [Grype project GitHub repository](https://github.com/anchore/grype#installation).
 * Lastly, an example command in this guide uses `jq` — a command-line JSON processor — to make the command's output more readable. You don't strictly need to have `jq` installed in order to use the `diff` subcommand, but if you'd like you can install it by following [the official documentation](https://jqlang.github.io/jq/download/).
 

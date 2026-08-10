@@ -64,13 +64,13 @@ That being said, it's worth noting that the `-dev` variants of Chainguard Contai
 
 The following guides show how to use these development images in combination with their distroless variants in order to build a final image that is also distroless, but contains everything the application needs to run:
 
-- [Getting Started with the Python Chainguard Container](/chainguard/chainguard-images/getting-started/python/)
-- [Getting Started with the Ruby Chainguard Container](/chainguard/chainguard-images/getting-started/ruby/)
-- [Getting Started with the Go Chainguard Container](/chainguard/chainguard-images/getting-started/go/)
-- [Getting Started with the Node Chainguard Container](/chainguard/chainguard-images/getting-started/node/)
-- [Getting Started with the PHP Chainguard Container](/chainguard/chainguard-images/getting-started/php/)
+- [Getting started with the Python Chainguard Container](/chainguard/chainguard-images/getting-started/python/)
+- [Getting started with the Ruby Chainguard Container](/chainguard/chainguard-images/getting-started/ruby/)
+- [Getting started with the Go Chainguard Container](/chainguard/chainguard-images/getting-started/go/)
+- [Getting started with the Node Chainguard Container](/chainguard/chainguard-images/getting-started/node/)
+- [Getting started with the PHP Chainguard Container](/chainguard/chainguard-images/getting-started/php/)
 
-Check also the guide on [Creating Wolfi Container Images with Dockerfiles](/open-source/wolfi/wolfi-with-dockerfiles/) for guidance on how to build a custom image that can be used for development and debugging.
+Check also the guide on [Creating Wolfi container images with Dockerfiles](/open-source/wolfi/wolfi-with-dockerfiles/) for guidance on how to build a custom image that can be used for development and debugging.
 
 ## 2. Using ephemeral debug containers
 
@@ -259,7 +259,7 @@ For more strategies on how to debug production distroless containers, check the 
 ## Resources to learn more
 
 - [Minimal Container Images: Towards a More Secure Future](https://www.chainguard.dev/unchained/minimal-container-images-towards-a-more-secure-future) - Chainguard Blog
-- [Why Distroless](/chainguard/chainguard-images/overview/) - Chainguard Container Documentation
+- [Why distroless](/chainguard/chainguard-images/overview/) - Chainguard Container Documentation
 - [Ephemeral Containers](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/) - Official Kubernetes Documentation
 - [Introducing Ephemeral Containers](https://opensource.googleblog.com/2022/01/Introducing%20Ephemeral%20Containers.html) - Google Open Source Blog
 - Talk: [Running a Go Debugger in Kubernetes](https://www.youtube.com/watch?v=V3SrFyMxmq4&t=2691s) - Cloud Native Rejekts EU 23

@@ -1,7 +1,7 @@
 ---
-title: "Cosign: The Manual Way"
+title: "Cosign: The manual way"
 type: "article"
-lead: "Getting Started with Cosign"
+lead: "Getting started with Cosign"
 description: ""
 date: 2023-03-29T08:49:31+00:00
 lastmod: 2023-03-29T08:49:31+00:00
@@ -57,7 +57,7 @@ If you want to follow along you’ll need the following installed from your pack
 * [cosign](/open-source/sigstore/cosign/how-to-install-cosign/) ([v2.0.0](https://github.com/sigstore/cosign/releases/tag/v2.0.0))
 * [rekor-cli](/open-source/sigstore/rekor/how-to-install-rekor/) ([v1.0.1](https://github.com/sigstore/rekor/releases/tag/v1.0.1))
 
-## The Blob
+## The blob
 
 A blob is an arbitrary collection of raw data like a picture or the executable binary that your source code produces. Cosign is capable of signing and verifying blobs.
 
@@ -150,7 +150,7 @@ We still have one last step, however. Byte arrays aren't human readable and are 
 
 Since PKCS1 is specific to RSA our public key is serialized to Public Key Infrastructure X.509 (PKIX) which is a generic public key representation that includes information like the key algorithm. X.509 is the standard that defines the format for public key certificates like those used in your web browser. You can see above that the header is the generic `-----BEGIN PUBLIC KEY-----`.
 
-## Time to Sign
+## Time to sign
 
 With our keys created, we are ready to use them to sign our message. We could sign the file in its entirety, but that would require the full file when verifying the signature. This is fine for small text files but when signing and uploading 3 gigabyte containers, it's much more efficient to hash the payload and sign the digest. That way all that's needed to verify a signature is the public key and the hash value. SHA-256 is most commonly used today for computing a message digest.
 
@@ -165,7 +165,7 @@ openssl dgst -sha256 -verify pub.pem -signature message.txt.sig message.txt
 Verified OK
 ```
 
-## Get Transparent
+## Get transparent
 
 Now that we have our signature, we can upload everything to the Rekor transparency log so others can find and verify it. Rekor supports a handful of [different distinct](https://github.com/sigstore/rekor/tree/main/pkg/types) types including Java JARs and RPM packages. The basic type is known as a [Rekord](https://github.com/sigstore/rekor/blob/b14714fb19061381159abf1858af2f43aeb4112e/pkg/types/rekord/v0.0.1/rekord_v0_0_1_schema.json) but since we signed the hash of our file we'll use a [Hashed Rekord](https://github.com/sigstore/rekor/blob/b14714fb19061381159abf1858af2f43aeb4112e/pkg/types/hashedrekord/v0.0.1/hashedrekord_v0_0_1_schema.json).
 
@@ -262,7 +262,7 @@ diff <(jq -rc '.[].body' entry.json | base64 -d) <(jq -rcj '.' hashedrekord.json
 
 The body matches, which confirms that our entry was created, but how would the recipient of our message go about verifying and proving that for themselves? That’s where our next step comes in.
 
-## Trust but Verify
+## Trust but verify
 
 Well, there are a few important things they must check:
 

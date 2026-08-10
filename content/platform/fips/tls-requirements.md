@@ -1,8 +1,8 @@
 ---
 aliases:
 - /chainguard/fips/tls-requirements/
-title: "Chainguard FIPS TLS Connectivity Requirements"
-linktitle: "FIPS TLS Connectivity Requirements"
+title: "Chainguard FIPS TLS connectivity requirements"
+linktitle: "FIPS TLS connectivity requirements"
 lead: ""
 type: "article"
 description: "FIPS TLS requirements for clients and servers to establish connectivity"
@@ -19,7 +19,7 @@ This document provides an overview of FIPS TLS connectivity requirements for usi
 
 Chainguard strives to ensure the broadest connectivity possible for its FIPS products. However, many obsolete systems are still widely used and may not be able to connect with Chainguard FIPS products.
 
-## FIPS TLS Requirements
+## FIPS TLS requirements
 
 ### TLSv1.3
 
@@ -82,7 +82,7 @@ Amazon Linux 2 non-FIPS has an optional package: `openssl11`. With this installe
 
 As of this writing, Amazon Linux 2 is currently scheduled to sunset on June 30, 2026. We recommend upgrading to [Chainguard VMs](/chainguard/vms/overview/), [Amazon Linux 2023](https://aws.amazon.com/linux/amazon-linux-2023/), or [Bottlerocket](https://bottlerocket.dev/).
 
-## Testing Connectivity
+## Testing connectivity
 
 To guarantee connectivity, clients and servers communicating with Chainguard FIPS products must, at minimum, support the following  TLS requirements:
 

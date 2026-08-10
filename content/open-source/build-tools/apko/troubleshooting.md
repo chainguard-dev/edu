@@ -1,5 +1,5 @@
 ---
-title: "Troubleshooting apko Builds"
+title: "Troubleshooting apko builds"
 aliases:
 - /open-source/apko/troubleshooting
 type: "article"
@@ -18,7 +18,7 @@ weight: 300
 toc: true
 ---
 
-## Debug Options
+## Debug options
 
 To include debug-level information on apko builds, add `--debug` to your build command:
 
@@ -28,7 +28,7 @@ docker run --rm -v ${PWD}:/work cgr.dev/chainguard/apko build --debug \
   -k melange.rsa.pub
 ```
 
-## Common Errors
+## Common errors
 
 When the apk package manager is unable to resolve your requirements to a set of installable packages, you will get an error similar to this:
 
@@ -55,7 +55,7 @@ With melange-built package(s), make sure you have a volume sharing your apko / m
 
 ### The apk index is missing
 
-If you have a functional volume sharing your packages with the apko container and you're still getting this error, make sure you built a valid apk index as described in [step 4 of the Getting Started with melange Guide](/open-source/build-tools/melange/getting-started-with-melange/#4--building-the-minicli-apk-with-melange).
+If you have a functional volume sharing your packages with the apko container and you're still getting this error, make sure you built a valid apk index as described in [step 4 of the Getting started with melange guide](/open-source/build-tools/melange/getting-started-with-melange/#4--building-the-minicli-apk-with-melange).
 
 If this is your case, you should find error messages similar to this when enabling debug info with the `--debug` flag:
 
@@ -81,6 +81,6 @@ packages
 4 directories, 8 files
 ```
 
-## Further Resources
+## Further resources
 
 For additional guidance, please refer to the [apko repository](https://github.com/chainguard-dev/apko) on GitHub, where you can find [more examples](https://github.com/chainguard-dev/apko/tree/main/examples) or [open an issue](https://github.com/chainguard-dev/apko/issues/new/choose) in case of problems.

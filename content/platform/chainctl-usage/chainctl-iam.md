@@ -1,7 +1,7 @@
 ---
 aliases:
 - /chainguard/chainctl-usage/chainctl-iam/
-title: "Manage Identity and Access with chainctl"
+title: "Manage identity and access with chainctl"
 lead: "Chainguard's chainctl iam commands provide enterprise-grade identity and access management for container registries and security resources."
 description: "Learn how to use chainctl iam commands to manage identity, access controls, and role-based permissions for Chainguard's container security platform"
 type: "article"
@@ -17,9 +17,9 @@ Chainguard's identity and access management (IAM) system provides fine-grained c
 
 For the following, assume that returned information only includes that which your account has permissions to view. Also, actions such as `create` and `delete` are similarly limited.
 
-This page is intended as an introductory overview of IAM with chainctl. For a full reference of all commands with details and switches, refer to [chainctl Reference](/chainguard/chainctl/).
+This page is intended as an introductory overview of IAM with chainctl. For a full reference of all commands with details and switches, refer to [chainctl reference](/chainguard/chainctl/).
 
-## List Folders
+## List folders
 
 Folders contain the catalogs of things your organization has access to.
 
@@ -41,7 +41,7 @@ chainctl iam folders list chainguard.edu
 
 This command can also delete, describe, and update folders by replacing `list` with `delete`, `describe`, or `update`. Refer to the reference guide for more details.
 
-## List and Describe Identities
+## List and describe identities
 
 To list all of the existing identities along with roles, types, and more, use:
 
@@ -57,7 +57,7 @@ chainctl iam identities describe {IDENTITY_NAME | IDENTITY_ID}
 
 This command can also create, delete, describe, and update identities by replacing `list` with `create`, `delete`, `describe`, or `update`. Refer to the reference guide for more details.
 
-## List and Create Identity Providers
+## List and create identity providers
 
 This command enables you to manage your own identity management provider, such as a custom OIDC provider. To list all currently configured identity management providers, use:
 
@@ -77,7 +77,7 @@ chainctl iam identity-provider create --name=google --parent=example \
 --default-role=viewer
 ```
 
-## List and Create Invites
+## List and create invites
 
 This command lets you manage invite codes that register identities with Chainguard. To list current invites, use:
 

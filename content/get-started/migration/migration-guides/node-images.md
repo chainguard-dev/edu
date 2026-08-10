@@ -1,5 +1,5 @@
 ---
-title: "How to Migrate a Node.js Application to Chainguard Containers"
+title: "How to migrate a Node.js application to Chainguard Containers"
 linktitle: "Video: Node.js"
 aliases:
 - /chainguard/chainguard-images/videos/node-images/
@@ -27,8 +27,8 @@ toc: true
 
 ## Resources
 
-* Tutorial on [Porting a Sample Application](/chainguard/migration/porting-apps-to-chainguard/)
-* [Example Application Git repository](https://github.com/chainguard-dev/identidock-cg/) with code used in demo
+* Tutorial on [Porting a sample application](/chainguard/migration/porting-apps-to-chainguard/)
+* [Example application Git repository](https://github.com/chainguard-dev/identidock-cg/) with code used in demo
 
 {{< details "What are multi-stage builds?" >}}
 {{< blurb/multistage >}}

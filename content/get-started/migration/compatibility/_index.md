@@ -1,5 +1,5 @@
 ---
-title: "Compatibility Guides"
+title: "Compatibility guides"
 linktitle: "Compatibility"
 aliases:
 - /chainguard/migration/compatibility/

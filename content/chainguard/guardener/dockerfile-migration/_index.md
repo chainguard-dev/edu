@@ -1,6 +1,6 @@
 ---
-title: "Chainguard Guardener Dockerfile Migration"
-linktitle: "Dockerfile Migration"
+title: "Chainguard Guardener Dockerfile migration"
+linktitle: "Dockerfile migration"
 description: "Use Chainguard Guardener to migrate, optimize, upgrade, and validate your Dockerfiles against Chainguard Containers with AI-driven, iterative conversion."
 type: "article"
 date: 2026-07-13T00:00:00+00:00
@@ -56,7 +56,7 @@ Access to Dockerfile migration is governed by Chainguard IAM roles:
 | Accepting the Guardener legal terms for your organization (required once before anyone can run sessions) | `guardener.admin` or `owner` |
 | Running Dockerfile migration sessions                                                                    | `guardener.user`             |
 
-Refer to the [Built-in Roles and Capabilities Reference](/chainguard/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for details.
+Refer to the [Built-in roles and capabilities reference](/chainguard/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for details.
 
 ## Commands
 

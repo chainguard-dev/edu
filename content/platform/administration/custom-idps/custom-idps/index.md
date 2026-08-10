@@ -1,10 +1,10 @@
 ---
-title : "Using Custom Identity Providers to Authenticate to Chainguard"
-linktitle: "Authenticate with Custom IdPs"
+title : "Using custom identity providers to authenticate to Chainguard"
+linktitle: "Authenticate with custom IdPs"
 aliases:
 - /chainguard/chainguard-enforce/authentication/custom-idps/
 - /chainguard/administration/custom-idps/custom-idps/
-lead: "Chainguard Custom IdPs"
+lead: "Chainguard custom IdPs"
 description: "An introduction to and overview of Chainguard's custom IdP support features"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
@@ -73,7 +73,7 @@ chainctl config set default.identity-provider <your identity provider id here>
 
 Once set, the configured identity provider will be used automatically any time you run `chainctl auth login`.
 
-### Authenticate with `chainctl` using a Verified Organization
+### Authenticate with `chainctl` using a verified organization
 
 If your organization is [verified](/chainguard/administration/iam-organizations/verified-orgs/), you can use your organization name instead of the ID of your identity provider to authenticate.
 
@@ -88,7 +88,7 @@ defaults:
   org-name: example.com
 ```
 
-To learn more about working with your `chainctl` config, you can read our doc on [How to Manage `chainctl` Configuration](/chainguard/chainctl-usage/manage-chainctl-config/).
+To learn more about working with your `chainctl` config, you can read our doc on [How to manage `chainctl` configuration](/chainguard/chainctl-usage/manage-chainctl-config/).
 
 ### Authenticate with the Chainguard Console
 
@@ -102,7 +102,7 @@ To authenticate with the Chainguard Console, [open the login screen](https://con
 
 In each of these cases, you will be redirected to an external identity provider to authenticate and then returned to the Chainguard Console. If you are using your email and a password, authentication is handled by and credentials are stored with [Auth0](https://auth0.com/).
 
-## Setup and Administration
+## Setup and administration
 
 Chainguard SSO supports OpenID Connect (OIDC) compatible identity providers. In addition, identity providers must support the following:
 
@@ -131,11 +131,11 @@ Chainguard supports both models:
 
 Identity providers usually tie this classification to the application *type* you select at registration rather than to a separate setting, and some don't let you change the type afterward. If you want a public application, choose the matching type when you first register it. For the underlying definitions, refer to [section 2.1 of RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749#section-2.1); your identity provider's documentation names the application types it offers.
 
-### Integration Guides for supported identity providers
+### Integration guides for supported identity providers
 
 We have [published guides for multiple platforms](/chainguard/administration/custom-idps/), including Okta and Ping Identity. If you aren’t using one of these identity providers, you can complete the following Generic Integration Guide to configure your provider to work with Chainguard. However, be aware that Chainguard does not actively support identity providers other than the ones listed previously. If you are using an alternate identity provider, we encourage you to contact us to learn more.
 
-### Generic Integration Guide
+### Generic integration guide
 
 For a generic OIDC-compatible identity provider, start by creating an OIDC application. If possible, set as much metadata as possible for the application so that your users can identify this application as the Chainguard platform. The following assets and details can be helpful to include in the metadata:
 
@@ -209,7 +209,7 @@ chainctl iam organizations ls -o table
 
 Your organization selection won’t affect how your users authenticate but will have implications on who has permission to modify the SSO configuration.
 
-## Managing Existing Identity Providers
+## Managing existing identity providers
 
 Identity providers can be managed via `chainctl` using the `chainctl iam identity-provider` subcommand.
 
@@ -243,7 +243,7 @@ chainctl iam identity-provider delete
 
 For more details, check out the [`chainctl` documentation for these commands](/chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers/).
 
-## IAM and Security
+## IAM and security
 
 Once an identity provider has been created on the Chainguard platform, any user that can authenticate with that identity provider will be able to use it to access the Chainguard platform. It’s important to note that users can do so even if they have no IAM capabilities with the IAM organization at which the identity provider is defined. Identity providers give access to the Chainguard platform, but not the specific IAM organization where the identity provider is defined.
 

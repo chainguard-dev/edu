@@ -131,7 +131,7 @@ Username: 45a.....424eb0
 Password: eyJhbGciO..........WF0IjoxN
 ```
 
-### Creating pull tokens with the Chainguard console
+### Creating pull tokens with the Chainguard Console
 
 Follow these steps to create a pull token for Chainguard Libraries in the
 Chainguard console:
@@ -516,4 +516,4 @@ Ecosystem Library Entitlements for example (45a0...p7q)
 
 Users with the Owner role can create, enable, disable, and list library policies using [`chainctl libraries policy`](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy/) commands. These policies apply to all packages pulled through Chainguard Repository. The [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) must be enabled for an ecosystem in order to use policies.
 
-Learn about how to manage policies in the [Libraries Policies page](/chainguard/chainguard-repository/libraries-policies/).
+Learn about how to manage policies in the [Libraries policies page](/chainguard/chainguard-repository/library-policies/).

@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with the NeMo Chainguard Container"
+title: "Getting started with the NeMo Chainguard Container"
 type: "article"
 linktitle: "NeMo"
 aliases:
@@ -41,7 +41,7 @@ To take advantage of connected GPUs, you'll need to install CUDA Toolkit on your
 
 This tutorial can be followed without connected GPUs or CUDA Toolkit. To run commands in this tutorial on CPU, omit the `--gpus all` flag when executing container commands. Keep in mind that some functionality within NeMo (such as training models) will take significantly longer on CPU.
 
-## Testing Access to GPUs
+## Testing access to GPUs
 
 We'll start by running the NeMo Chainguard Container interactively and determine whether the environment has access to connected GPUs.
 
@@ -86,7 +86,7 @@ True
 
 Once you've determined that your environment has access to CUDA and connected GPUs, exit the container by typing `Control-d` or by typing `exit()` and pressing `Enter`. You should be returned to the prompt of your host machine.
 
-## NeMo Overview
+## NeMo overview
 
 NeMo is a generative AI toolkit and framework with a focus on conversational AI tasks such as NLP, ASR, and TTS, as well as large language models (LLM) and multimodal (MM) models. NeMo uses a system of [neural modules](https://docs.nvidia.com/nemo-framework/user-guide/latest/nemotoolkit/core/neural_modules.html), an abstraction over a variety of common elements in model training and inference such as encoders, decoders, loss functions, layers, or models. NeMo also provides [collections of modules](https://docs.nvidia.com/nemo-framework/user-guide/latest/nemotoolkit/collections.html) targeting specific areas of concern in conversational and generative AI, such as LLMs, speech AI / NLP, and TTS.
 
@@ -94,7 +94,7 @@ NeMo is built on [PyTorch Lightning](https://lightning.ai/docs/pytorch/stable/),
 
 Since NeMo is a framework with many collections of modules suitable for a wide variety of projects, we've chosen an example task, generative text to speech, requiring the use of two TTS modules. This is an appropriate example of a task that might be run as part of a larger production application.
 
-## Text to Speech (TTS) Example
+## Text to speech (TTS) example
 
 In this section, we'll run a script that uses the NeMo Chainguard Container to:
 
@@ -156,7 +156,7 @@ The `test.wav` file should contain audio similar to this output:
 
 {{< audio src="tts-example.wav" caption="Output from the TTS script" >}}
 
-## Final Considerations and Next Steps
+## Final considerations and next steps
 
 This section will consider next steps for applying the NeMo Chainguard Container to other tasks in conversational AI.
 

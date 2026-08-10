@@ -1,6 +1,6 @@
 ---
-title: "Requesting New Chainguard Resources"
-linktitle: "Requesting Resources"
+title: "Requesting new Chainguard resources"
+linktitle: "Requesting resources"
 type: "article"
 description: "How to submit requests for Chainguard to build new resources in the Console."
 date: 2026-02-26T11:07:52+02:00
@@ -25,7 +25,7 @@ This guide provides an overview of how to submit a request for a new resource to
 
 In order to submit requests for new resources in the Chainguard Console, you must be part of a [verified organization](/chainguard/administration/iam-organizations/verified-orgs/). Users with access to only Chainguard's Free tier of container images will not be able to submit requests.
 
-## The Requests section
+## The requests section
 
 To begin, navigate to the [**Requests** section of the Chainguard Console](https://console.chainguard.dev/org/chainguard/requests/active). This section includes three tabs:
 
@@ -81,4 +81,4 @@ There are a few limitations you should consider before submitting a new request:
 * If a project is no longer receiving updates or releases, Chainguard typically won't build it since there aren't reliable security fixes upstream.
 * There are cases where Chainguard cannot fulfill a FIPS request and be FIPS compliant. In such cases the standard variant can often still be built but the FIPS variant will get marked as **Won't build**.
 
-Finally, be aware that requesting that Chainguard build a software artifact does not mean it will automatically be accessible to your organization. Once the resource is built, you can reach out to our sales team to add it to your organization; alternatively, if your organization has [Catalog Pricing](/chainguard/chainguard-images/about/pricing/) enabled, you can add it yourself after it's built.
+Finally, be aware that requesting that Chainguard build a software artifact does not mean it will automatically be accessible to your organization. Once the resource is built, you can reach out to our sales team to add it to your organization; alternatively, if your organization has [Catalog pricing](/chainguard/chainguard-images/about/pricing/) enabled, you can add it yourself after it's built.

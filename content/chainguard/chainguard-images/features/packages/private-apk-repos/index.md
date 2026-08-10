@@ -1,10 +1,10 @@
 ---
-title: "Chainguard's Private APK Repositories"
-linktitle: "Private APK Repositories"
+title: "Chainguard's private APK repositories"
+linktitle: "Private APK repositories"
 aliases:
 - /chainguard/chainguard-images/features/private-apk-repos/
 type: "article"
-description: "An overview of how to work with Chainguard's Private APK Repositories."
+description: "An overview of how to work with Chainguard's private APK repositories."
 date: 2025-02-21T11:07:52+02:00
 lastmod: 2026-03-16T08:07:42+02:00
 draft: false
@@ -386,7 +386,7 @@ This error may mean that your Chainguard identity doesn't have the proper capabi
 You can check this and fix it by following these steps:
 
 1. Run `chainctl auth status` and check the `Capabilities` field in the output. If you don't find the `apk.pull` role (or a more privileged role) for the organization you're trying to pull from, you will need to add the role.
-2. Create the `apk.pull` role using the steps outlined in our [Overview of Roles and Role-bindings](/chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/) resource.
+2. Create the `apk.pull` role using the steps outlined in our [Overview of roles and role-bindings](/chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/) resource.
 3. Try pulling the package again.
 
 If you'd like to provide feedback or need further help troubleshooting, [reach out to our Customer Support team](https://www.chainguard.dev/contact?utm=docs).

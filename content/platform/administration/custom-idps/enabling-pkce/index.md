@@ -1,5 +1,5 @@
 ---
-title: "Enable PKCE for OAuth Token Exchange"
+title: "Enable PKCE for OAuth token exchange"
 linktitle: "Enable PKCE"
 lead: ""
 description: "How to add PKCE to your custom identity provider's OAuth token exchange with Chainguard, either alongside a client secret or as a secret-free public client."
@@ -25,7 +25,7 @@ Enabling PKCE is optional. If you leave PKCE disabled or optional on your IdP, y
 
 To follow this guide, you need:
 
-- A custom identity provider (such as [Okta](/platform/administration/custom-idps/idp-providers/okta/), [Microsoft Entra ID](/platform/administration/custom-idps/idp-providers/ms-entra-id/), or [Ping Identity](/platform/administration/custom-idps/idp-providers/ping-id/)) already configured for login to Chainguard. If you haven't set one up yet, refer to our guide [Using Custom Identity Providers to Authenticate to Chainguard](/platform/administration/custom-idps/custom-idps/).
+- A custom identity provider (such as [Okta](/platform/administration/custom-idps/idp-providers/okta/), [Microsoft Entra ID](/platform/administration/custom-idps/idp-providers/ms-entra-id/), or [Ping Identity](/platform/administration/custom-idps/idp-providers/ping-id/)) already configured for login to Chainguard. If you haven't set one up yet, refer to our guide [Using custom identity providers to authenticate to Chainguard](/platform/administration/custom-idps/custom-idps/).
 - An IAM role that can manage identity providers in your Chainguard organization, such as the `owner` role.
 - [`chainctl` installed](/chainguard/chainctl-usage/how-to-install-chainctl/) on your local machine. You must also authenticate with `chainctl auth login`.
 

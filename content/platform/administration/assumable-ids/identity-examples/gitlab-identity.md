@@ -1,5 +1,5 @@
 ---
-title : "Create an Assumable Identity for a GitLab CI/CD Pipeline"
+title : "Create an assumable identity for a GitLab CI/CD pipeline"
 linktitle: "GitLab CI/CD"
 aliases:
 - /chainguard/chainguard-enforce/authentication/identity-examples/enforce-gitlab-identity/
@@ -28,11 +28,11 @@ To complete this guide, you will need the following.
 Both methods outlined in this guide require you to have the following:
 
 * Access to a GitLab project and CI/CD pipeline you can use to test out the identity you'll create. GitLab provides a [quickstart tutorial on creating your first pipeline](https://docs.gitlab.com/ee/ci/quick_start/) which can be useful for getting a testing pipeline up and running.
-* `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up.
+* `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up.
 
 Additionally, the Terraform method requires you to have `terraform` installed on your local machine. Terraform is an open-source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
 
-## Create an Assumable Identity with `chainctl`
+## Create an assumable identity with `chainctl`
 
 You can create a new Chainguard identity that a GitLab CI/CD pipeline can assume by running the following command.
 
@@ -64,7 +64,7 @@ These options' values are string literals; you can use `--identity-issuer-patter
 
 This command also binds the `viewer` role to the new identity. The `viewer` role provides read-only access to Chainguard resources, which is appropriate for most CI/CD use cases that need to pull images or inspect resources. You can also chain together multiple roles, as in `--role=registry.push,registry.pull`.
 
-To see all available roles and their permissions, run `chainctl iam roles list`. You can also learn more by reviewing our [Overview of Roles and Role-bindings in Chainguard](/chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
+To see all available roles and their permissions, run `chainctl iam roles list`. You can also learn more by reviewing our [Overview of roles and role-bindings in Chainguard](/chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
 
 If you ever need to retrieve information about it in the future, you can run the following command:
 
@@ -76,7 +76,7 @@ This will return `cg-gitlab-id` listed among all your Chainguard identities.
 
 With that, you can jump ahead to [testing the new identity](/chainguard/administration/assumable-ids/identity-examples/gitlab-identity/#testing-the-identity-with-a-gitlab-cicd-pipeline). You can also continue onto the next section and learn how to create another such identity with Terraform.
 
-## Create an Assumable Identity with Terraform
+## Create an assumable identity with Terraform
 
 This section outlines how to use Terraform to create an identity for a GitLab pipeline to assume. This involves creating two Terraform configuration files that, together, will produce such an identity.
 
@@ -175,7 +175,7 @@ resource "chainguard_rolebinding" "view-stuff" {
 
 Following that, your Terraform configuration will be ready. Now you can run a few `terraform` commands to create the resources defined in your `.tf` files.
 
-### Creating Your Resources
+### Creating your resources
 
 First, run `terraform init` to initialize Terraform's working directory.
 
@@ -234,7 +234,7 @@ Note that you may receive a `PermissionDenied` error part way through the apply 
 
 You're now ready to create a GitLab CI pipeline which you'll use to test out this identity.
 
-## Testing the identity with a GitLab CI/CD Pipeline
+## Testing the identity with a GitLab CI/CD pipeline
 
 From the GitLab Dashboard, select **Projects** in the left-hand sidebar menu. From there, click on the project you specified in the `subject` claim to be taken to the project overview.
 
@@ -309,7 +309,7 @@ Updated auth config for cgr.dev
 
 This indicates that the GitLab CI/CD pipeline did indeed assume the identity and run the `chainctl images repos list` command.
 
-## Next Steps
+## Next steps
 
 If you'd like to experiment further with this identity and what the workflow can do with it, there are a few parts of this setup that you can tweak. For instance, if you'd like to give this identity different permissions you can change the role data source to the role you would like to grant.
 
@@ -333,7 +333,7 @@ chainctl iam orgs ls
 
 The GitLab pipeline will only be able to perform certain actions on certain resources, depending on what kind of access you grant it.
 
-## Removing Sample Resources
+## Removing sample resources
 
 To delete the identity created directly with `chainctl`, run the following:
 

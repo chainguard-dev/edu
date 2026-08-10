@@ -1,6 +1,6 @@
 ---
-title: "Chainguard Criteria for Determining Whether to Build a Container Image"
-linktitle: "Build Criteria"
+title: "Chainguard criteria for determining whether to build a container image"
+linktitle: "Build criteria"
 type: "article"
 description: "An overview of what Chainguard will build"
 date: 2025-01-13T11:07:52+02:00

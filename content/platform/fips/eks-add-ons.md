@@ -1,8 +1,8 @@
 ---
 aliases:
 - /chainguard/fips/eks-add-ons/
-title: "Overview of Chainguard EKS Add-ons"
-linktitle: "EKS Add-ons"
+title: "Overview of Chainguard EKS add-ons"
+linktitle: "EKS add-ons"
 description: "Learn about Chainguard EKS add-ons, which provide zero-CVE and FIPS-validated container images for core Amazon EKS cluster components through AWS Marketplace."
 type: "article"
 date: 2026-04-10T00:00:00+00:00

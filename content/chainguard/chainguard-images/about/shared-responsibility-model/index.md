@@ -1,11 +1,11 @@
 ---
-title: "Chainguard Shared Responsibility Model"
-linktitle: "Shared Responsibility Model"
+title: "Chainguard shared responsibility model"
+linktitle: "Shared responsibility model"
 aliases:
 - /chainguard/chainguard-images/recommended-practices/shared-responsibility-model
 - /chainguard/chainguard-images/about/shared-responsibility-model
 type: "article"
-description: "Reference guide outlining Chainguard's Shared Responsibility model: a framework that clarifies security obligations for hardened container images."
+description: "Reference guide outlining Chainguard's shared responsibility model: a framework that clarifies security obligations for hardened container images."
 date: 2024-10-17T11:07:52+02:00
 lastmod: 2026-08-03T18:16:45+00:00
 draft: false
@@ -50,16 +50,16 @@ Customers are responsible for building on or with fully patched Chainguard Conta
 
 There are generally two form-factors of Chainguard Container Images: **Application** and **Base** images, so let’s go over the patching responsibilities through these respective lenses.
 
-### Application Container Images
+### Application container images
 
 These are Chainguard Container Images that users generally just take and run (for example, by plugging into Helm). We created the following diagram to help customers understand where the division of responsibility is generally drawn for this class of images:
 
 <center><img src="csrm-3.png" alt="Diagram representing Chainguard's shared responsibility model for Application Images. This diagram shows a pyramid structure with 4 tiers: Apps, LangLibs (go mod, pom, …), Toolchains (go, java, php, …), and System (glibc, openssl). To the left of the pyramid there are two brackets showing that CVE management is performed by the Upstream Open Source project at the Apps level and by Chainguard at the Toolchains and System level, with responsibility being split at the Language Libraries level. To the right of the pyramid are two smaller brackets showing that if updating a dependency is breaking, the CVE management falls to the Upstream project; if it's successful, then CVE management falls to Chainguard." style="width:904px;"></center>
 <br />
 
-Upstream projects are responsible for staying on API-compatible versions of libraries. Chainguard is responsible for rebuilding the upstream project [with the latest toolchain](https://www.chainguard.dev/unchained/chainguard-patches-3-silent-golang-cves-in-under-24-hours), and patching static and dynamic dependencies where such a change is non-breaking. Customers are responsible for tracking a supported version of the Chainguard image. Please refer to our [Product Release Lifecycle documentation](/chainguard/chainguard-images/versions/) for more information on what versions are supported.
+Upstream projects are responsible for staying on API-compatible versions of libraries. Chainguard is responsible for rebuilding the upstream project [with the latest toolchain](https://www.chainguard.dev/unchained/chainguard-patches-3-silent-golang-cves-in-under-24-hours), and patching static and dynamic dependencies where such a change is non-breaking. Customers are responsible for tracking a supported version of the Chainguard image. Please refer to our [Product release lifecycle documentation](/chainguard/chainguard-images/versions/) for more information on what versions are supported.
 
-### Base Container Images
+### Base container images
 
 These are Chainguard Container Images that users extend with their own packages and applications (such as with a Dockerfile). We created the following diagram to clarify where the division of responsibility is drawn for these images:
 
@@ -72,7 +72,7 @@ Upstream projects are responsible for patching supported releases in a timely ma
 
 Upstream projects are responsible for defining conformance criteria and establishing conformance benchmarks (such as [Java TCK](https://www.chainguard.dev/unchained/chainguards-openjdk-java-images-are-now-jck-conformant), [Kubernetes Conformance](https://github.com/cncf/k8s-conformance/blob/master/instructions.md), [Knative Conformance](https://github.com/knative/specs)) that clearly outline the criteria for a downstream distribution to represent itself as a "conformant" distribution of the software.
 
-Chainguard is responsible for producing conformant distributions of upstream applications; where the upstream project does not define conformance criteria Chainguard is responsible for using its discretion in validating the functionality of the application and (within reason) accepting scenarios from Customers to run as part of the Chainguard qualification process. Refer to our conceptual article on [How Chainguard Container Images are Tested](/chainguard/chainguard-images/images-testing/) for more information.
+Chainguard is responsible for producing conformant distributions of upstream applications; where the upstream project does not define conformance criteria Chainguard is responsible for using its discretion in validating the functionality of the application and (within reason) accepting scenarios from Customers to run as part of the Chainguard qualification process. Refer to our conceptual article on [How Chainguard container images are tested](/chainguard/chainguard-images/images-testing/) for more information.
 
 Customers are responsible for ensuring that Chainguard-provided images cover all of their desired functionality, and partnering with Chainguard to ensure the requisite coverage is part of our qualification process if gaps are identified. Customers are responsible for testing all of their modifications to Chainguard Container Images and for responsibly rolling out Chainguard Container Images to ensure there are no regressions specific to their environment or usage.
 
@@ -82,6 +82,6 @@ By their minimal nature, some Chainguard Container Images may not include certai
 
 Following [the principle of immutability](https://www.chainguard.dev/unchained/the-principle-of-immutability), Chainguard recommends that customers pin Chainguard Container Images and make use of tooling such as [dependabot](https://github.com/dependabot), [Renovate](/chainguard/chainguard-images/working-with-images/renovate/), or [our own digestabot](https://www.chainguard.dev/unchained/keep-your-chainguard-images-up-to-date-with-digestabot) to qualify image updates through the customers’ CI/CD processes covering in-scope usage scenarios. This is key to responsibly rolling out changes because the reality is that upstream, Chainguard, and customers are all fallible and regressions can happen; but this pattern enables folks to have a clear rollback story.
 
-## Learn More
+## Learn more
 
-We encourage you to check out our other resources on recommended practices to ensure that your Chainguard Container Images are effectively maximizing your organization's security posture. As example, you can read through our conceptual articles on [Strategies for Minimizing your CVE Risk](/chainguard/chainguard-images/recommended-practices/cve-risk/) or [Considerations for Keeping Container Images Up to Date](/chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/).
+We encourage you to check out our other resources on recommended practices to ensure that your Chainguard Container Images are effectively maximizing your organization's security posture. As example, you can read through our conceptual articles on [Strategies for minimizing your CVE risk](/chainguard/chainguard-images/recommended-practices/cve-risk/) or [Considerations for keeping container images up to date](/chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/).

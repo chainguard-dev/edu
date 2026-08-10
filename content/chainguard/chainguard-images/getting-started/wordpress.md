@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with the WordPress Chainguard Container"
+title: "Getting started with the WordPress Chainguard Container"
 type: "article"
 linktitle: "WordPress"
 description: "Learn how to deploy WordPress using Chainguard's security-hardened container image with reduced vulnerabilities and distroless runtime options"
@@ -378,6 +378,6 @@ docker compose down
 
 To keep your WordPress installation up to date, use [digestabot](https://edu.chainguard.dev/chainguard/chainguard-images/videos/digestabot/), a GitHub Action that works like Dependabot — it sends a pull request to your repository whenever a new version of a container image is available, ensuring you're always running the latest WordPress version from Wolfi.
 
-## Advanced Usage
+## Advanced usage
 
 {{< blurb/images-advanced image="WordPress" >}}

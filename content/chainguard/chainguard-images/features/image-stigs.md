@@ -24,7 +24,7 @@ Security Technical Implementation Guides (STIGs) trace their origin to the Unite
 
 The Chainguard GPOS SRG profile applies to all Chainguard Containers — including both FIPS and non-FIPS images. The Getting Started (#getting-started) section demonstrates how to use OpenSCAP to validate hardening checks against any Chainguard Container.
 
-## Getting Started
+## Getting started
 
 The instructions below use OpenSCAP. For an InSpec-based alternative using cinc-auditor, Chainguard also maintains [chainguard-inspec](https://github.com/chainguard-dev/chainguard-inspec), which is a good fit for teams already using InSpec for compliance automation or working with distroless and short-lived containers.
 
@@ -155,7 +155,7 @@ This limited implementation means that only the necessary software to operate ca
 
 The host's container execution environment further reduces the risk of unauthorized modification of software through Linux container isolation capabilities including namespaces and cgroups. These restrictions prevent unauthorized modification of the host operating system environment.
 
-### Address Space Layout Randomization (ASLR)
+### Address space layout randomization (ASLR)
 
 ASLR configuration is the responsibility of the host operating system on which containers run. Applications running within a container on a host that has ASLR enabled will automatically be protected by the configuration. No additional action is needed to ensure that container-based applications are protected.
 
@@ -181,4 +181,4 @@ These containers can be validated against the General Purpose Operating System S
 
 ## Learn more
 
-You can use OpenSCAP to validate hardening checks against any Chainguard Container, including both FIPS and non-FIPS images, using the process described in [Getting Started](#getting-started). Chainguard's STIG hardened FIPS Containers are also generally available. You can check out our [STIG repo](https://github.com/chainguard-dev/stigs?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) or [contact us](https://get.chainguard.dev/simplify-fedramp-compliance-5?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) for more information. If you'd like to learn more about how Chainguard Containers can help you meet FedRAMP compliance, we encourage you to refer to our overview of [Chainguard's FIPS-ready container images](/chainguard/chainguard-images/working-with-images/fips-images/).
+You can use OpenSCAP to validate hardening checks against any Chainguard Container, including both FIPS and non-FIPS images, using the process described in [Getting started](#getting-started). Chainguard's STIG hardened FIPS Containers are also generally available. You can check out our [STIG repo](https://github.com/chainguard-dev/stigs?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) or [contact us](https://get.chainguard.dev/simplify-fedramp-compliance-5?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) for more information. If you'd like to learn more about how Chainguard Containers can help you meet FedRAMP compliance, we encourage you to refer to our overview of [Chainguard's FIPS-ready container images](/chainguard/chainguard-images/working-with-images/fips-images/).

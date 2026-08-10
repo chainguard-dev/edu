@@ -1,5 +1,5 @@
 ---
-title: "What are Containers?"
+title: "What are containers?"
 linktitle: "Containers"
 description: "An overview of the structure, contents, and applications of container technology"
 lead: "An overview of the structure, contents, and applications of container technology"
@@ -45,7 +45,7 @@ A container engine communicates with the host operating system's kernel. Within 
 
 ## Getting started with containers
 
-Depending on your application, you may not need to build your own container images from scratch. Instead, you can pull a container image from a *container registry*, a centralized repository of images. [Docker Hub](https://hub.docker.com/) hosts hundreds of thousands of open source images. Other registries include the [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry), the [Google Artifact Registry](https://cloud.google.com/artifact-registry/docs), and the [Chainguard Registry](/chainguard/chainguard-registry/overview/), which offers a free public catalog of secure, minimal base images.
+Depending on your application, you may not need to build your own container images from scratch. Instead, you can pull a container image from a *container registry*, a centralized repository of images. [Docker Hub](https://hub.docker.com/) hosts hundreds of thousands of open source images. Other registries include the [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry), the [Google Artifact Registry](https://cloud.google.com/artifact-registry/docs), and the [Chainguard registry](/chainguard/chainguard-registry/overview/), which offers a free public catalog of secure, minimal base images.
 
 When choosing a container image, consider more than just core functionality. Your image must include the packages and components your application needs, but images with many unneeded packages increase your data egress and vulnerability counts. Prefer images that balance security and reliability with a minimal footprint.
 

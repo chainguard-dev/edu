@@ -1,8 +1,8 @@
 ---
 aliases:
 - /chainguard/administration/terraform-provider/
-title: "Introduction to the Chainguard Terraform Provider"
-linktitle: "Terraform Provider"
+title: "Introduction to the Chainguard Terraform provider"
+linktitle: "Terraform provider"
 type: "article"
 description: "An introduction to working with the Chainguard Terraform provider"
 date: 2024-01-28T15:56:52-07:00
@@ -70,11 +70,11 @@ provider "chainguard" {
 
 You can find more information about authenticating with the Chainguard Terraform provider in the [provider documentation](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs) and [the included examples](https://github.com/chainguard-dev/terraform-provider-chainguard/tree/main/examples).
 
-## Defining Organization References
+## Defining organization references
 
 Terraform was designed to allow users to manage various resources declaratively. In practice, this means that you define the state you want your resources to be in and then you let Terraform and the provider handle the details of bringing that state to reality.
 
-Resources on the Chainguard platform are organized in a hierarchical structure consisting of [**Organizations** and **Folders**](/platform/administration/iam-organizations/overview-of-chainguard-iam-model/#organizations-and-folders). An organization is a customer or group of customers working with the same Chainguard resources, while a folder is a collection of resources within a Chainguard organization. Most users will only need to work at the organization level.
+Resources on the Chainguard platform are organized in a hierarchical structure consisting of [**Organizations** and **folders**](/platform/administration/iam-organizations/overview-of-chainguard-iam-model/#organizations-and-folders). An organization is a customer or group of customers working with the same Chainguard resources, while a folder is a collection of resources within a Chainguard organization. Most users will only need to work at the organization level.
 
 ![Diagram outlining hierarchical structure of Chainguard resources. The diagram has two halves: one labeled "Organization" and another labeled "Chainguard". Under Organization is a box labeled "Tags" with an arrow pointing toward another box labeled "Repos." Under both halves is a box labeled "Role Bindings" which has four arrows pointing from it. Two arrows point to boxes (labeled "Identities" and "Custom Roles") under Organization and the other two point to boxes (labeled "User Identities" and "roles) under Chainguard.](tf-diagram.png)
 

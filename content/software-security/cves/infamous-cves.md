@@ -1,5 +1,5 @@
 ---
-title: "Infamous Software Vulnerabilities"
+title: "Infamous software vulnerabilities"
 description: "An overview of a few of the most critical, widespread, and impactful known software vulnerabilities"
 lead: "An overview of a few of the most critical, widespread, and impactful known software vulnerabilities"
 type: "article"
@@ -50,7 +50,7 @@ As Shellshock was not discovered for over two decades after its inception, the s
 
 To learn more about Shellshock and its related vulnerabilities, check out [the CISA’s Shellshock alert](https://www.cisa.gov/news-events/alerts/2014/09/25/gnu-bourne-again-shell-bash-shellshock-vulnerability-cve-2014-6271).
 
-## Learn More
+## Learn more
 
 In this article, you learned how the CISA’s KEV Catalog tracks exploited vulnerabilities, and how the catalog is used by developers and federal agencies to prioritize vulnerability remediation. You also explored three infamous software vulnerabilities: Log4Shell, Heartbleed, and Shellshock, and learned how they have impacted systems across the world.
 

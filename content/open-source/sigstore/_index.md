@@ -9,7 +9,7 @@ images: []
 topic: true
 banner: {
     image: "/icon-education.svg",
-    title: "Keyless Signing",
+    title: "Keyless signing",
     subtitle: "Learn how to keyless sign a container image with Sigstore",
     cta: "Follow guide",
     link: "/open-source/sigstore/how-to-keyless-sign-a-container-with-sigstore/"
@@ -37,7 +37,7 @@ tutorials: [
     url: "/open-source/sigstore/policy-controller/"
   },
   {
-    title: "Cosign: The Manual Way",
+    title: "Cosign: The manual way",
     description: "Walk through doing Cosign manually",
     url: "/open-source/sigstore/cosign/cosign-manual-way/"
   },
@@ -46,7 +46,7 @@ tutorials: [
     description: "How to sign and verify an SBOM with Cosign",
     url: "/open-source/sigstore/cosign/how-to-sign-an-sbom-with-cosign/"
   },
-  
+
 ]
 
 ---

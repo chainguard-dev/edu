@@ -154,7 +154,7 @@ In our example, [we requested a list of groups the account belongs to](https://e
 }
 ```
 
-## Example 2 — Authenticate with an Assumed Identity
+## Example 2 — Authenticate with an assumed identity
 
 The [`exchange` example](https://github.com/chainguard-dev/sdk/tree/main/examples/registry/exchange) demonstrates how to exchange a token for an assumed identity to access the registry.
 
@@ -233,7 +233,7 @@ To do so, you will need an appropriately-configured assumable identity. You can 
 
 ### Example 2 using curl
 
-First, login with chainctl using an OIDC token. Where the token comes from will differ by platform. Refer to our [Identity Provider samples](/chainguard/administration/custom-idps/idp-providers/) for some examples.
+First, login with chainctl using an OIDC token. Where the token comes from will differ by platform. Refer to our [Identity provider samples](/chainguard/administration/custom-idps/idp-providers/) for some examples.
 
 ```shell
 chainctl auth login --identity "<identity-id>" --identity-token /var/run/chainguard/oidc/oidc-token
@@ -272,7 +272,7 @@ In our example, [we requested a list of groups the account belongs to](https://e
 }
 ```
 
-Using environment variables is helpful when working with assumable identities through the API and API tokens. Here's a high-level example of what you might do. Refer to your identity provider's documentation and [Assumable Identities](/chainguard/administration/assumable-ids/assumable-ids/) to learn more.
+Using environment variables is helpful when working with assumable identities through the API and API tokens. Here's a high-level example of what you might do. Refer to your identity provider's documentation and [Assumable identities](/chainguard/administration/assumable-ids/assumable-ids/) to learn more.
 
 Here are some sample environment variables:
 
@@ -294,14 +294,14 @@ API_TOKEN=$(curl -sSf \
 curl -H "Authorization: Bearer ${API_TOKEN}" https://console-api.enforce.dev/registry/v1/repos
 ```
 
-Refer to the [Assumable Identities documentation](/chainguard/administration/assumable-ids/assumable-ids/#using-the-chainguard-api) for another example of authentication using an assumed identity.
+Refer to the [Assumable identities documentation](/chainguard/administration/assumable-ids/assumable-ids/#using-the-chainguard-api) for another example of authentication using an assumed identity.
 
-## Learn More
+## Learn more
 
 The Chainguard SDK is a powerful tool for interacting with the Chainguard platform. As mentioned previously, the examples covered in this guide don't represent a practical real-world application, but they are useful for understanding how the Chainguard SDK works and can be used to authenticate to the Chainguard platform.
 
 To learn more, you may be interested in the following resources:
 
-* [Overview of Assumable Identities in Chainguard](/chainguard/administration/assumable-ids/assumable-ids/)
-* [Authenticate to Chainguard's Registry](/chainguard/chainguard-registry/authenticating/)
-* [Chainguard OpenAPI Specification](/chainguard/api/spec/)
+* [Overview of assumable identities in Chainguard](/chainguard/administration/assumable-ids/assumable-ids/)
+* [Authenticate to Chainguard's registry](/chainguard/chainguard-registry/authenticating/)
+* [Chainguard OpenAPI specification](/chainguard/api/spec/)
