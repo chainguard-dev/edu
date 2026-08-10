@@ -150,9 +150,6 @@ notAlternative = true
     source = "node_modules/@hyas/doks/static"
     target = "static"
   [[module.mounts]]
-    source = "node_modules/flexsearch"
-    target = "assets/js/vendor/flexsearch"
-  [[module.mounts]]
     source = "node_modules/katex"
     target = "assets/js/vendor/katex"
   [[module.mounts]]
