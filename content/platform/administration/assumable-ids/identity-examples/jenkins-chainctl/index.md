@@ -131,4 +131,4 @@ In this guide you used `chainctl` to create an assumable identity and configure 
 
 - [Assumable IDs](/chainguard/administration/assumable-ids/)
 - [How to install chainctl](/chainguard/chainctl-usage/how-to-install-chainctl/)
-- [Authenticating with Chainguard registry](/chainguard/chainguard-images/chainguard-registry/authenticating/)
+- [Authenticating with Chainguard registry](/chainguard/containers/chainguard-registry/authenticating/)

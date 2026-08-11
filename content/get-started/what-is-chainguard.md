@@ -20,7 +20,7 @@ Chainguard's mission is to be the secure source for open source. Rather than lea
 
 Chainguard rebuilds open source software into products you can adopt directly, depending on how you consume dependencies:
 
-- **[Chainguard Containers](/chainguard/chainguard-images/overview/)** are minimal, hardened container images. Following a distroless philosophy, each image includes only your application and its essential runtime dependencies, minimizing the overall attack surface. This minimalism is a large part of why they carry [low-to-no CVEs](/chainguard/chainguard-images/about/zerocve/).
+- **[Chainguard Containers](/chainguard/containers/overview/)** are minimal, hardened container images. Following a distroless philosophy, each image includes only your application and its essential runtime dependencies, minimizing the overall attack surface. This minimalism is a large part of why they carry [low-to-no CVEs](/chainguard/containers/about/zerocve/).
 - **[Chainguard Libraries](/chainguard/libraries/overview/)** bring the same approach to language dependencies. They're drop-in replacements for open source packages in the Java, Python, and JavaScript ecosystems, rebuilt from verified sources and continuously monitored.
 
 You pull Chainguard Containers and Libraries from a single, policy-aware endpoint, the [Chainguard Repository](/chainguard/chainguard-repository/overview/).

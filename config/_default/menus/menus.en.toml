@@ -68,7 +68,7 @@
 [[main]]
   name = "Chainguard Containers"
   identifier = "chainguard-images"
-  url = "/chainguard/chainguard-images/"
+  url = "/chainguard/containers/"
   parent = "menu-chainguard"
   weight = 15
 

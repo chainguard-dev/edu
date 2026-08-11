@@ -4,6 +4,7 @@ linkTitle: "FIPS"
 aliases:
 - /chainguard/fips/
 - /chainguard/chainguard-images/features/fips/
+- /chainguard/containers/features/fips/
 lead: ""
 description: "Chainguard FIPS documentation"
 type: "article"

@@ -20,7 +20,7 @@
         {
           "name": "Container Images",
           "count": {{ len (where $chainguardPages "Params.section" "chainguard-images") }},
-          "path": "/chainguard/chainguard-images/"
+          "path": "/chainguard/containers/"
         },
         {
           "name": "Libraries",

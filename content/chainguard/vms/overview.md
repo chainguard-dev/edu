@@ -14,7 +14,7 @@ weight: 001
 toc: true
 ---
 
-Chainguard VMs offer a minimal and verifiable foundation for running ephemeral workloads in cloud and on-prem hypervisor deployments, designed to complement and extend the same secure-by-default philosophy found in [Chainguard Containers](https://edu.chainguard.dev/chainguard/chainguard-images/overview/). With a strong focus on rapid CVE remediation and a small attack surface, Chainguard VMs are purpose-built to service the target workload and include only the packages that are essential for its operation.
+Chainguard VMs offer a minimal and verifiable foundation for running ephemeral workloads in cloud and on-prem hypervisor deployments, designed to complement and extend the same secure-by-default philosophy found in [Chainguard Containers](https://edu.chainguard.dev/chainguard/containers/overview/). With a strong focus on rapid CVE remediation and a small attack surface, Chainguard VMs are purpose-built to service the target workload and include only the packages that are essential for its operation.
 
 Built in the Chainguard Factory, Chainguard VMs benefit from a highly automated, secure-by-design build pipeline that ensures consistent, reproducible artifacts. This streamlined process enables the delivery of VM images that are continuously updated to eliminate known vulnerabilities.
 
@@ -63,7 +63,7 @@ Offering broad compatibility, Chainguard VMs allow for deployment in any environ
 
 ## Compliance and SLAs
 
-Chainguard VMs (running Chainguard OS) are intentionally designed to minimize risk, maximize transparency, and satisfy security standards such as [CIS Benchmarks](https://edu.chainguard.dev/compliance/cis-benchmarks/), [FedRAMP](https://edu.chainguard.dev/chainguard/chainguard-images/staying-secure/fedramp-considerations/), SOC 2, and others.
+Chainguard VMs (running Chainguard OS) are intentionally designed to minimize risk, maximize transparency, and satisfy security standards such as [CIS Benchmarks](https://edu.chainguard.dev/compliance/cis-benchmarks/), [FedRAMP](https://edu.chainguard.dev/chainguard/containers/staying-secure/fedramp-considerations/), SOC 2, and others.
 
 * CVE remediation backed by an [industry-leading SLA](https://www.chainguard.dev/legal/cve-policy): 7 days for critical, 14 days for all others
 * Consistent, reproducible builds

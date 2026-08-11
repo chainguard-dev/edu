@@ -140,7 +140,7 @@ chainctl images diff \
   "cgr.dev/$ORG/$IMAGE:$NEW_TAG"
 ```
 
-Capture the output with `| tee diff-report.txt` to attach it to a pull request or deployment ticket. Refer to [Compare Chainguard Containers with chainctl diff](/chainguard/chainguard-images/how-to-use/comparing-images/) for details on reading the diff output.
+Capture the output with `| tee diff-report.txt` to attach it to a pull request or deployment ticket. Refer to [Compare Chainguard Containers with chainctl diff](/chainguard/containers/how-to-use/comparing-images/) for details on reading the diff output.
 
 ## Audit role bindings for compliance
 

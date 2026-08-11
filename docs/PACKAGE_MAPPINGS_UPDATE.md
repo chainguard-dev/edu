@@ -1,6 +1,6 @@
 # Package Mappings Update Guide
 
-This document explains how the package and image mappings are automatically maintained on the [Package Name Mappings](/chainguard/chainguard-images/about/package-name-mappings/) documentation page.
+This document explains how the package and image mappings are automatically maintained on the [Package Name Mappings](/chainguard/containers/about/package-name-mappings/) documentation page.
 
 ## Overview
 
@@ -47,7 +47,7 @@ npm run build
 npm run start
 ```
 
-Navigate to `/chainguard/chainguard-images/about/package-name-mappings/` to verify the tables render correctly.
+Navigate to `/chainguard/containers/about/package-name-mappings/` to verify the tables render correctly.
 
 ## Hugo Shortcodes
 
@@ -82,7 +82,7 @@ After updating the mappings:
 
 ## Related Files
 
-- Documentation: `/content/chainguard/chainguard-images/about/package-name-mappings.md`
+- Documentation: `/content/chainguard/containers/about/package-name-mappings.md`
 - Data file: `/data/package-mappings.yaml`
 - Shortcodes: `/layouts/shortcodes/package-mappings/*.html`
 - This guide: `/docs/PACKAGE_MAPPINGS_UPDATE.md`

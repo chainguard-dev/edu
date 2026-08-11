@@ -11,26 +11,26 @@ images: []
 weight: 020
 crosslinks:
 - title: "Quickstart"
-  url: "/chainguard/chainguard-images/quickstart/"
+  url: "/chainguard/containers/quickstart/"
 - title: "nginx"
-  url: "/chainguard/chainguard-images/getting-started/nginx/"
+  url: "/chainguard/containers/getting-started/nginx/"
 - title: "PostgreSQL"
-  url: "/chainguard/chainguard-images/getting-started/postgres/"
+  url: "/chainguard/containers/getting-started/postgres/"
 - title: "Python"
-  url: "/chainguard/chainguard-images/getting-started/python/"
+  url: "/chainguard/containers/getting-started/python/"
 - title: "Go"
-  url: "/chainguard/chainguard-images/getting-started/go/"
+  url: "/chainguard/containers/getting-started/go/"
 ---
 
-Start with the [quickstart](/chainguard/chainguard-images/quickstart/), which pulls a public Chainguard Container, builds an application on top of it, and verifies the image's signature and SBOM.
+Start with the [quickstart](/chainguard/containers/quickstart/), which pulls a public Chainguard Container, builds an application on top of it, and verifies the image's signature and SBOM.
 
 From there, pick a stack and build your first image. Each guide walks through pulling a Chainguard Container, running it, and adapting it to your own application.
 
-These are a starting point. Chainguard publishes getting-started guides for many more languages and services — refer to the full set under [Chainguard Containers](/chainguard/chainguard-images/getting-started/).
+These are a starting point. Chainguard publishes getting-started guides for many more languages and services — refer to the full set under [Chainguard Containers](/chainguard/containers/getting-started/).
 
 ## Featured guides
 
-- **[nginx](/chainguard/chainguard-images/getting-started/nginx/)** — serve a web application from a hardened, distroless nginx container.
-- **[PostgreSQL](/chainguard/chainguard-images/getting-started/postgres/)** — run a PostgreSQL database with a minimal attack surface.
-- **[Python](/chainguard/chainguard-images/getting-started/python/)** — package a Python application using the development and production image variants.
-- **[Go](/chainguard/chainguard-images/getting-started/go/)** — compile a Go binary with a multi-stage build and ship it on a minimal runtime.
+- **[nginx](/chainguard/containers/getting-started/nginx/)** — serve a web application from a hardened, distroless nginx container.
+- **[PostgreSQL](/chainguard/containers/getting-started/postgres/)** — run a PostgreSQL database with a minimal attack surface.
+- **[Python](/chainguard/containers/getting-started/python/)** — package a Python application using the development and production image variants.
+- **[Go](/chainguard/containers/getting-started/go/)** — compile a Go binary with a multi-stage build and ship it on a minimal runtime.

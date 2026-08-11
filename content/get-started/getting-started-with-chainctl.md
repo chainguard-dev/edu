@@ -103,7 +103,7 @@ chainctl images diff cgr.dev/chainguard.edu/$IMAGENAME:latest cgr.dev/chainguard
 
 If a requested image or release being requested is not available in the repo you are using, this will return a `Forbidden` error, just like if you tried to pull an image you did not have access to or from a repository your account is not authorized to use.
 
-Learn more at [How to compare Chainguard Containers with chainctl](/chainguard/chainguard-images/how-to-use/comparing-images/).
+Learn more at [How to compare Chainguard Containers with chainctl](/chainguard/containers/how-to-use/comparing-images/).
 
 ## List available package versions
 

@@ -11,6 +11,6 @@ draft: false
 weight: 005
 crosslinks:
 - title: "Catalog Starter"
-  url: "/chainguard/chainguard-images/about/catalog-starter/"
+  url: "/chainguard/containers/about/catalog-starter/"
 landingpage: "/get-started/self-serve/overview/"
 ---

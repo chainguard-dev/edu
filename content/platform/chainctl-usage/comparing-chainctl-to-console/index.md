@@ -146,7 +146,7 @@ To learn more about the Chainguard Console, see:
 
 ### Compare a Chainguard Container to a non-Chainguard alternative in the Console
 
-This is a feature unique to the Console and is described in detail in [Using CVE visualizations](/chainguard/chainguard-images/features/cve_visualizations/).
+This is a feature unique to the Console and is described in detail in [Using CVE visualizations](/chainguard/containers/features/cve_visualizations/).
 
 ### Compare two Chainguard Containers with chainctl
 

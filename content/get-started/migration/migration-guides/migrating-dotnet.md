@@ -20,7 +20,7 @@ This guide demonstrates migrating a .NET application from Microsoft's official i
 
 ## Prerequisites
 
-This tutorial uses the publicly available .NET container images from Chainguard's [Free tier](/chainguard/chainguard-images/about/images-categories/#free-containers) of images. You don't need special access or permissions to use these images.
+This tutorial uses the publicly available .NET container images from Chainguard's [Free tier](/chainguard/containers/about/images-categories/#free-containers) of images. You don't need special access or permissions to use these images.
 
 To follow along, you must have Docker installed on your local machine. If you don't have Docker installed, you can download and install it from the [official Docker website](https://docs.docker.com/get-docker/). Optionally, you can install [Grype](https://github.com/anchore/grype) to scan container images for vulnerabilities and compare the security posture of different base images.
 
@@ -347,7 +347,7 @@ This output shows that the `dotnet-example:linky` container image is significant
 When migrating a .NET application to use Chainguard Containers, keep the following considerations in mind:
 
 - **Registry change**: Update image references from `mcr.microsoft.com` to `cgr.dev/chainguard` (or to your organization's private repository within the Chainguard registry, as in `cgr.dev/example.com`)
-- **Multi-stage builds**: Both approaches use [multi-stage builds](/chainguard/chainguard-images/about/getting-started-distroless/#multi-stage-builds) to separate build-time and runtime dependencies
+- **Multi-stage builds**: Both approaches use [multi-stage builds](/chainguard/containers/about/getting-started-distroless/#multi-stage-builds) to separate build-time and runtime dependencies
 - **`restore` operations**: Chainguard's security model requires switching to root for `dotnet restore` or `apk` operations:
 
 ```dockerfile
@@ -368,7 +368,7 @@ Choose the runtime image based on the type of application:
 - `cgr.dev/chainguard/dotnet-runtime:latest` for .NET Core applications (these are often console applications, like the one in this guide)
 - `cgr.dev/chainguard/aspnet-runtime:latest` for ASP.NET applications (these are typically web applications)
 
-If a build stage needs a shell or package manager, use a [development variant](/chainguard/chainguard-images/about/differences-development-production/) of the relevant Chainguard container image.
+If a build stage needs a shell or package manager, use a [development variant](/chainguard/containers/about/differences-development-production/) of the relevant Chainguard container image.
 
 ## Learn more
 

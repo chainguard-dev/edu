@@ -1,0 +1,251 @@
+---
+title: "Overview of Chainguard Containers"
+linktitle: "Overview"
+type: "article"
+description: "Learn about Chainguard Containers, distroless images, and how they provide enhanced security through minimal attack surface and comprehensive supply chain features."
+lead: "Chainguard Containers are security-hardened container images built with a distroless approach, containing only essential application components and runtime dependencies."
+date: 2022-09-01T08:49:31+00:00
+lastmod: 2025-07-23T16:52:56+00:00
+draft: false
+tags: ["Chainguard Containers"]
+images: []
+menu:
+  docs:
+    parent: "chainguard-images"
+    identifier: "Chainguard Images Overview"
+weight: 005
+toc: true
+aliases:
+- /chainguard/chainguard-images/overview/
+- /chainguard/containers/overview/
+---
+
+[Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) are container images designed for enhanced security through minimalism and supply chain integrity. These images follow a distroless philosophy, containing only the application and its essential runtime dependencies, without shells, package managers, or other common utilities that can increase attack surface.
+
+Many Chainguard Containers implement a [distroless approach](/chainguard/containers/getting-started-distroless/), which means they exclude shells, package managers, and other utilities typically found in container images. This design significantly reduces potential security vulnerabilities. For development and debugging purposes, Chainguard provides `-dev` variants that include necessary tools while maintaining security best practices. All images are built using Chainguard OS, an operating system specifically designed to meet secure software supply chain requirements.
+
+Chainguard Containers are primarily available from [Chainguard's registry](/chainguard/chainguard-registry/overview/), but a selection of developer images is also available on [Docker Hub](https://hub.docker.com/u/chainguard). You can find the complete list of available Chainguard Containers in our public [Containers Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-overview) or within the [Chainguard Console](https://console.chainguard.dev/).
+
+## Built-in security and supply chain guarantees
+
+All Chainguard Containers are built with a consistent set of security and supply-chain guarantees, without requiring additional configuration:
+
+- Minimal design, with no unnecessary software bloat
+- Automated nightly builds to ensure container images are completely up-to-date and contain all available security patches
+- [High quality build-time SBOMs](/chainguard/containers/working-with-images/retrieve-image-sboms/) (software bill of materials) attesting the provenance of all artifacts within the container image
+- [Verifiable signatures](/chainguard/containers/working-with-images/retrieve-image-sboms/) provided by [Sigstore](/open-source/sigstore/cosign/an-introduction-to-cosign/)
+- Reproducible builds with Cosign and apko ([read more about reproducibility](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds))
+
+## Chainguard Container customization and lifecycle features
+
+Chainguard Containers include features that allow you to customize images, manage updates, and meet security and compliance requirements across the container lifecycle:
+
+- [Custom Assembly](/chainguard/containers/features/ca-docs/custom-assembly/): Customize Chainguard images by adding packages, configuration files, and certificates using chainctl, without maintaining your own Dockerfiles.
+- Custom certificates: Add trusted certificates [to existing containers via Custom Assembly](/chainguard/containers/features/ca-docs/custom-assembly-certs/) (for organization-specific or environment-specific certificates) or by [using incert to build images with certificates embedded at build time](/chainguard/containers/features/incert-custom-certs/).
+- [Packages](/chainguard/containers/features/packages/package-model/): Install and manage additional packages in Chainguard images while preserving Chainguard’s minimal, secure-by-default base images.
+- [EOL grace periods](/chainguard/containers/features/eol-gp-overview/): Control how end-of-life packages are handled in images to balance security requirements with operational stability.
+- [STIGs](/chainguard/containers/features/image-stigs/): Use DISA STIG–aligned images to support compliance-driven environments.
+- [Unique tags](/chainguard/containers/features/unique-tags/) and [tag history](/chainguard/containers/features/using-the-tag-history-api/): Track image changes over time with immutable tags and access tag history via API.
+- [CVE visualization](/chainguard/containers/features/cve_visualizations/): Explore vulnerability data for images to better understand risk and remediation timelines.
+
+## Why minimal container images
+
+The fewer dependencies a given piece of software uses, the lower likelihood that it will be impacted by CVEs. By minimizing the number of dependencies and thus reducing their potential attack surface, Chainguard Containers inherently contain few to zero CVEs. Chainguard Containers are rebuilt nightly to ensure they are completely up-to-date and contain all available security patches. With this nightly build approach, our engineering team sometimes [fixes vulnerabilities before they’re detected](https://www.chainguard.dev/unchained/how-chainguard-fixes-vulnerabilities?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
+
+Note that there is often a development variant of each Chainguard Container available. These are sometimes called the `-dev` variant, as their tags include the `-dev` suffix (as in `:latest-dev`). For example, the development variant of the `mariadb:latest` container image is `mariadb:latest-dev`. These container images typically contain a shell and tools like a package manager to allow users to more easily debug and modify the image.
+
+## Why multi-layer container images
+
+Chainguard originally took a single-layer approach to container images built [with apko](/open-source/build-tools/apko/getting-started-with-apko/) in order to offer simplicity and clarity. However, in an effort to deliver better stability, security, and efficiency for larger and more complex applications, Chainguard introduced multi-layer container images in May 2025. This approach leverages container runtime caching so that a layer used by multiple images does not need to be downloaded more than once, and you don't need to download the whole image each time there is an update on one layer.
+
+Chainguard's approach to layering is a "per-origin" strategy, where packages that derive from the same upstream source are grouped in the same layer because they tend to receive updates together.
+
+We observed that this approach achieved the following:
+
+- A ~70% reduction in the total size of unique layer data across our image catalog compared to the single-layer approach
+- A 70-85% reduction in the cumulative bytes transferred when simulating sequential pulls of updated images like PyTorch and NeMo
+
+To maximize the stability and re-usability of our layers, Chainguard identified, analyzed, and implemented three additional technical changes:
+
+- Added in an additional final layer that captures frequently updated OS-level metadata
+- Developed intelligent layer ordering to optimize compatibility
+- Ensured sufficient layer counts to optimize parallel downloads by container clients
+
+The primary benefit of this layered approach is that when one package changes it impacts only its particular layer, requiring only that layer to be downloaded again. Because the other layers don't need to be downloaded again, Chainguard's multi-layer container images support greater efficiency and developer velocity.
+
+## Production and free containers
+
+Chainguard offers a collection of container images that are publicly available and don't require authentication, being free to use by anyone. We refer to these images as **Free images**, and they cover several use cases for different language ecosystems. Free images are limited to the latest build of a given image, tagged as `latest` and `latest-dev`.
+
+Production containers are enterprise-ready images that come with patch SLAs and features such as [Federal Information Processing Standard (FIPS) readiness](/chainguard/fips/fips-images/) and [unique time-stamped tags](/chainguard/containers/images-features/unique-tags/). Unlike Free containers, which are typically paired with only the latest version of an upstream package, Production containers offer specific major and minor versions of open source software. Chainguard offers two pricing options for Production containers: Per-Image Pricing and [Catalog pricing](/chainguard/containers/about/pricing/).
+
+You can access our container images directly from [Chainguard's registry](/chainguard/chainguard-registry/overview/). Chainguard's registry provides public access to all public Chainguard Containers, and provides customer access for Production Containers after logging in and authenticating.
+
+For a complete list of Free Containers that are currently available, check our [Containers Directory](https://images.chainguard.dev/?category=developer). Registered users can also access all Free and Production container images in the [Chainguard Console](https://console.chainguard.dev/?utm=docs). After logging in you will be able to find all the current Free containers in the **Chainguard catalog** tab. If you've selected an appropriate Organization in the drop-down menu above the left hand navigation, you can find your organization's Production containers in the **Organization** tab.
+
+## Comparing container images
+
+The following graph shows a comparison between the official Nginx image and Chainguard's [Nginx container image](https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-overview), based on the number of CVEs (common vulnerabilities and exposures) detected by [Grype](https://github.com/anchore/grype):
+
+{{< rumble title="Nginx" description="Comparing the latest official Nginx image with cgr.dev/chainguard/nginx" left="nginx:latest" right="cgr.dev/chainguard/nginx:latest" >}}
+
+The major advantage of distroless images is the reduced size and complexity, which results in a vastly reduced attack surface. This is evidenced by the results from security scanners, which detect far fewer potential vulnerabilities in Chainguard Containers.
+
+You can review more comparisons of Chainguard Containers and external images by checking out our [Vulnerability comparisons](/chainguard/containers/vuln-comparison/) dashboard.
+
+`chainctl`, Chainguard's command line interface tool, comes with a useful `diff` feature that also allows you to [compare two Chainguard Containers](/chainguard/containers/how-to-use/comparing-images/).
+
+## Architecture
+
+By default, all Wolfi-based images are built for x86_64 (also known as AMD64) and AArch64 (also known as ARM64) architecture with the following CPU Instruction Set Architecture (ISA) baseline features:
+
+- x86_64: x86-64-v2 (Sapphire Rapids)
+- AArch64: Armv8-A with CRC and Cryptographic extensions (Neoverse V2)
+
+Being able to provide multi-platform Chainguard Containers enables the support of more than one runtime environment, like those available on all three major clouds, AWS, GCP, and Azure. The macOS M-series (M1, M2, etc.) chips are also based on ARM architecture. Chainguard Containers allow you to take advantage of ARM's power consumption and cost benefits.
+
+You can confirm the available architecture of a given Chainguard Container with Crane. In this example, we'll use the latest Ruby image, but you can opt to use an alternate image.
+
+```shell
+crane manifest cgr.dev/chainguard/ruby:latest |jq -r '.manifests []| .platform'
+```
+
+Once you run this command, you'll receive output similar to the following.
+
+```output
+{
+  "architecture": "amd64",
+  "os": "linux"
+}
+{
+  "architecture": "arm64",
+  "os": "linux"
+}
+```
+
+This verifies that the Ruby Chainguard Container is built for both AMD64 and ARM64 architectures.
+
+You can read more about our support of ARM64 in our blog on [Building Wolfi from the ground up](https://www.chainguard.dev/unchained/building-wolfi-from-the-ground-up-and-announcing-arm64-support?utm=docs).
+
+## Annotations
+
+All Chainguard Containers include metadata in the form of *annotations* (also commonly referred to as "*labels*"). These annotations provide important information about a container image's origin, contents, and characteristics. The annotations are visible in every container image's **Specifications** tab in both the [Chainguard Console](https://console.chainguard.dev) and [Directory](https://images.chainguard.dev/), and can also be inspected programmatically using container tools.
+
+Chainguard Containers follow the [Open Container Initiative (OCI) Image Specification](https://github.com/opencontainers/image-spec/blob/main/annotations.md) for annotations. Chainguard sets the following standard OCI annotations on its container images:
+
+- `org.opencontainers.image.authors`: Contact details for the Chainguard Container's author (typically `Chainguard Team https://www.chainguard.dev/`)
+- `org.opencontainers.image.base.digest`: The SHA256 digest of the base image used to build this container image
+
+- `org.opencontainers.image.created`: Timestamp indicating when the image was built; specifically, this annotation is calculated from the build time of the most recently built package within the container image
+- `org.opencontainers.image.source`: URL to the source code used to build the image in the Chainguard images repository
+- `org.opencontainers.image.title`: The original image name as listed in the catalogue (for example `chainguard-base`)
+- `org.opencontainers.image.url`: URL to the container image's Overview page in the Chainguard Directory (for example, `https://images.chainguard.dev/directory/image/nginx/overview`)
+- `org.opencontainers.image.vendor`: The distributing organization, always set to `Chainguard`
+
+In addition to the standard OCI annotations, Chainguard sets custom annotations (which begin with `dev.chainguard` instead of `org.opencontainers`) that provide additional context about the container image:
+
+- `dev.chainguard.package.main`: The name of the primary package in the image. This may change between different versions of an image. In some situations, it may also be empty or unset.
+- `dev.chainguard.image.title`: Duplicate of the original image name as listed in the catalogue, in case downstream build processes override the same value in the `org.opencontainers` namespace.
+
+### Retrieving annotation information
+
+You can inspect image annotations using [`crane`](https://github.com/google/go-containerregistry/tree/main/cmd/crane). This section's examples use [`jq`](https://jqlang.org/), a command-line JSON processor, to filter the output to only show the relevant information:
+
+```shell
+crane manifest cgr.dev/chainguard/node:latest | jq -r .annotations
+```
+
+This will output all the annotations set on the image:
+
+```json
+{
+  "dev.chainguard.image.title": "node",
+  "dev.chainguard.package.main": "node",
+  "org.opencontainers.image.authors": "Chainguard Team https://www.chainguard.dev/",
+  "org.opencontainers.image.created": "2025-10-20T02:17:10Z",
+  "org.opencontainers.image.source": "https://github.com/chainguard-images/images/tree/main/images/node",
+  "org.opencontainers.image.title": "node",
+  "org.opencontainers.image.url": "https://images.chainguard.dev/directory/image/node/overview",
+  "org.opencontainers.image.vendor": "Chainguard"
+}
+```
+
+Chainguard also sets these annotation values as *labels*. In the context of OCI specifications, labels are similar to annotations but the two are ultimately distinct. [This blog post](https://adrianmouat.com/posts/annotations-and-labels-in-container-images/) outlines the differences between the two.
+
+You can also inspect a Chainguard Container's labels using the `crane config` command:
+
+```shell
+crane config cgr.dev/chainguard/node:latest | jq '.config.Labels'
+```
+
+The expected output is the same:
+
+```json
+{
+  "dev.chainguard.image.title": "node",
+  "dev.chainguard.package.main": "node",
+  "org.opencontainers.image.authors": "Chainguard Team https://www.chainguard.dev/",
+  "org.opencontainers.image.created": "2025-10-20T02:17:10Z",
+  "org.opencontainers.image.source": "https://github.com/chainguard-images/images/tree/main/images/node",
+  "org.opencontainers.image.title": "node",
+  "org.opencontainers.image.url": "https://images.chainguard.dev/directory/image/node/overview",
+  "org.opencontainers.image.vendor": "Chainguard"
+}
+```
+
+This returns the same output as the previous `crane` command.
+
+Lastly, you can use the `docker inspect` command to inspect a container image's labels:
+
+```shell
+docker pull cgr.dev/chainguard/node:latest
+docker inspect cgr.dev/chainguard/node:latest | jq '.[].Config.Labels'
+```
+
+The expected output is the same:
+
+```json
+{
+  "dev.chainguard.image.title": "node",
+  "dev.chainguard.package.main": "node",
+  "org.opencontainers.image.authors": "Chainguard Team https://www.chainguard.dev/",
+  "org.opencontainers.image.created": "2025-10-20T02:17:10Z",
+  "org.opencontainers.image.source": "https://github.com/chainguard-images/images/tree/main/images/node",
+  "org.opencontainers.image.title": "node",
+  "org.opencontainers.image.url": "https://images.chainguard.dev/directory/image/node/overview",
+  "org.opencontainers.image.vendor": "Chainguard"
+}
+```
+
+Again, this returns the same information as before. However, using `docker inspect` requires you to download the container image beforehand.
+
+Additionally, images have "`image.title` by `image.vendor`" encoded in the image config as a comment. You can use `docker history` to retrieve this information:
+
+```shell
+docker history cgr.dev/chainguard/node
+```
+
+Note the `COMMENT` column in the output:
+
+```output
+IMAGE          CREATED        CREATED BY   SIZE      COMMENT
+a063d5e94934   39 hours ago   apko         151kB     node by Chainguard
+<missing>      39 hours ago   apko         1.97MB    node by Chainguard
+<missing>      39 hours ago   apko         889kB     node by Chainguard
+<missing>      39 hours ago   apko         1.12MB    node by Chainguard
+<missing>      39 hours ago   apko         2.88MB    node by Chainguard
+<missing>      39 hours ago   apko         3.47MB    node by Chainguard
+<missing>      39 hours ago   apko         6.79MB    node by Chainguard
+<missing>      39 hours ago   apko         7.17MB    node by Chainguard
+<missing>      39 hours ago   apko         8.5MB     node by Chainguard
+<missing>      39 hours ago   apko         39.6MB    node by Chainguard
+<missing>      39 hours ago   apko         81.1MB    node by Chainguard
+```
+
+### Adding container image annotations
+
+OCI labels are specific to a container image, not to an entire layer. This means that for base images, annotation information is often overridden later on with more accurate details after the image has been ingested. For example, the `image.author` annotation might be reset to reflect the customer consuming the container image.
+
+Some users relabel their container images after they've been ingested. As an example, you may wish to add an annotation like `com.mycompany.image.source=chainguard` to your Chainguard Containers; this would allow you to filter for all the container images provided by Chainguard at `mycompany`.
+
+Some package mirroring tools support this functionality, but we recommend using Chainguard's [Custom Assembly](/chainguard/containers/features/ca-docs/custom-assembly/) tool to add custom annotations to your Chainguard Containers. Refer to our guide on [managing Custom Assembly resources with `chainctl`](/chainguard/containers/features/ca-docs/custom-assembly-chainctl/#adding-custom-annotations-and-environment-variables) for more information.

@@ -19,7 +19,7 @@ weight: 005
 toc: true
 ---
 
-[Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) are a collection of container images designed for security and minimalism. Many Chainguard Containers are [distroless](/chainguard/chainguard-images/getting-started-distroless/); they contain only an open-source application and its runtime dependencies. These container images do not even contain a shell or package manager, because fewer dependencies reduce the potential attack surface of images.
+[Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) are a collection of container images designed for security and minimalism. Many Chainguard Containers are [distroless](/chainguard/containers/getting-started-distroless/); they contain only an open-source application and its runtime dependencies. These container images do not even contain a shell or package manager, because fewer dependencies reduce the potential attack surface of images.
 
 By minimizing the number of dependencies and thus reducing their potential attack surface, Chainguard Containers inherently contain few to zero CVEs. Chainguard Containers are rebuilt nightly to ensure they are completely up-to-date and contain all available security patches. With this nightly build approach, our engineering team sometimes [fixes vulnerabilities before they’re detected](https://www.chainguard.dev/unchained/how-chainguard-fixes-vulnerabilities?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
 
@@ -27,8 +27,8 @@ The main features of Chainguard Containers include:
 
 * Minimalist design, with no unnecessary software bloat
 * Automated nightly builds to ensure Containers are completely up-to-date and contain all available security patches
-* [High quality build-time SBOMs](/chainguard/chainguard-images/working-with-images/retrieve-image-sboms/) (software bill of materials) attesting the provenance of all artifacts within the Container
-* [Verifiable signatures](/chainguard/chainguard-images/working-with-images/retrieve-image-sboms/) provided by [Sigstore](/open-source/sigstore/cosign/an-introduction-to-cosign/)
+* [High quality build-time SBOMs](/chainguard/containers/working-with-images/retrieve-image-sboms/) (software bill of materials) attesting the provenance of all artifacts within the Container
+* [Verifiable signatures](/chainguard/containers/working-with-images/retrieve-image-sboms/) provided by [Sigstore](/open-source/sigstore/cosign/an-introduction-to-cosign/)
 * Reproducible builds with Cosign and apko ([read more about reproducibility](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds))
 
 Because of their minimalist design, Chainguard Containers sometimes require users to adjust their image workflows. This document is intended to serve as a migration guide for customers transitioning their organizations to use Chainguard Containers. It includes general tips and strategies for migrating to Chainguard Containers as well as a curated set of migration-related resources.
@@ -38,7 +38,7 @@ Because of their minimalist design, Chainguard Containers sometimes require user
 * Most Chainguard Containers have no shell or package manager by default. This is great for security, but sometimes you need these things, especially in builder images. For those cases we have development container images (also known as `-dev` images, as in `cgr.dev/chainguard/python:latest-dev`) which do include a shell and package manager.
 * The development variants and `wolfi-base` / `chainguard-base` use BusyBox by default, so any `groupadd` or `useradd` commands will need to be ported to `addgroup` and `adduser`.
 * The free tier of Containers provides only the `:latest` and `:latest-dev` versions. Our paid Production Containers offer tags for major and minor versions.
-* Chainguard Containers are [based on `glibc`](/chainguard/chainguard-images/about/images-compiled-programs/glibc-vs-musl/) and our packages cannot be mixed with Alpine packages (which are instead based on musl).
+* Chainguard Containers are [based on `glibc`](/chainguard/containers/about/images-compiled-programs/glibc-vs-musl/) and our packages cannot be mixed with Alpine packages (which are instead based on musl).
 * In some cases, the entrypoint in Chainguard Containers can be different from equivalent images based on other distros, which can lead to unexpected behavior. You should always check the image's specific documentation to understand how the entrypoint works.
 * When needed, Chainguard recommends using a base image like `chainguard-base` or a development variant to install an application's OS-level dependencies.
 
@@ -50,13 +50,13 @@ As mentioned previously, Chainguard's standard container images typically do not
 
 Although development variants are still more secure than most popular container images based on other distros, for increased security on production environments we recommend combining them with a distroless variant in a multi-stage build.
 
-Refer to our guide on [Chainguard's Container variants](/chainguard/chainguard-images/about/differences-development-production/) for more information on development containers.
+Refer to our guide on [Chainguard's Container variants](/chainguard/containers/about/differences-development-production/) for more information on development containers.
 
 ### Full variants
 
 For a number of our most popular Containers, Chainguard also offers *full* variants, whose tags are appended with `-full`. Unlike standard or development variants, full variants are designed to map to their upstream equivalent — typically the Debian-based image on Docker Hub — including the packages, environment variables, and entrypoint scripts that our minimal images omit. They exist primarily to ease migration: if your build or test pipelines depend on components from your previous image, starting with a full variant lets you adopt Chainguard Containers without untangling those dependencies first. Once you've migrated, we recommend moving to a slimmer variant that includes only what your workload needs.
 
-Refer to our guide on [Chainguard's Container variants](/chainguard/chainguard-images/about/differences-development-production/#full-container-variants) for more information on full variants.
+Refer to our guide on [Chainguard's Container variants](/chainguard/containers/about/differences-development-production/#full-container-variants) for more information on full variants.
 
 ## Before migrating
 
@@ -79,7 +79,7 @@ We understand that customers may have urgent timelines and need to accelerate Ch
     * Familiarity with tools used to build images and run containers such as Docker CLI, Dockerfiles (including multi-stage builds), and orchestration platforms (Kubernetes, ECS, etc).
     * Experience using appropriate deployment security standards (such as the [Kubernetes Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/)).
     * Experience debugging containers that have no shell.
-* Review and understand concepts in the [Shared responsibility model](/chainguard/chainguard-images/about/shared-responsibility-model/).
+* Review and understand concepts in the [Shared responsibility model](/chainguard/containers/about/shared-responsibility-model/).
 * Your organization should already have a mature container strategy in place, including:
     * Mature and Established UAT and regression testing processes.
     * Automated CI/CD with permissions restrictions and auditing.
@@ -91,7 +91,7 @@ Finally, as you plan for the migration to Chainguard Containers you should ensur
 
 A common requirement for many customers is to add a company specific certificate or other security related content. The three most common ways to accomplish this are:
 
-1. [Incert](/chainguard/chainguard-images/features/incert-custom-certs/)
+1. [Incert](/chainguard/containers/features/incert-custom-certs/)
 2. Dockerfile and `update-ca-certificates` utility
 3. Dockerfile and java keytool
 
@@ -103,21 +103,21 @@ Many Chainguard customers use both application and base container images, but it
 
 #### Application images
 
-When migrating to a [Chainguard Application Container](/chainguard/chainguard-images/about/images-categories/#application-containers) you should first check the image’s overview page on the [Containers  Directory](https://images.chainguard.dev) for usage details and any compatibility notes. There may be user, permissions, or volume path differences with the Chainguard Image that you should be aware of.
+When migrating to a [Chainguard Application Container](/chainguard/containers/about/images-categories/#application-containers) you should first check the image’s overview page on the [Containers  Directory](https://images.chainguard.dev) for usage details and any compatibility notes. There may be user, permissions, or volume path differences with the Chainguard Image that you should be aware of.
 
 It is a best practice to use the same version of the Chainguard Application Image as what is currently running in your environment, if that version is available from Chainguard. Post-migration you should thoroughly test and monitor your application.
 
 #### Base images
 
-When migrating to a [Chainguard Base Container](/chainguard/chainguard-images/about/images-categories/#base-containers) you should first check the images’s overview page on the [Containers Directory](https://images.chainguard.dev) for usage details and any compatibility remarks. You should understand the libraries, runtime requirements, and operating system dependencies of the applications you plan to have running on the base image.
+When migrating to a [Chainguard Base Container](/chainguard/containers/about/images-categories/#base-containers) you should first check the images’s overview page on the [Containers Directory](https://images.chainguard.dev) for usage details and any compatibility remarks. You should understand the libraries, runtime requirements, and operating system dependencies of the applications you plan to have running on the base image.
 
 It is a best practice to use the same versions of any languages or applications that will be running on the Chainguard Base Container as what is currently running in your environment. Do not upgrade language or application versions at the same time that you migrate. Post-migration you should test and monitor your application as outlined below in Section 6.
 
-If you need a package to use with your Chainguard Base Container, ChainguardOS packages are available using `apk`. Ensure you only use ChainguardOS packages, as Alpine APKs are not compatible with ChainguardOS. Additionally, it is important to note that vendor provided packages need to be [glibc](/chainguard/chainguard-images/about/images-compiled-programs/glibc-vs-musl/) based and their functionality should be fully tested along with the application.
+If you need a package to use with your Chainguard Base Container, ChainguardOS packages are available using `apk`. Ensure you only use ChainguardOS packages, as Alpine APKs are not compatible with ChainguardOS. Additionally, it is important to note that vendor provided packages need to be [glibc](/chainguard/containers/about/images-compiled-programs/glibc-vs-musl/) based and their functionality should be fully tested along with the application.
 
 ### Extending Chainguard Containers
 
-You can take advantage of Chainguard's [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) and [Private APK repositories](/chainguard/chainguard-images/features/private-apk-repos/) features to extend your container images
+You can take advantage of Chainguard's [Custom Assembly](/chainguard/containers/features/ca-docs/custom-assembly/) and [Private APK repositories](/chainguard/containers/features/private-apk-repos/) features to extend your container images
 
 Custom Assembly allows users to create customers container images with extra packages added. This reduces their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs.
 
@@ -156,11 +156,11 @@ The move to a distroless workflow can be confusing for both individual developer
 
 ### Troubleshooting resources
 
-To help with troubleshooting issues that can occur, Chainguard Academy has a guide on [Debugging distroless containers](/chainguard/chainguard-images/debugging-distroless-images/).
+To help with troubleshooting issues that can occur, Chainguard Academy has a guide on [Debugging distroless containers](/chainguard/containers/debugging-distroless-images/).
 
-We also have a video on [Debugging distroless containers with Docker Debug](/chainguard/chainguard-images/videos/debugging_distroless/).
+We also have a video on [Debugging distroless containers with Docker Debug](/chainguard/containers/videos/debugging_distroless/).
 
-Lastly, you might also find help in the [Chainguard Containers FAQs](/chainguard/chainguard-images/faq/).
+Lastly, you might also find help in the [Chainguard Containers FAQs](/chainguard/containers/faq/).
 
 ## Migration resources
 
@@ -183,9 +183,9 @@ We currently offer both Migration and Getting Started Guides for these Container
 
 | **Image** | **Migration Guide** | **Getting Started Guide** |
 |-----------|:-------------------:|:-------------------------:|
-| Node   | [✅ (link)](/chainguard/migration/migrating-node/)   | [✅ (link)](/chainguard/chainguard-images/getting-started/node/) |
-| Python | [✅ (link)](/chainguard/migration/migrating-python/) | [✅ (link)](/chainguard/chainguard-images/getting-started/python/)
-| PHP | [✅ (link)](/chainguard/migration/migrating-php/) | [✅ (link)](/chainguard/chainguard-images/getting-started/php/) |
+| Node   | [✅ (link)](/chainguard/migration/migrating-node/)   | [✅ (link)](/chainguard/containers/getting-started/node/) |
+| Python | [✅ (link)](/chainguard/migration/migrating-python/) | [✅ (link)](/chainguard/containers/getting-started/python/)
+| PHP | [✅ (link)](/chainguard/migration/migrating-php/) | [✅ (link)](/chainguard/containers/getting-started/php/) |
 
 ### Migration guides
 
@@ -195,9 +195,9 @@ We currently offer both Migration and Getting Started Guides for these Container
 
 In addition, we have a few migration guides in the form of videos:
 
-* [Go (video)](/chainguard/chainguard-images/videos/migrating_go/)
-* [Java (video)](/chainguard/chainguard-images/videos/java-images/)
-* [Node (video)](/chainguard/chainguard-images/videos/node-images/)
+* [Go (video)](/chainguard/containers/videos/migrating_go/)
+* [Java (video)](/chainguard/containers/videos/java-images/)
+* [Node (video)](/chainguard/containers/videos/node-images/)
 
 ### Compatibility guides
 
@@ -208,20 +208,20 @@ In addition, we have a few migration guides in the form of videos:
 
 ### Getting started guides
 
-* [Cilium](/chainguard/chainguard-images/getting-started/cilium/)
-* [Go](/chainguard/chainguard-images/getting-started/go/)
-* [Istio](/chainguard/chainguard-images/getting-started/istio/)
-* [Laravel](/chainguard/chainguard-images/getting-started/laravel/)
-* [MariaDB](/chainguard/chainguard-images/getting-started/mariadb/)
-* [NeMo](/chainguard/chainguard-images/getting-started/nemo/)
-* [nginx](/chainguard/chainguard-images/getting-started/nginx/)
-* [Node](/chainguard/chainguard-images/getting-started/node/)
-* [PHP](/chainguard/chainguard-images/getting-started/php/)
-* [PostgreSQL](/chainguard/chainguard-images/getting-started/postgres/)
-* [Python](/chainguard/chainguard-images/getting-started/python/)
-* [PyTorch](/chainguard/chainguard-images/getting-started/pytorch/)
-* [Ruby](/chainguard/chainguard-images/getting-started/ruby/)
-* [WordPress](/chainguard/chainguard-images/getting-started/wordpress/)
+* [Cilium](/chainguard/containers/getting-started/cilium/)
+* [Go](/chainguard/containers/getting-started/go/)
+* [Istio](/chainguard/containers/getting-started/istio/)
+* [Laravel](/chainguard/containers/getting-started/laravel/)
+* [MariaDB](/chainguard/containers/getting-started/mariadb/)
+* [NeMo](/chainguard/containers/getting-started/nemo/)
+* [nginx](/chainguard/containers/getting-started/nginx/)
+* [Node](/chainguard/containers/getting-started/node/)
+* [PHP](/chainguard/containers/getting-started/php/)
+* [PostgreSQL](/chainguard/containers/getting-started/postgres/)
+* [Python](/chainguard/containers/getting-started/python/)
+* [PyTorch](/chainguard/containers/getting-started/pytorch/)
+* [Ruby](/chainguard/containers/getting-started/ruby/)
+* [WordPress](/chainguard/containers/getting-started/wordpress/)
 
 ### Courses
 
@@ -250,7 +250,7 @@ In addition to the Academy resources listed above, Chainguard offers a number of
 
 ## Further reading
 
-* [Overview of Chainguard Containers](/chainguard/chainguard-images/overview/)
-* [How to use Chainguard Containers](/chainguard/chainguard-images/how-to-use-chainguard-images/)
+* [Overview of Chainguard Containers](/chainguard/containers/overview/)
+* [How to use Chainguard Containers](/chainguard/containers/how-to-use-chainguard-images/)
 * [How to transition to secure container images with new migration guides (Blog)](https://www.chainguard.dev/unchained/how-to-transition-to-secure-container-images-with-new-migration-guides)
-* [Getting started with distroless containers](/chainguard/chainguard-images/getting-started-distroless/)
+* [Getting started with distroless containers](/chainguard/containers/getting-started-distroless/)

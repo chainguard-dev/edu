@@ -5,6 +5,7 @@ aliases:
 - /chainguard/chainguard-images/videos/node-images/
 - /chainguard/migration/node-images/
 - /chainguard/migration/migration-guides/node-images/
+- /chainguard/containers/videos/node-images/
 lead: "Chainguard's Node.js containers enable straightforward migration from traditional Node images while providing enhanced security posture and reduced vulnerabilities."
 description: "Learn how to migrate Node.js applications to Chainguard Containers for improved security, smaller images, and built-in support for npm and yarn package managers"
 type: "article"
