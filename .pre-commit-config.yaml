@@ -9,18 +9,23 @@ repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c  # frozen: v6.0.0
     hooks:
-      # Two sets of generated files are synced in verbatim (see
-      # .github/actions/integrate-platform-docs) and excluded from the whitespace
-      # formatters, because any fix the hooks apply is clobbered on the next sync:
+      # Three sets of generated files are excluded from the whitespace
+      # formatters, because any fix the hooks apply is clobbered when the file is
+      # next regenerated:
       #   - content/platform/chainctl/chainctl-docs/: cobra-generated docs whose
-      #     code fences carry trailing whitespace (also unlinted below).
+      #     code fences carry trailing whitespace (also unlinted below). Synced in
+      #     verbatim, see .github/actions/integrate-platform-docs.
       #   - static/api*.json: OpenAPI specs pulled from cloud storage that lack a
-      #     trailing newline.
+      #     trailing newline. Synced in the same way.
+      #   - static/downloads/chainguard-complete-docs.md: every docs page
+      #     concatenated by scripts/compile_docs.py, inheriting the trailing
+      #     whitespace of the pages it bundles.
       - id: trailing-whitespace
         exclude: |
           (?x)^(
             content/platform/chainctl/chainctl-docs/|
-            static/api[^/]*\.json$
+            static/api[^/]*\.json$|
+            static/downloads/chainguard-complete-docs\.md$
           )
         # Preserve two-space hard line breaks in Markdown; strip other trailing
         # whitespace as usual.
@@ -29,7 +34,8 @@ repos:
         exclude: |
           (?x)^(
             content/platform/chainctl/chainctl-docs/|
-            static/api[^/]*\.json$
+            static/api[^/]*\.json$|
+            static/downloads/chainguard-complete-docs\.md$
           )
       - id: check-yaml
       - id: check-added-large-files
@@ -38,7 +44,9 @@ repos:
         # These files contain example PEM private-key material as documentation
         # (redaction examples, allowlist patterns, or a throwaway tutorial key),
         # not real credentials. Exclude them to avoid false positives.
-        exclude: ^(\.github/workflows/compile-docs\.yml|content/ai-docs-security\.md|content/open-source/sigstore/cosign/cosign-manual-way\.md)$
+        # chainguard-complete-docs.md bundles cosign-manual-way.md, so it carries
+        # the same tutorial key; .github/gitleaks.toml already allowlists it.
+        exclude: ^(\.github/workflows/compile-docs\.yml|content/ai-docs-security\.md|content/open-source/sigstore/cosign/cosign-manual-way\.md|static/downloads/chainguard-complete-docs\.md)$
       - id: check-merge-conflict
       - id: mixed-line-ending
 
