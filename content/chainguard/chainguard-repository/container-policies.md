@@ -2,6 +2,7 @@
 aliases:
 - /chainguard/administration/policies/
 - /chainguard/chainguard-images/staying-secure/policies/
+- /chainguard/containers/staying-secure/policies/
 title: "Chainguard container image pull policies"
 linktitle: "Container pull policies"
 type: "article"

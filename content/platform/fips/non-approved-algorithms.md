@@ -147,7 +147,7 @@ If there are Python projects that need MD5 access in FIPS mode and currently do 
 
 If you are compiling pycryptography or installing it from PyPI, it may come with a vendored and statically linked copy of a cryptographic library and will not operate in FIPS mode. In such cases, all usage of it may be non-approved.
 
-If you install pycryptography through [Custom Assembly](https://edu.chainguard.dev/chainguard/chainguard-images/features/ca-docs/custom-assembly/), it will be linked with Chainguard OpenSSL and will correctly enforce FIPS compliance and operating in approved mode.
+If you install pycryptography through [Custom Assembly](https://edu.chainguard.dev/chainguard/containers/features/ca-docs/custom-assembly/), it will be linked with Chainguard OpenSSL and will correctly enforce FIPS compliance and operating in approved mode.
 
 ### .NET FIPS and MD5
 

@@ -1,6 +1,6 @@
 # Package Mappings Update Guide
 
-This document explains how the package and image mappings are automatically maintained on the [Package Name Mappings](/chainguard/chainguard-images/about/package-name-mappings/) documentation page.
+This document explains how the package and image mappings are automatically maintained on the [Package Name Mappings](/chainguard/containers/about/package-name-mappings/) documentation page.
 
 ## Overview
 
@@ -21,6 +21,7 @@ The mappings are fetched during every site build through GitHub Actions workflow
    - Creates PR with updated platform documentation
 
 Both workflows include this step before `npm run build`:
+
 ```yaml
 - name: Fetch latest package mappings
   run: |
@@ -41,13 +42,14 @@ curl -sL https://raw.githubusercontent.com/chainguard-dev/dfc/main/pkg/dfc/built
 ```
 
 Then build the site:
+
 ```bash
 npm run build
 # or for development server:
 npm run start
 ```
 
-Navigate to `/chainguard/chainguard-images/about/package-name-mappings/` to verify the tables render correctly.
+Navigate to `/chainguard/containers/about/package-name-mappings/` to verify the tables render correctly.
 
 ## Hugo Shortcodes
 
@@ -71,19 +73,20 @@ After updating the mappings:
 ## Troubleshooting
 
 ### Tables not rendering
+
 - Check that the YAML file is valid: `yq eval . data/package-mappings.yaml`
 - Verify the file structure matches what the shortcodes expect
 - Check Hugo build logs for template errors
 
 ### Data not updating
+
 - Clear Hugo's cache: `npm run clean`
 - Rebuild: `npm run build`
 - Check that the data file name matches the shortcode references
 
 ## Related Files
 
-- Documentation: `/content/chainguard/chainguard-images/about/package-name-mappings.md`
+- Documentation: `/content/chainguard/containers/about/package-name-mappings.md`
 - Data file: `/data/package-mappings.yaml`
 - Shortcodes: `/layouts/shortcodes/package-mappings/*.html`
 - This guide: `/docs/PACKAGE_MAPPINGS_UPDATE.md`
-

@@ -53,4 +53,4 @@ To learn more, refer to [Selecting a base image](/software-security/selecting-a-
 
 ## Learn more
 
-To get started, refer to [Chainguard Containers](/chainguard/chainguard-images/), hardened minimal images for secure containerized applications. To build your own images, refer to [Wolfi](/open-source/wolfi/), a Linux undistro designed as a base for lightweight containers. To understand the standards that govern container image formats, runtimes, and distribution, refer to [What is the Open Container Initiative?](/open-source/oci/what-is-the-oci/).
+To get started, refer to [Chainguard Containers](/chainguard/containers/), hardened minimal images for secure containerized applications. To build your own images, refer to [Wolfi](/open-source/wolfi/), a Linux undistro designed as a base for lightweight containers. To understand the standards that govern container image formats, runtimes, and distribution, refer to [What is the Open Container Initiative?](/open-source/oci/what-is-the-oci/).

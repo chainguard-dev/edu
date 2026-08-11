@@ -3,6 +3,7 @@ title: "How to use Chainguard Notifications"
 linktitle: "Using Chainguard Notifications"
 aliases:
 - /chainguard/chainguard-images/how-to-use/use-chainguard-notifications/
+- /chainguard/containers/how-to-use/use-chainguard-notifications/
 type: "article"
 description: "A primer on how to configure Chainguard Notifications"
 lead: "A primer on how to configure Chainguard Notifications in the Chainguard Console"

@@ -16,7 +16,7 @@ weight: 005
 toc: true
 ---
 
-Chainguard's PHP containers provide enhanced security for PHP applications through minimal, purpose-built images that significantly reduce attack surface. Built on [Wolfi](/open-source/wolfi/), these containers achieve [dramatically fewer vulnerabilities](/chainguard/chainguard-images/vuln-comparison/php/) compared to traditional PHP images while maintaining full compatibility with PHP workloads. Daily automated builds ensure applications receive the latest security patches without manual intervention.
+Chainguard's PHP containers provide enhanced security for PHP applications through minimal, purpose-built images that significantly reduce attack surface. Built on [Wolfi](/open-source/wolfi/), these containers achieve [dramatically fewer vulnerabilities](/chainguard/containers/vuln-comparison/php/) compared to traditional PHP images while maintaining full compatibility with PHP workloads. Daily automated builds ensure applications receive the latest security patches without manual intervention.
 
 This article will assist you in the process of migrating your existing PHP Dockerfiles to leverage the benefits of Chainguard Containers, including a smaller attack surface and a more secure application footprint.
 
@@ -32,7 +32,7 @@ In a nutshell, distroless images don't include a package manager or a shell, bei
 {{< blurb/multistage >}}
 {{< /details >}}
 
-For a deeper exploration of distroless images and their differences from standard base images, refer to the guide on [Getting started with distroless images](/chainguard/chainguard-images/getting-started-distroless/).
+For a deeper exploration of distroless images and their differences from standard base images, refer to the guide on [Getting started with distroless images](/chainguard/containers/getting-started-distroless/).
 
 ## Migrating from non-apk systems
 
@@ -124,7 +124,7 @@ COPY --from=builder /app /app
 ENTRYPOINT [ "php", "/app/myscript.php" ]
 ```
 
-Our [PHP getting started](/chainguard/chainguard-images/getting-started/php/) guide has step-by-step instructions on how to build and run a PHP CLI application with Chainguard Containers.
+Our [PHP getting started](/chainguard/containers/getting-started/php/) guide has step-by-step instructions on how to build and run a PHP CLI application with Chainguard Containers.
 
 ## Migrating PHP web applications to use Chainguard Containers
 
@@ -299,6 +299,6 @@ The preview should be live at `localhost:8000`.
 
 ## Additional resources
 
-Our [PHP image documentation](https://images.chainguard.dev/directory/image/php/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-php) covers details about all PHP image variants, including the list of available tags for both development and production images. For another example of a LEMP setup using MariaDB, check our guide on [Getting started with the MariaDB Chainguard Container](https://edu.chainguard.dev/chainguard/chainguard-images/getting-started/mariadb/).
+Our [PHP image documentation](https://images.chainguard.dev/directory/image/php/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-php) covers details about all PHP image variants, including the list of available tags for both development and production images. For another example of a LEMP setup using MariaDB, check our guide on [Getting started with the MariaDB Chainguard Container](https://edu.chainguard.dev/chainguard/containers/getting-started/mariadb/).
 
-The [Debugging distroless](/chainguard/chainguard-images/debugging-distroless-images/) guide contains important information for debugging issues with distroless images. You can also refer to the [Verifying containers](/chainguard/chainguard-images/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/) resource for details around provenance, SBOMs, and image signatures.
+The [Debugging distroless](/chainguard/containers/debugging-distroless-images/) guide contains important information for debugging issues with distroless images. You can also refer to the [Verifying containers](/chainguard/containers/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/) resource for details around provenance, SBOMs, and image signatures.

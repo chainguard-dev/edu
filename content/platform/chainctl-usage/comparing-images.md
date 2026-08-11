@@ -9,6 +9,12 @@ aliases:
 - /chainguard/chainguard-images/comparing-images/using-the-image-diff-api/
 - /chainguard/chainguard-images/working-with-images/comparing-images/
 - /chainguard/chainguard-images/how-to-use/comparing-images/
+- /chainguard/containers/comparing-images/
+- /chainguard/containers/comparing-images/comparing-images/
+- /chainguard/containers/using-the-image-diff-api
+- /chainguard/containers/comparing-images/using-the-image-diff-api/
+- /chainguard/containers/working-with-images/comparing-images/
+- /chainguard/containers/how-to-use/comparing-images/
 type: "article"
 description: "Learn how to use chainctl images diff to compare Chainguard container versions, analyze security improvements, and track package changes between builds"
 date: 2023-08-30T11:07:52+02:00
@@ -147,4 +153,4 @@ Another potential use could be in cases where you're interested in knowing the d
 ## Learn more
 
 To learn more about the `chainctl image` subcommands, we encourage you to check out our
-[`chainctl` command resources](/chainguard/chainctl/chainctl-docs/chainctl_images/). You can also explore the rest of our [Chainguard Containers resources](/chainguard/chainguard-images/) to learn more about how images can help you keep your software secure by default.
+[`chainctl` command resources](/chainguard/chainctl/chainctl-docs/chainctl_images/). You can also explore the rest of our [Chainguard Containers resources](/chainguard/containers/) to learn more about how images can help you keep your software secure by default.

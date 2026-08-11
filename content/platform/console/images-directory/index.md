@@ -3,6 +3,7 @@ title: "Using the Chainguard Console"
 linktitle: "Using the Chainguard Console"
 aliases:
 - /chainguard/chainguard-images/how-to-use/images-directory/
+- /chainguard/containers/how-to-use/images-directory/
 type: "article"
 description: "A walkthrough of the Chainguard Console."
 date: 2024-02-23T11:07:52+02:00
@@ -19,7 +20,7 @@ toc: true
 
 This guide serves as a walkthrough of the Chainguard Console, which is accessible to anyone, but you'll first need to [create an account and log in](https://console.chainguard.dev/auth/login).
 
-If you're not ready to create a Chainguard account, you can follow along with the public [Chainguard Directory](/chainguard/chainguard-images/how-to-use/chainguard-directory/) which offers similar information, but is only informative as it is not connected to your organization or account. If you use the *Sign In* link in the directory, it brings you to the console.
+If you're not ready to create a Chainguard account, you can follow along with the public [Chainguard Directory](/chainguard/containers/how-to-use/chainguard-directory/) which offers similar information, but is only informative as it is not connected to your organization or account. If you use the *Sign In* link in the directory, it brings you to the console.
 
 ## Accessing the Chainguard Console
 
@@ -61,7 +62,7 @@ The **Chainguard catalog** tab has a table with four columns:
 * **Description**: a brief description of each container image
 * **Updated**: how long it's been since the container image was last updated
 
-Note that if your organization has signed up for catalog pricing, there will be another column containing buttons labeled **Add to org**, allowing you to provision Chainguard Containers independently without having to reach out to Chainguard. Check out our doc on [Chainguard container catalog pricing](/chainguard/chainguard-images/about/pricing/) for more information.
+Note that if your organization has signed up for catalog pricing, there will be another column containing buttons labeled **Add to org**, allowing you to provision Chainguard Containers independently without having to reach out to Chainguard. Check out our doc on [Chainguard container catalog pricing](/chainguard/containers/about/pricing/) for more information.
 
 The **Organization** tab doesn't have a **Description** column, but has two additional columns. The first of these, labeled **Status** specifies what resources an organization has purchased and has access to. This column can show one of two possible values: **Active**, meaning that your organization is able to download and use the container image, or **Expired**, meaning that your organization had access to the container image in the past but not anymore:
 
@@ -72,7 +73,7 @@ The other additional column is labeled **Pull URL**, and contains a URL you can 
 
 You can click on any of these column names to sort the list of container images in ascending or descending order based on the values in these columns.
 
-Above the table is a search box you can use to find specific container images by their name or latest version number. To the right of this box is a drop-down menu labeled **Category**. You can use this to filter the images listed based on which of [Chainguard's container image categories](/chainguard/chainguard-images/about/images-categories/) they belong to.
+Above the table is a search box you can use to find specific container images by their name or latest version number. To the right of this box is a drop-down menu labeled **Category**. You can use this to filter the images listed based on which of [Chainguard's container image categories](/chainguard/containers/about/images-categories/) they belong to.
 
 ## Container image information
 
@@ -102,7 +103,7 @@ The **Overview** tab contains the container image's README. Typically, READMEs i
 
 ### Comparison
 
-The **Comparisons** tab includes useful data that shows how a given Chainguard Container compares against a non-Chainguard alternative in terms of CVE count. It also includes helpful visualizations of these comparisons. For more information, check out our guide on [CVE visualizations](/chainguard/chainguard-images/features/cve_visualizations/).
+The **Comparisons** tab includes useful data that shows how a given Chainguard Container compares against a non-Chainguard alternative in terms of CVE count. It also includes helpful visualizations of these comparisons. For more information, check out our guide on [CVE visualizations](/chainguard/containers/features/cve_visualizations/).
 
 ### Provenance
 
@@ -114,7 +115,7 @@ The **Provenance** tab outlines how you can verify container signatures and down
 
 The **Specifications** tab is where you can find a number of important details about a given container image, such as whether it ships with the `apk` package manager or a shell. It also includes information like the image's default user ID, environment variables, and its entrypoint.
 
-It also shows the container image's **Raw configuration**, which includes many of these details as well as its OCI labels (similar to [annotations](/chainguard/chainguard-images/overview/#annotations)).
+It also shows the container image's **Raw configuration**, which includes many of these details as well as its OCI labels (similar to [annotations](/chainguard/containers/overview/#annotations)).
 
 <center><img src="imgs-dir-F.png" alt="Screenshot showing the 'Specifications' tab for the argocd image." style="width:1100px;"></center>
 <br />
@@ -171,15 +172,15 @@ Please be aware that, as with SBOM data, Chainguard began generating vulnerabili
 
 ### Advisories
 
-The **Advisories** tab lists any CVEs that have affected the image in the past and what action Chainguard took to remediate the CVE. This tab shows a timeline of each security advisory released for a given container image, starting with the most recent. Each entry specifies the date and time the advisory was released, the CVE in question, the affected package, and the [current status](/chainguard/chainguard-images/staying-secure/security-advisories/how-chainguard-issues/#summary-of-advisory-statuses).
+The **Advisories** tab lists any CVEs that have affected the image in the past and what action Chainguard took to remediate the CVE. This tab shows a timeline of each security advisory released for a given container image, starting with the most recent. Each entry specifies the date and time the advisory was released, the CVE in question, the affected package, and the [current status](/chainguard/containers/staying-secure/security-advisories/how-chainguard-issues/#summary-of-advisory-statuses).
 
-To learn more about Chainguard security advisories, we encourage you to read our article on [How Chainguard issues Security Advisories](/chainguard/chainguard-images/staying-secure/security-advisories/how-chainguard-issues/) as well as our guide on [How to use Chainguard Security Advisories](/chainguard/chainguard-images/staying-secure/security-advisories/how-to-use/). You can also find every security advisory published for Chainguard Containers by exploring our self-service [Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory).
+To learn more about Chainguard security advisories, we encourage you to read our article on [How Chainguard issues Security Advisories](/chainguard/containers/staying-secure/security-advisories/how-chainguard-issues/) as well as our guide on [How to use Chainguard Security Advisories](/chainguard/containers/staying-secure/security-advisories/how-to-use/). You can also find every security advisory published for Chainguard Containers by exploring our self-service [Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory).
 
 ### Builds
 
-Chainguard Containers viewed in the Console have an additional **Builds** tab. However, this tab is only accessible if the container image in question has been customized with Chainguard's [Custom Assembly](/chainguard/chainguard-images/features/ca-docs/custom-assembly/) tool.
+Chainguard Containers viewed in the Console have an additional **Builds** tab. However, this tab is only accessible if the container image in question has been customized with Chainguard's [Custom Assembly](/chainguard/containers/features/ca-docs/custom-assembly/) tool.
 
-Our guide on [Using the Chainguard Console to manage Custom Assembly resources](/chainguard/chainguard-images/features/ca-docs/custom-assembly-console/) provides an in-depth overview of the Builds tab, as well as working with Custom Assembly in the Chainguard Console.
+Our guide on [Using the Chainguard Console to manage Custom Assembly resources](/chainguard/containers/features/ca-docs/custom-assembly-console/) provides an in-depth overview of the Builds tab, as well as working with Custom Assembly in the Chainguard Console.
 
 ### Find Helm charts in the Chainguard Console
 
@@ -205,4 +206,4 @@ Click a package name to reveal more details about the package. Use the **Archite
 
 ## Learn more
 
-The Chainguard Console is a useful tool for understanding what Chainguard container images are available and learn details about each. To better understand how to work with individual container images, you can see if we have a [getting started guide](/chainguard/chainguard-images/getting-started/) available. We also provide a guide on [how to view Security Advisories](/chainguard/chainguard-images/security-advisories/) through our [self-service public Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory).
+The Chainguard Console is a useful tool for understanding what Chainguard container images are available and learn details about each. To better understand how to work with individual container images, you can see if we have a [getting started guide](/chainguard/containers/getting-started/) available. We also provide a guide on [how to view Security Advisories](/chainguard/containers/security-advisories/) through our [self-service public Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory).

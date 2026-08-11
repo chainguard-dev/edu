@@ -4,6 +4,7 @@ linktitle: "FAQ"
 aliases:
 - /chainguard/fips/faqs/
 - /chainguard/chainguard-images/features/fips/faqs/
+- /chainguard/containers/features/fips/faqs/
 type: "article"
 description: "Frequently asked questions about Chainguard FIPS container images"
 date: 2025-01-10T15:56:52-07:00

@@ -16,7 +16,7 @@ weight: 010
 toc: true
 ---
 
-Chainguard's Node.js containers offer a streamlined migration path for applications seeking enhanced security posture through minimal, distroless design. Built on [Wolfi](/open-source/wolfi/), these containers significantly reduce attack surface compared to traditional Node.js images, resulting in [fewer vulnerabilities](/chainguard/chainguard-images/vuln-comparison/node/) and smaller image sizes. Daily automated builds ensure your applications always have the latest security patches without manual intervention.
+Chainguard's Node.js containers offer a streamlined migration path for applications seeking enhanced security posture through minimal, distroless design. Built on [Wolfi](/open-source/wolfi/), these containers significantly reduce attack surface compared to traditional Node.js images, resulting in [fewer vulnerabilities](/chainguard/containers/vuln-comparison/node/) and smaller image sizes. Daily automated builds ensure your applications always have the latest security patches without manual intervention.
 
 {{< details "What is Distroless?" >}}
 {{< blurb/distroless >}}
@@ -52,7 +52,7 @@ production image as the base for the final image.
 This extremely minimal approach to the runtime image is sometimes known as "distroless". For a
 deeper exploration of distroless images and their differences from standard base images, refer to
 the guide on [Getting Started with Distroless
-images](/chainguard/chainguard-images/getting-started-distroless/).
+images](/chainguard/containers/getting-started-distroless/).
 
 ## Migrating from other distributions
 
@@ -214,7 +214,7 @@ instead of `npm install` to ensure the correct version of all dependencies is us
 
 ### Using slim images
 
-If Chainguard's Node.js image has been added to your organization's Chainguard Registry, you will have access to more tags than just `latest`, including *slim tags*. These represent Chainguard's [slim variants](/chainguard/chainguard-images/about/differences-development-production/#slim-container-variants), which have an even smaller attack surface than our standard container images. In the case of Node.js, the slim variants omit some packages that are included in the standard image for compatibility purposes, including `npm` and `busybox`.
+If Chainguard's Node.js image has been added to your organization's Chainguard Registry, you will have access to more tags than just `latest`, including *slim tags*. These represent Chainguard's [slim variants](/chainguard/containers/about/differences-development-production/#slim-container-variants), which have an even smaller attack surface than our standard container images. In the case of Node.js, the slim variants omit some packages that are included in the standard image for compatibility purposes, including `npm` and `busybox`.
 
 Because they lack these compatibility packages, the slim Node.js images are often used in multi-stage builds. The following example updates the `Dockerfile-multi` file shown previously to point to one of Chainguard's slim Node.js images:
 
@@ -255,10 +255,10 @@ advisories.
 Containers](/chainguard/migration/porting-apps-to-chainguard/) article contains an example of porting a
 Node.js Dockerfile for a legacy application.
 
-- The [How to migrate a Node.js application to Chainguard Containers](https://edu.chainguard.dev/chainguard/chainguard-images/videos/node-images/) video works through an example of porting a Node.js Dockerfile.
+- The [How to migrate a Node.js application to Chainguard Containers](https://edu.chainguard.dev/chainguard/containers/videos/node-images/) video works through an example of porting a Node.js Dockerfile.
 
 - Bret Fisher has an excellent [guide to creating Node.js container
 images](https://github.com/BretFisher/nodejs-rocks-in-docker/), including advice for using
 distroless.
 
-- The [Debugging distroless](/chainguard/chainguard-images/debugging-distroless-images/) guide contains important information for debugging issues with distroless images. You can also refer to the [Verifying containers](/chainguard/chainguard-images/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/) resource for details around provenance, SBOMs, and image signatures.
+- The [Debugging distroless](/chainguard/containers/debugging-distroless-images/) guide contains important information for debugging issues with distroless images. You can also refer to the [Verifying containers](/chainguard/containers/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/) resource for details around provenance, SBOMs, and image signatures.

@@ -45,7 +45,7 @@ There are several ways to authenticate to the Chainguard platform, each with a d
 * [Interactive login](/platform/administration/iam-organizations/overview-of-chainguard-iam-model/#using-the-interactive-login): This is easy and good for interactive use, but needs a browser available that the current shell can launch.
 * [Headless login](/platform/administration/iam-organizations/overview-of-chainguard-iam-model/#using-the-headless-login-flow): This is also easy and good for interactive use. It still requires access to a browser, but not directly from within the current shell or even from the current device.
 * [Assumable identities](/platform/administration/assumable-ids/assumable-ids/): These are designed for CI/CD and do not require any interaction, but they do require more setting up and are not ideal outside of CI/CD-style automation.
-* [Pull tokens](/chainguard/chainguard-images/chainguard-registry/authenticating/#authenticating-with-a-pull-token): These are ideal for pulling images and libraries and can be long-lived. Pull tokens can be created using the console or with chainctl.
+* [Pull tokens](/chainguard/containers/chainguard-registry/authenticating/#authenticating-with-a-pull-token): These are ideal for pulling images and libraries and can be long-lived. Pull tokens can be created using the console or with chainctl.
 
 ### Using the interactive login
 

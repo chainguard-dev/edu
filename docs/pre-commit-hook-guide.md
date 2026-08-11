@@ -111,7 +111,7 @@ pre-commit framework's per-hook results.
 
 ```text
 📅 Updated lastmod on 1 file(s):
-   - content/chainguard/chainguard-images/getting-started.md
+   - content/chainguard/containers/getting-started.md
 trim trailing whitespace.................................................Passed
 fix end of files.........................................................Passed
 Detect hardcoded secrets.................................................Passed

@@ -5,6 +5,7 @@ aliases:
 - /chainguard/migration/migration-guides/migrating_go/
 - /chainguard/chainguard-images/videos/migrating_go/
 - /chainguard/migration/migrating_go/
+- /chainguard/containers/videos/migrating_go/
 lead: "Chainguard's static and Go containers provide optimal runtime environments for Go applications, enabling migration to minimal images with enhanced security posture."
 description: "Learn how to migrate Go applications to Chainguard Containers for minimal attack surface, static compilation support, and dramatically reduced image sizes"
 type: "article"
@@ -237,6 +238,6 @@ OK, please try it out and let me know how you get on.
 
 ## Relevant resources
 
-* [Using the static Chainguard Container](/chainguard/chainguard-images/videos/static-base-image/) (Video)
-* [Choosing a container for your compiled programs](/chainguard/chainguard-images/about/images-compiled-programs/compiled-programs/) (Article)
-* [Getting started with the Go Chainguard Container](/chainguard/chainguard-images/getting-started/go/) (Article)
+* [Using the static Chainguard Container](/chainguard/containers/videos/static-base-image/) (Video)
+* [Choosing a container for your compiled programs](/chainguard/containers/about/images-compiled-programs/compiled-programs/) (Article)
+* [Getting started with the Go Chainguard Container](/chainguard/containers/getting-started/go/) (Article)
