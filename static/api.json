@@ -114,6 +114,8 @@
           "CAP_LIBRARIES_REBUILDER_MALWARE_STATUS_READ",
           "CAP_LIBRARIES_REBUILDER_CVE_REMEDIATIONS_LIST",
           "CAP_LIBRARIES_REBUILDER_CVE_REMEDIATIONS_UPDATE",
+          "CAP_LIBRARIES_REBUILDER_SOURCE_COORDINATES_WRITE",
+          "CAP_LIBRARIES_REBUILDER_SOURCE_COORDINATES_RESOLVE",
           "CAP_LIBRARIES_AWS_MARKETPLACE_SUBSCRIPTIONS_CREATE",
           "CAP_LIBRARIES_AWS_MARKETPLACE_SUBSCRIPTIONS_UPDATE",
           "CAP_LIBRARIES_AWS_MARKETPLACE_SUBSCRIPTIONS_LIST",
@@ -3499,7 +3501,9 @@
           "SKILLUP",
           "MATERIALIZER",
           "MICROFLOW",
-          "GUARDENER"
+          "GUARDENER",
+          "MICROVM",
+          "SKILLS"
         ],
         "type": "string"
       },
@@ -4541,6 +4545,14 @@
             "description": "Client secret of the identity provider. This is a sensitive value\nand is not returned for list/get calls. Required for a confidential\nclient; may be omitted for a public client, which instead authenticates\nwith PKCE (set pkce_enabled). At least one of client_secret or\npkce_enabled must be provided.\n\nOn update, an empty client_secret means \"keep the existing secret\"\nunless oidc.client_secret is named explicitly in the update mask, in\nwhich case the empty value clears the stored secret (transitioning a\nconfidential client to a public, PKCE-only client). A direct HTTP REST\nrequest that does not set the update mask explicitly infers it from the\nfields present in the request body, so sending an empty client_secret\nwill clear it; set the update mask explicitly (or use the generated\ngRPC clients, which send only the fields you set) to avoid this.",
             "type": "string"
           },
+          "correlationRule": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.IdentityProvider.OIDC.CorrelationRule"
+              }
+            ],
+            "description": "Selects how OIDC logins are matched to SCIM-provisioned users. Unset\nselects CORRELATION_RULE_SUB_EQUALS_EXTERNAL_ID. Immutable after the\nidentity provider is created: changing the rule that maps token claims\nto identities would re-open attacker-controllable-claim attacks; a\ndifferent rule requires creating a new identity provider. Updates that\nrestate the current rule (or leave it unset) are a no-op — a\nread-modify-write client may echo the field back safely, including over\nHTTP PATCH, where the update mask is derived from the request-body keys.\nUpdates that change it are rejected."
+          },
           "groupsClaim": {
             "description": "Name of the OIDC token claim that carries the user's group memberships\n(e.g. \"groups\" for Entra, a custom claim name for Okta). Required for\nIdP group-based role mapping; when empty, group extraction is skipped.",
             "type": "string"
@@ -4559,6 +4571,16 @@
           "clientId"
         ],
         "type": "object"
+      },
+      "chainguard.platform.iam.v2beta1.IdentityProvider.OIDC.CorrelationRule": {
+        "default": "CORRELATION_RULE_UNSPECIFIED",
+        "description": "CorrelationRule enumerates how an OIDC login is matched to the SCIM user\nprovisioned by this identity provider (identity linking at login). A\nclosed enum: matching is never free-form, and email-based matching is\ndeliberately absent — an attacker could provision a SCIM user carrying a\nvictim's email and capture the victim's login.\n\n - CORRELATION_RULE_UNSPECIFIED: Treated as CORRELATION_RULE_SUB_EQUALS_EXTERNAL_ID, the stock-Okta\nalignment where the OIDC sub claim and the SCIM externalId carry the\nsame IdP user ID.\n - CORRELATION_RULE_SUB_EQUALS_EXTERNAL_ID: The OIDC sub claim equals the SCIM externalId, scoped to this identity\nprovider.\n - CORRELATION_RULE_OID_EQUALS_EXTERNAL_ID: The OIDC oid claim equals the SCIM externalId, scoped to this identity\nprovider. For Microsoft Entra ID, whose sub claim is pairwise per\napplication and never matches the provisioned externalId; oid (the\ndirectory objectId) is the durable user identifier. Use only for IdPs\nwhose issuer asserts oid itself; the server does not verify this —\nwhere oid is an admin-mapped custom claim a user can edit, this rule\nre-opens the claim-capture attack email matching avoids.",
+        "enum": [
+          "CORRELATION_RULE_UNSPECIFIED",
+          "CORRELATION_RULE_SUB_EQUALS_EXTERNAL_ID",
+          "CORRELATION_RULE_OID_EQUALS_EXTERNAL_ID"
+        ],
+        "type": "string"
       },
       "chainguard.platform.iam.v2beta1.IdentityProvider.SCIM": {
         "description": "SCIM holds the System for Cross-domain Identity Management provisioning\nconfiguration for an identity provider.",
@@ -5206,7 +5228,7 @@
       },
       "chainguard.platform.iam.v2beta1.ServicePrincipal": {
         "default": "SERVICE_PRINCIPAL_UNSPECIFIED",
-        "description": "ServicePrincipal represents a Chainguard service that can assume an identity.\n\n - SERVICE_PRINCIPAL_UNSPECIFIED: Unknown/unspecified service principal.\n - SERVICE_PRINCIPAL_COSIGNED: Cosigned service for image signing.\n - SERVICE_PRINCIPAL_INGESTER: Ingester service for data ingestion.\n - SERVICE_PRINCIPAL_CATALOG_SYNCER: Catalog syncer service for synchronizing image catalogs.\n - SERVICE_PRINCIPAL_APKO_BUILDER: APKO builder service for building images.\n - SERVICE_PRINCIPAL_ENTITLEMENT_SYNCER: Entitlement syncer service for synchronizing entitlements.\n - SERVICE_PRINCIPAL_TENANT_SCANNER: Tenant scanner service for scanning tenant resources.\n - SERVICE_PRINCIPAL_SEDIMENTOLOGY: Sedimentology service for data analysis.\n - SERVICE_PRINCIPAL_SKILLUP: Skillup service for fixing repository skill violations.\n - SERVICE_PRINCIPAL_MATERIALIZER: Materializer service for materializing solutions from problem statements.\n - SERVICE_PRINCIPAL_MICROFLOW: Microflow service for running a pull request's committed CI workflows in microVMs.\n - SERVICE_PRINCIPAL_GUARDENER: Guardener service, Chainguard's GitHub automation app for securing and maintaining repositories.",
+        "description": "ServicePrincipal represents a Chainguard service that can assume an identity.\n\n - SERVICE_PRINCIPAL_UNSPECIFIED: Unknown/unspecified service principal.\n - SERVICE_PRINCIPAL_COSIGNED: Cosigned service for image signing.\n - SERVICE_PRINCIPAL_INGESTER: Ingester service for data ingestion.\n - SERVICE_PRINCIPAL_CATALOG_SYNCER: Catalog syncer service for synchronizing image catalogs.\n - SERVICE_PRINCIPAL_APKO_BUILDER: APKO builder service for building images.\n - SERVICE_PRINCIPAL_ENTITLEMENT_SYNCER: Entitlement syncer service for synchronizing entitlements.\n - SERVICE_PRINCIPAL_TENANT_SCANNER: Tenant scanner service for scanning tenant resources.\n - SERVICE_PRINCIPAL_SEDIMENTOLOGY: Sedimentology service for data analysis.\n - SERVICE_PRINCIPAL_SKILLUP: Skillup service for fixing repository skill violations.\n - SERVICE_PRINCIPAL_MATERIALIZER: Materializer service for materializing solutions from problem statements.\n - SERVICE_PRINCIPAL_MICROFLOW: Microflow service for running a pull request's committed CI workflows in microVMs.\n - SERVICE_PRINCIPAL_GUARDENER: Guardener service, Chainguard's GitHub automation app for securing and maintaining repositories.\n - SERVICE_PRINCIPAL_MICROVM: MicroVM service for running ephemeral microVM sandboxes and pulling their guest packages.\n - SERVICE_PRINCIPAL_SKILLS: Skills service principal for the harden pipeline's customer-org access.",
         "enum": [
           "SERVICE_PRINCIPAL_UNSPECIFIED",
           "SERVICE_PRINCIPAL_COSIGNED",
@@ -5219,7 +5241,9 @@
           "SERVICE_PRINCIPAL_SKILLUP",
           "SERVICE_PRINCIPAL_MATERIALIZER",
           "SERVICE_PRINCIPAL_MICROFLOW",
-          "SERVICE_PRINCIPAL_GUARDENER"
+          "SERVICE_PRINCIPAL_GUARDENER",
+          "SERVICE_PRINCIPAL_MICROVM",
+          "SERVICE_PRINCIPAL_SKILLS"
         ],
         "type": "string"
       },
@@ -5797,7 +5821,7 @@
                 "$ref": "#/components/schemas/chainguard.platform.libraries.Ecosystem"
               }
             ],
-            "description": "The ecosystem this binding applies to (JAVASCRIPT or PYTHON; JAVA rejected)."
+            "description": "The ecosystem this binding applies to (JAVASCRIPT, PYTHON, or JAVA)."
           },
           "id": {
             "type": "string"
@@ -5868,7 +5892,7 @@
                 "$ref": "#/components/schemas/chainguard.platform.libraries.Ecosystem"
               }
             ],
-            "description": "The ecosystem this binding applies to (JAVASCRIPT or PYTHON; JAVA rejected)."
+            "description": "The ecosystem this binding applies to (JAVASCRIPT, PYTHON, or JAVA)."
           },
           "mode": {
             "allOf": [
@@ -21352,7 +21376,7 @@
         ]
       },
       "post": {
-        "description": "CreateBinding activates a policy. Returns ALREADY_EXISTS if a binding for\nthe same (org, ecosystem, mode) already exists; use UpdateBinding instead.\nA JAVA ecosystem is rejected (INVALID_ARGUMENT) until enforcement exists.",
+        "description": "CreateBinding activates a policy. Returns ALREADY_EXISTS if a binding for\nthe same (org, ecosystem, mode) already exists; use UpdateBinding instead.\nJAVASCRIPT, PYTHON, and JAVA ecosystems are accepted; any other ecosystem\nis rejected (INVALID_ARGUMENT).",
         "operationId": "LibraryPolicyBindings_CreateBinding",
         "parameters": [
           {

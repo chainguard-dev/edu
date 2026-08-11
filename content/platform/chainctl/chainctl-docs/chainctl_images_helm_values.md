@@ -1,5 +1,5 @@
 ---
-date: 2026-08-06T11:47:15Z
+date: 2026-08-10T12:11:49Z
 title: "chainctl images helm values"
 slug: chainctl_images_helm_values
 url: /platform/chainctl/chainctl-docs/chainctl_images_helm_values/
@@ -21,6 +21,9 @@ that differ from the chart defaults and can be passed directly to helm install -
 
 Use --registry to point images at a different registry host, and --org to
 change the organization prefix. If neither flag is set the output is empty.
+
+If the chart reference has no tag or digest, the highest semver tag in the
+repository is selected, matching Helm's behaviour.
 
 ```
 chainctl images helm values CHART_REFERENCE [flags]

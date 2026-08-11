@@ -2695,7 +2695,9 @@
           "SKILLUP",
           "MATERIALIZER",
           "MICROFLOW",
-          "GUARDENER"
+          "GUARDENER",
+          "MICROVM",
+          "SKILLS"
         ],
         "type": "string"
       },
@@ -3290,7 +3292,7 @@
                 "$ref": "#/components/schemas/chainguard.platform.libraries.Ecosystem"
               }
             ],
-            "description": "The ecosystem this binding applies to (JAVASCRIPT or PYTHON; JAVA rejected)."
+            "description": "The ecosystem this binding applies to (JAVASCRIPT, PYTHON, or JAVA)."
           },
           "id": {
             "type": "string"
@@ -3361,7 +3363,7 @@
                 "$ref": "#/components/schemas/chainguard.platform.libraries.Ecosystem"
               }
             ],
-            "description": "The ecosystem this binding applies to (JAVASCRIPT or PYTHON; JAVA rejected)."
+            "description": "The ecosystem this binding applies to (JAVASCRIPT, PYTHON, or JAVA)."
           },
           "mode": {
             "allOf": [
@@ -13758,7 +13760,7 @@
         ]
       },
       "post": {
-        "description": "CreateBinding activates a policy. Returns ALREADY_EXISTS if a binding for\nthe same (org, ecosystem, mode) already exists; use UpdateBinding instead.\nA JAVA ecosystem is rejected (INVALID_ARGUMENT) until enforcement exists.",
+        "description": "CreateBinding activates a policy. Returns ALREADY_EXISTS if a binding for\nthe same (org, ecosystem, mode) already exists; use UpdateBinding instead.\nJAVASCRIPT, PYTHON, and JAVA ecosystems are accepted; any other ecosystem\nis rejected (INVALID_ARGUMENT).",
         "operationId": "LibraryPolicyBindings_CreateBinding",
         "parameters": [
           {
