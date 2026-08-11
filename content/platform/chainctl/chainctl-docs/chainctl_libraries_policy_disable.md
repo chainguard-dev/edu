@@ -1,5 +1,5 @@
 ---
-date: 2026-08-06T11:47:15Z
+date: 2026-08-10T12:11:49Z
 title: "chainctl libraries policy disable"
 slug: chainctl_libraries_policy_disable
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_policy_disable/
@@ -25,7 +25,7 @@ chainctl libraries policy disable [POLICY] [--parent ORG] [--ecosystem ECOSYSTEM
 ### Options
 
 ```
-      --ecosystem string   The ecosystem the binding applies to (JAVA, PYTHON, JAVASCRIPT).
+      --ecosystem string   The ecosystem the binding applies to (JAVA, JAVASCRIPT, PYTHON).
       --mode string        The binding mode (ENFORCE or PREVIEW).
       --parent string      The name or id of the organization to scope the binding to.
       --policy string      The name or UIDP of the policy. Provide this or the positional argument, not both.
