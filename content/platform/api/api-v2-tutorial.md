@@ -6,7 +6,7 @@ linktitle: "API v2 tutorial"
 type: "article"
 description: "Tutorial with examples showing how you can use the Chainguard API v2."
 date: 2026-03-30T08:49:31+00:00
-lastmod: 2026-08-07T13:02:36+00:00
+lastmod: 2026-08-11T12:06:07+00:00
 draft: false
 tags: ["Chainguard Console", "Procedural"]
 images: []
@@ -40,14 +40,15 @@ This guide walks through the v2 API using real `curl` commands. If you're migrat
 
 | Domain | Resources | Operations |
 | -------- | ----------- | ------------ |
-| **IAM** | Groups, Identities, Roles, RoleBindings, IdentityProviders, AccountAssociations, GroupInvites, Terms, ExternalGroupRoleMappings | List, Get, Create, Update, Delete |
-| **Registry** | Repos, Tags, Images | List, Get, Create, Update, Delete |
+| **IAM** | Groups, Identities, Roles, RoleBindings, IdentityProviders, AccountAssociations, GroupInvites, ExternalGroupRoleMappings, Terms | List, Get, Create, Update, Delete (Terms: accept + list acceptances) |
+| **Registry** | Repos (incl. readme), Tags, Images | Repos: List, Get, Create, Update, Delete; Tags: List, Get, Create, Delete; Images: architectures & size (read-only) |
 | **Vulnerabilities** | Advisories | List, Get |
-| **Ecosystems (Libraries)** | Artifacts | List, Get (read-only) |
-| **Integrations (Advisory)** | SecurityAdvisory (documents, metadata, resolved-vuln reports) | List (read-only) |
+| **Libraries** | Artifacts | List artifacts, list versions, artifact count (read-only) |
+| **Advisory** | Security advisory documents, vulnerability metadata, resolved-vulnerability reports | List (read-only) |
 | **Events** | Subscriptions | List, Get, Create, Delete |
+| **Ping** | Ping (connectivity check) | Ping |
 
-All endpoints live under a versioned path per domain: `/iam/v2/`, `/registry/v2/`, `/vulnerabilities/v2/`, `/libraries/v2/`, `/advisory/v2/`, or `/events/v2/`.
+All endpoints live under a versioned path per domain: `/iam/v2/`, `/registry/v2/`, `/vulnerabilities/v2/`, `/libraries/v2/`, `/advisory/v2/`, `/events/v2/`, and `/ping/v2/`.
 
 The worked examples in this guide focus on IAM, Registry, and Vulnerabilities. The other domains follow the same request and response conventions.
 
