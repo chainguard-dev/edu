@@ -1,5 +1,5 @@
 ---
-date: 2026-08-06T11:47:15Z
+date: 2026-08-10T12:11:49Z
 title: "chainctl libraries packages blocked"
 slug: chainctl_libraries_packages_blocked
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_packages_blocked/
@@ -24,7 +24,7 @@ chainctl libraries packages blocked [--parent ORGANIZATION_NAME | ORGANIZATION_I
 ### Options
 
 ```
-      --ecosystem string   Only show events for this ecosystem (JAVA, PYTHON, JAVASCRIPT).
+      --ecosystem string   Only show events for this ecosystem (JAVA, JAVASCRIPT, PYTHON).
       --limit int32        The number of blocked packages per page in an interactive terminal; otherwise the maximum number to return. (default 50)
       --mode string        Only show events in this mode (ENFORCE or PREVIEW). Defaults to ENFORCE.
       --package string     Only show events whose package name matches (exact, case-insensitive).

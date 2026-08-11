@@ -1,5 +1,5 @@
 ---
-date: 2026-08-06T11:47:15Z
+date: 2026-08-10T12:11:49Z
 title: "chainctl guardener github"
 slug: chainctl_guardener_github
 url: /platform/chainctl/chainctl-docs/chainctl_guardener_github/

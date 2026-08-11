@@ -1,5 +1,5 @@
 ---
-date: 2026-08-06T11:47:15Z
+date: 2026-08-10T12:11:49Z
 title: "chainctl iam external-group-role-mappings delete"
 slug: chainctl_iam_external-group-role-mappings_delete
 url: /platform/chainctl/chainctl-docs/chainctl_iam_external-group-role-mappings_delete/

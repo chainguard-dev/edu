@@ -1,5 +1,5 @@
 ---
-date: 2026-08-06T11:47:15Z
+date: 2026-08-10T12:11:49Z
 title: "chainctl images helm refs"
 slug: chainctl_images_helm_refs
 url: /platform/chainctl/chainctl-docs/chainctl_images_helm_refs/
@@ -29,6 +29,9 @@ marks "required" or "optional"; the default empty value emits every ref.
 With -o json, each ref is emitted as a JSON object containing the repoName,
 tag and digest fields recorded in the chart-lock; the repository override
 does not affect the JSON output.
+
+If the chart reference has no tag or digest, the highest semver tag in the
+repository is selected, matching Helm's behaviour.
 
 ```
 chainctl images helm refs CHART_REFERENCE [flags]

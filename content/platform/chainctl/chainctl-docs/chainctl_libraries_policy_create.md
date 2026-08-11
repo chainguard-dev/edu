@@ -1,5 +1,5 @@
 ---
-date: 2026-08-06T11:47:15Z
+date: 2026-08-10T12:11:49Z
 title: "chainctl libraries policy create"
 slug: chainctl_libraries_policy_create
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_policy_create/
@@ -31,14 +31,13 @@ block GPL-3.0-only or GPL-3.0-or-later; list each identifier. The license
 gate cannot be bypassed by --allow entries.
 
 Packages are identified by their package URL (purl). The purl namespace
-selects the ecosystem, so the same --block and --allow flags work for Python,
-JavaScript, and Java:
+selects the ecosystem, so the same --block and --allow flags work for Java, JavaScript, and Python:
 
 ```
-Python (PyPI)      pkg:pypi/<name>
+Java (Maven)       pkg:maven/<group>/<artifact>
 JavaScript (npm)   pkg:npm/<name>
                    pkg:npm/%40<scope>/<name>   (scoped packages)
-Java (Maven)       pkg:maven/<group>/<artifact>
+Python (PyPI)      pkg:pypi/<name>
 ```
 
 Append a version with @ to scope an entry to a single version (for example
@@ -89,7 +88,7 @@ chainctl libraries policy create --name NAME [--parent ORGANIZATION_NAME | ORGAN
 
 ```
       --allow stringArray             A package permitted to override gates, as comma-separated key=value pairs: purl=<package-url>[,override-cooldown=true][,override-malware=true][,justification="..."]. justification is required with override-malware. Repeatable.
-      --block stringArray             A package to always deny, as purl=<package-url>. The purl namespace selects the ecosystem (pkg:pypi/<name>, pkg:npm/<name>, pkg:maven/<group>/<artifact>); append @<version> to block a single version. Repeatable.
+      --block stringArray             A package to always deny, as purl=<package-url>. The purl namespace selects the ecosystem (pkg:maven/<group>/<artifact>, pkg:npm/<name>, pkg:pypi/<name>); append @<version> to block a single version. Repeatable.
       --blocked-license stringArray   An SPDX license identifier to deny (e.g. GPL-3.0). Package versions whose declared license contains a matching identifier are withheld. Matching is case-insensitive and per exact identifier: blocking GPL-3.0 does not block GPL-3.0-only. Repeatable.
       --cooldown-days int32           The cooldown window in days (0 disables, 1-30 explicit, omit to inherit the default). (default -1)
       --description string            The description of the policy.
