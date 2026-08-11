@@ -39,13 +39,13 @@ User wanted to publish documentation about how Chainguard remaps package names f
    - Solution: Use Bootstrap collapse (CSS-hidden) instead of `<details>` (DOM-hidden)
    - Result: Content fully in HTML DOM for LLMs, but visually collapsed for users
 
-**Live URL:** `/chainguard/chainguard-images/about/package-name-mappings/`
+**Live URL:** `/chainguard/containers/about/package-name-mappings/`
 
 ## What Was Built
 
 ### 1. Main Documentation Page
 
-**Location:** `/content/chainguard/chainguard-images/about/package-name-mappings.md`
+**Location:** `/content/chainguard/containers/about/package-name-mappings.md`
 
 Comprehensive guide with:
 
@@ -173,7 +173,7 @@ Examples:
 │   ├── cloud-run.yaml              # Modified - fetches mappings
 │   └── autodocs-platform.yaml      # Modified - fetches mappings
 ├── .gitignore                       # Modified - ignores package-mappings.yaml
-├── content/chainguard/chainguard-images/about/
+├── content/chainguard/containers/about/
 │   └── package-name-mappings.md    # Main documentation page
 ├── data/
 │   └── package-mappings.yaml       # Auto-fetched, not in git
@@ -204,13 +204,13 @@ Examples:
    npm run start
    ```
 
-3. Navigate to: `/chainguard/chainguard-images/about/package-name-mappings/`
+3. Navigate to: `/chainguard/containers/about/package-name-mappings/`
 
 ### Making Changes
 
 #### To Update the Documentation Content
 
-Edit `/content/chainguard/chainguard-images/about/package-name-mappings.md`
+Edit `/content/chainguard/containers/about/package-name-mappings.md`
 
 #### To Change Table Layout/Styling
 
@@ -361,13 +361,13 @@ Then rebuild: `npm run build`
 
 ```bash
 # Check mappings are in HTML
-grep -c "<code>build-base</code>" public/chainguard/chainguard-images/about/package-name-mappings/index.html
+grep -c "<code>build-base</code>" public/chainguard/containers/about/package-name-mappings/index.html
 
 # Check Bootstrap 5 syntax
-grep "data-bs-toggle" public/chainguard/chainguard-images/about/package-name-mappings/index.html
+grep "data-bs-toggle" public/chainguard/containers/about/package-name-mappings/index.html
 
 # Count collapse sections
-grep -c 'class=collapse' public/chainguard/chainguard-images/about/package-name-mappings/index.html
+grep -c 'class=collapse' public/chainguard/containers/about/package-name-mappings/index.html
 # Should output: 3 (or more if minified HTML adds extra classes)
 
 # Verify data file exists and is fresh
@@ -408,7 +408,7 @@ ls -lh data/package-mappings.yaml
 
 ### Final Deliverables
 
-1. Documentation page: `/content/chainguard/chainguard-images/about/package-name-mappings.md`
+1. Documentation page: `/content/chainguard/containers/about/package-name-mappings.md`
 2. Three shortcodes: `/layouts/shortcodes/package-mappings/*.html`
 3. Modified workflows: `.github/workflows/cloud-run.yaml` and `autodocs-platform.yaml`
 4. Maintenance docs: `/docs/PACKAGE_MAPPINGS_UPDATE.md`
