@@ -160,29 +160,31 @@ versions. Remediated versions are:
   distinguish them from non‑remediated upstream versions while still preferring
   the remediated build during resolution.
 
-## Why might I still see 404s with fallback enabled through Chainguard Repository?
+## Why might I still see errors with the upstream fallback enabled through Chainguard Repository?
 
-Chainguard offers upstream fallback through the [Chainguard
-Repository](/chainguard/chainguard-repository/) as a unified, managed endpoint for each ecosystem. This single endpoint:
+Chainguard offers an upstream fallback through the [Chainguard
+Repository](/chainguard/chainguard-repository/) as a single, managed endpoint for each ecosystem which behaves as follows:
 
 * Serves Chainguard‑built packages first, rebuilt from source.
-* Optionally falls back to upstream for packages or versions that are not
-  yet available from Chainguard.
-* Applies security controls on the upstream fallback, including malware and greyware scanning that blocks packages flagged as suspicious, and configurable policies such as cooldown periods.
+* Serves upstream packages for any versions that are not
+  yet available from Chainguard. These packages are all scanned for malware and greyware before scanning, and are subject to configurable policies including a cooldown period.
 
-Because of those controls, you can still see 404s or failed fetches even when
-fallback is enabled, for example when:
+Because of those controls, you may still see failed pulls when
+the upstream fallback is enabled, for example when:
 
 * A package or version is blocked by malware detection and therefore
   intentionally not served from upstream.
 * A recently published version is still in the cooldown period, so the
-  repository will not yet proxy it from npm.
+  repository will not yet serve it.
 * The requested package/version truly does not exist in either Chainguard’s
   catalog or upstream.
 
-Fallback respects security policies first, then mirrors safe content from upstream.
-For customers, this can surface as a 404 from the Chainguard endpoint even
+The upstream fallback respects security policies first, then mirrors safe content from upstream.
+For customers, this can surface as a error from the Chainguard endpoint even
 though a version appears in the public registry.
+
+For a breakdown of the errors you may see when a package is blocked, and how they
+appear in each package manager, see [Error messages](/chainguard/libraries/errors/).
 
 ## What are Chibbies?
 

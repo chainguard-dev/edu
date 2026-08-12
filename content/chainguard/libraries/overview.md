@@ -198,6 +198,8 @@ Chainguard's scanning evaluates multiple signal types, including:
 
 You can view blocked packages [in the Chainguard Console](/chainguard/libraries/browse/#view-malware-information), [using `chainctl` commands](/platform/chainctl/chainctl-docs/chainctl_libraries_packages_malware_list/), or [via the API](#malware-api).
 
+For more details on the errors a blocked package will surface across ecosystems, see the [error messages documentation](/chainguard/libraries/errors/).
+
 #### Malware API
 
 Chainguard's malware API endpoint provides access to Chainguard's malware blocklist. You can use it to retrieve a list of packages that have been identified as malicious and blocked by Chainguard. Learn more about it in the [API documentation](/platform/api/spec-api-v1/#tag/malware).

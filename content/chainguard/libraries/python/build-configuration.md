@@ -41,6 +41,8 @@ step-by-step walkthrough.
 
 Refer to the [minimal example projects](#minimal-example-projects) on this page for demonstrations using `uv` and `pip`.
 
+If a package or version is blocked by a policy or malware scan, your build tool returns an error. See the [Error messages documentation](/chainguard/libraries/errors/) for more details.
+
 ## Step 1: Retrieve authentication credentials
 
 To configure any build tool, you must first access credentials from your
