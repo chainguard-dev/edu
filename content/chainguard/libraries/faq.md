@@ -179,12 +179,11 @@ the upstream fallback is enabled, for example when:
 * The requested package/version truly does not exist in either Chainguard’s
   catalog or upstream.
 
-The upstream fallback respects security policies first, then mirrors safe content from upstream.
 For customers, this can surface as a error from the Chainguard endpoint even
 though a version appears in the public registry.
 
-For a breakdown of the errors you may see when a package is blocked, and how they
-appear in each package manager, see [Error messages](/chainguard/libraries/errors/).
+For more details on the errors you may see when a package is blocked due to the reasons above,
+see the [Error messages documentation](/chainguard/libraries/errors/).
 
 ## What are Chibbies?
 
