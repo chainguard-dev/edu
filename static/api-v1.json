@@ -1036,6 +1036,14 @@
             },
             "type": "array"
           },
+          "database_specific": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.argos.TopLevelDatabaseSpecific"
+              }
+            ],
+            "description": "database_specific is the OSV-spec top-level extension object carrying\nChainguard-defined record-level metadata (OSV spec §database_specific-field)."
+          },
           "details": {
             "type": "string"
           },
@@ -1089,6 +1097,18 @@
           }
         },
         "type": "object"
+      },
+      "chainguard.platform.argos.PatchStatus": {
+        "default": "PATCH_STATUS_UNSPECIFIED",
+        "description": "PatchStatus is the patch-generation state of a CGP record. Values are\nidentical to the internal PatchStatus enum; UNSPECIFIED means the record\npredates patch-status tracking or its status has not yet been evaluated.",
+        "enum": [
+          "PATCH_STATUS_UNSPECIFIED",
+          "PATCH_STATUS_NOT_PATCHED",
+          "PATCH_STATUS_IN_PROGRESS",
+          "PATCH_STATUS_FAILED",
+          "PATCH_STATUS_PATCHED"
+        ],
+        "type": "string"
       },
       "chainguard.platform.argos.Range": {
         "properties": {
@@ -1154,6 +1174,20 @@
               "type": "string"
             },
             "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.TopLevelDatabaseSpecific": {
+        "description": "TopLevelDatabaseSpecific is the Chainguard-defined content for the OSV-spec\ntop-level database_specific field: a JSON object holding additional\ninformation about the vulnerability as defined by the database from which\nthe record was obtained. Unlike the per-Affected DatabaseSpecific, this\napplies to the whole vulnerability record.",
+        "properties": {
+          "patch_status": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.argos.PatchStatus"
+              }
+            ],
+            "description": "patch_status is the patch-generation state of this record."
           }
         },
         "type": "object"
@@ -5772,6 +5806,29 @@
         },
         "type": "object"
       },
+      "chainguard.platform.registry.Entitlements.SwapEntitlementImagesBody": {
+        "properties": {
+          "addImageNames": {
+            "description": "Names to add, resolved against the catalog; names already entitled are\nskipped. Required (see remove_image_names). A name may not appear in both\nlists (INVALID_ARGUMENT).",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "id": {
+            "description": "The exact id of the entitlement to swap images on.",
+            "type": "string"
+          },
+          "removeImageNames": {
+            "description": "Names to remove; names not currently entitled are silent no-ops. Required:\na swap is an atomic replace and must name both a remove and an add side\n(INVALID_ARGUMENT if either is empty).",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.registry.EolGracePeriodStatus": {
         "default": "GRACE_NOT_ELIGIBLE",
         "enum": [
@@ -5903,7 +5960,7 @@
             "type": "object"
           },
           "swapQuota": {
-            "description": "The organization's rolling 30-day catalog-image swap quota, aggregated\nacross its active entitlements. Customer-initiated image removals count\nagainst this quota. A value of -1 means unlimited (no swap limit is\nenforced); 0 means no swaps are permitted. Removals beyond the quota\nwithin the window consume per-tier image capacity until they age out.",
+            "description": "The organization's rolling 30-day catalog-image swap quota, aggregated\nacross its active entitlements. Both swaps (see SwapEntitlementImages) and\nstandalone image removals count against this quota. A value of -1 means\nunlimited (no swap limit is enforced); 0 means no swaps are permitted.\nUsage beyond the quota within the window consumes per-tier image capacity\nuntil it ages out.",
             "format": "int32",
             "type": "integer"
           },
@@ -5913,7 +5970,7 @@
             "type": "string"
           },
           "swapsUsed": {
-            "description": "Customer-initiated catalog-image removals in the current rolling 30-day\nwindow. When this exceeds swap_quota, the excess reduces the per-tier\nimage capacity available for new additions.",
+            "description": "Catalog-image swaps and standalone removals in the current rolling 30-day\nwindow. When this exceeds swap_quota, the excess reduces the per-tier image\ncapacity available for new additions.",
             "format": "int32",
             "type": "integer"
           }
@@ -6684,6 +6741,30 @@
             "description": "Size per manifest digest, by architecture.",
             "format": "int64",
             "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.SwapEntitlementImagesResponse": {
+        "properties": {
+          "added": {
+            "description": "The images that were added.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.EntitledImage"
+            },
+            "type": "array"
+          },
+          "parent": {
+            "description": "The resolved customer org UIDP, used as the CloudEvents subject.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "removed": {
+            "description": "The images that were removed — one entry per removed image, across all\naffected entitlements.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.EntitledImage"
+            },
+            "type": "array"
           }
         },
         "type": "object"
@@ -15729,7 +15810,7 @@
     },
     "/registry/v1/entitlements/{parent}:addImages": {
       "post": {
-        "description": "May return RESOURCE_EXHAUSTED when the organization has exceeded its\nrolling 30-day catalog-image swap quota: customer-initiated removals\nbeyond the quota consume per-tier image capacity until they age out of the\nwindow, reducing what can be added. See GetEffectiveEntitlements\n(swap_quota, swaps_used) for the current budget.",
+        "description": "May return RESOURCE_EXHAUSTED when the organization has exceeded its\nrolling 30-day catalog-image swap quota: swaps and standalone removals\nbeyond the quota consume per-tier image capacity until they age out of the\nwindow, reducing what can be added. See GetEffectiveEntitlements\n(swap_quota, swaps_used) for the current budget.",
         "operationId": "Entitlements_AddEntitlementImages",
         "parameters": [
           {
@@ -15870,7 +15951,7 @@
     },
     "/registry/v1/entitlements/{parent}:removeImages": {
       "post": {
-        "description": "Removal is a soft delete: the underlying rows are retained with a deletion\ntimestamp so that history can be reconstructed for audit purposes.\n\nCustomer-initiated removals count against the organization's rolling\n30-day catalog-image swap quota (see GetEffectiveEntitlements). Removals\nbeyond the quota reduce the per-tier image capacity available for future\nadditions until they age out of the window.",
+        "description": "Removal is a soft delete: the underlying rows are retained with a deletion\ntimestamp so that history can be reconstructed for audit purposes.\n\nStandalone removals count against the organization's rolling 30-day\ncatalog-image swap quota, the same as swaps (see GetEffectiveEntitlements).\nRemovals beyond the quota reduce the per-tier image capacity available for\nfuture additions until they age out of the window. For atomic image\nreplacement prefer SwapEntitlementImages, which removes and adds in one\ntransaction.",
         "operationId": "Entitlements_RemoveEntitlementImages",
         "parameters": [
           {
@@ -15961,6 +16042,61 @@
           }
         },
         "summary": "Summary",
+        "tags": [
+          "RegistryEntitlements"
+        ]
+      }
+    },
+    "/registry/v1/entitlements/{parent}:swapImages": {
+      "post": {
+        "description": "A swap is the unit charged against the rolling 30-day swap quota: an N-for-N\nswap costs N. May return RESOURCE_EXHAUSTED when it would exceed the quota;\nsee GetEffectiveEntitlements (swap_quota, swaps_used).",
+        "operationId": "Entitlements_SwapEntitlementImages",
+        "parameters": [
+          {
+            "description": "The organization to swap images on. Removals apply to every active\nentitlement under the org that has the named images; additions go to an\neligible entitlement with matching tier capacity.",
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.registry.Entitlements.SwapEntitlementImagesBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.registry.SwapEntitlementImagesResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Swap Entitlement Images",
         "tags": [
           "RegistryEntitlements"
         ]
