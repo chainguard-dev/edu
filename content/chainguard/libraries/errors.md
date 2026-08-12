@@ -11,10 +11,10 @@ weight: 055
 tags: ["Libraries", "Product"]
 ---
 
-Chainguard Repository applies security controls to every package it serves:
+Chainguard Libraries applies security controls to every package that is serves through the Repository:
 malware and greyware scanning, and configurable policies such as a cooldown
 period. When a package is blocked by one of these controls,
-Chainguard withholds it and returns an error that includes the reason.
+Chainguard will not serve it and returns an error that includes the reason.
 
 This page explains what those errors mean, and how they appear across language
 ecosystems and package managers.
@@ -29,9 +29,9 @@ ecosystems and package managers.
 | Malware scan pending (`409`) | An new upstream version has not completed malware scanning yet, so it is not served. | Wait for the scan to complete. |
 | Policy block (`409`) | The version is blocked by a policy configured by your organization. This may include a cooldown policy, a custom package block list, or other policies. | Wait for the cooldown window to pass if applicable, or [override](/chainguard/chainguard-repository/library-policies/) the policy block. |
 
-**Note**: `npm` will display a `403` error code instead of a `409` for any resolved dependencies that are blocked. See more details in the [Package manager behavior](#package-manager-behavior) section below.
+**Note**: `npm` will display a `403` error code instead of a `409` for any dependencies that are blocked during dependency resolution. See more details in the [Package manager behavior](#package-manager-behavior) section below.
 
-### Operational errors
+### Access and authentication errors
 
 The following errors indicate access or authentication issues.
 
@@ -47,19 +47,19 @@ Package managers vary in how they output error codes and response bodies. The ta
 
 | Ecosystem | Package manager | Behavior |
 | -- | -- | -- |
-| JavaScript | `npm` | A blocked version that is requested directly surfaces a `409` with the reason. For any transitive dependencies that are blocked, `npm` surfaces a `403` with the reason. |
+| JavaScript | `npm` | Blocked versions surface a `409` with the reason, if requested directly. For dependencies that are fetched during dependency resolution, blocked versions surface a `403` with the reason. |
 | JavaScript | `pnpm` | Blocked versions surface a `409` with the reason. `pnpm` treats a `409` with retry behavior. See the [pnpm documentation on retries](https://pnpm.io/settings#fetchretries) for more details.|
 | JavaScript | `yarn` | Blocked versions surface a `409` with the reason.  |
-| Python | `pip` | Blocked versions surface a 409 *without* the reason. A blocked version usually appears as `Could not find a version that satisfies the requirement`. |
-| Python | `uv` | Blocked versions surface a `409` with the reason. For example, `HTTP status client error (409 Conflict)`. |
-| Python | `poetry` | Blocked versions surface a `409` with the reason. For example, `409 Client Error: Conflict for url`. |
-| Java | `Maven` | Blocked versions surface a 409 *without* the reason. For example, `Received status code 409 from server`. |
-| Java | `Gradle` | Blocked versions surface a 409 *without* the reason. For example, `...Received status code 409 from server: Conflict`. |
+| Python | `pip` | Blocked versions surface a `409` **without** the reason. A blocked version usually appears as `Could not find a version that satisfies the requirement`. |
+| Python | `uv` | Blocked versions surface a `409` with the reason. |
+| Python | `poetry` | Blocked versions surface a `409` with the reason. |
+| Java | `Maven` | Blocked versions surface a `409` **without** the reason. |
+| Java | `Gradle` | Blocked versions surface a `409` **without** the reason.|
 
-If your build tool or repository manager pulls from a public registry, it may fetch a blocked artifact from that
-fallback and bypass Chainguard's controls. We recommend pulling all
-open source dependencies through the
-[Chainguard Repository](/chainguard/libraries/overview/#upstream-fallback-and-controls) and limiting public registry access.
+If your build tool or repository manager pulls from a public registry as a fallback, it may fetch a blocked package and bypass Chainguard's controls. 
+Chainguard recommends pulling all of your
+open source packages through the
+[Chainguard Repository](/chainguard/libraries/overview/#upstream-fallback-and-controls) only.
 
 ## Learn more
 
