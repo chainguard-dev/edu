@@ -11,25 +11,29 @@ weight: 055
 tags: ["Libraries", "Product"]
 ---
 
-Chainguard Libraries applies security controls to every package that is serves through the Repository:
-malware and greyware scanning, and configurable policies such as a cooldown
-period. When a package is blocked by one of these controls,
-Chainguard will not serve it and returns an error that includes the reason.
+Chainguard Libraries applies security controls to every package it serves through the
+Repository: malware and greyware scanning, and configurable policies such as a
+cooldown period. When a package or version is blocked by one of these controls,
+Chainguard does not serve it and the pull fails with a `409` error.
 
-This page explains what those errors mean, and how they appear across language
-ecosystems and package managers.
+A `409` means the package or version is blocked, for one of the reasons below. This page explains the
+reasons and how different package managers behave.
 
 ## Error types
 
-### Policy and malware blocks
+### Blocked packages due to policies or malware 
 
-| Error | Meaning | Next steps |
-| -- | -- | -- |
-| Malware or greyware detected (`409`) | The version is on Chainguard's block list, either from a public advisory (MAL ID) or from Chainguard's own source code scanning. | Choose a version that is not blocked, or [override](/chainguard/chainguard-repository/library-policies/) for a deliberate exception. |
-| Malware scan pending (`409`) | An new upstream version has not completed malware scanning yet, so it is not served. | Wait for the scan to complete. |
-| Policy block (`409`) | The version is blocked by a policy configured by your organization. This may include a cooldown policy, a custom package block list, or other policies. | Wait for the cooldown window to pass if applicable, or [override](/chainguard/chainguard-repository/library-policies/) the policy block. |
+A `409` error is returned for one of the following reasons:
 
-**Note**: `npm` will display a `403` error code instead of a `409` for any dependencies that are blocked during dependency resolution. See more details in the [Package manager behavior](#package-manager-behavior) section below.
+* **Malware or greyware detected**: The version is on Chainguard's malware and greyware block list, either from a public advisory (MAL ID) or from Chainguard's own source code scanning.
+* **Malware scan pending**: A newly published version has not completed malware scanning yet.
+* **Policy block**: The version is blocked by a policy configured by your organization, such as a cooldown policy.
+
+To resolve a blocked package due to one of these reasons, you can choose a version that is not blocked, wait for a pending scan or cooldown to complete, or configure an [override](/chainguard/chainguard-repository/library-policies/) to allow an exception for a specific package or version.
+
+**Note**: During dependency resolution, `npm` reports a blocked version as a
+`403` (rather than a `409`) and surfaces the reason. See the
+[Package manager behavior](#package-manager-behavior) section below.
 
 ### Access and authentication errors
 
@@ -38,25 +42,29 @@ The following errors indicate access or authentication issues.
 | Error | Meaning | Next steps |
 | -- | -- | -- |
 | Not authenticated (`401`) | Your pull token is missing or expired. | Reconfigure access. See [Access Chainguard Libraries](/chainguard/libraries/access/). |
-| Missing entitlement (`403`) | Your organization is not entitled the specific ecosystem. | See [Manage library entitlements](/chainguard/libraries/access/#manage-library-entitlements). |
+| Missing entitlement (`403`) | Your organization is not entitled to the specific ecosystem. | See [Manage library entitlements](/chainguard/libraries/access/#manage-library-entitlements). |
 | Package does not exist (`404`) | The requested package or version does not exist. | Confirm whether the package name and version exists on the public upstream registry. |
 
-## Package manager behavior
+## Package manager behavior for blocked packages
 
-Package managers vary in how they output error codes and response bodies. The table below explains variances in behavior based on the ecosystem and package manager in use.
+**Note**: `npm` is the only package manager below that surfaces the block reason. All others surface the `409` error code.
 
-| Ecosystem | Package manager | Behavior |
+| Ecosystem | Package manager | Behavior on blocked packages |
 | -- | -- | -- |
-| JavaScript | `npm` | Blocked versions surface a `409` with the reason, if requested directly. For dependencies that are fetched during dependency resolution, blocked versions surface a `403` with the reason. |
-| JavaScript | `pnpm` | Blocked versions surface a `409` with the reason. `pnpm` treats a `409` with retry behavior. See the [pnpm documentation on retries](https://pnpm.io/settings#fetchretries) for more details.|
-| JavaScript | `yarn` | Blocked versions surface a `409` with the reason.  |
-| Python | `pip` | Blocked versions surface a `409` **without** the reason. A blocked version usually appears as `Could not find a version that satisfies the requirement`. |
-| Python | `uv` | Blocked versions surface a `409` with the reason. |
-| Python | `poetry` | Blocked versions surface a `409` with the reason. |
-| Java | `Maven` | Blocked versions surface a `409` **without** the reason. |
-| Java | `Gradle` | Blocked versions surface a `409` **without** the reason. |
+| JavaScript | `npm` | Surfaces the reason in both cases: `E409` (`409 Conflict`) for a direct pull, and a `403` for a blocked dependency reached during resolution. |
+| JavaScript | `pnpm` | Treats the `409` as transient and retries (about 70 seconds) before failing with `ERR_PNPM_FETCH_409`. See the [pnpm retry settings](https://pnpm.io/settings#fetchretries). |
+| JavaScript | `yarn` | Fails with the `409` error. |
+| Python | `pip` | Reports `No matching distribution found`, the same message as a genuinely missing package. Run `pip -v` to see the `409` (`Could not fetch URL .../simple/<package>/: 409 Client Error: Conflict for url: ... - skipping`). |
+| Python | `uv` | Fails with `HTTP status client error (409 Conflict)`. |
+| Python | `poetry` | Fails with `409 Client Error: Conflict`. |
+| Java | `Maven` | Fails with `status code: 409, reason phrase: Conflict`. |
+| Java | `Gradle` | Fails with `Received status code 409 from server: Conflict`. |
 
-If your build tool or repository manager pulls from a public registry as a fallback, it may fetch a blocked package and bypass Chainguard's controls.
+To find out why a specific version is blocked, see
+[Library policies](/chainguard/chainguard-repository/library-policies/).
+
+If your build tool or repository manager pulls from a public registry as a
+fallback, it may fetch a blocked package and bypass Chainguard's controls.
 Chainguard recommends pulling all of your open source packages through the
 [Chainguard Repository](/chainguard/libraries/overview/#upstream-fallback-and-controls) only.
 
