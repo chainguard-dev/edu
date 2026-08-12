@@ -1,5 +1,5 @@
 ---
-date: 2026-08-10T12:11:49Z
+date: 2026-08-11T17:12:41Z
 title: "chainctl iam organizations list"
 slug: chainctl_iam_organizations_list
 url: /platform/chainctl/chainctl-docs/chainctl_iam_organizations_list/
