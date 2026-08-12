@@ -62,7 +62,7 @@ The following container images reached end-of-life and entered their grace perio
 
 {{< changelog-label "New Images" >}}
 
-Chainguard built 25 new container images this week, including both standard and FIPS variants.
+Chainguard built 23 new container images this week, including both standard and FIPS variants.
 
 <table class="cl-images">
 <thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
@@ -78,12 +78,10 @@ Chainguard built 25 new container images this week, including both standard and 
 <tr><td><a href="https://images.chainguard.dev/directory/image/acm-controller/versions"><code>acm-controller</code></a></td><td>application +fips</td><td>2026-08-06</td></tr>
 <tr><td><a href="https://images.chainguard.dev/directory/image/gremlin-server/versions"><code>gremlin-server</code></a></td><td>application</td><td>2026-08-06</td></tr>
 <tr><td><a href="https://images.chainguard.dev/directory/image/rollouts-plugin-trafficrouter-gatewayapi/versions"><code>rollouts-plugin-trafficrouter-gatewayapi</code></a></td><td>application +fips</td><td>2026-08-06</td></tr>
-<tr><td><a href="https://images.chainguard.dev/directory/image/chainguard-desktop-workstation-qemu/versions"><code>chainguard-desktop-workstation-qemu</code></a></td><td>base</td><td>2026-08-07</td></tr>
 <tr><td><a href="https://images.chainguard.dev/directory/image/claude/versions"><code>claude</code></a></td><td>application</td><td>2026-08-07</td></tr>
 <tr><td><a href="https://images.chainguard.dev/directory/image/codex/versions"><code>codex</code></a></td><td>application</td><td>2026-08-07</td></tr>
 <tr><td><a href="https://images.chainguard.dev/directory/image/cruise-control/versions"><code>cruise-control</code></a></td><td>application +fips</td><td>2026-08-07</td></tr>
 <tr><td><a href="https://images.chainguard.dev/directory/image/dotstatsuite-supercore/versions"><code>dotstatsuite-supercore</code></a></td><td>application</td><td>2026-08-07</td></tr>
-<tr><td><a href="https://images.chainguard.dev/directory/image/chainguard-server-workstation-gcp/versions"><code>chainguard-server-workstation-gcp</code></a></td><td>base</td><td>2026-08-08</td></tr>
 <tr><td><a href="https://images.chainguard.dev/directory/image/opencode/versions"><code>opencode</code></a></td><td>application</td><td>2026-08-08</td></tr>
 <tr><td><a href="https://images.chainguard.dev/directory/image/zalando-pgbouncer/versions"><code>zalando-pgbouncer</code></a></td><td>application +fips</td><td>2026-08-10</td></tr>
 </tbody>
