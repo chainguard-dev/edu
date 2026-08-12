@@ -14,10 +14,15 @@ tags: ["Libraries", "Product"]
 Chainguard Libraries applies security controls to every package it serves through the
 Repository: malware and greyware scanning, and configurable policies such as a
 cooldown period. When a package or version is blocked by one of these controls,
-Chainguard does not serve it and the pull fails with a `409` error.
+Chainguard does not serve it and outputs a `409` error.
 
-A `409` means the package or version is blocked, for one of the reasons below. This page explains the
-reasons and how different package managers behave.
+Chainguard also surfaces errors for other reasons, such as a missing entitlement or 
+invalid authentication.
+
+**Note**: If your build tool or repository manager pulls from a public registry as a
+fallback, it may fetch a blocked package and bypass Chainguard's controls.
+Chainguard recommends pulling all open source packages through the
+[Chainguard Repository](/chainguard/libraries/overview/#upstream-fallback-and-controls) only.
 
 ## Error types
 
@@ -25,7 +30,7 @@ reasons and how different package managers behave.
 
 A `409` error is returned for one of the following reasons:
 
-* **Malware or greyware detected**: The version is on Chainguard's malware and greyware block list, either from a public advisory (MAL ID) or from Chainguard's own source code scanning.
+* **Malware or greyware detected**: The package or version is on Chainguard's malware and greyware block list, either from a public advisory (MAL ID) or from Chainguard's own source code scanning.
 * **Malware scan pending**: A newly published version has not completed malware scanning yet.
 * **Policy block**: The version is blocked by a policy configured by your organization, such as a cooldown policy.
 
@@ -35,9 +40,9 @@ To resolve a blocked package due to one of these reasons, you can choose a versi
 `403` (rather than a `409`) and surfaces the reason. See the
 [Package manager behavior](#package-manager-behavior) section below.
 
-### Access and authentication errors
+### Other errors
 
-The following errors indicate access or authentication issues.
+The following errors indicate issues related to authentication, entitlements, or a non-existent package.
 
 | Error | Meaning | Next steps |
 | -- | -- | -- |
@@ -52,21 +57,14 @@ The following errors indicate access or authentication issues.
 | Ecosystem | Package manager | Behavior on blocked packages |
 | -- | -- | -- |
 | JavaScript | `npm` | Surfaces the reason in both cases: `E409` (`409 Conflict`) for a direct pull, and a `403` for a blocked dependency reached during resolution. |
-| JavaScript | `pnpm` | Treats the `409` as transient and retries (about 70 seconds) before failing with `ERR_PNPM_FETCH_409`. See the [pnpm retry settings](https://pnpm.io/settings#fetchretries). |
+| JavaScript | `pnpm` | Treats the `409` as transient and retries (about 70 seconds) before failing with `ERR_PNPM_FETCH_409`. See the [pnpm retry settings](https://pnpm.io/settings#fetchretries) for more details. |
 | JavaScript | `yarn` | Fails with the `409` error. |
-| Python | `pip` | Reports `No matching distribution found`, the same message as a genuinely missing package. Run `pip -v` to see the `409` (`Could not fetch URL .../simple/<package>/: 409 Client Error: Conflict for url: ... - skipping`). |
+| Python | `pip` | Reports `No matching distribution found` on `pip install`. Running `pip install -v` will surface a `409` (`Could not fetch URL .../simple/<package>/: 409 Client Error: Conflict for url: ... - skipping`). |
 | Python | `uv` | Fails with `HTTP status client error (409 Conflict)`. |
 | Python | `poetry` | Fails with `409 Client Error: Conflict`. |
 | Java | `Maven` | Fails with `status code: 409, reason phrase: Conflict`. |
 | Java | `Gradle` | Fails with `Received status code 409 from server: Conflict`. |
 
-To find out why a specific version is blocked, see
-[Library policies](/chainguard/chainguard-repository/library-policies/).
-
-If your build tool or repository manager pulls from a public registry as a
-fallback, it may fetch a blocked package and bypass Chainguard's controls.
-Chainguard recommends pulling all of your open source packages through the
-[Chainguard Repository](/chainguard/libraries/overview/#upstream-fallback-and-controls) only.
 
 ## Learn more
 
