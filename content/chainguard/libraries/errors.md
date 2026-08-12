@@ -54,11 +54,10 @@ Package managers vary in how they output error codes and response bodies. The ta
 | Python | `uv` | Blocked versions surface a `409` with the reason. |
 | Python | `poetry` | Blocked versions surface a `409` with the reason. |
 | Java | `Maven` | Blocked versions surface a `409` **without** the reason. |
-| Java | `Gradle` | Blocked versions surface a `409` **without** the reason.|
+| Java | `Gradle` | Blocked versions surface a `409` **without** the reason. |
 
-If your build tool or repository manager pulls from a public registry as a fallback, it may fetch a blocked package and bypass Chainguard's controls. 
-Chainguard recommends pulling all of your
-open source packages through the
+If your build tool or repository manager pulls from a public registry as a fallback, it may fetch a blocked package and bypass Chainguard's controls.
+Chainguard recommends pulling all of your open source packages through the
 [Chainguard Repository](/chainguard/libraries/overview/#upstream-fallback-and-controls) only.
 
 ## Learn more
