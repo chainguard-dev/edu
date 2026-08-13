@@ -89,6 +89,8 @@ The major advantage of distroless images is the reduced size and complexity, whi
 
 `chainctl`, Chainguard's command line interface tool, comes with a useful `diff` feature that allows you to [compare two Chainguard Containers](/chainguard/containers/how-to-use/comparing-images/).
 
+Additionally, every container listed in the [Containers Directory](https://images.chainguard.dev/?category=developer) has a **Comparison** tab that compares the number of CVEs in the Chainguard Container — often zero — against the number in its upstream counterpart, and charts how each has changed over time. For an example, check out the [nginx container's **Comparison** tab](https://images.chainguard.dev/directory/image/nginx/compare).
+
 ## Architecture
 
 By default, all Wolfi-based images are built for x86_64 (also known as AMD64) and AArch64 (also known as ARM64) architecture with the following CPU Instruction Set Architecture (ISA) baseline features:
