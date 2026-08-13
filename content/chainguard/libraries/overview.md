@@ -6,7 +6,7 @@ description: "Learn about Chainguard Libraries, providing enhanced security for
     comprehensive supply chain protection."
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-07T13:12:35+00:00
+lastmod: 2026-08-13T12:00:11+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 menu:
@@ -198,7 +198,7 @@ Chainguard's scanning evaluates multiple signal types, including:
 
 You can view blocked packages [in the Chainguard Console](/chainguard/libraries/browse/#view-malware-information), [using `chainctl` commands](/platform/chainctl/chainctl-docs/chainctl_libraries_packages_malware_list/), or [via the API](#malware-api).
 
-For more details on the errors a blocked package will surface across ecosystems, see the [error messages documentation](/chainguard/libraries/errors/).
+For more details on the errors a blocked package surfaces across ecosystems, see the [Error messages documentation](/chainguard/libraries/errors/).
 
 #### Malware API
 
