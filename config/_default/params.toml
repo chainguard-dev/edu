@@ -89,7 +89,6 @@ lastMod = false
   bootStrapJs = true
   breadCrumb = false
   highLight = true
-  kaTex = false
   multilingualMode = false
   docsVersioning = false
   fullWidth = false

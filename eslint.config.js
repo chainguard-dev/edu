@@ -12,7 +12,6 @@ module.exports = [
     ignores: [
       "**/*.min.js",
       "assets/js/index.js",
-      "assets/js/katex.js",
       "assets/js/vendor/**",
       "node_modules/**",
     ],
