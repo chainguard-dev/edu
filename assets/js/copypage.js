@@ -53,7 +53,6 @@ async function getPageAsMarkdown() {
     ".copy-page-btn",
     ".copy-tooltip",
     ".notice",
-    ".rumble-comparison",
     ".rumble-vuln",
     ".tooltip-container",
     ".tooltip",

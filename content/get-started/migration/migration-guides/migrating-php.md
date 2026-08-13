@@ -16,7 +16,7 @@ weight: 005
 toc: true
 ---
 
-Chainguard's PHP containers provide enhanced security for PHP applications through minimal, purpose-built images that significantly reduce attack surface. Built on [Wolfi](/open-source/wolfi/), these containers achieve [dramatically fewer vulnerabilities](/chainguard/containers/vuln-comparison/php/) compared to traditional PHP images while maintaining full compatibility with PHP workloads. Daily automated builds ensure applications receive the latest security patches without manual intervention.
+Chainguard's PHP containers provide enhanced security for PHP applications through minimal, purpose-built images that significantly reduce attack surface. Built on [Wolfi](/open-source/wolfi/), these containers achieve dramatically fewer vulnerabilities compared to traditional PHP images while maintaining full compatibility with PHP workloads. Daily automated builds ensure applications receive the latest security patches without manual intervention.
 
 This article will assist you in the process of migrating your existing PHP Dockerfiles to leverage the benefits of Chainguard Containers, including a smaller attack surface and a more secure application footprint.
 

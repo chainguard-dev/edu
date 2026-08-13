@@ -15,9 +15,8 @@ import (
 )
 
 const (
-	CveQueryType           = "cve"
-	ImageScanQueryType     = "scan"
-	LegacyScanQueryType    = "legacyscan"
+	CveQueryType            = "cve"
+	LegacyScanQueryType     = "legacyscan"
 	VulnWithImagesQueryType = "vulnwithimages"
 )
 
@@ -39,16 +38,6 @@ type LegacyScan struct {
 	Unknown_cve_cnt int64
 	Tot_cve_cnt     int64
 	Digest          string
-}
-
-type ImageScan struct {
-	Image         string
-	T             string
-	Package       string
-	Vulnerability string
-	Version       string
-	Type          string
-	Severity      string
 }
 
 type VulnWithImages struct {
@@ -85,8 +74,6 @@ func (b *BqClient) Query(q *bigquery.Query, queryType string) ([]interface{}, er
 	for {
 		var values interface{}
 		switch queryType {
-		case ImageScanQueryType:
-			values = &ImageScan{}
 		case LegacyScanQueryType:
 			values = &LegacyScan{}
 		case CveQueryType:

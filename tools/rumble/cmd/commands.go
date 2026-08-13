@@ -26,7 +26,6 @@ func New() *cobra.Command {
 	cmd.AddCommand(
 		cmdVulns(o),
 		cmdLegacyCsv(o),
-		cmdImageCsvs(o),
 	)
 
 	return cmd
