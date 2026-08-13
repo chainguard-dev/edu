@@ -128,28 +128,6 @@ notAlternative = true
     min = "0.80.0"
     max = ""
   [[module.mounts]]
-    source = "node_modules/@hyas/doks/archetypes"
-    target = "archetypes"
-  [[module.mounts]]
-    source = "node_modules/@hyas/doks/assets"
-    target = "assets"
-#  [[module.mounts]]
-#    source = "node_modules/@hyas/doks/content"
-#    target = "content"
-  [[module.mounts]]
-    source = "node_modules/@hyas/doks/data"
-    target = "data"
-  # Hugo 0.152+ gives first-listed mount priority for duplicate files.
-  # Exclude theme layouts that the project overrides in layouts/, otherwise
-  # the theme version silently wins. Update this list when adding new overrides.
-  [[module.mounts]]
-    source = "node_modules/@hyas/doks/layouts"
-    target = "layouts"
-    excludeFiles = ["index.html", "index.redirects", "_default/_markup/render-heading.html", "_default/_markup/render-image.html", "_default/baseof.html", "_default/list.html", "404.html", "partials/footer/footer.html", "partials/footer/script-footer.html", "partials/head/script-header.html", "partials/head/seo.html", "partials/header/header.html", "partials/sidebar/auto-collapsible-menu.html", "partials/sidebar/docs-toc.html", "partials/sidebar/nav-bottom.html", "shortcodes/alert.html", "robots.txt"]
-  [[module.mounts]]
-    source = "node_modules/@hyas/doks/static"
-    target = "static"
-  [[module.mounts]]
     source = "node_modules/katex"
     target = "assets/js/vendor/katex"
   [[module.mounts]]
