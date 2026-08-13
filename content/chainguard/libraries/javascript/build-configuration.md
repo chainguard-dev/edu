@@ -29,6 +29,8 @@ If you are migrating an existing project to Chainguard Libraries, follow the
 [JavaScript migration guide](/chainguard/libraries/javascript/migration/) for a
 step-by-step walkthrough.
 
+If a package or version is blocked by a policy or malware scan, your build tool returns an error. See the [Error messages documentation](/chainguard/libraries/errors/) for more details.
+
 ## JFrog Artifactory
 
 Build configuration to retrieve artifacts from Artifactory typically requires
