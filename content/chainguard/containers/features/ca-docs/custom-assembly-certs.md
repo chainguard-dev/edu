@@ -181,6 +181,7 @@ As of this writing, Chainguard offers the following certificate bundle packages 
 * `ca-certificates-aws-rds-govcloud-global` — AWS US GovCloud
 * `ca-certificates-dod-eca` — US DoD External Certificate Authority (ECA) PKI certificates
 * `ca-certificates-dod-wcf` — US DoD Web Content Filtering (WCF) PKI certificates
+* `ca-certificates-mozilla-eol-20251003` — [Obsolete CA certificates](https://wiki.mozilla.org/CA/Root_CA_Lifecycles) removed by Mozilla in 2026
 
 ## Custom Assembly and Java truststores
 
