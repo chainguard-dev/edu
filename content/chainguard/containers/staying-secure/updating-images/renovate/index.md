@@ -249,7 +249,7 @@ Configure Renovate with the example below, replacing every instance of `cgr.dev/
 
 Renovate supports updating [ArgoCD](https://argo-cd.readthedocs.io/) `Application` manifests with its [built-in `argocd` manager](https://docs.renovatebot.com/modules/manager/argocd/). However, it doesn't presently support updating [digest references](/chainguard/containers/how-to-use/container-image-digests/) for OCI chart URLs, which is a [recommended practice when deploying Chainguard Helm charts](/chainguard/containers/how-to-use/use-chainguard-helm-charts/#pin-to-digest). See [renovatebot/renovate#45055](https://github.com/renovatebot/renovate/discussions/45055) for more details.
 
-To pin Chainguard Helm charts to digests and update them with Renovate, you can use a [custom `jsonata` manager](https://docs.renovatebot.com/modules/manager/custom.jsonata/) as a workaround.
+To pin Chainguard Helm charts to digests and update them with Renovate, you can use a [custom `jsonata` manager](https://docs.renovatebot.com/modules/manager/jsonata/) as a workaround.
 
 Given `Application` manifests such as:
 
