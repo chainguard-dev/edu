@@ -63,7 +63,7 @@ You can now configure `hostRules` in Renovate to support the Chainguard registry
 }
 ```
 
-Be aware that you **SHOULD NOT** check this file into source control with the exposed secret. Instead, you can use environment variables which you pass in at runtime if you use a `config.js` file:
+Be aware that you **SHOULD NOT** check this file into source control with the exposed secret. Instead, you can use environment variables that you pass in at runtime if you use a `config.js` file:
 
 ```json
 module.exports = {
@@ -78,13 +78,13 @@ module.exports = {
 };
 ```
 
-But an even more secure solution would be to create a script which automatically updates the configuration with the correct values by calling `chainctl`. If you do this, you should also set the credential lifetime to a much shorter period with the `--ttl` flag:
+But an even more secure solution would be to create a script that automatically updates the configuration with the correct values by calling `chainctl`. If you do this, you should also set the credential lifetime to a much shorter period with the `--ttl` flag:
 
 ```shell
 chainctl auth configure-docker --pull-token --ttl 10m
 ```
 
-This sets the pull token's lifetime to 10 minutes, which limits the risk posed if the token should leak. You can also set the lifetime to a longer period for more manual configurations.
+This sets the pull token's lifetime to 10 minutes, which limits the risk posed if the token leaks. You can also set the lifetime to a longer period for more manual configurations.
 
 ## Updating versioned container images
 
@@ -154,7 +154,7 @@ The following example Renovate configuration includes this option:
 }
 ```
 
-This configures Renovate to open PRs that will pin a reference like `cgr.dev/chainguard/python:3.12` to a digest like the following:
+This configures Renovate to open PRs that pin a reference like `cgr.dev/chainguard/python:3.12` to a digest like the following:
 
 ```
 cgr.dev/chainguard/python:3.12@sha256:e3b524a97c37c32ba590aae0ebcebe3a983c1f69a5093b670fdba980f97a09b3
@@ -186,7 +186,7 @@ Here is an example Renovate configuration that does this:
 
 This configures Renovate to update the digest for a reference but not the tag.
 
-The benefit of this approach is that it allows you to define your update strategy for each image reference by the use of a mutable tag, rather than having separate rules for different images in your Renovate configuration, similar to Chainguard's [Digestabot](https://github.com/chainguard-dev/digestabot) Github Action.
+The benefit of this approach is that it allows you to define your update strategy for each image reference by the use of a mutable tag, rather than having separate rules for different images in your Renovate configuration, similar to Chainguard's [Digestabot](https://github.com/chainguard-dev/digestabot) GitHub Action.
 
 ## Updating Chainguard Helm charts in Helmfiles
 
@@ -442,18 +442,18 @@ jobs:
 This workflow performs the following steps:
 
 * Installs chainctl and logs in as the assumable identity you created.
-* Exports a short lived token for cgr.dev as `RENOVATE_DOCKER_CGR_DEV_PASSWORD`.
-* Runs renovate with `RENOVATE_DETECT_HOST_RULES_FROM_ENV=true` so that it uses the password exported by the previous step.
+* Exports a short-lived token for cgr.dev as `RENOVATE_DOCKER_CGR_DEV_PASSWORD`.
+* Runs Renovate with `RENOVATE_DETECT_HOST_RULES_FROM_ENV=true` so that it uses the password exported by the previous step.
 
 Push this file to your repository's `main` branch.
 
 This workflow is scheduled to run at 3:00 a.m. every morning. You can trigger it manually by navigating to **Actions > Renovate** and selecting **Run workflow**.
 
-Once the workflow has ran successfully, you will find pull requests in your repository for any image references that need to be updated.
+Once the workflow has run successfully, you'll find pull requests in your repository for any image references that need to be updated.
 
 ## Running Renovate with Docker
 
-Chainguard provide [an image for Renovate](https://images.chainguard.dev/directory/image/renovate/overview). This is an example of how you can run this image to keep references to Chainguard images up to date in a GitHub repository.
+Chainguard provides [an image for Renovate](https://images.chainguard.dev/directory/image/renovate/overview). This is an example of how you can run this image to keep references to Chainguard images up to date in a GitHub repository.
 
 > **Note**: To follow along with this section, you must have access to Chainguard's `renovate` container image.
 
@@ -467,7 +467,7 @@ export RENOVATE_TOKEN=ghp_XXXXXXXXXXXXXXXXXX
 
 Next, create a Renovate configuration file at the root of any GitHub repositories you want to target with Renovate. Refer to the [official documentation](https://docs.renovatebot.com/configuration-options/) for all the supported options.
 
-This is an example of the most minimal configuration:
+This is an example of a minimal configuration:
 
 ```json
 {
@@ -536,7 +536,7 @@ DEBUG: found labels in manifest (repository=local)
 
 ### Connection errors
 
-If you have problems getting Renovate to monitor `cgr.dev`, please double check the connection details. Make sure the token is still valid (you can verify with `chainctl iam identities list`) and it has access to the repository you are referring to. You can test these credentials by running a `docker login` and `docker pull` in a clean environment.
+If you have problems getting Renovate to monitor `cgr.dev`, please double-check the connection details. Make sure the token is still valid (you can verify with `chainctl iam identities list`) and it has access to the repository you are referring to. You can test these credentials by running a `docker login` and `docker pull` in a clean environment.
 
 ### getReleaseList error
 
