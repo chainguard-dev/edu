@@ -128,9 +128,6 @@ notAlternative = true
     min = "0.80.0"
     max = ""
   [[module.mounts]]
-    source = "node_modules/katex"
-    target = "assets/js/vendor/katex"
-  [[module.mounts]]
     source = "node_modules/mermaid"
     target = "assets/js/vendor/mermaid"
   [[module.mounts]]

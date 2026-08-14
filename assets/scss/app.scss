@@ -10,11 +10,7 @@
 /** Import highlight.js */
 @import "highlight.js/scss/a11y-light";
 
-/** Import KaTeX */
-@import "katex/dist/katex";
-
 /** Import theme styles */
-@import "common/fonts";
 @import "common/fontfamilies";
 @import "common/global";
 @import "common/dark";
