@@ -14,7 +14,7 @@ weight: 040
 
 The Chainguard platform supports SCIM 2.0 provisioning from Microsoft Entra ID. With SCIM enabled, Entra ID creates, updates, and deactivates Chainguard users as you assign and unassign them in your directory, and each provisioned user is linked to their single sign-on (SSO) identity the first time they log in.
 
-This guide outlines how to register an Entra ID application for SSO, create a Chainguard identity provider for it, and configure an Entra ID enterprise application for SCIM provisioning. Set up SSO first, since provisioning links users to their SSO logins.
+This guide outlines how to register an Entra ID application for SSO, create a Chainguard identity provider for it, and configure an Entra ID enterprise application for SCIM provisioning. Set up SSO first, since provisioning links users to their SSO logins. For how provisioning behaves — account and deactivation semantics, token lifecycle, and limits — refer to [Provision Chainguard Users with SCIM](/chainguard/administration/custom-idps/scim-provisioning/).
 
 ## Prerequisites
 
@@ -22,6 +22,7 @@ To complete this guide, you will need the following.
 
 * `chainctl` installed on your system. Follow our guide on [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) if you don't already have this installed.
 * Owner permissions on the Chainguard organization where you will install the identity provider.
+* The [common prerequisites](/chainguard/administration/custom-idps/scim-provisioning/#prerequisites) for SCIM provisioning — in particular, two owners with directly assigned role bindings in your organization; enabling SCIM requires this.
 * An Entra ID account with Global Administrator or Application Administrator permissions. Without these you will not be able to register applications or assign users to them.
 * An Entra ID P1 or P2 license. The **Automatic** provisioning mode used below requires one.
 * A workforce Entra ID tenant. External ID (CIAM) tenants use a different application model and are not covered here.
@@ -90,7 +91,7 @@ chainctl iam identity-providers scim enable ${IDP}
 chainctl iam identity-providers scim token generate ${IDP}
 ```
 
-The `token generate` command prints the **SCIM base URL** for the identity provider and a **bearer token** beginning with `cgscim_`. Note both now — the token is shown only once. If it leaks, run `scim token generate` again to replace it.
+The `token generate` command prints the **SCIM base URL** for the identity provider and a **bearer token** beginning with `cgscim_`. Note both now — the token is shown only once. To replace it later — or revoke it if it leaks — use the `scim token regenerate` and `scim token revoke` commands described in [Provision Chainguard Users with SCIM](/chainguard/administration/custom-idps/scim-provisioning/#manage-provisioning).
 
 ## Configure the Entra ID enterprise application for SCIM
 
@@ -147,3 +148,9 @@ Unassigning a user from the application, disabling their account, or deleting th
 **Test Connection fails.** Confirm the Tenant URL is the SCIM base URL with `?aadOptscim062020` appended and the Secret Token is the bare `cgscim_...` value. The URL and token must come from the same `token generate` run.
 
 **Provisioning is quarantined.** Entra ID pauses provisioning after repeated errors. Fix the error shown in the provisioning logs and restart provisioning.
+
+## Related resources
+
+* [Provision Chainguard Users with SCIM](/chainguard/administration/custom-idps/scim-provisioning/)
+* [Grant Chainguard Roles from Identity Provider Groups](/chainguard/administration/custom-idps/grant-roles-from-groups/)
+* [Overview of the Chainguard IAM Model](/chainguard/administration/iam-organizations/overview-of-chainguard-iam-model/)
