@@ -16,7 +16,7 @@ weight: 039
 
 The Chainguard platform supports SCIM 2.0 provisioning from Okta. With SCIM enabled, Okta creates, updates, and deactivates Chainguard users as you assign and unassign them, and each provisioned user is linked to their single sign-on (SSO) login automatically.
 
-This guide covers the Okta-specific setup. For how provisioning behaves — account and deactivation semantics, token lifecycle, and limits — refer to [Provision Chainguard Users with SCIM](/chainguard/administration/custom-idps/scim-provisioning/).
+This guide covers the Okta-specific setup. For provisioning behavior, token lifecycle, and limits, refer to [Provision Chainguard Users with SCIM](/chainguard/administration/custom-idps/scim-provisioning/).
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ The command prints the token to standard output and the SCIM endpoint URL to sta
 
 ## Step 2: Create the Okta provisioning app
 
-Okta hosts SCIM provisioning on an app integration, but SCIM cannot be added to the OIDC app integration you use for login. Create a second app integration that exists only to carry provisioning: in the Okta Admin Console, navigate to **Applications** > **Applications**, click **Create App Integration**, and choose **SAML 2.0**. Complete the wizard with placeholder values — Chainguard does not consume the SAML assertion, and sign-in stays on your existing OIDC app. On the new app's **General** tab, set **Provisioning** to **SCIM**.
+Okta hosts SCIM provisioning on an app integration, but SCIM cannot be added to the OIDC app integration you use for login. Create a second app integration that exists only to carry provisioning: in the Okta Admin Console, navigate to **Applications** > **Applications**, click **Create App Integration**, and choose **SAML 2.0**. Complete the wizard with placeholder values; Chainguard does not consume the SAML assertion, and sign-in stays on your existing OIDC app. On the new app's **General** tab, set **Provisioning** to **SCIM**.
 
 Then open the app's **Provisioning** tab and configure the SCIM connection:
 
@@ -53,10 +53,10 @@ Then open the app's **Provisioning** tab and configure the SCIM connection:
 * **Unique identifier field for users**: `userName`.
 * **Authentication mode**: **HTTP Header**, with `Bearer <token>` as the value.
 
-Two details to get right:
+Two configuration details:
 
 * The HTTP Header value is sent exactly as you type it, so it must be `Bearer <token>`, including the word `Bearer` and a space; a bare token fails authentication.
-* Enable the provisioning actions you want Chainguard to receive: under **Provisioning** > **To App**, check **Create Users**, **Update User Attributes**, and **Deactivate Users**. Leave group push off — Chainguard's SCIM endpoint accepts user provisioning only.
+* Enable the provisioning actions you want Chainguard to receive: under **Provisioning** > **To App**, check **Create Users**, **Update User Attributes**, and **Deactivate Users**. Leave group push off; Chainguard's SCIM endpoint accepts user provisioning only.
 
 Use **Test API Credentials** to confirm the URL and token before saving. Provisioning itself stays off until Step 3.
 
@@ -77,7 +77,7 @@ Chainguard now accepts provisioning requests from Okta. If the command is refuse
 
 ## Troubleshooting
 
-**A user logged in but wasn't linked.** A provisioning mismatch does not error — the login proceeds as a normal, unlinked user. Confirm the user is assigned to the provisioning app and was provisioned (check the app's assignment and Okta's provisioning logs), and that the app sends the default Okta user ID as `externalId`.
+**A user logged in but wasn't linked.** A provisioning mismatch does not produce an error; the login proceeds as a normal, unlinked user. Confirm the user is assigned to the provisioning app and was provisioned (check the app's assignment and Okta's provisioning logs), and that the app sends the default Okta user ID as `externalId`.
 
 **Test API Credentials fails.** Confirm the base URL is the endpoint printed by `token generate` and that the HTTP Header value is `Bearer <token>` — including the word `Bearer` and a space. The URL and token must come from the same `token generate` run.
 

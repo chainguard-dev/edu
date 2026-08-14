@@ -16,7 +16,7 @@ weight: 040
 
 The Chainguard platform supports SCIM 2.0 provisioning from Microsoft Entra ID. With SCIM enabled, Entra ID creates, updates, and deactivates Chainguard users as you assign and unassign them in your directory, and each provisioned user is linked to their single sign-on (SSO) identity the first time they log in.
 
-This guide outlines how to register an Entra ID application for SSO, create a Chainguard identity provider for it, and configure an Entra ID enterprise application for SCIM provisioning. Set up SSO first, since provisioning links users to their SSO logins. For how provisioning behaves — account and deactivation semantics, token lifecycle, and limits — refer to [Provision Chainguard Users with SCIM](/chainguard/administration/custom-idps/scim-provisioning/).
+This guide outlines how to register an Entra ID application for SSO, create a Chainguard identity provider for it, and configure an Entra ID enterprise application for SCIM provisioning. Set up SSO first, since provisioning links users to their SSO logins. For provisioning behavior, token lifecycle, and limits, refer to [Provision Chainguard Users with SCIM](/chainguard/administration/custom-idps/scim-provisioning/).
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ To complete this guide, you will need the following.
 
 * `chainctl` installed on your system. Follow our guide on [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) if you don't already have this installed.
 * Owner permissions on the Chainguard organization where you will install the identity provider.
-* The [common prerequisites](/chainguard/administration/custom-idps/scim-provisioning/#prerequisites) for SCIM provisioning — in particular, two owners with directly assigned role bindings in your organization; enabling SCIM requires this.
+* The [common prerequisites](/chainguard/administration/custom-idps/scim-provisioning/#prerequisites) for SCIM provisioning, including two owners with directly assigned role bindings in your organization.
 * An Entra ID account with Global Administrator or Application Administrator permissions. Without these you will not be able to register applications or assign users to them.
 * An Entra ID P1 or P2 license. The **Automatic** provisioning mode used below requires one.
 * A workforce Entra ID tenant. External ID (CIAM) tenants use a different application model and are not covered here.
@@ -93,7 +93,7 @@ chainctl iam identity-providers scim enable ${IDP}
 chainctl iam identity-providers scim token generate ${IDP}
 ```
 
-The `token generate` command prints the **SCIM base URL** for the identity provider and a **bearer token** beginning with `cgscim_`. Note both now — the token is shown only once. To replace it later — or revoke it if it leaks — use the `scim token regenerate` and `scim token revoke` commands described in [Provision Chainguard Users with SCIM](/chainguard/administration/custom-idps/scim-provisioning/#manage-provisioning).
+The `token generate` command prints the **SCIM base URL** for the identity provider and a **bearer token** beginning with `cgscim_`. Note both now — the token is shown only once. To replace or revoke it later, use the `scim token regenerate` and `scim token revoke` commands described in [Provision Chainguard Users with SCIM](/chainguard/administration/custom-idps/scim-provisioning/#manage-provisioning).
 
 ## Configure the Entra ID enterprise application for SCIM
 
@@ -115,7 +115,7 @@ Open the **Attribute mapping** page and select the **Users** tab. Edit the mappi
 
 **_NOTE:_** Make this change before provisioning any user, including with **Provision on demand**, and do not change it afterward. `objectId` is the value the identity provider matches against at login; changing it after users exist leaves those users permanently unlinked. Map `externalId` only to `objectId` — a user-editable or non-unique attribute could link a login to the wrong identity.
 
-Leave `userName` mapped from `userPrincipalName` — it is the matching attribute — and leave `active` unmapped, since Entra ID manages it. You may keep other default mappings; Chainguard ignores attributes it doesn't use. If the application shows a **Provision Microsoft Entra ID Groups** mapping, disable it — Chainguard's SCIM endpoint accepts user provisioning only.
+Leave `userName` mapped from `userPrincipalName` — it is the matching attribute — and leave `active` unmapped, since Entra ID manages it. You may keep other default mappings; Chainguard ignores attributes it doesn't use. If the application shows a **Provision Microsoft Entra ID Groups** mapping, disable it; Chainguard's SCIM endpoint accepts user provisioning only.
 
 ### Assign users and turn on provisioning
 

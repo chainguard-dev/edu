@@ -14,9 +14,9 @@ weight: 012
 
 {{< beta feature="SCIM user provisioning" >}}
 
-Chainguard can create and deactivate user accounts based on your identity provider (IdP). Connect your IdP's SCIM provisioning once; from then on, assigning a user to the application provisions them, and deactivating or unassigning them cuts their Chainguard access. Accounts follow your IdP, so you manage who has access in one place instead of onboarding and offboarding users in Chainguard by hand.
+Chainguard can create and deactivate user accounts based on your identity provider (IdP). Connect your IdP's SCIM provisioning once; from then on, assigning a user to the application provisions them, and deactivating or unassigning them removes their Chainguard access. Accounts follow your IdP, so access is managed in one place.
 
-SCIM provisioning manages accounts, not roles. To grant roles from IdP group membership, use [group mappings](/chainguard/administration/custom-idps/grant-roles-from-groups/); the two are independent, and you can use either or both. Chainguard's SCIM endpoint accepts user provisioning only — group provisioning over SCIM is not yet available, so leave your IdP's SCIM group push turned off.
+SCIM provisioning manages accounts, not roles. To grant roles from IdP group membership, use [group mappings](/chainguard/administration/custom-idps/grant-roles-from-groups/); the two are independent, and you can use either or both. Chainguard's SCIM endpoint accepts user provisioning only. Group provisioning over SCIM is not yet available, so leave your IdP's SCIM group push turned off.
 
 This page explains how provisioning behaves and how to manage the connection over its lifetime. To connect a specific identity provider, follow its guide:
 
@@ -25,19 +25,21 @@ This page explains how provisioning behaves and how to manage the connection ove
 
 ## How SCIM provisioning works
 
+Provisioning behaves the same way for every provider:
+
 * **Provisioning creates records, logins create accounts.** When your IdP provisions a user, Chainguard stores a provisioning record. The user's Chainguard account is created the first time they log in, exactly as it would be without SCIM, and connects to their provisioning record automatically. Users who have logged in before are connected at their next login, with no re-registration; their existing access is unaffected.
 * **Matching is by `externalId`, never by email.** A provisioned user connects to a login by matching the SCIM `externalId` your IdP sends against the subject of the login token. Each provider guide covers how to make the two align. Email addresses are never used for matching.
 * **Deactivation takes effect at the user's next login or token refresh.** When your IdP deactivates or unassigns a provisioned user, their current access token runs out on its own schedule (up to an hour), and every attempt to log in or refresh after the deactivation is refused. Reactivating the user in your IdP restores their ability to log in; it does not restore any role bindings that were removed while they were deactivated.
 * **Provisioning does not assign roles.** A provisioned user who logs in gets the identity provider's default role, plus any group-mapped roles and role bindings they hold, same as any other user.
-* **Enabling SCIM locks no one out.** Users who aren't provisioned log in exactly as before. Provisioning adds lifecycle control for the users your IdP sends; it doesn't restrict the rest.
+* **Enabling SCIM does not restrict other logins.** Users who aren't provisioned log in exactly as before; provisioning adds lifecycle control only for the users your IdP sends.
 
 ## Prerequisites
 
-Every provider guide builds on the same foundation:
+The provider guides share the following prerequisites:
 
 * A custom identity provider already configured for login to Chainguard. If you haven't set one up yet, refer to our guide on [Using Custom Identity Providers](/chainguard/administration/custom-idps/custom-idps/).
 * An IAM role that can manage identity providers in your organization, such as the owner role.
-* Two owners with directly assigned role bindings in your organization. Enabling SCIM requires this, so that access to your organization never depends entirely on the IdP that SCIM controls. Roles held through group mappings don't count toward the two: they are granted per-session at login, which is exactly what an IdP outage takes away. If your organization manages access through groups, this is the step to check first: many such organizations have only their creator as a directly assigned owner.
+* Two owners with directly assigned role bindings in your organization. Enabling SCIM requires this, so that access to your organization never depends entirely on the IdP that SCIM controls. Roles held through group mappings don't count toward the two: they are granted per-session at login, which an IdP outage would interrupt. Organizations that manage access through groups often have only their creator as a directly assigned owner, so check this first.
 * `chainctl` installed on your local machine. Follow our guide on [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) if you don't already have this installed. You must also authenticate with `chainctl auth login`.
 
 The commands below refer to your identity provider by its UIDP, stored in the `IDENTITY_PROVIDER` environment variable. Retrieve and set it with the following command:
@@ -60,7 +62,7 @@ The command prints the token to standard output and the SCIM endpoint URL and ex
 
 Tokens expire after one year by default. Set a different lifetime with `--expires-in` (up to two years), or issue a non-expiring token with `--never-expires`.
 
-Generating a token does not start provisioning; that is a separate, explicit step.
+Generating a token does not start provisioning; enabling provisioning is a separate step.
 
 ## Enabling and disabling provisioning
 
@@ -99,7 +101,7 @@ Token lifecycle and the on/off switch are independent: rotating or revoking a to
 ## Limits
 
 * Provisioning write requests (create, update, deactivate) are rate limited per organization and per source address. Past the limit, requests receive HTTP 429 with a `Retry-After` header; IdPs retry on their own schedule.
-* Request bodies on writes are capped at 256 KiB, comfortably above any standard SCIM user payload.
+* Request bodies on writes are capped at 256 KiB, which is larger than any standard SCIM user payload.
 
 ## Related resources
 
