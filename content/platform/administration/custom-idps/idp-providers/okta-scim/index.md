@@ -12,6 +12,8 @@ images: []
 weight: 039
 ---
 
+{{< beta feature="SCIM user provisioning" >}}
+
 The Chainguard platform supports SCIM 2.0 provisioning from Okta. With SCIM enabled, Okta creates, updates, and deactivates Chainguard users as you assign and unassign them, and each provisioned user is linked to their single sign-on (SSO) login automatically.
 
 This guide covers the Okta-specific setup. For how provisioning behaves — account and deactivation semantics, token lifecycle, and limits — refer to [Provision Chainguard Users with SCIM](/chainguard/administration/custom-idps/scim-provisioning/).
@@ -54,7 +56,7 @@ Then open the app's **Provisioning** tab and configure the SCIM connection:
 Two details to get right:
 
 * The HTTP Header value is sent exactly as you type it, so it must be `Bearer <token>`, including the word `Bearer` and a space; a bare token fails authentication.
-* Enable the provisioning actions you want Chainguard to receive: under **Provisioning** > **To App**, check **Create Users**, **Update User Attributes**, and **Deactivate Users**.
+* Enable the provisioning actions you want Chainguard to receive: under **Provisioning** > **To App**, check **Create Users**, **Update User Attributes**, and **Deactivate Users**. Leave group push off — Chainguard's SCIM endpoint accepts user provisioning only.
 
 Use **Test API Credentials** to confirm the URL and token before saving. Provisioning itself stays off until Step 3.
 

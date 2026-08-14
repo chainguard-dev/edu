@@ -12,9 +12,11 @@ images: []
 weight: 012
 ---
 
+{{< beta feature="SCIM user provisioning" >}}
+
 Chainguard can create and deactivate user accounts based on your identity provider (IdP). Connect your IdP's SCIM provisioning once; from then on, assigning a user to the application provisions them, and deactivating or unassigning them cuts their Chainguard access. Accounts follow your IdP, so you manage who has access in one place instead of onboarding and offboarding users in Chainguard by hand.
 
-SCIM provisioning manages accounts, not roles. To grant roles from IdP group membership, use [group mappings](/chainguard/administration/custom-idps/grant-roles-from-groups/); the two are independent, and you can use either or both.
+SCIM provisioning manages accounts, not roles. To grant roles from IdP group membership, use [group mappings](/chainguard/administration/custom-idps/grant-roles-from-groups/); the two are independent, and you can use either or both. Chainguard's SCIM endpoint accepts user provisioning only — group provisioning over SCIM is not yet available, so leave your IdP's SCIM group push turned off.
 
 This page explains how provisioning behaves and how to manage the connection over its lifetime. To connect a specific identity provider, follow its guide:
 
