@@ -21,6 +21,10 @@ The Chainguard platform supports Single sign-on (SSO) authentication for users. 
 
 This guide outlines how to create a Microsoft Entra ID (formerly Azure Active Directory) application and integrate it with Chainguard. After completing this guide, you'll be able to log in to Chainguard using Entra ID and will no longer be limited to the default SSO options.
 
+{{< note >}}
+If you plan to use SCIM provisioning, check out our guide on [how to provision users into Chainguard from Microsoft Entra ID with SCIM](/platform/administration/custom-idps/scim-provisioning/ms-entra-id-scim/) instead. That guide covers SSO as well, and it creates the identity provider with the correlation rule SCIM linking depends on. The correlation rule is immutable, so adding it later means deleting and recreating your identity provider.
+{{< /note >}}
+
 ## Prerequisites
 
 To complete this guide, you will need the following.
