@@ -43,9 +43,11 @@ Next, in the **General Settings** window, configure the application as follows:
 > **Warning**: Don't select other grant types, because doing so may compromise your security.
 
 * **Sign-in redirect URIs**: Set the redirect URI to the following.
+
     ```URI
     https://issuer.enforce.dev/oauth/callback
     ```
+
 * **Sign-out redirect URIs**: This field has a URI set to `http://localhost:8080` by default. Click the **X** icon to remove the sign-out redirect entirely, leaving the field blank.
 * **Assignments**: You must select one of the options in this section:
     * **Allow everyone in your organization to access**: This option grants access to any [users](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-people.htm) you've added to your Okta organization.

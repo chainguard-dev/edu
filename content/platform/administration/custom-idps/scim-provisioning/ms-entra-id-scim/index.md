@@ -118,9 +118,11 @@ Open the enterprise application's **Overview** page, navigate to the **Provision
 * **Select authentication method**: **Bearer authentication**.
 * **Tenant URL**: The SCIM base URL from the previous step with `?aadOptscim062020` appended, which opts Entra ID into SCIM 2.0-compliant behavior.
     * To illustrate, the URL should have the following structure:
-    ```url
-    https://scim.enforce.dev/scim/v2/<ORG>/<IDP>?aadOptscim062020
-    ```
+
+        ```url
+        https://scim.enforce.dev/scim/v2/<ORG>/<IDP>?aadOptscim062020
+        ```
+
 * **Secret token**: The bare `cgscim_...` token. Do not add a `Bearer` prefix — Entra ID adds the scheme itself.
 
 Click **Test connection** to confirm the URL and token — the test must succeed — then **Save**.
