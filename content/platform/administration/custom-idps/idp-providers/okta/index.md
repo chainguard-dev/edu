@@ -42,7 +42,10 @@ Next, in the **General Settings** window, configure the application as follows:
 
 > **Warning**: Don't select other grant types, because doing so may compromise your security.
 
-* **Sign-in redirect URIs**: Set the redirect URI to `https://issuer.enforce.dev/oauth/callback`.
+* **Sign-in redirect URIs**: Set the redirect URI to the following.
+    ```URI
+    https://issuer.enforce.dev/oauth/callback
+    ```
 * **Sign-out redirect URIs**: This field has a URI set to `http://localhost:8080` by default. Click the **X** icon to remove the sign-out redirect entirely, leaving the field blank.
 * **Assignments**: You must select one of the options in this section:
     * **Allow everyone in your organization to access**: This option grants access to any [users](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-people.htm) you've added to your Okta organization.
@@ -108,3 +111,5 @@ chainctl auth login --identity-provider <IDP-ID>
 ```
 
 The ID value appears in the `ID` column of the table returned by the `chainctl iam identity-provider create` command you ran previously. You can also retrieve this table at any time by running `chainctl iam identity-provider ls -o table` when logged in.
+
+To have Okta create and deactivate Chainguard user accounts automatically as you assign and unassign them, check out our guide on [how to provision users into Chainguard from Okta with SCIM](/platform/administration/custom-idps/scim-provisioning/okta-scim/).

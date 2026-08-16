@@ -144,3 +144,5 @@ chainctl auth login --identity-provider <IDP-ID>
 ```
 
 The ID value appears in the `ID` column of the table returned by the `chainctl iam identity-provider create` command you ran previously. You can also retrieve this table at any time by running `chainctl iam identity-provider ls -o table` when logged in.
+
+To have Entra ID create and deactivate Chainguard user accounts automatically as you assign and unassign them, check out our guide on [how to provision users into Chainguard from Microsoft Entra ID with SCIM](/platform/administration/custom-idps/scim-provisioning/ms-entra-id-scim/).
