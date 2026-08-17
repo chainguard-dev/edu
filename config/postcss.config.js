@@ -37,7 +37,6 @@ module.exports = {
         "dropdown-menu-main",
         "dropdown-toggle",
         ...whitelister([
-          "./node_modules/katex/dist/katex.css",
           "./assets/scss/*.scss",
           "./assets/scss/common/*.scss",
           "./assets/scss/components/*.scss",

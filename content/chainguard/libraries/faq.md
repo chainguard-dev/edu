@@ -4,7 +4,7 @@ linktitle: "FAQ"
 description: "Frequently asked questions about Chainguard Libraries, including security benefits, supported ecosystems, and how automated patching protects against supply chain attacks"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-08-13T12:00:11+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 menu:
@@ -160,29 +160,30 @@ versions. Remediated versions are:
   distinguish them from non‑remediated upstream versions while still preferring
   the remediated build during resolution.
 
-## Why might I still see 404s with fallback enabled through Chainguard Repository?
+## Why might I still see errors with the upstream fallback enabled through the Chainguard Repository?
 
-Chainguard offers upstream fallback through the [Chainguard
-Repository](/chainguard/chainguard-repository/) as a unified, managed endpoint for each ecosystem. This single endpoint:
+Chainguard offers an upstream fallback through the [Chainguard
+Repository](/chainguard/chainguard-repository/) as a single, managed endpoint for each ecosystem. This endpoint:
 
 * Serves Chainguard‑built packages first, rebuilt from source.
-* Optionally falls back to upstream for packages or versions that are not
-  yet available from Chainguard.
-* Applies security controls on the upstream fallback, including malware and greyware scanning that blocks packages flagged as suspicious, and configurable policies such as cooldown periods.
+* Serves upstream packages for versions that are not
+  yet available from Chainguard. Chainguard scans these packages for malware and greyware before serving them, and subjects them to configurable policies such as a cooldown period.
 
-Because of those controls, you can still see 404s or failed fetches even when
-fallback is enabled, for example when:
+Because of those controls, you may still see failed pulls when
+the upstream fallback is enabled, for example when:
 
 * A package or version is blocked by malware detection and therefore
   intentionally not served from upstream.
 * A recently published version is still in the cooldown period, so the
-  repository will not yet proxy it from npm.
+  repository will not yet serve it.
 * The requested package/version truly does not exist in either Chainguard’s
   catalog or upstream.
 
-Fallback respects security policies first, then mirrors safe content from upstream.
-For customers, this can surface as a 404 from the Chainguard endpoint even
+For customers, this can surface as an error from the Chainguard endpoint even
 though a version appears in the public registry.
+
+For more details on the errors you may see when a package is blocked for these reasons,
+see the [Error messages documentation](/chainguard/libraries/errors/).
 
 ## What are Chibbies?
 

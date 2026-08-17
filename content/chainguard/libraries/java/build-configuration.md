@@ -4,7 +4,7 @@ linktitle: "Build configuration"
 description: "Configuring Chainguard Libraries for Java on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-05T19:13:35+00:00
+lastmod: 2026-08-13T12:00:11+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java"]
 menu:
@@ -40,6 +40,8 @@ The `https://libraries.cgr.dev/java/` endpoint is also the [Chainguard Repositor
 If you are migrating an existing project to Chainguard Libraries, follow the
 [Java migration guide](/chainguard/libraries/java/migration/) for a step-by-step
 walkthrough.
+
+If a package or version is blocked by a policy or malware scan, your build tool returns an error. See the [Error messages documentation](/chainguard/libraries/errors/) for more details.
 
 ## Library access approaches
 
