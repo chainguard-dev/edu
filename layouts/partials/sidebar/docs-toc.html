@@ -19,7 +19,7 @@
   {{ $scrollRighthand := $scrollRighthand | minify }}
 
 {{ $scss := resources.Get "scss/righthand.scss" }}
-{{ $righthand_style := $scss | css.Sass }}
+{{ $righthand_style := $scss | css.Sass (dict "transpiler" "dartsass") }}
 {{ $righthand_style := $righthand_style | minify }}
 
 {{/* Add righthand.css styling */}}
