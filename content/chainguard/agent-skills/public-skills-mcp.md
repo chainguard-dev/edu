@@ -5,7 +5,7 @@ description: "Connect an agent to Chainguard's Public Skills MCP server and use 
 type: "article"
 date: 2026-08-04T00:00:00+00:00
 lastmod: 2026-08-04T00:00:00+00:00
-draft: true
+draft: false
 tags: ["Agent Skills", "Overview"]
 images: []
 menu:
