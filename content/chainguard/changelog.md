@@ -4,7 +4,7 @@ linktitle: "Changelog"
 type: "article"
 description: "Weekly changelog of Chainguard product updates — product announcements, breaking changes, container images reaching end-of-life or leaving the catalog, and images newly added to it."
 date: 2026-07-28T00:00:00+00:00
-lastmod: 2026-08-10T00:00:00+00:00
+lastmod: 2026-08-17T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers", "Changelog"]
 images: []
@@ -14,6 +14,81 @@ tocEndLevel: 2
 ---
 
 This page logs Chainguard product updates week by week, newest first: product announcements, breaking changes, container images that reached end-of-life or are no longer available, and images newly added to the catalog. Each event is listed once, in the week it first appeared.
+
+## Week of 2026-08-17
+
+{{< changelog-label "Product Announcements" >}}
+
+### Clearer npm errors for blocked packages
+
+_Launched August 13, 2026._
+
+When Chainguard Libraries withholds an npm package or version — because of detected malware or greyware, a pending malware scan, or a policy block such as a cooldown — npm now returns a `403` naming the specific reason, for example `MALWARE_DETECTED`, instead of the unexplained `404` it returned before. The other supported package managers (pnpm, yarn, uv, poetry, Maven, and Gradle) still report a blocked version as a generic not-found error, and a `409` when an entire package is blocked for malware.
+
+For more information, refer to [Error messages](/chainguard/libraries/errors/#package-manager-behavior).
+
+### Guardener GitHub App (beta)
+
+_Launched August 12, 2026._
+
+Chainguard Guardener, the automated migration tool, now covers GitHub Actions as well as container images. The GitHub App inventories the Actions in use across your organization's repositories, maps them to hardened Chainguard equivalents, and opens pull requests to swap them in, pinned to a specific SHA rather than a mutable tag. It runs in two modes: an upfront pass that surfaces existing Actions usage and opens migration pull requests, and ongoing standardization that watches workflow files and suggests Chainguard equivalents as new upstream Actions appear.
+
+For more information, refer to [Getting started with Chainguard Guardener](/chainguard/guardener/github/getting-started/).
+
+{{< changelog-label "Breaking Changes" >}}
+
+### Chainguard Libraries build pinning
+
+_Effective August 24, 2026._
+
+Chainguard Repository can serve two copies of the same package version: the upstream copy mirrored from the public registry, and Chainguard's copy rebuilt from source. The two have different checksums, and each request resolves independently, so when Chainguard publishes a rebuild of a version your organization already pulled, the next resolution moves you to the rebuild and its checksum no longer matches your lockfile — surfacing client-side as errors such as `EINTEGRITY` in npm. As of August 24, 2026, build pinning records which copy your organization received the first time it downloads a package version and keeps resolving that version to the same copy until you choose to move forward. Malware and policy blocks apply independently: a version that is later blocked stops being served rather than being replaced with a different copy.
+
+- **Affected:** organizations using Chainguard Libraries with upstream fallback, across JavaScript, Python, and Java. Organizations without upstream fallback see no change.
+- **Action:** none required. To keep the current behavior, run `chainctl libraries cache opt-out`. Both `opt-out` and `chainctl libraries cache opt-in` accept `--ecosystem`, and pinning state is tracked per organization and ecosystem. To see which copy each held version came from, run `chainctl libraries cache list`.
+
+For more information, refer to [`chainctl libraries cache`](/platform/chainctl/chainctl-docs/chainctl_libraries_cache/).
+
+{{< changelog-label "EOL" >}}
+
+Chainguard offers [a grace period](/chainguard/containers/features/eol-gp-overview/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images that are no longer available
+
+The following container images reached the end of their grace period and are no longer available:
+
+| Image | End-of-life | Grace period ended |
+| --- | --- | --- |
+| `prometheus:3.9` | 2026-02-17 | 2026-08-17 |
+
+### Images that have reached end-of-life
+
+The following container images reached end-of-life and entered their grace period:
+
+| Image | End-of-life | Grace period ends |
+| --- | --- | --- |
+| `mattermost:10.11` | 2026-08-15 | 2027-02-15 |
+
+{{< changelog-label "New Images" >}}
+
+Chainguard built 17 new container images this week, including both standard and FIPS variants.
+
+<table class="cl-images">
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td><a href="https://images.chainguard.dev/directory/image/azurite/versions"><code>azurite</code></a></td><td>application</td><td>2026-08-10</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/k0s-cni-node/versions"><code>k0s-cni-node</code></a></td><td>application +fips</td><td>2026-08-10</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/peerdb-ui/versions"><code>peerdb-ui</code></a></td><td>application +fips</td><td>2026-08-10</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/scc/versions"><code>scc</code></a></td><td>application +fips</td><td>2026-08-10</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/zitadel-login/versions"><code>zitadel-login</code></a></td><td>application</td><td>2026-08-11</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/aws-lambda-nodejs/versions"><code>aws-lambda-nodejs</code></a></td><td>application +fips</td><td>2026-08-12</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/localstack/versions"><code>localstack</code></a></td><td>application</td><td>2026-08-12</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kserve-router-fips/versions"><code>kserve-router-fips</code></a></td><td>fips</td><td>2026-08-13</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/jdk-openssl-fips/versions"><code>jdk-openssl-fips</code></a></td><td>fips</td><td>2026-08-14</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/jre-openssl-fips/versions"><code>jre-openssl-fips</code></a></td><td>fips</td><td>2026-08-14</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kube-router/versions"><code>kube-router</code></a></td><td>application +fips</td><td>2026-08-14</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/commercial-nginx-ingress-plus/versions"><code>commercial-nginx-ingress-plus</code></a></td><td>commercial</td><td>2026-08-17</td></tr>
+</tbody>
+</table>
 
 ## Week of 2026-08-10
 
