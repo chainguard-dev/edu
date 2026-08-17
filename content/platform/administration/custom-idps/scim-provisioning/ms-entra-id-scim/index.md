@@ -159,6 +159,12 @@ curl -s -H "Authorization: Bearer <your cgscim_ token>" "<your SCIM base URL>/Us
 
 Then have that user log in at [console.chainguard.dev](https://console.chainguard.dev): click **Use Your Identity Provider**, then **Use Your Organization Name**, enter your organization name, and click **Login with Provider**. The first login must go through this browser flow for linking to complete. Afterward the user appears in your organization with the identity provider's default role.
 
+## Map Entra ID groups to Chainguard roles
+
+Chainguard's SCIM endpoint provisions users only. To grant Chainguard roles based on a user's Entra ID group membership, follow [Grant Chainguard roles from identity provider groups](/platform/administration/custom-idps/grant-roles-from-groups/).
+
+Entra ID emits group Object IDs (GUIDs) rather than display names in the groups claim. As a result, a group-to-role mapping displays the group as a GUID, such as `aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee`, in both `chainctl` and the console's group-mapping tab. To find which group an Object ID refers to, look it up in the Entra admin center under **Groups**. To display readable names instead, configure the groups claim to emit cloud-group display names.
+
 ## Deactivation and deletion
 
 Unassigning a user from the application, disabling their account, or deleting them causes Entra ID to deactivate or delete the corresponding Chainguard identity on its next provisioning cycle. Chainguard rejects the login of a user deactivated before they ever logged in. For immediate offboarding, use **Provision on demand** on the affected user rather than waiting for the cycle.
