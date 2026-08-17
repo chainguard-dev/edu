@@ -5,10 +5,7 @@ go 1.25.8
 require (
 	cloud.google.com/go/bigquery v1.80.0
 	cloud.google.com/go/storage v1.64.0
-	github.com/klauspost/compress v1.19.2
-	github.com/mattn/go-sqlite3 v1.14.49
 	github.com/spf13/cobra v1.10.2
-	golang.org/x/sync v0.22.0
 	google.golang.org/api v0.293.0
 )
 
@@ -39,6 +36,7 @@ require (
 	github.com/googleapis/enterprise-certificate-proxy v0.3.20 // indirect
 	github.com/googleapis/gax-go/v2 v2.23.0 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
+	github.com/klauspost/compress v1.19.2 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.5 // indirect
 	github.com/pierrec/lz4/v4 v4.1.18 // indirect
 	github.com/planetscale/vtprotobuf v0.6.1-0.20240319094008-0393e58bdf10 // indirect
@@ -59,6 +57,7 @@ require (
 	golang.org/x/mod v0.37.0 // indirect
 	golang.org/x/net v0.57.0 // indirect
 	golang.org/x/oauth2 v0.36.0 // indirect
+	golang.org/x/sync v0.22.0 // indirect
 	golang.org/x/sys v0.47.0 // indirect
 	golang.org/x/telemetry v0.0.0-20260625142307-59b4966ccb57 // indirect
 	golang.org/x/text v0.40.0 // indirect

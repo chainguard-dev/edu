@@ -85,15 +85,11 @@ For a complete list of Free Containers that are currently available, check our [
 
 ## Comparing container images
 
-The following graph shows a comparison between the official Nginx image and Chainguard's [Nginx container image](https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-overview), based on the number of CVEs (common vulnerabilities and exposures) detected by [Grype](https://github.com/anchore/grype):
+The major advantage of distroless images is the reduced size and complexity, which results in a vastly reduced attack surface. Security scanners such as [Grype](https://github.com/anchore/grype) detect far fewer CVEs (common vulnerabilities and exposures) in Chainguard Containers than in comparable general-purpose images.
 
-{{< rumble title="Nginx" description="Comparing the latest official Nginx image with cgr.dev/chainguard/nginx" left="nginx:latest" right="cgr.dev/chainguard/nginx:latest" >}}
+`chainctl`, Chainguard's command line interface tool, comes with a useful `diff` feature that allows you to [compare two Chainguard Containers](/chainguard/containers/how-to-use/comparing-images/).
 
-The major advantage of distroless images is the reduced size and complexity, which results in a vastly reduced attack surface. This is evidenced by the results from security scanners, which detect far fewer potential vulnerabilities in Chainguard Containers.
-
-You can review more comparisons of Chainguard Containers and external images by checking out our [Vulnerability comparisons](/chainguard/containers/vuln-comparison/) dashboard.
-
-`chainctl`, Chainguard's command line interface tool, comes with a useful `diff` feature that also allows you to [compare two Chainguard Containers](/chainguard/containers/how-to-use/comparing-images/).
+Every container listed in the [Containers Directory](https://images.chainguard.dev/?category=developer) also has a **Comparison** tab that compares the number of CVEs in the Chainguard Container — often zero — against the number in its upstream counterpart, and charts how each has changed over time. For example, see the [nginx container's **Comparison** tab](https://images.chainguard.dev/directory/image/nginx/compare).
 
 ## Architecture
 

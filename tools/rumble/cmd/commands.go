@@ -14,7 +14,7 @@ func New() *cobra.Command {
 	o := &options{}
 	cmd := &cobra.Command{
 		Use:   "rumble",
-		Short: "Generate CSV and JSON vulnerability data for display on Academy",
+		Short: "Generate CSV vulnerability data for display on Academy",
 	}
 
 	cmd.PersistentFlags().StringVar(&o.db, "db", "", "BigQuery DB to use")
@@ -24,9 +24,7 @@ func New() *cobra.Command {
 	cmd.PersistentFlags().BoolVar(&o.upload, "upload", false, "Upload files to GCS bucket")
 
 	cmd.AddCommand(
-		cmdVulns(o),
 		cmdLegacyCsv(o),
-		cmdImageCsvs(o),
 	)
 
 	return cmd

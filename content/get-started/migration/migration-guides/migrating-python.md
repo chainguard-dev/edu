@@ -18,7 +18,7 @@ toc: true
 
 Chainguard's Python containers provide a migration path to significantly reduce vulnerabilities in Python applications while maintaining full compatibility with existing workloads. This guide explains how to migrate your containerized Python applications to benefit from Chainguard's enhanced security posture and daily updates.
 
-Chainguard Containers are built on [Wolfi](/open-source/wolfi/), a [distroless](/software-security/videos/distroless/) Linux distribution designed for security and a reduced attack surface. Chainguard Containers are smaller and have [low to no CVE](/chainguard/containers/vuln-comparison/python/). Our Chainguard Containers for Python are built nightly for extra freshness, so they're always up-to-date with the latest remediations.
+Chainguard Containers are built on [Wolfi](/open-source/wolfi/), a [distroless](/software-security/videos/distroless/) Linux distribution designed for security and a reduced attack surface. Chainguard Containers are smaller and have few or no CVEs. Our Chainguard Containers for Python are built nightly for extra freshness, so they're always up-to-date with the latest remediations.
 
 {{< details "What is Distroless?" >}}
 {{< blurb/distroless >}}

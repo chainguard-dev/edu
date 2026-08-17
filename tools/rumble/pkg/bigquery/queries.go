@@ -6,37 +6,9 @@ SPDX-License-Identifier: Apache-2.0
 package cgbigquery
 
 const (
-	vulnsTable   = "`cloudevents_grype_scan_results.rumble_vulns`"
 	summaryTable = "`cloudevents_grype_scan_results.rumble_summary`"
 
-	LegacyCsvHeader    = `f0_,image,scanner,time,low_cve_cnt,med_cve_cnt,high_cve_cnt,crit_cve_cnt,unknown_cve_cnt,tot_cve_cnt,digest`
-	ImageScanCsvHeader = `image,package,vulnerability,version,type,s`
-
-	AllVulnsQuery = `
-SELECT DISTINCT vulnerability
-FROM ` + vulnsTable
-
-	AffectedImagesQuery = `
-SELECT scan.image, scan.time as time,
-FROM ` + vulnsTable + ` AS vulns
-INNER JOIN ` + summaryTable + ` AS scan
-ON scan.id = vulns.scan_id
-WHERE vulns.vulnerability = @vulnerability
-GROUP BY scan.time, scan.image
-ORDER BY scan.image, scan.time
-`
-
-	AllVulnsWithImagesQuery = `
-SELECT
-  vulns.vulnerability,
-  scan.image,
-  ARRAY_AGG(DISTINCT FORMAT_DATE('%Y-%m-%d', DATE(scan.time)) ORDER BY FORMAT_DATE('%Y-%m-%d', DATE(scan.time))) AS dates
-FROM ` + vulnsTable + ` AS vulns
-INNER JOIN ` + summaryTable + ` AS scan
-  ON scan.id = vulns.scan_id
-WHERE scan.time >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 31 DAY)
-GROUP BY vulns.vulnerability, scan.image
-`
+	LegacyCsvHeader = `f0_,image,scanner,time,low_cve_cnt,med_cve_cnt,high_cve_cnt,crit_cve_cnt,unknown_cve_cnt,tot_cve_cnt,digest`
 
 	LegacyCsvQuery = `
 SELECT
@@ -56,33 +28,4 @@ FROM ` + summaryTable + `
 WHERE tags NOT LIKE '%latest-dev%'
 AND time >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 31 DAY)
 AND (image NOT LIKE 'cgr.dev%%' OR image LIKE 'cgr.dev/chainguard/%%')`
-
-	ImageComparisonCsvQuery = `
-WITH ruuuumble AS (
-	SELECT scan.image,
-		scan.time as t,
-		vulns.name as package,
-		vulns.vulnerability,
-		vulns.installed as version,
-		vulns.type,
-		vulns.severity
-	FROM ` + vulnsTable + ` AS vulns
-	INNER JOIN ` + summaryTable + ` AS scan ON scan.id = vulns.scan_id
-	WHERE scan.time >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 31 DAY)
-	AND ((scan.image = @theirs AND scan.tags = @their_tag)
-	OR (scan.image = @ours AND scan.tags = @our_tag))
-	)
-	SELECT image, package, vulnerability, version, type, severity FROM ruuuumble
-	GROUP BY vulnerability, image, package, version, type, severity
-	ORDER BY (
-	CASE WHEN severity = "Critical" THEN 1
-		WHEN severity = "High" THEN 2
-		WHEN severity = "Medium" THEN 3
-		WHEN severity = "Low" THEN 4
-		WHEN severity = "Negligible" THEN 5
-		WHEN severity = "Unknown" THEN 6
-		ELSE 7
-	END
-	)
-`
 )

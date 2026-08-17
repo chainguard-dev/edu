@@ -10,15 +10,11 @@ import (
 	"fmt"
 
 	"cloud.google.com/go/bigquery"
-	"github.com/chainguard-dev/edu/tools/rumble/pkg/grype"
 	"google.golang.org/api/iterator"
 )
 
 const (
-	CveQueryType           = "cve"
-	ImageScanQueryType     = "scan"
-	LegacyScanQueryType    = "legacyscan"
-	VulnWithImagesQueryType = "vulnwithimages"
+	LegacyScanQueryType = "legacyscan"
 )
 
 type BqClient struct {
@@ -39,22 +35,6 @@ type LegacyScan struct {
 	Unknown_cve_cnt int64
 	Tot_cve_cnt     int64
 	Digest          string
-}
-
-type ImageScan struct {
-	Image         string
-	T             string
-	Package       string
-	Vulnerability string
-	Version       string
-	Type          string
-	Severity      string
-}
-
-type VulnWithImages struct {
-	Vulnerability string
-	Image         string
-	Dates         []string
 }
 
 func NewBqClient(project, db string) (BqClient, error) {
@@ -85,14 +65,8 @@ func (b *BqClient) Query(q *bigquery.Query, queryType string) ([]interface{}, er
 	for {
 		var values interface{}
 		switch queryType {
-		case ImageScanQueryType:
-			values = &ImageScan{}
 		case LegacyScanQueryType:
 			values = &LegacyScan{}
-		case CveQueryType:
-			values = &grype.Cve{}
-		case VulnWithImagesQueryType:
-			values = &VulnWithImages{}
 		}
 		err := it.Next(values)
 		if err == iterator.Done {
