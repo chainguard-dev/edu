@@ -1,6 +1,5 @@
 const autoprefixer = require("autoprefixer");
 const purgecss = require("@fullhuman/postcss-purgecss");
-const whitelister = require("purgecss-whitelister");
 
 module.exports = {
   plugins: [
@@ -16,6 +15,19 @@ module.exports = {
       content: [
         "./layouts/**/*.html",
         "./content/**/*.md",
+        // Runtime classes; new Bootstrap components need their js/src file here
+        "./assets/js/*.js",
+        "./node_modules/bootstrap/js/src/alert.js",
+        "./node_modules/bootstrap/js/src/collapse.js",
+        "./node_modules/bootstrap/js/src/dropdown.js",
+        "./node_modules/bootstrap/js/src/offcanvas.js",
+      ],
+      // PurgeCSS's HTML parser misses classes inside Hugo template syntax
+      extractors: [
+        {
+          extractor: (content) => content.match(/[A-Za-z0-9_-]+/g) || [],
+          extensions: ["html", "md", "js"],
+        },
       ],
       safelist: [
         // Changelog type-tag color classes are generated from a shortcode
@@ -36,21 +48,9 @@ module.exports = {
         // Absent from scanned content; keeps dropdown styles from being purged
         "dropdown-menu-main",
         "dropdown-toggle",
-        ...whitelister([
-          "./assets/scss/*.scss",
-          "./assets/scss/common/*.scss",
-          "./assets/scss/components/*.scss",
-          // Excluded to keep the purged CSS unchanged
-          "!./assets/scss/common/_fonts.scss",
-          "!./assets/scss/common/_global.scss",
-          "!./assets/scss/components/_comments.scss",
-          "!./assets/scss/components/_details.scss",
-          "!./assets/scss/components/_forms.scss",
-          "!./assets/scss/components/_images.scss",
-          "!./assets/scss/components/_mermaid.scss",
-          "!./assets/scss/components/_tables.scss",
-          "./node_modules/@docsearch/css/dist/modal.css",
-        ]),
+        // Pagination markup comes from Hugo's embedded template, not layouts
+        "page-item",
+        "page-link",
       ],
     }),
   ],
