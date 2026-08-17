@@ -8,7 +8,7 @@ type: "article"
 description: "A primer on how to configure Chainguard Notifications"
 lead: "A primer on how to configure Chainguard Notifications in the Chainguard Console"
 date: 2025-07-11T08:49:31+00:00
-lastmod: 2026-03-20T08:49:31+00:00
+lastmod: 2026-08-17T15:44:58+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -78,9 +78,6 @@ Include the private channel in your actions in the next section.
 
 > NOTE: Private channels will not appear here unless you first complete the preliminary step in the previous section.
 
-<center><img src="notifications-integrations.png" alt="Screenshot showing the Integrations section of the Chainguard Console's Settings > Notifications page." style="width:700px;"></center>
-<br />
-
 ## Manage email notifications
 
 Email notifications are not yet available to all customers.
@@ -93,9 +90,6 @@ To perform this task, you must use a user account for the Chainguard Console tha
   You can then change settings for what notification topics will be sent and to whom, either an individual or perhaps to an email alias for a group.
 
 1. When you are done, click **Save changes**.
-
-<center><img src="notifications-email.png" alt="Screenshot showing the Email section of the Chainguard Console's Settings > Notifications page." style="width:700px;"></center>
-<br />
 
 ## Notification categories
 
