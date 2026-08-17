@@ -65,3 +65,13 @@ updates:
         update-types:
           - "minor"
           - "patch"
+    ignore:
+      # Hold DocSearch at v4. v5 adds an "Ask AI" feature (unused here) that
+      # pulls the Vercel AI SDK -> undici, reintroducing 13 alerts, and ships
+      # CSS Level 4 range media queries that Hugo's built-in LibSass can't
+      # parse, breaking the Sass build. Revisit only alongside a Dart Sass
+      # migration. See PR reverting #3773/#3775.
+      - dependency-name: "@docsearch/css"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@docsearch/js"
+        update-types: ["version-update:semver-major"]
