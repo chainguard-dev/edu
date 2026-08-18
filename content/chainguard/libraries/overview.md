@@ -6,7 +6,7 @@ description: "Learn about Chainguard Libraries, providing enhanced security for
     comprehensive supply chain protection."
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-18T16:20:50+00:00
+lastmod: 2026-08-18T16:47:04+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 menu:
@@ -88,9 +88,12 @@ supply chain risk by combining trusted source rebuilds with security controls
 for upstream packages:
 
 * Chainguard-built libraries are rebuilt from verified upstream source in the
-  Chainguard Factory and distributed with verifiable provenance and SBOMs.
-  Binaries are handled and managed only by Chainguard and made exclusively
-  available for your consumption.
+  Chainguard Factory and distributed with verifiable provenance and SBOMs. For
+  CVE-remediated libraries, the fix is applied to the artifact itself and
+  accompanied by this metadata, giving auditors evidence they can verify
+  directly rather than requiring them to correlate a separate patch file with a
+  dashboard. See the [vulnerability scanning
+  documentation](/chainguard/libraries/scanners/) for scanner support details.
 * When a requested package is not yet available as a Chainguard build, the
   Chainguard Repository can serve eligible upstream packages through configured
   fallback policies, subject to malicious behavior scanning and cooldowns before
