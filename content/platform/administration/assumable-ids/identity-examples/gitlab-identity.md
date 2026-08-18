@@ -10,7 +10,7 @@ lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by a GitLab CI/CD pipeline."
 type: "article"
 date: 2023-06-28T08:48:45+00:00
-lastmod: 2025-06-14T08:48:45+00:00
+lastmod: 2026-08-18T13:54:24+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -73,6 +73,26 @@ chainctl iam identities ls
 ```
 
 This will return `cg-gitlab-id` listed among all your Chainguard identities.
+
+### Self-managed GitLab instances
+
+The earlier example works for GitLab SaaS (`gitlab.com`) and for self-managed instances whose OIDC issuer is reachable from the public internet. To validate a pipeline's token, Chainguard's Security Token Service (STS) fetches the signing keys from the issuer's JWKS endpoint (`https://<your-gitlab-instance>/oauth/discovery/keys`). If your instance isn't reachable from the public internet, this fetch fails and the pipeline can't assume the identity.
+
+For a private instance, pin the signing keys when you create the identity by passing them to `--issuer-keys`. Export the JWKS from a host that can reach your instance and provide it inline:
+
+```shell
+chainctl iam identities create cg-gitlab-id \
+  --parent=<organization> \
+  --identity-issuer="https://<your-gitlab-instance>" \
+  --issuer-keys="$(curl -s https://<your-gitlab-instance>/oauth/discovery/keys)" \
+  --subject="project_path:<group_name>/<project_name>:ref_type:branch:ref:main" \
+  --audience="https://<your-gitlab-instance>" \
+  --role=viewer
+```
+
+Set `--identity-issuer` and `--audience` to your instance's URL instead of `https://gitlab.com`.
+
+Because the keys are pinned rather than fetched on demand, the identity doesn't pick up key rotations automatically. GitLab rotates its signing keys, so `chainctl` creates a static identity that expires after a set period, 30 days by default. Recreate the identity with the current JWKS before it expires or whenever the keys rotate.
 
 With that, you can jump ahead to [testing the new identity](/chainguard/administration/assumable-ids/identity-examples/gitlab-identity/#testing-the-identity-with-a-gitlab-cicd-pipeline). You can also continue onto the next section and learn how to create another such identity with Terraform.
 
