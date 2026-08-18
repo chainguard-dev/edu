@@ -11,7 +11,7 @@ aliases:
 type: "article"
 description: "Learn how to use the Chainguard Containers Tag History API to fetch the tag history of image variants."
 date: 2023-05-26T08:49:31+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-08-18T17:14:56+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -57,13 +57,21 @@ auth_header="Authorization: Bearer $(curl 'https://cgr.dev/token?scope=repositor
 
 ### Private containers
 
-You'll need to use your Chainguard Docker credentials. This assumes you've set up authentication with [chainctl auth configure-docker](https://edu.chainguard.dev/chainguard/chainguard-registry/authenticating/):
+For private images, you need a registry token scoped to the `cgr.dev` audience. After you authenticate with `chainctl auth login`, the most direct way to get one is `chainctl auth token`:
+
+```shell
+auth_header="Authorization: Bearer $(chainctl auth token --audience cgr.dev)"
+```
+
+The `--audience cgr.dev` flag is required. Without it, `chainctl auth token` issues a token for a different audience and the Tag History API rejects it with a `403` response.
+
+If you have already set up Docker authentication with [`chainctl auth configure-docker`](https://edu.chainguard.dev/chainguard/chainguard-registry/authenticating/), you can instead read the token from the Docker credential helper:
 
 ```shell
 auth_header="Authorization: Bearer $(echo 'cgr.dev' | docker-credential-cgr get | jq -r .Secret)"
 ```
 
-You may use the [`crane` tool](https://github.com/google/go-containerregistry/tree/main/cmd/crane) to get your token instead:
+You can also use the [`crane` tool](https://github.com/google/go-containerregistry/tree/main/cmd/crane):
 
 ```shell
 auth_header="$(crane auth token -H cgr.dev/ORGANIZATION_NAME/IMAGE_NAME)"
@@ -72,7 +80,7 @@ auth_header="$(crane auth token -H cgr.dev/ORGANIZATION_NAME/IMAGE_NAME)"
 Replace `ORGANIZATION_NAME` and `IMAGE_NAME` as required. For example, if your organization is `foo.com` and you're interested in the `chainguard-base` image, you will use the following command:
 
 ```shell
-auth_header="$(crane auth token -H cgr.dev/foo.com/chainguard-base)
+auth_header="$(crane auth token -H cgr.dev/foo.com/chainguard-base)"
 ```
 
 You should now be ready to call the API, either manually or programmatically.
