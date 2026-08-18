@@ -1,6 +1,3 @@
-/** Import Bootstrap functions */
-@import "bootstrap/scss/functions";
-
 /** Import theme variables */
 @import "common/variables";
 
@@ -10,7 +7,23 @@
 /** Import highlight.js */
 @import "highlight.js/scss/a11y-light";
 
+/** Import Bootstrap Icons */
+$bootstrap-icons-font-dir: "/fonts";
+
+@import "bootstrap-icons/font/bootstrap-icons.scss";
+
+/** Import legacy and layout styles */
+@import "components/comments";
+@import "components/forms";
+@import "layouts/footer";
+@import "layouts/header";
+@import "layouts/pages";
+@import "layouts/posts";
+@import "layouts/sidebar";
+
 /** Import theme styles */
+
+/*! purgecss start ignore */
 @import "common/fontfamilies";
 @import "common/global";
 @import "common/dark";
@@ -22,17 +35,10 @@
 @import "components/details";
 @import "components/feedback-widget";
 @import "components/syntax";
-@import "components/comments";
-@import "components/forms";
 @import "components/images";
 @import "components/mermaid";
 @import "components/search";
 @import "components/tables";
-@import "layouts/footer";
-@import "layouts/header";
-@import "layouts/pages";
-@import "layouts/posts";
-@import "layouts/sidebar";
 
 /** Import DocSearch */
 @import "@docsearch/css/dist/style.scss";
@@ -49,3 +55,5 @@
 @import "components/footer-border-fix";
 @import "components/header-logo";
 @import "components/changelog";
+
+/*! purgecss end ignore */
