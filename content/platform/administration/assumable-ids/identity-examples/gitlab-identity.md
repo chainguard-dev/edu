@@ -10,7 +10,7 @@ lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by a GitLab CI/CD pipeline."
 type: "article"
 date: 2023-06-28T08:48:45+00:00
-lastmod: 2026-08-18T14:29:28+00:00
+lastmod: 2026-08-18T17:17:24+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -93,6 +93,8 @@ chainctl iam identities create cg-gitlab-id \
 Set `--identity-issuer` and `--audience` to your instance's URL instead of `https://gitlab.com`.
 
 Because the keys are pinned rather than fetched on demand, the identity doesn't pick up key rotations automatically. GitLab rotates its signing keys, so `chainctl` creates a static identity that expires after a set period, 30 days by default. Recreate the identity with the current JWKS before it expires or whenever the keys rotate.
+
+> **Note**: You don't need to register your self-managed GitLab as a [custom identity provider](/platform/administration/custom-idps/custom-idps/) to assume an identity from a pipeline. Custom identity providers federate human sign-in to Chainguard, whereas a pipeline assumes an identity through the OIDC token exchange described above. Registering a private instance as an identity provider won't work in any case, because Chainguard can't reach its issuer to validate it — the same reachability limit that requires you to pin the keys with `--issuer-keys`.
 
 ## Create an assumable identity with Terraform
 
