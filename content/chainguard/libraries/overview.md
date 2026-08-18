@@ -6,7 +6,7 @@ description: "Learn about Chainguard Libraries, providing enhanced security for
     comprehensive supply chain protection."
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-13T12:00:11+00:00
+lastmod: 2026-08-18T16:20:50+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 menu:
@@ -16,14 +16,18 @@ weight: 001
 toc: true
 ---
 
-[Chainguard Libraries](https://www.chainguard.dev/libraries) provide enhanced
-security for open source dependencies in the Java, JavaScript, and Python
-ecosystems, addressing critical supply chain vulnerabilities through automated
-patching and continuous monitoring. Modern applications rely heavily on
-libraries from public repositories like [Maven
-Central](https://central.sonatype.com/), [npm Registry](https://www.npmjs.com/),
-and [PyPI](https://pypi.org/), but using these repositories introduces supply
-chain risks that could expose your applications and system to compromise.
+[Chainguard Libraries](https://www.chainguard.dev/libraries) is a secure catalog
+of language dependencies that replaces your team’s reliance on
+[npm](https://www.npmjs.com/), [PyPI](https://pypi.org/), and [Maven
+Central](https://central.sonatype.com/). Every package pulled by your team or AI
+agents passes through multiple layers of defense, including malicious behavior
+scanning, building from source, and cooldowns that help prevent malware from
+entering your environment.
+
+As frontier coding models advance, attackers are creating more sophisticated
+social engineering campaigns and malware injections to exfiltrate enterprise
+secrets. Chainguard Libraries prevents malware instead of making developers
+pause work, triage incidents, and respond after compromise.
 
 ## Background
 
@@ -67,22 +71,30 @@ your laptop.
 
 ## Introduction
 
-Chainguard Libraries builds all available libraries from source code in the
-Chainguard Factory and makes them available for you. The Chainguard Factory
-is Chainguard's internal tooling that enables a more secure, dedicated,
-private, and SLSA-certified build infrastructure for building software from
-source and publishing the binaries to customers.
+Chainguard Libraries rebuilds supported language dependencies from verified
+upstream source in the Chainguard Factory and distributes the resulting
+artifacts through Chainguard’s secure repositories. The Chainguard Factory is
+Chainguard’s dedicated build infrastructure for producing software from source
+in a hardened, SLSA-certified environment, with verifiable provenance and other
+metadata for customers.
 
-Chainguard Libraries and the use of the Chainguard Factory remove many software
-supply chain problems for libraries:
+Chainguard Libraries can also serve eligible upstream packages through the
+[Chainguard Repository](/chainguard/chainguard-repository/overview/), where
+security controls such as malicious behavior scanning and cooldowns help prevent
+unsafe packages from reaching your environment.
 
-* All binary libraries and library versions are built within the trusted
-  Chainguard infrastructure directly from the source code of the official
-  project.
-* Binaries are handled and managed only by Chainguard and made exclusively
+Chainguard Libraries and the use of the Chainguard Factory reduce software
+supply chain risk by combining trusted source rebuilds with security controls
+for upstream packages:
+
+* Chainguard-built libraries are rebuilt from verified upstream source in the
+  Chainguard Factory and distributed with verifiable provenance and SBOMs.
+  Binaries are handled and managed only by Chainguard and made exclusively
   available for your consumption.
-* Any supply chain attacks at build and distribution are eliminated, since all
-  steps from the source to your use are handled by Chainguard.
+* When a requested package is not yet available as a Chainguard build, the
+  Chainguard Repository can serve eligible upstream packages through configured
+  fallback policies, subject to malicious behavior scanning and cooldowns before
+  they are served.
 * If there is no open source code available, no binaries are made available by
   Chainguard. This eliminates any license-related risks from commercial
   libraries. The policy and process to have no binaries without source also
@@ -110,7 +122,9 @@ Chainguard Libraries includes thousands of Java, JavaScript, and Python librarie
 
 ### Licensing and source availability
 
-Chainguard Libraries are rebuilt from upstream source code, not mirrored binaries from public registries. For a library to be in scope:
+Chainguard Libraries provides a trusted source for Java, JavaScript, and Python dependencies. Our goal is to prevent malware exposure and reduce the security work developers must do after packages enter their environments.
+
+For a library to be built and distributed by Chainguard:
 
 * Source code must be available and verifiable
     * The project’s source must be available in a source code manager (such as GitHub or GitLab). Packages that do not provide a valid or verifiable source URL cannot be rebuilt in the Chainguard Factory and are out of scope.
