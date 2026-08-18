@@ -281,7 +281,7 @@ optionally including remediated versions, with your chosen tools.
 
 After creating the `python-chainguard` remote repository, validate that Artifactory is successfully proxying through to Chainguard before proceeding. Because Artifactory falls back to the public PyPI index when a connection to a remote repository fails, a misconfigured repository may silently resolve packages from PyPI rather than Chainguard — and the build will succeed without any visible error.
 
-Common sources of misconfiguration include invalid or expired credentials, or an incorrect or incomplete repository URL. The Artifactory **Test** button on the repository configuration screen is not a reliable indicator; it may fail for a correctly configured repository, and may pass for an incorrectly configured one. Instead, use the following steps to verify that fetching an artifact through Artifactory produces the same checksum as fetching it directly from `libraries.cgr.dev`.
+Common sources of misconfiguration include invalid or expired credentials, or an incorrect or incomplete repository URL. The Artifactory **Test connection** button on the repository configuration screen is not a reliable indicator; it may fail for a correctly configured repository, and may pass for an incorrectly configured one. You may see an error displaying **"Connection failed: Target remote URL returned error 403: Forbidden"**, which can be ignored. Instead, use the following steps to verify that fetching an artifact through Artifactory produces the same checksum as fetching it directly from `libraries.cgr.dev`.
 
 1. Find the direct URL for a specific package wheel from the Chainguard index. This example uses `urllib3`. You can substitute any artifact you know to be available.
 
@@ -316,7 +316,7 @@ The checksums returned by the commands must match.
 
 If the checksum from the Artifactory remote repository differs from the direct fetch, or if the Artifactory fetch fails entirely, review the following before proceeding:
 
-* URL: The remote repository URL must be set to `https://libraries.cgr.dev/python/`.
+* URL: The remote repository URL must be set to `https://libraries.cgr.dev/`.
 * Credentials: You may need to regenerate your pull token with `chainctl auth pull-token --repository=python` and update the Artifactory repository credentials. Expired tokens fail silently.
 * Advanced Configuration: Ensure all recommended Advanced settings from the [initial configuration steps](#initial-configuration-2) have been applied.
 
