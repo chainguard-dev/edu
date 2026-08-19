@@ -337,7 +337,7 @@ Create a virtual repository to give your build tools a single access point:
 
 ### Remediated libraries
 
-Skip this section unless you are using the separate repository with [remediated
+This section applies only if you use the separate repository of [remediated
 Java libraries](/chainguard/libraries/cve-remediation/). It requires a second
 remote repository, added to the virtual repository ahead of `java-chainguard` so
 that remediated versions resolve first.
