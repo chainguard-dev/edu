@@ -4,13 +4,13 @@ type: "article"
 linktitle: "Build pinning"
 description: "Use build pinning to keep library artifacts stable across rebuilds."
 date: 2026-08-19T08:04:00+00:00
-lastmod: 2026-08-19T14:42:00+00:00
+lastmod: 2026-08-19T17:53:10+00:00
 draft: false
 tags: ["Chainguard Libraries", "Build pinning"]
 menu:
   docs:
     parent: libraries
-weight: 080
+weight: 8
 toc: true
 ---
 
@@ -156,4 +156,4 @@ No. You must have upstream fallback enabled in order to use build pinning.
 
 ### What happens to my pins when I switch policies?
 
-Going from CHAINGUARD_AND_UPSTREAM (upstream fallback enabled) to CHAINGUARD (fallback disabled) stops pins from being served, but the pin records aren’t deleted. They persist until the cache is manually zapped. Switching back to CHAINGUARD_AND_UPSTREAM later can resurrect old pins unexpectedly.
+Going from `CHAINGUARD_AND_UPSTREAM` (upstream fallback enabled) to `CHAINGUARD` (fallback disabled) stops pins from being served, but the pin records aren’t deleted. They persist until the cache is manually zapped. Switching back to `CHAINGUARD_AND_UPSTREAM` later can resurrect old pins unexpectedly.
