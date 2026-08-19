@@ -25,8 +25,34 @@ from typing import Any, Dict, List, Optional, Set
 try:
     import yaml
 except ImportError:
-    print("Error: pyyaml is required. Install with: pip install pyyaml", file=sys.stderr)
+    print(
+        "Error: pyyaml is required. Install with: pip install pyyaml", file=sys.stderr
+    )
     sys.exit(1)
+
+
+def extract_image_names(container_section: str) -> List[str]:
+    """Return image names from the compiled '## Container Images' section text.
+
+    compile_docs.py writes each image as
+        ### <name>
+        <README content>
+        <!-- IMAGE_SEPARATOR -->
+    so we split on the separator and take the first '### ' heading of each block.
+    This is robust to '###' subheadings inside a README (which defeated the older
+    regexes) and to image names containing underscores (e.g. sql_exporter).
+    Uppercase scaffolding directories such as TEMPLATE are excluded by the
+    lowercase-only name pattern.
+
+    NOTE: keep this identical to extract_image_names in scripts/mcp-server.py.
+    The catalog and the MCP server must agree on the image set; see DOCS-138.
+    """
+    names = []
+    for block in container_section.split("<!-- IMAGE_SEPARATOR -->"):
+        heading = re.search(r"^### (\S+)\s*$", block, re.MULTILINE)
+        if heading and re.fullmatch(r"[a-z0-9][a-z0-9_-]*", heading.group(1)):
+            names.append(heading.group(1))
+    return names
 
 
 def extract_images_from_docs(docs_path: str) -> Dict[str, Dict[str, Any]]:
@@ -47,29 +73,12 @@ def extract_images_from_docs(docs_path: str) -> Dict[str, Dict[str, Any]]:
     if not container_section:
         return images
 
-    section_content = content[container_section.end():]
-
-    # Image READMEs contain their own ## headings, so we can't use ## as a
-    # section boundary. Instead, use the IMAGE_SEPARATOR markers that
-    # compile_docs.py inserts between images, and extract ### names from
-    # the text between the section header and the first separator (plus
-    # all separator-delimited blocks).
-    # Each image entry starts with "### image-name\n" followed by its README
-    # content (which may contain ## headings), then "<!-- IMAGE_SEPARATOR -->".
-    for match in re.finditer(r"\n### ([a-z0-9][\-a-z0-9]*)\n", section_content):
-        name = match.group(1)
-        # Only include entries that are followed by IMAGE_SEPARATOR
-        # (i.e., actual image entries, not random ### headings in content)
-        rest = section_content[match.end():]
-        next_h3 = re.search(r"\n### [a-z]", rest)
-        next_sep = rest.find("<!-- IMAGE_SEPARATOR -->")
-        # If there's a separator before the next ### heading, this is a real image
-        if next_sep != -1 and (next_h3 is None or next_sep < next_h3.start()):
-            images[name] = {
-                "name": name,
-                "registry_ref": f"cgr.dev/chainguard/{name}",
-                "has_documentation": True,
-            }
+    for name in extract_image_names(content[container_section.end() :]):
+        images[name] = {
+            "name": name,
+            "registry_ref": f"cgr.dev/chainguard/{name}",
+            "has_documentation": True,
+        }
 
     return images
 
@@ -99,15 +108,11 @@ def build_catalog(
                 else:
                     packages[distro][os_pkg] = []
 
-    total_packages = sum(
-        len(pkg_map) for pkg_map in packages.values() if pkg_map
-    )
+    total_packages = sum(len(pkg_map) for pkg_map in packages.values() if pkg_map)
 
     catalog = {
         "metadata": {
-            "generated_at": datetime.now(timezone.utc).strftime(
-                "%Y-%m-%dT%H:%M:%SZ"
-            ),
+            "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "source_commit": commit or "unknown",
             "total_images": len(images),
             "total_packages_mapped": total_packages,
@@ -128,7 +133,9 @@ def scrape_registry_tags(catalog: Dict[str, Any]) -> Dict[str, Any]:
     import urllib.request
     import urllib.error
 
-    print("Scraping registry for tag metadata (this may take a while)...", file=sys.stderr)
+    print(
+        "Scraping registry for tag metadata (this may take a while)...", file=sys.stderr
+    )
     updated = 0
 
     for name, entry in catalog["images"].items():
@@ -136,7 +143,9 @@ def scrape_registry_tags(catalog: Dict[str, Any]) -> Dict[str, Any]:
         try:
             req = urllib.request.Request(registry_url, method="GET")
             req.add_header("Accept", "application/json")
-            with urllib.request.urlopen(req, timeout=10) as resp:
+            # nosec B310: registry_url is a hardcoded https://cgr.dev/... reference,
+            # not attacker-controlled and never file:/ or a custom scheme.
+            with urllib.request.urlopen(req, timeout=10) as resp:  # nosec B310
                 data = json.loads(resp.read().decode())
                 tags = data.get("tags", [])
                 entry["registry_tags"] = tags[:20]
@@ -144,7 +153,9 @@ def scrape_registry_tags(catalog: Dict[str, Any]) -> Dict[str, Any]:
         except (urllib.error.URLError, urllib.error.HTTPError, Exception):
             entry["registry_tags"] = []
 
-    print(f"  Scraped tags for {updated}/{len(catalog['images'])} images", file=sys.stderr)
+    print(
+        f"  Scraped tags for {updated}/{len(catalog['images'])} images", file=sys.stderr
+    )
     return catalog
 
 
