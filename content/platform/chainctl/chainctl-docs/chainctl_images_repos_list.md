@@ -1,5 +1,5 @@
 ---
-date: 2026-08-11T17:12:41Z
+date: 2026-08-18T17:09:18Z
 title: "chainctl images repos list"
 slug: chainctl_images_repos_list
 url: /platform/chainctl/chainctl-docs/chainctl_images_repos_list/
@@ -20,7 +20,7 @@ chainctl images repos list [--repo=REPO_NAME] [--public | --parent=PARENT_NAME|P
 ### Options
 
 ```
-      --parent string   The name or id of the parent location to list image repos.
+      --parent string   The name or id of the parent location to list image repos. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --public          List repos from the public Chainguard registry.
       --recursive       Search repositories recursively through all descendants instead of just children
       --repo string     Search for a specific repo by name.

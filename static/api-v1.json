@@ -2292,6 +2292,14 @@
           "clientSecret": {
             "type": "string"
           },
+          "correlationRule": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.IdentityProvider.OIDC.CorrelationRule"
+              }
+            ],
+            "description": "Selects how OIDC logins are matched to SCIM-provisioned users. Unset\nselects CORRELATION_RULE_SUB_EQUALS_EXTERNAL_ID. Immutable after the\nidentity provider is created (enforced server-side): a different rule\nrequires creating a new identity provider. Updates that restate the\ncurrent rule (or leave it unset) are a no-op — a read-modify-write client\nmay echo the field back safely; updates that change it are rejected."
+          },
           "groupsClaim": {
             "description": "groups_claim is the name of the OIDC token claim containing group memberships.\nRequired for IdP group-based role mapping.",
             "type": "string"
@@ -2306,6 +2314,16 @@
           }
         },
         "type": "object"
+      },
+      "chainguard.platform.iam.IdentityProvider.OIDC.CorrelationRule": {
+        "default": "CORRELATION_RULE_UNSPECIFIED",
+        "description": "CorrelationRule enumerates how an OIDC login is matched to the SCIM user\nprovisioned by this identity provider (identity linking at login). A\nclosed enum: matching is never free-form, and email-based matching is\ndeliberately absent — an attacker could provision a SCIM user carrying a\nvictim's email and capture the victim's login.\n\n - CORRELATION_RULE_UNSPECIFIED: Treated as CORRELATION_RULE_SUB_EQUALS_EXTERNAL_ID, the stock-Okta\nalignment where the OIDC sub claim and the SCIM externalId carry the\nsame IdP user ID.\n - CORRELATION_RULE_SUB_EQUALS_EXTERNAL_ID: The OIDC sub claim equals the SCIM externalId, scoped to this identity\nprovider.\n - CORRELATION_RULE_OID_EQUALS_EXTERNAL_ID: The OIDC oid claim equals the SCIM externalId, scoped to this identity\nprovider. For Microsoft Entra ID, whose sub claim is pairwise per\napplication and never matches the provisioned externalId; oid (the\ndirectory objectId) is the durable user identifier. Use only for IdPs\nwhose issuer asserts oid itself; the server does not verify this —\nwhere oid is an admin-mapped custom claim a user can edit, this rule\nre-opens the claim-capture attack email matching avoids.",
+        "enum": [
+          "CORRELATION_RULE_UNSPECIFIED",
+          "CORRELATION_RULE_SUB_EQUALS_EXTERNAL_ID",
+          "CORRELATION_RULE_OID_EQUALS_EXTERNAL_ID"
+        ],
+        "type": "string"
       },
       "chainguard.platform.iam.IdentityProvider.SCIM": {
         "description": "SCIM holds the System for Cross-domain Identity Management provisioning\nconfiguration for an identity provider.",
@@ -3060,7 +3078,7 @@
       },
       "chainguard.platform.libraries.Ecosystem": {
         "default": "UNKNOWN",
-        "description": "Ecosystem represents the language libraries an org can be entitled to.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.",
+        "description": "Ecosystem represents the language libraries an org can be entitled to.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.",
         "enum": [
           "UNKNOWN",
           "JAVA",
@@ -3070,7 +3088,9 @@
           "PYTHON_ATHENA",
           "JAVASCRIPT_ATHENA",
           "DOTNET",
-          "DOTNET_ATHENA"
+          "DOTNET_ATHENA",
+          "GO",
+          "GO_ATHENA"
         ],
         "type": "string"
       },
@@ -3551,7 +3571,7 @@
             "type": "string"
           },
           "malid": {
-            "description": "malid is the MAL-* identifier for the advisory (e.g. \"MAL-2024-12345\").",
+            "description": "malid is the MAL-* identifier for the advisory (e.g. \"MAL-2024-12345\").\nWhen the request sets deduplicate_results, entries flagged by multiple\nadvisories are collapsed and this holds a comma-separated list of every\ncontributing identifier (e.g. \"MAL-2024-12345, MAL-2025-67890\").",
             "type": "string"
           },
           "packageName": {
@@ -6696,6 +6716,38 @@
           },
           "repoStatus": {
             "$ref": "#/components/schemas/chainguard.platform.registry.SyncStatus"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.RepoTagsSummary": {
+        "description": "RepoTagsSummary summarizes the tags of a single Repo. When no tags match the\nfilter, tag_count is 0 and the remaining fields are unset.",
+        "properties": {
+          "id": {
+            "description": "id, the UIDP of the Repo whose tags this summarizes.",
+            "type": "string"
+          },
+          "lastUpdated": {
+            "description": "last_updated, the most recent update time across the repo's tags.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "latestTag": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.Tag"
+              }
+            ],
+            "description": "latest_tag, the tag named \"latest\" if present, otherwise the most\nrecently updated tag."
+          },
+          "latestVersion": {
+            "description": "latest_version, the longest tag name pointing at the same digest as\nlatest_tag, excluding \"latest\" and \"latest-dev\". Empty when no other\ntag shares the digest.",
+            "type": "string"
+          },
+          "tagCount": {
+            "description": "tag_count, the number of tags under the repo matching the filter.",
+            "format": "int64",
+            "type": "string"
           }
         },
         "type": "object"
@@ -12382,7 +12434,7 @@
         "operationId": "Artifacts_List",
         "parameters": [
           {
-            "description": "The language ecosystems to return artifacts for.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.",
+            "description": "The language ecosystems to return artifacts for.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.",
             "in": "query",
             "name": "ecosystems",
             "schema": {
@@ -12396,7 +12448,9 @@
                   "PYTHON_ATHENA",
                   "JAVASCRIPT_ATHENA",
                   "DOTNET",
-                  "DOTNET_ATHENA"
+                  "DOTNET_ATHENA",
+                  "GO",
+                  "GO_ATHENA"
                 ],
                 "type": "string"
               },
@@ -12495,7 +12549,7 @@
         "operationId": "Artifacts_GetArtifactCount",
         "parameters": [
           {
-            "description": "The language ecosystems to request the artifact counts for.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.",
+            "description": "The language ecosystems to request the artifact counts for.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.",
             "in": "query",
             "name": "ecosystems",
             "schema": {
@@ -12509,7 +12563,9 @@
                   "PYTHON_ATHENA",
                   "JAVASCRIPT_ATHENA",
                   "DOTNET",
-                  "DOTNET_ATHENA"
+                  "DOTNET_ATHENA",
+                  "GO",
+                  "GO_ATHENA"
                 ],
                 "type": "string"
               },
@@ -12928,7 +12984,7 @@
             }
           },
           {
-            "description": "Only events for this ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.",
+            "description": "Only events for this ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.",
             "in": "query",
             "name": "ecosystem",
             "schema": {
@@ -12942,7 +12998,9 @@
                 "PYTHON_ATHENA",
                 "JAVASCRIPT_ATHENA",
                 "DOTNET",
-                "DOTNET_ATHENA"
+                "DOTNET_ATHENA",
+                "GO",
+                "GO_ATHENA"
               ],
               "type": "string"
             }
@@ -13035,7 +13093,7 @@
             }
           },
           {
-            "description": "ecosystems are the language ecosystems to list entitlements for. If empty, all entitlements for the group will be listed.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.",
+            "description": "ecosystems are the language ecosystems to list entitlements for. If empty, all entitlements for the group will be listed.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.",
             "in": "query",
             "name": "ecosystems",
             "schema": {
@@ -13049,7 +13107,9 @@
                   "PYTHON_ATHENA",
                   "JAVASCRIPT_ATHENA",
                   "DOTNET",
-                  "DOTNET_ATHENA"
+                  "DOTNET_ATHENA",
+                  "GO",
+                  "GO_ATHENA"
                 ],
                 "type": "string"
               },
@@ -13302,6 +13362,14 @@
             "schema": {
               "format": "date-time",
               "type": "string"
+            }
+          },
+          {
+            "description": "deduplicate_results collapses entries sharing the same ecosystem, package\nname, version, and scope into a single entry. A package version flagged by\nmultiple advisories (distinct MAL-* identifiers or sources) otherwise\nappears once per advisory. When false, every entry is returned.",
+            "in": "query",
+            "name": "deduplicateResults",
+            "schema": {
+              "type": "boolean"
             }
           }
         ],
@@ -13722,7 +13790,7 @@
             }
           },
           {
-            "description": "Only return bindings for this ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.",
+            "description": "Only return bindings for this ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.",
             "in": "query",
             "name": "ecosystem",
             "schema": {
@@ -13736,7 +13804,9 @@
                 "PYTHON_ATHENA",
                 "JAVASCRIPT_ATHENA",
                 "DOTNET",
-                "DOTNET_ATHENA"
+                "DOTNET_ATHENA",
+                "GO",
+                "GO_ATHENA"
               ],
               "type": "string"
             }
@@ -13961,7 +14031,7 @@
             }
           },
           {
-            "description": "ecosystem lists entries for one ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.",
+            "description": "ecosystem lists entries for one ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.",
             "in": "query",
             "name": "ecosystem",
             "schema": {
@@ -13975,7 +14045,9 @@
                 "PYTHON_ATHENA",
                 "JAVASCRIPT_ATHENA",
                 "DOTNET",
-                "DOTNET_ATHENA"
+                "DOTNET_ATHENA",
+                "GO",
+                "GO_ATHENA"
               ],
               "type": "string"
             }
@@ -17412,6 +17484,73 @@
           }
         },
         "summary": "Get Update Status",
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
+    "/registry/v1/repotagssummary/{repoId}": {
+      "get": {
+        "operationId": "Registry_GetRepoTagsSummary",
+        "parameters": [
+          {
+            "description": "repo_id, the UIDP of the Repo to summarize.",
+            "in": "path",
+            "name": "repoId",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Exclude tags of the form \"sha256-*\".",
+            "in": "query",
+            "name": "excludeReferrers",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "Exclude tags of the form \"*-20yymmdd\".",
+            "in": "query",
+            "name": "excludeDates",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "Exclude tags of the form \"*-r[0-9]+\".",
+            "in": "query",
+            "name": "excludeEpochs",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.registry.RepoTagsSummary"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Repo Tags Summary",
         "tags": [
           "Registry"
         ]

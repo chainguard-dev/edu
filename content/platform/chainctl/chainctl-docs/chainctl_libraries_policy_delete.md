@@ -1,5 +1,5 @@
 ---
-date: 2026-08-11T17:12:41Z
+date: 2026-08-18T17:09:18Z
 title: "chainctl libraries policy delete"
 slug: chainctl_libraries_policy_delete
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_policy_delete/
@@ -20,7 +20,7 @@ chainctl libraries policy delete POLICY [--parent ORGANIZATION_NAME | ORGANIZATI
 ### Options
 
 ```
-      --parent string   The name or id of the organization that owns the policy.
+      --parent string   The name or id of the organization that owns the policy. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
 ```
 
 ### Options inherited from parent commands

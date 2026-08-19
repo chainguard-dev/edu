@@ -1,5 +1,5 @@
 ---
-date: 2026-08-11T17:12:41Z
+date: 2026-08-18T17:09:18Z
 title: "chainctl iam identities list"
 slug: chainctl_iam_identities_list
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identities_list/
@@ -41,7 +41,7 @@ chainctl iam identities list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOL
 ```
       --expired         Return only expired static identities.
       --name string     Filter identities by name.
-      --parent string   The name or id of the parent location to list identities from.
+      --parent string   The name or id of the parent location to list identities from. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --recursive       List identities from the parent location and all nested locations. Set to false to list only the parent location. (default true)
       --type string     Filter identities by type (one of aws, claim_match, pull_token, service_principal, static).
 ```

@@ -1,5 +1,5 @@
 ---
-date: 2026-08-11T17:12:41Z
+date: 2026-08-18T17:09:18Z
 title: "chainctl images repos delete"
 slug: chainctl_images_repos_delete
 url: /platform/chainctl/chainctl-docs/chainctl_images_repos_delete/
@@ -21,7 +21,7 @@ chainctl images repos delete {REPO_NAME|REPO_ID} --parent ORGANIZATION_NAME | OR
 
 ```
       --allow-missing   Exit with status 0 if the repo does not exist
-      --parent string   The name or id of the parent location to remove an image repo.
+      --parent string   The name or id of the parent location to remove an image repo. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
 ```
 
 ### Options inherited from parent commands

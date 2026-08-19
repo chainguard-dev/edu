@@ -1,5 +1,5 @@
 ---
-date: 2026-08-11T17:12:41Z
+date: 2026-08-18T17:09:18Z
 title: "chainctl update"
 slug: chainctl_update
 url: /platform/chainctl/chainctl-docs/chainctl_update/
@@ -17,15 +17,13 @@ Update chainctl.
 
 Update chainctl to the latest release.
 
-When signature verification is enabled (currently opt-in via
-CHAINCTL_EXPERIMENTAL_UPDATE_VERIFY=true), the downloaded binary's signature is
-verified before it is installed; a binary that fails verification is never
-installed. Verification requires network access to the download host
-(dl.enforce.dev) and, at least on first use, to the Sigstore TUF CDN
-(tuf-repo-cdn.sigstore.dev). If those hosts are unreachable (for example,
-behind a restrictive proxy), the update fails and the current binary is left in
-place; as a fallback, download the latest release directly from
-https://dl.enforce.dev/chainctl/latest/.
+The downloaded binary's signature is verified before it is installed; a binary
+that fails verification is never installed. Verification requires network
+access to the download host (dl.enforce.dev) and, at least on first use, to the
+Sigstore TUF CDN (tuf-repo-cdn.sigstore.dev). If those hosts are unreachable
+(for example, behind a restrictive proxy), the update fails and the current
+binary is left in place; as a fallback, download the latest release directly
+from https://dl.enforce.dev/chainctl/latest/.
 
 ```
 chainctl update [--yes] [--force]

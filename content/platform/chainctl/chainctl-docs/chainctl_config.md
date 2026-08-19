@@ -1,5 +1,5 @@
 ---
-date: 2026-08-11T17:12:41Z
+date: 2026-08-18T17:09:18Z
 title: "chainctl config"
 slug: chainctl_config
 url: /platform/chainctl/chainctl-docs/chainctl_config/
@@ -12,6 +12,24 @@ toc: true
 ## chainctl config
 
 Local config file commands for chainctl.
+
+### Synopsis
+
+Local config file commands for chainctl.
+
+Every config property can also be set with an environment variable, which is
+useful for scripts and CI. Take the property name, uppercase it, replace dots
+with underscores, and add a `CHAINGUARD_` prefix:
+
+  - `default.group` becomes `CHAINGUARD_DEFAULT_GROUP`
+  - `platform.api` becomes `CHAINGUARD_PLATFORM_API`
+  - `output.silent` becomes `CHAINGUARD_OUTPUT_SILENT`
+
+Environment variables take precedence over the config file, and command line
+flags take precedence over both.
+
+Setting `default.group` supplies the default for --parent, so exporting
+`CHAINGUARD_DEFAULT_GROUP` avoids passing --parent to every command.
 
 ### Options inherited from parent commands
 

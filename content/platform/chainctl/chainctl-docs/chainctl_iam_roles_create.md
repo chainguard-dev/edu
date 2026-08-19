@@ -1,5 +1,5 @@
 ---
-date: 2026-08-11T17:12:41Z
+date: 2026-08-18T17:09:18Z
 title: "chainctl iam roles create"
 slug: chainctl_iam_roles_create
 url: /platform/chainctl/chainctl-docs/chainctl_iam_roles_create/
@@ -32,7 +32,7 @@ chainctl iam roles create ROLE_NAME --parent ORGANIZATION_NAME | ORGANIZATION_ID
 ```
       --capabilities strings   A comma separated list of capabilities to grant this role.
       --description string     A description of the role.
-      --parent string          Location to create this role under.
+      --parent string          Location to create this role under. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
   -y, --yes                    Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 

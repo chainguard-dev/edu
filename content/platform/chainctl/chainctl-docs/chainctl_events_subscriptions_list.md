@@ -1,5 +1,5 @@
 ---
-date: 2026-08-11T17:12:41Z
+date: 2026-08-18T17:09:18Z
 title: "chainctl events subscriptions list"
 slug: chainctl_events_subscriptions_list
 url: /platform/chainctl/chainctl-docs/chainctl_events_subscriptions_list/
@@ -20,7 +20,7 @@ chainctl events subscriptions list [--parent ORGANIZATION_NAME | ORGANIZATION_ID
 ### Options
 
 ```
-      --parent string   The parent location name or id of the subscription.
+      --parent string   The parent location name or id of the subscription. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
 ```
 
 ### Options inherited from parent commands

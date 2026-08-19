@@ -1,5 +1,5 @@
 ---
-date: 2026-08-11T17:12:41Z
+date: 2026-08-18T17:09:18Z
 title: "chainctl iam identities create aws role"
 slug: chainctl_iam_identities_create_aws_role
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identities_create_aws_role/
@@ -42,7 +42,7 @@ chainctl iam identities create aws role NAME --aws-account-id=ACCOUNT --aws-role
       --aws-role-name string    The name of the IAM role.
   -d, --description string      The description of the resource.
   -n, --name string             Given name of the resource.
-      --parent string           The name or id of the parent location to create this identity under.
+      --parent string           The name or id of the parent location to create this identity under. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --role strings            A comma separated list of names or IDs of roles to bind this identity to (optional).
   -y, --yes                     Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```

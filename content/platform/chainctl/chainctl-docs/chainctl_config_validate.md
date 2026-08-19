@@ -1,5 +1,5 @@
 ---
-date: 2026-08-11T17:12:41Z
+date: 2026-08-18T17:09:18Z
 title: "chainctl config validate"
 slug: chainctl_config_validate
 url: /platform/chainctl/chainctl-docs/chainctl_config_validate/

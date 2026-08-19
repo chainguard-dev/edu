@@ -1,5 +1,5 @@
 ---
-date: 2026-08-11T17:12:41Z
+date: 2026-08-18T17:09:18Z
 title: "chainctl libraries cache status"
 slug: chainctl_libraries_cache_status
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_cache_status/
@@ -27,7 +27,7 @@ chainctl libraries cache status [--parent ORG] [--output=json|table] [flags]
 ### Options
 
 ```
-      --parent string   The name or id of the organization to report on.
+      --parent string   The name or id of the organization to report on. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
 ```
 
 ### Options inherited from parent commands

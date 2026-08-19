@@ -1,5 +1,5 @@
 ---
-date: 2026-08-11T17:12:41Z
+date: 2026-08-18T17:09:18Z
 title: "chainctl iam role-bindings list"
 slug: chainctl_iam_role-bindings_list
 url: /platform/chainctl/chainctl-docs/chainctl_iam_role-bindings_list/
@@ -33,7 +33,7 @@ chainctl iam role-bindings list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | 
 ### Options
 
 ```
-      --parent string   List role-bindings from this location.
+      --parent string   List role-bindings from this location. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --recursive       List role-bindings from the parent location and all nested locations. Set to false to list only the parent location. (default true)
 ```
 

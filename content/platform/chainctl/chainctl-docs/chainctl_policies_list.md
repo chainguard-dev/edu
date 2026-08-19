@@ -1,5 +1,5 @@
 ---
-date: 2026-08-11T17:12:41Z
+date: 2026-08-18T17:09:18Z
 title: "chainctl policies list"
 slug: chainctl_policies_list
 url: /platform/chainctl/chainctl-docs/chainctl_policies_list/
@@ -41,7 +41,7 @@ chainctl policies list --parent=example.com -o json
 ### Options
 
 ```
-      --parent string   The name or id of the organization.
+      --parent string   The name or id of the organization. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
 ```
 
 ### Options inherited from parent commands
