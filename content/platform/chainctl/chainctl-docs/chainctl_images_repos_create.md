@@ -1,5 +1,5 @@
 ---
-date: 2026-08-11T17:12:41Z
+date: 2026-08-18T17:09:18Z
 title: "chainctl images repos create"
 slug: chainctl_images_repos_create
 url: /platform/chainctl/chainctl-docs/chainctl_images_repos_create/
@@ -21,7 +21,7 @@ chainctl images repos create {REPO_NAME} --parent ORGANIZATION_NAME | ORGANIZATI
 
 ```
       --description string   Description for the repo (max 255 characters).
-      --parent string        The name or id of the parent location to create an image repo.
+      --parent string        The name or id of the parent location to create an image repo. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --source string        Repository ID to sync from.
 ```
 

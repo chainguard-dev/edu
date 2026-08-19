@@ -1,5 +1,5 @@
 ---
-date: 2026-08-11T17:12:41Z
+date: 2026-08-18T17:09:18Z
 title: "chainctl images repos build apply"
 slug: chainctl_images_repos_build_apply
 url: /platform/chainctl/chainctl-docs/chainctl_images_repos_build_apply/
@@ -166,7 +166,7 @@ chainctl images repos build apply --parent=my-org --repo="*" --file=config.yaml 
 ```
       --dry-run                             Print the diff without applying changes. Exits with a non-zero code if changes would be made.
   -f, --file string                         The name of the file containing the build config.
-      --parent string                       The name or id of the parent location to apply build config.
+      --parent string                       The name or id of the parent location to apply build config. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --repo stringArray                    The name or id of the repo to apply build config. Supports wildcards (*, ?, [abc]). Can be specified multiple times.
       --save-as string                      Create a new repo with the edited configuration instead of updating the existing one.
       --with-certificates strings           Comma separated list of files to read the custom certificates from.

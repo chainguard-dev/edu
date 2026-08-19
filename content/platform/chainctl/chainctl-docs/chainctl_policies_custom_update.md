@@ -1,5 +1,5 @@
 ---
-date: 2026-08-11T17:12:41Z
+date: 2026-08-18T17:09:18Z
 title: "chainctl policies custom update"
 slug: chainctl_policies_custom_update
 url: /platform/chainctl/chainctl-docs/chainctl_policies_custom_update/
@@ -71,7 +71,7 @@ chainctl policies custom update --policy cooldown-30 --resource-type Python --de
   -e, --expression string      Path to a new Rego expression (.rego) file. Flag mode only; mutually exclusive with --file.
   -f, --file string            Path to a policy manifest YAML file. Full replacement — supplants the entire policy definition.
       --name string            New policy name. Flag mode only; mutually exclusive with --file.
-      --parent string          The name or id of the organization the policy belongs to.
+      --parent string          The name or id of the organization the policy belongs to. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --policy string          The name or UIDP of the custom policy to update.
       --resource-type string   Resource type used to disambiguate a policy referenced by name (shorthand: Repo, Python, Java, Javascript; or a full type). Ignored when the policy is given by UIDP.
 ```

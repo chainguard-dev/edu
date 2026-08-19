@@ -1,5 +1,5 @@
 ---
-date: 2026-08-11T17:12:41Z
+date: 2026-08-18T17:09:18Z
 title: "chainctl iam roles list"
 slug: chainctl_iam_roles_list
 url: /platform/chainctl/chainctl-docs/chainctl_iam_roles_list/
@@ -39,7 +39,7 @@ chainctl iam roles list [--name=NAME] [--capabilities=CAPABILITY,...] [--parent=
       --capabilities strings   A comma separated list of capabilities to grant this role.
       --managed                Only list managed (built-in) roles.
       --name string            The exact name of roles to list.
-      --parent string          Location to list roles from.
+      --parent string          Location to list roles from. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --recursive              List roles from the parent location and all nested locations. Set to false to list only the parent location. (default true)
 ```
 

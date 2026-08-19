@@ -47,6 +47,31 @@ MAX_INPUT_LEN = 500
 MAX_RESULTS_CAP = 20
 
 
+def extract_image_names(container_section: str) -> List[str]:
+    """Return image names from the compiled '## Container Images' section text.
+
+    compile_docs.py writes each image as
+        ### <name>
+        <README content>
+        <!-- IMAGE_SEPARATOR -->
+    so we split on the separator and take the first '### ' heading of each block.
+    This is robust to '###' subheadings inside a README (which defeated the older
+    regexes) and to image names containing underscores (e.g. sql_exporter).
+    Uppercase scaffolding directories such as TEMPLATE are excluded by the
+    lowercase-only name pattern.
+
+    NOTE: keep this identical to extract_image_names in
+    scripts/generate_image_catalog.py. The MCP server and the catalog must agree
+    on the image set; see DOCS-138.
+    """
+    names = []
+    for block in container_section.split("<!-- IMAGE_SEPARATOR -->"):
+        heading = re.search(r"^### (\S+)\s*$", block, re.MULTILINE)
+        if heading and re.fullmatch(r"[a-z0-9][a-z0-9_-]*", heading.group(1)):
+            names.append(heading.group(1))
+    return names
+
+
 class ChaguardDocsIndex:
     """Index of Chainguard documentation sections for efficient retrieval."""
 
@@ -85,8 +110,11 @@ class ChaguardDocsIndex:
             section_content = self.content[start_pos:]
 
             # Use regex to find all image sections (### header followed by content until next separator or end)
-            # Pattern: ### image-name followed by content until <!-- IMAGE_SEPARATOR --> or end of string
-            image_pattern = r"### ([a-z0-9\-]+)\n(.*?)(?=\n<!-- IMAGE_SEPARATOR -->|\Z)"
+            # Pattern: ### image-name followed by content until <!-- IMAGE_SEPARATOR --> or end of string.
+            # Name class allows underscores to match images like sql_exporter (DOCS-138).
+            image_pattern = (
+                r"### ([a-z0-9][a-z0-9_-]*)\n(.*?)(?=\n<!-- IMAGE_SEPARATOR -->|\Z)"
+            )
             for match in re.finditer(image_pattern, section_content, re.DOTALL):
                 image_name = match.group(1)
                 image_content = f"### {image_name}\n{match.group(2).strip()}"
@@ -96,32 +124,19 @@ class ChaguardDocsIndex:
 
     def _extract_images(self) -> List[str]:
         """Extract list of container image names from docs."""
-        images = set()
-
-        # Find the "## Container Images" section and extract all ### headers with simple names
         container_images_match = re.search(
             r"^## Container Images\n", self.content, re.MULTILINE
         )
-
         if container_images_match:
-            # Start from the Container Images section
-            start_pos = container_images_match.end()
-            # Get content from Container Images section to the end
-            section_content = self.content[start_pos:]
+            names = extract_image_names(self.content[container_images_match.end() :])
+            if names:
+                return sorted(set(names))
 
-            # Extract all ### headers that match image name pattern
-            # Image names are simple: lowercase letters, numbers, and hyphens
-            image_pattern = r"\n### ([a-z0-9\-]+)\n"
-            for match in re.finditer(image_pattern, section_content):
-                images.add(match.group(1))
-
-        # Fallback: also look for cgr.dev references if no images found from headers
-        if not images:
-            pattern = r"cgr\.dev/chainguard/([a-z0-9\-]+)"
-            for match in re.finditer(pattern, self.content):
-                images.add(match.group(1))
-
-        return sorted(list(images))
+        # Fallback: look for cgr.dev references if no images found from headers
+        images = set()
+        for match in re.finditer(r"cgr\.dev/chainguard/([a-z0-9\-]+)", self.content):
+            images.add(match.group(1))
+        return sorted(images)
 
     def search(self, query: str, max_results: int = 5) -> List[Dict[str, str]]:
         """Search documentation for relevant content."""

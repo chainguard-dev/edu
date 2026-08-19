@@ -1,5 +1,5 @@
 ---
-date: 2026-08-11T17:12:41Z
+date: 2026-08-18T17:09:18Z
 title: "chainctl policies custom create"
 slug: chainctl_policies_custom_create
 url: /platform/chainctl/chainctl-docs/chainctl_policies_custom_create/
@@ -62,12 +62,12 @@ expression: |
 Each parameter accepts: name, type (a PARAMETER_TYPE_* value), description,
 default, minimum, maximum, allowed_values, required, deprecated.
 
---resource-type accepts a shorthand (Repo, Python, Java, Javascript) or a
+--resource-type accepts a shorthand (Repo, Java, Javascript, Python) or a
 full type:
   - Repo       -> registry.chainguard.dev/Repo@v1
-  - Python     -> libraries.chainguard.dev/PythonPackage@v1
   - Java       -> libraries.chainguard.dev/JavaPackage@v1
   - Javascript -> libraries.chainguard.dev/NPMPackage@v1
+  - Python     -> libraries.chainguard.dev/PythonPackage@v1
 
 The resource type is set at create time and cannot be changed later.
 Within an organization, (name, resource type) is unique. The same name
@@ -100,7 +100,7 @@ chainctl policies custom create --expression allow.rego --name allow-all \
   -e, --expression string      Path to a Rego expression (.rego) file. Shortcut for parameterless policies; requires --name and --resource-type.
   -f, --file string            Path to a policy manifest YAML file.
       --name string            Policy name. Required with --expression.
-      --parent string          The name or id of the organization to create the policy under.
+      --parent string          The name or id of the organization to create the policy under. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --resource-type string   The resource type the policy applies to (shorthand: Repo, Python, Java, Javascript; or a full type). Required with --expression.
 ```
 

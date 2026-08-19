@@ -1,5 +1,5 @@
 ---
-date: 2026-08-11T17:12:41Z
+date: 2026-08-18T17:09:18Z
 title: "chainctl iam identity-providers list"
 slug: chainctl_iam_identity-providers_list
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_list/
@@ -33,7 +33,7 @@ chainctl iam identity-providers list [--parent ORGANIZATION_NAME | ORGANIZATION_
 ### Options
 
 ```
-      --parent string   List identity providers from this location.
+      --parent string   List identity providers from this location. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --recursive       List identity providers from the parent location and all nested locations. Set to false to list only the parent location. (default true)
 ```
 
