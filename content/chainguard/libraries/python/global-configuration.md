@@ -261,12 +261,10 @@ Configure a remote repository for the Chainguard Libraries for Python index:
 1. Select *PyPI* as the **Package type**.
 1. Set the **Repository Key** to `python-chainguard`.
 1. Set the **URL** to `https://libraries.cgr.dev/`. Do not include `/python` in
-   the URL. Two things make this necessary. Python's [Simple Repository
+   the URL. Python's [Simple Repository
    API](https://peps.python.org/pep-0503/) keeps the package index on its own
-   path, so Artifactory's PyPI repository type takes that location separately, in
-   the two **PyPI Settings** fields below, rather than from the base URL. The base
-   URL also has to cover the `/python-upstream/` paths that the index advertises
-   for packages served through upstream fallback, which sit outside `/python/`.
+   path which goes in the **PyPI Settings** fields below, and the base
+   URL also needs to cover the `/python-upstream/` paths for upstream fallback packages.
 1. Set **User Name** and **Password / Access Token** to the [values as retrieved
    with chainctl](/chainguard/libraries/access/).
 1. Set the **PyPI Settings - Registry URL** to
