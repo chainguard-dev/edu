@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for Java in your organization"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-19T14:03:09+00:00
+lastmod: 2026-08-19T14:08:11+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java"]
 images: []
@@ -275,7 +275,7 @@ for proxying and hosting, and virtual repositories to combine them. Refer to the
 Artifactory](https://docs.jfrog.com/artifactory/docs/maven-repositories)
 for more information.
 
-Ensure that you have configured access in your build tool. See the Build configuration documentation for instructions on [Maven](/chainguard/libraries/java/build-configuration/#repo-manager-maven), [Gradle](/chainguard/libraries/java/build-configuration/#repo-manager-gradle), and [Bazel](/chainguard/libraries/java/build-configuration/#repo-manager-bazel).
+Ensure that you have configured access for your build tool. See the Build configuration documentation for instructions on [Maven](/chainguard/libraries/java/build-configuration/#repo-manager-maven), [Gradle](/chainguard/libraries/java/build-configuration/#repo-manager-gradle), and [Bazel](/chainguard/libraries/java/build-configuration/#repo-manager-bazel).
 
 ### Initial configuration
 
