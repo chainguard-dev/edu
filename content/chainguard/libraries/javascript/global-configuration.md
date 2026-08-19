@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for JavaScript in your organization"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-08-05T19:13:35+00:00
+lastmod: 2026-08-19T14:03:09+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 images: []
@@ -202,6 +202,8 @@ repository:
 1. Click the **Advanced** configuration tab, then check the box next to **Disable URL Normalization**.
 1. Click **Create Remote Repository**.
 
+Note: The **Test** button is not a reliable indicator; to verify your setup, see the [validation steps](#validate-the-remote-repository) later on this page.
+
 Create a virtual repository, or add the remote repository to an existing
 virtual repository used for npm packages. A virtual repository may also include private npm packages or
 additional upstream sources, depending on your configuration.
@@ -232,10 +234,10 @@ To prevent this:
    remote repository, within in the **Advanced** tab:
     * **Enable Bypass HEAD Requests** — prevents Artifactory from sending HEAD
       requests that may not be handled correctly by redirect-based registries.
-    * **Disable Lenient Host Authentication** — disabling this setting ensures
-      credentials are not forwarded across the redirect.
+    * **Disable Lenient Host Authentication** — uncheck this setting. Disabling this setting ensures credentials are not forwarded across the redirect.
     * **Enable Cookie Management** - this setting is optional, but recommended
       by JFrog for remote repositories that involve redirects.
+    * **Block Mismatching Mime Types** - uncheck this setting.
 2. Clear the corrupted cached tarballs: in Artifactory, right-click the
    `javascript-chainguard` repository and locate the specific corrupted `.tgz` artifacts from the remote cache. Right click the artifact, select **Delete content**, then re-run your
    install.

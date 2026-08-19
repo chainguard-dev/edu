@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for Java in your organization"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-06-24T14:42:00+00:00
+lastmod: 2026-08-19T14:03:09+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java"]
 images: []
@@ -275,6 +275,8 @@ for proxying and hosting, and virtual repositories to combine them. Refer to the
 Artifactory](https://docs.jfrog.com/artifactory/docs/maven-repositories)
 for more information.
 
+Ensure that you have configured access in your build tool. See the Build configuration documentation for instructions on [Maven](/chainguard/libraries/java/build-configuration/#repo-manager-maven), [Gradle](/chainguard/libraries/java/build-configuration/#repo-manager-gradle), and [Bazel](/chainguard/libraries/java/build-configuration/#repo-manager-bazel).
+
 ### Initial configuration
 
 Use the following steps to set up a repository in Artifactory to access Chainguard Java Libraries via the Chainguard Repository.
@@ -292,14 +294,18 @@ Configure a remote repository for the Chainguard Libraries for Java repository:
     * **URL**: `https://libraries.cgr.dev/java/`
     * **User Name** and **Password / Access Token**: Set to the [values as retrieved with chainctl](/chainguard/libraries/access/).
     * Deactivate **Maven Settings - Handle Snapshots**.
-1. Optionally click **Test** to verify connection and authentication.
-1. Click the **Advanced** configuration tab. In the **Others** section, check the box next to **Disable URL Normalization** and uncheck the box next to **Block Mismatching Mime Types**.
+    * Note: The **Test** button is not a reliable indicator; to verify your setup, see the [validation steps](#validate-the-remote-repository) later on this page.
+1. Click the **Advanced** configuration tab. Configure the following settings:
+    * **Enable Bypass HEAD Requests** — prevents Artifactory from sending HEAD
+      requests that may not be handled correctly by redirect-based registries.
+    * **Disable Lenient Host Authentication** — uncheck this setting. Disabling this setting ensures credentials are not forwarded across the redirect.
+    * In the **Others** section, check the box next to **Disable URL Normalization** and uncheck the box next to **Block Mismatching Mime Types**.
 1. Click **Create Remote Repository**.
 1. If you are using the separate repository with remediated Java libraries, repeat the preceding steps to create remote repository named `java-chainguard-remediated` with a URL set to `https://libraries.cgr.dev/java-remediated/`. Use the same authentication details.
 
 If you are manually managing fallback, you can configure an additional remote repository for Maven Central with lower priority. Make sure to deactivate **Maven Settings - Handle Snapshots** in the remote repository.
 
-> Note: If you are running Curation, you must add your Chainguard remote repository to the `curation-bypass` list.
+> Note: If you are running Curation, consider adding your Chainguard remote repository to the `curation-bypass` list, as there are known compatibility issues with Curation and Chainguard Libraries.
 
 Combine the repositories in a new virtual repository:
 

@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for Python in your organization"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-05T19:13:35+00:00
+lastmod: 2026-08-19T14:03:09+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 images: []
@@ -250,11 +250,15 @@ Configure a remote repository for the Chainguard Libraries for Python index:
 1. Set the **URL** to `https://libraries.cgr.dev/`. Do not include `/python` in the URL.
 1. Set **User Name** and **Password / Access Token** to the [values as retrieved
    with chainctl](/chainguard/libraries/access/).
+    * Note: The **Test** button is not a reliable indicator; to verify your setup, see the [validation steps](#validate-the-remote-repository) later on this page.
 1. Set the **PyPI Settings - Registry URL** to
    `https://libraries.cgr.dev/`.
 1. Set the **PyPI Settings - Registry Index Location URL Suffix** to `python/simple`.
-1. Optionally click **Test** to verify connection and authentication.
-1. Click the **Advanced** configuration tab. In the **Others** section, check the box next to **Disable URL Normalization** and uncheck the box next to **Block Mismatching Mime Types**.
+1. Click the **Advanced** tab. Configure the following:
+    * **Enable Bypass HEAD Requests** — prevents Artifactory from sending HEAD
+      requests that may not be handled correctly by redirect-based registries.
+    * **Disable Lenient Host Authentication** — uncheck this setting. Disabling this setting ensures credentials are not forwarded across the redirect.
+    * In the **Others** section, check the box next to **Disable URL Normalization** and uncheck the box next to **Block Mismatching Mime Types**.
 1. Click **Create Remote Repository**.
 
 If you want to use the separate repository with [remediated Python
