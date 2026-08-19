@@ -213,7 +213,7 @@ repository:
 1. Set the **URL** to `https://libraries.cgr.dev/javascript/`.
 1. Set **User Name** and **Password / Access Token** to the [values as retrieved
    with chainctl](/chainguard/libraries/access/).
-1. Optionally click **Test** to verify connection and authentication.
+Note: The **Test** button is not a reliable indicator; to verify your setup, see the [validation steps](#validate-the-remote-repository) later on this page.
 1. Click the **Advanced** configuration tab, then configure the following settings:
     * In the **Network** section:
         * Confirm **Lenient Host Authentication** is unchecked, so that your credentials are not forwarded across the redirect.
