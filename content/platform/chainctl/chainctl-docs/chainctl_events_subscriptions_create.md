@@ -1,5 +1,5 @@
 ---
-date: 2026-08-11T17:12:41Z
+date: 2026-08-18T17:09:18Z
 title: "chainctl events subscriptions create"
 slug: chainctl_events_subscriptions_create
 url: /platform/chainctl/chainctl-docs/chainctl_events_subscriptions_create/
@@ -20,7 +20,7 @@ chainctl events subscriptions create SINK_URL [--parent ORGANIZATION_NAME | ORGA
 ### Options
 
 ```
-      --parent string   The parent location name or id of the subscription.
+      --parent string   The parent location name or id of the subscription. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
   -y, --yes             Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 

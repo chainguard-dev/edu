@@ -1,5 +1,5 @@
 ---
-date: 2026-08-11T17:12:41Z
+date: 2026-08-18T17:09:18Z
 title: "chainctl iam identities create gitlab"
 slug: chainctl_iam_identities_create_gitlab
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identities_create_gitlab/
@@ -32,7 +32,7 @@ chainctl iam identities create gitlab NAME --project-path=GITLAB-GROUP/GITLAB-PR
 ```
   -d, --description string    The description of the resource.
   -n, --name string           Given name of the resource.
-      --parent string         The name or id of the parent location to create this identity under.
+      --parent string         The name or id of the parent location to create this identity under. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --project-path string   The name of a Gitlab project where the action executes in the form "group-name/project-name[/foo/bar]". You can use a "*" for project-name (or sub-projects) to match any project in the group.
       --ref string            The reference for the executing action. If left empty or "*", all references will match.
       --ref-type string       The type of reference for the executing action, must be either "tag" or "branch".

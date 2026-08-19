@@ -1,5 +1,5 @@
 ---
-date: 2026-08-11T17:12:41Z
+date: 2026-08-18T17:09:18Z
 title: "chainctl policies custom delete"
 slug: chainctl_policies_custom_delete
 url: /platform/chainctl/chainctl-docs/chainctl_policies_custom_delete/
@@ -53,7 +53,7 @@ chainctl policies custom delete --policy cooldown-30 --resource-type Python --pa
 
 ```
       --force                  Skip the confirmation prompt.
-      --parent string          The name or id of the organization the policy belongs to.
+      --parent string          The name or id of the organization the policy belongs to. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --policy string          The name or UIDP of the custom policy to delete.
       --resource-type string   Resource type used to disambiguate a policy referenced by name (shorthand: Repo, Python, Java, Javascript; or a full type). Ignored when the policy is given by UIDP.
 ```

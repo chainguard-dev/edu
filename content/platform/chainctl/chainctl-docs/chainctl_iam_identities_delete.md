@@ -1,5 +1,5 @@
 ---
-date: 2026-08-11T17:12:41Z
+date: 2026-08-18T17:09:18Z
 title: "chainctl iam identities delete"
 slug: chainctl_iam_identities_delete
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identities_delete/
@@ -31,7 +31,7 @@ chainctl iam identities delete {IDENTITY_NAME | IDENTITY_ID | --expired [--paren
 
 ```
       --expired         Delete all expired identities.
-      --parent string   Name or ID of the parent location to delete expired identities from.
+      --parent string   Name or ID of the parent location to delete expired identities from. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
   -y, --yes             Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 

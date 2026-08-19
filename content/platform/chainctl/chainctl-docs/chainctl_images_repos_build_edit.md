@@ -1,5 +1,5 @@
 ---
-date: 2026-08-11T17:12:41Z
+date: 2026-08-18T17:09:18Z
 title: "chainctl images repos build edit"
 slug: chainctl_images_repos_build_edit
 url: /platform/chainctl/chainctl-docs/chainctl_images_repos_build_edit/
@@ -145,7 +145,7 @@ chainctl images repos build edit --file=config.yaml --with-certificates=internal
 
 ```
   -f, --file string                         The name of the file containing the build config.
-      --parent string                       The name or id of the parent location to apply build config.
+      --parent string                       The name or id of the parent location to apply build config. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --repo string                         The name or id of the repo to apply build config.
       --save-as string                      Create a new repo with the edited configuration instead of updating the existing one.
       --with-certificates strings           Comma separated list of files to read the custom certificates from.

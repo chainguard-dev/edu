@@ -1,5 +1,5 @@
 ---
-date: 2026-08-11T17:12:41Z
+date: 2026-08-18T17:09:18Z
 title: "chainctl iam role-bindings create"
 slug: chainctl_iam_role-bindings_create
 url: /platform/chainctl/chainctl-docs/chainctl_iam_role-bindings_create/
@@ -31,7 +31,7 @@ chainctl iam role-bindings create [--identity=IDENTITY] [--role=ROLE] [--parent 
 
 ```
       --identity string   The name or ID of the identity to bind.
-      --parent string     The name or ID of the location the role-binding belongs to.
+      --parent string     The name or ID of the location the role-binding belongs to. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --role string       The name or ID of the role to bind to the identity.
   -y, --yes               Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
