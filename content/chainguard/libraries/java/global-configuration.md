@@ -306,7 +306,7 @@ Configure a remote repository for the Chainguard Libraries for Java repository:
     * **URL**: `https://libraries.cgr.dev/java/`
     * **User Name** and **Password / Access Token**: Set to the [values as retrieved with chainctl](/chainguard/libraries/access/).
     * Deactivate **Maven Settings - Handle Snapshots**.
-1. Optionally click **Test** to verify connection and authentication.
+1. Note: The **Test** button is not a reliable indicator; to verify your setup, see the [validation steps](#validate-the-remote-repository) later on this page.
 1. Click the **Advanced** configuration tab, then configure the following settings:
     * In the **Network** section:
         * Confirm **Lenient Host Authentication** is unchecked, so that your credentials are not forwarded across the redirect.
