@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "Tutorial outlining how to set up a Nexus repository to pull container images through from Chainguard's registry."
 date: 2024-03-28T15:56:52-07:00
-lastmod: 2024-08-19T15:56:52-07:00
+lastmod: 2026-08-20T15:41:17+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -47,8 +47,6 @@ Following that, you can enter the following details for your new remote reposito
 * **Remote storage** — This must be set to `https://cgr.dev/`.
 * **HTTP[S] port** — Choose an HTTP or HTTPS port as appropriate for your setup.
 
-![Screenshot of the Sonatype Nexus Repositories screen, showing the choices when you click the "Create a Repository" button.](nexus-1.png)
-
 Following that, click the **Create repository** button at the bottom of the page. If everything worked as expected, you'll be taken back to the repository list and should now see an extra repository with your chosen name, with type "proxy".
 
 Your Nexus URL is the hostname of the Nexus server AND the port number you chose; for example, `myrepo.local:5051`. If your Nexus server is running from a Docker container, your Nexus URL would be something like `localhost:5051`.
@@ -84,8 +82,6 @@ You can edit the existing repository and all your users will have access to the 
 At the bottom of the configuration screen there will be an HTTP section. Check the **Authentication** box and use the "Username" Authentication type.
 
 Enter the `username` and `password` from the pull token in the respective fields.
-
-![Screenshot of the Sonatype Nexus Repositories screen, showing the authentication configuration.](nexus-2.png)
 
 Click the **Save** button to apply the changes.
 
