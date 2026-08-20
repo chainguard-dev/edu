@@ -5,14 +5,12 @@ lead: ""
 description: "Procedural tutorial on how to set up SCIM provisioning and SSO from Microsoft Entra ID to the Chainguard platform."
 type: "article"
 date: 2026-08-11T00:00:00+00:00
-lastmod: 2026-08-11T00:00:00+00:00
+lastmod: 2026-08-20T13:54:50+00:00
 draft: false
 tags: ["Procedural"]
 images: []
 weight: 040
 ---
-
-{{< beta feature="SCIM user provisioning" >}}
 
 The Chainguard platform supports SCIM 2.0 provisioning from Microsoft Entra ID. With SCIM enabled, Entra ID creates, updates, and deactivates Chainguard users as you assign and unassign them in your directory, and Chainguard links each provisioned user to their single sign-on (SSO) identity the first time they log in.
 
