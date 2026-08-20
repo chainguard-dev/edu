@@ -5,14 +5,12 @@ lead: ""
 description: "How SCIM provisioning to the Chainguard platform behaves, and how to manage the provisioning connection over its lifetime."
 type: "article"
 date: 2026-08-14T00:00:00+00:00
-lastmod: 2026-08-14T00:00:00+00:00
+lastmod: 2026-08-20T13:54:50+00:00
 draft: false
 tags: ["Conceptual", "Procedural"]
 images: []
 weight: 012
 ---
-
-{{< beta feature="SCIM user provisioning" >}}
 
 System for Cross-domain Identity Management (SCIM) is an open standard for automating the exchange of user identity information between systems. Chainguard uses SCIM to create and deactivate user accounts based on your identity provider (IdP). Connect your IdP's SCIM provisioning once; from then on, assigning a user to the application provisions them, and deactivating or unassigning them removes their Chainguard access. Accounts follow your IdP, so you manage access in one place.
 

@@ -5,14 +5,12 @@ lead: ""
 description: "Procedural tutorial on how to set up SCIM provisioning from Okta to the Chainguard platform."
 type: "article"
 date: 2026-08-14T00:00:00+00:00
-lastmod: 2026-08-14T00:00:00+00:00
+lastmod: 2026-08-20T13:54:50+00:00
 draft: false
 tags: ["Procedural"]
 images: []
 weight: 039
 ---
-
-{{< beta feature="SCIM user provisioning" >}}
 
 The Chainguard platform supports SCIM 2.0 provisioning from Okta. With SCIM enabled, Okta creates, updates, and deactivates Chainguard users as you assign and unassign them, and Chainguard links each provisioned user to their single sign-on (SSO) login automatically.
 
