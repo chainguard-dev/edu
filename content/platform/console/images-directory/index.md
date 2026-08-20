@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "A walkthrough of the Chainguard Console."
 date: 2024-02-23T11:07:52+02:00
-lastmod: 2026-08-20T18:25:22+00:00
+lastmod: 2026-08-20T18:34:01+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -40,7 +40,7 @@ Learn more browsing Chainguard Libraries in the console on the [Libraries browsi
 
 After signing in to the [Chainguard Console](https://console.chainguard.dev), your browser will take you to the Overview page:
 
-<center><img src="imgs-dir-A.png" alt="Screenshot showing the Chainguard Console's Overview page." style="width:1100px;"></center>
+<center><img src="/platform/console/images-directory/imgs-dir-A.png" alt="Screenshot showing the Chainguard Console's Overview page." style="width:1100px;"></center>
 <br />
 
 If your organization and account have [Chainguard Notifications](/platform/console/use-chainguard-notifications/) enabled, you will see the **Activity Center** on the page where notifications from Chainguard will occasionally be shown.
@@ -70,7 +70,7 @@ Above the table is a search box you can use to find specific container images by
 
 Next, let's inspect an individual container image. Click on any container image you'd like:
 
-<center><img src="imgs-dir-E.png" alt="Screenshot of the Container Details page for the go image, showing the 'Tags' tab." style="width:1100px;"></center>
+<center><img src="/platform/console/images-directory/imgs-dir-E.png" alt="Screenshot of the Container Details page for the go image, showing the 'Tags' tab." style="width:1100px;"></center>
 <br />
 
 This example shows the details page for `go` in the Console.
