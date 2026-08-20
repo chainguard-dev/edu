@@ -4,7 +4,7 @@ linktitle: "Build configuration"
 description: "Configuring Chainguard Libraries for Java on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-13T12:00:11+00:00
+lastmod: 2026-08-20T15:07:13+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java"]
 menu:
@@ -169,6 +169,8 @@ Libraries:
   Artifactory, Nexus, or Cloudsmith instance
 * Direct access — configures Chainguard Libraries directly in
   `~/.m2/settings.xml`, without a repository manager
+
+<a name="repo-manager-maven"></a>
 
 #### Configure access with a repository manager
 
@@ -611,6 +613,8 @@ using the repositories definition. Each project can also [declare
 repositories](https://docs.gradle.org/current/userguide/declaring_repositories_basics.html)
 separately.
 
+<a name="repo-manager-gradle"></a>
+
 #### Using a repository manager
 
 A typical setup removes the direct reference to Maven Central `mavenCentral()`
@@ -823,6 +827,8 @@ directories](https://bazel.build/remote/output-directories) contains further
 details.
 
 ### Step 2: Change Bazel configuration
+
+<a name="repo-manager-bazel"></a>
 
 #### Using a repository manager
 

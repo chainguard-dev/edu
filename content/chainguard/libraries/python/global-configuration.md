@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for Python in your organization"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-05T19:13:35+00:00
+lastmod: 2026-08-20T15:07:13+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 images: []
@@ -233,10 +233,18 @@ repository. The following instructions are based on the [PyPI Repository
 documentation for
 Artifactory](https://docs.jfrog.com/artifactory/docs/pypi-repositories).
 
+If you follow the recommended approach to rely on Chainguard Repository's
+[upstream
+fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls), disable or remove any existing Artifactory remote repository
+that points at the public PyPI index, and remove it from the virtual repository your
+builds resolve against. A remote pointing directly at the public upstream bypasses
+those protections. Since Artifactory resolves through the virtual repository in
+order, a misconfiguration can result in Artifactory serving an unprotected
+package.
+
 ### Initial configuration
 
-Use the following steps to add the Chainguard Libraries for Python indexes as remote repositories and combine them as a virtual
-repository:
+Use the following steps to add Chainguard Libraries for Python as a remote repository:
 
 1. Log in as a user with administrator privileges.
 1. Click **Administration** in the top navigation bar.
@@ -245,32 +253,52 @@ repository:
 Configure a remote repository for the Chainguard Libraries for Python index:
 
 1. Select **Create a Repository** and choose the **Remote** option.
-1. Select *PyPI* as the **Package type**.
+1. For **Package type**, select `PyPI`.
 1. Set the **Repository Key** to `python-chainguard`.
-1. Set the **URL** to `https://libraries.cgr.dev/`. Do not include `/python` in the URL.
+1. Set the **URL** to `https://libraries.cgr.dev/`.
+    * Do not include `/python` in
+   the URL. Python's [Simple Repository
+   API](https://peps.python.org/pep-0503/) keeps the package index on its own
+   path which goes in the **PyPI Settings** fields below, and the base
+   URL also needs to cover the `/python-upstream/` paths for upstream fallback packages.
 1. Set **User Name** and **Password / Access Token** to the [values as retrieved
    with chainctl](/chainguard/libraries/access/).
+    * Note: The **Test** button is not a reliable indicator; to verify your setup, see the [validation steps](#validate-the-remote-repository) later on this page.
 1. Set the **PyPI Settings - Registry URL** to
    `https://libraries.cgr.dev/`.
 1. Set the **PyPI Settings - Registry Index Location URL Suffix** to `python/simple`.
-1. Optionally click **Test** to verify connection and authentication.
-1. Click the **Advanced** configuration tab. In the **Others** section, check the box next to **Disable URL Normalization** and uncheck the box next to **Block Mismatching Mime Types**.
+1. Click the **Advanced** configuration tab, then configure the following settings:
+    * In the **Network** section:
+        * Confirm **Lenient Host Authentication** is unchecked, so that your credentials are not forwarded across the redirect.
+        * Optionally check **Enable Cookie Management**. JFrog recommends this for remote repositories that involve redirects.
+    * In the **Others** section:
+        * Check **Bypass HEAD Requests**, so that Artifactory retrieves each package file with a GET request instead of probing with a HEAD request first.
+        * Uncheck **Block Mismatching Mime Types**.
+        * Check **Disable URL Normalization**, so that Artifactory does not rewrite the pre-signed redirect URL.
 1. Click **Create Remote Repository**.
-
-If you want to use the separate repository with [remediated Python
+1. If you want to use the separate repository with [remediated Python
 libraries](/chainguard/libraries/python/overview/#cve-remediation) repeat the
 preceding steps with the name `python-chainguard-remediated`, the same
 authentication details, and the URL
 `https://libraries.cgr.dev/python-remediated/`.
 
-If you are manually managing fallback rather than using the [Chainguard Repository's built-in fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls), configure an additional remote repository for the public PyPI index.
+These settings are required because Chainguard Libraries stores artifacts in
+Cloudflare R2. A package file download from `libraries.cgr.dev` returns a 302
+redirect to a pre-signed URL on a different host, and the redirect response itself
+is an HTML document. Without these settings, Artifactory may rewrite the
+pre-signed URL, forward your credentials across the redirect, or cache the
+redirect response in place of the wheel or source distribution. A cached redirect
+response fails checksum verification at install time.
 
-Combine the repositories in a new virtual repository:
+If you are manually managing fallback, rather than using the recommended [Chainguard Repository built-in fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) approach, configure an additional remote repository for the public PyPI index.
+
+Create a virtual repository to give your build tools a single access point:
 
 1. Click **Create a Repository** and choose the **Virtual** option.
 1. Select `PyPI` as the Package type.
 1. Set the **Repository Key** to `python-all`.
-1. In the **Repositories** section, find `python-chainguard`, `python-chainguard-remediated`, and if manually managing fallback, the `python-public` repository. Ensure the `python-chainguard-remediated` repository is the first in the displayed list. Use the icon on the right of the repository name to drag and drop repositories into the desired position.
+1. In the **Repositories** section, add `python-chainguard`. If you are using the remediated index, also add `python-chainguard-remediated` and ensure it is first in the displayed list, so that remediated versions resolve first. Use the icon on the right of the repository name to drag and drop repositories into the desired position.
+    * If you are manually managing fallback, add the `python-public` repository and ensure it is last in the list.
 1. Select **Create Virtual Repository**.
 
 At this point, you have a virtual repository set up in Artifactory that allows
@@ -279,9 +307,9 @@ optionally including remediated versions, with your chosen tools.
 
 ### Validate the remote repository
 
-After creating the `python-chainguard` remote repository, validate that Artifactory is successfully proxying through to Chainguard before proceeding. Because Artifactory falls back to the public PyPI index when a connection to a remote repository fails, a misconfigured repository may silently resolve packages from PyPI rather than Chainguard — and the build will succeed without any visible error.
+After creating the `python-chainguard` remote repository, validate that Artifactory is successfully proxying through to Chainguard before proceeding. A misconfigured remote repository fails silently; if any remote pointing at the public PyPI index is still present, Artifactory resolves through it instead and the build succeeds with no visible error. This can result in pulling an unprotected package.
 
-Common sources of misconfiguration include invalid or expired credentials, or an incorrect or incomplete repository URL. The Artifactory **Test connection** button on the repository configuration screen is not a reliable indicator; it may fail for a correctly configured repository, and may pass for an incorrectly configured one. You may see an error displaying **"Connection failed: Target remote URL returned error 403: Forbidden"**, which can be ignored. Instead, use the following steps to verify that fetching an artifact through Artifactory produces the same checksum as fetching it directly from `libraries.cgr.dev`.
+Common sources of misconfiguration include invalid or expired credentials, or an incorrect or incomplete repository URL. As noted in the configuration steps, the Artifactory **Test connection** button is not a reliable indicator; it fails for a correctly configured Chainguard repository, and it may pass for an incorrectly configured one. Use the following steps instead to verify that fetching an artifact through Artifactory produces the same checksum as fetching it directly from `libraries.cgr.dev`.
 
 1. Find the direct URL for a specific package wheel from the Chainguard index. This example uses `urllib3`. You can substitute any artifact you know to be available.
 
@@ -319,6 +347,7 @@ If the checksum from the Artifactory remote repository differs from the direct f
 * URL: The remote repository URL must be set to `https://libraries.cgr.dev/`.
 * Credentials: You may need to regenerate your pull token with `chainctl auth pull-token --repository=python` and update the Artifactory repository credentials. Expired tokens fail silently.
 * Advanced Configuration: Ensure all recommended Advanced settings from the [initial configuration steps](#initial-configuration-2) have been applied.
+* Corrupted cached artifacts: if the repository previously ran without these settings, Artifactory may still be serving a cached redirect response. In Artifactory, browse the `python-chainguard` remote cache and locate the affected files. Right-click each artifact, select **Delete content**, then re-run your install.
 
 Do not proceed to virtual repository setup or build configuration until the checksums match.
 

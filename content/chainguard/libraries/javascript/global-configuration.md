@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for JavaScript in your organization"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-08-05T19:13:35+00:00
+lastmod: 2026-08-20T15:07:13+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 images: []
@@ -181,6 +181,15 @@ for proxying and hosting, and virtual repositories to combine them. Refer to the
 Artifactory](https://docs.jfrog.com/artifactory/docs/npm-repositories)
 for more information.
 
+If you follow the recommended approach to rely on Chainguard Repository's
+[upstream
+fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls), disable or remove any existing Artifactory remote repository
+that points at the public npm registry, and remove it from the virtual repository your
+builds resolve against. A remote pointing directly at the public upstream bypasses
+those protections. Since Artifactory resolves through the virtual repository in
+order, a misconfiguration can result in Artifactory serving an unprotected
+package.
+
 ### Initial configuration
 
 Use the following steps to add Chainguard Libraries for
@@ -199,12 +208,28 @@ repository:
 1. Set the **URL** to `https://libraries.cgr.dev/javascript/`.
 1. Set **User Name** and **Password / Access Token** to the [values as retrieved
    with chainctl](/chainguard/libraries/access/).
-1. Click the **Advanced** configuration tab, then check the box next to **Disable URL Normalization**.
+    * Note: The **Test** button is not a reliable indicator; to verify your setup, see the [validation steps](#validate-the-remote-repository) later on this page.
+1. Click the **Advanced** configuration tab, then configure the following settings:
+    * In the **Network** section:
+        * Confirm **Lenient Host Authentication** is unchecked, so that your credentials are not forwarded across the redirect.
+        * Optionally check **Enable Cookie Management**. JFrog recommends this for remote repositories that involve redirects.
+    * In the **Others** section:
+        * Check **Bypass HEAD Requests**, so that Artifactory retrieves each tarball with a GET request instead of probing with a HEAD request first.
+        * Uncheck **Block Mismatching Mime Types**.
+        * Check **Disable URL Normalization**, so that Artifactory does not rewrite the pre-signed redirect URL.
 1. Click **Create Remote Repository**.
 
-Create a virtual repository, or add the remote repository to an existing
-virtual repository used for npm packages. A virtual repository may also include private npm packages or
-additional upstream sources, depending on your configuration.
+These settings are required because Chainguard Libraries stores artifacts in
+Cloudflare R2. A tarball download from `libraries.cgr.dev` returns a 302 redirect
+to a pre-signed URL on a different host, and the redirect response itself is an
+HTML document. Without these settings, Artifactory may rewrite the pre-signed
+URL, forward your credentials across the redirect, or cache the redirect response
+in place of the tarball. A cached redirect response fails npm's integrity
+checksum check at install time.
+
+Create a virtual repository, or add the remote repository to an existing virtual
+repository used for npm packages, to give your build tools a single access point.
+A virtual repository may also include your own private npm packages.
 
 1. Click **Create a Repository** → **Virtual**.
 1. Select **Npm**.
@@ -212,39 +237,14 @@ additional upstream sources, depending on your configuration.
 1. Add `javascript-chainguard`.
 1. Click **Create Virtual Repository**.
 
-If you are manually managing fallback, you can configure an additional npm
+If you are manually managing fallback, rather than following the recommended approach to use Chainguard's upstream fallback, you can configure an additional npm
 remote repository with lower priority.
-
-Use this setup for initial testing with Chainguard Libraries for JavaScript. For
-production usage add the `javascript-chainguard` repository to your production
-virtual repository.
-
-### Advanced settings for redirect handling
-
-Chainguard Libraries uses Cloudflare R2 storage, meaning tarball downloads from
-`libraries.cgr.dev` return a 302 redirect to a different host. Without
-additional configuration, Artifactory may cache the redirect response instead of
-the actual tarball, causing npm integrity checksum failures at install time.
-
-To prevent this:
-
-1. Apply the following settings to your Artifactory `javascript-chainguard`
-   remote repository, within in the **Advanced** tab:
-    * **Enable Bypass HEAD Requests** — prevents Artifactory from sending HEAD
-      requests that may not be handled correctly by redirect-based registries.
-    * **Disable Lenient Host Authentication** — disabling this setting ensures
-      credentials are not forwarded across the redirect.
-    * **Enable Cookie Management** - this setting is optional, but recommended
-      by JFrog for remote repositories that involve redirects.
-2. Clear the corrupted cached tarballs: in Artifactory, right-click the
-   `javascript-chainguard` repository and locate the specific corrupted `.tgz` artifacts from the remote cache. Right click the artifact, select **Delete content**, then re-run your
-   install.
 
 ### Validate the remote repository
 
-After creating and configuring the `javascript-chainguard` remote repository, validate that Artifactory is successfully proxying through to Chainguard before proceeding. Because Artifactory falls back to the upstream npm registry when a connection to a remote repository fails, a misconfigured repository may silently resolve packages from npm rather than Chainguard — and the build will succeed without any visible error.
+After creating and configuring the `javascript-chainguard` remote repository, validate that Artifactory is successfully proxying through to Chainguard before proceeding. A misconfigured remote repository fails silently; if any remote pointing at the public npm registry is still present, Artifactory resolves through it instead and the build succeeds with no visible error. This can result in pulling an unprotected package.
 
-Common sources of misconfiguration include invalid or expired credentials, an incorrect or incomplete URL, and misconfigured [settings in the Advanced tab](#advanced-settings-for-redirect-handling). The Artifactory **Test** button on the repository configuration screen is not a reliable indicator; it may fail for a correctly configured repository, and may pass for an incorrectly configured one. Instead, use the following steps to verify that fetching an artifact through Artifactory produces the same checksum as fetching it directly from `libraries.cgr.dev`.
+Common sources of misconfiguration include invalid or expired credentials, an incorrect or incomplete URL, and misconfigured [settings in the Advanced tab](#initial-configuration-1). The Artifactory **Test** button on the repository configuration screen is not a reliable indicator; it may fail for a correctly configured repository, and may pass for an incorrectly configured one. Instead, use the following steps to verify that fetching an artifact through Artifactory produces the same checksum as fetching it directly from `libraries.cgr.dev`.
 
 1. Fetch the artifact directly from Chainguard and compute its checksum, using the same credentials you configured in Artifactory. This example uses `picocolors-1.1.1`. You can substitute any artifact you know to be available.
 
@@ -266,7 +266,7 @@ curl -sSf -L \
 
 Replace `artifactory-host` with your Artifactory instance hostname, and replace `${ARTIFACTORY_TOKEN}` with your Artifactory identity token.
 
-1. If your configuration includes a virtual repository combining `javascript-chainguard` with a public npm fallback, test that as well:
+1. Test the virtual repository your build tools resolve against as well, so that you catch a stray remote still present in it:
 
 ```bash
 curl -sSf -L \
@@ -281,7 +281,8 @@ If the checksum from the Artifactory remote or virtual repository differ from th
 
 * URL: The remote repository URL must be set to `https://libraries.cgr.dev/javascript/`.
 * Credentials: You may need to regenerate your pull token with `chainctl auth pull-token --repository=javascript` and update the Artifactory repository credentials. Expired tokens fail silently.
-* [Advanced tab settings](#advanced-settings-for-redirect-handling): Confirm that **Bypass HEAD Requests** is enabled and **Lenient Host Authentication** is disabled.
+* Advanced configuration: Ensure all recommended Advanced settings from the [initial configuration steps](#initial-configuration-1) have been applied.
+* Corrupted cached tarballs: if the repository previously ran without these settings, Artifactory may still be serving a cached redirect response. In Artifactory, browse the `javascript-chainguard` remote cache and locate the affected `.tgz` artifacts. Right-click each artifact, select **Delete content**, then re-run your install.
 
 Do not proceed to virtual repository setup or build configuration until the checksums match.
 
@@ -314,14 +315,21 @@ all libraries retrieved from Chainguard.
 
 [Sonatype Nexus
 Repository](https://www.sonatype.com/products/sonatype-nexus-repository) allows
-for merging multiple remote repositories as a repository group. The below
-instructions are based on the [Nexus documentation for
+for merging multiple remote repositories as a repository group. The
+instructions on this page are based on the [Nexus documentation for
 npm](https://help.sonatype.com/en/npm-registry.html).
+
+The recommended approach is to use the Chainguard Repository's [upstream
+fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls). If
+you are instead configuring your own fallback in your repo manager, for initial
+testing it is advised to create a separate proxy repository for the npm
+Registry, a separate proxy repository Chainguard Libraries for JavaScript
+repository, and a separate repository group.
 
 ### Initial configuration
 
-For initial testing and adoption it is advised to create a separate proxy repository
-for the Chainguard Libraries for JavaScript repository, and include it in a repository group:
+Create a separate proxy repository for the Chainguard Libraries for JavaScript
+repository, and include it in a repository group:
 
 1. Log in as a user with administrator privileges.
 1. Access the **Server administration** and configuration section with the gear
@@ -333,11 +341,12 @@ repository:
 1. Select **Repository - Repositories** in the left hand navigation.
 1. Click **Create repository**.
 1. Select the **npm (proxy)** recipe.
-1. Provide a new name *javascript-chainguard*.
-1. In the **Proxy - Remote storage** input add the URL
+1. Configure the following:
+    * **Name**: `javascript-chainguard`
+    * **Proxy - Remote storage**: Add the URL
    `https://libraries.cgr.dev/javascript/`.
-1. In **HTTP - Authentication** with the **Authentication type** *Username*,
-   provide the [username and password values as retrieved with
+    * **HTTP - Authentication**: Select `Username` as the Authentication type,
+   and provide the [username and password values as retrieved with
    chainctl](/chainguard/libraries/access/).
 1. Click **Create repository**.
 
@@ -346,8 +355,9 @@ Create a repository group, or add to an existing repository group:
 1. Select **Repository - Repositories** in the left hand navigation.
 1. Click **Create repository**.
 1. Select the **npm (group)** recipe.
-1. Provide a new name *javascript-all*.
-1. In the section **Group - Member repositories**, move the new repository
+1. Configure the following:
+    * **Name**: `javascript-all`
+    * Under **Group - Member repositories**, move the new repository
    `javascript-chainguard` to the right to include it in the group. Position
    `javascript-chainguard` at the top of the list using the arrow controls.
 
@@ -357,7 +367,7 @@ typical configuration, the Chainguard repository is placed first to ensure
 packages are retrieved through Chainguard when available.
 
 If you are manually managing fallback, you can configure an additional npm
-proxy repository and add it to the group after *javascript-chainguard*.
+proxy repository and add it to the group after `javascript-chainguard`.
 
 ### Build tool access
 
@@ -366,12 +376,11 @@ for accessing the repository:
 
 1. Click **Browse** in the **Welcome** view or the browse icon (cube) in the top
    navigation bar.
-1. Locate the **URL** column for the *javascript-all* repository group and click
+1. Locate the **URL** column for the `javascript-all` repository group and click
    **copy**. For example, `https://repo.example.com/repository/javascript-all/`
    with `repo.example.com` replaced with the hostname of your repository manager.
 1. Copy the URL in the dialog.
-1. Use your configured username and password unless **Security** - **Anonymous
-   Access** - **Access** - **Allow anonymous users to access the server** is
+1. Use your configured username and password, unless **Security** > **Anonymous Access** > **Access** > **Allow anonymous users to access the server** is
    activated. Details vary based on your configured authentication system.
 
 Use the URL of the repository group, such as
