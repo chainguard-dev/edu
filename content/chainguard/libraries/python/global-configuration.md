@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for Python in your organization"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-20T18:17:54+00:00
+lastmod: 2026-08-20T19:03:04+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 images: []
@@ -100,7 +100,7 @@ information.
 The recommended approach is to rely on Chainguard Repository's [upstream
 fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls),
 configuring a single upstream proxy pointed at `https://libraries.cgr.dev/python/`
-rather than adding a separate public PyPI proxy. See [Manually managing
+rather than adding a separate public PyPI proxy. Refer to [Manually managing
 fallback](#manually-managing-fallback) if you need to control fallback ordering
 yourself.
 
@@ -169,7 +169,7 @@ point for more details.
 The recommended approach is to rely on Chainguard Repository's [upstream
 fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls),
 configuring a single remote repository pointed at `https://libraries.cgr.dev/python/`
-rather than adding a separate public PyPI remote. See [Manually managing
+rather than adding a separate public PyPI remote. Refer to [Manually managing
 fallback](#manually-managing-fallback) if you need to control fallback ordering
 yourself.
 
@@ -275,7 +275,7 @@ Configure a remote repository for the Chainguard Libraries for Python index:
    URL also needs to cover the `/python-upstream/` paths for upstream fallback packages.
 1. Set **User Name** and **Password / Access Token** to the [values as retrieved
    with chainctl](/chainguard/libraries/access/).
-    * Note: The **Test** button is not a reliable indicator; to verify your setup, see the [validation steps](#validate-the-remote-repository) later on this page.
+    * Note: The **Test** button is not a reliable indicator; to verify your setup, refer to the [validation steps](#validate-the-remote-repository) later on this page.
 1. Set the **PyPI Settings - Registry URL** to
    `https://libraries.cgr.dev/`.
 1. Set the **PyPI Settings - Registry Index Location URL Suffix** to `python/simple`.
@@ -382,7 +382,7 @@ PyPI](https://help.sonatype.com/en/pypi-repositories.html)
 The recommended approach is to rely on Chainguard Repository's [upstream
 fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls),
 configuring a single proxy repository pointed at `https://libraries.cgr.dev/python/`
-rather than adding a separate public PyPI proxy. See [Manually managing
+rather than adding a separate public PyPI proxy. Refer to [Manually managing
 fallback](#manually-managing-fallback) if you need to control fallback ordering
 yourself.
 

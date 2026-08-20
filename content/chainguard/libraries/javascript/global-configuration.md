@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for JavaScript in your organization"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-08-20T18:08:04+00:00
+lastmod: 2026-08-20T19:03:04+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 images: []
@@ -101,7 +101,7 @@ by defining multiple upstream repositories.
 The recommended approach is to rely on Chainguard Repository's [upstream
 fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls),
 configuring a single upstream proxy pointed at `https://libraries.cgr.dev/javascript/`
-rather than adding a separate public npm proxy. See [Manually managing
+rather than adding a separate public npm proxy. Refer to [Manually managing
 fallback](#manually-managing-fallback) if you need to control fallback ordering
 yourself.
 
@@ -215,7 +215,7 @@ repository:
 1. Set the **URL** to `https://libraries.cgr.dev/javascript/`.
 1. Set **User Name** and **Password / Access Token** to the [values as retrieved
    with chainctl](/chainguard/libraries/access/).
-    * Note: The **Test** button is not a reliable indicator; to verify your setup, see the [validation steps](#validate-the-remote-repository) later on this page.
+    * Note: The **Test** button is not a reliable indicator; to verify your setup, refer to the [validation steps](#validate-the-remote-repository) later on this page.
 1. Click the **Advanced** configuration tab, then configure the following settings:
     * In the **Network** section:
         * Confirm **Lenient Host Authentication** is unchecked, so that your credentials are not forwarded across the redirect.
