@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "A walkthrough of the Chainguard Console."
 date: 2024-02-23T11:07:52+02:00
-lastmod: 2026-07-24T15:09:10+00:00
+lastmod: 2026-08-20T18:25:22+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -38,22 +38,16 @@ Learn more browsing Chainguard Libraries in the console on the [Libraries browsi
 
 ## Browse container images and details in the Console
 
-After signing in to the [Chainguard Console](https://console.chainguard.dev), your browser will take you to the Overview page. The following screenshot shows the Overview Page for an organization that hasn't paid for access to any container images:
+After signing in to the [Chainguard Console](https://console.chainguard.dev), your browser will take you to the Overview page:
 
 <center><img src="imgs-dir-A.png" alt="Screenshot showing the Chainguard Console's Overview page." style="width:1100px;"></center>
 <br />
 
 If your organization and account have [Chainguard Notifications](/platform/console/use-chainguard-notifications/) enabled, you will see the **Activity Center** on the page where notifications from Chainguard will occasionally be shown.
 
-<center><img src="notifications-inapp.png" alt="Screenshot showing a test notification in the Chainguard Notifications box on the Chainguard Console's Overview page." style="width:1100px;"></center>
-<br />
-
 Click **Images** in the left-hand navigation. By default, takes you to the **Organization** images tab. If you're part of an organization, you may have access to private Chainguard Containers (or *Production Containers*) that can be found here.
 
-Navigate to the **Chainguard catalog** tab. There, you'll be presented with a list of all of Chainguard's available images:
-
-<center><img src="imgs-dir-B.png" alt="Screenshot of the public container images directory in the Console. The table is sorted by the 'Updated' column in descending order, meaning that the most recently updated container images are shown first." style="width:1100px;"></center>
-<br />
+Navigate to the **Chainguard catalog** tab. There, you'll be presented with a list of all of Chainguard's available images.
 
 The **Chainguard catalog** tab has a table with four columns:
 
@@ -64,10 +58,7 @@ The **Chainguard catalog** tab has a table with four columns:
 
 Note that if your organization has signed up for catalog pricing, there will be another column containing buttons labeled **Add to org**, allowing you to provision Chainguard Containers independently without having to reach out to Chainguard. Check out our doc on [Chainguard container catalog pricing](/chainguard/containers/about/pricing/) for more information.
 
-The **Organization** tab doesn't have a **Description** column, but has two additional columns. The first of these, labeled **Status** specifies what resources an organization has purchased and has access to. This column can show one of two possible values: **Active**, meaning that your organization is able to download and use the container image, or **Expired**, meaning that your organization had access to the container image in the past but not anymore:
-
-<center><img src="imgs-dir-C.png" alt="Screenshot showing a portion of an Organization container images directory, including the 'Status' column. This example shows five container: metrics-server, a customized metrics-server image, mongodb, nginx, and node." style="width:700px;"></center>
-<br />
+The **Organization** tab doesn't have a **Description** column, but has two additional columns. The first of these, labeled **Status** specifies what resources an organization has purchased and has access to. This column can show one of two possible values: **Active**, meaning that your organization is able to download and use the container image, or **Expired**, meaning that your organization had access to the container image in the past but not anymore.
 
 The other additional column is labeled **Pull URL**, and contains a URL you can use to pull the given image, as in a `docker pull` command.
 
@@ -79,10 +70,10 @@ Above the table is a search box you can use to find specific container images by
 
 Next, let's inspect an individual container image. Click on any container image you'd like:
 
-<center><img src="imgs-dir-E.png" alt="Screenshot of the Container Details page for the argocd image, showing the 'Tags' tab." style="width:1100px;"></center>
+<center><img src="imgs-dir-E.png" alt="Screenshot of the Container Details page for the go image, showing the 'Tags' tab." style="width:1100px;"></center>
 <br />
 
-This example shows the details page for `argocd` in the Console.
+This example shows the details page for `go` in the Console.
 
 Each container image details page has several tabs that provide information about various facets of the given image.
 
@@ -117,15 +108,9 @@ The **Specifications** tab is where you can find a number of important details a
 
 It also shows the container image's **Raw configuration**, which includes many of these details as well as its OCI labels (similar to [annotations](/chainguard/containers/overview/#annotations)).
 
-<center><img src="imgs-dir-F.png" alt="Screenshot showing the 'Specifications' tab for the argocd image." style="width:1100px;"></center>
-<br />
-
 ### SBOM
 
 The **SBOM** tab contains a list of packages in the image. Chainguard Containers are built so that everything contained in the image is a package, meaning that this package list gives a complete view of what's in the container image. You won't find anything hidden in the image that isn't listed in its SBOM tab.
-
-<center><img src="imgs-dir-G.png" alt="Screenshot of the argocd container image's 'SBOM' tab, showing four rows of the latest version's SBOM." style="width:1100px;"></center>
-<br />
 
 The table listing an image's packages has six columns.
 
@@ -148,10 +133,7 @@ The **Vulnerabilities** tab contains a list of every CVE one can find within the
 
 Below these is a table listing the vulnerabilities. However, most Chainguard Containers won't show any vulnerabilities for the `latest` version. This isn't an error, as we aim to remove vulnerabilities from images as soon as they arise.
 
-To illustrate how this table appears when vulnerabilities are actually present, you can select different versions in the drop-down until you find one with a vulnerability. This example shows the vulnerabilities in version `3.1.7` of the `argocd` image.
-
-<center><img src="imgs-dir-H.png" alt="Screenshot of the argocd image's 'Vulnerabilities' tab, with '3.1.7' selected in the Tag drop-down menu. The table shows four rows, all highlighting the same vulnerability (CVE-2025-30258) but associated with different packages: gnupg, gnupg-gpgconf, gpg, and gpg-agent." style="width:1100px;"></center>
-<br />
+To illustrate how this table appears when vulnerabilities are actually present, you can select different versions in the drop-down until you find one with a vulnerability.
 
 The Vulnerabilities table has five columns.
 
@@ -162,9 +144,6 @@ The Vulnerabilities table has five columns.
 * **Last detected**: the date and time when the vulnerability last appeared in a scan of the container image
 
 To the left of each row in the table is down-pointing chevron (**˅**). Clicking on this expands the row to show more information about the given vulnerability.
-
-<center><img src="imgs-dir-I.png" alt="Screenshot showing the expanded view of the 'CVE-2025-30258' vulnerability. This expanded view includes a brief description of the CVE as well as some reference links." style="width:1100px;"></center>
-<br />
 
 Specifically, this highlights the **Package** name and **Version** number of the package associated with the vulnerability. It also shows the **Fixed version** of the package, a brief **Description** of the vulnerability, and one or more **References** you can review to learn more about the vulnerability.
 
@@ -190,17 +169,11 @@ You can find these charts and information about them in the Chainguard Console. 
 
 Charts with the **shield** icon are iamguarded charts, created specifically to help people who are switching from Bitnami.
 
-<center><img src="helm-charts-in-console.png" alt="Screenshot showing Helm charts listed in the Chainguard Console."></center>
-<br />
-
 Click any chart name to learn the chart details.
 
 ### Find packages in the Chainguard Console
 
 You can find a list of packages available to your organization in the Chainguard Console. Click **Packages** in the sidebar menu to open the Packages page to view and search across the list of APK packages that are available to you via the Chainguard-provided private APK repository for your organization.
-
-<center><img src="packages-in-console.png" alt="Screenshot showing Helm charts listed in the Chainguard Console."></center>
-<br />
 
 Click a package name to reveal more details about the package. Use the **Architecture** dropdown to select which option to display.
 
