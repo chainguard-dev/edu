@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for Java in your organization"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-06-24T14:42:00+00:00
+lastmod: 2026-08-20T15:07:13+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java"]
 images: []
@@ -51,6 +51,10 @@ manager. If your organization does not use a repository manager, you can pull
 directly from Chainguard. Refer to the [direct access documentation for build
 tools](/chainguard/libraries/java/build-configuration/#direct-access) for more
 information.
+
+## Configure access with a repository manager
+
+See the Build configuration docs for instructions on configuring repository manager access for [Maven](/chainguard/libraries/java/build-configuration/#repo-manager-maven), [Gradle](/chainguard/libraries/java/build-configuration/#repo-manager-gradle), and [Bazel](/chainguard/libraries/java/build-configuration/#repo-manager-bazel).
 
 ## Manually managing fallback
 
@@ -275,19 +279,13 @@ for proxying and hosting, and virtual repositories to combine them. Refer to the
 Artifactory](https://docs.jfrog.com/artifactory/docs/maven-repositories)
 for more information.
 
-Configure Chainguard as the only source of Java libraries in Artifactory, and
-rely on the Chainguard Repository's [upstream
-fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) to
-serve anything Chainguard does not build. Chainguard retrieves those packages
-from Maven Central on your behalf, applying malware scanning and the cooldown
-policy on the way through.
-
-This means you should disable or remove any existing Artifactory remote
-repository that points at Maven Central, and remove it from the virtual
-repository your builds resolve against. A remote pointing directly at Maven
-Central bypasses those protections, and because Artifactory resolves through the
-virtual repository in order, a misconfiguration can result in Artifactory serving
-an unprotected package.
+If you follow the recommended approach to rely on Chainguard Repository's
+upstream fallback, disable or remove any existing Artifactory remote repository
+that points at Maven Central, and remove it from the virtual repository your
+builds resolve against. A remote pointing directly at Maven Central bypasses
+those protections. Since Artifactory resolves through the virtual repository in
+order, a misconfiguration can result in Artifactory serving an unprotected
+package.
 
 ### Initial configuration
 
@@ -325,6 +323,10 @@ pre-signed URL, forward your credentials across the redirect, or cache the
 redirect response in place of the POM, JAR, or checksum file. A cached redirect
 response fails checksum verification at build time.
 
+If you are manually managing fallback, you can configure an additional remote
+repository for Maven Central with lower priority. Make sure to deactivate
+**Maven Settings - Handle Snapshots** in the remote repository.
+
 Create a virtual repository to give your build tools a single access point:
 
 1. Click **Create a Repository** and choose the **Virtual** option.
@@ -335,7 +337,7 @@ Create a virtual repository to give your build tools a single access point:
 1. Add the `java-chainguard` repository.
 1. Click **Create Virtual Repository**.
 
-### Remediated libraries
+### Add remediated libraries
 
 This section applies only if you use the separate repository of [remediated
 Java libraries](/chainguard/libraries/cve-remediation/). It requires a second
@@ -355,7 +357,7 @@ that remediated versions resolve first.
 
 ### Validate the remote repository
 
-After creating the `java-chainguard` remote repository, validate that Artifactory is successfully proxying through to Chainguard before proceeding. A misconfigured remote repository fails quietly: if any remote pointing at Maven Central is still present, Artifactory resolves through it instead and the build succeeds with no visible error, having pulled an unprotected package. This is the main reason to remove those remotes.
+After creating the `java-chainguard` remote repository, validate that Artifactory is successfully proxying through to Chainguard before proceeding. A misconfigured remote repository fails silently; if any remote pointing at Maven Central is still present, Artifactory resolves through it instead and the build succeeds with no visible error. This can result in pulling an unprotected package.
 
 Common sources of misconfiguration include invalid or expired credentials, or an incorrect or incomplete repository URL. The Artifactory **Test** button on the repository configuration screen is not a reliable indicator; it may fail for a correctly configured repository, and may pass for an incorrectly configured one. Instead, use the following steps to verify that fetching an artifact through Artifactory produces the same checksum as fetching it directly from `libraries.cgr.dev`.
 
@@ -435,11 +437,14 @@ Libraries for Java repository for production use.
 
 ### Initial configuration
 
-Use the following steps to add Chainguard Libraries for Java as a proxy repository:
+Use the following steps to add Chainguard Libraries for Java as a proxy repository.
 
-If you are configuring your own fallback in your repo manager, for initial testing it is advised to create a separate proxy
-repository for the Maven Central Repository, a separate proxy repository
-Chainguard Libraries for Java repository, and a separate repository group.
+The recommended approach is to use the Chainguard Repository's [upstream
+fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls). If
+you are instead configuring your own fallback in your repo manager, for initial
+testing it is advised to create a separate proxy repository for the Maven
+Central Repository, a separate proxy repository Chainguard Libraries for Java
+repository, and a separate repository group.
 
 1. Log in as a user with administrator privileges.
 1. Click the gear icon in the top navigation bar to access **Server administration**.
@@ -459,6 +464,8 @@ Configure a remote repository for the Chainguard Libraries for Java repository:
 1. If you are using the separate repository with remediated Java libraries, repeat the preceding steps to create remote repository named `java-chainguard-remediated` with a URL set to `https://libraries.cgr.dev/java-remediated/`. Use the same authentication details.
 
 If you are manually managing fallback, you can configure an additional `java-public` remote repository for Maven Central with lower priority.
+
+### Combine a new repository group
 
 Combine a new repository group and add the repositories:
 
