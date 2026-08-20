@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for JavaScript in your organization"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-08-20T15:07:13+00:00
+lastmod: 2026-08-20T18:08:04+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 images: []
@@ -97,6 +97,13 @@ Upstream
 documentation](https://help.cloudsmith.io/docs/upstream-proxying-caching#create-a-npm-upstream)
 for Cloudsmith for more information. Cloudsmith supports combining repositories
 by defining multiple upstream repositories.
+
+The recommended approach is to rely on Chainguard Repository's [upstream
+fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls),
+configuring a single upstream proxy pointed at `https://libraries.cgr.dev/javascript/`
+rather than adding a separate public npm proxy. See [Manually managing
+fallback](#manually-managing-fallback) if you need to control fallback ordering
+yourself.
 
 ### Initial configuration
 
