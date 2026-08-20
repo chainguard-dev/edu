@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for Python in your organization"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-20T18:08:04+00:00
+lastmod: 2026-08-20T18:17:54+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 images: []
@@ -217,7 +217,7 @@ authentication details, and the URL
 
 If you are manually managing fallback rather than using the [Chainguard Repository's built-in fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls), configure an additional remote repository for the public PyPI.
 
-Combine the repository into a new virtual repository:
+Combine the `python-chainguard` repository, and optionally the `python-chainguard-remediated` repository, into a new virtual repository:
 
 1. Click **+** to add another repository.
 1. Set the **Name** to `python-all`.

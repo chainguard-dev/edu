@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for Java in your organization"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-20T18:08:04+00:00
+lastmod: 2026-08-20T18:17:54+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java"]
 images: []
@@ -437,10 +437,10 @@ Libraries for Java repository for production use.
 
 The recommended approach is to rely on Chainguard Repository's [upstream
 fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls),
-configuring a single proxy repository pointed at `https://libraries.cgr.dev/java/`
-rather than adding a separate Maven Central proxy. Chainguard has tested this
-approach with Nexus. See [Manually managing fallback](#manually-managing-fallback)
-if you need to control fallback ordering yourself.
+configuring a single proxy repository pointed at
+`https://libraries.cgr.dev/java/` rather than adding a separate Maven Central
+proxy. See [Manually managing fallback](#manually-managing-fallback) if you need
+to control fallback ordering yourself.
 
 ### Initial configuration
 
