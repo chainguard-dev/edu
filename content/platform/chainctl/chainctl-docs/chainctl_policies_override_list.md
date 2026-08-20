@@ -1,5 +1,5 @@
 ---
-date: 2026-08-18T17:09:18Z
+date: 2026-08-19T18:15:14Z
 title: "chainctl policies override list"
 slug: chainctl_policies_override_list
 url: /platform/chainctl/chainctl-docs/chainctl_policies_override_list/
