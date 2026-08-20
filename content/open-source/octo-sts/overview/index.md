@@ -5,7 +5,7 @@ type: "article"
 lead: "A security token service that eliminates the need for GitHub personal access tokens by enabling OIDC-based federation for GitHub API access"
 description: "Learn about Octo STS, an open source security token service for GitHub that uses OIDC federation to eliminate long-lived personal access tokens"
 date: 2025-12-23T15:04:05+01:00
-lastmod: 2025-12-24T15:04:05+01:00
+lastmod: 2026-08-20T18:38:14+00:00
 tags: ["octo-sts", "Overview", "OIDC", "Security"]
 draft: false
 images: []
@@ -46,7 +46,7 @@ The Octo STS app needs to request a large number of permissions. This set of per
 
 This sequence diagram outlines the token exchange process in Octo STS:
 
-<center><img src="octo-arch.webp" alt="Octo STS sequence diagram showing order of network requests" style="width:950px;"></center>
+<center><img src="/open-source/octo-sts/overview/octo-arch.webp" alt="Octo STS sequence diagram showing order of network requests" style="width:950px;"></center>
 
 ## Common use cases
 
