@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for Python in your organization"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-20T15:07:13+00:00
+lastmod: 2026-08-20T19:03:04+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 images: []
@@ -97,10 +97,17 @@ documentation](https://help.cloudsmith.io/docs/python-repository) and the
 repository](https://help.cloudsmith.io/docs/create-a-repository) for more
 information.
 
+The recommended approach is to rely on Chainguard Repository's [upstream
+fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls),
+configuring a single upstream proxy pointed at `https://libraries.cgr.dev/python/`
+rather than adding a separate public PyPI proxy. Refer to [Manually managing
+fallback](#manually-managing-fallback) if you need to control fallback ordering
+yourself.
+
 ### Initial configuration
 
-Use the following steps to add a repository with both Chainguard Libraries for
-Python and PyPI as upstream sources.
+Use the following steps to add a repository with Chainguard Libraries for
+Python as the upstream source.
 
 First, create a repository:
 
@@ -159,11 +166,17 @@ Use the [Python package documentation for Google Artifact
 Registry](https://cloud.google.com/artifact-registry/docs/python) as the starting
 point for more details.
 
+The recommended approach is to rely on Chainguard Repository's [upstream
+fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls),
+configuring a single remote repository pointed at `https://libraries.cgr.dev/python/`
+rather than adding a separate public PyPI remote. Refer to [Manually managing
+fallback](#manually-managing-fallback) if you need to control fallback ordering
+yourself.
+
 ### Initial configuration
 
-Use the following steps to add the Pypi Package Index and the Chainguard
-Libraries for Python repository as remote repositories and combine them as a
-virtual repository.
+Use the following steps to add the Chainguard Libraries for Python repository
+as a remote repository and expose it through a virtual repository.
 
 1. Log in to the Google Cloud console as a user with administrator privileges.
 1. Navigate to your project and find the **Artifact Registry** with the search.
@@ -204,7 +217,7 @@ authentication details, and the URL
 
 If you are manually managing fallback rather than using the [Chainguard Repository's built-in fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls), configure an additional remote repository for the public PyPI.
 
-Combine the repositories in a new virtual repository:
+Combine the `python-chainguard` repository, and optionally the `python-chainguard-remediated` repository, into a new virtual repository:
 
 1. Click **+** to add another repository.
 1. Set the **Name** to `python-all`.
@@ -214,14 +227,13 @@ Combine the repositories in a new virtual repository:
 1. Click **Browse**, then locate and select the `python-chainguard`
    repository as **Repository 1** and set the **Policy name 1** to
    `python-chainguard`.
-1. Click **Browse**, then locate and select the `python-public` repository
-   as **Repository 2** and set the **Policy name 2** to `python-public`.
-1. Click **Add upstream repository** in **Virtual upstream repositories**.
-1. Set the **Priority** value for the `python-chainguard` policy name to a higher
-   value than the `python-public` priority value.
-1. Choose the same suitable **Region** for your development in **Location type**
-   as configured for the `python-public` repository.
+1. Choose a **Region** for your development in **Location type**.
 1. Click **Create**.
+
+If you are manually managing fallback rather than using the recommended
+[upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls),
+add the public PyPI index as a second remote repository (`python-public`) and
+give the `python-chainguard` policy a higher priority than `python-public`.
 
 <a id="artifactory"></a>
 
@@ -263,7 +275,7 @@ Configure a remote repository for the Chainguard Libraries for Python index:
    URL also needs to cover the `/python-upstream/` paths for upstream fallback packages.
 1. Set **User Name** and **Password / Access Token** to the [values as retrieved
    with chainctl](/chainguard/libraries/access/).
-    * Note: The **Test** button is not a reliable indicator; to verify your setup, see the [validation steps](#validate-the-remote-repository) later on this page.
+    * Note: The **Test** button is not a reliable indicator; to verify your setup, refer to the [validation steps](#validate-the-remote-repository) later on this page.
 1. Set the **PyPI Settings - Registry URL** to
    `https://libraries.cgr.dev/`.
 1. Set the **PyPI Settings - Registry Index Location URL Suffix** to `python/simple`.
@@ -367,11 +379,17 @@ for merging multiple remote repositories as a repository group. The below
 instructions are based on the [Nexus documentation for
 PyPI](https://help.sonatype.com/en/pypi-repositories.html)
 
+The recommended approach is to rely on Chainguard Repository's [upstream
+fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls),
+configuring a single proxy repository pointed at `https://libraries.cgr.dev/python/`
+rather than adding a separate public PyPI proxy. Refer to [Manually managing
+fallback](#manually-managing-fallback) if you need to control fallback ordering
+yourself.
+
 ### Initial configuration
 
-The following steps create remote repositories for Chainguard Libraries for
-Python, a remote repository for the public PyPI index, and a repository group
-combining these sources.
+The following steps create a remote repository for Chainguard Libraries for
+Python and a repository group that exposes it to your build tools.
 
 First, log in to Sonatype Nexus as a user with administrator privileges and
 access the **Server administration** and configuration section within the gear

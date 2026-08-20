@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for Java in your organization"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-20T15:07:13+00:00
+lastmod: 2026-08-20T19:03:04+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java"]
 images: []
@@ -54,7 +54,7 @@ information.
 
 ## Configure access with a repository manager
 
-See the Build configuration docs for instructions on configuring repository manager access for [Maven](/chainguard/libraries/java/build-configuration/#repo-manager-maven), [Gradle](/chainguard/libraries/java/build-configuration/#repo-manager-gradle), and [Bazel](/chainguard/libraries/java/build-configuration/#repo-manager-bazel).
+Refer to the Build configuration docs for instructions on configuring repository manager access for [Maven](/chainguard/libraries/java/build-configuration/#repo-manager-maven), [Gradle](/chainguard/libraries/java/build-configuration/#repo-manager-gradle), and [Bazel](/chainguard/libraries/java/build-configuration/#repo-manager-bazel).
 
 ## Manually managing fallback
 
@@ -304,7 +304,7 @@ Configure a remote repository for the Chainguard Libraries for Java repository:
     * **URL**: `https://libraries.cgr.dev/java/`
     * **User Name** and **Password / Access Token**: Set to the [values as retrieved with chainctl](/chainguard/libraries/access/).
     * Deactivate **Maven Settings - Handle Snapshots**.
-1. Note: The **Test** button is not a reliable indicator; to verify your setup, see the [validation steps](#validate-the-remote-repository) later on this page.
+1. Note: The **Test** button is not a reliable indicator; to verify your setup, refer to the [validation steps](#validate-the-remote-repository) later on this page.
 1. Click the **Advanced** configuration tab, then configure the following settings:
     * In the **Network** section:
         * Confirm **Lenient Host Authentication** is unchecked, so that your credentials are not forwarded across the redirect.
@@ -435,16 +435,21 @@ information.
 If you are using this group, you can add a proxy repository for Chainguard
 Libraries for Java repository for production use.
 
+The recommended approach is to rely on Chainguard Repository's [upstream
+fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls),
+configuring a single proxy repository pointed at
+`https://libraries.cgr.dev/java/` rather than adding a separate Maven Central
+proxy. Refer to [Manually managing fallback](#manually-managing-fallback) if you need
+to control fallback ordering yourself.
+
 ### Initial configuration
 
 Use the following steps to add Chainguard Libraries for Java as a proxy repository.
 
-The recommended approach is to use the Chainguard Repository's [upstream
-fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls). If
-you are instead configuring your own fallback in your repo manager, for initial
-testing it is advised to create a separate proxy repository for the Maven
-Central Repository, a separate proxy repository Chainguard Libraries for Java
-repository, and a separate repository group.
+If you are configuring your own fallback rather than using upstream fallback,
+for initial testing create a separate proxy repository for the Maven Central
+Repository, a separate proxy repository for Chainguard Libraries for Java, and a
+separate repository group.
 
 1. Log in as a user with administrator privileges.
 1. Click the gear icon in the top navigation bar to access **Server administration**.
