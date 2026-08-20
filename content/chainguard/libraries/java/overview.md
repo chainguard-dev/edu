@@ -4,7 +4,7 @@ linktitle: "Java overview"
 description: "Learn about Chainguard Libraries for Java, providing enhanced security for Maven dependencies through automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-03T14:51:58+00:00
+lastmod: 2026-08-20T19:51:12+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java", "Overview"]
 menu:
@@ -296,5 +296,7 @@ only Chainguard-built packages. When the upstream fallback is enabled, upstream 
 subject to additional security controls before being served, including source code and maintainer behavior scanning and a configurable cooldown period.
 
 For Java, Chainguard's scanning inspects compiled `.class` files, package metadata, and extracted `.jar`, `.war`, and `.ear` archive contents for suspicious patterns and malicious signals.
+
+When the upstream fallback is enabled, [build pinning](/chainguard/libraries/build-pinning/) keeps a version you pulled from Maven Central stable after Chainguard publishes its own build. This prevents unexpected checksum mismatches across rebuilds.
 
 Learn more in the [Chainguard Libraries overview](/chainguard/libraries/overview/).

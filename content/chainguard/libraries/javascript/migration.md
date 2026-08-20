@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing JavaScript project to pull dependencies from Chainguard Libraries"
 date: 2026-06-01T00:00:00+00:00
-lastmod: 2026-08-06T20:06:46+00:00
+lastmod: 2026-08-20T19:51:12+00:00
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
   docs:
@@ -781,3 +781,5 @@ page](/chainguard/libraries/javascript/build-configuration/).
 - For full per-tool configuration reference, refer to the [build
   configuration](/chainguard/libraries/javascript/build-configuration/)
   documentation.
+- To keep pinned versions stable when Chainguard publishes new builds, see the
+  [build pinning](/chainguard/libraries/build-pinning/) documentation.

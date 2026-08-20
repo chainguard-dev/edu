@@ -4,7 +4,7 @@ linktitle: "Error messages"
 description: "Understand the errors Chainguard Libraries returns when a package or version is blocked, and how they appear across language ecosystems and package managers."
 type: "article"
 date: 2026-08-11T00:00:00+00:00
-lastmod: 2026-08-13T12:00:11+00:00
+lastmod: 2026-08-20T19:51:12+00:00
 draft: false
 images: []
 weight: 011
@@ -59,3 +59,4 @@ The following errors indicate problems with authentication, entitlements, or a n
 * [View blocked malware in the Console](/chainguard/libraries/browse/#view-malware-information)
 * [Library policies, overrides, and cooldown](/chainguard/chainguard-repository/library-policies/)
 * [Access Chainguard Libraries](/chainguard/libraries/access/)
+* [Manage build pinning](/chainguard/libraries/build-pinning/)

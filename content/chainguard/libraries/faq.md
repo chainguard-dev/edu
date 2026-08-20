@@ -4,7 +4,7 @@ linktitle: "FAQ"
 description: "Frequently asked questions about Chainguard Libraries, including security benefits, supported ecosystems, and how automated patching protects against supply chain attacks"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-13T12:00:11+00:00
+lastmod: 2026-08-20T19:51:12+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 menu:
@@ -136,6 +136,8 @@ During initial migration to Chainguard Libraries, some common causes of checksum
     * Example: JavaScript's `package-lock.json` or `yarn.lock`.
 * Repository managers or build tools enforce strict verification
     * Example: Artifactory validating against Maven Central.
+
+After you migrate, [build pinning](/chainguard/libraries/build-pinning/) keeps a version you pulled from the upstream fallback stable when Chainguard later publishes its own build, so checksums don't change unexpectedly across rebuilds.
 
 ## What’s the difference between malware‑hardened libraries and CVE remediation?
 

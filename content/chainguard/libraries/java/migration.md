@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Java project to pull dependencies from Chainguard Libraries"
 date: 2026-07-02T00:00:00+00:00
-lastmod: 2026-08-06T19:08:57+00:00
+lastmod: 2026-08-20T19:51:12+00:00
 tags: ["Chainguard Libraries", "Java"]
 menu:
   docs:
@@ -610,3 +610,5 @@ chainctl libraries entitlements list
 For repository manager setups, Chainguard recommends using the configurable fallback rather than configuring a separate public registry fallback in your repository manager, to preserve Chainguard’s security controls.
 
 Learn more about upstream fallback configurations in the [Libraries overview](/chainguard/libraries/overview/#upstream-fallback-and-controls).
+
+When the upstream fallback is enabled, [build pinning](/chainguard/libraries/build-pinning/) keeps a version you pulled from Maven Central stable after Chainguard publishes its own build. This prevents unexpected checksum mismatches across rebuilds.

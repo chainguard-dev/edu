@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-08-06T19:08:57+00:00
+lastmod: 2026-08-20T19:51:12+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -522,3 +522,4 @@ Check your install output for a local wheel build (`Building wheel for <package>
 * To apply this configuration across your whole organization using a repository manager, refer to the [global configuration](/chainguard/libraries/python/global-configuration/) documentation.  
 * To verify downloaded packages were built by Chainguard, refer to the [verification](/chainguard/libraries/verification/) documentation.  
 * For full per-tool configuration reference, refer to the [build configuration](/chainguard/libraries/python/build-configuration/) documentation.
+* To keep pinned versions stable when Chainguard publishes new builds, refer to the [build pinning](/chainguard/libraries/build-pinning/) documentation.
