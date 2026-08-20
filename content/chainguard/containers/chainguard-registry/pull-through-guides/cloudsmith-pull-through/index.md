@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "Tutorial outlining how to set up a Cloudsmith repository to pull containers through from Chainguard's registry."
 date: 2024-07-16T15:56:52-07:00
-lastmod: 2024-08-19T15:56:52-07:00
+lastmod: 2026-08-20T15:41:17+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -43,13 +43,9 @@ A window will appear where you can enter the following details for your new remo
 * **Name** — This is used to refer to your repository. You can choose whatever name you like here, but this guide's examples will use the name `chainguard-public`.
 * **Storage Region** — Here, select the region closest to your location.
 
-![Screenshot of the Cloudsmith "Create Your Repository" window. It includes a "Name" field with the value "chainguard-public", the "Storage Region" field set to "Oregon, United States".](cloudsmith-1.png)
-
 Following that, you will need to set an [upstream proxy](https://help.cloudsmith.io/docs/upstream-proxying-caching) for this repository. This is what will let Cloudsmith know where to pull container images from.
 
-In the lower left-hand navigation menu, select **Upstream Proxying**. From there, click **➕ Create Upstream** and select **Docker** as the upstream source. This will open a window where you can enter the details for the upstream source:
-
-![Screenshot of the Cloudsmith "Create Docker Upstream Source" window. It shows a "Name" field with the value "Chainguard Public Upstream", the "Priority" set to "1", the "Proxy URL" set to "https://cgr.dev/chainguard", and the "Cache and Proxy" selected under the "Mode" options.](cloudsmith-2.png)
+In the lower left-hand navigation menu, select **Upstream Proxying**. From there, click **➕ Create Upstream** and select **Docker** as the upstream source. This will open a window where you can enter the details for the upstream source.
 
 This window has a few fields for which you need to enter values. The **Name** field can include any name you'd like for the upstream source, but it can be helpful to choose something descriptive. In our example the name is "Chainguard Public Upstream." Likewise, you can choose whatever **Priority** value you prefer. This dictates the order in which requests are resolved, with `1` being resolved first, `2` second, and so on.
 
@@ -77,9 +73,7 @@ docker pull docker.cloudsmith.io/<cloudsmith-organization>/<cloudsmith-repositor
 
 Be sure to replace `<cloudsmith-organization>` and `<cloudsmith-repository>` with the names of your Cloudsmith organization and repository, respectively.
 
-If everything worked correctly, the image will appear in your repository:
-
-![Screenshot of a portion of a Cloudsmith "Repository" page showing five python packages.](cloudsmith-3.png)
+If everything worked correctly, the image appears in your repository.
 
 If you run into issues pulling images like this, ensure that your `docker pull` command specifies the correct Cloudsmith organization and repository.
 
@@ -115,8 +109,6 @@ When pulling from a private registry through Chainguard, the **Upstream URL** mu
 
 Lastly, you need to add the username and password you received when you generated the pull token to the upstream source. To do this, expand the **Authentication** section and under **Method** select **Username and Password**. Then enter the username and password you noted down earlier in their respective fields.
 
-![Screenshot of the Cloudsmith "Create Docker Upstream Source" window. It shows a "Name" field with the value "Chainguard Private", the "Priority" set to "1", the "Proxy URL" set to "https://cgr.dev/", and "Cache and Proxy" selected under the "Mode" options. Additionally, the "Authentication" section has been expanded, with the "Username and Password" method selected and values entered into the "Username" and "Password" fields.](cloudsmith-4.png)
-
 Finally, click **Create upstream proxy**. With that, you're ready to test a Chainguard Production Container through Cloudsmith.
 
 ### Testing pull through of a Chainguard production container:
@@ -142,8 +134,6 @@ docker pull docker.cloudsmith.io/chainguard-example/chainguard-private/chainguar
 ```
 
 Once this command is completed you will find the Production container you pulled in your Cloudsmith repository.
-
-![Screenshot of a portion of a Cloudsmith "Repository" page showing three node packages, each labeled "chainguard.edu/node".](cloudsmith-5.png)
 
 If you run into issues pulling images like this, be sure that your `docker pull` command specifies the correct Cloudsmith organization and repository as well as the correct Chainguard registry.
 
