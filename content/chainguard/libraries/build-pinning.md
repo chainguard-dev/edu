@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Build pinning"
 description: "Use build pinning to keep library artifacts stable across rebuilds."
 date: 2026-08-19T08:04:00+00:00
-lastmod: 2026-08-19T17:53:10+00:00
+lastmod: 2026-08-20T19:15:22+00:00
 draft: false
 tags: ["Chainguard Libraries", "Build pinning"]
 menu:
@@ -52,7 +52,7 @@ The output includes the package, version, serving tier, whether the pin is activ
 
 ## Remove pins
 
-After removing pins, regenerate or update your lockfile.
+After a zap, affected package versions resolve again, prioritizing Chainguard builds for any package versions that may have previously been pulled from Chainguard’s upstream fallback. Any new Chainguard-built artifacts may result in changes in a package version’s checksums. The zap does not override malware or policy blocks.
 
 ### Preview the change
 
@@ -64,13 +64,13 @@ chainctl libraries cache zap --dry-run
 
 ### Remove all pins
 
-To remove all pins for an ecosystem:
+You can remove all pins per ecosystem. For example, to remove all pins for JavaScript:
 
 ```bash
 chainctl libraries cache zap --ecosystem javascript
 ```
 
-After the zap, affected package versions resolve again, prioritizing Chainguard builds for any package versions that may have previously been pulled from Chainguard’s upstream fallback. Any new Chainguard-built artifacts may result in changes in a package version’s checksums. The zap does not override malware or policy blocks.
+After removing pins, regenerate or update your lockfile.
 
 ### Remove specific package pins
 
@@ -83,6 +83,8 @@ chainctl libraries cache zap --package <PACKAGE>
 To narrow the operation to one package version, include the `--version` flag: `--version <VERSION>`.
 
 To skip the confirmation prompt in scripts or automation, include the `--yes` flag.
+
+After removing a pin, regenerate or update your lockfile.
 
 ## Opt out of build pins
 
