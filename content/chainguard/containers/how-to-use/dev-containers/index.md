@@ -9,7 +9,7 @@ aliases:
 - /chainguard/containers/how-to-use/dev-containers/
 description: "Guide outlining how you can use Chainguard Containers as Dev Containers for secure development."
 date: 2025-03-10T11:07:52+02:00
-lastmod: 2025-03-08T11:07:52+02:00
+lastmod: 2026-08-20T15:25:39+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -115,7 +115,7 @@ If you do reopen the project in a dev container it may take a minute or so to bu
 
 If you run a webserver in your dev container you will be asked if you want to open the port in a local browser. Exactly as if you were running in a local container:
 
-<center><img src="dev-containers-1.png" alt="Screenshot of a VS Code window running helloserver and prompting the user to open the application in the browser." style="width:1000px;"></center>
+<center><img src="dev-containers-3.png" alt="Screenshot of a VS Code window running helloserver and prompting the user to open the application in the browser." style="width:1000px;"></center>
 <br />
 
 ## Building a Dev Container in other languages
