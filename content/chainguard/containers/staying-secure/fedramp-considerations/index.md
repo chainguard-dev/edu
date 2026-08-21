@@ -4,7 +4,7 @@ linktitle: "FedRAMP considerations"
 type: "article"
 description: "A conceptual overview of Chainguard FIPS containers."
 date: 2025-01-29T15:56:52-07:00
-lastmod: 2025-01-29T15:56:52-07:00
+lastmod: 2026-08-21T12:19:17+00:00
 draft: false
 tags: ["Chainguard Containers", "FIPS"]
 images: []
@@ -68,7 +68,65 @@ Using Chainguard Containers eliminates the manual toil of container security has
 
 The following table highlights the features of Chainguard Containers as mapped to FedRAMP Revision 5's baselines:
 
-<center><img src="fedramp-considerations-1.png" alt="Table showing Chainguard Containers features mapped to FedRAMP Rev 5 baselines. The table has two columns: Features and Rev 5 Control. The Features Column categorizes features into three categories, each showing three features and their explanations. The first is 'Continuous Vulnerability Management and Automation,' which includes the features Almost No Vulnerabilities, Automatic Fixes, and Security advisories. These are mapped to RA-5 Vulnerability Scanning, CA-7 Continuous Monitoring, and SI-2 Flaw Remediation. The second category is 'Secure by Default' with the features Minimal Images, Strong Encryption, and Hardened Images. These are mapped to SA-10 Developer Configuration Management and SA-11 Developer Security Testing and Evaluation. The final category is 'Asset Management Best Practices' which includes the features Build time SBOMs for Each Image, OCI Standard Images, and Signed with Sigstore. These are mapped to SC - 8 Protection of Information in Transit and SC-28 Protection of Information at Rest." style="width:1100px;"></center>
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Features</th>
+      <th scope="col">Rev 5 control</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>Continuous Vulnerability Management and Automation</strong>
+        <ul>
+          <li><strong>Almost No Vulnerabilities:</strong> We start with images that have very few to no known vulnerabilities, helping to pass security checks easily.</li>
+          <li><strong>Automatic Fixes:</strong> Our system automatically finds and fixes vulnerabilities, providing a 7 day SLA on critical severity CVEs, 14 for High/Medium/Low.</li>
+          <li><strong>Security Advisories:</strong> We keep our users updated with the latest security advice, helping them stay informed about any risks.</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>RA-5 Vulnerability Scanning</li>
+          <li>CA-7 Continuous Monitoring</li>
+          <li>SI-2 Flaw Remediation</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Secure by Default</strong>
+        <ul>
+          <li><strong>Minimal Images:</strong> built to be safe from the start. We include only what is required to run the application.</li>
+          <li><strong>Strong Encryption:</strong> We use FIPS validated cryptography providers OpenSSL and Bouncy Castle, which are what the government requires to keep data safe.</li>
+          <li><strong>Hardened</strong> to container security best practices with an associated STIG.</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>SA-10 Developer Configuration Management</li>
+          <li>SA-11 Developer Security Testing and Evaluation</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Asset Management Best Practices</strong>
+        <ul>
+          <li><strong>Build time SBOMs for Each Image:</strong> For every image we build, we provide a detailed list with all components inside, making it easy to understand and check.</li>
+          <li><strong>OCI Standard Images:</strong> Our images are built following OCI specifications, ensuring they work well in any standard environment.</li>
+          <li><strong>Signed with Sigstore:</strong> Our images, attestations, and SBOMs are signed using Sigstore, proving they haven't been tampered with from the time we built them.</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>SC-8 Protection of Information in Transit</li>
+          <li>SC-28 Protection of Information at Rest</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
 <br />
 
 Additionally, Chainguard helps support CM-6 configuration settings requirements. Chainguard announced the release of a STIG for the General Purpose Operating System (GPOS) SRG which specifies security requirements for general purpose operating systems running in a network. The goal for this STIG is that it will help customers confidently and securely integrate Chainguard Containers into their workflows. Please refer to our [STIGs overview](https://edu.chainguard.dev/chainguard/containers/working-with-images/image-stigs/#how-stigs-can-be-used-to-harden-images) for more information.
