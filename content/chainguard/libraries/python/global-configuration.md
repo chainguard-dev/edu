@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for Python in your organization"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-20T19:03:04+00:00
+lastmod: 2026-08-21T19:07:06+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 images: []
@@ -430,3 +430,23 @@ Finally, create a new repository group and add the repositories:
 Refer to the page on [build tool configuration for Chainguard Libraries for
 Python](/chainguard/libraries/python/build-configuration/#nexus) for information on
 accessing credentials and setting up build tools.
+
+## Troubleshooting and FAQ
+
+### Sonatype build failures and 404 errors for uv and pip requests ending in `.whl.metadata`
+
+Builds fail intermittently when Sonatype Nexus is configured as a PyPI proxy in front of `libraries.cgr.dev`, even though authentication, entitlements, and network connectivity all check out. The failures look like missing packages, but the packages themselves are present and downloadable. The Nexus outbound request logs show 404 responses specifically for URLs ending in `.whl.metadata`, while the same URL without the `.metadata` suffix succeeds.
+
+Modern Python installers (pip 23.1+, uv) implement [PEP 658](https://peps.python.org/pep-0658/) and request a small per-package metadata file by appending `.metadata` to the wheel's download URL, ahead of downloading the wheel itself. When Nexus is serving a stale cached index page, it can point clients at a metadata URL format that `libraries.cgr.dev` no longer honors. Chainguard's upstream returns 400 for that request, which Nexus in turn surfaces to the client as a 404. The result presents as a missing package, when the underlying issue is a stale cached index.
+
+#### Fix: Recreate the proxy repository
+
+To fix this, delete and recreate the Chainguard PyPI proxy repository in Nexus. This clears all cached index pages and metadata assets for that repository, forcing Nexus to pull fresh copies on the next request.
+
+Alternatively, you could add a Nexus routing rule to block metadata requests outright. Clients fall back to standard resolution automatically when the metadata request fails cleanly, without surfacing an error:
+
+1. In Nexus, go to **Administration** > **Routing Rules** and create a new rule.
+1. Set the Mode to `Block`.
+1. Set the matcher to `.*\.metadata$`.
+1. Assign the rule to your Chainguard PyPI proxy repository.
+1. Remove the routing rule once you've recreated the proxy repository, so clients can resume using PEP 658 metadata requests.
