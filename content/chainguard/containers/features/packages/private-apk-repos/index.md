@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "An overview of how to work with Chainguard's private APK repositories."
 date: 2025-02-21T11:07:52+02:00
-lastmod: 2026-08-21T12:27:26+00:00
+lastmod: 2026-08-21T13:01:57+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -43,7 +43,7 @@ Your private APK repository will be available at a URL like the following:
 
 You will need to replace `$ORGANIZATION` with the name of your organization as it appears in the Chainguard Console.
 
-You can always find your private APK repository's address by logging into the [Chainguard Console](https://console.chainguard.dev/) and navigating to the **Settings** tab in the left-hand navigation menu. This will take you the **General** section where you can copy the repository address.
+You can always find your private APK repository's address by logging into the [Chainguard Console](https://console.chainguard.dev/) and navigating to the **Settings** tab in the left-hand navigation menu. This will take you to the **General** section where you can copy the repository address.
 
 In order to use your private repository, you must add this URL to the list of apk repositories found in an `/etc/apk/repositories` file, and you'll also need to provide credentials to have access to this repo. To set this up, you must follow these general steps:
 

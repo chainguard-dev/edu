@@ -4,7 +4,7 @@ linktitle: "Catalog pricing"
 type: "article"
 description: "Overview of Chainguard's container catalog pricing model and how to add container images to your organization through the self-serve catalog experience."
 date: 2025-08-19T08:49:31+00:00
-lastmod: 2026-08-21T12:27:26+00:00
+lastmod: 2026-08-21T13:01:57+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -42,7 +42,7 @@ The only built-in role with all of these capabilities is the `owner` role. Users
 
 To add a container to your organization through the Self-Serve Experience, start by logging in to the [Chainguard Console](https://console.chainguard.dev). After logging in, click **Images** in the left-hand navigation.
 
-By default, this will take you the **Organization** tab, where you'll find your organization's list of container images. Above the list of container images, to the right of the search box, there will be an **Add image** button. Click this button to open a window containing a list of Chainguard Containers you can add to your organization.
+By default, this will take you to the **Organization** tab, where you'll find your organization's list of container images. Above the list of container images, to the right of the search box, there will be an **Add image** button. Click this button to open a window containing a list of Chainguard Containers you can add to your organization.
 
 Within this window, you can scroll through the entire list of container images available for you to add to your organization. You can also use the search box within the window to search for a specific Chainguard Container to add.
 
