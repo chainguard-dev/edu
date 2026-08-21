@@ -4,7 +4,7 @@ type: "article"
 linktitle: "JRE + Minecraft"
 description: "Learn how to set up a secure Minecraft Java server using Chainguard's JRE container image with minimal vulnerabilities and enhanced security features"
 date: 2025-03-26T11:07:52+02:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-08-21T12:32:28+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -158,9 +158,7 @@ minecraft-java-1  | [13:58:10] [Server thread/INFO]: Done (4.333s)! For help, ty
 
 ```
 
-Now, from a Java Minecraft client running on the same local network as your server, access the **Multiplayer** menu and add a new server using your server’s local IP address and port `25565`. If you are running the client on the same machine as the server, you can use `localhost` or `127.0.0.1` as server address:
-
-![Minecraft Java client - setting up a new server](server-setup.png)
+Now, from a Java Minecraft client running on the same local network as your server, access the **Multiplayer** menu and add a new server using your server’s local IP address and port `25565`. If you are running the client on the same machine as the server, you can use `localhost` or `127.0.0.1` as the server address.
 
 **Tip:** On Linux systems, you can use the following command to obtain your local IP address: `ip -o route get to 8.8.8.8 | sed -n 's/.*src \([0-9.]\+\).*/\1/p'`
 
@@ -298,8 +296,6 @@ minecraft-java-1  | [19:20:01] [Server thread/INFO]: Preparing level "GuardCraft
 
 If you join the server now, you should spawn close to a nice village.
 
-![Minecraft Java client - spawning near a village](spawn-point.png)
-
 ## 3 – Setting up automatic updates
 
 Your server is now fully customizable through environment variables, but we're still missing something important: updates. The Minecraft server download is statically defined in the Dockerfile, so it will go stale pretty quickly. We need a programmatic way to fetch the latest version of the server so that we don’t need to update the Dockerfile each time a new version of the server is out.
@@ -409,9 +405,7 @@ minecraft-java-1  | [11:56:30] [Server thread/INFO]: Starting minecraft server v
 ...
 ```
 
-To join the server, a client must be running the same version (in this case, 1.21.5) of the game. If you run into issues, make sure you select “Latest Snapshot” in the Minecraft launcher before opening the game:
-
-![Minecraft Launcher - select "Latest snapshot" from the left menu to play the most recent version](minecraft-launcher.png)
+To join the server, a client must be running the same version (in this case, 1.21.5) of the game. If you run into issues, make sure you select “Latest Snapshot” in the Minecraft launcher before opening the game.
 
 If you want to specify the version of the Minecraft server, you can pass the `VERSION` argument at build time. For instance, this will install version `1.21.4`:
 

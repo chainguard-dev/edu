@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "How to use Renovate to automatically keep Chainguard Containers updated"
 date: 2023-09-05T11:07:52+02:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-08-21T12:32:28+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -98,9 +98,7 @@ FROM cgr.dev/chainguard.edu/python:3.11
 ...
 ```
 
-At the time of writing, version 3.12 was the current version of the Python image, so the following PR was opened by Renovate:
-
-![Screenshot showing GitHub PR from Renovate updating python version](python_update.png)
+At the time of writing, version 3.12 was the current version of the Python image, so Renovate opened a pull request to update the reference.
 
 Not all images use semantic versioning. Refer to the [Renovate documentation](https://docs.renovatebot.com/) for details on how to support different schemes.
 
@@ -128,10 +126,6 @@ COPY --from=builder /work/hello /hello
 
 ENTRYPOINT ["/hello"]
 ```
-
-The following screenshot shows the PR to update the static image:
-
-![Screenshot showing Renovate PR to update static image digest](static_update.png)
 
 ## Pinning digests
 
