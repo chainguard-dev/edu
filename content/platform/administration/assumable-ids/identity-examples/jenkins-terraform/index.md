@@ -11,7 +11,7 @@ lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity with Terraform that can be assumed by a Jenkins pipeline."
 type: "article"
 date: 2025-09-07T08:48:45+00:00
-lastmod: 2025-09-07T08:48:45+00:00
+lastmod: 2026-08-21T12:46:09+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -28,7 +28,7 @@ To complete this guide, you will need the following.
 
 * `terraform` installed on your local machine. Terraform is an open-source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
 * `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up.
-* A Jenkins server with the [OpenID Connect Provider plugin](https://plugins.jenkins.io/oidc-provider/) installed and configured, as well as a pipeline you can use to test out the identity you'll create.
+* A [Jenkins](https://www.jenkins.io/) server with the [OpenID Connect Provider plugin](https://plugins.jenkins.io/oidc-provider/) installed and configured, as well as a pipeline you can use to test out the identity you'll create.
 
 ## Creating Terraform files
 
@@ -119,13 +119,9 @@ First, this section creates a Chainguard Identity tied to the Chainguard organiz
 
 The most important part of this section is the `claim_match`. When the Jenkins workflow tries to assume this identity later on, it must present a token matching the `audience`, `issuer` and `subject` specified here in order to do so. The `audience` is the intended recipient of the issued token, while the `issuer` is the entity that creates the token. Finally, the `subject` is the entity (here, the Jenkins pipeline build) that the token represents.
 
-The `audience` and `issuer` fields use settings from your configured Jenkins OIDC credential. You can find these by clicking **Manage Jenkins** in the left-hand sidebar menu of your dashboard, then click **Credentials**. Click on your **System** credentials, then click **Global credentials (unrestricted)**. This will take you to a table listing all your configured OIDC tokens. Click the wrench icon for the token you want to use to test this identity. This will take you to a screen similar to the following screenshot showing the `audience` and `issue` values you should use in your `jenkins.tf` file.
+The `audience` and `issuer` fields use settings from your configured Jenkins OIDC credential. You can find these by clicking **Manage Jenkins** in the left-hand sidebar menu of your dashboard, then click **Credentials**. Click on your **System** credentials, then click **Global credentials (unrestricted)**. This will take you to a table listing all your configured OIDC tokens. Click the wrench icon for the token you want to use to test this identity. This takes you to a screen showing the `audience` and `issue` values you should use in your `jenkins.tf` file.
 
-![Jenkins OICD token configuration page](jenkins-oidc-credential.png)
-
-For the subject, refer to your Jenkins repository OIDC settings page. You can find these by navigating back to the **Manage Jenkins** landing page in your dashboard and clicking on **Security**. From there, scroll to the `OpenID Connect` section on the page, click on the **Claim templates** button, and locate the `sub` field. The `subject` value you should use will be the value in the **Value format** field under the first `sub` template. In the following example, the value to use is `jenkins-oidc-test`.
-
-![Jenkins OpenID Connect configuration](jenkins-oidc-connect-config.png)
+For the subject, refer to your Jenkins repository OIDC settings page. You can find these by navigating back to the **Manage Jenkins** landing page in your dashboard and clicking on **Security**. From there, scroll to the `OpenID Connect` section on the page, click on the **Claim templates** button, and locate the `sub` field. The `subject` value you should use will be the value in the **Value format** field under the first `sub` template. For example, this value might be `jenkins-oidc-test`.
 
 For the purposes of this guide, you will need to replace `%your-audience%`, `%your-domain%`, and `%your-subject%` with the values from your Jenkins OIDC credential page, and the `OpenID Connect` administrative settings page.
 
@@ -218,9 +214,7 @@ You're now ready to create or edit a Jenkins pipeline to test out this identity.
 
 To test the identity you created with Terraform in the previous section, create or edit a pipeline job. To create a pipeline job, click the **New Item** link in the menu at the top left of your Jenkins dashboard. Give the job a title, and select **Pipeline** from the list of job types.
 
-Once you are on the pipeline configuration page, click the **This project is parameterized** check box. Give your parameter a name like `oidc-token` and under the **Credential type** selection list, **OpenID Connect id token**. Mark the parameter as required, and select your configured OIDC credential token as the `Default Value` for the parameter per the following screenshot:
-
-![Job parameter settings for OIDC token](jenkins-job-parameter.png)
+Once you are on the pipeline configuration page, click the **This project is parameterized** check box. Give your parameter a name like `oidc-token` and under the **Credential type** selection list, **OpenID Connect id token**. Mark the parameter as required, and select your configured OIDC credential token as the `Default Value` for the parameter.
 
 Next copy the following pipeline definition into the `Script` body for your job:
 

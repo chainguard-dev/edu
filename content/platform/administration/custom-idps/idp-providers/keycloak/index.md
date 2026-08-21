@@ -7,7 +7,7 @@ lead: ""
 description: "Procedural tutorial on how to register a Keycloak client and integrate it with the Chainguard platform."
 type: "article"
 date: 2025-04-04
-lastmod: 2025-04-04
+lastmod: 2026-08-21T12:46:09+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -34,18 +34,9 @@ To integrate Keycloak with the Chainguard platform, log in to your Keycloak admi
 
 Set the **Client Type** to OIDC Connect, and set your **Client ID**. Add a friendly **Name** and **Description** if desired. Take note of your **Client ID** value that you have set. You'll need this to configure the Chainguard platform to use this Keycloak Client. Click **Next**.
 
-<center><img src="keycloak-1.png" alt="Screenshot of Keycloak's Create Client menu 1, with example entries added."></center>
-<br />
-
 Toggle **Client Authentication** on and click **Next**.
 
-<center><img src="keycloak-2.png" alt="Screenshot of Keycloak's Create Client menu 2, with default settings added."></center>
-<br />
-
 Set the Chainguard platform redirect URI in the **Valid redirect URIs** field. Click **Save** to finalize the creation of your Keycloak Client.
-
-<center><img src="keycloak-3.png" alt="Screenshot of Keycloak's Create Client menu 3, with valid Redirect URI added."></center>
-<br />
 
 Navigate to the **Credentials** tab of your newly created client.
 
@@ -53,9 +44,6 @@ Navigate to the **Credentials** tab of your newly created client.
 <br />
 
 Copy the **Client Secret** value. You'll need this to configure the Chainguard platform to use this Keycloak Client.
-
-<center><img src="keycloak-5.png" alt="Screenshot of the newly created Keycloak Client's credentials tab, with the Client Secret field highlighted in a red box."></center>
-<br />
 
 ## Configuring Chainguard to use your Keycloak client
 
