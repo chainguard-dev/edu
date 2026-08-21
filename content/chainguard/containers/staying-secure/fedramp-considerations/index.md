@@ -4,7 +4,7 @@ linktitle: "FedRAMP considerations"
 type: "article"
 description: "A conceptual overview of Chainguard FIPS containers."
 date: 2025-01-29T15:56:52-07:00
-lastmod: 2026-08-21T12:19:17+00:00
+lastmod: 2026-08-21T13:20:23+00:00
 draft: false
 tags: ["Chainguard Containers", "FIPS"]
 images: []
@@ -78,11 +78,11 @@ The following table highlights the features of Chainguard Containers as mapped t
   <tbody>
     <tr>
       <td>
-        <strong>Continuous Vulnerability Management and Automation</strong>
+        <strong>Continuous vulnerability management and automation</strong>
         <ul>
-          <li><strong>Almost No Vulnerabilities:</strong> We start with images that have very few to no known vulnerabilities, helping to pass security checks easily.</li>
-          <li><strong>Automatic Fixes:</strong> Our system automatically finds and fixes vulnerabilities, providing a 7 day SLA on critical severity CVEs, 14 for High/Medium/Low.</li>
-          <li><strong>Security Advisories:</strong> We keep our users updated with the latest security advice, helping them stay informed about any risks.</li>
+          <li><strong>Almost no vulnerabilities:</strong> We start with images that have very few to no known vulnerabilities, helping to pass security checks easily.</li>
+          <li><strong>Automatic fixes:</strong> Our system automatically finds and fixes vulnerabilities, providing a 7 day SLA on critical severity CVEs, 14 for High/Medium/Low.</li>
+          <li><strong>Security advisories:</strong> We keep our users updated with the latest security advice, helping them stay informed about any risks.</li>
         </ul>
       </td>
       <td>
@@ -95,10 +95,10 @@ The following table highlights the features of Chainguard Containers as mapped t
     </tr>
     <tr>
       <td>
-        <strong>Secure by Default</strong>
+        <strong>Secure by default</strong>
         <ul>
-          <li><strong>Minimal Images:</strong> built to be safe from the start. We include only what is required to run the application.</li>
-          <li><strong>Strong Encryption:</strong> We use FIPS validated cryptography providers OpenSSL and Bouncy Castle, which are what the government requires to keep data safe.</li>
+          <li><strong>Minimal images:</strong> built to be safe from the start. We include only what is required to run the application.</li>
+          <li><strong>Strong encryption:</strong> We use FIPS validated cryptography providers OpenSSL and Bouncy Castle, which are what the government requires to keep data safe.</li>
           <li><strong>Hardened</strong> to container security best practices with an associated STIG.</li>
         </ul>
       </td>
@@ -111,10 +111,10 @@ The following table highlights the features of Chainguard Containers as mapped t
     </tr>
     <tr>
       <td>
-        <strong>Asset Management Best Practices</strong>
+        <strong>Asset management best practices</strong>
         <ul>
-          <li><strong>Build time SBOMs for Each Image:</strong> For every image we build, we provide a detailed list with all components inside, making it easy to understand and check.</li>
-          <li><strong>OCI Standard Images:</strong> Our images are built following OCI specifications, ensuring they work well in any standard environment.</li>
+          <li><strong>Build time SBOMs for each image:</strong> For every image we build, we provide a detailed list with all components inside, making it easy to understand and check.</li>
+          <li><strong>OCI standard images:</strong> Our images are built following OCI specifications, ensuring they work well in any standard environment.</li>
           <li><strong>Signed with Sigstore:</strong> Our images, attestations, and SBOMs are signed using Sigstore, proving they haven't been tampered with from the time we built them.</li>
         </ul>
       </td>
