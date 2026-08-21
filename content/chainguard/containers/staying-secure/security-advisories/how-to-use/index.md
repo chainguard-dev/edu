@@ -15,7 +15,7 @@ aliases:
 type: "article"
 description: "Article outlining how one can explore and use the Security Advisories found on the Chainguard Container Directory."
 date: 2023-12-27T11:07:52+02:00
-lastmod: 2025-04-11T15:16:50+01:00
+lastmod: 2026-08-21T12:27:26+00:00
 draft: false
 tags: ["Chainguard Containers", "CVE"]
 images: []
@@ -96,17 +96,11 @@ The Security Advisories page is self-service, allowing you to check whether Chai
 
 Enter the CVE identifier you copied previously (`2023-44487`) into the search box at the top of the page. This will immediately filter the list of security advisories to only show packages where that CVE has been reported. It will also show the **Status** of each.
 
-![Screenshot showing the Chainguard Security Advisories page. The list of advisories has been filtered to only include those with a CVE ID of "CVE-2023-44487".](sec-adv-A.png)
-
 If you click on any row in the filtered list, it will take you to the CVE's specific page. There, you'll find a list of every package where this CVE has been reported.
-
-![Screenshot showing the Security Advisory page for CVE-2023-44487 and a partial list of its affected packages.](sec-adv-B.png)
 
 As with the Security Advisories landing page, you can filter by package name here on the CVE's landing page as well. Enter the name of the package we highlighted previously (`nghttp2`) and the index will immediately filter out any packages that do not mention that string in their metadata.
 
-![Screenshot showing a filtered list of packages affected by CVE-2023-44487, this time only showing packages that reference "nghttp2". The row for the nghttp2 package itself shows a "Status" of "Fixed", and a "Fixed Version" of "1.57.0-r0".](sec-adv-C.png)
-
-As the previous screenshot highlights, for CVE-2023-44487, the `nghttp2` package's **Status** is marked as **Fixed** in version `1.57.0-r0` as of October 11, 2023.
+For CVE-2023-44487, the `nghttp2` package's **Status** is marked as **Fixed** in version `1.57.0-r0` as of October 11, 2023.
 
 ## Comparing containers
 

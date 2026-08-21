@@ -4,7 +4,7 @@ linktitle: "Authenticate"
 type: "article"
 description: "A guide on authenticating to Chainguard's registry to get container images"
 date: 2023-03-21T15:10:16+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-08-21T12:27:26+00:00
 tags: ["Chainguard Containers", "Registry"]
 draft: false
 images: []
@@ -95,13 +95,9 @@ You can also create and view pull tokens in the [Chainguard Console](https://con
 
 After navigating to the Console, click on **Settings** in the left-hand navigation menu. From the **Settings** pane, click on **Pull tokens**. There, you'll be presented with a table listing of all the active pull tokens for your selected organization.
 
-![Screenshot showing the Pull tokens page within the Settings pane. This example shows four pull tokens in the table.](pull-tokens-console-1.png)
-
 This table shows the name of each pull token, their descriptions, the date they were created, and the number of days until they expire.
 
 You can create a new pull token by clicking the **Create pull token** button at the top of the page. A new pane will appear where you can enter a name for the new pull token, add an optional description, and select when the pull token will expire. The **Expiration** drop-down menu has options for 30, 60, and 90 days, as well as a **Custom** expiration option. This will cause a **Custom Expiration** window to appear, allowing you to select the date when you'd like the token to expire.
-
-![Screenshot showing the Create pull token pane. This example shows all the fields filled in: the Name is "new-pull-token", the Description reads "This is a description for the new pull token.", with a custom expiration date and the selection calendar showing March 2025.](pull-tokens-console-2.png)
 
 After entering these details, click the **Create token** button and your new pull token will appear in the list with the rest of your organization's tokens.
 

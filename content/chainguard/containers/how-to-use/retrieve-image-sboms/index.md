@@ -13,7 +13,7 @@ aliases:
 type: "article"
 description: "How to get SBOM for container images: Chainguard provides Software Bill of Materials for every image - retrieve with Cosign for complete supply chain transparency"
 date: 2023-11-17T11:07:52+02:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-08-21T12:27:26+00:00
 draft: false
 tags: ["Chainguard Containers", "SBOM"]
 images: []
@@ -71,9 +71,7 @@ You can also find container image SBOMs in the [Chainguard Console](https://cons
 
 You can use the drop-down menus above the table to select which version and architecture of the image you want to view. You can also use the search box to find specific packages in the SBOM or use the button to the right of the search box to download the SBOM to your machine.
 
-Clicking **Download** reveals a drop-down menu where you can choose to download the image's SBOM in either the SPDX or CycloneDX SBOM formats. The following example shows the **SBOM** tab for the `nginx` container image, with the **Download** drop-down menu open:
-
-![Screenshot of the nginx image's "SBOM" tab, showing the Download button and drop-down menu options (SPDX and CyclonedDX) highlighted in a yellow box.](img-dir-5.png)
+Clicking **Download** reveals a drop-down menu where you can choose to download the image's SBOM in either the SPDX or CycloneDX SBOM formats.
 
 Check out our guide on [using the Chainguard Containers Directory](/platform/console/images-directory/) for more details.
 

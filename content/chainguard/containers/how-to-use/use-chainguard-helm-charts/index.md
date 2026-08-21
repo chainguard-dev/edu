@@ -8,7 +8,7 @@ type: "article"
 description: "A primer on how to use Chainguard-provided upstream Helm charts to deploy Chainguard container images"
 lead: "A primer on how to use Chainguard-provided upstream Helm charts to deploy Chainguard container images"
 date: 2025-07-11T08:49:31+00:00
-lastmod: 2026-08-18T15:48:57+00:00
+lastmod: 2026-08-21T12:27:26+00:00
 draft: false
 tags: ["Chainguard Containers", "Helm charts", "Product"]
 images: []
@@ -222,8 +222,6 @@ The chart provides security-minded defaults that are sensible but may not suit a
 There may be times when you need to override the version of an image that is set to be deployed with a chart. The override values vary between charts.
 
 Refer to the documentation for charts in the Chainguard Console in the **Helm charts** page, accessible from the sidebar. Find your chart in the list and select it, then click through the tabs across the top of the page to learn more about the chart. For example, you can find the default values for the Grafana Helm chart in [its Default Values tab](https://console.chainguard.dev/org/$ORGANIZATION$/helm/organization/community-chart/grafana/defaultValues).
-
-![Screenshot of the Default values tab for the Grafana Helm chart in the Chainguard Console.](helm-values.png)
 
 #### Example of overriding tag and digest
 
