@@ -7,7 +7,7 @@ lead: ""
 description: "Procedural tutorial on how to register a Keycloak client and integrate it with the Chainguard platform."
 type: "article"
 date: 2025-04-04
-lastmod: 2026-08-21T13:01:09+00:00
+lastmod: 2026-08-21T13:03:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -104,7 +104,7 @@ Note the `--default-role` option. This defines the default role granted to users
 
 You can refer to our [Generic integration guide](/chainguard/administration/custom-idps/custom-idps/#generic-integration-guide) in our Introduction to Custom Identity Providers article for more information about the `chainctl iam identity-provider create` command and its required options.
 
-To log in to the Chainguard Console with the new identity provider you just created, navigate to [console.chainguard.dev](https://console.chainguard.dev) and click **Use Your Identity Provider**. Next, click **Use Your Organization Name** and enter the name of the organization associated with the new identity provider. Finally, click the **Login with Provider** button. This will open up a new window with the Okta login flow, allowing you to complete the login process through there.
+To log in to the Chainguard Console with the new identity provider you just created, navigate to [console.chainguard.dev](https://console.chainguard.dev) and click **Use Your Identity Provider**. Next, click **Use Your Organization Name** and enter the name of the organization associated with the new identity provider. Finally, click the **Login with Provider** button. This will open up a new window with the Keycloak login flow, allowing you to complete the login process through there.
 
 You can also use the custom identity provider to log in through `chainctl`. To do this, run the `chainctl auth login` command and add the `--identity-provider` option followed by the identity provider's ID value:
 
