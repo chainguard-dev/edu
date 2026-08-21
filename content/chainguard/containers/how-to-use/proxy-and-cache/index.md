@@ -8,7 +8,7 @@ type: "article"
 description: "Use Artifactory to proxy and cache Chainguard iamguarded Helm charts"
 lead: "Use Artifactory to proxy and cache Chainguard iamguarded Helm charts"
 date: 2025-07-14T08:10:31+00:00
-lastmod: 2025-07-14T08:10:31+00:00
+lastmod: 2026-08-21T12:55:52+00:00
 draft: false
 tags: ["Chainguard Containers", "Helm charts", "Artifactory", "iamguarded", "Product"]
 images: []
@@ -23,9 +23,7 @@ This page shows you how to set up and use Chainguard Helm Charts with Artifactor
 
 ## Create and configure Helm OCI repository in Artifactory
 
-From the administration panel within Artifactory, create a remote repository, picking Helm as the repo type. we'll call it `iamguarded-charts`
-
-![Screenshot showing the new remote repo in Artifactory](new-remote-repo.png)
+In Artifactory's **Administration** module, select **Repositories**, then **Create a Repository**, and choose **Remote**. Set the package type to **Helm** and give the repository a key (name); this guide uses `iamguarded-charts`. For the full list of settings, refer to JFrog's [remote repositories documentation](https://docs.jfrog.com/artifactory/docs/remote-repositories).
 
 To determine values for the `User Name` and `Password / Access Token` fields, run the following command:
 
@@ -42,17 +40,13 @@ To use this pull token in another environment, run this command:
     docker login "cgr.dev" --username "bd3c9ec494caca60225319fd4053abe067c169ec/5037f83cdd0fbdcd" --password "eyJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJodHRwczovL2lzc..." # Token truncated
 ```
 
-Set these values in the console. Note that the URL should be `https://cgr.dev`
-
-![Screenshot showing setting values in Artifactory](url-username-pw.png)
+In the repository's configuration, set the **URL** to `https://cgr.dev`, and set the **User Name** and **Password / Access Token** to the values from the command output above.
 
 Once created, the next step is to configure Helm to pull from the mirrored repository. We can then test that it works by pulling the Helm Chart from the repository.
 
 ## Configure Helm to pull from the mirrored repository and install
 
 > **NOTE:** In the following example, $JFROG_USERNAME and $JFROG_TOKEN refer to the Artifactory username and token used to gain access to the newly created Helm repository. For testing purposes, a quick way to generate this against any repository is by using the "Set Me Up" button in the top right corner of the UI.
-
-![Screenshot showing setting values in Artifactory](set-me-up.png)
 
 ```bash
 JFROG_USERNAME= # Your username, i.e. username@chainguard.dev
