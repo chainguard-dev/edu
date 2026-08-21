@@ -4,14 +4,12 @@ command = "npm run build"
 
 [context.production.environment]
 HUGO_ENV = "production"
-HUGO_VERSION = "0.104.3"
 
 [context.deploy-preview]
 command = "npm run build:preview -- -b $DEPLOY_PRIME_URL"
 
 [context.deploy-preview.environment]
 HUGO_ENV = "staging"
-HUGO_VERSION = "0.104.3"
 
 # chainctl reference docs moved from /chainguard/chainctl/ to /platform/chainctl/
 # during the IA reorg. These pages are auto-generated, so they can't carry
