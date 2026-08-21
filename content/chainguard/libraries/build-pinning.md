@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Build pinning"
 description: "Use build pinning to keep library artifacts stable across rebuilds."
 date: 2026-08-19T08:04:00+00:00
-lastmod: 2026-08-20T19:15:22+00:00
+lastmod: 2026-08-21T15:16:45+00:00
 draft: false
 tags: ["Chainguard Libraries", "Build pinning"]
 menu:
@@ -154,7 +154,7 @@ After confirming the change, commit the updated lockfile and run your normal ins
 
 ### Does build-pinning apply under the Chainguard-only policy?
 
-No. You must have upstream fallback enabled in order to use build pinning.
+No. You must have upstream fallback enabled in order for build pinning to take effect.
 
 ### What happens to my pins when I switch policies?
 
