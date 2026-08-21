@@ -2575,7 +2575,7 @@
             "type": "string"
           },
           "token": {
-            "description": "token is the plaintext SCIM bearer token, returned exactly once. Store it\nnow: it is never retrievable again, and only its SHA-256 digest is\npersisted. Format: \"cgscim_\" followed by 64 hexadecimal characters.",
+            "description": "token is the plaintext SCIM bearer token, returned exactly once. Store it\nnow: it is never retrievable again, and only its SHA-256 digest is\npersisted. Format: \"cgscim_\" followed by 64 hexadecimal characters.\nSensitive: marked debug_redact so redaction-aware log formatting omits it.",
             "type": "string"
           }
         },
@@ -3113,6 +3113,7 @@
             "type": "string"
           },
           "clientSecret": {
+            "description": "Sensitive: a long-lived confidential-client credential. Marked\ndebug_redact so redaction-aware log formatting omits it.",
             "type": "string"
           },
           "correlationRule": {
@@ -3358,7 +3359,7 @@
             "type": "string"
           },
           "token": {
-            "description": "token is the plaintext SCIM bearer token, returned exactly once. Store it\nnow: it is never retrievable again, and only its SHA-256 digest is\npersisted. Format: \"cgscim_\" followed by 64 hexadecimal characters.",
+            "description": "token is the plaintext SCIM bearer token, returned exactly once. Store it\nnow: it is never retrievable again, and only its SHA-256 digest is\npersisted. Format: \"cgscim_\" followed by 64 hexadecimal characters.\nSensitive: marked debug_redact so redaction-aware log formatting omits it.",
             "type": "string"
           }
         },
@@ -4103,7 +4104,7 @@
             "type": "string"
           },
           "token": {
-            "description": "The plaintext SCIM bearer token, returned exactly once. Store it now: it is\nnever retrievable again, and only its SHA-256 digest is persisted.\nFormat: \"cgscim_\" followed by 64 hexadecimal characters.",
+            "description": "The plaintext SCIM bearer token, returned exactly once. Store it now: it is\nnever retrievable again, and only its SHA-256 digest is persisted.\nFormat: \"cgscim_\" followed by 64 hexadecimal characters.\nSensitive: marked debug_redact so redaction-aware log formatting omits it.",
             "type": "string"
           }
         },
@@ -4611,7 +4612,7 @@
             "type": "string"
           },
           "clientSecret": {
-            "description": "Client secret of the identity provider. This is a sensitive value\nand is not returned for list/get calls. Required for a confidential\nclient; may be omitted for a public client, which instead authenticates\nwith PKCE (set pkce_enabled). At least one of client_secret or\npkce_enabled must be provided.\n\nOn update, an empty client_secret means \"keep the existing secret\"\nunless oidc.client_secret is named explicitly in the update mask, in\nwhich case the empty value clears the stored secret (transitioning a\nconfidential client to a public, PKCE-only client). A direct HTTP REST\nrequest that does not set the update mask explicitly infers it from the\nfields present in the request body, so sending an empty client_secret\nwill clear it; set the update mask explicitly (or use the generated\ngRPC clients, which send only the fields you set) to avoid this.",
+            "description": "Client secret of the identity provider. This is a sensitive value\nand is not returned for list/get calls. Required for a confidential\nclient; may be omitted for a public client, which instead authenticates\nwith PKCE (set pkce_enabled). At least one of client_secret or\npkce_enabled must be provided.\n\nOn update, an empty client_secret means \"keep the existing secret\"\nunless oidc.client_secret is named explicitly in the update mask, in\nwhich case the empty value clears the stored secret (transitioning a\nconfidential client to a public, PKCE-only client). A direct HTTP REST\nrequest that does not set the update mask explicitly infers it from the\nfields present in the request body, so sending an empty client_secret\nwill clear it; set the update mask explicitly (or use the generated\ngRPC clients, which send only the fields you set) to avoid this.\nSensitive: marked debug_redact so redaction-aware log formatting omits it.",
             "type": "string"
           },
           "correlationRule": {
@@ -5091,7 +5092,7 @@
             "type": "string"
           },
           "token": {
-            "description": "The plaintext SCIM bearer token, returned exactly once. Store it now: it is\nnever retrievable again, and only its SHA-256 digest is persisted.\nFormat: \"cgscim_\" followed by 64 hexadecimal characters.",
+            "description": "The plaintext SCIM bearer token, returned exactly once. Store it now: it is\nnever retrievable again, and only its SHA-256 digest is persisted.\nFormat: \"cgscim_\" followed by 64 hexadecimal characters.\nSensitive: marked debug_redact so redaction-aware log formatting omits it.",
             "type": "string"
           }
         },

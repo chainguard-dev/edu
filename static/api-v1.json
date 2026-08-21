@@ -1752,7 +1752,7 @@
             "type": "string"
           },
           "token": {
-            "description": "token is the plaintext SCIM bearer token, returned exactly once. Store it\nnow: it is never retrievable again, and only its SHA-256 digest is\npersisted. Format: \"cgscim_\" followed by 64 hexadecimal characters.",
+            "description": "token is the plaintext SCIM bearer token, returned exactly once. Store it\nnow: it is never retrievable again, and only its SHA-256 digest is\npersisted. Format: \"cgscim_\" followed by 64 hexadecimal characters.\nSensitive: marked debug_redact so redaction-aware log formatting omits it.",
             "type": "string"
           }
         },
@@ -2290,6 +2290,7 @@
             "type": "string"
           },
           "clientSecret": {
+            "description": "Sensitive: a long-lived confidential-client credential. Marked\ndebug_redact so redaction-aware log formatting omits it.",
             "type": "string"
           },
           "correlationRule": {
@@ -2535,7 +2536,7 @@
             "type": "string"
           },
           "token": {
-            "description": "token is the plaintext SCIM bearer token, returned exactly once. Store it\nnow: it is never retrievable again, and only its SHA-256 digest is\npersisted. Format: \"cgscim_\" followed by 64 hexadecimal characters.",
+            "description": "token is the plaintext SCIM bearer token, returned exactly once. Store it\nnow: it is never retrievable again, and only its SHA-256 digest is\npersisted. Format: \"cgscim_\" followed by 64 hexadecimal characters.\nSensitive: marked debug_redact so redaction-aware log formatting omits it.",
             "type": "string"
           }
         },
