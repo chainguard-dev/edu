@@ -7,7 +7,7 @@ lead: ""
 description: "Procedural tutorial on how to register a Keycloak client and integrate it with the Chainguard platform."
 type: "article"
 date: 2025-04-04
-lastmod: 2026-08-21T12:46:09+00:00
+lastmod: 2026-08-21T13:01:09+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -16,7 +16,7 @@ weight: 020
 
 By default, the Chainguard platform supports Single sign-on (SSO) authentication for users with GitHub, GitLab, and Google.
 
-This guide outlines how to create a Keycloak Client on your existing Keycloak instance and integrate it with Chainguard. After completing this guide, you'll be able to log in to Chainguard using Keycloak and will no longer be limited to the default SSO options.
+This guide outlines how to create a [Keycloak](https://www.keycloak.org/) Client on your existing Keycloak instance and integrate it with Chainguard. After completing this guide, you'll be able to log in to Chainguard using Keycloak and will no longer be limited to the default SSO options.
 
 ## Prerequisites
 
