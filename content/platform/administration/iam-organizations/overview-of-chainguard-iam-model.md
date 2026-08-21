@@ -9,7 +9,7 @@ type: "article"
 description: "Learn how Chainguard's identity and access management (IAM) model works with organizations, folders, and role-based access control for more secure resource management"
 lead: "Chainguard's identity and access management (IAM) provides enterprise-grade access control for container registries and security resources through organizations, folders, and fine-grained permissions."
 date: 2022-07-15T15:22:20+01:00
-lastmod: 2025-07-23T16:52:56+00:00
+lastmod: 2026-08-21T16:30:07+00:00
 draft: false
 tags: ["Console", "Reference"]
 images: []
@@ -40,33 +40,4 @@ You can also create assumable identities. These are typically used to allow auto
 
 ## Logging in to the Chainguard platform
 
-There are several ways to authenticate to the Chainguard platform, each with a different focus.
-
-* [Interactive login](/platform/administration/iam-organizations/overview-of-chainguard-iam-model/#using-the-interactive-login): This is easy and good for interactive use, but needs a browser available that the current shell can launch.
-* [Headless login](/platform/administration/iam-organizations/overview-of-chainguard-iam-model/#using-the-headless-login-flow): This is also easy and good for interactive use. It still requires access to a browser, but not directly from within the current shell or even from the current device.
-* [Assumable identities](/platform/administration/assumable-ids/assumable-ids/): These are designed for CI/CD and do not require any interaction, but they do require more setting up and are not ideal outside of CI/CD-style automation.
-* [Pull tokens](/chainguard/containers/chainguard-registry/authenticating/#authenticating-with-a-pull-token): These are ideal for pulling images and libraries and can be long-lived. Pull tokens can be created using the console or with chainctl.
-
-### Using the interactive login
-
-To authenticate into the Chainguard platform, run the following login command.
-
-```sh
-chainctl auth login
-```
-
-A web browser window will open to prompt you to log in via your chosen OIDC flow. Select the account which you wish to log in as, and you can then begin managing your Chainguard resources.
-
-### Using the headless login flow
-
-Note that you can also use `chainctl`'s `--headless` option to log in. This option allows you to log in to the Chainguard platform from a device that doesn't have a browser installed, such as a container or remote server.
-
-The headless login flow is when you invoke `chainctl auth login --headless` in the terminal.
-
-```sh
-chainctl auth login --headless
-```
-
-By including this option, `chainctl` will output an eight-character code as well as a URL ([`https://auth.chainguard.dev/activate`](https://auth.chainguard.dev/activate)). You can then navigate to the URL on another device's browser and enter the code, and then you can complete the login process to Chainguard from that device.
-
-Be aware that the `--headless` login code will only be valid for 900 seconds.
+You can authenticate to the Chainguard platform with `chainctl` in several ways, including interactive browser login, headless device-code login, social login providers, and assumable identities for CI/CD. For the full list of login flows and guidance on when to use each, see [Authentication options](/platform/chainctl-usage/authentication-options/).

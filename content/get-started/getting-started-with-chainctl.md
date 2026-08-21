@@ -6,7 +6,7 @@ lead: "Chainguard's chainctl CLI enables more secure management of container ima
 description: "Get started with chainctl basics including authentication, organization management, and essential commands for Chainguard's container security platform"
 type: "article"
 date: 2025-03-03T08:49:15+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-08-21T16:30:07+00:00
 draft: false
 tags: ["chainctl", "Getting Started"]
 images: []
@@ -24,6 +24,8 @@ chainctl auth login
 ```
 
 This will present a list of identity providers for you to select from. Use the one that is tied to your Chainguard Account. Once you select the one you wish to use, such as Google, `chainctl` will open a browser window for you to log in with your credentials. Upon successful login, you will have the option to save this identity provider as your default for future logins. Then a token will be exchanged and you will be able to use `chainctl`.
+
+{{< blurb/chainctl-auth >}}
 
 To check your authentication status at any time, enter:
 
