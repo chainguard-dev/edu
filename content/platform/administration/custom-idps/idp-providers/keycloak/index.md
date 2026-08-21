@@ -7,7 +7,7 @@ lead: ""
 description: "Procedural tutorial on how to register a Keycloak client and integrate it with the Chainguard platform."
 type: "article"
 date: 2025-04-04
-lastmod: 2025-04-04
+lastmod: 2026-08-21T13:22:07+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -16,7 +16,7 @@ weight: 020
 
 By default, the Chainguard platform supports Single sign-on (SSO) authentication for users with GitHub, GitLab, and Google.
 
-This guide outlines how to create a Keycloak Client on your existing Keycloak instance and integrate it with Chainguard. After completing this guide, you'll be able to log in to Chainguard using Keycloak and will no longer be limited to the default SSO options.
+This guide outlines how to create a [Keycloak](https://www.keycloak.org/) Client on your existing Keycloak instance and integrate it with Chainguard. After completing this guide, you'll be able to log in to Chainguard using Keycloak and will no longer be limited to the default SSO options.
 
 ## Prerequisites
 
@@ -32,20 +32,11 @@ To integrate Keycloak with the Chainguard platform, log in to your Keycloak admi
 <center><img src="keycloak-0.png" alt="Screenshot of Keycloak's Admin menu, with the 'Create Client' option highlighted in a red box."></center>
 <br />
 
-Set the **Client Type** to OIDC Connect, and set your **Client ID**. Add a friendly **Name** and **Description** if desired. Take note of your **Client ID** value that you have set. You'll need this to configure the Chainguard platform to use this Keycloak Client. Click **Next**.
+Configure the new client through the wizard:
 
-<center><img src="keycloak-1.png" alt="Screenshot of Keycloak's Create Client menu 1, with example entries added."></center>
-<br />
-
-Toggle **Client Authentication** on and click **Next**.
-
-<center><img src="keycloak-2.png" alt="Screenshot of Keycloak's Create Client menu 2, with default settings added."></center>
-<br />
-
-Set the Chainguard platform redirect URI in the **Valid redirect URIs** field. Click **Save** to finalize the creation of your Keycloak Client.
-
-<center><img src="keycloak-3.png" alt="Screenshot of Keycloak's Create Client menu 3, with valid Redirect URI added."></center>
-<br />
+1. Set the **Client Type** to OIDC Connect and set your **Client ID**. Add a friendly **Name** and **Description** if desired. Note your **Client ID** value — you'll need it to configure the Chainguard platform to use this Keycloak Client. Click **Next**.
+2. Toggle **Client Authentication** on and click **Next**.
+3. Set the Chainguard platform redirect URI in the **Valid redirect URIs** field, then click **Save** to finalize the client.
 
 Navigate to the **Credentials** tab of your newly created client.
 
@@ -53,9 +44,6 @@ Navigate to the **Credentials** tab of your newly created client.
 <br />
 
 Copy the **Client Secret** value. You'll need this to configure the Chainguard platform to use this Keycloak Client.
-
-<center><img src="keycloak-5.png" alt="Screenshot of the newly created Keycloak Client's credentials tab, with the Client Secret field highlighted in a red box."></center>
-<br />
 
 ## Configuring Chainguard to use your Keycloak client
 
@@ -116,7 +104,7 @@ Note the `--default-role` option. This defines the default role granted to users
 
 You can refer to our [Generic integration guide](/chainguard/administration/custom-idps/custom-idps/#generic-integration-guide) in our Introduction to Custom Identity Providers article for more information about the `chainctl iam identity-provider create` command and its required options.
 
-To log in to the Chainguard Console with the new identity provider you just created, navigate to [console.chainguard.dev](https://console.chainguard.dev) and click **Use Your Identity Provider**. Next, click **Use Your Organization Name** and enter the name of the organization associated with the new identity provider. Finally, click the **Login with Provider** button. This will open up a new window with the Okta login flow, allowing you to complete the login process through there.
+To log in to the Chainguard Console with the new identity provider you just created, navigate to [console.chainguard.dev](https://console.chainguard.dev) and click **Use Your Identity Provider**. Next, click **Use Your Organization Name** and enter the name of the organization associated with the new identity provider. Finally, click the **Login with Provider** button. This will open up a new window with the Keycloak login flow, allowing you to complete the login process through there.
 
 You can also use the custom identity provider to log in through `chainctl`. To do this, run the `chainctl auth login` command and add the `--identity-provider` option followed by the identity provider's ID value:
 

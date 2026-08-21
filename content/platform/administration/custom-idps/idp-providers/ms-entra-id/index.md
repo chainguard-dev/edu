@@ -10,7 +10,7 @@ lead: ""
 description: "Procedural tutorial on how to register a Microsoft Entra ID application and integrate it with the Chainguard platform."
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2024-10-28T15:22:20+01:00
+lastmod: 2026-08-21T12:46:09+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -38,12 +38,9 @@ To complete this guide, you will need the following.
 
 To integrate Microsoft Entra ID with the Chainguard platform, log in to [Azure](https://azure.microsoft.com). In the left-hand navigation menu, select **Microsoft Entra ID**.
 
-<center><img src="meid-0.png" alt="Screenshot of Azure's left-hand navigation menu, with the 'Microsoft Entra ID' option highglighted in a yellow box." style="width:300px;"></center>
-<br />
-
 From the Default Directory **Overview** page, click the **➕ Add** button and select **App Registration** from the dropdown menu.
 
-<center><img src="meid-1.png" alt="Screenshot of the Overview in the Azure console. The "Add" dropdown menu has been opened and the "App Registration" option is highlighted in a yellow box." style="width:1050px;"></center>
+<center><img src="meid-1.png" alt="Screenshot of the Overview in the Azure console. The Add dropdown menu has been opened and the App Registration option is highlighted in a yellow box." style="width:1050px;"></center>
 <br />
 
 In the **Register an application** screen, configure the application as follows.
@@ -52,17 +49,11 @@ In the **Register an application** screen, configure the application as follows.
 * **Supported account types**: Select the **Single tenant** option so that only your organization can use this application to authenticate to Chainguard.
 * **Redirect URI**: Set the platform to **Web** and the redirect URI to `https://issuer.enforce.dev/oauth/callback`.
 
-<center><img src="meid-2.png" alt="Screenshot of the Register an application screen with the following settings selected: the Name is set to 'chainguard'; Supported account types is set to the 'Accounts in this organizational directory only (default Directory only - Single tenant)' option; and the Redirect URI is set to 'Web' with 'https://issuer.enforce.dev/oauth/callback' set as the URI." style="width:950px;"></center>
-<br />
-
 Save your configuration by clicking the **Register** button.
 
 Next, you can optionally set additional branding for the application by selecting **Branding and properties** from the **Manage** dropdown menu.
 
 Here you can set additional metadata for the application, including a Chainguard logo icon here to help your users visually identify this integration. If you'd like, you can use the icon from the [Chainguard Console](https://console.chainguard.dev/logo512.png). The console homepage is [console.chainguard.dev](https://console.chainguard.dev), and our terms of service and private statements can be found at [chainguard.dev/terms-of-service](https://www.chainguard.dev/terms-of-service) and [chainguard.dev/privacy-notice](https://www.chainguard.dev/privacy-notice), respectively.
-
-<center><img src="meid-3.png" alt="Screenshot of the Branding & properties screen with the following settings: Name is set to 'Chainguard'; Logo shows the sample Linky logo uploaded; Home page URL is set to 'https://console.chainguard.dev'; Terms of service URL is set to 'https://www.chainguard.dev/terms-of-service'; and the Privacy statement URL is set to 'https://www.chainguard.dev/privacy-notice." style="width:950px;"></center>
-<br />
 
 Finally, navigate to the **Certificates & secrets** tab in the **Manage** dropdown to create a client secret to authenticate the Chainguard platform to Microsoft Entra ID. Select **New client secret** to add a client secret. In the resulting modal window, add a description and set an expiration date.
 
@@ -70,9 +61,6 @@ Finally, navigate to the **Certificates & secrets** tab in the **Manage** dropdo
 <br />
 
 Finally, take note of the client secret “Value” that is created. You'll need this to configure the Chainguard platform to use this Microsoft Entra ID application.
-
-<center><img src="meid-5.png" alt="Screenshot showing the 'Client secrets' tab, with the Value highlighted in yellow." style="width:950px;"></center>
-<br />
 
 ## Configuring Chainguard to use Microsoft Entra ID
 
@@ -91,9 +79,6 @@ To configure Chainguard, make a note of the following details from your Microsof
 * **Application (client) Id**: This can be found on the **Overview** tab of the Chainguard application.
 * **Client Secret**: You noted this down when you set up the client secret in the previous step.
 * **Directory (tenant) Id**: This can also be found on the **Overview** tab of the Chainguard application.
-
-<center><img src="meid-6.png" alt="Screenshot of a portion of the Overview page showing the 'Essentials' information. The Application (client) ID and the Directory (tenant) ID are both highlighted in yellow boxes, though their values have been blurred."></center>
-<br />
 
 You will also need the UIDP for the Chainguard organization under which you want to install the identity provider.  Your selection won’t affect how your users authenticate but will have implications on who has permission to modify the SSO configuration.
 

@@ -9,7 +9,7 @@ lead: ""
 description: "Procedural tutorial on how to create a Ping Identity application"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2024-10-28T15:22:20+01:00
+lastmod: 2026-08-21T12:46:09+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -40,9 +40,6 @@ Configure the application as follows:
 * **Icon**: You can optionally add a Chainguard logo icon here to help your users visually identify this integration. If you'd like, you can use the icon from the [Chainguard Console](https://console.chainguard.dev/logo512.png).
 * **Application Type**: Select **OIDC Web App**.
 
-<center><img src="ping-2.png" alt="Screenshot showing the Add Application modal window with the following settings in place: Application Name is set to 'Chainguard'; Description reads 'Safe Source for Open Source, https://console.chainguard.dev'; the example Linky icon has been uploaded to the Icon field; and the Application Type is set to 'OIDC Web App'." style="width:950px;"></center>
-<br />
-
 After setting these details, click the **Save** button.
 
 Next, configure scopes for the application. In the **Overview** tab, click the **Resource Access** scope button.
@@ -51,9 +48,6 @@ Next, configure scopes for the application. In the **Overview** tab, click the *
 <br />
 
 Add **email** and **profile** scopes, then save.
-
-<center><img src="ping-4.png" alt="Screenshot of the Edit Resources modal window, showing the email and profile scopes selected." style="width:950px;"></center>
-<br />
 
 Next, configure the OIDC application. Navigate to the **Configuration** tab and click the pencil-shaped "edit" icon.
 
@@ -66,15 +60,9 @@ To configure the application, add the following settings.
 
 * **Redirect URIs**: Set the Redirect URI to [`https://issuer.enforce.dev/oauth/callback`](https://issuer.enforce.dev/oauth/callback).
 
-<center><img src="ping-5.png" alt="Screenshot of the Edit Configuration modal window with the following settings: Resource type is set to 'Code'; Grant type is set to 'Authorization Code' (with PKCE enforcement set to 'Optional'); Redirect URIs has one option set (https://issuer.enforce.dev/oauth/callback)." style="width:550px;"></center>
-<br />
-
 Click the **Save** button to save your configuration.
 
 Finally, enable the Chainguard application by toggling the button in the top right corner.
-
-<center><img src="ping-6.png" alt="Screenshot of the Overview tab, with the toggle button turned on. The toggle button is highlighted with a yellow box." style="width:950px;"></center>
-<br />
 
 This completes configuration of the Ping application. You're now ready to configure the Chainguard platform to use it.
 
