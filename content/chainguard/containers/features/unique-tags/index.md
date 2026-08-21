@@ -13,7 +13,7 @@ aliases:
 type: "article"
 description: "Learn about Chainguard's unique tags feature for production container images, enabling precise version tracking and automated deployment workflows with timestamped tags"
 date: 2024-02-29T08:49:31+00:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-08-21T12:27:26+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -52,15 +52,11 @@ After signing into the Chainguard Console, click on **Organization images** in t
 
 To the right of the search box and **Category** drop-down menu there's a filter button labeled **Visible tags**. Click on that button, and you'll see a drop-down menu with two options: **Epoch tags** and **Unique tags**. Toggle **Unique tags** to see the Unique Tags available for your organization's container images.
 
-![Screenshot of the Organization images page, showing container images in a table. The "Visible Tags" select box is highlighted with a yellow box, showing the option "Unique tags" checked.](unique-tags-01.png)
-
 By toggling this button on, each individual container image's details page will show the Unique Tags available for it.
 
 To illustrate, toggle this button on and then click on any paid Production container image listed in your organization's directory. The "Version" column will now show the Unique Tags available for that container image. These tags include a timestamp in the format `YYYYMMDDHHMM`, and may include a prefix to help identify and parse the tag name programmatically.
 
-![This screenshot shows the ten most recently built versions of an image that has unique tags enabled.](unique-tags-02.png)
-
-Here there are a number of container image versions with tags similar to `:openjdk-17-202412120223`. This means that this particular version of the container image was last updated on December 12, 2024, at 2:23 AM. You can use this version's **Pull URL** (`cgr.dev/$ORGANIZATION/jdk-fips:openjdk-17-202412120223`) to download this container image, and you can be confident that this Pull URL will always refer to the same container image.
+For example, a container image version might have a tag similar to `:openjdk-17-202412120223`. This means that this particular version of the container image was last updated on December 12, 2024, at 2:23 AM. You can use this version's **Pull URL** (`cgr.dev/$ORGANIZATION/jdk-fips:openjdk-17-202412120223`) to download this container image, and you can be confident that this Pull URL will always refer to the same container image.
 
 ## Unique vs immutable tags aka are unique tags right for me?
 

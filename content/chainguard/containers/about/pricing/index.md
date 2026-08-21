@@ -4,7 +4,7 @@ linktitle: "Catalog pricing"
 type: "article"
 description: "Overview of Chainguard's container catalog pricing model and how to add container images to your organization through the self-serve catalog experience."
 date: 2025-08-19T08:49:31+00:00
-lastmod: 2025-11-04T08:49:31+00:00
+lastmod: 2026-08-21T13:01:57+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -42,17 +42,11 @@ The only built-in role with all of these capabilities is the `owner` role. Users
 
 To add a container to your organization through the Self-Serve Experience, start by logging in to the [Chainguard Console](https://console.chainguard.dev). After logging in, click **Images** in the left-hand navigation.
 
-By default, this will take you the **Organization** tab, where you'll find your organization's list of container images. Above the list of container images, to the right of the search box, there will be an **Add image** button. Click this button to open a window containing a list of Chainguard Containers you can add to your organization:
-
-<center><img src="self-serve-2.png" alt="Screenshot the 'Add image' window." style="width:550px;"></center>
-<br />
+By default, this will take you to the **Organization** tab, where you'll find your organization's list of container images. Above the list of container images, to the right of the search box, there will be an **Add image** button. Click this button to open a window containing a list of Chainguard Containers you can add to your organization.
 
 Within this window, you can scroll through the entire list of container images available for you to add to your organization. You can also use the search box within the window to search for a specific Chainguard Container to add.
 
-After finding the container image you want to add to your organization, click on it. This changes the window to include a text field where you can optionally set a different name for the image:
-
-<center><img src="self-serve-3.png" alt="Screenshot showing the window where you can choose a different name for the image. This example shows the 'php' image as the base image, with the name 'php-alternate' entered into the box." style="width:550px;"></center>
-<br />
+After finding the container image you want to add to your organization, click on it. This changes the window to include a text field where you can optionally set a different name for the image.
 
 This is the name that your users and tooling will use to refer to the container image, such as in a `docker pull` command. Note that this is required if you're adding another instance of an image already included in your organization's catalog.
 
@@ -60,19 +54,13 @@ Finally, click the **Add image** button in the window, and the container image w
 
 You can also add container images from the **Chainguard catalog** tab. This tab contains a list of every container image Chainguard has to offer, not just those that have already been added to your organization's catalog.
 
-Within this tab, scroll or search for whatever image you want to add to your organization. At the right end of its row will be a button labeled **Add to org**:
-
-<center><img src="self-serve-4.png" alt="Screenshot showing the 'Chainguard catalog' tab, with the list filtered to only include images with 'php' in their name." style="width:1100px;"></center>
-<br />
+Within this tab, scroll or search for whatever image you want to add to your organization. At the right end of its row will be a button labeled **Add to org**.
 
 Click the **Add to org** button to add the image to your organization; this will follow the same process as outlined previously. As before, you have the option to set a new name for the container image before clicking the **Add image** button.
 
 After provisioning your new container image through Self-Serve, you and other members of your organization will be able to access it from the Console, with `chainctl`, or through Chainguard's API.
 
-If there comes a point where you no longer need the image, you can remove it. Navigate to the image's page within the Console and click the **More** button in the upper-right corner:
-
-<center><img src="self-serve-5.png" alt="Screenshot showing the Delete button within a Chainguard Container's details page." style="width:550px;"></center>
-<br />
+If there comes a point where you no longer need the image, you can remove it. Navigate to the image's page within the Console and click the **More** button in the upper-right corner.
 
 Click **Delete** and enter the name of the container image to confirm that you want to remove it.
 

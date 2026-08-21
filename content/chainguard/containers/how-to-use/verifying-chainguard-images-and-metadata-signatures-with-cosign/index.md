@@ -13,7 +13,7 @@ aliases:
 type: "article"
 description: "Learn how to verify Chainguard Container signatures and attestations with Cosign for supply chain security, ensuring image authenticity and integrity"
 date: 2024-03-18T08:59:52-07:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-08-21T12:27:26+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -71,10 +71,7 @@ CUSTOM_IMAGE_BUILDER=$(chainctl iam account-associations describe $PARENT -o jso
 
 The **Private Registry** examples in this guide include these environment variables, letting you verify that Chainguard used those identities to sign the given image.
 
-You can also find these values in the Chainguard Console. After logging in, go to **Settings**, and then **Users**. From there, scroll or search for either `image-syncer` or `custom-image-builder` (or `catalog_syncer` or `apko_builder` for older organizations) and click its row to find the identity's UIDP:
-
-<center><img src="verify-sigs-1.png" alt="Screenshot of the image-syncer identity's entry in the Chainguard Console, showing its ID (blurred), name, and description." style="width:650px;"></center>
-<br />
+You can also find these values in the Chainguard Console. After logging in, go to **Settings**, and then **Users**. From there, scroll or search for either `image-syncer` or `custom-image-builder` (or `catalog_syncer` or `apko_builder` for older organizations) and click its row to find the identity's UIDP.
 
 ## Verifying container image signatures
 

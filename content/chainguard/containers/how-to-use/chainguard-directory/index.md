@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "A walkthrough of the Chainguard Directory."
 date: 2024-02-23T11:07:52+02:00
-lastmod: 2026-01-22T07:30:52+02:00
+lastmod: 2026-08-21T12:27:26+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -30,10 +30,7 @@ This guide is primarily framed around the Chainguard Directory and the Chainguar
 
 ## Browse container images and details in the directory
 
-The [Chainguard Containers Directory](https://images.chainguard.dev/) landing page has a card-based layout of container images:
-
-<center><img src="imgs-dir-D.png" alt="Screenshot of the Chainguard Containers Directory landing page, showing nine cards representing nine featured container images. The 'Featured' category is selected in the left-hand menu." style="width:1100px;"></center>
-<br />
+The [Chainguard Containers Directory](https://images.chainguard.dev/) landing page has a card-based layout of container images.
 
 Each card represents a container image available from Chainguard, and shows the image's name and logo, when it was last changed, the latest tag available. These cards include other details when relevant, like whether the image is part of Chainguard's Free tier of containers, if there is a FIPS-enabled version of the container image available, or if it's a STIG-hardened image.
 
@@ -56,9 +53,6 @@ For organizations looking to deploy their Chainguard container images with Helm,
 You can find these charts and information about them in the Chainguard Directory. From the Categories sidebar menu, click **Helm charts**.
 
 All Helm charts have a **Helm** icon, making them easier to see when looking through the full images list without using the Helm-specific category. Charts with the **shield** icon are iamguarded charts, created specifically to help people who are switching from Bitnami.
-
-<center><img src="helm-charts-in-directory.png" alt="Screenshot showing Helm charts listed in the Chainguard Directory."></center>
-<br />
 
 Click any chart name to learn the chart details.
 

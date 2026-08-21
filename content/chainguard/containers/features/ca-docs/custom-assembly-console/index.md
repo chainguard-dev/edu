@@ -4,7 +4,7 @@ linktitle: "Manage in the Console"
 type: "article"
 description: "How to use Chainguard's Custom Assembly tool in the Chainguard console."
 date: 2025-07-09T11:07:52+02:00
-lastmod: 2025-07-15T11:07:52+02:00
+lastmod: 2026-08-21T12:27:26+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly"]
 images: []
@@ -26,17 +26,11 @@ By the end of this guide, you'll be able to create, customize, and manage your o
 
 ## Selecting packages and building a customized container
 
-After logging in to the [Chainguard console](https://console.chainguard.dev/auth/login), you will be greeted with your account overview page. If you belong to more than one organization, be sure to select an organization with access to Custom Assembly from the drop-down menu in the top-left corner:
-
-<center><img src="ca-1.png" alt="Screenshot of the Chainguard console, with the Organization selection drop-down menu highlighted in a yellow box." style="width:1100px;"></center>
-<br />
+After logging in to the [Chainguard console](https://console.chainguard.dev/auth/login), you will be greeted with your account overview page. If you belong to more than one organization, be sure to select an organization with access to Custom Assembly from the drop-down menu in the top-left corner.
 
 Click on **Images** and scroll or search for the container image that you want to customize. Note that you can use Custom Assembly to customize any Chainguard Container that your organization has access to.
 
-Clicking on your chosen container image will take you to its entry in the console. In the upper right corner of this page, you'll find three buttons, one of which says **Customize image**:
-
-<center><img src="ca-2.png" alt="Screenshot of a Custom Assembly container (named 'customized_node') page with the 'Customize Container' button highlighted in a yellow box." style="width:1100px;"></center>
-<br />
+Clicking on your chosen container image will take you to its entry in the console. In the upper right corner of this page, you'll find three buttons, one of which says **Customize image**.
 
 Click on this button to open a window displaying a list of all of the packages available to be added or removed from your selected container image. This list of packages includes all the packages your organization is entitled to. If there's a package you'd like to include in your image but it isn't available in this list, please open a Chainguard support ticket.
 
@@ -48,13 +42,7 @@ After selecting your chosen packages, click the **Continue** button. After doing
     * This option requires you to select a new name for the container image. Note that whatever name you select can only contain lowercase alphanumeric characters, `-`, or `_`.
 * **Customize current image**: This option overrides the existing container image with your customizations. Note that any customizations applied to this image will also apply to any users in your organization that are already consuming it.
 
-<center><img src="ca-3.png" alt="Screenshot of the Customize Image display, showing the two customization options. The 'Create new image' option is selected, with the name 'customized_node' entered into the naming field." style="width:650px;"></center>
-<br />
-
-After selecting one of these options, click the **Preview changes** button to view all the packages you've selected for the customized image:
-
-<center><img src="ca-4.png" alt="Screenshot of the customized_node image's customization preview. It shows three packages selected: bash, curl, and wget." style="width:650px;"></center>
-<br />
+After selecting one of these options, click the **Preview changes** button to view all the packages you've selected for the customized image.
 
 If you'd like to make further changes, click the **Back** button to return to the package selection.
 
@@ -64,10 +52,7 @@ If a build fails, you'll need to make the appropriate changes before attempting 
 
 ## Listing builds and viewing logs
 
-You can view a list of all the available builds of your customized container image by clicking the customized image's **Builds** tab in the console:
-
-<center><img src="ca-5.png" alt="Screenshot of a Custom Assembly container image's Builds tab, with the Builds tab highlighted in a yellow box." style="width:1100px;"></center>
-<br />
+You can view a list of all the available builds of your customized container image by clicking the customized image's **Builds** tab in the console.
 
 The table in the Builds tab has six columns:
 
@@ -82,19 +67,13 @@ Note that if you only recently customized the container image it may take a few 
 
 Additionally, builds will only stay listed in the console for 24 hours. This is because Chainguard Containers, including Custom Assembly container images, are rebuilt frequently and would quickly congest the user interface.
 
-You can click on the row of any build listed in the Builds tab to access its logs. This will cause a window to appear from the right where you can get more details about the build, including build failures:
-
-<center><img src="ca-6.png" alt="Screenshot of a customized container image build's logs, showing a successful build." style="width:650px;"></center>
-<br />
+You can click on the row of any build listed in the Builds tab to access its logs. This will cause a window to appear from the right where you can get more details about the build, including build failures.
 
 ## Making changes to a customized container image
 
 If you need to make further modifications to a customized image, or revert changes you've already made, you can do so with just a few clicks in the Chainguard console.
 
-Going back to the container image you just customized, click once again on the **Customize Image**. In the panel where you added packages, there will be a list of the packages added to the customized image below the **Filter packages** search box:
-
-<center><img src="ca-7.png" alt="Screenshot of the customized_node image's customization menu, before the preview screen. It shows three packages that have been added but can also be removed: bash, curl, and wget." style="width:650px;"></center>
-<br />
+Going back to the container image you just customized, click once again on the **Customize Image**. In the panel where you added packages, there will be a list of the packages added to the customized image below the **Filter packages** search box.
 
 You can add more packages to the customized image by following the process outlined previously. To remove a package from the container image, click its **X** symbol.
 
@@ -104,10 +83,7 @@ Note that you can also edit the packages in a customized image [using the `chain
 
 If you elected to create a new container image with Custom Assembly, you can rename it by clicking the **Rename** button (next to the **Customize image** button) and entering a new name for the image. Note that after renaming the customized image, any references to the previous name will no longer work.
 
-You can also delete new container images that you've created with Custom Assembly. To do so, click the **More** button and select **Delete**. This will open a window prompting you to enter the name of the container image to confirm that you want to delete it:
-
-<center><img src="ca-8.png" alt="Screenshot of the image deletion window for the customized_node container image. It shows a warning reading 'This action cannot be undone. The image will be permanently deleted from your organization and will no longer be available.' The name of the image ('customized_node') has been entered into the prompt." style="width:650px;"></center>
-<br />
+You can also delete new container images that you've created with Custom Assembly. To do so, click the **More** button and select **Delete**. This will open a window prompting you to enter the name of the container image to confirm that you want to delete it.
 
 ## Learn more
 
