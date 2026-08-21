@@ -1,5 +1,5 @@
 ---
-date: 2026-08-19T18:15:14Z
+date: 2026-08-20T20:16:23Z
 title: "chainctl policies list"
 slug: chainctl_policies_list
 url: /platform/chainctl/chainctl-docs/chainctl_policies_list/
@@ -18,6 +18,8 @@ List policies.
 List the policies available for an organization.
 
 Each available policy is shown with its name, resource type, and description.
+Several policies can share a name across resource types, so --resource-type
+narrows the list to one of them.
 
 ```
 chainctl policies list [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json|table] [flags]
@@ -33,6 +35,9 @@ chainctl policies list --parent=example.com
 # List policies using interactive organization selection
 chainctl policies list
 
+# List only the policies that apply to Python packages
+chainctl policies list --parent=example.com --resource-type=Python
+
 # List policies in JSON format
 chainctl policies list --parent=example.com -o json
 
@@ -41,7 +46,8 @@ chainctl policies list --parent=example.com -o json
 ### Options
 
 ```
-      --parent string   The name or id of the organization. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
+      --parent string          The name or id of the organization. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
+      --resource-type string   Only list entries for this resource type (shorthand: Repo, Python, Java, Javascript; or a full type).
 ```
 
 ### Options inherited from parent commands

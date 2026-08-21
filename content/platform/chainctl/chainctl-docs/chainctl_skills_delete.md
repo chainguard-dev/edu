@@ -1,5 +1,5 @@
 ---
-date: 2026-08-19T18:15:14Z
+date: 2026-08-20T20:16:23Z
 title: "chainctl skills delete"
 slug: chainctl_skills_delete
 url: /platform/chainctl/chainctl-docs/chainctl_skills_delete/

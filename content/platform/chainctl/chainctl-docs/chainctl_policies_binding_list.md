@@ -1,5 +1,5 @@
 ---
-date: 2026-08-19T18:15:14Z
+date: 2026-08-20T20:16:23Z
 title: "chainctl policies binding list"
 slug: chainctl_policies_binding_list
 url: /platform/chainctl/chainctl-docs/chainctl_policies_binding_list/
@@ -48,7 +48,8 @@ chainctl policies binding list [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [-
 ### Options
 
 ```
-      --parent string   The name or id of the organization to list bindings for.
+      --parent string          The name or id of the organization to list bindings for.
+      --resource-type string   Only list entries for this resource type (shorthand: Repo, Python, Java, Javascript; or a full type).
 ```
 
 ### Options inherited from parent commands
