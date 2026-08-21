@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "Learn how to install chainctl, Chainguard's command-line interface for managing container images, IAM resources, and security configurations across platforms"
 date: 2022-09-22T15:56:52-07:00
-lastmod: 2025-07-23T16:52:56+00:00
+lastmod: 2026-08-21T16:30:07+00:00
 draft: false
 tags: ["chainctl"]
 images: []
@@ -184,6 +184,8 @@ chainctl auth login
 ```
 
 This will open your browser window and take you through a workflow to login with your OIDC provider.
+
+{{< blurb/chainctl-auth >}}
 
 ### Authentication tokens
 

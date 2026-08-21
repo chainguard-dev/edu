@@ -4,7 +4,7 @@ type: "article"
 linktitle: "WordPress"
 description: "Learn how to deploy WordPress using Chainguard's security-hardened container image with reduced vulnerabilities and distroless runtime options"
 date: 2024-07-19T11:07:52+02:00
-lastmod: 2026-06-09T00:09:59+00:00
+lastmod: 2026-08-21T16:30:07+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -47,6 +47,8 @@ The images in this guide require a free Chainguard account. Sign up at [chaingua
 ```shell
 chainctl auth login
 ```
+
+{{< blurb/chainctl-auth >}}
 
 If you encounter credential errors when pulling images, pull them individually before running `docker compose`:
 

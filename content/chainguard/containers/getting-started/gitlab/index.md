@@ -4,7 +4,7 @@ type: "article"
 linktitle: "GitLab"
 description: "Learn how to deploy GitLab using Chainguard's security-hardened container images with reduced vulnerabilities, verifiable provenance, and daily security updates"
 date: 2026-06-24T00:00:00+00:00
-lastmod: 2026-07-07T00:00:00+00:00
+lastmod: 2026-08-21T16:30:07+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -53,6 +53,8 @@ Log in to the Chainguard registry:
 ```shell
 chainctl auth login
 ```
+
+{{< blurb/chainctl-auth >}}
 
 Configure Docker to use your Chainguard credentials:
 

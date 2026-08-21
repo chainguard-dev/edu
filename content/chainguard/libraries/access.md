@@ -4,7 +4,7 @@ linktitle: "Access"
 description: "Learn how to access Chainguard Libraries for enhanced security in Java and Python dependencies, including authentication and organization setup"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-08-21T16:30:07+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -63,6 +63,8 @@ account:
 ```shell
 chainctl auth login
 ```
+
+{{< blurb/chainctl-auth >}}
 
 After authentication in a browser window, a successful login displays a message
 and a token:
