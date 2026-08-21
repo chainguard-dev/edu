@@ -9,7 +9,7 @@ aliases:
 - /chainguard/containers/getting-started/cilium/
 description: "Learn how to deploy Cilium CNI using Chainguard's security-hardened container images for enhanced Kubernetes network security with eBPF"
 date: 2023-12-14T00:00:00+00:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-08-21T12:32:28+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -186,8 +186,6 @@ cilium hubble ui
 ```
 
 A new browser window will open showing the Hubble UI. You can explore the Hubble UI to see the network traffic in your cluster. If you are running this during the connectivity test, it will show a visualization of the test traffic.
-
-![Screenshot showing a browser window with Hubble UI](hubble-ui.png)
 
 ## Clean up your K3s cluster
 
