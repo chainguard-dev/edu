@@ -129,7 +129,7 @@ repos:
   # config (eslint.config.js). @eslint/js and globals are required by that
   # config and installed into the hook's isolated environment.
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: 289fa94d7703a1865c70cca7a9cb06e7c4298591  # frozen: v10.8.1
+    rev: 25057767de655a49a950fa4ac9c2cf47f32f9485  # frozen: v10.9.0
     hooks:
       - id: eslint
         files: ^(assets/js|config)/.*\.js$
