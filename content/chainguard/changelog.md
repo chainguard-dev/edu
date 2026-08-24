@@ -4,7 +4,7 @@ linktitle: "Changelog"
 type: "article"
 description: "Weekly changelog of Chainguard product updates — product announcements, breaking changes, container images reaching end-of-life or leaving the catalog, and images newly added to it."
 date: 2026-07-28T00:00:00+00:00
-lastmod: 2026-08-17T00:00:00+00:00
+lastmod: 2026-08-24T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers", "Changelog"]
 images: []
@@ -16,6 +16,92 @@ tocEndLevel: 2
 This page logs Chainguard product updates week by week, newest first: product announcements, breaking changes, container images that reached end-of-life or are no longer available, and images newly added to the catalog. Each event is listed once, in the week it first appeared.
 
 Breaking changes and product announcements cover the entire Chainguard portfolio, while end-of-life, availability, and new-image entries relate specifically to Chainguard Containers. This page summarizes the changes most likely to affect your work rather than every change Chainguard ships. Routine updates, such as new tags for existing images, are not listed individually. For the current tags and versions of any container image, refer to its entry in the [Chainguard Directory](https://images.chainguard.dev/directory).
+
+## Week of 2026-08-24
+
+{{< changelog-label "Product Announcements" >}}
+
+### SCIM user provisioning (Early Access)
+
+_Launched August 20, 2026._
+
+Chainguard now supports SCIM user provisioning for Okta and Microsoft Entra ID in Early Access. Assigning a user to the provisioning application creates and updates their Chainguard provisioning record through the SCIM `/Users` resource; deactivating or unassigning them blocks the next login or token refresh once the current token expires, within about an hour. Roles stay under Chainguard's control through default roles, manual bindings, and group-based role mapping. SCIM group provisioning is not available, so leave your identity provider's SCIM group push turned off.
+
+For more information, refer to [SCIM user provisioning](/platform/administration/custom-idps/scim-provisioning/).
+
+### Chainguard API v2 is generally available
+
+_Launched August 19, 2026._
+
+Chainguard API v2 is now generally available at `/v2/`, replacing the `v2beta1` designation with a stable contract covering organization and access management, registry metadata, vulnerability and security advisories, event subscriptions, and library artifacts. It standardizes cursor-based pagination, server-side ordering, resource naming, dedicated resource lookups, partial updates, and typed error details, and ships an OpenAPI specification and v2 Go SDK clients. Existing `v2beta1` integrations keep their request and response shapes and need only update the path prefix. API v1 remains supported during the transition.
+
+For more information, refer to [Migrating from API v1 to API v2](/platform/api/api-v2-migration/).
+
+### Self-serve Helm chart provisioning
+
+_Launched August 18, 2026._
+
+Catalog customers can now provision Chainguard Helm charts from the Chainguard Console instead of filing a request ticket. When you select a chart, the Console identifies the required images your organization is missing, adds them in a single request, and starts provisioning the chart asynchronously; the chart appears in your registry once synchronization completes, without EOL tags. Dependency resolution does not detect renamed images.
+
+For more information, refer to [Self-serve Helm charts](/get-started/self-serve/helm-charts/).
+
+{{< changelog-label "EOL" >}}
+
+Chainguard offers [a grace period](/chainguard/containers/features/eol-gp-overview/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images that are no longer available
+
+The following container images reached the end of their grace period and are no longer available:
+
+| Image | End-of-life | Grace period ended |
+| --- | --- | --- |
+| `flux:2.5` | 2026-02-24 | 2026-08-24 |
+
+### Images that have reached end-of-life
+
+The following container images reached end-of-life and entered their grace period:
+
+| Image | End-of-life | Grace period ends |
+| --- | --- | --- |
+| `grafana:12.3` | 2026-08-19 | 2027-02-19 |
+| `py3-numpy:2.1` | 2026-08-19 | 2027-02-19 |
+
+{{< changelog-label "New Images" >}}
+
+Chainguard built 27 new container images this week, including both standard and FIPS variants.
+
+<table class="cl-images">
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td colspan="3">
+<details>
+<summary><strong><code>airbyte-*</code></strong> — 5 images (with FIPS variants)</summary>
+<table>
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td><a href="https://images.chainguard.dev/directory/image/airbyte-bootloader/versions"><code>airbyte-bootloader</code></a></td><td>application +fips</td><td>2026-08-21</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/airbyte-cron/versions"><code>airbyte-cron</code></a></td><td>application +fips</td><td>2026-08-21</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/airbyte-worker/versions"><code>airbyte-worker</code></a></td><td>application +fips</td><td>2026-08-21</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/airbyte-workload-api-server/versions"><code>airbyte-workload-api-server</code></a></td><td>application +fips</td><td>2026-08-21</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/airbyte-workload-launcher/versions"><code>airbyte-workload-launcher</code></a></td><td>application +fips</td><td>2026-08-21</td></tr>
+</tbody>
+</table>
+</details>
+</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/percona-server-mongodb-fips/versions"><code>percona-server-mongodb-fips</code></a></td><td>fips</td><td>2026-08-17</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/application-gateway-kubernetes-ingress/versions"><code>application-gateway-kubernetes-ingress</code></a></td><td>application +fips</td><td>2026-08-18</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/falcosidekick-ui/versions"><code>falcosidekick-ui</code></a></td><td>application +fips</td><td>2026-08-18</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kubernetes-csi-external-health-monitor-fips/versions"><code>kubernetes-csi-external-health-monitor-fips</code></a></td><td>fips</td><td>2026-08-18</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/mlrun/versions"><code>mlrun</code></a></td><td>application</td><td>2026-08-18</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/mlrun-api/versions"><code>mlrun-api</code></a></td><td>application</td><td>2026-08-18</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/spiffe-csi-driver/versions"><code>spiffe-csi-driver</code></a></td><td>application +fips</td><td>2026-08-18</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/apache-activemq-artemis-fips/versions"><code>apache-activemq-artemis-fips</code></a></td><td>fips</td><td>2026-08-19</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/aws-iam-controller/versions"><code>aws-iam-controller</code></a></td><td>application +fips</td><td>2026-08-21</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/commercial-nginx-plus-fips/versions"><code>commercial-nginx-plus-fips</code></a></td><td>commercial</td><td>2026-08-21</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kserve-lgbserver/versions"><code>kserve-lgbserver</code></a></td><td>ai +fips</td><td>2026-08-21</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/ranger/versions"><code>ranger</code></a></td><td>application</td><td>2026-08-21</td></tr>
+</tbody>
+</table>
 
 ## Week of 2026-08-17
 
