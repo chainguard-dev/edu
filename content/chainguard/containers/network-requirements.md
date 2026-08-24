@@ -65,24 +65,41 @@ Many of the hosts listed on this page use multiple DNS A records or CNAME aliase
 
 If your network filters traffic based on IP addresses, ensure that any firewalls update their rules at an appropriate interval to match the TTL for each DNS record.
 
-## Minimum TLS requirements
+## Minimum TLS parameters requirements
 
 For guaranteed connectivity, the following TLS requirements must be at
 minimum supported by clients and servers communicating with Chainguard
 Containers and endpoints:
 
-- TLSv1.3 with the TLS_AES_256_GCM_SHA384 cipher suite
-- TLSv1.2 with
-    - ECDHE-ECDSA-AES256-GCM-SHA384 cipher string
-    - [RFC 7627](https://datatracker.ietf.org/doc/html/rfc7627) Extended Master Secret Extension support
-- Signatures using P-256 with SHA-256
-- Signatures using RSA-PSS with 2048 bits and SHA-256
+Protocol Versions:
+
+- TLSv1.3
+- TLSv1.2
+
+TLS Cipher Suites:
+
+- TLS_AES_256_GCM_SHA384
+- TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+
+TLS Supported Groups:
+
+- X25519MLKEM768
+- secp384r1
+
+TLS Signature Schemes:
+
+- ecdsa_secp256r1_sha256
+- rsa_pss_pss_sha256
+
+Protocol support:
+
 - Support for encrypted HTTP/2 is required, including by any proxies in use
 
 The requirements can be approximately tested with the following OpenSSL client command:
 
 ```shell
-openssl s_client -cipher @SECLEVEL=2:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384 -ciphersuites TLS_AES_256_GCM_SHA384 -groups P-256 -alpn h2 -connect cgr.dev:443 < /dev/null
+openssl s_client -cipher @SECLEVEL=2:TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 -ciphersuites TLS_AES_256_GCM_SHA384 -groups X25519MLKEM768:secp384r1 -alpn h2 -connect cgr.dev:443 < /dev/null
 ```
 
 > Note that in the case of TLSv1.2 connectivity you must check the output for `Extended master secret: yes`.
