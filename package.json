@@ -36,6 +36,9 @@
     "check": "hugo version",
     "postinstall": "node scripts/link-dart-sass.js"
   },
+  "overrides": {
+    "adm-zip": "^0.6.0"
+  },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@fullhuman/postcss-purgecss": "^8.0",
