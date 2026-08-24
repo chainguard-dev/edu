@@ -6,7 +6,7 @@ description: "Learn about Chainguard Libraries, providing enhanced security for
     comprehensive supply chain protection."
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-18T16:47:04+00:00
+lastmod: 2026-08-20T19:51:12+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 menu:
@@ -188,6 +188,8 @@ The following options are available:
 
 * **No upstream fallback (default)**: Only Chainguard-built packages are served.
 * **Upstream fallback enabled with default 7-day cooldown**: Upstream packages are available after passing a configurable cooldown period and malware scan. The same cooldown period is enforced across Chainguard-built packages and upstream packages, so that dependency trees resolve consistently across both sources.
+
+When the upstream fallback is enabled, [build pinning](/chainguard/libraries/build-pinning/) keeps a package version you pulled from upstream stable even after Chainguard publishes its own build of that version. This prevents unexpected checksum changes across rebuilds.
 
 ### Malware and greyware detection
 
