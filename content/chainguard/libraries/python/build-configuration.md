@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for Python on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-25T19:48:13+00:00
+lastmod: 2026-08-25T20:14:45+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 menu:
@@ -31,7 +31,7 @@ fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) is
 enabled for your organization, the same endpoint can also serve requested
 versions from PyPI under Chainguard security controls.
 
-Refer to the following guides depending on your goals:
+This guide outlines how to configure your build tool. If you are looking for something else, refer to the following guides depending on your goals:
 
 | If you wnat to... | Use this page |
 | --- | --- |

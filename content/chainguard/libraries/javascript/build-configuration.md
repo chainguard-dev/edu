@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for JavaScript on your workstation"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-08-25T19:48:13+00:00
+lastmod: 2026-08-25T20:14:45+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
@@ -24,7 +24,14 @@ Apply these changes on every workstation and build server that builds your
 applications or downloads libraries, including CI/CD infrastructure such as
 Jenkins, TeamCity, or GitHub Actions.
 
-Refer to the following guides depending on your goals:
+The `https://libraries.cgr.dev/javascript` endpoint is also the [Chainguard
+Repository](/chainguard/chainguard-repository/overview/) endpoint for JavaScript. By
+default, it serves only Chainguard-built artifacts. When [upstream
+fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) is
+enabled for your organization, the same endpoint can also serve requested
+versions from upstream, under Chainguard security controls.
+
+This guide outlines how to configure your build tool. If you are looking for something else, refer to the following guides depending on your goals:
 
 | If you want to... | Use this page |
 | --- | --- |

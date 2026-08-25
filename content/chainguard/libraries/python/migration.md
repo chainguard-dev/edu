@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-08-25T19:43:07+00:00
+lastmod: 2026-08-25T20:14:45+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -23,7 +23,7 @@ This guide walks through migrating an existing Python project to Chainguard Libr
 
 To follow along with a ready-made project instead of your own, use the [Chainguard Libraries for Python demo repository](https://github.com/chainguard-demo/chainguard-libraries-python). It provides example projects for pip, uv, and Poetry, each with a `demo.sh` script that configures access and installs sample packages.
 
-For a reference of the configuration options for each supported build tool, refer to [Configure Python build tools](/chainguard/libraries/python/build-configuration/).
+For a reference of the configuration options for each supported build tool, check out [Configure Python build tools](/chainguard/libraries/python/build-configuration/).
 
 ## Prerequisites
 
