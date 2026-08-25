@@ -1,10 +1,10 @@
 ---
-title: "Build configuration"
-linktitle: "Build configuration"
+title: "Configure Java build tools"
+linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for Java on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-20T15:07:13+00:00
+lastmod: 2026-08-25T20:14:45+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java"]
 menu:
@@ -15,33 +15,26 @@ weight: 053
 toc: true
 ---
 
-The configuration for the use of Chainguard Libraries depends on your build
-tools, continuous integration, and continuous deployment setups
+Chainguard Libraries for Java works with your existing build tools — Maven,
+Gradle, and Bazel — through a repository configuration change. This page is a
+reference for configuring each supported build tool. It covers repository
+access, authentication, cache clearing, and minimal example projects.
 
-At a high level adopting the use of Chainguard Libraries consists of the
-following steps:
-
-* Remove local caches on workstations and CI/CD pipelines. This step ensures that
-  any libraries that were already sourced from other repositories are requested
-  again and the version from Chainguard Libraries is used instead of other
-  binaries.
-* Change configuration to access Chainguard Libraries via your repository
-  manager after the changes from the [global
-  configuration](/chainguard/libraries/java/global-configuration/) are
-  implemented.
-
-These changes must be performed on all workstations of individual developers and
-other engineers running relevant application builds. They must also be performed
-on any build server such as Jenkins, TeamCity, GitHub or other infrastructure
-that builds the applications or otherwise downloads and uses relevant libraries.
+Apply these changes on every workstation and build server that builds your
+applications or downloads libraries, including CI/CD infrastructure such as
+Jenkins, TeamCity, or GitHub Actions.
 
 The `https://libraries.cgr.dev/java/` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for Java. By default, it serves only Chainguard-built artifacts. When [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) is enabled for your organization, the same endpoint can also serve requested versions from Maven Central under Chainguard security controls.
 
-If you are migrating an existing project to Chainguard Libraries, follow the
-[Java migration guide](/chainguard/libraries/java/migration/) for a step-by-step
-walkthrough.
+This guide outlines how to configure your build tool. If you are looking for something else, refer to the following guides depending on your goals:
 
-If a package or version is blocked by a policy or malware scan, your build tool returns an error. See the [Error messages documentation](/chainguard/libraries/errors/) for more details.
+| If you want to... | Use this page |
+| --- | --- |
+| Understand what Chainguard Libraries for Java is and how it works | [Java overview](/chainguard/libraries/java/overview/) |
+| Set up organization-wide access through a repository manager | [Global configuration](/chainguard/libraries/java/global-configuration/) |
+| Migrate an existing project step by step | [Java migration guide](/chainguard/libraries/java/migration/) |
+
+If a package or version is blocked by a policy or malware scan, your build tool returns an error. Refer to the [Error messages documentation](/chainguard/libraries/errors/) for more details.
 
 ## Library access approaches
 

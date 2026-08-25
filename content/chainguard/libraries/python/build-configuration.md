@@ -1,10 +1,10 @@
 ---
-title: "Build configuration"
-linktitle: "Build configuration"
+title: "Configure Python build tools"
+linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for Python on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-05T19:13:35+00:00
+lastmod: 2026-08-25T20:14:45+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 menu:
@@ -15,18 +15,14 @@ weight: 053
 toc: true
 ---
 
-The configuration for the use of Chainguard Libraries depends on how you've set up your build tools and CI/CD workflows. At a high level, adopting the use of Chainguard Libraries in your development, build, and deployment workflows involves the following steps:
+Chainguard Libraries for Python works with your existing build tools — pip,
+Poetry, and uv — through a repository configuration change. This page is a
+reference for configuring each supported build tool. It covers repository
+access, authentication, cache clearing, and minimal example projects.
 
-- If you or an administrator have not done so already, [set up your organization's repository manager to use Chainguard Libraries for Python](/chainguard/libraries/python/global-configuration/).
-- Log into your organization's repository manager and retrieve credentials for the build tool you are configuring.
-- Configure your development or build tool with this information.
-- Remove local caches on workstations and CI/CD pipelines. This step ensures that dependencies are preferentially sourced from Chainguard Libraries.
-- Finally, confirm that your development tools and CI/CD workflows are correctly ingesting dependencies from Chainguard Libraries.
-
-These changes must be performed on all workstations of individual developers and
-other engineers running relevant application builds. They must also be performed
-on any build tool such as Jenkins, TeamCity, GitHub Actions, or other
-infrastructure that draws in dependencies.
+Apply these changes on every workstation and build server that builds your
+applications or downloads libraries, including CI/CD infrastructure such as
+Jenkins, TeamCity, or GitHub Actions.
 
 The `https://libraries.cgr.dev/python/` endpoint is also the [Chainguard
 Repository](/chainguard/chainguard-repository/overview/) endpoint for Python. By
@@ -35,13 +31,18 @@ fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) is
 enabled for your organization, the same endpoint can also serve requested
 versions from PyPI under Chainguard security controls.
 
-If you are migrating an existing project to Chainguard Libraries, follow the
-[Python migration guide](/chainguard/libraries/python/migration/) for a
-step-by-step walkthrough.
+This guide outlines how to configure your build tool. If you are looking for something else, refer to the following guides depending on your goals:
+
+| If you wnat to... | Use this page |
+| --- | --- |
+| Understand what Chainguard Libraries for Python is and how it works | [Python overview](/chainguard/libraries/python/overview/) |
+| Set up organization-wide access through a repository manager | [Global configuration](/chainguard/libraries/python/global-configuration/) |
+| Look up how to configure a specific build tool (pip, Poetry, uv) | This page |
+| Migrate an existing project step by step | [Python migration guide](/chainguard/libraries/python/migration/) |
 
 Refer to the [minimal example projects](#minimal-example-projects) on this page for demonstrations using `uv` and `pip`.
 
-If a package or version is blocked by a policy or malware scan, your build tool returns an error. See the [Error messages documentation](/chainguard/libraries/errors/) for more details.
+If a package or version is blocked by a policy or malware scan, your build tool returns an error. Refer to the [Error messages documentation](/chainguard/libraries/errors/) for more details.
 
 ## Step 1: Retrieve authentication credentials
 
