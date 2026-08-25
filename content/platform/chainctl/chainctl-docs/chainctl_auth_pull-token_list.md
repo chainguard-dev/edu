@@ -1,5 +1,5 @@
 ---
-date: 2026-08-20T20:16:23Z
+date: 2026-08-24T17:35:47Z
 title: "chainctl auth pull-token list"
 slug: chainctl_auth_pull-token_list
 url: /platform/chainctl/chainctl-docs/chainctl_auth_pull-token_list/
@@ -14,7 +14,7 @@ toc: true
 List all pull-tokens
 
 ```
-chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|javascript_athena|dotnet|python|java_athena|dotnet_athena|go|go_athena|java|javascript|python_athena}] [flags]
+chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|java|python|javascript|java_athena|go|python_athena|javascript_athena|dotnet|dotnet_athena|go_athena}] [flags]
 ```
 
 ### Examples
@@ -41,7 +41,7 @@ chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--reposi
 ```
       --expired             If true return only expired pull tokens.
       --parent string       The IAM organization or folder with which the pull-token identity is associated.
-      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, javascript_athena, dotnet, python, java_athena, dotnet_athena, go, go_athena, java, javascript, python_athena
+      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, java, python, javascript, java_athena, go, python_athena, javascript_athena, dotnet, dotnet_athena, go_athena
 ```
 
 ### Options inherited from parent commands
