@@ -1,10 +1,10 @@
 ---
-title: "Build configuration"
-linktitle: "Build configuration"
+title: "Configure JavaScript build tools"
+linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for JavaScript on your workstation"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-08-05T19:13:35+00:00
+lastmod: 2026-08-25T19:43:07+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
@@ -15,21 +15,25 @@ weight: 053
 toc: true
 ---
 
-The configuration for the use of Chainguard Libraries depends on your build
-tools, continuous integration, and continuous deployment setups. This page is a
-configuration reference for each supported JavaScript build tool. It covers
-registry configuration, authentication, cache clearning, and minimal example
-projects for npm, pnpm, Yarn, and Bun. The changes described on this page must
-be performed on all workstations of individual developers and other engineers
-running relevant application builds. They must also be performed on any build
-server such as Jenkins, TeamCity, GitHub or other infrastructure that builds the
-applications or otherwise downloads and uses relevant libraries.
+Chainguard Libraries for JavaScript works with your existing build tools — npm,
+pnpm, Yarn, and Bun — through a registry configuration change. This page is a
+reference for configuring each supported build tool. It covers registry
+configuration, authentication, cache clearing, and minimal example projects.
 
-If you are migrating an existing project to Chainguard Libraries, follow the
-[JavaScript migration guide](/chainguard/libraries/javascript/migration/) for a
-step-by-step walkthrough.
+Apply these changes on every workstation and build server that builds your
+applications or downloads libraries, including CI/CD infrastructure such as
+Jenkins, TeamCity, or GitHub Actions.
 
-If a package or version is blocked by a policy or malware scan, your build tool returns an error. See the [Error messages documentation](/chainguard/libraries/errors/) for more details.
+**Choose the right page**
+
+| To do this | Use this page |
+| --- | --- |
+| Understand what Chainguard Libraries for JavaScript is and how it works | [JavaScript overview](/chainguard/libraries/javascript/overview/) |
+| Set up organization-wide access through a repository manager | [Global configuration](/chainguard/libraries/javascript/global-configuration/) |
+| Look up how to configure a specific build tool (npm, pnpm, Yarn, Bun) | This page |
+| Migrate an existing project step by step | [JavaScript migration guide](/chainguard/libraries/javascript/migration/) |
+
+If a package or version is blocked by a policy or malware scan, your build tool returns an error. Refer to the [Error messages documentation](/chainguard/libraries/errors/) for more details.
 
 ## JFrog Artifactory
 

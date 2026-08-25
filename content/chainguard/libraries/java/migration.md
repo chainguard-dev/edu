@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Java project to pull dependencies from Chainguard Libraries"
 date: 2026-07-02T00:00:00+00:00
-lastmod: 2026-08-20T19:51:12+00:00
+lastmod: 2026-08-25T19:43:07+00:00
 tags: ["Chainguard Libraries", "Java"]
 menu:
   docs:
@@ -22,6 +22,8 @@ This guide walks through migrating an existing Java project to Chainguard Librar
 - Repository manager — your build tool connects to a repository manager ([Cloudsmith](/chainguard/libraries/java/global-configuration/#cloudsmith), [Google Artifact Registry](/chainguard/libraries/java/global-configuration/#google-artifact-registry), [JFrog Artifactory](/chainguard/libraries/java/global-configuration/#jfrog-artifactory), or [Sonatype Nexus](/chainguard/libraries/java/global-configuration/#sonatype-nexus-repository)), which proxies requests to Chainguard Libraries.
 
 To follow along with a ready-made project instead of your own, use the [Chainguard Libraries for Java demo repository](https://github.com/chainguard-demo/chainguard-libraries-java). It provides Maven and Gradle example projects, including a minimal Spring Boot application and CVE remediation demos.
+
+For a reference of the configuration options for each supported build tool, refer to [Configure Java build tools](/chainguard/libraries/java/build-configuration/).
 
 ## Prerequisites
 
