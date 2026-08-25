@@ -6,7 +6,7 @@ description:
   Libraries using the chainctl tool for enhanced supply chain security"
 type: "article"
 date: 2025-07-03T12:00:00+00:00
-lastmod: 2026-08-05T19:13:35+00:00
+lastmod: 2026-08-25T13:24:30+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -43,8 +43,12 @@ installed and available on your path:
   Chainguard-maintained tool that includes the `libraries verify` command,
   details also in the [reference
   documentation](/chainguard/chainctl/chainctl-docs/chainctl_libraries_verify/).
-- [`cosign`](https://docs.sigstore.dev/cosign/system_config/installation/) — A
-  Sigstore-maintained tool used to verify signatures.
+
+`chainctl libraries verify` checks signatures in-process, so you no longer need
+a separate `cosign` binary on your `PATH`. To fetch the Sigstore trust root, the
+command needs network access to `tuf-repo-cdn.sigstore.dev`. See [network
+requirements](/chainguard/libraries/network-requirements/) for the full list of
+domains.
 
 You also need:
 
@@ -53,15 +57,10 @@ You also need:
 - Your organization [must include entitlement for access to Chainguard
   Libraries](/chainguard/libraries/access/#entitlement)
 
-Confirm that `chainctl` and `cosign` are installed and available on the `PATH`
-with the following commands:
+Confirm that `chainctl` is installed and available on the `PATH`:
 
 ```sh
 chainctl version
-```
-
-```sh
-cosign version
 ```
 
 ## Authentication and configuration
@@ -272,7 +271,7 @@ Replace `PACKAGE`
 and `VERSION` with the package name and version (for example, `@eslint-js`
 and `9.0.0`)
 
-Verification uses SLSA provenance attestations. `chainctl` computes a SHA-512 digest of the tarball locally, fetches the signed attestation bundle, and uses `cosign` to confirm that the signature is valid, the certificate chains to the Sigstore root, the signer identity matches the Chainguard JavaScript builder, and the digest matches what was attested at build time.
+Verification uses SLSA provenance attestations. `chainctl` computes a SHA-512 digest of the tarball locally, fetches the signed attestation bundle, and verifies in-process that the signature is valid, the certificate chains to the Sigstore root, the signer identity matches the Chainguard JavaScript builder, and the digest matches what was attested at build time.
 
 #### Verify an npm cache
 

@@ -6,7 +6,7 @@ lead: "Chainguard's chainctl CLI enables more secure management of container ima
 description: "Get started with chainctl basics including authentication, organization management, and essential commands for Chainguard's container security platform"
 type: "article"
 date: 2025-03-03T08:49:15+00:00
-lastmod: 2026-08-21T16:30:07+00:00
+lastmod: 2026-08-25T13:24:30+00:00
 draft: false
 tags: ["chainctl", "Getting Started"]
 images: []
@@ -65,7 +65,7 @@ To update your `chainctl` installation, use:
 chainctl update
 ```
 
-Updating requires administrative privileges, so be prepared to enter your machine's admin password.
+Because this replaces the installed binary, you need write access to the directory where `chainctl` lives. On Linux and macOS, updating a system-wide install such as `/usr/local/bin` requires administrative privileges (for example, with `sudo`). The command also verifies the downloaded binary's signature in-process before installing it; see [Updating chainctl](/chainguard/chainctl-usage/how-to-install-chainctl/#updating-chainctl) for details.
 
 ## Configure chainctl
 
