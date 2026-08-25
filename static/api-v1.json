@@ -12491,6 +12491,23 @@
             }
           },
           {
+            "description": "The source types to include: artifacts with at least one version of a\nlisted source type are returned, and version-derived fields reflect only\nthose versions. If empty, the default Chainguard-built view is returned\n(internal and remediated versions; upstream-only artifacts hidden).\nVersions whose origin is unknown match no listed type: they appear only\nin the default view and when every source type is listed.\nCannot be combined with include_upstream, remediated, or cuda_version.\n\n - SOURCE_TYPE_UNSPECIFIED: Unspecified or unknown origin.\n - SOURCE_TYPE_INTERNAL: A Chainguard-built internal version.\n - SOURCE_TYPE_INTERNAL_REMEDIATED: A remediated rebuild of a version.\n - SOURCE_TYPE_UPSTREAM_REGISTRY: A version mirrored from its upstream registry.",
+            "in": "query",
+            "name": "sourceTypes",
+            "schema": {
+              "items": {
+                "enum": [
+                  "SOURCE_TYPE_UNSPECIFIED",
+                  "SOURCE_TYPE_INTERNAL",
+                  "SOURCE_TYPE_INTERNAL_REMEDIATED",
+                  "SOURCE_TYPE_UPSTREAM_REGISTRY"
+                ],
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          {
             "description": "The maximum number of artifacts to return per request.\nThe service may return fewer than this value.",
             "in": "query",
             "name": "pageSize",
@@ -12622,6 +12639,23 @@
             "name": "includeUpstream",
             "schema": {
               "type": "boolean"
+            }
+          },
+          {
+            "description": "The source types to include. If empty, the default Chainguard-built view\nis returned (internal and remediated versions). Versions whose origin is\nunknown match no listed type: they appear only in the default view and\nwhen every source type is listed. Cannot be combined with\ninclude_upstream.\n\n - SOURCE_TYPE_UNSPECIFIED: Unspecified or unknown origin.\n - SOURCE_TYPE_INTERNAL: A Chainguard-built internal version.\n - SOURCE_TYPE_INTERNAL_REMEDIATED: A remediated rebuild of a version.\n - SOURCE_TYPE_UPSTREAM_REGISTRY: A version mirrored from its upstream registry.",
+            "in": "query",
+            "name": "sourceTypes",
+            "schema": {
+              "items": {
+                "enum": [
+                  "SOURCE_TYPE_UNSPECIFIED",
+                  "SOURCE_TYPE_INTERNAL",
+                  "SOURCE_TYPE_INTERNAL_REMEDIATED",
+                  "SOURCE_TYPE_UPSTREAM_REGISTRY"
+                ],
+                "type": "string"
+              },
+              "type": "array"
             }
           }
         ],
