@@ -6,7 +6,7 @@ lead: "Keep your chainctl CLI updated to access the latest Chainguard security f
 description: "Learn how to check your chainctl version and update to the latest release for enhanced security features and improved container management capabilities"
 type: "article"
 date: 2025-03-06T08:49:15+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-08-25T13:24:30+00:00
 draft: false
 tags: ["chainctl"]
 images: []
@@ -134,3 +134,5 @@ Temporary files may need to be removed manually:
   rm -f /root/.cache/chainctl/chainctl.bak
 
 ```
+
+`chainctl update` verifies the signature of the downloaded binary in-process before installing it, so you don't need a separate `cosign` binary on your `PATH`. Verification needs network access to `dl.enforce.dev` and, at least on first use, to the Sigstore trust root at `tuf-repo-cdn.sigstore.dev`. If verification fails or those hosts are unreachable, the update stops and your current installation is left in place.

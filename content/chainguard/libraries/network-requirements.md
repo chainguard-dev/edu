@@ -4,7 +4,7 @@ linktitle: "Network requirements"
 description: "Learn the network requirements for accessing Chainguard Libraries, including domains needed for authentication, package downloads, and verification tools"
 type: "article"
 date: 2025-06-04T09:30:00+00:00
-lastmod: 2026-08-03T13:34:48+00:00
+lastmod: 2026-08-25T13:24:30+00:00
 draft: false
 tags: ["Chainguard Libraries", "Reference"]
 menu:
@@ -18,9 +18,8 @@ toc: true
 
 ## Access for chainctl and other tools
 
-For initial configuration with chainctl and for verification of
-downloaded libraries with cosign and other tools, you must allow HTTPS access to
-the following domains:
+For initial configuration with chainctl and for in-process verification of
+downloaded libraries, you must allow HTTPS access to the following domains:
 
 * `dl.enforce.dev` for download and update of chainctl
 * `issuer.enforce.dev` for authentication with the Chainguard Console and with chainctl
@@ -28,6 +27,8 @@ the following domains:
   your Chainguard accounts.
 * `console.chainguard.dev` for the Chainguard Console to administrate and use your
   Chainguard accounts.
+* `tuf-repo-cdn.sigstore.dev` for the Sigstore trust root that `chainctl libraries verify`
+  uses to verify library signatures.
 
 ## Access for repository managers
 

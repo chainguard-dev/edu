@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "Learn how to install chainctl, Chainguard's command-line interface for managing container images, IAM resources, and security configurations across platforms"
 date: 2022-09-22T15:56:52-07:00
-lastmod: 2026-08-21T16:30:07+00:00
+lastmod: 2026-08-25T13:24:30+00:00
 draft: false
 tags: ["chainctl"]
 images: []
@@ -229,7 +229,7 @@ If you installed `chainctl` to a directory that needs root permissions and run a
 
 ### Docker credential helper on Windows
 
-On Windows, `chainctl auth configure-docker` updates your Docker config, but Docker also expects a `docker-credential-cgr.exe` helper to be available on your `PATH`. To make Docker pulls work, perform the following steps:
+On Windows, Docker expects a `docker-credential-cgr.exe` helper to be available on your `PATH`. `chainctl auth configure-docker` creates this helper for you by copying `chainctl.exe` to `docker-credential-cgr.exe` in the same directory. Because it copies the binary rather than creating a symbolic link, a standard, non-administrator account can run it without enabling Developer Mode or running PowerShell as an administrator. To make Docker pulls work, perform the following steps:
 
 #### 1. Add `chainctl.exe` to the `PATH` (replace `C:\Tools` with the actual directory you used):
 
@@ -246,15 +246,7 @@ chainctl auth login
 chainctl auth configure-docker
 ```
 
-#### 3. Create the Docker credential helper symlink in the same directory as `chainctl.exe`:
-
-```PowerShell
-New-Item -ItemType SymbolicLink -Path "docker-credential-cgr.exe" -Target "chainctl.exe"
-```
-
-If this command fails with a permissions error, try running PowerShell as Administrator or ensure that Windows Developer Mode is enabled so you can create symbolic links.
-
-Following this, you can verify Docker pulls from Chainguard by pulling a private image.
+`chainctl auth configure-docker` creates `docker-credential-cgr.exe` next to `chainctl.exe` and updates your Docker config to use it. Following this, you can verify Docker pulls from Chainguard by pulling a private image.
 
 ## Updating `chainctl`
 
@@ -264,6 +256,6 @@ When your version of `chainctl` is a few weeks old or older, you may consider up
 sudo chainctl update
 ```
 
-The update command automatically verifies the cosign signature of the downloaded binary before replacing your existing installation. If signature verification fails (for example, due to a network issue), the update will not proceed and the unverified binary will be removed.
+The update command verifies the signature of the downloaded binary in-process before replacing your existing installation, so you don't need a separate `cosign` binary on your `PATH`. Verification needs network access to the download host (`dl.enforce.dev`) and, at least on first use, to the Sigstore trust root at `tuf-repo-cdn.sigstore.dev`. If verification fails or those hosts are unreachable, the update stops, the unverified binary is removed, and your current installation is left in place.
 
 Keeping `chainctl` up to date will ensure that you are using the most up to date version.
