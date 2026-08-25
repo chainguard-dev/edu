@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "Learn how to install chainctl, Chainguard's command-line interface for managing container images, IAM resources, and security configurations across platforms"
 date: 2022-09-22T15:56:52-07:00
-lastmod: 2026-08-25T13:24:30+00:00
+lastmod: 2026-08-25T15:44:47+00:00
 draft: false
 tags: ["chainctl"]
 images: []
@@ -199,6 +199,7 @@ Following the [XDG standard](https://specifications.freedesktop.org/basedir/late
 
 * **On Linux systems**, this is typically `~/.cache/`
 * **On MacOS**, this is `~/Library/Caches/`
+* **On Windows**, this is `%LocalAppData%` (typically `C:\Users\<username>\AppData\Local`)
 
 The token's path is the local cache directory appended with `/chainguard/<audience>/<oidc-token|refresh-token>`. The `oidc-token` is a short-lived access token used for authentication, while the `refresh-token` is a longer-lived credential that allows chainctl to obtain new access tokens without requiring you to log in again.
 
@@ -209,6 +210,14 @@ For example, on Linux you can find the `oidc-token` for the `https://console-api
 ```
 
 Note that for this audience, chainctl replaces `/` with `-` in order to ensure a valid file path.
+
+On Windows, the same `oidc-token` is stored at:
+
+```
+C:\Users\<username>\AppData\Local\chainguard\https---console-api.enforce.dev\oidc-token
+```
+
+Windows doesn't allow `:` in file paths either, so on Windows chainctl replaces both `/` and `:` with `-`. The `https://console-api.enforce.dev` audience becomes `https---console-api.enforce.dev` (three hyphens), rather than the `https:--console-api.enforce.dev` form used on Linux and macOS.
 
 ## Configure a Docker credential helper
 
