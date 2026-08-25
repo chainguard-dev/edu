@@ -6,7 +6,7 @@ description:
   Libraries using the chainctl tool for enhanced supply chain security"
 type: "article"
 date: 2025-07-03T12:00:00+00:00
-lastmod: 2026-08-25T13:24:30+00:00
+lastmod: 2026-08-25T13:40:33+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -44,11 +44,10 @@ installed and available on your path:
   details also in the [reference
   documentation](/chainguard/chainctl/chainctl-docs/chainctl_libraries_verify/).
 
-`chainctl libraries verify` checks signatures in-process, so you no longer need
-a separate `cosign` binary on your `PATH`. To fetch the Sigstore trust root, the
-command needs network access to `tuf-repo-cdn.sigstore.dev`. See [network
-requirements](/chainguard/libraries/network-requirements/) for the full list of
-domains.
+`chainctl libraries verify` checks signatures in-process. To fetch the Sigstore
+trust root, the command needs network access to `tuf-repo-cdn.sigstore.dev`.
+Refer to [network requirements](/chainguard/libraries/network-requirements/) for
+the full list of domains.
 
 You also need:
 
