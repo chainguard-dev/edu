@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for JavaScript on your workstation"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-08-25T19:43:07+00:00
+lastmod: 2026-08-25T19:48:13+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
@@ -24,9 +24,9 @@ Apply these changes on every workstation and build server that builds your
 applications or downloads libraries, including CI/CD infrastructure such as
 Jenkins, TeamCity, or GitHub Actions.
 
-**Choose the right page**
+Refer to the following guides depending on your goals:
 
-| To do this | Use this page |
+| If you want to... | Use this page |
 | --- | --- |
 | Understand what Chainguard Libraries for JavaScript is and how it works | [JavaScript overview](/chainguard/libraries/javascript/overview/) |
 | Set up organization-wide access through a repository manager | [Global configuration](/chainguard/libraries/javascript/global-configuration/) |
