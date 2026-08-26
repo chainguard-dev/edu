@@ -1,10 +1,10 @@
 ---
-title: "Management and maintenance"
+title: "Managem and update dependencies"
 linktitle: "Management"
-description: "Learn how to manage and maintain Chainguard Libraries for Java, including dependency updates, verification, and monitoring security improvements"
+description: "Manage Chainguard Libraries for Java dependencies after setup, including verification, cache refreshes, and checksum changes."
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-08-26T19:18:25+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java"]
 images: []
@@ -16,7 +16,9 @@ weight: 053
 toc: true
 ---
 
-Chainguard Libraries for Java operates transparently after completing the [global configuration](/chainguard/libraries/java/global-configuration/) and [build configuration](/chainguard/libraries/java/build-configuration/), automatically providing security-enhanced versions of your Maven dependencies. New artifacts and versions are retrieved from Chainguard's hardened repository when available, while Maven Central and other configured repositories provide fallback access to ensure continuous development workflow without interruption.
+Chainguard Libraries for Java operates transparently after configuring your [repository manager](/chainguard/libraries/java/global-configuration/) or [your build tool](/chainguard/libraries/java/build-configuration/), automatically providing security-enhanced versions of your Maven dependencies. New artifacts and versions are retrieved from Chainguard's hardened repository when available, while Maven Central and other configured repositories provide fallback access to ensure continuous development workflow without interruption.
+
+Chainguard Libraries serves Chainguard-built artifacts when they are available. Existing artifacts may already be present in a developer’s local Maven cache or in a repository manager cache, so a previously downloaded upstream artifact is not automatically replaced just because a Chainguard-built equivalent becomes available.
 
 The following sections detail optional management, maintenance, and auditing
 steps on the repository manager and the build tool.
