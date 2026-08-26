@@ -5,7 +5,7 @@ lead: "Your organization has adopted Chainguard. This guide helps administrators
 description: "Onboard your teams to Chainguard Containers and Chainguard Libraries: what your organization can pull, how subscriptions differ, and how to retrieve SBOMs and provenance."
 type: "article"
 date: 2026-08-26T00:00:00+00:00
-lastmod: 2026-08-26T13:41:10+00:00
+lastmod: 2026-08-26T13:43:22+00:00
 draft: false
 tags: ["Getting Started"]
 images: []
@@ -17,7 +17,7 @@ Your organization has adopted Chainguard, and now you need to bring your teams o
 
 It's written for two readers:
 
-- **Platform and security administrators** who manage Chainguard for the organization and need to explain it to the teams they support. Early on, you may be the only people with [Chainguard Console](/chainguard/platform/console/images-directory) access, so your teams rely on you to communicate how this works.
+- **Platform and security administrators** who manage Chainguard for the organization and need to explain it to the teams they support. Early on, you may be the only people with [Chainguard Console](/chainguard/platform/console/images-directory/) access, so your teams rely on you to communicate how this works.
 - **Software engineers** who were pointed here and want to know how to find and pull the resources they're cleared to use.
 
 To decide where to start, identify which Chainguard products your organization uses; many use both. Read [Chainguard Containers](#chainguard-containers) if your teams pull container images, or [Chainguard Libraries](#chainguard-libraries) if they pull language dependencies for Java, Python, or JavaScript. Your administrators know which subscriptions apply.
