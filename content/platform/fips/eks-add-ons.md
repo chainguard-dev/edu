@@ -90,3 +90,9 @@ Chainguard EKS add-ons are listed in AWS Marketplace and can be found within the
 Once subscribed, deployment follows the standard EKS Helm workflow, and you can deploy the add-ons with AWS CLI or in your GitOps workflows. Unlike a standalone Helm chart, which is self-managed, EKS will automatically handle lifecycle management of your add-ons. No new tooling, no Chainguard account, and no changes to your existing Kubernetes manifests are required.
 
 For step-by-step installation guidance, refer to the deployment instructions included with each add-on listing in AWS Marketplace.
+
+### Known limitations
+
+AWS Marketplace container products, including EKS add-ons, are not available in AWS GovCloud. As noted in the [AWS GovCloud User Guide](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-marketplace.html), "Currently, container products and Amazon Machine Learning products are not available." Consequently, you cannot deploy Chainguard EKS add-ons through AWS Marketplace in GovCloud.
+
+Instead, deploy the add-ons using self-managed Helm charts or rendered manifests. Do not modify an add-on’s image references after deployment. These fields are effectively immutable, and modifying them prevents the add-on from receiving updates.
