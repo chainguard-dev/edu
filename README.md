@@ -1,11 +1,11 @@
 <p align="center">
-  <a href="https://edu.chainguard.dev" target="_blank"><img src="https://edu.chainguard.dev/logos/3d-linky.png" width="200" heght="auto"></a>
+  <a href="https://edu.chainguard.dev" target="_blank"><img src="https://edu.chainguard.dev/logos/3d-linky.png" width="200" height="auto"></a>
 </p>
 <h1 align="center">Chainguard Academy</h1>
 
 <a href="https://chainguard.dev/" target="_blank"><img alt="Chainguard" src="https://img.shields.io/badge/Chainguard-4445E7.svg?style=for-the-badge&logo=Chainguard&logoColor=white"></a>
 
-Our **mission** is to enable developers to build software efficiently and securely with Chainguard. Visit our website at 🔗 [edu.chainguard.dev](https://edu.chainguard.dev)
+Chainguard Academy is the documentation site for Chainguard products. It exists to help you succeed with Chainguard. Visit it at 🔗 [edu.chainguard.dev](https://edu.chainguard.dev)
 
 You can find the educational resource files in Markdown under the `content` directory.
 
@@ -13,19 +13,19 @@ You can find the educational resource files in Markdown under the `content` dire
 
 This site is based on the [Doks Hugo theme](https://github.com/h-enk/doks).
 
-If you would like to develop this project, clone this repo and install dependencies with `npm`.
+If you would like to develop this project, clone this repo and install dependencies with `npm`. We prefer `npm ci` (clean install) over `npm install`: it installs the exact dependency tree from `package-lock.json`, so your local versions match what our build automation and production use.
 
 ```sh
-npm install
+npm ci
 ```
 
-To run a local version of this site, use npm to start it.
+To run a local version of this site, start the development server:
 
 ```sh
 npm run start
 ```
 
-You'll then navigate to `localhost:1313` within the web browser of your choice.
+While the server is running, open `http://localhost:1313` in your web browser. To stop the server, press `Ctrl+C` in the terminal.
 
 ## Testing
 
@@ -33,7 +33,7 @@ Any documentation published to Chainguard Academy is reviewed carefully for accu
 
 We also test drafts by previewing rendered content before it's published. Draft content passes through several checks between your editor and the live site:
 
-- **Local preview** — Run `npm install` once, then `npm run start` to serve the site at `http://localhost:1313` with live reload. Use this to confirm pages render correctly, formatting holds up, and internal links resolve. When a doc includes commands or examples, run them to confirm they still work.
+- **Local preview** — Run `npm ci` once, then `npm run start` to serve the site at `http://localhost:1313` with live reload. Use this to confirm pages render correctly, formatting holds up, and internal links resolve. When a doc includes commands or examples, run them to confirm they still work.
 - **Pre-commit checks** — A required `pre-commit` check validates tags, lints, and scans changed files; a git hook stamps content dates; spell-check runs locally. See [Pre-commit](#pre-commit) below for setup.
 - **Deploy previews** — Every pull request builds a Netlify deploy preview with a staging URL. Reviewers open this link to see your changes rendered as they'll appear in production.
 
@@ -41,7 +41,7 @@ When you open a pull request, describe how you tested the change so reviewers kn
 
 ## 📑 Contributing
 
-If you identify something that is a major change, please file an [issue](https://github.com/chainguard-dev/edu/issues/new). If you identify a minor change like a typo that needs to be updated, or tech tooling that has a newer package, you are welcome to open a pull request for review from the team.
+If you spot a major change, please file an [issue](https://github.com/chainguard-dev/edu/issues/new). For a minor change — a typo, or tooling with a newer package available — you're welcome to open a pull request for the team to review.
 
 ### Date Format
 
@@ -49,40 +49,40 @@ In each post's header, the date format should follow year-month-day as `YYYY-MM-
 
 ### Adding Graphic Images
 
-Please reduce the image's file size before adding the image to this project to make page load times faster and more accessible. You can use a tool such as [TinyPNG](https://tinypng.com/).
+Reduce an image's file size before adding it to the project to keep page loads fast. You can use a tool such as [TinyPNG](https://tinypng.com/).
 
-If you are using images, it's best to bundle it together with the appropriate Markdown file. Create a directory with the name of the new page. Within the directory, create an `index.md` file and add the images within the directory as well.
+If you use images, bundle them with the Markdown file that references them. Create a directory with the name of the new page. Within the directory, create an `index.md` file and add the images alongside it.
 
-In practice, this will look like the following, with images in place for both the `getting-started-enforce-github` directory and the `install-enforce-github` directory and the relevant tutorials:
+In practice, this looks like the following, with images bundled inside the `mariadb` and `postgres` tutorial directories:
 
 ```sh
 ├── chainguard
-│   ├── _index.md
-│   ├── enforce-github
-│   │   ├── _index.md
-│   │   ├── getting-started-enforce-github
-│   │   │   ├── check.png
-│   │   │   ├── index.md
-│   │   │   ├── protected-branch.png
-│   │   │   └── repo-access.png
-│   │   └── install-enforce-github
-│   │       ├── configure.png
-│   │       ├── index.md
-│   │       ├── permissions.png
-│   │       └── user-select.png
+│   ├── _index.md
+│   ├── containers
+│   │   ├── _index.md
+│   │   ├── getting-started
+│   │   │   ├── _index.md
+│   │   │   ├── mariadb
+│   │   │   │   ├── index.md
+│   │   │   │   ├── mdb-demo-success-1.png
+│   │   │   │   └── mdb-demo-success-2.png
+│   │   │   └── postgres
+│   │   │       ├── index.md
+│   │   │       ├── pg-demo-success-1.png
+│   │   │       └── pg-demo-success-2.png
 ```
 
 Within the Markdown file, add images like so, with the alt text at the front:
 
 ```
-![Protect branches with Chainguard Enforce](protected-branch.png)
+![Screenshot of a web browser showing the demo application running successfully](mdb-demo-success-1.png)
 ```
 
 Run a local development environment to ensure that your file structure is set up as intended.
 
 ### Adding Videos
 
-Use a liquid tag within the Markdown to embed a YouTube video. For example, if you would like to link to the YouTube video located at [https://www.youtube.com/watch?v=rqIcDrg1XOs](https://www.youtube.com/watch?v=rqIcDrg1XOs), you can pull the string after `v=` and use the following liquid tag on its own line within Markdown.
+Use a shortcode within the Markdown to embed a YouTube video. For example, if you would like to link to the YouTube video located at [https://www.youtube.com/watch?v=rqIcDrg1XOs](https://www.youtube.com/watch?v=rqIcDrg1XOs), you can pull the string after `v=` and use the following shortcode on its own line within Markdown.
 
 ```
 {{< youtube rqIcDrg1XOs >}}
@@ -92,7 +92,7 @@ Use a liquid tag within the Markdown to embed a YouTube video. For example, if y
 
 Tags are autogenerated when you add the following line to a Markdown file's front matter:
 
-`tags: ["Tag1", Tag2", etc]`
+`tags: ["Tag1", "Tag2", etc]`
 
 This line should appear between the `draft` line and the `images` line in the front matter.
 
@@ -142,7 +142,7 @@ brew install pre-commit        # or: pipx install pre-commit
 ./setup-hooks.sh
 
 # 3. If you edit SCSS (assets/scss/), install the Node dependencies
-npm install
+npm ci
 
 # 4. Optional: install aspell for local spell checking
 brew install aspell
@@ -156,7 +156,7 @@ separately installed hook wouldn't run. To skip the hook for a single commit, us
 `git commit --no-verify`.
 
 The SCSS lint step runs the project's own `stylelint`, so it needs the Node
-dependencies from `npm install`. The other hooks use pre-commit-managed
+dependencies from `npm install` or `npm ci`. The other hooks use pre-commit-managed
 environments, so they need nothing beyond the framework itself. If you edit
 `assets/scss/` without installing the dependencies, that one hook fails; content
 and other contributors are unaffected.
