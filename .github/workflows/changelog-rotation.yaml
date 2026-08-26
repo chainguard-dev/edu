@@ -29,7 +29,7 @@ jobs:
     if: github.repository == 'chainguard-dev/edu'
 
     permissions:
-      contents: read # Read the workflow's own repository
+      contents: read # Baseline read access for the job's token
       issues: write # Open the reminder issue and assign it
 
     steps:
@@ -76,6 +76,9 @@ jobs:
       - name: Open the issue
         env:
           GH_TOKEN: ${{ github.token }}
+          # The job never checks the repository out, so gh has no git remote to
+          # read. Without this it fails with "not a git repository".
+          GH_REPO: ${{ github.repository }}
           OWNER: ${{ steps.rota.outputs.owner }}
           WEEK_OF: ${{ steps.rota.outputs.week_of }}
           TITLE: "Update the changelog: week of ${{ steps.rota.outputs.week_of }}"
