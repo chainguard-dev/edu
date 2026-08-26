@@ -1,0 +1,133 @@
+# Copyright 2026 Chainguard, Inc.
+# SPDX-License-Identifier: Apache-2.0
+
+# Opens a weekly issue reminding the current owner to update the Containers
+# changelog, and rotates that owner every four weeks.
+#
+# To change the roster or the cadence, edit OWNERS, EPOCH, or SHIFT_WEEKS in the
+# "Work out whose shift it is" step. Read the comments there first: EPOCH anchors
+# the whole rotation, so moving it reshuffles who is up when.
+
+name: changelog rotation
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Mondays at 17:07 UTC: 10:07 PT in summer, 09:07 PT once the clocks go
+    # back. GitHub only accepts UTC, so the local time drifts by an hour twice a
+    # year. Either way it lands after the source spreadsheet's Monday refresh
+    # (06:00-06:30 ET) and before the triage meeting. The odd minute is
+    # deliberate; runs scheduled on the hour queue behind everyone else's.
+    - cron: "7 17 * * 1"
+
+permissions: {}
+
+jobs:
+  open-issue:
+    name: Open the weekly changelog issue
+    runs-on: ubuntu-latest
+    if: github.repository == 'chainguard-dev/edu'
+
+    permissions:
+      contents: read # Read the workflow's own repository
+      issues: write # Open the reminder issue and assign it
+
+    steps:
+      - name: Github Actions Runner
+        uses: step-security/harden-runner@05e31511f85b41b11d1cf0ef85d0992719546e2c # v2.21.0
+        with:
+          egress-policy: block
+          allowed-endpoints: >
+            api.github.com:443
+            github.com:443
+
+      - name: Work out whose shift it is
+        id: rota
+        run: |
+          python3 - >> "$GITHUB_OUTPUT" <<'PY'
+          import datetime
+
+          # Roster, in rotation order. GitHub usernames, not emails: the issue is
+          # assigned to these accounts, so each needs write access to the repo.
+          OWNERS = ["SharpRake", "matthewhelmke", "s-stumbo"]
+
+          # Anchors the rotation. Must be a Monday, and may sit in the past:
+          # backdating it starts the roster partway through a shift. This date is
+          # three weeks before the first scheduled run, so OWNERS[0] takes the
+          # single week of 2026-08-31 and the handover lands on 2026-09-07.
+          EPOCH = datetime.date(2026, 8, 10)
+
+          # Weeks each person owns before handing over.
+          SHIFT_WEEKS = 4
+
+          # Snap to this week's Monday so a manual dispatch on any day names the
+          # same owner the schedule would have. Pure date arithmetic, so DST
+          # cannot shift the answer.
+          today = datetime.date.today()
+          monday = today - datetime.timedelta(days=today.weekday())
+
+          weeks = (monday - EPOCH).days // 7
+          owner = OWNERS[(weeks // SHIFT_WEEKS) % len(OWNERS)]
+
+          print(f"owner={owner}")
+          print(f"week_of={monday.isoformat()}")
+          PY
+
+      - name: Open the issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          OWNER: ${{ steps.rota.outputs.owner }}
+          WEEK_OF: ${{ steps.rota.outputs.week_of }}
+          TITLE: "Update the changelog: week of ${{ steps.rota.outputs.week_of }}"
+        run: |
+          # Don't open a second issue if one is already waiting, so a manual
+          # dispatch after the scheduled run is a no-op rather than a duplicate.
+          existing=$(gh issue list --state open --label automated --limit 100 \
+            --json number,title |
+            jq -r --arg t "$TITLE" '.[] | select(.title == $t) | .number')
+          if [ -n "${existing}" ]; then
+            echo "Issue #${existing} is already open for the week of ${WEEK_OF}."
+            exit 0
+          fi
+
+          cat > issue-body.md <<'EOF'
+          It's your week on the changelog rotation. The page is
+          [`content/chainguard/changelog.md`](https://github.com/chainguard-dev/edu/blob/main/content/chainguard/changelog.md),
+          published at <https://edu.chainguard.dev/chainguard/changelog/>.
+
+          ## What to do
+
+          1. Download the **CHANGELOG LATEST WEEK** sheet as CSV from the
+             [Changelog weekly data spreadsheet](https://docs.google.com/spreadsheets/d/1rgt0XA-jYoQxWC_cJGgs3ZlsUqRKvuupJj1Trdp2uJA/edit).
+          2. Run the `update-changelog` skill in this repository. It walks through
+             the generator, the manual product announcement and breaking change
+             sections, the `lastmod` bump, and linting.
+          3. Open a PR and get it reviewed.
+
+          Close this issue once the PR merges.
+
+          ## Notes
+
+          The spreadsheet refreshes every Monday between 06:00 and 06:30 ET, so the
+          data is ready now. There's no window to catch — do it whenever you're ready
+          this week.
+
+          The generator appends only and is idempotent, so re-running it is safe. It
+          will not edit a published week.
+
+          If you're out this week, reassign this issue to someone else on the Docs
+          team rather than closing it.
+
+          ---
+
+          <sub>Opened by
+          [`changelog-rotation.yaml`](https://github.com/chainguard-dev/edu/blob/main/.github/workflows/changelog-rotation.yaml).
+          Owner rotates every 4 weeks: SharpRake → matthewhelmke → s-stumbo. Edit the
+          workflow to change the roster or cadence.</sub>
+          EOF
+
+          gh issue create \
+            --title "$TITLE" \
+            --assignee "$OWNER" \
+            --label automated \
+            --body-file issue-body.md
