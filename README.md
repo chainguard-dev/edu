@@ -13,10 +13,16 @@ You can find the educational resource files in Markdown under the `content` dire
 
 This site is based on the [Doks Hugo theme](https://github.com/h-enk/doks).
 
-If you would like to develop this project, clone this repo and install dependencies with `npm`.
+If you would like to develop this project, clone this repo and install dependencies with `npm`. While it is common for local development to use `npm install`, we prefer `npm ci` (clean install) as it is completely strict and guarantees a reproducible build by installing the exact dependency tree. It's what we use in our automation for the site build and using it locally ensures you have exactly the same versions of everything as prod will have.
 
 ```sh
-npm install
+npm ci
+```
+
+Create your local build.
+
+```sh
+npm run build
 ```
 
 To run a local version of this site, use npm to start it.
@@ -25,7 +31,7 @@ To run a local version of this site, use npm to start it.
 npm run start
 ```
 
-You'll then navigate to `localhost:1313` within the web browser of your choice.
+Then navigate to `localhost:1313` while it is running using the web browser of your choice. To stop the server, use `Ctrl+C` in the terminal where it is running.
 
 ## Testing
 
