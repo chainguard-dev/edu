@@ -341,6 +341,10 @@ The fields below are what is available for policies whose resource type is `regi
 | `input.main_package_version` | object | Version metadata for the main package. Refer to the details below. |
 | `input.create_time` | string | When the image was created, as an RFC 3339 timestamp. Derived from the image's `org.opencontainers.image.created` annotation. |
 | `input.parameters` | object | Values for the parameters your policy declares. Refer to [Parameters](#parameters-in-custom-policies). |
+| `input.main_package_license` | string | Effective-license expression for the image's main package (SPDX identifiers, `AND`-composed over the effective-license closure). **Not yet populated at runtime — see the warning below.** |
+| `input.packages` | array | Every APK in the image, each carrying a `purl` and `license`. **Not yet populated at runtime — see the warning below.** |
+
+> **Warning:** `input.main_package_license` and `input.packages` are not yet populated at runtime, a custom policy referencing them today evaluates against empty values on every pull.
 
 `input.main_package_version` carries these fields:
 
@@ -745,6 +749,8 @@ At launch, the input document carries lifecycle data about the artifact's main p
 * `input.main_package_version` — version metadata, including `version`, `latestVersion`, `eolDate`, `releaseDate`, `exists`, `fips`, `lts`, `eolBroken`, and `versionSource`
 * `input.create_time` — the image creation timestamp, as RFC 3339
 * `input.parameters.<name>` — values for the parameters your policy declares
+* `input.main_package_license` — main-package effective-license expression (not yet populated)
+* `input.packages` — every APK's `purl` and `license` (not yet populated)
 
 The [input document reference](#the-input-document) has the full table with types and descriptions.
 
