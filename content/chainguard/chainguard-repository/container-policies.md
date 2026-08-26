@@ -8,7 +8,7 @@ linktitle: "Container pull policies"
 type: "article"
 description: "Configure and enforce policies that control which Chainguard container and artifact versions your organization can pull, using chainctl"
 date: 2026-05-21T08:48:45+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-08-26T19:27:38+00:00
 draft: false
 tags: ["Overview"]
 images: []
@@ -247,12 +247,12 @@ Waive a policy for a specific image, identified by digest, with a reason:
 ```shell
 chainctl policies override create \
   --policy=no-eol \
-  --digest=sha256:abc123... \
+  --artifact_id=sha256:abc123... \
   --reason="approved exception, ticket OPS-42" \
   --parent=$ORGANIZATION
 ```
 
-The `--digest` value must be a manifest digest rather than a tag, so the waiver targets one exact artifact. A given policy and image can carry at most one override; to change an existing one, delete it and create it again.
+The `--artifact_id` value must be a manifest digest rather than a tag, so the waiver targets one exact artifact. A given policy and image can carry at most one override; to change an existing one, delete it and create it again.
 
 Review the active overrides for an organization to see what has been waived, by whom, and why:
 
@@ -893,13 +893,13 @@ Create an override for each of the denied digests:
 ```shell
 chainctl policies override create \
   --policy=cooldown \
-  --digest=sha256:609aeb... \
+  --artifact_id=sha256:609aeb... \
   --reason="approved exception, ticket OPS-42" \
   --parent=$ORGANIZATION
 
 chainctl policies override create \
   --policy=cooldown \
-  --digest=sha256:db532b... \
+  --artifact_id=sha256:db532b... \
   --reason="approved exception, ticket OPS-42" \
   --parent=$ORGANIZATION
 ```
