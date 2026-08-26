@@ -5,7 +5,7 @@ lead: "A high-level introduction to Chainguard: the problem it solves, the produ
 description: "An overview of Chainguard: its mission to be the secure source for open source, its products (Containers, Libraries, and OS), and the Factory that builds them."
 type: "article"
 date: 2026-07-23T00:00:00+00:00
-lastmod: 2026-07-23T00:00:00+00:00
+lastmod: 2026-08-26T13:07:29+00:00
 draft: false
 tags: ["Getting Started"]
 images: []
@@ -53,3 +53,4 @@ Compared with using artifacts from public repositories, Chainguard gives you:
 - Ready to try an image? Work through a [container example](/get-started/containers-examples/) for your language or service.
 - Replacing dependencies instead? Start with the [libraries on-ramp](/get-started/libraries-examples/).
 - Moving existing workloads over? Step through the [migration guides](/chainguard/migration/).
+- Rolling Chainguard out to your teams? See how to [onboard your teams](/get-started/onboard-your-teams/).
