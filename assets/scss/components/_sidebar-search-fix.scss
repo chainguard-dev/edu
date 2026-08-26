@@ -108,26 +108,6 @@
     }
 }
 
-// Ensure proper spacing for mobile sidebar
-.offcanvas-body {
-    .search-container {
-        padding: 12px;
-        margin-bottom: 1rem;
-        width: 100%;
-        box-sizing: border-box;
-
-        .doks-search {
-            width: 100%;
-
-            .search.is-search {
-                width: 100%;
-                max-width: 100%;
-                box-sizing: border-box;
-            }
-        }
-    }
-}
-
 // Fix for sidebar width constraints
 .leftnav {
     .search-container {

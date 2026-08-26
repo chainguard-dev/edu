@@ -89,10 +89,6 @@ $navbar-dark-active-color: $link-color-dark;
   border-bottom: 0;
 }
 
-[data-dark-mode] body .offcanvas-header {
-  border-bottom: 1px solid $gray-800;
-}
-
 [data-dark-mode] body .offcanvas .nav-link {
   color: $body-color-dark;
 }

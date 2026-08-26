@@ -32,19 +32,16 @@
 }
 
 .offcanvas-header {
-  padding: 12px;
+  padding: 1rem 1.5rem;
   min-height: 68px;
   background-color: var(--board-background-color);
+  justify-content: space-between;
 }
 
 .offcanvas-body {
   background-color: var(--board-background-color) !important;
   color: var(--body-color) !important;
-  overflow-y: auto !important;
   overflow-x: hidden !important;
-  height: calc(100vh - 100px) !important;
-  max-height: calc(100vh - 100px) !important;
-  padding: 1rem !important;
 
   .leftnav-container {
     display: block !important;
@@ -78,6 +75,7 @@
     background-color: var(--board-background-color) !important;
     position: static !important;
     height: auto !important;
+    min-height: 300px !important;
     overflow: visible !important;
 
     >div {
@@ -87,11 +85,6 @@
       color: var(--body-color) !important;
       position: static !important;
     }
-  }
-
-  // Ensure text is visible
-  a, span, p, .sidebar-category, .sidebar-item, .sidebar-subcategory {
-    color: var(--body-color) !important;
   }
 }
 
@@ -287,17 +280,6 @@
       position: static !important;
     }
 
-    // Ensure all sidebar content is visible
-    .sidebar-category,
-    .sidebar-item,
-    .sidebar-subcategory,
-    .docs-link,
-    ul, li, a, span, p {
-      display: block !important;
-      visibility: visible !important;
-      color: var(--body-color) !important;
-    }
-
     // Make sure sidebar sections show
     .show, .collapse.show {
       display: block !important;
@@ -305,7 +287,6 @@
   }
 
   .leftnav,
-  .offcanvas-header,
   .sidebar-bottom {
     border: none !important;
   }
@@ -318,28 +299,6 @@
   .offcanvas .sidebar-bottom .toggle-icon,
   .offcanvas .sidebar-bottom .bottom-mode {
     display: none !important;
-  }
-
-  // Fix duplicate toggle icons in offcanvas header
-  .offcanvas-header {
-    .toggle-dark {
-      display: block !important;
-    }
-
-    .toggle-light {
-      display: none !important;
-    }
-  }
-
-  // In dark mode, swap the icons
-  :root[data-dark-mode] .offcanvas-header {
-    .toggle-dark {
-      display: none !important;
-    }
-
-    .toggle-light {
-      display: block !important;
-    }
   }
 
   .leftnav {

@@ -82,45 +82,6 @@
     }
 }
 
-// Mobile menu enhancements
-.offcanvas {
-    .offcanvas-header {
-        border-bottom: 1px solid rgba(20, 0, 61, 0.08);
-        padding: 1rem 1.5rem;
-
-        .btn-close {
-            opacity: 0.5;
-            transition: opacity 0.2s ease;
-
-            &:hover {
-                opacity: 1;
-            }
-        }
-    }
-
-    .offcanvas-body {
-        padding: 1.5rem;
-
-        .nav-link {
-            padding: 0.75rem 1rem;
-            margin-bottom: 0.25rem;
-            border-radius: 4px;
-            transition: all 0.2s ease;
-
-            &:hover {
-                background-color: rgba(117, 69, 251, 0.08);
-                transform: translateX(4px);
-            }
-
-            &.active {
-                background-color: rgba(117, 69, 251, 0.1);
-                color: var(--primary-1);
-                font-weight: 600;
-            }
-        }
-    }
-}
-
 // Language selector enhancement
 .language-selector {
     select {
