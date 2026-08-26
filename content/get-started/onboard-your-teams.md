@@ -5,7 +5,7 @@ lead: "Your organization has adopted Chainguard. This guide helps administrators
 description: "Onboard your teams to Chainguard Containers and Chainguard Libraries: what your organization can pull, how subscriptions differ, and how to retrieve SBOMs and provenance."
 type: "article"
 date: 2026-08-26T00:00:00+00:00
-lastmod: 2026-08-26T00:00:00+00:00
+lastmod: 2026-08-26T13:38:22+00:00
 draft: false
 tags: ["Getting Started"]
 images: []
@@ -17,7 +17,7 @@ Your organization has adopted Chainguard, and now you need to bring your teams o
 
 It's written for two readers:
 
-- **Platform and security administrators** who manage Chainguard for the organization and need to explain it to the teams they support. Early on, you may be the only people with Console access, so your teams rely on you to communicate how this works.
+- **Platform and security administrators** who manage Chainguard for the organization and need to explain it to the teams they support. Early on, you may be the only people with [Chainguard Console](/chainguard/platform/console/) access, so your teams rely on you to communicate how this works.
 - **Software engineers** who were pointed here and want to know how to find and pull the resources they're cleared to use.
 
 To decide where to start, identify which Chainguard products your organization uses; many use both. Read [Chainguard Containers](#chainguard-containers) if your teams pull container images, or [Chainguard Libraries](#chainguard-libraries) if they pull language dependencies for Java, Python, or JavaScript. Your administrators know which subscriptions apply.
@@ -44,7 +44,7 @@ Your organization may also front the registry with a pull-through cache, such as
 
 Whether an image is available to pull depends on your subscription. If a pull fails for an image you can see in the Directory, it most likely hasn't been added to your organization yet.
 
-**Catalog customers.** A Catalog subscription covers the full Chainguard catalog. Even so, only a subset of images is loaded into your organization's registry at any given time, and administrators add more as teams need them. To use an image that isn't there yet, find it in the [Chainguard Directory](https://images.chainguard.dev) and ask an administrator to add it. If you have the `owner` role, you can add it yourself from the Console; see [Catalog pricing](/chainguard/containers/about/pricing/) for the steps and the roles required.
+**Catalog customers.** A Catalog subscription covers the full Chainguard catalog. Even so, only a subset of images is loaded into your organization's registry at any given time, and administrators add more as teams need them. To use an image that isn't there yet, find it in the [Chainguard Directory](https://images.chainguard.dev) and ask an administrator to add it. If you have the `owner` role, you can add it yourself from the Console; refer to [Catalog pricing](/chainguard/containers/about/pricing/) for the steps and the roles required.
 
 **Per-image customers.** A per-image subscription covers a specific, licensed set of images rather than the whole catalog. You can browse everything in the Directory, but only your licensed images are permitted for builds, deployments, and production workloads. To add an image that isn't in your set, ask your administrators to start a request; once they approve it, they add the image to your organization's registry.
 
@@ -68,7 +68,7 @@ To pin what you pull so builds stay reproducible, reference images by digest. Se
 
 ## Chainguard Libraries
 
-Chainguard Libraries is a secure catalog of language dependencies for Java, Python, and JavaScript. Each package is rebuilt from verified upstream source in the Chainguard Factory and is a drop-in replacement for the one you'd normally pull from Maven Central, PyPI, or npm. See the [overview](/chainguard/libraries/overview/) for how they're built and what guarantees they carry.
+Chainguard Libraries is a secure catalog of language dependencies for Java, Python, and JavaScript. Each package goes through multiple layers of defense, including malicious behavior scanning, building from source, and configurable policies. A package pulled from Chainguard is a drop-in replacement for the one you'd normally pull from Maven Central, PyPI, or npm. See the [overview](/chainguard/libraries/overview/) for how they're built and what guarantees they carry.
 
 ### What your organization can access
 
@@ -88,7 +88,7 @@ The [quickstart](/chainguard/libraries/quickstart/) walks through creating a pul
 
 ### Verify provenance and SBOMs
 
-Every Chainguard library ships with a signed SBOM and SLSA provenance, attached alongside each package. Verify any artifact you've pulled with:
+Every package that Chainguard builds from source ships with a signed SBOM and SLSA provenance, attached alongside each package. Use a command similar to the following to verify which of your dependencies were built by Chainguard:
 
 ```shell
 chainctl libraries verify /path/to/artifact
