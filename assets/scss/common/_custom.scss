@@ -75,20 +75,6 @@ html[data-dark-mode] .logo-purple {
             overflow-y: auto;
         }
     }
-
-    // Force offcanvas menu to show content
-    .offcanvas-body {
-        .sidebar-category {
-            color: var(--body-color) !important;
-            display: block !important;
-            font-weight: bold !important;
-            margin: 10px 0 !important;
-        }
-
-        #sidebar-default {
-            min-height: 300px !important;
-        }
-    }
 }
 
 .docs-content {
@@ -781,6 +767,16 @@ header .search-container {
 .toggle-dark,
 .toggle-light {
     line-height: 17px;
+}
+
+// Show only the mode-toggle icon for the opposite theme
+.toggle-light,
+[data-dark-mode] .toggle-dark {
+    display: none;
+}
+
+[data-dark-mode] .toggle-light {
+    display: block;
 }
 
 // Fix toggle visibility - remove conflicting rules
