@@ -871,9 +871,30 @@
         },
         "type": "object"
       },
+      "chainguard.platform.argos.ChainguardExtension": {
+        "description": "ChainguardExtension is the Chainguard-artifact section of an Affected\nentry's database_specific: artifacts distributed through Chainguard\nLibraries whose vulnerability status has diverged from the upstream version\nthey were built from.",
+        "properties": {
+          "fixed_artifacts": {
+            "description": "fixed_artifacts lists the exact published Chainguard rebuilds that\ncontain a fix for this vulnerability, ordered by purl.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.argos.FixedArtifact"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.argos.DatabaseSpecific": {
         "description": "DatabaseSpecific is the Chainguard database-owned extension on an Affected\nentry: the atomic-vulnerability classification and sink location for the\nrecord. Field names are pinned to OSV-spec snake_case via json_name.",
         "properties": {
+          "chainguard": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.argos.ChainguardExtension"
+              }
+            ],
+            "description": "chainguard carries the Chainguard-artifact claims that are deliberately\nkept out of the OSV ranges: the exact published Chainguard rebuilds that\ncontain a fix for this vulnerability. The `ranges` on the Affected entry\nstay authoritative for public upstream releases only; a Chainguard\nartifact inherits the vulnerability status of the upstream version it was\nbuilt from unless it is named here."
+          },
           "cwe_ids": {
             "description": "cwe_ids is the ordered list of CWE classifications; the lead (most\nspecific) CWE is cwe_ids[0].",
             "items": {
@@ -937,6 +958,20 @@
             "type": "string"
           },
           "limit": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.FixedArtifact": {
+        "description": "FixedArtifact names one published Chainguard rebuild containing a fix.",
+        "properties": {
+          "purl": {
+            "description": "purl is the exact versioned package URL of the published rebuild, e.g.\n\"pkg:maven/io.netty/netty-codec-dns@1.4.2-0.cgp.1\".",
+            "type": "string"
+          },
+          "upstream_version": {
+            "description": "upstream_version is the public upstream version the rebuild was built\nfrom, e.g. \"1.4.2\" — the version whose vulnerability status the artifact\nwould inherit had Chainguard not applied the fix. Empty when the\npublished version does not carry a recognized rebuild suffix.",
             "type": "string"
           }
         },
@@ -4582,6 +4617,10 @@
       "chainguard.platform.policies.v1.Override": {
         "description": "Override is an admin-granted waiver of a policy decision for one specific\nimage. It does not change the policy or its binding; it records a deliberate,\nattributable exception applied by the engine after evaluation.",
         "properties": {
+          "artifactId": {
+            "description": "The artifact this override waives: a manifest digest for container\npolicies (\"sha256:abc123...\") or a PURL for library policies\n(\"pkg:npm/left-pad@1.3.0\"). Which form is expected follows from the\npolicy's supported_resource_type — there is no separate discriminator.\nExactly one of artifact_id or the deprecated digest may be set on create.",
+            "type": "string"
+          },
           "createdAt": {
             "description": "When the override was created.",
             "format": "date-time",
@@ -4594,7 +4633,7 @@
             "type": "string"
           },
           "digest": {
-            "description": "The image manifest digest this override waives (e.g. \"sha256:abc123...\").",
+            "description": "Deprecated: use artifact_id. Populated with the artifact_id value so\nexisting clients keep working.",
             "type": "string"
           },
           "id": {

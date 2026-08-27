@@ -1,5 +1,5 @@
 ---
-date: 2026-08-24T17:35:47Z
+date: 2026-08-26T22:44:37Z
 title: "chainctl policies decision list"
 slug: chainctl_policies_decision_list
 url: /platform/chainctl/chainctl-docs/chainctl_policies_decision_list/
