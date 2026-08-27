@@ -28,7 +28,7 @@ crosslinks:
 
 Already using Chainguard and ready to move existing workloads over? Start with the product you're migrating.
 
-## Migrate containers
+## Migrate to Chainguard Containers
 
 Replace the base images in your Dockerfiles with Chainguard Containers. Because Chainguard Containers are minimal — most have no shell or package manager — migration usually means adjusting how your image installs dependencies, which user it runs as, and what its entrypoint expects.
 
@@ -39,7 +39,7 @@ Replace the base images in your Dockerfiles with Chainguard Containers. Because 
 - **[Compatibility guides](/chainguard/containers/migration/compatibility/)** — what changes when moving from Alpine, Debian, Red Hat, or Ubuntu.
 - **[Language and platform guides](/chainguard/containers/migration/migration-guides/)** — Python, Node, PHP, .NET, Go, and Java.
 
-## Migrate libraries
+## Migrate to Chainguard Libraries
 
 Point your package manager at Chainguard Libraries and reinstall. Libraries are rebuilt from verified source as drop-in replacements, so migration is a configuration change rather than a code change.
 
