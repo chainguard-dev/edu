@@ -38,7 +38,11 @@ Before you can use a chart, it must be added to your organization. Catalog custo
 
 The following is an instructional guide for Chainguard users that are looking for Helm charts to use with their Chainguard container images.
 
-You can use these Helm charts with Chainguard FIPS container images, but you will need to adjust the charts as they use the non-FIPS images by default. We build a single chart per application and validate that both FIPS and non-FIPS Chainguard Images work with it.
+You can use these Helm charts with Chainguard FIPS container images by choosing a FIPS chart version during install. For example:
+
+```
+helm install --version 3-fips ...
+```
 
 ## How chart updates deliver image updates
 
