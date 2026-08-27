@@ -3,6 +3,23 @@ terraform {
     bucket = "chainguard-academy-terraform-state"
     prefix = "/ng-academy"
   }
+
+  # Pin below google v8: v8.0.0 changed the default load_balancing_scheme on
+  # google_compute_backend_service / google_compute_global_forwarding_rule from
+  # EXTERNAL to EXTERNAL_MANAGED. The serverless-gclb module leaves the field
+  # unset, so v8 plans an in-place classic->managed ALB flip that the GCP API
+  # rejects without its guided migration (CUS-1229). Remove once the backends
+  # are migrated to EXTERNAL_MANAGED.
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "~> 7.0"
+    }
+    google-beta = {
+      source  = "hashicorp/google-beta"
+      version = "~> 7.0"
+    }
+  }
 }
 
 provider "google" { project = var.project_id }
