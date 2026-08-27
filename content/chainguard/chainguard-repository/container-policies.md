@@ -8,7 +8,7 @@ linktitle: "Container pull policies"
 type: "article"
 description: "Configure and enforce policies that control which Chainguard container and artifact versions your organization can pull, using chainctl"
 date: 2026-05-21T08:48:45+00:00
-lastmod: 2026-08-26T19:27:38+00:00
+lastmod: 2026-08-27T18:04:21+00:00
 draft: false
 tags: ["Overview"]
 images: []
@@ -252,7 +252,7 @@ chainctl policies override create \
   --parent=$ORGANIZATION
 ```
 
-The `--artifact_id` value must be a manifest digest rather than a tag, so the waiver targets one exact artifact. A given policy and image can carry at most one override; to change an existing one, delete it and create it again.
+The `--artifact_id` value must be a manifest digest rather than a tag, so the waiver targets one exact artifact. A given policy and image can carry at most one override; to change an existing one, delete it and create it again. For `chainctl` versions 0.2.337 and earlier, use the `--digest` tag instead of `--artifact_id`.
 
 Review the active overrides for an organization to see what has been waived, by whom, and why:
 
