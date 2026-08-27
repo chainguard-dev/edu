@@ -1,17 +1,51 @@
 ---
 date: 2026-08-26T22:44:37Z
-title: "chainctl images repos"
-slug: chainctl_images_repos
-url: /platform/chainctl/chainctl-docs/chainctl_images_repos/
+title: "chainctl images catalog"
+slug: chainctl_images_catalog
+url: /platform/chainctl/chainctl-docs/chainctl_images_catalog/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl images repos
+## chainctl images catalog
 
-Image repo related commands for the Chainguard platform.
+List the Chainguard Images catalog.
+
+### Synopsis
+
+List the Chainguard Images catalog.
+
+Shows every image Chainguard publishes, along with the upstream images each one
+replaces. This is the full catalog, not the images your organization is
+entitled to pull: use 'chainctl images repos list' for that.
+
+--name matches any image whose name contains the given text, so --name jdk
+finds both "jdk" and "adoptium-jdk".
+
+In a terminal the catalog is shown a page at a time and --limit sets the page
+size, so the whole catalog stays reachable. When the output is piped or JSON,
+--limit is the maximum number of images returned.
+
+```
+chainctl images catalog
+```
+
+### Examples
+
+```
+  chainctl images catalog
+  chainctl images catalog --name postgres
+  chainctl images catalog --limit 200 -o json
+```
+
+### Options
+
+```
+      --limit int32   The number of images per page in an interactive terminal; otherwise the maximum number to return. (default 50)
+      --name string   Show only images whose name contains this substring.
+```
 
 ### Options inherited from parent commands
 
@@ -31,9 +65,4 @@ Image repo related commands for the Chainguard platform.
 ### SEE ALSO
 
 * [chainctl images](/platform/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
-* [chainctl images repos build](/platform/chainctl/chainctl-docs/chainctl_images_repos_build/)	 - Manage custom image builds
-* [chainctl images repos create](/platform/chainctl/chainctl-docs/chainctl_images_repos_create/)	 - Create an image repository.
-* [chainctl images repos delete](/platform/chainctl/chainctl-docs/chainctl_images_repos_delete/)	 - Remove an image repository.
-* [chainctl images repos list](/platform/chainctl/chainctl-docs/chainctl_images_repos_list/)	 - List image repositories.
-* [chainctl images repos update](/platform/chainctl/chainctl-docs/chainctl_images_repos_update/)	 - Update image repositories.
 
