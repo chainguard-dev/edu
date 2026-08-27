@@ -1,6 +1,7 @@
 ---
 aliases:
 - /chainguard/migration/migration-tips/
+- /get-started/migration/migration-tips/
 title: "Tips for migrating to Chainguard Containers"
 linktitle: "Migration tips"
 type: "article"
@@ -233,7 +234,7 @@ Container images are usually meant to support every possible use case. Because o
 
 Chainguard Containers are built with minimalism in mind, and thus contain the bare minimum packages needed for an image to function. However, this also means that Chainguard Containers may not contain the packages that you'd expect to find in third-party alternatives.
 
-If a Chainguard Container is missing certain packages that are required for your application, we recommend using a base image and installing the required dependencies on top of it, preferably in a multi-stage Docker build. Our guides on [How to use Chainguard Containers](/chainguard/containers/how-to-use-chainguard-images/#extending-chainguard-base-containers) and [Getting started with distroless](/chainguard/migration/migrations-overview/) include guidance on how you can extend Chainguard base images.
+If a Chainguard Container is missing certain packages that are required for your application, we recommend using a base image and installing the required dependencies on top of it, preferably in a multi-stage Docker build. Our guides on [How to use Chainguard Containers](/chainguard/containers/how-to-use-chainguard-images/#extending-chainguard-base-containers) and [Getting started with distroless](/chainguard/containers/migration/migrations-overview/) include guidance on how you can extend Chainguard base images.
 
 For a number of our most popular Containers, Chainguard offers a *full* variant (tagged `-full`) that maps to the upstream image, including the packages you'd expect from the third-party alternative. If a full variant is available for an image you're migrating, it can serve as a low-friction starting point while you determine which packages your workload actually needs. Refer to [Full container variants](/chainguard/containers/about/differences-development-production/#full-container-variants) for details.
 
@@ -245,4 +246,4 @@ In some cases you may have Docker builds that copy in binaries to run agents or 
 
 ## Learn more
 
-For more resources on migrating to Chainguard Containers, please refer to our [Containers migration documentation](/chainguard/migration/). In particular, our [Migration overview](/chainguard/migration/migrations-overview/) may be of interest. Chainguard Academy also hosts a number of [Compatibility resources](/chainguard/migration/compatibility/) and [Migration guides](/chainguard/migration/migration-guides/) for specific platforms and tools.
+For more resources on migrating to Chainguard Containers, please refer to our [Containers migration documentation](/chainguard/containers/migration/). In particular, our [Migration overview](/chainguard/containers/migration/migrations-overview/) may be of interest. Chainguard Academy also hosts a number of [Compatibility resources](/chainguard/containers/migration/compatibility/) and [Migration guides](/chainguard/containers/migration/migration-guides/) for specific platforms and tools.

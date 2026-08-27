@@ -1,6 +1,7 @@
 ---
 aliases:
 - /chainguard/migration/migration-guides/migrating-dotnet/
+- /get-started/migration/migration-guides/migrating-dotnet/
 title: "Migrating to .NET Chainguard Containers"
 linktitle: ".NET"
 type: "article"
@@ -383,5 +384,5 @@ These small changes result in containerized applications with few-to-zero vulner
 For detailed information about Chainguard's .NET container images and additional configuration options, refer to the following resources:
 
 - The [.NET SDK](https://images.chainguard.dev/directory/image/dotnet-sdk/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-dotnet) and [.NET Runtime](https://images.chainguard.dev/directory/image/dotnet-runtime/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-dotnet) documentation pages contain full details on Chainguard's .NET images, including usage documentation, provenance, and security advisories.
-- Our [General migration guidance](/chainguard/migration/migrating-to-chainguard-images/) is helpful for understanding migration best practices.
-- [The Guardener](/chainguard/migration/the-guardener/) is an AI-powered agent that iteratively converts, builds, and validates your Dockerfiles for use with Chainguard Containers.
+- Our [General migration guidance](/chainguard/containers/migration/migrating-to-chainguard-images/) is helpful for understanding migration best practices.
+- [The Guardener](/chainguard/guardener/dockerfile-migration/) is an AI-powered agent that iteratively converts, builds, and validates your Dockerfiles for use with Chainguard Containers.

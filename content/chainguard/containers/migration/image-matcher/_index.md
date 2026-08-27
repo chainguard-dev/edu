@@ -1,6 +1,7 @@
 ---
 aliases:
 - /chainguard/migration/image-matcher/
+- /get-started/migration/image-matcher/
 title: "Image Matcher"
 linktitle: "Image Matcher"
 description: "Use the Chainguard Image Matcher API to find the closest Chainguard equivalent for an existing container image."

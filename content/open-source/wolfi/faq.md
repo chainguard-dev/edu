@@ -37,7 +37,7 @@ No, it's not possible to mix Alpine apks with Wolfi apks. If your image requires
 
 ## How can I find which packages are available in Wolfi?
 
-You can search for available packages using the `apk search` command from within a Wolfi container, as explained in the [Searching for packages](https://edu.chainguard.dev/chainguard/migration/migrating-to-chainguard-images/#searching-for-packages) section of our Migrating to Chainguard Containers guide. You can also use our [APK Explorer](https://apk.dag.dev/) tool for a web-based search on the Wolfi repositories.
+You can search for available packages using the `apk search` command from within a Wolfi container, as explained in the [Searching for packages](https://edu.chainguard.dev/chainguard/containers/migration/migrating-to-chainguard-images/#searching-for-packages) section of our Migrating to Chainguard Containers guide. You can also use our [APK Explorer](https://apk.dag.dev/) tool for a web-based search on the Wolfi repositories.
 
 ## Can I use Wolfi on the desktop?
 

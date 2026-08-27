@@ -29,4 +29,4 @@ Already adopted Chainguard and need to bring your developers on board? Learn wha
 
 ## Migrate an organization
 
-Already convinced and ready to move existing workloads over? Step through the [migration guides](/chainguard/migration/).
+Already convinced and ready to move existing workloads over? Step through the [migration guides](/get-started/migration/).

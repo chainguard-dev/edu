@@ -1,6 +1,7 @@
 ---
 aliases:
 - /chainguard/migration/migration-checklist/
+- /get-started/migration/migration-checklist/
 title: "Migration best practices and checklist"
 linktitle: "Migration checklist"
 type: "article"
@@ -40,4 +41,4 @@ Chainguard container images are designed to be minimal and to include special fe
 - [ ] Build and test your image to validate your setup.
 - [ ] Optional: migrate your setup to a multi-stage build that uses a distroless image variant as runtime. Our [Getting started with distroless](https://edu.chainguard.dev/chainguard/containers/about/getting-started-distroless/) guide has detailed information on how to work with distroless images and multi-stage builds.
 
-For detailed migration guidance, please refer to our [Migration docs](https://edu.chainguard.dev/chainguard/migration/) on Chainguard Academy. For troubleshooting, check our [Debugging distroless containers](https://edu.chainguard.dev/chainguard/containers/troubleshooting/debugging-distroless-images/) resource.
+For detailed migration guidance, please refer to our [Migration docs](https://edu.chainguard.dev/chainguard/containers/migration/) on Chainguard Academy. For troubleshooting, check our [Debugging distroless containers](https://edu.chainguard.dev/chainguard/containers/troubleshooting/debugging-distroless-images/) resource.

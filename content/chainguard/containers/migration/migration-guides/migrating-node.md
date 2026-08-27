@@ -5,6 +5,7 @@ aliases:
 - /chainguard/migration-guides/migrating-node/
 - /chainguard/migration/migrating-node/
 - /chainguard/migration/migration-guides/migrating-node/
+- /get-started/migration/migration-guides/migrating-node/
 type: "article"
 description: "Learn how to migrate Node.js applications to Chainguard Containers for reduced vulnerabilities, smaller image sizes, and automated security patching"
 date: 2024-05-09T15:56:52-07:00
@@ -59,7 +60,7 @@ images](/chainguard/containers/getting-started-distroless/).
 Dockerfiles will often contain commands specific to the Linux Distribution they are based on. Most
 commonly this will be package installation instructions (e.g. `apt` vs `yum` vs `apk`) but also
 differences in default shell (e.g. `bash` vs `ash`) and default utilities (e.g. `groupadd` vs `addgroup`).
-Our high-level guide on [Migrating to Chainguard Containers](/chainguard/migration/migrating-to-chainguard-images/)
+Our high-level guide on [Migrating to Chainguard Containers](/chainguard/containers/migration/migrating-to-chainguard-images/)
 contains details about distro-based migration and package compatibility when migrating from Debian,
 Alpine, Ubuntu and Red Hat UBI base images.
 
@@ -94,7 +95,7 @@ py3-cairo-dev-1.26.0-r0
 
 These packages can then be easily added to your Dockerfile.
 For more searching tips, check the [Searching for
-Packages](/chainguard/migration/migrating-to-chainguard-images/#searching-for-packages)
+Packages](/chainguard/containers/migration/migrating-to-chainguard-images/#searching-for-packages)
 section of our base migration guide.
 
 ## Differences from the official Docker image
@@ -252,7 +253,7 @@ contains full details on our images, including usage documentation, provenance a
 advisories.
 
 - The [How to Port a Sample Application to Chainguard
-Containers](/chainguard/migration/porting-apps-to-chainguard/) article contains an example of porting a
+Containers](/chainguard/containers/migration/porting-apps-to-chainguard/) article contains an example of porting a
 Node.js Dockerfile for a legacy application.
 
 - The [How to migrate a Node.js application to Chainguard Containers](https://edu.chainguard.dev/chainguard/containers/videos/node-images/) video works through an example of porting a Node.js Dockerfile.

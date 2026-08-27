@@ -52,5 +52,5 @@ Compared with using artifacts from public repositories, Chainguard gives you:
 
 - Ready to try an image? Work through a [container example](/get-started/containers-examples/) for your language or service.
 - Replacing dependencies instead? Start with the [libraries on-ramp](/get-started/libraries-examples/).
-- Moving existing workloads over? Step through the [migration guides](/chainguard/migration/).
+- Moving existing workloads over? Step through the [migration guides](/get-started/migration/).
 - Rolling Chainguard out to your teams? See how to [onboard your teams](/get-started/onboard-your-teams/).

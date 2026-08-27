@@ -145,7 +145,7 @@ docker run --rm --entrypoint sh cgr.dev/chainguard/node:latest-dev -c "apk --ver
 apk-tools 2.14.10, compiled for x86_64.
 ```
 
-To keep a small attack surface in production, install dependencies and compile artifacts in the development variant, then copy the results into the standard variant with a multi-stage build. Refer to [Development and production container variants](/chainguard/containers/about/differences-development-production/) for how the variants differ, and to [porting a sample application](/get-started/migration/porting-apps-to-chainguard/) for a multi-stage example.
+To keep a small attack surface in production, install dependencies and compile artifacts in the development variant, then copy the results into the standard variant with a multi-stage build. Refer to [Development and production container variants](/chainguard/containers/about/differences-development-production/) for how the variants differ, and to [porting a sample application](/chainguard/containers/migration/porting-apps-to-chainguard/) for a multi-stage example.
 
 ## Step 4: Verify the container and inspect its SBOM
 

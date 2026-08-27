@@ -5,6 +5,7 @@ aliases:
 - /chainguard/migration-guides/migrating-python/
 - /chainguard/migration/migrating-python/
 - /chainguard/migration/migration-guides/migrating-python/
+- /get-started/migration/migration-guides/migrating-python/
 type: "article"
 description: "Learn how to migrate Python applications to Chainguard Containers for enhanced security posture, reduced CVEs, and streamlined dependency management"
 date: 2024-05-02T15:06:00-07:00
@@ -133,7 +134,7 @@ If your project image requires a set of packages that cannot be installed with p
 
 ## Additional resources
 
-You may wish to refer to the [Python microservice example](/chainguard/migration/porting-apps-to-chainguard/#updating-the-python-microservice) in the [porting a sample application guide](/chainguard/migration/porting-apps-to-chainguard/) as an additional useful reference while migrating your application.
+You may wish to refer to the [Python microservice example](/chainguard/containers/migration/porting-apps-to-chainguard/#updating-the-python-microservice) in the [porting a sample application guide](/chainguard/containers/migration/porting-apps-to-chainguard/) as an additional useful reference while migrating your application.
 
 Debugging distroless containers can be a challenge given their lack of interactive tools such as shells. If you're having difficulty debugging issues with your multi-stage build, you may find the [Debugging distroless](/chainguard/containers/debugging-distroless-images/) guide a useful resource.
 

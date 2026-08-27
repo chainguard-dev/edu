@@ -4,6 +4,7 @@ linktitle: "Migration guides"
 aliases:
 - /chainguard/migration-guides
 - /chainguard/migration/migration-guides/
+- /get-started/migration/migration-guides/
 description: "Language- or platform-specific tutorials outlining how you can migrate applications to Chainguard Containers."
 type: "article"
 date: 2025-01-16T18:42:57+00:00

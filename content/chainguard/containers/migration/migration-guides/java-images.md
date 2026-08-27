@@ -6,6 +6,7 @@ aliases:
 - /chainguard/chainguard-images/videos/java-images/
 - /chainguard/migration/java-images/
 - /chainguard/containers/videos/java-images/
+- /get-started/migration/migration-guides/java-images/
 lead: "Chainguard's Java containers enable seamless migration from traditional Java base images while providing enhanced security posture and significantly smaller image sizes."
 description: "Learn how to migrate Java applications to Chainguard Containers for reduced vulnerabilities, smaller images, and comprehensive JDK/JRE support with daily security updates"
 type: "article"

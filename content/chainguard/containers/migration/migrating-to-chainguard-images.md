@@ -4,6 +4,7 @@ linktitle: "Migrating Dockerfiles"
 aliases:
 - /chainguard/migration-guides/migrating-to-chainguard-images/
 - /chainguard/migration/migrating-to-chainguard-images/
+- /get-started/migration/migrating-to-chainguard-images/
 type: "article"
 description: "Learn how to migrate existing Dockerfiles to Chainguard Containers for improved security, including package compatibility, multi-stage builds, and distro-specific considerations"
 date: 2024-03-25T15:56:52-07:00
@@ -40,11 +41,11 @@ If you are coming from a Debian-based Dockerfile, you'll need to adapt some of y
 | Remove a package             | `apt remove`            | `apk del`              |
 | Update package manager cache | `apt update`            | `apk update`           |
 
-Our [Debian compatibility](/chainguard/migration/debian-compatibility/) page has a table listing common tools and their corresponding package(s) in both Wolfi and Debian distributions. For Ubuntu-based Dockerfiles, check our [Ubuntu compatibility](/chainguard/migration/ubuntu-compatibility/) page.
+Our [Debian compatibility](/chainguard/containers/migration/compatibility/debian-compatibility/) page has a table listing common tools and their corresponding package(s) in both Wolfi and Debian distributions. For Ubuntu-based Dockerfiles, check our [Ubuntu compatibility](/chainguard/containers/migration/compatibility/ubuntu-compatibility/) page.
 
 ## Migrating from Red Hat UBI Dockerfiles
 
-If you are coming from a Red Hat UBI (Universal Base Image) Dockerfile, you'll also need to adapt some of your commands to be compatible with the apk ecosystem. Wolfi uses BusyBox utilities, which offer a smaller footprint compared to GNU coreutils in Red Hat images. Our [Red Hat compatibility](/chainguard/migration/red-hat-compatibility/) page has a table listing common tools and their corresponding package(s) in both Wolfi and Red Hat distributions.
+If you are coming from a Red Hat UBI (Universal Base Image) Dockerfile, you'll also need to adapt some of your commands to be compatible with the apk ecosystem. Wolfi uses BusyBox utilities, which offer a smaller footprint compared to GNU coreutils in Red Hat images. Our [Red Hat compatibility](/chainguard/containers/migration/compatibility/red-hat-compatibility/) page has a table listing common tools and their corresponding package(s) in both Wolfi and Red Hat distributions.
 
 If you are coming from a Red Hat UBI based Dockerfile, you'll need to adapt some of your commands to be compatible with the apk ecosystem:
 
@@ -56,7 +57,7 @@ If you are coming from a Red Hat UBI based Dockerfile, you'll need to adapt some
 
 ## Migrating from Alpine Dockerfiles
 
-If your Dockerfile is based on Alpine, the process for migrating to Chainguard Containers should be more straightforward, since you're already using `apk` commands. Wolfi packages typically match what is available in Alpine, with some exceptions. For instance, the Wolfi busybox package is slimmer and doesn't include all tools available in Alpine's busybox. Check the [Alpine compatibility](/chainguard/migration/alpine-compatibility/) page for a list of common tools and their corresponding packages in Wolfi and Alpine.
+If your Dockerfile is based on Alpine, the process for migrating to Chainguard Containers should be more straightforward, since you're already using `apk` commands. Wolfi packages typically match what is available in Alpine, with some exceptions. For instance, the Wolfi busybox package is slimmer and doesn't include all tools available in Alpine's busybox. Check the [Alpine compatibility](/chainguard/containers/migration/compatibility/alpine-compatibility/) page for a list of common tools and their corresponding packages in Wolfi and Alpine.
 
 Be aware that binaries are not compatible between Alpine and Wolfi. You **should not** attempt to copy Alpine binaries into a Wolfi-based container image.
 
@@ -158,4 +159,4 @@ Our [Getting started guides](/chainguard/containers/getting-started/) have detai
 
 If you can't find an image that is a good match for your use case, or if your build has dependencies that cannot be met with the regular catalog, [get in touch with us](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) for alternative options.
 
-To automate the process of migrating your Dockerfiles, check out [The Guardener](/chainguard/migration/the-guardener/), an AI-powered agent that iteratively converts, builds, and validates your Dockerfiles for use with Chainguard Containers.
+To automate the process of migrating your Dockerfiles, check out [The Guardener](/chainguard/guardener/dockerfile-migration/), an AI-powered agent that iteratively converts, builds, and validates your Dockerfiles for use with Chainguard Containers.
