@@ -1,10 +1,10 @@
 ---
-title: "Managem and update dependencies"
-linktitle: "Management"
+title: "Manage and update dependencies"
+linktitle: "Dependency maintenance"
 description: "Manage Chainguard Libraries for Java dependencies after setup, including verification, cache refreshes, and checksum changes."
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-26T19:18:25+00:00
+lastmod: 2026-08-27T14:20:23+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java"]
 images: []
@@ -16,7 +16,7 @@ weight: 053
 toc: true
 ---
 
-Chainguard Libraries for Java operates transparently after configuring your [repository manager](/chainguard/libraries/java/global-configuration/) or [your build tool](/chainguard/libraries/java/build-configuration/), automatically providing security-enhanced versions of your Maven dependencies. New artifacts and versions are retrieved from Chainguard's hardened repository when available, while Maven Central and other configured repositories provide fallback access to ensure continuous development workflow without interruption.
+Chainguard Libraries for Java operates transparently after configuring your [repository manager](/chainguard/libraries/java/global-configuration/) or [your build tool](/chainguard/libraries/java/build-configuration/), automatically providing security-enhanced versions of your Maven dependencies.
 
 Chainguard Libraries serves Chainguard-built artifacts when they are available. Existing artifacts may already be present in a developer’s local Maven cache or in a repository manager cache, so a previously downloaded upstream artifact is not automatically replaced just because a Chainguard-built equivalent becomes available.
 
@@ -25,76 +25,56 @@ steps on the repository manager and the build tool.
 
 <a id="java-verification"></a>
 
-## Source verification
+## Verify dependencies
 
-Use [chainver](/chainguard/libraries/verification/) to verify that a specific
-library or file originates from Chainguard in an automated fashion or follow the
-steps in this section for manual verification.
+Use `chainctl libraries verify` to check whether an artifact comes from Chainguard Libraries:
 
-You can verify what artifacts are retrieved from the Chainguard Libraries
-repository on a global level:
-
-* Browse the `chainguard` proxy repository on your Artifactory or Nexus server.
-* Access the **Packages** tab of the repository on your Cloudsmith instance.
-  Filter the package list with the tag value with the name for your upstream
-  proxy for Chainguard, for example `tag:chainguard`. The tag uses the name of
-  the upstream proxy, with spaces replaced with dashes.
-
-Use the browsing access to locate specific artifacts and identify their name,
-file size, checksum values, timestamp and other identifiers. With these details
-you can verify your libraries use in the following locations:
-
-* Local cache repositories on developer workstation
-* Cache repositories in your CI pipeline
-* Libraries in your application bundles
-* Installed applications on your hosts or in your container images
-
-A uniquely identifying characteristic of library artifacts are their checksums.
-Contrary to filenames and timestamps, checksums do not change in the use of
-libraries during an application build or the assembly of a deployment artifact
-like a tarball or container. This allows you to identify a library artifact by
-determining the checksum and then locating it in your repository manager.
-
-Calculate the different commonly used sums for a file `example.jar` with the
-following commands and output examples:
-
-```
-$ sha1sum example.jar
-aea83e64ebec6a37e0be100f968a55fb381143c2  example.jar
-
-$ sha256sum example.jar
-87a25c44e0fdb0c71e898c57f67b236d2205bfa76a25dbbb9779ebe2f93e787e  example.jar
-
-$ md5sum example.jar
-fefd660ddc795900d48bdf49c17b3135  example.jar
+```bash
+chainctl libraries verify path/to/artifact.jar
 ```
 
-Use the search features in your repository manager, such as Sonatype Nexus, to
-locate the library. For the specific example, you find that the checksums
-correspond to the file `junit-4.13.2.jar` found in `junit/junit/4.13.2/` and
-that the artifact is found in the `chainguard` proxy repository. You can
-therefore conclude that the `example.jar` file originates from Chainguard, was
-built in the Chainguard Factory from source, and is available at
-`https://libraries.cgr.dev/java/junit/junit/4.13.2/junit-4.13.2.jar`. You can
-[manually download the file to
-compare](/chainguard/libraries/java/overview/#manual), if desired.
+For Java, run verification against the individual JAR files in the local Maven repository cache before assembling a fat JAR or other bundled artifact. The verifier identifies artifacts using their checksums and provenance information; it cannot reliably trace merged classes in a fat JAR back to their source JARs.
 
-## Increase Chainguard Libraries use
+For command options, permissions, and supported artifact types, refer to the [Verification documentation](/chainguard/libraries/verification/).
+
+### Inspect artifacts in a repository manager
+
+If your organization uses a repository manager, you can inspect the Chainguard proxy or remote repository to audit which artifacts were retrieved through Chainguard Libraries. Use the repository manager’s package or browsing view to locate an artifact and compare its coordinates, file name, size, checksum, and available metadata.
+
+Refer to the [Verification page](/chainguard/libraries/java/global-configuration/) for more information on verifying artifacts in a repository manager.
+
+## Refresh cached artifacts
 
 The number of available artifacts in Chainguard Libraries for Java increases
 over time. If an artifact was already retrieved from the Maven Central
 Repository and is available in your repository manager or local repository it is
 not automatically replaced with the equivalent Chainguard Library version.
 
-You can force a download of new libraries by erasing them from your local
-repositories on your workstations and the Maven Central proxy repository in your
-repository manager. Both these repositories are caches only and it is therefore
-safe to delete them.
+To adopt a newer Chainguard-built artifact, check out the [build pinning documentation](/libraries/build-pinning/#adopt-a-chainguard-build-after-removing-a-pin) for instructions on remove existing pinned builds.
 
-After the deletion any new build retrieves the artifact again and attempts to
-download from the Chainguard repository. As a result, newly available artifacts
-replace old artifacts that originated from Maven Central and your use of
-Chainguard Libraries increased.
+Refreshing cached artifacts may also be necessary to solve other issues, such as stale or corrupted artifacts or metadata, repository configuration changes, and resolution troubleshooting. To refresh the same artifact your organization is already using:
 
-For a more fine-grained approach you can also delete subsections of local
-repositories and the proxy repositories.
+1. Remove the affected artifact from the developer’s local Maven cache.
+1. If applicable, remove the affected artifact from the repository manager’s proxy cache, following your organization’s cache-management procedure.
+1. Run the build again so Maven requests the artifact from the configured Chainguard Libraries repository.
+1. Verify the resulting JARs with `chainctl libraries verify`.
+
+If an exact package version is pinned, Chainguard continues to serve the pinned artifact after the cache is refreshed.
+
+Prefer removing only the affected artifact or dependency subtree. Avoid broadly deleting production or shared caches unless you understand the operational impact and have a recovery plan.
+
+### Prepare for checksum changes
+
+A checksum identifies the exact bytes of a library artifact. Chainguard-built artifacts have different checksums from upstream artifacts with the same Maven coordinates and version because they are rebuilt in a secured environment.
+
+During initial migratio if your project records checksums or integrity values, update those values as part of migration or cache refresh, then run your normal tests and verification checks. For a full migration sequence, including cache and project-configuration handling, check out the [migration guide for Chainguard Libraries for Java](/chainguard/libraries/java/migration/).
+
+For organizations that use Chainguard's [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls/), build pinning keeps the exact artifact previously served for that package version. This prevents a later Chainguard rebuild from unexpectedly changing the checksum. You must remove the pin to adopt a newer Chainguard build. Refer to [Build pinning](/chainguard/libraries/build-pinning/) for more information.
+
+## Security and policy guidance
+
+Refer to the following pages for topics broader than routine dependency maintenance:
+
+- [CVE remediation for Chainguard Libraries](/chainguard/libraries/cve-remediation/) for remediated library versions and upgrade guidance.
+- [Chainguard Libraries policies](/chainguard/chainguard-repository/library-policies/) for upstream fallback, cooldown, and package-serving policy.
+- [Error messages](/chainguard/libraries/errors/) and the [Chainguard Libraries FAQ](/chainguard/libraries/faq/) for troubleshooting and edge cases.
