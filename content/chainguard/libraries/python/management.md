@@ -1,10 +1,10 @@
 ---
-title: "Management and maintenance"
-linktitle: "Management"
-description: "Learn how to manage and maintain Chainguard Libraries for Python, including package updates, verification, and monitoring security improvements"
+title: "Managem and update dependencies"
+linktitle: "Dependency maintenance"
+description: "Manage Chainguard Libraries for Python dependencies after setup, including package updates, verification, and monitoring security improvements"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-08-27T19:36:12+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 images: []
@@ -16,47 +16,108 @@ weight: 053
 toc: true
 ---
 
-Chainguard Libraries for Python operates transparently after completing the [global configuration](/chainguard/libraries/python/global-configuration/) and [build configuration](/chainguard/libraries/python/build-configuration/), automatically providing security-enhanced versions of your PyPI dependencies. New packages and versions are retrieved from Chainguard's hardened repository when available, while PyPI and other configured repositories provide fallback access to ensure continuous development workflow without interruption.
+Chainguard Libraries for Python operates transparently after completing the
+[repository manager
+configuration](/chainguard/libraries/python/global-configuration/) or [build
+tool configuration](/chainguard/libraries/python/build-configuration/),
+automatically providing security-enhanced versions of your PyPI dependencies.
+After setup, most package retrieval happens through your configured package
+index or repository manager. Use this page for recurring maintenance tasks and
+for deciding where to troubleshoot when a dependency changes.
 
-The following sections detail optional management, maintenance, and auditing
-steps on the repository manager and the build tool.
+Chainguard Libraries serves Chainguard-built artifacts when they are available.
+When [upstream
+fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls/) is
+enabled, an artifact that Chainguard has not yet built may first be served
+through Chainguard’s upstream tier. With [build
+pinning](/chainguard/libraries/build-pinning/), the exact package version
+remains pinned to the artifact tier your organization first received, so a
+previously downloaded wheel or source distribution is not immediately replaced
+when Chainguard publishes a built equivalent.
 
-## Source verification
+A package may already be present in a developer’s `pip`, `uv`, or Poetry cache,
+in a repository manager cache, or a container layer. A cached package is not
+automatically replaced just because a Chainguard-built equivalent becomes
+available.
 
-You can verify what artifacts are retrieved from the Chainguard Libraries
-repository on a global level:
+For Python, a single package version can resolve to different wheels depending
+on the Python version and platform. The pinned file, selected artifact, and
+resulting hash may therefore vary by environment; test and update hashes for
+each supported environment when applicable.
 
-* Browse the `chainguard` proxy repository on your Artifactory or Nexus server.
-* Access the **Packages** tab of the the repository on your Cloudsmith instance.
-  Filter the package list with the tag value with the name for your upstream
-  proxy for Chainguard, for example `tag:chainguard`. The tag uses the name of
-  the upstream proxy, with spaces replaced with dashes.
+## Verify dependencies
 
-Use the browsing access to locate specific artifacts and identify their name,
-filesize, checksum values, timestamp and other identifiers. With these details
-you can verify your libraries use in the following locations:
+Use `chainctl libraries verify` to check whether an artifact comes from
+Chainguard Libraries.
 
-* Local cache repositories on developer workstation
-* Cache repositories in your CI pipeline
-* Libraries in your application bundles
-* Installed applications on your hosts or in your container images
+To verify an installed virtual environment:
 
-## Increase Chainguard Libraries use
+```bash
+chainctl libraries verify --detailed .venv/
+```
+
+For additional verification commands, command options, permissions, and
+supported artifact types, refer to the [Verification
+documentation](/chainguard/libraries/verification/).
+
+### Inspect artifacts in a repository manager
+
+If your organization uses a repository manager, you can inspect the Chainguard
+proxy or remote repository to audit which artifacts were retrieved through
+Chainguard Libraries. Use the repository manager’s package or browsing view to
+locate an artifact and compare its coordinates, file name, size, checksum, and
+available metadata.
+
+Refer to the [Verification page](/chainguard/libraries/verification/) for more
+information on verifying artifacts in a repository manager.
+
+## Refresh cached artifacts
 
 The number of available artifacts in Chainguard Libraries for Python increases
 over time. If an artifact was already retrieved from the PyPI
 Repository and is available in your repository manager or local repository it is
 not automatically replaced with the equivalent Chainguard Library version.
 
-You can force a download of new libraries by erasing them from your local
-repositories on your workstations and the PyPI proxy repository in your
-repository manager. Both these repositories are caches only and it is therefore
-safe to delete them.
+To adopt a newer Chainguard-built artifact, check out the [build pinning
+documentation](/libraries/build-pinning/#adopt-a-chainguard-build-after-removing-a-pin)
+for instructions on removing existing pinned versions.
 
-After the deletion any new build retrieves the artifact again and attempts to
-download from the Chainguard repository. As a result, newly available artifacts
-replace old artifacts that originated from PyPI and your use of
-Chainguard Libraries increased.
+Refreshing cached artifacts may also be necessary to solve other issues, such as
+stale or corrupted artifacts or metadata, repository configuration changes, and
+resolution troubleshooting. To refresh the same artifact your organization is
+already using:
+
+1. Confirm that the project and CI/CD environment use the intended Chainguard
+   index or repository-manager endpoint.
+1. Update the dependency or dependency constraint with your package manager.
+1. Run the project’s tests and security checks.
+1. Review and commit the resulting lockfile or hash-pinned requirements changes.
+
+If an exact package version is pinned, Chainguard continues to serve the pinned
+artifact after the cache is refreshed.
 
 For a more fine-grained approach you can also delete subsections of local
 repositories and the proxy repositories.
+
+### Prepare for package hash changes
+
+A hash identifies the exact bytes of a downloaded Python artifact.
+Chainguard-built artifacts have different hashes from upstream artifacts, even
+when the package name and version are the same, because they are rebuilt in a
+secured environment.
+
+During initial migration if your project uses hash-pinned `requirements.txt`
+files or lockfiles, update those values with [the `chainctl libraries
+update-hashes`
+command](/platform/chainctl/chainctl-docs/chainctl_libraries_update-hashes/),
+then run your normal tests and verification checks. For a full migration
+sequence, including cache and project-configuration handling, check out the
+[migration guide for Chainguard Libraries for
+Python](/chainguard/libraries/python/migration/).
+
+For organizations that use Chainguard's [upstream
+fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls/),
+build pinning keeps the exact artifact previously served for that package
+version. This prevents a later Chainguard rebuild from unexpectedly changing the
+hash. You must remove the pin to adopt a newer Chainguard build. Refer to [Build
+pinning](/chainguard/libraries/build-pinning/) for more information.
