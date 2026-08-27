@@ -4,7 +4,7 @@ linktitle: "Dependency maintenance"
 description: "Manage Chainguard Libraries for Python dependencies after setup, including package updates, verification, and monitoring security improvements"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-27T19:36:12+00:00
+lastmod: 2026-08-27T20:36:28+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 images: []
@@ -78,7 +78,7 @@ over time. If an artifact was already retrieved from the PyPI
 Repository and is available in your repository manager or local repository it is
 not automatically replaced with the equivalent Chainguard Library version.
 
-To adopt a newer Chainguard-built artifact, check out the [build pinning
+To adopt new Chainguard-built artifacts, check out the [build pinning
 documentation](/libraries/build-pinning/#adopt-a-chainguard-build-after-removing-a-pin)
 for instructions on removing existing pinned versions.
 
@@ -88,7 +88,7 @@ resolution troubleshooting. To refresh the same artifact your organization is
 already using:
 
 1. Confirm that the project and CI/CD environment use the intended Chainguard
-   index or repository-manager endpoint.
+   index or repository manager endpoint.
 1. Update the dependency or dependency constraint with your package manager.
 1. Run the project’s tests and security checks.
 1. Review and commit the resulting lockfile or hash-pinned requirements changes.
@@ -102,12 +102,10 @@ repositories and the proxy repositories.
 ### Prepare for package hash changes
 
 A hash identifies the exact bytes of a downloaded Python artifact.
-Chainguard-built artifacts have different hashes from upstream artifacts, even
-when the package name and version are the same, because they are rebuilt in a
-secured environment.
+Chainguard-built artifacts have different hashes from the equivalent upstream
+artifacts because they are rebuilt in a secure environment.
 
-During initial migration if your project uses hash-pinned `requirements.txt`
-files or lockfiles, update those values with [the `chainctl libraries
+During initial migration if your project uses hash-pinned lockfiles, update those values with [the `chainctl libraries
 update-hashes`
 command](/platform/chainctl/chainctl-docs/chainctl_libraries_update-hashes/),
 then run your normal tests and verification checks. For a full migration

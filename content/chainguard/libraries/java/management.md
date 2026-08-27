@@ -4,7 +4,7 @@ linktitle: "Dependency maintenance"
 description: "Manage Chainguard Libraries for Java dependencies after setup, including verification, cache refreshes, and checksum changes."
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-27T19:36:12+00:00
+lastmod: 2026-08-27T20:36:28+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java"]
 images: []
@@ -69,7 +69,7 @@ Prefer removing only the affected artifact or dependency subtree. Avoid broadly 
 
 A checksum identifies the exact bytes of a library artifact. Chainguard-built artifacts have different checksums from upstream artifacts with the same Maven coordinates and version because they are rebuilt in a secured environment.
 
-During initial migration if your project records checksums or integrity values, update those values with [the `chainctl libraries update-hashes` command](/platform/chainctl/chainctl-docs/chainctl_libraries_update-hashes/), then run your normal tests and verification checks. For a full migration sequence, including cache and project-configuration handling, check out the [migration guide for Chainguard Libraries for Java](/chainguard/libraries/java/migration/).
+During initial migration if your project records checksums or integrity values, update those values as a part of mifration or cache refresh, then run your normal tests and verification checks. For a full migration sequence, including cache and project-configuration handling, check out the [migration guide for Chainguard Libraries for Java](/chainguard/libraries/java/migration/).
 
 For organizations that use Chainguard's [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls/), build pinning keeps the exact artifact previously served for that package version. This prevents a later Chainguard rebuild from unexpectedly changing the checksum. You must remove the pin to adopt a newer Chainguard build. Refer to [Build pinning](/chainguard/libraries/build-pinning/) for more information.
 
