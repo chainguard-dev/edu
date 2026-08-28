@@ -4,7 +4,7 @@ linktitle: "Python overview"
 description: "Learn about Chainguard Libraries for Python, providing enhanced security for PyPI packages through automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-04-09T04:00:00+00:00
-lastmod: 2026-08-20T19:51:12+00:00
+lastmod: 2026-08-28T16:31:04+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python", "Overview"]
 menu:
@@ -83,7 +83,7 @@ Python wheel files for standard and remediated package version.
 ## CVE remediation
 
 Chainguard Libraries for Python includes the [CVE
-Remediation](/chainguard/libraries/cve-remediation/) feature. Remediated
+Remediation](/chainguard/libraries/policies-and-security/cve-remediation/) feature. Remediated
 libraries include an appended local version identifier of `+cgr.N`. Python
 package management tools interpret the `+cgr.N` suffix as a local version that
 takes precedence over versions without the version suffix during dependency
@@ -146,7 +146,7 @@ Python 3.9 reached upstream EOL on October 31, 2025. Chainguard Libraries' exten
 
 To continue receiving up-to-date, secure packages from Chainguard Libraries, we strongly recommend migrating to a supported Python version. Currently supported versions are Python 3.10 and later.
 
-Learn about Chainguard's library version support in the [Libraries overview](/chainguard/libraries/overview/#library-version-support).
+Learn about Chainguard's library version support in the [Libraries overview](/chainguard/libraries/introduction/overview/#library-version-support).
 
 ## Runtime and build requirements
 
@@ -247,7 +247,7 @@ Linux.
 ## Manual access
 
 Use the URLs with your [username and password retrieved with
-chainctl](/chainguard/libraries/access/) to access the Chainguard Libraries for
+chainctl](/chainguard/libraries/introduction/access/) to access the Chainguard Libraries for
 Python repository manually with a browser.
 
 After successful login, you are redirected to the `simple` sub-context at
@@ -295,16 +295,16 @@ of interest and then browse in the simple index to determine available versions
 in Chainguard Libraries for Python.
 
 Use `curl`, specifying the username and password retrieved with
-[chainctl](/chainguard/libraries/access/), and use the URL of the file
+[chainctl](/chainguard/libraries/introduction/access/), and use the URL of the file
 to download and save the file with the original name:
 
-With [.netrc authentication](/chainguard/libraries/access/#netrc):
+With [.netrc authentication](/chainguard/libraries/introduction/access/#netrc):
 
 ```shell
 curl -n -L -O https://libraries.cgr.dev/files/...
 ```
 
-With [environment variables](/chainguard/libraries/access/#env):
+With [environment variables](/chainguard/libraries/introduction/access/#env):
 
 ```shell
 curl -L --user "$CHAINGUARD_PYTHON_IDENTITY_ID:$CHAINGUARD_PYTHON_TOKEN" \
@@ -365,7 +365,7 @@ Existing Python lockfiles usually contain upstream integrity hashes. Because Cha
 
 If you install through a repository manager, refer to [Global configuration](/chainguard/libraries/python/global-configuration/#updating-lockfile-hashes/).
 
-When the upstream fallback is enabled, [build pinning](/chainguard/libraries/build-pinning/) keeps a version you pulled from upstream stable after Chainguard publishes its own build, so you don't have to update these hashes again unexpectedly.
+When the upstream fallback is enabled, [build pinning](/chainguard/libraries/policies-and-security/build-pinning/) keeps a version you pulled from upstream stable after Chainguard publishes its own build, so you don't have to update these hashes again unexpectedly.
 
 #### Update lockfiles manually
 
@@ -486,7 +486,7 @@ specification](https://peps.python.org/pep-0740/) within the integrity context
 at `https://libraries.cgr.dev/python/integrity/PACKAGE/VERSION/FILE/provenance`
 with `PACKAGE` as the Python package name, `VERSION` the package version, and
 `FILE` the filename of the package archive with configured [basic authentication
-using a pull token](/chainguard/libraries/access/).
+using a pull token](/chainguard/libraries/introduction/access/).
 
 For example, for version `2.0.0` of the package `flask` available as a platform
 independent wheel archive file `flask-2.0.0-py3-none-any.whl` you can retrieve
@@ -535,4 +535,4 @@ Repository](/chainguard/chainguard-repository/overview/). By default, the endpoi
 only Chainguard-built packages. When the upstream fallback is enabled, upstream packages are
 subject to additional security controls before being served.
 
-Learn about managing fallback and cooldown controls in the [Chainguard Libraries overview](/chainguard/libraries/overview/).
+Learn about managing fallback and cooldown controls in the [Chainguard Libraries overview](/chainguard/libraries/introduction/overview/).

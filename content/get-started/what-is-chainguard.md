@@ -5,7 +5,7 @@ lead: "A high-level introduction to Chainguard: the problem it solves, the produ
 description: "An overview of Chainguard: its mission to be the secure source for open source, its products (Containers, Libraries, and OS), and the Factory that builds them."
 type: "article"
 date: 2026-07-23T00:00:00+00:00
-lastmod: 2026-08-26T13:07:29+00:00
+lastmod: 2026-08-28T16:31:04+00:00
 draft: false
 tags: ["Getting Started"]
 images: []
@@ -21,7 +21,7 @@ Chainguard's mission is to be the secure source for open source. Rather than lea
 Chainguard rebuilds open source software into products you can adopt directly, depending on how you consume dependencies:
 
 - **[Chainguard Containers](/chainguard/containers/overview/)** are minimal, hardened container images. Following a distroless philosophy, each image includes only your application and its essential runtime dependencies, minimizing the overall attack surface. This minimalism is a large part of why they carry [low-to-no CVEs](/chainguard/containers/about/zerocve/).
-- **[Chainguard Libraries](/chainguard/libraries/overview/)** bring the same approach to language dependencies. They're drop-in replacements for open source packages in the Java, Python, and JavaScript ecosystems, rebuilt from verified sources and continuously monitored.
+- **[Chainguard Libraries](/chainguard/libraries/introduction/overview/)** bring the same approach to language dependencies. They're drop-in replacements for open source packages in the Java, Python, and JavaScript ecosystems, rebuilt from verified sources and continuously monitored.
 
 You pull Chainguard Containers and Libraries from a single, policy-aware endpoint, the [Chainguard Repository](/chainguard/chainguard-repository/overview/).
 

@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-08-25T20:14:45+00:00
+lastmod: 2026-08-28T16:31:04+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -61,7 +61,7 @@ To export environment variables directly:
 eval $(chainctl auth pull-token --output env --repository=python --name=my-python-token)
 ```
 
-Learn more about creating and managing pull tokens in the [Libraries access documentation](/chainguard/libraries/access/#creating-pull-tokens-for-libraries).
+Learn more about creating and managing pull tokens in the [Libraries access documentation](/chainguard/libraries/introduction/access/#creating-pull-tokens-for-libraries).
 
 {{% /tab %}}
 
@@ -69,7 +69,7 @@ Learn more about creating and managing pull tokens in the [Libraries access docu
 
 The keyring leverages `chainctl` to fetch temporary credentials whenever your environment requests packages from Chainguard. Supported environments include local development and CI/CD platforms that can use assumable identities. The keyring provider requires pip 23.1 or later.
 
-Learn how to install this package in the [Chainguard Libraries access documentation](/chainguard/libraries/access/#python-keyring-provider).
+Learn how to install this package in the [Chainguard Libraries access documentation](/chainguard/libraries/introduction/access/#python-keyring-provider).
 
 Note that `.netrc` takes precedence over the keyring. Verify that you do not have an existing registry entry in `.netrc` for Chainguard Libraries:
 
@@ -173,9 +173,9 @@ This method sets both the index and its credentials in one step.
 
 The `keyrings-chainguard-libraries` package supplies short-lived credentials automatically via `chainctl`, avoiding static tokens on your local workstation.
 
-Follow the [instructions to install the keyring package](/chainguard/libraries/access/#python-keyring-provider).
+Follow the [instructions to install the keyring package](/chainguard/libraries/introduction/access/#python-keyring-provider).
 
-> **Note**: After switching to Chainguard, you can [reinstall the keyring package](/chainguard/libraries/access/#python-keyring-provider) to use the Chainguard-built version.
+> **Note**: After switching to Chainguard, you can [reinstall the keyring package](/chainguard/libraries/introduction/access/#python-keyring-provider) to use the Chainguard-built version.
 
 {{% /tab %}}
 
@@ -185,7 +185,7 @@ Follow the [instructions to install the keyring package](/chainguard/libraries/a
 
 Next, point your build tool at the Chainguard index.
 
-Note that Chainguard publishes both standard and [remediated Python indexes](/chainguard/libraries/cve-remediation/). Remediated versions use a `+cgr.N` local-version suffix, and Python package managers treat those as compatible higher-precedence replacements for the base version. In addition, CUDA-enabled Python libraries use separate CUDA-specific indexes such as `https://libraries.cgr.dev/cu128/simple/`, and they are not dependency-complete for NVIDIA toolkit components.  
+Note that Chainguard publishes both standard and [remediated Python indexes](/chainguard/libraries/policies-and-security/cve-remediation/). Remediated versions use a `+cgr.N` local-version suffix, and Python package managers treat those as compatible higher-precedence replacements for the base version. In addition, CUDA-enabled Python libraries use separate CUDA-specific indexes such as `https://libraries.cgr.dev/cu128/simple/`, and they are not dependency-complete for NVIDIA toolkit components.  
 
 {{< tabs >}}
 
@@ -483,7 +483,7 @@ chainctl libraries verify --detailed $(poetry env info --path)
 
 A successful result shows what percentage of your project's dependencies were built by Chainguard.
 
-For full details on verification options and output, check out [Verification: Analyze a Python wheel file](/chainguard/libraries/verification/#analyze-a-python-wheel-file).
+For full details on verification options and output, check out [Verification: Analyze a Python wheel file](/chainguard/libraries/policies-and-security/verification/#analyze-a-python-wheel-file).
 
 ## Step 6: Commit and roll out
 
@@ -493,7 +493,7 @@ For organization-wide rollout using a repository manager, refer to the [global c
 
 ## Packages not available in Chainguard Libraries
 
-Chainguard Libraries covers a large and growing collection of PyPI packages, but not every package or version is available. If a package is missing, your install will fail with a 404 unless you have configured [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls).
+Chainguard Libraries covers a large and growing collection of PyPI packages, but not every package or version is available. If a package is missing, your install will fail with a 404 unless you have configured [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls).
 
 With upstream fallback enabled, packages not yet available from Chainguard are proxied from PyPI, subject to Chainguard's security controls. Confirm your current policy with:
 
@@ -503,7 +503,7 @@ chainctl libraries entitlements list
 
 For repository manager setups, Chainguard recommends using the configurable fallback rather than configuring a separate public registry fallback in your repository manager, to preserve Chainguard’s security controls.
 
-Learn more about upstream fallback configurations in the [Libraries overview](/chainguard/libraries/overview/#upstream-fallback-and-controls).
+Learn more about upstream fallback configurations in the [Libraries overview](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls).
 
 ## Troubleshooting
 
@@ -522,6 +522,6 @@ Check your install output for a local wheel build (`Building wheel for <package>
 ## Next steps
 
 * To apply this configuration across your whole organization using a repository manager, refer to the [global configuration](/chainguard/libraries/python/global-configuration/) documentation.  
-* To verify downloaded packages were built by Chainguard, refer to the [verification](/chainguard/libraries/verification/) documentation.  
+* To verify downloaded packages were built by Chainguard, refer to the [verification](/chainguard/libraries/policies-and-security/verification/) documentation.  
 * For full per-tool configuration reference, refer to the [build configuration](/chainguard/libraries/python/build-configuration/) documentation.
-* To keep pinned versions stable when Chainguard publishes new builds, refer to the [build pinning](/chainguard/libraries/build-pinning/) documentation.
+* To keep pinned versions stable when Chainguard publishes new builds, refer to the [build pinning](/chainguard/libraries/policies-and-security/build-pinning/) documentation.

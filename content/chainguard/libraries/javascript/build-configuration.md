@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for JavaScript on your workstation"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-08-25T20:14:45+00:00
+lastmod: 2026-08-28T16:31:04+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
@@ -27,7 +27,7 @@ Jenkins, TeamCity, or GitHub Actions.
 The `https://libraries.cgr.dev/javascript` endpoint is also the [Chainguard
 Repository](/chainguard/chainguard-repository/overview/) endpoint for JavaScript. By
 default, it serves only Chainguard-built artifacts. When [upstream
-fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) is
+fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) is
 enabled for your organization, the same endpoint can also serve requested
 versions from upstream, under Chainguard security controls.
 
@@ -40,7 +40,7 @@ This guide outlines how to configure your build tool. If you are looking for som
 | Look up how to configure a specific build tool (npm, pnpm, Yarn, Bun) | This page |
 | Migrate an existing project step by step | [JavaScript migration guide](/chainguard/libraries/javascript/migration/) |
 
-If a package or version is blocked by a policy or malware scan, your build tool returns an error. Refer to the [Error messages documentation](/chainguard/libraries/errors/) for more details.
+If a package or version is blocked by a policy or malware scan, your build tool returns an error. Refer to the [Error messages documentation](/chainguard/libraries/troubleshooting/errors/) for more details.
 
 ## JFrog Artifactory
 
@@ -68,7 +68,7 @@ to determine URL and authentication details.
 Build configuration to retrieve artifacts **directly** from the Chainguard
 Libraries for JavaScript repository at `https://libraries.cgr.dev/javascript/`
 requires authentication with username and password from a pull token as detailed
-in [access documentation](/chainguard/libraries/access/#pull-token).
+in [access documentation](/chainguard/libraries/introduction/access/#pull-token).
 
 Refer to the minimal example projects on this page for demonstrations using direct access for each build tool.
 
@@ -103,7 +103,7 @@ Authenticating to `libraries.cgr.dev` directly:
 
 - **Logged in locally**: Run the command while authenticated; if you have no
   other credential it prompts for an organization and authenticates with a
-  [pull token](/chainguard/libraries/access/#pull-token). Pass
+  [pull token](/chainguard/libraries/introduction/access/#pull-token). Pass
   `--parent <organization>` to skip the prompt. To avoid the prompt entirely,
   scope your login to the libraries registry once with
   `chainctl auth login --audience=libraries.cgr.dev` — that session is then used
@@ -113,11 +113,11 @@ Authenticating to `libraries.cgr.dev` directly:
     - For a session token, pass `--token <token>` or set `CHAINCTL_AUTH_TOKEN`. The
     token must be scoped to the libraries registry; mint one with
     `chainctl auth token --audience=libraries.cgr.dev`.
-    - For a [pull token](/chainguard/libraries/access/#pull-token) (an identity and
+    - For a [pull token](/chainguard/libraries/introduction/access/#pull-token) (an identity and
     secret), pass it as basic auth: `--username <identity> --password <secret>`,
     or set `CHAINCTL_REGISTRY_USERNAME` / `CHAINCTL_REGISTRY_PASSWORD`.
 - **From `~/.netrc`**: Credentials for the registry host are read from `~/.netrc`
-  (or `$NETRC`); refer to [.netrc for authentication](/chainguard/libraries/access/#netrc).
+  (or `$NETRC`); refer to [.netrc for authentication](/chainguard/libraries/introduction/access/#netrc).
   Pass `--ignore-netrc` to skip an unrelated entry.
 
 Authenticating to a repository manager:
@@ -286,7 +286,7 @@ and all other packages should resolve to `libraries.cgr.dev/javascript`.
 ### Minimal example project
 
 For testing purposes, you can use direct access and environment variables as
-detailed in the [access documentation](/chainguard/libraries/access/#env).
+detailed in the [access documentation](/chainguard/libraries/introduction/access/#env).
 
 **1. Create a JavaScript project**
 
@@ -583,7 +583,7 @@ pnpm init
 ```
 
 For testing purposes, you can use direct access and environment variables as
-detailed in the [access documentation](/chainguard/libraries/access/#env).
+detailed in the [access documentation](/chainguard/libraries/introduction/access/#env).
 
 To create pull token credentials and set them as environment variables, run:
 
@@ -820,7 +820,7 @@ yarn init
 ```
 
 For testing purposes, you can use direct access and environment variables as
-detailed in the [access documentation](/chainguard/libraries/access/#env). Once
+detailed in the [access documentation](/chainguard/libraries/introduction/access/#env). Once
 the environment variables are set, the following steps configure registry
 access with authentication in the `.yarnrc.yml` file in the current project
 directory:
@@ -985,7 +985,7 @@ yarn init -y
 ```
 
 For testing purposes, you can use direct access and environment variables as
-detailed in the [access documentation](/chainguard/libraries/access/#env). Once
+detailed in the [access documentation](/chainguard/libraries/introduction/access/#env). Once
 the environment variables are set, the following steps configure registry access
 with authentication in the `.npmrc` file directory:
 
@@ -1126,7 +1126,7 @@ bun init -y
 ```
 
 For testing purposes, you can use direct access and environment variables as
-detailed in the [access documentation](/chainguard/libraries/access/#env). Once
+detailed in the [access documentation](/chainguard/libraries/introduction/access/#env). Once
 the environment variables are set, the following steps configure registry
 access with authentication in the `bunfig.toml` file in the current project
 directory:

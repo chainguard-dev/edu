@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Java project to pull dependencies from Chainguard Libraries"
 date: 2026-07-02T00:00:00+00:00
-lastmod: 2026-08-25T20:14:45+00:00
+lastmod: 2026-08-28T16:31:04+00:00
 tags: ["Chainguard Libraries", "Java"]
 menu:
   docs:
@@ -14,7 +14,7 @@ weight: 056
 toc: true
 ---
 
-Chainguard Libraries for Java provides a curated repository of packages rebuilt from upstream sources and [scanned for malware](/chainguard/libraries/overview/#malware-and-greyware-detection). Because Chainguard Libraries uses the standard Maven repository format, switching an existing project requires only a repository configuration change — no changes to your application code or dependency versions.
+Chainguard Libraries for Java provides a curated repository of packages rebuilt from upstream sources and [scanned for malware](/chainguard/libraries/introduction/overview/#malware-and-greyware-detection). Because Chainguard Libraries uses the standard Maven repository format, switching an existing project requires only a repository configuration change — no changes to your application code or dependency versions.
 
 This guide walks through migrating an existing Java project to Chainguard Libraries, covering the two most common setups:
 
@@ -34,7 +34,7 @@ Before you begin, you need:
 
 ### Create an entitlement
 
-You must have an [entitlement to Chainguard Libraries](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) for Java with [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) enabled.
+You must have an [entitlement to Chainguard Libraries](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) for Java with [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) enabled.
 
 To create an entitlement to Chainguard Libraries for Java and enable upstream fallback, which includes a default 7-day cooldown, run the following command:
 
@@ -95,7 +95,7 @@ All dependencies should download from Central and tests should pass. This gives 
 ## Step 2: Generate a pull token
 
 You must be an Owner or have the `libraries.java.pull_token_creator` permission to create a pull token.
-You can [create a pull token in the Chainguard Console](/chainguard/libraries/access/#creating-pull-tokens-with-the-chainguard-console), or via `chainctl`.
+You can [create a pull token in the Chainguard Console](/chainguard/libraries/introduction/access/#creating-pull-tokens-with-the-chainguard-console), or via `chainctl`.
 
 The following command creates the token and populates environment variables directly. Make sure to replace `example.org` with your own Chainguard org name:
 
@@ -107,11 +107,11 @@ This results in values for the `CHAINGUARD_JAVA_IDENTITY_ID` and `CHAINGUARD_JAV
 
 Learn more about command options in the [chainctl documentation](/chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token/).
 
-When configuring direct access, note that environment variables do not persist between terminal sessions. You must re-export them each time you open a new terminal, or add them to your shell profile. Learn more about pull tokens in the [Access documentation](https://edu.chainguard.dev/chainguard/libraries/access/).
+When configuring direct access, note that environment variables do not persist between terminal sessions. You must re-export them each time you open a new terminal, or add them to your shell profile. Learn more about pull tokens in the [Access documentation](https://edu.chainguard.dev/chainguard/libraries/introduction/access/).
 
 ### Do not commit credentials to version control
 
-The Gradle `build.gradle` file and the Maven `pom.xml` are typically committed to a repository — always use environment variables for credentials rather than hardcoding token values directly in the file. Maven credentials live in `~/.m2/settings.xml`, which is outside the project directory and not committed by default, but take care not to add it to your repository. Store tokens as CI secrets referenced via environment variables instead. If you accidentally commit credentials, [delete the exposed token](/chainguard/libraries/access/#pull-token-management).
+The Gradle `build.gradle` file and the Maven `pom.xml` are typically committed to a repository — always use environment variables for credentials rather than hardcoding token values directly in the file. Maven credentials live in `~/.m2/settings.xml`, which is outside the project directory and not committed by default, but take care not to add it to your repository. Store tokens as CI secrets referenced via environment variables instead. If you accidentally commit credentials, [delete the exposed token](/chainguard/libraries/introduction/access/#pull-token-management).
 
 For more secure credential management, consider using a secrets manager such as 1Password CLI or Bitwarden, which can dynamically inject environment variables at runtime without storing token values in shell profiles or env files.
 
@@ -144,7 +144,7 @@ First, create a `.mvn` directory if it doesn't already exist:
 mkdir -p .mvn
 ```
 
-Next, create a `.mvn/settings.xml` file with the following content. This configuration sets the Chainguard [remediated repository](/chainguard/libraries/cve-remediation/) as the first source, followed by the standard Chainguard repository, with Maven Central set as `invalid` to avoid accidental unintended fallback to the public repository:
+Next, create a `.mvn/settings.xml` file with the following content. This configuration sets the Chainguard [remediated repository](/chainguard/libraries/policies-and-security/cve-remediation/) as the first source, followed by the standard Chainguard repository, with Maven Central set as `invalid` to avoid accidental unintended fallback to the public repository:
 
 ```xml
 <settings>
@@ -257,7 +257,7 @@ printf 'machine libraries.cgr.dev\nlogin %s\npassword %s\n' "$CHAINGUARD_JAVA_ID
 chmod 600 ~/.netrc
 ```
 
-> **Note**: `~/.netrc` stores credentials in plaintext on disk. Be careful not to copy `.netrc` into a project directory where it could be accidentally committed to version control. Use short-lived tokens and rotate them regularly. In CI environments, prefer writing credentials to a temporary `.netrc` file that is cleaned up after the build, or use your CI platform's secrets management to inject credentials as environment variables instead. If you accidentally expose credentials, [delete the exposed token](/chainguard/libraries/access/#pull-token-management).
+> **Note**: `~/.netrc` stores credentials in plaintext on disk. Be careful not to copy `.netrc` into a project directory where it could be accidentally committed to version control. Use short-lived tokens and rotate them regularly. In CI environments, prefer writing credentials to a temporary `.netrc` file that is cleaned up after the build, or use your CI platform's secrets management to inject credentials as environment variables instead. If you accidentally expose credentials, [delete the exposed token](/chainguard/libraries/introduction/access/#pull-token-management).
 
 Next, update the `MODULE.bazel` to point to Chainguard Libraries. If you are using the remediated repository, add `https://libraries.cgr.dev/java-remediated/` first:
 
@@ -601,7 +601,7 @@ Verification Coverage: 100.00%
 
 ## Packages not available in Chainguard Libraries
 
-Chainguard Libraries covers a large and growing collection of Java packages, but not every package or version is available. If a package is missing, your install will fail with a 404 unless you have configured [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls).
+Chainguard Libraries covers a large and growing collection of Java packages, but not every package or version is available. If a package is missing, your install will fail with a 404 unless you have configured [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls).
 
 With upstream fallback enabled, packages not yet available from Chainguard are proxied from Maven Central, subject to Chainguard's security controls. Confirm your current policy with:
 
@@ -611,6 +611,6 @@ chainctl libraries entitlements list
 
 For repository manager setups, Chainguard recommends using the configurable fallback rather than configuring a separate public registry fallback in your repository manager, to preserve Chainguard’s security controls.
 
-Learn more about upstream fallback configurations in the [Libraries overview](/chainguard/libraries/overview/#upstream-fallback-and-controls).
+Learn more about upstream fallback configurations in the [Libraries overview](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls).
 
-When the upstream fallback is enabled, [build pinning](/chainguard/libraries/build-pinning/) keeps a version you pulled from Maven Central stable after Chainguard publishes its own build. This prevents unexpected checksum mismatches across rebuilds.
+When the upstream fallback is enabled, [build pinning](/chainguard/libraries/policies-and-security/build-pinning/) keeps a version you pulled from Maven Central stable after Chainguard publishes its own build. This prevents unexpected checksum mismatches across rebuilds.

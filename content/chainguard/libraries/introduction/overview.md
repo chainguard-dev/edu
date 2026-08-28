@@ -11,9 +11,11 @@ draft: false
 tags: ["Chainguard Libraries", "Overview"]
 menu:
   docs:
-    parent: "libraries"
-weight: 001
+    parent: "introduction"
+weight: 011
 toc: true
+aliases:
+  - /chainguard/libraries/overview/
 ---
 
 [Chainguard Libraries](https://www.chainguard.dev/libraries) is a secure catalog
@@ -93,7 +95,7 @@ for upstream packages:
   accompanied by this metadata, giving auditors evidence they can verify
   directly rather than requiring them to correlate a separate patch file with a
   dashboard. See the [vulnerability scanning
-  documentation](/chainguard/libraries/scanners/) for scanner support details.
+  documentation](/chainguard/libraries/policies-and-security/scanners/) for scanner support details.
 * When a requested package is not yet available as a Chainguard build, the
   Chainguard Repository can serve eligible upstream packages through configured
   fallback policies, subject to malicious behavior scanning and cooldowns before
@@ -189,7 +191,7 @@ The following options are available:
 * **No upstream fallback (default)**: Only Chainguard-built packages are served.
 * **Upstream fallback enabled with default 7-day cooldown**: Upstream packages are available after passing a configurable cooldown period and malware scan. The same cooldown period is enforced across Chainguard-built packages and upstream packages, so that dependency trees resolve consistently across both sources.
 
-When the upstream fallback is enabled, [build pinning](/chainguard/libraries/build-pinning/) keeps a package version you pulled from upstream stable even after Chainguard publishes its own build of that version. This prevents unexpected checksum changes across rebuilds.
+When the upstream fallback is enabled, [build pinning](/chainguard/libraries/policies-and-security/build-pinning/) keeps a package version you pulled from upstream stable even after Chainguard publishes its own build of that version. This prevents unexpected checksum changes across rebuilds.
 
 ### Malware and greyware detection
 
@@ -215,9 +217,9 @@ Chainguard's scanning evaluates multiple signal types, including:
 
 #### View blocked packages
 
-You can view blocked packages [in the Chainguard Console](/chainguard/libraries/browse/#view-malware-information), [using `chainctl` commands](/platform/chainctl/chainctl-docs/chainctl_libraries_packages_malware_list/), or [via the API](#malware-api).
+You can view blocked packages [in the Chainguard Console](/chainguard/libraries/introduction/browse/#view-malware-information), [using `chainctl` commands](/platform/chainctl/chainctl-docs/chainctl_libraries_packages_malware_list/), or [via the API](#malware-api).
 
-For more details on the errors a blocked package surfaces across ecosystems, see the [Error messages documentation](/chainguard/libraries/errors/).
+For more details on the errors a blocked package surfaces across ecosystems, see the [Error messages documentation](/chainguard/libraries/troubleshooting/errors/).
 
 #### Malware API
 

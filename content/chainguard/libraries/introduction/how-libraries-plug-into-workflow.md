@@ -10,9 +10,11 @@ tags: ["Chainguard Libraries", "Video", "Integration"]
 images: []
 menu:
   docs:
-    parent: "chainguard-libraries"
-weight: 070
+    parent: "introduction"
+weight: 016
 toc: true
+aliases:
+  - /chainguard/libraries/how-libraries-plug-into-workflow/
 ---
 
 {{< youtube SBisxaL855k >}}

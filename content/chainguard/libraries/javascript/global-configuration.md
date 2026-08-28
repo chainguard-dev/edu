@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for JavaScript in your organization"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-08-20T19:03:04+00:00
+lastmod: 2026-08-28T16:31:04+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 images: []
@@ -23,7 +23,7 @@ Repository](https://www.sonatype.com/products/sonatype-nexus-repository), and
 others. The repository manager acts as a single point of access for developers
 and development tools to retrieve the required libraries.
 
-If your organization uses the [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls)
+If your organization uses the [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls)
 feature of Chainguard Repository, you can configure your repository manager
 with a single upstream pointed at `https://libraries.cgr.dev/javascript/`. This
 is the recommended setup. The Chainguard Repository handles fallback and policy
@@ -99,7 +99,7 @@ for Cloudsmith for more information. Cloudsmith supports combining repositories
 by defining multiple upstream repositories.
 
 The recommended approach is to rely on Chainguard Repository's [upstream
-fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls),
+fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls),
 configuring a single upstream proxy pointed at `https://libraries.cgr.dev/javascript/`
 rather than adding a separate public npm proxy. Refer to [Manually managing
 fallback](#manually-managing-fallback) if you need to control fallback ordering
@@ -136,7 +136,7 @@ repository:
     * **Proxy URL** `https://libraries.cgr.dev/javascript/`
     * **Mode** *Cache and Proxy*
     * Add the **Username** and **Password** value from [Chainguard Libraries
-      access](/chainguard/libraries/access/) in **Authentication Settings**
+      access](/chainguard/libraries/introduction/access/) in **Authentication Settings**
 1. Click **Create Upstream Proxy**.
 
 If you are manually managing fallback, you can add an additional upstream
@@ -190,7 +190,7 @@ for more information.
 
 If you follow the recommended approach to rely on Chainguard Repository's
 [upstream
-fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls), disable or remove any existing Artifactory remote repository
+fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls), disable or remove any existing Artifactory remote repository
 that points at the public npm registry, and remove it from the virtual repository your
 builds resolve against. A remote pointing directly at the public upstream bypasses
 those protections. Since Artifactory resolves through the virtual repository in
@@ -214,7 +214,7 @@ repository:
 1. Set the **Repository Key** to `javascript-chainguard`.
 1. Set the **URL** to `https://libraries.cgr.dev/javascript/`.
 1. Set **User Name** and **Password / Access Token** to the [values as retrieved
-   with chainctl](/chainguard/libraries/access/).
+   with chainctl](/chainguard/libraries/introduction/access/).
     * Note: The **Test** button is not a reliable indicator; to verify your setup, refer to the [validation steps](#validate-the-remote-repository) later on this page.
 1. Click the **Advanced** configuration tab, then configure the following settings:
     * In the **Network** section:
@@ -327,7 +327,7 @@ instructions on this page are based on the [Nexus documentation for
 npm](https://help.sonatype.com/en/npm-registry.html).
 
 The recommended approach is to use the Chainguard Repository's [upstream
-fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls). If
+fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls). If
 you are instead configuring your own fallback in your repo manager, for initial
 testing it is advised to create a separate proxy repository for the npm
 Registry, a separate proxy repository Chainguard Libraries for JavaScript
@@ -354,7 +354,7 @@ repository:
    `https://libraries.cgr.dev/javascript/`.
     * **HTTP - Authentication**: Select `Username` as the Authentication type,
    and provide the [username and password values as retrieved with
-   chainctl](/chainguard/libraries/access/).
+   chainctl](/chainguard/libraries/introduction/access/).
 1. Click **Create repository**.
 
 Create a repository group, or add to an existing repository group:

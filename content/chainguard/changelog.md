@@ -4,7 +4,7 @@ linktitle: "Changelog"
 type: "article"
 description: "Weekly changelog of Chainguard product updates — product announcements, breaking changes, container images reaching end-of-life or leaving the catalog, and images newly added to it."
 date: 2026-07-28T00:00:00+00:00
-lastmod: 2026-08-24T00:00:00+00:00
+lastmod: 2026-08-28T16:31:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Changelog"]
 images: []
@@ -113,7 +113,7 @@ _Launched August 13, 2026._
 
 When Chainguard Libraries withholds an npm package or version — because of detected malware or greyware, a pending malware scan, or a policy block such as a cooldown — npm now returns a `403` naming the specific reason, for example `MALWARE_DETECTED`, instead of the unexplained `404` it returned before. The other supported package managers (pnpm, yarn, uv, poetry, Maven, and Gradle) still report a blocked version as a generic not-found error, and a `409` when an entire package is blocked for malware.
 
-For more information, refer to [Error messages](/chainguard/libraries/errors/#package-manager-behavior).
+For more information, refer to [Error messages](/chainguard/libraries/troubleshooting/errors/#package-manager-behavior).
 
 ### Guardener GitHub App (beta)
 
@@ -188,7 +188,7 @@ _Launched August 4, 2026._
 
 AWS added a Supply Chain category to Security Hub Extended and named Chainguard one of its inaugural partners. You can now subscribe to Chainguard Libraries from the Security Hub console and pay through your existing AWS account. Libraries findings arrive normalized to the Open Cybersecurity Schema Framework (OCSF), so they appear alongside your AWS and other partner findings, and AWS Enterprise Support customers receive Level 1 support from AWS.
 
-For more information about the catalog, refer to the [Chainguard Libraries overview](/chainguard/libraries/overview/).
+For more information about the catalog, refer to the [Chainguard Libraries overview](/chainguard/libraries/introduction/overview/).
 
 ### Malware avoidance in the Console (beta)
 
@@ -196,7 +196,7 @@ _Launched August 4, 2026._
 
 The Console now shows which malicious and suspicious packages Chainguard Libraries blocked before they reached your environment. A weekly chart tracks the malware and greyware stopped across the Python and JavaScript ecosystems, and a search tool reports why any given package was flagged unsafe. Find it under the **Malware** tab in the Libraries section of the Console sidebar; it is enabled by default for every organization entitled to Libraries.
 
-For more information, refer to [View malware information](/chainguard/libraries/browse/#view-malware-information).
+For more information, refer to [View malware information](/chainguard/libraries/introduction/browse/#view-malware-information).
 
 ### PKCE support for custom identity providers
 

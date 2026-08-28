@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing JavaScript project to pull dependencies from Chainguard Libraries"
 date: 2026-06-01T00:00:00+00:00
-lastmod: 2026-08-25T20:14:45+00:00
+lastmod: 2026-08-28T16:31:04+00:00
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
   docs:
@@ -71,7 +71,7 @@ If you plan to use a repository manager, or a non-interactive environment such
 as CI/CD, you will need a pull token. You must be an Owner or have the
 `libraries.javascript.pull_token_creator` permission to create one.
 
-You can [create a pull token in the Chainguard Console](/chainguard/libraries/access/#creating-pull-tokens-with-the-chainguard-console), or via `chainctl`:
+You can [create a pull token in the Chainguard Console](/chainguard/libraries/introduction/access/#creating-pull-tokens-with-the-chainguard-console), or via `chainctl`:
 
 ```shell
 chainctl auth pull-token --repository=javascript --name=my-js-token
@@ -92,7 +92,7 @@ export CHAINGUARD_JAVASCRIPT_TOKEN="<your-token>"
 > repository, especially a public one. Add these files to `.gitignore`, and
 > store tokens as CI secrets referenced via environment variables instead. If
 > you accidentally commit credentials, [delete the exposed
-> token](/chainguard/libraries/access/#pull-token-management).
+> token](/chainguard/libraries/introduction/access/#pull-token-management).
 
 ### Audit your current registry configuration
 
@@ -669,7 +669,7 @@ pnpm install --store-dir /tmp/my-pnpm-store
 chainctl libraries verify /tmp/my-pnpm-store
 ```
 
-Learn more about verifying a pnpm store in the [Verification page](/chainguard/libraries/verification/#analyze-javascript-packages).
+Learn more about verifying a pnpm store in the [Verification page](/chainguard/libraries/policies-and-security/verification/#analyze-javascript-packages).
 
 {{% /tab %}}
 
@@ -705,7 +705,7 @@ Verification Coverage: 100.00%
 ```
 
 For full details on verification options and output, refer to [Verification: Analyze
-JavaScript packages](/chainguard/libraries/verification/#analyze-javascript-packages).
+JavaScript packages](/chainguard/libraries/policies-and-security/verification/#analyze-javascript-packages).
 
 ## Step 7: Commit and roll out
 
@@ -779,9 +779,9 @@ page](/chainguard/libraries/javascript/build-configuration/).
   manager, refer to the [global configuration](/chainguard/libraries/javascript/global-configuration/)
   documentation.
 - To verify downloaded packages were built by Chainguard, see the
-  [verification](/chainguard/libraries/verification/) documentation.
+  [verification](/chainguard/libraries/policies-and-security/verification/) documentation.
 - For full per-tool configuration reference, refer to the [build
   configuration](/chainguard/libraries/javascript/build-configuration/)
   documentation.
 - To keep pinned versions stable when Chainguard publishes new builds, see the
-  [build pinning](/chainguard/libraries/build-pinning/) documentation.
+  [build pinning](/chainguard/libraries/policies-and-security/build-pinning/) documentation.

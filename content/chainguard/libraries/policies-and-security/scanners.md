@@ -9,9 +9,11 @@ draft: false
 tags: ["Chainguard Libraries"]
 menu:
   docs:
-    parent: "libraries"
-weight: 007
+    parent: "policies-and-security"
+weight: 073
 toc: true
+aliases:
+  - /chainguard/libraries/scanners/
 ---
 
 Vulnerability scanners enable you to understand the potential security risks
@@ -25,7 +27,7 @@ chain attacks. In addition, some library versions are available with CVE fixes
 applied. These fixes are backported from newer versions of the open source
 project by Chainguard to create new libraries of older versions containing these
 newer changes. Find more details in [CVE
-Remediation](/chainguard/libraries/cve-remediation/).
+Remediation](/chainguard/libraries/policies-and-security/cve-remediation/).
 
 This page provides an overview of vulnerability scanning for libraries and
 the use of specific scanning applications in the following sections. For more
@@ -186,7 +188,7 @@ detection of remediated Chainguard Libraries for Python and Java after applying 
 configuration.
 
 Use the experimental VEX Repo feature of Trivy with the [VEX feed for Chainguard
-Libraries](/chainguard/libraries/cve-remediation/#vex). Configure the Chainguard
+Libraries](/chainguard/libraries/policies-and-security/cve-remediation/#vex). Configure the Chainguard
 VEX feed locally:
 
 ```shell
@@ -261,7 +263,7 @@ as well as the [official documentation](https://trivy.dev/docs/latest/).
 
 ### Upwind
 
-[Upwind](https://www.upwind.io/) can scan container images that use Chainguard Libraries for Python and Java, and recognize Chainguard backported fixes in [remediated library](/chainguard/libraries/cve-remediation/) versions.
+[Upwind](https://www.upwind.io/) can scan container images that use Chainguard Libraries for Python and Java, and recognize Chainguard backported fixes in [remediated library](/chainguard/libraries/policies-and-security/cve-remediation/) versions.
 
 It is supported for container scanning in CI/CD only.
 

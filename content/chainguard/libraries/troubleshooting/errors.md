@@ -7,8 +7,10 @@ date: 2026-08-11T00:00:00+00:00
 lastmod: 2026-08-20T19:51:12+00:00
 draft: false
 images: []
-weight: 011
+weight: 081
 tags: ["Libraries", "Product"]
+aliases:
+  - /chainguard/libraries/errors/
 ---
 
 Chainguard Libraries applies security controls to every package it serves through the
@@ -22,7 +24,7 @@ invalid authentication.
 **Note**: If your build tool or repository manager pulls from a public registry as a
 fallback, it may fetch a blocked package and bypass Chainguard's controls. Chainguard
 recommends pulling all open source packages through the
-[Chainguard Repository](/chainguard/libraries/overview/#upstream-fallback-and-controls) only.
+[Chainguard Repository](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) only.
 
 ## Why a package or version is blocked
 
@@ -50,13 +52,13 @@ The following errors indicate problems with authentication, entitlements, or a n
 
 | Error | Meaning | Next steps |
 | -- | -- | -- |
-| Not authenticated (`401`) | Your pull token is missing or expired. | Reconfigure access. See [Access Chainguard Libraries](/chainguard/libraries/access/). |
-| Missing entitlement (`403`) | Your organization is not entitled to the specific ecosystem. | See [Manage library entitlements](/chainguard/libraries/access/#manage-library-entitlements). |
+| Not authenticated (`401`) | Your pull token is missing or expired. | Reconfigure access. See [Access Chainguard Libraries](/chainguard/libraries/introduction/access/). |
+| Missing entitlement (`403`) | Your organization is not entitled to the specific ecosystem. | See [Manage library entitlements](/chainguard/libraries/introduction/access/#manage-library-entitlements). |
 | Package does not exist (`404`) | The requested package or version does not exist. | Confirm that the package name and version exist on the public upstream registry. |
 
 ## Learn more
 
-* [View blocked malware in the Console](/chainguard/libraries/browse/#view-malware-information)
+* [View blocked malware in the Console](/chainguard/libraries/introduction/browse/#view-malware-information)
 * [Library policies, overrides, and cooldown](/chainguard/chainguard-repository/library-policies/)
-* [Access Chainguard Libraries](/chainguard/libraries/access/)
-* [Manage build pinning](/chainguard/libraries/build-pinning/)
+* [Access Chainguard Libraries](/chainguard/libraries/introduction/access/)
+* [Manage build pinning](/chainguard/libraries/policies-and-security/build-pinning/)

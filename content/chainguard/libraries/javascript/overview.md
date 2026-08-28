@@ -6,7 +6,7 @@ aliases:
 description: "JavaScript libraries for your application development"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-08-20T19:51:12+00:00
+lastmod: 2026-08-28T16:31:04+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript", "Overview"]
 menu:
@@ -17,7 +17,7 @@ toc: true
 ---
 
 **Chainguard Libraries for JavaScript** is a major ecosystem supported by
-[Chainguard Libraries](/chainguard/libraries/overview/). The JavaScript
+[Chainguard Libraries](/chainguard/libraries/introduction/overview/). The JavaScript
 ecosystem consists of thousands of open source projects from the communities
 around [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript),
 [TypeScript](https://www.typescriptlang.org/), [Node.js](https://nodejs.org/),
@@ -69,7 +69,7 @@ upstream project.
 ## Technical details
 
 The [username and password retrieved with
-chainctl](/chainguard/libraries/access/) are required to access the Chainguard
+chainctl](/chainguard/libraries/introduction/access/) are required to access the Chainguard
 Libraries for JavaScript repository. The URL for the repository is:
 
 ```
@@ -99,7 +99,7 @@ For a step-by-step walkthrough of moving an existing project to Chainguard Libra
 
 If you install through a repository manager, refer to [Global configuration](/chainguard/libraries/javascript/global-configuration/#updating-lockfile-hashes/).
 
-When the upstream fallback is enabled, [build pinning](/chainguard/libraries/build-pinning/) keeps a version you pulled from upstream stable after Chainguard publishes its own build, so you don't have to update these hashes again unexpectedly.
+When the upstream fallback is enabled, [build pinning](/chainguard/libraries/policies-and-security/build-pinning/) keeps a version you pulled from upstream stable after Chainguard publishes its own build, so you don't have to update these hashes again unexpectedly.
 
 ## Provenance and attestations
 
@@ -117,7 +117,7 @@ You can verify a package tarball in a single command using `chainctl`:
 chainctl libraries verify PACKAGE-VERSION.tgz
 ```
 
-Refer to [Verification](/chainguard/libraries/verification/) for setup and usage details.
+Refer to [Verification](/chainguard/libraries/policies-and-security/verification/) for setup and usage details.
 
 ### Verify attestation manually
 
@@ -191,6 +191,6 @@ Repository](/chainguard/chainguard-repository/overview/). By default, the endpoi
 only Chainguard-built packages. When the upstream fallback is enabled, upstream packages are
 subject to additional security controls before being served.
 
-Learn about managing fallback and cooldown controls in the [Libraries overview](/chainguard/libraries/overview/#upstream-fallback-and-controls).
+Learn about managing fallback and cooldown controls in the [Libraries overview](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls).
 
 > Note: Upstream fallback has been tested against pnpm v11. When using pnpm, we recommend pnpm v11 or newer.

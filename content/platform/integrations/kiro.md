@@ -7,7 +7,7 @@ lead: "Using Chainguard container images and libraries in AI-assisted developmen
 description: "Install the Chainguard Power for Kiro and use it to migrate projects to Chainguard container images and libraries."
 type: "article"
 date: 2026-06-18T00:00:00-04:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-08-28T16:31:04+00:00
 draft: false
 weight: 020
 ---
@@ -30,7 +30,7 @@ Before you begin, you'll need:
 * [`chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) installed and authenticated
 * Access to the Chainguard products you plan to use
     * [Chainguard Containers](/chainguard/containers/overview/) for container image migration
-    * [Chainguard Libraries](/chainguard/libraries/overview/) for Java, JavaScript, or Python dependency migration. Learn how to create an entitlement in the [Libraries access docs](/chainguard/libraries/access/#manage-library-entitlements).
+    * [Chainguard Libraries](/chainguard/libraries/introduction/overview/) for Java, JavaScript, or Python dependency migration. Learn how to create an entitlement in the [Libraries access docs](/chainguard/libraries/introduction/access/#manage-library-entitlements).
 
 The Chainguard Power uses your existing `chainctl` session for image and package lookups in Kiro.
 If you want Kiro to help reconfigure a project to use Chainguard Libraries, make sure your organization also has access to the relevant Libraries ecosystem.
@@ -55,7 +55,7 @@ You do not need to manually edit JSON configuration files or perform separate CL
 Kiro can use Chainguard context to help with tasks such as:
 
 * Migrating Dockerfiles to [Chainguard Containers](https://images.chainguard.dev/)
-* Reconfiguring Java, JavaScript, and Python projects to use [Chainguard Libraries](/chainguard/libraries/overview/)
+* Reconfiguring Java, JavaScript, and Python projects to use [Chainguard Libraries](/chainguard/libraries/introduction/overview/)
 * Looking up Chainguard image tags
 * Finding Wolfi package equivalents for packages currently installed with `apt` or similar package managers
 * Guiding Chainguard platform tasks such as policy, cluster, and IAM workflows
