@@ -26,7 +26,7 @@ Once an administrator has [configured an identity provider](#setup-and-administr
 [`chainctl`, the Chainguard command line interface (CLI)](/chainguard/chainctl/), supports SSO authentication by supplying the identity provider organization name as a flag or by setting it as a default in configuration. To use a flag to authenticate using SSO, pass the `--identity-provider` flag to `chainctl auth login`.
 
 ```sh
-export IDP_ID=<your identity provider id here>
+export IDP_ID=<idp_id>
 chainctl auth login --identity-provider=$IDP_ID
 ```
 
@@ -60,7 +60,7 @@ This will open your system's default text editor where you can edit the local `c
 
 ```yaml
 default:
-  identity-provider: <your identity provider id here>
+  identity-provider: <idp_id>
 ```
 
 Then save and close the file. If your system's default editor is `nano`, for example, you can do so by pressing `CTRL + X`, `Y`, and then `ENTER`.
@@ -68,7 +68,7 @@ Then save and close the file. If your system's default editor is `nano`, for exa
 You can also set this with a single command using the `chainctl config set` subcommand, as in this example.
 
 ```sh
-chainctl config set default.identity-provider <your identity provider id here>
+chainctl config set default.identity-provider <idp_id>
 ```
 
 Once set, the configured identity provider will be used automatically any time you run `chainctl auth login`.
@@ -167,14 +167,14 @@ chainctl auth login
 
 The bootstrap account can use any supported IdP -- for example you may choose to temporarily use a personal Google account. You can leave this account active as a [backup account](/chainguard/administration/custom-idps/custom-idps/#backup-accounts) or, if you prefer, you can delete the account by removing the role-binding after configuring the custom IdP.
 
-Create a new identity provider using the details you noted from your OIDC application. Be sure to update the details in the following example `export` commands to align with your own application/client ID, client secret, and issuer URL.
+Create a new identity provider using the details you noted from your OIDC application. Replace `<application_client_id>`, `<client_secret>`, and `<issuer_url>` with the values from your own application, and `<organization_id>` with the UIDP of the organization where you want to install the identity provider.
 
 ```sh
 export NAME=my-sso-identity-provider
-export CLIENT_ID=<your application/client id here>
-export CLIENT_SECRET=<your client secret here>
-export ISSUER=<your issuer url here>
-export ORG=<your organization UIDP here>
+export CLIENT_ID=<application_client_id>
+export CLIENT_SECRET=<client_secret>
+export ISSUER=<issuer_url>
+export ORG=<organization_id>
 chainctl iam identity-provider create \
   --configuration-type=OIDC \
   --oidc-client-id=${CLIENT_ID} \
