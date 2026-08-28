@@ -6,7 +6,7 @@ description:
   Libraries using the chainctl tool for enhanced supply chain security"
 type: "article"
 date: 2025-07-03T12:00:00+00:00
-lastmod: 2026-08-27T14:20:23+00:00
+lastmod: 2026-08-27T19:36:12+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -36,7 +36,7 @@ Command characteristics:
 
 ## Requirements
 
-Before using chainctl to verify libraries, ensure you have the following
+Before using `chainctl` to verify libraries, ensure you have the following
 installed and available on your path:
 
 - [`chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) —
@@ -55,6 +55,7 @@ You also need:
 - Sufficient [network access](/chainguard/libraries/network-requirements/)
 - Your organization [must include entitlement for access to Chainguard
   Libraries](/chainguard/libraries/access/#entitlement)
+- You must have one of the `libraries.java.pull`, `libraries.javascript.pull`, or `libraries.python.pull` permissions, or the Owner role.
 
 Confirm that `chainctl` is installed and available on the `PATH`:
 
@@ -108,6 +109,8 @@ the following examples as necessary.
 
 ## File analysis
 
+> **Note**: Running `chainctl libraries verify` requires one of the `libraries.java.pull`, `libraries.javascript.pull`, or `libraries.python.pull` permissions, or the Owner role.
+
 ### Analyze a Python wheel file
 
 Analyze a Python wheel file in the current directory:
@@ -115,8 +118,6 @@ Analyze a Python wheel file in the current directory:
 ```sh
 chainctl libraries verify flask-3.0.1-py3-none-any.whl
 ```
-
-> **Note**: Running `chainctl libraries verify` requires one of the `libraries.java.pull`, `libraries.javascript.pull`, or `libraries.python.pull` permissions, or the Owner role.
 
 The analysis of wheel files is fast because the provenance information is
 available within the archive. Python development tools often unpack the wheel
@@ -129,6 +130,18 @@ python3 -m venv venv
 source ./venv/bin/activate
 pip3 install -r requirements.txt
 chainctl libraries verify --detailed ./venv/
+```
+
+If you use Poetry and the virtual environment is not in the project directory, verify the environment returned by Poetry:
+
+```bash
+chainctl libraries verify --detailed "$(poetry env info --path)"
+```
+
+For CI/CD, use JSON output to save a machine-readable report:
+
+```bash
+chainctl libraries verify --detailed -o json .venv/ > provenance-report.json
 ```
 
 ### Analyze a Java JAR file
