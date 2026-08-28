@@ -1,5 +1,5 @@
 ---
-date: 2026-08-26T22:44:37Z
+date: 2026-08-27T20:49:25Z
 title: "chainctl auth pull-token create"
 slug: chainctl_auth_pull-token_create
 url: /platform/chainctl/chainctl-docs/chainctl_auth_pull-token_create/
@@ -14,7 +14,7 @@ toc: true
 Create a pull token.
 
 ```
-chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|java_athena|python_athena|javascript_athena|dotnet|dotnet_athena|java|go|go_athena|python|javascript}] [flags]
+chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|java|javascript|java_athena|python_athena|javascript_athena|dotnet_athena|python|dotnet|go|go_athena}] [flags]
 ```
 
 ### Examples
@@ -42,7 +42,7 @@ chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, java_athena, python_athena, javascript_athena, dotnet, dotnet_athena, java, go, go_athena, python, javascript. (default "oci")
+      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, java, javascript, java_athena, python_athena, javascript_athena, dotnet_athena, python, dotnet, go, go_athena. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
 ```

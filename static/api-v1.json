@@ -5551,7 +5551,11 @@
         "description": "ChartImageBinding describes a chart in the CG catalog\nthat references a specific image, populated by the registry ingester\nentries derived from chart-lock attestations.",
         "properties": {
           "chartRepo": {
-            "description": "The bare name of the chart repo that references the image (e.g. \"akhq\").",
+            "description": "UIDP of the chart repo that references the image.\nDistinct catalogs (community, iamguarded) share bare names\nbut have distinct UIDPs, so this is the identity callers\nshould resolve if they need the chart's name or catalog.",
+            "type": "string"
+          },
+          "imageRepo": {
+            "description": "Bare name of the image repo this binding is for (e.g. \"redis\"). Echoes\nthe request so batch callers can join bindings back to the image they\nasked about; also populated in the singular ListChartsByImageRepo\nresponse for symmetry.",
             "type": "string"
           },
           "requirement": {
@@ -6206,6 +6210,18 @@
           "max": {
             "format": "int32",
             "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.ListChartImageBindingsResponse": {
+        "properties": {
+          "chartImageBindings": {
+            "description": "Chart-image bindings for the requested image repos, sorted by\n(image_repo, chart_repo). Image repos with no bindings are omitted.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.ChartImageBinding"
+            },
+            "type": "array"
           }
         },
         "type": "object"
@@ -9227,6 +9243,15 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "description": "updated_since returns documents last updated at or after the given time.",
+            "in": "query",
+            "name": "updatedSince",
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -9440,6 +9465,15 @@
             "schema": {
               "format": "int32",
               "type": "integer"
+            }
+          },
+          {
+            "description": "updated_since restricts results to CGP IDs bound to documents last updated\nat or after the given time.",
+            "in": "query",
+            "name": "updatedSince",
+            "schema": {
+              "format": "date-time",
+              "type": "string"
             }
           }
         ],
@@ -15633,6 +15667,51 @@
           }
         },
         "summary": "Get Build Status",
+        "tags": [
+          "Registry"
+        ]
+      }
+    },
+    "/registry/v1/chart-image-bindings": {
+      "get": {
+        "description": "ListChartImageBindings returns every chart-image binding for each of\nthe requested image repo UIDPs. The RPC is unscoped: the caller must\nhold CAP_REPO_LIST somewhere in their token, and each image_repo_id\nmust be a descendant of at least one of the caller's authorized\nscopes (enforced in the impl via interceptors.GetUIDPScope).",
+        "operationId": "Registry_ListChartImageBindings",
+        "parameters": [
+          {
+            "description": "image_repo_ids are the UIDPs of the image repos to look up\nchart-image bindings for. At least one id is required. Every id must\nbe a descendant of one of the caller's authorized CAP_REPO_LIST\nscopes; ids outside the caller's scope return INVALID_ARGUMENT.",
+            "in": "query",
+            "name": "imageRepoIds",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.registry.ListChartImageBindingsResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Chart Image Bindings",
         "tags": [
           "Registry"
         ]

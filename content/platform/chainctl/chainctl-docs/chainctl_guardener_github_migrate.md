@@ -1,5 +1,5 @@
 ---
-date: 2026-08-26T22:44:37Z
+date: 2026-08-27T20:49:25Z
 title: "chainctl guardener github migrate"
 slug: chainctl_guardener_github_migrate
 url: /platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate/
