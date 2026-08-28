@@ -89,7 +89,7 @@ baseName = "concepts"
 isPlainText = true
 notAlternative = true
 [caches]
-  [caches.getjson]
+  [caches.getresource]
     dir = ":cacheDir/:project"
     maxAge = "10s"
 [sitemap]
