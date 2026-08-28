@@ -61,7 +61,7 @@ To configure Chainguard, make a note of the following details from your Keycloak
 
 * **Client ID**: This can be found on the **Settings** tab of the Keycloak Client.
 * **Client Secret**: This can be found on the **Credentials** tab of the Keycloak Client.
-* **Issuer**: Your **Issuer** url is defined by the following pattern `https://<keycloak_server_address>/realms/<realm_name>`
+* **Issuer**: Your **Issuer** URL is defined by the following pattern `https://<keycloak_server_address>/realms/<realm_name>`
 
 You will also need the UIDP for the Chainguard organization under which you want to install the identity provider.  Your selection won’t affect how your users authenticate but will have implications on who has permission to modify the SSO configuration.
 

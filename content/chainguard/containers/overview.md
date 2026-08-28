@@ -1,6 +1,6 @@
 ---
 title: "Overview of Chainguard Containers"
-linktitle: "Overview"
+linktitle: "Containers overview"
 type: "article"
 description: "Learn about Chainguard Containers, distroless images, and how they provide enhanced security through minimal attack surface and comprehensive supply chain features."
 lead: "Chainguard Containers are security-hardened container images built with a distroless approach, containing only essential application components and runtime dependencies."

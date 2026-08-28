@@ -2,7 +2,7 @@
 title: "Libraries examples"
 linktitle: "Libraries examples"
 lead: ""
-description: "Swap in your first secure dependency with Chainguard Libraries: a quickstart and migration walkthroughs for Java, JavaScript, and Python."
+description: "Swap in your first secure dependency with Chainguard Libraries: a quickstart plus ecosystem overviews for Java, JavaScript, and Python."
 type: "article"
 date: 2026-06-26T00:00:00+00:00
 lastmod: 2026-08-06T19:08:57+00:00
@@ -12,12 +12,12 @@ weight: 025
 crosslinks:
 - title: "Quickstart: swap in a library"
   url: "/chainguard/libraries/quickstart/"
-- title: "Migrate a Java project"
-  url: "/chainguard/libraries/java/migration/"
-- title: "Migrate a JavaScript project"
-  url: "/chainguard/libraries/javascript/migration/"
-- title: "Migrate a Python project"
-  url: "/chainguard/libraries/python/migration/"
+- title: "Java overview"
+  url: "/chainguard/libraries/java/overview/"
+- title: "JavaScript overview"
+  url: "/chainguard/libraries/javascript/overview/"
+- title: "Python overview"
+  url: "/chainguard/libraries/python/overview/"
 ---
 
 Point your package manager at Chainguard, reinstall, and ship — no breaking changes. Chainguard Libraries are rebuilt from verified source as drop-in replacements for the packages you already use.
@@ -27,9 +27,11 @@ These on-ramp guides link to the published Chainguard Libraries documentation. L
 ## On-ramp guides
 
 - **[Quickstart: swap in a library](/chainguard/libraries/quickstart/)** — point your package manager at Chainguard, reinstall, and ship.
-- **[Migrate a Java project](/chainguard/libraries/java/migration/)** — switch an existing Maven or Gradle project over to Chainguard Libraries.
-- **[Migrate a JavaScript project](/chainguard/libraries/javascript/migration/)** — switch an existing npm project over to Chainguard Libraries.
-- **[Migrate a Python project](/chainguard/libraries/python/migration/)** — switch an existing pip, uv, or Poetry project over to Chainguard Libraries.
+- **[Java](/chainguard/libraries/java/overview/)** — which Maven Central artifacts Chainguard rebuilds, and how Maven and Gradle reach them.
+- **[JavaScript](/chainguard/libraries/javascript/overview/)** — which npm packages Chainguard rebuilds, and how npm, pnpm, Yarn, and Bun reach them.
+- **[Python](/chainguard/libraries/python/overview/)** — which PyPI packages Chainguard rebuilds, and how pip, uv, and Poetry reach them.
+
+Moving an existing project rather than starting a new one? The [migration guides](/get-started/migration/) cover that path.
 
 ## Example projects
 
