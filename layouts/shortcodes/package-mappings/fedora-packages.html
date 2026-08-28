@@ -14,7 +14,7 @@
           </tr>
         </thead>
         <tbody>
-        {{ range $fedora, $chainguard := index $.Site.Data "package-mappings" "packages" "fedora" }}
+        {{ range $fedora, $chainguard := index hugo.Data "package-mappings" "packages" "fedora" }}
           <tr>
             <td><code>{{ $fedora }}</code></td>
             <td>

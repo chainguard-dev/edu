@@ -5,7 +5,7 @@ disableHugoGeneratorInject = true
 enableEmoji = false
 enableGitInfo = false
 enableRobotsTXT = true
-languageCode = "en-US"
+locale = "en-US"
 [pagination]
   pagerSize = 7
 rssLimit = 10
@@ -133,7 +133,7 @@ notAlternative = true
   [[module.mounts]]
     source = "node_modules/@scalar/api-reference/dist"
     target = "assets/css/vendor/scalar"
-    includeFiles = ["/style.css"]
+    files = ["/style.css"]
   [[module.mounts]]
     source = "node_modules/bootstrap-icons/font/fonts"
     target = "static/fonts"
