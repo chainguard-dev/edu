@@ -4,6 +4,7 @@ linktitle: "Alpine"
 aliases:
 - /chainguard/migration/alpine-compatibility/
 - /chainguard/migration/compatibility/alpine-compatibility/
+- /get-started/migration/compatibility/alpine-compatibility/
 type: "article"
 description: "Differences between Chainguard Containers and Alpine third-party images"
 date: 2024-02-23T15:56:52-07:00

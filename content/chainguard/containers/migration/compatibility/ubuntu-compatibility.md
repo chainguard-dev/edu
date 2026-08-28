@@ -1,38 +1,35 @@
 ---
-title: "Debian compatibility"
-linktitle: "Debian"
-type: "article"
+title: "Ubuntu compatibility"
+linktitle: "Ubuntu"
 aliases:
-- /chainguard/chainguard-images/migration-guides/debian-compatibility/
-- /chainguard/migration/debian-compatibility/
-- /chainguard/migration/compatibility/debian-compatibility/
-- /chainguard/containers/migration-guides/debian-compatibility/
-description: "Differences between Chainguard Containers and Debian third-party images"
-date: 2024-02-08T15:56:52-07:00
-lastmod: 2026-08-03T18:16:45+00:00
+- /chainguard/migration/ubuntu-compatibility/
+- /chainguard/migration/compatibility/ubuntu-compatibility/
+- /get-started/migration/compatibility/ubuntu-compatibility/
+type: "article"
+description: "Differences between Chainguard Containers and Ubuntu third-party images"
+date: 2024-02-23T15:56:52-07:00
+lastmod: 2024-03-08T15:56:52-07:00
 draft: false
 tags: ["Chainguard Containers", "Reference"]
 images: []
 menu:
   docs:
     parent: "compatibility"
-weight: 010
+weight: 015
 toc: true
 ---
 
-Chainguard Containers and Debian base images have different binaries and scripts included in their respective `busybox` and `coreutils` packages.
+Chainguard Containers and Ubuntu base images have different binaries and scripts included in their respective `busybox` and `coreutils` packages.
 
-The following table lists common tools and their corresponding package(s) in both Wolfi and Debian distributions.
+The following table lists common tools and their corresponding package(s) in both Wolfi and Ubuntu distributions.
 
 Note that `$PATH` locations like `/usr/bin` or `/sbin` are not included here. If you have compatibility issues with tools that are included in both `busybox` and `coreutils`, be sure to check `$PATH` order and confirm which version of a tool is being run.
 
-Generally, if a tool exists in `busybox` but does not have a `coreutils` counterpart, there will be a specific package that includes it. For example the `zcat` utility is included in the `gzip` package in both Wolfi and Debian.
+Generally, if a tool exists in `busybox` but does not have a `coreutils` counterpart, there will be a specific package that includes it. For example the `zcat` utility is included in the `gzip` package in both Wolfi and Ubuntu.
 
-You can use the `apk search` command in Wolfi, and the `apt-cache search` command in Debian to find out which package includes a tool.
+You can use the `apk search` command in Wolfi, and the `apt-cache search` command in Ubuntu to find out which package includes a tool.
 
-If your workflow depends on tools or packages from the upstream Debian image, note that Chainguard offers *full* variants (tagged `-full`) for a number of our most popular Containers.These variants map to their upstream equivalent (often the Debian image on Docker Hub) and can ease migration before you move to a more minimal image. Refer to [Full container variants](/chainguard/containers/about/differences-development-production/#full-container-variants).
-
-| Utility             | Wolfi busybox | Debian busybox | Wolfi coreutils | Debian coreutils |
+| Utility             | Wolfi busybox | Ubuntu busybox | Wolfi coreutils | Ubuntu coreutils |
 | ------------------- | :-----------: | :------------: | :-------------: | :--------------: |
 | `[`                 |      ✅       |       ✅       |       ✅        |        ✅        |
 | `[[`                |      ✅       |       ✅       |                 |                  |
@@ -45,12 +42,11 @@ If your workflow depends on tools or packages from the upstream Debian image, no
 | `arch`              |      ✅       |       ✅       |                 |        ✅        |
 | `arp`               |               |       ✅       |                 |                  |
 | `arping`            |      ✅       |       ✅       |                 |                  |
-| `ascii`             |               |       ✅       |                 |                  |
 | `ash`               |      ✅       |       ✅       |                 |                  |
 | `awk`               |      ✅       |       ✅       |                 |                  |
 | `b2sum`             |               |                |       ✅        |        ✅        |
 | `base32`            |               |                |       ✅        |        ✅        |
-| `base64`            |      ✅       |       ✅       |       ✅        |        ✅        |
+| `base64`            |      ✅       |                |       ✅        |        ✅        |
 | `basename`          |      ✅       |       ✅       |       ✅        |        ✅        |
 | `basenc`            |               |                |       ✅        |        ✅        |
 | `bbconfig`          |      ✅       |                |                 |                  |
@@ -58,7 +54,6 @@ If your workflow depends on tools or packages from the upstream Debian image, no
 | `beep`              |      ✅       |                |                 |                  |
 | `bin`               |               |                |                 |        ✅        |
 | `blkdiscard`        |               |       ✅       |                 |                  |
-| `blkid`             |               |       ✅       |                 |                  |
 | `blockdev`          |               |       ✅       |                 |                  |
 | `brctl`             |               |       ✅       |                 |                  |
 | `bunzip2`           |      ✅       |       ✅       |                 |                  |
@@ -71,7 +66,7 @@ If your workflow depends on tools or packages from the upstream Debian image, no
 | `chgrp`             |      ✅       |       ✅       |       ✅        |        ✅        |
 | `chmod`             |      ✅       |       ✅       |       ✅        |        ✅        |
 | `chown`             |      ✅       |       ✅       |       ✅        |        ✅        |
-| `chpasswd`          |      ✅       |                |                 |                  |
+| `chpasswd`          |      ✅       |       ✅       |                 |                  |
 | `chroot`            |      ✅       |       ✅       |       ✅        |        ✅        |
 | `chrt`              |      ✅       |                |                 |                  |
 | `chvt`              |               |       ✅       |                 |                  |
@@ -82,7 +77,6 @@ If your workflow depends on tools or packages from the upstream Debian image, no
 | `coreutils`         |               |                |       ✅        |                  |
 | `cp`                |      ✅       |       ✅       |       ✅        |        ✅        |
 | `cpio`              |      ✅       |       ✅       |                 |                  |
-| `crc32`             |               |       ✅       |                 |                  |
 | `cryptpw`           |      ✅       |                |                 |                  |
 | `csplit`            |               |                |       ✅        |        ✅        |
 | `cttyhack`          |               |       ✅       |                 |                  |
@@ -116,10 +110,9 @@ If your workflow depends on tools or packages from the upstream Debian image, no
 | `fallocate`         |      ✅       |       ✅       |                 |                  |
 | `false`             |      ✅       |       ✅       |       ✅        |        ✅        |
 | `fatattr`           |               |       ✅       |                 |                  |
-| `fdisk`             |               |       ✅       |                 |                  |
 | `fgrep`             |      ✅       |       ✅       |                 |                  |
 | `find`              |      ✅       |       ✅       |                 |                  |
-| `findfs`            |      ✅       |       ✅       |                 |                  |
+| `findfs`            |      ✅       |                |                 |                  |
 | `flock`             |      ✅       |                |                 |                  |
 | `fmt`               |               |                |       ✅        |        ✅        |
 | `fold`              |      ✅       |       ✅       |       ✅        |        ✅        |
@@ -149,7 +142,6 @@ If your workflow depends on tools or packages from the upstream Debian image, no
 | `i2cdump`           |               |       ✅       |                 |                  |
 | `i2cget`            |               |       ✅       |                 |                  |
 | `i2cset`            |               |       ✅       |                 |                  |
-| `i2ctransfer`       |               |       ✅       |                 |                  |
 | `id`                |      ✅       |       ✅       |       ✅        |        ✅        |
 | `ifconfig`          |               |       ✅       |                 |                  |
 | `ifdown`            |               |       ✅       |                 |                  |
@@ -197,7 +189,6 @@ If your workflow depends on tools or packages from the upstream Debian image, no
 | `md5sum.textutils`  |               |                |                 |        ✅        |
 | `mdev`              |               |       ✅       |                 |                  |
 | `microcom`          |      ✅       |       ✅       |                 |                  |
-| `mim`               |               |       ✅       |                 |                  |
 | `mkdir`             |      ✅       |       ✅       |       ✅        |        ✅        |
 | `mkdosfs`           |               |       ✅       |                 |                  |
 | `mke2fs`            |               |       ✅       |                 |                  |
@@ -285,7 +276,7 @@ If your workflow depends on tools or packages from the upstream Debian image, no
 | `sha224sum`         |               |                |       ✅        |        ✅        |
 | `sha256sum`         |      ✅       |       ✅       |       ✅        |        ✅        |
 | `sha384sum`         |               |                |       ✅        |        ✅        |
-| `sha3sum`           |      ✅       |       ✅       |                 |                  |
+| `sha3sum`           |      ✅       |                |                 |                  |
 | `sha512sum`         |      ✅       |       ✅       |       ✅        |        ✅        |
 | `shred`             |      ✅       |       ✅       |       ✅        |        ✅        |
 | `shuf`              |      ✅       |       ✅       |       ✅        |        ✅        |
@@ -326,7 +317,6 @@ If your workflow depends on tools or packages from the upstream Debian image, no
 | `tree`              |      ✅       |                |                 |                  |
 | `true`              |      ✅       |       ✅       |       ✅        |        ✅        |
 | `truncate`          |      ✅       |       ✅       |       ✅        |        ✅        |
-| `ts`                |               |       ✅       |                 |                  |
 | `tsort`             |      ✅       |                |       ✅        |        ✅        |
 | `tty`               |      ✅       |       ✅       |       ✅        |        ✅        |
 | `ttysize`           |      ✅       |                |                 |                  |

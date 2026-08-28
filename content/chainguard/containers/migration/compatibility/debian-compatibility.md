@@ -1,34 +1,39 @@
 ---
-title: "Ubuntu compatibility"
-linktitle: "Ubuntu"
-aliases:
-- /chainguard/migration/ubuntu-compatibility/
-- /chainguard/migration/compatibility/ubuntu-compatibility/
+title: "Debian compatibility"
+linktitle: "Debian"
 type: "article"
-description: "Differences between Chainguard Containers and Ubuntu third-party images"
-date: 2024-02-23T15:56:52-07:00
-lastmod: 2024-03-08T15:56:52-07:00
+aliases:
+- /chainguard/chainguard-images/migration-guides/debian-compatibility/
+- /chainguard/migration/debian-compatibility/
+- /chainguard/migration/compatibility/debian-compatibility/
+- /chainguard/containers/migration-guides/debian-compatibility/
+- /get-started/migration/compatibility/debian-compatibility/
+description: "Differences between Chainguard Containers and Debian third-party images"
+date: 2024-02-08T15:56:52-07:00
+lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Containers", "Reference"]
 images: []
 menu:
   docs:
     parent: "compatibility"
-weight: 015
+weight: 010
 toc: true
 ---
 
-Chainguard Containers and Ubuntu base images have different binaries and scripts included in their respective `busybox` and `coreutils` packages.
+Chainguard Containers and Debian base images have different binaries and scripts included in their respective `busybox` and `coreutils` packages.
 
-The following table lists common tools and their corresponding package(s) in both Wolfi and Ubuntu distributions.
+The following table lists common tools and their corresponding package(s) in both Wolfi and Debian distributions.
 
 Note that `$PATH` locations like `/usr/bin` or `/sbin` are not included here. If you have compatibility issues with tools that are included in both `busybox` and `coreutils`, be sure to check `$PATH` order and confirm which version of a tool is being run.
 
-Generally, if a tool exists in `busybox` but does not have a `coreutils` counterpart, there will be a specific package that includes it. For example the `zcat` utility is included in the `gzip` package in both Wolfi and Ubuntu.
+Generally, if a tool exists in `busybox` but does not have a `coreutils` counterpart, there will be a specific package that includes it. For example the `zcat` utility is included in the `gzip` package in both Wolfi and Debian.
 
-You can use the `apk search` command in Wolfi, and the `apt-cache search` command in Ubuntu to find out which package includes a tool.
+You can use the `apk search` command in Wolfi, and the `apt-cache search` command in Debian to find out which package includes a tool.
 
-| Utility             | Wolfi busybox | Ubuntu busybox | Wolfi coreutils | Ubuntu coreutils |
+If your workflow depends on tools or packages from the upstream Debian image, note that Chainguard offers *full* variants (tagged `-full`) for a number of our most popular Containers.These variants map to their upstream equivalent (often the Debian image on Docker Hub) and can ease migration before you move to a more minimal image. Refer to [Full container variants](/chainguard/containers/about/differences-development-production/#full-container-variants).
+
+| Utility             | Wolfi busybox | Debian busybox | Wolfi coreutils | Debian coreutils |
 | ------------------- | :-----------: | :------------: | :-------------: | :--------------: |
 | `[`                 |      ✅       |       ✅       |       ✅        |        ✅        |
 | `[[`                |      ✅       |       ✅       |                 |                  |
@@ -41,11 +46,12 @@ You can use the `apk search` command in Wolfi, and the `apt-cache search` comman
 | `arch`              |      ✅       |       ✅       |                 |        ✅        |
 | `arp`               |               |       ✅       |                 |                  |
 | `arping`            |      ✅       |       ✅       |                 |                  |
+| `ascii`             |               |       ✅       |                 |                  |
 | `ash`               |      ✅       |       ✅       |                 |                  |
 | `awk`               |      ✅       |       ✅       |                 |                  |
 | `b2sum`             |               |                |       ✅        |        ✅        |
 | `base32`            |               |                |       ✅        |        ✅        |
-| `base64`            |      ✅       |                |       ✅        |        ✅        |
+| `base64`            |      ✅       |       ✅       |       ✅        |        ✅        |
 | `basename`          |      ✅       |       ✅       |       ✅        |        ✅        |
 | `basenc`            |               |                |       ✅        |        ✅        |
 | `bbconfig`          |      ✅       |                |                 |                  |
@@ -53,6 +59,7 @@ You can use the `apk search` command in Wolfi, and the `apt-cache search` comman
 | `beep`              |      ✅       |                |                 |                  |
 | `bin`               |               |                |                 |        ✅        |
 | `blkdiscard`        |               |       ✅       |                 |                  |
+| `blkid`             |               |       ✅       |                 |                  |
 | `blockdev`          |               |       ✅       |                 |                  |
 | `brctl`             |               |       ✅       |                 |                  |
 | `bunzip2`           |      ✅       |       ✅       |                 |                  |
@@ -65,7 +72,7 @@ You can use the `apk search` command in Wolfi, and the `apt-cache search` comman
 | `chgrp`             |      ✅       |       ✅       |       ✅        |        ✅        |
 | `chmod`             |      ✅       |       ✅       |       ✅        |        ✅        |
 | `chown`             |      ✅       |       ✅       |       ✅        |        ✅        |
-| `chpasswd`          |      ✅       |       ✅       |                 |                  |
+| `chpasswd`          |      ✅       |                |                 |                  |
 | `chroot`            |      ✅       |       ✅       |       ✅        |        ✅        |
 | `chrt`              |      ✅       |                |                 |                  |
 | `chvt`              |               |       ✅       |                 |                  |
@@ -76,6 +83,7 @@ You can use the `apk search` command in Wolfi, and the `apt-cache search` comman
 | `coreutils`         |               |                |       ✅        |                  |
 | `cp`                |      ✅       |       ✅       |       ✅        |        ✅        |
 | `cpio`              |      ✅       |       ✅       |                 |                  |
+| `crc32`             |               |       ✅       |                 |                  |
 | `cryptpw`           |      ✅       |                |                 |                  |
 | `csplit`            |               |                |       ✅        |        ✅        |
 | `cttyhack`          |               |       ✅       |                 |                  |
@@ -109,9 +117,10 @@ You can use the `apk search` command in Wolfi, and the `apt-cache search` comman
 | `fallocate`         |      ✅       |       ✅       |                 |                  |
 | `false`             |      ✅       |       ✅       |       ✅        |        ✅        |
 | `fatattr`           |               |       ✅       |                 |                  |
+| `fdisk`             |               |       ✅       |                 |                  |
 | `fgrep`             |      ✅       |       ✅       |                 |                  |
 | `find`              |      ✅       |       ✅       |                 |                  |
-| `findfs`            |      ✅       |                |                 |                  |
+| `findfs`            |      ✅       |       ✅       |                 |                  |
 | `flock`             |      ✅       |                |                 |                  |
 | `fmt`               |               |                |       ✅        |        ✅        |
 | `fold`              |      ✅       |       ✅       |       ✅        |        ✅        |
@@ -141,6 +150,7 @@ You can use the `apk search` command in Wolfi, and the `apt-cache search` comman
 | `i2cdump`           |               |       ✅       |                 |                  |
 | `i2cget`            |               |       ✅       |                 |                  |
 | `i2cset`            |               |       ✅       |                 |                  |
+| `i2ctransfer`       |               |       ✅       |                 |                  |
 | `id`                |      ✅       |       ✅       |       ✅        |        ✅        |
 | `ifconfig`          |               |       ✅       |                 |                  |
 | `ifdown`            |               |       ✅       |                 |                  |
@@ -188,6 +198,7 @@ You can use the `apk search` command in Wolfi, and the `apt-cache search` comman
 | `md5sum.textutils`  |               |                |                 |        ✅        |
 | `mdev`              |               |       ✅       |                 |                  |
 | `microcom`          |      ✅       |       ✅       |                 |                  |
+| `mim`               |               |       ✅       |                 |                  |
 | `mkdir`             |      ✅       |       ✅       |       ✅        |        ✅        |
 | `mkdosfs`           |               |       ✅       |                 |                  |
 | `mke2fs`            |               |       ✅       |                 |                  |
@@ -275,7 +286,7 @@ You can use the `apk search` command in Wolfi, and the `apt-cache search` comman
 | `sha224sum`         |               |                |       ✅        |        ✅        |
 | `sha256sum`         |      ✅       |       ✅       |       ✅        |        ✅        |
 | `sha384sum`         |               |                |       ✅        |        ✅        |
-| `sha3sum`           |      ✅       |                |                 |                  |
+| `sha3sum`           |      ✅       |       ✅       |                 |                  |
 | `sha512sum`         |      ✅       |       ✅       |       ✅        |        ✅        |
 | `shred`             |      ✅       |       ✅       |       ✅        |        ✅        |
 | `shuf`              |      ✅       |       ✅       |       ✅        |        ✅        |
@@ -316,6 +327,7 @@ You can use the `apk search` command in Wolfi, and the `apt-cache search` comman
 | `tree`              |      ✅       |                |                 |                  |
 | `true`              |      ✅       |       ✅       |       ✅        |        ✅        |
 | `truncate`          |      ✅       |       ✅       |       ✅        |        ✅        |
+| `ts`                |               |       ✅       |                 |                  |
 | `tsort`             |      ✅       |                |       ✅        |        ✅        |
 | `tty`               |      ✅       |       ✅       |       ✅        |        ✅        |
 | `ttysize`           |      ✅       |                |                 |                  |

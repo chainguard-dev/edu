@@ -3,6 +3,7 @@ title: "Compatibility guides"
 linktitle: "Compatibility"
 aliases:
 - /chainguard/migration/compatibility/
+- /get-started/migration/compatibility/
 description: "Guides outlining the differences between Chainguard Containers and third-party images."
 type: "article"
 date: 2025-01-16T18:42:57+00:00

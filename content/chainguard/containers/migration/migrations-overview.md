@@ -5,10 +5,11 @@ aliases:
 - /chainguard/migration/migrations-overview/
 - /chainguard/migration-guides/migration-overview/
 - /chainguard/migration/migration-overview/
+- /get-started/migration/migrations-overview/
 type: "article"
-description: "This overview serves as a collection of information and resources on migrating to Chainguard Containers."
+description: "Key differences, a recommended rollout strategy, and troubleshooting guidance for moving existing container workloads to Chainguard Containers."
 date: 2024-07-22T12:56:52-00:00
-lastmod: 2024-08-08T14:44:52-00:00
+lastmod: 2026-08-27T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -19,19 +20,9 @@ weight: 005
 toc: true
 ---
 
-[Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) are a collection of container images designed for security and minimalism. Many Chainguard Containers are [distroless](/chainguard/containers/getting-started-distroless/); they contain only an open-source application and its runtime dependencies. These container images do not even contain a shell or package manager, because fewer dependencies reduce the potential attack surface of images.
+Chainguard Containers are minimal by design — most are [distroless](/chainguard/containers/getting-started-distroless/), with no shell or package manager. That keeps the attack surface small, but it also means moving an existing workload over usually requires adjusting how your image installs dependencies, which user it runs as, and what its entrypoint expects.
 
-By minimizing the number of dependencies and thus reducing their potential attack surface, Chainguard Containers inherently contain few to zero CVEs. Chainguard Containers are rebuilt nightly to ensure they are completely up-to-date and contain all available security patches. With this nightly build approach, our engineering team sometimes [fixes vulnerabilities before they’re detected](https://www.chainguard.dev/unchained/how-chainguard-fixes-vulnerabilities?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
-
-The main features of Chainguard Containers include:
-
-* Minimalist design, with no unnecessary software bloat
-* Automated nightly builds to ensure Containers are completely up-to-date and contain all available security patches
-* [High quality build-time SBOMs](/chainguard/containers/working-with-images/retrieve-image-sboms/) (software bill of materials) attesting the provenance of all artifacts within the Container
-* [Verifiable signatures](/chainguard/containers/working-with-images/retrieve-image-sboms/) provided by [Sigstore](/open-source/sigstore/cosign/an-introduction-to-cosign/)
-* Reproducible builds with Cosign and apko ([read more about reproducibility](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds))
-
-Because of their minimalist design, Chainguard Containers sometimes require users to adjust their image workflows. This document is intended to serve as a migration guide for customers transitioning their organizations to use Chainguard Containers. It includes general tips and strategies for migrating to Chainguard Containers as well as a curated set of migration-related resources.
+This guide covers the differences that matter during a migration, a recommended rollout strategy, and what to do when something breaks. For background on what Chainguard Containers are and how they are built, refer to the [Chainguard Containers overview](/chainguard/containers/overview/).
 
 ## Migration key points
 
@@ -42,7 +33,7 @@ Because of their minimalist design, Chainguard Containers sometimes require user
 * In some cases, the entrypoint in Chainguard Containers can be different from equivalent images based on other distros, which can lead to unexpected behavior. You should always check the image's specific documentation to understand how the entrypoint works.
 * When needed, Chainguard recommends using a base image like `chainguard-base` or a development variant to install an application's OS-level dependencies.
 
-Perhaps the best place for most users to get started with migrating to Chainguard Containers is by following our guide on [How to port a sample application to Chainguard Containers](/chainguard/migration/porting-apps-to-chainguard/). This guide involves updating a sample application made up of three services to use Chainguard Containers. Although the application involved is fairly simple, the concepts outlined in the guide can also be useful for migrating more complex applications.
+Perhaps the best place for most users to get started with migrating to Chainguard Containers is by following our guide on [How to port a sample application to Chainguard Containers](/chainguard/containers/migration/porting-apps-to-chainguard/). This guide involves updating a sample application made up of three services to use Chainguard Containers. Although the application involved is fairly simple, the concepts outlined in the guide can also be useful for migrating more complex applications.
 
 ### Development containers
 
@@ -134,7 +125,7 @@ Although not fully comprehensive, it can be helpful to keep the following list o
 * Be aware that Chainguard Containers typically do not run as root by default
 * If packages you need are missing, install them into a base image, preferably as part of a multi-stage build
 
-Each of these tips and strategies are explained in greater detail in our guide on [Container migration tips](/chainguard/migration/migration-tips/).
+Each of these tips and strategies are explained in greater detail in our guide on [Container migration tips](/chainguard/containers/migration/migration-tips/).
 
 ## Troubleshooting
 
@@ -158,74 +149,25 @@ The move to a distroless workflow can be confusing for both individual developer
 
 To help with troubleshooting issues that can occur, Chainguard Academy has a guide on [Debugging distroless containers](/chainguard/containers/debugging-distroless-images/).
 
-We also have a video on [Debugging distroless containers with Docker Debug](/chainguard/containers/videos/debugging_distroless/).
+We also have a video on [Debugging distroless containers with Docker Debug](/chainguard/containers/troubleshooting/debugging_distroless/).
 
 Lastly, you might also find help in the [Chainguard Containers FAQs](/chainguard/containers/faq/).
 
 ## Migration resources
 
-Chainguard Academy hosts a number of resources that can be useful when migrating to Chainguard Containers.
+Once you have worked through the [sample application port](/chainguard/containers/migration/porting-apps-to-chainguard/#porting-key-points), the [Migration best practices and checklist](/chainguard/containers/migration/migration-checklist/) collects the steps worth running through before and during a rollout.
 
-As mentioned previously, most new users of Chainguard Containers would benefit from following our guide on [How to port a sample application to Chainguard Containers](/chainguard/migration/porting-apps-to-chainguard/#porting-key-points). You may also find our [Migration best practices and checklist](/chainguard/migration/migration-checklist/) guide to be helpful.
+To automate Dockerfile migration, [The Guardener](/chainguard/guardener/dockerfile-migration/) is an AI-powered agent that iteratively converts, builds, and validates your Dockerfiles for use with Chainguard Containers.
 
-To automate Dockerfile migration, [The Guardener](/chainguard/migration/the-guardener/) is an AI-powered agent that iteratively converts, builds, and validates your Dockerfiles for use with Chainguard Containers.
+Chainguard Academy groups the rest of its migration material into three sets:
 
-In addition to these, Chainguard Academy includes several types of resources that can be useful when migrating to Chainguard Containers:
-
-* **Compatibility Guides** — These guides highlight the differences between Chainguard Containers and Alpine third-party images.
-* **Migration Guides** — These provide guidance migrating workloads based on a specific language or platform to use Chainguard Containers.
-* **Getting Started Guides** — These resources outline how to work with specific Containers, with some including a sample application used in examples.
-* **Chainguard Courses** — Chainguard Courses exist to reduce onboarding friction through product-centered education.
-
-### Language- or platform-specific resources
-
-We currently offer both Migration and Getting Started Guides for these Containers:
-
-| **Image** | **Migration Guide** | **Getting Started Guide** |
-|-----------|:-------------------:|:-------------------------:|
-| Node   | [✅ (link)](/chainguard/migration/migrating-node/)   | [✅ (link)](/chainguard/containers/getting-started/node/) |
-| Python | [✅ (link)](/chainguard/migration/migrating-python/) | [✅ (link)](/chainguard/containers/getting-started/python/)
-| PHP | [✅ (link)](/chainguard/migration/migrating-php/) | [✅ (link)](/chainguard/containers/getting-started/php/) |
-
-### Migration guides
-
-* [Node](/chainguard/migration/migrating-node/)
-* [PHP](/chainguard/migration/migrating-php/)
-* [Python](/chainguard/migration/migrating-python/)
-
-In addition, we have a few migration guides in the form of videos:
-
-* [Go (video)](/chainguard/containers/videos/migrating_go/)
-* [Java (video)](/chainguard/containers/videos/java-images/)
-* [Node (video)](/chainguard/containers/videos/node-images/)
-
-### Compatibility guides
-
-* [Alpine](/chainguard/migration/alpine-compatibility/)
-* [Debian](/chainguard/migration/debian-compatibility/)
-* [Red Hat](/chainguard/migration/red-hat-compatibility/)
-* [Ubuntu](/chainguard/migration/ubuntu-compatibility/)
-
-### Getting started guides
-
-* [Cilium](/chainguard/containers/getting-started/cilium/)
-* [Go](/chainguard/containers/getting-started/go/)
-* [Istio](/chainguard/containers/getting-started/istio/)
-* [Laravel](/chainguard/containers/getting-started/laravel/)
-* [MariaDB](/chainguard/containers/getting-started/mariadb/)
-* [NeMo](/chainguard/containers/getting-started/nemo/)
-* [nginx](/chainguard/containers/getting-started/nginx/)
-* [Node](/chainguard/containers/getting-started/node/)
-* [PHP](/chainguard/containers/getting-started/php/)
-* [PostgreSQL](/chainguard/containers/getting-started/postgres/)
-* [Python](/chainguard/containers/getting-started/python/)
-* [PyTorch](/chainguard/containers/getting-started/pytorch/)
-* [Ruby](/chainguard/containers/getting-started/ruby/)
-* [WordPress](/chainguard/containers/getting-started/wordpress/)
+* **[Migration guides](/chainguard/containers/migration/migration-guides/)** — language- and platform-specific guidance for Python, Node, PHP, .NET, Go, and Java.
+* **[Compatibility guides](/chainguard/containers/migration/compatibility/)** — what changes when moving from Alpine, Debian, Red Hat, or Ubuntu.
+* **[Getting started guides](/chainguard/containers/getting-started/)** — how to work with a specific Container, several with a sample application.
 
 ### Courses
 
-In addition to the Academy resources listed above, Chainguard offers a number of courses aimed to help teams understand and use Chainguard Containers.
+Chainguard also offers a number of courses aimed to help teams understand and use Chainguard Containers.
 
 #### Quickstart
 

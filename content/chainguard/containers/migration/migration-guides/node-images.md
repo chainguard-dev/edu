@@ -6,6 +6,7 @@ aliases:
 - /chainguard/migration/node-images/
 - /chainguard/migration/migration-guides/node-images/
 - /chainguard/containers/videos/node-images/
+- /get-started/migration/migration-guides/node-images/
 lead: "Chainguard's Node.js containers enable straightforward migration from traditional Node images while providing enhanced security posture and reduced vulnerabilities."
 description: "Learn how to migrate Node.js applications to Chainguard Containers for improved security, smaller images, and built-in support for npm and yarn package managers"
 type: "article"
@@ -28,7 +29,7 @@ toc: true
 
 ## Resources
 
-* Tutorial on [Porting a sample application](/chainguard/migration/porting-apps-to-chainguard/)
+* Tutorial on [Porting a sample application](/chainguard/containers/migration/porting-apps-to-chainguard/)
 * [Example application Git repository](https://github.com/chainguard-dev/identidock-cg/) with code used in demo
 
 {{< details "What are multi-stage builds?" >}}

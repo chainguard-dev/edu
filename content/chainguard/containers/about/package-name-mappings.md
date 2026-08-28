@@ -38,7 +38,7 @@ For container images, Chainguard follows naming conventions that prioritize:
 
 ### Using package mappings
 
-When you're using Chainguard's [Dockerfile Converter (dfc)](/chainguard/migration/dockerfile-conversion/), these mappings are applied automatically. The tool recognizes upstream package and image names and translates them to their Chainguard equivalents.
+When you're using Chainguard's [Dockerfile Converter (dfc)](/chainguard/containers/migration/dockerfile-conversion/), these mappings are applied automatically. The tool recognizes upstream package and image names and translates them to their Chainguard equivalents.
 
 For manual migrations, you can reference the following tables to find the correct package or image name you need.
 
@@ -68,4 +68,4 @@ The following table shows how upstream container image names map to Chainguard C
 
 ## Learn more
 
-For more information about working with Chainguard Containers and package management, you can check out our overview of [Chainguard's package model](/chainguard/containers/features/packages/package-model/). Additionally, you may find our doc on [Using the Dockerfile Converter](/chainguard/migration/dockerfile-conversion/) to be useful.
+For more information about working with Chainguard Containers and package management, you can check out our overview of [Chainguard's package model](/chainguard/containers/features/packages/package-model/). Additionally, you may find our doc on [Using the Dockerfile Converter](/chainguard/containers/migration/dockerfile-conversion/) to be useful.

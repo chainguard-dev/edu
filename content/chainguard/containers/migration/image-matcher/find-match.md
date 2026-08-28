@@ -1,6 +1,7 @@
 ---
 aliases:
 - /chainguard/migration/image-matcher/find-match/
+- /get-started/migration/image-matcher/find-match/
 title: "Find a matching Chainguard image using the API"
 linktitle: "Find a matching image"
 description: "How to call the Chainguard Image Matcher API with an existing SBOM to find the closest Chainguard image equivalent."
@@ -14,7 +15,7 @@ tags: ["Chainguard Images", "Migration", "SBOM", "API"]
 
 This guide walks through calling the [Chainguard Image Matcher API](/chainguard/api/spec-api-v1/#tag/imagematcher) to find the best Chainguard equivalent for an existing container image. It assumes you already have an SBOM for the image you want to migrate.
 
-For background on how the matcher works and how it scores recommendations, refer to [Image Matcher overview](/chainguard/migration/image-matcher/overview/).
+For background on how the matcher works and how it scores recommendations, refer to [Image Matcher overview](/chainguard/containers/migration/image-matcher/overview/).
 
 ## Prerequisites
 
@@ -164,7 +165,7 @@ Key fields to check:
 
 You may notice that `coverage` (the fraction of required APKs present in the image) can be low even when `probabilityScore` is high. This is expected behavior. Package weights are not uniform: the package that defines an image's purpose carries a weight orders of magnitude larger than common shared dependencies. A `probabilityScore` of 98 with `coverage` of 0.07 means the matcher is highly confident it has found the right image, even though many low-level library names differ between your source distribution and Chainguard's APK catalog.
 
-Learn more about the probability score in the [Image Matcher overview](/chainguard/migration/image-matcher/overview/#understanding-the-probability-score).
+Learn more about the probability score in the [Image Matcher overview](/chainguard/containers/migration/image-matcher/overview/#understanding-the-probability-score).
 
 ### Reviewing multiple candidates
 

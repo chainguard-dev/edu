@@ -5,6 +5,7 @@ aliases:
 - /chainguard/migration-guides/migrating-php/
 - /chainguard/migration/migrating-php/
 - /chainguard/migration/migration-guides/migrating-php/
+- /get-started/migration/migration-guides/migrating-php/
 type: "article"
 description: "Learn how to migrate PHP applications to Chainguard Containers for enhanced security, reduced CVEs, and support for both FPM and CLI workloads"
 date: 2024-04-04T15:56:52-07:00
@@ -36,7 +37,7 @@ For a deeper exploration of distroless images and their differences from standar
 
 ## Migrating from non-apk systems
 
-When migrating from distributions that are not based on the `apk` ecosystem, you'll need to update your Dockerfile accordingly. Our high-level guide on [Migrating to Chainguard Containers](/chainguard/migration/migrating-to-chainguard-images/) contains details about distro-based migration and package compatibility when migrating from Debian, Ubuntu, and Red Hat UBI base images.
+When migrating from distributions that are not based on the `apk` ecosystem, you'll need to update your Dockerfile accordingly. Our high-level guide on [Migrating to Chainguard Containers](/chainguard/containers/migration/migrating-to-chainguard-images/) contains details about distro-based migration and package compatibility when migrating from Debian, Ubuntu, and Red Hat UBI base images.
 
 ## Installing PHP extensions
 
@@ -101,7 +102,7 @@ php-xmlreader-8.2.11-r1
 php-xmlwriter-8.2.11-r1
 ```
 
-For more searching tips, check the [Searching for packages](/chainguard/migration/migrating-to-chainguard-images/#searching-for-packages) section of our base migration guide.
+For more searching tips, check the [Searching for packages](/chainguard/containers/migration/migrating-to-chainguard-images/#searching-for-packages) section of our base migration guide.
 
 ## Migrating PHP CLI workloads to use Chainguard Containers
 

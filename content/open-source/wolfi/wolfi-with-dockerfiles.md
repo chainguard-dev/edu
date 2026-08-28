@@ -107,7 +107,7 @@ RUN  pip install -r requirements.txt --user
 ENTRYPOINT [ "python", "/app/linky.py" ]
 ```
 
-This Dockerfile uses a variable called `version` to define which Python version is going to be installed in the resulting image. You can change this to one of the Python versions available in Wolfi. To find out which versions are available, please refer to the [Searching for packages](https://edu.chainguard.dev/chainguard/migration/migrating-to-chainguard-images/#searching-for-packages) section of our migration guide.
+This Dockerfile uses a variable called `version` to define which Python version is going to be installed in the resulting image. You can change this to one of the Python versions available in Wolfi. To find out which versions are available, please refer to the [Searching for packages](https://edu.chainguard.dev/chainguard/containers/migration/migrating-to-chainguard-images/#searching-for-packages) section of our migration guide.
 
 Save the file when you're done. In the next step, we'll build and run the image with `docker`.
 

@@ -4,6 +4,7 @@ linktitle: "Red Hat"
 aliases:
 - /chainguard/migration/red-hat-compatibility/
 - /chainguard/migration/compatibility/red-hat-compatibility/
+- /get-started/migration/compatibility/red-hat-compatibility/
 type: "article"
 description: "Differences between Chainguard Containers and Red Hat UBI third-party images"
 date: 2024-02-23T15:56:52-07:00

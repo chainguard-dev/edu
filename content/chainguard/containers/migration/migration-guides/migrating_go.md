@@ -6,6 +6,7 @@ aliases:
 - /chainguard/chainguard-images/videos/migrating_go/
 - /chainguard/migration/migrating_go/
 - /chainguard/containers/videos/migrating_go/
+- /get-started/migration/migration-guides/migrating_go/
 lead: "Chainguard's static and Go containers provide optimal runtime environments for Go applications, enabling migration to minimal images with enhanced security posture."
 description: "Learn how to migrate Go applications to Chainguard Containers for minimal attack surface, static compilation support, and dramatically reduced image sizes"
 type: "article"
