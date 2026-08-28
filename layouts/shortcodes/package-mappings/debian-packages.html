@@ -14,7 +14,7 @@
           </tr>
         </thead>
         <tbody>
-        {{ range $debian, $chainguard := index $.Site.Data "package-mappings" "packages" "debian" }}
+        {{ range $debian, $chainguard := index hugo.Data "package-mappings" "packages" "debian" }}
           <tr>
             <td><code>{{ $debian }}</code></td>
             <td>
@@ -35,4 +35,3 @@
 </div>
 
 <!-- LLM-friendly: Full table content is in DOM, just CSS hidden for humans -->
-

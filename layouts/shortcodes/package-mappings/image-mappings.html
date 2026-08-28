@@ -14,7 +14,7 @@
           </tr>
         </thead>
         <tbody>
-        {{ range $upstream, $chainguard := index $.Site.Data "package-mappings" "images" }}
+        {{ range $upstream, $chainguard := index hugo.Data "package-mappings" "images" }}
           <tr>
             <td><code>{{ $upstream }}</code></td>
             <td><code>{{ $chainguard }}</code></td>
