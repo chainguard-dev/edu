@@ -81,9 +81,9 @@ chainctl iam organizations ls -o table
 ```
 
 ```output
-                    ID                    |    NAME    | STATUS |           DESCRIPTION            
+                    ID                    |    NAME    | STATUS |           DESCRIPTION
 ------------------------------------------|------------|--------|----------------------------------
- 591**********************************c43 | sample_org | ready  | A sample Chainguard organization 
+ 591**********************************c43 | sample_org | ready  | A sample Chainguard organization
  . . .                                    | . . .      | . . .  | . . .
 ```
 
