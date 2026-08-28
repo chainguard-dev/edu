@@ -10,7 +10,7 @@ lead: "Using Chainguard Containers with firewalls, access control lists, and pro
 type: "article"
 description: "Using Chainguard Containers with firewalls, access control lists, and proxies."
 date: 2023-09-08T08:49:31+00:00
-lastmod: 2026-08-25T13:24:30+00:00
+lastmod: 2026-08-28T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers", "Reference"]
 images: []
@@ -39,6 +39,14 @@ This table lists the DNS hostnames, associated ports, and protocols that will ne
 | virtualapk.cgr.dev      | 443  | HTTPS    | v4      | Package repository                    |
 | packages.cgr.dev        | 443  | HTTPS    | v4      | Package repository (Extra packages)   |
 | packages.wolfi.dev      | 443  | HTTPS    | v4 & v6 | Package repository (Free containers)  |
+| tarballs.cgr.dev        | 443  | HTTPS    | v4      | Upstream source archives referenced by SBOM `downloadLocation` fields |
+
+Most of these hosts are needed to pull containers and packages. `tarballs.cgr.dev` is the
+exception: it is only needed if you resolve the source archives that Chainguard SBOMs point
+at. Where an upstream project has no stable, downloadable source archive, Chainguard mirrors
+a source tarball and records that URL as the package's SPDX `downloadLocation`. Tooling that
+follows those URLs (source-provenance checks, license and compliance scanners, air-gapped
+source mirroring) needs egress to this host. Container and package pulls do not.
 
 > If you experience networking issues while trying to use Chainguard Containers, please ensure that your firewall allows traffic to and from these hosts, and that it doesn't have any rules to block `.dev` domains.
 
