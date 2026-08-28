@@ -77,7 +77,8 @@ chainctl iam identity-providers update $IDENTITY_PROVIDER \
   --oidc-additional-scopes=groups \
   --oidc-groups-claim=groups
 ```
-> `--oidc-additional-scopes=groups` should not be set when using Entra
+
+> `--oidc-additional-scopes=groups` should not be set when using Entra ID.
 
 - `--oidc-additional-scopes=groups` tells Chainguard to request the groups claim.
 - `--oidc-groups-claim=groups` tells Chainguard which claim carries group membership, using the name from Step 1. An empty value turns group mapping off for this provider.
