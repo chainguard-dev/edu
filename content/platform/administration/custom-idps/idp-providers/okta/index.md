@@ -62,7 +62,7 @@ There, find the **OpenID Connect ID Token** section and click **Edit**. Set the 
 
 With that, you've configured the Okta application. Next, you need to configure the Chainguard platform to use it by creating a custom identity provider.
 
-## Configuring Chainguard to use Okta SSO
+## Configure Chainguard to use Okta SSO
 
 Now that your Okta application is ready, you can create the custom identity provider.
 
@@ -80,13 +80,13 @@ To configure the platform, make a note of the following settings from your Okta 
 * **Client Secret**: Find this on the **General** tab under **Client Credentials**
 * **Issuer URL**: You can find this under the **Sign On** tab in the **OpenID Connect ID Token** section
 
-With this information in hand, create a new identity provider with the following commands.
+With this information in hand, create a new identity provider with the following commands. Replace `<client_id>`, `<client_secret>`, and `<issuer_url>` with the values you just noted.
 
 ```shell
 export NAME=okta
-export CLIENT_ID=<your client id here>
-export CLIENT_SECRET=<your client secret here>
-export ISSUER=<your issuer url here>
+export CLIENT_ID=<client_id>
+export CLIENT_SECRET=<client_secret>
+export ISSUER=<issuer_url>
 chainctl iam identity-provider create \
   --configuration-type=OIDC \
   --oidc-client-id=${CLIENT_ID} \
@@ -102,14 +102,14 @@ Note the `--default-role` option. This defines the default role granted to users
 
 You can refer to our [Generic integration guide](/chainguard/administration/custom-idps/custom-idps/#generic-integration-guide) in our Introduction to Custom Identity Providers article for more information about the `chainctl iam identity-provider create` command and its required options.
 
-## Logging in to Chainguard with the Okta identity provider
+## Log in to Chainguard with the Okta identity provider
 
 To log in to the Chainguard Console with the new identity provider you just created, navigate to [console.chainguard.dev/auth/login](https://console.chainguard.dev/auth/login), enter your Chainguard organization's name into the **Email or organization** box, and click **Continue**. This opens a new window with the Okta login flow, where you can complete the login process.
 
 You can also use the custom identity provider to log in through `chainctl`. To do this, run the `chainctl auth login` command and add the `--identity-provider` option followed by the identity provider's ID value:
 
 ```shell
-chainctl auth login --identity-provider <IDP-ID>
+chainctl auth login --identity-provider <idp_id>
 ```
 
 The ID value appears in the `ID` column of the table returned by the `chainctl iam identity-provider create` command you ran previously. You can also retrieve this table at any time by running `chainctl iam identity-provider ls -o table` when logged in.

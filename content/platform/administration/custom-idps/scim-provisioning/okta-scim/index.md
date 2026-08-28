@@ -68,19 +68,19 @@ Use **Test API Credentials** to confirm the URL and token, then save.
 
 Okta's connection test reads the SCIM endpoint and expects to find a user it recognizes there. A newly enabled Chainguard endpoint has no users yet, so on a first-time setup the test fails with this message. Despite the wording, authentication succeeded; the missing user is what blocks the save.
 
-A workaround is to create the first user directly, then run the test again:
+A workaround is to create the first user directly, then run the test again. Replace `<scim_token>` and `<scim_endpoint_url>` with the bearer token and endpoint URL for your identity provider, and `<okta_username>` and `<okta_user_id>` with the details of a real user you intend to provision.
 
 ```sh
 curl -X POST \
-  -H "Authorization: Bearer <your cgscim_ token>" \
+  -H "Authorization: Bearer <scim_token>" \
   -H "Content-Type: application/scim+json" \
   -d '{
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
-    "userName": "<the user's Okta username>",
-    "externalId": "<the user's Okta ID>",
+    "userName": "<okta_username>",
+    "externalId": "<okta_user_id>",
     "active": true
   }' \
-  "<your SCIM endpoint URL>/Users"
+  "<scim_endpoint_url>/Users"
 ```
 
 Set `externalId` to the user's Okta ID — the `00u...` value in the page URL when you open that user under **Directory** > **People**. Okta's test rejects an arbitrary value even though the endpoint returns the user, so this is not a field you can fill with a placeholder. `externalId` is also what Chainguard matches against at login, and a wrong value leaves the user unlinked with no error, so seed a real user you intend to provision.
