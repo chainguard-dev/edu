@@ -45,7 +45,7 @@ Navigate to the **Credentials** tab of your newly created client.
 
 Copy the **Client Secret** value. You'll need this to configure the Chainguard platform to use this Keycloak Client.
 
-## Configuring Chainguard to use your Keycloak client
+## Configure Chainguard to use your Keycloak client
 
 Now that your Keycloak Client is ready, you can create the custom identity provider.
 
@@ -61,7 +61,7 @@ To configure Chainguard, make a note of the following details from your Keycloak
 
 * **Client ID**: This can be found on the **Settings** tab of the Keycloak Client.
 * **Client Secret**: This can be found on the **Credentials** tab of the Keycloak Client.
-* **Issuer**: Your **Issuer** url is defined by the following pattern `https://<KEYCLOAK_SERVER_ADDRESS>/realms/<REALM_NAME>`
+* **Issuer**: Your **Issuer** URL is defined by the following pattern `https://<keycloak_server_address>/realms/<realm_name>`
 
 You will also need the UIDP for the Chainguard organization under which you want to install the identity provider.  Your selection won’t affect how your users authenticate but will have implications on who has permission to modify the SSO configuration.
 
@@ -72,22 +72,22 @@ chainctl iam organizations ls -o table
 ```
 
 ```output
-                          ID                          |     NAME    | DESCRIPTION
---------------------------------------------------------+-------------+---------------------
-  59156e77fb23e1e5ebcb1bd9c5edae471dd85c43              | sample_org  |
-  . . .                                                 | . . .       |
+                    ID                    |    NAME    | STATUS |           DESCRIPTION
+------------------------------------------|------------|--------|----------------------------------
+ 591**********************************c43 | sample_org | ready  | A sample Chainguard organization
+ . . .                                    | . . .      | . . .  | . . .
 ```
 
 Note down the `ID` value for your chosen organization.
 
-With this information in hand, create a new identity provider with the following commands.
+With this information in hand, create a new identity provider with the following commands. Replace `<client_id>` and `<client_secret>` with the values from your Keycloak client, `<keycloak_server_address>` and `<realm_name>` with your Keycloak server address and realm, and `<organization_id>` with the organization ID you just noted.
 
 ```sh
 export NAME=keycloak-idp
-export CLIENT_ID=<your application/client id here>
-export CLIENT_SECRET=<your client secret here>
-export ORG=<your organization UIDP here>
-export ISSUER="https://<KEYCLOAK_SERVER_ADDRESS>/realms/<REALM_NAME>"
+export CLIENT_ID=<client_id>
+export CLIENT_SECRET=<client_secret>
+export ORG=<organization_id>
+export ISSUER="https://<keycloak_server_address>/realms/<realm_name>"
 chainctl iam identity-provider create \
   --configuration-type=OIDC \
   --oidc-client-id=${CLIENT_ID} \
@@ -109,7 +109,7 @@ To log in to the Chainguard Console with the new identity provider you just crea
 You can also use the custom identity provider to log in through `chainctl`. To do this, run the `chainctl auth login` command and add the `--identity-provider` option followed by the identity provider's ID value:
 
 ```sh
-chainctl auth login --identity-provider <IDP-ID>
+chainctl auth login --identity-provider <idp_id>
 ```
 
 The ID value appears in the `ID` column of the table returned by the `chainctl iam identity-provider create` command you ran previously. You can also retrieve this table at any time by running `chainctl iam identity-provider ls -o table` when logged in.

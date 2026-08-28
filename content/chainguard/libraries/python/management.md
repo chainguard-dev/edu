@@ -1,5 +1,5 @@
 ---
-title: "Managem and update dependencies"
+title: "Manage and update dependencies"
 linktitle: "Dependency maintenance"
 description: "Manage Chainguard Libraries for Python dependencies after setup, including package updates, verification, and monitoring security improvements"
 type: "article"
@@ -78,8 +78,8 @@ over time. If an artifact was already retrieved from the PyPI
 Repository and is available in your repository manager or local repository it is
 not automatically replaced with the equivalent Chainguard Library version.
 
-To adopt new Chainguard-built artifacts, check out the [build pinning
-documentation](/libraries/build-pinning/#adopt-a-chainguard-build-after-removing-a-pin)
+To adopt new Chainguard-built artifacts, refer to the [build pinning
+documentation](/chainguard/libraries/build-pinning/#adopt-a-chainguard-build-after-removing-a-pin)
 for instructions on removing existing pinned versions.
 
 Refreshing cached artifacts may also be necessary to solve other issues, such as
@@ -105,11 +105,11 @@ A hash identifies the exact bytes of a downloaded Python artifact.
 Chainguard-built artifacts have different hashes from the equivalent upstream
 artifacts because they are rebuilt in a secure environment.
 
-During initial migration if your project uses hash-pinned lockfiles, update those values with [the `chainctl libraries
-update-hashes`
+During initial migration, if your project uses hash-pinned lockfiles, update
+those values with [the `chainctl libraries update-hashes`
 command](/platform/chainctl/chainctl-docs/chainctl_libraries_update-hashes/),
 then run your normal tests and verification checks. For a full migration
-sequence, including cache and project-configuration handling, check out the
+sequence, including cache and project-configuration handling, refer to the
 [migration guide for Chainguard Libraries for
 Python](/chainguard/libraries/python/migration/).
 

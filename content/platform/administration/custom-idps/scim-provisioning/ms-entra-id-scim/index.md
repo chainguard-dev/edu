@@ -29,7 +29,7 @@ To complete this guide, you need the following:
 
 ## Register the Entra ID application for SSO
 
-Log in to the [Microsoft Entra admin center](https://entra.microsoft.com), navigate to **Identity** > **Applications** > **App registrations**, and click **New registration**. Configure the application as follows.
+Log in to the [Microsoft Entra admin center](https://entra.microsoft.com), navigate to **Entra ID** > **App registrations**, and click **New registration**. Configure the application as follows.
 
 * **Name**: Set the name to "Chainguard" (or similar) so users recognize this application is for authentication to Chainguard.
 * **Supported account types**: Select **Single tenant** so that only your organization can use this application to authenticate to Chainguard.
@@ -55,14 +55,14 @@ Retrieve the ID of the organization where you want to install the identity provi
 chainctl iam organizations ls -o table
 ```
 
-Then create the identity provider, substituting the three values from the previous step and your organization ID.
+Then create the identity provider. Replace `<application_client_id>`, `<client_secret>`, and `<directory_tenant_id>` with the three values from the previous step, and `<organization_id>` with the organization ID you just retrieved.
 
 ```sh
 export NAME=entra-id
-export CLIENT_ID=<your application/client id here>
-export CLIENT_SECRET=<your client secret here>
-export ORG=<your chainguard organization id here>
-export TENANT_ID=<your directory/tenant id here>
+export CLIENT_ID=<application_client_id>
+export CLIENT_SECRET=<client_secret>
+export ORG=<organization_id>
+export TENANT_ID=<directory_tenant_id>
 export ISSUER="https://login.microsoftonline.com/${TENANT_ID}/v2.0"
 chainctl iam identity-providers create \
   --configuration-type=OIDC \
@@ -86,7 +86,7 @@ This `create` command includes two options specific to SCIM linking with Entra I
 Set an environment variable to the identity provider's `id` from the previous command's output:
 
 ```sh
-export IDP=<identity provider id from the output above>
+export IDP=<idp_id>
 ```
 
 Then generate a provisioning token:
@@ -118,7 +118,7 @@ Open the enterprise application's **Overview** page, navigate to the **Provision
     * To illustrate, the URL should have the following structure:
 
         ```url
-        https://scim.enforce.dev/scim/v2/<ORG>/<IDP>?aadOptscim062020
+        https://scim.enforce.dev/scim/v2/<organization_id>/<idp_id>?aadOptscim062020
         ```
 
 * **Secret token**: The bare `cgscim_...` token. Do not add a `Bearer` prefix — Entra ID adds the scheme itself.
@@ -149,10 +149,10 @@ Entra ID runs its provisioning cycle about every 40 minutes. While testing, use 
 
 ## Verify the integration
 
-Provision a user, then query the SCIM API to confirm the user's `externalId` is their `objectId` — a lowercase GUID, not a mail nickname.
+Provision a user, then query the SCIM API to confirm the user's `externalId` is their `objectId` — a lowercase GUID, not a mail nickname. Replace `<scim_token>` and `<scim_base_url>` with the bearer token and SCIM base URL from the `token generate` command.
 
 ```sh
-curl -s -H "Authorization: Bearer <your cgscim_ token>" "<your SCIM base URL>/Users?count=5"
+curl -s -H "Authorization: Bearer <scim_token>" "<scim_base_url>/Users?count=5"
 ```
 
 Then have that user log in at [console.chainguard.dev](https://console.chainguard.dev): click **Use Your Identity Provider**, then **Use Your Organization Name**, enter your organization name, and click **Login with Provider**. The first login must go through this browser flow for linking to complete. Afterward the user appears in your organization with the identity provider's default role.

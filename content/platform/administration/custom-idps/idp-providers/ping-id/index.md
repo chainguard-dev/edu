@@ -66,7 +66,7 @@ Finally, enable the Chainguard application by toggling the button in the top rig
 
 This completes configuration of the Ping application. You're now ready to configure the Chainguard platform to use it.
 
-## Configuring Chainguard to use Ping SSO
+## Configure Chainguard to use Ping SSO
 
 Now that your Okta application is ready, you can create the custom identity provider.
 
@@ -93,22 +93,22 @@ chainctl iam organizations ls -o table
 ```
 
 ```output
-                          ID                          |     NAME    | DESCRIPTION
---------------------------------------------------------+-------------+---------------------
-  59156e77fb23e1e5ebcb1bd9c5edae471dd85c43              | sample_org  |
-  . . .                                                 | . . .       |
+                    ID                    |    NAME    | STATUS |           DESCRIPTION
+------------------------------------------|------------|--------|----------------------------------
+ 591**********************************c43 | sample_org | ready  | A sample Chainguard organization
+ . . .                                    | . . .      | . . .  | . . .
 ```
 
 Note down the `ID` value for your chosen organization.
 
-With this information in hand, create a new identity provider with the following commands.
+With this information in hand, create a new identity provider with the following commands. Replace `<client_id>`, `<client_secret>`, and `<issuer_url>` with the values from your Ping Identity application, and `<organization_id>` with the organization ID you just noted.
 
 ```sh
 export NAME=ping-id
-export CLIENT_ID=<your client id here>
-export CLIENT_SECRET=<your client secret here>
-export ISSUER=<your issuer url here>
-export ORG=<your organization UIDP here>
+export CLIENT_ID=<client_id>
+export CLIENT_SECRET=<client_secret>
+export ISSUER=<issuer_url>
+export ORG=<organization_id>
 chainctl iam identity-provider create \
   --configuration-type=OIDC \
   --oidc-client-id=${CLIENT_ID} \
@@ -130,7 +130,7 @@ To log in to the Chainguard Console with the new identity provider you just crea
 You can also use the custom identity provider to log in through `chainctl`. To do this, run the `chainctl auth login` command and add the `--identity-provider` option followed by the identity provider's ID value:
 
 ```sh
-chainctl auth login --identity-provider <IDP-ID>
+chainctl auth login --identity-provider <idp_id>
 ```
 
 The ID value appears in the `ID` column of the table returned by the `chainctl iam identity-provider create` command you ran previously. You can also retrieve this table at any time by running `chainctl iam identity-provider ls -o table` when logged in.
