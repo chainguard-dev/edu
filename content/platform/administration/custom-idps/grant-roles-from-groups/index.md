@@ -64,6 +64,7 @@ Configure your identity provider to include the user's group memberships in the 
 | :---- | :---- | :---- |
 | Okta | [Customize tokens with a groups claim](https://developer.okta.com/docs/guides/customize-tokens-groups-claim/main/) | Group names (for example, `app-admins`) |
 | Microsoft Entra ID | [Configure group claims](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-fed-group-claims) | Group Object IDs (GUIDs), by default |
+| Microsoft Entra ID | [Configure app roles](https://learn.microsoft.com/en-us/entra/identity-platform/howto-add-app-roles-in-apps) | App Role Value, by default |
 
 To use group display names in Entra ID instead of GUIDs, configure the claim to emit cloud-group display names. This requires restricting the claim to groups assigned to the application, which is also the recommended way to stay under the group limit.
 
@@ -76,6 +77,7 @@ chainctl iam identity-providers update $IDENTITY_PROVIDER \
   --oidc-additional-scopes=groups \
   --oidc-groups-claim=groups
 ```
+> `--oidc-additional-scopes=groups` should not be set when using Entra
 
 - `--oidc-additional-scopes=groups` tells Chainguard to request the groups claim.
 - `--oidc-groups-claim=groups` tells Chainguard which claim carries group membership, using the name from Step 1. An empty value turns group mapping off for this provider.
