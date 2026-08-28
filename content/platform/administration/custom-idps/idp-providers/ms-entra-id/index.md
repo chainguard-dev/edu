@@ -36,19 +36,15 @@ To complete this guide, you need the following:
 
 ## Create a Microsoft Entra ID application
 
-Log in to the [Microsoft Entra admin center](https://entra.microsoft.com), navigate to **Entra ID** > **App registrations**, and click **New registration**. Configure the application as follows:
-
-* **Name**: Set the name to "Chainguard" (or similar) so users recognize this application is for authentication to Chainguard.
-* **Supported account types**: Select **Single tenant only** so that only your organization can use this application to authenticate to Chainguard.
-* **Redirect URI**: Set the platform to **Web** and the URI to the following.
-
-    ```URI
-    https://issuer.enforce.dev/oauth/callback
-    ```
-
-Click **Register**. From the application's **Overview** tab, note the **Application (client) ID** and the **Directory (tenant) ID**.
-
-Next, open **Manage** > **Certificates & secrets**, click **New client secret**, add a description, set an expiration, and click **Add**. Note the secret's **Value**.
+1. Log in to the [Microsoft Entra admin center](https://entra.microsoft.com) and navigate to **Entra ID** > **App registrations**.
+2. Click **New registration** and configure the application:
+   * **Name**: Set the name to "Chainguard" (or similar) so users recognize this application is for authentication to Chainguard.
+   * **Supported account types**: Select **Single tenant only** so that only your organization can use this application to authenticate to Chainguard.
+   * **Redirect URI**: Set the platform to **Web** and the URI to `https://issuer.enforce.dev/oauth/callback`.
+3. Click **Register**.
+4. On the application's **Overview** tab, note the **Application (client) ID** and the **Directory (tenant) ID**.
+5. Open **Manage** > **Certificates & secrets** and click **New client secret**.
+6. Add a description, set an expiration, and click **Add**. Note the secret's **Value**.
 
 > **Warning**: Entra ID shows the secret's **Value** only once, and SSO through this application stops working when the secret expires. Record the expiration date so you can rotate the secret before then.
 
@@ -56,7 +52,11 @@ You'll need all three of the values you noted — the client ID, the tenant ID, 
 
 ### Restrict who can log in
 
-By default, any user in your tenant can authenticate through this application. To limit access to specific users and groups, open **Entra ID** > **Enterprise applications** and select the application you just registered. On its **Properties** page, set **Assignment required?** to **Yes**. Then, under **Users and groups**, assign the users or groups you want to have access.
+By default, any user in your tenant can authenticate through this application. To limit access to specific users and groups:
+
+1. Open **Entra ID** > **Enterprise applications** and select the application you just registered.
+2. On its **Properties** page, set **Assignment required?** to **Yes**.
+3. Under **Users and groups**, assign the users or groups you want to have access.
 
 Users can't log in to Chainguard unless they have access to the application, so grant access before directing them to log in.
 
