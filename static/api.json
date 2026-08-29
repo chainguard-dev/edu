@@ -3612,7 +3612,8 @@
           "MICROFLOW",
           "GUARDENER",
           "MICROVM",
-          "SKILLS"
+          "SKILLS",
+          "SANDBOX"
         ],
         "type": "string"
       },
@@ -5337,7 +5338,7 @@
       },
       "chainguard.platform.iam.v2.ServicePrincipal": {
         "default": "SERVICE_PRINCIPAL_UNSPECIFIED",
-        "description": "ServicePrincipal represents a Chainguard service that can assume an identity.\n\n - SERVICE_PRINCIPAL_UNSPECIFIED: Unknown/unspecified service principal.\n - SERVICE_PRINCIPAL_COSIGNED: Cosigned service for image signing.\n - SERVICE_PRINCIPAL_INGESTER: Ingester service for data ingestion.\n - SERVICE_PRINCIPAL_CATALOG_SYNCER: Catalog syncer service for synchronizing image catalogs.\n - SERVICE_PRINCIPAL_APKO_BUILDER: APKO builder service for building images.\n - SERVICE_PRINCIPAL_ENTITLEMENT_SYNCER: Entitlement syncer service for synchronizing entitlements.\n - SERVICE_PRINCIPAL_TENANT_SCANNER: Tenant scanner service for scanning tenant resources.\n - SERVICE_PRINCIPAL_SEDIMENTOLOGY: Sedimentology service for data analysis.\n - SERVICE_PRINCIPAL_SKILLUP: Skillup service for fixing repository skill violations.\n - SERVICE_PRINCIPAL_MATERIALIZER: Materializer service for materializing solutions from problem statements.\n - SERVICE_PRINCIPAL_MICROFLOW: Microflow service for running a pull request's committed CI workflows in microVMs.\n - SERVICE_PRINCIPAL_GUARDENER: Guardener service, Chainguard's GitHub automation app for securing and maintaining repositories.\n - SERVICE_PRINCIPAL_MICROVM: MicroVM service for running ephemeral microVM sandboxes and pulling their guest packages.\n - SERVICE_PRINCIPAL_SKILLS: Skills service principal for the harden pipeline's customer-org access.",
+        "description": "ServicePrincipal represents a Chainguard service that can assume an identity.\n\n - SERVICE_PRINCIPAL_UNSPECIFIED: Unknown/unspecified service principal.\n - SERVICE_PRINCIPAL_COSIGNED: Cosigned service for image signing.\n - SERVICE_PRINCIPAL_INGESTER: Ingester service for data ingestion.\n - SERVICE_PRINCIPAL_CATALOG_SYNCER: Catalog syncer service for synchronizing image catalogs.\n - SERVICE_PRINCIPAL_APKO_BUILDER: APKO builder service for building images.\n - SERVICE_PRINCIPAL_ENTITLEMENT_SYNCER: Entitlement syncer service for synchronizing entitlements.\n - SERVICE_PRINCIPAL_TENANT_SCANNER: Tenant scanner service for scanning tenant resources.\n - SERVICE_PRINCIPAL_SEDIMENTOLOGY: Sedimentology service for data analysis.\n - SERVICE_PRINCIPAL_SKILLUP: Skillup service for fixing repository skill violations.\n - SERVICE_PRINCIPAL_MATERIALIZER: Materializer service for materializing solutions from problem statements.\n - SERVICE_PRINCIPAL_MICROFLOW: Microflow service for running a pull request's committed CI workflows in microVMs.\n - SERVICE_PRINCIPAL_GUARDENER: Guardener service, Chainguard's GitHub automation app for securing and maintaining repositories.\n - SERVICE_PRINCIPAL_MICROVM: MicroVM service for running ephemeral microVM sandboxes and pulling their guest packages.\n - SERVICE_PRINCIPAL_SKILLS: Skills service principal for the harden pipeline's customer-org access.\n - SERVICE_PRINCIPAL_SANDBOX: Sandbox service principal for the ACID sandbox Runs control plane.",
         "enum": [
           "SERVICE_PRINCIPAL_UNSPECIFIED",
           "SERVICE_PRINCIPAL_COSIGNED",
@@ -5352,7 +5353,8 @@
           "SERVICE_PRINCIPAL_MICROFLOW",
           "SERVICE_PRINCIPAL_GUARDENER",
           "SERVICE_PRINCIPAL_MICROVM",
-          "SERVICE_PRINCIPAL_SKILLS"
+          "SERVICE_PRINCIPAL_SKILLS",
+          "SERVICE_PRINCIPAL_SANDBOX"
         ],
         "type": "string"
       },

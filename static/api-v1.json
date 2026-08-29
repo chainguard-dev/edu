@@ -2785,7 +2785,8 @@
           "MICROFLOW",
           "GUARDENER",
           "MICROVM",
-          "SKILLS"
+          "SKILLS",
+          "SANDBOX"
         ],
         "type": "string"
       },
