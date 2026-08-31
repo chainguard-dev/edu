@@ -226,7 +226,7 @@ chainctl libraries update-hashes
 npm install
 ```
 
-As an alternative, you can remove the `node_modules` directory _and_ the `package-lock.json` file, then reinstall. This regenerates the lockfile and updates the hashes. Regenerating re-resolves your dependencies, so it can change your pinned versions, and a release still inside your configured cooldown window returns a 404 error. See [Update your lockfile](/chainguard/libraries/javascript/migration/#step-3-update-your-lockfile).
+As an alternative, you can remove the `node_modules` directory _and_ the `package-lock.json` file, then reinstall. This regenerates the lockfile and updates the hashes. Regenerating re-resolves your dependencies, so it can change your pinned versions, and any new versions published within your configured cooldown window will return an error. See [Update your lockfile](/chainguard/libraries/javascript/migration/#step-3-update-your-lockfile).
 
 **Clear caches**
 
