@@ -4,7 +4,7 @@ linktitle: "Changelog"
 type: "article"
 description: "Weekly changelog of Chainguard product updates — product announcements, breaking changes, container images reaching end-of-life or leaving the catalog, and images newly added to it."
 date: 2026-07-28T00:00:00+00:00
-lastmod: 2026-08-24T00:00:00+00:00
+lastmod: 2026-08-31T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers", "Changelog"]
 images: []
@@ -16,6 +16,97 @@ tocEndLevel: 2
 This page logs Chainguard product updates week by week, newest first: product announcements, breaking changes, container images that reached end-of-life or are no longer available, and images newly added to the catalog. Each event is listed once, in the week it first appeared.
 
 Breaking changes and product announcements cover the entire Chainguard portfolio, while end-of-life, availability, and new-image entries relate specifically to Chainguard Containers. This page summarizes the changes most likely to affect your work rather than every change Chainguard ships. Routine updates, such as new tags for existing images, are not listed individually. For the current tags and versions of any container image, refer to its entry in the [Chainguard Directory](https://images.chainguard.dev/directory).
+
+## Week of 2026-08-31
+
+{{< changelog-label "Product Announcements" >}}
+
+### chainctl fixes for standard Windows accounts
+
+_Launched August 26, 2026._
+
+Several `chainctl` workflows now work for standard, non-administrator Windows users:
+
+- Configuring Docker credentials no longer requires symlinks or Developer Mode.
+- Self-update replaces the running executable correctly and checks release attestations before installing.
+- Library verification checks signatures in-process and cleans up its temporary directories reliably.
+- Authentication failures report an error instead of a misleading 0.00% coverage result.
+
+These are targeted fixes. Chainguard's official Windows support tier is unchanged.
+
+### Custom container policies (open beta)
+
+_Launched August 25, 2026._
+
+Organizations enabled for the beta can now write their own container pull policies instead of relying only on Chainguard's system policies. Custom policies are [Rego](https://www.openpolicyagent.org/docs/policy-language) expressions submitted as YAML manifests and managed with `chainctl`, so you can keep them in git and validate them in CI.
+
+- Policies can declare parameters, with values set per binding.
+- `chainctl policies custom validate` reports the exact line and column of an error before the policy is stored.
+- Evaluation runs in a sandbox with no network or filesystem access.
+- A custom policy in `ENFORCE` mode blocks pulls, but cannot loosen a system policy.
+
+For more information, refer to [Writing custom policies](/chainguard/chainguard-repository/container-policies/#writing-custom-policies).
+
+### Build pinning for Chainguard Libraries
+
+_Launched August 24, 2026._
+
+Build pinning is now enabled for all organizations using Chainguard Libraries with upstream fallback, across JavaScript, Python, and Java. The first time your organization pulls a package version, Chainguard records which copy you received — the upstream mirror or the Chainguard rebuild — and keeps resolving that version to the same copy until you choose to move forward. This keeps your lockfiles and checksums valid as Chainguard's library coverage grows.
+
+Organizations that do not use upstream fallback see no change. To review what your organization holds, or to opt out, refer to [`chainctl libraries cache`](/platform/chainctl/chainctl-docs/chainctl_libraries_cache/).
+
+{{< changelog-label "EOL" >}}
+
+Chainguard offers [a grace period](/chainguard/containers/features/eol-gp-overview/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images that are no longer available
+
+The following container images reached the end of their grace period and are no longer available:
+
+| Image | End-of-life | Grace period ended |
+| --- | --- | --- |
+| `kube-conformance:1.32` | 2026-02-28 | 2026-08-28 |
+| `kubernetes:1.32` | 2026-02-28 | 2026-08-28 |
+| `nextcloud-server:31` | 2026-02-28 | 2026-08-28 |
+| `rke2-runtime:1.32` | 2026-02-28 | 2026-08-28 |
+| `teleport:17` | 2026-02-28 | 2026-08-28 |
+
+### Images that have reached end-of-life
+
+The following container images reached end-of-life and entered their grace period:
+
+| Image | End-of-life | Grace period ends |
+| --- | --- | --- |
+| `istio:1.29` | 2026-08-31 | 2027-02-28 |
+| `istio-cni:1.29` | 2026-08-31 | 2027-02-28 |
+| `istio-envoy:1.29` | 2026-08-31 | 2027-02-28 |
+| `istio-operator:1.29` | 2026-08-31 | 2027-02-28 |
+| `istio-pilot-agent:1.29` | 2026-08-31 | 2027-02-28 |
+| `istio-pilot-discovery:1.29` | 2026-08-31 | 2027-02-28 |
+| `teleport:18` | 2026-08-31 | 2027-02-28 |
+| `ztunnel:1.29` | 2026-08-31 | 2027-02-28 |
+
+{{< changelog-label "New Images" >}}
+
+Chainguard built 21 new container images this week, including both standard and FIPS variants.
+
+<table class="cl-images">
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td><a href="https://images.chainguard.dev/directory/image/dynatrace-operator/versions"><code>dynatrace-operator</code></a></td><td>application +fips</td><td>2026-08-24</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/netshoot/versions"><code>netshoot</code></a></td><td>application +fips</td><td>2026-08-24</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/strimzi-drain-cleaner/versions"><code>strimzi-drain-cleaner</code></a></td><td>application +fips</td><td>2026-08-24</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kube-logging-operator-fluentd-drain-watch/versions"><code>kube-logging-operator-fluentd-drain-watch</code></a></td><td>application +fips</td><td>2026-08-25</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/mlrun-api-fips/versions"><code>mlrun-api-fips</code></a></td><td>fips</td><td>2026-08-25</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/mlrun-fips/versions"><code>mlrun-fips</code></a></td><td>fips</td><td>2026-08-25</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/redpanda-console/versions"><code>redpanda-console</code></a></td><td>application</td><td>2026-08-26</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/apache-polaris/versions"><code>apache-polaris</code></a></td><td>application +fips</td><td>2026-08-28</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kserve-pmmlserver/versions"><code>kserve-pmmlserver</code></a></td><td>ai +fips</td><td>2026-08-28</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kserve-xgbserver/versions"><code>kserve-xgbserver</code></a></td><td>ai +fips</td><td>2026-08-28</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/nomad/versions"><code>nomad</code></a></td><td>application +fips</td><td>2026-08-28</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/victorialogs-vlagent/versions"><code>victorialogs-vlagent</code></a></td><td>application +fips</td><td>2026-08-28</td></tr>
+</tbody>
+</table>
 
 ## Week of 2026-08-24
 
