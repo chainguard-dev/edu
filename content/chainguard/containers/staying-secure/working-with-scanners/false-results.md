@@ -14,7 +14,7 @@ description: "An overview of the formation of false positive and false negative 
 lead: "An overview of the formation of false positive and false negative vulnerability results in container image scanners"
 type: "article"
 date: 2023-09-14T16:59:04+00:00
-lastmod: 2023-09-14T16:59:04+00:00
+lastmod: 2026-08-31T15:18:48+00:00
 contributors: ["Michelle McAveety"]
 draft: false
 tags: ["CVE", "Overview", "Conceptual"]
@@ -33,6 +33,8 @@ The goal of a vulnerability scanner is to identify the vulnerabilities that impa
 The presence of false positive and negative vulnerabilities can add a tricky layer to the vulnerability remediation process. False positive vulnerabilities can be "noisy" and distract you from remediating the vulnerabilities that are actively impacting your containers. Additionally, false negative vulnerabilities can silently affect you, making them a hidden threat to your container image security.
 
 This article aims to explain the formation of false positive and false negative vulnerabilities, allowing you to better understand what they mean, how they impact you, and how you can use tools to fine-tune your scanner to improve the accuracy of your scan results.
+
+> To learn more about why scan results may differ between your scanner and the Chainguard Console, refer to [the support article "Understanding Vulnerability Scanner Discrepancies with Chainguard Images."](https://support.chainguard.dev/hc/en-us/articles/49564106705819-Understanding-Vulnerability-Scanner-Discrepancies-with-Chainguard-Images)
 
 ## How false positives and false negatives occur
 
