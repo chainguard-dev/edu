@@ -4,7 +4,7 @@ linktitle: "Authenticate"
 type: "article"
 description: "A guide on authenticating to Chainguard's registry to get container images"
 date: 2023-03-21T15:10:16+00:00
-lastmod: 2026-08-21T12:27:26+00:00
+lastmod: 2026-08-31T16:48:20+00:00
 tags: ["Chainguard Containers", "Registry"]
 draft: false
 images: []
@@ -22,6 +22,34 @@ aliases:
 ## Public container images
 
 Chainguard offers a collection of images that are publicly available, don't require authentication, and are free to use by anyone. However, logging in with a Chainguard account and authenticating when pulling from the registry gives you access to the Chainguard Console, and provides a mechanism for Chainguard to contact you if there are any issues with images you are pulling. This may enable Chainguard to notify you of upcoming deprecations, changes in behavior, critical vulnerabilities and remediations for images you have recently pulled.
+
+## Quickstart: pull your first container
+
+These steps take you from nothing to a container image on your machine. Everything after this section covers the cases that need more than a local pull — CI systems, Kubernetes clusters, and registry mirrors.
+
+Before you start, [sign up for a Chainguard account](#signing-up) and [install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/), Chainguard's command-line tool.
+
+1. Configure the credential helper:
+
+    ```sh
+    chainctl auth configure-docker
+    ```
+
+    This points your Docker configuration at `chainctl` for `cgr.dev` credentials, then opens a browser window to authenticate you. You don't need to run `chainctl auth login` first; `configure-docker` authenticates you when no valid token is available. For headless machines and other login flows, refer to [Authentication options for `chainctl`](/platform/chainctl-usage/authentication-options/).
+
+2. Find the name of your organization:
+
+    ```sh
+    chainctl iam organizations list
+    ```
+
+3. Pull an image, replacing `$ORGANIZATION` with the name from the previous step:
+
+    ```sh
+    docker pull cgr.dev/$ORGANIZATION/python:latest
+    ```
+
+To see which repositories your organization can pull, run `chainctl images repos list`. To browse the full catalog, visit the [Chainguard Containers Directory](https://images.chainguard.dev/).
 
 ## Signing up
 
@@ -68,6 +96,30 @@ Pulls authenticated in this way are associated with a Chainguard identity, which
 You can also export the pull token details into environment variables for
 [authentication in automated
 systems](/chainguard/containers/features/packages/private-apk-repos/#pull-token-automation).
+
+### Using a pull token with Podman, Helm, and other tools
+
+The `docker login` command that `chainctl auth configure-docker --pull-token` prints contains the credentials for the token. The username is the Chainguard identity associated with the token, and the password is the token itself:
+
+```sh
+docker login "cgr.dev" \
+  --username "45a0c61ea6fd977f050c5fb9ac06a69eed764595/095b0c7ea9d68679" \
+  --password "eyJhbGciOiJSUzI1NiJ9..."
+```
+
+Save that pair and pass it to any tool that logs in to an OCI registry. For example, Podman:
+
+```sh
+podman login cgr.dev --username "$CHAINGUARD_IDENTITY" --password "$CHAINGUARD_TOKEN"
+```
+
+Or Helm:
+
+```sh
+helm registry login cgr.dev --username "$CHAINGUARD_IDENTITY" --password "$CHAINGUARD_TOKEN"
+```
+
+The same username and password work with registry mirroring tools such as Artifactory. Refer to the [pull-through guides](/chainguard/containers/chainguard-registry/pull-through-guides/) for tool-specific instructions.
 
 ### Note on multiple pull tokens
 
