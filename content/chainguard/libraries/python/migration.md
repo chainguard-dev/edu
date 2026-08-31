@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-08-31T14:23:56+00:00
+lastmod: 2026-08-31T14:57:37+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -316,7 +316,7 @@ You can update your lockfile in one of two ways. Update the checksums in place t
 
 {{< tabs >}}
 
-{{% tab title="Update checksums in place" %}}
+{{% tab title="Update in place" %}}
 
 Use `chainctl libraries update-hashes` to rewrite only the integrity hashes in your existing lockfile or requirements file to match Chainguard's artifacts, without re-resolving your dependency graph. Supported formats include `requirements.txt`, `poetry.lock`, `uv.lock`, `pdm.lock`, `Pipfile.lock`, and `pylock.toml`.
 
@@ -346,12 +346,13 @@ By default, Chainguard hashes are appended alongside your existing hashes rather
 
 {{% /tab %}}
 
-{{% tab title="Regenerate the lockfile" %}}
+{{% tab title="Regenerate lockfile" %}}
 
-Regenerating the lockfile is another valid approach, and many teams use the migration as an opportunity to update dependencies at the same time. Before you regenerate, keep two things in mind:
+Regenerating the lockfile is another valid approach, and many teams use the migration as an opportunity to update dependencies at the same time. Before you regenerate, consider the following:
 
 * Pinning versions is a security best practice. Regenerating re-resolves your dependencies and can change versions, so you lose your existing pins unless you re-pin afterward.
-* Resolvers pick the newest version that satisfies each constraint. Whether Chainguard has that version available depends on the cooldown period you've configured: a release still inside your cooldown window isn't available yet and returns a 404 error. Check the cooldown period you've set before you regenerate.
+* Resolvers pick the newest version that satisfies each constraint. Whether Chainguard has that version available depends on the [cooldown
+period you've configured](/chainguard/libraries/overview/#cooldown-period): a release still inside your cooldown window isn't available yet and returns a 404 error.
 
 To regenerate — for example, to intentionally refresh your dependency versions — use the following commands.
 

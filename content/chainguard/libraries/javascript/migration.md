@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing JavaScript project to pull dependencies from Chainguard Libraries"
 date: 2026-06-01T00:00:00+00:00
-lastmod: 2026-08-31T14:23:56+00:00
+lastmod: 2026-08-31T14:57:37+00:00
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
   docs:
@@ -408,7 +408,7 @@ refresh your dependency versions.
 
 {{< tabs >}}
 
-{{% tab title="Update checksums in place" %}}
+{{% tab title="Update in place" %}}
 
 Use [`chainctl libraries update-hashes`](/chainguard/libraries/javascript/build-configuration/#updating-lockfile-hashes)
 to rewrite only the integrity hashes in your existing lockfile to match
@@ -442,19 +442,18 @@ configuration](/chainguard/libraries/javascript/global-configuration/) page.
 
 {{% /tab %}}
 
-{{% tab title="Delete and regenerate the lockfile" %}}
+{{% tab title="Regenerate lockfile" %}}
 
 Regenerating the lockfile is another valid approach, and many teams use the
 migration as an opportunity to update dependencies at the same time. Before you
-regenerate, keep two things in mind.
+regenerate, consider the following:
 
-Pinning versions is a security best practice. When you regenerate, your package
+- Pinning versions is a security best practice. When you regenerate, your package
 manager re-resolves all dependencies from scratch using the version constraints
 in `package.json`. If a constraint uses `^` or `~` (the npm default), the
 resolver picks the newest matching version, so you can lose your existing pins
 and pick up unintended upgrades that change your application's behavior.
-
-Whether Chainguard has a resolved version available depends on the cooldown
+- Whether Chainguard has a resolved version available depends on the cooldown
 period you've configured. A version that Chainguard has not built yet, or one
 still inside your cooldown window, returns a 404 error that can be hard to
 diagnose. Check the cooldown period you've set before you regenerate.
