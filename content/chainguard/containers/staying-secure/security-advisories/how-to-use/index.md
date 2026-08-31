@@ -15,7 +15,7 @@ aliases:
 type: "article"
 description: "Article outlining how one can explore and use the Security Advisories found on the Chainguard Container Directory."
 date: 2023-12-27T11:07:52+02:00
-lastmod: 2026-08-21T12:27:26+00:00
+lastmod: 2026-08-31T15:18:48+00:00
 draft: false
 tags: ["Chainguard Containers", "CVE"]
 images: []
@@ -145,3 +145,5 @@ As this output indicates, `CVE-2023-44487` is no longer present in later version
 The Security Advisories page serves as a helpful resource for anyone who wants to learn more about CVEs reported within Chainguard Containers. You can search the database of advisories to learn more about any CVEs you encounter as you work with Chainguard Containers.
 
 Additionally, we encourage you to explore the [Chainguard Containers Directory](https://images.chainguard.dev/), the parent site of the Security Advisories page. The Directory allows users to explore the complete inventory of Chainguard Containers. Finally, we encourage you to learn more about [noisy scan results](/chainguard/containers/scanners/false-results/) when scanning Chainguard Containers.
+
+To learn more about why scan results may differ between your scanner and the Chainguard Console, refer to [the support article "Understanding Vulnerability Scanner Discrepancies with Chainguard Images."](https://support.chainguard.dev/hc/en-us/articles/49564106705819-Understanding-Vulnerability-Scanner-Discrepancies-with-Chainguard-Images)
