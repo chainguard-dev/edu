@@ -9,9 +9,11 @@ draft: false
 tags: ["Chainguard Libraries"]
 menu:
   docs:
-    parent: "libraries"
-weight: 002
+    parent: "introduction"
+weight: 013
 toc: true
+aliases:
+  - /chainguard/libraries/access/
 ---
 
 Chainguard Libraries provide controlled access to security-enhanced Java and
@@ -24,7 +26,7 @@ system. This guide explains how to access (download) Chainguard library artifact
 
 - Ensure you have access to Chainguard Libraries.
     - If you are not a Chainguard user yet, a new Chainguard account must be
-created and you must [add an entitlement to Chainguard Libraries](/chainguard/libraries/access/#manage-library-entitlements).
+created and you must [add an entitlement to Chainguard Libraries](/chainguard/libraries/introduction/access/#manage-library-entitlements).
 - Confirm the name of your organization so you can use it with the `--parent`
 parameter to specify your organization when running commands with `chainctl`.
 
@@ -516,6 +518,6 @@ Ecosystem Library Entitlements for example (45a0...p7q)
 
 ## Manage library policies
 
-Users with the Owner role can create, enable, disable, and list library policies using [`chainctl libraries policy`](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy/) commands. These policies apply to all packages pulled through Chainguard Repository. The [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) must be enabled for an ecosystem in order to use policies.
+Users with the Owner role can create, enable, disable, and list library policies using [`chainctl libraries policy`](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy/) commands. These policies apply to all packages pulled through Chainguard Repository. The [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) must be enabled for an ecosystem in order to use policies.
 
 Learn about how to manage policies in the [Libraries policies page](/chainguard/chainguard-repository/library-policies/).

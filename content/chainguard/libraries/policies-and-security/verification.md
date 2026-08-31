@@ -11,9 +11,11 @@ draft: false
 tags: ["Chainguard Libraries"]
 menu:
   docs:
-    parent: "libraries"
-weight: 004
+    parent: "policies-and-security"
+weight: 071
 toc: true
+aliases:
+  - /chainguard/libraries/verification/
 ---
 
 Chainguard's `chainctl` tool with the command [`libraries
@@ -24,7 +26,7 @@ verifying binary artifacts across your projects and repositories, you can confir
 improve security posture, and maintain compliance with supply chain security
 policies.
 
-For packages that aren't built by Chainguard, you can enable [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) to apply additional configurable security controls.
+For packages that aren't built by Chainguard, you can enable [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) to apply additional configurable security controls.
 
 Command characteristics:
 
@@ -46,15 +48,15 @@ installed and available on your path:
 
 `chainctl libraries verify` checks signatures in-process. To fetch the Sigstore
 trust root, the command needs network access to `tuf-repo-cdn.sigstore.dev`.
-Refer to [network requirements](/chainguard/libraries/network-requirements/) for
+Refer to [network requirements](/chainguard/libraries/introduction/network-requirements/) for
 the full list of domains.
 
 You also need:
 
 - A Linux, macOS, or Windows system (x86_64 or arm64)
-- Sufficient [network access](/chainguard/libraries/network-requirements/)
+- Sufficient [network access](/chainguard/libraries/introduction/network-requirements/)
 - Your organization [must include entitlement for access to Chainguard
-  Libraries](/chainguard/libraries/access/#entitlement)
+  Libraries](/chainguard/libraries/introduction/access/#entitlement)
 - You must have one of the `libraries.java.pull`, `libraries.javascript.pull`, or `libraries.python.pull` permissions, or the Owner role.
 
 Confirm that `chainctl` is installed and available on the `PATH`:
@@ -479,8 +481,8 @@ A 0% coverage result is expected when verifying a fat JAR, uber JAR, or shaded J
 
 ## Resources
 
-- [Chainguard Libraries overview](/chainguard/libraries/overview/)
-- [Chainguard Libraries authentication](/chainguard/libraries/access/)
+- [Chainguard Libraries overview](/chainguard/libraries/introduction/overview/)
+- [Chainguard Libraries authentication](/chainguard/libraries/introduction/access/)
 - [`chainctl libraries verify` reference documentation](/chainguard/chainctl/chainctl-docs/chainctl_libraries_verify/)
 - [{{<icon "play-circle-fill">}} Learning Lab: Chainguard Libraries for Java](/software-security/learning-labs/ll202505/)
 - [{{<icon "play-circle-fill">}} Learning Lab: Chainguard Libraries for Python](/software-security/learning-labs/ll202506/)

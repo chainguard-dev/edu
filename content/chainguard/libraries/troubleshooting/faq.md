@@ -9,11 +9,12 @@ draft: false
 tags: ["Chainguard Libraries", "Overview"]
 aliases:
   - /chainguard/libraries/how-libraries-help-developers/
+  - /chainguard/libraries/faq/
 menu:
   docs:
-    parent: "libraries"
+    parent: "troubleshooting"
     identifier: "Libraries FAQ"
-weight: 010
+weight: 082
 toc: true
 ---
 
@@ -44,8 +45,8 @@ Now, in doing so, we've created an entire repository of Python wheels and Java J
 
 ## What security issues can Chainguard Libraries prevent?
 
-As detailed on the [background](/chainguard/libraries/overview/#background) and
-[introduction](/chainguard/libraries/overview/#introduction) pages, Chainguard
+As detailed on the [background](/chainguard/libraries/introduction/overview/#background) and
+[introduction](/chainguard/libraries/introduction/overview/#introduction) pages, Chainguard
 Libraries are built directly from source in the Chainguard Factory and the
 resulting binaries are directly provided to you by Chainguard. Chainguard
 operates the whole supply chain for the package lifecycle as one reliable,
@@ -164,7 +165,7 @@ During initial migration to Chainguard Libraries, some common causes of checksum
 * Repository managers or build tools enforce strict verification
     * Example: Artifactory validating against Maven Central.
 
-After you migrate, [build pinning](/chainguard/libraries/build-pinning/) keeps a version you pulled from the upstream fallback stable when Chainguard later publishes its own build, so checksums don't change unexpectedly across rebuilds.
+After you migrate, [build pinning](/chainguard/libraries/policies-and-security/build-pinning/) keeps a version you pulled from the upstream fallback stable when Chainguard later publishes its own build, so checksums don't change unexpectedly across rebuilds.
 
 ## What’s the difference between malware‑hardened libraries and CVE remediation?
 
@@ -175,7 +176,7 @@ SLSA‑aligned build environment, and publishes them to hardened registries for
 customers to consume. This closes off most supply chain malware vectors compared
 to pulling directly from public registries like Maven Central, npm, and PyPI.
 
-[CVE remediation](/chainguard/libraries/cve-remediation/) is an additional
+[CVE remediation](/chainguard/libraries/policies-and-security/cve-remediation/) is an additional
 feature where Chainguard backports High and Critical vulnerability fixes from
 newer upstream releases to older versions that customers are still using,
 particularly when upstream maintainers no longer ship patches for those older
@@ -212,7 +213,7 @@ For customers, this can surface as an error from the Chainguard endpoint even
 though a version appears in the public registry.
 
 For more details on the errors you may see when a package is blocked for these reasons,
-see the [Error messages documentation](/chainguard/libraries/errors/).
+see the [Error messages documentation](/chainguard/libraries/troubleshooting/errors/).
 
 ## What are Chibbies?
 

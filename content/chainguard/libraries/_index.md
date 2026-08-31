@@ -4,7 +4,7 @@ linktitle: "Chainguard Libraries"
 description: "Chainguard Libraries provide enhanced security for Java and Python dependencies with automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-03T15:05:54+00:00
+lastmod: 2026-08-28T16:31:04+00:00
 draft: false
 images: []
 weight: 030
@@ -14,7 +14,7 @@ banner: {
     title: "Get started with Chainguard Libraries",
     subtitle: "Secure your Java, Python, and JavaScript dependencies with automated patching and supply chain protection",
     cta: "Read more",
-    link: "/chainguard/libraries/quickstart/"
+    link: "/chainguard/libraries/introduction/quickstart/"
 }
 sectiontitle: "Chainguard Libraries by ecosystem"
 tutorials: [
@@ -51,17 +51,17 @@ tutorials: [
   {
     title: "Quickstart",
     description: "Configure your build to pull from Chainguard Libraries",
-    url: "/chainguard/libraries/quickstart/"
+    url: "/chainguard/libraries/introduction/quickstart/"
   },
   {
     title: "Access",
     description: "Authenticate and set up access for your organization",
-    url: "/chainguard/libraries/access/"
+    url: "/chainguard/libraries/introduction/access/"
   },
   {
     title: "FAQ",
     description: "Common questions about security and supported ecosystems",
-    url: "/chainguard/libraries/faq/"
+    url: "/chainguard/libraries/troubleshooting/faq/"
   },
 ]
 

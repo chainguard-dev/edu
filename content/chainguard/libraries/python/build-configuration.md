@@ -27,7 +27,7 @@ Jenkins, TeamCity, or GitHub Actions.
 The `https://libraries.cgr.dev/python/` endpoint is also the [Chainguard
 Repository](/chainguard/chainguard-repository/overview/) endpoint for Python. By
 default, it serves only Chainguard-built artifacts. When [upstream
-fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) is
+fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) is
 enabled for your organization, the same endpoint can also serve requested
 versions from PyPI under Chainguard security controls.
 
@@ -42,7 +42,7 @@ This guide outlines how to configure your build tool. If you are looking for som
 
 Refer to the [minimal example projects](#minimal-example-projects) on this page for demonstrations using `uv` and `pip`.
 
-If a package or version is blocked by a policy or malware scan, your build tool returns an error. Refer to the [Error messages documentation](/chainguard/libraries/errors/) for more details.
+If a package or version is blocked by a policy or malware scan, your build tool returns an error. Refer to the [Error messages documentation](/chainguard/libraries/troubleshooting/errors/) for more details.
 
 ## Step 1: Retrieve authentication credentials
 
@@ -131,7 +131,7 @@ for accessing your organization's Sonatype Nexus repository group.
 The build configuration to retrieve artifacts **directly** from the Chainguard
 Libraries for Python repositories requires authentication with username and
 password from a pull token as detailed in [access
-documentation](/chainguard/libraries/access/#pull-token).
+documentation](/chainguard/libraries/introduction/access/#pull-token).
 
 Note that there are multiple repositories:
 
@@ -140,7 +140,7 @@ Note that there are multiple repositories:
 
 Configuration for multiple index use and authentication varies for each
 packaging tool. Typically Python tools include support for
-[.netrc](/chainguard/libraries/access/#netrc).
+[.netrc](/chainguard/libraries/introduction/access/#netrc).
 
 Refer to examples using `uv` and `pip` under [Minimal example projects](#minimal-example-projects).
 
@@ -158,7 +158,7 @@ The recommended configuration is to use the [Chainguard Repository](/chainguard/
 dedicated support for configuring authentication to the repository manager or
 the Chainguard Libraries for Python directly. As an alternative that works
 across tools and is often preferred, use [.netrc for
-authentication](/chainguard/libraries/access/#netrc).
+authentication](/chainguard/libraries/introduction/access/#netrc).
 
 ### Updating lockfile hashes
 
@@ -200,7 +200,7 @@ which requires authentication. Choose whichever fits your environment:
 
 - **Logged in locally**: Run the command while authenticated; if you have no
   other credential it prompts for an organization and authenticates with a
-  [pull token](/chainguard/libraries/access/#pull-token). Pass
+  [pull token](/chainguard/libraries/introduction/access/#pull-token). Pass
   `--parent <organization>` to skip the prompt. To avoid the prompt entirely,
   scope your login to the libraries registry once with
   `chainctl auth login --audience=libraries.cgr.dev` — that session is then used
@@ -209,11 +209,11 @@ which requires authentication. Choose whichever fits your environment:
     - For a session token, pass `--token <token>` or set `CHAINCTL_AUTH_TOKEN`. The
     token must be scoped to the libraries registry; mint one with
     `chainctl auth token --audience=libraries.cgr.dev`.
-    - For a [pull token](/chainguard/libraries/access/#pull-token) (an identity and
+    - For a [pull token](/chainguard/libraries/introduction/access/#pull-token) (an identity and
     secret), pass it as basic auth: `--username <identity> --password <secret>`,
     or set `CHAINCTL_REGISTRY_USERNAME` / `CHAINCTL_REGISTRY_PASSWORD`.
 - **From `~/.netrc`**: Credentials for the registry host are read from `~/.netrc`
-  (or `$NETRC`); refer to [.netrc for authentication](/chainguard/libraries/access/#netrc).
+  (or `$NETRC`); refer to [.netrc for authentication](/chainguard/libraries/introduction/access/#netrc).
   Pass `--ignore-netrc` to skip an unrelated entry.
 
 When you target a repository manager with `--registry-url` (for example
@@ -275,7 +275,7 @@ Note the different syntax for `index-url` in the two files.
 
 Refer to the official documentation for [configuring authentication with
 pip](https://pip.pypa.io/en/stable/topics/authentication/) if you are not using
-[.netrc for authentication](/chainguard/libraries/access/#netrc).
+[.netrc for authentication](/chainguard/libraries/introduction/access/#netrc).
 
 #### Using direct access
 
@@ -493,7 +493,7 @@ uv](https://docs.astral.sh/uv/configuration/authentication/) and [using
 alternative package
 indexes](https://docs.astral.sh/uv/guides/integration/alternative-indexes/) if
 you are not using [.netrc for
-authentication](/chainguard/libraries/access/#netrc).
+authentication](/chainguard/libraries/introduction/access/#netrc).
 
 #### Using direct access
 
@@ -613,7 +613,7 @@ dependency to `flask` version `2.0.0` results in the use of version `2.0.0+cgr.1
 Use the following steps to create a minimal example project for uv with
 Chainguard Libraries for Python. For testing purposes, you can use direct access
 and environment variables as detailed in the [access
-documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials).
+documentation](/chainguard/libraries/introduction/access/#use-environment-variables-for-pull-token-credentials).
 
 > **Migrating an existing project?** If you have an existing uv lockfile with
 > upstream hashes, use [`chainctl libraries update-hashes`](#updating-lockfile-hashes)
@@ -741,7 +741,7 @@ A successfully verified project produces output similar to the following:
 
 Use the following steps to create a minimal example project for pip with Chainguard Libraries for Python.
 For testing purposes, you can use direct access and environment variables as detailed in the [access
-documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials).  
+documentation](/chainguard/libraries/introduction/access/#use-environment-variables-for-pull-token-credentials).  
 
 > **Migrating an existing project?** If you have an existing pip lockfile with
 > upstream hashes, use [`chainctl libraries update-hashes`](#updating-lockfile-hashes)

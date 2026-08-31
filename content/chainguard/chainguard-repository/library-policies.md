@@ -6,7 +6,7 @@ aliases:
 description: "Configure and enforce policies that control which Chainguard Libraries package versions your organization can pull"
 type: "article"
 date: 2026-07-31T00:00:00+00:00
-lastmod: 2026-08-05T14:52:37+00:00
+lastmod: 2026-08-28T16:31:04+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -18,11 +18,11 @@ toc: true
 
 Chainguard Libraries policies enable you to filter and restrict package versions pulled through Chainguard Repository.
 
-Policies can delay newly published upstream packages, block specific packages or versions, and allow deliberate exceptions to an otherwise denied package. Policies apply to an ecosystem and are evaluated when packages are pulled. Users with the Owner role can create, enable, disable, and list library policies. These policies apply to all packages pulled through Chainguard Repository. The [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) must be enabled for an ecosystem in order to use policies.
+Policies can delay newly published upstream packages, block specific packages or versions, and allow deliberate exceptions to an otherwise denied package. Policies apply to an ecosystem and are evaluated when packages are pulled. Users with the Owner role can create, enable, disable, and list library policies. These policies apply to all packages pulled through Chainguard Repository. The [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) must be enabled for an ecosystem in order to use policies.
 
 One custom policy per ecosystem can be enabled at a time. This policy should include all the rules you need, which may include a cooldown period, package block rules, and any overrides.
 
-> **Note**: [Upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) must be enabled for an ecosystem before you can use library policies. Library policies require `chainctl` v0.2.313 or newer; refer to the [`chainctl` documentation](/get-started/getting-started-with-chainctl/#update-chainctl-to-the-latest-release) for instructions on updating.
+> **Note**: [Upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) must be enabled for an ecosystem before you can use library policies. Library policies require `chainctl` v0.2.313 or newer; refer to the [`chainctl` documentation](/get-started/getting-started-with-chainctl/#update-chainctl-to-the-latest-release) for instructions on updating.
 
 ## Policy types and definitions
 
@@ -194,7 +194,7 @@ chainctl libraries packages blocked --mode=PREVIEW --ecosystem=JAVASCRIPT
 
 Replace `example-policy` with the name of the policy you want to preview.
 
-To check packages that have been blocked by [Chainguard's global malware/greyware blocklist](/chainguard/libraries/overview/#malware-and-greyware-detection), use [`chainctl libraries packages malware list`](/platform/chainctl/chainctl-docs/chainctl_libraries_packages_malware_list/).
+To check packages that have been blocked by [Chainguard's global malware/greyware blocklist](/chainguard/libraries/introduction/overview/#malware-and-greyware-detection), use [`chainctl libraries packages malware list`](/platform/chainctl/chainctl-docs/chainctl_libraries_packages_malware_list/).
 
 ## Override policies
 

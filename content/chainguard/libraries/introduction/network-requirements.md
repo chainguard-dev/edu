@@ -9,12 +9,14 @@ draft: false
 tags: ["Chainguard Libraries", "Reference"]
 menu:
   docs:
-    parent: "libraries"
-weight: 003
+    parent: "introduction"
+weight: 014
 toc: true
+aliases:
+  - /chainguard/libraries/network-requirements/
 ---
 
-[Chainguard Libraries](/chainguard/libraries/overview/) require specific network access to ensure secure delivery of hardened dependencies to your development environment. This guide details the domains and ports needed for authentication, package downloads, and verification tools.
+[Chainguard Libraries](/chainguard/libraries/introduction/overview/) require specific network access to ensure secure delivery of hardened dependencies to your development environment. This guide details the domains and ports needed for authentication, package downloads, and verification tools.
 
 ## Access for chainctl and other tools
 

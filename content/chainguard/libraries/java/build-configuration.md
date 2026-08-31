@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for Java on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-25T20:14:45+00:00
+lastmod: 2026-08-28T16:31:04+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java"]
 menu:
@@ -24,7 +24,7 @@ Apply these changes on every workstation and build server that builds your
 applications or downloads libraries, including CI/CD infrastructure such as
 Jenkins, TeamCity, or GitHub Actions.
 
-The `https://libraries.cgr.dev/java/` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for Java. By default, it serves only Chainguard-built artifacts. When [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) is enabled for your organization, the same endpoint can also serve requested versions from Maven Central under Chainguard security controls.
+The `https://libraries.cgr.dev/java/` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for Java. By default, it serves only Chainguard-built artifacts. When [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) is enabled for your organization, the same endpoint can also serve requested versions from Maven Central under Chainguard security controls.
 
 This guide outlines how to configure your build tool. If you are looking for something else, refer to the following guides depending on your goals:
 
@@ -34,7 +34,7 @@ This guide outlines how to configure your build tool. If you are looking for som
 | Set up organization-wide access through a repository manager | [Global configuration](/chainguard/libraries/java/global-configuration/) |
 | Migrate an existing project step by step | [Java migration guide](/chainguard/libraries/java/migration/) |
 
-If a package or version is blocked by a policy or malware scan, your build tool returns an error. Refer to the [Error messages documentation](/chainguard/libraries/errors/) for more details.
+If a package or version is blocked by a policy or malware scan, your build tool returns an error. Refer to the [Error messages documentation](/chainguard/libraries/troubleshooting/errors/) for more details.
 
 ## Library access approaches
 
@@ -75,17 +75,17 @@ Build configuration to retrieve artifacts **directly** from the Chainguard
 Libraries
 for Java repository requires authentication
 with username and password from a pull token as detailed in
-[access documentation](/chainguard/libraries/access/#pull-token).
+[access documentation](/chainguard/libraries/introduction/access/#pull-token).
 
-If using Chainguard's [CVE remediation](/chainguard/libraries/cve-remediation/) for Java libraries (available in beta), set it as the top repository. The recommended ordering for repositories is:
+If using Chainguard's [CVE remediation](/chainguard/libraries/policies-and-security/cve-remediation/) for Java libraries (available in beta), set it as the top repository. The recommended ordering for repositories is:
 
-1. `https://libraries.cgr.dev/java-remediated/` for remediated Spring Boot libraries; this is available in beta as part of the [CVE remediation](/chainguard/libraries/cve-remediation/) feature.
+1. `https://libraries.cgr.dev/java-remediated/` for remediated Spring Boot libraries; this is available in beta as part of the [CVE remediation](/chainguard/libraries/policies-and-security/cve-remediation/) feature.
 1. `https://libraries.cgr.dev/java/`
 1. `https://repo1.maven.org/maven2/` or your Maven Central proxy
 
 ## Selecting remediated library versions
 
-When using the [CVE remediation feature](/chainguard/libraries/cve-remediation/), available in beta to Chainguard Libraries for Java, your build will not receive a remediated Java artifact automatically with the overlay repository configured. To use the remediated build, you must opt in to the suffixed version directly, or route resolution to it through dependency management, Gradle constraints, or version ranges.
+When using the [CVE remediation feature](/chainguard/libraries/policies-and-security/cve-remediation/), available in beta to Chainguard Libraries for Java, your build will not receive a remediated Java artifact automatically with the overlay repository configured. To use the remediated build, you must opt in to the suffixed version directly, or route resolution to it through dependency management, Gradle constraints, or version ranges.
 
 ### Update dependency version directly
 
@@ -286,7 +286,7 @@ Java.
 #### Configure direct access
 
 If you are not using a repository manager at your organization, you can
-configure access to the Chainguard Libraries for Java repository directly. If [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) is enabled for your organization, the `https://libraries.cgr.dev/java/` repository can serve both Chainguard-built artifacts and eligible upstream Maven Central artifacts through the same endpoint. If upstream fallback is not enabled, continue to configure Maven Central or your Maven Central proxy after the Chainguard repository, as shown in the following example.
+configure access to the Chainguard Libraries for Java repository directly. If [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) is enabled for your organization, the `https://libraries.cgr.dev/java/` repository can serve both Chainguard-built artifacts and eligible upstream Maven Central artifacts through the same endpoint. If upstream fallback is not enabled, continue to configure Maven Central or your Maven Central proxy after the Chainguard repository, as shown in the following example.
 
 If you are participating in the beta for CVE remediation, include the `https://libraries.cgr.dev/java-remediated/` repository first.
 
@@ -294,8 +294,8 @@ If you are using direct access with the Chainguard Repository and you want Chain
 
 The following `~/.m2/settings.xml` configures direct access with Chainguard's remediated Java repository as
 the primary repository, falling back to the standard Chainguard Libraries repository when a remediated version is not available. If a library is not yet built by Chainguard and you have enabled upstream fallback, then upstream packages will be subject to malware scanning and any cooldown policies you have configured. This settings file uses [environment
-variables](/chainguard/libraries/access/#env) for the pull token detailed in
-[Chainguard Libraries access](/chainguard/libraries/access/).
+variables](/chainguard/libraries/introduction/access/#env) for the pull token detailed in
+[Chainguard Libraries access](/chainguard/libraries/introduction/access/).
 
 ```xml
 <settings>
@@ -397,7 +397,7 @@ If your `settings.xml` is using credentials set as environment variables, ensure
 ### Minimal example project
 
 Use the following steps to create a minimal example project for Maven with Chainguard Libraries for Java. For testing purposes, you can use direct access and environment variables as
-detailed in the [access documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials).
+detailed in the [access documentation](/chainguard/libraries/introduction/access/#use-environment-variables-for-pull-token-credentials).
 
 **1. Remove the Maven cache**
 
@@ -644,14 +644,14 @@ Example URLs for repository managers:
 
 If your organization does not use a repository manager you can configure the
 Chainguard Libraries for Java repository with the credentials from [Chainguard
-Libraries access](/chainguard/libraries/access/). The following `repositories` block demonstrates
+Libraries access](/chainguard/libraries/introduction/access/). The following `repositories` block demonstrates
 the recommended method of using [environment
-variables](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials)
+variables](/chainguard/libraries/introduction/access/#use-environment-variables-for-pull-token-credentials)
 for your pull token credentials.
 
 Open `app/build.gradle` and update the `repositories` block to include the
 Chainguard repository. Ensure it is located above the `mavenCentral` repository
-and any other repositories. If you are using Chainguard's [remediated library repository](/chainguard/libraries/cve-remediation/), set it as the top repository:
+and any other repositories. If you are using Chainguard's [remediated library repository](/chainguard/libraries/policies-and-security/cve-remediation/), set it as the top repository:
 
 ```groovy
 repositories {
@@ -707,7 +707,7 @@ allprojects {
 ### Minimal example project
 
 Use the following steps to create a minimal example project for Gradle with Chainguard Libraries for Java. For testing purposes, you can use direct access and environment variables as
-detailed in the [access documentation](/chainguard/libraries/access/#use-environment-variables-for-pull-token-credentials).
+detailed in the [access documentation](/chainguard/libraries/introduction/access/#use-environment-variables-for-pull-token-credentials).
 
 **1. Clear the cache**
 
@@ -910,7 +910,7 @@ Ensure that the Chainguard repository is listed before any other repositories to
 prioritize it for artifact retrieval.
 
 For more complex Bazel setups, you can use [.netrc for
-authentication](/chainguard/libraries/access/#netrc).
+authentication](/chainguard/libraries/introduction/access/#netrc).
 
 Refer to the [official Bazel documentation for
 `rules_jvm_external`](https://github.com/bazel-contrib/rules_jvm_external) for

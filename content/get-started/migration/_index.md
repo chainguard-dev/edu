@@ -5,7 +5,7 @@ lead: ""
 description: "Move existing workloads to Chainguard: container migration guides, library migration guides for Java, Python, and JavaScript, and tooling that automates the conversion."
 type: "article"
 date: 2024-02-26T08:48:45+00:00
-lastmod: 2026-08-11T00:00:00+00:00
+lastmod: 2026-08-28T16:31:04+00:00
 draft: false
 images: []
 weight: 045
@@ -47,7 +47,7 @@ Point your package manager at Chainguard Libraries and reinstall. Libraries are 
 - **[JavaScript](/chainguard/libraries/javascript/migration/)** — switch an existing npm project over.
 - **[Python](/chainguard/libraries/python/migration/)** — switch an existing pip, uv, or Poetry project over.
 
-Libraries are currently available for Java, Python, and JavaScript. For background on how access and configuration work, refer to the [Chainguard Libraries overview](/chainguard/libraries/overview/).
+Libraries are currently available for Java, Python, and JavaScript. For background on how access and configuration work, refer to the [Chainguard Libraries overview](/chainguard/libraries/introduction/overview/).
 
 ## Migrate an API integration
 

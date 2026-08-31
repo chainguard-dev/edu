@@ -5,7 +5,7 @@ lead: "Your organization has adopted Chainguard. This guide helps administrators
 description: "Onboard your teams to Chainguard Containers and Chainguard Libraries: what your organization can pull, how subscriptions differ, and how to retrieve SBOMs and provenance."
 type: "article"
 date: 2026-08-26T00:00:00+00:00
-lastmod: 2026-08-26T13:50:01+00:00
+lastmod: 2026-08-28T16:31:04+00:00
 draft: false
 tags: ["Getting Started"]
 images: []
@@ -68,11 +68,11 @@ To pin what you pull so builds stay reproducible, reference images by digest. Se
 
 ## Chainguard Libraries
 
-Chainguard Libraries is a secure catalog of language dependencies for Java, Python, and JavaScript. Each package goes through multiple layers of defense, including malicious behavior scanning, building from source, and configurable policies. A package pulled from Chainguard is a drop-in replacement for the one you'd normally pull from Maven Central, PyPI, or npm. See the [overview](/chainguard/libraries/overview/) for how they're built and what guarantees they carry.
+Chainguard Libraries is a secure catalog of language dependencies for Java, Python, and JavaScript. Each package goes through multiple layers of defense, including malicious behavior scanning, building from source, and configurable policies. A package pulled from Chainguard is a drop-in replacement for the one you'd normally pull from Maven Central, PyPI, or npm. See the [overview](/chainguard/libraries/introduction/overview/) for how they're built and what guarantees they carry.
 
 ### What your organization can access
 
-Libraries don't have a public browse site like the Chainguard Directory. Instead, you browse the packages your organization is entitled to by signing in to the [Chainguard Console](/chainguard/libraries/browse/). Access is granted per language: your organization is entitled to Java, Python, or JavaScript individually, so which ecosystems you can pull depends on your subscription. There's no catalog-versus-per-image distinction as there is for containers.
+Libraries don't have a public browse site like the Chainguard Directory. Instead, you browse the packages your organization is entitled to by signing in to the [Chainguard Console](/chainguard/libraries/introduction/browse/). Access is granted per language: your organization is entitled to Java, Python, or JavaScript individually, so which ecosystems you can pull depends on your subscription. There's no catalog-versus-per-image distinction as there is for containers.
 
 ### Pull libraries into your project
 
@@ -84,7 +84,7 @@ https://libraries.cgr.dev/python/
 https://libraries.cgr.dev/javascript/
 ```
 
-The [quickstart](/chainguard/libraries/quickstart/) walks through creating a pull token and configuring your build tools, and [access and authentication](/chainguard/libraries/access/) covers the details.
+The [quickstart](/chainguard/libraries/introduction/quickstart/) walks through creating a pull token and configuring your build tools, and [access and authentication](/chainguard/libraries/introduction/access/) covers the details.
 
 ### Verify provenance and SBOMs
 
@@ -94,7 +94,7 @@ Every package that Chainguard builds from source ships with a signed SBOM and SL
 chainctl libraries verify /path/to/artifact
 ```
 
-See [verifying Chainguard Libraries](/chainguard/libraries/verification/) for what the command checks and for retrieving the SBOM and attestation files directly.
+See [verifying Chainguard Libraries](/chainguard/libraries/policies-and-security/verification/) for what the command checks and for retrieving the SBOM and attestation files directly.
 
 ## Other products your company may have adopted
 

@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "A walkthrough of the Chainguard Console."
 date: 2024-02-23T11:07:52+02:00
-lastmod: 2026-08-20T18:34:01+00:00
+lastmod: 2026-08-28T16:31:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -34,7 +34,7 @@ https://console.chainguard.dev/auth/login?org=ORGANIZATION
 
 ## Browse Chainguard Libraries in the console
 
-Learn more browsing Chainguard Libraries in the console on the [Libraries browsing page](/chainguard/libraries/browse/).
+Learn more browsing Chainguard Libraries in the console on the [Libraries browsing page](/chainguard/libraries/introduction/browse/).
 
 ## Browse container images and details in the Console
 

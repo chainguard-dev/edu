@@ -4,7 +4,7 @@ linktitle: "Dependency maintenance"
 description: "Manage Chainguard Libraries for Python dependencies after setup, including package updates, verification, and monitoring security improvements"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-28T19:09:28+00:00
+lastmod: 2026-08-28T16:31:04+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 images: []
@@ -27,10 +27,10 @@ for deciding where to troubleshoot when a dependency changes.
 
 Chainguard Libraries serves Chainguard-built artifacts when they are available.
 When [upstream
-fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) is
+fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls/) is
 enabled, an artifact that Chainguard has not yet built may first be served
 through Chainguard’s upstream tier. With [build
-pinning](/chainguard/libraries/build-pinning/), the exact package version
+pinning](/chainguard/libraries/policies-and-security/build-pinning/), the exact package version
 remains pinned to the artifact tier your organization first received, so a
 previously downloaded wheel or source distribution is not immediately replaced
 when Chainguard publishes a built equivalent.
@@ -58,7 +58,7 @@ chainctl libraries verify --detailed .venv/
 
 For additional verification commands, command options, permissions, and
 supported artifact types, refer to the [Verification
-documentation](/chainguard/libraries/verification/).
+documentation](/chainguard/libraries/policies-and-security/verification/).
 
 ### Inspect artifacts in a repository manager
 
@@ -68,7 +68,7 @@ Chainguard Libraries. Use the repository manager’s package or browsing view to
 locate an artifact and compare its coordinates, file name, size, checksum, and
 available metadata.
 
-Refer to the [Verification page](/chainguard/libraries/verification/) for more
+Refer to the [Verification page](/chainguard/libraries/policies-and-security/verification/) for more
 information on verifying artifacts in a repository manager.
 
 ## Refresh cached artifacts
@@ -114,8 +114,8 @@ sequence, including cache and project-configuration handling, refer to the
 Python](/chainguard/libraries/python/migration/).
 
 For organizations that use Chainguard's [upstream
-fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls),
+fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls/),
 build pinning keeps the exact artifact previously served for that package
 version. This prevents a later Chainguard rebuild from unexpectedly changing the
 hash. You must remove the pin to adopt a newer Chainguard build. Refer to [Build
-pinning](/chainguard/libraries/build-pinning/) for more information.
+pinning](/chainguard/libraries/policies-and-security/build-pinning/) for more information.

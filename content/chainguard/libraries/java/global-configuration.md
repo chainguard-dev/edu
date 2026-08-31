@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for Java in your organization"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-20T19:03:04+00:00
+lastmod: 2026-08-28T16:31:04+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java"]
 images: []
@@ -25,7 +25,7 @@ repository manager acts as a single point of access for developers and
 development tools to retrieve the required libraries.
 
 The recommended approach is to use the [upstream
-fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls)
+fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls)
 feature of Chainguard Repository, which allows you to configure your repository
 manager with a single upstream pointed at `https://libraries.cgr.dev/java/` without a separate fallback to Maven Central. The
 Chainguard Repository handles fallback and policy enforcement; your repository
@@ -59,7 +59,7 @@ Refer to the Build configuration docs for instructions on configuring repository
 ## Manually managing fallback
 
 Chainguard recommends using the Chainguard Repository's built-in [upstream
-fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) rather
+fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) rather
 than configuring a fallback to the public Maven Central registry in your repo manager. Configuring
 your own fallback bypasses the protection that the Chainguard Repository
 provides.
@@ -90,7 +90,7 @@ documentation](https://help.cloudsmith.io/docs/upstream-proxying-caching#create-
 for Cloudsmith for more information. Cloudsmith supports combining repositories
 by defining multiple upstream repositories.
 
-> **Note:** Chainguard has not yet tested the recommended [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) approach — a single upstream pointed at `https://libraries.cgr.dev/java/` — with Cloudsmith. The following steps instead configure Maven Central as an upstream fallback in your repository manager. Packages sourced from Maven Central are not covered by Chainguard's malware-resistance guarantees.
+> **Note:** Chainguard has not yet tested the recommended [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) approach — a single upstream pointed at `https://libraries.cgr.dev/java/` — with Cloudsmith. The following steps instead configure Maven Central as an upstream fallback in your repository manager. Packages sourced from Maven Central are not covered by Chainguard's malware-resistance guarantees.
 
 ### Initial configuration
 
@@ -133,7 +133,7 @@ Configure an upstream proxy for the Chainguard Libraries for Java repository:
     * **Proxy URL**: `https://libraries.cgr.dev/java/`
     * **Mode**: Cache and Proxy
     * **Authentication Settings**: Enter the **Username** and **Password** value from [Chainguard Libraries
-      access](/chainguard/libraries/access/).
+      access](/chainguard/libraries/introduction/access/).
 1. Click **Create Upstream Proxy**.
 1. If you are using the separate repository with remediated Java libraries, repeat the preceding steps to create remote repository named `java-chainguard-remediated` with a URL set to `https://libraries.cgr.dev/java-remediated/`. Use the same authentication details.
 
@@ -180,7 +180,7 @@ Use the [Java package documentation for Google Artifact
 Registry](https://cloud.google.com/artifact-registry/docs/java) as the starting
 point for more details.
 
-> **Note:** Chainguard has not yet tested the recommended [upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls) approach — a single upstream pointed at `https://libraries.cgr.dev/java/` — with Google Artifact Registry. The following steps instead configure Maven Central as an upstream fallback in your repository manager. Packages sourced from Maven Central are not covered by Chainguard's malware-resistance guarantees.
+> **Note:** Chainguard has not yet tested the recommended [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) approach — a single upstream pointed at `https://libraries.cgr.dev/java/` — with Google Artifact Registry. The following steps instead configure Maven Central as an upstream fallback in your repository manager. Packages sourced from Maven Central are not covered by Chainguard's malware-resistance guarantees.
 
 ### Initial configuration
 
@@ -195,7 +195,7 @@ virtual repository:
 1. Activate **Secret Manager** if necessary.
 
 Before configuring the repositories, you must create a secret with the [password
-value as retrieved with chainctl](/chainguard/libraries/access/):
+value as retrieved with chainctl](/chainguard/libraries/introduction/access/):
 
 1. Navigate to the **Secret Manager**
 1. Click **Create secret**.
@@ -227,7 +227,7 @@ Configure a remote repository for the Chainguard Libraries for Java repository:
     * **Custom repository URL**: `https://libraries.cgr.dev/java/`
     * **Remote repository authentication mode**: Authenticated
     * **Username for the upstream repository**: Set this to the [value as retrieved
-   with chainctl](/chainguard/libraries/access/).
+   with chainctl](/chainguard/libraries/introduction/access/).
     * **Secret**: Select the `chainguard-libraries-java` secret in the list.
     * **Location type > Region**: Select the same region configured for your `java-public` repository.
 1. Click **Create**.
@@ -302,7 +302,7 @@ Configure a remote repository for the Chainguard Libraries for Java repository:
     * **Package type**: Maven
     * **Repository Key**: `java-chainguard`
     * **URL**: `https://libraries.cgr.dev/java/`
-    * **User Name** and **Password / Access Token**: Set to the [values as retrieved with chainctl](/chainguard/libraries/access/).
+    * **User Name** and **Password / Access Token**: Set to the [values as retrieved with chainctl](/chainguard/libraries/introduction/access/).
     * Deactivate **Maven Settings - Handle Snapshots**.
 1. Note: The **Test** button is not a reliable indicator; to verify your setup, refer to the [validation steps](#validate-the-remote-repository) later on this page.
 1. Click the **Advanced** configuration tab, then configure the following settings:
@@ -340,7 +340,7 @@ Create a virtual repository to give your build tools a single access point:
 ### Add remediated libraries
 
 This section applies only if you use the separate repository of [remediated
-Java libraries](/chainguard/libraries/cve-remediation/). It requires a second
+Java libraries](/chainguard/libraries/policies-and-security/cve-remediation/). It requires a second
 remote repository, added to the virtual repository ahead of `java-chainguard` so
 that remediated versions resolve first.
 
@@ -436,7 +436,7 @@ If you are using this group, you can add a proxy repository for Chainguard
 Libraries for Java repository for production use.
 
 The recommended approach is to rely on Chainguard Repository's [upstream
-fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls),
+fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls),
 configuring a single proxy repository pointed at
 `https://libraries.cgr.dev/java/` rather than adding a separate Maven Central
 proxy. Refer to [Manually managing fallback](#manually-managing-fallback) if you need
@@ -464,7 +464,7 @@ Configure a remote repository for the Chainguard Libraries for Java repository:
     * **Proxy - Remote storage**: Add the URL `https://libraries.cgr.dev/java/`
     * **HTTP - Authentication** Select the `username` **Authentication type**, and
    provide the [username and password values as retrieved with
-   chainctl](/chainguard/libraries/access/).
+   chainctl](/chainguard/libraries/introduction/access/).
 1. Click **Create repository**.
 1. If you are using the separate repository with remediated Java libraries, repeat the preceding steps to create remote repository named `java-chainguard-remediated` with a URL set to `https://libraries.cgr.dev/java-remediated/`. Use the same authentication details.
 

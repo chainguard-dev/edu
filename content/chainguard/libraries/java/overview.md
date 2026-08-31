@@ -4,7 +4,7 @@ linktitle: "Java overview"
 description: "Learn about Chainguard Libraries for Java, providing enhanced security for Maven dependencies through automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-20T19:51:12+00:00
+lastmod: 2026-08-28T16:31:04+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java", "Overview"]
 menu:
@@ -58,7 +58,7 @@ Libraries for Java.
 ## Technical details
 
 You must use the [username and password retrieved with
-chainctl](/chainguard/libraries/access/) to access the Chainguard
+chainctl](/chainguard/libraries/introduction/access/) to access the Chainguard
 Libraries for Java repository.
 
 The URL for the repository is:
@@ -119,7 +119,7 @@ guide](/chainguard/libraries/java/migration/).
 ## CVE remediation
 
 Chainguard Libraries for Java includes the [CVE
-Remediation](/chainguard/libraries/cve-remediation/) feature, available in beta for Spring Boot. Remediated
+Remediation](/chainguard/libraries/policies-and-security/cve-remediation/) feature, available in beta for Spring Boot. Remediated
 libraries include an appended local version identifier of `-0.cgr.N`.
 
 For example, if `org.apache.commons:commons-lang3:3.18.0` has a remediated build, that build is published as `org.apache.commons:commons-lang3:3.18.0-0.cgr.1`. If Chainguard publishes another remediated iteration for the same base version, the trailing number increases, such as `-0.cgr.2` or `-0.cgr.3`.
@@ -156,7 +156,7 @@ bazel clean --expunge
 
 To manually access artifacts in the Chainguard Libraries for Java repository, use the URL [`https://libraries.cgr.dev/java/`](https://libraries.cgr.dev/java/)
 with your [username and password retrieved with
-chainctl](/chainguard/libraries/access/).
+chainctl](/chainguard/libraries/introduction/access/).
 
 This site provides a directory browsing and file listing capability similar to
 the Maven Central repository at
@@ -236,10 +236,10 @@ files described below. Specific files vary between libraries.
 All filenames can be used to download individual files.
 
 Use `curl`, specify the username and password retrieved with [chainctl for basic
-user authentication](/chainguard/libraries/access/) and use the URL of the file to
+user authentication](/chainguard/libraries/introduction/access/) and use the URL of the file to
 download and save the file with the original name.
 
-With [.netrc authentication](/chainguard/libraries/access/#netrc):
+With [.netrc authentication](/chainguard/libraries/introduction/access/#netrc):
 
 ```shell
 curl -n -L \
@@ -247,7 +247,7 @@ curl -n -L \
   -O https://libraries.cgr.dev/java/commons-io/commons-io/2.13.0/commons-io-2.13.0.pom
 ```
 
-With [environment variables](/chainguard/libraries/access/#env):
+With [environment variables](/chainguard/libraries/introduction/access/#env):
 
 ```shell
 curl -L --user "$CHAINGUARD_JAVA_IDENTITY_ID:$CHAINGUARD_JAVA_TOKEN" \
@@ -297,6 +297,6 @@ subject to additional security controls before being served, including source co
 
 For Java, Chainguard's scanning inspects compiled `.class` files, package metadata, and extracted `.jar`, `.war`, and `.ear` archive contents for suspicious patterns and malicious signals.
 
-When the upstream fallback is enabled, [build pinning](/chainguard/libraries/build-pinning/) keeps a version you pulled from Maven Central stable after Chainguard publishes its own build. This prevents unexpected checksum mismatches across rebuilds.
+When the upstream fallback is enabled, [build pinning](/chainguard/libraries/policies-and-security/build-pinning/) keeps a version you pulled from Maven Central stable after Chainguard publishes its own build. This prevents unexpected checksum mismatches across rebuilds.
 
-Learn more in the [Chainguard Libraries overview](/chainguard/libraries/overview/).
+Learn more in the [Chainguard Libraries overview](/chainguard/libraries/introduction/overview/).

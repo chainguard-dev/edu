@@ -9,12 +9,14 @@ draft: false
 tags: ["Chainguard Libraries", "Build pinning"]
 menu:
   docs:
-    parent: libraries
-weight: 8
+    parent: policies-and-security
+weight: 074
 toc: true
+aliases:
+  - /chainguard/libraries/build-pinning/
 ---
 
-Chainguard Libraries can serve a package version as either a Chainguard-built artifact or an [upstream artifact that is scanned and proxied through Chainguard](/chainguard/libraries/overview/#upstream-fallback-and-controls). Chainguard-built artifacts may have different checksums for the same version of the upstream artifact. If your lockfile records an upstream checksum and Chainguard later builds that package, your package manager can fail with integrity errors upon dependency resolution.
+Chainguard Libraries can serve a package version as either a Chainguard-built artifact or an [upstream artifact that is scanned and proxied through Chainguard](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls). Chainguard-built artifacts may have different checksums for the same version of the upstream artifact. If your lockfile records an upstream checksum and Chainguard later builds that package, your package manager can fail with integrity errors upon dependency resolution.
 
 Build pinning keeps library artifacts stable when Chainguard publishes a new build of a package version you previously pulled from the scanned upstream fallback. Chainguard-built artifacts are always the default and take priority when available. Pinning only affects the exact package version already pinned. When enabled, Chainguard remembers which upstream versions your organization pulled and continues serving those specific versions even if a new Chainguard build is available, until you remove the pin. Moving to a different version of the package is unaffected; since that version was never pinned, it resolves fresh and Chainguard’s build is served by default.
 
@@ -26,7 +28,7 @@ This feature is enabled by default.
 
 Before getting started, you need:
 
-* An [entitlement to Chainguard Libraries with upstream fallback enabled](/chainguard/libraries/access/#manage-library-entitlements)
+* An [entitlement to Chainguard Libraries with upstream fallback enabled](/chainguard/libraries/introduction/access/#manage-library-entitlements)
 * [`chainctl` installed and authenticated](/platform/chainctl-usage/how-to-install-chainctl/)
 * A working configuration using Chainguard Libraries - a package manager configured to pull from Chainguard Libraries directly or a repository manager that proxies Chainguard Libraries
 

@@ -9,9 +9,11 @@ draft: false
 tags: ["Chainguard Libraries"]
 menu:
   docs:
-    parent: "libraries"
-weight: 001
+    parent: "introduction"
+weight: 012
 toc: true
+aliases:
+  - /chainguard/libraries/quickstart/
 ---
 
 Most supply chain attacks succeed the same way: malicious code is injected into
@@ -24,7 +26,7 @@ Chainguard Libraries for Java, JavaScript, and Python are rebuilt from verified
 source in an isolated build environment, making them malware-resistant by
 design. When a package is available as a Chainguard-built library, that rebuilt
 package is served first. When you use the [upstream
-fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls),
+fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls),
 the same ecosystem endpoint can also serve eligible upstream packages that
 Chainguard has not yet built, subject to configurable policy controls such as
 cooldown and malware scanning. This gives your engineers drop-in replacements
@@ -97,7 +99,7 @@ Learn how to set up direct access in the build configuration documentation for
 
 ## Step 2: Create a pull token
 
-[Pull tokens](/chainguard/libraries/access/#creating-pull-tokens-for-libraries)
+[Pull tokens](/chainguard/libraries/introduction/access/#creating-pull-tokens-for-libraries)
 are required for authentication. You can [create one using `chainctl`](/platform/chainctl/chainctl-docs/chainctl_auth_pull-token_create/):
 
 {{< tabs >}}
@@ -134,10 +136,10 @@ The command returns a username and password for basic authentication. Store
 these securely, as they won't be shown again.
 
 You can also [create pull tokens via the Chainguard
-Console](/chainguard/libraries/access/#creating-pull-tokens-with-the-chainguard-console)
+Console](/chainguard/libraries/introduction/access/#creating-pull-tokens-with-the-chainguard-console)
 under **Overview > Manage pull tokens > Create access token**.
 
-Learn more about pull tokens, and using environment variables for pull token credentials, in the [Libraries access documentation](/chainguard/libraries/access/).
+Learn more about pull tokens, and using environment variables for pull token credentials, in the [Libraries access documentation](/chainguard/libraries/introduction/access/).
 
 ## Step 3: Configure your build tools
 
@@ -145,7 +147,7 @@ Once you have a pull token, you can configure your build tool. Configuration
 steps vary by build tool and ecosystem. Refer to the ecosystem-specific documentation
 pages for instructions.
 
-If you [configure upstream fallback](/chainguard/libraries/overview/#upstream-fallback-and-controls), the same ecosystem endpoint can serve both:
+If you [configure upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls), the same ecosystem endpoint can serve both:
 
 * Libraries rebuilt from source by Chainguard, and
 * Eligible packages from the upstream public registry when Chainguard has not built that package or version yet
@@ -224,7 +226,7 @@ Note that there are multiple repositories:
   `https://libraries.cgr.dev/python/simple`
 * `https://libraries.cgr.dev/python-remediated` with the simple index at
   `https://libraries.cgr.dev/python-remediated/simple` for libraries with [CVE
-  remediation](/chainguard/libraries/cve-remediation/)
+  remediation](/chainguard/libraries/policies-and-security/cve-remediation/)
 
 In addition to malware-resistance, Chainguard Libraries for Python includes
 CVE remediation for select libraries. These patched versions help reduce known
@@ -251,7 +253,7 @@ Check out minimal example projects for
 > available as an opt-in setting for both repository manager or direct access
 > approaches, and is turned off by default. Learn more about upstream
 > fallback policy and controls in the [Libraries
-> overview](/chainguard/libraries/overview/#upstream-fallback-and-controls).
+> overview](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls).
 
 ## Step 4: Verify your libraries
 
@@ -263,8 +265,8 @@ chainctl libraries verify /path/to/artifact
 
 > **Note**: Running `chainctl libraries verify` requires one of the `libraries.java.pull`, `libraries.javascript.pull`, or `libraries.python.pull` permissions, or the Owner role.
 
-Learn more in [Chainguard Libraries verification](/chainguard/libraries/verification/).
+Learn more in [Chainguard Libraries verification](/chainguard/libraries/policies-and-security/verification/).
 
 ## FAQs
 
-Refer to the [Chainguard Libraries FAQ page](/chainguard/libraries/faq/) for common questions and issues.
+Refer to the [Chainguard Libraries FAQ page](/chainguard/libraries/troubleshooting/faq/) for common questions and issues.
