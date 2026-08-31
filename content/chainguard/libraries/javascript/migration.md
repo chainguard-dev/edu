@@ -453,10 +453,8 @@ manager re-resolves all dependencies from scratch using the version constraints
 in `package.json`. If a constraint uses `^` or `~` (the npm default), the
 resolver picks the newest matching version, so you can lose your existing pins
 and pick up unintended upgrades that change your application's behavior.
-- Whether Chainguard has a resolved version available depends on the cooldown
-period you've configured. A version that Chainguard has not built yet, or one
-still inside your cooldown window, returns a 404 error that can be hard to
-diagnose. Check the cooldown period you've set before you regenerate.
+- Whether Chainguard has a resolved version available depends on the policies
+you've configured. For example, a version that was published upstream within your configured cooldown period will return an error. Check the cooldown period you've set before you regenerate.
 
 To regenerate — for example, to intentionally refresh your dependency
 versions — use the following commands:
