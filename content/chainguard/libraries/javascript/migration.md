@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing JavaScript project to pull dependencies from Chainguard Libraries"
 date: 2026-06-01T00:00:00+00:00
-lastmod: 2026-08-28T16:31:04+00:00
+lastmod: 2026-08-31T14:57:37+00:00
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
   docs:
@@ -402,7 +402,13 @@ your package manager's install command after changing the registry does **not**
 re-fetch already-resolved packages — the lockfile entries are treated as
 satisfied, and source URLs will still point to `registry.npmjs.org`.
 
-### Recommended: Update checksums in place
+You can update your lockfile in one of two ways. Update the checksums in place to
+keep your existing pinned versions, or regenerate the lockfile if you also want to
+refresh your dependency versions.
+
+{{< tabs >}}
+
+{{% tab title="Update in place" %}}
 
 Use [`chainctl libraries update-hashes`](/chainguard/libraries/javascript/build-configuration/#updating-lockfile-hashes)
 to rewrite only the integrity hashes in your existing lockfile to match
@@ -434,22 +440,24 @@ reinstalling.
 Learn about using this command with repo managers in the [Global
 configuration](/chainguard/libraries/javascript/global-configuration/) page.
 
-### Alternative: Delete and regenerate the lockfile
+{{% /tab %}}
 
-Deleting the lockfile is **not recommended** as a first approach. Expand the section below to learn more about this approach.
+{{% tab title="Regenerate lockfile" %}}
 
-{{< details "Delete and regenerate the lockfile" >}}
+Regenerating the lockfile is another valid approach, and many teams use the
+migration as an opportunity to update dependencies at the same time. Before you
+regenerate, consider the following:
 
-When npm regenerates a lockfile, it re-resolves all dependencies from scratch
-using the version constraints in `package.json`. If a constraint uses `^` or `~`
-(the npm default), the resolver picks the highest matching version. This may be
-a version that Chainguard has not yet built, or a version that is still within
-the cooldown window. Either case results in 404 errors that can be difficult to
-diagnose. Regenerating the lockfile can also introduce unintended dependency
-upgrades that break your application independently of the registry change.
+- Pinning versions is a security best practice. When you regenerate, your package
+manager re-resolves all dependencies from scratch using the version constraints
+in `package.json`. If a constraint uses `^` or `~` (the npm default), the
+resolver picks the newest matching version, so you can lose your existing pins
+and pick up unintended upgrades that change your application's behavior.
+- Whether Chainguard has a resolved version available depends on the policies
+you've configured. For example, a version that was published upstream within your configured cooldown period will return an error. Check the cooldown period you've set before you regenerate.
 
-If you have a specific reason to regenerate — for example, if you are
-intentionally refreshing your dependency versions — use the following commands:
+To regenerate — for example, to intentionally refresh your dependency
+versions — use the following commands:
 
 | Tool | Command |
 |---|---|
@@ -464,7 +472,9 @@ resolved version is not yet available in Chainguard Libraries or is still within
 the cooldown window. Refer to [Packages not available in Chainguard
 Libraries](#packages-not-available-in-chainguard-libraries) for next steps.
 
-{{< /details >}}
+{{% /tab %}}
+
+{{< /tabs >}}
 
 ## Step 4: Delete node_modules and clear caches
 
@@ -561,7 +571,7 @@ If this command is not available on your version of Bun, you can instead delete 
 Reinstall dependencies and confirm that the lockfile reflects Chainguard as the source. Resolved URLs should point to `libraries.cgr.dev/javascript` (direct access) or
 your repository manager host, not `registry.npmjs.org`.
 
-> Note: When using the `update-hashes` command, some package managers and tool versions default to appending the hash rather than replacing it. In some cases, the resulting dual-hash format fails on install. If you encounter integrity errors, [run the command again](#recommended-update-checksums-in-place) and include the `--replace` flag.
+> Note: When using the `update-hashes` command, some package managers and tool versions default to appending the hash rather than replacing it. In some cases, the resulting dual-hash format fails on install. If you encounter integrity errors, [run the command again](#step-3-update-your-lockfile) and include the `--replace` flag.
 
 {{< tabs >}}
 
