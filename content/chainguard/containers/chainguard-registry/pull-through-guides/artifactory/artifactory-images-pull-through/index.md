@@ -80,6 +80,7 @@ If you set **Project ID** to `chainguard` when creating the repository, omit tha
 ```sh
 docker pull <my-project>.jfrog.io/cgr-public/go
 ```
+
 Be sure the `docker pull` command you run includes the name of your project as well as your own repository key in place of `cgr-public`, if different.
 
 ## Setting up Artifactory as a pull-through cache for production containers
