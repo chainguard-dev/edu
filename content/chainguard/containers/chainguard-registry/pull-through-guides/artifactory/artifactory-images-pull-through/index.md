@@ -80,9 +80,7 @@ If you set **Project ID** to `chainguard` when creating the repository, omit tha
 ```sh
 docker pull <my-project>.jfrog.io/cgr-public/go
 ```
-
 Be sure the `docker pull` command you run includes the name of your project as well as your own repository key in place of `cgr-public`, if different.
-
 
 ## Setting up Artifactory as a pull-through cache for production containers
 
@@ -201,7 +199,6 @@ docker pull <my-project>.jfrog.io/cgr-virt/<organization>/chainguard-base:latest
 For both of these commands, be sure the `docker pull` command you run includes the name of your Artifactory project and the name of your organization's registry. Also, if you used a different repository key, substitute it for `cgr-virt` in the previous commands.
 
 > **Note**: Take care when aggregating remote repositories that each set a **Project ID**. If both the free and private remotes strip their path prefixes, image names from different sources collapse into the same namespace within the virtual repository — for example, both `chainguard/go` and `<organization>/go` would resolve as `go`, and the virtual repository's resolution order determines which one you get.
-
 
 ## Debugging pull-through from Chainguard’s registry to Artifactory
 
