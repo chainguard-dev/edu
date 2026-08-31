@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-08-25T20:14:45+00:00
+lastmod: 2026-08-31T14:57:37+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -312,7 +312,11 @@ For authentication details specific to your repository manager, refer to the [gl
 
 Your existing lockfile or hash-pinned `requirements.txt` contains checksums generated against packages downloaded from PyPI or through your repository manager. Because Chainguard rebuilds packages from verified source as well as providing security controls for upstream artifacts, checksums differ even for identical version numbers. If your file uses `--hash` entries or `--require-hashes`, installation will fail with a hash mismatch after switching to Chainguard until these are updated.
 
-### Recommended: Update checksums in place
+You can update your lockfile in one of two ways. Update the checksums in place to keep your existing pinned versions, or regenerate the lockfile if you also want to refresh your dependency versions.
+
+{{< tabs >}}
+
+{{% tab title="Update in place" %}}
 
 Use `chainctl libraries update-hashes` to rewrite only the integrity hashes in your existing lockfile or requirements file to match Chainguard's artifacts, without re-resolving your dependency graph. Supported formats include `requirements.txt`, `poetry.lock`, `uv.lock`, `pdm.lock`, `Pipfile.lock`, and `pylock.toml`.
 
@@ -340,13 +344,17 @@ chainctl libraries update-hashes
 
 By default, Chainguard hashes are appended alongside your existing hashes rather than replacing them. If your installer fails on a dual-hash entry, use the `--replace` flag.
 
-### Alternative: Regenerate the lockfile
+{{% /tab %}}
 
-Regenerating is **not recommended** as a first approach. Dependency resolvers pick the newest version satisfying your constraints, which may not yet be available from Chainguard, and may also introduce unrelated dependency upgrades. Expand the following section for instructions on regenerating lockfiles.
+{{% tab title="Regenerate lockfile" %}}
 
-{{< details "Delete and regenerate a lockfile" >}}
+Regenerating the lockfile is another valid approach, and many teams use the migration as an opportunity to update dependencies at the same time. Before you regenerate, consider the following:
 
-If you have a specific reason to regenerate - for example, if you are intentionally refreshing your dependency versions - use the following commands:
+* Pinning versions is a security best practice. Regenerating re-resolves your dependencies and can change versions, so you lose your existing pins unless you re-pin afterward.
+* Resolvers pick the newest version that satisfies each constraint. Whether Chainguard has that version available depends on the [cooldown
+period you've configured](/chainguard/libraries/overview/#cooldown-period): a release still inside your cooldown window isn't available yet and returns a 404 error.
+
+To regenerate — for example, to intentionally refresh your dependency versions — use the following commands.
 
 pip:
 
@@ -357,7 +365,7 @@ pip-compile --generate-hashes --index-url https://libraries.cgr.dev/python/simpl
 uv:
 
 ```bash
-rm -f uv.lock  
+rm -f uv.lock
 uv sync
 ```
 
@@ -373,7 +381,9 @@ Poetry 2.x:
 poetry lock
 ```
 
-{{< /details >}}
+{{% /tab %}}
+
+{{< /tabs >}}
 
 ## Step 3: Clear caches
 
