@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for JavaScript on your workstation"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-08-25T20:14:45+00:00
+lastmod: 2026-08-31T14:23:56+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
@@ -226,7 +226,7 @@ chainctl libraries update-hashes
 npm install
 ```
 
-As an alternative, you can remove the `node_modules` directory _and_ the `package-lock.json` file, then reinstall. This will regenerate the lockfile and update the hashes.
+As an alternative, you can remove the `node_modules` directory _and_ the `package-lock.json` file, then reinstall. This regenerates the lockfile and updates the hashes. Regenerating re-resolves your dependencies, so it can change your pinned versions, and a release still inside your configured cooldown window returns a 404 error. See [Update your lockfile](/chainguard/libraries/javascript/migration/#step-3-update-your-lockfile).
 
 **Clear caches**
 
@@ -513,7 +513,7 @@ chainctl libraries update-hashes
 pnpm install
 ```
 
-As an alternative, you can remove the `node_modules` directory _and_ the `pnpm-lock.yaml` file, then reinstall. This will regenerate the lockfile and update the hashes.
+As an alternative, you can remove the `node_modules` directory _and_ the `pnpm-lock.yaml` file, then reinstall. This regenerates the lockfile and updates the hashes. Regenerating re-resolves your dependencies, so it can change your pinned versions, and a release still inside your configured cooldown window returns a 404 error. See [Update your lockfile](/chainguard/libraries/javascript/migration/#step-3-update-your-lockfile).
 
 **Clear pnpmn caches**
 
@@ -960,7 +960,7 @@ chainctl libraries update-hashes
 yarn install
 ```
 
-As an alternative, you can remove the `node_modules` directory _and_ the `yarn-lock.json` file, then reinstall. This will regenerate the lockfile and update the hashes.
+As an alternative, you can remove the `node_modules` directory _and_ the `yarn-lock.json` file, then reinstall. This regenerates the lockfile and updates the hashes. Regenerating re-resolves your dependencies, so it can change your pinned versions, and a release still inside your configured cooldown window returns a 404 error. See [Update your lockfile](/chainguard/libraries/javascript/migration/#step-3-update-your-lockfile).
 
 Another option, after deleting `node_modules` and `yarn-lock.json`, is to run `yarn upgrade`. This updates all dependencies to their latest allowed
 versions and regenerates the lock file with updated hashes.
@@ -1110,7 +1110,7 @@ chainctl libraries update-hashes
 bun install
 ```
 
-As an alternative, you can remove the `node_modules` directory _and_ the `bun-lock.json` file, then reinstall. This will regenerate the lockfile and update the hashes.
+As an alternative, you can remove the `node_modules` directory _and_ the `bun-lock.json` file, then reinstall. This regenerates the lockfile and updates the hashes. Regenerating re-resolves your dependencies, so it can change your pinned versions, and a release still inside your configured cooldown window returns a 404 error. See [Update your lockfile](/chainguard/libraries/javascript/migration/#step-3-update-your-lockfile).
 
 <a id="bun-minimal"></a>
 

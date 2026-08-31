@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for Python on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-25T20:14:45+00:00
+lastmod: 2026-08-31T14:23:56+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 menu:
@@ -388,6 +388,8 @@ If necessary, you can fix or even regenerate your `poetry.lock` file:
 poetry lock
 poetry lock --regenerate
 ```
+
+Regenerating re-resolves your dependencies, so it can change your pinned versions, and a release still inside your configured cooldown window returns a 404 error. See [Update your lockfile](/chainguard/libraries/python/migration/#step-2-update-your-lockfile).
 
 Proceed to build your project:
 
