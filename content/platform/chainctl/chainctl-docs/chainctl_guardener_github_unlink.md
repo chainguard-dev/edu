@@ -1,5 +1,5 @@
 ---
-date: 2026-08-27T20:49:25Z
+date: 2026-08-28T20:13:14Z
 title: "chainctl guardener github unlink"
 slug: chainctl_guardener_github_unlink
 url: /platform/chainctl/chainctl-docs/chainctl_guardener_github_unlink/
