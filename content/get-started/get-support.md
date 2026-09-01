@@ -5,7 +5,7 @@ lead: "Chainguard offers several ways to get help, and the right one depends on 
 description: "Get help from Chainguard: check the self-service options, choose the right support channel, and open a ticket a support engineer can act on."
 type: "article"
 date: 2026-09-01T00:00:00+00:00
-lastmod: 2026-09-01T16:18:53+00:00
+lastmod: 2026-09-01T16:34:19+00:00
 draft: false
 tags: ["Getting Started"]
 images: []
@@ -86,3 +86,5 @@ A support engineer can start on a problem instead of asking you for more informa
 - The `chainctl` version, if the problem involves the command-line tool. Run `chainctl version` to get it.
 
 - What you expected to happen instead.
+
+- Anything else you think might help: logs, screenshots, or a short screen recording.

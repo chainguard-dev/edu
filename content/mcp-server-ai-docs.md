@@ -5,7 +5,7 @@ lead: "Model Context Protocol server for Chainguard documentation"
 description: "Access Chainguard documentation through MCP for AI assistants and automation"
 type: "article"
 date: 2026-01-02T21:00:00+00:00
-lastmod: 2026-08-04T18:22:06+00:00
+lastmod: 2026-09-01T16:34:19+00:00
 draft: false
 images: []
 weight: 600
@@ -404,6 +404,6 @@ docker pull ghcr.io/chainguard-dev/ai-docs:latest
 
 ## Need help?
 
-- [Chainguard Support](https://support.chainguard.dev?utm=docs)
+- [Get support](/get-started/get-support/)
 - [Community Slack](https://join.slack.com/t/chainguardcommunity/shared_invite/zt-3nttdr807-V9BJHayWvsB0KbHsfZO5Rw)
 - [GitHub Issues](https://github.com/chainguard-dev/edu/issues)

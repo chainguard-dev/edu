@@ -4,7 +4,7 @@ lead: "AI-ready documentation bundle for development"
 description: "Compiled Chainguard documentation optimized for use with AI coding assistants"
 type: "article"
 date: 2025-07-29T10:00:00+00:00
-lastmod: 2026-08-04T16:23:13+00:00
+lastmod: 2026-09-01T16:34:19+00:00
 draft: false
 images: []
 weight: 50
@@ -233,6 +233,6 @@ The bundle is rebuilt weekly. The compilation date appears at the top of the dow
 
 If you have questions or need assistance:
 
-- Visit [Chainguard Support](https://support.chainguard.dev?utm=docs)
+- Read [Get support](/get-started/get-support/) to find the right channel and open a ticket
 - Join our [community Slack](https://join.slack.com/t/chainguardcommunity/shared_invite/zt-3nttdr807-V9BJHayWvsB0KbHsfZO5Rw)
 - Browse the [documentation site](https://edu.chainguard.dev)

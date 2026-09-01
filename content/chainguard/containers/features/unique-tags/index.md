@@ -13,7 +13,7 @@ aliases:
 type: "article"
 description: "Learn about Chainguard's unique tags feature for production container images, enabling precise version tracking and automated deployment workflows with timestamped tags"
 date: 2024-02-29T08:49:31+00:00
-lastmod: 2026-08-21T12:27:26+00:00
+lastmod: 2026-09-01T16:34:19+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -28,7 +28,7 @@ Chainguard's unique tags feature provides unique timestamped tags for every cont
 
 To help with cases like this, Chainguard offers Unique Tags for private registries. Unique Tags are ideal for organizations that require a strict tag per release or update of their images. They benefit teams looking for precise tracking and management of container images.
 
-Unique Tags are an opt-in feature that is only available for private registries. If your organization is interested in using Unique Tags, please [contact support](https://support.chainguard.dev/) and we will enable this feature for you.
+Unique Tags are an opt-in feature that is only available for private registries. If your organization is interested in using Unique Tags, please [contact support](https://support.chainguard.dev/) and we will enable this feature for you. See [Get support](/get-started/get-support/) for the portal's prerequisites.
 
 This guide provides an overview of what these Unique Tags are, the kinds of problems they aim to solve, and how you can access them in the Chainguard Console.
 

@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "A conceptual article outlining testing requirements for Chainguard Containers."
 date: 2024-03-21T11:07:52+02:00
-lastmod: 2026-02-17T11:07:52+02:00
+lastmod: 2026-09-01T16:34:19+00:00
 draft: false
 tags: ["Overview", "Chainguard Containers"]
 images: []
@@ -76,4 +76,4 @@ Additionally, Chainguard performs automated tests on every *package* included in
 
 Chainguard's rigorous container image testing standards and frequent updates ensure that they will work as expected with few (and often zero) vulnerabilities. If you're having trouble working with a specific Chainguard Container, we encourage you to check out its relevant Overview page in our [Chainguard Containers Directory](https://images.chainguard.dev/directory?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-images-testing).
 
-For general help with using Chainguard Containers, you can refer to our [Debugging distroless container images](/chainguard/containers/debugging-distroless-images/) guide or our [Chainguard Containers FAQs](/chainguard/containers/faq/). For help with specific issues or questions not covered in these resources, please [contact our support team](https://support.chainguard.dev?utm=docs).
+For general help with using Chainguard Containers, you can refer to our [Debugging distroless container images](/chainguard/containers/debugging-distroless-images/) guide or our [Chainguard Containers FAQs](/chainguard/containers/faq/). For help with specific issues or questions not covered in these resources, please [contact our support team](https://support.chainguard.dev?utm=docs). See [Get support](/get-started/get-support/) for the portal's prerequisites.

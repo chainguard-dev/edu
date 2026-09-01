@@ -4,7 +4,7 @@ linktitle: "Manage with GitOps"
 type: "article"
 description: "How to use GitOps to manage Custom Assembly resources."
 date: 2026-01-29T11:07:52+02:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-01T16:34:19+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural", "Custom Assembly"]
 images: []
@@ -325,4 +325,4 @@ To test your GitHub Action:
 * [apko overview](/open-source/build-tools/apko/overview/)
 * [Assumable identity documentation](/chainguard/administration/assumable-ids/assumable-ids/)
 * [Demo Repository: custom-assembly-as-code](https://github.com/chainguard-demo/custom-assembly-as-code)
-* [Chainguard Support](https://support.chainguard.dev)
+* [Get support](/get-started/get-support/)
