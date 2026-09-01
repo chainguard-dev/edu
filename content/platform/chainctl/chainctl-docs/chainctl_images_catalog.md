@@ -1,5 +1,5 @@
 ---
-date: 2026-08-28T20:13:14Z
+date: 2026-08-31T17:17:40Z
 title: "chainctl images catalog"
 slug: chainctl_images_catalog
 url: /platform/chainctl/chainctl-docs/chainctl_images_catalog/
@@ -24,6 +24,11 @@ entitled to pull: use 'chainctl images repos list' for that.
 --name matches any image whose name contains the given text, so --name jdk
 finds both "jdk" and "adoptium-jdk".
 
+An image can carry hundreds of active tags, so a long page previews a few per
+image and reports how many are left. A page short enough to afford it lists
+every tag instead, which is what narrowing down gets you; --all-tags asks for
+the full list whatever the page length. JSON always carries every tag.
+
 In a terminal the catalog is shown a page at a time and --limit sets the page
 size, so the whole catalog stays reachable. When the output is piped or JSON,
 --limit is the maximum number of images returned.
@@ -37,12 +42,14 @@ chainctl images catalog
 ```
   chainctl images catalog
   chainctl images catalog --name postgres
+  chainctl images catalog --name go --all-tags
   chainctl images catalog --limit 200 -o json
 ```
 
 ### Options
 
 ```
+      --all-tags      List every active tag for each image, however long the page. A short page does this anyway.
       --limit int32   The number of images per page in an interactive terminal; otherwise the maximum number to return. (default 50)
       --name string   Show only images whose name contains this substring.
 ```

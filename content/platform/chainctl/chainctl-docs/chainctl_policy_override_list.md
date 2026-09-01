@@ -1,40 +1,47 @@
 ---
-date: 2026-08-28T20:13:14Z
-title: "chainctl policies check"
-slug: chainctl_policies_check
-url: /platform/chainctl/chainctl-docs/chainctl_policies_check/
+date: 2026-08-31T17:17:41Z
+title: "chainctl policy override list"
+slug: chainctl_policy_override_list
+url: /platform/chainctl/chainctl-docs/chainctl_policy_override_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl policies check
+## chainctl policy override list
 
-Check an image against active policies.
+List policy overrides.
 
 ### Synopsis
 
-Evaluate an image against any active policies and print the
-result for each.
+List active policy overrides to see which artifacts have been
+waived and for which policy.
 
-Exit status is non-zero if any policy returned DENIED or ERROR, regardless
-of the policy's mode, so this command is suitable for use in CI.
+Overrides are scoped to one organization: pass --parent, or omit it to
+use your configured default group, or (with no default configured) the
+single organization you can access — you are prompted when several are
+available. Each override shows its ID, the policy it waives, the
+targeted artifact, and the reason.
 
 ```
-chainctl policies check IMAGE_REF [flags]
+chainctl policy override list [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json|table] [flags]
 ```
 
 ### Examples
 
 ```
+  # List overrides for your default (or only) organization
+  chainctl policy override list
+  
+  # List overrides for a specific organization
+  chainctl policy override list --parent=engineering
+```
 
-# Check an image by tag
-chainctl policies check cgr.dev/example.com/python:latest
+### Options
 
-# Check an image by digest
-chainctl policies check cgr.dev/example.com/python@sha256:abc...
-
+```
+      --parent string   The name or id of the organization to list overrides for.
 ```
 
 ### Options inherited from parent commands
@@ -54,5 +61,5 @@ chainctl policies check cgr.dev/example.com/python@sha256:abc...
 
 ### SEE ALSO
 
-* [chainctl policies](/platform/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
+* [chainctl policy override](/platform/chainctl/chainctl-docs/chainctl_policy_override/)	 - Manage policy overrides.
 

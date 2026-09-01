@@ -1,15 +1,15 @@
 ---
-date: 2026-08-28T20:13:14Z
-title: "chainctl policies custom"
-slug: chainctl_policies_custom
-url: /platform/chainctl/chainctl-docs/chainctl_policies_custom/
+date: 2026-08-31T17:17:40Z
+title: "chainctl policy custom"
+slug: chainctl_policy_custom
+url: /platform/chainctl/chainctl-docs/chainctl_policy_custom/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl policies custom
+## chainctl policy custom
 
 Manage your custom policies.
 
@@ -43,9 +43,9 @@ afterwards.
 
 ### SEE ALSO
 
-* [chainctl policies](/platform/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
-* [chainctl policies custom create](/platform/chainctl/chainctl-docs/chainctl_policies_custom_create/)	 - Create a custom policy.
-* [chainctl policies custom delete](/platform/chainctl/chainctl-docs/chainctl_policies_custom_delete/)	 - Delete a custom policy.
-* [chainctl policies custom update](/platform/chainctl/chainctl-docs/chainctl_policies_custom_update/)	 - Update a custom policy.
-* [chainctl policies custom validate](/platform/chainctl/chainctl-docs/chainctl_policies_custom_validate/)	 - Validate a custom policy manifest or expression without persisting it.
+* [chainctl policy](/platform/chainctl/chainctl-docs/chainctl_policy/)	 - Manage policies.
+* [chainctl policy custom create](/platform/chainctl/chainctl-docs/chainctl_policy_custom_create/)	 - Create a custom policy.
+* [chainctl policy custom delete](/platform/chainctl/chainctl-docs/chainctl_policy_custom_delete/)	 - Delete a custom policy.
+* [chainctl policy custom update](/platform/chainctl/chainctl-docs/chainctl_policy_custom_update/)	 - Update a custom policy.
+* [chainctl policy custom validate](/platform/chainctl/chainctl-docs/chainctl_policy_custom_validate/)	 - Validate a custom policy manifest or expression without persisting it.
 

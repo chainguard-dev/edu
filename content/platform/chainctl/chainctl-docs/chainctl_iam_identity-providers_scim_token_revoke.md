@@ -1,5 +1,5 @@
 ---
-date: 2026-08-28T20:13:14Z
+date: 2026-08-31T17:17:40Z
 title: "chainctl iam identity-providers scim token revoke"
 slug: chainctl_iam_identity-providers_scim_token_revoke
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim_token_revoke/

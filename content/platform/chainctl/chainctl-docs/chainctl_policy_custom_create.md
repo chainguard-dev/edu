@@ -1,15 +1,15 @@
 ---
-date: 2026-08-28T20:13:14Z
-title: "chainctl policies custom create"
-slug: chainctl_policies_custom_create
-url: /platform/chainctl/chainctl-docs/chainctl_policies_custom_create/
+date: 2026-08-31T17:17:40Z
+title: "chainctl policy custom create"
+slug: chainctl_policy_custom_create
+url: /platform/chainctl/chainctl-docs/chainctl_policy_custom_create/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl policies custom create
+## chainctl policy custom create
 
 Create a custom policy.
 
@@ -73,11 +73,26 @@ The resource type is set at create time and cannot be changed later.
 Within an organization, (name, resource type) is unique. The same name
 may be reused across different resource types.
 
+A manifest whose rule reads the same for every ecosystem may name them
+all at once with the repeated `supported_resource_types` in place of the
+scalar `supported_resource_type`:
+
+```yaml
+supported_resource_types:
+  - libraries.chainguard.dev/NPMPackage@v1
+  - libraries.chainguard.dev/PythonPackage@v1
+  - libraries.chainguard.dev/JavaPackage@v1
+```
+
+That creates one policy per entry, all sharing the manifest's name. A
+resource type that already carries a policy of this name is skipped and
+reported, so a re-run fills in whichever types are missing.
+
 For an authoritative live example, inspect a system policy with
-`chainctl policies describe --policy <name> -o json`.
+`chainctl policy describe --policy <name> -o json`.
 
 ```
-chainctl policies custom create --file POLICY.yaml | --expression POLICY.rego --name NAME --resource-type TYPE [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json|table] [flags]
+chainctl policy custom create --file POLICY.yaml | --expression POLICY.rego --name NAME --resource-type TYPE [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json|table] [flags]
 ```
 
 ### Examples
@@ -85,10 +100,10 @@ chainctl policies custom create --file POLICY.yaml | --expression POLICY.rego --
 ```
 
 # Create a custom policy from a full manifest
-chainctl policies custom create --file policy.yaml --parent example.com
+chainctl policy custom create --file policy.yaml --parent example.com
 
 # Create a parameterless policy from a raw Rego expression
-chainctl policies custom create --expression allow.rego --name allow-all \
+chainctl policy custom create --expression allow.rego --name allow-all \
   --resource-type Repo --parent example.com
 
 ```
@@ -121,5 +136,5 @@ chainctl policies custom create --expression allow.rego --name allow-all \
 
 ### SEE ALSO
 
-* [chainctl policies custom](/platform/chainctl/chainctl-docs/chainctl_policies_custom/)	 - Manage your custom policies.
+* [chainctl policy custom](/platform/chainctl/chainctl-docs/chainctl_policy_custom/)	 - Manage your custom policies.
 

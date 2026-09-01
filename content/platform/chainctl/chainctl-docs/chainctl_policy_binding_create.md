@@ -1,15 +1,15 @@
 ---
-date: 2026-08-28T20:13:14Z
-title: "chainctl policies binding create"
-slug: chainctl_policies_binding_create
-url: /platform/chainctl/chainctl-docs/chainctl_policies_binding_create/
+date: 2026-08-31T17:17:40Z
+title: "chainctl policy binding create"
+slug: chainctl_policy_binding_create
+url: /platform/chainctl/chainctl-docs/chainctl_policy_binding_create/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl policies binding create
+## chainctl policy binding create
 
 Create a policy binding.
 
@@ -30,7 +30,7 @@ the policy's schema. For STRING_LIST parameters, items are comma-separated
 within a single --param value.
 
 ```
-chainctl policies binding create --policy POLICY [--parent ORGANIZATION_NAME | ORGANIZATION_ID] --mode MODE [--param KEY=VALUE] [--output=json|table] [flags]
+chainctl policy binding create --policy POLICY [--parent ORGANIZATION_NAME | ORGANIZATION_ID] --mode MODE [--param KEY=VALUE] [--output=json|table] [flags]
 ```
 
 ### Examples
@@ -38,16 +38,16 @@ chainctl policies binding create --policy POLICY [--parent ORGANIZATION_NAME | O
 ```
 
 # Enforce a policy on all repos in an organization
-chainctl policies binding create --policy=no-eol --parent=engineering --mode=ENFORCE
+chainctl policy binding create --policy=no-eol --parent=engineering --mode=ENFORCE
 
 # Enable a policy in dry-run mode
-chainctl policies binding create --policy=no-eol --parent=engineering --mode=DRY_RUN
+chainctl policy binding create --policy=no-eol --parent=engineering --mode=DRY_RUN
 
 # Create a binding with interactive organization selection
-chainctl policies binding create --policy=no-eol --mode=ENFORCE
+chainctl policy binding create --policy=no-eol --mode=ENFORCE
 
 # Create a binding with a parameter value
-chainctl policies binding create --policy=cooldown --parent=engineering --mode=ENFORCE --param=days=14
+chainctl policy binding create --policy=cooldown --parent=engineering --mode=ENFORCE --param=days=14
 
 ```
 
@@ -78,5 +78,5 @@ chainctl policies binding create --policy=cooldown --parent=engineering --mode=E
 
 ### SEE ALSO
 
-* [chainctl policies binding](/platform/chainctl/chainctl-docs/chainctl_policies_binding/)	 - Manage policy bindings.
+* [chainctl policy binding](/platform/chainctl/chainctl-docs/chainctl_policy_binding/)	 - Manage policy bindings.
 

@@ -1,15 +1,15 @@
 ---
-date: 2026-08-28T20:13:14Z
-title: "chainctl policies binding list"
-slug: chainctl_policies_binding_list
-url: /platform/chainctl/chainctl-docs/chainctl_policies_binding_list/
+date: 2026-08-31T17:17:40Z
+title: "chainctl policy binding list"
+slug: chainctl_policy_binding_list
+url: /platform/chainctl/chainctl-docs/chainctl_policy_binding_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl policies binding list
+## chainctl policy binding list
 
 List policy bindings.
 
@@ -32,17 +32,17 @@ concrete reasons; the JSON output carries the same detail when at
 least one binding is invalidated.
 
 ```
-chainctl policies binding list [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json|table] [flags]
+chainctl policy binding list [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json|table] [flags]
 ```
 
 ### Examples
 
 ```
   # List bindings for your default (or only) organization
-  chainctl policies binding list
+  chainctl policy binding list
   
   # List bindings for a specific organization
-  chainctl policies binding list --parent=engineering
+  chainctl policy binding list --parent=engineering
 ```
 
 ### Options
@@ -69,5 +69,5 @@ chainctl policies binding list [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [-
 
 ### SEE ALSO
 
-* [chainctl policies binding](/platform/chainctl/chainctl-docs/chainctl_policies_binding/)	 - Manage policy bindings.
+* [chainctl policy binding](/platform/chainctl/chainctl-docs/chainctl_policy_binding/)	 - Manage policy bindings.
 

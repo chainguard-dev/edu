@@ -1,24 +1,49 @@
 ---
-date: 2026-08-28T20:13:14Z
-title: "chainctl policies decision"
-slug: chainctl_policies_decision
-url: /platform/chainctl/chainctl-docs/chainctl_policies_decision/
+date: 2026-08-31T17:17:40Z
+title: "chainctl policy binding delete"
+slug: chainctl_policy_binding_delete
+url: /platform/chainctl/chainctl-docs/chainctl_policy_binding_delete/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl policies decision
+## chainctl policy binding delete
 
-Inspect policy decisions.
+Delete a policy binding.
 
 ### Synopsis
 
-A policy decision records the outcome of evaluating one policy
-against one image digest at pull time. Decisions are recorded for both
-enforced and dry-run policies, so you can review what a policy blocked,
-or would have blocked, before promoting it to enforce mode.
+Delete a policy binding to deactivate a policy for its bound scope.
+
+Removing a binding disables the policy — image pulls will no longer be
+checked against it.
+
+You can pass a binding ID directly as a positional argument, or use
+--policy to specify the policy name and --parent to identify the
+organization if needed.
+
+```
+chainctl policy binding delete [BINDING_ID | --policy POLICY] [--parent ORG] [flags]
+```
+
+### Examples
+
+```
+  # Delete a binding by ID
+  chainctl policy binding delete <binding-id>
+  
+  # Delete a binding by policy name
+  chainctl policy binding delete --policy=no-eol --parent=engineering
+```
+
+### Options
+
+```
+      --parent string   The name or id of the organization (required when deleting by policy).
+      --policy string   The name or id of the policy to disable.
+```
 
 ### Options inherited from parent commands
 
@@ -37,6 +62,5 @@ or would have blocked, before promoting it to enforce mode.
 
 ### SEE ALSO
 
-* [chainctl policies](/platform/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
-* [chainctl policies decision list](/platform/chainctl/chainctl-docs/chainctl_policies_decision_list/)	 - List policy decisions.
+* [chainctl policy binding](/platform/chainctl/chainctl-docs/chainctl_policy_binding/)	 - Manage policy bindings.
 

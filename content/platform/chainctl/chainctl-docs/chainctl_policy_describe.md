@@ -1,15 +1,15 @@
 ---
-date: 2026-08-28T20:13:14Z
-title: "chainctl policies describe"
-slug: chainctl_policies_describe
-url: /platform/chainctl/chainctl-docs/chainctl_policies_describe/
+date: 2026-08-31T17:17:41Z
+title: "chainctl policy describe"
+slug: chainctl_policy_describe
+url: /platform/chainctl/chainctl-docs/chainctl_policy_describe/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl policies describe
+## chainctl policy describe
 
 Describe a policy and its parameter schema.
 
@@ -18,13 +18,13 @@ Describe a policy and its parameter schema.
 Show the full definition of a policy: its description, type, resource
 type, and the set of configurable parameters it accepts. The output
 includes a copyable example invocation suitable for
-`chainctl policies enable`.
+`chainctl policy enable`.
 
 Use this command to discover what's configurable on a system policy
 before enabling it for your organization.
 
 ```
-chainctl policies describe --policy POLICY [--parent ORG] [--output=json|table] [flags]
+chainctl policy describe --policy POLICY [--parent ORG] [--output=json|table] [flags]
 ```
 
 ### Examples
@@ -32,10 +32,10 @@ chainctl policies describe --policy POLICY [--parent ORG] [--output=json|table] 
 ```
 
 # Describe the cooldown policy
-chainctl policies describe --policy=cooldown --parent=example.com
+chainctl policy describe --policy=cooldown --parent=example.com
 
 # JSON output (useful for scripts that need the full schema)
-chainctl policies describe --policy=cooldown --parent=example.com -o json
+chainctl policy describe --policy=cooldown --parent=example.com -o json
 
 ```
 
@@ -64,5 +64,5 @@ chainctl policies describe --policy=cooldown --parent=example.com -o json
 
 ### SEE ALSO
 
-* [chainctl policies](/platform/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
+* [chainctl policy](/platform/chainctl/chainctl-docs/chainctl_policy/)	 - Manage policies.
 

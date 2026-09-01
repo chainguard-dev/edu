@@ -1,15 +1,15 @@
 ---
-date: 2026-08-28T20:13:14Z
-title: "chainctl policies custom delete"
-slug: chainctl_policies_custom_delete
-url: /platform/chainctl/chainctl-docs/chainctl_policies_custom_delete/
+date: 2026-08-31T17:17:40Z
+title: "chainctl policy custom delete"
+slug: chainctl_policy_custom_delete
+url: /platform/chainctl/chainctl-docs/chainctl_policy_custom_delete/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl policies custom delete
+## chainctl policy custom delete
 
 Delete a custom policy.
 
@@ -31,7 +31,7 @@ differ), pass --resource-type to disambiguate. Ignored when --policy
 is given by UIDP.
 
 ```
-chainctl policies custom delete --policy NAME_OR_ID [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--force] [flags]
+chainctl policy custom delete --policy NAME_OR_ID [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--force] [flags]
 ```
 
 ### Examples
@@ -39,13 +39,13 @@ chainctl policies custom delete --policy NAME_OR_ID [--parent ORGANIZATION_NAME 
 ```
 
 # Delete a custom policy by name
-chainctl policies custom delete --policy cooldown-30 --parent example.com
+chainctl policy custom delete --policy cooldown-30 --parent example.com
 
 # Delete by UIDP, skipping confirmation
-chainctl policies custom delete --policy 720a...c81 --force
+chainctl policy custom delete --policy 720a...c81 --force
 
 # Disambiguate a policy name shared across resource types
-chainctl policies custom delete --policy cooldown-30 --resource-type Python --parent example.com
+chainctl policy custom delete --policy cooldown-30 --resource-type Python --parent example.com
 
 ```
 
@@ -75,5 +75,5 @@ chainctl policies custom delete --policy cooldown-30 --resource-type Python --pa
 
 ### SEE ALSO
 
-* [chainctl policies custom](/platform/chainctl/chainctl-docs/chainctl_policies_custom/)	 - Manage your custom policies.
+* [chainctl policy custom](/platform/chainctl/chainctl-docs/chainctl_policy_custom/)	 - Manage your custom policies.
 

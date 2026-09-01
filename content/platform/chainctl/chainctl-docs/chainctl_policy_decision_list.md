@@ -1,15 +1,15 @@
 ---
-date: 2026-08-28T20:13:14Z
-title: "chainctl policies decision list"
-slug: chainctl_policies_decision_list
-url: /platform/chainctl/chainctl-docs/chainctl_policies_decision_list/
+date: 2026-08-31T17:17:40Z
+title: "chainctl policy decision list"
+slug: chainctl_policy_decision_list
+url: /platform/chainctl/chainctl-docs/chainctl_policy_decision_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl policies decision list
+## chainctl policy decision list
 
 List policy decisions.
 
@@ -33,7 +33,7 @@ are shown; use --limit (1-100) to change how many are returned.
 
 For a multi-arch image the DIGEST column may show the index digest,
 while pulls are enforced against the per-platform child manifest; run
-"chainctl policies check" to find the child digest an override must
+"chainctl policy check" to find the child digest an override must
 target.
 
 With -o json the output is an object with an "items" array (one entry
@@ -41,29 +41,29 @@ per decision) and a string "totalCount"; read .items[] rather than
 treating the output as a top-level array.
 
 ```
-chainctl policies decision list [--parent ORG] [--repo REPO] [--policy POLICY] [--mode MODE] [--result RESULT] [--since Nd] [--limit N] [--output=json|table] [flags]
+chainctl policy decision list [--parent ORG] [--repo REPO] [--policy POLICY] [--mode MODE] [--result RESULT] [--since Nd] [--limit N] [--output=json|table] [flags]
 ```
 
 ### Examples
 
 ```
   # List decisions for your default (or only) organization
-  chainctl policies decision list
+  chainctl policy decision list
   
   # List decisions for a specific organization
-  chainctl policies decision list --parent=engineering
+  chainctl policy decision list --parent=engineering
   
   # List what the cooldown policy would have blocked in the last day
-  chainctl policies decision list --parent=engineering --policy=cooldown --result=DENIED --since=1d
+  chainctl policy decision list --parent=engineering --policy=cooldown --result=DENIED --since=1d
   
   # List all decisions recorded for a single repository
-  chainctl policies decision list --parent=engineering --repo=nginx
+  chainctl policy decision list --parent=engineering --repo=nginx
   
   # Show the 50 most recent decisions
-  chainctl policies decision list --parent=engineering --limit=50
+  chainctl policy decision list --parent=engineering --limit=50
   
   # List decisions as JSON for scripting; the payload is an object, so read .items[]
-  chainctl policies decision list --parent=engineering -o json | jq '.items[]'
+  chainctl policy decision list --parent=engineering -o json | jq '.items[]'
 ```
 
 ### Options
@@ -96,5 +96,5 @@ chainctl policies decision list [--parent ORG] [--repo REPO] [--policy POLICY] [
 
 ### SEE ALSO
 
-* [chainctl policies decision](/platform/chainctl/chainctl-docs/chainctl_policies_decision/)	 - Inspect policy decisions.
+* [chainctl policy decision](/platform/chainctl/chainctl-docs/chainctl_policy_decision/)	 - Inspect policy decisions.
 

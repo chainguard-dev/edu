@@ -1,5 +1,5 @@
 ---
-date: 2026-08-28T20:13:14Z
+date: 2026-08-31T17:17:40Z
 title: "chainctl images"
 slug: chainctl_images
 url: /platform/chainctl/chainctl-docs/chainctl_images/
@@ -35,6 +35,7 @@ Images related commands for the Chainguard platform.
 * [chainctl images catalog](/platform/chainctl/chainctl-docs/chainctl_images_catalog/)	 - List the Chainguard Images catalog.
 * [chainctl images changelog](/platform/chainctl/chainctl-docs/chainctl_images_changelog/)	 - Show changelog for image history
 * [chainctl images diff](/platform/chainctl/chainctl-docs/chainctl_images_diff/)	 - Diff images.
+* [chainctl images discover](/platform/chainctl/chainctl-docs/chainctl_images_discover/)	 - Find Chainguard replacements for the images your Dockerfiles build on.
 * [chainctl images entitlements](/platform/chainctl/chainctl-docs/chainctl_images_entitlements/)	 - Manage entitlements to registry repositories.
 * [chainctl images helm](/platform/chainctl/chainctl-docs/chainctl_images_helm/)	 - Helm chart related commands
 * [chainctl images history](/platform/chainctl/chainctl-docs/chainctl_images_history/)	 - Show history for a specific image tag.

@@ -1,15 +1,15 @@
 ---
-date: 2026-08-28T20:13:14Z
-title: "chainctl policies custom validate"
-slug: chainctl_policies_custom_validate
-url: /platform/chainctl/chainctl-docs/chainctl_policies_custom_validate/
+date: 2026-08-31T17:17:40Z
+title: "chainctl policy custom validate"
+slug: chainctl_policy_custom_validate
+url: /platform/chainctl/chainctl-docs/chainctl_policy_custom_validate/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl policies custom validate
+## chainctl policy custom validate
 
 Validate a custom policy manifest or expression without persisting it.
 
@@ -34,7 +34,7 @@ Policy expressions must be declared under `package chainguard.policies` and
 must define an `allow` rule; validation rejects a module that defines neither.
 
 ```
-chainctl policies custom validate --file POLICY.yaml | --expression POLICY.rego [flags]
+chainctl policy custom validate --file POLICY.yaml | --expression POLICY.rego [flags]
 ```
 
 ### Examples
@@ -42,13 +42,13 @@ chainctl policies custom validate --file POLICY.yaml | --expression POLICY.rego 
 ```
 
 # Check an existing policy layout for reference
-chainctl policies describe --policy cooldown --parent example.com -o json
+chainctl policy describe --policy cooldown --parent example.com -o json
 
 # Validate a manifest before creating the policy
-chainctl policies custom validate --file policy.yaml
+chainctl policy custom validate --file policy.yaml
 
 # Validate just the Rego expression
-chainctl policies custom validate --expression policy.rego
+chainctl policy custom validate --expression policy.rego
 
 ```
 
@@ -76,5 +76,5 @@ chainctl policies custom validate --expression policy.rego
 
 ### SEE ALSO
 
-* [chainctl policies custom](/platform/chainctl/chainctl-docs/chainctl_policies_custom/)	 - Manage your custom policies.
+* [chainctl policy custom](/platform/chainctl/chainctl-docs/chainctl_policy_custom/)	 - Manage your custom policies.
 

@@ -1,5 +1,5 @@
 ---
-date: 2026-08-28T20:13:14Z
+date: 2026-08-31T17:17:41Z
 title: "chainctl skills uninstall"
 slug: chainctl_skills_uninstall
 url: /platform/chainctl/chainctl-docs/chainctl_skills_uninstall/
