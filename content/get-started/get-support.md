@@ -5,7 +5,7 @@ lead: "Chainguard offers several ways to get help, and the right one depends on 
 description: "Get help from Chainguard: choose the right support channel, meet the prerequisites for the support portal, and open a ticket a support engineer can act on."
 type: "article"
 date: 2026-09-01T00:00:00+00:00
-lastmod: 2026-09-01T00:00:00+00:00
+lastmod: 2026-09-01T16:02:47+00:00
 draft: false
 tags: ["Getting Started"]
 images: []
@@ -45,7 +45,7 @@ Many questions already have a published answer you can find in seconds:
 
 The support portal has two prerequisites.
 
-First, your organization needs a paid plan. Catalog Starter doesn't include support tickets, root cause analysis, or phone escalation. For what the free plan does cover, see [Chainguard Catalog Starter](/chainguard/containers/about/catalog-starter/).
+First, your organization needs a paid plan. Catalog Starter doesn't include support tickets or root cause analysis. For what the free plan does cover, see [Chainguard Catalog Starter](/chainguard/containers/about/catalog-starter/).
 
 Second, your identity has to be linked to an organization. The portal identifies you through your Chainguard Console account, and an unlinked identity produces an error. To check, sign in to the [Chainguard Console](https://console.chainguard.dev) and look for your organization in the left sidebar. If it isn't there, ask an administrator in your organization to invite you, then open the invitation email and complete the setup flow. Signing in without completing that flow leaves your identity unlinked.
 
