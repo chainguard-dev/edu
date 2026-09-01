@@ -139,28 +139,6 @@ body {
   }
 }
 
-.docs-links {
-  padding-bottom: 5rem;
-}
-
-@include media-breakpoint-up(lg) {
-  @supports ((position: -webkit-sticky) or (position: sticky)) {
-    .docs-links {
-      max-height: calc(100vh - 4rem);
-      overflow-y: scroll;
-    }
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  .docs-links {
-    display: block;
-    width: auto;
-    margin-right: -1.5rem;
-    padding-bottom: 4rem;
-  }
-}
-
 .docs-toc {
   order: 2;
 }

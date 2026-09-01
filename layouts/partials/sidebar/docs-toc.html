@@ -1,9 +1,9 @@
 {{ if and (ne .Params.toc false) (ne .TableOfContents "<nav id=\"TableOfContents\"></nav>") -}}
   <div class="page-links">
-    <h3 class="righthand-title">Quick Nav</h3>
+    <h3 class="righthand-title">On this page</h3>
     <div class="tocLinks">
       {{ if .Params.tocEndLevel -}}
-        {{/* Per-page cap on Quick Nav depth (e.g. the changelog, which uses h3
+        {{/* Per-page cap on "On this page" depth (e.g. the changelog, which uses h3
              subsections for manual entries that shouldn't clutter the nav).
              Falls back to the site default below when unset. */}}
         {{ .Fragments.ToHTML 2 (int .Params.tocEndLevel) false }}
