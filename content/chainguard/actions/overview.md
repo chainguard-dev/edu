@@ -1,10 +1,10 @@
 ---
 title: "Chainguard Actions overview"
-linktitle: "Overview"
+linktitle: "Actions overview"
 description: "Learn how Chainguard Actions provides hardened drop-in replacements for popular GitHub Actions to protect your CI/CD pipelines from supply chain attacks."
 type: "article"
 date: 2026-06-18T00:00:00+00:00
-lastmod: 2026-08-12T12:24:08+00:00
+lastmod: 2026-09-01T13:45:43+00:00
 draft: false
 tags: ["Chainguard Actions", "Overview"]
 menu:

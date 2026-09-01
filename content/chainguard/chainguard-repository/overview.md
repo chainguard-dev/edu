@@ -1,6 +1,6 @@
 ---
 title : "Overview of Chainguard Repository"
-linktitle: "Overview"
+linktitle: "Chainguard Repository overview"
 aliases:
 - /chainguard/administration/policies/
 - /platform/administration/policies/
@@ -8,7 +8,7 @@ lead: "The Chainguard Repository is a single, policy-aware endpoint for all arti
 description: "Chainguard Repository overview"
 type: "article"
 date: 2026-03-16T08:48:23+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-01T13:45:43+00:00
 draft: false
 weight: 010
 ---
