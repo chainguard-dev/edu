@@ -18,12 +18,12 @@ Every Chainguard hardened action runs a best-effort "phone-home" pre-hook that r
 
 ## Why we collect this data
 
-We collect this data for billing and security purposes:
+We collect this data for two reasons:
 
-- **Billing**: usage events let us meter which repositories are using Chainguard hardened actions so we can bill customers accurately for their usage and entitlements.
-- **Security**: verified usage records help us confirm that requests come from legitimate workflows, understand where our actions are running, and detect anomalous or unauthorized use.
+- **Billing**: usage events show which repositories use Chainguard hardened actions, so we can meter usage against your entitlements and bill accurately.
+- **Security**: verified usage records help us confirm that requests come from legitimate workflows, identify where our actions run, and detect anomalous or unauthorized use.
 
-We do not use this data for advertising, and we do not sell it to third parties.
+We do not use this data for advertising or sell it to third parties.
 
 ## What we collect
 
