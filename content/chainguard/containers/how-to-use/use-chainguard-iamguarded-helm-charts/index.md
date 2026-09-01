@@ -8,7 +8,7 @@ type: "article"
 description: "A primer on how to use Chainguard-produced iamguarded Helm charts to deploy Chainguard container images"
 lead: "A primer on how to use Chainguard-produced iamguarded Helm charts to deploy Chainguard container images"
 date: 2025-07-11T08:49:31+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-01T13:37:32+00:00
 draft: false
 tags: ["Chainguard Containers", "Helm charts", "iamguarded", "Product"]
 images: []
@@ -94,12 +94,14 @@ global:
 
 ### Deploy a Chainguard Helm chart using a Kubernetes pull secret
 
-To begin, authenticate with chainctl and generate a pull token.
+To begin, generate a pull token.
 
 ```sh
 chainctl auth login
 chainctl auth configure-docker --pull-token --save --ttl=24h
 ```
+
+`chainctl auth login` is optional here; `configure-docker` authenticates you when no valid token is available.
 
 This token expires in 24 hours by default, which can be modified using the
 `--ttl` flag. It sets the duration for the validity of the token. The maximum
