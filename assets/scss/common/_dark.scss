@@ -143,10 +143,6 @@ $navbar-dark-active-color: $link-color-dark;
   color: $link-color-dark;
 }
 
-[data-dark-mode] body .page-links a {
-  color: $body-color-dark;
-}
-
 [data-dark-mode] body .btn-toggle-nav a {
   color: $body-color-dark;
 }
@@ -161,8 +157,7 @@ $navbar-dark-active-color: $link-color-dark;
 }
 
 [data-dark-mode] body .docs-link:hover,
-[data-dark-mode] body .docs-link.active,
-[data-dark-mode] body .page-links a:hover {
+[data-dark-mode] body .docs-link.active {
   text-decoration: none;
   color: $link-color-dark;
 }
@@ -206,11 +201,6 @@ $navbar-dark-active-color: $link-color-dark;
 
 [data-dark-mode] body .navbar-light .navbar-text a {
   color: $navbar-dark-active-color;
-}
-
-[data-dark-mode] body .docs-links h3.sidebar-link a,
-[data-dark-mode] body .page-links h3.sidebar-link a {
-  color: $body-color-dark;
 }
 
 [data-dark-mode] body .navbar-light .navbar-text a:hover,
@@ -325,53 +315,38 @@ $navbar-dark-active-color: $link-color-dark;
   border-top: 1px solid $border-dark;
 }
 
-[data-dark-mode] body .docs-links,
 [data-dark-mode] body .docs-toc {
   scrollbar-width: thin;
   scrollbar-color: $body-bg-dark $body-bg-dark;
 }
 
-[data-dark-mode] body .docs-links::-webkit-scrollbar,
 [data-dark-mode] body .docs-toc::-webkit-scrollbar {
   width: 5px;
 }
 
-[data-dark-mode] body .docs-links::-webkit-scrollbar-track,
 [data-dark-mode] body .docs-toc::-webkit-scrollbar-track {
   background: $body-bg-dark;
 }
 
-[data-dark-mode] body .docs-links::-webkit-scrollbar-thumb,
 [data-dark-mode] body .docs-toc::-webkit-scrollbar-thumb {
   background: $body-bg-dark;
 }
 
-[data-dark-mode] body .docs-links:hover,
 [data-dark-mode] body .docs-toc:hover {
   scrollbar-width: thin;
   scrollbar-color: $border-dark $body-bg-dark;
 }
 
-[data-dark-mode] body .docs-links:hover::-webkit-scrollbar-thumb,
 [data-dark-mode] body .docs-toc:hover::-webkit-scrollbar-thumb {
   background: $border-dark;
 }
 
-[data-dark-mode] body .docs-links::-webkit-scrollbar-thumb:hover,
 [data-dark-mode] body .docs-toc::-webkit-scrollbar-thumb:hover {
   background: $border-dark;
 }
 
-[data-dark-mode] body .docs-links h3:not(:first-child) {
-  border-top: 1px solid $border-dark;
-}
-
 [data-dark-mode] body a.docs-link {
   color: $body-color-dark;
-}
-
-[data-dark-mode] body .page-links li:not(:first-child) {
-  border-top: 1px dashed $border-dark;
 }
 
 [data-dark-mode] body .card {

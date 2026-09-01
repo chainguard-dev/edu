@@ -4,18 +4,16 @@
 
 .righthand-title {
   font-family: $titleFont;
-  font-size: 12px !important;
+  font-size: 14px;
   font-weight: 400;
   line-height: 20px;
-  letter-spacing: 0.04em;
   text-align: left;
   color: var(--righthand-title-color);
-  padding-left: 12px !important;
-  margin-top: 0 !important;
+  margin: 0 1.5rem 0.75rem 0;
+  padding: 1.375rem 0 0 8px;
 }
 
-// Beat _dark.css selectors
-.page-links.page-links.page-links {
+.page-links {
   position: sticky;
   top: 0;
   margin-left: 12px;
@@ -26,31 +24,31 @@
   padding-left: 1px;
   width: $RightNavWidth;
 
-  li {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-  }
-
-  li:not(:first-child) {
-    border-top: none !important;
-  }
-
   .step-container {
     display: flex;
     align-items: start;
   }
 
-  a {
+  .tocLinks li {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .tocLinks li ul li {
+    padding-left: 1rem;
+  }
+
+  .tocLinks a[href] {
+    display: block;
     color: var(--page-link-color);
-    padding: 12px 0 12px 12px !important;
+    padding: 8px 0 8px 8px;
     font-family: $TextFont;
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
-    letter-spacing: -0.01em;
 
     .step {
       padding: 0 5px;
@@ -61,9 +59,13 @@
       margin-right: 8px;
     }
 
-    &:hover,
-    &.active-link {
+    &:hover {
       color: var(--page-link-active-color);
+      text-decoration: none;
+    }
+
+    &.active-link {
+      color: var(--active-link-color);
     }
   }
 }
@@ -71,11 +73,6 @@
 .active-element {
   background-color: var(--active-element-background);
   box-shadow: -1px 0 0 0 var(--active-element-shadow);
-  border-radius: 0 4px 4px 0;
-}
-
-.active-link {
-  color: var(--active-link-color) !important;
 }
 
 .docs-toc {
