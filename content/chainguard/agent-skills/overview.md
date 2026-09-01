@@ -1,10 +1,10 @@
 ---
 title: "Chainguard Agent Skills overview"
-linktitle: "Overview"
+linktitle: "Agent Skills overview"
 description: "Learn what Chainguard Agent Skills are, the supply chain risk they address, and how Chainguard hardens skills before you install them."
 type: "article"
 date: 2026-06-05T08:48:45+00:00
-lastmod: 2026-06-05T08:48:45+00:00
+lastmod: 2026-09-01T13:45:43+00:00
 draft: false
 tags: ["Agent Skills", "Overview"]
 images: []

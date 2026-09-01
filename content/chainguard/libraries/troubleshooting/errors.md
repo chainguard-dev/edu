@@ -4,10 +4,10 @@ linktitle: "Error messages"
 description: "Understand the errors Chainguard Libraries returns when a package or version is blocked, and how they appear across language ecosystems and package managers."
 type: "article"
 date: 2026-08-11T00:00:00+00:00
-lastmod: 2026-08-20T19:51:12+00:00
+lastmod: 2026-09-01T13:45:43+00:00
 draft: false
 images: []
-weight: 081
+weight: 082
 tags: ["Libraries", "Product"]
 aliases:
   - /chainguard/libraries/errors/
