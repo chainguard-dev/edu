@@ -6,7 +6,7 @@ linktitle: "FIPS and non-approved algorithms"
 type: "article"
 description: "Technical deep-dive into Chainguard FIPS images access to non-approved algorithms such as MD5 and SHA1"
 date: 2025-10-28T08:00:00+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-01T16:56:22+00:00
 draft: false
 tags: ["FIPS", "MD5"]
 images: []
@@ -111,7 +111,7 @@ Error setting context
 
 There are some caveats and bypasses, some digital signature algorithms allow signing raw data, or prehashed values. Such operations may succeed and raise a dynamic service indicator that such operation is non-approved, as the module cannot guess what data was signed. In such cases, one can calculate the MD5 hash out of band, pad it according to PKCSv1.5 and RSA2048 modulus size, and execute raw RSA signing operation. Such a service is non-approved, and it is not possible to know whether it is being abused to sign an MD5 hash instead of SHA256. *Please don't do this* (your FIPS auditors will require that you change it). Higher level one-shot EVP APIs typically accept a message to sign, perform hashing and padding internally, and correctly block creating MD5 signatures. This again highlights that FIPS is about consent: one should use FIPS cryptography intentionally. This is not a hypothetical example. This technique is used to trick FIPS-approved Cloud KMS in GCP to create valid MD5 and SHA1 signatures, even though the message based API only supports SHA256 signatures and up.
 
-If there is C/C++ software that uses OpenSSL APIs and needs access to MD5 and doesn't support `-fips` property query string, please [open a support request](https://support.chainguard.dev/) for Chainguard engineering to look into adding support.
+If there is C/C++ software that uses OpenSSL APIs and needs access to MD5 and doesn't support `-fips` property query string, please [open a support request](https://support.chainguard.dev/) for Chainguard engineering to look into adding support. Refer to [Get support](/get-started/get-support/) for the portal's prerequisites.
 
 ### Python FIPS and MD5
 
