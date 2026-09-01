@@ -1,11 +1,11 @@
 ---
 title: "Get support"
 linktitle: "Get support"
-lead: "Chainguard offers several ways to get help, and the right one depends on your situation. This guide covers which channel handles your kind of request, what you need in place before you can open a support ticket, and what to include when you do."
-description: "Get help from Chainguard: choose the right support channel, meet the prerequisites for the support portal, and open a ticket a support engineer can act on."
+lead: "Chainguard offers several ways to get help, and the right one depends on your situation. This guide covers what to check first, which channel handles your kind of request, and how to open a support ticket when you need one."
+description: "Get help from Chainguard: check the self-service options, choose the right support channel, and open a ticket a support engineer can act on."
 type: "article"
 date: 2026-09-01T00:00:00+00:00
-lastmod: 2026-09-01T16:02:47+00:00
+lastmod: 2026-09-01T16:18:53+00:00
 draft: false
 tags: ["Getting Started"]
 images: []
@@ -13,7 +13,17 @@ weight: 015
 toc: true
 ---
 
-When the documentation doesn't answer your question, Chainguard offers several ways to get help. This guide covers which channel handles your kind of request, what you need in place before you can open a support ticket, and what to include when you do.
+When the documentation doesn't answer your question, Chainguard offers several ways to get help. This guide covers what to check first, which channel handles your kind of request, and how to open a support ticket when you need one.
+
+## Before you open a ticket
+
+Many questions already have a published answer you can find in seconds:
+
+- **This documentation site.** Search from the box at the top of any page.
+
+- **Ask AI.** Click **Ask AI** in the upper-right corner of any page on this site and ask your question in plain language. The assistant draws on Chainguard's documentation and support content and cites its sources. Review the answer and its sources before you act on it.
+
+- **The [Chainguard knowledge base](https://support.chainguard.dev/hc/en-us).** Chainguard support engineers publish articles there for problems that come up repeatedly.
 
 ## Where to send your request
 
@@ -28,16 +38,6 @@ The support portal handles most requests, but it isn't the only route, and for s
 - **Your organization uses Catalog Starter.** Use the [knowledge base](https://support.chainguard.dev/hc/en-us), the [community Slack](https://join.slack.com/t/chainguardcommunity/shared_invite/zt-3nttdr807-V9BJHayWvsB0KbHsfZO5Rw), and the free [Chainguard courses](https://courses.chainguard.dev/). Catalog Starter doesn't include ticket access.
 
 - **Your request concerns your subscription or what your organization is licensed for — for example, whether a particular image is included in your entitlements.** Contact your account team, meaning the customer success manager or solutions architect assigned to your organization.
-
-## Before you open a ticket
-
-Many questions already have a published answer you can find in seconds:
-
-- **This documentation site.** Search from the box at the top of any page.
-
-- **Ask AI.** Click **Ask AI** in the upper-right corner of any page on this site and ask your question in plain language. The assistant draws on Chainguard's documentation and support content and cites its sources. Review the answer and its sources before you act on it.
-
-- **The [Chainguard knowledge base](https://support.chainguard.dev/hc/en-us).** Chainguard support engineers publish articles there for problems that come up repeatedly.
 
 ## Open a ticket
 
