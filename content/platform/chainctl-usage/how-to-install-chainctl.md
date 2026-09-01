@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "Learn how to install chainctl, Chainguard's command-line interface for managing container images, IAM resources, and security configurations across platforms"
 date: 2022-09-22T15:56:52-07:00
-lastmod: 2026-08-25T15:44:47+00:00
+lastmod: 2026-09-01T13:37:32+00:00
 draft: false
 tags: ["chainctl"]
 images: []
@@ -251,11 +251,10 @@ For a persistent setup, add that directory to your user or system `PATH` via the
 #### 2. Authenticate and configure Docker credentials:
 
 ```PowerShell
-chainctl auth login
 chainctl auth configure-docker
 ```
 
-`chainctl auth configure-docker` creates `docker-credential-cgr.exe` next to `chainctl.exe` and updates your Docker config to use it. Following this, you can verify Docker pulls from Chainguard by pulling a private image.
+`chainctl auth configure-docker` creates `docker-credential-cgr.exe` next to `chainctl.exe` and updates your Docker configuration to use it. You don't need to run `chainctl auth login` first; `configure-docker` authenticates you when no valid token is available. Following this, you can verify Docker pulls from Chainguard by pulling a private image.
 
 ## Updating `chainctl`
 
