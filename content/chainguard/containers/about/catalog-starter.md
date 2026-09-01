@@ -4,7 +4,7 @@ linktitle: "Catalog Starter"
 type: "article"
 description: "Learn about Chainguard Catalog Starter, an offering allowing teams to try out five Chainguard container images for free."
 date: 2026-03-09T07:52:00+02:00
-lastmod: 2026-08-18T15:48:57+00:00
+lastmod: 2026-09-01T16:09:44+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -120,7 +120,7 @@ Catalog Starter allows users to try out Chainguard Containers, but it comes with
     * [FIPS-validated images](/chainguard/fips/fips-images/)
     * Images that fall under the [EOL grace period](/chainguard/containers/features/eol-gp-overview/#understanding-chainguards-eol-grace-period)
     * Images whose software is part of [Chainguard EmeritOSS](https://github.com/chainguard-forks/)
-* Teams using Chainguard Catalog Starter will not have access to the support services available to paying customers: they will not be added to Chainguard's support platform, be able to create support tickets, or have access to root cause analysis (RCA) or phone escalations.
+* Teams using Chainguard Catalog Starter will not have access to the support services available to paying customers: they will not be added to Chainguard's support platform, be able to create support tickets, or have access to root cause analysis (RCA).
     * Catalog Starter users will still have access to Chainguard resources like our [documentation](https://edu.chainguard.dev/), [courses](https://courses.chainguard.dev/), the [Community Slack channel](https://www.chainguard.dev/unchained/the-chainguard-slack-community-is-here), and the [public support knowledge base](https://support.chainguard.dev/hc/en-us).
 * [Chainguard's CVE SLA](https://www.chainguard.dev/legal/cve-policy) does not apply to container images obtained through Catalog Starter.
 * The free plan does not support user management or role-based access control (RBAC). If a colleague from the same company signs up for Catalog Starter, your organization's administrator receives an email with instructions for adding them. You cannot add users directly. Any additional users in your organization have access to the five images selected by the first user and cannot change them.

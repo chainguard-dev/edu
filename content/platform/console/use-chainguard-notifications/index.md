@@ -8,7 +8,7 @@ type: "article"
 description: "A primer on how to configure Chainguard Notifications"
 lead: "A primer on how to configure Chainguard Notifications in the Chainguard Console"
 date: 2025-07-11T08:49:31+00:00
-lastmod: 2026-08-17T15:44:58+00:00
+lastmod: 2026-09-01T15:25:57+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -82,14 +82,18 @@ Include the private channel in your actions in the next section.
 
 Email notifications are not yet available to all customers.
 
+Use this procedure to change which notification topics are sent, change who receives them, or unsubscribe an address from them entirely.
+
 To perform this task, you must use a user account for the Chainguard Console that is configured with the *owner* role for the organization. Then, follow these steps:
 
 1. In the Chainguard Console, open **Settings \> Activity Center**.
 
 1. Next to the **Email** section heading, click **Edit**.
-  You can then change settings for what notification topics will be sent and to whom, either an individual or perhaps to an email alias for a group.
+  You can then change settings for what notification topics will be sent and to whom, either an individual or perhaps to an email alias for a group. To unsubscribe an address, remove it here.
 
 1. When you are done, click **Save changes**.
+
+If you don't have the *owner* role, ask an owner in your organization to make the change for you. If you can't reach an owner, see [Get support](/get-started/get-support/).
 
 ## Notification categories
 
