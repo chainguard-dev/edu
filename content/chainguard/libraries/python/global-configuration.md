@@ -291,7 +291,7 @@ Configure a remote repository for the Chainguard Libraries for Python index:
 1. If you want to use the separate repository with [remediated Python
 libraries](/chainguard/libraries/python/overview/#cve-remediation) repeat the
 preceding steps with the name `python-chainguard-remediated`, the same
-authentication detail, and the following changes.
+authentication details, and the following changes:
    * Set the **URL** to `https://libraries.cgr.dev/`. Do not include `/python-remediated`
    * Set the **PyPI Settings - Registry URL** to `https://libraries.cgr.dev/`.
    * Set the **PyPI Settings - Registry Index Location URL Suffix** to `python-remediated/simple`.
