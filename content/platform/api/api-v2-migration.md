@@ -6,7 +6,7 @@ linktitle: "API v1 to v2 Migration"
 type: "article"
 description: "How to migrate a direct integration with the Chainguard API from v1 to the GA API v2."
 date: 2026-07-20T00:00:00+00:00
-lastmod: 2026-09-01T16:34:19+00:00
+lastmod: 2026-09-01T16:56:22+00:00
 draft: false
 tags: ["Chainguard Console", "Procedural"]
 images: []
@@ -195,4 +195,4 @@ This guide. If you're on the account or support team and hit something this guid
 
 - [Chainguard API v2 Tutorial](/platform/api/api-v2-tutorial/): worked examples of the v2 endpoints you'll be migrating to.
 - [Chainguard API v2 Specification](/platform/api/spec-api-v2/): full OpenAPI reference.
-- If you run into issues migrating, reach out to your Chainguard account team or see [Get support](/get-started/get-support/).
+- If you run into issues migrating, reach out to your Chainguard account team or refer to [Get support](/get-started/get-support/).

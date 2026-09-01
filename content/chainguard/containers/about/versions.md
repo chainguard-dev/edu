@@ -11,7 +11,7 @@ aliases:
 type: "article"
 description: "Understanding Chainguard's approach to container image versions."
 date: 2024-01-08T08:49:31+00:00
-lastmod: 2026-09-01T16:34:19+00:00
+lastmod: 2026-09-01T16:56:22+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -132,7 +132,7 @@ This change ensures that Chainguard can provide the most up-to-date patches to
 all packages for our Containers customers. Note that specific package versions
 can be made available in Production Containers. If you have a request for a
 specific package version, please [contact
-support](https://support.chainguard.dev?utm=docs). See [Get
+support](https://support.chainguard.dev?utm=docs). Refer to [Get
 support](/get-started/get-support/) for the portal's prerequisites.
 
 ## Versions available by tier
