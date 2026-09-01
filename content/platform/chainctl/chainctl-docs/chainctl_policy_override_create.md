@@ -1,15 +1,15 @@
 ---
-date: 2026-08-28T20:13:14Z
-title: "chainctl policies override create"
-slug: chainctl_policies_override_create
-url: /platform/chainctl/chainctl-docs/chainctl_policies_override_create/
+date: 2026-08-31T17:17:41Z
+title: "chainctl policy override create"
+slug: chainctl_policy_override_create
+url: /platform/chainctl/chainctl-docs/chainctl_policy_override_create/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl policies override create
+## chainctl policy override create
 
 Create a policy override.
 
@@ -29,7 +29,7 @@ granted.
 
 An override matches exactly one artifact. For a multi-arch image, pulls
 are enforced against the per-platform child manifest, not the index
-digest, so override the child digest that "chainctl policies check"
+digest, so override the child digest that "chainctl policy check"
 reports as enforced; overriding the index digest alone may not unblock
 the pull. A library override matches either one exact version, when the
 PURL carries one, or every version of the package, when it does not.
@@ -42,23 +42,23 @@ Creating an override requires the policies.override.create capability,
 a separate capability typically held by organization owners.
 
 ```
-chainctl policies override create --policy POLICY --artifact-id ARTIFACT --reason REASON [--parent ORG] [--output=json|table] [flags]
+chainctl policy override create --policy POLICY --artifact-id ARTIFACT --reason REASON [--parent ORG] [--output=json|table] [flags]
 ```
 
 ### Examples
 
 ```
   # Waive the no-eol policy for a specific image digest
-  chainctl policies override create --policy=no-eol --parent=engineering \
+  chainctl policy override create --policy=no-eol --parent=engineering \
   --artifact-id=sha256:<64-hex-digest> --reason="approved exception, ticket OPS-42"
   
   # Waive the cooldown gate for one npm package version
-  chainctl policies override create --policy=cooldown --resource-type=Javascript \
+  chainctl policy override create --policy=cooldown --resource-type=Javascript \
   --parent=engineering --artifact-id=pkg:npm/left-pad@1.3.0 \
   --reason="hotfix dependency, approved by SEC, OPS-42"
   
   # Waive the malware gate for one PyPI package version
-  chainctl policies override create --policy=malware --resource-type=Python \
+  chainctl policy override create --policy=malware --resource-type=Python \
   --parent=engineering --artifact-id=pkg:pypi/acme-telemetry@1.4.2 \
   --reason="scanner false positive confirmed by SEC, OPS-42"
 ```
@@ -66,7 +66,7 @@ chainctl policies override create --policy POLICY --artifact-id ARTIFACT --reaso
 ### Options
 
 ```
-      --artifact-id string     The artifact to waive: an image digest for a Repo policy, as sha256: followed by exactly 64 lowercase hex characters, or a PURL for a library policy, e.g. pkg:npm/left-pad@1.3.0. For a multi-arch image use the per-platform child digest that "chainctl policies check" reports, not the index digest.
+      --artifact-id string     The artifact to waive: an image digest for a Repo policy, as sha256: followed by exactly 64 lowercase hex characters, or a PURL for a library policy, e.g. pkg:npm/left-pad@1.3.0. For a multi-arch image use the per-platform child digest that "chainctl policy check" reports, not the index digest.
       --parent string          The name or id of the organization to scope the override to.
       --policy string          The name or UIDP of the policy to override.
       --reason string          The justification for the override.
@@ -90,5 +90,5 @@ chainctl policies override create --policy POLICY --artifact-id ARTIFACT --reaso
 
 ### SEE ALSO
 
-* [chainctl policies override](/platform/chainctl/chainctl-docs/chainctl_policies_override/)	 - Manage policy overrides.
+* [chainctl policy override](/platform/chainctl/chainctl-docs/chainctl_policy_override/)	 - Manage policy overrides.
 

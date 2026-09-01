@@ -1,44 +1,28 @@
 ---
-date: 2026-08-28T20:13:14Z
-title: "chainctl policies disable"
-slug: chainctl_policies_disable
-url: /platform/chainctl/chainctl-docs/chainctl_policies_disable/
+date: 2026-08-31T17:17:40Z
+title: "chainctl policy binding"
+slug: chainctl_policy_binding
+url: /platform/chainctl/chainctl-docs/chainctl_policy_binding/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl policies disable
+## chainctl policy binding
 
-Disable a policy.
+Manage policy bindings.
 
 ### Synopsis
 
-Disable a policy by deleting its binding.
+A policy binding is a link between a policy and a group of image
+resources. When a binding exists, the linked policy is active for image
+pulls within that group; without a binding the policy has no effect.
 
-This is a shortcut for "policies binding delete".
+Currently, bindings support linking a policy to an organization ID,
+which applies the policy to all images under that organization.
 
-
-```
-chainctl policies disable --policy POLICY [--parent ORG] [flags]
-```
-
-### Examples
-
-```
-
-# Disable a policy by name
-chainctl policies disable --policy=no-eol --parent=example.com
-
-```
-
-### Options
-
-```
-      --parent string   The name or id of the organization (required when deleting by policy).
-      --policy string   The name or id of the policy to disable.
-```
+Use these commands to create or delete bindings.
 
 ### Options inherited from parent commands
 
@@ -57,5 +41,8 @@ chainctl policies disable --policy=no-eol --parent=example.com
 
 ### SEE ALSO
 
-* [chainctl policies](/platform/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
+* [chainctl policy](/platform/chainctl/chainctl-docs/chainctl_policy/)	 - Manage policies.
+* [chainctl policy binding create](/platform/chainctl/chainctl-docs/chainctl_policy_binding_create/)	 - Create a policy binding.
+* [chainctl policy binding delete](/platform/chainctl/chainctl-docs/chainctl_policy_binding_delete/)	 - Delete a policy binding.
+* [chainctl policy binding list](/platform/chainctl/chainctl-docs/chainctl_policy_binding_list/)	 - List policy bindings.
 

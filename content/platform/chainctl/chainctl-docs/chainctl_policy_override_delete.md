@@ -1,48 +1,40 @@
 ---
-date: 2026-08-28T20:13:14Z
-title: "chainctl policies binding delete"
-slug: chainctl_policies_binding_delete
-url: /platform/chainctl/chainctl-docs/chainctl_policies_binding_delete/
+date: 2026-08-31T17:17:41Z
+title: "chainctl policy override delete"
+slug: chainctl_policy_override_delete
+url: /platform/chainctl/chainctl-docs/chainctl_policy_override_delete/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl policies binding delete
+## chainctl policy override delete
 
-Delete a policy binding.
+Delete a policy override.
 
 ### Synopsis
 
-Delete a policy binding to deactivate a policy for its bound scope.
+Delete a policy override to revoke a waiver.
 
-Removing a binding disables the policy — image pulls will no longer be
-checked against it.
+Deletion happens immediately and is not confirmed: there is no prompt
+and no --force flag, so the override is removed as soon as you run the
+command. Once removed, the targeted artifact is again subject to the
+policy's result.
 
-You can pass a binding ID directly as a positional argument, or use
---policy to specify the policy name and --parent to identify the
-organization if needed.
+Pass the override's full ID (a UIDP) as the positional argument; it is
+globally unique, so no --parent is needed. Use
+"chainctl policy override list" to find it.
 
 ```
-chainctl policies binding delete [BINDING_ID | --policy POLICY] [--parent ORG] [flags]
+chainctl policy override delete OVERRIDE_ID [flags]
 ```
 
 ### Examples
 
 ```
-  # Delete a binding by ID
-  chainctl policies binding delete <binding-id>
-  
-  # Delete a binding by policy name
-  chainctl policies binding delete --policy=no-eol --parent=engineering
-```
-
-### Options
-
-```
-      --parent string   The name or id of the organization (required when deleting by policy).
-      --policy string   The name or id of the policy to disable.
+  # Delete an override by ID
+  chainctl policy override delete <override-id>
 ```
 
 ### Options inherited from parent commands
@@ -62,5 +54,5 @@ chainctl policies binding delete [BINDING_ID | --policy POLICY] [--parent ORG] [
 
 ### SEE ALSO
 
-* [chainctl policies binding](/platform/chainctl/chainctl-docs/chainctl_policies_binding/)	 - Manage policy bindings.
+* [chainctl policy override](/platform/chainctl/chainctl-docs/chainctl_policy_override/)	 - Manage policy overrides.
 

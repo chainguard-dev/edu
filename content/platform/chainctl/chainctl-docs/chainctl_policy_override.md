@@ -1,41 +1,28 @@
 ---
-date: 2026-08-28T20:13:14Z
-title: "chainctl policies override delete"
-slug: chainctl_policies_override_delete
-url: /platform/chainctl/chainctl-docs/chainctl_policies_override_delete/
+date: 2026-08-31T17:17:41Z
+title: "chainctl policy override"
+slug: chainctl_policy_override
+url: /platform/chainctl/chainctl-docs/chainctl_policy_override/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl policies override delete
+## chainctl policy override
 
-Delete a policy override.
+Manage policy overrides.
 
 ### Synopsis
 
-Delete a policy override to revoke a waiver.
+A policy override is an admin-granted waiver that flips a DENIED
+policy result to ALLOWED for one specific artifact. It does not change
+the policy or its binding; it records a deliberate, attributable
+exception that the engine applies after evaluation.
 
-Deletion happens immediately and is not confirmed: there is no prompt
-and no --force flag, so the override is removed as soon as you run the
-command. Once removed, the targeted artifact is again subject to the
-policy's result.
-
-Pass the override's full ID (a UIDP) as the positional argument; it is
-globally unique, so no --parent is needed. Use
-"chainctl policies override list" to find it.
-
-```
-chainctl policies override delete OVERRIDE_ID [flags]
-```
-
-### Examples
-
-```
-  # Delete an override by ID
-  chainctl policies override delete <override-id>
-```
+Each override names exactly one policy and one artifact. Creating an
+override requires the policies.override.create capability, which is
+typically held by organization owners.
 
 ### Options inherited from parent commands
 
@@ -54,5 +41,8 @@ chainctl policies override delete OVERRIDE_ID [flags]
 
 ### SEE ALSO
 
-* [chainctl policies override](/platform/chainctl/chainctl-docs/chainctl_policies_override/)	 - Manage policy overrides.
+* [chainctl policy](/platform/chainctl/chainctl-docs/chainctl_policy/)	 - Manage policies.
+* [chainctl policy override create](/platform/chainctl/chainctl-docs/chainctl_policy_override_create/)	 - Create a policy override.
+* [chainctl policy override delete](/platform/chainctl/chainctl-docs/chainctl_policy_override_delete/)	 - Delete a policy override.
+* [chainctl policy override list](/platform/chainctl/chainctl-docs/chainctl_policy_override_list/)	 - List policy overrides.
 

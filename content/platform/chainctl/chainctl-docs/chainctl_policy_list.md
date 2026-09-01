@@ -1,15 +1,15 @@
 ---
-date: 2026-08-28T20:13:14Z
-title: "chainctl policies list"
-slug: chainctl_policies_list
-url: /platform/chainctl/chainctl-docs/chainctl_policies_list/
+date: 2026-08-31T17:17:41Z
+title: "chainctl policy list"
+slug: chainctl_policy_list
+url: /platform/chainctl/chainctl-docs/chainctl_policy_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl policies list
+## chainctl policy list
 
 List policies.
 
@@ -22,7 +22,7 @@ Several policies can share a name across resource types, so --resource-type
 narrows the list to one of them.
 
 ```
-chainctl policies list [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json|table] [flags]
+chainctl policy list [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json|table] [flags]
 ```
 
 ### Examples
@@ -30,16 +30,16 @@ chainctl policies list [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=
 ```
 
 # List all policies for an organization
-chainctl policies list --parent=example.com
+chainctl policy list --parent=example.com
 
 # List policies using interactive organization selection
-chainctl policies list
+chainctl policy list
 
 # List only the policies that apply to Python packages
-chainctl policies list --parent=example.com --resource-type=Python
+chainctl policy list --parent=example.com --resource-type=Python
 
 # List policies in JSON format
-chainctl policies list --parent=example.com -o json
+chainctl policy list --parent=example.com -o json
 
 ```
 
@@ -67,5 +67,5 @@ chainctl policies list --parent=example.com -o json
 
 ### SEE ALSO
 
-* [chainctl policies](/platform/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
+* [chainctl policy](/platform/chainctl/chainctl-docs/chainctl_policy/)	 - Manage policies.
 

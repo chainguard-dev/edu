@@ -1,15 +1,15 @@
 ---
-date: 2026-08-28T20:13:14Z
-title: "chainctl policies enable"
-slug: chainctl_policies_enable
-url: /platform/chainctl/chainctl-docs/chainctl_policies_enable/
+date: 2026-08-31T17:17:41Z
+title: "chainctl policy enable"
+slug: chainctl_policy_enable
+url: /platform/chainctl/chainctl-docs/chainctl_policy_enable/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl policies enable
+## chainctl policy enable
 
 Enable a policy for an organization.
 
@@ -26,7 +26,7 @@ a parameter schema; omitted parameters fall back to the schema's declared
 default.
 
 ```
-chainctl policies enable --policy POLICY [--parent ORG] --mode MODE [--param KEY=VALUE] [--output=json|table] [flags]
+chainctl policy enable --policy POLICY [--parent ORG] --mode MODE [--param KEY=VALUE] [--output=json|table] [flags]
 ```
 
 ### Examples
@@ -34,13 +34,13 @@ chainctl policies enable --policy POLICY [--parent ORG] --mode MODE [--param KEY
 ```
 
 # Enable a policy in DRY_RUN mode
-chainctl policies enable --policy=no-eol --parent=example.com --mode=DRY_RUN
+chainctl policy enable --policy=no-eol --parent=example.com --mode=DRY_RUN
 
 # Enable a policy in enforce mode
-chainctl policies enable --policy=no-eol --parent=example.com --mode=ENFORCE
+chainctl policy enable --policy=no-eol --parent=example.com --mode=ENFORCE
 
 # Enable a policy with a parameter value
-chainctl policies enable --policy=cooldown --parent=example.com --mode=ENFORCE --param=days=14
+chainctl policy enable --policy=cooldown --parent=example.com --mode=ENFORCE --param=days=14
 
 ```
 
@@ -71,5 +71,5 @@ chainctl policies enable --policy=cooldown --parent=example.com --mode=ENFORCE -
 
 ### SEE ALSO
 
-* [chainctl policies](/platform/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
+* [chainctl policy](/platform/chainctl/chainctl-docs/chainctl_policy/)	 - Manage policies.
 

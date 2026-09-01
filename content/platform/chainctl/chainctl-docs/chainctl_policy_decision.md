@@ -1,28 +1,24 @@
 ---
-date: 2026-08-28T20:13:14Z
-title: "chainctl policies override"
-slug: chainctl_policies_override
-url: /platform/chainctl/chainctl-docs/chainctl_policies_override/
+date: 2026-08-31T17:17:41Z
+title: "chainctl policy decision"
+slug: chainctl_policy_decision
+url: /platform/chainctl/chainctl-docs/chainctl_policy_decision/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl policies override
+## chainctl policy decision
 
-Manage policy overrides.
+Inspect policy decisions.
 
 ### Synopsis
 
-A policy override is an admin-granted waiver that flips a DENIED
-policy result to ALLOWED for one specific artifact. It does not change
-the policy or its binding; it records a deliberate, attributable
-exception that the engine applies after evaluation.
-
-Each override names exactly one policy and one artifact. Creating an
-override requires the policies.override.create capability, which is
-typically held by organization owners.
+A policy decision records the outcome of evaluating one policy
+against one image digest at pull time. Decisions are recorded for both
+enforced and dry-run policies, so you can review what a policy blocked,
+or would have blocked, before promoting it to enforce mode.
 
 ### Options inherited from parent commands
 
@@ -41,8 +37,6 @@ typically held by organization owners.
 
 ### SEE ALSO
 
-* [chainctl policies](/platform/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
-* [chainctl policies override create](/platform/chainctl/chainctl-docs/chainctl_policies_override_create/)	 - Create a policy override.
-* [chainctl policies override delete](/platform/chainctl/chainctl-docs/chainctl_policies_override_delete/)	 - Delete a policy override.
-* [chainctl policies override list](/platform/chainctl/chainctl-docs/chainctl_policies_override_list/)	 - List policy overrides.
+* [chainctl policy](/platform/chainctl/chainctl-docs/chainctl_policy/)	 - Manage policies.
+* [chainctl policy decision list](/platform/chainctl/chainctl-docs/chainctl_policy_decision_list/)	 - List policy decisions.
 

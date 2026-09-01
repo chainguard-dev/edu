@@ -1,28 +1,41 @@
 ---
-date: 2026-08-28T20:13:14Z
-title: "chainctl policies binding"
-slug: chainctl_policies_binding
-url: /platform/chainctl/chainctl-docs/chainctl_policies_binding/
+date: 2026-08-31T17:17:40Z
+title: "chainctl policy check"
+slug: chainctl_policy_check
+url: /platform/chainctl/chainctl-docs/chainctl_policy_check/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl policies binding
+## chainctl policy check
 
-Manage policy bindings.
+Check an image against active policies.
 
 ### Synopsis
 
-A policy binding is a link between a policy and a group of image
-resources. When a binding exists, the linked policy is active for image
-pulls within that group; without a binding the policy has no effect.
+Evaluate an image against any active policies and print the
+result for each.
 
-Currently, bindings support linking a policy to an organization ID,
-which applies the policy to all images under that organization.
+Exit status is non-zero if any policy returned DENIED or ERROR, regardless
+of the policy's mode, so this command is suitable for use in CI.
 
-Use these commands to create or delete bindings.
+```
+chainctl policy check IMAGE_REF [flags]
+```
+
+### Examples
+
+```
+
+# Check an image by tag
+chainctl policy check cgr.dev/example.com/python:latest
+
+# Check an image by digest
+chainctl policy check cgr.dev/example.com/python@sha256:abc...
+
+```
 
 ### Options inherited from parent commands
 
@@ -41,8 +54,5 @@ Use these commands to create or delete bindings.
 
 ### SEE ALSO
 
-* [chainctl policies](/platform/chainctl/chainctl-docs/chainctl_policies/)	 - Manage policies.
-* [chainctl policies binding create](/platform/chainctl/chainctl-docs/chainctl_policies_binding_create/)	 - Create a policy binding.
-* [chainctl policies binding delete](/platform/chainctl/chainctl-docs/chainctl_policies_binding_delete/)	 - Delete a policy binding.
-* [chainctl policies binding list](/platform/chainctl/chainctl-docs/chainctl_policies_binding_list/)	 - List policy bindings.
+* [chainctl policy](/platform/chainctl/chainctl-docs/chainctl_policy/)	 - Manage policies.
 

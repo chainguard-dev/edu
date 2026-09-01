@@ -1,15 +1,15 @@
 ---
-date: 2026-08-28T20:13:14Z
-title: "chainctl policies custom update"
-slug: chainctl_policies_custom_update
-url: /platform/chainctl/chainctl-docs/chainctl_policies_custom_update/
+date: 2026-08-31T17:17:40Z
+title: "chainctl policy custom update"
+slug: chainctl_policy_custom_update
+url: /platform/chainctl/chainctl-docs/chainctl_policy_custom_update/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl policies custom update
+## chainctl policy custom update
 
 Update a custom policy.
 
@@ -29,18 +29,21 @@ Update a custom policy in one of two modes:
 
 The supported resource type is immutable. A --file update whose
 manifest declares a different resource type than the current policy is
-rejected.
+rejected. Update addresses one policy, so a manifest using the repeated
+`supported_resource_types` to name several — the form
+`create` fans out — is rejected here; update each resource type
+in turn instead.
 
 If the target policy's name is not unique within the organization
 (more than 1 policy can share a name when their resource types
 differ), pass --resource-type to disambiguate. Ignored when --policy
 is given by UIDP.
 
-See `chainctl policies custom create --help` for the manifest fields and the
+See `chainctl policy custom create --help` for the manifest fields and the
 required Rego package and `allow` rule.
 
 ```
-chainctl policies custom update --policy NAME_OR_ID --file POLICY.yaml | [--name NAME] [--description DESC] [--expression FILE.rego] [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json|table] [flags]
+chainctl policy custom update --policy NAME_OR_ID --file POLICY.yaml | [--name NAME] [--description DESC] [--expression FILE.rego] [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json|table] [flags]
 ```
 
 ### Examples
@@ -48,19 +51,19 @@ chainctl policies custom update --policy NAME_OR_ID --file POLICY.yaml | [--name
 ```
 
 # Full replacement from a manifest
-chainctl policies custom update --policy cooldown-30 --file policy.yaml --parent example.com
+chainctl policy custom update --policy cooldown-30 --file policy.yaml --parent example.com
 
 # Rename only
-chainctl policies custom update --policy cooldown-30 --name cooldown-strict --parent example.com
+chainctl policy custom update --policy cooldown-30 --name cooldown-strict --parent example.com
 
 # Change just the description
-chainctl policies custom update --policy cooldown-30 --description "block pulls from images newer than 30 days"
+chainctl policy custom update --policy cooldown-30 --description "block pulls from images newer than 30 days"
 
 # Replace the expression from a new .rego (parameterless policies only)
-chainctl policies custom update --policy cooldown-30 --expression new-cooldown.rego
+chainctl policy custom update --policy cooldown-30 --expression new-cooldown.rego
 
 # Disambiguate a policy name shared across resource types
-chainctl policies custom update --policy cooldown-30 --resource-type Python --description "python-only variant"
+chainctl policy custom update --policy cooldown-30 --resource-type Python --description "python-only variant"
 
 ```
 
@@ -93,5 +96,5 @@ chainctl policies custom update --policy cooldown-30 --resource-type Python --de
 
 ### SEE ALSO
 
-* [chainctl policies custom](/platform/chainctl/chainctl-docs/chainctl_policies_custom/)	 - Manage your custom policies.
+* [chainctl policy custom](/platform/chainctl/chainctl-docs/chainctl_policy_custom/)	 - Manage your custom policies.
 

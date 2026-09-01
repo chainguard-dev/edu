@@ -1,47 +1,43 @@
 ---
-date: 2026-08-28T20:13:14Z
-title: "chainctl policies override list"
-slug: chainctl_policies_override_list
-url: /platform/chainctl/chainctl-docs/chainctl_policies_override_list/
+date: 2026-08-31T17:17:41Z
+title: "chainctl policy disable"
+slug: chainctl_policy_disable
+url: /platform/chainctl/chainctl-docs/chainctl_policy_disable/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl policies override list
+## chainctl policy disable
 
-List policy overrides.
+Disable a policy.
 
 ### Synopsis
 
-List active policy overrides to see which artifacts have been
-waived and for which policy.
+Disable a policy by deleting its binding.
 
-Overrides are scoped to one organization: pass --parent, or omit it to
-use your configured default group, or (with no default configured) the
-single organization you can access — you are prompted when several are
-available. Each override shows its ID, the policy it waives, the
-targeted artifact, and the reason.
+This is a shortcut for "policies binding delete".
+
 
 ```
-chainctl policies override list [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json|table] [flags]
+chainctl policy disable --policy POLICY [--parent ORG] [flags]
 ```
 
 ### Examples
 
 ```
-  # List overrides for your default (or only) organization
-  chainctl policies override list
-  
-  # List overrides for a specific organization
-  chainctl policies override list --parent=engineering
+
+# Disable a policy by name
+chainctl policy disable --policy=no-eol --parent=example.com
+
 ```
 
 ### Options
 
 ```
-      --parent string   The name or id of the organization to list overrides for.
+      --parent string   The name or id of the organization (required when deleting by policy).
+      --policy string   The name or id of the policy to disable.
 ```
 
 ### Options inherited from parent commands
@@ -61,5 +57,5 @@ chainctl policies override list [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [
 
 ### SEE ALSO
 
-* [chainctl policies override](/platform/chainctl/chainctl-docs/chainctl_policies_override/)	 - Manage policy overrides.
+* [chainctl policy](/platform/chainctl/chainctl-docs/chainctl_policy/)	 - Manage policies.
 
