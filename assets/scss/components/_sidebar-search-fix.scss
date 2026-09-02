@@ -27,12 +27,6 @@
             border-radius: 4px;
             color: var(--body-color); // Use body text color for better contrast
 
-            &:focus {
-                border-color: var(--primary-1);
-                outline: none;
-                box-shadow: 0 0 0 2px rgba(117, 69, 251, 0.1);
-            }
-
             &:hover {
                 background: var(--watch-btn-hover-background);
                 border-color: var(--primary-1);
@@ -124,11 +118,6 @@
             .search.is-search {
                 border-color: rgba(255, 255, 255, 0.1);
                 color: var(--body-color); // Ensure proper text color in dark mode
-
-                &:focus {
-                    border-color: var(--primary-2);
-                    box-shadow: 0 0 0 2px rgba(122, 240, 254, 0.1);
-                }
 
                 &:hover {
                     border-color: var(--primary-2);

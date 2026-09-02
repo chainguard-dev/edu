@@ -2,7 +2,6 @@
 @import "fontfamilies";
 @import "breakpoints";
 @import "theming";
-@import "../components/typography-improvements";
 @import "../components/academy-rebrand";
 
 @font-face {
@@ -671,10 +670,6 @@ header .search-container {
     line-height: 26px;
     padding: 0 34px;
     font-size: 14px;
-
-    &:focus {
-        border-color: transparent;
-    }
 }
 
 ::placeholder {
@@ -1226,7 +1221,7 @@ header .search-container {
 }
 
 // Leaf entries pick up the content-typography `.content ul li` bottom margin
-// (--docs-list-spacing), while expandable entries cancel it with `my-0`
+// ($content-list-spacing), while expandable entries cancel it with `my-0`
 // (!important). Override it for every sidebar nav item so leaf and expandable
 // entries share one rhythm (spacing comes from the link padding). !important is
 // needed to beat `.content ul li`, matching how `my-0` already does this.
@@ -1531,12 +1526,6 @@ blockquote p a {
 
     &:hover:not(.active) {
       color: var(--active-element-shadow);
-    }
-
-    &:focus-visible {
-      outline: 2px solid var(--active-element-shadow);
-      outline-offset: 2px;
-      border-radius: 2px;
     }
   }
 }

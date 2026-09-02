@@ -11,7 +11,7 @@
 }
 
 .gradient-mesh {
-    background-image: 
+    background-image:
         radial-gradient(circle at 20% 80%, rgba(122, 69, 251, 0.1) 0%, transparent 50%),
         radial-gradient(circle at 80% 20%, rgba(52, 67, 244, 0.08) 0%, transparent 50%),
         radial-gradient(circle at 40% 40%, rgba(254, 199, 238, 0.05) 0%, transparent 50%);
@@ -24,7 +24,7 @@
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
     transition: all 0.3s ease;
     border: 1px solid rgba(20, 0, 61, 0.06);
-    
+
     &:hover {
         transform: translateY(-4px);
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
@@ -80,33 +80,33 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    
+
     &.btn-primary {
         background: var(--primary-1);
         color: white;
-        
+
         &:hover {
             background: var(--secondary-2);
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(117, 69, 251, 0.3);
         }
     }
-    
+
     &.btn-secondary {
         background: var(--secondary-3);
         color: var(--primary-3);
-        
+
         &:hover {
             background: var(--secondary-1);
             transform: translateY(-2px);
         }
     }
-    
+
     &.btn-outline {
         background: transparent;
         border: 2px solid var(--primary-1);
         color: var(--primary-1);
-        
+
         &:hover {
             background: var(--primary-1);
             color: white;
@@ -134,18 +134,10 @@
 // Hover lift effect
 .hover-lift {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    
+
     &:hover {
         transform: translateY(-4px);
         box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-    }
-}
-
-// Modern focus states
-.focus-ring {
-    &:focus {
-        outline: none;
-        box-shadow: 0 0 0 3px rgba(117, 69, 251, 0.2);
     }
 }
 
@@ -166,19 +158,19 @@
     .card-modern {
         background: var(--board-background-color);
         border-color: rgba(255, 255, 255, 0.1);
-        
+
         &:hover {
             border-color: var(--primary-2);
         }
     }
-    
+
     .shadow-sm,
     .shadow-md,
     .shadow-lg,
     .shadow-xl {
         box-shadow: none;
     }
-    
+
     .gradient-purple-soft {
         background: linear-gradient(135deg, rgba(117, 69, 251, 0.2) 0%, rgba(52, 67, 244, 0.2) 100%);
     }
