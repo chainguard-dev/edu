@@ -84,7 +84,7 @@ Each container image details page has several tabs that provide information abou
 The default page for each image is the **Tags** tab which contains information about the version tags available for each image. This contains a table with columns:
 
 * **Tag**: this column lists each tag available for the container image
-* **Pull URL**: the URL you can use to download each version of the image. In the Console, Production containers you don't already have access to will show a message reading `Add to organization for access` if you're logged in under an organization with access to Production Containers; if you're logged in under an unverified organization, the message reads `Request image for access`. For what to do about either message, refer to [Troubleshoot container and version availability](/chainguard/containers/about/container-version-troubleshooting/).
+* **Pull URL**: the URL you can use to download each version of the Container. In the Console, Production Containers you don't already have access to will show a message reading `Add to organization` if you're logged in under an organization with access to Production Containers; if you're logged in under an organization without entitlement, the message reads `Request image` or `Request chart`. For what to do about either message, refer to [Troubleshoot container and version availability](/chainguard/containers/about/container-version-troubleshooting/).
 * **Compressed size**: the size of the image, in megabytes
 * **Last changed**: when each version of the image was last updated
 
