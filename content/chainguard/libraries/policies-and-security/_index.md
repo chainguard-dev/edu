@@ -9,6 +9,6 @@ draft: false
 weight: 070
 crosslinks:
 - title: "Library policies"
-  url: "/chainguard/chainguard-repository/library-policies/overview/"
+  url: "/chainguard/chainguard-repository/library-policies/"
 landingpage: "/chainguard/libraries/policies-and-security/overview/"
 ---
