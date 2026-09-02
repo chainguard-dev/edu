@@ -4,7 +4,7 @@ linktitle: "Availability troubleshooting"
 type: "article"
 description: "When a container or version isn't available to you: how to identify which situation you're in, what to do about each, and when to open a support request."
 date: 2026-09-02T00:00:00+00:00
-lastmod: 2026-09-02T14:52:06+00:00
+lastmod: 2026-09-02T16:33:19+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -124,7 +124,7 @@ The [endoflife.date](https://endoflife.date) website lists the release tracks an
 
 Several signals tell you a version is no longer being rebuilt:
 
-* In the Console, an inactive tag appears in gray text with a pause icon beside its name. Hovering the icon shows the message `This tag is no longer considered active.`
+* In the Console, an inactive tag appears in gray text with a pause icon beside its name. Hovering the icon shows the message `This tag is no longer considered active.` [Open a support request](#open-a-support-request) if you want to request an inactive tag. Specify all the tags you need in a single request if requesting more than one to save time.
 * On the **Organization** tab under **Images**, the **Status** column shows **Expired** for images your organization no longer has access to.
 * The **Vulnerabilities** tab reports that a tag is no longer being scanned. Scanning stops because the image contents have stopped changing.
 
