@@ -1,7 +1,7 @@
 ---
 title: "Chainguard Actions telemetry and privacy"
 linktitle: "Telemetry and privacy"
-description: "Learn what usage telemetry Chainguard hardened actions send, why we collect it, and how to control it."
+description: "Learn what telemetry Chainguard hardened actions send, why we collect it, and how to control it."
 type: "article"
 date: 2026-07-16T00:00:00+00:00
 lastmod: 2026-09-01T00:00:00+00:00
