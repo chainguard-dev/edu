@@ -1,10 +1,10 @@
 ---
 title: "Chainguard Actions telemetry and privacy"
 linktitle: "Telemetry and privacy"
-description: "Learn what usage telemetry Chainguard hardened actions send, what data is collected, and how to control it."
+description: "Learn what telemetry Chainguard hardened actions send, why we collect it, and how to control it."
 type: "article"
 date: 2026-07-16T00:00:00+00:00
-lastmod: 2026-07-16T00:00:00+00:00
+lastmod: 2026-09-01T00:00:00+00:00
 draft: false
 tags: ["Chainguard Actions", "Telemetry", "Privacy"]
 menu:
@@ -15,6 +15,15 @@ toc: true
 ---
 
 Every Chainguard hardened action runs a best-effort "phone-home" pre-hook that records a usage event to `https://actions.enforce.dev/actions/v1/record`. The hook is fire-and-forget, with a 2 second timeout that fails open, so it cannot break your build.
+
+## Why we collect this data
+
+We collect this data for two reasons:
+
+- **Billing**: usage events show which repositories use Chainguard hardened actions, so we can meter usage against your entitlements and bill accurately.
+- **Security**: verified usage records help us confirm that requests come from legitimate workflows, identify where our actions run, and detect anomalous or unauthorized use.
+
+We do not use this data for advertising or sell it to third parties.
 
 ## What we collect
 
