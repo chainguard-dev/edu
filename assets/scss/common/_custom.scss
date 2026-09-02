@@ -2,7 +2,6 @@
 @import "fontfamilies";
 @import "breakpoints";
 @import "theming";
-@import "../components/typography-improvements";
 @import "../components/academy-rebrand";
 
 @font-face {
@@ -1222,7 +1221,7 @@ header .search-container {
 }
 
 // Leaf entries pick up the content-typography `.content ul li` bottom margin
-// (--docs-list-spacing), while expandable entries cancel it with `my-0`
+// ($content-list-spacing), while expandable entries cancel it with `my-0`
 // (!important). Override it for every sidebar nav item so leaf and expandable
 // entries share one rhythm (spacing comes from the link padding). !important is
 // needed to beat `.content ul li`, matching how `my-0` already does this.

@@ -1,5 +1,7 @@
-// Enhanced typography styles for Chainguard Academy
-// Aligned with marketing site aesthetics
+// Typography for Chainguard Academy
+// Aligned with marketing site aesthetics, tuned for long-form documentation.
+// Bare element rules set the type scale; the `.content`-scoped block below
+// sets the reading rhythm inside articles and wins on specificity.
 
 // Font weight variables for consistency
 $font-light: 300;
@@ -26,7 +28,21 @@ $leading-normal: 1.5;
 $leading-relaxed: 1.625;
 $leading-loose: 2;
 
-// Headings enhancement
+// Article reading rhythm (applied inside .content / .docs-content)
+$content-font-size: 16px;
+$content-code-size: 14px;
+$content-line-height: 1.7;
+$content-paragraph-margin: 1.35rem;
+$content-list-spacing: 0.45rem;
+
+// Font rendering
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizelegibility;
+}
+
+// Headings
 h1, h2, h3, h4, h5, h6 {
     font-family: $titleFont;
     font-weight: $font-bold;
@@ -35,6 +51,10 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
     margin-bottom: 1rem;
     letter-spacing: -0.02em;
+
+    + p {
+        margin-top: 0.75rem;
+    }
 }
 
 h1 {
@@ -53,6 +73,7 @@ h2 {
     font-weight: $font-semibold;
     margin-top: 3rem;
     margin-bottom: 1.25rem;
+    padding-top: 0.5rem;
 
     @media (min-width: 768px) {
         font-size: $text-4xl;
@@ -91,7 +112,7 @@ h6 {
     margin-bottom: 0.5rem;
 }
 
-// Body text enhancement
+// Body text
 p {
     font-family: $TextFont;
     font-size: $text-base;
@@ -112,16 +133,19 @@ p {
     }
 }
 
-// Links enhancement
+// Links
 a {
     color: var(--article-link-color);
     text-decoration: none;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.15em;
     transition: color 0.2s ease;
     position: relative;
 
     &:hover {
         color: var(--secondary-2);
         text-decoration: underline;
+        text-decoration-thickness: 2px;
     }
 
     &.link-underline {
@@ -135,7 +159,7 @@ a {
     }
 }
 
-// Lists enhancement
+// Lists
 ul, ol {
     font-family: $TextFont;
     font-size: $text-base;
@@ -157,7 +181,7 @@ ul, ol {
     }
 }
 
-// Blockquote enhancement
+// Blockquotes
 blockquote {
     font-family: $TextFont;
     font-size: $text-lg;
@@ -187,7 +211,7 @@ blockquote {
     }
 }
 
-// Code typography
+// Code
 code {
     font-family: $monoFont;
     font-size: 0.85em;
@@ -209,7 +233,7 @@ pre {
     }
 }
 
-// Tables typography
+// Tables
 table {
     th {
         font-family: $TextFont;
@@ -217,12 +241,65 @@ table {
         font-size: $text-sm;
         text-transform: uppercase;
         letter-spacing: 0.05em;
+        padding: 0.75rem 1rem;
     }
 
     td {
         font-family: $TextFont;
         font-size: $text-base;
         line-height: $leading-normal;
+        padding: 0.75rem 1rem;
+    }
+}
+
+// Alerts and notices
+.alert,
+.notice {
+    font-size: $content-font-size;
+    line-height: $content-line-height;
+    padding: 1.25rem;
+
+    p {
+        margin-bottom: 0.75rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+// Article reading rhythm. Scoped so it wins over the bare element rules above.
+.docs-content,
+.content {
+    p {
+        margin-bottom: $content-paragraph-margin;
+        font-size: $content-font-size;
+        line-height: $content-line-height;
+    }
+
+    ul, ol {
+        margin-bottom: $content-paragraph-margin;
+
+        li {
+            margin-bottom: $content-list-spacing;
+            line-height: $content-line-height;
+            font-size: $content-font-size;
+
+            ul, ol {
+                margin-top: $content-list-spacing;
+                margin-bottom: $content-list-spacing;
+            }
+        }
+    }
+
+    pre {
+        font-size: $content-code-size;
+        line-height: $leading-normal;
+        border-radius: 4px;
+
+        code {
+            font-size: inherit;
+        }
     }
 }
 
@@ -298,5 +375,23 @@ small, .text-sm {
     blockquote {
         font-size: $text-base;
         padding-left: 1rem;
+    }
+}
+
+// Print
+@media print {
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+    }
+
+    h1 { font-size: 20pt; }
+    h2 { font-size: 18pt; }
+    h3 { font-size: 16pt; }
+    h4 { font-size: 14pt; }
+
+    p, li {
+        font-size: 12pt;
+        line-height: 1.5;
     }
 }

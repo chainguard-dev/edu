@@ -78,6 +78,11 @@ a.btn:focus {
   text-decoration: none;
 }
 
+:focus-visible {
+  outline: 2px solid var(--focus-ring-color);
+  outline-offset: 2px;
+}
+
 .section {
   padding-top: 5rem;
   padding-bottom: 5rem;
