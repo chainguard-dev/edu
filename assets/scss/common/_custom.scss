@@ -671,10 +671,6 @@ header .search-container {
     line-height: 26px;
     padding: 0 34px;
     font-size: 14px;
-
-    &:focus {
-        border-color: transparent;
-    }
 }
 
 ::placeholder {
@@ -1531,12 +1527,6 @@ blockquote p a {
 
     &:hover:not(.active) {
       color: var(--active-element-shadow);
-    }
-
-    &:focus-visible {
-      outline: 2px solid var(--active-element-shadow);
-      outline-offset: 2px;
-      border-radius: 2px;
     }
   }
 }

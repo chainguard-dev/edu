@@ -48,11 +48,6 @@
       transform: translateY(0) scale(0.98);
     }
 
-    &:focus {
-      outline: 2px solid var(--primary-1);
-      outline-offset: 2px;
-    }
-
     &.feedback-selected {
       background: var(--primary-1);
       border-color: var(--primary-1);
@@ -109,12 +104,6 @@
       &::placeholder {
         color: #8c8c8c;
       }
-
-      &:focus {
-        outline: none;
-        border-color: var(--primary-1);
-        box-shadow: 0 0 0 2px rgba(52, 67, 244, 0.1);
-      }
     }
 
     .feedback-char-counter {
@@ -144,11 +133,6 @@
       cursor: pointer;
       transition: all 0.2s ease;
       border: 1px solid;
-
-      &:focus {
-        outline: 2px solid var(--primary-1);
-        outline-offset: 2px;
-      }
     }
 
     .feedback-submit-btn {
@@ -201,10 +185,6 @@
       color: var(--primary-2);
     }
 
-    .feedback-btn:focus {
-      outline-color: var(--primary-2);
-    }
-
     .feedback-btn.feedback-selected {
       background: var(--secondary-2);
       border-color: var(--secondary-2);
@@ -218,11 +198,6 @@
     }
 
     .feedback-input-container {
-      .feedback-textarea:focus {
-        border-color: var(--primary-2);
-        box-shadow: 0 0 0 2px rgba(122, 240, 254, 0.1);
-      }
-
       .feedback-submit-btn {
         background: var(--secondary-2);
         border-color: var(--secondary-2);

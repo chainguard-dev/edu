@@ -65,12 +65,6 @@
         padding: 0.5rem 1rem;
         transition: all 0.2s ease;
 
-        &:focus {
-            border-color: var(--primary-1);
-            box-shadow: 0 0 0 3px rgba(117, 69, 251, 0.1);
-            background: var(--body-background);
-        }
-
         &::placeholder {
             color: var(--placeholder-color);
             opacity: 0.7;
@@ -79,29 +73,6 @@
 
     .search-icon {
         color: var(--primary-1);
-    }
-}
-
-// Language selector enhancement
-.language-selector {
-    select {
-        background: var(--search-background);
-        border: 1px solid rgba(20, 0, 61, 0.08);
-        border-radius: 4px;
-        padding: 0.4rem 2rem 0.4rem 0.8rem;
-        font-size: 0.9rem;
-        transition: all 0.2s ease;
-        cursor: pointer;
-
-        &:hover {
-            border-color: var(--primary-1);
-        }
-
-        &:focus {
-            border-color: var(--primary-1);
-            box-shadow: 0 0 0 3px rgba(117, 69, 251, 0.1);
-            outline: none;
-        }
     }
 }
 
@@ -199,21 +170,6 @@
 
     .search-container {
         .form-control {
-            &:focus {
-                border-color: var(--primary-2);
-                box-shadow: 0 0 0 3px rgba(122, 240, 254, 0.1);
-            }
-        }
-    }
-
-    .language-selector {
-        select {
-            border-color: rgba(255, 255, 255, 0.1);
-
-            &:hover {
-                border-color: var(--primary-2);
-            }
-
             &:focus {
                 border-color: var(--primary-2);
                 box-shadow: 0 0 0 3px rgba(122, 240, 254, 0.1);
