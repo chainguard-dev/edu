@@ -1,19 +1,21 @@
+@use "sass:color";
+
 /** Theme variables */
 
 // Source: https://material.io/design/color/dark-theme.html
 
 $body-bg-dark: $gray-900;
-$body-overlay-dark: darken($body-bg-dark, 2.5%);
+$body-overlay-dark: color.adjust($body-bg-dark, $lightness: -2.5%);
 
 /*
-$border-dark: darken($body-bg-dark, 2.5%);
+$border-dark: color.adjust($body-bg-dark, $lightness: -2.5%);
 */
 $border-dark: $gray-800;
 $body-color-dark: $gray-300;
-$dots-dark: darken($body-color-dark, 50%);
+$dots-dark: color.adjust($body-color-dark, $lightness: -50%);
 $link-color-dark: $blue-300;
 $button-color-dark: $link-color-dark;
-$focus-color-dark: lighten($link-color-dark, 2.5%);
+$focus-color-dark: color.adjust($link-color-dark, $lightness: 2.5%);
 $navbar-dark-color: $body-color-dark;
 $navbar-dark-hover-color: $link-color-dark;
 $navbar-dark-active-color: $link-color-dark;
@@ -376,7 +378,7 @@ $navbar-dark-active-color: $link-color-dark;
 }
 
 [data-dark-mode] body .bg-light {
-  background: darken($body-bg-dark, 1.5%) !important;
+  background: color.adjust($body-bg-dark, $lightness: -1.5%) !important;
 }
 
 [data-dark-mode] body .bg-dots {
@@ -384,7 +386,7 @@ $navbar-dark-active-color: $link-color-dark;
 }
 
 [data-dark-mode] body .text-muted {
-  color: darken($body-color-dark, 7.5%) !important;
+  color: color.adjust($body-color-dark, $lightness: -7.5%) !important;
 }
 
 [data-dark-mode] body .alert-primary {

@@ -1,3 +1,5 @@
+@use "sass:color";
+
 .alert {
   font-family: $font-family-monospace;
   font-size: $font-size-sm;
@@ -158,7 +160,7 @@
 }
 
 .alert code {
-  background: darken($beige, 5%);
+  background: color.adjust($beige, $lightness: -5%);
   color: $black;
   padding: 0.25rem 0.5rem;
 }
