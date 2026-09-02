@@ -4,7 +4,7 @@ linktitle: "About"
 description: "Conceptual articles and resources on Chainguard Containers"
 type: "article"
 date: 2024-12-19T08:49:15+00:00
-lastmod: 2025-04-07T08:49:15+00:00
+lastmod: 2026-09-02T13:31:42+00:00
 draft: false
 images: []
 weight: 015
@@ -46,6 +46,11 @@ tutorials: [
     title: "Product release lifecycle",
     description: "",
     url: "/chainguard/containers/about/versions/"
+  },
+  {
+    title: "Availability troubleshooting",
+    description: "",
+    url: "/chainguard/containers/about/container-version-troubleshooting/"
   },
 ]
 

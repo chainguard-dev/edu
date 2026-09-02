@@ -4,7 +4,7 @@ linktitle: "Requesting resources"
 type: "article"
 description: "How to submit requests for Chainguard to build new resources in the Console."
 date: 2026-02-26T11:07:52+02:00
-lastmod: 2026-02-26T11:07:52+02:00
+lastmod: 2026-09-02T13:31:42+00:00
 draft: false
 tags: ["Chainguard Containers", "Chainguard Console"]
 images: []
@@ -85,3 +85,5 @@ There are a few limitations you should consider before submitting a new request:
 * There are cases where Chainguard cannot fulfill a FIPS request and be FIPS compliant. In such cases the standard variant can often still be built but the FIPS variant will get marked as **Won't build**.
 
 Finally, be aware that requesting that Chainguard build a software artifact does not mean it will automatically be accessible to your organization. Once the resource is built, you can reach out to our sales team to add it to your organization; alternatively, if your organization has [Catalog pricing](/chainguard/containers/about/pricing/) enabled, you can add it yourself after it's built.
+
+Note that the **Requests** section is for resources Chainguard doesn't build at all. If Chainguard already builds the container image and you need a version that isn't listed, or the image isn't in your organization's catalog yet, refer to [Troubleshoot container and version availability](/chainguard/containers/about/container-version-troubleshooting/) instead.

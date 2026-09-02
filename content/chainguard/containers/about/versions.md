@@ -11,7 +11,7 @@ aliases:
 type: "article"
 description: "Understanding Chainguard's approach to container image versions."
 date: 2024-01-08T08:49:31+00:00
-lastmod: 2026-09-01T16:56:22+00:00
+lastmod: 2026-09-02T13:31:42+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -54,6 +54,10 @@ This document provides an overview of Chainguard’s approach to updates,
 releases, and versions within Chainguard Containers. For more specific guidance,
 please [contact
 us](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
+
+This page explains the policy. If you're trying to resolve a specific container
+image or version you can't pull, refer to [Troubleshoot container and version
+availability](/chainguard/containers/about/container-version-troubleshooting/).
 
 ## How versions are maintained
 
@@ -250,6 +254,11 @@ Containers organization directory will continue to have previously purchased
 container images available, new builds will no longer be published and
 vulnerabilities are expected to accumulate in those Containers over time. It is
 recommended to move to an up-to-date, actively maintained version.
+
+If you need a version that has reached EOL, or one Chainguard never built, refer
+to [Troubleshoot container and version
+availability](/chainguard/containers/about/container-version-troubleshooting/)
+for the options available to you.
 
 For software applications that maintain multiple concurrent release tracks,
 Chainguard will endeavor to provide [reasonable
