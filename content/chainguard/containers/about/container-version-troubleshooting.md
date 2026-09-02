@@ -4,7 +4,7 @@ linktitle: "Availability troubleshooting"
 type: "article"
 description: "When a container or version isn't available to you: how to identify which situation you're in, what to do about each, and when to open a support request."
 date: 2026-09-02T00:00:00+00:00
-lastmod: 2026-09-02T13:22:28+00:00
+lastmod: 2026-09-02T14:52:06+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -17,7 +17,7 @@ toc: true
 
 You need a container image, or a particular version of one, and you can't pull it. The right next step depends on why it's missing, and there are four distinct reasons. This guide helps you tell them apart and resolve each one.
 
-Start by separating the two surfaces involved, because they aren't the same thing:
+First, distinguish between the public container registry and your organization's registry:
 
 * The [Chainguard Containers Directory](https://images.chainguard.dev/) at `images.chainguard.dev` is public. It lists every container image Chainguard builds, along with the tags, sizes, and metadata for each. Anyone can browse it.
 * Your organization's registry at `cgr.dev/$ORGANIZATION/` holds only the images your organization has access to. This is what your teams pull from.
