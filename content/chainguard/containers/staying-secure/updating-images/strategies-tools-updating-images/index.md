@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "A conceptual article outlining different strategies and tools for keeping images up to date and avoiding the use of end-of-life software."
 date: 2024-12-02T11:07:52+02:00
-lastmod: 2026-08-21T12:32:28+00:00
+lastmod: 2026-09-03T13:29:22+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -119,6 +119,8 @@ At Chainguard, we take a similar approach with the [digestabot](https://www.chai
 Dependabot is GitHub's tool for monitoring dependencies. It can be used with GitHub, but [can also be self-hosted](https://github.com/dependabot/dependabot-core?tab=readme-ov-file#how-to-run-dependabot).
 
 Dependabot is designed to work with a variety of different package ecosystems, as well as container images referenced in Dockerfiles and Kubernetes manifests. Dependabot runs on a schedule and will open pull requests to update dependencies when it finds outdated versions.
+
+Dependabot authenticates to your private `cgr.dev` registry with a pull token. Refer to [Using Dependabot with Chainguard Containers](/chainguard/containers/staying-secure/updating-images/dependabot/) for configuration details.
 
 ### Renovate
 
