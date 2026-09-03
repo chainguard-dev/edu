@@ -41,7 +41,10 @@ jobs:
         service_account: "github-chainguard-academy@chainguard-academy.iam.gserviceaccount.com"
         workload_identity_provider: "projects/456977358484/locations/global/workloadIdentityPools/chainguard-academy/providers/chainguard-edu"
 
-    - uses: ./.github/actions/integrate-platform-docs
+    # zizmor 1.30.0 wants GitHub's `$/` self-repository form here, but actionlint
+    # 1.7.12 rejects it as a malformed `uses:` (rhysd/actionlint#711). Switch to
+    # `$/.github/actions/integrate-platform-docs` once actionlint parses it.
+    - uses: ./.github/actions/integrate-platform-docs # zizmor: ignore[self-repository]
       with:
         project_id: "${{ secrets.PROJECT_ID }}"
         storage_bucket: "${{ secrets.STORAGE_BUCKET }}"
