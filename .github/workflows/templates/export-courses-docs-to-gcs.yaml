@@ -96,10 +96,10 @@ jobs:
         # Create metadata file
         cat > "$EXPORT_DIR/metadata.json" << EOF
         {
-          "repository": "${{ github.repository }}",
+          "repository": "$GITHUB_REPOSITORY",
           "export_time": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
-          "commit": "${{ github.sha }}",
-          "ref": "${{ github.ref }}",
+          "commit": "$GITHUB_SHA",
+          "ref": "$GITHUB_REF",
           "files_count": $(find "$EXPORT_DIR" -name "*.md" -type f | wc -l)
         }
         EOF
