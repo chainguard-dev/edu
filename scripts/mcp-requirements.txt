@@ -2,5 +2,5 @@
 # Requires mcp 2.x: the server uses the 2.0 high-level MCPServer API
 # (see DOCS-89 for the decision, DOCS-90 for the port). Cap below 3.0 to guard
 # against the next major-version break.
-mcp>=2.1.0,<3
+mcp>=2.1.1,<3
 httpx>=0.28.1
