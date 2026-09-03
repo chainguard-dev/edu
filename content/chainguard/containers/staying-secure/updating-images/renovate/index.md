@@ -496,7 +496,7 @@ This example passes a short-lived token for `cgr.dev` using the `RENOVATE_DOCKER
 
 ### Renovate doesn't behave as expected
 
-Run Renovate in debug mode and dump the resolved configuration to see how it interpreted your settings.
+Run Renovate in debug mode and dump the resolved configuration to understand how it interpreted your settings.
 
 For example:
 
