@@ -5,7 +5,7 @@ lead: "Model Context Protocol server for Chainguard documentation"
 description: "Access Chainguard documentation through MCP for AI assistants and automation"
 type: "article"
 date: 2026-01-02T21:00:00+00:00
-lastmod: 2026-09-01T16:34:19+00:00
+lastmod: 2026-09-03T16:05:01+00:00
 draft: false
 images: []
 weight: 600
@@ -208,7 +208,9 @@ Find the Wolfi package that replaces a Debian, Fedora, or Alpine package. Use th
 
 ### `check_image_freshness`
 
-Query `cgr.dev` for an image's availability and current tags. Falls back to catalog data if the registry is unreachable.
+Query `cgr.dev` for how current an image is. Returns the digest and build date of the image's `latest` tag, along with the repository's tags. Falls back to catalog data if the registry is unreachable.
+
+Tag lists omit the `sha256-` attachment tags that carry each image's signature, attestation, and SBOM, because they outnumber the image's real tags by several hundred to one.
 
 **Parameters:**
 
@@ -216,13 +218,14 @@ Query `cgr.dev` for an image's availability and current tags. Falls back to cata
 
 **Example prompts:**
 
+- "When was the Python image last built?"
 - "What tags are available for the Python image?"
 - "Show me the available tags for the nginx image"
 - "Is the golang image available on cgr.dev?"
 
 ## Image catalog
 
-The `list_images`, `find_package_equivalent`, and `check_image_freshness` tools draw from a pre-built catalog that ships with the server. The catalog includes:
+The `list_images` and `find_package_equivalent` tools draw from a pre-built catalog that ships with the server. The `check_image_freshness` tool queries the registry directly, and uses the catalog only to report whether an image has documentation. The catalog includes:
 
 - Every Chainguard container image with its registry reference, sourced from the image documentation
 - Package mappings from Debian, Fedora, and Alpine to their Wolfi equivalents
@@ -259,11 +262,12 @@ apk add build-base
 ```
 
 ```
-You: What tags are available for the python image?
+You: Is the python image up to date?
 
 Claude: [Uses check_image_freshness tool]
-The Chainguard Python image (cgr.dev/chainguard/python) is available with these tags:
-latest, latest-dev, 3.13, 3.13-dev, ...
+The Chainguard Python image (cgr.dev/chainguard/python) was built today. The
+current digest of latest is sha256:ecf07c37..., and the repository's tags are
+latest and latest-dev.
 ```
 
 ## Standalone installation (without Docker)

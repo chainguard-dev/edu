@@ -17,6 +17,7 @@ import json
 import logging
 import os
 import re
+from datetime import datetime, timezone
 from typing import Any, Annotated, Dict, List, Literal, Optional
 
 # MCP SDK imports (2.0 high-level API)
@@ -45,6 +46,32 @@ CATALOG_PATH = os.getenv("CATALOG_PATH", "/docs/image-catalog.json")
 # Input length limits to prevent CPU DoS on string operations
 MAX_INPUT_LEN = 500
 MAX_RESULTS_CAP = 20
+
+# Registry details for the anonymous cgr.dev pull path. The Docker Registry v2
+# API requires a bearer token even for public images, so every live check is a
+# token exchange followed by the real request. cgr.dev issues these tokens to
+# unauthenticated callers, so this needs no credential (DOCS-173).
+REGISTRY_DOMAIN = "cgr.dev"
+REGISTRY_HOST = f"https://{REGISTRY_DOMAIN}"
+REGISTRY_NAMESPACE = "chainguard"
+REGISTRY_TIMEOUT = 10.0
+
+# Accept both OCI and Docker manifest media types, index types first: Chainguard
+# images are multi-arch, so `latest` resolves to an image index rather than to a
+# single-platform manifest.
+MANIFEST_ACCEPT = ", ".join(
+    [
+        "application/vnd.oci.image.index.v1+json",
+        "application/vnd.docker.distribution.manifest.list.v2+json",
+        "application/vnd.oci.image.manifest.v1+json",
+        "application/vnd.docker.distribution.manifest.v2+json",
+    ]
+)
+
+# A signed image carries three cosign attachment tags per digest
+# (`sha256-<digest>.sig`, `.att` and `.sbom`), which outnumber real tags by
+# roughly 500 to 1. They are filtered out of tag listings.
+COSIGN_ATTACHMENT_PREFIX = "sha256-"
 
 
 def extract_image_names(container_section: str) -> List[str]:
@@ -299,16 +326,142 @@ class ImagesCatalog:
 
     @staticmethod
     def _is_valid_image_name(name: str) -> bool:
-        """Validate image name to prevent path traversal or injection."""
-        return bool(re.fullmatch(r"[a-z0-9][a-z0-9\-]{0,127}", name))
+        """Validate image name to prevent path traversal or injection.
+
+        Underscores are allowed because real image names use them (sql_exporter,
+        chrony_exporter); keep this name class in step with extract_image_names
+        above, so an underscore name reports what the registry says rather than
+        "Invalid image name" (DOCS-138, DOCS-173).
+        """
+        return bool(re.fullmatch(r"[a-z0-9][a-z0-9_-]{0,127}", name))
+
+    @staticmethod
+    def _fetch_pull_token(client: Any, repo: str) -> Dict[str, Any]:
+        """Return an anonymous pull token for a repository.
+
+        The token endpoint is where entitlement is enforced: it answers 403 for a
+        repository the anonymous caller cannot pull, which is how an image that
+        exists only in a private organization catalog presents itself here.
+        """
+        resp = client.get(
+            f"{REGISTRY_HOST}/token",
+            params={"scope": f"repository:{repo}:pull", "service": REGISTRY_DOMAIN},
+        )
+        if resp.status_code == 403:
+            return {
+                "token": None,
+                "error": (
+                    f"`{repo}` is not available for anonymous pull from the public "
+                    f"{REGISTRY_DOMAIN} catalog. Images published only to a private "
+                    "organization catalog are not visible to this server."
+                ),
+            }
+        if resp.status_code != 200:
+            return {
+                "token": None,
+                "error": (
+                    f"Registry returned HTTP {resp.status_code} for the pull token"
+                ),
+            }
+        return {"token": resp.json().get("token"), "error": None}
+
+    @staticmethod
+    def _age_in_days(built: str) -> Optional[int]:
+        """Return whole days since an RFC 3339 build timestamp, or None."""
+        try:
+            # Normalize the "Z" suffix: fromisoformat rejects it before 3.11.
+            stamp = datetime.fromisoformat(built.replace("Z", "+00:00"))
+        except ValueError:
+            return None
+        return (datetime.now(timezone.utc) - stamp).days
+
+    def _fetch_latest_metadata(
+        self, client: Any, repo: str, headers: Dict[str, str]
+    ) -> Dict[str, Any]:
+        """Return the digest and build date of a repository's `latest` tag."""
+        meta: Dict[str, Any] = {
+            "digest": None,
+            "built": None,
+            "age_days": None,
+            "error": None,
+        }
+
+        resp = client.get(
+            f"{REGISTRY_HOST}/v2/{repo}/manifests/latest",
+            headers={**headers, "Accept": MANIFEST_ACCEPT},
+        )
+        if resp.status_code == 404:
+            meta["error"] = (
+                f"No `latest` tag for {repo} in the public {REGISTRY_DOMAIN} catalog. "
+                "Images published only to a private organization catalog are not "
+                "visible to this server."
+            )
+            return meta
+        if resp.status_code != 200:
+            meta["error"] = (
+                f"Registry returned HTTP {resp.status_code} for the manifest"
+            )
+            return meta
+
+        meta["digest"] = resp.headers.get("Docker-Content-Digest")
+
+        # Chainguard's build pipeline stamps the index with its build time. If an
+        # image lacks the annotation, report the digest without a date rather
+        # than inferring one.
+        annotations = resp.json().get("annotations") or {}
+        built = annotations.get("org.opencontainers.image.created")
+        if built:
+            meta["built"] = built
+            meta["age_days"] = self._age_in_days(built)
+
+        return meta
+
+    @staticmethod
+    def _fetch_real_tags(
+        client: Any, repo: str, headers: Dict[str, str]
+    ) -> Dict[str, Any]:
+        """Return a repository's tags with cosign attachment tags removed."""
+        listing: Dict[str, Any] = {"tags": [], "truncated": False, "error": None}
+
+        resp = client.get(
+            f"{REGISTRY_HOST}/v2/{repo}/tags/list",
+            headers={**headers, "Accept": "application/json"},
+        )
+        if resp.status_code != 200:
+            listing["error"] = (
+                f"Registry returned HTTP {resp.status_code} for the tag list"
+            )
+            return listing
+
+        listing["tags"] = [
+            tag
+            for tag in resp.json().get("tags") or []
+            if not tag.startswith(COSIGN_ATTACHMENT_PREFIX)
+        ]
+
+        # The registry pages at 1000 tags and points to the next page with a Link
+        # header. Rather than walking every page of attachment tags to find a
+        # handful of real ones, flag the list as partial so a caller does not
+        # read it as complete.
+        listing["truncated"] = 'rel="next"' in resp.headers.get("Link", "")
+
+        return listing
 
     def check_live_image(self, name: str) -> Dict[str, Any]:
-        """Check image freshness via live registry query to cgr.dev."""
-        result = {
+        """Check image freshness via live registry query to cgr.dev.
+
+        Reports the digest and build date of `latest` — the two facts that show
+        whether an image is current — plus the repository's real tags.
+        """
+        result: Dict[str, Any] = {
             "name": name,
-            "registry_ref": f"cgr.dev/chainguard/{name}",
+            "registry_ref": f"{REGISTRY_DOMAIN}/{REGISTRY_NAMESPACE}/{name}",
             "live_check": False,
             "tags": [],
+            "tags_truncated": False,
+            "digest": None,
+            "built": None,
+            "age_days": None,
             "error": None,
         }
 
@@ -327,16 +480,36 @@ class ImagesCatalog:
             result["error"] = "httpx not available; returning catalog data only"
             return result
 
+        repo = f"{REGISTRY_NAMESPACE}/{name}"
         try:
-            url = f"https://cgr.dev/v2/chainguard/{name}/tags/list"
-            with httpx.Client(timeout=10.0) as client:
-                resp = client.get(url, headers={"Accept": "application/json"})
-                if resp.status_code == 200:
-                    data = resp.json()
-                    result["live_check"] = True
-                    result["tags"] = data.get("tags", [])[:20]
-                else:
-                    result["error"] = f"Registry returned HTTP {resp.status_code}"
+            with httpx.Client(timeout=REGISTRY_TIMEOUT) as client:
+                auth = self._fetch_pull_token(client, repo)
+                if not auth["token"]:
+                    result["error"] = (
+                        auth["error"]
+                        or f"Could not get an anonymous pull token from {REGISTRY_DOMAIN}"
+                    )
+                    return result
+
+                headers = {"Authorization": f"Bearer {auth['token']}"}
+
+                metadata = self._fetch_latest_metadata(client, repo, headers)
+                if metadata["error"]:
+                    result["error"] = metadata["error"]
+                    return result
+
+                result["digest"] = metadata["digest"]
+                result["built"] = metadata["built"]
+                result["age_days"] = metadata["age_days"]
+
+                listing = self._fetch_real_tags(client, repo, headers)
+                result["tags"] = listing["tags"]
+                result["tags_truncated"] = listing["truncated"]
+                result["error"] = listing["error"]
+
+                # The manifest came back, so the live data above is good even if
+                # the tag listing failed.
+                result["live_check"] = True
         except Exception as e:
             result["error"] = f"Live check failed: {str(e)}"
 
@@ -559,7 +732,7 @@ def find_package_equivalent(
 
 
 @server.tool(
-    description="Check a Chainguard image's availability and tags via live registry query to cgr.dev (falls back to catalog data if no network)"
+    description="Check how current a Chainguard image is via live registry query to cgr.dev: reports the digest and build date of `latest` plus the repository's tags (falls back to catalog data if no network)"
 )
 @safe_tool
 def check_image_freshness(
@@ -576,12 +749,27 @@ def check_image_freshness(
     response += (
         f"- **Live check**: {'Success' if result['live_check'] else 'Not performed'}\n"
     )
+    if result.get("digest"):
+        response += f"- **Current digest** of `latest`: `{result['digest']}`\n"
+    if result.get("built"):
+        age = result.get("age_days")
+        age_note = ""
+        if age == 0:
+            age_note = " (today)"
+        elif age is not None:
+            age_note = f" ({age} day{'' if age == 1 else 's'} ago)"
+        response += f"- **Built**: {result['built']}{age_note}\n"
     if result.get("error"):
         response += f"- **Note**: {result['error']}\n"
     if result.get("tags"):
         response += (
             f"- **Tags** ({len(result['tags'])}): {', '.join(result['tags'][:10])}\n"
         )
+        if result.get("tags_truncated"):
+            response += (
+                "- **Tag list**: partial. The registry paged the response, so more "
+                "tags may exist beyond those listed.\n"
+            )
     if result.get("has_documentation") is not None:
         response += f"- **Has documentation**: {'Yes' if result['has_documentation'] else 'No'}\n"
     return response
