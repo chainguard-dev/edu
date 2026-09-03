@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "A walkthrough of the Chainguard Console."
 date: 2024-02-23T11:07:52+02:00
-lastmod: 2026-08-28T16:31:04+00:00
+lastmod: 2026-09-02T13:31:42+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -58,6 +58,8 @@ The **Chainguard catalog** tab has a table with four columns:
 
 Note that if your organization has signed up for catalog pricing, there will be another column containing buttons labeled **Add to org**, allowing you to provision Chainguard Containers independently without having to reach out to Chainguard. Check out our doc on [Chainguard container catalog pricing](/chainguard/containers/about/pricing/) for more information.
 
+If an image you need doesn't appear in your organization's catalog, or appears without the version you need, refer to [Troubleshoot container and version availability](/chainguard/containers/about/container-version-troubleshooting/).
+
 The **Organization** tab doesn't have a **Description** column, but has two additional columns. The first of these, labeled **Status** specifies what resources an organization has purchased and has access to. This column can show one of two possible values: **Active**, meaning that your organization is able to download and use the container image, or **Expired**, meaning that your organization had access to the container image in the past but not anymore.
 
 The other additional column is labeled **Pull URL**, and contains a URL you can use to pull the given image, as in a `docker pull` command.
@@ -82,7 +84,7 @@ Each container image details page has several tabs that provide information abou
 The default page for each image is the **Tags** tab which contains information about the version tags available for each image. This contains a table with columns:
 
 * **Tag**: this column lists each tag available for the container image
-* **Pull URL**: the URL you can use to download each version of the image. In the Console, Production containers you don't already have access to will show a message reading `Add to organization for access` if you're logged in under an organization with access to Production Containers; if you're logged in under an unverified organization, the message reads `Request image for access`.
+* **Pull URL**: the URL you can use to download each version of the Container. In the Console, Production Containers you don't already have access to will show a message reading `Add to organization` if you're logged in under an organization with access to Production Containers; if you're logged in under an organization without entitlement, the message reads `Request image` or `Request chart`. For what to do about either message, refer to [Troubleshoot container and version availability](/chainguard/containers/about/container-version-troubleshooting/).
 * **Compressed size**: the size of the image, in megabytes
 * **Last changed**: when each version of the image was last updated
 

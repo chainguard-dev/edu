@@ -5,7 +5,7 @@ lead: "Chainguard offers several ways to get help, and the right one depends on 
 description: "Get help from Chainguard: check the self-service options, choose the right support channel, and open a ticket a support engineer can act on."
 type: "article"
 date: 2026-09-01T00:00:00+00:00
-lastmod: 2026-09-01T16:34:19+00:00
+lastmod: 2026-09-02T13:31:42+00:00
 draft: false
 tags: ["Getting Started"]
 images: []
@@ -38,6 +38,8 @@ The support portal handles most requests, but it isn't the only route, and for s
 - **Your organization uses Catalog Starter.** Use the [knowledge base](https://support.chainguard.dev/hc/en-us), the [community Slack](https://join.slack.com/t/chainguardcommunity/shared_invite/zt-3nttdr807-V9BJHayWvsB0KbHsfZO5Rw), and the free [Chainguard courses](https://courses.chainguard.dev/). Catalog Starter doesn't include ticket access.
 
 - **Your request concerns your subscription or what your organization is licensed for — for example, whether a particular image is included in your entitlements.** Contact your account team, meaning the customer success manager or solutions architect assigned to your organization.
+
+- **You can't pull a container image or a specific version of one.** Work through [Troubleshoot container and version availability](/chainguard/containers/about/container-version-troubleshooting/) first. It tells you which cases you can resolve yourself and which need a ticket.
 
 ## Open a ticket
 

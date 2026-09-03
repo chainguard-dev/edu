@@ -4,7 +4,7 @@ linktitle: "Self-serve Helm charts"
 description: "Provision Chainguard Helm charts and their required images from the Chainguard Console as a Catalog customer"
 type: "article"
 date: 2026-08-06T00:00:01+00:00
-lastmod: 2026-08-06T18:00:35+00:00
+lastmod: 2026-09-02T13:33:15+00:00
 draft: false
 weight: 020
 toc: true
@@ -13,7 +13,7 @@ toc: true
 Catalog customers can provision Chainguard Helm charts, along with the container images each chart depends on, directly from the Chainguard Console. This replaces the previous manual request process, which required coordination with Chainguard sales, customer success, and support and could take 1 to 4 days.
 
 {{< note >}}
-This capability is available to Catalog customers whose plan includes the APPLICATION tier. It does not apply to the free [Catalog Starter](/chainguard/chainguard-images/about/catalog-starter/) plan. Customers on per-image pricing can request charts through a support workflow, described in [Per-image pricing customers](#per-image-pricing-customers).
+This capability is available to Catalog customers whose plan includes the APPLICATION tier. It does not apply to the free [Catalog Starter](/chainguard/containers/about/catalog-starter/) plan. Customers on per-image pricing can request charts through a support workflow, described in [Per-image pricing customers](#per-image-pricing-customers).
 {{< /note >}}
 
 ## Add a chart in the Chainguard Console

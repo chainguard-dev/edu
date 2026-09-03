@@ -5,7 +5,7 @@ lead: "Your organization has adopted Chainguard. This guide helps administrators
 description: "Onboard your teams to Chainguard Containers and Chainguard Libraries: what your organization can pull, how subscriptions differ, and how to retrieve SBOMs and provenance."
 type: "article"
 date: 2026-08-26T00:00:00+00:00
-lastmod: 2026-08-28T16:31:04+00:00
+lastmod: 2026-09-02T13:31:42+00:00
 draft: false
 tags: ["Getting Started"]
 images: []
@@ -28,7 +28,7 @@ To decide where to start, identify which Chainguard products your organization u
 
 There are two different surfaces, and it helps to keep them separate.
 
-The **Chainguard Directory** at [images.chainguard.dev](https://images.chainguard.dev) is public. Anyone can browse the entire catalog there, inspect tags and metadata, and view the SBOM and provenance for each image. Browsing the Directory does not mean your organization can pull every image it lists.
+The **Chainguard Containers Directory** at [images.chainguard.dev](https://images.chainguard.dev) is public. Anyone can browse the entire catalog there, inspect tags and metadata, and view the SBOM and provenance for each image. Browsing the Directory does not mean your organization can pull every image it lists.
 
 Your **organization's registry** is what your teams pull from, and it holds only the images your organization has access to. Authenticated production images live under your organization's namespace:
 
@@ -42,9 +42,9 @@ Your organization may also front the registry with a pull-through cache, such as
 
 ### What your organization can pull
 
-Whether an image is available to pull depends on your subscription. If a pull fails for an image you can see in the Directory, it most likely hasn't been added to your organization yet.
+Whether an image is available to pull depends on your subscription. If a pull fails for an image you can see in the Directory, it most likely hasn't been added to your organization yet. To work through the possible causes, including a missing version rather than a missing image, see [Troubleshoot container and version availability](/chainguard/containers/about/container-version-troubleshooting/).
 
-**Catalog customers.** A Catalog subscription covers the full Chainguard catalog. Even so, only a subset of images is loaded into your organization's registry at any given time, and administrators add more as teams need them. To use an image that isn't there yet, find it in the [Chainguard Directory](https://images.chainguard.dev) and ask an administrator to add it. If you have the `owner` role, you can add it yourself from the Console; refer to [Catalog pricing](/chainguard/containers/about/pricing/) for the steps and the roles required.
+**Catalog customers.** A Catalog subscription covers the full Chainguard catalog. Even so, only a subset of images is loaded into your organization's registry at any given time, and administrators add more as teams need them. To use an image that isn't there yet, find it in the [Chainguard Containers Directory](https://images.chainguard.dev) and ask an administrator to add it. If you have the `owner` role, you can add it yourself from the Console; refer to [Catalog pricing](/chainguard/containers/about/pricing/) for the steps and the roles required.
 
 **Per-image customers.** A per-image subscription covers a specific, licensed set of images rather than the whole catalog. You can browse everything in the Directory, but only your licensed images are permitted for builds, deployments, and production workloads. To add an image that isn't in your set, ask your administrators to start a request; once they approve it, they add the image to your organization's registry.
 
@@ -52,7 +52,7 @@ Whether an image is available to pull depends on your subscription. If a pull fa
 
 Every Chainguard container image ships with a signed SBOM and provenance attestations. You can retrieve them three ways; the [full guide](/chainguard/containers/how-to-use/retrieve-image-sboms/) covers each in detail.
 
-- **From the Chainguard Directory.** Open an image at [images.chainguard.dev](https://images.chainguard.dev), then download the SBOM from the **SBOM** tab in SPDX or CycloneDX format. This needs no tooling and works for any image in the catalog.
+- **From the Chainguard Containers Directory.** Open an image at [images.chainguard.dev](https://images.chainguard.dev), then download the SBOM from the **SBOM** tab in SPDX or CycloneDX format. This needs no tooling and works for any image in the catalog.
 - **With `cosign`.** Download the SBOM attestation for an image directly from the registry:
 
   ```shell
@@ -72,7 +72,7 @@ Chainguard Libraries is a secure catalog of language dependencies for Java, Pyth
 
 ### What your organization can access
 
-Libraries don't have a public browse site like the Chainguard Directory. Instead, you browse the packages your organization is entitled to by signing in to the [Chainguard Console](/chainguard/libraries/introduction/browse/). Access is granted per language: your organization is entitled to Java, Python, or JavaScript individually, so which ecosystems you can pull depends on your subscription. There's no catalog-versus-per-image distinction as there is for containers.
+Libraries don't have a public browse site like the Chainguard Containers Directory. Instead, you browse the packages your organization is entitled to by signing in to the [Chainguard Console](/chainguard/libraries/introduction/browse/). Access is granted per language: your organization is entitled to Java, Python, or JavaScript individually, so which ecosystems you can pull depends on your subscription. There's no catalog-versus-per-image distinction as there is for containers.
 
 ### Pull libraries into your project
 
