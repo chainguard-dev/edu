@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "Reference guide outlining Chainguard's shared responsibility model: a framework that clarifies security obligations for hardened container images."
 date: 2024-10-17T11:07:52+02:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-03T15:24:53+00:00
 draft: false
 tags: ["Conceptual", "Chainguard Containers"]
 images: []
@@ -82,7 +82,7 @@ Given the highly subjective nature of performance testing to environment and con
 
 By their minimal nature, some Chainguard Container Images may not include certain functionalities by default, so it is important that Customers ensure that Chainguard Container Images drop-in to their environments safely. Again, Chainguard is committed to making our customers successful, and will partner with Customers to ensure that images support the core scenarios in which an image is used.
 
-Following [the principle of immutability](https://www.chainguard.dev/unchained/the-principle-of-immutability), Chainguard recommends that customers pin Chainguard Container Images and make use of tooling such as [dependabot](https://github.com/dependabot), [Renovate](/chainguard/containers/working-with-images/renovate/), or [our own digestabot](https://www.chainguard.dev/unchained/keep-your-chainguard-images-up-to-date-with-digestabot) to qualify image updates through the customers’ CI/CD processes covering in-scope usage scenarios. This is key to responsibly rolling out changes because the reality is that upstream, Chainguard, and customers are all fallible and regressions can happen; but this pattern enables folks to have a clear rollback story.
+Following [the principle of immutability](https://www.chainguard.dev/unchained/the-principle-of-immutability), Chainguard recommends that customers pin Chainguard Container Images and make use of tooling such as [Dependabot](/chainguard/containers/staying-secure/updating-images/dependabot/), [Renovate](/chainguard/containers/staying-secure/updating-images/renovate/), or [our own Digestabot](/chainguard/containers/staying-secure/updating-images/digestabot/) to qualify image updates through the customers’ CI/CD processes covering in-scope usage scenarios. This is key to responsibly rolling out changes because the reality is that upstream, Chainguard, and customers are all fallible and regressions can happen; but this pattern enables folks to have a clear rollback story.
 
 ## Learn more
 
