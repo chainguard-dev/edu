@@ -101,7 +101,14 @@ resource "google_cloud_run_v2_service" "mcp-server" {
         network    = each.value.network
         subnetwork = each.value.subnet
       }
-      egress = "ALL_TRAFFIC"
+      // Unlike the Academy site service, the MCP server DOES egress: its
+      // check_image_freshness tool queries the cgr.dev registry. ALL_TRAFFIC
+      // routes that through the subnet, which has a default internet route but
+      // no Cloud NAT, so the instance has no public source address and every
+      // request to cgr.dev dies as a timeout. PRIVATE_RANGES_ONLY sends public
+      // traffic out through Cloud Run's managed egress instead. Google APIs are
+      // unaffected either way (Private Google Access). See DOCS-173.
+      egress = "PRIVATE_RANGES_ONLY"
     }
 
     service_account = google_service_account.chainguard-academy.email
