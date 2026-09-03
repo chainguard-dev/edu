@@ -1,5 +1,5 @@
 ---
-date: 2026-08-31T17:17:40Z
+date: 2026-09-02T22:28:18Z
 title: "chainctl guardener"
 slug: chainctl_guardener
 url: /platform/chainctl/chainctl-docs/chainctl_guardener/
@@ -31,5 +31,7 @@ Manage guardener integrations.
 ### SEE ALSO
 
 * [chainctl](/platform/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
+* [chainctl guardener entitlement](/platform/chainctl/chainctl-docs/chainctl_guardener_entitlement/)	 - Manage a group's guardener entitlement.
 * [chainctl guardener github](/platform/chainctl/chainctl-docs/chainctl_guardener_github/)	 - Link and unlink a GitHub organization to a Chainguard group.
+* [chainctl guardener scans](/platform/chainctl/chainctl-docs/chainctl_guardener_scans/)	 - View guardener dependency scans.
 

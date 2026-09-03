@@ -3201,6 +3201,180 @@
         },
         "type": "object"
       },
+      "chainguard.platform.registry.v2.StigGroupCount": {
+        "description": "StigGroupCount is the per-group rollup of rule verdicts: one entry per\ngroup in the scan content, so consumers render grouped sections without\nwalking every rule result.",
+        "properties": {
+          "counts": {
+            "description": "Number of the group's rules per verdict state.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.v2.StigStateCount"
+            },
+            "readOnly": true,
+            "type": "array"
+          },
+          "groupId": {
+            "description": "ID of the group, matching StigRuleResult.group_id.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "groupTitle": {
+            "description": "Human-readable title of the group; empty when the content defines none.",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.v2.StigReport": {
+        "description": "StigReport is the complete result of one STIG scan of an image: every\nrule result, per-state counts, and the scan metadata. Fields the scan\ngeneration could not record are zero, with an explicit marker where\n\"unknown\" must stay distinguishable from \"empty\".",
+        "properties": {
+          "counts": {
+            "description": "Number of rules per verdict state.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.v2.StigStateCount"
+            },
+            "readOnly": true,
+            "type": "array"
+          },
+          "datastreamVersion": {
+            "description": "SCAP datastream version the scan evaluated against. Meaningful only\nwhen datastream_version_known is true.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "datastreamVersionKnown": {
+            "description": "Whether the scan recorded a datastream version. False for reports\nfrom generations that could not carry it, making that absence\nexplicit rather than empty-but-plausible.",
+            "readOnly": true,
+            "type": "boolean"
+          },
+          "endTime": {
+            "description": "Scan end time; unset when the scan document did not record it.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "groupCounts": {
+            "description": "Per-group rollup of rule verdicts, one entry per group in the scan\ncontent, ordered by group ID. Empty when the scan document does not\ngroup its rules.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.v2.StigGroupCount"
+            },
+            "readOnly": true,
+            "type": "array"
+          },
+          "profileId": {
+            "description": "XCCDF profile the scan evaluated.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "rules": {
+            "description": "Every rule result from the scan, all states preserved.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.v2.StigRuleResult"
+            },
+            "readOnly": true,
+            "type": "array"
+          },
+          "scannedDigest": {
+            "description": "Digest of the manifest whose STIG attestation produced this report.\nEqual to the requested digest when the image itself was scanned; the\nassembly-origin (base image) digest when the image is a custom-assembled\nrebuild served from its origin's scan — in that case the report\ndescribes the origin's pre-assembly contents.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "scannerImage": {
+            "description": "Scanner image reference that produced the report; empty when the\nscan generation did not record scanner identity.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "startTime": {
+            "description": "Scan start time; unset when the scan document did not record it.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.v2.StigResult": {
+        "default": "STIG_RESULT_UNSPECIFIED",
+        "description": "StigResult is the XCCDF 1.2 rule-result vocabulary: the only states a\nrule verdict may carry.\n\n - STIG_RESULT_UNSPECIFIED: Unknown or unset result state.\n - STIG_RESULT_PASS: The rule's requirements are met.\n - STIG_RESULT_FAIL: The rule's requirements are not met. A STIG failure (\"finding\") is\nexactly a rule result in this state.\n - STIG_RESULT_ERROR: The checking engine hit an error evaluating the rule.\n - STIG_RESULT_UNKNOWN: The scanner could not determine the rule's state.\n - STIG_RESULT_NOT_APPLICABLE: The rule does not apply to the scanned target.\n - STIG_RESULT_NOT_CHECKED: The rule was not checked (no check defined or checks disabled).\n - STIG_RESULT_NOT_SELECTED: The rule was not selected by the evaluated profile.\n - STIG_RESULT_FIXED: The rule failed but was then fixed by remediation.\n - STIG_RESULT_INFORMATIONAL: The rule is informational only and carries no compliance verdict.",
+        "enum": [
+          "STIG_RESULT_UNSPECIFIED",
+          "STIG_RESULT_PASS",
+          "STIG_RESULT_FAIL",
+          "STIG_RESULT_ERROR",
+          "STIG_RESULT_UNKNOWN",
+          "STIG_RESULT_NOT_APPLICABLE",
+          "STIG_RESULT_NOT_CHECKED",
+          "STIG_RESULT_NOT_SELECTED",
+          "STIG_RESULT_FIXED",
+          "STIG_RESULT_INFORMATIONAL"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.registry.v2.StigRuleResult": {
+        "description": "StigRuleResult is one XCCDF rule result from the scan.",
+        "properties": {
+          "description": {
+            "description": "Human-readable rule description; empty when unavailable.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "groupId": {
+            "description": "ID of the innermost group enclosing the rule in the scan content\n(e.g., \"xccdf_._group_No_Users\") — the content's own categorization.\nEmpty when the scan document does not group the rule.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "groupTitle": {
+            "description": "Human-readable title of that group; empty when the content defines\nnone (the GPOS benchmark titles none of its groups).",
+            "readOnly": true,
+            "type": "string"
+          },
+          "result": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.v2.StigResult"
+              }
+            ],
+            "description": "The rule's verdict.",
+            "readOnly": true
+          },
+          "ruleId": {
+            "description": "XCCDF rule idref, a DISA vulnerability ID\n(e.g., \"xccdf_mil.disa.stig_rule_SV-263659r982563_rule\").",
+            "readOnly": true,
+            "type": "string"
+          },
+          "severity": {
+            "description": "Rule severity as recorded in the scan document\n(e.g., \"high\", \"medium\", \"low\"); \"unknown\" when the document did not\nrecord one.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "title": {
+            "description": "Human-readable rule title; empty when unavailable.",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.v2.StigStateCount": {
+        "description": "StigStateCount is the number of rules whose verdict is a given state.",
+        "properties": {
+          "count": {
+            "description": "Number of rules with that verdict.",
+            "format": "int32",
+            "readOnly": true,
+            "type": "integer"
+          },
+          "result": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.v2.StigResult"
+              }
+            ],
+            "description": "The rule verdict being counted.",
+            "readOnly": true
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.registry.v2.SyncConfig": {
         "description": "SyncConfig contains repository synchronization settings.",
         "properties": {
@@ -8429,6 +8603,67 @@
         ]
       }
     },
+    "/registry/v2/repos/{repoUid}/digests/{digest}/stig": {
+      "get": {
+        "description": "GetStigReport returns the complete STIG report for an image manifest:\nevery rule result with its state and group categorization, per-state\ncounts (overall and per group), the scan metadata, and the digest of\nthe manifest whose attestation produced the report. A NOT_FOUND error\nmeans the image carries no STIG attestation — which covers both\nnon-FIPS images and FIPS images that have not been scanned — and is\ndistinct from a report with zero failures.",
+        "operationId": "StigReportsService_GetStigReport",
+        "parameters": [
+          {
+            "description": "UIDP of the repository containing the image.",
+            "in": "path",
+            "name": "repoUid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Digest of the image manifest whose STIG report to retrieve.",
+            "in": "path",
+            "name": "digest",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Architecture to descend into when the digest addresses an OCI index\n(e.g., \"amd64\", \"arm64\"). When empty, the report is read from the\nmanifest as addressed by the digest, with no per-architecture descent.",
+            "in": "query",
+            "name": "architecture",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.registry.v2.StigReport"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Stig Report",
+        "tags": [
+          "StigReportsService"
+        ]
+      }
+    },
     "/registry/v2/repos/{uid}": {
       "delete": {
         "description": "DeleteRepo deletes a repository by UID.",
@@ -9697,6 +9932,9 @@
     },
     {
       "name": "ReposService"
+    },
+    {
+      "name": "StigReportsService"
     },
     {
       "name": "TagsService"

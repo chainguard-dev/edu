@@ -1,5 +1,5 @@
 ---
-date: 2026-08-31T17:17:40Z
+date: 2026-09-02T22:28:18Z
 title: "chainctl images discover"
 slug: chainctl_images_discover
 url: /platform/chainctl/chainctl-docs/chainctl_images_discover/
@@ -11,15 +11,25 @@ toc: true
 ---
 ## chainctl images discover
 
-Find Chainguard replacements for the images your Dockerfiles build on.
+Find Chainguard replacements for the images your project uses.
 
 ### Synopsis
 
-Find Chainguard replacements for the images your Dockerfiles build on.
+Find Chainguard replacements for the images your project uses.
 
-Reads the FROM instructions of every Dockerfile under DIR (default: the current
-directory) and reports, for each upstream image, whether Chainguard publishes a
-hardened replacement and whether your organization can pull it today.
+Reads every image reference under DIR (default: the current directory) and
+reports, for each upstream image, whether Chainguard publishes a hardened
+replacement and whether your organization can pull it today.
+
+Both what you build and what you run are covered: the FROM instructions of your
+Dockerfiles, and the Kubernetes manifests, Compose files, Helm values, Terraform,
+shell scripts and Makefiles beside them.
+
+Helm values are read as written, not rendered. An image assembled from registry,
+repository, tag and digest keys is resolved, including a chart-wide imageRegistry
+or imageNamespace and an empty tag standing for the chart's appVersion. A chart
+whose reference is computed inside its templates is beyond what reading values
+can see, so treat a chart's result as what its values declare.
 
 Your immutability choice stays as you wrote it: a digest-pinned reference comes
 back digest-pinned. A maintained tag is kept, a variant or older patch resolves
