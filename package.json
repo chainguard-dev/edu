@@ -62,7 +62,7 @@
   "dependencies": {
     "@docsearch/css": "^5.0.4",
     "@docsearch/js": "^5.0.4",
-    "@scalar/api-reference": "^1.66.1",
+    "@scalar/api-reference": "^1.67.0",
     "bootstrap-icons": "^1.13.1"
   }
 }
