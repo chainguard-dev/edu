@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "A conceptual article outlining different strategies and tools for keeping images up to date and avoiding the use of end-of-life software."
 date: 2024-12-02T11:07:52+02:00
-lastmod: 2026-09-03T13:29:22+00:00
+lastmod: 2026-09-03T15:33:31+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -112,7 +112,9 @@ redis:7@sha256:01afb31d6d633451d84475ff3eb95f8c48bf0ee59ec9c948b161adb4da882053
 
 [Frizbee](https://github.com/stacklok/frizbee), a tool from Stacklok, will update image references to the most up-to-date digest. For the above example, it will ask the registry for the digest of the `cgr.dev/chainguard/wolfi-base:latest` image and update it if it doesn't match.
 
-At Chainguard, we take a similar approach with the [digestabot](https://www.chainguard.dev/unchained/keep-your-chainguard-images-up-to-date-with-digestabot?utm_source=blog&utm_medium=referral&utm_campaign=FY25-EC-Blog_sourced) tool. [Digestabot is a GitHub action](https://github.com/chainguard-dev/digestabot) that will look up digests in the above format and open a PR to update them.
+At Chainguard, we take a similar approach with [Digestabot](https://github.com/chainguard-dev/digestabot), a GitHub Action that looks up digests in this format and opens a pull request to update them.
+
+Digestabot authenticates to your private `cgr.dev` registry with an assumable identity. Refer to [Using Digestabot with Chainguard Containers](/chainguard/containers/staying-secure/updating-images/digestabot/) for configuration details.
 
 ### Dependabot
 
@@ -124,10 +126,12 @@ Dependabot authenticates to your private `cgr.dev` registry with a pull token. R
 
 ### Renovate
 
-[Renovate](https://github.com/renovatebot/renovate) is a similar solution to Dependabot and will open PRs to update out-of-date dependencies. The major difference is that Renovate is a self-hosted application that supports multiple repositories, like GitLab, Azure, and Bitbucket, instead of just GitHub.
+[Renovate](https://github.com/renovatebot/renovate) is a similar solution to Dependabot and opens pull requests to update out-of-date dependencies. The major difference is that Renovate is a self-hosted application that supports multiple repositories, like GitLab, Azure, and Bitbucket, instead of just GitHub.
+
+Refer to [Using Renovate with Chainguard Containers](/chainguard/containers/staying-secure/updating-images/renovate/) for configuration details.
 
 ## Conclusion
 
 Something as important as keeping packages up to date has more approaches and tooling than one might expect. This article has shied away from offering any clear recommendations, but this is a matter where every organization will need to choose a solution that suits its own needs.
 
-We encourage you to check out each of the solutions listed in this article and judge them on their own merits. We also suggest you read our other articles on handling EOL software, including [Considerations for keeping containers up to date](/chainguard/containers/recommended-practices/considerations-for-image-updates/).
+We encourage you to check out each of the solutions listed in this article and judge them on their own merits. We also suggest you read our other articles on handling EOL software, including [Considerations for keeping containers up to date](/chainguard/containers/staying-secure/updating-images/considerations-for-image-updates/).
