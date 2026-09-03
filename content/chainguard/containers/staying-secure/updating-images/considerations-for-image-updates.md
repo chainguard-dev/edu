@@ -11,7 +11,7 @@ aliases:
 type: "article"
 description: "Learn best practices for updating container images, including Chainguard's approach to daily rebuilds, semantic versioning, and balancing security with stability"
 date: 2023-10-05T11:07:52+02:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-09-03T15:35:10+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -92,7 +92,7 @@ As mentioned in the previous section, image digests guarantee full reproducibili
 
 Of course, digests do come with their own drawbacks. Image digests are not human readable; unlike tags, you can't always tell the difference between two image digests with a quick visual scan. Digests also don't make it clear whether a digest represents an older version, or whether one digest is older than another. Combined, these factors mean that digests can make it more difficult to know whether an image is up to date.
 
-[Chainguard Containers](/chainguard/containers/) are rebuilt daily in order to ensure that they're kept up to date and include all the latest available security patches. We recommend adopting a development pattern where digests are used to identify Chainguard Containers and are regularly updated by a bot, ensuring that the project and its downstream users benefit from reduced vulnerability counts, bug fixes, and new features. We do this ourselves with our [digestabot tool](https://github.com/chainguard-dev/digestabot).
+[Chainguard Containers](/chainguard/containers/) are rebuilt daily in order to ensure that they're kept up to date and include all the latest available security patches. We recommend adopting a development pattern where digests are used to identify Chainguard Containers and are regularly updated by a bot, ensuring that the project and its downstream users benefit from reduced vulnerability counts, bug fixes, and new features. We do this ourselves with [Digestabot](/chainguard/containers/staying-secure/updating-images/digestabot/), our own GitHub Action for keeping digest-pinned references current.
 
 As with the recommendation stated previously, Chainguard requires a human to approve the digestabot's update before it's deployed. Technically, we could set up an automatic approval for the bot's updates, but requiring a human approval combines the stability and reproducibility of using a digest with the good security hygiene of keeping images regularly updated.
 
@@ -103,5 +103,5 @@ There are many factors to consider when developing a process for keeping your im
 To reiterate, there's no one-size-fits-all approach to keeping one's images up to date. Our goal for this article is to introduce some of the important factors one should consider when developing a container image update plan for their application. If you'd like to learn more about the subjects touched on in this guide, we encourage you to check out the following resources.
 
 * [How to use Chainguard Containers](/chainguard/containers/how-to-use-chainguard-images/)
-* [How to use container image digests to improve reproducibility](/chainguard/containers/videos/container-image-digests/)
+* [How to use container image digests to improve reproducibility](/chainguard/containers/how-to-use/container-image-digests/)
 * [How to compare Chainguard Containers with chainctl](/chainguard/containers/how-to-use/comparing-images/)

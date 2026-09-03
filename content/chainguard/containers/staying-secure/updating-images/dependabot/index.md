@@ -4,7 +4,7 @@ linktitle: "Using Dependabot"
 type: "article"
 description: "How to configure Dependabot to authenticate to your private cgr.dev registry and open pull requests that update Chainguard Containers"
 date: 2026-09-03T00:00:00+00:00
-lastmod: 2026-09-03T13:30:37+00:00
+lastmod: 2026-09-03T15:15:12+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -142,7 +142,7 @@ Chainguard recommends pinning image references to a [digest](/chainguard/contain
 Two limits are worth knowing before you rely on this:
 
 * Dependabot updates a digest that's already present, but it won't add one to a reference that has only a tag. Pin the digest yourself the first time. Adding digests automatically is an [open feature request](https://github.com/dependabot/dependabot-core/issues/14065).
-* When a reference is pinned by digest alone, Dependabot [doesn't supersede an open pull request](https://github.com/dependabot/dependabot-core/issues/7387) as newer digests are published. Because Chainguard rebuilds container images daily, use Digestabot for references pinned to a fixed tag.
+* When a reference carries both a tag and a digest, Dependabot [doesn't supersede an open pull request](https://github.com/dependabot/dependabot-core/issues/7387) as newer digests are published. Because Chainguard rebuilds container images daily, use Digestabot for references pinned to a fixed tag.
 
 ## Limitations
 

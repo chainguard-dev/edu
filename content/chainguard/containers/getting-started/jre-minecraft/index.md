@@ -4,7 +4,7 @@ type: "article"
 linktitle: "JRE + Minecraft"
 description: "Learn how to set up a secure Minecraft Java server using Chainguard's JRE container image with minimal vulnerabilities and enhanced security features"
 date: 2025-03-26T11:07:52+02:00
-lastmod: 2026-08-21T12:32:28+00:00
+lastmod: 2026-09-03T15:33:31+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -519,7 +519,7 @@ A good strategy is to set up a repository with your server setup and use a GitHu
 
 A digest is a unique identifier for a specific image build. When you pin your Dockerfile to a digest instead of a mutable tag, you make your build reproducible, because anyone building your Dockerfile will be using the exact same version of the base image. [This section](https://edu.chainguard.dev/chainguard/containers/staying-secure/updating-images/considerations-for-image-updates/#be-mindful-about-tagging-practices) of our Image Update Considerations article on Academy has details on recommended practices for pinning images to a specific version. You can also refer to [this video](https://edu.chainguard.dev/chainguard/containers/how-to-use/container-image-digests/) for a demonstration on how to use image digests.
 
-The downside of pinning your base image to a digest is that you’ll need to update your Dockerfile each time a new version of the image is available. You can automate most of this process with our [Digestabot GitHub action](https://github.com/chainguard-dev/digestabot), which will open a pull request with the updated digest each time a new image build becomes available.
+The downside of pinning your base image to a digest is that you’ll need to update your Dockerfile each time a new version of the image is available. You can automate most of this process with [Digestabot](/chainguard/containers/staying-secure/updating-images/digestabot/), our GitHub Action that opens a pull request with the updated digest each time a new image build becomes available.
 
 ### Change the default port
 

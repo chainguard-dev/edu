@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "How to use Renovate to automatically keep Chainguard Containers updated"
 date: 2023-09-05T11:07:52+02:00
-lastmod: 2026-08-21T12:32:28+00:00
+lastmod: 2026-09-03T15:15:12+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -26,11 +26,12 @@ toc: true
 
 ## Prerequisites
 
-This guide assumes you have successfully installed and configured Renovate. If you haven't already set this up, please refer to the [installation instructions](https://docs.renovatebot.com/getting-started/installing-onboarding/).
+To follow this guide, you need:
 
-Additionally, several examples in this guide assume you have `chainctl` — Chainguard's command-line interface — installed on your local machine. Follow our guide on [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up.
+* Renovate installed and configured. Refer to Renovate's [installation instructions](https://docs.renovatebot.com/getting-started/installing-onboarding/) if you haven't set this up.
+* `chainctl`, Chainguard's command-line interface, installed on your local machine. Several examples in this guide use it. Refer to [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) if you haven't set this up.
 
-## Setting up credentials for Renovate
+## Set up credentials for Renovate
 
 In order to support versioned images from a private repository, you must provide Renovate with credentials to access the [Chainguard registry](/chainguard/containers/chainguard-registry/overview/) at `cgr.dev`. You can do this by creating a token with `chainctl`, as in this example:
 
@@ -86,9 +87,9 @@ chainctl auth configure-docker --pull-token --ttl 10m
 
 This sets the pull token's lifetime to 10 minutes, which limits the risk posed if the token leaks. You can also set the lifetime to a longer period for more manual configurations.
 
-## Updating versioned container images
+## Update versioned container images
 
-By default, Renovate will now open PRs for any out-of-date versions of images it finds. For example, you can run Renovate by pushing the following Dockerfile to a repository overseen by Renovate:
+By default, Renovate will now open pull requests for any out-of-date versions of images it finds. For example, you can run Renovate by pushing the following Dockerfile to a repository overseen by Renovate:
 
 ```dockerfile
 FROM cgr.dev/chainguard.edu/python:3.11-dev AS builder
@@ -104,9 +105,9 @@ Not all images use semantic versioning. Refer to the [Renovate documentation](ht
 
 Ideally, image references should also be pinned to a digest, as shown in the following section.
 
-## Updating `:latest` container images
+## Update `:latest` container images
 
-Renovate also supports updating image references that are pinned to digests. This allows you to keep floating tags such as `:latest` in sync with the most up-to-date version.
+Renovate also supports updating image references that are pinned to digests. This lets you keep mutable tags such as `:latest` in sync with the most up-to-date version.
 
 As an example, the following Dockerfile prompts Renovate to open two similar pull requests:
 
@@ -127,7 +128,7 @@ COPY --from=builder /work/hello /hello
 ENTRYPOINT ["/hello"]
 ```
 
-## Pinning digests
+## Pin digests
 
 The `pinDigests` option configures Renovate to add digests to image references that don't contain them.
 
@@ -148,7 +149,7 @@ The following example Renovate configuration includes this option:
 }
 ```
 
-This configures Renovate to open PRs that pin a reference like `cgr.dev/chainguard/python:3.12` to a digest like the following:
+This configures Renovate to open pull requests that pin a reference like `cgr.dev/chainguard/python:3.12` to a digest like the following:
 
 ```
 cgr.dev/chainguard/python:3.12@sha256:e3b524a97c37c32ba590aae0ebcebe3a983c1f69a5093b670fdba980f97a09b3
@@ -180,9 +181,9 @@ Here is an example Renovate configuration that does this:
 
 This configures Renovate to update the digest for a reference but not the tag.
 
-The benefit of this approach is that it allows you to define your update strategy for each image reference by the use of a mutable tag, rather than having separate rules for different images in your Renovate configuration, similar to Chainguard's [Digestabot](https://github.com/chainguard-dev/digestabot) GitHub Action.
+The benefit of this approach is that it lets you define your update strategy for each image reference through a mutable tag, rather than having separate rules for different images in your Renovate configuration, similar to Chainguard's [Digestabot](https://github.com/chainguard-dev/digestabot) GitHub Action.
 
-## Updating Chainguard Helm charts in Helmfiles
+## Update Chainguard Helm charts in Helmfiles
 
 Renovate supports updating [Helmfile](https://helmfile.readthedocs.io/) releases with its [built-in `helmfile` manager](https://docs.renovatebot.com/modules/manager/helmfile/). However, it doesn't presently support updating [digest references](/chainguard/containers/how-to-use/container-image-digests/) for OCI chart URLs, which is a [recommended practice when deploying Chainguard Helm charts](/chainguard/containers/how-to-use/use-chainguard-helm-charts/#pin-to-digest). See [renovatebot/renovate#45054](https://github.com/renovatebot/renovate/discussions/45054) for more details.
 
@@ -202,7 +203,7 @@ releases:
     namespace: nginx
 ```
 
-Configure Renovate with the example below, replacing every instance of `cgr.dev/<org>` with your Chainguard organization or internal mirror/proxy.
+Configure Renovate with the following example, replacing every instance of `cgr.dev/<org>` with your Chainguard organization or internal mirror or proxy.
 
 ```json
 {
@@ -239,7 +240,7 @@ Configure Renovate with the example below, replacing every instance of `cgr.dev/
 }
 ```
 
-## Updating Chainguard Helm charts in ArgoCD applications
+## Update Chainguard Helm charts in ArgoCD applications
 
 Renovate supports updating [ArgoCD](https://argo-cd.readthedocs.io/) `Application` manifests with its [built-in `argocd` manager](https://docs.renovatebot.com/modules/manager/argocd/). However, it doesn't presently support updating [digest references](/chainguard/containers/how-to-use/container-image-digests/) for OCI chart URLs, which is a [recommended practice when deploying Chainguard Helm charts](/chainguard/containers/how-to-use/use-chainguard-helm-charts/#pin-to-digest). See [renovatebot/renovate#45055](https://github.com/renovatebot/renovate/discussions/45055) for more details.
 
@@ -269,7 +270,7 @@ spec:
     targetRevision: 22.1.0@sha256:7b88d44da254fc764171da809471d10c6cf15b9ab0ddcb4b475b9a8f380aeb79
 ```
 
-Configure Renovate as in the example below, replacing every instance of `cgr.dev/<org>` with your Chainguard organization or internal mirror/proxy.
+Configure Renovate as in the following example, replacing every instance of `cgr.dev/<org>` with your Chainguard organization or internal mirror or proxy.
 
 ```json
 {
@@ -306,7 +307,7 @@ Configure Renovate as in the example below, replacing every instance of `cgr.dev
 }
 ```
 
-## Updating Chainguard Helm charts in Flux
+## Update Chainguard Helm charts in Flux
 
 Renovate natively supports updating [Flux](https://fluxcd.io/) `OCIRepository` resources with its [built-in `flux` manager](https://docs.renovatebot.com/modules/manager/flux/).
 
@@ -338,7 +339,7 @@ spec:
     name: kube-prometheus-stack
 ```
 
-Configure Renovate with the example below, adjusting the `flux.fileMatch` patterns to cover your repository layout. The `pinDigests` rule enforces the [recommended practice of pinning charts to a digest](/chainguard/containers/how-to-use/use-chainguard-helm-charts/#pin-to-digest): if an `OCIRepository` has a `tag` but no `digest`, Renovate opens a PR to add one.
+Configure Renovate with the following example, adjusting the `flux.fileMatch` patterns to cover your repository layout. The `pinDigests` rule enforces the [recommended practice of pinning charts to a digest](/chainguard/containers/how-to-use/use-chainguard-helm-charts/#pin-to-digest): if an `OCIRepository` has a `tag` but no `digest`, Renovate opens a pull request to add one.
 
 ```json
 {
@@ -362,9 +363,9 @@ Configure Renovate with the example below, adjusting the `flux.fileMatch` patter
 }
 ```
 
-## Running Renovate in GitHub Actions
+## Run Renovate in GitHub Actions
 
-You can use [`renovatebot/github-action`](https://github.com/renovatebot/github-action) to run Renovate from a GitHub Actions workflow. This can be combined with an [assumable identity](/chainguard/administration/assumable-ids/assumable-ids/) to authenticate to `cgr.dev` and update references to Chainguard container images in your repository.
+You can use [`renovatebot/github-action`](https://github.com/renovatebot/github-action) to run Renovate from a GitHub Actions workflow. This can be combined with an [assumable identity](/platform/administration/assumable-ids/assumable-ids/) to authenticate to `cgr.dev` and update references to Chainguard container images in your repository.
 
 > **Note**: This section assumes you have permissions to create identities in your Chainguard organization.
 
@@ -445,7 +446,7 @@ This workflow is scheduled to run at 3:00 a.m. every morning. You can trigger it
 
 Once the workflow has run successfully, you'll find pull requests in your repository for any image references that need to be updated.
 
-## Running Renovate with Docker
+## Run Renovate with Docker
 
 Chainguard provides [an image for Renovate](https://images.chainguard.dev/directory/image/renovate/overview). This is an example of how you can run this image to keep references to Chainguard images up to date in a GitHub repository.
 
@@ -493,9 +494,9 @@ This example passes a short-lived token for `cgr.dev` using the `RENOVATE_DOCKER
 
 ## Troubleshooting
 
-### Validate Renovate configuration
+### Renovate doesn't behave as expected
 
-If Renovate isn't working as expected, try running it in debug mode and/or dumping the resolved configuration.
+Run Renovate in debug mode and dump the resolved configuration to understand how it interpreted your settings.
 
 For example:
 
@@ -528,11 +529,11 @@ DEBUG: found labels in manifest (repository=local)
        }
 ```
 
-### Connection errors
+### Connections to `cgr.dev` fail
 
-If you have problems getting Renovate to monitor `cgr.dev`, please double-check the connection details. Make sure the token is still valid (you can verify with `chainctl iam identities list`) and it has access to the repository you are referring to. You can test these credentials by running a `docker login` and `docker pull` in a clean environment.
+If you have problems getting Renovate to monitor `cgr.dev`, double-check the connection details. Make sure the token is still valid (you can verify with `chainctl iam identities list`) and it has access to the repository you are referring to. You can test these credentials by running a `docker login` and `docker pull` in a clean environment.
 
-### getReleaseList error
+### The log shows a `getReleaseList` error
 
 You may encounter errors such as the following:
 
@@ -547,3 +548,11 @@ DEBUG: getReleaseList error (repository=chainguard-images/images-private, branch
 ```
 
 These can be safely ignored. They are caused by Renovate using the `org.opencontainers.image.source` label on our images to look for a changelog. As this source is set to the private `images-private` GitHub repository, this request fails.
+
+## Learn more
+
+* [Using Digestabot with Chainguard Containers](/chainguard/containers/staying-secure/updating-images/digestabot/) covers Chainguard's own GitHub Action for keeping digest-pinned references current.
+* [Using Dependabot with Chainguard Containers](/chainguard/containers/staying-secure/updating-images/dependabot/) covers the equivalent setup for teams already using Dependabot.
+* [Strategies and tooling for updating containers](/chainguard/containers/staying-secure/updating-images/strategies-tools-updating-images/) compares the wider range of update tools.
+* [Considerations for keeping containers up to date](/chainguard/containers/staying-secure/updating-images/considerations-for-image-updates/) covers the tradeoffs behind an update policy.
+* [Authenticating to the Chainguard registry](/chainguard/containers/chainguard-registry/authenticating/) documents pull tokens and the other authentication options in full.
