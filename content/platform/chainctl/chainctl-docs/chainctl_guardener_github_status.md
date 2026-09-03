@@ -1,5 +1,5 @@
 ---
-date: 2026-08-31T17:17:40Z
+date: 2026-09-02T22:28:18Z
 title: "chainctl guardener github status"
 slug: chainctl_guardener_github_status
 url: /platform/chainctl/chainctl-docs/chainctl_guardener_github_status/
@@ -16,6 +16,10 @@ List the GitHub organizations linked to a Chainguard group.
 ### Synopsis
 
 List the GitHub organizations linked to a Chainguard group.
+
+Which repositories guardener acts on is controlled by the guardener GitHub App's
+repository selection on GitHub — follow the SETTINGS link in the output to review
+or change it.
 
 Requires the guardener.association.list capability on the group (read-only; no
 GitHub authorization or browser flow is involved). When --parent is omitted, you

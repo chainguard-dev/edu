@@ -1,5 +1,5 @@
 ---
-date: 2026-08-31T17:17:40Z
+date: 2026-09-02T22:28:18Z
 title: "chainctl iam identity-providers scim disable"
 slug: chainctl_iam_identity-providers_scim_disable
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim_disable/

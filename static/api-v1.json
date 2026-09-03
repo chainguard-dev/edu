@@ -774,6 +774,11 @@
             "description": "filename is the archive-relative path from the manifest.",
             "type": "string"
           },
+          "processingStartedAt": {
+            "description": "processing_started_at is the time processing began for this file, i.e.\nwhen the intake agent registered its analysis task. May be unset when\nno per-file analysis task exists (status STATUS_UNSPECIFIED), when the\nrecord predates per-file tracking, or in other cases where start time\nwas not recorded.",
+            "format": "date-time",
+            "type": "string"
+          },
           "status": {
             "allOf": [
               {
@@ -3663,6 +3668,63 @@
         },
         "type": "object"
       },
+      "chainguard.platform.libraries.MalwareBlockListStatistics": {
+        "description": "MalwareBlockListStatistics is the bucketed view of one ecosystem's malware\nblock list, counting deduplicated entries by when they were first blocked:\na package version flagged by several advisories counts once, at its\nearliest blocked_at, exactly as ListBlockList's deduplicate_results mode\ncollapses the list itself. Buckets are ordered by start ascending; buckets\nwith no entries are omitted, so consumers plotting a contiguous series\nshould zero-fill the gaps.",
+        "properties": {
+          "computedAt": {
+            "description": "computed_at is when the statistics were computed, which for cache-served\nresponses is when the block list sync last published rather than when the\nrequest was handled.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "daily": {
+            "description": "daily buckets entries by UTC calendar day.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.MalwareBlockListStatisticsBucket"
+            },
+            "type": "array"
+          },
+          "ecosystem": {
+            "description": "ecosystem echoes the requested ecosystem.",
+            "type": "string"
+          },
+          "monthly": {
+            "description": "monthly buckets entries by UTC calendar month.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.MalwareBlockListStatisticsBucket"
+            },
+            "type": "array"
+          },
+          "total": {
+            "description": "total is the number of deduplicated entries on the block list across both\nversion and package scope — one per (ecosystem, package, version, scope)\ncoordinate — including entries with no blocked_at timestamp, which count\nhere but appear in no bucket.",
+            "format": "int64",
+            "type": "string"
+          },
+          "weekly": {
+            "description": "weekly buckets entries by ISO week: each bucket starts on a Monday (UTC).",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.MalwareBlockListStatisticsBucket"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.MalwareBlockListStatisticsBucket": {
+        "description": "MalwareBlockListStatisticsBucket counts the block list entries first blocked\nwithin one time bucket.",
+        "properties": {
+          "count": {
+            "description": "count is the number of deduplicated entries whose earliest blocked_at\nfalls within the bucket.",
+            "format": "int64",
+            "type": "string"
+          },
+          "start": {
+            "description": "start is the inclusive UTC start of the bucket. The bucket extends to the\nstart of the next calendar day, ISO week, or calendar month, depending on\nwhich series it belongs to.",
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.libraries.MalwareScope": {
         "default": "MALWARE_SCOPE_UNKNOWN",
         "description": "MalwareScope indicates whether a block list entry applies to a single\npackage version or to every version of the package.\n\n - MALWARE_SCOPE_VERSION: MALWARE_SCOPE_VERSION blocks a single version of the package.\n - MALWARE_SCOPE_PACKAGE: MALWARE_SCOPE_PACKAGE blocks every version of the package.",
@@ -4678,6 +4740,15 @@
         },
         "type": "object"
       },
+      "chainguard.platform.policies.v1.ParameterFormat": {
+        "default": "PARAMETER_FORMAT_UNSPECIFIED",
+        "description": "ParameterFormat refines what a parameter's strings mean, for the parameter\ntypes that carry them (PARAMETER_TYPE_STRING, PARAMETER_TYPE_STRING_LIST). It\nnames the domain rather than an operation, so a consumer decides what to do\nwith it: a value that cannot be parsed is rejected when the binding is\nwritten, and the canonical rendering is stored and evaluated against.\n\nWithout one, strings are opaque and stored verbatim.\n\n - PARAMETER_FORMAT_PURL: A package URL. Parsed and canonicalized per the purl spec, which is type\naware: an npm scope percent-encodes, a PyPI name lowercases and folds\nseparators. A version is optional, so both \"pkg:npm/left-pad\" and\n\"pkg:npm/left-pad@1.3.0\" are accepted.",
+        "enum": [
+          "PARAMETER_FORMAT_UNSPECIFIED",
+          "PARAMETER_FORMAT_PURL"
+        ],
+        "type": "string"
+      },
       "chainguard.platform.policies.v1.ParameterSchema": {
         "description": "ParameterSchema declares a single configurable parameter on a Policy.\nBindings supply values for these parameters at activation time.",
         "properties": {
@@ -4696,6 +4767,14 @@
           "description": {
             "description": "A human-readable description of what this parameter controls.",
             "type": "string"
+          },
+          "format": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.policies.v1.ParameterFormat"
+              }
+            ],
+            "description": "What the parameter's strings mean, for the string-valued types. Unset\nleaves them opaque."
           },
           "maximum": {
             "description": "The inclusive upper bound for numeric parameters (PARAMETER_TYPE_INTEGER)."
@@ -4988,6 +5067,10 @@
       "chainguard.platform.registry.AddChartResult": {
         "description": "AddChartResult describes what happened to a single repo during AddChart.",
         "properties": {
+          "consumesSlot": {
+            "description": "True if provisioning this repo consumed (or, on a dry run, would consume)\nan entitlement slot. Always false for the chart repo itself and for\norganizations whose plan does not meter individual images.",
+            "type": "boolean"
+          },
           "created": {
             "description": "True if the repo was newly created by this call; false if it already\nexisted (or, on a dry run, would not need to be created).",
             "type": "boolean"
@@ -4999,6 +5082,14 @@
           "name": {
             "description": "Path of the repo relative to the destination organization. The chart\nitself lives under the catalog folder (e.g. \"charts/argo-cd\"); image\ndependencies are created at the org root, so their path is the bare repo\nname (e.g. \"nginx\").",
             "type": "string"
+          },
+          "requirement": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.ChartImageRequirement"
+              }
+            ],
+            "description": "Whether the image is required or optional for the chart to deploy.\nUNSPECIFIED for the chart repo itself and for charts whose metadata does\nnot carry per-image requirements."
           }
         },
         "type": "object"
@@ -5537,6 +5628,10 @@
             "description": "The name/alias of the image.",
             "type": "string"
           },
+          "repoName": {
+            "description": "The catalog repo name derived from the image reference (e.g. \"nginx\").\nUnlike name, which is only unique within one (sub)chart level, repo_name\nidentifies the image repo in the catalog and is the value accepted by\nAddChartRequest.images.",
+            "type": "string"
+          },
           "requirement": {
             "allOf": [
               {
@@ -5585,6 +5680,13 @@
           "dryRun": {
             "description": "If true, return what would change but don't create anything.",
             "type": "boolean"
+          },
+          "images": {
+            "description": "Catalog repo names of the chart's images to provision (e.g. \"nginx\"; see\nChartImage.repo_name). Must be a subset of the images in the chart's\nmetadata; unknown names are rejected with INVALID_ARGUMENT. Images the\nchart requires are always provisioned regardless of this list — the list\nselects which optional images to include. Empty means all images.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
           },
           "sourceRepoId": {
             "description": "The UIDP of the source chart repo (e.g., from the catalog).",
@@ -5706,9 +5808,24 @@
             "format": "date-time",
             "type": "string"
           },
+          "externalImageGroupId": {
+            "description": "Identifier for the image group in whatever external system defined it\n(Salesforce/SFDC, GitHub, or another source).",
+            "readOnly": true,
+            "type": "string"
+          },
           "id": {
             "description": "The catalog image repository UIDP.",
             "type": "string"
+          },
+          "imageGroupName": {
+            "description": "Human-readable name of the image group.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "includedInImageGroup": {
+            "description": "Whether the image is entitled as a member of an image group rather than\nindividually. Populated on GetEffectiveEntitlementsResponse.active_images,\nRemoveEntitlementImagesResponse.images, and\nSwapEntitlementImagesResponse.removed, which all report stored catalog\nimages. Always false on AddEntitlementImagesResponse.images and\nSwapEntitlementImagesResponse.added, whose images are being entitled\nindividually by the request itself.",
+            "readOnly": true,
+            "type": "boolean"
           },
           "name": {
             "description": "Human-readable image name.",
@@ -5780,9 +5897,24 @@
       },
       "chainguard.platform.registry.EntitlementImage": {
         "properties": {
+          "externalImageGroupId": {
+            "description": "Identifier for the image group in whatever external system defined it\n(Salesforce/SFDC, GitHub, or another source).",
+            "readOnly": true,
+            "type": "string"
+          },
           "id": {
             "description": "The image repository UID.",
             "type": "string"
+          },
+          "imageGroupName": {
+            "description": "Human-readable name of the image group.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "includedInImageGroup": {
+            "description": "Whether the image is entitled as a member of an image group rather than\nindividually. Populated by ListEntitlementCatalogImages; always false on\nListEntitlementImages, whose table has no image group columns.",
+            "readOnly": true,
+            "type": "boolean"
           },
           "name": {
             "description": "Human-readable image name corresponding to id.",
@@ -5991,7 +6123,7 @@
       "chainguard.platform.registry.GetEffectiveEntitlementsResponse": {
         "properties": {
           "activeImages": {
-            "description": "Images the organization is currently entitled to, deduplicated\nacross entitlements with the latest expiration retained.",
+            "description": "Images the organization is currently entitled to, deduplicated\nacross entitlements with the latest expiration retained. Every field\ndescribes that one retained attachment, image group membership included:\nan image attached to several entitlements reports the group fields of the\nlatest-expiring attachment rather than a union across all of them.",
             "items": {
               "$ref": "#/components/schemas/chainguard.platform.registry.EntitledImage"
             },
@@ -6025,7 +6157,7 @@
             "type": "object"
           },
           "swapQuota": {
-            "description": "The organization's rolling 30-day catalog-image swap quota, aggregated\nacross its active entitlements. Both swaps (see SwapEntitlementImages) and\nstandalone image removals count against this quota. A value of -1 means\nunlimited (no swap limit is enforced); 0 means no swaps are permitted.\nUsage beyond the quota within the window consumes per-tier image capacity\nuntil it ages out.",
+            "description": "The organization's rolling 30-day catalog-image swap quota, aggregated\nacross its active entitlements. Swaps (see SwapEntitlementImages) count\nagainst this quota. A value of -1 means unlimited (no swap limit is\nenforced); 0 means no swaps are permitted. Usage beyond the quota within the\nwindow consumes per-tier image capacity until it ages out.",
             "format": "int32",
             "type": "integer"
           },
@@ -6035,7 +6167,7 @@
             "type": "string"
           },
           "swapsUsed": {
-            "description": "Catalog-image swaps and standalone removals in the current rolling 30-day\nwindow. When this exceeds swap_quota, the excess reduces the per-tier image\ncapacity available for new additions.",
+            "description": "Catalog-image swaps in the current rolling 30-day window. When this exceeds\nswap_quota, the excess reduces the per-tier image capacity available for new\nadditions.",
             "format": "int32",
             "type": "integer"
           }
@@ -13510,6 +13642,48 @@
         ]
       }
     },
+    "/libraries/v1/malware/blocklist/statistics": {
+      "get": {
+        "description": "GetBlockListStatistics returns bucketed statistics about one ecosystem's\nblock list: how many entries were blocked per day, per ISO week, and per\ncalendar month, plus the list's total size. Entries are deduplicated the\nway ListBlockList's deduplicate_results mode collapses them — one per\n(ecosystem, package, version, scope) coordinate, counted at its earliest\nblocked_at, however many advisories flag it. The ecosystem is required;\nrequests without one are rejected with INVALID_ARGUMENT.",
+        "operationId": "Malware_GetBlockListStatistics",
+        "parameters": [
+          {
+            "description": "ecosystem is the package ecosystem to report on: one of \"Maven\", \"PyPI\",\nor \"npm\", matched case-insensitively. Required: unlike ListBlockList\nthere is no all-ecosystems mode, so an empty or unrecognized ecosystem is\nrejected with INVALID_ARGUMENT.",
+            "in": "query",
+            "name": "ecosystem",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.MalwareBlockListStatistics"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Block List Statistics",
+        "tags": [
+          "Malware"
+        ]
+      }
+    },
     "/libraries/v1/npm/packages": {
       "get": {
         "operationId": "NpmPackages_List",
@@ -16036,7 +16210,7 @@
     },
     "/registry/v1/entitlements/{parent}:addImages": {
       "post": {
-        "description": "May return RESOURCE_EXHAUSTED when the organization has exceeded its\nrolling 30-day catalog-image swap quota: swaps and standalone removals\nbeyond the quota consume per-tier image capacity until they age out of the\nwindow, reducing what can be added. See GetEffectiveEntitlements\n(swap_quota, swaps_used) for the current budget.",
+        "description": "May return RESOURCE_EXHAUSTED when the organization has exceeded its\nrolling 30-day catalog-image swap quota: swaps beyond the quota consume\nper-tier image capacity until they age out of the window, reducing what can\nbe added. See GetEffectiveEntitlements (swap_quota, swaps_used) for the\ncurrent budget.",
         "operationId": "Entitlements_AddEntitlementImages",
         "parameters": [
           {
@@ -16177,7 +16351,7 @@
     },
     "/registry/v1/entitlements/{parent}:removeImages": {
       "post": {
-        "description": "Removal is a soft delete: the underlying rows are retained with a deletion\ntimestamp so that history can be reconstructed for audit purposes.\n\nStandalone removals count against the organization's rolling 30-day\ncatalog-image swap quota, the same as swaps (see GetEffectiveEntitlements).\nRemovals beyond the quota reduce the per-tier image capacity available for\nfuture additions until they age out of the window. For atomic image\nreplacement prefer SwapEntitlementImages, which removes and adds in one\ntransaction.",
+        "description": "Removal is a soft delete: the underlying rows are retained with a deletion\ntimestamp so that history can be reconstructed for audit purposes.",
         "operationId": "Entitlements_RemoveEntitlementImages",
         "parameters": [
           {
