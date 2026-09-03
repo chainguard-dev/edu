@@ -71,3 +71,10 @@
     margin: 0 48px 0 48px;
   }
 </style>
+{{ $js := resources.Get "js/scalar-api-reference.js" | js.Build (dict "minify" (not hugo.IsDevelopment)) -}}
+{{ if hugo.IsDevelopment -}}
+  <script src="{{ $js.RelPermalink }}" defer></script>
+{{ else -}}
+  {{ $js = $js | fingerprint "sha512" -}}
+  <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" crossorigin="anonymous" defer></script>
+{{ end -}}

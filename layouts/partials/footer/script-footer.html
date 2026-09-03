@@ -48,9 +48,6 @@
   {{ $slice = $slice | append $alert -}}
 {{ end -}}
 
-{{ $scalarAPIReference := resources.Get "js/scalar-api-reference.js" | js.Build -}}
-{{ $slice = $slice | append $scalarAPIReference -}}
-
 {{ $js := $slice | resources.Concat "main.js" -}}
 
 {{ if eq (hugo.Environment) "development" -}}
