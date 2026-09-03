@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "A conceptual article outlining different strategies and tools for keeping images up to date and avoiding the use of end-of-life software."
 date: 2024-12-02T11:07:52+02:00
-lastmod: 2026-09-03T15:33:31+00:00
+lastmod: 2026-09-03T15:35:10+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -22,7 +22,7 @@ toc: true
 
 When it comes to keeping a system secure, one of the most important measures you can take is to regularly apply updates. In modern, containerized infrastructures, this normally means updating containers to use only the latest container images that are still maintained. A casual observer might expect such a standard and important task to have agreed-on best practices and standardized tooling, but they might be surprised by the wide variety of different solutions and opinions on this problem.
 
-This conceptual article will delve into some of the options and offer guidance on which might work best for readers. This article assumes that you are familiar with [semantic versioning](https://semver.org/) (SemVer) and image tagging. If you aren't acquainted with these concepts, please check out this guide on [Considerations for keeping containers up to date](/chainguard/containers/recommended-practices/considerations-for-image-updates/).
+This conceptual article will delve into some of the options and offer guidance on which might work best for readers. This article assumes that you are familiar with [semantic versioning](https://semver.org/) (SemVer) and image tagging. If you aren't acquainted with these concepts, check out this guide on [Considerations for keeping containers up to date](/chainguard/containers/staying-secure/updating-images/considerations-for-image-updates/).
 
 ## Updating means risk
 
@@ -32,7 +32,7 @@ Larger software projects (like PostgreSQL, Java, and Node.js) often have multipl
 
 ## Not updating means more risk
 
-End of Life (EOL) software [presents a host of security risks](/chainguard/containers/recommended-practices/how-eol-software-accumulates-cves/). Upgrading may require a great deal of work and proper testing, but it's a small price to pay to keep your systems from being at risk and accruing technical debt.
+End of Life (EOL) software [presents a host of security risks](/chainguard/containers/staying-secure/updating-images/how-eol-software-accumulates-cves/). Upgrading may require a great deal of work and proper testing, but it's a small price to pay to keep your systems from being at risk and accruing technical debt.
 
 If your application has an automated test suite with good coverage, you can be confident that any breakages caused by upgrades will be caught before deployment to production. Of course, whenever a test failure occurs, there will be work required to address it. Putting off that work by delaying upgrades will only mean that more work is required in the future as further changes pile up.
 

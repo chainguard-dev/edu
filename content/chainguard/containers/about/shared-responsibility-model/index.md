@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "Reference guide outlining Chainguard's shared responsibility model: a framework that clarifies security obligations for hardened container images."
 date: 2024-10-17T11:07:52+02:00
-lastmod: 2026-09-03T15:24:53+00:00
+lastmod: 2026-09-03T15:35:10+00:00
 draft: false
 tags: ["Conceptual", "Chainguard Containers"]
 images: []
@@ -86,4 +86,4 @@ Following [the principle of immutability](https://www.chainguard.dev/unchained/t
 
 ## Learn more
 
-We encourage you to check out our other resources on recommended practices to ensure that your Chainguard Container Images are effectively maximizing your organization's security posture. As example, you can read through our conceptual articles on [Strategies for minimizing your CVE risk](/chainguard/containers/recommended-practices/cve-risk/) or [Considerations for keeping container images up to date](/chainguard/containers/recommended-practices/considerations-for-image-updates/).
+We encourage you to check out our other resources on recommended practices to ensure that your Chainguard Container Images are effectively maximizing your organization's security posture. As example, you can read through our conceptual articles on [Strategies for minimizing your CVE risk](/chainguard/containers/staying-secure/cve-risk/) or [Considerations for keeping container images up to date](/chainguard/containers/staying-secure/updating-images/considerations-for-image-updates/).

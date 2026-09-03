@@ -11,7 +11,7 @@ aliases:
 type: "article"
 description: "Learn best practices for updating container images, including Chainguard's approach to daily rebuilds, semantic versioning, and balancing security with stability"
 date: 2023-10-05T11:07:52+02:00
-lastmod: 2026-09-03T15:33:31+00:00
+lastmod: 2026-09-03T15:35:10+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -103,5 +103,5 @@ There are many factors to consider when developing a process for keeping your im
 To reiterate, there's no one-size-fits-all approach to keeping one's images up to date. Our goal for this article is to introduce some of the important factors one should consider when developing a container image update plan for their application. If you'd like to learn more about the subjects touched on in this guide, we encourage you to check out the following resources.
 
 * [How to use Chainguard Containers](/chainguard/containers/how-to-use-chainguard-images/)
-* [How to use container image digests to improve reproducibility](/chainguard/containers/videos/container-image-digests/)
+* [How to use container image digests to improve reproducibility](/chainguard/containers/how-to-use/container-image-digests/)
 * [How to compare Chainguard Containers with chainctl](/chainguard/containers/how-to-use/comparing-images/)
