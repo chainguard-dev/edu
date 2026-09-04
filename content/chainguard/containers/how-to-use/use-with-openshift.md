@@ -8,9 +8,6 @@ lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Containers", "OpenShift"]
 images: []
-menu:
-  docs:
-    parent: "chainguard-images"
 weight: 070
 toc: true
 aliases:
@@ -24,7 +21,7 @@ Chainguard Containers are fully compatible with Red Hat OpenShift Container Plat
 
 Using Chainguard Containers in your OpenShift deployment significantly reduces CVE remediation efforts and accelerates security compliance through minimal attack surface and daily security updates.
 
-When [Using Chainguard Containers](/chainguard/containers/how-to-use/how-to-use-chainguard-images/) with OpenShift, there are some adjustments that need to be made to the usual process. This guide provides guidance. Refer to the [OpenShift docs](https://docs.redhat.com/en/documentation/openshift_container_platform/) for more details.
+When [Using Chainguard Containers](/chainguard/containers/how-to-use/using-containers/) with OpenShift, there are some adjustments that need to be made to the usual process. This guide provides guidance. Refer to the [OpenShift docs](https://docs.redhat.com/en/documentation/openshift_container_platform/) for more details.
 
 ## Adjust ownership and permissions
 

@@ -40,7 +40,7 @@ The remaining roles are for more specialized functions. For example, `registry.p
 
 The `owner`, `editor`, and `viewer` roles are useful for user profiles that require broad, but clearly defined capabilities. The registry, container, and library roles have limited permissions, allowing them to manage only one specific Chainguard resource. These specialized, resource-specific roles grant minimal required access.
 
-Every role has at least one of four capabilities (`create`, `list`, `update`, `delete`) in relation to at least one Chainguard resource. For example, the `apk.pull` role only grants `list` access for APK packages and groups. This means identities with this role can pull the organization's APK packages and retrieve information about the organization, but won't have general access to the organization's [Chainguard registry](/chainguard/containers/chainguard-registry/overview/) access.
+Every role has at least one of four capabilities (`create`, `list`, `update`, `delete`) in relation to at least one Chainguard resource. For example, the `apk.pull` role only grants `list` access for APK packages and groups. This means identities with this role can pull the organization's APK packages and retrieve information about the organization, but won't have general access to the organization's [Chainguard registry](/chainguard/containers/registry/overview/) access.
 
 Chainguard's built-in default roles serve as building blocks and can be complemented with custom roles for specific use cases. Custom roles can extend or restrict default role capabilities, and offer or your organization greater flexibility, allowing you to mix default and custom roles based on your team's structure and needs.
 

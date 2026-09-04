@@ -8,9 +8,6 @@ lastmod: 2026-04-21T00:00:01+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
-menu:
-  docs:
-    parent: "chainguard-images"
 weight: 080
 toc: true
 aliases:
@@ -24,7 +21,7 @@ This page documents workflows for installing APK packages in [distroless variant
 
 The distroless variants of Chainguard Containers do not contain shells or package managers by design. This reduces attack surface and exploitability for these images. In cases where additional packages are required, we typically recommend the following:
 
-- If packages for the language runtime (such as those installed with Python’s pip or Node’s npm) are required and no additional system-level (APK) dependencies are needed, we recommend following one of our language-specific multi-stage build tutorials ([Python](https://edu.chainguard.dev/chainguard/containers/getting-started/python/), [Node](https://edu.chainguard.dev/chainguard/containers/migration/migration-guides/migrating-node/), [PHP](https://edu.chainguard.dev/chainguard/containers/migration/migration-guides/migrating-php/)).
+- If packages for the language runtime (such as those installed with Python’s pip or Node’s npm) are required and no additional system-level (APK) dependencies are needed, we recommend following one of our language-specific multi-stage build tutorials ([Python](https://edu.chainguard.dev/chainguard/containers/getting-started/python/), [Node](https://edu.chainguard.dev/chainguard/containers/migration/migration-guides/node/), [PHP](https://edu.chainguard.dev/chainguard/containers/migration/migration-guides/php/)).
 - Use Chainguard's [Custom Assembly](https://edu.chainguard.dev/chainguard/containers/features/custom-assembly/) tool to create an image with additional packages added.
 - For some use cases, consider running our variant tagged `:latest-dev` in production. These Chainguard Containers are also low-to-zero CVE and are considered production-ready.
 - Consider requesting a custom image from Chainguard.

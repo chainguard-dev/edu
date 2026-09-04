@@ -8,9 +8,6 @@ lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
-menu:
-  docs:
-    parent: "chainguard-images"
 weight: 001
 toc: true
 aliases:
@@ -580,7 +577,7 @@ provides enhanced security for the Java ecosystem by rebuilding popular Maven
 dependencies with the latest patches and comprehensive supply chain protection.
 
 - [How to Migrate a Java Application to Chainguard
-    Images](https://edu.chainguard.dev/chainguard/containers/migration/migration-guides/java-images/):
+    Images](https://edu.chainguard.dev/chainguard/containers/migration/migration-guides/java/):
 in this video, learn how to migrate Java applications to Chainguard Containers
 for reduced vulnerabilities, smaller images, and comprehensive JDK/JRE support
 with daily security updates.

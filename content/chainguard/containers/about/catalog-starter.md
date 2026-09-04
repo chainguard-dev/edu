@@ -47,7 +47,7 @@ Once you've added all five images, a prompt directs you to contact Chainguard if
 
 ### 2. Integrate with your registry and pipelines
 
-After you complete signup, you're free to use the five images you selected however you like. For example, you can pull them into your CI/CD pipelines and runtime environments, or pull them through a third-party registry like [JFrog Artifactory](/chainguard/containers/chainguard-registry/pull-through-guides/artifactory/artifactory-images-pull-through/). These container images are the same as those provided to Chainguard's paying customers, and are covered by Chainguard’s standard hardening, rebuild, and CVE-remediation processes, although they are not covered by [Chainguard's CVE SLA](https://www.chainguard.dev/legal/cve-policy).
+After you complete signup, you're free to use the five images you selected however you like. For example, you can pull them into your CI/CD pipelines and runtime environments, or pull them through a third-party registry like [JFrog Artifactory](/chainguard/containers/registry/pull-through-guides/artifactory/artifactory-images-pull-through/). These container images are the same as those provided to Chainguard's paying customers, and are covered by Chainguard’s standard hardening, rebuild, and CVE-remediation processes, although they are not covered by [Chainguard's CVE SLA](https://www.chainguard.dev/legal/cve-policy).
 
 ### 3. Upgrade when you’re ready
 
@@ -118,7 +118,7 @@ Catalog Starter allows users to try out Chainguard Containers, but it comes with
 * You can select up to five non-FIPS images. Once chosen, these images cannot be swapped or replaced during the lifetime of the free plan.
 * The following types of Chainguard Containers are not included in the Catalog Starter plan:
     * [FIPS-validated images](/chainguard/fips/fips-images/)
-    * Images that fall under the [EOL grace period](/chainguard/containers/features/eol-gp-overview/#understanding-chainguards-eol-grace-period)
+    * Images that fall under the [EOL grace period](/chainguard/containers/features/eol-grace-period/#understanding-chainguards-eol-grace-period)
     * Images whose software is part of [Chainguard EmeritOSS](https://github.com/chainguard-forks/)
 * Teams using Chainguard Catalog Starter will not have access to the support services available to paying customers: they will not be added to Chainguard's support platform, be able to create support tickets, or have access to root cause analysis (RCA).
     * Catalog Starter users will still have access to Chainguard resources like our [documentation](https://edu.chainguard.dev/), [courses](https://courses.chainguard.dev/), the [Community Slack channel](https://www.chainguard.dev/unchained/the-chainguard-slack-community-is-here), and the [public support knowledge base](https://support.chainguard.dev/hc/en-us).

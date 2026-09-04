@@ -381,7 +381,7 @@ To stop the services, press `CTRL+C` in the terminal, then run:
 docker compose down
 ```
 
-To keep your WordPress installation up to date, pin the image to a digest and use [Digestabot](/chainguard/containers/staying-secure/updating-images/digestabot/), a GitHub Action that opens a pull request whenever the digest behind the tag you reference changes. Chainguard rebuilds its container images daily, so this picks up each new WordPress build.
+To keep your WordPress installation up to date, pin the image to a digest and use [Digestabot](/chainguard/containers/staying-secure/updating-containers/digestabot/), a GitHub Action that opens a pull request whenever the digest behind the tag you reference changes. Chainguard rebuilds its container images daily, so this picks up each new WordPress build.
 
 ## Advanced usage
 

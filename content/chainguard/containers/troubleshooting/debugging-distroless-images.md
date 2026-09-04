@@ -13,9 +13,6 @@ lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
-menu:
-  docs:
-    parent: "chainguard-images"
 weight: 005
 toc: true
 ---
@@ -30,7 +27,7 @@ Before moving a workload to a distroless runtime image, it is important to make 
 
 The development variants of [Chainguard Containers](/chainguard/containers/) are designed to replicate the same packages of their distroless version, but with additional software that helps in developing, building, and debugging applications in different language ecosystems. These are sometimes referred to as `-dev` variants since they are tagged with `:latest-dev`.
 
-> **Note**: If you're debugging a workload that crashes because it expects packages from its previous upstream image, a *full* variant may help. Available for a number of our most popular Containers and tagged `-full`, these variants map their upstream equivalent. Refer to [Full container variants](/chainguard/containers/about/differences-development-production/#full-container-variants).
+> **Note**: If you're debugging a workload that crashes because it expects packages from its previous upstream image, a *full* variant may help. Available for a number of our most popular Containers and tagged `-full`, these variants map their upstream equivalent. Refer to [Full container variants](/chainguard/containers/about/container-variants/#full-container-variants).
 
 For example, the following table shows a comparison between the development variants of the PHP image, and which packages are included with each variant:
 

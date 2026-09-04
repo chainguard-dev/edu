@@ -32,12 +32,12 @@ tutorials: [
   {
     title: "Python migration",
     description: "",
-    url: "/chainguard/containers/migration/migration-guides/migrating-python/"
+    url: "/chainguard/containers/migration/migration-guides/python/"
   },
   {
     title: "Node migration",
     description: "",
-    url: "/chainguard/containers/migration/migration-guides/migrating-node/"
+    url: "/chainguard/containers/migration/migration-guides/node/"
   },
   {
     title: "Alpine compatibility",

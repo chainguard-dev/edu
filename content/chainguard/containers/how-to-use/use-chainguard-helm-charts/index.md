@@ -12,9 +12,6 @@ lastmod: 2026-09-04T16:00:38+00:00
 draft: false
 tags: ["Chainguard Containers", "Helm charts", "Product"]
 images: []
-menu:
-  docs:
-    parent: "chainguard-images"
 weight: 050
 toc: true
 ---

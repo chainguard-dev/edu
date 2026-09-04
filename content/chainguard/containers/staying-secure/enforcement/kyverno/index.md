@@ -56,7 +56,7 @@ spec:
               - image: "cgr.dev/*"
 ```
 
-This defines a policy that only allows images hosted in `cgr.dev`. Note that if you've set up a different registry to function as [a pull-through cache for your Chainguard container images](/chainguard/containers/chainguard-registry/pull-through-guides/), you could replace this with your own registry.
+This defines a policy that only allows images hosted in `cgr.dev`. Note that if you've set up a different registry to function as [a pull-through cache for your Chainguard container images](/chainguard/containers/registry/pull-through-guides/), you could replace this with your own registry.
 
 If you need to support more than one registry, you can define multiple values with a pattern like `cgr.dev/* | your.internal.repo/*`.
 

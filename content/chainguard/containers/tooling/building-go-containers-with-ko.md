@@ -8,9 +8,6 @@ lastmod: 2025-09-11T08:49:31+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
-menu:
-  docs:
-    parent: "chainguard-images"
 weight: 001
 toc: true
 aliases:

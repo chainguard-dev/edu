@@ -67,7 +67,7 @@ FROM cgr.dev/chainguard/python:latest
 
 You can browse available images and their tags in the [Chainguard Images directory](https://images.chainguard.dev/).
 
-This Dockerfile references both the `python` image's `latest` and `latest-dev` variants. Learn more about Chainguard image variants in [Chainguard’s container variants docs](/chainguard/containers/about/differences-development-production/).
+This Dockerfile references both the `python` image's `latest` and `latest-dev` variants. Learn more about Chainguard image variants in [Chainguard’s container variants docs](/chainguard/containers/about/container-variants/).
 
 > **Note**: `latest` tags are not recommended for production workloads. For production, we recommend pinning to a specific version or digest to ensure reproducible builds.
 

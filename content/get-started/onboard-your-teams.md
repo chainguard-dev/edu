@@ -36,7 +36,7 @@ Your **organization's registry** is what your teams pull from, and it holds only
 cgr.dev/$ORGANIZATION/$IMAGE:$TAG
 ```
 
-For example, an organization registered as `example.com` pulls its Python image from `cgr.dev/example.com/python`. Public Starter images remain available to everyone under `cgr.dev/chainguard/`. See the [registry overview](/chainguard/containers/chainguard-registry/overview/) for the access tiers and [authentication](/chainguard/containers/chainguard-registry/authenticating/) to set up your credentials.
+For example, an organization registered as `example.com` pulls its Python image from `cgr.dev/example.com/python`. Public Starter images remain available to everyone under `cgr.dev/chainguard/`. See the [registry overview](/chainguard/containers/registry/overview/) for the access tiers and [authentication](/chainguard/containers/registry/authenticating/) to set up your credentials.
 
 Your organization may also front the registry with a pull-through cache, such as Artifactory. In that case, the concepts here still hold, but you pull from your cache's address instead of `cgr.dev` directly. Ask your administrators for the path.
 

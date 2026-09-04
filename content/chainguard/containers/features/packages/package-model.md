@@ -107,7 +107,7 @@ You must replace `$ORGANIZATION_ID` with your organization's `ID` value, not its
 
 You can also find this in the [Chainguard Console](https://console.chainguard.dev/). After logging in, open the **Settings** tab. There, you'll find your organization's identifier under **Organization UID**. Be aware that these repository URLs **will not** resolve properly if you include the name of your organization instead of the UID.
 
-For any of your organization's Chainguard Containers that include the APK package manager, these repositories are included by default. You can also add them to the `/etc/apk/repositories` file of any container that uses APK. Our guide on [How to pull packages from Chainguard package repositories through Artifactory](/chainguard/containers/chainguard-registry/pull-through-guides/artifactory/artifactory-packages-pull-through/#configuring-pull-through-caches-for-chainguards-public-repositories) includes directions for setting up pull-through caches for these repositories on Artifactory.
+For any of your organization's Chainguard Containers that include the APK package manager, these repositories are included by default. You can also add them to the `/etc/apk/repositories` file of any container that uses APK. Our guide on [How to pull packages from Chainguard package repositories through Artifactory](/chainguard/containers/registry/pull-through-guides/artifactory/artifactory-packages-pull-through/#configuring-pull-through-caches-for-chainguards-public-repositories) includes directions for setting up pull-through caches for these repositories on Artifactory.
 
 ### Package retention in public repositories
 
@@ -133,7 +133,7 @@ Public repositories affected:
 
 ## Private APK repositories
 
-Chainguard customers have access to a private APK repository that is only accessible to members of their organization. An organization's private APK repository contains packages not included in either of the public repos, such as the main packages found in [Production containers](/chainguard/containers/about/images-categories/#production-containers), as well as any packages relating to FIPS support. That said, it's likely an organization's private APK repository also includes many of the same packages found in the Wolf or Extra Packages repositories.
+Chainguard customers have access to a private APK repository that is only accessible to members of their organization. An organization's private APK repository contains packages not included in either of the public repos, such as the main packages found in [Production containers](/chainguard/containers/about/container-categories/#production-containers), as well as any packages relating to FIPS support. That said, it's likely an organization's private APK repository also includes many of the same packages found in the Wolf or Extra Packages repositories.
 
 The list of packages available in a given organization’s private repository is based on the packages available in the Chainguard Containers that the organization already has access to. For example, say your organization has access to the Chainguard MySQL container image. Along with the container's main package (`mysql`), this image comes with other apk packages, including `bash`, `glibc`, and `pwgen`. This means that you’ll have access to these apk packages through your organization’s private APK repository, along with any that appear in other Chainguard container images that your organization has access to.
 

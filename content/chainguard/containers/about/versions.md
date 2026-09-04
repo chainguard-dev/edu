@@ -142,7 +142,7 @@ support](/get-started/get-support/) for the portal's prerequisites.
 ## Versions available by tier
 
 If you use [Chainguard Free
-Containers](/chainguard/containers/about/images-categories/#free-containers),
+Containers](/chainguard/containers/about/container-categories/#free-containers),
 you will have access to the `:latest` version of any Container available to the
 public. In some cases, you will also have access to the `:latest-dev` version,
 which includes a shell and package manager. For example, the Python container
@@ -280,7 +280,7 @@ To help in situations like this, Chainguard offers an end-of-life grace period
 for eligible Containers, allowing customers access to new builds of container
 images whose primary package has entered its end-of-life phase for up to six
 months after they have reached EOL. Refer to our [overview of the EOL Grace
-Period](/chainguard/containers/features/eol-gp-overview/) for more
+Period](/chainguard/containers/features/eol-grace-period/) for more
 information.
 
 ## Inspecting the product release lifecycle
@@ -402,7 +402,7 @@ for the full list of options that can be passed to the command.
 ### EOL grace period API
 
 The [EOL Grace Period
-API](/chainguard/containers/features/eol-gp-overview/#using-the-eol-grace-period-api)
+API](/chainguard/containers/features/eol-grace-period/#using-the-eol-grace-period-api)
 provides lifecycle information about a Chainguard container image's tags.
 
 For instance, the following snippet retrieves EOL data for the `python` image:
@@ -452,7 +452,7 @@ currently within its grace period.
 
 For full instructions on how to use the API and interpret its output, refer to
 [our overview of the EOL grace
-period](/chainguard/containers/features/eol-gp-overview/#using-the-eol-grace-period-api).
+period](/chainguard/containers/features/eol-grace-period/#using-the-eol-grace-period-api).
 
 ### Refer to endoflife.date
 

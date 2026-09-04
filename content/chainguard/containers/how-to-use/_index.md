@@ -13,7 +13,7 @@ banner: {
     image: "/icon-box-fill.svg",
     title: "How to use Chainguard Containers",
     cta: "Read more",
-    link: "/chainguard/containers/how-to-use/how-to-use-chainguard-images/"
+    link: "/chainguard/containers/how-to-use/using-containers/"
 }
 sectiontitle: "Working with Chainguard Containers"
 tutorials: [

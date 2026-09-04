@@ -240,5 +240,5 @@ OK, please try it out and let me know how you get on.
 ## Relevant resources
 
 * [Using the static Chainguard Container](/chainguard/containers/videos/static-base-image/) (Video)
-* [Choosing a container for your compiled programs](/chainguard/containers/about/images-compiled-programs/compiled-programs/) (Article)
+* [Choosing a container for your compiled programs](/chainguard/containers/about/choosing-a-base-container/) (Article)
 * [Getting started with the Go Chainguard Container](/chainguard/containers/getting-started/go/) (Article)

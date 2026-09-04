@@ -204,7 +204,7 @@ To learn how to configure custom runtime keys using `chainctl`, refer to the [Cu
 
 Whether a mirror requires a custom runtime key depends on how it signs packages:
 
-* **Mirrors that preserve Chainguard signatures work without additional configuration.** For example, remote repositories in [JFrog Artifactory](/chainguard/containers/chainguard-registry/pull-through-guides/artifactory/artifactory-packages-pull-through/) act as pull-through caches and serve packages with their original signatures intact, so the embedded Chainguard signing key verifies them.
+* **Mirrors that preserve Chainguard signatures work without additional configuration.** For example, remote repositories in [JFrog Artifactory](/chainguard/containers/registry/pull-through-guides/artifactory/artifactory-packages-pull-through/) act as pull-through caches and serve packages with their original signatures intact, so the embedded Chainguard signing key verifies them.
 * **Mirrors that re-sign packages with their own key require a custom runtime key.** Artifactory virtual repositories add their own signing key to packages, and Sonatype Nexus requires its own signing key for Alpine repositories. To use these mirrors, embed the mirror's public signing key in the image as a custom runtime key.
 
 > **Note**: Custom runtime repository URLs must use HTTPS. Chainguard does not validate the reachability of custom repository URLs at configuration time. A misconfigured URL will not cause build failures, but will cause runtime `apk add` failures inside the container.
@@ -227,6 +227,6 @@ You can also add custom certificates to Custom Assembly images. Refer to our gui
 We encourage you to check out our resources on our other [Chainguard Containers features](/chainguard/containers/features/), including the following:
 
 * [Unique tags](/chainguard/containers/features/unique-tags/)
-* [CVE visualizations](/chainguard/containers/features/cve_visualizations/)
+* [CVE visualizations](/chainguard/containers/features/cve-visualizations/)
 
 Additionally, for more information on working with Chainguard Containers, refer to our docs on [How to use Chainguard Containers](/chainguard/containers/how-to-use/).

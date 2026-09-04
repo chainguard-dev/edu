@@ -14,9 +14,6 @@ date: 2024-01-26T01:21:01+00:00
 lastmod: 2024-12-12T15:21:01+00:00
 draft: false
 images: []
-menu:
-  docs:
-    parent: "chainguard-images"
 weight: 010
 toc: true
 ---

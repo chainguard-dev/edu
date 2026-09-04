@@ -134,7 +134,7 @@ None of these mean the image was deleted. They mean the version has been superse
 
 Sometimes you can't upgrade on Chainguard's schedule, whether because a version reaches end of life ahead of your release cycle or because a later version has a problem that blocks you.
 
-For these cases, the End-of-Life Grace Period gives eligible containers up to six more months of new builds after the primary package reaches end of life. Eligibility depends on several requirements, and you can query grace period status through the Chainguard API. See the [EOL Grace Period overview](/chainguard/containers/features/eol-gp-overview/) for the requirements and the API.
+For these cases, the End-of-Life Grace Period gives eligible containers up to six more months of new builds after the primary package reaches end of life. Eligibility depends on several requirements, and you can query grace period status through the Chainguard API. See the [EOL Grace Period overview](/chainguard/containers/features/eol-grace-period/) for the requirements and the API.
 
 ## Open a support request
 

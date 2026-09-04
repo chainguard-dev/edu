@@ -9,10 +9,6 @@ lastmod: 2025-07-23T16:52:56+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
-menu:
-  docs:
-    parent: "chainguard-images"
-    identifier: "Chainguard Images Overview"
 weight: 005
 toc: true
 aliases:
@@ -43,10 +39,10 @@ Chainguard Containers include features that allow you to customize images, manag
 - [Custom Assembly](/chainguard/containers/features/ca-docs/custom-assembly/): Customize Chainguard images by adding packages, configuration files, and certificates using chainctl, without maintaining your own Dockerfiles.
 - Custom certificates: Add trusted certificates [to existing containers via Custom Assembly](/chainguard/containers/features/ca-docs/custom-assembly-certs/) (for organization-specific or environment-specific certificates) or by [using incert to build images with certificates embedded at build time](/chainguard/containers/features/incert-custom-certs/).
 - [Packages](/chainguard/containers/features/packages/package-model/): Install and manage additional packages in Chainguard images while preserving Chainguard’s minimal, secure-by-default base images.
-- [EOL grace periods](/chainguard/containers/features/eol-gp-overview/): Control how end-of-life packages are handled in images to balance security requirements with operational stability.
-- [STIGs](/chainguard/containers/features/image-stigs/): Use DISA STIG–aligned images to support compliance-driven environments.
+- [EOL grace periods](/chainguard/containers/features/eol-grace-period/): Control how end-of-life packages are handled in images to balance security requirements with operational stability.
+- [STIGs](/chainguard/containers/features/stigs/): Use DISA STIG–aligned images to support compliance-driven environments.
 - [Unique tags](/chainguard/containers/features/unique-tags/) and [tag history](/chainguard/containers/features/using-the-tag-history-api/): Track image changes over time with immutable tags and access tag history via API.
-- [CVE visualization](/chainguard/containers/features/cve_visualizations/): Explore vulnerability data for images to better understand risk and remediation timelines.
+- [CVE visualization](/chainguard/containers/features/cve-visualizations/): Explore vulnerability data for images to better understand risk and remediation timelines.
 
 ## Why minimal container images
 

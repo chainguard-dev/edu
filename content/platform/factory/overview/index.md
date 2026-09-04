@@ -84,7 +84,7 @@ is no longer supported upstream, we will cease updating it in Wolfi (refer to [W
 Packages in chainguard
 Containers](/chainguard/containers/about/versions/#wolfi-packages-in-chainguard-containers)).
 Customers benefit from an extended [EOL grace
-Period](/chainguard/containers/features/eol-gp-overview/)
+Period](/chainguard/containers/features/eol-grace-period/)
 with Chainguard OS where we continue to build old versions).
 
 The result is a relentless, orchestrated flow of updates — ensuring our

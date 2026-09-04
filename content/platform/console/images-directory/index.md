@@ -66,7 +66,7 @@ The other additional column is labeled **Pull URL**, and contains a URL you can 
 
 You can click on any of these column names to sort the list of container images in ascending or descending order based on the values in these columns.
 
-Above the table is a search box you can use to find specific container images by their name or latest version number. To the right of this box is a drop-down menu labeled **Category**. You can use this to filter the images listed based on which of [Chainguard's container image categories](/chainguard/containers/about/images-categories/) they belong to.
+Above the table is a search box you can use to find specific container images by their name or latest version number. To the right of this box is a drop-down menu labeled **Category**. You can use this to filter the images listed based on which of [Chainguard's container image categories](/chainguard/containers/about/container-categories/) they belong to.
 
 ## Container image information
 
@@ -96,7 +96,7 @@ The **Overview** tab contains the container image's README. Typically, READMEs i
 
 ### Comparison
 
-The **Comparisons** tab includes useful data that shows how a given Chainguard Container compares against a non-Chainguard alternative in terms of CVE count. It also includes helpful visualizations of these comparisons. For more information, check out our guide on [CVE visualizations](/chainguard/containers/features/cve_visualizations/).
+The **Comparisons** tab includes useful data that shows how a given Chainguard Container compares against a non-Chainguard alternative in terms of CVE count. It also includes helpful visualizations of these comparisons. For more information, check out our guide on [CVE visualizations](/chainguard/containers/features/cve-visualizations/).
 
 ### Provenance
 

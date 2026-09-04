@@ -48,7 +48,7 @@ Refer to [the blog post announcement](http://chainguard.dev/unchained/this-shit-
 
 ## Sample provenance code
 
-To pull an attestation, you must first [authenticate to Chainguard's registry](/chainguard/containers/chainguard-registry/authenticating/).
+To pull an attestation, you must first [authenticate to Chainguard's registry](/chainguard/containers/registry/authenticating/).
 
 Then you can download an attestation of provenance.
 

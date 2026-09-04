@@ -13,9 +13,6 @@ lastmod: 2026-08-21T12:27:26+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
-menu:
-  docs:
-    parent: "chainguard-images"
 weight: 040
 toc: true
 ---

@@ -3,7 +3,6 @@ title: "Chainguard Containers features"
 linktitle: "Features"
 aliases:
 - /chainguard/chainguard-images/images-features
-- /chainguard/chainguard-images/images-features
 - /chainguard/chainguard-images/features/
 - /chainguard/containers/images-features
 - /chainguard/containers/features/
@@ -31,7 +30,7 @@ tutorials: [
   {
     title: "Container STIGs",
     description: "",
-    url: "/chainguard/containers/features/image-stigs/"
+    url: "/chainguard/containers/features/stigs/"
   },
   {
     title: "Custom certificates",
@@ -41,7 +40,7 @@ tutorials: [
   {
     title: "CVE visualizations",
     description: "",
-    url: "/chainguard/containers/features/cve_visualizations/"
+    url: "/chainguard/containers/features/cve-visualizations/"
   },
   {
     title: "Tag History API",

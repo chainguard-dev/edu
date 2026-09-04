@@ -35,12 +35,12 @@ tutorials: [
   {
     title: "Containers for compiled programs",
     description: "",
-    url: "/chainguard/containers/working-with-images/about/images-compiled-programs/compiled-programs"
+    url: "/chainguard/containers/about/choosing-a-base-container/"
   },
   {
     title: "Container variants",
     description: "",
-    url: "/chainguard/containers/about/differences-development-production/"
+    url: "/chainguard/containers/about/container-variants/"
   },
     {
     title: "Product release lifecycle",
