@@ -473,7 +473,10 @@ jobs:
         # Only the served bundle. Everything else the compile job writes to
         # static/downloads is a build artifact that belongs in GHCR and GCS.
         add-paths: static/downloads/chainguard-complete-docs.md
-        branch: ai-docs-bundle
+        # Not "ai-docs-bundle": that is an existing release tag, and the action
+        # resolves the name to the tag, decides the branch already exists, then
+        # fails the push with "stale info" against a branch that never existed.
+        branch: ai-docs-bundle-refresh
         commit-message: Refresh the compiled AI documentation bundle
         title: "[AI Docs] Refresh the documentation bundle"
         body: |
