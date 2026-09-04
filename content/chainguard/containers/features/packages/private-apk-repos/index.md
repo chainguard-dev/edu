@@ -350,7 +350,11 @@ repository of the parent organization.
   365 days), valid unit strings range from nanoseconds to hours and are `ns`,
   `us`, `ms`, `s`, `m`, and `h`.
 * `--output=env`: set the command output to use export commands for environment
-  variables.
+  variables. `apk` and `oci` pull tokens use the unqualified
+  `CHAINGUARD_IDENTITY_ID` and `CHAINGUARD_TOKEN` names; library ecosystems use
+  names such as `CHAINGUARD_JAVA_IDENTITY_ID`. Refer to [pull token output
+  formats and credential
+  names](/platform/chainctl-usage/pull-token-output/) for the full mapping.
 * `--parent=ORGANIZATION`: specify the parent organization for your account as
   provided when requesting access and replace `ORGANIZATION`.
 

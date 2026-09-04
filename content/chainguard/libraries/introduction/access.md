@@ -160,6 +160,13 @@ Chainguard console:
 
 ## Pull token characteristics and use
 
+The username is the identity ID of the pull token identity that `chainctl` just
+created, and the password is the token itself. `chainctl` labels the same two
+values `identity_id` and `token` with `--output=json`, and
+`CHAINGUARD_JAVA_IDENTITY_ID` and `CHAINGUARD_JAVA_TOKEN` with `--output=env`.
+Refer to [pull token output formats and credential
+names](/platform/chainctl-usage/pull-token-output/) for the full mapping.
+
 The returned username and password combination is a new credential set in the
 organization that is independent of the account used to create and retrieve the
 credential set. It is therefore suitable for use in any service application,
