@@ -4,7 +4,7 @@ lead: "AI-ready documentation bundle for development"
 description: "Compiled Chainguard documentation optimized for use with AI coding assistants"
 type: "article"
 date: 2025-07-29T10:00:00+00:00
-lastmod: 2026-09-04T12:48:32+00:00
+lastmod: 2026-09-04T15:07:32+00:00
 draft: false
 images: []
 weight: 50
@@ -53,9 +53,12 @@ docker run --rm ghcr.io/chainguard-dev/ai-docs:latest
 # Verify documentation integrity
 docker run --rm ghcr.io/chainguard-dev/ai-docs:latest verify
 
-# Extract documentation to the current directory
-docker run --rm -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract /output
+# Extract documentation into a chainguard-ai-docs/ subdirectory
+docker run --rm --user "$(id -u):$(id -g)" \
+  -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract /output
 ```
+
+The container runs as a non-root user, so pass `--user` to let it write to the mounted directory and to leave the extracted files owned by you.
 
 **Container features:**
 
@@ -117,9 +120,10 @@ To use the hosted server instead of running a container locally, refer to the [h
 
 ```bash
 # Extract current documentation from the container image
-docker run --rm -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract /output
+docker run --rm --user "$(id -u):$(id -g)" \
+  -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract /output
 
-# The extracted file 'chainguard-ai-docs.md' is ready to use with your AI assistant
+# chainguard-ai-docs/chainguard-ai-docs.md is ready to use with your AI assistant
 ```
 
 ### Security features

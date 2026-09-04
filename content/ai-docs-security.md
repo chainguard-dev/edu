@@ -4,7 +4,7 @@ lead: "Security and transparency for AI-ready documentation"
 description: "Learn about the security measures and compilation process for Chainguard's AI documentation bundles"
 type: "article"
 date: 2025-07-30T10:00:00+00:00
-lastmod: 2026-09-04T12:48:32+00:00
+lastmod: 2026-09-04T13:19:55+00:00
 draft: false
 images: []
 weight: 60
@@ -30,8 +30,8 @@ Every compilation runs through multiple security checks:
 
 - **Secret Detection**: We scan for API keys, tokens, and other sensitive data
 - **Pattern Matching**: Common secret patterns are automatically redacted
-- **File Size Limits**: Individual files limited to 10MB, total bundle to 50MB
-- **Extension Filtering**: Only `.md`, `.html`, and `.json` files are processed
+- **Bundle Size Limit**: The build fails if the compiled bundle exceeds 50 MB
+- **Extension Filtering**: Only `.md`, `.html`, `.json`, and `.yaml` files are processed
 
 ### 2. Cryptographic Signatures
 
@@ -60,6 +60,9 @@ Documentation is compiled from these official repositories:
 1. **chainguard-dev/edu**: Main documentation site
 2. **chainguard-dev/courses**: Learning materials
 3. **chainguard-images/images-private**: Image documentation
+4. **chainguard-dev/dfc**: Package and image mappings from the Dockerfile Converter
+
+> **Note:** The Dockerfile Converter mappings do not currently reach the compiled bundle. We're tracking a fix.
 
 ### Build Environment
 

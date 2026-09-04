@@ -6,7 +6,6 @@ This directory contains scripts for compiling Chainguard documentation into a si
 
 - `compile_docs.py` - Main compilation script
 - `quick-start-guide.md` - Template for the Quick Start Guide
-- `create_compressed_docs.sh` - Shell script to create compressed versions
 - `requirements.txt` - Python dependencies
 
 ## Quick Start Guide Template
@@ -43,10 +42,9 @@ The guide should include:
 ```bash
 # From the edu directory
 python3 scripts/compile_docs.py
-
-# Create compressed versions
-./scripts/create_compressed_docs.sh
 ```
+
+The compile workflow creates the compressed `.tar.gz`, `.gz`, and `.zip` bundles after compilation.
 
 ## Automation
 
