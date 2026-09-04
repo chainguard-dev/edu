@@ -13,43 +13,43 @@ images: []
 weight: 040
 topic: true
 banner: {
-    image: "/icon-box-fill.svg",
-    title: "Get started with the Go Chainguard Container",
-    cta: "Read more",
-    link: "/chainguard/containers/getting-started/getting-started-go/"
+    image: "/icon-education.svg",
+    title: "Get started with the Python Chainguard Container",
+    subtitle: "Build a Python application on a minimal base, from first pull to a running container",
+    cta: "Read the guide",
+    link: "/chainguard/containers/getting-started/languages-and-runtimes/python/"
 }
 sectiontitle: "More getting started guides"
 tutorials: [
   {
+    title: "Go",
+    description: "Compile a Go binary and ship it on the static container",
+    url: "/chainguard/containers/getting-started/languages-and-runtimes/go/"
+  },
+  {
     title: "Node",
-    description: "",
-    url: "/chainguard/containers/getting-started/getting-started-node/"
+    description: "Run a Node.js application on a distroless runtime",
+    url: "/chainguard/containers/getting-started/languages-and-runtimes/node/"
+  },
+  {
+    title: "nginx",
+    description: "Serve static content from the nginx container",
+    url: "/chainguard/containers/getting-started/web-and-data-services/nginx/"
+  },
+  {
+    title: "PostgreSQL",
+    description: "Run PostgreSQL, including initialization and persistence",
+    url: "/chainguard/containers/getting-started/web-and-data-services/postgres/"
+  },
+  {
+    title: "MinIO",
+    description: "Run S3-compatible object storage on a Chainguard base",
+    url: "/chainguard/containers/getting-started/web-and-data-services/minio/"
   },
   {
     title: "PHP",
-    description: "",
-    url: "/chainguard/containers/getting-started/getting-started-php/"
-  },
-  {
-    title: "Python",
-    description: "",
-    url: "/chainguard/containers/getting-started/getting-started-python/"
-  },
-  {
-    title: "Ruby",
-    description: "",
-    url: "/chainguard/containers/getting-started/getting-started-ruby/"
-  },
-  {
-    title: "MariaDB",
-    description: "",
-    url: "/chainguard/containers/getting-started/getting-started-mariadb/"
-  },
-    {
-    title: "PostgreSQL",
-    description: "",
-    url: "/chainguard/containers/getting-started/getting-started-postgres/"
+    description: "Run a PHP application with FPM or the CLI container",
+    url: "/chainguard/containers/getting-started/languages-and-runtimes/php/"
   },
 ]
-
 ---

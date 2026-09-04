@@ -21,38 +21,37 @@ banner: {
     cta: "Start migrating",
     link: "/chainguard/containers/migration/"
 }
-sectiontitle: "Popular Chainguard Containers"
+sectiontitle: "Most-read guides"
 tutorials: [
   {
-    title: "Go",
-    description: "",
-    url: "/chainguard/containers/getting-started/languages-and-runtimes/go/"
+    title: "Custom Assembly",
+    description: "Have Chainguard build a container with the extra packages you need",
+    url: "/chainguard/containers/custom-assembly/overview/"
   },
   {
-    title: "Node",
-    description: "",
-    url: "/chainguard/containers/getting-started/languages-and-runtimes/node/"
+    title: "Private APK repositories",
+    description: "Install your own organization's packages inside a container",
+    url: "/chainguard/containers/building-and-modifying/packages/private-apk-repos/"
   },
   {
-    title: "PHP",
-    description: "",
-    url: "/chainguard/containers/getting-started/languages-and-runtimes/php/"
+    title: "STIGs",
+    description: "Run the DISA hardening checks against a Chainguard Container",
+    url: "/chainguard/containers/security-and-compliance/stigs/"
   },
   {
-    title: "Python",
-    description: "",
-    url: "/chainguard/containers/getting-started/languages-and-runtimes/python/"
+    title: "Authenticate to the registry",
+    description: "Set up pull credentials for cgr.dev, for a person or for CI",
+    url: "/chainguard/containers/registry/authenticating/"
   },
   {
-    title: "nginx",
-    description: "",
-    url: "/chainguard/containers/getting-started/web-and-data-services/nginx/"
+    title: "Retrieve SBOMs",
+    description: "Pull the build-time software bill of materials for any container",
+    url: "/chainguard/containers/security-and-compliance/retrieve-image-sboms/"
   },
   {
-    title: "C/C++",
-    description: "",
-    url: "/chainguard/containers/getting-started/languages-and-runtimes/c/"
+    title: "Artifactory pull-through",
+    description: "Serve Chainguard Containers through an Artifactory repository",
+    url: "/chainguard/containers/registry/pull-through-guides/artifactory-containers-pull-through/"
   },
 ]
-
 ---

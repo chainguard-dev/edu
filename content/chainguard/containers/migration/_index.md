@@ -17,38 +17,37 @@ banner: {
     cta: "Learn how",
     link: "/chainguard/containers/migration/porting-apps-to-chainguard/"
 }
-sectiontitle: "Tutorials and compatibility charts"
+sectiontitle: "Guides, compatibility charts, and tooling"
 tutorials: [
   {
-    title: "Migration overview",
-    description: "",
-    url: "/chainguard/containers/migration/migrations-overview/"
-  },
-  {
     title: "Migrating Dockerfiles",
-    description: "",
+    description: "The changes a Dockerfile usually needs, and why",
     url: "/chainguard/containers/migration/migrating-to-chainguard-images/"
   },
   {
-    title: "Python migration",
-    description: "",
-    url: "/chainguard/containers/migration/migration-guides/python/"
-  },
-  {
-    title: "Node migration",
-    description: "",
+    title: "Node",
+    description: "Port a Node.js Dockerfile to a Chainguard base",
     url: "/chainguard/containers/migration/migration-guides/node/"
   },
   {
+    title: "Python",
+    description: "Port a Python Dockerfile to a Chainguard base",
+    url: "/chainguard/containers/migration/migration-guides/python/"
+  },
+  {
     title: "Alpine compatibility",
-    description: "",
+    description: "What changes when moving from an Alpine base",
     url: "/chainguard/containers/migration/compatibility/alpine-compatibility/"
   },
   {
-    title: "Ubuntu compatibility",
-    description: "",
-    url: "/chainguard/containers/migration/compatibility/ubuntu-compatibility/"
+    title: "Migration overview",
+    description: "How to plan a migration and what to expect",
+    url: "/chainguard/containers/migration/migrations-overview/"
+  },
+  {
+    title: "Dockerfile Converter",
+    description: "Convert a Dockerfile automatically with dfc",
+    url: "/chainguard/containers/migration/migration-tools/dockerfile-conversion/"
   },
 ]
-
 ---
