@@ -415,6 +415,10 @@ jobs:
     permissions:
       contents: read
       id-token: write # Federate a token via octo-sts
+    env:
+      # Single source of truth: the preflight check and the
+      # create-pull-request input must never drift apart.
+      PR_BRANCH: bot/docs-bundle-refresh
 
     steps:
     - name: Harden Runner
@@ -466,6 +470,24 @@ jobs:
           echo "Bundle content changed; opening a pull request."
         fi
 
+    - name: Fail early if a tag shadows the pull request branch
+      run: |
+        # create-pull-request fetches "$PR_BRANCH:refs/remotes/origin/$PR_BRANCH",
+        # and a bare ref name resolves against tags as well as heads. A tag of
+        # the same name therefore makes the action believe the branch already
+        # exists, and the push then fails with git's opaque "stale info" -- the
+        # DOCS-158 failure. Every tag in this repository starts with "ai-docs"
+        # and a "Block Tag Deletion" ruleset makes them permanent, so name the
+        # problem here rather than leaving the next person to decode it.
+        if git ls-remote --exit-code origin "refs/tags/$PR_BRANCH" > /dev/null 2>&1; then
+          echo "Error: a tag named '$PR_BRANCH' exists and shadows the branch"
+          echo "this job pushes to. Set PR_BRANCH to a name no tag uses, and"
+          echo "keep it outside the ai-docs* namespace."
+          exit 1
+        fi
+
+        echo "No tag shadows '$PR_BRANCH'."
+
     - name: Open a pull request for the refreshed bundle
       uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
       with:
@@ -473,7 +495,7 @@ jobs:
         # Only the served bundle. Everything else the compile job writes to
         # static/downloads is a build artifact that belongs in GHCR and GCS.
         add-paths: static/downloads/chainguard-complete-docs.md
-        branch: ai-docs-bundle
+        branch: ${{ env.PR_BRANCH }}
         commit-message: Refresh the compiled AI documentation bundle
         title: "[AI Docs] Refresh the documentation bundle"
         body: |
