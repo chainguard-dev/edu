@@ -96,6 +96,11 @@ Pulls authenticated in this way are associated with a Chainguard identity, which
 You can also export the pull token details into environment variables for
 [authentication in automated
 systems](/chainguard/containers/features/packages/private-apk-repos/#pull-token-automation).
+Running `chainctl auth pull-token create --output=env` sets
+`CHAINGUARD_IDENTITY_ID` to the username and `CHAINGUARD_TOKEN` to the password.
+Refer to [pull token output formats and credential
+names](/platform/chainctl-usage/pull-token-output/) for the other formats and
+for the variable names each library ecosystem uses.
 
 ### Using a pull token with Podman, Helm, and other tools
 
@@ -110,13 +115,13 @@ docker login "cgr.dev" \
 Save that pair and pass it to any tool that logs in to an OCI registry. For example, Podman:
 
 ```sh
-podman login cgr.dev --username "$CHAINGUARD_IDENTITY" --password "$CHAINGUARD_TOKEN"
+podman login cgr.dev --username "$CHAINGUARD_IDENTITY_ID" --password "$CHAINGUARD_TOKEN"
 ```
 
 Or Helm:
 
 ```sh
-helm registry login cgr.dev --username "$CHAINGUARD_IDENTITY" --password "$CHAINGUARD_TOKEN"
+helm registry login cgr.dev --username "$CHAINGUARD_IDENTITY_ID" --password "$CHAINGUARD_TOKEN"
 ```
 
 The same username and password work with registry mirroring tools such as Artifactory. Refer to the [pull-through guides](/chainguard/containers/chainguard-registry/pull-through-guides/) for tool-specific instructions.
