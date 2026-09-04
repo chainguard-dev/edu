@@ -6,7 +6,7 @@ linktitle: "Subscribe to events"
 type: "article"
 description: "."
 date: 2025-04-24T15:22:20+01:00
-lastmod: 2025-04-25T15:22:20+01:00
+lastmod: 2026-09-04T16:00:38+00:00
 draft: false
 tags: ["Chainguard Console", "CloudEvents", "Procedural"]
 images: []
@@ -105,11 +105,11 @@ This sample request has the following headers:
 | content-type | `application/json` |
 | ce-type | `dev.chainguard.registry.pull.v1` |
 | ce-time | `2025-04-23T00:37:47Z` |
-| ce-subject | `45a0c61ea6fd977f050c5fb9ac06a69eed764595/7214b8ddd5ce879d` |
+| ce-subject | `<identity-uid>` |
 | ce-specversion | `1.0` |
 | ce-source | `cgr.dev` |
 | ce-id | `188888b6-27d2-4a80-8ad5-c7450ab89c0c` |
-| ce-group | `45a0c61ea6fd977f050c5fb9ac06a69eed764595` |
+| ce-group | `<group-uid>` |
 | ce-audience | `customer` |
 | ce-actor | `enforce-prod-registry-jzjewxe4@prod-enforce-fabc.iam.gserviceaccount.com` |
 | authorization | `Bearer …` |

@@ -4,7 +4,7 @@ linktitle: "Amazon ECR"
 type: "article"
 description: "Tutorial outlining how to set up an Amazon ECR pull through cache rule for pulling containers from Chainguard's registry."
 date: 2026-03-31T00:00:00+00:00
-lastmod: 2026-07-17T00:00:00+00:00
+lastmod: 2026-09-04T16:13:45+00:00
 draft: false
 tags: ["Chainguard Containers", "Registry"]
 images: []
@@ -56,21 +56,21 @@ This command prints a `docker login` command that includes `--username` and `--p
 ```output
 . . .
 
-    docker login "cgr.dev" --username "<pull_token_ID>" --password "<password>"
+    docker login "cgr.dev" --username "<identity-id>" --password "<pull-token>"
 ```
 
-You don't need to run this `docker login` command, but note down the `<pull_token_ID>` and `<password>` values. You'll supply them to AWS Secrets Manager in the next step.
+You don't need to run this `docker login` command, but note down the `<identity-id>` and `<pull-token>` values. You'll supply them to AWS Secrets Manager in the next step.
 
 ## Storing your pull token in AWS Secrets Manager
 
 ECR reads your Chainguard credentials from an AWS Secrets Manager secret rather than from the cache rule itself. The secret's name must begin with the `ecr-pullthroughcache/` prefix, and it must be in the same account and Region where you'll create the cache rule.
 
-To create the secret with the AWS CLI, run the following command. Replace `<pull_token_ID>` and `<password>` with the values from the previous step, replace `<secret_name>` with a name for your secret, and set `<region>` to the Region where you'll create the cache rule:
+To create the secret with the AWS CLI, run the following command. Replace `<identity-id>` and `<pull-token>` with the values from the previous step, replace `<secret_name>` with a name for your secret, and set `<region>` to the Region where you'll create the cache rule:
 
 ```sh
 aws secretsmanager create-secret \
     --name ecr-pullthroughcache/<secret_name> \
-    --secret-string '{"username":"<pull_token_ID>","accessToken":"<password>"}' \
+    --secret-string '{"username":"<identity-id>","accessToken":"<pull-token>"}' \
     --region <region>
 ```
 

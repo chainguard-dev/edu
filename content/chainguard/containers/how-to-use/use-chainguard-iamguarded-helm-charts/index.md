@@ -8,7 +8,7 @@ type: "article"
 description: "A primer on how to use Chainguard-produced iamguarded Helm charts to deploy Chainguard container images"
 lead: "A primer on how to use Chainguard-produced iamguarded Helm charts to deploy Chainguard container images"
 date: 2025-07-11T08:49:31+00:00
-lastmod: 2026-09-01T13:50:18+00:00
+lastmod: 2026-09-04T16:00:38+00:00
 draft: false
 tags: ["Chainguard Containers", "Helm charts", "iamguarded", "Product"]
 images: []
@@ -117,18 +117,18 @@ chainctl auth configure-docker --pull-token --save --ttl=24h
 
 To use this pull token in another environment, run this command:
 
-    docker login "cgr.dev" --username "45a0c61ea6fd977f050c5fb9ac06a69eed764595/095b0c7ea9d68679" --password "eyJhbGciOiJSUzI1NiJ9.eyJhdWQ... # Token truncated"
+    docker login "cgr.dev" --username "<identity-id>" --password "<pull-token>"
 
-Configuring identity "45a0c61ea6fd977f050c5fb9ac06a69eed764595/095b0c7ea9d68679" for pulls from cgr.dev (expires 2025-06-12T09:27:45-05:00).
+Configuring identity "<identity-id>" for pulls from cgr.dev (expires 2025-06-12T09:27:45-05:00).
 Overwriting existing credentials.
 ```
 
 Save the credentials as variables, like this.
 
 ```sh
-HELMUSER=45a0c61ea6fd977f050c5fb9ac06a69eed764595/095b0c7ea9d68679
+HELMUSER="<identity-id>"
 
-HELMPASS=eyJhbGciOiJSUzI1NiJ9.eyJhdWQ... # Token truncated
+HELMPASS="<pull-token>"
 ```
 
 Create your Kubernetes secret using the variables you just created.

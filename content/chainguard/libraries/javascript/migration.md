@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing JavaScript project to pull dependencies from Chainguard Libraries"
 date: 2026-06-01T00:00:00+00:00
-lastmod: 2026-08-31T14:57:37+00:00
+lastmod: 2026-09-04T16:13:45+00:00
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
   docs:
@@ -82,8 +82,8 @@ This outputs an identity ID and token named `my-js-token`, with a default expira
 Set the identity ID and token as environment variables:
 
 ```shell
-export CHAINGUARD_JAVASCRIPT_IDENTITY_ID="<your-identity-id>"
-export CHAINGUARD_JAVASCRIPT_TOKEN="<your-token>"
+export CHAINGUARD_JAVASCRIPT_IDENTITY_ID="<identity-id>"
+export CHAINGUARD_JAVASCRIPT_TOKEN="<pull-token>"
 ```
 
 > **Do not commit credentials to version control.** Configuration files

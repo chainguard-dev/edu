@@ -4,7 +4,7 @@ type: "article"
 lead: "Getting started with Cosign"
 description: ""
 date: 2023-03-29T08:49:31+00:00
-lastmod: 2023-03-29T08:49:31+00:00
+lastmod: 2026-09-04T16:00:38+00:00
 contributors: ["Eddie Zaneski"]
 draft: false
 tags: ["Cosign", "Overview"]
@@ -96,18 +96,13 @@ writing RSA key
 ```bash
 $ cat key.pem
 -----BEGIN RSA PRIVATE KEY-----
-MIIJKgIBAAKCAgEA1BgrTaqV3zS+TOx6A/n+59ECOlXl7Uk7W82wNe7kUgfVAIGj
-Bci+Tc7O/nf/7GCMlzli/4n5WE0Ny2i/Kj4Ycsu6TUEcW6XaJSz4R4TBTHAcQiNq
-8EkBQ2S5SuIIEekvCdVffkob3NtipOd/FaiLS1NVUAFcqOGHl2DYEkhP2puBS+Ad
-…
+MIIJKgIBAAKCAgEA…
+-----END RSA PRIVATE KEY-----
 
 $ cat pub.pem
-cat pub.pem
 -----BEGIN PUBLIC KEY-----
-MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA1BgrTaqV3zS+TOx6A/n+
-59ECOlXl7Uk7W82wNe7kUgfVAIGjBci+Tc7O/nf/7GCMlzli/4n5WE0Ny2i/Kj4Y
-csu6TUEcW6XaJSz4R4TBTHAcQiNq8EkBQ2S5SuIIEekvCdVffkob3NtipOd/FaiL
-…
+MIICIjANBgkqhkiG9w0BAQEFAAOCAg8A…
+-----END PUBLIC KEY-----
 ```
 
 We now have our keys but this is still a bit of magic. What is a PEM and what is this syntax? To answer that, let's look at doing the same thing we just did in Go (omitting errors for brevity).

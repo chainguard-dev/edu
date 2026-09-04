@@ -4,7 +4,7 @@ linktitle: "Harbor"
 type: "article"
 description: "Tutorial outlining how to sync images from Chainguard's registry to Harbor."
 date: 2025-08-19T12:00:00-00:00
-lastmod: 2025-08-19T12:00:00-00:00
+lastmod: 2026-09-04T16:13:45+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -48,7 +48,7 @@ This returns username and password credentials:
 ```Output
 To use this pull token in another environment, run this command:
 
-    docker login "cgr.dev" --username "<pull-token-username>" --password "<pull-token-password>"
+    docker login "cgr.dev" --username "<identity-id>" --password "<pull-token>"
 ```
 
 Take note of these values, as you'll need them shortly.
