@@ -1,5 +1,5 @@
 ---
-date: 2026-09-02T22:28:18Z
+date: 2026-09-03T18:18:22Z
 title: "chainctl libraries packages count"
 slug: chainctl_libraries_packages_count
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_packages_count/
