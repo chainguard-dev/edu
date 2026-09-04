@@ -4,7 +4,7 @@ lead: "AI-ready documentation bundle for development"
 description: "Compiled Chainguard documentation optimized for use with AI coding assistants"
 type: "article"
 date: 2025-07-29T10:00:00+00:00
-lastmod: 2026-09-04T12:46:09+00:00
+lastmod: 2026-09-04T12:48:32+00:00
 draft: false
 images: []
 weight: 50
@@ -63,7 +63,7 @@ docker run --rm -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract 
 - Runs as a non-root user
 - Includes verification scripts and checksums
 - Signed with Cosign
-- Rebuilt weekly
+- Rebuilt whenever the documentation changes
 
 **Verify the container signature:**
 
@@ -129,8 +129,8 @@ docker run --rm -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract 
   <ul>
     <li>Container image signed with Sigstore/Cosign</li>
     <li>Distributed through GitHub Container Registry</li>
-    <li>Rebuilt weekly through GitHub Actions</li>
-    <li>Scanned with gitleaks during the build</li>
+    <li>Rebuilt through GitHub Actions whenever the documentation changes</li>
+    <li>Scanned for credential patterns during the build</li>
   </ul>
 </div>
 
@@ -227,7 +227,7 @@ Once the documentation is loaded, try these prompts with your AI assistant:
 
 ### Updates
 
-The bundle is rebuilt weekly. The compilation date appears at the top of the downloaded file.
+The container image rebuilds whenever the documentation changes, and the downloadable bundle refreshes nightly. Each one carries its compilation date at the top of the file.
 
 ### Need help?
 
