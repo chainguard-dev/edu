@@ -1,8 +1,3 @@
-const removeCopyButton = (pre) => {
-  const copyButton = pre.querySelector(".btn.btn-copy");
-  pre.removeChild(copyButton);
-};
-
 function toast(textContent) {
   const notification = document.getElementById("notification");
   const notificationText = document.getElementById("notification-text");
@@ -74,7 +69,6 @@ const expandCode = (expanded, codeContent, expandButtonText, expandIcon) => {
 };
 
 const customizeUI = (pre) => {
-  removeCopyButton(pre); // remove original copy button
   const codeContent = pre.querySelector("code");
   codeContent.classList.add("code");
 

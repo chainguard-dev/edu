@@ -23,12 +23,6 @@
   {{ $slice = $slice | append $lazySizes -}}
 {{ end -}}
 
-{{ if .Site.Params.options.clipBoard -}}
-  {{ $clipBoard := resources.Get "js/clipboard.js" -}}
-  {{ $clipBoard := $clipBoard | js.Build -}}
-  {{ $slice = $slice | append $clipBoard -}}
-{{ end -}}
-
 {{ if .Site.Params.options.instantPage -}}
   {{ $instantPage := resources.Get "js/instant.page.js" -}}
   {{ $instantPage := $instantPage | js.Build -}}
