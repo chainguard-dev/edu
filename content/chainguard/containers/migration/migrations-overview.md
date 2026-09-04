@@ -147,9 +147,7 @@ The move to a distroless workflow can be confusing for both individual developer
 
 ### Troubleshooting resources
 
-To help with troubleshooting issues that can occur, Chainguard Academy has a guide on [Debugging distroless containers](/chainguard/containers/debugging-distroless-images/).
-
-We also have a video on [Debugging distroless containers with Docker Debug](/chainguard/containers/troubleshooting/debugging_distroless/).
+To help with troubleshooting issues that can occur, Chainguard Academy has a guide on [Debugging distroless containers](/chainguard/containers/troubleshooting/debugging-distroless-images/).
 
 Lastly, you might also find help in the [Chainguard Containers FAQs](/chainguard/containers/faq/).
 

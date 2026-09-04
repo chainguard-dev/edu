@@ -7,6 +7,12 @@ aliases:
 - /chainguard/chainguard-images/getting-started/go/
 - /chainguard/containers/getting-started/getting-started-go
 - /chainguard/containers/getting-started/go/
+- /chainguard/migration/migration-guides/migrating_go/
+- /chainguard/chainguard-images/videos/migrating_go/
+- /chainguard/migration/migrating_go/
+- /chainguard/containers/videos/migrating_go/
+- /get-started/migration/migration-guides/migrating_go/
+- /chainguard/containers/migration/migration-guides/migrating_go/
 description: "Learn how to build more secure Go applications with Chainguard's Go container images, featuring minimal attack surface and multi-stage build patterns for optimized runtime"
 date: 2023-02-28T11:07:52+02:00
 lastmod: 2025-07-23T15:09:59+00:00

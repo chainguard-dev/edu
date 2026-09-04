@@ -7,6 +7,12 @@ aliases:
 - /chainguard/migration/migration-guides/migrating-node/
 - /get-started/migration/migration-guides/migrating-node/
 - /chainguard/containers/migration/migration-guides/migrating-node/
+- /chainguard/chainguard-images/videos/node-images/
+- /chainguard/migration/node-images/
+- /chainguard/migration/migration-guides/node-images/
+- /chainguard/containers/videos/node-images/
+- /get-started/migration/migration-guides/node-images/
+- /chainguard/containers/migration/migration-guides/node-images/
 type: "article"
 description: "Learn how to migrate Node.js applications to Chainguard Containers for reduced vulnerabilities, smaller image sizes, and automated security patching"
 date: 2024-05-09T15:56:52-07:00
@@ -257,7 +263,7 @@ advisories.
 Containers](/chainguard/containers/migration/porting-apps-to-chainguard/) article contains an example of porting a
 Node.js Dockerfile for a legacy application.
 
-- The [How to migrate a Node.js application to Chainguard Containers](https://edu.chainguard.dev/chainguard/containers/videos/node-images/) video works through an example of porting a Node.js Dockerfile.
+- The [How to migrate a Node.js application to Chainguard Containers](https://www.youtube.com/watch?v=hfpVS-UP4Yw) video works through an example of porting a Node.js Dockerfile.
 
 - Bret Fisher has an excellent [guide to creating Node.js container
 images](https://github.com/BretFisher/nodejs-rocks-in-docker/), including advice for using

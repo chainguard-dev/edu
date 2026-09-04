@@ -9,6 +9,11 @@ aliases:
 - /chainguard/containers/troubleshooting/updating-images/digestabot/
 - /chainguard/containers/staying-secure/updating-images/digestabot/
 - /chainguard/containers/staying-secure/updating-containers/digestabot/
+- /chainguard/chainguard-images/videos/digestabot_frizbee/
+- /chainguard/chainguard-images/how-to-use/digestabot_frizbee/
+- /chainguard/containers/videos/digestabot_frizbee/
+- /chainguard/containers/how-to-use/digestabot_frizbee/
+- /chainguard/containers/security-and-compliance/updating-containers/digestabot_frizbee/
 type: "article"
 description: "How to configure Digestabot to keep digest-pinned references to Chainguard Containers current, including authenticating to a private cgr.dev registry"
 date: 2024-02-07T15:21:01+00:00
@@ -51,7 +56,7 @@ Both parts are required:
 
 This is the most common reason a Digestabot run reports nothing to do.
 
-To add digests to references that carry only a tag, use [Frizbee](https://github.com/stacklok/frizbee), as shown in [Reproducible Dockerfiles with Frizbee and Digestabot](/chainguard/containers/security-and-compliance/updating-containers/digestabot_frizbee/). Renovate's `pinDigests` option does the same job; refer to [Pin digests](/chainguard/containers/security-and-compliance/updating-containers/renovate/#pin-digests).
+To add digests to references that carry only a tag, use [Frizbee](https://github.com/stacklok/frizbee), as shown in [Reproducible Dockerfiles with Frizbee and Digestabot](https://www.youtube.com/watch?v=FfZZVZ-V5ho). Renovate's `pinDigests` option does the same job; refer to [Pin digests](/chainguard/containers/security-and-compliance/updating-containers/renovate/#pin-digests).
 
 Digestabot also skips two categories of reference regardless of their form:
 

@@ -6,6 +6,14 @@ aliases:
 - /chainguard/chainguard-images/troubleshooting/debugging-distroless-images/
 - /chainguard/containers/debugging-distroless-images/
 - /chainguard/containers/troubleshooting/debugging-distroless-images/
+- /chainguard/chainguard-images/videos/debugging_distroless/
+- /chainguard/chainguard-images/troubleshooting/debugging_distroless/
+- /chainguard/containers/videos/debugging_distroless/
+- /chainguard/containers/troubleshooting/debugging_distroless/
+- /chainguard/chainguard-images/videos/kubectl_cdebug/
+- /chainguard/chainguard-images/troubleshooting/kubectl_cdebug/
+- /chainguard/containers/videos/kubectl_cdebug/
+- /chainguard/containers/troubleshooting/kubectl_cdebug/
 type: "article"
 description: "In this article, we'll discuss a few different strategies to debug distroless images, considering these images typically don't include a shell or package managers."
 date: 2023-05-18T08:49:31+00:00

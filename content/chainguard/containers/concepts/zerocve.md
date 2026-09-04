@@ -6,6 +6,11 @@ aliases:
 - /chainguard/chainguard-images/about/zerocve/
 - /chainguard/containers/videos/zerocve/
 - /chainguard/containers/about/zerocve/
+- /chainguard/chainguard-images/videos/beyond_zero_pytorch_2024/
+- /chainguard/chainguard-images/about/beyond_zero_pytorch_2024/
+- /chainguard/containers/videos/beyond_zero_pytorch_2024/
+- /chainguard/containers/about/beyond_zero_pytorch_2024/
+- /chainguard/containers/concepts/beyond_zero_pytorch_2024/
 lead: "Chainguard achieves zero known CVEs in container images through a combination of minimal package inclusion, rapid vulnerability patching, and proactive security advisory management - this video demonstrates our approach."
 description: "Chainguard creates more secure container images with zero CVEs through minimal packages, rapid updates, and proactive security advisories - learn how we eliminate vulnerabilities"
 type: "article"
