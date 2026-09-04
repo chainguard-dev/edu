@@ -4,7 +4,7 @@ lead: "AI-ready documentation bundle for development"
 description: "Compiled Chainguard documentation optimized for use with AI coding assistants"
 type: "article"
 date: 2025-07-29T10:00:00+00:00
-lastmod: 2026-09-03T16:05:01+00:00
+lastmod: 2026-09-04T12:46:09+00:00
 draft: false
 images: []
 weight: 50
@@ -144,7 +144,7 @@ docker run --rm -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract 
 Security resources:
 
 - **[Security and compilation process](/ai-docs-security)** — measures and verification steps
-- [Build logs](https://github.com/chainguard-dev/edu/actions/workflows/compile-docs.yml) — public compilation logs
+- [Build logs](https://github.com/chainguard-dev/edu/actions/workflows/compile-ai-docs-from-gcs.yaml) — public compilation logs
 - [Source code](https://github.com/chainguard-dev/edu/tree/main/scripts) — open-source compilation scripts
 
 ### How to use the bundle with AI assistants
