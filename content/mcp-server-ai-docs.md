@@ -5,7 +5,7 @@ lead: "Model Context Protocol server for Chainguard documentation"
 description: "Access Chainguard documentation through MCP for AI assistants and automation"
 type: "article"
 date: 2026-01-02T21:00:00+00:00
-lastmod: 2026-09-04T12:48:32+00:00
+lastmod: 2026-09-04T13:19:55+00:00
 draft: false
 images: []
 weight: 600
@@ -23,7 +23,7 @@ The Chainguard AI Documentation MCP server gives AI assistants and automation to
 
 ## Why use the MCP server?
 
-- **Lower context cost.** Clients fetch only the sections they need instead of loading 2.8 MB of documentation into every prompt.
+- **Lower context cost.** Clients fetch only the sections they need instead of loading the entire multi-megabyte bundle into every prompt.
 - **Structured queries.** Look up a specific image, search for a CVE, or find a package equivalent without writing custom scrapers.
 - **IDE integration.** Works with Claude Code, Claude Desktop, Cursor, and other MCP-compatible clients, so developers can reference Chainguard docs while they write code.
 
