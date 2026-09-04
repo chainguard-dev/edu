@@ -1,0 +1,369 @@
+---
+title: "Authenticate to Chainguard's Registry"
+linktitle: "Authenticate"
+type: "article"
+description: "A guide on authenticating to Chainguard's registry to get container images"
+date: 2023-03-21T15:10:16+00:00
+lastmod: 2026-09-04T16:00:38+00:00
+tags: ["Chainguard Containers", "Registry"]
+draft: false
+images: []
+menu:
+  docs:
+    parent: "registry"
+weight: 020
+toc: true
+aliases:
+- /chainguard/chainguard-registry/authenticating/
+- /chainguard/chainguard-images/chainguard-registry/authenticating/
+- /chainguard/containers/chainguard-registry/authenticating/
+---
+
+## Public container images
+
+Chainguard offers a collection of images that are publicly available, don't require authentication, and are free to use by anyone. However, logging in with a Chainguard account and authenticating when pulling from the registry gives you access to the Chainguard Console, and provides a mechanism for Chainguard to contact you if there are any issues with images you are pulling. This may enable Chainguard to notify you of upcoming deprecations, changes in behavior, critical vulnerabilities and remediations for images you have recently pulled.
+
+## Quickstart: pull your first container
+
+These steps take you from nothing to a container image on your machine. Everything after this section covers the cases that need more than a local pull — CI systems, Kubernetes clusters, and registry mirrors.
+
+Before you start, [sign up for a Chainguard account](#signing-up) and [install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/), Chainguard's command-line tool.
+
+1. Configure the credential helper:
+
+    ```sh
+    chainctl auth configure-docker
+    ```
+
+    This points your Docker configuration at `chainctl` for `cgr.dev` credentials, then opens a browser window to authenticate you. You don't need to run `chainctl auth login` first; `configure-docker` authenticates you when no valid token is available. For headless machines and other login flows, refer to [Authentication options for `chainctl`](/platform/chainctl-usage/authentication-options/).
+
+2. Find the name of your organization:
+
+    ```sh
+    chainctl iam organizations list
+    ```
+
+3. Pull an image, replacing `$ORGANIZATION` with the name from the previous step:
+
+    ```sh
+    docker pull cgr.dev/$ORGANIZATION/python:latest
+    ```
+
+To see which repositories your organization can pull, run `chainctl images repos list`. To browse the full catalog, visit the [Chainguard Containers Directory](https://images.chainguard.dev/).
+
+## Signing up
+
+You can register a Chainguard account through our [sign up form](https://console.chainguard.dev/auth/login?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). This will create your account and a [Chainguard IAM organization](/platform/administration/iam-organizations/overview-of-chainguard-iam-model/). If you already have an account, you can log in through the [login page](https://console.chainguard.dev/auth/login?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
+
+For more details on signing in, you can review our [sign in guidance](/platform/administration/iam-organizations/how-to-manage-iam-organizations-in-chainguard/#logging-in). If your organization is interested in (or already using) custom identity providers like Okta, you can read [how to authenticate to Chainguard with custom identity providers](/platform/administration/custom-idps/custom-idps/).
+
+## Authenticating with the `chainctl` credential helper
+
+You can configure authentication by using the credential helper included with `chainctl`. This is the workflow recommended by Chainguard.
+
+First [install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) and configure the credential helper:
+
+```sh
+chainctl auth configure-docker
+```
+
+This will update your Docker config file to call `chainctl` when an auth token is needed. A browser window will open when the token needs to be refreshed.
+
+Pulls authenticated in this way are associated with your user.
+
+## Authenticating with a pull token
+
+You can also create a "pull token" using `chainctl`. This generates a longer-lived token that can be used to pull images from other environments that don't support OIDC, such as some CI environments, Kubernetes clusters, or with registry mirroring tools like Artifactory.
+
+First [install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/), then log in and configure a pull token:
+
+```sh
+chainctl auth configure-docker --pull-token
+```
+
+With the latest release of `chainctl`, this will print a `docker login` command that can be run in the CI environment to log in with a pull token.
+
+You can also pass the `--save` flag, which will update your Docker config file with the pull token directly.
+
+This token expires in 30 days by default, which can be modified using the
+`--ttl` flag. It sets the duration for the validity of the token. The maximum
+valid value is `8760h` (equivalent to 365 days), Valid unit strings range from
+nanoseconds to hours and are `ns`, `us`, `ms`, `s`, `m`, and `h`, for example
+`--ttl=24h`.
+
+Pulls authenticated in this way are associated with a Chainguard identity, which is associated with the organization selected when the pull token was created.
+
+You can also export the pull token details into environment variables for
+[authentication in automated
+systems](/chainguard/containers/building-and-modifying/packages/private-apk-repos/#pull-token-automation).
+Running `chainctl auth pull-token create --output=env` sets
+`CHAINGUARD_IDENTITY_ID` to the username and `CHAINGUARD_TOKEN` to the password.
+Refer to [pull token output formats and credential
+names](/platform/chainctl-usage/pull-token-output/) for the other formats and
+for the variable names each library ecosystem uses.
+
+### Using a pull token with Podman, Helm, and other tools
+
+The `docker login` command that `chainctl auth configure-docker --pull-token` prints contains the credentials for the token. The username is the Chainguard identity associated with the token, and the password is the token itself:
+
+```sh
+docker login "cgr.dev" \
+  --username "<identity-id>" \
+  --password "<pull-token>"
+```
+
+Save that pair and pass it to any tool that logs in to an OCI registry. For example, Podman:
+
+```sh
+podman login cgr.dev --username "$CHAINGUARD_IDENTITY_ID" --password "$CHAINGUARD_TOKEN"
+```
+
+Or Helm:
+
+```sh
+helm registry login cgr.dev --username "$CHAINGUARD_IDENTITY_ID" --password "$CHAINGUARD_TOKEN"
+```
+
+The same username and password work with registry mirroring tools such as Artifactory. Refer to the [pull-through guides](/chainguard/containers/registry/pull-through-guides/) for tool-specific instructions.
+
+### Note on multiple pull tokens
+
+Running the `chainctl auth configure-docker --pull-token` command multiple times will result in multiple pull tokens being created. However, the tokens stored in your Docker config when using `--save` will overwrite old tokens.
+
+Tokens cannot be retrieved once they have been overwritten so they must be extracted from the local Docker config and saved elsewhere if multiple are required.
+
+### Revoking a pull token
+
+Pull tokens are associated with Chainguard identities so they can be viewed with:
+
+```sh
+chainctl iam identities list
+```
+
+To revoke a token, delete the associated identity.
+
+```sh
+chainctl iam identity delete <identity UUID>
+```
+
+### Managing pull tokens in the Chainguard Console
+
+You can also create and view pull tokens in the [Chainguard Console](https://console.chainguard.dev/).
+
+After navigating to the Console, click on **Settings** in the left-hand navigation menu. From the **Settings** pane, click on **Pull tokens**. There, you'll be presented with a table listing of all the active pull tokens for your selected organization.
+
+This table shows the name of each pull token, their descriptions, the date they were created, and the number of days until they expire.
+
+You can create a new pull token by clicking the **Create pull token** button at the top of the page. A new pane will appear where you can enter a name for the new pull token, add an optional description, and select when the pull token will expire. The **Expiration** drop-down menu has options for 30, 60, and 90 days, as well as a **Custom** expiration option. This will cause a **Custom Expiration** window to appear, allowing you to select the date when you'd like the token to expire.
+
+After entering these details, click the **Create token** button and your new pull token will appear in the list with the rest of your organization's tokens.
+
+## Authenticating with GitHub Actions
+
+You can configure authentication with OIDC-aware CI platforms like GitHub Actions.
+
+First create an identity using `chainctl`, which can be limited to only allow OIDC federation from certain GitHub workflow runs:
+
+```sh
+chainctl iam identity create github [GITHUB-IDENTITY] \
+  --github-repo=${GITHUB_ORG}@${GITHUB_OWNER_ID}/${GITHUB_REPO}@${GITHUB_REPO_ID} \
+  --github-ref=refs/heads/main \
+  --role=registry.pull
+```
+
+**Note**: The value passed to `--github-repo` must equal the repository portion of the `subject` field in the token GitHub issues. GitHub now embeds immutable numeric owner and repository IDs in that subject (for example, `my-org@123456/repo-name@654321`), so `--github-repo` must include them. Populate `GITHUB_OWNER_ID` and `GITHUB_REPO_ID` with your repository's numeric IDs; for how to retrieve them and when the format applies, refer to [Finding your repository's numeric identifiers](/platform/administration/assumable-ids/identity-examples/github-identity/#finding-your-repositorys-numeric-identifiers). If you need to further scope or change the subject, refer to the ["Example subject claims"](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims) section of GitHub's OIDC documentation, then update the identity with [`chainctl iam identities update`](/platform/chainctl/chainctl-docs/chainctl_iam_identities_update/).
+
+This creates a Chainguard identity that can be assumed by a GitHub Actions workflow only for the specified GitHub repository, triggered on pushes to the specified branch (such as `refs/heads/main`), with permissions only to pull from Chainguard's registry.
+
+When this identity is created, its ID will be displayed. Using this ID, you can configure your GitHub Actions workflow to install `chainctl` and assume this identity when the workflow runs:
+
+```yaml
+name: Registry Example
+
+on:
+  push:
+ branches: ['main']
+
+permissions:
+  contents: read
+  id-token: write  # This is needed for OIDC federation.
+
+jobs:
+  example:
+ runs-on: ubuntu-latest
+ steps:
+   - uses: chainguard-dev/setup-chainctl@main
+     with:
+       identity: [[ The Chainguard Identity ID you created above ]]
+   - run: docker pull cgr.dev/chainguard/node
+```
+
+Pulls authenticated in this way are associated with the Chainguard identity you created, which is associated with the organization selected when the identity was created.
+
+If the identity is configured to only work with GitHub Actions workflow runs from a given repo and branch, that identity will not be able to pull from other repos or branches, including pull requests targeting the specified branch.
+
+## Authenticating with CircleCI OIDC token
+
+You can configure authentication with OIDC-aware CircleCI platform.
+
+First, use `chainctl` to create an [assumed identity](/platform/administration/assumable-ids/assumable-ids/#managing-identities-with-chainctl). This example uses a CircleCI ID of `1234` and will work for all projects in that organization. Replace `1234` with your identity issuer org. Modify the subject pattern regex to reduce the scope to specific repos in the organization.
+
+```sh
+chainctl iam identities create circleci-identity
+--identity-issuer="https://oidc.circleci.com/org/1234"
+--subject-pattern="org/1234/project/.+$"
+--role=registry.pull
+--parent=$ORGANIZATION
+```
+
+Use the identity created in the above command, shown here in the third `run` section as `5678`, to configure your workflow to install `chainctl` and assume this identity when the workflow runs:
+
+```yaml
+version: 2.1
+
+jobs:
+  install-and-authenticate:
+    machine: true
+    environment:
+      CHAINCTL_TOKEN_FILE: "/tmp/oidc_token"
+
+  steps:
+    - checkout
+
+    - run:
+          name: Download chainctl
+          command: |
+            curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/aarch64/arm64/')"
+
+    - run:
+        name: Install chainctl
+        command: |
+          sudo install -o $UID -g $(id -g) -m 0755 chainctl /usr/local/bin/
+
+    - run:
+        name: Configure Docker auth
+        command: |
+          sudo chainctl auth configure-docker --identity-token="$CIRCLE_OIDC_TOKEN" --identity "5678"
+
+    - run:
+        name: Pull Docker image
+        command: |
+          sudo docker pull cgr.dev/cgr-demo.com/python:latest
+
+workflows:
+  version: 2
+  chainctl-workflow:
+    jobs:
+      - install-and-authenticate
+```
+
+Refer to the [CircleCI documentation](https://circleci.com/docs/openid-connect-tokens/#format-of-the-openid-connect-id-token) to learn more about using OpenID Connect tokens in CircleCI jobs.
+
+## Authenticating with Microsoft Entra ID OIDC token
+
+You can configure authentication with OIDC using Microsoft Entra ID (formerly Azure Active Directory).
+
+To acquire an OIDC ID token in Entra, you must complete an OAuth 2.0/OIDC flow. Entra issues access tokens (for authorization) and ID tokens (for authentication) as separate but related JWTs or [JSON Web Tokens](https://www.rfc-editor.org/rfc/rfc7519). Access tokens grant API access, while ID tokens prove user identity.
+
+If you use the [implicit or hybrid flows](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-implicit-grant-flow) in Entra ID, enable **ID tokens (used for implicit and hybrid flows)** for your application. This can be found under **Authentication → Implicit grant and hybrid flows**. Then, configure a redirect URI as described in [Enable ID tokens](https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc#enable-id-tokens).
+
+If you use the authorization code flow (recommended), request the `openid` scope to receive an ID token; you don't need to select any of the portal checkboxes. Then, [authenticate a user and request an ID token](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow#request-an-authorization-code).
+
+> **NOTE**: For CI workloads, Microsoft’s workload identity federation (federated identity credentials) exchanges your CI’s OIDC token for an **access token** to a resource; it does **not** issue ID tokens. If you need a non-interactive OIDC ID token for Chainguard, you will have an easier time using your CI provider’s native OIDC issuer directly with Chainguard, or you need to run an interactive user flow (for example, device code) to obtain an ID token.
+
+Retrieve and save an ID token as a local environment variable. The following examples use `MS_ENTRA_ID_OIDC_TOKEN`.
+
+Next, use `chainctl` to create an [assumed identity](/platform/administration/assumable-ids/assumable-ids/#managing-identities-with-chainctl). Replace `{tenant}` with your Entra ID tenant ID (GUID). Modify the subject pattern regular expression to reduce access from all users from that issuer to a more appropriate scope for your needs.
+
+```sh
+chainctl iam identities create entraid-identity \
+  --identity-issuer="https://login.microsoftonline.com/{tenant}/v2.0" \
+  --subject-pattern="^.+$" \ # matches all users from this issuer, adjust to restrict access
+  --role=registry.pull \
+  --parent="$ORGANIZATION"
+```
+
+Use the identity created in the above command, shown here in the third `run` section as `entraid-identity`, to configure your workflow to install `chainctl` and assume this identity when the workflow runs:
+
+```yaml
+version: 2.1
+
+jobs:
+  install-and-authenticate:
+    machine: true
+
+  steps:
+    - checkout
+
+    - run:
+          name: Download chainctl
+          command: |
+            curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/aarch64/arm64/')"
+
+    - run:
+        name: Install chainctl
+        command: |
+          sudo install -o $UID -g $(id -g) -m 0755 chainctl /usr/local/bin/
+
+    - run:
+        name: Configure Docker auth
+        command: |
+          sudo chainctl auth configure-docker --identity-token="$MS_ENTRA_ID_OIDC_TOKEN" --identity "entraid-identity"
+
+    - run:
+        name: Pull Docker image
+        command: |
+          sudo docker pull cgr.dev/cgr-demo.com/python:latest
+
+workflows:
+  version: 2
+  chainctl-workflow:
+    jobs:
+      - install-and-authenticate
+```
+
+Refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc) to learn more about using OpenID Connect tokens on the Microsoft Entra ID platform. Of special note is their warning about reading and validating their tokens:
+
+> Don't attempt to validate or read tokens for any API you don't own, including the tokens in this example, in your code. Tokens for Microsoft services can use a special format that will not validate as a JWT, and may also be encrypted for consumer (Microsoft account) users. While reading tokens is a useful debugging and learning tool, do not take dependencies on this in your code or assume specifics about tokens that aren't for an API you control.
+
+Chainguard does not require you to parse or validate the Microsoft-issued token yourself. Instead, just pass the token to `chainctl` as shown above.
+
+## Authenticating with Kubernetes
+
+You can also configure a Kubernetes cluster to use a pull token, as described above.
+
+When you create a pull token with `--save`, your Docker config file is updated to include that token and configure it to be used when pulling images from `cgr.dev`.
+
+After that, you can create a Kubernetes secret based on those credentials, following [these instructions](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#registry-secret-existing-credentials):
+
+```sh
+kubectl create secret generic regcred \
+ --from-file=.dockerconfigjson=<path/to/.docker/config.json> \
+ --type=kubernetes.io/dockerconfigjson
+```
+
+> **Important Note:** this will also make any other credentials you have configured in your Docker config available in the secret. Ensure only the necessary credentials are included.
+
+Then you can create a Pod that uses that secret, following [these instructions](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-pod-that-uses-your-secret):
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cgr-example
+spec:
+  containers:
+  - name: nginx
+ image: cgr.dev/chainguard/nginx:latest
+  imagePullSecrets:
+  - name: regcred
+```
+
+For this example, save the file as `cgr-example.yaml`. Then you can create and get the Pod:
+
+```sh
+kubectl apply -f cgr-example.yaml
+kubectl get pod cgr-example
+```
+
+Learn more in our [sign in guidance](/platform/administration/iam-organizations/how-to-manage-iam-organizations-in-chainguard/#logging-in).

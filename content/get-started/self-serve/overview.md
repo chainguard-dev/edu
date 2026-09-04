@@ -17,5 +17,5 @@ involvement from Chainguard employees.
 
 This section covers the self-serve options available today:
 
-- **[Catalog Starter](/chainguard/containers/about/catalog-starter/)** is a free plan that lets you try up to five Chainguard container images. Any Helm charts that depend on those images are included.
+- **[Catalog Starter](/chainguard/containers/reference/catalog-starter/)** is a free plan that lets you try up to five Chainguard container images. Any Helm charts that depend on those images are included.
 - **[Self-serve Helm charts](/get-started/self-serve/helm-charts/)** lets Catalog customers provision Chainguard Helm charts, along with the container images they depend on, directly from the Chainguard Console.

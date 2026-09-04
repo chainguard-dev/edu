@@ -8,7 +8,7 @@ date: 2024-02-26T08:48:45+00:00
 lastmod: 2026-08-27T00:00:00+00:00
 draft: false
 images: []
-weight: 017
+weight: 080
 topic: true
 banner: {
     image: "/icon-arrows_blurple.png",
@@ -17,38 +17,37 @@ banner: {
     cta: "Learn how",
     link: "/chainguard/containers/migration/porting-apps-to-chainguard/"
 }
-sectiontitle: "Tutorials and compatibility charts"
+sectiontitle: "Guides, compatibility charts, and tooling"
 tutorials: [
   {
-    title: "Migration overview",
-    description: "",
-    url: "/chainguard/containers/migration/migrations-overview/"
-  },
-  {
     title: "Migrating Dockerfiles",
-    description: "",
+    description: "The changes a Dockerfile usually needs, and why",
     url: "/chainguard/containers/migration/migrating-to-chainguard-images/"
   },
   {
-    title: "Python migration",
-    description: "",
-    url: "/chainguard/containers/migration/migration-guides/migrating-python/"
+    title: "Node",
+    description: "Port a Node.js Dockerfile to a Chainguard base",
+    url: "/chainguard/containers/migration/migration-guides/node/"
   },
   {
-    title: "Node migration",
-    description: "",
-    url: "/chainguard/containers/migration/migration-guides/migrating-node/"
+    title: "Python",
+    description: "Port a Python Dockerfile to a Chainguard base",
+    url: "/chainguard/containers/migration/migration-guides/python/"
   },
   {
     title: "Alpine compatibility",
-    description: "",
+    description: "What changes when moving from an Alpine base",
     url: "/chainguard/containers/migration/compatibility/alpine-compatibility/"
   },
   {
-    title: "Ubuntu compatibility",
-    description: "",
-    url: "/chainguard/containers/migration/compatibility/ubuntu-compatibility/"
+    title: "Migration overview",
+    description: "How to plan a migration and what to expect",
+    url: "/chainguard/containers/migration/migrations-overview/"
+  },
+  {
+    title: "Dockerfile Converter",
+    description: "Convert a Dockerfile automatically with dfc",
+    url: "/chainguard/containers/migration/migration-tools/dockerfile-conversion/"
   },
 ]
-
 ---

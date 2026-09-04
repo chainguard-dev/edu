@@ -39,7 +39,7 @@ The support portal handles most requests, but it isn't the only route, and for s
 
 - **Your request concerns your subscription or what your organization is licensed for — for example, whether a particular image is included in your entitlements.** Contact your account team, meaning the customer success manager or solutions architect assigned to your organization.
 
-- **You can't pull a container image or a specific version of one.** Work through [Troubleshoot container and version availability](/chainguard/containers/about/container-version-troubleshooting/) first. It tells you which cases you can resolve yourself and which need a ticket.
+- **You can't pull a container image or a specific version of one.** Work through [Troubleshoot container and version availability](/chainguard/containers/troubleshooting/container-version-troubleshooting/) first. It tells you which cases you can resolve yourself and which need a ticket.
 
 ## Open a ticket
 
@@ -47,7 +47,7 @@ The support portal handles most requests, but it isn't the only route, and for s
 
 The support portal has two prerequisites.
 
-First, your organization needs a paid plan. Catalog Starter doesn't include support tickets or root cause analysis. For what the free plan does cover, see [Chainguard Catalog Starter](/chainguard/containers/about/catalog-starter/).
+First, your organization needs a paid plan. Catalog Starter doesn't include support tickets or root cause analysis. For what the free plan does cover, see [Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/).
 
 Second, your identity has to be linked to an organization. The portal identifies you through your Chainguard Console account, and an unlinked identity produces an error. To check, sign in to the [Chainguard Console](https://console.chainguard.dev) and look for your organization in the left sidebar. If it isn't there, ask an administrator in your organization to invite you, then open the invitation email and complete the setup flow. Signing in without completing that flow leaves your identity unlinked.
 
