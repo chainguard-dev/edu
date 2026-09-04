@@ -1,5 +1,5 @@
 ---
-date: 2026-09-02T22:28:18Z
+date: 2026-09-03T18:18:22Z
 title: "chainctl policy decision list"
 slug: chainctl_policy_decision_list
 url: /platform/chainctl/chainctl-docs/chainctl_policy_decision_list/
@@ -34,7 +34,8 @@ are shown; use --limit (1-100) to change how many are returned.
 For a multi-arch image the DIGEST column may show the index digest,
 while pulls are enforced against the per-platform child manifest; run
 "chainctl policy check" to find the child digest an override must
-target.
+target. The table view shows the digest in short form; -o json returns
+the full digest.
 
 With -o json the output is an object with an "items" array (one entry
 per decision) and a string "totalCount"; read .items[] rather than

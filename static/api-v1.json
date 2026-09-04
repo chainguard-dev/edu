@@ -2774,6 +2774,66 @@
         },
         "type": "object"
       },
+      "chainguard.platform.iam.ScimUser": {
+        "description": "ScimUser is a SCIM-provisioned user of an identity provider. Every field is\nserver-owned.",
+        "properties": {
+          "active": {
+            "description": "active is the SCIM active flag. When false, the IdP has deprovisioned the\nuser.",
+            "type": "boolean"
+          },
+          "createdAt": {
+            "description": "created_at is when the SCIM user record was created.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "displayName": {
+            "description": "display_name is the SCIM displayName attribute. May be empty.",
+            "type": "string"
+          },
+          "externalId": {
+            "description": "external_id is the IdP-assigned SCIM externalId, an opaque correlation key.\nMay be empty.",
+            "type": "string"
+          },
+          "iamIdentityUidp": {
+            "description": "iam_identity_uidp is the UIDP of the Chainguard IAM identity this SCIM\nuser is linked to. Empty until the user's first login; its presence\ntherefore indicates the user has authenticated at least once.",
+            "type": "string"
+          },
+          "id": {
+            "description": "id is the UIDP of the SCIM user record.",
+            "type": "string"
+          },
+          "identityProviderUidp": {
+            "description": "identity_provider_uidp is the UIDP of the identity provider that\nprovisioned this user.",
+            "type": "string"
+          },
+          "updatedAt": {
+            "description": "updated_at is when the SCIM user record was last updated.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "userName": {
+            "description": "user_name is the SCIM userName attribute, typically an email address.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.ScimUserList": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.iam.ScimUser"
+            },
+            "type": "array"
+          },
+          "totalCount": {
+            "description": "total_count is the number of users matching the filter. It may exceed\nlen(items) when the result was clamped to the v1 cap (1000); treat\ntotal_count \u003e len(items) as \"narrow the filter or use the paginated v2 API\".",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.iam.ServicePrincipal": {
         "default": "UNKNOWN",
         "enum": [
@@ -3009,6 +3069,13 @@
           "name": {
             "description": "The artifact name.",
             "type": "string"
+          },
+          "sourceTypes": {
+            "description": "The distinct origins of the versions counted by version_count, in a\nstable order. Like the other version-derived fields, this reflects only\nthe versions in the requested view (see ArtifactFilter.source_types and\ninclude_upstream), not every version of the artifact. Versions whose\norigin is unknown are not listed.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.SourceType"
+            },
+            "type": "array"
           },
           "updatedAt": {
             "description": "When the most recent version was published to Chainguard Libraries.",
@@ -12496,6 +12563,72 @@
         ]
       }
     },
+    "/iam/v1/scimUsers": {
+      "get": {
+        "description": "List returns the SCIM-provisioned users of an identity provider. This v1\nsurface is unpaginated: it returns at most 1000 users in a single response.\n`total_count` reports the full number matching the filter, so a caller can\ntell the result was clamped (total_count \u003e len(items)) and should narrow the\nrequest with user_name, external_id, or active, or use the paginated v2 API\nto retrieve the rest.",
+        "operationId": "ScimUsers_List",
+        "parameters": [
+          {
+            "description": "identity_provider_uidp restricts results to a single identity provider. It\nis required and carries the authorization scope: the caller must hold\nCAP_IAM_SCIM_USERS_LIST at this identity provider (or an ancestor).",
+            "in": "query",
+            "name": "identityProviderUidp",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "user_name matches the SCIM userName exactly (case-insensitive).",
+            "in": "query",
+            "name": "userName",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "external_id matches the IdP-assigned externalId exactly.",
+            "in": "query",
+            "name": "externalId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "active, when set, filters by the SCIM active flag.",
+            "in": "query",
+            "name": "active",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.ScimUserList"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List",
+        "tags": [
+          "ScimUsers"
+        ]
+      }
+    },
     "/iam/v1/terms/{group}": {
       "get": {
         "description": "ListAccepted returns the legal documents that the group has accepted.",
@@ -19789,6 +19922,9 @@
     },
     {
       "name": "RoleBindings"
+    },
+    {
+      "name": "ScimUsers"
     },
     {
       "name": "Terms"
