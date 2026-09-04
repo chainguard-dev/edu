@@ -13,8 +13,6 @@ $bootstrap-icons-font-dir: "/fonts";
 @import "bootstrap-icons/font/bootstrap-icons.scss";
 
 /** Import legacy and layout styles */
-@import "components/comments";
-@import "components/forms";
 @import "layouts/footer";
 @import "layouts/header";
 @import "layouts/pages";
