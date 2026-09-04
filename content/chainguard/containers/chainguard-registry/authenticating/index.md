@@ -4,7 +4,7 @@ linktitle: "Authenticate"
 type: "article"
 description: "A guide on authenticating to Chainguard's registry to get container images"
 date: 2023-03-21T15:10:16+00:00
-lastmod: 2026-08-31T16:48:20+00:00
+lastmod: 2026-09-04T16:00:38+00:00
 tags: ["Chainguard Containers", "Registry"]
 draft: false
 images: []
@@ -108,8 +108,8 @@ The `docker login` command that `chainctl auth configure-docker --pull-token` pr
 
 ```sh
 docker login "cgr.dev" \
-  --username "45a0c61ea6fd977f050c5fb9ac06a69eed764595/095b0c7ea9d68679" \
-  --password "eyJhbGciOiJSUzI1NiJ9..."
+  --username "<identity-id>" \
+  --password "<pull-token>"
 ```
 
 Save that pair and pass it to any tool that logs in to an OCI registry. For example, Podman:

@@ -8,7 +8,7 @@ type: "article"
 description: "Use Artifactory to proxy and cache Chainguard iamguarded Helm charts"
 lead: "Use Artifactory to proxy and cache Chainguard iamguarded Helm charts"
 date: 2025-07-14T08:10:31+00:00
-lastmod: 2026-08-21T12:55:52+00:00
+lastmod: 2026-09-04T16:00:38+00:00
 draft: false
 tags: ["Chainguard Containers", "Helm charts", "Artifactory", "iamguarded", "Product"]
 images: []
@@ -37,7 +37,7 @@ Set $ORGANIZATION to be the organization name you're pulling Helm Charts from. O
 ```bash
 To use this pull token in another environment, run this command:
 
-    docker login "cgr.dev" --username "bd3c9ec494caca60225319fd4053abe067c169ec/5037f83cdd0fbdcd" --password "eyJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJodHRwczovL2lzc..." # Token truncated
+    docker login "cgr.dev" --username "<identity-id>" --password "<pull-token>"
 ```
 
 In the repository's configuration, set the **URL** to `https://cgr.dev`, and set the **User Name** and **Password / Access Token** to the values from the command output above.
