@@ -1,129 +1,108 @@
-# Automated Documentation Compilation Setup
+# AI documentation bundle pipeline
 
-This guide explains how to set up automated updates for the compiled documentation bundle.
+This guide explains how the compiled documentation bundle is built, published,
+and refreshed.
 
 ## Overview
 
-The documentation bundle will be automatically updated when:
-1. Changes are pushed to the edu repository (content or scripts)
-2. Changes are pushed to the courses repository (HTML content)
-3. Changes are pushed to the images-private repository (README files)
-4. Daily at 2 AM UTC (scheduled update)
-5. Manually triggered via GitHub Actions
+The bundle combines documentation from four sources:
 
-## Setup Instructions
+- edu content, from `content/` in this repository
+- Container image READMEs, from the images-private repository
+- Course content, from the courses repository
+- Dockerfile Converter package mappings, from the dfc repository
 
-### 1. Enable GitHub Actions
+Each source repository exports a tarball to the `academy-all-docs` bucket in
+the `chainguard-academy` GCP project, then sends an `ai-docs-source-updated`
+repository dispatch event to this repository. The
+`.github/workflows/compile-ai-docs-from-gcs.yaml` workflow compiles the
+sources into a single markdown file and publishes it.
 
-Ensure GitHub Actions are enabled for all three repositories:
-- edu
-- courses  
-- images-private
+## Publishing targets
 
-### 2. Create a Personal Access Token (PAT)
+One workflow owns every target, so a given commit produces one bundle
+everywhere:
 
-For cross-repository triggers to work, you need to create a PAT with appropriate permissions:
+| Target | Refreshed |
+| -- | -- |
+| `ghcr.io/chainguard-dev/ai-docs` on GHCR, signed with cosign | Every run |
+| Artifact Registry, then the `mcp-server` Cloud Run service | Every run |
+| `gs://academy-all-docs/compiled/` | Every run |
+| `static/downloads/chainguard-complete-docs.md`, served at edu.chainguard.dev | Nightly, by pull request |
 
-1. Go to GitHub Settings > Developer settings > Personal access tokens
-2. Generate a new token with these scopes:
-   - `repo` (full control of private repositories)
-   - `workflow` (update GitHub Actions workflows)
-3. Name it `CROSS_REPO_TOKEN`
+The served download is the exception. Hugo publishes `static/downloads/`
+straight from git, so that copy only changes when a commit lands. The nightly
+scheduled run compares the freshly compiled bundle against the committed one,
+ignoring the embedded `_Compiled on:_` timestamp, and opens a pull request only
+when the content differs. Merging that pull request is what refreshes the
+public download.
 
-### 3. Add the PAT as a Secret
+The nightly run also checks the age of the served bundle and fails when it
+falls more than 14 days behind, which catches a refresh pull request that
+nobody merged.
 
-Add the PAT to each repository:
+## Triggers
 
-1. Go to repository Settings > Secrets and variables > Actions
-2. Add a new repository secret named `CROSS_REPO_TOKEN`
-3. Paste your PAT as the value
-4. Repeat for all three repositories
+The workflow runs on:
 
-### 4. Deploy the Workflows
+- An `ai-docs-source-updated` repository dispatch event from any source
+  repository
+- The nightly schedule, at 02:00 UTC
+- A manual run from the **Actions** tab
 
-#### For the edu repository:
-- The workflows are already in place:
-  - `.github/workflows/compile-docs.yml` (scheduled and on push)
-  - `.github/workflows/compile-docs-on-webhook.yml` (triggered by other repos)
+Only the scheduled and manual runs open a pull request.
 
-#### For the courses repository:
-1. Create `.github/workflows/trigger-docs-compile.yml`
-2. Copy the content from `edu/docs/webhook-setup-courses.yml`
+## Export workflows
 
-#### For the images-private repository:
-1. Create `.github/workflows/trigger-docs-compile.yml`
-2. Copy the content from `edu/docs/webhook-setup-images.yml`
+Each source repository needs an export workflow. Use the templates in
+`.github/workflows/templates/`:
 
-## How It Works
+- `export-docs-to-gcs.yaml`
+- `export-images-docs-to-gcs.yaml`
+- `export-courses-docs-to-gcs.yaml`
 
-### Direct Updates (edu repository)
-When content in the edu repository changes, the `compile-docs.yml` workflow:
-1. Checks out all three repositories
-2. Runs the Python compilation script
-3. Creates compressed versions
-4. Commits the updated files back to the repository
+The templates authenticate with workload identity federation against the
+`chainguard-academy` pool. They don't use personal access tokens.
 
-### Cross-Repository Updates
-When content in courses or images-private changes:
-1. The trigger workflow sends a repository dispatch event to edu
-2. The `compile-docs-on-webhook.yml` workflow in edu runs
-3. It compiles documentation from all three repositories
-4. Updates are committed to the edu repository
+## Authentication
 
-### Scheduled Updates
-Every day at 2 AM UTC:
-1. The scheduled job runs automatically
-2. Ensures documentation stays fresh even without manual changes
-3. Captures any missed updates
+The compile job federates a GCP token through workload identity to read from
+and write to the bucket. The publish job federates a separate GitHub token
+through octo-sts, using the trust policy in
+`.github/chainguard/ai-docs.sts.yaml`, which grants only `contents: write` and
+`pull_requests: write`.
 
-## Manual Triggers
+Keeping the two jobs separate means the job that builds and signs container
+images never holds a git-write credential.
 
-You can manually trigger the documentation compilation:
+## Test the compilation locally
 
-1. Go to the edu repository on GitHub
-2. Click on "Actions" tab
-3. Select either workflow:
-   - "Compile Documentation Bundle" (main workflow)
-   - "Compile Docs on Repository Update" (webhook workflow)
-4. Click "Run workflow"
-
-## Monitoring
-
-To monitor the compilation process:
-1. Check the Actions tab in the edu repository
-2. Look for workflow runs with these names
-3. Review logs if any failures occur
-
-## Troubleshooting
-
-### Common Issues
-
-1. **Permission Denied**: Ensure the PAT has correct permissions
-2. **Workflow Not Triggering**: Check that paths in workflow files match your changes
-3. **Compilation Errors**: Review Python script logs in the workflow run
-4. **Large File Issues**: The compiled file might exceed GitHub's limits (100MB)
-
-### File Size Management
-
-If the documentation grows too large:
-- Consider splitting into multiple files by category
-- Increase compression
-- Exclude certain verbose sections
-- Use Git LFS for large files
-
-## Local Testing
-
-To test the compilation locally:
+The compile script reads the three external sources from sibling directories.
+To compile edu content alone, create empty placeholders:
 
 ```bash
-cd /path/to/edu
+mkdir -p ../courses ../images-private ../dfc
 python3 scripts/compile_docs.py
-./scripts/create_compressed_docs.sh
 ```
 
-## Security Considerations
+The result lands in `static/downloads/chainguard-complete-docs.md`. Expect a
+much smaller file than the published bundle, because it contains no image
+READMEs. Don't commit that file.
 
-- PATs should have minimal required permissions
-- Rotate PATs periodically
-- Use repository secrets, never commit tokens
-- Review workflow permissions regularly
+## Troubleshoot
+
+**The served download is stale.** Check for an open `[AI Docs] Refresh the
+documentation bundle` pull request. If none exists, check whether the nightly
+run succeeded.
+
+**The bundle is missing image documentation.** The images-private export is
+failing, so the compile job is rebuilding from an old tarball. Read the
+`Metadata information:` block in the `Download documentation from GCS` step,
+which prints the `export_time` for each source.
+
+**The compile job fails on size.** The bundle has a 50 MB ceiling. Something
+in a source export has grown unexpectedly.
+
+**The compile job fails on the credential scan.** The bundle carries a pattern
+that looks like a real key. Find it in the workflow log, then fix the source
+document rather than the scan.

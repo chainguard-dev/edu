@@ -5,7 +5,7 @@ lead: "Model Context Protocol server for Chainguard documentation"
 description: "Access Chainguard documentation through MCP for AI assistants and automation"
 type: "article"
 date: 2026-01-02T21:00:00+00:00
-lastmod: 2026-09-03T16:05:01+00:00
+lastmod: 2026-09-04T12:48:32+00:00
 draft: false
 images: []
 weight: 600
@@ -230,7 +230,7 @@ The `list_images` and `find_package_equivalent` tools draw from a pre-built cata
 - Every Chainguard container image with its registry reference, sourced from the image documentation
 - Package mappings from Debian, Fedora, and Alpine to their Wolfi equivalents
 
-The weekly documentation build regenerates the catalog.
+Each documentation build regenerates the catalog.
 
 ## Example usage
 

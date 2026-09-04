@@ -4,7 +4,7 @@ lead: "Security and transparency for AI-ready documentation"
 description: "Learn about the security measures and compilation process for Chainguard's AI documentation bundles"
 type: "article"
 date: 2025-07-30T10:00:00+00:00
-lastmod: 2025-07-30T10:00:00+00:00
+lastmod: 2026-09-04T12:48:32+00:00
 draft: false
 images: []
 weight: 60
@@ -99,7 +99,7 @@ cosign verify ghcr.io/chainguard-dev/ai-docs:latest \
 
 ## Build Frequency
 
-- **Scheduled Builds**: Weekly on Sundays at 2 AM UTC
+- **Scheduled Builds**: Nightly at 2 AM UTC
 - **On-Demand**: Triggered by documentation changes or cross-repo updates via `repository_dispatch`
 - **Container Distribution**: Updated container pushed to GHCR on each build
 
@@ -134,7 +134,7 @@ python3 scripts/compile_docs.py
 
 Build logs are public on GitHub Actions:
 
-- [View Build Logs](https://github.com/chainguard-dev/edu/actions/workflows/compile-docs.yml)
+- [View Build Logs](https://github.com/chainguard-dev/edu/actions/workflows/compile-ai-docs-from-gcs.yaml)
 
 ### What if verification fails?
 
