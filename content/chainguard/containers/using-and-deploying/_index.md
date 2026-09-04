@@ -4,7 +4,7 @@ linktitle: "Using and deploying"
 aliases:
 - /chainguard/chainguard-images/how-to-use/
 - /chainguard/containers/how-to-use/
-description: "Running Chainguard Containers and deploying them to Kubernetes, OpenShift, and Helm."
+description: "Running Chainguard Containers, and deploying them to Kubernetes and OpenShift with Helm."
 type: "article"
 date: 2026-09-04T00:00:00+00:00
 lastmod: 2026-09-04T00:00:00+00:00
@@ -23,12 +23,12 @@ sectiontitle: "Deploying to your platform"
 tutorials: [
   {
     title: "Chainguard Helm charts",
-    description: "Deploy Chainguard Containers with Helm",
+    description: "Deploy with Chainguard's upstream Helm charts",
     url: "/chainguard/containers/using-and-deploying/helm-charts/use-chainguard-helm-charts/"
   },
   {
     title: "iamguarded Helm charts",
-    description: "Drop-in replacements for Bitnami charts",
+    description: "Charts for organizations migrating off Bitnami",
     url: "/chainguard/containers/using-and-deploying/helm-charts/use-chainguard-iamguarded-helm-charts/"
   },
   {
@@ -38,17 +38,17 @@ tutorials: [
   },
   {
     title: "Proxy and cache charts",
-    description: "Run a pull-through cache inside your cluster",
+    description: "Proxy and cache Chainguard Helm charts through Artifactory",
     url: "/chainguard/containers/using-and-deploying/helm-charts/proxy-and-cache/"
   },
   {
     title: "OpenShift",
-    description: "What OpenShift's security context constraints require",
+    description: "Deploy on Red Hat OpenShift, including security context changes",
     url: "/chainguard/containers/using-and-deploying/use-with-openshift/"
   },
   {
     title: "Init containers",
-    description: "Use Chainguard Containers for Kubernetes init work",
+    description: "Configure a minimal container at startup with an init container",
     url: "/chainguard/containers/using-and-deploying/init-containers/"
   },
 ]

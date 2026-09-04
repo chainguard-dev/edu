@@ -6,7 +6,7 @@ aliases:
 - /chainguard/chainguard-images/features/
 - /chainguard/containers/images-features
 - /chainguard/containers/features/
-description: "Chainguard provides the most secure container images with zero known CVEs, minimal attack surface, SBOMs, and daily updates - the enterprise choice for container security"
+description: "Chainguard provides the most secure container images with zero known CVEs, minimal attack surface, SBOMs, and daily updates — the enterprise choice for container security"
 type: "article"
 date: 2022-09-05T08:49:15+00:00
 lastmod: 2026-08-27T00:00:00+00:00
@@ -30,7 +30,7 @@ tutorials: [
   },
   {
     title: "Private APK repositories",
-    description: "Install your own organization's packages inside a container",
+    description: "Install your organization's packages inside a container",
     url: "/chainguard/containers/building-and-modifying/packages/private-apk-repos/"
   },
   {
@@ -40,7 +40,7 @@ tutorials: [
   },
   {
     title: "Authenticate to the registry",
-    description: "Set up pull credentials for cgr.dev, for a person or for CI",
+    description: "Set up pull credentials for cgr.dev, for people and for CI",
     url: "/chainguard/containers/registry/authenticating/"
   },
   {
