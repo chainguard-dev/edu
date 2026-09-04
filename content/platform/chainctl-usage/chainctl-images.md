@@ -165,4 +165,4 @@ When you want to compare two Chainguard images, enter:
 chainctl images diff $FROM_IMAGE $TO_IMAGE
 ```
 
-See <ins>[How to compare Chainguard Containers with chainctl](/chainguard/containers/how-to-use/comparing-images/)</ins> to learn more.
+See <ins>[How to compare Chainguard Containers with chainctl](/platform/chainctl-usage/comparing-images/)</ins> to learn more.

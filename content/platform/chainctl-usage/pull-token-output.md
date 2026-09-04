@@ -139,7 +139,7 @@ export UV_INDEX_CHAINGUARD_USERNAME="${CHAINGUARD_PYTHON_IDENTITY_ID}"
 export UV_INDEX_CHAINGUARD_PASSWORD="${CHAINGUARD_PYTHON_TOKEN}"
 ```
 
-The same pattern applies wherever a tool defines its own variable, such as the `HTTP_AUTH` variable used for [private APK repositories](/chainguard/containers/features/packages/private-apk-repos/#pull-token-automation):
+The same pattern applies wherever a tool defines its own variable, such as the `HTTP_AUTH` variable used for [private APK repositories](/chainguard/containers/building-and-modifying/packages/private-apk-repos/#pull-token-automation):
 
 ```sh
 export HTTP_AUTH="basic::${CHAINGUARD_IDENTITY_ID}:${CHAINGUARD_TOKEN}"
@@ -169,6 +169,6 @@ That list is the union of every format any `chainctl` command supports, not a li
 
 * [Authenticate to Chainguard's Registry](/chainguard/containers/registry/authenticating/#authenticating-with-a-pull-token) for container pull tokens
 * [Chainguard Libraries access](/chainguard/libraries/introduction/access/#pull-token) for library pull tokens
-* [Private APK repositories](/chainguard/containers/features/packages/private-apk-repos/#pull-token-automation) for APK pull tokens
+* [Private APK repositories](/chainguard/containers/building-and-modifying/packages/private-apk-repos/#pull-token-automation) for APK pull tokens
 * [chainctl auth pull-token create](/platform/chainctl/chainctl-docs/chainctl_auth_pull-token_create/) for the generated flag reference
 * [Automating with chainctl](/platform/chainctl-usage/automating-chainctl/) for other scripting patterns

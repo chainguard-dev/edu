@@ -57,7 +57,7 @@ Organizations that do not use upstream fallback see no change. To review what yo
 
 {{< changelog-label "EOL" >}}
 
-Chainguard offers [a grace period](/chainguard/containers/features/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
 ### Images that are no longer available
 
@@ -138,7 +138,7 @@ For more information, refer to [Self-serve Helm charts](/get-started/self-serve/
 
 {{< changelog-label "EOL" >}}
 
-Chainguard offers [a grace period](/chainguard/containers/features/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
 ### Images that are no longer available
 
@@ -229,7 +229,7 @@ For more information, refer to [`chainctl libraries cache`](/platform/chainctl/c
 
 {{< changelog-label "EOL" >}}
 
-Chainguard offers [a grace period](/chainguard/containers/features/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
 ### Images that are no longer available
 
@@ -299,7 +299,7 @@ For more information, including setup steps, refer to [Enable PKCE for OAuth Tok
 
 {{< changelog-label "EOL" >}}
 
-Chainguard offers [a grace period](/chainguard/containers/features/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
 ### Images that have reached end-of-life
 
@@ -356,7 +356,7 @@ Chainguard aligned the entrypoint and command behavior of all supported `ingress
 
 {{< changelog-label "EOL" >}}
 
-Chainguard offers [a grace period](/chainguard/containers/features/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
 ### Images that are no longer available
 
@@ -421,7 +421,7 @@ For more information, including setup steps, refer to [Grant Chainguard roles fr
 
 {{< changelog-label "EOL" >}}
 
-Chainguard offers [a grace period](/chainguard/containers/features/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
 ### Images that are no longer available
 

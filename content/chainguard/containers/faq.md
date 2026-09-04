@@ -8,7 +8,7 @@ lastmod: 2026-07-27T16:03:25+00:00
 draft: false
 tags: ["Chainguard Containers", "FAQ"]
 images: []
-weight: 060
+weight: 130
 toc: true
 aliases:
 - /chainguard/chainguard-images/faq/

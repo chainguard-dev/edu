@@ -17,7 +17,7 @@ menu:
   docs:
     parent: "pull-through-guides"
 toc: true
-weight: 015
+weight: 070
 ---
 
 Organizations can use Chainguard Containers along with third-party software repositories in order to integrate with current workflows as the single source of truth for software artifacts. In this situation, you can set up a proxy repository to function as a mirror of [Chainguard's registry](/chainguard/chainguard-registry/overview/). This mirror can then serve as a pull through cache for your Chainguard Containers.
@@ -37,7 +37,7 @@ In order to complete this tutorial, you will need the following:
 
 ## Setting up Nexus as a pull through for free containers
 
-[Free container images](/chainguard/containers/about/container-categories/#free-containers) are free to use, publicly available, and always represent versions tagged as `:latest`.
+[Free container images](/chainguard/containers/concepts/container-categories/#free-containers) are free to use, publicly available, and always represent versions tagged as `:latest`.
 
 To set up a remote repository in Nexus from which you can pull Free containers, log in to Nexus with an **admin** account. Once there, click on the Administration mode cog in the top bar, click **Repository** in the left-hand navigation menu, and then select **Repositories**. On the Repositories page, click the **Create Repository** button and select the **docker (proxy)** Recipe.
 
@@ -107,7 +107,7 @@ Be sure the `docker pull` command you run includes the name of your organization
 
 If you run into issues when trying to pull Containers from Chainguard's Registry to Nexus, please ensure the following requirements are met:
 
-* Ensure that all Containers [network requirements](/chainguard/containers/network-requirements/) are met.
+* Ensure that all Containers [network requirements](/chainguard/containers/registry/network-requirements/) are met.
 * When configuring a remote Nexus repository, ensure that the **URL** field is set to `https://cgr.dev/`. This field **must not** contain additional components.
 * You can troubleshoot by running `docker login` from another node (using the Nexus pull token credentials) and try pulling a container image from `cgr.dev/chainguard/<image name>` or `cgr.dev/<example.com>/<image name>`, using your own organization's registry name in place of `<example.com>`.
 * It could be that your Nexus repository was misconfigured. In this case, create and configure a new Nexus repository to test with.

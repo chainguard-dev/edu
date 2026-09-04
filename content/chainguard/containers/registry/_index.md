@@ -1,5 +1,6 @@
 ---
-title: "Chainguard's Registry"
+title: "Chainguard registry and access"
+linktitle: "Registry and access"
 linkTitle: "Registry"
 lead: ""
 description: "Chainguard's registry documentation"

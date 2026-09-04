@@ -14,7 +14,7 @@ lastmod: 2025-07-23T16:52:56+00:00
 draft: false
 tags: ["Chainguard Containers", "Migration"]
 images: []
-weight: 010
+weight: 030
 toc: true
 ---
 
@@ -216,7 +216,7 @@ instead of `npm install` to ensure the correct version of all dependencies is us
 
 ### Using slim images
 
-If Chainguard's Node.js image has been added to your organization's Chainguard Registry, you will have access to more tags than just `latest`, including *slim tags*. These represent Chainguard's [slim variants](/chainguard/containers/about/container-variants/#slim-container-variants), which have an even smaller attack surface than our standard container images. In the case of Node.js, the slim variants omit some packages that are included in the standard image for compatibility purposes, including `npm` and `busybox`.
+If Chainguard's Node.js image has been added to your organization's Chainguard Registry, you will have access to more tags than just `latest`, including *slim tags*. These represent Chainguard's [slim variants](/chainguard/containers/concepts/container-variants/#slim-container-variants), which have an even smaller attack surface than our standard container images. In the case of Node.js, the slim variants omit some packages that are included in the standard image for compatibility purposes, including `npm` and `busybox`.
 
 Because they lack these compatibility packages, the slim Node.js images are often used in multi-stage builds. The following example updates the `Dockerfile-multi` file shown previously to point to one of Chainguard's slim Node.js images:
 
@@ -263,4 +263,4 @@ Node.js Dockerfile for a legacy application.
 images](https://github.com/BretFisher/nodejs-rocks-in-docker/), including advice for using
 distroless.
 
-- The [Debugging distroless](/chainguard/containers/debugging-distroless-images/) guide contains important information for debugging issues with distroless images. You can also refer to the [Verifying containers](/chainguard/containers/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/) resource for details around provenance, SBOMs, and image signatures.
+- The [Debugging distroless](/chainguard/containers/debugging-distroless-images/) guide contains important information for debugging issues with distroless images. You can also refer to the [Verifying containers](/chainguard/containers/security-and-compliance/verifying-chainguard-images-and-metadata-signatures-with-cosign/) resource for details around provenance, SBOMs, and image signatures.

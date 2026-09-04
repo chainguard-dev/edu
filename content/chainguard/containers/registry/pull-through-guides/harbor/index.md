@@ -12,7 +12,7 @@ menu:
   docs:
     parent: "pull-through-guides"
 toc: true
-weight: 015
+weight: 060
 aliases:
 - /chainguard/chainguard-images/chainguard-registry/pull-through-guides/harbor/
 - /chainguard/containers/chainguard-registry/pull-through-guides/harbor/

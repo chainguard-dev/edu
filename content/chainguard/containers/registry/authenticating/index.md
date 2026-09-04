@@ -11,7 +11,7 @@ images: []
 menu:
   docs:
     parent: "registry"
-weight: 050
+weight: 020
 toc: true
 aliases:
 - /chainguard/chainguard-registry/authenticating/
@@ -95,7 +95,7 @@ Pulls authenticated in this way are associated with a Chainguard identity, which
 
 You can also export the pull token details into environment variables for
 [authentication in automated
-systems](/chainguard/containers/features/packages/private-apk-repos/#pull-token-automation).
+systems](/chainguard/containers/building-and-modifying/packages/private-apk-repos/#pull-token-automation).
 Running `chainctl auth pull-token create --output=env` sets
 `CHAINGUARD_IDENTITY_ID` to the username and `CHAINGUARD_TOKEN` to the password.
 Refer to [pull token output formats and credential

@@ -14,7 +14,7 @@ lastmod: 2025-07-23T15:09:59+00:00
 draft: false
 tags: ["Chainguard Containers", "Migration"]
 images: []
-weight: 005
+weight: 040
 toc: true
 ---
 
@@ -126,7 +126,7 @@ COPY --from=builder /app /app
 ENTRYPOINT [ "php", "/app/myscript.php" ]
 ```
 
-Our [PHP getting started](/chainguard/containers/getting-started/php/) guide has step-by-step instructions on how to build and run a PHP CLI application with Chainguard Containers.
+Our [PHP getting started](/chainguard/containers/getting-started/languages-and-runtimes/php/) guide has step-by-step instructions on how to build and run a PHP CLI application with Chainguard Containers.
 
 ## Migrating PHP web applications to use Chainguard Containers
 
@@ -301,6 +301,6 @@ The preview should be live at `localhost:8000`.
 
 ## Additional resources
 
-Our [PHP image documentation](https://images.chainguard.dev/directory/image/php/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-php) covers details about all PHP image variants, including the list of available tags for both development and production images. For another example of a LEMP setup using MariaDB, check our guide on [Getting started with the MariaDB Chainguard Container](https://edu.chainguard.dev/chainguard/containers/getting-started/mariadb/).
+Our [PHP image documentation](https://images.chainguard.dev/directory/image/php/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-php) covers details about all PHP image variants, including the list of available tags for both development and production images. For another example of a LEMP setup using MariaDB, check our guide on [Getting started with the MariaDB Chainguard Container](https://edu.chainguard.dev/chainguard/containers/getting-started/web-and-data-services/mariadb/).
 
-The [Debugging distroless](/chainguard/containers/debugging-distroless-images/) guide contains important information for debugging issues with distroless images. You can also refer to the [Verifying containers](/chainguard/containers/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/) resource for details around provenance, SBOMs, and image signatures.
+The [Debugging distroless](/chainguard/containers/debugging-distroless-images/) guide contains important information for debugging issues with distroless images. You can also refer to the [Verifying containers](/chainguard/containers/security-and-compliance/verifying-chainguard-images-and-metadata-signatures-with-cosign/) resource for details around provenance, SBOMs, and image signatures.

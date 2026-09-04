@@ -29,7 +29,7 @@ Incorporating [software bills of materials (SBOMs)](/open-source/sbom/what-is-an
 
 In this way, SBOMs represent a significant step forward in security management by enabling software users to quickly identify vulnerabilities, which can otherwise require a significant amount of labor. For example, [one federal agency reportedly spent 33,000 hours responding to the Log4j vulnerability](https://federalnewsnetwork.com/commentary/2023/01/application-security-a-pillar-of-zero-trust/) at the expense of other priorities.
 
-Though the SBOM's improvement of visibility can greatly improve an organization's security posture, it can also be accompanied by an overproduction of false positives. In this context, [false positives](/chainguard/containers/staying-secure/working-with-scanners/false-results/) are vulnerabilities that are associated with an organization's codebase but have been determined to not be exploitable in specific circumstances.
+Though the SBOM's improvement of visibility can greatly improve an organization's security posture, it can also be accompanied by an overproduction of false positives. In this context, [false positives](/chainguard/containers/security-and-compliance/working-with-scanners/false-results/) are vulnerabilities that are associated with an organization's codebase but have been determined to not be exploitable in specific circumstances.
 
 This increase in false positives can hinder an SBOM's security utility as organizations are tasked with investigating the broadened list of vulnerabilities to see which ones pose genuine threats to their codebase. In cases like this, organizations may once again struggle to efficiently identify and respond to vulnerabilities before it is too late.
 

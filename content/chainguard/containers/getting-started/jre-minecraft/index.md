@@ -11,7 +11,7 @@ images: []
 menu:
   docs:
     parent: "getting-started"
-weight: 100
+weight: 090
 toc: true
 aliases:
 - /chainguard/chainguard-images/getting-started/jre-minecraft/
@@ -509,7 +509,7 @@ You now have a flexible containerized setup for your Minecraft server, using a l
 
 ### Keep your image up-to-date
 
-It is important to always keep your image always up to date with the most recent version of system dependencies and the Minecraft server software. Outdated images accumulate vulnerabilities over time, becoming a target for exploitation by malicious actors. The [Image update considerations](https://edu.chainguard.dev/chainguard/containers/staying-secure/updating-containers/considerations-for-image-updates/) article on Chainguard Academy has more guidance on what you should take into account when deciding on an update strategy.
+It is important to always keep your image always up to date with the most recent version of system dependencies and the Minecraft server software. Outdated images accumulate vulnerabilities over time, becoming a target for exploitation by malicious actors. The [Image update considerations](https://edu.chainguard.dev/chainguard/containers/security-and-compliance/updating-containers/considerations-for-image-updates/) article on Chainguard Academy has more guidance on what you should take into account when deciding on an update strategy.
 
 If you followed all steps in this guide so far, you should have set up an installation script that automatically downloads the latest version available for the server software. However, this happens at build time, which means you’ll need to rebuild the container in order to update.
 
@@ -517,9 +517,9 @@ A good strategy is to set up a repository with your server setup and use a GitHu
 
 ### Pin to a digest and set up Digestabot
 
-A digest is a unique identifier for a specific image build. When you pin your Dockerfile to a digest instead of a mutable tag, you make your build reproducible, because anyone building your Dockerfile will be using the exact same version of the base image. [This section](https://edu.chainguard.dev/chainguard/containers/staying-secure/updating-containers/considerations-for-image-updates/#be-mindful-about-tagging-practices) of our Image Update Considerations article on Academy has details on recommended practices for pinning images to a specific version. You can also refer to [this video](https://edu.chainguard.dev/chainguard/containers/how-to-use/container-image-digests/) for a demonstration on how to use image digests.
+A digest is a unique identifier for a specific image build. When you pin your Dockerfile to a digest instead of a mutable tag, you make your build reproducible, because anyone building your Dockerfile will be using the exact same version of the base image. [This section](https://edu.chainguard.dev/chainguard/containers/security-and-compliance/updating-containers/considerations-for-image-updates/#be-mindful-about-tagging-practices) of our Image Update Considerations article on Academy has details on recommended practices for pinning images to a specific version. You can also refer to [this video](https://edu.chainguard.dev/chainguard/containers/troubleshooting/container-image-digests/) for a demonstration on how to use image digests.
 
-The downside of pinning your base image to a digest is that you’ll need to update your Dockerfile each time a new version of the image is available. You can automate most of this process with [Digestabot](/chainguard/containers/staying-secure/updating-containers/digestabot/), our GitHub Action that opens a pull request with the updated digest each time a new image build becomes available.
+The downside of pinning your base image to a digest is that you’ll need to update your Dockerfile each time a new version of the image is available. You can automate most of this process with [Digestabot](/chainguard/containers/security-and-compliance/updating-containers/digestabot/), our GitHub Action that opens a pull request with the updated digest each time a new image build becomes available.
 
 ### Change the default port
 
@@ -550,4 +550,4 @@ The [online-mode](https://minecraft.wiki/w/Server.properties#online-mode) proper
 
 In this tutorial, you learned how to set up a low-to-zero CVE Minecraft server using Chainguard’s Java runtime (JRE) container image. We started with a basic setup that we improved with bash scripts for installing and configuring the Java server. We also discussed some strategies for making your server more secure.
 
-Our [Staying secure](https://edu.chainguard.dev/chainguard/containers/staying-secure/) section on Chainguard Academy has more resources on container security and CVEs. For more details about Java and other Chainguard Containers, please refer to the [Containers Directory](https://images.chainguard.dev).
+Our [Staying secure](https://edu.chainguard.dev/chainguard/containers/security-and-compliance/) section on Chainguard Academy has more resources on container security and CVEs. For more details about Java and other Chainguard Containers, please refer to the [Containers Directory](https://images.chainguard.dev).

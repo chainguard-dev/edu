@@ -13,7 +13,7 @@ lastmod: 2026-08-03T18:16:45+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
-weight: 005
+weight: 040
 toc: true
 ---
 
@@ -27,7 +27,7 @@ Before moving a workload to a distroless runtime image, it is important to make 
 
 The development variants of [Chainguard Containers](/chainguard/containers/) are designed to replicate the same packages of their distroless version, but with additional software that helps in developing, building, and debugging applications in different language ecosystems. These are sometimes referred to as `-dev` variants since they are tagged with `:latest-dev`.
 
-> **Note**: If you're debugging a workload that crashes because it expects packages from its previous upstream image, a *full* variant may help. Available for a number of our most popular Containers and tagged `-full`, these variants map their upstream equivalent. Refer to [Full container variants](/chainguard/containers/about/container-variants/#full-container-variants).
+> **Note**: If you're debugging a workload that crashes because it expects packages from its previous upstream image, a *full* variant may help. Available for a number of our most popular Containers and tagged `-full`, these variants map their upstream equivalent. Refer to [Full container variants](/chainguard/containers/concepts/container-variants/#full-container-variants).
 
 For example, the following table shows a comparison between the development variants of the PHP image, and which packages are included with each variant:
 
@@ -63,11 +63,11 @@ That being said, it's worth noting that the `-dev` variants of Chainguard Contai
 
 The following guides show how to use these development images in combination with their distroless variants in order to build a final image that is also distroless, but contains everything the application needs to run:
 
-- [Getting started with the Python Chainguard Container](/chainguard/containers/getting-started/python/)
-- [Getting started with the Ruby Chainguard Container](/chainguard/containers/getting-started/ruby/)
-- [Getting started with the Go Chainguard Container](/chainguard/containers/getting-started/go/)
-- [Getting started with the Node Chainguard Container](/chainguard/containers/getting-started/node/)
-- [Getting started with the PHP Chainguard Container](/chainguard/containers/getting-started/php/)
+- [Getting started with the Python Chainguard Container](/chainguard/containers/getting-started/languages-and-runtimes/python/)
+- [Getting started with the Ruby Chainguard Container](/chainguard/containers/getting-started/languages-and-runtimes/ruby/)
+- [Getting started with the Go Chainguard Container](/chainguard/containers/getting-started/languages-and-runtimes/go/)
+- [Getting started with the Node Chainguard Container](/chainguard/containers/getting-started/languages-and-runtimes/node/)
+- [Getting started with the PHP Chainguard Container](/chainguard/containers/getting-started/languages-and-runtimes/php/)
 
 Check also the guide on [Creating Wolfi container images with Dockerfiles](/open-source/wolfi/wolfi-with-dockerfiles/) for guidance on how to build a custom image that can be used for development and debugging.
 

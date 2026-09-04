@@ -1,6 +1,6 @@
 ---
-title: "Migration guides"
-linktitle: "Migration guides"
+title: "Language migration guides"
+linktitle: "Language guides"
 aliases:
 - /chainguard/migration-guides
 - /chainguard/migration/migration-guides/
@@ -11,5 +11,5 @@ date: 2025-01-16T18:42:57+00:00
 lastmod: 2025-01-16T18:42:57+00:00
 draft: false
 images: []
-weight: 050
+weight: 060
 ---

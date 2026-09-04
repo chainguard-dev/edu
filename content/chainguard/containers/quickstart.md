@@ -9,7 +9,7 @@ lastmod: 2026-08-05T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers", "Getting Started"]
 images: []
-weight: 012
+weight: 020
 toc: true
 aliases:
 - /chainguard/chainguard-images/quickstart/
@@ -28,7 +28,7 @@ To follow this quickstart, you need:
 * [Cosign](/open-source/sigstore/cosign/how-to-install-cosign/), which you use in Step 4 to verify a container image, installed.
 * [jq](https://jqlang.github.io/jq/download/) installed. jq is a lightweight, command-line JSON processor; this guide uses it in Step 4 to make Cosign output more easily readable.
 
-You don't need a Chainguard account. Every image in this guide is a [Free container](/chainguard/containers/about/container-categories/#free-containers): publicly available, with no authentication required. Production Containers, which add version-specific tags and patch SLAs, require [authenticating to the registry](/chainguard/containers/registry/authenticating/).
+You don't need a Chainguard account. Every image in this guide is a [Free container](/chainguard/containers/concepts/container-categories/#free-containers): publicly available, with no authentication required. Production Containers, which add version-specific tags and patch SLAs, require [authenticating to the registry](/chainguard/containers/registry/authenticating/).
 
 ## Step 1: Pull and run a container
 
@@ -125,7 +125,7 @@ docker rm -f hello-cg
 
 ## Step 3: Use a development variant when you need extra tooling
 
-Chainguard's standard containers follow a [distroless](/chainguard/containers/about/getting-started-distroless/) philosophy: they carry only what the container needs to function. For example, the Node container has no system package manager:
+Chainguard's standard containers follow a [distroless](/chainguard/containers/concepts/getting-started-distroless/) philosophy: they carry only what the container needs to function. For example, the Node container has no system package manager:
 
 ```shell
 docker run --rm --entrypoint sh cgr.dev/chainguard/node:latest -c "apk --version"
@@ -145,7 +145,7 @@ docker run --rm --entrypoint sh cgr.dev/chainguard/node:latest-dev -c "apk --ver
 apk-tools 2.14.10, compiled for x86_64.
 ```
 
-To keep a small attack surface in production, install dependencies and compile artifacts in the development variant, then copy the results into the standard variant with a multi-stage build. Refer to [Development and production container variants](/chainguard/containers/about/container-variants/) for how the variants differ, and to [porting a sample application](/chainguard/containers/migration/porting-apps-to-chainguard/) for a multi-stage example.
+To keep a small attack surface in production, install dependencies and compile artifacts in the development variant, then copy the results into the standard variant with a multi-stage build. Refer to [Development and production container variants](/chainguard/containers/concepts/container-variants/) for how the variants differ, and to [porting a sample application](/chainguard/containers/migration/porting-apps-to-chainguard/) for a multi-stage example.
 
 ## Step 4: Verify the container and inspect its SBOM
 
@@ -169,11 +169,11 @@ cosign download attestation \
   cgr.dev/chainguard/node | jq -r '.payload' | base64 -d | jq -r '.predicate'
 ```
 
-For the rest of the available attestations and the commands that verify them, refer to [verifying containers and metadata signatures](/chainguard/containers/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/) and [retrieving SBOMs and attestations](/chainguard/containers/how-to-use/retrieve-image-sboms/).
+For the rest of the available attestations and the commands that verify them, refer to [verifying containers and metadata signatures](/chainguard/containers/security-and-compliance/verifying-chainguard-images-and-metadata-signatures-with-cosign/) and [retrieving SBOMs and attestations](/chainguard/containers/security-and-compliance/retrieve-image-sboms/).
 
 ## Next steps
 
-* Work through a guide for your own stack: [nginx](/chainguard/containers/getting-started/nginx/), [PostgreSQL](/chainguard/containers/getting-started/postgres/), [Python](/chainguard/containers/getting-started/python/), [Go](/chainguard/containers/getting-started/go/), or [any other language or service](/chainguard/containers/getting-started/).
+* Work through a guide for your own stack: [nginx](/chainguard/containers/getting-started/web-and-data-services/nginx/), [PostgreSQL](/chainguard/containers/getting-started/web-and-data-services/postgres/), [Python](/chainguard/containers/getting-started/languages-and-runtimes/python/), [Go](/chainguard/containers/getting-started/languages-and-runtimes/go/), or [any other language or service](/chainguard/containers/getting-started/).
 * Move an existing workload over with the [migration guides](/get-started/migration/).
-* Learn what a Chainguard Container includes and who patches what in the [shared responsibility model](/chainguard/containers/about/shared-responsibility-model/) and the [container categories reference](/chainguard/containers/about/container-categories/).
-* Understand why these images carry so few vulnerabilities in [Chainguard's low-to-no CVE commitment](/chainguard/containers/about/zerocve/).
+* Learn what a Chainguard Container includes and who patches what in the [shared responsibility model](/chainguard/containers/concepts/shared-responsibility-model/) and the [container categories reference](/chainguard/containers/concepts/container-categories/).
+* Understand why these images carry so few vulnerabilities in [Chainguard's low-to-no CVE commitment](/chainguard/containers/concepts/zerocve/).

@@ -10,7 +10,7 @@ tags: ["Chainguard Containers", "Registry"]
 menu:
   docs:
     parent: "registry"
-weight: 005
+weight: 010
 toc: true
 aliases:
 - /chainguard/chainguard-registry/overview/
@@ -30,7 +30,7 @@ You can check the status of Chainguard's registry at [https://status.cgr.dev](ht
 
 ## Network requirements
 
-Refer to our [Network requirements](/chainguard/containers/network-requirements/) reference page for details about how to ensure access to Chainguard's registry in environments using firewalls, access control lists, and proxies.
+Refer to our [Network requirements](/chainguard/containers/registry/network-requirements/) reference page for details about how to ensure access to Chainguard's registry in environments using firewalls, access control lists, and proxies.
 
 ## Using a caching proxy with Chainguard's registry
 
@@ -40,6 +40,6 @@ We currently provide documentation on how you can set up a pull-through cache fo
 
 * [Amazon ECR](/chainguard/containers/registry/pull-through-guides/ecr-pull-through/)
 * [Google Artifact Registry](/chainguard/containers/registry/pull-through-guides/artifact-registry-pull-through/)
-* [JFrog Artifactory](/chainguard/containers/registry/pull-through-guides/artifactory/)
+* [JFrog Artifactory](/chainguard/containers/registry/pull-through-guides/artifactory-containers-pull-through/)
 * [Sonatype Nexus](/chainguard/containers/registry/pull-through-guides/nexus-pull-through/)
 * [Cloudsmith](/chainguard/containers/registry/pull-through-guides/cloudsmith-pull-through/)

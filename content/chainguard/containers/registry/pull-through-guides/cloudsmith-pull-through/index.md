@@ -16,7 +16,7 @@ menu:
   docs:
     parent: "pull-through-guides"
 toc: true
-weight: 020
+weight: 040
 ---
 
 Organizations often have their own internal software repositories and registries integrated into their systems. This guide explains how to set up the Cloudsmith artifact repository to ingest [Chainguard Containers](/chainguard/containers/overview/) by acting as a pull-through cache.
@@ -34,7 +34,7 @@ In order to complete this tutorial, you will need the following:
 
 ## Setting up Cloudsmith as a pull through for free containers
 
-Chainguard's [Free container images](/chainguard/containers/about/container-categories/#free-containers) are free to use, publicly available, and always represent versions tagged as `:latest`.
+Chainguard's [Free container images](/chainguard/containers/concepts/container-categories/#free-containers) are free to use, publicly available, and always represent versions tagged as `:latest`.
 
 To set up a remote repository in Cloudsmith through which you can pull Free container images, log in to the [Cloudsmith App](https://cloudsmith.io/user/login/). Once there, navigate to the **Repositories** tab and click **+ Create Repository**.
 
@@ -141,7 +141,7 @@ If you run into issues pulling images like this, be sure that your `docker pull`
 
 If you run into issues when trying to pull Containers from Chainguard's registry to Cloudsmith, please make sure the following requirements are met:
 
-* Ensure that all Containers [network requirements](/chainguard/containers/network-requirements/) are met.
+* Ensure that all Containers [network requirements](/chainguard/containers/registry/network-requirements/) are met.
 * When configuring a remote Cloudsmith repository, ensure that the **URL** field is set correctly. For Free container images, this should be `https://cgr.dev/chainguard`; for Production containers this should be `https://cgr.dev/`. This field **must not** contain any additional components.
 * You can troubleshoot by running `docker login` from another node (using the Cloudsmith pull token credentials) and try pulling an image from `cgr.dev/chainguard/<image name>` or `cgr.dev/<example.com>/<image name>`, using your own organization's registry name in place of `<example.com>`.
 * It could be that your Cloudsmith repository was misconfigured. In this case, create and configure a new Cloudsmith repository to test with.

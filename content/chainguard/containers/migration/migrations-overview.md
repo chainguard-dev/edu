@@ -16,7 +16,7 @@ images: []
 menu:
   docs:
     parent: "migration"
-weight: 005
+weight: 010
 toc: true
 ---
 
@@ -29,7 +29,7 @@ This guide covers the differences that matter during a migration, a recommended 
 * Most Chainguard Containers have no shell or package manager by default. This is great for security, but sometimes you need these things, especially in builder images. For those cases we have development container images (also known as `-dev` images, as in `cgr.dev/chainguard/python:latest-dev`) which do include a shell and package manager.
 * The development variants and `wolfi-base` / `chainguard-base` use BusyBox by default, so any `groupadd` or `useradd` commands will need to be ported to `addgroup` and `adduser`.
 * The free tier of Containers provides only the `:latest` and `:latest-dev` versions. Our paid Production Containers offer tags for major and minor versions.
-* Chainguard Containers are [based on `glibc`](/chainguard/containers/about/glibc-vs-musl/) and our packages cannot be mixed with Alpine packages (which are instead based on musl).
+* Chainguard Containers are [based on `glibc`](/chainguard/containers/concepts/glibc-vs-musl/) and our packages cannot be mixed with Alpine packages (which are instead based on musl).
 * In some cases, the entrypoint in Chainguard Containers can be different from equivalent images based on other distros, which can lead to unexpected behavior. You should always check the image's specific documentation to understand how the entrypoint works.
 * When needed, Chainguard recommends using a base image like `chainguard-base` or a development variant to install an application's OS-level dependencies.
 
@@ -41,13 +41,13 @@ As mentioned previously, Chainguard's standard container images typically do not
 
 Although development variants are still more secure than most popular container images based on other distros, for increased security on production environments we recommend combining them with a distroless variant in a multi-stage build.
 
-Refer to our guide on [Chainguard's Container variants](/chainguard/containers/about/container-variants/) for more information on development containers.
+Refer to our guide on [Chainguard's Container variants](/chainguard/containers/concepts/container-variants/) for more information on development containers.
 
 ### Full variants
 
 For a number of our most popular Containers, Chainguard also offers *full* variants, whose tags are appended with `-full`. Unlike standard or development variants, full variants are designed to map to their upstream equivalent — typically the Debian-based image on Docker Hub — including the packages, environment variables, and entrypoint scripts that our minimal images omit. They exist primarily to ease migration: if your build or test pipelines depend on components from your previous image, starting with a full variant lets you adopt Chainguard Containers without untangling those dependencies first. Once you've migrated, we recommend moving to a slimmer variant that includes only what your workload needs.
 
-Refer to our guide on [Chainguard's Container variants](/chainguard/containers/about/container-variants/#full-container-variants) for more information on full variants.
+Refer to our guide on [Chainguard's Container variants](/chainguard/containers/concepts/container-variants/#full-container-variants) for more information on full variants.
 
 ## Before migrating
 
@@ -70,7 +70,7 @@ We understand that customers may have urgent timelines and need to accelerate Ch
     * Familiarity with tools used to build images and run containers such as Docker CLI, Dockerfiles (including multi-stage builds), and orchestration platforms (Kubernetes, ECS, etc).
     * Experience using appropriate deployment security standards (such as the [Kubernetes Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/)).
     * Experience debugging containers that have no shell.
-* Review and understand concepts in the [Shared responsibility model](/chainguard/containers/about/shared-responsibility-model/).
+* Review and understand concepts in the [Shared responsibility model](/chainguard/containers/concepts/shared-responsibility-model/).
 * Your organization should already have a mature container strategy in place, including:
     * Mature and Established UAT and regression testing processes.
     * Automated CI/CD with permissions restrictions and auditing.
@@ -82,7 +82,7 @@ Finally, as you plan for the migration to Chainguard Containers you should ensur
 
 A common requirement for many customers is to add a company specific certificate or other security related content. The three most common ways to accomplish this are:
 
-1. [Incert](/chainguard/containers/features/incert-custom-certs/)
+1. [Incert](/chainguard/containers/custom-assembly/incert-custom-certs/)
 2. Dockerfile and `update-ca-certificates` utility
 3. Dockerfile and java keytool
 
@@ -94,21 +94,21 @@ Many Chainguard customers use both application and base container images, but it
 
 #### Application images
 
-When migrating to a [Chainguard Application Container](/chainguard/containers/about/container-categories/#application-containers) you should first check the image’s overview page on the [Containers  Directory](https://images.chainguard.dev) for usage details and any compatibility notes. There may be user, permissions, or volume path differences with the Chainguard Image that you should be aware of.
+When migrating to a [Chainguard Application Container](/chainguard/containers/concepts/container-categories/#application-containers) you should first check the image’s overview page on the [Containers  Directory](https://images.chainguard.dev) for usage details and any compatibility notes. There may be user, permissions, or volume path differences with the Chainguard Image that you should be aware of.
 
 It is a best practice to use the same version of the Chainguard Application Image as what is currently running in your environment, if that version is available from Chainguard. Post-migration you should thoroughly test and monitor your application.
 
 #### Base images
 
-When migrating to a [Chainguard Base Container](/chainguard/containers/about/container-categories/#base-containers) you should first check the images’s overview page on the [Containers Directory](https://images.chainguard.dev) for usage details and any compatibility remarks. You should understand the libraries, runtime requirements, and operating system dependencies of the applications you plan to have running on the base image.
+When migrating to a [Chainguard Base Container](/chainguard/containers/concepts/container-categories/#base-containers) you should first check the images’s overview page on the [Containers Directory](https://images.chainguard.dev) for usage details and any compatibility remarks. You should understand the libraries, runtime requirements, and operating system dependencies of the applications you plan to have running on the base image.
 
 It is a best practice to use the same versions of any languages or applications that will be running on the Chainguard Base Container as what is currently running in your environment. Do not upgrade language or application versions at the same time that you migrate. Post-migration you should test and monitor your application as outlined below in Section 6.
 
-If you need a package to use with your Chainguard Base Container, ChainguardOS packages are available using `apk`. Ensure you only use ChainguardOS packages, as Alpine APKs are not compatible with ChainguardOS. Additionally, it is important to note that vendor provided packages need to be [glibc](/chainguard/containers/about/glibc-vs-musl/) based and their functionality should be fully tested along with the application.
+If you need a package to use with your Chainguard Base Container, ChainguardOS packages are available using `apk`. Ensure you only use ChainguardOS packages, as Alpine APKs are not compatible with ChainguardOS. Additionally, it is important to note that vendor provided packages need to be [glibc](/chainguard/containers/concepts/glibc-vs-musl/) based and their functionality should be fully tested along with the application.
 
 ### Extending Chainguard Containers
 
-You can take advantage of Chainguard's [Custom Assembly](/chainguard/containers/features/ca-docs/custom-assembly/) and [Private APK repositories](/chainguard/containers/features/private-apk-repos/) features to extend your container images
+You can take advantage of Chainguard's [Custom Assembly](/chainguard/containers/custom-assembly/overview/) and [Private APK repositories](/chainguard/containers/building-and-modifying/packages/private-apk-repos/) features to extend your container images
 
 Custom Assembly allows users to create customers container images with extra packages added. This reduces their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs.
 
@@ -193,6 +193,6 @@ Chainguard also offers a number of courses aimed to help teams understand and us
 ## Further reading
 
 * [Overview of Chainguard Containers](/chainguard/containers/overview/)
-* [How to use Chainguard Containers](/chainguard/containers/how-to-use-chainguard-images/)
+* [How to use Chainguard Containers](/chainguard/containers/using-and-deploying/using-containers/)
 * [How to transition to secure container images with new migration guides (Blog)](https://www.chainguard.dev/unchained/how-to-transition-to-secure-container-images-with-new-migration-guides)
 * [Getting started with distroless containers](/chainguard/containers/getting-started-distroless/)

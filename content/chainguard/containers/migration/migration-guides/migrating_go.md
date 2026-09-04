@@ -17,7 +17,7 @@ images: []
 menu:
   docs:
     parent: "migration-guides"
-weight: 025
+weight: 090
 toc: true
 ---
 
@@ -240,5 +240,5 @@ OK, please try it out and let me know how you get on.
 ## Relevant resources
 
 * [Using the static Chainguard Container](/chainguard/containers/videos/static-base-image/) (Video)
-* [Choosing a container for your compiled programs](/chainguard/containers/about/choosing-a-base-container/) (Article)
-* [Getting started with the Go Chainguard Container](/chainguard/containers/getting-started/go/) (Article)
+* [Choosing a container for your compiled programs](/chainguard/containers/concepts/choosing-a-base-container/) (Article)
+* [Getting started with the Go Chainguard Container](/chainguard/containers/getting-started/languages-and-runtimes/go/) (Article)
