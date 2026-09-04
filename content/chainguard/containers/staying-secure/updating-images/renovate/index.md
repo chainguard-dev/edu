@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "How to use Renovate to automatically keep Chainguard Containers updated"
 date: 2023-09-05T11:07:52+02:00
-lastmod: 2026-09-03T15:15:12+00:00
+lastmod: 2026-09-04T16:13:45+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -44,7 +44,7 @@ This command responds with output such as:
 ```shell
 To use this pull token in another environment, run this command:
 
-    docker login "cgr.dev" --username "<USERNAME>" --password "<PASSWORD>"
+    docker login "cgr.dev" --username "<identity-id>" --password "<pull-token>"
 ```
 
 By default, this credential is good for 30 days.
@@ -58,8 +58,8 @@ You can now configure `hostRules` in Renovate to support the Chainguard registry
     {
       "hostType": "docker",
       "matchHost": "cgr.dev",
-      "username": "<USERNAME>",
-      "password": "<PASSWORD>"
+      "username": "<identity-id>",
+      "password": "<pull-token>"
      }]
 }
 ```
@@ -507,7 +507,7 @@ LOG_LEVEL=debug renovate --print-config
          {
            "hostType": "docker",
            "matchHost": "cgr.dev",
-           "username": "<Organizations ID>/<pull token ID>",
+           "username": "<identity-id>",
            "password": "***********",
            "resolvedHost": "cgr.dev"
          },

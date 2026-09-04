@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "An overview of how to work with Chainguard's private APK repositories."
 date: 2025-02-21T11:07:52+02:00
-lastmod: 2026-08-21T13:01:57+00:00
+lastmod: 2026-09-04T16:13:45+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -338,8 +338,8 @@ chainctl auth pull-token --repository=apk --ttl=2190h --output=env --parent=ORGA
 ```
 
 ```output
-export CHAINGUARD_IDENTITY_ID=45a.....424eb0
-export CHAINGUARD_TOKEN=eeyJhbGciO..........WF0IjoxN
+export CHAINGUARD_IDENTITY_ID=<identity-id>
+export CHAINGUARD_TOKEN=<pull-token>
 ```
 
 * `--repository=apk`: create a role binding to bind the pull token identity the

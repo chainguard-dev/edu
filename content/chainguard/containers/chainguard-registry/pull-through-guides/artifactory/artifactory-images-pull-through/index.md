@@ -10,7 +10,7 @@ aliases:
 type: "article"
 description: "Tutorial outlining how to set up a remote Artifactory repository to pull images through Chainguard's container registry."
 date: 2024-02-13T15:56:52-07:00
-lastmod: 2026-02-18T15:56:52-07:00
+lastmod: 2026-09-04T16:13:45+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -104,10 +104,10 @@ This command returns a `docker login` command like the following:
 ```output
 . . .
 
-    docker login "cgr.dev" --username "<pull_token_ID>" --password "<password>"
+    docker login "cgr.dev" --username "<identity-id>" --password "<pull-token>"
 ```
 
-Record the values for `<pull_token_ID>` and `<password>` as you'll need these credentials when you configure a new remote Artifactory repository for pulling through Production Containers.
+Record the values for `<identity-id>` and `<pull-token>` as you'll need these credentials when you configure a new remote Artifactory repository for pulling through Production Containers.
 
 After noting your credentials, you can begin setting up an Artifactory repository from which you can pull Chainguard Production Containers. This process is similar to the one outlined previously:
 
@@ -123,8 +123,8 @@ Next, enter the following details for your new remote repository in the **Basic*
 * **Repository Key** — Choose whatever name you like here, but this guide's examples use the name `cgr-private`.
 * **URL** — This must be set to `https://cgr.dev/`. This field **must not** include additional path components — setting it to something like `https://cgr.dev/<organization>/` will cause pulls to fail with a `manifest unknown` error. To remove the organization from the pull path, use the **Project ID** field described below instead.
 * **Project ID** — Optional. Set this to your organization's name (for example, `example.com`) and Artifactory prepends it to upstream requests, letting your users omit it from their pull commands. Because this field is set per repository, you need one remote repository per Chainguard organization if you pull from more than one.
-* **User Name** — Enter the `<pull_token_ID>` value you noted from the `docker login` command.
-* **Password / Access Token** — Enter the `<password>` value you noted from the `docker login` command.
+* **User Name** — Enter the `<identity-id>` value you noted from the `docker login` command.
+* **Password / Access Token** — Enter the `<pull-token>` value you noted from the `docker login` command.
 * **Include Patterns** — Ensure that you use the default value (`**/*`) in this field.
 * **Enable Token Authentication** — Ensure this setting (under **Docker Settings**) is enabled. This is required, as you must authenticate to the remote repository in order to pull Chainguard Containers through it.
 * **Block Mismatching Mime Types** — In the **Advanced** configuration tab, ensure that this option is checked.

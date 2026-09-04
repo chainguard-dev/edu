@@ -7,7 +7,7 @@ type: "article"
 description: "A reference for the output formats chainctl auth pull-token create supports and the names each format gives to the identity ID and token."
 lead: "Every pull token is a pair of values — an identity ID and a token — and each output format labels that pair differently. This page maps the labels to each other."
 date: 2026-09-03T00:00:00+00:00
-lastmod: 2026-09-03T00:00:00+00:00
+lastmod: 2026-09-04T16:13:45+00:00
 draft: false
 tags: ["chainctl", "Reference"]
 images: []
@@ -51,7 +51,7 @@ chainctl auth pull-token create
 ```output
 To use this pull token in another environment, run this command:
 
-    docker login "cgr.dev" --username "45a.....764595/095.....68679" --password "eyJhbGciO..........WF0IjoxN"
+    docker login "cgr.dev" --username "<identity-id>" --password "<pull-token>"
 ```
 
 The `--username` value is the identity ID and the `--password` value is the token. Both work with any tool that logs in to an OCI registry, including Podman, Helm, and registry mirroring tools. Refer to [Authenticate to Chainguard's Registry](/chainguard/containers/chainguard-registry/authenticating/#using-a-pull-token-with-podman-helm-and-other-tools) for examples.
@@ -65,9 +65,9 @@ chainctl auth pull-token create --repository=java
 ```output
 To use this pull token in another environment, supply the following for Basic authorization:
 
-Username: 45a.....764595/095.....68679
+Username: <identity-id>
 
-Password: eyJhbGciO..........WF0IjoxN
+Password: <pull-token>
 ```
 
 ## JSON output
@@ -79,7 +79,7 @@ chainctl auth pull-token create --repository=java --output=json
 ```
 
 ```output
-{"identity_id":"45a.....764595/095.....68679","token":"eyJhbGciO..........WF0IjoxN"}
+{"identity_id":"<identity-id>","token":"<pull-token>"}
 ```
 
 The field names stay the same for every repository type. Pipe the object to `jq` or another JSON processor to extract either value:
@@ -99,8 +99,8 @@ chainctl auth pull-token create --repository=java --output=env
 ```
 
 ```output
-export CHAINGUARD_JAVA_IDENTITY_ID=45a.....764595/095.....68679
-export CHAINGUARD_JAVA_TOKEN=eyJhbGciO..........WF0IjoxN
+export CHAINGUARD_JAVA_IDENTITY_ID=<identity-id>
+export CHAINGUARD_JAVA_TOKEN=<pull-token>
 ```
 
 Wrap the command in `eval` to run those `export` statements, which sets both variables in your current session:

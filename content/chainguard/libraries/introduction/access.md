@@ -4,7 +4,7 @@ linktitle: "Access"
 description: "Learn how to access Chainguard Libraries for enhanced security in Java and Python dependencies, including authentication and organization setup"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-08-21T16:30:07+00:00
+lastmod: 2026-09-04T16:13:45+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -130,9 +130,9 @@ Press `/` to filter the list.
 the response:
 
 ```output
-Username: 45a.....424eb0
+Username: <identity-id>
 
-Password: eyJhbGciO..........WF0IjoxN
+Password: <pull-token>
 ```
 
 ### Creating pull tokens with the Chainguard Console
@@ -207,8 +207,8 @@ suitable for integration in a script.
 
 ```shell
 $ chainctl auth pull-token --output env --repository=java --parent=example
-export CHAINGUARD_JAVA_IDENTITY_ID=45a.....424eb0
-export CHAINGUARD_JAVA_TOKEN=eeyJhbGciO..........WF0IjoxN
+export CHAINGUARD_JAVA_IDENTITY_ID=<identity-id>
+export CHAINGUARD_JAVA_TOKEN=<pull-token>
 ```
 
 Combine the call with `eval` to populate the environment variables directly by

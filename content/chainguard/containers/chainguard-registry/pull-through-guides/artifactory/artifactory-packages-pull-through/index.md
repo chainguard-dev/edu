@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "Tutorial for setting up remote Artifactory repositories as pull-through caches for apk packages from Chainguard's package repositories."
 date: 2024-11-14T15:56:52-07:00
-lastmod: 2025-09-24T06:00:00-07:00
+lastmod: 2026-09-04T16:13:45+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -54,9 +54,9 @@ Creating new APK registry pull-token in example.org
 
 To use this pull token in another environment, supply the following for Basic authorization:
 
-Username: <pull-token-id>
+Username: <identity-id>
 
-Password: <pull-token-password>
+Password: <pull-token>
 ```
 
 Be sure to note down both the `Username` and `Password` values returned by this command, as you will need these when setting up a remote repository on Artifactory.

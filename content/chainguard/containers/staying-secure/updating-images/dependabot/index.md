@@ -4,7 +4,7 @@ linktitle: "Using Dependabot"
 type: "article"
 description: "How to configure Dependabot to authenticate to your private cgr.dev registry and open pull requests that update Chainguard Containers"
 date: 2026-09-03T00:00:00+00:00
-lastmod: 2026-09-03T15:15:12+00:00
+lastmod: 2026-09-04T16:13:45+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -51,7 +51,7 @@ This command responds with output such as the following:
 ```shell
 To use this pull token in another environment, run this command:
 
-    docker login "cgr.dev" --username "<USERNAME>" --password "<PASSWORD>"
+    docker login "cgr.dev" --username "<identity-id>" --password "<pull-token>"
 ```
 
 The username has the form `<organization ID>/<pull token ID>`. Record both values; you'll store them as secrets in the next section.
@@ -158,7 +158,7 @@ This error means Dependabot reached `cgr.dev` but couldn't authenticate. Check t
 1. Confirm the secrets are stored under **Dependabot**, not **Actions**. This is the most common cause.
 2. Confirm the pull token is still valid. Run `chainctl auth pull-token list` to see the tokens in your organization and when they expire.
 3. Confirm the username is the complete `<organization ID>/<pull token ID>` string, including the slash.
-4. Test the credentials outside of Dependabot with `docker login cgr.dev --username <USERNAME> --password <PASSWORD>`, followed by a `docker pull` of one of the images in your repository.
+4. Test the credentials outside of Dependabot with `docker login cgr.dev --username <identity-id> --password <pull-token>`, followed by a `docker pull` of one of the images in your repository.
 
 ### No pull requests appear
 
