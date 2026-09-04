@@ -5,7 +5,7 @@ lead: "Model Context Protocol server for Chainguard documentation"
 description: "Access Chainguard documentation through MCP for AI assistants and automation"
 type: "article"
 date: 2026-01-02T21:00:00+00:00
-lastmod: 2026-09-04T13:19:55+00:00
+lastmod: 2026-09-04T15:07:32+00:00
 draft: false
 images: []
 weight: 600
@@ -280,15 +280,21 @@ curl -LO https://raw.githubusercontent.com/chainguard-dev/edu/main/scripts/mcp-s
 curl -LO https://raw.githubusercontent.com/chainguard-dev/edu/main/scripts/mcp-requirements.txt
 
 # Extract the documentation bundle from the container image
-docker run --rm -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract /output
-# Writes chainguard-ai-docs.md and image-catalog.json to the current directory
+docker run --rm --user "$(id -u):$(id -g)" \
+  -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract /output
+# Writes chainguard-ai-docs.md, image-catalog.json, checksums.txt, and
+# verification.sh into a chainguard-ai-docs/ subdirectory
 
 # Install dependencies
 pip install -r mcp-requirements.txt
 
 # Run the server
-DOCS_PATH=chainguard-ai-docs.md CATALOG_PATH=image-catalog.json python3 mcp-server.py
+DOCS_PATH=chainguard-ai-docs/chainguard-ai-docs.md \
+CATALOG_PATH=chainguard-ai-docs/image-catalog.json \
+python3 mcp-server.py
 ```
+
+The container runs as a non-root user, so pass `--user` to let it write to the mounted directory and to leave the extracted files owned by you.
 
 To run this script under Claude Desktop, point the configuration at the local files:
 
@@ -346,11 +352,11 @@ Point your MCP client at `http://localhost:8080/mcp/`.
 If you don't need the server at all, extract the documentation file from the container:
 
 ```bash
-docker run --rm -v $(pwd):/output \
+docker run --rm --user "$(id -u):$(id -g)" -v $(pwd):/output \
   ghcr.io/chainguard-dev/ai-docs:latest extract /output
 ```
 
-Refer to the [Developer Resources](/developer-resources/) page for more on static extraction.
+The bundle lands at `chainguard-ai-docs/chainguard-ai-docs.md`. Refer to the [Developer Resources](/developer-resources/) page for more on static extraction.
 
 ## Security features
 
