@@ -4649,10 +4649,15 @@
         "type": "object"
       },
       "chainguard.platform.policies.v1.Decision": {
-        "description": "Decision records the outcome of a single pull-time policy evaluation\nof one artifact digest.",
+        "description": "Decision records the outcome of a single pull-time policy evaluation\nof one artifact.",
         "properties": {
+          "artifactId": {
+            "description": "The artifact this decision applies to: a manifest digest\n(\"sha256:...\") for container policies or a PURL\n(\"pkg:npm/left-pad@1.3.0\") for library policies.",
+            "readOnly": true,
+            "type": "string"
+          },
           "digest": {
-            "description": "The digest the policy was evaluated against.",
+            "description": "Deprecated: use artifact_id.",
             "readOnly": true,
             "type": "string"
           },
@@ -4685,7 +4690,7 @@
                 "$ref": "#/components/schemas/google.type.Date"
               }
             ],
-            "description": "The day the digest was pulled and evaluated against this policy.",
+            "description": "The day the artifact was pulled and evaluated against this policy.",
             "readOnly": true
           },
           "reason": {
@@ -4920,7 +4925,7 @@
           },
           "supportedResourceType": {
             "description": "Immutable: set at creation and cannot be changed on update. A policy's\nname and supported_resource_type together identify it, so changing the\ntype would move the policy into a different identity.",
-            "title": "The resource type this policy supports.\nThe value is a Chainguard API resource type with a version suffix\n(e.g. \"registry.chainguard.dev/Repo@v1\"). The version determines\nwhich PolicyInput schema is used when evaluating the policy expression.\nSupported resource types:\n  - registry.chainguard.dev/Repo@v1",
+            "title": "The resource type this policy supports.\nThe value is a Chainguard API resource type with a version suffix\n(e.g. \"registry.chainguard.dev/Repo@v1\"). The type determines which\ninput document the policy expression is evaluated against, and the\nversion which revision of it.\nSupported resource types:\n  - registry.chainguard.dev/Repo@v1\n  - libraries.chainguard.dev/JavaPackage@v1\n  - libraries.chainguard.dev/NPMPackage@v1\n  - libraries.chainguard.dev/PythonPackage@v1\n  - libraries.chainguard.dev/GoPackage@v1\n  - libraries.chainguard.dev/DotNetPackage@v1",
             "type": "string"
           },
           "supportedResourceTypes": {
@@ -4982,7 +4987,7 @@
           },
           "supportedResourceType": {
             "description": "Immutable: set at creation and cannot be changed on update. A policy's\nname and supported_resource_type together identify it, so changing the\ntype would move the policy into a different identity.",
-            "title": "The resource type this policy supports.\nThe value is a Chainguard API resource type with a version suffix\n(e.g. \"registry.chainguard.dev/Repo@v1\"). The version determines\nwhich PolicyInput schema is used when evaluating the policy expression.\nSupported resource types:\n  - registry.chainguard.dev/Repo@v1",
+            "title": "The resource type this policy supports.\nThe value is a Chainguard API resource type with a version suffix\n(e.g. \"registry.chainguard.dev/Repo@v1\"). The type determines which\ninput document the policy expression is evaluated against, and the\nversion which revision of it.\nSupported resource types:\n  - registry.chainguard.dev/Repo@v1\n  - libraries.chainguard.dev/JavaPackage@v1\n  - libraries.chainguard.dev/NPMPackage@v1\n  - libraries.chainguard.dev/PythonPackage@v1\n  - libraries.chainguard.dev/GoPackage@v1\n  - libraries.chainguard.dev/DotNetPackage@v1",
             "type": "string"
           },
           "supportedResourceTypes": {
@@ -5088,6 +5093,13 @@
             },
             "type": "array"
           },
+          "supportedResourceTypes": {
+            "description": "The resource types to validate the expression for, in the form\nPolicy.supported_resource_type takes (e.g.\n\"registry.chainguard.dev/Repo@v1\").\n\nRepeated because a policy manifest may declare several, each of which\nbecomes its own policy: validating the manifest means validating the\nexpression once per type. A type determines which input document the\nexpression is checked against, so an expression can be valid for one type\nand reference an undefined field under another. Diagnostics name the\nresource type when the outcome differs across the set.\n\nRequired, distinct, and every value must be a supported resource type.\nNaming a type twice is refused rather than ignored.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
           "type": {
             "allOf": [
               {
@@ -5099,7 +5111,8 @@
         },
         "required": [
           "expression",
-          "type"
+          "type",
+          "supportedResourceTypes"
         ],
         "type": "object"
       },
@@ -15212,9 +15225,17 @@
             }
           },
           {
-            "description": "Only return decisions for this manifest digest.",
+            "description": "Deprecated: use artifact_id.",
             "in": "query",
             "name": "digest",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Only return decisions for this artifact.",
+            "in": "query",
+            "name": "artifactId",
             "schema": {
               "type": "string"
             }
