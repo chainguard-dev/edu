@@ -1,6 +1,6 @@
 # Chainguard Documentation Bundle
 
-_Compiled on: 2026-09-04 14:36:11_
+_Compiled on: 2026-09-05 02:21:14_
 
 This document contains Chainguard documentation compiled from multiple sources.
 
@@ -105,7 +105,7 @@ The Chainguard AI Documentation MCP server gives AI assistants and automation to
 
 ## Why use the MCP server?
 
-- **Lower context cost.** Clients fetch only the sections they need instead of loading 2.8 MB of documentation into every prompt.
+- **Lower context cost.** Clients fetch only the sections they need instead of loading the entire multi-megabyte bundle into every prompt.
 - **Structured queries.** Look up a specific image, search for a CVE, or find a package equivalent without writing custom scrapers.
 - **IDE integration.** Works with Claude Code, Claude Desktop, Cursor, and other MCP-compatible clients, so developers can reference Chainguard docs while they write code.
 
@@ -362,15 +362,21 @@ curl -LO https://raw.githubusercontent.com/chainguard-dev/edu/main/scripts/mcp-s
 curl -LO https://raw.githubusercontent.com/chainguard-dev/edu/main/scripts/mcp-requirements.txt
 
 # Extract the documentation bundle from the container image
-docker run --rm -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract /output
-# Writes chainguard-ai-docs.md and image-catalog.json to the current directory
+docker run --rm --user "$(id -u):$(id -g)" \
+  -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract /output
+# Writes chainguard-ai-docs.md, image-catalog.json, checksums.txt, and
+# verification.sh into a chainguard-ai-docs/ subdirectory
 
 # Install dependencies
 pip install -r mcp-requirements.txt
 
 # Run the server
-DOCS_PATH=chainguard-ai-docs.md CATALOG_PATH=image-catalog.json python3 mcp-server.py
+DOCS_PATH=chainguard-ai-docs/chainguard-ai-docs.md \
+CATALOG_PATH=chainguard-ai-docs/image-catalog.json \
+python3 mcp-server.py
 ```
+
+The container runs as a non-root user, so pass `--user` to let it write to the mounted directory and to leave the extracted files owned by you.
 
 To run this script under Claude Desktop, point the configuration at the local files:
 
@@ -428,11 +434,11 @@ Point your MCP client at `http://localhost:8080/mcp/`.
 If you don't need the server at all, extract the documentation file from the container:
 
 ```bash
-docker run --rm -v $(pwd):/output \
+docker run --rm --user "$(id -u):$(id -g)" -v $(pwd):/output \
   ghcr.io/chainguard-dev/ai-docs:latest extract /output
 ```
 
-Refer to the [Developer Resources](/developer-resources/) page for more on static extraction.
+The bundle lands at `chainguard-ai-docs/chainguard-ai-docs.md`. Refer to the [Developer Resources](/developer-resources/) page for more on static extraction.
 
 ## Security features
 
@@ -555,8 +561,8 @@ Every compilation runs through multiple security checks:
 
 - **Secret Detection**: We scan for API keys, tokens, and other sensitive data
 - **Pattern Matching**: Common secret patterns are automatically redacted
-- **File Size Limits**: Individual files limited to 10MB, total bundle to 50MB
-- **Extension Filtering**: Only `.md`, `.html`, and `.json` files are processed
+- **Bundle Size Limit**: The build fails if the compiled bundle exceeds 50 MB
+- **Extension Filtering**: Only `.md`, `.html`, `.json`, and `.yaml` files are processed
 
 ### 2. Cryptographic Signatures
 
@@ -585,6 +591,9 @@ Documentation is compiled from these official repositories:
 1. **chainguard-dev/edu**: Main documentation site
 2. **chainguard-dev/courses**: Learning materials
 3. **chainguard-images/images-private**: Image documentation
+4. **chainguard-dev/dfc**: Package and image mappings from the Dockerfile Converter
+
+> **Note:** The Dockerfile Converter mappings do not currently reach the compiled bundle. We're tracking a fix.
 
 ### Build Environment
 
@@ -722,9 +731,12 @@ docker run --rm ghcr.io/chainguard-dev/ai-docs:latest
 # Verify documentation integrity
 docker run --rm ghcr.io/chainguard-dev/ai-docs:latest verify
 
-# Extract documentation to the current directory
-docker run --rm -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract /output
+# Extract documentation into a chainguard-ai-docs/ subdirectory
+docker run --rm --user "$(id -u):$(id -g)" \
+  -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract /output
 ```
+
+The container runs as a non-root user, so pass `--user` to let it write to the mounted directory and to leave the extracted files owned by you.
 
 **Container features:**
 
@@ -786,9 +798,10 @@ To use the hosted server instead of running a container locally, refer to the [h
 
 ```bash
 # Extract current documentation from the container image
-docker run --rm -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract /output
+docker run --rm --user "$(id -u):$(id -g)" \
+  -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract /output
 
-# The extracted file 'chainguard-ai-docs.md' is ready to use with your AI assistant
+# chainguard-ai-docs/chainguard-ai-docs.md is ready to use with your AI assistant
 ```
 
 ### Security features
@@ -7912,9 +7925,9 @@ Press `/` to filter the list.
 the response:
 
 ```output
-Username: 45a.....424eb0
+Username: <identity-id>
 
-Password: eyJhbGciO..........WF0IjoxN
+Password: <pull-token>
 ```
 
 ### Creating pull tokens with the Chainguard Console
@@ -7989,8 +8002,8 @@ suitable for integration in a script.
 
 ```shell
 $ chainctl auth pull-token --output env --repository=java --parent=example
-export CHAINGUARD_JAVA_IDENTITY_ID=45a.....424eb0
-export CHAINGUARD_JAVA_TOKEN=eeyJhbGciO..........WF0IjoxN
+export CHAINGUARD_JAVA_IDENTITY_ID=<identity-id>
+export CHAINGUARD_JAVA_TOKEN=<pull-token>
 ```
 
 Combine the call with `eval` to populate the environment variables directly by
@@ -10825,8 +10838,8 @@ This outputs an identity ID and token named `my-js-token`, with a default expira
 Set the identity ID and token as environment variables:
 
 ```shell
-export CHAINGUARD_JAVASCRIPT_IDENTITY_ID="<your-identity-id>"
-export CHAINGUARD_JAVASCRIPT_TOKEN="<your-token>"
+export CHAINGUARD_JAVASCRIPT_IDENTITY_ID="<identity-id>"
+export CHAINGUARD_JAVASCRIPT_TOKEN="<pull-token>"
 ```
 
 > **Do not commit credentials to version control.** Configuration files
@@ -21669,7 +21682,7 @@ This command responds with output such as:
 ```shell
 To use this pull token in another environment, run this command:
 
-    docker login "cgr.dev" --username "<USERNAME>" --password "<PASSWORD>"
+    docker login "cgr.dev" --username "<identity-id>" --password "<pull-token>"
 ```
 
 By default, this credential is good for 30 days.
@@ -21683,8 +21696,8 @@ You can now configure `hostRules` in Renovate to support the Chainguard registry
     {
       "hostType": "docker",
       "matchHost": "cgr.dev",
-      "username": "<USERNAME>",
-      "password": "<PASSWORD>"
+      "username": "<identity-id>",
+      "password": "<pull-token>"
      }]
 }
 ```
@@ -22132,7 +22145,7 @@ LOG_LEVEL=debug renovate --print-config
          {
            "hostType": "docker",
            "matchHost": "cgr.dev",
-           "username": "<Organizations ID>/<pull token ID>",
+           "username": "<identity-id>",
            "password": "***********",
            "resolvedHost": "cgr.dev"
          },
@@ -22452,7 +22465,7 @@ This command responds with output such as the following:
 ```shell
 To use this pull token in another environment, run this command:
 
-    docker login "cgr.dev" --username "<USERNAME>" --password "<PASSWORD>"
+    docker login "cgr.dev" --username "<identity-id>" --password "<pull-token>"
 ```
 
 The username has the form `<organization ID>/<pull token ID>`. Record both values; you'll store them as secrets in the next section.
@@ -22559,7 +22572,7 @@ This error means Dependabot reached `cgr.dev` but couldn't authenticate. Check t
 1. Confirm the secrets are stored under **Dependabot**, not **Actions**. This is the most common cause.
 2. Confirm the pull token is still valid. Run `chainctl auth pull-token list` to see the tokens in your organization and when they expire.
 3. Confirm the username is the complete `<organization ID>/<pull token ID>` string, including the slash.
-4. Test the credentials outside of Dependabot with `docker login cgr.dev --username <USERNAME> --password <PASSWORD>`, followed by a `docker pull` of one of the images in your repository.
+4. Test the credentials outside of Dependabot with `docker login cgr.dev --username <identity-id> --password <pull-token>`, followed by a `docker pull` of one of the images in your repository.
 
 ### No pull requests appear
 
@@ -24112,21 +24125,21 @@ This command prints a `docker login` command that includes `--username` and `--p
 ```output
 . . .
 
-    docker login "cgr.dev" --username "<pull_token_ID>" --password "<password>"
+    docker login "cgr.dev" --username "<identity-id>" --password "<pull-token>"
 ```
 
-You don't need to run this `docker login` command, but note down the `<pull_token_ID>` and `<password>` values. You'll supply them to AWS Secrets Manager in the next step.
+You don't need to run this `docker login` command, but note down the `<identity-id>` and `<pull-token>` values. You'll supply them to AWS Secrets Manager in the next step.
 
 ## Storing your pull token in AWS Secrets Manager
 
 ECR reads your Chainguard credentials from an AWS Secrets Manager secret rather than from the cache rule itself. The secret's name must begin with the `ecr-pullthroughcache/` prefix, and it must be in the same account and Region where you'll create the cache rule.
 
-To create the secret with the AWS CLI, run the following command. Replace `<pull_token_ID>` and `<password>` with the values from the previous step, replace `<secret_name>` with a name for your secret, and set `<region>` to the Region where you'll create the cache rule:
+To create the secret with the AWS CLI, run the following command. Replace `<identity-id>` and `<pull-token>` with the values from the previous step, replace `<secret_name>` with a name for your secret, and set `<region>` to the Region where you'll create the cache rule:
 
 ```sh
 aws secretsmanager create-secret \
     --name ecr-pullthroughcache/<secret_name> \
-    --secret-string '{"username":"<pull_token_ID>","accessToken":"<password>"}' \
+    --secret-string '{"username":"<identity-id>","accessToken":"<pull-token>"}' \
     --region <region>
 ```
 
@@ -24296,7 +24309,7 @@ This will create a pull token and print a `docker login` command that can be run
 Note down the `username` value, as you will need it shortly. Then run the following command to create an environment variable named `$PASSWORD` set to the pull token password generated by the previous command:
 
 ```sh
-export PASSWORD=<password value copied from previous output>
+export PASSWORD="<pull-token>"
 ```
 
 Now that you've set up a pull token, you can configure a repository for pulling through Production container images.
@@ -24527,7 +24540,7 @@ This returns username and password credentials:
 ```Output
 To use this pull token in another environment, run this command:
 
-    docker login "cgr.dev" --username "<pull-token-username>" --password "<pull-token-password>"
+    docker login "cgr.dev" --username "<identity-id>" --password "<pull-token>"
 ```
 
 Take note of these values, as you'll need them shortly.
@@ -24666,9 +24679,9 @@ Creating new APK registry pull-token in example.org
 
 To use this pull token in another environment, supply the following for Basic authorization:
 
-Username: <pull-token-id>
+Username: <identity-id>
 
-Password: <pull-token-password>
+Password: <pull-token>
 ```
 
 Be sure to note down both the `Username` and `Password` values returned by this command, as you will need these when setting up a remote repository on Artifactory.
@@ -24967,10 +24980,10 @@ This command returns a `docker login` command like the following:
 ```output
 . . .
 
-    docker login "cgr.dev" --username "<pull_token_ID>" --password "<password>"
+    docker login "cgr.dev" --username "<identity-id>" --password "<pull-token>"
 ```
 
-Record the values for `<pull_token_ID>` and `<password>` as you'll need these credentials when you configure a new remote Artifactory repository for pulling through Production Containers.
+Record the values for `<identity-id>` and `<pull-token>` as you'll need these credentials when you configure a new remote Artifactory repository for pulling through Production Containers.
 
 After noting your credentials, you can begin setting up an Artifactory repository from which you can pull Chainguard Production Containers. This process is similar to the one outlined previously:
 
@@ -24986,8 +24999,8 @@ Next, enter the following details for your new remote repository in the **Basic*
 * **Repository Key** — Choose whatever name you like here, but this guide's examples use the name `cgr-private`.
 * **URL** — This must be set to `https://cgr.dev/`. This field **must not** include additional path components — setting it to something like `https://cgr.dev/<organization>/` will cause pulls to fail with a `manifest unknown` error. To remove the organization from the pull path, use the **Project ID** field described below instead.
 * **Project ID** — Optional. Set this to your organization's name (for example, `example.com`) and Artifactory prepends it to upstream requests, letting your users omit it from their pull commands. Because this field is set per repository, you need one remote repository per Chainguard organization if you pull from more than one.
-* **User Name** — Enter the `<pull_token_ID>` value you noted from the `docker login` command.
-* **Password / Access Token** — Enter the `<password>` value you noted from the `docker login` command.
+* **User Name** — Enter the `<identity-id>` value you noted from the `docker login` command.
+* **Password / Access Token** — Enter the `<pull-token>` value you noted from the `docker login` command.
 * **Include Patterns** — Ensure that you use the default value (`**/*`) in this field.
 * **Enable Token Authentication** — Ensure this setting (under **Docker Settings**) is enabled. This is required, as you must authenticate to the remote repository in order to pull Chainguard Containers through it.
 * **Block Mismatching Mime Types** — In the **Advanced** configuration tab, ensure that this option is checked.
@@ -25274,8 +25287,8 @@ The `docker login` command that `chainctl auth configure-docker --pull-token` pr
 
 ```sh
 docker login "cgr.dev" \
-  --username "45a0c61ea6fd977f050c5fb9ac06a69eed764595/095b0c7ea9d68679" \
-  --password "eyJhbGciOiJSUzI1NiJ9..."
+  --username "<identity-id>" \
+  --password "<pull-token>"
 ```
 
 Save that pair and pass it to any tool that logs in to an OCI registry. For example, Podman:
@@ -29077,8 +29090,8 @@ chainctl auth pull-token --repository=apk --ttl=2190h --output=env --parent=ORGA
 ```
 
 ```output
-export CHAINGUARD_IDENTITY_ID=45a.....424eb0
-export CHAINGUARD_TOKEN=eeyJhbGciO..........WF0IjoxN
+export CHAINGUARD_IDENTITY_ID=<identity-id>
+export CHAINGUARD_TOKEN=<pull-token>
 ```
 
 * `--repository=apk`: create a role binding to bind the pull token identity the
@@ -41218,18 +41231,18 @@ chainctl auth configure-docker --pull-token --save --ttl=24h
 
 To use this pull token in another environment, run this command:
 
-    docker login "cgr.dev" --username "45a0c61ea6fd977f050c5fb9ac06a69eed764595/095b0c7ea9d68679" --password "eyJhbGciOiJSUzI1NiJ9.eyJhdWQ... # Token truncated"
+    docker login "cgr.dev" --username "<identity-id>" --password "<pull-token>"
 
-Configuring identity "45a0c61ea6fd977f050c5fb9ac06a69eed764595/095b0c7ea9d68679" for pulls from cgr.dev (expires 2025-06-12T09:27:45-05:00).
+Configuring identity "<identity-id>" for pulls from cgr.dev (expires 2025-06-12T09:27:45-05:00).
 Overwriting existing credentials.
 ```
 
 Save the credentials as variables, like this.
 
 ```sh
-HELMUSER=45a0c61ea6fd977f050c5fb9ac06a69eed764595/095b0c7ea9d68679
+HELMUSER="<identity-id>"
 
-HELMPASS=eyJhbGciOiJSUzI1NiJ9.eyJhdWQ... # Token truncated
+HELMPASS="<pull-token>"
 ```
 
 Create your Kubernetes secret using the variables you just created.
@@ -41765,18 +41778,18 @@ chainctl auth configure-docker --pull-token --save --ttl=24h
 
 To use this pull token in another environment, run this command:
 
-    docker login "cgr.dev" --username "45a0c61ea6fd977f050c5fb9ac06a69eed764595/095b0c7ea9d68679" --password "eyJhbGciOiJSUzI1NiJ9.eyJhdWQ... # Token truncated"
+    docker login "cgr.dev" --username "<identity-id>" --password "<pull-token>"
 
-Configuring identity "45a0c61ea6fd977f050c5fb9ac06a69eed764595/095b0c7ea9d68679" for pulls from cgr.dev (expires 2025-06-12T09:27:45-05:00).
+Configuring identity "<identity-id>" for pulls from cgr.dev (expires 2025-06-12T09:27:45-05:00).
 Overwriting existing credentials.
 ```
 
 Save the credentials as variables, like this.
 
 ```sh
-HELMUSER=45a0c61ea6fd977f050c5fb9ac06a69eed764595/095b0c7ea9d68679
+HELMUSER="<identity-id>"
 
-HELMPASS=eyJhbGciOiJSUzI1NiJ9.eyJhdWQ... # Token truncated
+HELMPASS="<pull-token>"
 ```
 
 Create your Kubernetes secret using the variables you just created.
@@ -42169,7 +42182,7 @@ Set $ORGANIZATION to be the organization name you're pulling Helm Charts from. O
 ```bash
 To use this pull token in another environment, run this command:
 
-    docker login "cgr.dev" --username "bd3c9ec494caca60225319fd4053abe067c169ec/5037f83cdd0fbdcd" --password "eyJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJodHRwczovL2lzc..." # Token truncated
+    docker login "cgr.dev" --username "<identity-id>" --password "<pull-token>"
 ```
 
 In the repository's configuration, set the **URL** to `https://cgr.dev`, and set the **User Name** and **Password / Access Token** to the values from the command output above.
@@ -44459,18 +44472,13 @@ writing RSA key
 ```bash
 $ cat key.pem
 -----BEGIN RSA PRIVATE KEY-----
-MIIJKgIBAAKCAgEA1BgrTaqV3zS+TOx6A/n+59ECOlXl7Uk7W82wNe7kUgfVAIGj
-Bci+Tc7O/nf/7GCMlzli/4n5WE0Ny2i/Kj4Ycsu6TUEcW6XaJSz4R4TBTHAcQiNq
-8EkBQ2S5SuIIEekvCdVffkob3NtipOd/FaiLS1NVUAFcqOGHl2DYEkhP2puBS+Ad
-…
+MIIJKgIBAAKCAgEA…
+-----END RSA PRIVATE KEY-----
 
 $ cat pub.pem
-cat pub.pem
 -----BEGIN PUBLIC KEY-----
-MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA1BgrTaqV3zS+TOx6A/n+
-59ECOlXl7Uk7W82wNe7kUgfVAIGjBci+Tc7O/nf/7GCMlzli/4n5WE0Ny2i/Kj4Y
-csu6TUEcW6XaJSz4R4TBTHAcQiNq8EkBQ2S5SuIIEekvCdVffkob3NtipOd/FaiL
-…
+MIICIjANBgkqhkiG9w0BAQEFAAOCAg8A…
+-----END PUBLIC KEY-----
 ```
 
 We now have our keys but this is still a bit of magic. What is a PEM and what is this syntax? To answer that, let's look at doing the same thing we just did in Go (omitting errors for brevity).
@@ -52483,7 +52491,7 @@ This will return output like the following:
 ```response
 Opening browser to https://issuer.enforce.dev/oauth?audience=https%3A%2F%2Fconsole-api.enforce.dev&client_id=auth0&connection=google-oauth2&create_refresh_token=true&exit=redirect&redirect=http%3A%2F%2Flocalhost%3A44723%2Fcallback%3Ftoken%3Dtrue%26error%3Dtrue&skip_registration=true
 Opening in existing browser session.
-eyJhbGciOiJSUzI1NiIsImtpZCIiwibmFtZSI6SRi0IvgxPIlU8LfgLIk1hdHRoU5NmIxNzM3OGZlNzU51ZjczNTgxNTQ3ODU4OWM2MzNlZTQwZDUyOGMwYTAifQ.eyJhY3QiOnsiYXVkIjoiSHZxeTd5b0VoSThUWTF6WDlyUHJzZGNJbnREejl5aDIiLCJpc3MiOiJodHRwczovL2F1dGguY2hhaW5ndWFyZC5kZXYvIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTUzMTIxMjYyNzg5NDAzNzAyMTgifSwiYXVkIjoiaHR0cHM6Ly9jb25zb2xlLWFwaS5lbmZvcmNlLmRldiIsImNhcCI6eyIwYWM3ZmY5MDU4NTBjMzU3MjNhN2YzNzZlMTBkMDA3Yzk1OGM0NWM4IjoiQUFBQUFBQUFBSHhFUWdCQWdJQkVTQWlJR0RCQWlxbGsiLCI0NWEwYzYxZWE2ZmQ5NzdmMDUwYzVmYjlhYzA2YTY5ZWVkNzY0NTk1IjoiQUFBQUFBQUFBSHpfOGdEeDRlRF9fZ25vLURCQl9fdHYiLCI1NWE1OGJjOGU0ZTNkZGNmNWJiZTczYWIwOTA4NzhmYTM1ZDBhNWE5IjoiQUFBQUFBQUFBSHpfOGdEeDRlRF9fZ25vLURCQl9fdHYiLCI3MjA5MDljOWY1Mjc5MDk3ZDg0N2FkMDJhMmYyNGJhOGY1OWRlMzZhIjoiQUFBQUFBQUFBSHhFUWdCQWdJQkVTQWlJR0RCQWlxbGsiLCI4ZDAwODEwYjBhMDI5NTU5ZTUyMzk5ODU1MDMxOTU4ZWY0OGJlNmM4IjoiQUFBQUFBQUFBSHhFUWdCQWdJQkVTQWlJR0RCQWlxbGsiLCI4ZGQwMGJjZmYyMjQzNGQ3YzEwMDdmZWY2Nzg5Mzk0NWU4YmNiNDM1IjoiQUFBQUFBQUFBRndBQUFBQUFBQUFBQUFBQUFBSUFBQUEiLCJhNzBkOTg5ZDgyMWJjMzE1ZmViYTlmYjU4NWQ0ZWNlMzVjODJjMjgyIjoiQUFBQUFBQUFBSHpfOGdEeDRlRF9fZ25vLURCQl9fdHYiLCJiMTkwNGI0MWU1Mzg1Yzk1ZGY3MDlhZjZhY2EzNTMwNTExMzgzZmVmIjoiQUFBQUFBQUFBSHhFUWdCQWdJQkVTQWlJR0RCQWlxbGsiLCJjYTQzOGQ3NmFjYmFkMDI5N2I3NzNkNjgzODkwZmJlNWQ5OWRiOGI1IjoiQUFBQUFBQUFBRzFFQWdBQUlBQVVDQUFBR1lBQmFBbGsiLCJjZTJkMTk4NGEwMTA0NzExNDI1MDMzNDBkNjcwNjEyZDYzZmZiOWY2IjoiQUFBQUFBQUFBSHhFUWdCQWdJQkVTQWlJR0RCQWlxbGsifSwiZW1haWwiOiJtYXR0aGV3LmhlbG1rZUBjaGFZTYwNDRjMDY5N2Y3ZlcmlmaWVkIjp0cnVlLCJleHAiOjE3NzM5MjYzNTcsImlhdCI6MTc3MzkyMjc1NywiaW50ZXJuYWwiOnsiZGVidWciOnRydWV9LCJpc3MiOiJodHRwczovL2lzc3Vlci5lbmZvcmNlLmRldiIsInN1YiI6IjY5MDkxMmNmM2U3Njk3OWVjYTVhYThjOWUyY2VmOTI3MDRhMTEyOTYiLCJ1cHN0cmVhbSI6eyJlbWFpbCI6Im1hdHRoZXcuaGVsbWtlQGNoYWluZ3VhcmQuZGV2ZXcgSGVsbWtlIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0lERmdNeWZ4X2NOR2I0bGtwZ1VTbVA2WjlUSXg0NnZud3JtdDhEQmZYNkZYdmc2R009czk2LWMifX0.GnN8_oJwL3mgutHM3IoX65g8aYoEKmG0-dSHvlxXDYwB6cWpTlfNJKmkJjD5rT8exWnSiP_ibq9SZB7rA23pl17Gn0hdHH42lgKSKzdM6471E_Yz2cThxOKR4KrMDnI9UvIBrZ2cZ270WU21q0soIt5XBcEBTiZ1t2ehfvcVgSi4kq87pNQjF5esmeP71kiCQAtyQuEKKwLB-9ShIVJaSnmgjX3kWtOyXur9fBFXO7XBC6b9DKp3mzsc7JMyNE2UEKN5psHkprfARWa-MFYLsN4MKxo23CEUTOxmRaQzfznOdwDHwZgjN9tfp3RMqG6owvq5x4-H6OAIh6eKfVSadcBsgs2p__WpqPB66rZAt-J6E-NZlNzU51ZjczNTgxNTQ3ODU4tvNyqsxZhnN7rPv1Q0nc18e4JtYzIsBFr-SRi0IvgxPIlU8LfgLKI_CuZ3Uhk503M1lTlin2cPJi3DyDAc3xOeTr3NjSxJ2wOgUErgkZJg70aOoIpSV_4zRC_Qy8-aha-eICEEKs98yVw7GPSrPQpBBcIm0ud0pIM2e-33AVNG-D_mfA2chEZMxoFvZzZaF6xNv7v9r3TlyQ2m2mEJyt9qxkwgsoXaxHhHyjhEkfctP_4cNQ03ytwxqvo4o1SjsCTdo_CxdSOS2JMIvcpq-GDohWUZSAG
+<api-token>
 ```
 
 Then, retrieve an API token and use it to call the API:
@@ -57273,11 +57281,11 @@ This sample request has the following headers:
 | content-type | `application/json` |
 | ce-type | `dev.chainguard.registry.pull.v1` |
 | ce-time | `2025-04-23T00:37:47Z` |
-| ce-subject | `45a0c61ea6fd977f050c5fb9ac06a69eed764595/7214b8ddd5ce879d` |
+| ce-subject | `<identity-uid>` |
 | ce-specversion | `1.0` |
 | ce-source | `cgr.dev` |
 | ce-id | `188888b6-27d2-4a80-8ad5-c7450ab89c0c` |
-| ce-group | `45a0c61ea6fd977f050c5fb9ac06a69eed764595` |
+| ce-group | `<group-uid>` |
 | ce-audience | `customer` |
 | ce-actor | `enforce-prod-registry-jzjewxe4@prod-enforce-fabc.iam.gserviceaccount.com` |
 | authorization | `Bearer …` |
@@ -76530,7 +76538,7 @@ chainctl auth pull-token create
 ```output
 To use this pull token in another environment, run this command:
 
-    docker login "cgr.dev" --username "45a.....764595/095.....68679" --password "eyJhbGciO..........WF0IjoxN"
+    docker login "cgr.dev" --username "<identity-id>" --password "<pull-token>"
 ```
 
 The `--username` value is the identity ID and the `--password` value is the token. Both work with any tool that logs in to an OCI registry, including Podman, Helm, and registry mirroring tools. Refer to [Authenticate to Chainguard's Registry](/chainguard/containers/chainguard-registry/authenticating/#using-a-pull-token-with-podman-helm-and-other-tools) for examples.
@@ -76544,9 +76552,9 @@ chainctl auth pull-token create --repository=java
 ```output
 To use this pull token in another environment, supply the following for Basic authorization:
 
-Username: 45a.....764595/095.....68679
+Username: <identity-id>
 
-Password: eyJhbGciO..........WF0IjoxN
+Password: <pull-token>
 ```
 
 ## JSON output
@@ -76558,7 +76566,7 @@ chainctl auth pull-token create --repository=java --output=json
 ```
 
 ```output
-{"identity_id":"45a.....764595/095.....68679","token":"eyJhbGciO..........WF0IjoxN"}
+{"identity_id":"<identity-id>","token":"<pull-token>"}
 ```
 
 The field names stay the same for every repository type. Pipe the object to `jq` or another JSON processor to extract either value:
@@ -76578,8 +76586,8 @@ chainctl auth pull-token create --repository=java --output=env
 ```
 
 ```output
-export CHAINGUARD_JAVA_IDENTITY_ID=45a.....764595/095.....68679
-export CHAINGUARD_JAVA_TOKEN=eyJhbGciO..........WF0IjoxN
+export CHAINGUARD_JAVA_IDENTITY_ID=<identity-id>
+export CHAINGUARD_JAVA_TOKEN=<pull-token>
 ```
 
 Wrap the command in `eval` to run those `export` statements, which sets both variables in your current session:
