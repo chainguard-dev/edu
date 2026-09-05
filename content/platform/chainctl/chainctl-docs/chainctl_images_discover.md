@@ -1,5 +1,5 @@
 ---
-date: 2026-09-03T18:18:22Z
+date: 2026-09-04T19:05:48Z
 title: "chainctl images discover"
 slug: chainctl_images_discover
 url: /platform/chainctl/chainctl-docs/chainctl_images_discover/
@@ -17,31 +17,37 @@ Find Chainguard replacements for the images your project uses.
 
 Find Chainguard replacements for the images your project uses.
 
-Reads every image reference under DIR (default: the current directory) and
-reports, for each upstream image, whether Chainguard publishes a hardened
+Reads every image reference under DIR (default: the current directory).
+For each upstream image, it reports whether Chainguard publishes a hardened
 replacement and whether your organization can pull it today.
 
-Both what you build and what you run are covered: the FROM instructions of your
-Dockerfiles, and the Kubernetes manifests, Compose files, Helm values, Terraform,
-shell scripts and Makefiles beside them.
+Private-registry references are supported. An exact catalog alias is
+preferred. Otherwise, repository suffixes are tried from most to least
+specific. Thus registry.example/cache/dotnet/sdk retains dotnet/sdk, while
+a reference ending in nginx can still suggest Chainguard's nginx. Namesake
+matching identifies a catalog offering, not identical image contents.
 
-Helm values are read as written, not rendered. An image assembled from registry,
-repository, tag and digest keys is resolved, including a chart-wide imageRegistry
-or imageNamespace and an empty tag standing for the chart's appVersion. A chart
-whose reference is computed inside its templates is beyond what reading values
-can see, so treat a chart's result as what its values declare.
+Both what you build and what you run are covered: Dockerfile FROM
+instructions, Kubernetes manifests, Compose files, Helm values, Terraform,
+shell scripts and Makefiles.
 
-Your immutability choice stays as you wrote it: a digest-pinned reference comes
-back digest-pinned. A maintained tag is kept, a variant or older patch resolves
-to its maintained version line when possible, and an untagged reference is made
-explicit as latest, which is what Docker already uses. When no requested version
-is maintained, the suggestion falls back to a maintained latest tag. An image
-you are not yet entitled to is named with a tag because its digest cannot be
-resolved until it is in your catalog.
+Helm values are read as written, not rendered. An image assembled from
+registry, repository, tag and digest keys is resolved. This includes a
+chart-wide imageRegistry or imageNamespace and an empty tag standing for
+the chart's appVersion. A reference computed inside templates is beyond
+what reading values can see, so treat the result as what values declare.
 
-Every reference is listed, with what you can do about it: pull the replacement
-today, ask for entitlement, nothing (you are already on Chainguard), or nothing
-to move to. What has no replacement is as much of the answer as what does.
+Your immutability choice stays as written: a digest-pinned reference comes
+back digest-pinned. A maintained tag is kept. A variant or older patch
+resolves to its maintained version line when possible. An untagged reference
+is made explicit as latest, which is what Docker already uses. When no
+requested version is maintained, the suggestion uses a maintained latest
+tag. An image not yet entitled is named with a tag because its digest cannot
+be resolved until it is in your catalog.
+
+Every reference is listed with what you can do: pull the replacement today,
+ask for entitlement, nothing (already on Chainguard), or nothing to move to.
+What has no replacement is as much of the answer as what does.
 
 ```
 chainctl images discover [DIR]
@@ -50,10 +56,10 @@ chainctl images discover [DIR]
 ### Examples
 
 ```
-  chainctl images discover
-  chainctl images discover ./services
-  chainctl images discover --parent my-org
-  chainctl images discover -o json
+chainctl images discover
+chainctl images discover ./services
+chainctl images discover --parent my-org
+chainctl images discover -o json
 ```
 
 ### Options

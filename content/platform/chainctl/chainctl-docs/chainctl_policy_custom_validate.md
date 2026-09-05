@@ -1,5 +1,5 @@
 ---
-date: 2026-09-03T18:18:22Z
+date: 2026-09-04T19:05:48Z
 title: "chainctl policy custom validate"
 slug: chainctl_policy_custom_validate
 url: /platform/chainctl/chainctl-docs/chainctl_policy_custom_validate/
@@ -23,7 +23,14 @@ Two modes are supported:
   parameters are both checked.
 
   --expression: validates just a Rego expression (a raw .rego file).
-  Useful during authoring for a fast parse + compile check.
+  Useful during authoring for a fast parse + compile check. Pass
+  --resource-type to say which resource types the expression is for; a
+  manifest declares its own.
+
+An expression is validated against the input document its resource type is
+evaluated with, so the same expression can be valid for one type and read an
+undefined field under another. A manifest naming several types is checked
+against each, and a diagnostic that holds for only some of them names those.
 
 Prints structured diagnostics on errors, indicating if the policy is
 invalid. Expression errors include the line and column in the Rego
@@ -48,15 +55,21 @@ chainctl policy describe --policy cooldown --parent example.com -o json
 chainctl policy custom validate --file policy.yaml
 
 # Validate just the Rego expression
-chainctl policy custom validate --expression policy.rego
+chainctl policy custom validate --expression policy.rego --resource-type registry.chainguard.dev/Repo@v1
+
+# Validate an expression for several library ecosystems at once
+chainctl policy custom validate --expression policy.rego \
+  --resource-type libraries.chainguard.dev/NPMPackage@v1 \
+  --resource-type libraries.chainguard.dev/PythonPackage@v1
 
 ```
 
 ### Options
 
 ```
-  -e, --expression string   Path to a Rego expression (.rego) file. Validates the expression only; skips parameters.
-  -f, --file string         Path to a policy manifest YAML file.
+  -e, --expression string           Path to a Rego expression (.rego) file. Validates the expression only; skips parameters.
+  -f, --file string                 Path to a policy manifest YAML file.
+      --resource-type stringArray   Resource type to validate the expression against (e.g. registry.chainguard.dev/Repo@v1). Required with --expression, repeat for several, and rejected with --file.
 ```
 
 ### Options inherited from parent commands
