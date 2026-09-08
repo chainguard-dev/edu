@@ -4,7 +4,7 @@ type: "article"
 linktitle: "GitLab"
 description: "Learn how to deploy GitLab using Chainguard's security-hardened container images with reduced vulnerabilities, verifiable provenance, and daily security updates"
 date: 2026-06-24T00:00:00+00:00
-lastmod: 2026-08-21T16:30:07+00:00
+lastmod: 2026-09-08T17:57:46+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -18,7 +18,7 @@ aliases:
 - /chainguard/containers/getting-started/gitlab/
 ---
 
-Chainguard's GitLab container images provide a security-hardened foundation for deploying GitLab's DevOps platform with significantly fewer vulnerabilities than the standard upstream images. Built on Wolfi, these images are rebuilt daily with the latest security patches and include verifiable Sigstore signatures and SBOMs for every component.
+Chainguard's GitLab container images provide a security-hardened foundation for deploying GitLab's DevOps platform. Built on Wolfi, these images are rebuilt daily with the latest security patches and include verifiable Sigstore signatures and SBOMs for every component.
 
 The Chainguard GitLab offering spans fifteen components that align with the official GitLab Helm chart architecture: `gitlab-base`, `gitlab-certificates`, `gitaly`, `gitlab-agent`, `gitlab-kas`, `gitlab-shell`, `gitlab-exporter`, `gitlab-pages`, `gitlab-container-registry`, `gitlab-runner`, `gitlab-runner-helper`, and the Community Edition services `gitlab-sidekiq-ce`, `gitlab-toolbox-ce`, `gitlab-webservice-ce`, and `gitlab-workhorse-ce`. A FIPS-validated variant is also available for FedRAMP compliance.
 

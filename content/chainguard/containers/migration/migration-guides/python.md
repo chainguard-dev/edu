@@ -10,7 +10,7 @@ aliases:
 type: "article"
 description: "Learn how to migrate Python applications to Chainguard Containers for enhanced security posture, reduced CVEs, and streamlined dependency management"
 date: 2024-05-02T15:06:00-07:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-08T17:57:46+00:00
 draft: false
 tags: ["Chainguard Containers", "Migration"]
 images: []
@@ -99,7 +99,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 
 ## Serving an application with nginx and Docker Compose
 
-We provide an [nginx Chainguard Container](https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-python), also with low to no CVEs, that can be used as a secure and performant reverse proxy to serve your application. You can view an [example orchestration of a Flask application and nginx using Chainguard Containers](https://github.com/chainguard-dev/cg-images-python-migration/tree/compose-flask-nginx) at the linked repository. The `compose.yml` file is provided as a reference below.
+We provide an [nginx Chainguard Container](https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-python), also built on Wolfi and rebuilt daily, that can be used as a secure and performant reverse proxy to serve your application. You can view an [example orchestration of a Flask application and nginx using Chainguard Containers](https://github.com/chainguard-dev/cg-images-python-migration/tree/compose-flask-nginx) at the linked repository. The `compose.yml` file is provided as a reference below.
 
 ```Dockerfile
 services:
