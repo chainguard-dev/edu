@@ -16,7 +16,7 @@ aliases:
 type: "article"
 description: "Learn how to migrate Node.js applications to Chainguard Containers for reduced vulnerabilities, smaller image sizes, and automated security patching"
 date: 2024-05-09T15:56:52-07:00
-lastmod: 2025-07-23T16:52:56+00:00
+lastmod: 2026-09-08T17:57:46+00:00
 draft: false
 tags: ["Chainguard Containers", "Migration"]
 images: []
@@ -24,7 +24,7 @@ weight: 030
 toc: true
 ---
 
-Chainguard's Node.js containers offer a streamlined migration path for applications seeking enhanced security posture through minimal, distroless design. Built on [Wolfi](/open-source/wolfi/), these containers significantly reduce attack surface compared to traditional Node.js images, resulting in fewer vulnerabilities and smaller image sizes. Daily automated builds ensure your applications always have the latest security patches without manual intervention.
+Chainguard's Node.js container images offer a streamlined migration path for applications seeking enhanced security posture through minimal, distroless design. Built on [Wolfi](/open-source/wolfi/), they include only the packages your application needs, which keeps both the attack surface and the image size small. Daily automated builds ensure your applications always have the latest security patches without manual intervention. For current CVE data on each image and tag, see the [Node entry in the Chainguard Containers directory](https://images.chainguard.dev/directory/image/node/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-node).
 
 {{< details "What is Distroless?" >}}
 {{< blurb/distroless >}}

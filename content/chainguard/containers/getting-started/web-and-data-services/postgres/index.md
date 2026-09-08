@@ -9,7 +9,7 @@ aliases:
 - /chainguard/containers/getting-started/postgres/
 description: "Learn how to deploy PostgreSQL databases using Chainguard's security-hardened container image with minimal vulnerabilities and distroless design"
 date: 2023-08-10T11:07:52+02:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-09-08T17:57:46+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -20,7 +20,7 @@ weight: 040
 toc: true
 ---
 
-Chainguard's PostgreSQL container image provides a security-hardened foundation for running Postgres databases with significantly fewer vulnerabilities than traditional PostgreSQL images. Built on Wolfi with a distroless design, this container maintains full PostgreSQL functionality while dramatically reducing attack surface.
+Chainguard's PostgreSQL container image provides a security-hardened foundation for running Postgres databases. Built on Wolfi with a distroless design, it includes only the packages the database needs, maintaining full PostgreSQL functionality while reducing attack surface. For current CVE data on each image and tag, see the [PostgreSQL entry in the Chainguard Containers directory](https://images.chainguard.dev/directory/image/postgres/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-postgres).
 
 Through daily rebuilds with the latest patches and minimal dependencies, Chainguard's PostgreSQL image enhances database security posture. This enables you to run production Postgres workloads in containerized environments with both a smaller footprint and improved protection against supply chain attacks.
 

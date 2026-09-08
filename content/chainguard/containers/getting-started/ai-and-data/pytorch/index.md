@@ -11,7 +11,7 @@ aliases:
 - /chainguard/containers/getting-started/pytorch/
 description: "Learn how to use Chainguard's PyTorch container image for deep learning with enhanced security, minimal CVEs, and GPU acceleration support"
 date: 2024-04-25T08:00:00+02:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-08T17:57:46+00:00
 tags: ["Chainguard Containers", "AI"]
 draft: false
 images: []
@@ -22,7 +22,7 @@ weight: 020
 toc: true
 ---
 
-Chainguard's [PyTorch container image](https://images.chainguard.dev/directory/image/pytorch/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-pytorch) provides a security-hardened foundation for deep learning workloads with significantly fewer vulnerabilities than traditional PyTorch containers. Built with [PyTorch](https://pytorch.org/) and [CUDA](https://developer.nvidia.com/about-cuda) support for GPU acceleration, this minimal image maintains full deep learning capabilities while dramatically reducing attack surface. This guide demonstrates fine-tuning models, secure inference deployment, and compares the enhanced security posture to official PyTorch images.
+Chainguard's [PyTorch container image](https://images.chainguard.dev/directory/image/pytorch/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-pytorch) provides a security-hardened foundation for deep learning workloads. Built with [PyTorch](https://pytorch.org/) and [CUDA](https://developer.nvidia.com/about-cuda) support for GPU acceleration, this minimal image maintains full deep learning capabilities while reducing attack surface. This guide demonstrates fine-tuning models and secure inference deployment.
 
 {{< details "What is Deep Learning?" >}}
 {{< blurb/deep-learning >}}

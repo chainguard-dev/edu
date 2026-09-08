@@ -9,7 +9,7 @@ aliases:
 - /chainguard/containers/getting-started/mariadb/
 description: "Learn how to deploy MariaDB databases using Chainguard's security-hardened container image with minimal vulnerabilities and distroless design"
 date: 2023-07-28T11:07:52+02:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-09-08T17:57:46+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -20,7 +20,7 @@ weight: 010
 toc: true
 ---
 
-Chainguard's MariaDB container image provides a security-hardened foundation for database workloads with significantly fewer vulnerabilities than traditional MariaDB images. Built on Wolfi with a distroless design, this container removes unnecessary components while maintaining full MariaDB functionality.
+Chainguard's MariaDB container image provides a security-hardened foundation for database workloads. Built on Wolfi with a distroless design, it removes unnecessary components while maintaining full MariaDB functionality. For current CVE data on each image and tag, see the [MariaDB entry in the Chainguard Containers directory](https://images.chainguard.dev/directory/image/mariadb/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-mariadb).
 
 Through daily rebuilds with the latest patches and minimal dependencies, Chainguard's MariaDB image dramatically reduces your database's attack surface. This enables you to run production MariaDB databases with enhanced security posture and a smaller container footprint.
 

@@ -15,7 +15,7 @@ aliases:
 - /chainguard/containers/migration/migration-guides/migrating_go/
 description: "Learn how to build more secure Go applications with Chainguard's Go container images, featuring minimal attack surface and multi-stage build patterns for optimized runtime"
 date: 2023-02-28T11:07:52+02:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-09-08T17:57:46+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -26,7 +26,7 @@ weight: 020
 toc: true
 ---
 
-Chainguard's [Go container image](https://images.chainguard.dev/directory/image/go/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-go) provides a secure foundation for building Go applications with significantly fewer vulnerabilities than traditional Go images. The distroless `latest` variant contains only the Go compiler and runtime, while the `latest-dev` variant includes additional build tools and package management capabilities for development workflows.
+Chainguard's [Go container image](https://images.chainguard.dev/directory/image/go/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-go) provides a secure foundation for building Go applications. The distroless `latest` variant contains only the Go compiler and runtime, while the `latest-dev` variant includes additional build tools and package management capabilities for development workflows.
 
 In this guide, we'll demonstrate how to build and execute Go applications using Chainguard Containers, using three examples from our [demos repository](https://github.com/chainguard-dev/edu-images-demos). In the first example, we'll build a CLI application using a Docker multi-stage build. In the second example, we'll build an application that's accessible by HTTP server, also using a Docker multi-stage build to obtain an optimized runtime. The third example shows how to build an image using [ko](https://ko.build/), a tool that enables you to build container images from Go programs and push them to container registries without requiring a Dockerfile.
 
