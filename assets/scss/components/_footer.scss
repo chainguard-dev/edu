@@ -1,0 +1,246 @@
+// Site footer (layouts/partials/footer/footer.html): theme colors come from the --footer-*
+// variables in common/_theming.scss, and !important appears only where a link color has to
+// beat the `a[href][href][href] { color: inherit }` reset in common/_resets.scss.
+.footer-new {
+  background: var(--footer-background);
+  padding: 4rem 0 2rem;
+
+  @media (max-width: 991px) {
+    padding: 3rem 0 2rem;
+  }
+
+  .footer-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 48px;
+
+    @media (max-width: 768px) {
+      padding: 0 24px;
+    }
+  }
+
+  .footer-top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 96px;
+    border-bottom: 1px solid var(--footer-divider-color);
+
+    @media (max-width: 968px) {
+      flex-direction: column;
+      gap: 48px;
+    }
+  }
+
+  .footer-brand-area {
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .footer-main-title {
+    font-family: $titleFont;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: -1.92px;
+    margin: 0;
+    color: var(--footer-title-color);
+
+    @media (max-width: 768px) {
+      font-size: 32px;
+      line-height: 36px;
+    }
+  }
+
+  .footer-expert-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px 32px;
+    background: #6226FB;
+    color: #FFF !important;
+    font-family: $titleFont;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 4px;
+    text-decoration: none;
+    align-self: flex-start;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(98, 38, 240, 0.2);
+
+    svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      background: #7c4dff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(98, 38, 240, 0.3);
+
+      svg {
+        transform: translateX(4px);
+      }
+    }
+  }
+
+  .footer-nav-columns {
+    display: flex;
+    width: 957px;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-shrink: 0;
+
+    @media (max-width: 1200px) {
+      width: 100%;
+      max-width: 957px;
+    }
+
+    @media (max-width: 968px) {
+      gap: 32px;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+  }
+
+  .footer-nav-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 140px;
+  }
+
+  .footer-column-title {
+    font-family: $titleFont;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--body-color);
+    opacity: 0.6;
+    margin-bottom: 8px;
+  }
+
+  .footer-nav-link {
+    font-family: $titleFont;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    color: var(--footer-link-color) !important;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--footer-link-hover-color) !important;
+    }
+  }
+
+  .footer-bottom-section-new {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 48px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 32px;
+      align-items: flex-start;
+    }
+  }
+
+  .footer-bottom-left {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .footer-bottom-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--body-color);
+    font-weight: 600;
+    font-size: 18px;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .footer-logo-light,
+  .footer-logo-dark {
+    height: 26px;
+    width: auto;
+  }
+
+  .footer-logo-light {
+    display: block;
+  }
+
+  .footer-logo-dark {
+    display: none;
+  }
+
+  .footer-bottom-copyright {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--footer-muted-color);
+
+    a {
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--footer-link-hover-color) !important;
+      }
+    }
+  }
+
+  .footer-bottom-socials {
+    display: flex;
+    gap: 16px;
+  }
+
+  .footer-social-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--body-color);
+    transition: all 0.2s ease;
+    border-radius: 4px;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    &:hover {
+      color: var(--footer-link-hover-color) !important;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// The logo swap is the one rule that keys on the theme attribute directly.
+:root[data-dark-mode] .footer-new {
+  .footer-logo-light {
+    display: none;
+  }
+
+  .footer-logo-dark {
+    display: block;
+  }
+}
