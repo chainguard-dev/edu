@@ -62,7 +62,7 @@ If you call the Chainguard API directly, v2 is Generally Available and endpoints
 Three tools reduce the manual work, and they suit different situations:
 
 - **[Guardener Dockerfile migration](/chainguard/guardener/dockerfile-migration/)** — an AI agent that converts, builds, and validates your Dockerfiles until they work. Use it when a Dockerfile is complex enough that a mechanical translation won't hold up.
-- **[Dockerfile Converter (dfc)](/chainguard/containers/migration/dockerfile-conversion/)** — an open source tool that rewrites `apt`, `yum`, and `apk` instructions deterministically. Use it when you want a fast, predictable first pass you can review yourself.
-- **[Image Matcher](/chainguard/containers/migration/image-matcher/)** — an API that reads an existing image's SBOM and ranks the closest Chainguard equivalents. Use it when you know what you run today but not what to replace it with.
+- **[Dockerfile Converter (dfc)](/chainguard/containers/migration/migration-tools/dockerfile-conversion/)** — an open source tool that rewrites `apt`, `yum`, and `apk` instructions deterministically. Use it when you want a fast, predictable first pass you can review yourself.
+- **[Image Matcher](/chainguard/containers/migration/migration-tools/image-matcher/)** — an API that reads an existing image's SBOM and ranks the closest Chainguard equivalents. Use it when you know what you run today but not what to replace it with.
 
 Guardener also migrates GitHub Actions to hardened, SHA-pinned equivalents and enforces signed commits. Refer to the [Guardener overview](/chainguard/guardener/) for its full set of capabilities.

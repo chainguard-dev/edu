@@ -81,5 +81,5 @@ To learn more about related practices and tools, you can explore:
 
 - [What is software supply chain security](/software-security/what-is-software-supply-chain-security/) — for background on the broader threat landscape that build horizons help address.
 - [Selecting a base container image](/software-security/selecting-a-base-image/) — for guidance on choosing base images that are rebuilt frequently and carry few known vulnerabilities.
-- [Strategies and tooling for updating containers](/chainguard/containers/staying-secure/updating-images/strategies-tools-updating-images/) — which outlines different strategies and tools for keeping images up to date and avoiding the use of end-of-life software.
+- [Strategies and tooling for updating containers](/chainguard/containers/security-and-compliance/updating-containers/strategies-tools-updating-images/) — which outlines different strategies and tools for keeping images up to date and avoiding the use of end-of-life software.
 - [Reproducible builds](https://reproducible-builds.org/) — for information on the reproducible builds initiative and the `SOURCE_DATE_EPOCH` convention.

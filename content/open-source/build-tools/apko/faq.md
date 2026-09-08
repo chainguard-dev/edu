@@ -19,7 +19,7 @@ toc: true
 
 ## Do I need to understand apko to use Chainguard Containers?
 
-No. Chainguard built [apko](https://github.com/chainguard-dev/apko) as part of its open source tooling around the [Wolfi](/open-source/wolfi/) operating system. While you can check out the [project on GitHub](https://github.com/chainguard-dev/apko) and learn more, it's not a prerequisite for [using Chainguard Containers](/chainguard/containers/how-to-use/).
+No. Chainguard built [apko](https://github.com/chainguard-dev/apko) as part of its open source tooling around the [Wolfi](/open-source/wolfi/) operating system. While you can check out the [project on GitHub](https://github.com/chainguard-dev/apko) and learn more, it's not a prerequisite for [using Chainguard Containers](/chainguard/containers/using-and-deploying/).
 
 ## How are apko images defined?
 

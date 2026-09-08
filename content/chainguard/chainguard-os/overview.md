@@ -36,7 +36,7 @@ Chainguard OS was built to privilege CI/CD of software artifacts so that thousan
 
 Leveraging event-driven automation, Chainguard OS ensures that every package in the catalog has a “release monitor” capturing new upstream releases right away. This monitor triggers automatic package recompiles, quality assurance and acceptance testing, security scanning, and publication. Chainguard container images that include that package will automatically benefit from updates due to our [multi-layer approach](/chainguard/containers/overview/#why-multi-layer-container-images) that ships updated versions to relevant images. These packages are also published to public and private registries at the same time.
 
-With Chainguard OS, users can rely on products that take advantage of an ever-growing catalog of open source and enterprise software packages. Rather than picking a favorite version of every software project every couple of years and attempting to maintain that for a decade or more, Chainguard OS takes a different approach: it enables [continuous support and EOL](/chainguard/containers/about/versions/) for the same versions that the upstream project maintainers recommend.
+With Chainguard OS, users can rely on products that take advantage of an ever-growing catalog of open source and enterprise software packages. Rather than picking a favorite version of every software project every couple of years and attempting to maintain that for a decade or more, Chainguard OS takes a different approach: it enables [continuous support and EOL](/chainguard/containers/concepts/lifecycle-and-eol/versions/) for the same versions that the upstream project maintainers recommend.
 
 ## Nano updates and rebuilds
 

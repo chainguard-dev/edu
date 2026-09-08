@@ -31,7 +31,7 @@ You'll need Docker to build and run the application.
 
 ## Step 1: Obtaining the demo application
 
-We'll use the same demo application from the [Getting started with the Python Chainguard Container](/chainguard/containers/getting-started/python/) tutorial to demonstrate how to build a Wolfi Python image with a Dockerfile. The application files are available in the [edu-images-demos](https://github.com/chainguard-dev/edu-images-demos) repository. We'll start by cloning that repository in a temporary folder so that we can obtain the relevant application files to run the **second** demo from that tutorial.
+We'll use the same demo application from the [Getting started with the Python Chainguard Container](/chainguard/containers/getting-started/languages-and-runtimes/python/) tutorial to demonstrate how to build a Wolfi Python image with a Dockerfile. The application files are available in the [edu-images-demos](https://github.com/chainguard-dev/edu-images-demos) repository. We'll start by cloning that repository in a temporary folder so that we can obtain the relevant application files to run the **second** demo from that tutorial.
 
 The following command will clone the demos repository in your `/tmp` folder:
 
@@ -135,7 +135,7 @@ You’ll receive a representation of the Chainguard Linky logo on the command li
 
 As discussed in the introduction, in some cases it is possible to combine your fully-featured image with a distroless runtime in a Docker multistage build, and this will give you a final image that is also distroless. Keep in mind that this technique for building distroless images is only viable when there aren't additional system dependencies that require installation via `apk`.
 
-The [Getting started with Python](/chainguard/containers/getting-started/python/) tutorial shows in detail how to accomplish that using a `-dev` variant as **builder**, and the distroless Chainguard Python image as production image. You can also accomplish the same results by using your newly-built image based on `wolfi-base` in place of the `-dev` variant of the Python image. We'll change the build to use a virtual environment to package the dependencies and add an extra step to create the final image.
+The [Getting started with Python](/chainguard/containers/getting-started/languages-and-runtimes/python/) tutorial shows in detail how to accomplish that using a `-dev` variant as **builder**, and the distroless Chainguard Python image as production image. You can also accomplish the same results by using your newly-built image based on `wolfi-base` in place of the `-dev` variant of the Python image. We'll change the build to use a virtual environment to package the dependencies and add an extra step to create the final image.
 
 The following Dockerfile uses a multi-stage build to obtain a final distroless image that contains everything the application needs to run. The build requires additional software that is not carried along to the final image.
 

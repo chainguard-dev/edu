@@ -247,6 +247,6 @@ Docker is required, since all builds happen on your local machine. A fully manag
 ## Next steps
 
 - **[Migrating to Chainguard Containers](/chainguard/containers/migration/)** — Manual migration guidance, compatibility charts, and per-language guides.
-- **[Dockerfile Converter (dfc)](/chainguard/containers/migration/dockerfile-conversion/)** — A deterministic, open source alternative for converting Dockerfiles.
+- **[Dockerfile Converter (dfc)](/chainguard/containers/migration/migration-tools/dockerfile-conversion/)** — A deterministic, open source alternative for converting Dockerfiles.
 - **[Hardened Actions](/chainguard/guardener/github/actions-security/)** — Recommend and migrate GitHub Actions to hardened, SHA-pinned equivalents.
 - **[Commit Verification](/chainguard/guardener/github/commit-verification/)** — Require cryptographically signed commits in pull requests.

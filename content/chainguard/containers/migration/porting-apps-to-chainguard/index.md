@@ -15,7 +15,7 @@ images: []
 menu:
   docs:
     parent: "concepts"
-weight: 010
+weight: 050
 toc: true
 ---
 
@@ -24,7 +24,7 @@ toc: true
 * Chainguard's distroless Containers have no shell or package manager by default. This is great for security, but sometimes you need these things, especially in builder images. For those cases we have `-dev` variants (such as `cgr.dev/chainguard/python:latest-dev`) which do include a shell and package manager.
 * Chainguard Containers typically don't run as root, so a `USER root` statement may be required before installing software. This should be a temporary escalation only; after completing any root-level operations, you should create and switch to a dedicated non-root user (for example, using `addgroup` and `adduser`) or use the image's built-in non-root user. Leaving the container running as root defeats the security purpose of using minimal images.
 * The `-dev` variants and `wolfi-base` / `chainguard-base` use BusyBox by default, so any `groupadd` or `useradd` commands will need to be ported to `addgroup` and `adduser`.
-* The [Free tier](/chainguard/containers/about/images-categories/#free-containers) of Containers provides `:latest` and `:latest-dev` versions. Our paid Production Containers offer tags for major and minor versions.
+* The [Free tier](/chainguard/containers/concepts/container-categories/#free-containers) of Containers provides `:latest` and `:latest-dev` versions. Our paid Production Containers offer tags for major and minor versions.
 * We use apk tooling, so `apt install` commands will become `apk add`.
 * Chainguard Containers are based on `glibc` and our packages cannot be mixed with Alpine packages.
 * In some cases, the entrypoint in Chainguard Containers can be different from equivalent container images based on other distros, which can lead to unexpected behavior. You should always check the image's specific documentation to understand how the entrypoint works.
@@ -464,7 +464,7 @@ fi
 
 This script decides how to run the application depending on how the `ENV` environment variable is set. The idea here is to allow us to use the same image in development, testing, and production. This approach is no longer recommended as it leads to development tooling being present in the production environment. Even though the development tooling isn't run in production, it is still bloating the image and is potentially exploitable by attackers. Therefore, we will use a different approach and break the Dockerfile into separate development and production images.
 
-Let’s skip to the final Dockerfile for our image and walk through the changes made. These changes address multiple issues, beyond just having multiple images, and are based on the [Chainguard Academy guide to Python images](/chainguard/containers/getting-started/python/).
+Let’s skip to the final Dockerfile for our image and walk through the changes made. These changes address multiple issues, beyond just having multiple images, and are based on the [Chainguard Academy guide to Python images](/chainguard/containers/getting-started/languages-and-runtimes/python/).
 
 Replace the Dockerfile with this one (this is also available on the ["main" branch](https://github.com/chainguard-dev/identidock-cg/blob/main/identidock/Dockerfile)):
 
@@ -559,7 +559,7 @@ python-3.13  3.13.1-r5            apk   CVE-2025-0938  Unknown
 
 The result of all these changes is that the production image is only 122 MB (down from 1.51GB, so an enormous saving of over a GB) and has 1 CVE (down from hundreds). This is a huge improvement!
 
-Further information on using Chainguard Containers with Python can be found in our [Getting started guide](https://edu.chainguard.dev/chainguard/containers/getting-started/python/).
+Further information on using Chainguard Containers with Python can be found in our [Getting started guide](https://edu.chainguard.dev/chainguard/containers/getting-started/languages-and-runtimes/python/).
 
 ## Replacing the Redis container and updating the Docker Compose file
 

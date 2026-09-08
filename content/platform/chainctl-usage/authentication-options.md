@@ -66,6 +66,6 @@ Assumable identities let automation tools like GitHub Actions or AWS Lambda conn
 
 ## Pull tokens
 
-Pull tokens are ideal for pulling images and libraries and can be long-lived. You can create them in the Chainguard Console or with `chainctl`. See [authenticating to the Chainguard registry](/chainguard/containers/chainguard-registry/authenticating/#authenticating-with-a-pull-token).
+Pull tokens are ideal for pulling images and libraries and can be long-lived. You can create them in the Chainguard Console or with `chainctl`. See [authenticating to the Chainguard registry](/chainguard/containers/registry/authenticating/#authenticating-with-a-pull-token).
 
 A pull token is a pair of values that most tools consume as a username and a password. `chainctl` labels that pair differently in each output format, so refer to [pull token output formats and credential names](/platform/chainctl-usage/pull-token-output/) to map the labels to each other.

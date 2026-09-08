@@ -51,7 +51,7 @@ For technical details, refer to [Kernel-Independent FIPS Containers](https://www
 
 FIPS images are available for language runtimes (Go, Java, Node.js, Python, .NET, PHP), databases (PostgreSQL, Elasticsearch, Redis), web servers (nginx, HAProxy), Kubernetes components, and monitoring tools. View the complete catalog at [images.chainguard.dev/?category=fips](https://images.chainguard.dev/?category=fips).
 
-All Chainguard FIPS Containers include [STIG hardening](/chainguard/containers/working-with-images/image-stigs/) in addition to FIPS validation. For images not currently available with FIPS, [contact Chainguard](https://www.chainguard.dev/contact) to discuss custom requirements.
+All Chainguard FIPS Containers include [STIG hardening](/chainguard/containers/security-and-compliance/stigs/) in addition to FIPS validation. For images not currently available with FIPS, [contact Chainguard](https://www.chainguard.dev/contact) to discuss custom requirements.
 
 ## Additional resources
 

@@ -1,7 +1,12 @@
 ---
 title: "Chainguard Containers"
 linktitle: "Chainguard Containers"
-description: "Chainguard provides the most secure container images with zero known CVEs, minimal attack surface, SBOMs, and daily updates - the enterprise choice for container security"
+aliases:
+- /chainguard/chainguard-images/images-features
+- /chainguard/chainguard-images/features/
+- /chainguard/containers/images-features
+- /chainguard/containers/features/
+description: "Chainguard provides the most secure container images with zero known CVEs, minimal attack surface, SBOMs, and daily updates — the enterprise choice for container security"
 type: "article"
 date: 2022-09-05T08:49:15+00:00
 lastmod: 2026-08-27T00:00:00+00:00
@@ -16,38 +21,37 @@ banner: {
     cta: "Start migrating",
     link: "/chainguard/containers/migration/"
 }
-sectiontitle: "Popular Chainguard Containers"
+sectiontitle: "Most-read guides"
 tutorials: [
   {
-    title: "Go",
-    description: "",
-    url: "/chainguard/containers/getting-started/go/"
+    title: "Custom Assembly",
+    description: "Have Chainguard build a container with the extra packages you need",
+    url: "/chainguard/containers/custom-assembly/overview/"
   },
   {
-    title: "Node",
-    description: "",
-    url: "/chainguard/containers/getting-started/node/"
+    title: "Private APK repositories",
+    description: "Install your organization's packages inside a container",
+    url: "/chainguard/containers/building-and-modifying/packages/private-apk-repos/"
   },
   {
-    title: "PHP",
-    description: "",
-    url: "/chainguard/containers/getting-started/php/"
+    title: "STIGs",
+    description: "Run the DISA hardening checks against a Chainguard Container",
+    url: "/chainguard/containers/security-and-compliance/stigs/"
   },
   {
-    title: "Python",
-    description: "",
-    url: "/chainguard/containers/getting-started/python/"
+    title: "Authenticate to the registry",
+    description: "Set up pull credentials for cgr.dev, for people and for CI",
+    url: "/chainguard/containers/registry/authenticating/"
   },
   {
-    title: "nginx",
-    description: "",
-    url: "/chainguard/containers/getting-started/nginx/"
+    title: "Retrieve SBOMs",
+    description: "Pull the build-time software bill of materials for any container",
+    url: "/chainguard/containers/security-and-compliance/retrieve-image-sboms/"
   },
   {
-    title: "C/C++",
-    description: "",
-    url: "/chainguard/containers/getting-started/c/"
+    title: "Artifactory pull-through",
+    description: "Serve Chainguard Containers through an Artifactory repository",
+    url: "/chainguard/containers/registry/pull-through-guides/artifactory-containers-pull-through/"
   },
 ]
-
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Overview of Chainguard Containers"
-linktitle: "Containers overview"
+linktitle: "Overview"
 type: "article"
 description: "Learn about Chainguard Containers, distroless images, and how they provide enhanced security through minimal attack surface and comprehensive supply chain features."
 lead: "Chainguard Containers are security-hardened container images built with a distroless approach, containing only essential application components and runtime dependencies."
@@ -9,11 +9,7 @@ lastmod: 2025-07-23T16:52:56+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
-menu:
-  docs:
-    parent: "chainguard-images"
-    identifier: "Chainguard Images Overview"
-weight: 005
+weight: 010
 toc: true
 aliases:
 - /chainguard/chainguard-images/overview/
@@ -40,13 +36,13 @@ All Chainguard Containers are built with a consistent set of security and supply
 
 Chainguard Containers include features that allow you to customize images, manage updates, and meet security and compliance requirements across the container lifecycle:
 
-- [Custom Assembly](/chainguard/containers/features/ca-docs/custom-assembly/): Customize Chainguard images by adding packages, configuration files, and certificates using chainctl, without maintaining your own Dockerfiles.
-- Custom certificates: Add trusted certificates [to existing containers via Custom Assembly](/chainguard/containers/features/ca-docs/custom-assembly-certs/) (for organization-specific or environment-specific certificates) or by [using incert to build images with certificates embedded at build time](/chainguard/containers/features/incert-custom-certs/).
-- [Packages](/chainguard/containers/features/packages/package-model/): Install and manage additional packages in Chainguard images while preserving Chainguard’s minimal, secure-by-default base images.
-- [EOL grace periods](/chainguard/containers/features/eol-gp-overview/): Control how end-of-life packages are handled in images to balance security requirements with operational stability.
-- [STIGs](/chainguard/containers/features/image-stigs/): Use DISA STIG–aligned images to support compliance-driven environments.
-- [Unique tags](/chainguard/containers/features/unique-tags/) and [tag history](/chainguard/containers/features/using-the-tag-history-api/): Track image changes over time with immutable tags and access tag history via API.
-- [CVE visualization](/chainguard/containers/features/cve_visualizations/): Explore vulnerability data for images to better understand risk and remediation timelines.
+- [Custom Assembly](/chainguard/containers/custom-assembly/overview/): Customize Chainguard images by adding packages, configuration files, and certificates using chainctl, without maintaining your own Dockerfiles.
+- Custom certificates: Add trusted certificates [to existing containers via Custom Assembly](/chainguard/containers/custom-assembly/custom-assembly-certs/) (for organization-specific or environment-specific certificates) or by [using incert to build images with certificates embedded at build time](/chainguard/containers/custom-assembly/incert-custom-certs/).
+- [Packages](/chainguard/containers/building-and-modifying/packages/package-model/): Install and manage additional packages in Chainguard images while preserving Chainguard’s minimal, secure-by-default base images.
+- [EOL grace periods](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/): Control how end-of-life packages are handled in images to balance security requirements with operational stability.
+- [STIGs](/chainguard/containers/security-and-compliance/stigs/): Use DISA STIG–aligned images to support compliance-driven environments.
+- [Unique tags](/chainguard/containers/reference/unique-tags/) and [tag history](/chainguard/containers/reference/using-the-tag-history-api/): Track image changes over time with immutable tags and access tag history via API.
+- [CVE visualization](/chainguard/containers/security-and-compliance/vulnerability-management/cve-visualizations/): Explore vulnerability data for images to better understand risk and remediation timelines.
 
 ## Why minimal container images
 
@@ -77,7 +73,7 @@ The primary benefit of this layered approach is that when one package changes it
 
 Chainguard offers a collection of container images that are publicly available and don't require authentication, being free to use by anyone. We refer to these images as **Free images**, and they cover several use cases for different language ecosystems. Free images are limited to the latest build of a given image, tagged as `latest` and `latest-dev`.
 
-Production containers are enterprise-ready images that come with patch SLAs and features such as [Federal Information Processing Standard (FIPS) readiness](/chainguard/fips/fips-images/) and [unique time-stamped tags](/chainguard/containers/images-features/unique-tags/). Unlike Free containers, which are typically paired with only the latest version of an upstream package, Production containers offer specific major and minor versions of open source software. Chainguard offers two pricing options for Production containers: Per-Image Pricing and [Catalog pricing](/chainguard/containers/about/pricing/).
+Production containers are enterprise-ready images that come with patch SLAs and features such as [Federal Information Processing Standard (FIPS) readiness](/chainguard/fips/fips-images/) and [unique time-stamped tags](/chainguard/containers/images-features/unique-tags/). Unlike Free containers, which are typically paired with only the latest version of an upstream package, Production containers offer specific major and minor versions of open source software. Chainguard offers two pricing options for Production containers: Per-Image Pricing and [Catalog pricing](/chainguard/containers/reference/pricing/).
 
 You can access our container images directly from [Chainguard's registry](/chainguard/chainguard-registry/overview/). Chainguard's registry provides public access to all public Chainguard Containers, and provides customer access for Production Containers after logging in and authenticating.
 
@@ -87,7 +83,7 @@ For a complete list of Free Containers that are currently available, check our [
 
 The major advantage of distroless images is the reduced size and complexity, which results in a vastly reduced attack surface. Security scanners such as [Grype](https://github.com/anchore/grype) detect far fewer CVEs (common vulnerabilities and exposures) in Chainguard Containers than in comparable general-purpose images.
 
-`chainctl`, Chainguard's command line interface tool, comes with a useful `diff` feature that allows you to [compare two Chainguard Containers](/chainguard/containers/how-to-use/comparing-images/).
+`chainctl`, Chainguard's command line interface tool, comes with a useful `diff` feature that allows you to [compare two Chainguard Containers](/platform/chainctl-usage/comparing-images/).
 
 Every container listed in the [Containers Directory](https://images.chainguard.dev/?category=developer) also has a **Comparison** tab that compares the number of CVEs in the Chainguard Container — often zero — against the number in its upstream counterpart, and charts how each has changed over time. For example, see the [nginx container's **Comparison** tab](https://images.chainguard.dev/directory/image/nginx/compare).
 
@@ -244,4 +240,4 @@ OCI labels are specific to a container image, not to an entire layer. This means
 
 Some users relabel their container images after they've been ingested. As an example, you may wish to add an annotation like `com.mycompany.image.source=chainguard` to your Chainguard Containers; this would allow you to filter for all the container images provided by Chainguard at `mycompany`.
 
-Some package mirroring tools support this functionality, but we recommend using Chainguard's [Custom Assembly](/chainguard/containers/features/ca-docs/custom-assembly/) tool to add custom annotations to your Chainguard Containers. Refer to our guide on [managing Custom Assembly resources with `chainctl`](/chainguard/containers/features/ca-docs/custom-assembly-chainctl/#adding-custom-annotations-and-environment-variables) for more information.
+Some package mirroring tools support this functionality, but we recommend using Chainguard's [Custom Assembly](/chainguard/containers/custom-assembly/overview/) tool to add custom annotations to your Chainguard Containers. Refer to our guide on [managing Custom Assembly resources with `chainctl`](/chainguard/containers/custom-assembly/custom-assembly-chainctl/#adding-custom-annotations-and-environment-variables) for more information.

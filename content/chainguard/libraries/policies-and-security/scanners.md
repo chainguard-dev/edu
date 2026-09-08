@@ -33,7 +33,7 @@ This page provides an overview of vulnerability scanning for libraries and
 the use of specific scanning applications in the following sections. For more
 information on scanning containers, refer to our guide on [Working with
 Container Image
-Scanners](/chainguard/containers/staying-secure/working-with-scanners/).
+Scanners](/chainguard/containers/security-and-compliance/working-with-scanners/).
 
 ## Vulnerability scanning
 
@@ -178,7 +178,7 @@ werkzeug  3.0.2+cgr.1  3.0.6     python  GHSA-f9vj-2wh5-fj8j  Medium    < 0.1% (
 
 For additional guidance for Grype users, refer to our guide [Using Grype
 to Scan Software
-Artifacts](/chainguard/containers/staying-secure/working-with-scanners/grype-tutorial/)
+Artifacts](/chainguard/containers/security-and-compliance/working-with-scanners/grype-tutorial/)
 and the [official documentation](https://github.com/anchore/grype).
 
 ### Trivy
@@ -258,7 +258,7 @@ specific version and therefore reports an invalid vulnerability.
 
 For additional guidance for Trivy users, refer to our guide [Using Trivy to Scan
 Software
-Artifacts](/chainguard/containers/staying-secure/working-with-scanners/trivy-tutorial/)
+Artifacts](/chainguard/containers/security-and-compliance/working-with-scanners/trivy-tutorial/)
 as well as the [official documentation](https://trivy.dev/docs/latest/).
 
 ### Upwind
