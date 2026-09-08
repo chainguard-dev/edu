@@ -4,7 +4,7 @@ linktitle: "Changelog"
 type: "article"
 description: "Weekly changelog of Chainguard product updates — product announcements, breaking changes, container images reaching end-of-life or leaving the catalog, and images newly added to it."
 date: 2026-07-28T00:00:00+00:00
-lastmod: 2026-08-31T00:00:00+00:00
+lastmod: 2026-09-07T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers", "Changelog"]
 images: []
@@ -16,6 +16,81 @@ tocEndLevel: 2
 This page logs Chainguard product updates week by week, newest first: product announcements, breaking changes, container images that reached end-of-life or are no longer available, and images newly added to the catalog. Each event is listed once, in the week it first appeared.
 
 Breaking changes and product announcements cover the entire Chainguard portfolio, while end-of-life, availability, and new-image entries relate specifically to Chainguard Containers. This page summarizes the changes most likely to affect your work rather than every change Chainguard ships. Routine updates, such as new tags for existing images, are not listed individually. For the current tags and versions of any container image, refer to its entry in the [Chainguard Directory](https://images.chainguard.dev/directory).
+
+## Week of 2026-09-07
+
+{{< changelog-label "Product Announcements" >}}
+
+### Chainguard Containers for Go 1.27
+
+_Launched August 31, 2026._
+
+Chainguard now ships Go 1.27 in three images: `go`, `go-fips`, and `go-openssl-fips`. The new `go-openssl-fips` image selects its FIPS-validated cryptographic module at deployment rather than at build time.
+
+Choosing a FIPS module for Go previously meant choosing a toolchain at compile time. Teams compiled against either the host's OpenSSL FIPS provider (`go-msft-fips`) or the Go Cryptographic Module (`go-geomys-fips`), so supporting both required two pipelines producing two artifacts. The new Go FIPS toolchain ships one artifact that picks the validated module after the build, at the point of deployment. A single build cross-compiles from one command, runs wherever you deploy, keeps your validated module and FedRAMP authorization intact, and is ready for CNSA 2.0 — all without recompilation.
+
+Go 1.26 and earlier behave as before and remain supported until end-of-life, so you can migrate on your own schedule.
+
+For more information, refer to [Getting started with the Go Chainguard Container](/chainguard/containers/getting-started/go/).
+
+### Chainguard Libraries in JFrog
+
+_Launched September 2, 2026._
+
+JFrog Catalog now recognizes Chainguard-built packages, so joint Chainguard and JFrog customers can pull Chainguard Libraries through JFrog without build errors. This is what underpins JFrog's Zero-Touch Remediation: when a scan finds a vulnerable artifact, teams can take the patched Chainguard package in place, without changing developer workflows or forcing a major version upgrade.
+
+- Java support shipped with this announcement; JavaScript and Python are scheduled to follow by the end of September 2026.
+- JFrog Xray scanning and Curation policies work as before.
+- Nothing changes for Chainguard Libraries customers who don't use JFrog.
+
+For more information, refer to [Chainguard Libraries overview](/chainguard/libraries/introduction/overview/).
+
+{{< changelog-label "New Images" >}}
+
+Chainguard built 39 new container images this week, including both standard and FIPS variants.
+
+<table class="cl-images">
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td colspan="3">
+<details>
+<summary><strong><code>kubeflow-pipelines-*</code></strong> — 10 images</summary>
+<table>
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kubeflow-pipelines-api-server-fips/versions"><code>kubeflow-pipelines-api-server-fips</code></a></td><td>fips</td><td>2026-08-31</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kubeflow-pipelines-cache-deployer-fips/versions"><code>kubeflow-pipelines-cache-deployer-fips</code></a></td><td>fips</td><td>2026-08-31</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kubeflow-pipelines-cache-server-fips/versions"><code>kubeflow-pipelines-cache-server-fips</code></a></td><td>fips</td><td>2026-08-31</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kubeflow-pipelines-driver-fips/versions"><code>kubeflow-pipelines-driver-fips</code></a></td><td>fips</td><td>2026-08-31</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kubeflow-pipelines-frontend-fips/versions"><code>kubeflow-pipelines-frontend-fips</code></a></td><td>fips</td><td>2026-08-31</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kubeflow-pipelines-metadata-envoy-fips/versions"><code>kubeflow-pipelines-metadata-envoy-fips</code></a></td><td>fips</td><td>2026-08-31</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kubeflow-pipelines-metadata-writer-fips/versions"><code>kubeflow-pipelines-metadata-writer-fips</code></a></td><td>fips</td><td>2026-08-31</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kubeflow-pipelines-persistenceagent-fips/versions"><code>kubeflow-pipelines-persistenceagent-fips</code></a></td><td>fips</td><td>2026-08-31</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kubeflow-pipelines-scheduledworkflow-fips/versions"><code>kubeflow-pipelines-scheduledworkflow-fips</code></a></td><td>fips</td><td>2026-08-31</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kubeflow-pipelines-viewer-crd-controller-fips/versions"><code>kubeflow-pipelines-viewer-crd-controller-fips</code></a></td><td>fips</td><td>2026-08-31</td></tr>
+</tbody>
+</table>
+</details>
+</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/dbmate/versions"><code>dbmate</code></a></td><td>application +fips</td><td>2026-08-31</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/go-openssl-fips/versions"><code>go-openssl-fips</code></a></td><td>fips</td><td>2026-09-01</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/hadolint/versions"><code>hadolint</code></a></td><td>application +fips</td><td>2026-09-01</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/jruby/versions"><code>jruby</code></a></td><td>base</td><td>2026-09-01</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kserve-huggingfaceserver/versions"><code>kserve-huggingfaceserver</code></a></td><td>ai +fips</td><td>2026-09-01</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/gubernator/versions"><code>gubernator</code></a></td><td>application +fips</td><td>2026-09-02</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kates-tester/versions"><code>kates-tester</code></a></td><td>application +fips</td><td>2026-09-02</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/fortiotel/versions"><code>fortiotel</code></a></td><td>application +fips</td><td>2026-09-03</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/packer/versions"><code>packer</code></a></td><td>application +fips</td><td>2026-09-03</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/security-profiles-operator/versions"><code>security-profiles-operator</code></a></td><td>application</td><td>2026-09-03</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/aws-lambda-dotnet/versions"><code>aws-lambda-dotnet</code></a></td><td>application +fips</td><td>2026-09-04</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/mongodb-kubernetes-readinessprobe/versions"><code>mongodb-kubernetes-readinessprobe</code></a></td><td>application +fips</td><td>2026-09-04</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/opentelemetry-go-instrumentation/versions"><code>opentelemetry-go-instrumentation</code></a></td><td>application +fips</td><td>2026-09-04</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/prom-label-proxy/versions"><code>prom-label-proxy</code></a></td><td>application +fips</td><td>2026-09-04</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kserve-sklearnserver-fips/versions"><code>kserve-sklearnserver-fips</code></a></td><td>fips</td><td>2026-09-07</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/presidio-anonymizer/versions"><code>presidio-anonymizer</code></a></td><td>application +fips</td><td>2026-09-07</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/redpanda-console-fips/versions"><code>redpanda-console-fips</code></a></td><td>fips</td><td>2026-09-07</td></tr>
+</tbody>
+</table>
 
 ## Week of 2026-08-31
 

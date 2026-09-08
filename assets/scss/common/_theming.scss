@@ -52,8 +52,12 @@
     --expand-button-color: #000;
     --focus-ring-color: var(--primary-1);
     --footer-background: #F5F5F5;
+    --footer-divider-color: rgba(13, 22, 28, 0.1);
     --footer-item-color: var(--primary-3);
     --footer-item-hover-color: var(--primary-1);
+    --footer-link-color: var(--primary-3);
+    --footer-link-hover-color: var(--primary-1);
+    --footer-muted-color: var(--primary-3);
     --footer-title-color: var(--primary-3);
     --form-check-input-background: var(--secondary-2);
     --form-check-input-checked-background: inherit;
@@ -175,8 +179,12 @@
     --expand-button-color: #fff;
     --focus-ring-color: var(--primary-2);
     --footer-background: var(--body-background);
+    --footer-divider-color: rgba(255, 255, 255, 0.1);
     --footer-item-color: #c5c5c5;
     --footer-item-hover-color: var(--primary-2);
+    --footer-link-color: rgba(232, 232, 237, 0.9);
+    --footer-link-hover-color: var(--primary-2);
+    --footer-muted-color: rgba(232, 232, 237, 0.7);
     --footer-title-color: #fff;
     --form-check-input-background: var(--primary-1);
     --form-check-input-checked-background: var(--primary-1);

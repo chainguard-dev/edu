@@ -1,5 +1,5 @@
 ---
-date: 2026-09-03T18:18:22Z
+date: 2026-09-04T19:05:48Z
 title: "chainctl skills install"
 slug: chainctl_skills_install
 url: /platform/chainctl/chainctl-docs/chainctl_skills_install/
@@ -16,6 +16,12 @@ Download a skill and install it into agent directories.
 ### Synopsis
 
 Download a skill and place it into the skills directories of detected agents.
+
+<ref> is a skill reference, optionally host-qualified: a bare org/name (or
+org/owner/name) resolves to the hardened catalog on skills.cgr.dev, while an
+uploads.cgr.dev/org/name reference installs a private skill straight from the
+uploads namespace (the same reference `chainctl skills list --source uploads`
+prints).
 
 By default, a shared canonical copy is written to .agents/skills/<name>/ and
 agent-specific symlinks are created. Use --copy to write independent copies.

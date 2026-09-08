@@ -13,9 +13,6 @@ $bootstrap-icons-font-dir: "/fonts";
 @import "bootstrap-icons/font/bootstrap-icons.scss";
 
 /** Import legacy and layout styles */
-@import "components/comments";
-@import "components/forms";
-@import "layouts/footer";
 @import "layouts/header";
 @import "layouts/pages";
 @import "layouts/posts";
@@ -50,8 +47,7 @@ $bootstrap-icons-font-dir: "/fonts";
 @import "components/cards-enhanced";
 @import "components/typography";
 @import "components/sidebar-search-fix";
-@import "components/footer-www-match";
-@import "components/footer-border-fix";
+@import "components/footer";
 @import "components/header-logo";
 @import "components/changelog";
 

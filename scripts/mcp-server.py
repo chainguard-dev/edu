@@ -73,6 +73,84 @@ MANIFEST_ACCEPT = ", ".join(
 # roughly 500 to 1. They are filtered out of tag listings.
 COSIGN_ATTACHMENT_PREFIX = "sha256-"
 
+# compile_docs.py writes every documentation page as
+#     ### <title>
+#     _Path: <source path>_
+#     <page content>
+# so the title line plus the path line is a page boundary. Nothing else in the
+# bundle carries that pair: page bodies keep their own '##' and '###' headings,
+# which is why heading level alone cannot mark where a page starts (DOCS-181).
+PAGE_HEADING = re.compile(
+    r"^### (?P<title>.+)\n_Path: (?P<path>.+?)_\s*$", re.MULTILINE
+)
+
+# Everything from this marker on is container-image READMEs, delimited by
+# IMAGE_SEPARATOR rather than by the page signature above.
+IMAGES_MARKER = re.compile(r"^## Container Images\n", re.MULTILINE)
+
+# Search scoring (DOCS-181). The previous scorer counted the whole query as one
+# literal substring, so 'migrating python' scored zero everywhere — those two
+# words are never adjacent in the corpus, even on the page titled "Migrating to
+# Python Chainguard Containers". Score per term instead, and weight the title,
+# because callers search for what a page is about rather than for a phrase it
+# happens to contain.
+SEARCH_TERM = re.compile(r"[a-z0-9][a-z0-9._/-]*")
+
+# Words that appear in nearly every section, plus the ones an MCP client tends
+# to wrap a question in ("give me the guide for ...").
+SEARCH_STOPWORDS = frozenset(
+    """a an and are as at be by can do does for from get give had has have how
+    i in into is it me my of on or please show that the their them then there
+    these this to use used using want was what when where which who why will
+    with you your""".split()
+)
+
+# Suffixes stripped to a common stem so 'migration' and 'migrating' match. This
+# is deliberately cruder than a real stemmer: the stem is then counted as a
+# substring of the section text, so over-matching costs recall noise rather
+# than a miss, and it needs no dependency and no pass over the 14 MB bundle.
+STEM_SUFFIXES = (
+    "ations",
+    "ation",
+    "ings",
+    "ing",
+    "ments",
+    "ment",
+    "ions",
+    "ion",
+    "es",
+    "s",
+)
+MIN_STEM_LEN = 4
+
+TITLE_TERM_WEIGHT = 40  # a term in the page title
+TERM_COVERAGE_WEIGHT = 10  # each distinct query term the section matches
+EXACT_PHRASE_BONUS = 60  # the whole query, verbatim
+BODY_HIT_CAP = 20  # ceiling on raw frequency, so long pages cannot dominate
+
+# Where the bundled pages are published, so a search result can link to the
+# page rather than only naming it.
+EDU_BASE_URL = "https://edu.chainguard.dev"
+
+
+def page_url(source_path: str) -> str:
+    """Map a bundle '_Path:' value to the published page URL.
+
+    compile_docs.py records the path relative to content/, and Hugo serves
+    'chainguard/libraries/python/overview.md' at
+    '<base>/chainguard/libraries/python/overview/'.
+
+    Both bundle forms are served at the directory rather than below it: a
+    branch bundle (_index.md, 32 pages) and a leaf bundle (index.md, 76
+    pages). Keeping the filename would 404 on 13% of the corpus. Verified
+    against the live site (DOCS-181).
+    """
+    slug = source_path.removesuffix(".md")
+    slug = slug.removesuffix("/_index").removesuffix("/index")
+    if slug in ("_index", "index"):
+        return f"{EDU_BASE_URL}/"
+    return f"{EDU_BASE_URL}/{slug}/"
+
 
 def extract_image_names(container_section: str) -> List[str]:
     """Return image names from the compiled '## Container Images' section text.
@@ -104,56 +182,80 @@ class ChaguardDocsIndex:
 
     def __init__(self, docs_content: str):
         self.content = docs_content
-        self.sections = self._parse_sections()
+        self.sections, self.page_paths = self._parse_sections()
         self.images = self._extract_images()
 
-    def _parse_sections(self) -> Dict[str, str]:
-        """Parse markdown into logical sections."""
+    def _parse_sections(self) -> tuple[Dict[str, str], Dict[str, str]]:
+        """Split the bundle into one section per documentation page or image.
+
+        Returns the sections keyed by page title (or 'image:<name>'), and the
+        source path of each page.
+
+        The previous parser started a new section at any line beginning with
+        '# '. compile_docs.py never emits that as structure, so every such line
+        was content — a shell comment inside a fenced block, or an H1 in an
+        image README. Page text ended up filed under keys like 'Install
+        Composer and set up application', and whole guides became unfindable
+        (DOCS-181). Key on what the compiler actually writes instead.
+        """
         sections = {}
-        current_section = None
-        current_content = []
+        page_paths = {}
 
-        for line in self.content.split("\n"):
-            # Top-level headers indicate new sections
-            if line.startswith("# "):
-                if current_section:
-                    sections[current_section] = "\n".join(current_content)
-                current_section = line[2:].strip()
-                current_content = [line]
-            elif current_content:
-                current_content.append(line)
-
-        # Add last section
-        if current_section:
-            sections[current_section] = "\n".join(current_content)
-
-        # Also parse individual container images as separate sections
-        # Find the Container Images section and extract individual image docs
-        container_images_match = re.search(
-            r"^## Container Images\n", self.content, re.MULTILINE
+        images_marker = IMAGES_MARKER.search(self.content)
+        docs_region = (
+            self.content[: images_marker.start()] if images_marker else self.content
         )
-        if container_images_match:
-            start_pos = container_images_match.end()
-            section_content = self.content[start_pos:]
 
-            # Use regex to find all image sections (### header followed by content until next separator or end)
-            # Pattern: ### image-name followed by content until <!-- IMAGE_SEPARATOR --> or end of string.
-            # Name class allows underscores to match images like sql_exporter (DOCS-138).
-            image_pattern = (
-                r"### ([a-z0-9][a-z0-9_-]*)\n(.*?)(?=\n<!-- IMAGE_SEPARATOR -->|\Z)"
+        headings = list(PAGE_HEADING.finditer(docs_region))
+
+        # Whatever precedes the first page is the bundle's own front matter:
+        # the usage guide that tells an AI client how to query this file.
+        preamble = docs_region[: headings[0].start()] if headings else docs_region
+        if preamble.strip():
+            sections["Bundle Usage Guide"] = preamble.strip()
+
+        for i, heading in enumerate(headings):
+            end = headings[i + 1].start() if i + 1 < len(headings) else len(docs_region)
+            title = heading.group("title").strip()
+            path = heading.group("path").strip()
+
+            # A handful of titles repeat across languages ('Global
+            # configuration' exists for Java, JavaScript and Python). Qualify
+            # the duplicates so one does not overwrite the others.
+            key = title if title not in sections else f"{title} ({path})"
+
+            sections[key] = docs_region[heading.start() : end].strip()
+            page_paths[key] = path
+
+        sections.update(self._parse_image_sections(images_marker))
+        return sections, page_paths
+
+    def _parse_image_sections(self, images_marker) -> Dict[str, str]:
+        """Parse the container-image READMEs into 'image:<name>' sections.
+
+        Pattern: ### image-name followed by content until <!-- IMAGE_SEPARATOR -->
+        or end of string. Name class allows underscores to match images like
+        sql_exporter (DOCS-138).
+
+        Anything after the last separator is dropped. The bundle currently ends
+        there; if the DFC mappings section returns (DOCS-174), index it here.
+        """
+        if not images_marker:
+            return {}
+
+        image_pattern = (
+            r"### ([a-z0-9][a-z0-9_-]*)\n(.*?)(?=\n<!-- IMAGE_SEPARATOR -->|\Z)"
+        )
+        return {
+            f"image:{match.group(1)}": f"### {match.group(1)}\n{match.group(2).strip()}"
+            for match in re.finditer(
+                image_pattern, self.content[images_marker.end() :], re.DOTALL
             )
-            for match in re.finditer(image_pattern, section_content, re.DOTALL):
-                image_name = match.group(1)
-                image_content = f"### {image_name}\n{match.group(2).strip()}"
-                sections[f"image:{image_name}"] = image_content
-
-        return sections
+        }
 
     def _extract_images(self) -> List[str]:
         """Extract list of container image names from docs."""
-        container_images_match = re.search(
-            r"^## Container Images\n", self.content, re.MULTILINE
-        )
+        container_images_match = IMAGES_MARKER.search(self.content)
         if container_images_match:
             names = extract_image_names(self.content[container_images_match.end() :])
             if names:
@@ -167,29 +269,28 @@ class ChaguardDocsIndex:
 
     def search(self, query: str, max_results: int = 5) -> List[Dict[str, str]]:
         """Search documentation for relevant content."""
-        query_lower = query.lower()
+        stems = self._query_stems(query)
+        if not stems:
+            return []
+
+        query_lower = query.lower().strip()
         results = []
 
         for section_name, section_content in self.sections.items():
-            # Simple relevance scoring based on query term frequency
-            content_lower = section_content.lower()
-            score = content_lower.count(query_lower)
+            score = self._score_section(
+                section_name, section_content, stems, query_lower
+            )
 
             if score > 0:
-                # Extract a relevant snippet
-                lines = section_content.split("\n")
-                snippet_lines = []
-                for line in lines[:50]:  # First 50 lines of section
-                    if query_lower in line.lower():
-                        snippet_lines.append(line)
-                        if len(snippet_lines) >= 5:
-                            break
-
+                source_path = self.page_paths.get(section_name)
                 results.append(
                     {
                         "section": section_name,
                         "score": score,
-                        "snippet": "\n".join(snippet_lines[:5]),
+                        # Image READMEs are not published pages, so they have
+                        # no path and no URL to offer.
+                        "url": page_url(source_path) if source_path else "",
+                        "snippet": self._build_snippet(section_content, stems),
                         "full_content": section_content[:2000],  # First 2000 chars
                     }
                 )
@@ -197,6 +298,87 @@ class ChaguardDocsIndex:
         # Sort by relevance and return top results
         results.sort(key=lambda x: x["score"], reverse=True)
         return results[:max_results]
+
+    @staticmethod
+    def _stem(word: str) -> str:
+        """Strip one common suffix, leaving at least MIN_STEM_LEN characters."""
+        for suffix in STEM_SUFFIXES:
+            if word.endswith(suffix) and len(word) - len(suffix) >= MIN_STEM_LEN:
+                return word[: -len(suffix)]
+        return word
+
+    @classmethod
+    def _query_stems(cls, query: str) -> List[str]:
+        """Reduce a query to the distinct stems worth searching for.
+
+        'Give me the migration guide for python' becomes ['migrat', 'guide',
+        'python']. Returns them in query order, deduplicated.
+        """
+        stems = []
+        for word in SEARCH_TERM.findall(query.lower()):
+            if word in SEARCH_STOPWORDS:
+                continue
+            stem = cls._stem(word)
+            if len(stem) >= MIN_STEM_LEN and stem not in stems:
+                stems.append(stem)
+        return stems
+
+    @staticmethod
+    def _score_section(
+        section_name: str, section_content: str, stems: List[str], query_lower: str
+    ) -> int:
+        """Rank one section against the query stems.
+
+        Reward breadth first — a section matching every term beats one matching
+        a single term many times — then the title, then raw frequency.
+        """
+        title_lower = section_name.lower()
+        content_lower = section_content.lower()
+
+        matched = 0
+        score = 0
+        for stem in stems:
+            hits = content_lower.count(stem)
+            if hits:
+                matched += 1
+                score += min(hits, BODY_HIT_CAP)
+            if stem in title_lower:
+                score += TITLE_TERM_WEIGHT
+
+        if not matched:
+            return 0
+
+        score += matched * TERM_COVERAGE_WEIGHT
+        if query_lower in content_lower:
+            score += EXACT_PHRASE_BONUS
+        return score
+
+    @staticmethod
+    def _build_snippet(section_content: str, stems: List[str], limit: int = 5) -> str:
+        """Return up to `limit` lines of the section worth showing the caller.
+
+        Prefer lines mentioning the most query terms. The old version only
+        looked at the first 50 lines of the section, so a match further down
+        produced a result with an empty body — every hit in the DOCS-181 report
+        read that way. Fall back to the opening prose so a result always says
+        something.
+        """
+        lines = [line for line in section_content.split("\n") if line.strip()]
+
+        scored = []
+        for position, line in enumerate(lines):
+            lowered = line.lower()
+            hits = sum(1 for stem in stems if stem in lowered)
+            if hits:
+                scored.append((-hits, position, line))
+
+        if scored:
+            scored.sort()
+            best = sorted(scored[:limit], key=lambda item: item[1])
+            return "\n".join(line for _, _, line in best)
+
+        opening = [line for line in lines if not line.startswith("_")]
+        return "\n".join(opening[:limit])
 
     def get_image_docs(self, image_name: str) -> Optional[str]:
         """Get documentation for a specific container image."""
@@ -597,6 +779,8 @@ def search_docs(
     response = f"# Search Results for: {query}\n\n"
     for i, result in enumerate(results, 1):
         response += f"## Result {i}: {result['section']}\n\n"
+        if result["url"]:
+            response += f"{result['url']}\n\n"
         response += f"{result['snippet']}\n\n"
         response += "---\n\n"
     return response

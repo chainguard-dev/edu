@@ -2943,11 +2943,12 @@
       },
       "chainguard.platform.libraries.v2beta1.Ecosystem": {
         "default": "ECOSYSTEM_UNSPECIFIED",
-        "description": "Ecosystem represents the language ecosystem an artifact belongs to.\n\n - ECOSYSTEM_UNSPECIFIED: Unspecified ecosystem.\n - ECOSYSTEM_JAVA: Java ecosystem (Maven).\n - ECOSYSTEM_PYTHON: Python ecosystem (PyPI).",
+        "description": "Ecosystem represents the language ecosystem an artifact belongs to.\n\n - ECOSYSTEM_UNSPECIFIED: Unspecified ecosystem.\n - ECOSYSTEM_JAVA: Java ecosystem (Maven).\n - ECOSYSTEM_PYTHON: Python ecosystem (PyPI).\n - ECOSYSTEM_JAVASCRIPT: JavaScript ecosystem (npm).",
         "enum": [
           "ECOSYSTEM_UNSPECIFIED",
           "ECOSYSTEM_JAVA",
-          "ECOSYSTEM_PYTHON"
+          "ECOSYSTEM_PYTHON",
+          "ECOSYSTEM_JAVASCRIPT"
         ],
         "type": "string"
       },
@@ -4186,7 +4187,7 @@
         "type": "object"
       },
       "chainguard.platform.registry.v2beta1.OverlayBinding": {
-        "description": "OverlayBinding binds one overlay to one repo under an exact-tag\nselector. Its UID is a UIDP under the repo it attaches to. Bindings\nhave no name; audit rendering comes from the repo, tags, and expanded\noverlay content.",
+        "description": "OverlayBinding binds one overlay to one repo under a tag selector.\nIts UID is a UIDP under the repo it attaches to. Bindings have no\nname; audit rendering comes from the repo, the selector, and the\nexpanded overlay content.",
         "properties": {
           "overlay": {
             "allOf": [
@@ -4202,12 +4203,13 @@
             "readOnly": true,
             "type": "string"
           },
-          "tags": {
-            "description": "The exact tag names this binding applies to.",
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
+          "tagSelector": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.TagSelector"
+              }
+            ],
+            "description": "The selector picking which tags on the repo this binding applies to.\nSee TagSelector for the supported kinds and precedence rules."
           },
           "uid": {
             "description": "The unique identifier of this OverlayBinding, a UIDP under the repo\nit attaches to.",
@@ -4216,7 +4218,7 @@
           }
         },
         "required": [
-          "tags"
+          "tagSelector"
         ],
         "type": "object"
       },
@@ -4227,17 +4229,18 @@
             "description": "References the overlay to attach: its UIDP, or its name resolved\nwithin the repo's organization.",
             "type": "string"
           },
-          "tags": {
-            "description": "The exact tag names to attach to. At least one is required: an\nall-tags change belongs on the repo's base customization, not an\nbinding.",
-            "items": {
-              "type": "string"
-            },
-            "type": "array"
+          "tagSelector": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.TagSelector"
+              }
+            ],
+            "description": "The selector picking which tags on the parent repo this binding\napplies to. See TagSelector for the supported kinds and their\nper-kind validation rules. Uniqueness rules (at most one ALL per\nrepo; at most one VARIANT per (repo, variant_type); EXACT bindings\nmust not share any tag with another EXACT binding on the same repo)\nare enforced at create time and surface as AlreadyExists. Bindings\nare rejected on repos whose legacy custom_overlay is set\n(FailedPrecondition) — the two customization paths are mutually\nexclusive until the legacy value is migrated to an ALL binding."
           }
         },
         "required": [
           "overlay",
-          "tags"
+          "tagSelector"
         ],
         "type": "object"
       },
@@ -4435,6 +4438,59 @@
           "digest"
         ],
         "type": "object"
+      },
+      "chainguard.platform.registry.v2beta1.TagSelector": {
+        "description": "1. KIND_ALL binding on the repo (at most one).\n  2. KIND_VARIANT binding whose variant_type matches the tag (at most\n     one per (repo, variant_type); today only VARIANT_TYPE_DEV,\n     matching the \"-dev\" tag suffix).\n  3. KIND_EXACT binding whose `tags` include the tag.\n\nLayers merge later-wins for scalar fields; packages accumulate. All\nthree can stack on a single tag (e.g. `latest-dev`).",
+        "properties": {
+          "kind": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.TagSelector.Kind"
+              }
+            ],
+            "description": "Kind is the matching mode."
+          },
+          "tags": {
+            "description": "Tags is the list of exact tag names to match. Populated when\nkind=KIND_EXACT; must be empty for any other kind.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "variantType": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.TagSelector.VariantType"
+              }
+            ],
+            "description": "VariantType picks the variant to match. Populated when\nkind=KIND_VARIANT; must be VARIANT_TYPE_UNSPECIFIED for any other\nkind."
+          }
+        },
+        "required": [
+          "kind"
+        ],
+        "title": "TagSelector selects a set of image tags on a repo. Kind discriminates\nthe matching mode; the payload field corresponding to Kind carries the\nmatch input. Overlay bindings apply in a fixed precedence when multiple\nbindings match a single tag being rebuilt:",
+        "type": "object"
+      },
+      "chainguard.platform.registry.v2beta1.TagSelector.Kind": {
+        "default": "KIND_UNSPECIFIED",
+        "description": "Kind is the matching mode. See per-kind field expectations below.\n\n - KIND_UNSPECIFIED: Unspecified is invalid; callers must set a kind explicitly.\n - KIND_EXACT: KIND_EXACT matches tags whose name appears verbatim in `tags`.\n`tags` must be non-empty; `variant_type` must be unset.\n - KIND_ALL: KIND_ALL matches every tag on the parent repo. `tags` and\n`variant_type` must be unset. A repo can hold at most one\nKIND_ALL binding — this is the way to customize a whole repo\nand the migration target for legacy repo.custom_overlay values.\n - KIND_VARIANT: KIND_VARIANT matches every tag on the parent repo that belongs\nto the variant named by `variant_type`. `tags` must be unset and\n`variant_type` must not be VARIANT_TYPE_UNSPECIFIED. A repo can\nhold at most one KIND_VARIANT binding per (repo, variant_type).",
+        "enum": [
+          "KIND_UNSPECIFIED",
+          "KIND_EXACT",
+          "KIND_ALL",
+          "KIND_VARIANT"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.registry.v2beta1.TagSelector.VariantType": {
+        "default": "VARIANT_TYPE_UNSPECIFIED",
+        "description": "VariantType names a tag-naming convention Chainguard image repos\nfollow. Populated only when kind=KIND_VARIANT.\n\n - VARIANT_TYPE_UNSPECIFIED: Unspecified is invalid; callers must set variant_type explicitly\nwhen kind=KIND_VARIANT.\n - VARIANT_TYPE_DEV: Dev matches tags whose name ends in \"-dev\" (e.g. \"latest-dev\",\n\"1.4-dev\"). Development-oriented image variants ship with a\nsuperset of packages compared to their prod siblings; a\nVARIANT_TYPE_DEV binding is the tag-scoped hook for adding\ndev-only tooling without touching prod tags.",
+        "enum": [
+          "VARIANT_TYPE_UNSPECIFIED",
+          "VARIANT_TYPE_DEV"
+        ],
+        "type": "string"
       },
       "chainguard.platform.vulnerabilities.v2beta1.Advisory": {
         "description": "Advisory is a security advisory the defines the relationship between a vulnerability and artifact.",
@@ -9002,7 +9058,7 @@
         "operationId": "ArtifactsService_ListArtifacts",
         "parameters": [
           {
-            "description": "The language ecosystems to return artifacts for.\n\n - ECOSYSTEM_UNSPECIFIED: Unspecified ecosystem.\n - ECOSYSTEM_JAVA: Java ecosystem (Maven).\n - ECOSYSTEM_PYTHON: Python ecosystem (PyPI).",
+            "description": "The language ecosystems to return artifacts for.\n\n - ECOSYSTEM_UNSPECIFIED: Unspecified ecosystem.\n - ECOSYSTEM_JAVA: Java ecosystem (Maven).\n - ECOSYSTEM_PYTHON: Python ecosystem (PyPI).\n - ECOSYSTEM_JAVASCRIPT: JavaScript ecosystem (npm).",
             "in": "query",
             "name": "ecosystems",
             "required": true,
@@ -9011,7 +9067,8 @@
                 "enum": [
                   "ECOSYSTEM_UNSPECIFIED",
                   "ECOSYSTEM_JAVA",
-                  "ECOSYSTEM_PYTHON"
+                  "ECOSYSTEM_PYTHON",
+                  "ECOSYSTEM_JAVASCRIPT"
                 ],
                 "type": "string"
               },
@@ -9111,7 +9168,7 @@
         "operationId": "ArtifactsService_GetArtifactCount",
         "parameters": [
           {
-            "description": "The language ecosystems to request the artifact counts for.\n\n - ECOSYSTEM_UNSPECIFIED: Unspecified ecosystem.\n - ECOSYSTEM_JAVA: Java ecosystem (Maven).\n - ECOSYSTEM_PYTHON: Python ecosystem (PyPI).",
+            "description": "The language ecosystems to request the artifact counts for.\n\n - ECOSYSTEM_UNSPECIFIED: Unspecified ecosystem.\n - ECOSYSTEM_JAVA: Java ecosystem (Maven).\n - ECOSYSTEM_PYTHON: Python ecosystem (PyPI).\n - ECOSYSTEM_JAVASCRIPT: JavaScript ecosystem (npm).",
             "in": "query",
             "name": "ecosystems",
             "required": true,
@@ -9120,7 +9177,8 @@
                 "enum": [
                   "ECOSYSTEM_UNSPECIFIED",
                   "ECOSYSTEM_JAVA",
-                  "ECOSYSTEM_PYTHON"
+                  "ECOSYSTEM_PYTHON",
+                  "ECOSYSTEM_JAVASCRIPT"
                 ],
                 "type": "string"
               },
@@ -9283,7 +9341,7 @@
             }
           },
           {
-            "description": "Filter by ecosystem.\n\n - ECOSYSTEM_UNSPECIFIED: Unspecified ecosystem.\n - ECOSYSTEM_JAVA: Java ecosystem (Maven).\n - ECOSYSTEM_PYTHON: Python ecosystem (PyPI).",
+            "description": "Filter by ecosystem.\n\n - ECOSYSTEM_UNSPECIFIED: Unspecified ecosystem.\n - ECOSYSTEM_JAVA: Java ecosystem (Maven).\n - ECOSYSTEM_PYTHON: Python ecosystem (PyPI).\n - ECOSYSTEM_JAVASCRIPT: JavaScript ecosystem (npm).",
             "in": "query",
             "name": "ecosystem",
             "schema": {
@@ -9291,7 +9349,8 @@
               "enum": [
                 "ECOSYSTEM_UNSPECIFIED",
                 "ECOSYSTEM_JAVA",
-                "ECOSYSTEM_PYTHON"
+                "ECOSYSTEM_PYTHON",
+                "ECOSYSTEM_JAVASCRIPT"
               ],
               "type": "string"
             }
@@ -10082,7 +10141,7 @@
             }
           },
           {
-            "description": "Filter to one ecosystem. The dashboard renders a table per ecosystem, so it\nsets this.\n\n - ECOSYSTEM_UNSPECIFIED: Unspecified ecosystem.\n - ECOSYSTEM_JAVA: Java ecosystem (Maven).\n - ECOSYSTEM_PYTHON: Python ecosystem (PyPI).",
+            "description": "Filter to one ecosystem. The dashboard renders a table per ecosystem, so it\nsets this.\n\n - ECOSYSTEM_UNSPECIFIED: Unspecified ecosystem.\n - ECOSYSTEM_JAVA: Java ecosystem (Maven).\n - ECOSYSTEM_PYTHON: Python ecosystem (PyPI).\n - ECOSYSTEM_JAVASCRIPT: JavaScript ecosystem (npm).",
             "in": "query",
             "name": "ecosystem",
             "schema": {
@@ -10090,7 +10149,8 @@
               "enum": [
                 "ECOSYSTEM_UNSPECIFIED",
                 "ECOSYSTEM_JAVA",
-                "ECOSYSTEM_PYTHON"
+                "ECOSYSTEM_PYTHON",
+                "ECOSYSTEM_JAVASCRIPT"
               ],
               "type": "string"
             }
@@ -10223,7 +10283,7 @@
             }
           },
           {
-            "description": "The library's ecosystem. Required alongside name, because the two together\nidentify the library.\n\n - ECOSYSTEM_UNSPECIFIED: Unspecified ecosystem.\n - ECOSYSTEM_JAVA: Java ecosystem (Maven).\n - ECOSYSTEM_PYTHON: Python ecosystem (PyPI).",
+            "description": "The library's ecosystem. Required alongside name, because the two together\nidentify the library.\n\n - ECOSYSTEM_UNSPECIFIED: Unspecified ecosystem.\n - ECOSYSTEM_JAVA: Java ecosystem (Maven).\n - ECOSYSTEM_PYTHON: Python ecosystem (PyPI).\n - ECOSYSTEM_JAVASCRIPT: JavaScript ecosystem (npm).",
             "in": "query",
             "name": "ecosystem",
             "required": true,
@@ -10232,7 +10292,8 @@
               "enum": [
                 "ECOSYSTEM_UNSPECIFIED",
                 "ECOSYSTEM_JAVA",
-                "ECOSYSTEM_PYTHON"
+                "ECOSYSTEM_PYTHON",
+                "ECOSYSTEM_JAVASCRIPT"
               ],
               "type": "string"
             }
@@ -10575,7 +10636,7 @@
         ]
       },
       "post": {
-        "description": "CreateOverlayBinding attaches an existing overlay to one repo under\nan exact-tag selector.",
+        "description": "CreateOverlayBinding attaches an existing overlay to one repo under\na tag selector. See TagSelector for the supported selector kinds\n(EXACT, ALL, VARIANT) and the precedence order applied when multiple\nbindings match a single tag at rebuild time.",
         "operationId": "OverlayBindingsService_CreateOverlayBinding",
         "parameters": [
           {

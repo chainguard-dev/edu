@@ -1,5 +1,5 @@
 ---
-date: 2026-09-03T18:18:22Z
+date: 2026-09-04T19:05:48Z
 title: "chainctl policy decision list"
 slug: chainctl_policy_decision_list
 url: /platform/chainctl/chainctl-docs/chainctl_policy_decision_list/
@@ -31,18 +31,18 @@ outcomes, and by --since for a time window.
 Decisions are listed most recent first. By default the 20 most recent
 are shown; use --limit (1-100) to change how many are returned.
 
-For a multi-arch image the DIGEST column may show the index digest,
+For a multi-arch image the ARTIFACT ID column may show the index digest,
 while pulls are enforced against the per-platform child manifest; run
 "chainctl policy check" to find the child digest an override must
-target. The table view shows the digest in short form; -o json returns
-the full digest.
+target. The table view shows the artifact in short form; -o json returns
+the full value.
 
 With -o json the output is an object with an "items" array (one entry
 per decision) and a string "totalCount"; read .items[] rather than
 treating the output as a top-level array.
 
 ```
-chainctl policy decision list [--parent ORG] [--repo REPO] [--policy POLICY] [--mode MODE] [--result RESULT] [--since Nd] [--limit N] [--output=json|table] [flags]
+chainctl policy decision list [--parent ORG] [--repo REPO] [--artifact-id ARTIFACT] [--policy POLICY] [--mode MODE] [--result RESULT] [--since Nd] [--limit N] [--output=json|table] [flags]
 ```
 
 ### Examples
@@ -70,6 +70,7 @@ chainctl policy decision list [--parent ORG] [--repo REPO] [--policy POLICY] [--
 ### Options
 
 ```
+      --artifact-id string     Only show decisions for this artifact: an image digest for container policies (sha256:...) or a PURL for library policies (pkg:npm/left-pad@1.3.0).
       --limit int              Maximum number of decisions to return, most recent first (1-100). (default 20)
       --mode string            Only show decisions evaluated in this mode (ENFORCE or DRY_RUN; the POLICY_MODE_ prefixed value from -o json is also accepted).
       --parent string          The name or id of the organization to list decisions for.

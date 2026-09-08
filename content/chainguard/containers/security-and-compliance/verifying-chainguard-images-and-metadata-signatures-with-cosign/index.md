@@ -13,7 +13,7 @@ aliases:
 type: "article"
 description: "Learn how to verify Chainguard Container signatures and attestations with Cosign for supply chain security, ensuring image authenticity and integrity"
 date: 2024-03-18T08:59:52-07:00
-lastmod: 2026-08-21T12:27:26+00:00
+lastmod: 2026-09-08T13:28:24+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -178,6 +178,12 @@ cosign verify-attestation \
   --certificate-identity-regexp="https://issuer.enforce.dev/(${IMAGE_SYNCER}|${CUSTOM_IMAGE_BUILDER})" \
   cgr.dev/${PARENT}/${IMAGE} | jq
 ```
+
+## Air-gapped and egress-restricted environments
+
+The commands in this guide reach the public Sigstore infrastructure to fetch the trust root Cosign verifies against. If that infrastructure is unreachable, you can export the trust root on a connected machine and pass it to Cosign as a file. Transparency-log verification still works, because the signature carries its own signed entry timestamp.
+
+The signature is a separate artifact from the image, so mirroring the image alone leaves it behind. For the full procedure, including how to move signatures and attestations across an air gap, see [Verifying signatures in air-gapped environments](/open-source/sigstore/cosign/verifying-in-air-gapped-environments/).
 
 ## Note about the examples in this guide
 

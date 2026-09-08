@@ -1,14 +1,28 @@
 name: Compile AI Documentation Bundle from GCS
 
 on:
-  # Nightly. The scheduled run is the only one that opens a bundle-refresh PR,
-  # so the served download stays at most a day behind. Dispatch-driven runs
-  # still rebuild GHCR, Artifact Registry, and Cloud Run on every source change.
+  # Every trigger rebuilds GHCR, Artifact Registry, and Cloud Run. Only the
+  # scheduled and manual runs go on to open the bundle-refresh pull request
+  # (see the publish-bundle job), so the served download stays at most a day
+  # behind while a source change still deploys immediately.
   schedule:
     - cron: '0 2 * * *'
 
   repository_dispatch:
     types: [ai-docs-source-updated]
+
+  # The server's own source. Content changes reach this workflow indirectly,
+  # via the dispatch that export-edu-docs-to-gcs.yaml sends, but nothing
+  # watched scripts/ — so merging a fix to the MCP server did not deploy it and
+  # the change waited for the nightly run (DOCS-183). Match on the whole
+  # directory rather than listing the files baked into the image, which is the
+  # same drift this trigger exists to prevent; mcp-image-smoke-test.yaml
+  # already scopes its PR gate the same way.
+  push:
+    branches: [ main ]
+    paths:
+      - scripts/**
+      - .github/workflows/compile-ai-docs-from-gcs.yaml
 
   workflow_dispatch:
 
