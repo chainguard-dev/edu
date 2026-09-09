@@ -4,7 +4,7 @@ linktitle: "Access"
 description: "Learn how to access Chainguard Libraries for enhanced security in Java and Python dependencies, including authentication and organization setup"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-09-04T16:13:45+00:00
+lastmod: 2026-09-09T15:46:42+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -298,6 +298,8 @@ password CHAINGUARD_PYTHON_TOKEN
 ```
 
 Note that the long string for the password value must use only one line.
+
+When you use this `.netrc` file in a container build, mount it as a build secret rather than copying it into an image layer. See [Container builds](/chainguard/libraries/policies-and-security/build-containers/).
 
 ### Verification
 

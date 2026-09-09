@@ -4,7 +4,7 @@ linktitle: "Python overview"
 description: "Learn about Chainguard Libraries for Python, providing enhanced security for PyPI packages through automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-04-09T04:00:00+00:00
-lastmod: 2026-08-28T16:31:04+00:00
+lastmod: 2026-09-09T15:46:42+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python", "Overview"]
 menu:
@@ -358,6 +358,8 @@ Cached Docker image layers may reuse upstream dependencies even after reconfigur
 ```bash
 docker build --no-cache
 ```
+
+To authenticate to Chainguard Libraries during a container build without writing credentials into an image layer, see [Container builds](/chainguard/libraries/policies-and-security/build-containers/).
 
 ### Updating lockfile hashes
 
