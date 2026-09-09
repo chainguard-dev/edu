@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for Python on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-31T14:23:56+00:00
+lastmod: 2026-09-09T15:46:42+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 menu:
@@ -33,12 +33,13 @@ versions from PyPI under Chainguard security controls.
 
 This guide outlines how to configure your build tool. If you are looking for something else, refer to the following guides depending on your goals:
 
-| If you wnat to... | Use this page |
+| If you want to... | Use this page |
 | --- | --- |
 | Understand what Chainguard Libraries for Python is and how it works | [Python overview](/chainguard/libraries/python/overview/) |
 | Set up organization-wide access through a repository manager | [Global configuration](/chainguard/libraries/python/global-configuration/) |
 | Look up how to configure a specific build tool (pip, Poetry, uv) | This page |
 | Migrate an existing project step by step | [Python migration guide](/chainguard/libraries/python/migration/) |
+| Install inside a container build without leaking credentials into the image | [Container builds](/chainguard/libraries/policies-and-security/build-containers/) |
 
 Refer to the [minimal example projects](#minimal-example-projects) on this page for demonstrations using `uv` and `pip`.
 

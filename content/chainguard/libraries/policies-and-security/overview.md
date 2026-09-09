@@ -4,7 +4,7 @@ linktitle: "Policies overview"
 description: "Understand how Chainguard Libraries evaluates, verifies, and controls dependencies across supported ecosystems."
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-08-28T16:31:04+00:00
+lastmod: 2026-09-09T15:46:42+00:00
 draft: false
 tags: ["Chainguard Libraries", "Policy", "Overview"]
 weight: 051
@@ -17,3 +17,4 @@ Learn how to verify Chainguard Library integrity, identify and remediate vulnera
 * [Verification](/chainguard/libraries/policies-and-security/verification/): Use `chainctl libraries verify` to confirm which dependencies were built by Chainguard and review their signed provenance and software bills of materials (SBOMs).
 * [CVE remediation](/chainguard/libraries/policies-and-security/cve-remediation/): Learn how Chainguard backports selected high- and critical-severity fixes to supported library versions and how to identify and use remediated releases.
 * [Vulnerability scanners](/chainguard/libraries/policies-and-security/scanners/): Learn how common vulnerability scanners work with Chainguard Libraries and how to interpret findings for Chainguard-built and remediated dependencies.
+* [Container builds](/chainguard/libraries/policies-and-security/build-containers/): Authenticate to Chainguard Libraries during a container build using BuildKit secret mounts, without baking credentials into the final image.

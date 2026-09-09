@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for JavaScript on your workstation"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-08-31T14:23:56+00:00
+lastmod: 2026-09-09T15:46:42+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
@@ -39,6 +39,7 @@ This guide outlines how to configure your build tool. If you are looking for som
 | Set up organization-wide access through a repository manager | [Global configuration](/chainguard/libraries/javascript/global-configuration/) |
 | Look up how to configure a specific build tool (npm, pnpm, Yarn, Bun) | This page |
 | Migrate an existing project step by step | [JavaScript migration guide](/chainguard/libraries/javascript/migration/) |
+| Install inside a container build without leaking credentials into the image | [Container builds](/chainguard/libraries/policies-and-security/build-containers/) |
 
 If a package or version is blocked by a policy or malware scan, your build tool returns an error. Refer to the [Error messages documentation](/chainguard/libraries/troubleshooting/errors/) for more details.
 
