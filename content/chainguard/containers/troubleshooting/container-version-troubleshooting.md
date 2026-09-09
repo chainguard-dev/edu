@@ -90,7 +90,7 @@ Retrieve the digest for a tag with `crane`:
 crane digest --full-ref cgr.dev/$ORGANIZATION/node:latest
 ```
 
-A digest identifies one build and keeps identifying that same build even after the tag that pointed to it has moved on. Note the tradeoff: a pinned digest also stops receiving patches, so pair digest pinning with a process for updating the pin. See [Container image digests](/chainguard/containers/troubleshooting/container-image-digests/) for the full workflow.
+A digest identifies one build and keeps identifying that same build even after the tag that pointed to it has moved on. Note the tradeoff: a pinned digest also stops receiving patches, so pair digest pinning with a process for updating the pin. Refer to [Inspecting Chainguard Containers](/chainguard/containers/troubleshooting/inspecting-containers/) for the full workflow.
 
 ### If an actively maintained tag is missing from your organization
 

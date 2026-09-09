@@ -183,7 +183,7 @@ The benefit of this approach is that it lets you define your update strategy for
 
 ## Update Chainguard Helm charts in Helmfiles
 
-Renovate supports updating [Helmfile](https://helmfile.readthedocs.io/) releases with its [built-in `helmfile` manager](https://docs.renovatebot.com/modules/manager/helmfile/). However, it doesn't presently support updating [digest references](/chainguard/containers/troubleshooting/container-image-digests/) for OCI chart URLs, which is a [recommended practice when deploying Chainguard Helm charts](/chainguard/containers/using-and-deploying/helm-charts/use-chainguard-helm-charts/#pin-to-digest). See [renovatebot/renovate#45054](https://github.com/renovatebot/renovate/discussions/45054) for more details.
+Renovate supports updating [Helmfile](https://helmfile.readthedocs.io/) releases with its [built-in `helmfile` manager](https://docs.renovatebot.com/modules/manager/helmfile/). However, it doesn't presently support updating [digest references](/chainguard/containers/troubleshooting/inspecting-containers/) for OCI chart URLs, which is a [recommended practice when deploying Chainguard Helm charts](/chainguard/containers/using-and-deploying/helm-charts/use-chainguard-helm-charts/#pin-to-digest). See [renovatebot/renovate#45054](https://github.com/renovatebot/renovate/discussions/45054) for more details.
 
 To pin Chainguard Helm charts to digests and update them with Renovate, you can use a [custom `jsonata` manager](https://docs.renovatebot.com/modules/manager/jsonata/) as a workaround.
 
@@ -240,7 +240,7 @@ Configure Renovate with the following example, replacing every instance of `cgr.
 
 ## Update Chainguard Helm charts in ArgoCD applications
 
-Renovate supports updating [ArgoCD](https://argo-cd.readthedocs.io/) `Application` manifests with its [built-in `argocd` manager](https://docs.renovatebot.com/modules/manager/argocd/). However, it doesn't presently support updating [digest references](/chainguard/containers/troubleshooting/container-image-digests/) for OCI chart URLs, which is a [recommended practice when deploying Chainguard Helm charts](/chainguard/containers/using-and-deploying/helm-charts/use-chainguard-helm-charts/#pin-to-digest). See [renovatebot/renovate#45055](https://github.com/renovatebot/renovate/discussions/45055) for more details.
+Renovate supports updating [ArgoCD](https://argo-cd.readthedocs.io/) `Application` manifests with its [built-in `argocd` manager](https://docs.renovatebot.com/modules/manager/argocd/). However, it doesn't presently support updating [digest references](/chainguard/containers/troubleshooting/inspecting-containers/) for OCI chart URLs, which is a [recommended practice when deploying Chainguard Helm charts](/chainguard/containers/using-and-deploying/helm-charts/use-chainguard-helm-charts/#pin-to-digest). See [renovatebot/renovate#45055](https://github.com/renovatebot/renovate/discussions/45055) for more details.
 
 To pin Chainguard Helm charts to digests and update them with Renovate, you can use a [custom `jsonata` manager](https://docs.renovatebot.com/modules/manager/jsonata/) as a workaround.
 

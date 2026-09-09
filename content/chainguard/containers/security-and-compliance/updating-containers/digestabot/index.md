@@ -320,4 +320,4 @@ So please try it out and let me know if you have any questions.
 * [Using Renovate with Chainguard Containers](/chainguard/containers/security-and-compliance/updating-containers/renovate/) covers the equivalent setup for teams outside GitHub.
 * [Strategies and tooling for updating containers](/chainguard/containers/security-and-compliance/updating-containers/strategies-tools-updating-images/) compares the wider range of update tools.
 * [Considerations for keeping containers up to date](/chainguard/containers/security-and-compliance/updating-containers/considerations-for-image-updates/) covers the tradeoffs behind an update policy.
-* [Container image digests](/chainguard/containers/troubleshooting/container-image-digests/) explains what a digest is and why pinning to one matters.
+* [Inspecting Chainguard Containers](/chainguard/containers/troubleshooting/inspecting-containers/) explains what a digest is and why pinning to one matters.

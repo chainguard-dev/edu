@@ -64,7 +64,7 @@ Every Chainguard container image ships with a signed SBOM and provenance attesta
 
 - **With `syft`.** Generate an SBOM locally from an image you've pulled. Use this for images you've customized, where you want an SBOM of the final artifact.
 
-To pin what you pull so builds stay reproducible, reference images by digest. See [container image digests](/chainguard/containers/troubleshooting/container-image-digests/).
+To pin what you pull so builds stay reproducible, reference images by digest. Refer to [Inspecting Chainguard Containers](/chainguard/containers/troubleshooting/inspecting-containers/).
 
 ## Chainguard Libraries
 

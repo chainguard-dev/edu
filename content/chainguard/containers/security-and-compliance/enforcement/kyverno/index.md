@@ -103,7 +103,7 @@ kubectl delete -f restrict-image-registries.yaml
 
 Chainguard Containers are updated frequently to incorporate CVE fixes and package updates. The tags for Chainguard's container images are highly mutable, meaning that the underlying image changes frequently, even for very specific tags like `v1.2.3-r1`.
 
-To prevent the risk of updates introducing breaking changes, you can [pull by digest](/chainguard/containers/troubleshooting/container-image-digests/) to ensure the use of a specific image. When using Kyverno, you can use a `ClusterPolicy` policy to ensure that images are only referenced by digest.
+To prevent the risk of updates introducing breaking changes, you can [pull by digest](/chainguard/containers/troubleshooting/inspecting-containers/) to ensure the use of a specific image. When using Kyverno, you can use a `ClusterPolicy` policy to ensure that images are only referenced by digest.
 
 Create `require-image-digest.yaml` with this content:
 

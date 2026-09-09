@@ -4,7 +4,7 @@ linktitle: "FAQ"
 type: "article"
 description: "Chainguard container FAQs: why they have zero CVEs, how they compare to DockerHub, what makes them more secure, pricing, and enterprise deployment best practices"
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2026-07-27T16:03:25+00:00
+lastmod: 2026-09-08T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers", "FAQ"]
 images: []
@@ -13,6 +13,9 @@ toc: true
 aliases:
 - /chainguard/chainguard-images/faq/
 - /chainguard/containers/faq/
+- /chainguard/chainguard-images/about/can-anybody-build-containers/
+- /chainguard/containers/about/can-anybody-build-containers/
+- /chainguard/containers/concepts/can-anybody-build-containers/
 ---
 
 Learn answers to your questions about [Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). Chainguard provides container images designed with security as the primary focus, featuring zero known CVEs, minimal attack surface, and built-in SBOMs for every image.
@@ -46,7 +49,7 @@ You can read more about the differences between Free and Production Containers i
 
 ## Are Chainguard Containers available on Docker Hub?
 
-Yes, Chainguard Free Container images are available on [Docker Hub](https://hub.docker.com/u/chainguard?utm_source=academy&utm_medium=referral&utm_campaign=FY25-DockerHub-Orgprofile). As a Docker Verified Publisher, Chainguard has met Docker's stringent standards for security, quality, and transparency. This status signifies that our container images are trusted, reliable, and have undergone rigorous verification processes. If you wish to use Production Containers, you will use [Chainguard's registry](/chainguard/chainguard-registry/overview/).
+Yes, Chainguard Free Container images are available on [Docker Hub](https://hub.docker.com/u/chainguard?utm_source=academy&utm_medium=referral&utm_campaign=FY25-DockerHub-Orgprofile). As a Docker Verified Publisher, Chainguard has met Docker's stringent standards for security, quality, and transparency. This status signifies that our container images are trusted, reliable, and have undergone rigorous verification processes. To use Production Containers, pull them from [Chainguard's registry](/chainguard/chainguard-registry/overview/).
 
 ## What is an SBOM and why is it important?
 
@@ -58,21 +61,29 @@ SBOMs provide visibility into the software you depend on. They can allow automat
 
 [Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) are officially maintained by [Chainguard](https://chainguard.dev) engineers.
 
+## Can anybody build Chainguard Containers themselves?
+
+Yes. Chainguard builds from open source, and the tools it uses to build packages and containers are freely available in [Wolfi](https://github.com/wolfi-dev). What's hard to reproduce is the scale.
+
+Before Chainguard adds a container, it reviews the upstream source: whether the project is actively maintained, whether it builds from source, and whether its license permits Chainguard to use and distribute it. Getting a complicated project to build the first time can take days or weeks. Once it builds, the [Chainguard Factory](/platform/factory/what-is-factory/) rebuilds it automatically every time that project tags a release.
+
+In a do-it-yourself pipeline, the rebuilding falls to a person, usually a project maintainer or a security engineer. Doing it for every image on every upstream release is where most teams run out of hours.
+
 ## How often are Chainguard Containers updated?
 
 Chainguard Containers are rebuilt every night to ensure that new package versions and security updates in upstream Wolfi are quickly applied.
 
-## Can I simply replace my current base image with a Chainguard Container and it will work out of the box?
+## Can I replace my current base image with a Chainguard Container and have it work out of the box?
 
-Chainguard Containers are designed to be minimal, and many of them don't come with a package manager. Depending on your stack and specific dependencies, you may need to include additional software by combining `-dev` container images and our [distroless](/chainguard/containers/getting-started-distroless/) images in a multi-stage Docker build.
+Chainguard Containers are designed to be minimal, and many of them don't come with a package manager. Depending on your stack and specific dependencies, you may need to include additional software by combining `-dev` container images and our [distroless](/chainguard/containers/concepts/getting-started-distroless/) images in a multi-stage Docker build.
 
 ## What packages are available in Chainguard Containers?
 
 Chainguard Containers only contain packages that come from the [Wolfi Project](https://github.com/wolfi-dev) or those that are built and maintained internally by Chainguard.
 
-Starting in March of 2024, Chainguard will maintain one version of each Wolfi package at a time. These will track the latest version of the upstream software in the package. Chainguard will end patch support for previous versions of packages in Wolfi. Existing packages will not be removed from Wolfi and you may continue to use them, but be aware that older packages will no longer be updated and will accrue vulnerabilities over time. The tools we use to build packages and images remain freely available and open source in [Wolfi](https://github.com/wolfi-dev).
+Since March 2024, Chainguard has maintained one version of each Wolfi package at a time. These track the latest version of the upstream software in the package. Chainguard has ended patch support for previous versions of packages in Wolfi. Existing packages remain in Wolfi and you may continue to use them, but be aware that older packages no longer receive updates and accrue vulnerabilities over time. The tools we use to build packages and images remain freely available and open source in [Wolfi](https://github.com/wolfi-dev).
 
-This change ensures that Chainguard can provide the most up-to-date patches to all packages for our customers. Note that specific package versions can be made available in Production containers. If you have a request for a specific package version, please [contact us](https://www.chainguard.dev/contact?utm=docs).
+This change ensures that Chainguard can provide the most up-to-date patches to all packages for our customers. Note that specific package versions can be made available in Production containers. If you have a request for a specific package version, [contact us](https://www.chainguard.dev/contact?utm=docs).
 
 ## How do I add packages to a Chainguard Container?
 
@@ -84,7 +95,7 @@ Chainguard investigates the CVE and marks relevant images as affected or not. If
 
 ## Why are some CVEs persistent in select Chainguard Containers?
 
-There are several Chainguard Containers container images--such as Druid and Spark--with a notable number of CVEs that are marked `pending-upstream-fix.` The reasons that these CVEs can't be remediated by standard engineering procedures include: some vulnerabilities can only be patched through major version upgrades, which often break compatibility through broken builds or tests; many of these CVEs (over fifty percent by one internal Chainguard analysis) stem from "shaded" JARs, JAR files that bundle their dependencies internally; and a small portion of these CVEs simply have no fix available. The Chainguard engineering team continually investigates new approaches to fixing these persistent CVEs.
+There are several Chainguard Containers container images--such as Druid and Spark--with a notable number of CVEs that are marked `pending-upstream-fix.` The reasons that these CVEs can't be remediated by standard engineering procedures include: some vulnerabilities can only be patched through major version upgrades, which often break compatibility through broken builds or tests; many of these CVEs (over fifty percent by one internal Chainguard analysis) stem from "shaded" JARs, JAR files that bundle their dependencies internally; and a small portion of these CVEs have no fix available. The Chainguard engineering team continually investigates new approaches to fixing these persistent CVEs.
 
 ## I added software on top of one of Chainguard's base container images, why are there CVEs?
 
@@ -98,8 +109,8 @@ To learn how to authenticate into Chainguard's registry, you can review our [aut
 
 ## Is Chainguard FedRAMP certified?
 
-You will need to ingest Chainguard Containers into an image repository within your FedRAMP boundary. Your repo requires FedRAMP but Chainguard does not since we're outside the boundary. Please [reach out](https://www.chainguard.dev/contact?utm=docs) if you need more details.
+You need to ingest Chainguard Containers into an image repository within your FedRAMP boundary. Your repository requires FedRAMP but Chainguard does not since we're outside the boundary. [Reach out](https://www.chainguard.dev/contact?utm=docs) if you need more details.
 
 ## Will Chainguard Containers run alongside eBPF agents or sensors? Will there be any issues?
 
-Chainguard containers are [OCI](https://opencontainers.org/) containers. eBPF operates at the kernel-level at runtime. This means Chainguard Containers will not be affected by an eBPF agent or sensor, and vice versa.
+Chainguard containers are [OCI](https://opencontainers.org/) containers. eBPF operates at the kernel-level at runtime. This means an eBPF agent or sensor doesn't affect Chainguard Containers, and vice versa.
