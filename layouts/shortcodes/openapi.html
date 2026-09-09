@@ -71,7 +71,9 @@
     margin: 0 48px 0 48px;
   }
 </style>
-{{ $js := resources.Get "js/scalar-api-reference.js" | js.Build (dict "minify" (not hugo.IsDevelopment)) -}}
+{{/* The agent chat is disabled at runtime; shim it out so its dependencies stay out of the bundle. */ -}}
+{{ $shims := dict "@scalar/agent-chat" "js/scalar-agent-chat-stub.js" -}}
+{{ $js := resources.Get "js/scalar-api-reference.js" | js.Build (dict "minify" (not hugo.IsDevelopment) "shims" $shims) -}}
 {{ if hugo.IsDevelopment -}}
   <script src="{{ $js.RelPermalink }}" defer></script>
 {{ else -}}
