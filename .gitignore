@@ -3,6 +3,7 @@ public
 resources
 .netlify
 .hugo_build.lock
+assets/jsconfig.json
 .DS_Store
 .bash_history
 
