@@ -125,18 +125,24 @@ repos:
         files: ^content/.*\.md$
         exclude: ^content/platform/chainctl/chainctl-docs/
 
-  # Lint the theme's own JavaScript (assets/js, config). Uses ESLint 9 flat
-  # config (eslint.config.js). @eslint/js and globals are required by that
-  # config and installed into the hook's isolated environment.
+  # Lint the theme's own JavaScript (assets/js, config) against the flat config
+  # in eslint.config.js. @eslint/js and globals are required by that config and
+  # installed into the hook's isolated environment.
+  #
+  # These three versions MUST track package.json, or this hook and `npm run
+  # lint` disagree. @eslint/js decides it: the rule set in js.configs.recommended
+  # changes between majors, so a hook one major behind silently passes code that
+  # `npm run lint` rejects. `pre-commit autoupdate` bumps rev only and never
+  # touches additional_dependencies, so nothing keeps these in step for us.
   - repo: https://github.com/pre-commit/mirrors-eslint
     rev: 8ba198123f6fb414e19d879a1270d6d72116d89b  # frozen: v10.10.0
     hooks:
       - id: eslint
         files: ^(assets/js|config)/.*\.js$
         additional_dependencies:
-          - eslint@9.39.1
-          - "@eslint/js@^9.39.0"
-          - globals@^16.5.0
+          - eslint@10.9.1
+          - "@eslint/js@^10.0.1"
+          - globals@^17.11.0
 
   # Lint Markdown content against .markdownlint-cli2.jsonc.
   - repo: https://github.com/DavidAnson/markdownlint-cli2
