@@ -13,7 +13,7 @@ aliases:
 type: "article"
 description: "How to get SBOM for container images: Chainguard provides Software Bill of Materials for every image - retrieve with Cosign for complete supply chain transparency"
 date: 2023-11-17T11:07:52+02:00
-lastmod: 2026-08-21T12:27:26+00:00
+lastmod: 2026-09-09T19:47:59+00:00
 draft: false
 tags: ["Chainguard Containers", "SBOM"]
 images: []
@@ -38,7 +38,7 @@ You can retrieve a container image's attestation in two ways:
 
 To retrieve an attestation via Cosign, you'll need the following installed on your local machine:
 
-- **Cosign**: Follow [our guide on installing Cosign](/open-source/sigstore/cosign/how-to-install-cosign/) to configure it.
+- **Cosign** version 3.1.1 or newer: Follow [our guide on installing Cosign](/open-source/sigstore/cosign/how-to-install-cosign/) to configure it.
 - **jq**: Follow instructions on the [jq downloads page](https://jqlang.github.io/jq/download/) to set it up.
 
 ### Retrieve a container image attestation using Cosign
@@ -51,15 +51,15 @@ This example command downloads the SPDX attestation for Chainguard's [php image]
 cosign download attestation \
   --platform linux/amd64 \
   --predicate-type https://spdx.dev/Document \
-  cgr.dev/chainguard/php | jq -r '.payload' | base64 -d | jq -r '.predicate'
+  cgr.dev/chainguard/php | jq -r '.dsseEnvelope.payload // .payload' | base64 -d | jq -r '.predicate'
 ```
 
-Cosign returns the attestation in a signed envelope, with the SBOM stored as a base64-encoded payload. The command pipes the output through jq to extract the payload, decodes it with base64, and then uses jq again to print the attestation’s predicate, which contains the SBOM.
+Cosign returns the attestation in a signed envelope, with the SBOM stored as a base64-encoded payload. For attestations published as [Sigstore bundles](/chainguard/containers/security-and-compliance/migrating-to-sigstore-bundles/), the envelope is wrapped in the bundle under `.dsseEnvelope`; for legacy attestations it is the top-level object. The `jq` expression above handles both, decodes the payload with base64, and then uses jq again to print the attestation’s predicate, which contains the SBOM.
 
 You can include the following flags when retrieving attestations:
 
 - The `--platform` flag, which selects the target platform for the image, such as `linux/amd64` or `linux/arm64`.
-    - This flag requires Cosign version 2.2.1 or newer.
+    - This flag requires Cosign version 3.1.1 or newer.
 - The `--predicate-type` flag, required to specify which type of attestation to retrieve. You can use the full URI or the shorthand version as the value of the flag. Refer to the [Available attestation types](#available-attestation-types) section for a list of options.
 
 ### Retrieve a container image attestation in the Chainguard Console

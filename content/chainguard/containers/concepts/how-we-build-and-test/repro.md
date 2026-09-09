@@ -11,7 +11,7 @@ description: "This video explains the importance of reproducibility and how to r
 Chainguard image from an attestation."
 type: "article"
 date: 2024-05-20T12:21:01+00:00
-lastmod: 2024-05-20T12:21:01+00:00
+lastmod: 2026-09-09T19:47:59+00:00
 draft: false
 images: []
 weight: 030
@@ -30,7 +30,7 @@ to manage the size of the index.
 
 ## Tools used in this video
 
-* [cosign](https://github.com/sigstore/cosign)
+* [cosign](https://github.com/sigstore/cosign) 3.1.1 or newer
 * [apko](https://github.com/chainguard-dev/apko)
 * [diffoci](https://github.com/reproducible-containers/diffoci)
 

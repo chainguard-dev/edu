@@ -5,7 +5,7 @@ lead: "Pull a free Chainguard Container, build an application on top of it, and 
 description: "An end-to-end walkthrough of Chainguard Containers: pull a free container, run a small Node.js application on it, and verify the image's signature and SBOM."
 type: "article"
 date: 2026-08-05T00:00:00+00:00
-lastmod: 2026-08-05T00:00:00+00:00
+lastmod: 2026-09-09T19:47:59+00:00
 draft: false
 tags: ["Chainguard Containers", "Getting Started"]
 images: []
@@ -25,7 +25,7 @@ These steps link to reference documentation instead of explaining each concept i
 To follow this quickstart, you need:
 
 * [Docker](https://docs.docker.com/engine/install/) or another OCI-compatible container runtime installed on your local machine.
-* [Cosign](/open-source/sigstore/cosign/how-to-install-cosign/), which you use in Step 4 to verify a container image, installed.
+* [Cosign](/open-source/sigstore/cosign/how-to-install-cosign/) version 3.1.1 or newer, which you use in Step 4 to verify a container image, installed.
 * [jq](https://jqlang.github.io/jq/download/) installed. jq is a lightweight, command-line JSON processor; this guide uses it in Step 4 to make Cosign output more easily readable.
 
 You don't need a Chainguard account. Every image in this guide is a [Free container](/chainguard/containers/concepts/container-categories/#free-containers): publicly available, with no authentication required. Production Containers, which add version-specific tags and patch SLAs, require [authenticating to the registry](/chainguard/containers/registry/authenticating/).
@@ -166,7 +166,7 @@ Every container also ships with a signed SBOM. Download the SPDX document to see
 cosign download attestation \
   --platform linux/amd64 \
   --predicate-type https://spdx.dev/Document \
-  cgr.dev/chainguard/node | jq -r '.payload' | base64 -d | jq -r '.predicate'
+  cgr.dev/chainguard/node | jq -r '.dsseEnvelope.payload // .payload' | base64 -d | jq -r '.predicate'
 ```
 
 For the rest of the available attestations and the commands that verify them, refer to [verifying containers and metadata signatures](/chainguard/containers/security-and-compliance/verifying-chainguard-images-and-metadata-signatures-with-cosign/) and [retrieving SBOMs and attestations](/chainguard/containers/security-and-compliance/retrieve-image-sboms/).

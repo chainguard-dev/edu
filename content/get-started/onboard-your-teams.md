@@ -5,7 +5,7 @@ lead: "Your organization has adopted Chainguard. This guide helps administrators
 description: "Onboard your teams to Chainguard Containers and Chainguard Libraries: what your organization can pull, how subscriptions differ, and how to retrieve SBOMs and provenance."
 type: "article"
 date: 2026-08-26T00:00:00+00:00
-lastmod: 2026-09-02T13:31:42+00:00
+lastmod: 2026-09-09T19:47:59+00:00
 draft: false
 tags: ["Getting Started"]
 images: []
@@ -59,7 +59,7 @@ Every Chainguard container image ships with a signed SBOM and provenance attesta
   cosign download attestation \
     --platform linux/amd64 \
     --predicate-type https://spdx.dev/Document \
-    cgr.dev/$ORGANIZATION/$IMAGE | jq -r '.payload' | base64 -d | jq -r '.predicate'
+    cgr.dev/$ORGANIZATION/$IMAGE | jq -r '.dsseEnvelope.payload // .payload' | base64 -d | jq -r '.predicate'
   ```
 
 - **With `syft`.** Generate an SBOM locally from an image you've pulled. Use this for images you've customized, where you want an SBOM of the final artifact.

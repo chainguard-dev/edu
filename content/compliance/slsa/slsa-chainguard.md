@@ -4,7 +4,7 @@ linktitle: "SLSA at Chainguard"
 description: "A brief overview of SLSA and Chainguard's compliance efforts."
 type: "article"
 date: 2025-07-23T01:24:23+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-09T19:47:59+00:00
 contributors: []
 draft: false
 aliases:
@@ -55,7 +55,7 @@ Then you can download an attestation of provenance.
 If you are a customer, replace $CUSTOMERNAME in this example with your Chainguard registry customer name.
 
 ```
-cosign download attestation --predicate-type=https://slsa.dev/provenance/v1 cgr.dev/$CUSTOMERNAME/node-fips:latest | jq -r .payload | base64 -d | jq .predicate
+cosign download attestation --predicate-type=https://slsa.dev/provenance/v1 cgr.dev/$CUSTOMERNAME/node-fips:latest | jq -r '.dsseEnvelope.payload // .payload' | base64 -d | jq .predicate
 ```
 
 This example returns the following output:

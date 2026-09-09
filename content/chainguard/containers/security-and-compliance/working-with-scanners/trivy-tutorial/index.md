@@ -11,7 +11,7 @@ aliases:
 - /chainguard/containers/staying-secure/working-with-scanners/trivy-tutorial/
 description: "Learn to use Trivy to analyze container images and other software artifacts for a variety of issues"
 date: 2024-07-03T20:00:00+02:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-09T19:47:59+00:00
 tags: ["Conceptual", "CVE"]
 draft: false
 images: []
@@ -173,11 +173,19 @@ trivy sbom results.cdx.json
 
 By default, the `sbom` subcommand scans only for vulnerabilities. License scanning can be enabled using the `--scanners license` flag.
 
-Some image providers, such as Chainguard, associate images with an [SBOM attestation](https://edu.chainguard.dev/open-source/sbom/sboms-and-attestations/) verifying that the image has not been tampered with since the time of creation. Trivy provides functionality to query attestations registered in the [Rekor transparency log](https://github.com/sigstore/rekor). To retrieve an SBOM attestation from a Rekor transparency log, set the `--sbom-sources` flag to `rekor` and provide the `--rekor-url` flag to the instance of the transparency log you wish to query against. The following will perform a scan using the SBOM attestation for Chainguard's `nginx` image as registered on the [Rekor public server](https://rekor.sigstore.dev/):
+Some image providers, such as Chainguard, publish a signed [SBOM attestation](https://edu.chainguard.dev/open-source/sbom/sboms-and-attestations/) alongside each image. To scan the SBOM Chainguard produced at build time rather than one Trivy generates from the image filesystem, download the platform-specific SPDX attestation with Cosign (3.1.1 or newer) and scan it with `trivy sbom`:
 
 ```shell
-trivy image --sbom-sources rekor --rekor-url https://rekor.sigstore.dev/ cgr.dev/chainguard/nginx
+cosign download attestation \
+  --platform linux/amd64 \
+  --predicate-type https://spdx.dev/Document \
+  cgr.dev/chainguard/nginx | jq -r '.dsseEnvelope.payload // .payload' | base64 -d | jq .predicate > nginx.spdx.json
+trivy sbom nginx.spdx.json
 ```
+
+To confirm the attestation is genuine before relying on it, verify it with `cosign verify-attestation` as described in [Verifying Chainguard Containers with Cosign](/chainguard/containers/security-and-compliance/verifying-chainguard-images-and-metadata-signatures-with-cosign/).
+
+Trivy can also look up SBOM attestations in the Rekor v1 transparency log with `--sbom-sources rekor --rekor-url https://rekor.sigstore.dev/`. That lookup only finds attestations logged to Rekor v1; Chainguard is [moving its attestations to Sigstore bundles logged to Rekor v2](/chainguard/containers/security-and-compliance/migrating-to-sigstore-bundles/), which Rekor v1 search cannot find, so prefer the Cosign-based approach above.
 
 Learn more about SBOMs and other output formats in the section on [specifying output formats](#specifying-output-formats).
 
