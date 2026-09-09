@@ -4,7 +4,7 @@ linktitle: "Hardened Actions"
 description: "Configure Chainguard Guardener to recommend and migrate your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-09-09T15:53:21+00:00
+lastmod: 2026-09-09T17:33:40+00:00
 draft: false
 tags: ["GitHub", "Automation"]
 images: []
@@ -56,7 +56,7 @@ An on-demand run performs exactly the same migration as the scheduled flow: it o
 Before you start, make sure that:
 
 - The Guardener GitHub App is installed and your Chainguard organization is linked to your GitHub organization, as described in [Getting started](/chainguard/guardener/github/getting-started/). The migration must be requested through the Chainguard organization that owns the GitHub App installation.
-- You hold the `guardener.actions.migrate` capability on that Chainguard organization. Organization owners have it, and it is included in the built-in `guardener.user` and `guardener.admin` roles. Refer to the [Built-in roles and capabilities reference](/chainguard/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for more information on roles.
+- You hold the `guardener.actions.migrate` capability on that Chainguard organization. Organization owners have it, and it is included in the built-in `guardener.user` and `guardener.admin` roles. Refer to the [Built-in roles and capabilities reference](/platform/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for more information on roles.
 
 Run `chainctl guardener github migrate create` with the repository to migrate:
 

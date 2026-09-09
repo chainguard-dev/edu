@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for Python in your organization"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-09-09T15:53:21+00:00
+lastmod: 2026-09-09T17:33:40+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 images: []
@@ -83,7 +83,7 @@ chainctl libraries update-hashes \
 
 After updating the lockfile, keep your repository manager configuration in place and reinstall through the same repository manager endpoint to apply the updated hashes.
 
-Learn more in the [Build configuration page](/chainguard/libraries/python/build-configuration/#updating-lockfile-hashes/) and in the [chainctl docs](/platform/chainctl/chainctl-docs/chainctl_libraries_update-hashes/).
+Learn more in the [Build configuration page](/chainguard/libraries/python/build-configuration/#updating-lockfile-hashes) and in the [chainctl docs](/platform/chainctl/chainctl-docs/chainctl_libraries_update-hashes/).
 
 <a id="cloudsmith"></a>
 

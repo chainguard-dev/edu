@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-09-09T15:53:21+00:00
+lastmod: 2026-09-09T17:33:40+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -30,7 +30,7 @@ For a reference of the configuration options for each supported build tool, chec
 Before you begin, you need:
 
 * An existing, working Python project with a `requirements.txt`, `poetry.lock`, `uv.lock`, `pdm.lock`, `Pipfile.lock`, or `pylock.toml`
-* [chainctl installed and authenticated](/chainguard/chainctl-usage/how-to-install-chainctl/)
+* [chainctl installed and authenticated](/platform/chainctl-usage/how-to-install-chainctl/)
 * An [entitlement to Chainguard Libraries](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) for Python.
 
 If you do not have an entitlement to Chainguard Libraries for Python yet, run the following command to create an entitlement and enable upstream fallback:
@@ -352,7 +352,7 @@ Regenerating the lockfile is another valid approach, and many teams use the migr
 
 * Pinning versions is a security best practice. Regenerating re-resolves your dependencies and can change versions, so you lose your existing pins unless you re-pin afterward.
 * Resolvers pick the newest version that satisfies each constraint. Whether Chainguard has that version available depends on the [cooldown
-period you've configured](/chainguard/libraries/overview/#cooldown-period): a release still inside your cooldown window isn't available yet and returns a 404 error.
+period you've configured](/chainguard/libraries/introduction/overview/#cooldown-period): a release still inside your cooldown window isn't available yet and returns a 404 error.
 
 To regenerate — for example, to intentionally refresh your dependency versions — use the following commands.
 

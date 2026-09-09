@@ -4,7 +4,7 @@ linktitle: "Manage with chainctl"
 type: "article"
 description: "How to use chainctl to manage Custom Assembly resources."
 date: 2025-05-01T11:07:52+02:00
-lastmod: 2026-09-09T15:53:21+00:00
+lastmod: 2026-09-09T17:33:40+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural", "Custom Assembly"]
 images: []
@@ -392,4 +392,4 @@ For more information, refer to [chainctl images repos build apply](/platform/cha
 
 You can also use `chainctl` to add custom certificates to your Custom Assembly images. Refer to our guide on [Adding custom certificates with Custom Assembly](/chainguard/containers/custom-assembly/custom-assembly-certs/#using-chainctl-to-add-custom-certificates-using-custom-assembly) for more information.
 
-Additionally, you can interact with Custom Assembly with the [Chainguard API](/chainguard/api/spec/). Our tutorial on [Using the Chainguard API to manage Custom Assembly resources](/chainguard/containers/custom-assembly/custom-assembly-api-demo/) outlines how to run a demo application that updates the configuration of a Custom Assembly container through the Chainguard API.
+Additionally, you can interact with Custom Assembly with the [Chainguard API](/platform/api/spec/). Our tutorial on [Using the Chainguard API to manage Custom Assembly resources](/chainguard/containers/custom-assembly/custom-assembly-api-demo/) outlines how to run a demo application that updates the configuration of a Custom Assembly container through the Chainguard API.

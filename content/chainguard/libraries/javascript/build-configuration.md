@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for JavaScript on your workstation"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-09-09T15:53:21+00:00
+lastmod: 2026-09-09T17:33:40+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
@@ -287,7 +287,7 @@ and all other packages should resolve to `libraries.cgr.dev/javascript`.
 ### Minimal example project
 
 For testing purposes, you can use direct access and environment variables as
-detailed in the [access documentation](/chainguard/libraries/introduction/access/#env).
+detailed in the [access documentation](/chainguard/libraries/introduction/access/#use-environment-variables-for-pull-token-credentials).
 
 **1. Create a JavaScript project**
 
@@ -312,7 +312,7 @@ directory:
 chainctl auth configure-npm
 ```
 
-[This command](/platform/chainctl/chainctl-docs/chainctl_auth_configure-npm/) writes a project-level `.npmrc` with the registry URL and base64-encoded credentials. It also prints the equivalent `npm config set` commands for use in CI or other environments where you need to configure `.npmrc` manually. If this command returns an error, ensure that you are using the [latest version of `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
+[This command](/platform/chainctl/chainctl-docs/chainctl_auth_configure-npm/) writes a project-level `.npmrc` with the registry URL and base64-encoded credentials. It also prints the equivalent `npm config set` commands for use in CI or other environments where you need to configure `.npmrc` manually. If this command returns an error, ensure that you are using the [latest version of `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
 
 Alternatively, you can configure the `.npmrc` file manually:
 
@@ -584,7 +584,7 @@ pnpm init
 ```
 
 For testing purposes, you can use direct access and environment variables as
-detailed in the [access documentation](/chainguard/libraries/introduction/access/#env).
+detailed in the [access documentation](/chainguard/libraries/introduction/access/#use-environment-variables-for-pull-token-credentials).
 
 To create pull token credentials and set them as environment variables, run:
 
@@ -821,7 +821,7 @@ yarn init
 ```
 
 For testing purposes, you can use direct access and environment variables as
-detailed in the [access documentation](/chainguard/libraries/introduction/access/#env). Once
+detailed in the [access documentation](/chainguard/libraries/introduction/access/#use-environment-variables-for-pull-token-credentials). Once
 the environment variables are set, the following steps configure registry
 access with authentication in the `.yarnrc.yml` file in the current project
 directory:
@@ -986,7 +986,7 @@ yarn init -y
 ```
 
 For testing purposes, you can use direct access and environment variables as
-detailed in the [access documentation](/chainguard/libraries/introduction/access/#env). Once
+detailed in the [access documentation](/chainguard/libraries/introduction/access/#use-environment-variables-for-pull-token-credentials). Once
 the environment variables are set, the following steps configure registry access
 with authentication in the `.npmrc` file directory:
 
@@ -1127,7 +1127,7 @@ bun init -y
 ```
 
 For testing purposes, you can use direct access and environment variables as
-detailed in the [access documentation](/chainguard/libraries/introduction/access/#env). Once
+detailed in the [access documentation](/chainguard/libraries/introduction/access/#use-environment-variables-for-pull-token-credentials). Once
 the environment variables are set, the following steps configure registry
 access with authentication in the `bunfig.toml` file in the current project
 directory:

@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Java project to pull dependencies from Chainguard Libraries"
 date: 2026-07-02T00:00:00+00:00
-lastmod: 2026-09-09T15:53:21+00:00
+lastmod: 2026-09-09T17:33:40+00:00
 tags: ["Chainguard Libraries", "Java"]
 menu:
   docs:
@@ -30,7 +30,7 @@ For a reference of the configuration options for each supported build tool, chec
 Before you begin, you need:
 
 - An existing Java project
-- [`chainctl` installed and authenticated](/chainguard/chainctl-usage/how-to-install-chainctl/)
+- [`chainctl` installed and authenticated](/platform/chainctl-usage/how-to-install-chainctl/)
 
 ### Create an entitlement
 

@@ -6,7 +6,7 @@ description:
   Libraries using the chainctl tool for enhanced supply chain security"
 type: "article"
 date: 2025-07-03T12:00:00+00:00
-lastmod: 2026-09-09T15:53:21+00:00
+lastmod: 2026-09-09T17:33:40+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -41,7 +41,7 @@ Command characteristics:
 Before using `chainctl` to verify libraries, ensure you have the following
 installed and available on your path:
 
-- [`chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) —
+- [`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) —
   Chainguard-maintained tool that includes the `libraries verify` command,
   details also in the [reference
   documentation](/platform/chainctl/chainctl-docs/chainctl_libraries_verify/).
@@ -421,7 +421,7 @@ therefore conclude that the `example.jar` file originates from Chainguard, was
 built in the Chainguard Factory from source, and is available at
 `https://libraries.cgr.dev/java/junit/junit/4.13.2/junit-4.13.2.jar`. You can
 [manually download the file to
-compare](/chainguard/libraries/java/overview/#manual-access/), if desired.
+compare](/chainguard/libraries/java/overview/#manual-access), if desired.
 
 ## Container analysis
 

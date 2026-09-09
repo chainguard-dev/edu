@@ -4,7 +4,7 @@ linktitle: "Access"
 description: "Learn how to access Chainguard Libraries for enhanced security in Java and Python dependencies, including authentication and organization setup"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-09-09T15:53:21+00:00
+lastmod: 2026-09-09T17:33:40+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -59,7 +59,7 @@ preferred method where your environment supports it.
 
 Once your user account is created and access is confirmed, [install the
 Chainguard Control `chainctl` command line
-tool](/chainguard/chainctl-usage/how-to-install-chainctl/) and log in to your
+tool](/platform/chainctl-usage/how-to-install-chainctl/) and log in to your
 account:
 
 ```shell
@@ -324,7 +324,7 @@ Python users can leverage an alternative to pull tokens. The [Chainguard keyring
 implementation](https://github.com/chainguard-dev/keyrings-chainguard-libraries)
 provides short-lived credentials from supported environments, such as local
 development and CI/CD platforms that can use [assumable
-identities](/chainguard/administration/assumable-ids/assumable-ids/).
+identities](/platform/administration/assumable-ids/assumable-ids/).
 
 Where possible, Chainguard recommends using short-lived credentials to access
 Chainguard Libraries.

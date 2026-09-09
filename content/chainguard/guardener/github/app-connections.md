@@ -4,7 +4,7 @@ linktitle: "App connections"
 description: "Set up, inspect, and remove the connections between your Chainguard organization and your GitHub organizations for Chainguard Guardener."
 type: "article"
 date: 2026-08-03T00:00:00+00:00
-lastmod: 2026-09-09T15:53:21+00:00
+lastmod: 2026-09-09T17:33:40+00:00
 draft: false
 tags: ["GitHub", "Configuration"]
 images: []
@@ -47,7 +47,7 @@ The `chainctl guardener github` commands check permissions on both sides of the 
 | List connections (`status`) | The `guardener.association.list` capability on the Chainguard organization. |
 | Unlink (`unlink`) | **Either**: the `guardener.association.manage` capability on the Chainguard organization, **or** ownership of the GitHub organization (refer to [Removing a connection](#removing-a-connection)). |
 
-Refer to the [Built-in roles and capabilities reference](/chainguard/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for how capabilities map to roles.
+Refer to the [Built-in roles and capabilities reference](/platform/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for how capabilities map to roles.
 
 Commands that prove GitHub organization ownership (`link`, and the fallback path of `unlink`) open a browser window to authorize with GitHub. Listing connections with `status` is read-only and never involves a browser.
 

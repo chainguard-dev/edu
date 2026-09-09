@@ -4,7 +4,7 @@ linktitle: "Getting started"
 description: "Install the Chainguard Guardener GitHub App and link your Chainguard organization to your GitHub organization to start using the Guardener."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-09-09T15:53:21+00:00
+lastmod: 2026-09-09T17:33:40+00:00
 draft: false
 tags: ["GitHub", "Getting Started"]
 images: []
@@ -29,8 +29,8 @@ Once the app is installed, the Guardener can respond on your public repositories
 
 Before you begin, make sure you have the following:
 
-- **`chainctl` installed and authenticated.** If you haven't installed it yet, follow the [chainctl installation guide](/chainguard/chainctl-usage/how-to-install-chainctl/), then run `chainctl auth login`.
-- **A Chainguard organization** where you are an owner, or where you otherwise hold the `guardener.association.manage` capability. This capability is required to link a GitHub organization to your Chainguard group. Refer to the [Built-in roles and capabilities reference](/chainguard/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for more information on roles.
+- **`chainctl` installed and authenticated.** If you haven't installed it yet, follow the [chainctl installation guide](/platform/chainctl-usage/how-to-install-chainctl/), then run `chainctl auth login`.
+- **A Chainguard organization** where you are an owner, or where you otherwise hold the `guardener.association.manage` capability. This capability is required to link a GitHub organization to your Chainguard group. Refer to the [Built-in roles and capabilities reference](/platform/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for more information on roles.
 - **Owner (admin) access to the GitHub organization** you want to link. Installing the app and authorizing the link both require GitHub organization ownership.
 
 The `chainctl guardener` commands identify your Chainguard organization by its group name — you don't need to look up a group ID. Pass the name with `--group`, or omit the flag entirely and `chainctl` will prompt you to select from the organizations you have access to.

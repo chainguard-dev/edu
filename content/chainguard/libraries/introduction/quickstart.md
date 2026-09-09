@@ -4,7 +4,7 @@ linktitle: "Quickstart"
 description: "Learn how to get started with Chainguard Libraries"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-09-09T15:53:21+00:00
+lastmod: 2026-09-09T17:33:40+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -47,7 +47,7 @@ Before getting started:
 
 * If you're not yet a Chainguard user, you must [create an
       account](https://console.chainguard.dev/auth/login).
-* [Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) and
+* [Install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) and
   log in:
 
    ```bash

@@ -11,7 +11,7 @@ aliases:
 type: "article"
 description: "Understanding Chainguard's approach to container image versions."
 date: 2024-01-08T08:49:31+00:00
-lastmod: 2026-09-09T15:53:21+00:00
+lastmod: 2026-09-09T17:33:40+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -372,7 +372,7 @@ chainctl image repo list --repo=python -o json | jq -r '.items[].activeTags'
 
 You can list the version information for packages that have multiple release
 tracks with `chainctl package versions list`, which uses the [List Repos
-API](/chainguard/api/spec/#/operations/Registry_ListRepos/).
+API](/platform/api/spec/#/operations/Registry_ListRepos/).
 
 The following `chainctl` command lists the active release tracks for the `python`
 package:

@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "Tutorial with examples showing how you can authenticate with the Chainguard SDK's auth and auth/ggcr packages."
 date: 2025-06-04T08:49:31+00:00
-lastmod: 2026-09-09T15:53:21+00:00
+lastmod: 2026-09-09T17:33:40+00:00
 draft: false
 tags: ["Chainguard Console", "Procedural"]
 images: []
@@ -17,7 +17,7 @@ weight: 065
 
 There are several ways for users to interact with the Chainguard platform, with [`chainctl`](/platform/chainctl/) (Chainguard's command-line tool) and the [Chainguard Console](https://console.chainguard.dev/overview) (Chainguard's web interface) being the two most commonly-used methods. However, both of these require a human user to authenticate, and aren't useful for working with Chainguard resources programmatically.
 
-The [Chainguard SDK](https://github.com/chainguard-dev/sdk) serves to ease programmatic integration with the Chainguard platform. This guide highlights two examples from the SDK repository that show how to authenticate to the [Chainguard registry](/chainguard/chainguard-registry/overview/) using the `chainguard.dev/sdk/auth` and `chainguard.dev/sdk/auth/ggcr` packages. The first has you authenticate as a local user, while the second has you authenticate as an [assumed identity](/chainguard/administration/assumable-ids/assumable-ids/).
+The [Chainguard SDK](https://github.com/chainguard-dev/sdk) serves to ease programmatic integration with the Chainguard platform. This guide highlights two examples from the SDK repository that show how to authenticate to the [Chainguard registry](/chainguard/chainguard-registry/overview/) using the `chainguard.dev/sdk/auth` and `chainguard.dev/sdk/auth/ggcr` packages. The first has you authenticate as a local user, while the second has you authenticate as an [assumed identity](/platform/administration/assumable-ids/assumable-ids/).
 
 This page gives examples in Golang as well as using `curl`. For more information about the Golang examples, refer to the [`examples` folder](https://github.com/chainguard-dev/sdk/tree/main/examples/registry) in the SDK repository.
 
@@ -233,7 +233,7 @@ To do so, you will need an appropriately-configured assumable identity. You can 
 
 ### Example 2 using curl
 
-First, login with chainctl using an OIDC token. Where the token comes from will differ by platform. Refer to our [Identity provider samples](/chainguard/administration/custom-idps/idp-providers/) for some examples.
+First, login with chainctl using an OIDC token. Where the token comes from will differ by platform. Refer to our [Identity provider samples](/platform/administration/custom-idps/idp-providers/) for some examples.
 
 ```shell
 chainctl auth login --identity "<identity-id>" --identity-token /var/run/chainguard/oidc/oidc-token
@@ -272,7 +272,7 @@ In our example, [we requested a list of groups the account belongs to](https://e
 }
 ```
 
-Using environment variables is helpful when working with assumable identities through the API and API tokens. Here's a high-level example of what you might do. Refer to your identity provider's documentation and [Assumable identities](/chainguard/administration/assumable-ids/assumable-ids/) to learn more.
+Using environment variables is helpful when working with assumable identities through the API and API tokens. Here's a high-level example of what you might do. Refer to your identity provider's documentation and [Assumable identities](/platform/administration/assumable-ids/assumable-ids/) to learn more.
 
 Here are some sample environment variables:
 
@@ -294,7 +294,7 @@ API_TOKEN=$(curl -sSf \
 curl -H "Authorization: Bearer ${API_TOKEN}" https://console-api.enforce.dev/registry/v1/repos
 ```
 
-Refer to the [Assumable identities documentation](/chainguard/administration/assumable-ids/assumable-ids/#using-the-chainguard-api) for another example of authentication using an assumed identity.
+Refer to the [Assumable identities documentation](/platform/administration/assumable-ids/assumable-ids/#using-the-chainguard-api) for another example of authentication using an assumed identity.
 
 ## Learn more
 
@@ -302,6 +302,6 @@ The Chainguard SDK is a powerful tool for interacting with the Chainguard platfo
 
 To learn more, you may be interested in the following resources:
 
-* [Overview of assumable identities in Chainguard](/chainguard/administration/assumable-ids/assumable-ids/)
+* [Overview of assumable identities in Chainguard](/platform/administration/assumable-ids/assumable-ids/)
 * [Authenticate to Chainguard's registry](/chainguard/chainguard-registry/authenticating/)
-* [Chainguard OpenAPI specification](/chainguard/api/spec/)
+* [Chainguard OpenAPI specification](/platform/api/spec/)
