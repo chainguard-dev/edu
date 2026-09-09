@@ -3491,6 +3491,15 @@
       },
       "chainguard.platform.libraries.v2beta1.RequestGroupsService.RefreshCoverageBody": {
         "description": "RefreshCoverageRequest re-runs a group's coverage check.",
+        "properties": {
+          "parent": {
+            "description": "The organization that owns the group.\n\nCarries the IAM scope for this request, as on GetRequestGroupRequest.parent.\nRequired even though this RPC is for support and incident escalation rather\nthan a customer control: the capability is still checked against an\norganization, and a staff-facing call is not an unscoped one.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "parent"
+        ],
         "type": "object"
       },
       "chainguard.platform.libraries.v2beta1.RequestGroupsService.RemoveItemsBody": {
@@ -3502,10 +3511,15 @@
               "type": "string"
             },
             "type": "array"
+          },
+          "parent": {
+            "description": "The organization that owns the group.\n\nCarries the IAM scope for this request, as on GetRequestGroupRequest.parent.\nIt must be the organization that owns uid; a uid belonging to any other\norganization reads as not found.",
+            "type": "string"
           }
         },
         "required": [
-          "itemUids"
+          "itemUids",
+          "parent"
         ],
         "type": "object"
       },
@@ -3518,10 +3532,15 @@
               "type": "string"
             },
             "type": "array"
+          },
+          "parent": {
+            "description": "The organization that owns the group.\n\nCarries the IAM scope for this request, as on GetRequestGroupRequest.parent.\nIt must be the organization that owns uid; a uid belonging to any other\norganization reads as not found.",
+            "type": "string"
           }
         },
         "required": [
-          "itemUids"
+          "itemUids",
+          "parent"
         ],
         "type": "object"
       },
@@ -3531,8 +3550,15 @@
           "forCveRemediation": {
             "description": "Opt the group in to CVE remediation. This is the decision point; a value set\nat create is carried forward when this field is omitted.",
             "type": "boolean"
+          },
+          "parent": {
+            "description": "The organization that owns the group.\n\nCarries the IAM scope for this request, as on GetRequestGroupRequest.parent.\nIt must be the organization that owns uid; a uid belonging to any other\norganization reads as not found.",
+            "type": "string"
           }
         },
+        "required": [
+          "parent"
+        ],
         "type": "object"
       },
       "chainguard.platform.libraries.v2beta1.RequestSource": {
@@ -9457,12 +9483,21 @@
         "operationId": "RequestGroupsService_DeleteRequestGroup",
         "parameters": [
           {
-            "description": "The group to delete.",
+            "description": "The group to delete.\n\nA flat UUID, not a Chainguard ID, as on GetRequestGroupRequest.uid. The IAM\nscope travels on parent below.",
             "in": "path",
             "name": "uid",
             "required": true,
             "schema": {
               "pattern": ".+",
+              "type": "string"
+            }
+          },
+          {
+            "description": "The organization that owns the group.\n\nCarries the IAM scope for this request, as on GetRequestGroupRequest.parent.\nIt must be the organization that owns uid; a uid belonging to any other\norganization reads as not found.",
+            "in": "query",
+            "name": "parent",
+            "required": true,
+            "schema": {
               "type": "string"
             }
           }
@@ -9558,13 +9593,22 @@
               "pattern": ".+",
               "type": "string"
             }
+          },
+          {
+            "description": "The organization that owns the group.\n\nCarries the IAM scope for this request, as on GetRequestGroupRequest.parent,\nso a mutating call is bound to an organization the caller holds the\ncapability in.",
+            "in": "query",
+            "name": "parent",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
           "content": {
             "*/*": {
               "schema": {
-                "description": "Carries iam_scope because this RPC's IAM rule is scoped: the interceptor\nchecks the capability against the field marked here, so without it the check\nhas nothing to bind to and authorization for a mutating call would not be tied\nto the target group's organization. Matches UpdateGroupRequest and\nUpdateAccountAssociationRequest, where the resource is likewise the body.",
+                "description": "Deliberately not the iam_scope field, unlike UpdateGroupRequest and\nUpdateAccountAssociationRequest where the resource is likewise the body.\nMarking it here bound the scope check to nothing: the interceptor recurses\ninto the annotated message looking for a nested iam_scope field, RequestGroup\nhas none, and an absent scope is reported as Internal rather than as a\nrejected request. Both of RequestGroup's identifying fields are also\nOUTPUT_ONLY, so annotating one would ask the caller to set a field the\ncontract says it does not set.",
                 "properties": {
                   "availabilitySummary": {
                     "allOf": [
@@ -9679,7 +9723,7 @@
               }
             }
           },
-          "description": "The group to update, carrying the new field values.\n\nCarries iam_scope because this RPC's IAM rule is scoped: the interceptor\nchecks the capability against the field marked here, so without it the check\nhas nothing to bind to and authorization for a mutating call would not be tied\nto the target group's organization. Matches UpdateGroupRequest and\nUpdateAccountAssociationRequest, where the resource is likewise the body.",
+          "description": "The group to update, carrying the new field values.\n\nDeliberately not the iam_scope field, unlike UpdateGroupRequest and\nUpdateAccountAssociationRequest where the resource is likewise the body.\nMarking it here bound the scope check to nothing: the interceptor recurses\ninto the annotated message looking for a nested iam_scope field, RequestGroup\nhas none, and an absent scope is reported as Internal rather than as a\nrejected request. Both of RequestGroup's identifying fields are also\nOUTPUT_ONLY, so annotating one would ask the caller to set a field the\ncontract says it does not set.",
           "required": true,
           "x-originalParamName": "requestGroup"
         },
@@ -9912,7 +9956,7 @@
         "operationId": "RequestGroupsService_RefreshCoverage",
         "parameters": [
           {
-            "description": "The group to re-scan.",
+            "description": "The group to re-scan.\n\nA flat UUID, not a Chainguard ID, as on GetRequestGroupRequest.uid. The IAM\nscope travels on parent below.",
             "in": "path",
             "name": "uid",
             "required": true,
@@ -9967,7 +10011,7 @@
         "operationId": "RequestGroupsService_RemoveItems",
         "parameters": [
           {
-            "description": "The draft group holding the items.",
+            "description": "The draft group holding the items.\n\nA flat UUID, not a Chainguard ID, as on GetRequestGroupRequest.uid. The IAM\nscope travels on parent below.",
             "in": "path",
             "name": "uid",
             "required": true,
@@ -10022,7 +10066,7 @@
         "operationId": "RequestGroupsService_RestoreItems",
         "parameters": [
           {
-            "description": "The draft group holding the items.",
+            "description": "The draft group holding the items.\n\nA flat UUID, not a Chainguard ID, as on GetRequestGroupRequest.uid. The IAM\nscope travels on parent below.",
             "in": "path",
             "name": "uid",
             "required": true,
@@ -10077,7 +10121,7 @@
         "operationId": "RequestGroupsService_SubmitRequestGroup",
         "parameters": [
           {
-            "description": "The draft group to submit.",
+            "description": "The draft group to submit.\n\nA flat UUID, not a Chainguard ID, as on GetRequestGroupRequest.uid. The IAM\nscope travels on parent below.",
             "in": "path",
             "name": "uid",
             "required": true,

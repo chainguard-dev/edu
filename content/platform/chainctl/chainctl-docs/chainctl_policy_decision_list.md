@@ -1,5 +1,5 @@
 ---
-date: 2026-09-04T19:05:48Z
+date: 2026-09-08T21:52:12Z
 title: "chainctl policy decision list"
 slug: chainctl_policy_decision_list
 url: /platform/chainctl/chainctl-docs/chainctl_policy_decision_list/
@@ -37,12 +37,19 @@ while pulls are enforced against the per-platform child manifest; run
 target. The table view shows the artifact in short form; -o json returns
 the full value.
 
+Use --show-decision-details to print each decision as an expanded
+block, grouped by artifact. Every verdict is rendered so a
+--artifact-id lookup shows the full decision picture.
+
+Use --show-artifact-ids to print the unique full artifact IDs from the
+result set, one per line.
+
 With -o json the output is an object with an "items" array (one entry
 per decision) and a string "totalCount"; read .items[] rather than
 treating the output as a top-level array.
 
 ```
-chainctl policy decision list [--parent ORG] [--repo REPO] [--artifact-id ARTIFACT] [--policy POLICY] [--mode MODE] [--result RESULT] [--since Nd] [--limit N] [--output=json|table] [flags]
+chainctl policy decision list [--parent ORG] [--repo REPO] [--artifact-id ARTIFACT] [--policy POLICY] [--mode MODE] [--result RESULT] [--since Nd] [--limit N] [--show-decision-details] [--show-artifact-ids] [--output=json|table] [flags]
 ```
 
 ### Examples
@@ -63,6 +70,15 @@ chainctl policy decision list [--parent ORG] [--repo REPO] [--artifact-id ARTIFA
   # Show the 50 most recent decisions
   chainctl policy decision list --parent=engineering --limit=50
   
+  # Print each decision as an expanded block with per-policy reasons
+  chainctl policy decision list --show-decision-details
+  
+  # List the unique full artifact IDs from the result set
+  chainctl policy decision list --show-artifact-ids
+  
+  # Show every policy's verdict and reasons for a single artifact
+  chainctl policy decision list --artifact-id=sha256:<full-artifact-id> --show-decision-details
+  
   # List decisions as JSON for scripting; the payload is an object, so read .items[]
   chainctl policy decision list --parent=engineering -o json | jq '.items[]'
 ```
@@ -70,15 +86,17 @@ chainctl policy decision list [--parent ORG] [--repo REPO] [--artifact-id ARTIFA
 ### Options
 
 ```
-      --artifact-id string     Only show decisions for this artifact: an image digest for container policies (sha256:...) or a PURL for library policies (pkg:npm/left-pad@1.3.0).
-      --limit int              Maximum number of decisions to return, most recent first (1-100). (default 20)
-      --mode string            Only show decisions evaluated in this mode (ENFORCE or DRY_RUN; the POLICY_MODE_ prefixed value from -o json is also accepted).
-      --parent string          The name or id of the organization to list decisions for.
-      --policy string          Only show decisions for this policy (name or UIDP).
-      --repo string            Only show decisions for this repository.
-      --resource-type string   Resource type used to disambiguate a policy referenced by name (shorthand: Repo, Python, Java, Javascript; or a full type). Ignored when the policy is given by UIDP.
-      --result string          Only show decisions with this outcome (ALLOWED, DENIED, or ERROR; the RESULT_ prefixed value from -o json is also accepted).
-      --since string           Only show decisions pulled within a window given as a positive whole number of days followed by d, e.g. 7d.
+      --artifact-id string      Only show decisions for this artifact: an image digest for container policies (sha256:...) or a PURL for library policies (pkg:npm/left-pad@1.3.0).
+      --limit int               Maximum number of decisions to return, most recent first (1-100). (default 20)
+      --mode string             Only show decisions evaluated in this mode (ENFORCE or DRY_RUN; the POLICY_MODE_ prefixed value from -o json is also accepted).
+      --parent string           The name or id of the organization to list decisions for.
+      --policy string           Only show decisions for this policy (name or UIDP).
+      --repo string             Only show decisions for this repository.
+      --resource-type string    Resource type used to disambiguate a policy referenced by name (shorthand: Repo, Python, Java, Javascript; or a full type). Ignored when the policy is given by UIDP.
+      --result string           Only show decisions with this outcome (ALLOWED, DENIED, or ERROR; the RESULT_ prefixed value from -o json is also accepted).
+      --show-artifact-ids       Print the unique full artifact IDs from the result set, one per line.
+      --show-decision-details   Print each decision as an expanded block that lists every reason line-by-line.
+      --since string            Only show decisions pulled within a window given as a positive whole number of days followed by d, e.g. 7d.
 ```
 
 ### Options inherited from parent commands
