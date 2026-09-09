@@ -1,31 +1,17 @@
 ---
 date: 2026-09-08T21:52:12Z
-title: "chainctl iam account-associations set azure"
-slug: chainctl_iam_account-associations_set_azure
-url: /platform/chainctl/chainctl-docs/chainctl_iam_account-associations_set_azure/
+title: "chainctl iam identity-providers scim users"
+slug: chainctl_iam_identity-providers_scim_users
+url: /platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim_users/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam account-associations set azure
+## chainctl iam identity-providers scim users
 
-Set AZURE account association for a location.
-
-```
-chainctl iam account-associations set azure ORGANIZATION_NAME|ORGANIZATION_ID|FOLDER_NAME|FOLDER_ID --tenant-id=TENANT_ID --client-ids=COMPONENT_NAME=CLIENT_ID [--name=NAME] [--description=DESCRIPTION] [--yes] [--output=id|json|table] [flags]
-```
-
-### Options
-
-```
-      --client-ids stringToString   A chainguard component_name to azure client_id map (default [])
-  -d, --description string          The description of the resource.
-  -n, --name string                 Given name of the resource.
-      --tenant-id string            The Azure Tenant ID.
-  -y, --yes                         Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
-```
+Inspect the SCIM-provisioned users of an identity provider.
 
 ### Options inherited from parent commands
 
@@ -44,5 +30,6 @@ chainctl iam account-associations set azure ORGANIZATION_NAME|ORGANIZATION_ID|FO
 
 ### SEE ALSO
 
-* [chainctl iam account-associations set](/platform/chainctl/chainctl-docs/chainctl_iam_account-associations_set/)	 - Set cloud provider account associations for a location.
+* [chainctl iam identity-providers scim](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim/)	 - Manage SCIM provisioning for an identity provider.
+* [chainctl iam identity-providers scim users list](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim_users_list/)	 - List the SCIM-provisioned users of an identity provider.
 
