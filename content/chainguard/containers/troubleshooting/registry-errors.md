@@ -4,7 +4,7 @@ linktitle: "Registry errors"
 description: "Map the errors cgr.dev returns during login and pull to their causes, including why the same HTTP status code means different things at the token endpoint and the registry API."
 type: "article"
 date: 2026-09-09T00:00:00+00:00
-lastmod: 2026-09-09T00:00:00+00:00
+lastmod: 2026-09-09T17:21:21+00:00
 draft: false
 tags: ["Chainguard Containers", "Registry"]
 images: []
@@ -33,16 +33,14 @@ The two steps reuse the same HTTP status codes for unrelated problems. A `403` f
 | `FORBIDDEN`, "caller does not have the required capabilities" | Registry API | You're authenticated, but you aren't authorized for this repository. |
 | `NAME_UNKNOWN`, "repository does not exist" | Registry API | The repository name doesn't exist in that organization. |
 
-A bare "Forbidden" body doesn't tell you which of those two it is. Chainguard's registry returns the same `403` to a caller that sent no credentials, a caller whose credentials it can't use, and a caller naming a repository it won't grant a token for. Treat it as a prompt to work through the possible causes in order rather than as a single diagnosis, and in particular don't read it as confirmation that your credentials were accepted.
+A bare `Forbidden` message doesn't tell you which of those two it is. Chainguard's registry returns the same `403` to a caller that sent no credentials, a caller whose credentials it can't use, and a caller naming a repository it won't grant a token for. Treat it as a prompt to work through the possible causes in order rather than as a single diagnosis, and in particular don't read it as confirmation that your credentials were accepted.
 
 ## Authentication required from the token endpoint
 
 You'll see a `401` like the following when a build or pull runs with no credentials configured:
 
 ```output
-failed to fetch anonymous token: unexpected status from GET request to
-https://cgr.dev/token?scope=repository%3A$ORGANIZATION%2Fpython%3Apull&service=cgr.dev:
-401 Unauthorized
+failed to fetch anonymous token: unexpected status from GET request to https://cgr.dev/token?scope=repository%3A$ORGANIZATION%2Fpython%3Apull&service=cgr.dev: 401 Unauthorized
 ```
 
 The word "anonymous" is the signal. Your tool found no credentials for `cgr.dev`, so it asked for a public token, and the repository you named isn't public. Containers in the `cgr.dev/chainguard/` namespace are public and need no authentication. Everything in your organization's own namespace at `cgr.dev/$ORGANIZATION/` requires credentials.
@@ -62,8 +60,7 @@ If the failure happens inside `docker build` rather than `docker pull`, check th
 A `403` from the token endpoint looks like this, often from `helm registry login` or another tool that logs in without naming a repository:
 
 ```output
-Error: authenticating to "cgr.dev": GET "https://cgr.dev/token?service=cgr.dev":
-response status code 403: forbidden
+Error: authenticating to "cgr.dev": GET "https://cgr.dev/token?service=cgr.dev": response status code 403: forbidden
 ```
 
 This response means the token endpoint rejected the request outright. It doesn't tell you which part of the request it objected to, so check these in order:
@@ -77,8 +74,7 @@ This response means the token endpoint rejected the request outright. It doesn't
 A `400` means the organization portion of the image reference didn't match any Chainguard organization:
 
 ```output
-{"errors":[{"code":"BAD_REQUEST","message":"rpc error: code = InvalidArgument
-desc = unable to resolve ..."}]}
+{"errors":[{"code":"BAD_REQUEST","message":"rpc error: code = InvalidArgument desc = unable to resolve ..."}]}
 ```
 
 Unlike the other errors on this page, this one has nothing to do with your credentials. The organization name is wrong. List the organizations you belong to and compare:
@@ -87,22 +83,20 @@ Unlike the other errors on this page, this one has nothing to do with your crede
 chainctl iam organizations list
 ```
 
-Organization names are usually domain names, such as `example.com`, and the full image reference is `cgr.dev/$ORGANIZATION/$IMAGE:$TAG`. Omitting the organization, or using your organization's display name instead of its registry name, produces this error.
+Organization names are usually domain names, such as `example.com`, and the full image reference is `cgr.dev/$ORGANIZATION/$IMAGE:$TAG`. Omitting the organization, or using your organization's display name instead of its registry name, can produce this error.
 
 ## Missing capabilities from the registry API
 
 This `403` is the one that means your login worked and your authorization didn't:
 
 ```output
-{"errors":[{"code":"FORBIDDEN","message":"caller does not have the required
-capabilities at \"...\""}]}
+{"errors":[{"code":"FORBIDDEN","message":"caller does not have the required capabilities at \"...\""}]}
 ```
 
 It also surfaces through the tool you're running. A Helm install that logged in successfully and then failed reports it against the API path:
 
 ```output
-Error: INSTALLATION FAILED: ... /$ORGANIZATION/postgresql/tags/list ...
-response status code 403
+Error: INSTALLATION FAILED: ... /$ORGANIZATION/postgresql/tags/list ... response status code 403
 ```
 
 Two different problems produce this error, and the fix differs:
@@ -126,7 +120,7 @@ Once you hold a valid token, a name that isn't in the organization returns a `40
 {"errors":[{"code":"NAME_UNKNOWN","message":"repository does not exist \"...\""}]}
 ```
 
-Check the spelling against `chainctl images repos list`, then against the [Chainguard Containers Directory](https://images.chainguard.dev/). If the Directory doesn't list the container either, Chainguard doesn't build it yet and you can ask for it. Refer to [Troubleshoot container and version availability](/chainguard/containers/troubleshooting/container-version-troubleshooting/).
+Check the spelling against `chainctl images repos list`, then against the [Chainguard Containers Directory](https://images.chainguard.dev/). If the Directory doesn't list the container either, Chainguard doesn't build it yet and you can ask for it through [Requesting new Chainguard resources](/chainguard/containers/reference/request-resources/). To work out which of those situations you're in, refer to [Troubleshoot container and version availability](/chainguard/containers/troubleshooting/container-version-troubleshooting/).
 
 ## Check your credential format
 
@@ -155,8 +149,7 @@ Helm and Podman need `chainctl` installed only to create the token. Once you hav
 A registry mirror reports Chainguard's errors in its own wording, which can obscure which of the preceding cases you're in. Artifactory, for example, reports a rejected credential as a configuration problem:
 
 ```output
-Invalid username/password configured for Remote Docker repository:
-$REPOSITORY_NAME ... Can't fetch token for repo ... realm: https://cgr.dev/token
+Invalid username/password configured for Remote Docker repository: $REPOSITORY_NAME ... Can't fetch token for repo ... realm: https://cgr.dev/token
 ```
 
 The `realm: https://cgr.dev/token` fragment tells you the failure happened during credential exchange, so work through [Forbidden from the token endpoint](#forbidden-from-the-token-endpoint) and [Check your credential format](#check-your-credential-format). Mirrors are a common place for the username to be wrong, because their configuration forms label the field "username" and invite an email address.
