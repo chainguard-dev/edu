@@ -8,14 +8,10 @@ aliases:
 - /chainguard/chainguard-images/chainguard-registry/pull-through-guides/artifactory/artifactory-images-pull-through/
 - /chainguard/containers/chainguard-registry/pull-through-guides/artifactory/artifactory-images-pull-through/
 - /chainguard/containers/registry/pull-through-guides/artifactory/artifactory-images-pull-through/
-- /chainguard/chainguard-registry/pull-through-guides/artifactory/
-- /chainguard/chainguard-images/chainguard-registry/pull-through-guides/artifactory/
-- /chainguard/containers/chainguard-registry/pull-through-guides/artifactory/
-- /chainguard/containers/registry/pull-through-guides/artifactory/
 type: "article"
 description: "Tutorial outlining how to set up a remote Artifactory repository to pull images through Chainguard's container registry."
 date: 2024-02-13T15:56:52-07:00
-lastmod: 2026-09-04T16:13:45+00:00
+lastmod: 2026-09-09T13:00:03+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
