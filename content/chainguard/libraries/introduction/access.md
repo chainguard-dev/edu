@@ -4,7 +4,7 @@ linktitle: "Access"
 description: "Learn how to access Chainguard Libraries for enhanced security in Java and Python dependencies, including authentication and organization setup"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-09-09T15:46:42+00:00
+lastmod: 2026-09-09T17:33:40+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -59,7 +59,7 @@ preferred method where your environment supports it.
 
 Once your user account is created and access is confirmed, [install the
 Chainguard Control `chainctl` command line
-tool](/chainguard/chainctl-usage/how-to-install-chainctl/) and log in to your
+tool](/platform/chainctl-usage/how-to-install-chainctl/) and log in to your
 account:
 
 ```shell
@@ -98,7 +98,7 @@ for the ecosystem and the `libraries.java.pull_token_creator`,
 ### Creating pull tokens with chainctl
 
 Create a new pull token for the Chainguard Libraries for Java with the [chainctl
-auth pull-token](/chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token/)
+auth pull-token](/platform/chainctl/chainctl-docs/chainctl_auth_pull-token/)
 command:
 
 ```shell
@@ -324,7 +324,7 @@ Python users can leverage an alternative to pull tokens. The [Chainguard keyring
 implementation](https://github.com/chainguard-dev/keyrings-chainguard-libraries)
 provides short-lived credentials from supported environments, such as local
 development and CI/CD platforms that can use [assumable
-identities](/chainguard/administration/assumable-ids/assumable-ids/).
+identities](/platform/administration/assumable-ids/assumable-ids/).
 
 Where possible, Chainguard recommends using short-lived credentials to access
 Chainguard Libraries.
@@ -422,8 +422,8 @@ Use the action to remove a pull token:
 - Confirm the deletion in the dialog by pressing **Delete pull token**.
 
 Alternatively use chainctl with the [auth
-pull-token](/chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token/) and
-[iam identities](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities/)
+pull-token](/platform/chainctl/chainctl-docs/chainctl_auth_pull-token/) and
+[iam identities](/platform/chainctl/chainctl-docs/chainctl_iam_identities/)
 commands for various inspection and management tasks.
 
 List all pull tokens with the `list` command:
@@ -459,7 +459,7 @@ chainctl auth pull-token list --repository=python --expired=true
 ```
 
 Use the [delete command for IAM
-identities](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_delete/)
+identities](/platform/chainctl/chainctl-docs/chainctl_iam_identities_delete/)
 to delete a specific pull token using its ID `45a0c61ea6fd97...`:
 
 ```shell
@@ -477,11 +477,11 @@ chainctl iam ids rm --expired --parent=example
 
 ## Manage library entitlements
 
-You can create, list, and remove entitlements using [`chainctl libraries entitlements`](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements/).
+You can create, list, and remove entitlements using [`chainctl libraries entitlements`](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements/).
 
 ### Create entitlements
 
-As administrator you can use [`chainctl libraries entitlements create`](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) for one or more ecosystems:
+As administrator you can use [`chainctl libraries entitlements create`](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) for one or more ecosystems:
 
 ```shell
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT,JAVA,PYTHON
@@ -497,7 +497,7 @@ To update the upstream fallback policy on an existing entitlement, rerun the `cr
 
 ### Remove entitlements
 
-You can delete an ecosystem library entitlement for a specific ecosystem from your organization with [`chainctl libraries entitlements delete`](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/):
+You can delete an ecosystem library entitlement for a specific ecosystem from your organization with [`chainctl libraries entitlements delete`](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/):
 
 ```shell
 chainctl libraries entitlements delete --ecosystem=JAVASCRIPT --parent=example
@@ -527,6 +527,6 @@ Ecosystem Library Entitlements for example (45a0...p7q)
 
 ## Manage library policies
 
-Users with the Owner role can create, enable, disable, and list library policies using [`chainctl libraries policy`](/chainguard/chainctl/chainctl-docs/chainctl_libraries_policy/) commands. These policies apply to all packages pulled through Chainguard Repository. The [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) must be enabled for an ecosystem in order to use policies.
+Users with the Owner role can create, enable, disable, and list library policies using [`chainctl libraries policy`](/platform/chainctl/chainctl-docs/chainctl_libraries_policy/) commands. These policies apply to all packages pulled through Chainguard Repository. The [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) must be enabled for an ecosystem in order to use policies.
 
 Learn about how to manage policies in the [Libraries policies page](/chainguard/chainguard-repository/library-policies/).

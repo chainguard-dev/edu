@@ -8,7 +8,7 @@ lead: "Chainguard custom IdPs"
 description: "An introduction to and overview of Chainguard's custom IdP support features"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2026-08-21T16:30:07+00:00
+lastmod: 2026-09-09T17:33:40+00:00
 draft: false
 tags: ["Chainguard Containers", "Overview"]
 images: []
@@ -23,7 +23,7 @@ Once an administrator has [configured an identity provider](#setup-and-administr
 
 ### Authenticate with `chainctl`
 
-[`chainctl`, the Chainguard command line interface (CLI)](/chainguard/chainctl/), supports SSO authentication by supplying the identity provider organization name as a flag or by setting it as a default in configuration. To use a flag to authenticate using SSO, pass the `--identity-provider` flag to `chainctl auth login`.
+[`chainctl`, the Chainguard command line interface (CLI)](/platform/chainctl/), supports SSO authentication by supplying the identity provider organization name as a flag or by setting it as a default in configuration. To use a flag to authenticate using SSO, pass the `--identity-provider` flag to `chainctl auth login`.
 
 ```sh
 export IDP_ID=<idp_id>
@@ -75,7 +75,7 @@ Once set, the configured identity provider will be used automatically any time y
 
 ### Authenticate with `chainctl` using a verified organization
 
-If your organization is [verified](/chainguard/administration/iam-organizations/verified-orgs/), you can use your organization name instead of the ID of your identity provider to authenticate.
+If your organization is [verified](/platform/administration/iam-organizations/verified-orgs/), you can use your organization name instead of the ID of your identity provider to authenticate.
 
 ```sh
 chainctl auth login --org-name example.com
@@ -88,7 +88,7 @@ defaults:
   org-name: example.com
 ```
 
-To learn more about working with your `chainctl` config, you can read our doc on [How to manage `chainctl` configuration](/chainguard/chainctl-usage/manage-chainctl-config/).
+To learn more about working with your `chainctl` config, you can read our doc on [How to manage `chainctl` configuration](/platform/chainctl-usage/manage-chainctl-config/).
 
 ### Authenticate with the Chainguard Console
 
@@ -133,7 +133,7 @@ Identity providers usually tie this classification to the application *type* you
 
 ### Integration guides for supported identity providers
 
-We have [published guides for multiple platforms](/chainguard/administration/custom-idps/), including Okta and Ping Identity. If you aren’t using one of these identity providers, you can complete the following Generic Integration Guide to configure your provider to work with Chainguard. However, be aware that Chainguard does not actively support identity providers other than the ones listed previously. If you are using an alternate identity provider, we encourage you to contact us to learn more.
+We have [published guides for multiple platforms](/platform/administration/custom-idps/), including Okta and Ping Identity. If you aren’t using one of these identity providers, you can complete the following Generic Integration Guide to configure your provider to work with Chainguard. However, be aware that Chainguard does not actively support identity providers other than the ones listed previously. If you are using an alternate identity provider, we encourage you to contact us to learn more.
 
 ### Generic integration guide
 
@@ -165,7 +165,7 @@ Next, use `chainctl` to log in to Chainguard with an OIDC provider (such as Goog
 chainctl auth login
 ```
 
-The bootstrap account can use any supported IdP -- for example you may choose to temporarily use a personal Google account. You can leave this account active as a [backup account](/chainguard/administration/custom-idps/custom-idps/#backup-accounts) or, if you prefer, you can delete the account by removing the role-binding after configuring the custom IdP.
+The bootstrap account can use any supported IdP -- for example you may choose to temporarily use a personal Google account. You can leave this account active as a [backup account](/platform/administration/custom-idps/custom-idps/#backup-accounts) or, if you prefer, you can delete the account by removing the role-binding after configuring the custom IdP.
 
 Create a new identity provider using the details you noted from your OIDC application. Replace `<application_client_id>`, `<client_secret>`, and `<issuer_url>` with the values from your own application, and `<organization_id>` with the UIDP of the organization where you want to install the identity provider.
 
@@ -241,7 +241,7 @@ Lastly, to delete an identity provider, run the `delete` subcommand.
 chainctl iam identity-provider delete
 ```
 
-For more details, check out the [`chainctl` documentation for these commands](/chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers/).
+For more details, check out the [`chainctl` documentation for these commands](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers/).
 
 ## IAM and security
 
@@ -261,4 +261,4 @@ In the case of an outage or misconfiguration of your identity provider, it can b
 
 As an OIDC login account needs to be set up to bootstrap the SSO identity provider initially, it’s possible to keep this account as a backup account in case you need it for recovery. However, the nature of these OIDC provider accounts is such that it is difficult to share them as a backup resource since they’re often tied to a single user.
 
-Instead of relying on an account with an OIDC login provider, you can alternatively set up an assumable identity to use as a backup account. Refer to our [conceptual guide on assumable identities](/chainguard/administration/iam-organizations/assumable-ids/) to learn more.
+Instead of relying on an account with an OIDC login provider, you can alternatively set up an assumable identity to use as a backup account. Refer to our [conceptual guide on assumable identities](/platform/administration/assumable-ids/assumable-ids/) to learn more.

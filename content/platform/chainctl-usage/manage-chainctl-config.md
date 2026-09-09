@@ -7,7 +7,7 @@ aliases:
 - /chainguard/administration/manage-chainctl-config
 type: "article"
 date: 2023-07-07T05:56:52-07:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-09T15:53:21+00:00
 draft: false
 tags: ["chainctl"]
 images: []
@@ -60,7 +60,7 @@ Global Flags:
 Use "chainctl config [command] --help" for more information about a command.
 ```
 
-Each command is covered below. The full command reference is available on the [`chainctl config` reference page](/chainguard/chainctl/chainctl-docs/chainctl_config/).
+Each command is covered below. The full command reference is available on the [`chainctl config` reference page](/platform/chainctl/chainctl-docs/chainctl_config/).
 
 ## View your current configuration
 
@@ -231,7 +231,7 @@ To return a property to its default, use `unset`:
 chainctl config unset output.color.pass
 ```
 
-Both `set` and `unset` write to the configuration file immediately. Refer to the [`chainctl config set` reference page](/chainguard/chainctl/chainctl-docs/chainctl_config_set/) for more detail.
+Both `set` and `unset` write to the configuration file immediately. Refer to the [`chainctl config set` reference page](/platform/chainctl/chainctl-docs/chainctl_config_set/) for more detail.
 
 ## Save a configuration file
 
@@ -261,4 +261,4 @@ If you run into issues with your configuration, reset it to the default state:
 chainctl config reset
 ```
 
-This deletes the configuration files chainctl manages in the default locations and restores default values. Files you passed explicitly with `--config` are not deleted. You can review all available commands in the [`chainctl` reference documentation](/chainguard/chainctl/chainctl-docs/chainctl/).
+This deletes the configuration files chainctl manages in the default locations and restores default values. Files you passed explicitly with `--config` are not deleted. You can review all available commands in the [`chainctl` reference documentation](/platform/chainctl/chainctl-docs/chainctl/).

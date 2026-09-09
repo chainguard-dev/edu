@@ -4,7 +4,7 @@ linktitle: "Authenticate"
 type: "article"
 description: "A guide on authenticating to Chainguard's registry to get container images"
 date: 2023-03-21T15:10:16+00:00
-lastmod: 2026-09-04T16:00:38+00:00
+lastmod: 2026-09-09T15:50:32+00:00
 tags: ["Chainguard Containers", "Registry"]
 draft: false
 images: []
@@ -49,7 +49,9 @@ Before you start, [sign up for a Chainguard account](#signing-up) and [install `
     docker pull cgr.dev/$ORGANIZATION/python:latest
     ```
 
-To see which repositories your organization can pull, run `chainctl images repos list`. To browse the full catalog, visit the [Chainguard Containers Directory](https://images.chainguard.dev/).
+To see which repositories your organization can pull, run `chainctl images repos list`. To browse the full catalog, visit the [Chainguard Containers Directory](https://images.chainguard.dev/). Your organization's registry holds a subset of what the Directory lists, so browsing a container there doesn't mean you can pull it; refer to [Onboard your teams](/get-started/onboard-your-teams/#what-your-organization-can-pull) for how your subscription determines what's available.
+
+If the pull fails, refer to [Troubleshoot registry authentication errors](/chainguard/containers/troubleshooting/registry-errors/), which maps each error `cgr.dev` returns to its cause.
 
 ## Signing up
 
@@ -157,6 +159,8 @@ This table shows the name of each pull token, their descriptions, the date they 
 You can create a new pull token by clicking the **Create pull token** button at the top of the page. A new pane will appear where you can enter a name for the new pull token, add an optional description, and select when the pull token will expire. The **Expiration** drop-down menu has options for 30, 60, and 90 days, as well as a **Custom** expiration option. This will cause a **Custom Expiration** window to appear, allowing you to select the date when you'd like the token to expire.
 
 After entering these details, click the **Create token** button and your new pull token will appear in the list with the rest of your organization's tokens.
+
+If the Console won't let you create a pull token, your role is missing a capability rather than the registry rejecting you. Creating a pull token creates a Chainguard identity and a role-binding for it, so it needs a role with the `identity (create)` and `role_bindings (create)` capabilities. `registry.pull_token_creator` is the least privileged built-in role with both. Refer to [Overview of roles and role-bindings](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/) to bind it, and to the [capabilities reference](/platform/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for what each built-in role carries.
 
 ## Authenticating with GitHub Actions
 

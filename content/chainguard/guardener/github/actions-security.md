@@ -4,7 +4,7 @@ linktitle: "Hardened Actions"
 description: "Configure Chainguard Guardener to recommend and migrate your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-08-10T00:00:00+00:00
+lastmod: 2026-09-09T17:33:40+00:00
 draft: false
 tags: ["GitHub", "Automation"]
 images: []
@@ -56,7 +56,7 @@ An on-demand run performs exactly the same migration as the scheduled flow: it o
 Before you start, make sure that:
 
 - The Guardener GitHub App is installed and your Chainguard organization is linked to your GitHub organization, as described in [Getting started](/chainguard/guardener/github/getting-started/). The migration must be requested through the Chainguard organization that owns the GitHub App installation.
-- You hold the `guardener.actions.migrate` capability on that Chainguard organization. Organization owners have it, and it is included in the built-in `guardener.user` and `guardener.admin` roles. Refer to the [Built-in roles and capabilities reference](/chainguard/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for more information on roles.
+- You hold the `guardener.actions.migrate` capability on that Chainguard organization. Organization owners have it, and it is included in the built-in `guardener.user` and `guardener.admin` roles. Refer to the [Built-in roles and capabilities reference](/platform/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for more information on roles.
 
 Run `chainctl guardener github migrate create` with the repository to migrate:
 
@@ -92,9 +92,9 @@ The owning organization is derived from the operation name, so no `--parent` is 
 
 For the complete set of flags and options, refer to the `chainctl` reference:
 
-- [`chainctl guardener github migrate`](/chainguard/chainctl/chainctl-docs/chainctl_guardener_github_migrate/)
-- [`chainctl guardener github migrate create`](/chainguard/chainctl/chainctl-docs/chainctl_guardener_github_migrate_create/)
-- [`chainctl guardener github migrate get`](/chainguard/chainctl/chainctl-docs/chainctl_guardener_github_migrate_get/)
+- [`chainctl guardener github migrate`](/platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate/)
+- [`chainctl guardener github migrate create`](/platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate_create/)
+- [`chainctl guardener github migrate get`](/platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate_get/)
 
 ## Exclude files and actions
 

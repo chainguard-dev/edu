@@ -4,7 +4,7 @@ linktitle: "Manage with chainctl"
 type: "article"
 description: "How to use chainctl to manage Custom Assembly resources."
 date: 2025-05-01T11:07:52+02:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-09T17:33:40+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural", "Custom Assembly"]
 images: []
@@ -20,7 +20,7 @@ aliases:
 
 Chainguard's [Custom Assembly](/chainguard/containers/custom-assembly/overview/) is a tool that allows customers to create customized containers with extra packages and annotations added. This enables customers to reduce their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs.
 
-You can use [`chainctl`, Chainguard's command-line interface tool](/chainguard/chainctl/), to further customize your Custom Assembly builds and retrieve information about them. This guide provides an overview of the relevant `chainctl` commands and outlines how you can edit the configuration of Custom Assembly containers, as well as retrieve a list of a customized image's builds and its build logs.
+You can use [`chainctl`, Chainguard's command-line interface tool](/platform/chainctl/), to further customize your Custom Assembly builds and retrieve information about them. This guide provides an overview of the relevant `chainctl` commands and outlines how you can edit the configuration of Custom Assembly containers, as well as retrieve a list of a customized image's builds and its build logs.
 
 > **Note**: This tutorial highlights using `chainctl` to interact with Custom Assembly resources. However, you can also interact with Custom Assembly using [the Chainguard Console](/chainguard/containers/custom-assembly/custom-assembly-console/), as well as [the Chainguard API](/chainguard/containers/custom-assembly/custom-assembly-api-demo/).
 
@@ -386,10 +386,10 @@ You can use `chainctl images repos build apply` to do things like:
 * Use wildcards: `--repo="python-*"` or `--repo="*"` (all repos under the parent)
 * Combine with `--dry-run` to see which repos would change (drift detection) without actually updating anything.
 
-For more information, refer to [chainctl images repos build apply](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_apply/).
+For more information, refer to [chainctl images repos build apply](/platform/chainctl/chainctl-docs/chainctl_images_repos_build_apply/).
 
 ## Learn more
 
 You can also use `chainctl` to add custom certificates to your Custom Assembly images. Refer to our guide on [Adding custom certificates with Custom Assembly](/chainguard/containers/custom-assembly/custom-assembly-certs/#using-chainctl-to-add-custom-certificates-using-custom-assembly) for more information.
 
-Additionally, you can interact with Custom Assembly with the [Chainguard API](/chainguard/api/spec/). Our tutorial on [Using the Chainguard API to manage Custom Assembly resources](/chainguard/containers/custom-assembly/custom-assembly-api-demo/) outlines how to run a demo application that updates the configuration of a Custom Assembly container through the Chainguard API.
+Additionally, you can interact with Custom Assembly with the [Chainguard API](/platform/api/spec/). Our tutorial on [Using the Chainguard API to manage Custom Assembly resources](/chainguard/containers/custom-assembly/custom-assembly-api-demo/) outlines how to run a demo application that updates the configuration of a Custom Assembly container through the Chainguard API.

@@ -7,7 +7,7 @@ type: "article"
 lead: "Build secure, minimal Wolfi-based container images using Bazel"
 description: "Build secure, minimal Wolfi-based container images using Bazel"
 date: 2023-10-23T08:49:31+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-09T15:53:21+00:00
 draft: false
 tags: ["apko", "Procedural",]
 images: []
@@ -48,7 +48,7 @@ Before you begin, ensure you have the following:
   `dev.chainguard.package.main` label on your image is `bazel-9`.
 - **`chainctl`** installed and authenticated. `chainctl` is the Chainguard
   command line tool. See the
-  [chainctl documentation](/chainguard/chainctl/) for
+  [chainctl documentation](/platform/chainctl/) for
   installation instructions.
 - **`rules_apko` version `1.5.37`** available in the
   [Bazel Central Registry](https://registry.bazel.build/modules/rules_apko).

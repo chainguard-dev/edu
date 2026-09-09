@@ -4,7 +4,7 @@ linktitle: "Quickstart"
 description: "Learn how to get started with Chainguard Libraries"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-08-21T16:30:07+00:00
+lastmod: 2026-09-09T17:33:40+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -47,7 +47,7 @@ Before getting started:
 
 * If you're not yet a Chainguard user, you must [create an
       account](https://console.chainguard.dev/auth/login).
-* [Install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) and
+* [Install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) and
   log in:
 
    ```bash
@@ -59,7 +59,7 @@ Before getting started:
 * Entitle access for yourself to Chainguard Libraries.
     * Chainguard Libraries are available to Catalog Starter and Free tier users,
       and trial users.
-    * Run the following [chainctl libraries](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements/) command to create an entitlement for libraries:
+    * Run the following [chainctl libraries](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements/) command to create an entitlement for libraries:
 
 ```bash
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT

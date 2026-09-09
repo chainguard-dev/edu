@@ -18,7 +18,7 @@ aliases:
 type: "article"
 description: "Learn how to use chainctl images diff to compare Chainguard container versions, analyze security improvements, and track package changes between builds"
 date: 2023-08-30T11:07:52+02:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-09-09T17:33:40+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -31,13 +31,13 @@ toc: true
 
 Chainguard's `chainctl images diff` command provides detailed comparisons between container image versions, enabling you to track security improvements, package updates, and vulnerability changes across builds. This powerful feature helps you understand exactly what changes between image versions, whether comparing daily builds, analyzing CVE remediation, or evaluating custom image updates.
 
-The [`chainctl`](/chainguard/chainctl/) diff functionality supports informed deployment decisions by revealing package-level differences, security posture changes, and build variations between any two Chainguard container images.
+The [`chainctl`](/platform/chainctl/) diff functionality supports informed deployment decisions by revealing package-level differences, security posture changes, and build variations between any two Chainguard container images.
 
 ## Prerequisites
 
 In order to use the `chainctl images diff` subcommand, you'll need to have a few tools installed.
 
-* You'll need `chainctl` installed on your local machine. Follow our guide on [How to install chainctl](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up. If you already have `chainctl` installed, be sure to update it to the latest version with `chainctl update`.
+* You'll need `chainctl` installed on your local machine. Follow our guide on [How to install chainctl](/platform/chainctl-usage/how-to-install-chainctl/) to set this up. If you already have `chainctl` installed, be sure to update it to the latest version with `chainctl update`.
 * Next, ensure you have Cosign installed. Our guide on [How to install Cosign](/open-source/sigstore/cosign/how-to-install-cosign/) outlines several methods for installing Cosign.
 * You'll also need Grype installed on your local machine, as `chainctl` uses this to scan the images when performing the diff. Follow the installation instructions for your operating system on the [Grype project GitHub repository](https://github.com/anchore/grype#installation).
 * Lastly, an example command in this guide uses `jq` — a command-line JSON processor — to make the command's output more readable. You don't strictly need to have `jq` installed in order to use the `diff` subcommand, but if you'd like you can install it by following [the official documentation](https://jqlang.github.io/jq/download/).
@@ -153,4 +153,4 @@ Another potential use could be in cases where you're interested in knowing the d
 ## Learn more
 
 To learn more about the `chainctl image` subcommands, we encourage you to check out our
-[`chainctl` command resources](/chainguard/chainctl/chainctl-docs/chainctl_images/). You can also explore the rest of our [Chainguard Containers resources](/chainguard/containers/) to learn more about how images can help you keep your software secure by default.
+[`chainctl` command resources](/platform/chainctl/chainctl-docs/chainctl_images/). You can also explore the rest of our [Chainguard Containers resources](/chainguard/containers/) to learn more about how images can help you keep your software secure by default.

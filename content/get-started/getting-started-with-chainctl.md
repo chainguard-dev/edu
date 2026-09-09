@@ -6,14 +6,14 @@ lead: "Chainguard's chainctl CLI enables more secure management of container ima
 description: "Get started with chainctl basics including authentication, organization management, and essential commands for Chainguard's container security platform"
 type: "article"
 date: 2025-03-03T08:49:15+00:00
-lastmod: 2026-08-25T13:40:33+00:00
+lastmod: 2026-09-09T17:33:40+00:00
 draft: false
 tags: ["chainctl", "Getting Started"]
 images: []
 weight: 030
 ---
 
-Chainguard's `chainctl` provides command-line access to manage container images, identity resources, and security configurations across your organization. This guide covers essential commands to begin using `chainctl` effectively in your security and DevOps workflows. For comprehensive command documentation, refer to the [chainctl reference](/chainguard/chainctl/).
+Chainguard's `chainctl` provides command-line access to manage container images, identity resources, and security configurations across your organization. This guide covers essential commands to begin using `chainctl` effectively in your security and DevOps workflows. For comprehensive command documentation, refer to the [chainctl reference](/platform/chainctl/).
 
 ## Authenticate and check auth status
 
@@ -65,7 +65,7 @@ To update your `chainctl` installation, use:
 chainctl update
 ```
 
-Because this replaces the installed binary, you need write access to the directory where `chainctl` lives. On Linux and macOS, updating a system-wide install such as `/usr/local/bin` requires administrative privileges (for example, with `sudo`). The command also verifies the downloaded binary's signature in-process before installing it; refer to [Updating chainctl](/chainguard/chainctl-usage/how-to-install-chainctl/#updating-chainctl) for details.
+Because this replaces the installed binary, you need write access to the directory where `chainctl` lives. On Linux and macOS, updating a system-wide install such as `/usr/local/bin` requires administrative privileges (for example, with `sudo`). The command also verifies the downloaded binary's signature in-process before installing it; refer to [Updating chainctl](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl) for details.
 
 ## Configure chainctl
 
@@ -81,7 +81,7 @@ If you make a mistake and can't recall the original settings, reset the configur
 chainctl config reset
 ```
 
-Learn more at [How to manage chainctl configuration](/chainguard/chainctl-usage/manage-chainctl-config/).
+Learn more at [How to manage chainctl configuration](/platform/chainctl-usage/manage-chainctl-config/).
 
 ## List available images
 

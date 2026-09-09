@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for JavaScript in your organization"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-08-28T16:31:04+00:00
+lastmod: 2026-09-09T17:33:40+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 images: []
@@ -69,7 +69,7 @@ this page follow this pattern.
 
 ### Updating lockfile hashes
 
-If you are migrating an existing JavaScript project to Chainguard Libraries through a repository manager, your lockfile likely contains integrity hashes generated against packages previously downloaded from npm or through your repository manager. The [`chainctl libraries update-hashes` command](/chainguard/chainctl/chainctl-docs/chainctl_libraries_update-hashes/) automates lockfile hash updates
+If you are migrating an existing JavaScript project to Chainguard Libraries through a repository manager, your lockfile likely contains integrity hashes generated against packages previously downloaded from npm or through your repository manager. The [`chainctl libraries update-hashes` command](/platform/chainctl/chainctl-docs/chainctl_libraries_update-hashes/) automates lockfile hash updates
 for all supported JavaScript lockfile formats.
 
 When you are using a repository manager, pass the full repository manager URL with `--registry-url` and authenticate with one of the supported methods: `--username` and `--password`, `--token`, or a `.netrc` entry for the registry host. For example:
@@ -84,7 +84,7 @@ chainctl libraries update-hashes \
 
 After updating the lockfile, keep your repository manager configuration in place and reinstall through the same repository manager endpoint to apply the updated hashes.
 
-Learn more in the [Build configuration page](/chainguard/libraries/javascript/build-configuration/#updating-lockfile-hashes/) and in the [chainctl docs](/chainguard/chainctl/chainctl-docs/chainctl_libraries_update-hashes/).
+Learn more in the [Build configuration page](/chainguard/libraries/javascript/build-configuration/#updating-lockfile-hashes) and in the [chainctl docs](/platform/chainctl/chainctl-docs/chainctl_libraries_update-hashes/).
 
 <a name="cloudsmith"></a>
 

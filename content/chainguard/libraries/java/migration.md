@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Java project to pull dependencies from Chainguard Libraries"
 date: 2026-07-02T00:00:00+00:00
-lastmod: 2026-08-28T16:31:04+00:00
+lastmod: 2026-09-09T17:33:40+00:00
 tags: ["Chainguard Libraries", "Java"]
 menu:
   docs:
@@ -30,11 +30,11 @@ For a reference of the configuration options for each supported build tool, chec
 Before you begin, you need:
 
 - An existing Java project
-- [`chainctl` installed and authenticated](/chainguard/chainctl-usage/how-to-install-chainctl/)
+- [`chainctl` installed and authenticated](/platform/chainctl-usage/how-to-install-chainctl/)
 
 ### Create an entitlement
 
-You must have an [entitlement to Chainguard Libraries](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) for Java with [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) enabled.
+You must have an [entitlement to Chainguard Libraries](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) for Java with [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) enabled.
 
 To create an entitlement to Chainguard Libraries for Java and enable upstream fallback, which includes a default 7-day cooldown, run the following command:
 
@@ -105,7 +105,7 @@ eval $(chainctl auth pull-token --parent=example.org --repository=java --name=my
 
 This results in values for the `CHAINGUARD_JAVA_IDENTITY_ID` and `CHAINGUARD_JAVA_TOKEN` variables. The token is named `my-java-token`, with a default expiration of 30 days. To configure the expiration, use the `--ttl` flag.
 
-Learn more about command options in the [chainctl documentation](/chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token/).
+Learn more about command options in the [chainctl documentation](/platform/chainctl/chainctl-docs/chainctl_auth_pull-token/).
 
 When configuring direct access, note that environment variables do not persist between terminal sessions. You must re-export them each time you open a new terminal, or add them to your shell profile. Learn more about pull tokens in the [Access documentation](https://edu.chainguard.dev/chainguard/libraries/introduction/access/).
 
