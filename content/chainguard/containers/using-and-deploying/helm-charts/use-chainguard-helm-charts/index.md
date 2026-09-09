@@ -8,7 +8,7 @@ type: "article"
 description: "A primer on how to use Chainguard-provided upstream Helm charts to deploy Chainguard container images"
 lead: "A primer on how to use Chainguard-provided upstream Helm charts to deploy Chainguard container images"
 date: 2025-07-11T08:49:31+00:00
-lastmod: 2026-09-04T16:00:38+00:00
+lastmod: 2026-09-09T15:50:32+00:00
 draft: false
 tags: ["Chainguard Containers", "Helm charts", "Product"]
 images: []
@@ -325,5 +325,7 @@ To get the `values.yaml` so you can examine it, run:
 ```sh
 helm show values oci://cgr.dev/$ORGANIZATION/charts/grafana
 ```
+
+If `helm registry login` fails, or if the login succeeds and the install then returns a `403`, refer to [Troubleshoot registry authentication errors](/chainguard/containers/troubleshooting/registry-errors/). Those two failures have different causes, and that page tells them apart.
 
 Refer to the [Helm commands documentation](https://helm.sh/docs/helm/) for more information.

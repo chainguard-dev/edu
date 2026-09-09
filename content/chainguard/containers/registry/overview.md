@@ -3,7 +3,7 @@ title: "Registry overview"
 type: "article"
 description: "Learn about Chainguard's container registry, including public access to free images, authenticated access for production images, and network requirements"
 date: 2023-03-21T16:36:47+00:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-09-09T15:50:32+00:00
 draft: false
 images: []
 tags: ["Chainguard Containers", "Registry"]
@@ -23,6 +23,14 @@ Chainguard Registry hosts more secure container images with two access tiers: pu
 While all public Chainguard Containers are freely available, logging in with a Chainguard account and authenticating when pulling from the registry provides a mechanism for Chainguard to contact you if there are any current or known upcoming issues with images you are pulling.
 
 If you would like to learn more about **Chainguard Containers**, you can review our [documentation](/chainguard/containers/overview/), and you can request further information through our [inquiry form](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
+
+## What your organization can pull
+
+Your organization's registry at `cgr.dev/$ORGANIZATION/` holds only the containers your organization has access to, which is a subset of what the public [Chainguard Containers Directory](https://images.chainguard.dev/) lists. Browsing a container in the Directory doesn't mean you can pull it. Refer to [Onboard your teams](/get-started/onboard-your-teams/#what-your-organization-can-pull) for how your subscription determines what's available, and to [Troubleshoot container and version availability](/chainguard/containers/troubleshooting/container-version-troubleshooting/) when a container you expected is missing.
+
+## Troubleshooting authentication errors
+
+If a login or pull returns a `401`, `403`, or `404`, refer to [Troubleshoot registry authentication errors](/chainguard/containers/troubleshooting/registry-errors/), which maps each error to its cause.
 
 ## Status
 
