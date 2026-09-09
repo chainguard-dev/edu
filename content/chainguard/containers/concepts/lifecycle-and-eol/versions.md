@@ -222,7 +222,7 @@ major version releases of bash, and every other package the image contains.
 It's important to note that using epoch tags to "lock" to specific images is
 discouraged, as even specific epoch tags can change over time and may introduce
 breaking or functional changes. For true immutability, use [image
-digests](/chainguard/containers/troubleshooting/container-image-digests/)
+digests](/chainguard/containers/troubleshooting/inspecting-containers/)
 instead.
 
 You can learn more about our approach by reviewing our [blog on Chainguard's

@@ -105,7 +105,7 @@ Note that you can also download specific builds of an container image by referen
 docker pull cgr.dev/$ORGANIZATION/$CUSTOMIZED-CONTAINER@sha256:e24d3X4MPL338cb75b3X4MPL3674bd908681fca3X4MPL31e3d0321b892b9611d
 ```
 
-Pulling container images by digest can [improve reproducibility](/chainguard/containers/troubleshooting/container-image-digests/).
+Pulling container images by digest can [improve reproducibility](/chainguard/containers/troubleshooting/inspecting-containers/).
 
 > If you run into any issues with your customized container images or with using the Custom Assembly tool, please reach out to your account team for assistance.
 

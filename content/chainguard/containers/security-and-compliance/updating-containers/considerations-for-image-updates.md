@@ -101,5 +101,5 @@ There are many factors to consider when developing a process for keeping your im
 To reiterate, there's no one-size-fits-all approach to keeping one's images up to date. Our goal for this article is to introduce some of the important factors one should consider when developing a container image update plan for their application. If you'd like to learn more about the subjects touched on in this guide, we encourage you to check out the following resources.
 
 * [How to use Chainguard Containers](/chainguard/containers/using-and-deploying/using-containers/)
-* [How to use container image digests to improve reproducibility](/chainguard/containers/troubleshooting/container-image-digests/)
+* [Inspecting Chainguard Containers](/chainguard/containers/troubleshooting/inspecting-containers/)
 * [How to compare Chainguard Containers with chainctl](/platform/chainctl-usage/comparing-images/)

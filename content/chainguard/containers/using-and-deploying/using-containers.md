@@ -11,7 +11,7 @@ type: "article"
 description: "Learn how to use Chainguard Containers in your applications, including pulling images, extending base images, and migrating from traditional container images"
 lead: "Chainguard Containers provide more secure, minimal base images that work with standard container tools like Docker and Kubernetes, making migration straightforward while improving security posture."
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-08T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -57,19 +57,15 @@ You can learn about the Chainguard Containers tags history in our guide about [U
 
 Pulling a Chainguard Container by its digest guarantees reproducibility, as it will ensure that you are using the same image each time (versus the tag that may receive updates).
 
-To pull an image by its digest, you can do so by appending the digest which begins with `sha256`.<!-- You can find these on our reference tags history pages. -->
+To pull an image by its digest, you can do so by appending the digest (which begins with `sha256`) as in the following example. If your organization has access to a container image, you can find the digest for each of its versions in the Chainguard Console by navigating to that image's [**Tags** page](https://console.chainguard.dev/org/$ORGANIZATION$/images/organization/image/git/versions).
 
-<!-- In our Git example, we can review the [Git Image Tags History](https://images.chainguard.dev/directory/image/git/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images) page and choose a relevant digest. We will choose the `:latest-dev` image that was last updated on September 2, 2023 at the time this document was being prepared. -->
-
-<!-- TODO(juverm) - do we want to broadcast the above? We don't show digests in public directory because we want free tier pinned on latest. -->
+Per-version digests are a Production container feature. Free containers are published only as `latest` and `latest-dev`, so the public [Chainguard Containers Directory](https://images.chainguard.dev/) has no version history to choose a digest from. To retrieve the digest of a container you already have, or to pin a reference to one, refer to [Inspecting Chainguard Containers](/chainguard/containers/troubleshooting/inspecting-containers/).
 
 ```sh
 docker pull cgr.dev/chainguard/git@sha256:f6658e10edde332c6f1dc804f0f664676dc40db78ba4009071fea6b9d97d592f
 ```
 
 When you pull this image, you'll receive output of the digest which should match the exact digest you have pulled.
-
-To learn more about image digests, you can review our video [How to use container image digests to improve reproducibility](/chainguard/containers/videos/container-image-digests/).
 
 ### Specifying architecture
 

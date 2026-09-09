@@ -137,7 +137,7 @@ Select **Last checked** to open the job log. A successful run lists the tags Dep
 
 ## Update digest-pinned references
 
-Chainguard recommends pinning image references to a [digest](/chainguard/containers/troubleshooting/container-image-digests/) while keeping the tag as a version hint, in the form `cgr.dev/example.com/go:1.22@sha256:...`. Dependabot updates both parts of a reference that's already in this form, as described in [Unique tags](/chainguard/containers/reference/unique-tags/).
+Chainguard recommends pinning image references to a [digest](/chainguard/containers/troubleshooting/inspecting-containers/) while keeping the tag as a version hint, in the form `cgr.dev/example.com/go:1.22@sha256:...`. Dependabot updates both parts of a reference that's already in this form, as described in [Unique tags](/chainguard/containers/reference/unique-tags/).
 
 Two limits are worth knowing before you rely on this:
 
