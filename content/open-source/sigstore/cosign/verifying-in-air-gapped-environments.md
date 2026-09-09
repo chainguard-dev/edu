@@ -5,7 +5,7 @@ type: "article"
 description: "Use Cosign to verify container signatures and attestations without outbound network access"
 lead: "Cosign can verify signatures and attestations with no connection to the public Sigstore infrastructure"
 date: 2026-09-08T00:00:00+00:00
-lastmod: 2026-09-08T00:00:00+00:00
+lastmod: 2026-09-09T19:52:03+00:00
 draft: false
 tags: ["Cosign", "Procedural"]
 images: []
@@ -26,13 +26,14 @@ A keyless verification normally makes three kinds of network request. Only the f
 
 - **The Sigstore trust root**, fetched over [The Update Framework](https://theupdateframework.io/) (TUF) from `tuf-repo-cdn.sigstore.dev`. Cosign refreshes this metadata on every verification, so an air-gapped run fails unless you supply the trust root from a file.
 - **The registry**, to fetch the image and its signature. Inside the air gap, this is your internal registry or a directory on disk.
-- **The Rekor transparency log**, to confirm the signature was logged. Cosign doesn't need this. A Chainguard signature carries a signed entry timestamp alongside it, which proves the log entry exists and which Cosign checks offline.
+- **The Rekor transparency log**, to confirm the signature was logged. Cosign doesn't need this. A Chainguard signature carries its own transparency log entry and a signed timestamp, which Cosign checks offline.
 
 The last point matters: you keep transparency-log verification in an air-gapped environment. You don't need `--insecure-ignore-tlog`, and you shouldn't use it, because it discards a check that still works.
 
 ## Prerequisites
 
-- [Cosign](/open-source/sigstore/cosign/how-to-install-cosign/) v3.0.3 or later, installed on both a connected machine and inside the air-gapped environment. Cosign v3.0.3 fixed several problems with offline verification. Earlier releases need different flags, so upgrade rather than work around them.
+- [Cosign](/open-source/sigstore/cosign/how-to-install-cosign/) v3.1.1 or later, installed on both a connected machine and inside the air-gapped environment. Chainguard Containers require 3.1.1 to verify [Sigstore bundle signatures](/chainguard/containers/security-and-compliance/migrating-to-sigstore-bundles/), and v3.0.3 fixed several problems with offline verification. Earlier releases need different flags, so upgrade rather than work around them.
+- [ORAS](https://oras.land/docs/installation) 1.2 or later on the connected machine, to copy images together with their signatures.
 - A connected machine that can reach `cgr.dev` and the public Sigstore infrastructure.
 - An approved way to move files into the air-gapped environment.
 
@@ -58,7 +59,7 @@ Copying the whole `~/.sigstore` directory into the air-gapped environment doesn'
 
 ## Move the images and their signatures
 
-A Cosign signature is a separate artifact in the registry, stored under a tag derived from the image digest. Copying an image alone leaves the signature behind, and verification inside the air gap then fails with `no signatures found`.
+A Cosign signature is a separate artifact in the registry. Chainguard publishes signatures and attestations as Sigstore bundles attached to the image as OCI referrers, and, during the migration to that format, also under legacy tags derived from the image digest. Copying an image alone leaves both behind, and verification inside the air gap then fails with `no signatures found`.
 
 To see what's attached to an image, run `cosign tree` on the connected machine:
 
@@ -66,26 +67,26 @@ To see what's attached to an image, run `cosign tree` on the connected machine:
 cosign tree cgr.dev/chainguard/go:latest
 ```
 
-The output lists the signature and attestation tags attached to the image:
+The output lists the bundles attached to the image as OCI referrers, one per signature or attestation type. Images that still carry the legacy layout also show `Signatures for an image tag` and `Attestations for an image tag` entries:
 
 ```
 📦 Supply Chain Security Related artifacts for an image: cgr.dev/chainguard/go:latest
-└── 💾 Attestations for an image tag: cgr.dev/chainguard/go:sha256-6be282d9e6dc....att
-   ├── 🍒 sha256:475e95ecb3900fbf479c31b79527c8d1a8f85445dd44caaf21310fb8cd56fdad
-   ├── 🍒 sha256:ae3c33f8f466481133b4826e165f09cdd11bb76a93f6a6af3429e41c887b0109
-   └── 🍒 sha256:4f3c43079eed9885ebe77b787604e98ebf0f8020f61002efb70f5fda091ed27b
-└── 🔐 Signatures for an image tag: cgr.dev/chainguard/go:sha256-6be282d9e6dc....sig
-   └── 🍒 sha256:f0e210a4dfafc1188c7a9ab97b3e01082a7a9ebbbb98174292bedc8ddca71b61
+└── 🔗 https://sigstore.dev/cosign/sign/v1 artifacts via OCI referrer: cgr.dev/chainguard/go@sha256:a06a9b6d...
+   └── 🍒 sha256:14cf554baff036e5e1f75ef35cc988a099566268723b3fb934d5e482c08ebae9
+└── 🔗 https://spdx.dev/Document artifacts via OCI referrer: cgr.dev/chainguard/go@sha256:f1fc7521...
+   └── 🍒 sha256:f23ccc2edc59eac11ce753fc590a45cde72ea1d8fe63fb287f681ab0fe868ea0
+└── 🔗 https://slsa.dev/provenance/v1 artifacts via OCI referrer: cgr.dev/chainguard/go@sha256:bf5cb292...
+   └── 🍒 sha256:c6f25e5fbef68e24daefc36dc563e4b8cdc4e05bbb309be65975a23c1339da5f
 ```
 
 Choose one of the following two transports.
 
 ### Option 1: Copy into a mirrored registry
 
-Use `cosign copy`, which carries the image, its signatures, and its attestations together. For a multi-architecture image it also copies the per-platform signatures, which matters if the air-gapped environment pulls a single architecture:
+Use `oras cp -r`, which carries the image, its signatures, and its attestations together. For a multi-architecture image it also copies the referrers attached to each per-platform manifest, which matters if the air-gapped environment pulls a single architecture:
 
 ```sh
-cosign copy cgr.dev/chainguard/go:latest registry.internal/chainguard/go:latest
+oras cp -r cgr.dev/chainguard/go:latest registry.internal/chainguard/go:latest
 ```
 
 Confirm the signature arrived before you rely on the mirror:
@@ -95,18 +96,22 @@ cosign tree registry.internal/chainguard/go:latest
 ```
 
 {{< note >}}
-General-purpose copy tools don't carry Cosign signatures for Chainguard Containers. Chainguard stores signatures and attestations under `.sig` and `.att` tags rather than in the OCI referrers graph, so tools that walk referrers report success and copy the image bytes alone. Use `cosign copy`, or copy the `.sig` and `.att` tags explicitly.
+Tools that copy an image by tag do not carry its Sigstore bundles. `crane copy` and `skopeo copy` copy the image alone, `cosign copy` is deprecated in Cosign 3.x and copies only the legacy tags reliably, and `cosign save`/`cosign load` do not carry bundle referrers. See [Mirroring Chainguard Containers with their signatures](/chainguard/containers/registry/mirroring-signed-images/) for the tested comparison.
 {{< /note >}}
 
 ### Option 2: Save to a directory
 
-If the air-gapped environment has no registry, `cosign save` writes the image and its attached artifacts to an OCI layout on disk:
+If the air-gapped environment has no registry on the connected side, write the image and its referrers to an OCI layout on disk with ORAS:
 
 ```sh
-cosign save cgr.dev/chainguard/go:latest --dir ./transfer
+oras cp -r cgr.dev/chainguard/go:latest --to-oci-layout ./transfer:go
 ```
 
-Move the `transfer` directory and `trusted_root.json` across the air gap together. On the other side you can verify the directory in place, or load it into a registry with `cosign load`.
+Move the `transfer` directory and `trusted_root.json` across the air gap together. On the other side, load the layout into your internal registry and verify it there:
+
+```sh
+oras cp -r --from-oci-layout ./transfer:go registry.internal/chainguard/go:latest
+```
 
 ## Verify inside the air-gapped environment
 
@@ -136,18 +141,9 @@ The following checks were performed on each of these signatures:
 The verified output still reports a `docker-reference` of `cgr.dev/chainguard/go`, even though you verified a mirrored copy. This is expected. The signature covers the image digest, not the registry it's served from.
 {{< /note >}}
 
-### Verify a saved directory
+### Verify a loaded layout
 
-Point Cosign at the directory with `--local-image`:
-
-```sh
-cosign verify \
-  --local-image \
-  --trusted-root ./trusted_root.json \
-  --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
-  --certificate-identity=https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main \
-  ./transfer
-```
+After loading a layout into the internal registry with `oras cp -r --from-oci-layout`, verify it exactly as a mirrored image. Cosign cannot verify an ORAS layout directory in place: `--local-image` expects a single image or index at the root of the layout, and an ORAS layout also holds the referrer manifests.
 
 ### Verify attestations
 
@@ -184,15 +180,9 @@ cosign verify \
 
 For more on these identities, see [Verifying Chainguard Containers and metadata signatures with Cosign](/chainguard/containers/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/).
 
-### Store signatures in a separate repository
+### Signatures in a separate repository
 
-Some registry layouts keep signatures apart from the images they sign. Set `COSIGN_REPOSITORY` to tell Cosign where to look:
-
-```sh
-export COSIGN_REPOSITORY=registry.internal/signatures
-```
-
-Without it, Cosign looks beside the image and reports `no signatures found`.
+Some registry layouts keep legacy `.sig` and `.att` tags apart from the images they sign, and `COSIGN_REPOSITORY` tells Cosign where to find them. That setting applies to the legacy layout only. Sigstore bundles are referrers of the image and must live in the image's own repository, so keep the referrers with the image when you mirror.
 
 ## Refresh the trust root
 
@@ -211,11 +201,11 @@ That's a decision about trust domains and key custody, not a technical requireme
 | Message | Cause |
 |---------|-------|
 | `tuf: failed to download 13.root.json` | Cosign tried to refresh TUF metadata over the network. Pass `--trusted-root`. |
-| `no signatures found` | The signature wasn't copied with the image, or it lives in another repository. Check with `cosign tree` and set `COSIGN_REPOSITORY` if needed. |
+| `no signatures found` | The signature wasn't copied with the image, usually because it was copied by tag with `crane copy`, `skopeo copy`, or a registry replication feature that ignores referrers. Check with `cosign tree` and re-copy with `oras cp -r`. |
 | `none of the expected identities matched what was in the certificate` | The `--certificate-identity` or `--certificate-oidc-issuer` value doesn't match the signer. The error lists the subject that was found. |
 | `Flag --offline has been deprecated` | Remove `--offline`. Supplying `--trusted-root` covers this case. |
 | `if any flags in the group [local-image new-bundle-format] are set none of the others can be` | Remove `--new-bundle-format`. Older guides pair it with `--local-image`, which Cosign v3.0.3 rejects. |
 
 ## Learn more
 
-For background on how Cosign verification works, read [An introduction to Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/). To verify Chainguard Containers in a connected environment, see [Verifying Chainguard Containers and metadata signatures with Cosign](/chainguard/containers/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/). For mirroring Chainguard Containers into an internal registry, see the [pull-through guides](/chainguard/containers/chainguard-registry/pull-through-guides/).
+For background on how Cosign verification works, read [An introduction to Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/). To verify Chainguard Containers in a connected environment, see [Verifying Chainguard Containers and metadata signatures with Cosign](/chainguard/containers/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/). For mirroring Chainguard Containers into an internal registry, see [Mirroring Chainguard Containers with their signatures](/chainguard/containers/registry/mirroring-signed-images/) and the [pull-through guides](/chainguard/containers/chainguard-registry/pull-through-guides/).

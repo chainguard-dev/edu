@@ -10,7 +10,7 @@ lead: "Using Chainguard Containers with firewalls, access control lists, and pro
 type: "article"
 description: "Using Chainguard Containers with firewalls, access control lists, and proxies."
 date: 2023-09-08T08:49:31+00:00
-lastmod: 2026-08-28T00:00:00+00:00
+lastmod: 2026-09-09T19:52:03+00:00
 draft: false
 tags: ["Chainguard Containers", "Reference"]
 images: []
@@ -58,9 +58,11 @@ This table lists the third-party DNS hostnames, associated ports, and protocols 
 |-----------------------------------------------------------|------|----------|---------|----------------------------------------------------------|
 | 9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com | 443  | HTTPS    | v4 & v6 | Blob storage for *.cgr.dev                               |
 | support.chainguard.dev                                    | 443  | HTTPS    | v4      | Support access for customers                             |
-| tuf-repo-cdn.sigstore.dev                                 | 443  | HTTPS    | v4      | Sigstore trust root for `chainctl` signature verification |
+| tuf-repo-cdn.sigstore.dev                                 | 443  | HTTPS    | v4      | Sigstore trust root for signature verification by `chainctl`, Cosign, Kyverno, and policy-controller |
 
 > Note that the `9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com` host is used to serve both image data and packages via `*.cgr.dev`.
+
+Verifying a Chainguard Container's signature needs only the registry and the Sigstore trust root. The signature carries its own transparency log entry and signed timestamp, so verifiers do not contact Rekor, Fulcio, or the timestamp authority. Environments that cannot reach `tuf-repo-cdn.sigstore.dev` can supply the trust root as a file; see [Verifying signatures in air-gapped environments](/open-source/sigstore/cosign/verifying-in-air-gapped-environments/).
 
 ## Ingress and egress
 

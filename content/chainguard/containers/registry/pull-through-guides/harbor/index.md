@@ -4,7 +4,7 @@ linktitle: "Harbor"
 type: "article"
 description: "Tutorial outlining how to sync images from Chainguard's registry to Harbor."
 date: 2025-08-19T12:00:00-00:00
-lastmod: 2026-09-04T16:13:45+00:00
+lastmod: 2026-09-09T19:52:03+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -133,6 +133,20 @@ docker pull $HARBOR_URL/cgr-mirror/$IMAGE:$TAG
 ```
 
 Again, be sure to replace this command's placeholder values as necessary.
+
+## Signatures and attestations
+
+Chainguard publishes each container's signature and attestations as [Sigstore bundles](https://docs.sigstore.dev/about/bundle/) attached to the image as OCI referrers. Whether they are available through the cache depends on whether Harbor proxies the OCI 1.1 Referrers API for the upstream repository. Check by listing the referrers and verifying the image through the cache:
+
+```shell
+oras discover <your-cache>/chainguard/nginx:latest
+cosign verify \
+  --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
+  --certificate-identity=https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main \
+  <your-cache>/chainguard/nginx:latest
+```
+
+If `oras discover` lists bundles against `cgr.dev` but returns nothing through the cache, the cache does not serve referrers. Verify against `cgr.dev` directly, or mirror the images with a tool that copies referrers; see [Mirroring Chainguard Containers with their signatures](/chainguard/containers/registry/mirroring-signed-images/).
 
 ## Learn more
 

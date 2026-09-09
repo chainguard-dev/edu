@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "Tutorial outlining how to set up a Nexus repository to pull container images through from Chainguard's registry."
 date: 2024-03-28T15:56:52-07:00
-lastmod: 2026-08-20T15:41:17+00:00
+lastmod: 2026-09-09T19:52:03+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -111,6 +111,20 @@ If you run into issues when trying to pull Containers from Chainguard's Registry
 * When configuring a remote Nexus repository, ensure that the **URL** field is set to `https://cgr.dev/`. This field **must not** contain additional components.
 * You can troubleshoot by running `docker login` from another node (using the Nexus pull token credentials) and try pulling a container image from `cgr.dev/chainguard/<image name>` or `cgr.dev/<example.com>/<image name>`, using your own organization's registry name in place of `<example.com>`.
 * It could be that your Nexus repository was misconfigured. In this case, create and configure a new Nexus repository to test with.
+
+## Signatures and attestations
+
+Chainguard publishes each container's signature and attestations as [Sigstore bundles](https://docs.sigstore.dev/about/bundle/) attached to the image as OCI referrers. Whether they are available through the cache depends on whether Nexus proxies the OCI 1.1 Referrers API for the upstream repository. Check by listing the referrers and verifying the image through the cache:
+
+```shell
+oras discover <your-cache>/chainguard/nginx:latest
+cosign verify \
+  --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
+  --certificate-identity=https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main \
+  <your-cache>/chainguard/nginx:latest
+```
+
+If `oras discover` lists bundles against `cgr.dev` but returns nothing through the cache, the cache does not serve referrers. Verify against `cgr.dev` directly, or mirror the images with a tool that copies referrers; see [Mirroring Chainguard Containers with their signatures](/chainguard/containers/registry/mirroring-signed-images/).
 
 ## Learn more
 

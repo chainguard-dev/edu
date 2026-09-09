@@ -4,7 +4,7 @@ linktitle: "Amazon ECR"
 type: "article"
 description: "Tutorial outlining how to set up an Amazon ECR pull through cache rule for pulling containers from Chainguard's registry."
 date: 2026-03-31T00:00:00+00:00
-lastmod: 2026-09-04T16:13:45+00:00
+lastmod: 2026-09-09T19:52:03+00:00
 draft: false
 tags: ["Chainguard Containers", "Registry"]
 images: []
@@ -156,6 +156,22 @@ If you run into issues when pulling Containers from Chainguard's registry throug
 * If you scoped the rule to a namespace, confirm your pull path omits that namespace. For a rule scoped to `example.com`, pull `cg-ecr/chainguard-base:latest`, not `cg-ecr/example.com/chainguard-base:latest`.
 * You can troubleshoot by running `docker login` from another machine (using the pull token credentials) and pulling directly from `cgr.dev/example.com/<image name>`, or from `cgr.dev/chainguard/<image name>` for Free Containers.
 * Refer to the AWS guide on [troubleshooting pull through cache issues](https://docs.aws.amazon.com/AmazonECR/latest/userguide/error-pullthroughcache.html) for common errors and their resolutions.
+
+## Signatures and attestations
+
+Chainguard publishes each container's signature and attestations as [Sigstore bundles](https://docs.sigstore.dev/about/bundle/) attached to the image as OCI referrers. Whether they are available through the cache depends on whether Amazon ECR proxies the OCI 1.1 Referrers API for the upstream repository. Check by listing the referrers and verifying the image through the cache:
+
+```shell
+oras discover <your-cache>/chainguard/nginx:latest
+cosign verify \
+  --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
+  --certificate-identity=https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main \
+  <your-cache>/chainguard/nginx:latest
+```
+
+If `oras discover` lists bundles against `cgr.dev` but returns nothing through the cache, the cache does not serve referrers. Verify against `cgr.dev` directly, or mirror the images with a tool that copies referrers; see [Mirroring Chainguard Containers with their signatures](/chainguard/containers/registry/mirroring-signed-images/).
+
+AWS has announced that ECR pull through cache rules discover and sync OCI referrers from the upstream registry; cached referrers are refreshed on a schedule rather than on every pull, so a freshly rebuilt image can appear unsigned through the cache for a period after it is published upstream. ECR does not accept referrers pushed to it directly, so mirroring with `oras cp -r` into ECR is not an alternative.
 
 ## Learn more
 
