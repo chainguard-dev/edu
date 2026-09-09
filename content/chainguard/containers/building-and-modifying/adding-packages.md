@@ -4,7 +4,7 @@ linktitle: "Add a package"
 description: "Choose how to add a package to a Chainguard Container, find the package name, apply the change, and confirm the package reached the finished image."
 type: "article"
 date: 2026-09-09T00:00:00+00:00
-lastmod: 2026-09-09T00:00:00+00:00
+lastmod: 2026-09-09T18:10:30+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Procedural"]
 images: []
@@ -69,7 +69,7 @@ mongodb-kubernetes-operator-compat-0.13.0-r14
 mongodb-kubernetes-operator-readinessprobe-0.13.0-r14
 ```
 
-To search the packages your organization is entitled to, start a `-dev` variant of one of your organization's images with an `HTTP_AUTH` variable so that `apk` can reach your [private APK repository](/chainguard/containers/building-and-modifying/packages/private-apk-repos/):
+To search the packages your organization is entitled to, start a `-dev` variant of one of your organization's images with an `HTTP_AUTH` variable so that `apk` can reach your [Private APK Repository](/chainguard/containers/building-and-modifying/packages/private-apk-repos/):
 
 ```shell
 docker run -it --rm --entrypoint /bin/sh --user root \
