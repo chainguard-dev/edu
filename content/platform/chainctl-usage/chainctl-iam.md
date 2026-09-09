@@ -6,7 +6,7 @@ lead: "Chainguard's chainctl iam commands provide enterprise-grade identity and 
 description: "Learn how to use chainctl iam commands to manage identity, access controls, and role-based permissions for Chainguard's container security platform"
 type: "article"
 date: 2025-03-06T08:49:15+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-09T15:53:21+00:00
 draft: false
 tags: ["chainctl", "iam"]
 images: []
@@ -17,7 +17,7 @@ Chainguard's identity and access management (IAM) system provides fine-grained c
 
 For the following, assume that returned information only includes that which your account has permissions to view. Also, actions such as `create` and `delete` are similarly limited.
 
-This page is intended as an introductory overview of IAM with chainctl. For a full reference of all commands with details and switches, refer to [chainctl reference](/chainguard/chainctl/).
+This page is intended as an introductory overview of IAM with chainctl. For a full reference of all commands with details and switches, refer to [chainctl reference](/platform/chainctl/).
 
 ## List folders
 

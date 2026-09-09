@@ -8,7 +8,7 @@ type: "article"
 description: "A primer on how to use Chainguard-provided upstream Helm charts to deploy Chainguard container images"
 lead: "A primer on how to use Chainguard-provided upstream Helm charts to deploy Chainguard container images"
 date: 2025-07-11T08:49:31+00:00
-lastmod: 2026-09-09T15:50:32+00:00
+lastmod: 2026-09-09T15:53:21+00:00
 draft: false
 tags: ["Chainguard Containers", "Helm charts", "Product"]
 images: []
@@ -302,13 +302,13 @@ helm install grafana oci://cgr.dev/$ORGANIZATION/charts/grafana \
 
 Many customers choose to handle container images by overriding the Chainguard repository and registry and using their own internal mirror. How you set this up depends on your chosen solution, but it does affect these Helm charts. You will need to override values in the Helm chart with the appropriate new values for your mirror.
 
-One way you can do this is with the `chainctl image helm values` command, which generates minimal Helm value overrides that modify image references in a Chainguard Helm chart to refer to a different registry and/or organization that you specify. Refer to [[chainctl images helm values](/chainguard/chainctl/chainctl-docs/chainctl_images_helm_values/)] for specifics along with:
+One way you can do this is with the `chainctl image helm values` command, which generates minimal Helm value overrides that modify image references in a Chainguard Helm chart to refer to a different registry and/or organization that you specify. Refer to [[chainctl images helm values](/platform/chainctl/chainctl-docs/chainctl_images_helm_values/)] for specifics along with:
 
 ```sh
 chainctl images helm values --help
 ```
 
-This command is a subcommand of [chainctl images helm](/chainguard/chainctl/chainctl-docs/chainctl_images_helm/), which groups Helm chart related commands.
+This command is a subcommand of [chainctl images helm](/platform/chainctl/chainctl-docs/chainctl_images_helm/), which groups Helm chart related commands.
 
 ## Troubleshooting
 

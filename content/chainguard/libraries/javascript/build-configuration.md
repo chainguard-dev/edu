@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for JavaScript on your workstation"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-09-09T15:46:42+00:00
+lastmod: 2026-09-09T15:53:21+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
@@ -89,7 +89,7 @@ distributing upstream artifacts directly, the resulting checksums differ even
 for identical package versions. These hashes must be updated before your package
 manager will accept packages from Chainguard.
 
-Learn more in the [JavaScript migration guide](/chainguard/libraries/javascript/migration/#step-3-update-your-lockfile) and in the [`chainctl libraries update-hashes` command docs](/chainguard/chainctl/chainctl-docs/chainctl_libraries_update-hashes/).
+Learn more in the [JavaScript migration guide](/chainguard/libraries/javascript/migration/#step-3-update-your-lockfile) and in the [`chainctl libraries update-hashes` command docs](/platform/chainctl/chainctl-docs/chainctl_libraries_update-hashes/).
 
 <a id="update-hashes-auth"></a>
 
@@ -312,7 +312,7 @@ directory:
 chainctl auth configure-npm
 ```
 
-[This command](/chainguard/chainctl/chainctl-docs/chainctl_auth_configure-npm/) writes a project-level `.npmrc` with the registry URL and base64-encoded credentials. It also prints the equivalent `npm config set` commands for use in CI or other environments where you need to configure `.npmrc` manually. If this command returns an error, ensure that you are using the [latest version of `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
+[This command](/platform/chainctl/chainctl-docs/chainctl_auth_configure-npm/) writes a project-level `.npmrc` with the registry URL and base64-encoded credentials. It also prints the equivalent `npm config set` commands for use in CI or other environments where you need to configure `.npmrc` manually. If this command returns an error, ensure that you are using the [latest version of `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
 
 Alternatively, you can configure the `.npmrc` file manually:
 

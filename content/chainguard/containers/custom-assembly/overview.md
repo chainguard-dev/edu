@@ -10,7 +10,7 @@ aliases:
 type: "article"
 description: "How to use Chainguard's Custom Assembly tool"
 date: 2025-02-19T11:07:52+02:00
-lastmod: 2026-03-16T08:07:42+02:00
+lastmod: 2026-09-09T15:53:21+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly"]
 images: []
@@ -41,7 +41,7 @@ With Custom Assembly, you can add the following to your container images:
 * [Custom certificates](/chainguard/containers/custom-assembly/custom-assembly-certs/) — Embed PEM-encoded x509v3 certificates (such as internal CA certificates) directly into the image's truststore. These are merged with the default certificate bundle at /etc/ssl/certs/ca-certificates.crt and the Java truststore.
 * [Chainguard-managed certificate bundles](/chainguard/containers/custom-assembly/custom-assembly-certs/#chainguard-managed-certificate-bundles) — Pre-packaged certificate bundles for regulated environments, such as commercial AWS or AWS GovCloud.
 * [Environment variables and annotations](/chainguard/containers/custom-assembly/custom-assembly-chainctl/#adding-custom-annotations-and-environment-variables) — Set custom runtime environment variables and custom metadata annotations.
-* [Custom user accounts and groups](/chainguard/chainctl/chainctl-docs/chainctl_images_repos_build_apply/) — Use `chainctl images repos build apply` or `chainctl images repos build edit` to define custom users with specific UIDs/GIDs, home directories, group memberships, and specify which user the image runs as.
+* [Custom user accounts and groups](/platform/chainctl/chainctl-docs/chainctl_images_repos_build_apply/) — Use `chainctl images repos build apply` or `chainctl images repos build edit` to define custom users with specific UIDs/GIDs, home directories, group memberships, and specify which user the image runs as.
 * [Custom runtime repositories](#custom-runtime-repositories) — Replace the default APK repository URLs in the assembled image with your own internal mirror URLs, so that runtime `apk add` commands resolve against your infrastructure instead of Chainguard's default endpoints.
 * [Custom runtime keys](#custom-runtime-keys) — Embed your mirror's APK signing public keys in the assembled image, so that runtime `apk add` commands can verify packages from mirrors that re-sign them.
 

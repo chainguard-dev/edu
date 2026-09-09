@@ -4,7 +4,7 @@ linktitle: "App connections"
 description: "Set up, inspect, and remove the connections between your Chainguard organization and your GitHub organizations for Chainguard Guardener."
 type: "article"
 date: 2026-08-03T00:00:00+00:00
-lastmod: 2026-08-03T00:00:00+00:00
+lastmod: 2026-09-09T15:53:21+00:00
 draft: false
 tags: ["GitHub", "Configuration"]
 images: []
@@ -183,10 +183,10 @@ A connection alone changes nothing. Check that the repository is covered by the 
 
 For the complete set of flags and options, refer to the `chainctl` reference:
 
-- [`chainctl guardener`](/chainguard/chainctl/chainctl-docs/chainctl_guardener/)
-- [`chainctl guardener github`](/chainguard/chainctl/chainctl-docs/chainctl_guardener_github/)
-- [`chainctl guardener github link`](/chainguard/chainctl/chainctl-docs/chainctl_guardener_github_link/)
-- [`chainctl guardener github unlink`](/chainguard/chainctl/chainctl-docs/chainctl_guardener_github_unlink/)
+- [`chainctl guardener`](/platform/chainctl/chainctl-docs/chainctl_guardener/)
+- [`chainctl guardener github`](/platform/chainctl/chainctl-docs/chainctl_guardener_github/)
+- [`chainctl guardener github link`](/platform/chainctl/chainctl-docs/chainctl_guardener_github_link/)
+- [`chainctl guardener github unlink`](/platform/chainctl/chainctl-docs/chainctl_guardener_github_unlink/)
 
 ## Next steps
 

@@ -6,7 +6,7 @@ description:
   Libraries using the chainctl tool for enhanced supply chain security"
 type: "article"
 date: 2025-07-03T12:00:00+00:00
-lastmod: 2026-08-27T19:36:12+00:00
+lastmod: 2026-09-09T15:53:21+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -19,7 +19,7 @@ aliases:
 ---
 
 Chainguard's `chainctl` tool with the command [`libraries
-verify`](/chainguard/chainctl/chainctl-docs/chainctl_libraries_verify/) verifies
+verify`](/platform/chainctl/chainctl-docs/chainctl_libraries_verify/) verifies
 which of your language ecosystem dependencies were built by Chainguard,
 providing critical visibility into your software supply chain security. By
 verifying binary artifacts across your projects and repositories, you can confirm which dependencies came from Chainguard's hardened build environment, identify opportunities to
@@ -44,7 +44,7 @@ installed and available on your path:
 - [`chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) —
   Chainguard-maintained tool that includes the `libraries verify` command,
   details also in the [reference
-  documentation](/chainguard/chainctl/chainctl-docs/chainctl_libraries_verify/).
+  documentation](/platform/chainctl/chainctl-docs/chainctl_libraries_verify/).
 
 `chainctl libraries verify` checks signatures in-process. To fetch the Sigstore
 trust root, the command needs network access to `tuf-repo-cdn.sigstore.dev`.
@@ -483,6 +483,6 @@ A 0% coverage result is expected when verifying a fat JAR, uber JAR, or shaded J
 
 - [Chainguard Libraries overview](/chainguard/libraries/introduction/overview/)
 - [Chainguard Libraries authentication](/chainguard/libraries/introduction/access/)
-- [`chainctl libraries verify` reference documentation](/chainguard/chainctl/chainctl-docs/chainctl_libraries_verify/)
+- [`chainctl libraries verify` reference documentation](/platform/chainctl/chainctl-docs/chainctl_libraries_verify/)
 - [{{<icon "play-circle-fill">}} Learning Lab: Chainguard Libraries for Java](/software-security/learning-labs/ll202505/)
 - [{{<icon "play-circle-fill">}} Learning Lab: Chainguard Libraries for Python](/software-security/learning-labs/ll202506/)

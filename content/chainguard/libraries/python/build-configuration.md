@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for Python on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-09-09T15:46:42+00:00
+lastmod: 2026-09-09T15:53:21+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 menu:
@@ -165,7 +165,7 @@ authentication](/chainguard/libraries/introduction/access/#netrc).
 
 If you are migrating an existing Python project to Chainguard Libraries, your lockfile likely contains integrity hashes generated against packages previously downloaded from the PyPI registry or through your repository manager. Because Chainguard rebuilds packages from verified source, the checksums for those packages differ from the ones already recorded in your lockfile. These hashes must be updated before reinstalling.
 
-The [`chainctl libraries update-hashes` command](/chainguard/chainctl/chainctl-docs/chainctl_libraries_update-hashes/) automates lockfile hash updates for all supported Python lockfile formats. Rather than manually regenerating lock files with each tool, you can run the command directly against your existing lockfile to update hashes to Chainguard checksums while preserving your locked dependency versions, without re-resolving your dependency graph.
+The [`chainctl libraries update-hashes` command](/platform/chainctl/chainctl-docs/chainctl_libraries_update-hashes/) automates lockfile hash updates for all supported Python lockfile formats. Rather than manually regenerating lock files with each tool, you can run the command directly against your existing lockfile to update hashes to Chainguard checksums while preserving your locked dependency versions, without re-resolving your dependency graph.
 
 Supported formats include `requirements.txt` (pip-tools `--hash` style), `poetry.lock`, `uv.lock`, `pdm.lock`, `Pipfile.lock`, and `pylock.toml`.
 

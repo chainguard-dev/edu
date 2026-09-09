@@ -4,7 +4,7 @@ linktitle: "Skills Registry"
 description: "Enable the Chainguard Skills Registry, then push, install, and run an agent skill scoped to your organization."
 type: "article"
 date: 2026-06-05T08:48:45+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-09T15:53:21+00:00
 draft: false
 tags: ["Agent Skills", "Overview"]
 images: []
@@ -105,7 +105,7 @@ The directory name (`hello-world/`) must match the `name` field in the frontmatt
 
 This section outlines some of the `chainctl` commands you can use to manage skills in your organization's private Skills Registry. The following commands use the `hello-world` skill as an example, but you can use any other skills you've created in its place.
 
-Refer to the [`chainctl skills` reference documentation](/chainguard/chainctl/chainctl-docs/chainctl_skills/) for more information.
+Refer to the [`chainctl skills` reference documentation](/platform/chainctl/chainctl-docs/chainctl_skills/) for more information.
 
 ### Validate the skill
 
@@ -247,7 +247,7 @@ Uninstalled skill "hello-world".
 
 By default, `uninstall` removes the skill from every agent directory where it's installed. Use the `--agent` flag to remove it from specific agents only, or the `--global` flag to remove it from global directories instead of the current project. Add the `-y` flag to skip the confirmation prompt.
 
-`uninstall` operates only on the local files on your machine. It doesn't modify your organization's registry. To remove a published skill from the registry, use [`chainctl skills delete`](/chainguard/chainctl/chainctl-docs/chainctl_skills_delete/) instead.
+`uninstall` operates only on the local files on your machine. It doesn't modify your organization's registry. To remove a published skill from the registry, use [`chainctl skills delete`](/platform/chainctl/chainctl-docs/chainctl_skills_delete/) instead.
 
 ### Delete a skill from the registry
 

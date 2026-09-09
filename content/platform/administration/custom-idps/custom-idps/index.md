@@ -8,7 +8,7 @@ lead: "Chainguard custom IdPs"
 description: "An introduction to and overview of Chainguard's custom IdP support features"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2026-08-21T16:30:07+00:00
+lastmod: 2026-09-09T15:53:21+00:00
 draft: false
 tags: ["Chainguard Containers", "Overview"]
 images: []
@@ -23,7 +23,7 @@ Once an administrator has [configured an identity provider](#setup-and-administr
 
 ### Authenticate with `chainctl`
 
-[`chainctl`, the Chainguard command line interface (CLI)](/chainguard/chainctl/), supports SSO authentication by supplying the identity provider organization name as a flag or by setting it as a default in configuration. To use a flag to authenticate using SSO, pass the `--identity-provider` flag to `chainctl auth login`.
+[`chainctl`, the Chainguard command line interface (CLI)](/platform/chainctl/), supports SSO authentication by supplying the identity provider organization name as a flag or by setting it as a default in configuration. To use a flag to authenticate using SSO, pass the `--identity-provider` flag to `chainctl auth login`.
 
 ```sh
 export IDP_ID=<idp_id>
@@ -241,7 +241,7 @@ Lastly, to delete an identity provider, run the `delete` subcommand.
 chainctl iam identity-provider delete
 ```
 
-For more details, check out the [`chainctl` documentation for these commands](/chainguard/chainctl/chainctl-docs/chainctl_iam_identity-providers/).
+For more details, check out the [`chainctl` documentation for these commands](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers/).
 
 ## IAM and security
 

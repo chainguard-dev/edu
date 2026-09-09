@@ -4,7 +4,7 @@ linktitle: "Hardened Actions"
 description: "Configure Chainguard Guardener to recommend and migrate your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-08-10T00:00:00+00:00
+lastmod: 2026-09-09T15:53:21+00:00
 draft: false
 tags: ["GitHub", "Automation"]
 images: []
@@ -92,9 +92,9 @@ The owning organization is derived from the operation name, so no `--parent` is 
 
 For the complete set of flags and options, refer to the `chainctl` reference:
 
-- [`chainctl guardener github migrate`](/chainguard/chainctl/chainctl-docs/chainctl_guardener_github_migrate/)
-- [`chainctl guardener github migrate create`](/chainguard/chainctl/chainctl-docs/chainctl_guardener_github_migrate_create/)
-- [`chainctl guardener github migrate get`](/chainguard/chainctl/chainctl-docs/chainctl_guardener_github_migrate_get/)
+- [`chainctl guardener github migrate`](/platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate/)
+- [`chainctl guardener github migrate create`](/platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate_create/)
+- [`chainctl guardener github migrate get`](/platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate_get/)
 
 ## Exclude files and actions
 

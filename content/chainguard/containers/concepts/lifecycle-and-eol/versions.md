@@ -11,7 +11,7 @@ aliases:
 type: "article"
 description: "Understanding Chainguard's approach to container image versions."
 date: 2024-01-08T08:49:31+00:00
-lastmod: 2026-09-02T13:31:42+00:00
+lastmod: 2026-09-09T15:53:21+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -396,7 +396,7 @@ well as the date after which it will no longer be covered by the EOL grace
 period.
 
 Refer to the [`chainctl`
-documentation](/chainguard/chainctl/chainctl-docs/chainctl_packages_versions_list/)
+documentation](/platform/chainctl/chainctl-docs/chainctl_packages_versions_list/)
 for the full list of options that can be passed to the command.
 
 ### EOL grace period API

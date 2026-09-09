@@ -18,7 +18,7 @@ aliases:
 type: "article"
 description: "Learn how to use chainctl images diff to compare Chainguard container versions, analyze security improvements, and track package changes between builds"
 date: 2023-08-30T11:07:52+02:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-09-09T15:53:21+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -31,7 +31,7 @@ toc: true
 
 Chainguard's `chainctl images diff` command provides detailed comparisons between container image versions, enabling you to track security improvements, package updates, and vulnerability changes across builds. This powerful feature helps you understand exactly what changes between image versions, whether comparing daily builds, analyzing CVE remediation, or evaluating custom image updates.
 
-The [`chainctl`](/chainguard/chainctl/) diff functionality supports informed deployment decisions by revealing package-level differences, security posture changes, and build variations between any two Chainguard container images.
+The [`chainctl`](/platform/chainctl/) diff functionality supports informed deployment decisions by revealing package-level differences, security posture changes, and build variations between any two Chainguard container images.
 
 ## Prerequisites
 
@@ -153,4 +153,4 @@ Another potential use could be in cases where you're interested in knowing the d
 ## Learn more
 
 To learn more about the `chainctl image` subcommands, we encourage you to check out our
-[`chainctl` command resources](/chainguard/chainctl/chainctl-docs/chainctl_images/). You can also explore the rest of our [Chainguard Containers resources](/chainguard/containers/) to learn more about how images can help you keep your software secure by default.
+[`chainctl` command resources](/platform/chainctl/chainctl-docs/chainctl_images/). You can also explore the rest of our [Chainguard Containers resources](/chainguard/containers/) to learn more about how images can help you keep your software secure by default.

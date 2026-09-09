@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing JavaScript project to pull dependencies from Chainguard Libraries"
 date: 2026-06-01T00:00:00+00:00
-lastmod: 2026-09-04T16:13:45+00:00
+lastmod: 2026-09-09T15:53:21+00:00
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
   docs:
@@ -41,7 +41,7 @@ Before you begin, you'll need:
 - An existing JavaScript project with a `package.json` and a lockfile
   (`package-lock.json`, `pnpm-lock.yaml`, `yarn.lock`, or `bun.lock`)
 - [`chainctl` installed and authenticated](/chainguard/chainctl-usage/how-to-install-chainctl/)
-- An [entitlement to Chainguard Libraries](/chainguard/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/)
+- An [entitlement to Chainguard Libraries](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/)
   for JavaScript
 
 ### Create an entitlement
@@ -77,7 +77,7 @@ You can [create a pull token in the Chainguard Console](/chainguard/libraries/in
 chainctl auth pull-token --repository=javascript --name=my-js-token
 ```
 
-This outputs an identity ID and token named `my-js-token`, with a default expiration of 30 days. To configure the expiration, use the `--ttl` flag. Learn more about command options in the [chainctl documentation](/chainguard/chainctl/chainctl-docs/chainctl_auth_pull-token/).
+This outputs an identity ID and token named `my-js-token`, with a default expiration of 30 days. To configure the expiration, use the `--ttl` flag. Learn more about command options in the [chainctl documentation](/platform/chainctl/chainctl-docs/chainctl_auth_pull-token/).
 
 Set the identity ID and token as environment variables:
 
@@ -183,7 +183,7 @@ chainctl auth configure-npm
 ```
 
 Because [this
-command](/chainguard/chainctl/chainctl-docs/chainctl_auth_configure-npm/) uses a
+command](/platform/chainctl/chainctl-docs/chainctl_auth_configure-npm/) uses a
 session-backed bearer token, you will need to re-run it when the token expires.
 If the command returns an error, ensure you are using the [latest version of
 chainctl](/chainguard/chainctl-usage/how-to-install-chainctl/#updating-chainctl).

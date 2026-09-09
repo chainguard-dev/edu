@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "Tutorial with examples showing how you can authenticate with the Chainguard SDK's auth and auth/ggcr packages."
 date: 2025-06-04T08:49:31+00:00
-lastmod: 2026-09-04T16:00:38+00:00
+lastmod: 2026-09-09T15:53:21+00:00
 draft: false
 tags: ["Chainguard Console", "Procedural"]
 images: []
@@ -15,7 +15,7 @@ toc: true
 weight: 065
 ---
 
-There are several ways for users to interact with the Chainguard platform, with [`chainctl`](/chainguard/chainctl/) (Chainguard's command-line tool) and the [Chainguard Console](https://console.chainguard.dev/overview) (Chainguard's web interface) being the two most commonly-used methods. However, both of these require a human user to authenticate, and aren't useful for working with Chainguard resources programmatically.
+There are several ways for users to interact with the Chainguard platform, with [`chainctl`](/platform/chainctl/) (Chainguard's command-line tool) and the [Chainguard Console](https://console.chainguard.dev/overview) (Chainguard's web interface) being the two most commonly-used methods. However, both of these require a human user to authenticate, and aren't useful for working with Chainguard resources programmatically.
 
 The [Chainguard SDK](https://github.com/chainguard-dev/sdk) serves to ease programmatic integration with the Chainguard platform. This guide highlights two examples from the SDK repository that show how to authenticate to the [Chainguard registry](/chainguard/chainguard-registry/overview/) using the `chainguard.dev/sdk/auth` and `chainguard.dev/sdk/auth/ggcr` packages. The first has you authenticate as a local user, while the second has you authenticate as an [assumed identity](/chainguard/administration/assumable-ids/assumable-ids/).
 
@@ -229,7 +229,7 @@ Again, this example doesn't really reflect a real-world use case. Users will gen
 
 You can experiment with updating this example to authenticate by assuming an identity you created and retrieve the digest of a container image from your organization's private repository within the Chainguard registry.
 
-To do so, you will need an appropriately-configured assumable identity. You can create an assumable identity with the [`chainctl iam identities create` command](/chainguard/chainctl/chainctl-docs/chainctl_iam_identities_create/).
+To do so, you will need an appropriately-configured assumable identity. You can create an assumable identity with the [`chainctl iam identities create` command](/platform/chainctl/chainctl-docs/chainctl_iam_identities_create/).
 
 ### Example 2 using curl
 
