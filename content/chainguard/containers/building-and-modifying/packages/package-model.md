@@ -5,7 +5,7 @@ lead: "Overview of Chainguard's package repositories, highlighting the different
 description: "Overview of Chainguard's package repositories, highlighting the different repositories and how to access them."
 type: "article"
 date: 2025-10-09T00:00:00Z
-lastmod: 2026-03-16T08:07:42+02:00
+lastmod: 2026-09-09T18:05:27+00:00
 draft: false
 tags: ["Chainguard Containers", "Overview", "Product"]
 images: []
@@ -165,4 +165,4 @@ Similar to the [Chainguard shared responsibility model](https://edu.chainguard.d
 
 Chainguard’s package repositories provide trusted apk packages to support both standard and advanced containerized workloads. With the public Wolfi and Extra repositories alongside organization-specific private repositories, customers can reliably source the dependencies they need for production environments.
 
-We encourage you to learn more about Chainguard's private APK repositories by referring to our [documentation on the subject](/chainguard/containers/building-and-modifying/packages/private-apk-repos/). Additionally, if you're interested in customizing your Chainguard Containers by adding packages, we encourage you to check out our Chainguard's [Custom Assembly tool](/chainguard/containers/custom-assembly/overview/).
+We encourage you to learn more about Chainguard's private APK repositories by referring to our [documentation on the subject](/chainguard/containers/building-and-modifying/packages/private-apk-repos/). If you're ready to add a package to one of your container images, [Adding a package to a Chainguard Container](/chainguard/containers/building-and-modifying/adding-packages/) compares the available approaches and walks through the task.

@@ -4,7 +4,7 @@ linktitle: "Building and modifying"
 description: "Adding packages to a Chainguard Container, working with Chainguard's package repositories, and building containers without a Dockerfile."
 type: "article"
 date: 2026-09-04T00:00:00+00:00
-lastmod: 2026-09-04T00:00:00+00:00
+lastmod: 2026-09-09T18:05:27+00:00
 draft: false
 images: []
 weight: 060
@@ -18,6 +18,11 @@ banner: {
 }
 sectiontitle: "Extending and building containers"
 tutorials: [
+  {
+    title: "Add a package",
+    description: "Compare the ways to add a package, then add one and confirm it landed",
+    url: "/chainguard/containers/building-and-modifying/adding-packages/"
+  },
   {
     title: "Package repositories",
     description: "How Chainguard's package repositories are organized",

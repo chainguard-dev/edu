@@ -4,7 +4,7 @@ linktitle: "Manage with GitOps"
 type: "article"
 description: "How to use GitOps to manage Custom Assembly resources."
 date: 2026-01-29T11:07:52+02:00
-lastmod: 2026-09-01T16:34:19+00:00
+lastmod: 2026-09-09T18:05:27+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural", "Custom Assembly"]
 images: []
@@ -22,7 +22,7 @@ Chainguard's [Custom Assembly](/chainguard/containers/custom-assembly/overview/)
 
 This guide shows how to use Chainguard Custom Assembly as code from a CI/CD pipeline, storing your configuration in Git and using automation to apply changes and trigger builds. The examples in this guide focus on GitHub Actions, and are adapted from [Chainguard's custom-assembly-as-code demo repository](https://github.com/chainguard-demo/custom-assembly-as-code).
 
-> **NOTE**: `chainctl` is an API client that handles common tasks like authentication and applying configuration files. You can manage Custom Assembly [interactively using `chainctl`](/chainguard/containers/custom-assembly/custom-assembly-api-demo/). Running `chainctl` non-interactively is a common pattern for implementing GitOps workflows.
+> **NOTE**: `chainctl` is an API client that handles common tasks like authentication and applying configuration files. You can manage Custom Assembly [interactively using `chainctl`](/chainguard/containers/custom-assembly/custom-assembly-chainctl/#editing-packages-interactively). Running `chainctl` non-interactively is a common pattern for implementing GitOps workflows.
 
 ## Prerequisites
 

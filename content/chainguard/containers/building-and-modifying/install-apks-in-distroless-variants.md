@@ -4,7 +4,7 @@ linktitle: "Install APKs in distroless"
 description: "Learn how to install APK packages into Chainguard's distroless container images that do not include package managers"
 type: "article"
 date: 2026-04-21T00:00:01+00:00
-lastmod: 2026-04-21T00:00:01+00:00
+lastmod: 2026-09-09T18:05:27+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -18,6 +18,8 @@ aliases:
 This page documents workflows for installing APK packages in [distroless variants](/chainguard/containers/concepts/getting-started-distroless/) of Chainguard container images, such as most builds tagged `:latest`. We copy a filesystem from a distroless container image to a build image, install APKs to it using `chroot`, then copy the modified filesystem back to the distroless image in the final step.
 
 ## Overview: Installing packages in distroless containers
+
+> **Note**: The chroot workflow on this page is one of several ways to add a package to a Chainguard Container, and it's the most involved. For a comparison of all of them, see [Adding a package to a Chainguard Container](/chainguard/containers/building-and-modifying/adding-packages/).
 
 The distroless variants of Chainguard Containers do not contain shells or package managers by design. This reduces attack surface and exploitability for these images. In cases where additional packages are required, we typically recommend the following:
 

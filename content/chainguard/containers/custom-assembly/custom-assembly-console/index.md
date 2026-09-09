@@ -4,7 +4,7 @@ linktitle: "Manage in the Console"
 type: "article"
 description: "How to use Chainguard's Custom Assembly tool in the Chainguard console."
 date: 2025-07-09T11:07:52+02:00
-lastmod: 2026-08-21T12:27:26+00:00
+lastmod: 2026-09-09T18:05:27+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly"]
 images: []
@@ -79,7 +79,7 @@ You can add more packages to the customized image by following the process outli
 
 To remove all of the container image's customizations, click the **More Actions** button at the top right then select **Remove customizations**. Removing all the added packages will return the image to its original state.
 
-Note that you can also edit the packages in a customized image [using the `chainctl image repo build edit` command](/chainguard/containers/custom-assembly/custom-assembly-chainctl/#adding-packages-to-a-customized-container-image).
+Note that you can also edit the packages in a customized image [using the `chainctl images repos build edit` command](/chainguard/containers/custom-assembly/custom-assembly-chainctl/#adding-packages-to-a-customized-container-image).
 
 If you elected to create a new container image with Custom Assembly, you can rename it by clicking the **Rename** button (next to the **Customize image** button) and entering a new name for the image. Note that after renaming the customized image, any references to the previous name will no longer work.
 

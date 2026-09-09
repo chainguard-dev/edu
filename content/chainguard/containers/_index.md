@@ -9,7 +9,7 @@ aliases:
 description: "Chainguard provides the most secure container images with zero known CVEs, minimal attack surface, SBOMs, and daily updates — the enterprise choice for container security"
 type: "article"
 date: 2022-09-05T08:49:15+00:00
-lastmod: 2026-08-27T00:00:00+00:00
+lastmod: 2026-09-09T18:05:27+00:00
 draft: false
 images: []
 weight: 020
@@ -23,6 +23,11 @@ banner: {
 }
 sectiontitle: "Most-read guides"
 tutorials: [
+  {
+    title: "Add a package",
+    description: "Compare the ways to add a package to a container, then add one",
+    url: "/chainguard/containers/building-and-modifying/adding-packages/"
+  },
   {
     title: "Custom Assembly",
     description: "Have Chainguard build a container with the extra packages you need",
