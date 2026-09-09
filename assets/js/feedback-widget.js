@@ -320,7 +320,7 @@ class FeedbackWidget {
       clearTimeout(timeoutId);
 
       if (error.name === "AbortError") {
-        throw new Error("Request timeout - please try again");
+        throw new Error("Request timeout - please try again", { cause: error });
       }
       throw error;
     }
