@@ -9,7 +9,7 @@ aliases:
 description: "Scanning, SBOMs, verification, security advisories, policy enforcement, and the compliance evidence Chainguard Containers carry."
 type: "article"
 date: 2024-12-19T08:49:15+00:00
-lastmod: 2026-08-03T12:43:21+00:00
+lastmod: 2026-09-09T18:49:52+00:00
 draft: false
 images: []
 weight: 090
@@ -30,6 +30,11 @@ tutorials: [
     title: "Retrieve SBOMs",
     description: "Pull the build-time software bill of materials for any container",
     url: "/chainguard/containers/security-and-compliance/retrieve-image-sboms/"
+  },
+  {
+    title: "Sigstore bundle migration",
+    description: "What changes as signatures move to Sigstore bundles, and what to update",
+    url: "/chainguard/containers/security-and-compliance/migrating-to-sigstore-bundles/"
   },
   {
     title: "Trivy",

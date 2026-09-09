@@ -5,7 +5,7 @@ type: "article"
 lead: "Details for installing Cosign across operating systems to sign software artifacts"
 description: "Details for installing Cosign across operating systems"
 date: 2022-07-13T08:49:31+00:00
-lastmod: 2025-12-26T15:16:50+01:00
+lastmod: 2026-09-09T18:49:52+00:00
 draft: false
 tags: ["Cosign", "Procedural"]
 images: []
@@ -19,6 +19,10 @@ toc: true
 _An earlier version of this material was published in the [Cosign chapter](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/block-v1:LinuxFoundationX+LFS182x+2T2022+type@sequential+block@204b98f35bca48c194d1868e0356bef1/block-v1:LinuxFoundationX+LFS182x+2T2022+type@vertical+block@2f0ad9cb8f124a39ab555ac8bf1a114c) of the Linux Foundation [Sigstore course](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/home)._
 
 Cosign supports software artifact signing, verification, and storage in an OCI (Open Container Initiative) registry. By signing software, you can authenticate that you are who you say you are, which can in turn enable a trust root so that developers and consumers who leverage your software can verify that you created the software artifact that you have said you’ve created. They can also ensure that that artifact was not tampered with by a third party. As someone who may use software libraries, containers, or other artifacts as part of your development lifecycle, a signed artifact can give you greater assurance that the code or container you are incorporating is from a trusted source.
+
+{{< note >}}
+To verify [Chainguard Containers](/chainguard/containers/security-and-compliance/verifying-chainguard-images-and-metadata-signatures-with-cosign/), install Cosign **3.1.1 or newer**. Chainguard publishes signatures as Sigstore bundles, which older releases cannot verify; see [Migrating to Sigstore bundle signatures](/chainguard/containers/security-and-compliance/migrating-to-sigstore-bundles/).
+{{< /note >}}
 
 There are a few different ways to install Cosign to your local machine or remote server. The approach you choose should be based on the way you set up packages, the tooling that you use, or the way that your organization recommends. We will go through several options. Please refer to the [official Cosign installation documentation](https://docs.sigstore.dev/cosign/system_config/installation/) for additional context and updates.
 
@@ -120,13 +124,13 @@ The resulting binary from this installation will be placed at `$GOPATH/bin/cosig
 
 You can install Cosign with Go directly from the [Cosign GitHub releases page](https://github.com/sigstore/cosign/releases).
 
-At the time of writing, the newest release is [v3.0.2](https://github.com/sigstore/cosign/releases/tag/v3.0.2). You can download this version with the following command:
+For example, to install [v3.1.3](https://github.com/sigstore/cosign/releases/tag/v3.1.3):
 
 ```sh
-go install github.com/sigstore/cosign/v2/cmd/cosign@v3.0.2
+go install github.com/sigstore/cosign/v3/cmd/cosign@v3.1.3
 ```
 
-The resulting binary from this installation will be placed at `$GOPATH/bin/cosign`. Check the [release page]([Cosign GitHub releases page](https://github.com/sigstore/cosign/releases) for additional releases.
+The resulting binary from this installation will be placed at `$GOPATH/bin/cosign`. Check the [Cosign GitHub releases page](https://github.com/sigstore/cosign/releases) for the current release.
 
 ## Installing Cosign with the Cosign binary
 

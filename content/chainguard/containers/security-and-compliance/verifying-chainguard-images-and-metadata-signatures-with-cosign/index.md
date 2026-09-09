@@ -13,7 +13,7 @@ aliases:
 type: "article"
 description: "Learn how to verify Chainguard Container signatures and attestations with Cosign for supply chain security, ensuring image authenticity and integrity"
 date: 2024-03-18T08:59:52-07:00
-lastmod: 2026-09-08T13:28:24+00:00
+lastmod: 2026-09-09T18:49:52+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -27,7 +27,11 @@ This guide outlines how you can use Cosign to download and verify container imag
 
 ## Prerequisites
 
-The following examples require [Cosign](/open-source/sigstore/cosign/how-to-install-cosign/) and [jq](https://stedolan.github.io/jq/) to be installed on your machine to download and verify image attestations.
+The following examples require [Cosign](/open-source/sigstore/cosign/how-to-install-cosign/) **version 3.1.1 or newer** and [jq](https://stedolan.github.io/jq/) to be installed on your machine to download and verify image attestations. Run `cosign version` to check.
+
+{{< note >}}
+Chainguard is moving image signatures and attestations from legacy Cosign tags to [Sigstore bundles](/chainguard/containers/security-and-compliance/migrating-to-sigstore-bundles/). Cosign 3.1.1 and newer verifies both formats automatically, so the commands on this page do not change. Cosign 2.6.3 to 2.6.5 fail to verify bundled signatures unless you add `--use-signed-timestamps`, and Cosign 2.6.2 and older cannot verify them at all. See the migration guide for details.
+{{< /note >}}
 
 ## Registry and tags for Chainguard Containers
 
@@ -37,6 +41,18 @@ Attestations are provided per image build, so you'll need to specify the correct
 - `cgr.dev/YOUR-ORGANIZATION`: A private/dedicated registry contains your organization's **Production container images**, which include all versioned tags of an image and special images that are not available in the public registry (including FIPS images and other custom builds).
 
 The commands listed on this page default to the `:latest` tag, but you can specify a different tag to fetch attestations for.
+
+## How signatures and attestations are stored
+
+Signatures and attestations are separate artifacts stored in the same repository as the image. Chainguard publishes them as Sigstore bundles attached to the image as OCI referrers, and, during the migration, also as the legacy `sha256-<digest>.sig` and `sha256-<digest>.att` tags. Cosign finds either form on its own. To list the artifacts attached to an image, use `cosign tree`, which shows both the legacy tags and the bundle referrers in Cosign 3.x:
+
+```shell
+cosign tree cgr.dev/chainguard/go
+```
+
+[`oras discover`](https://oras.land/docs/commands/oras_discover) lists the bundle referrers alone.
+
+Each bundle carries the signature or attestation, the signing certificate, a Rekor transparency log entry, and a signed timestamp, so verification does not depend on reaching Rekor.
 
 ## Chainguard's signing identities
 
@@ -122,7 +138,7 @@ IMAGE=go
 cosign download attestation \
   --predicate-type=https://spdx.dev/Document \
   --platform=linux/amd64 \
-  cgr.dev/chainguard/${IMAGE} | jq -r .payload | base64 -d | jq .predicate
+  cgr.dev/chainguard/${IMAGE} | jq -r '.dsseEnvelope.payload // .payload' | base64 -d | jq .predicate
 ```
 
 ### Private/dedicated registry
@@ -132,8 +148,10 @@ IMAGE=go
 cosign download attestation \
   --predicate-type=https://spdx.dev/Document \
   --platform=linux/amd64 \
-  cgr.dev/${PARENT}/${IMAGE} | jq -r .payload | base64 -d | jq .predicate
+  cgr.dev/${PARENT}/${IMAGE} | jq -r '.dsseEnvelope.payload // .payload' | base64 -d | jq .predicate
 ```
+
+For attestations published as Sigstore bundles, `cosign download attestation` prints the whole bundle as one JSON object per line rather than the bare DSSE envelope, and the statement is under `.dsseEnvelope.payload`. The `jq` expression above handles both forms. `cosign verify-attestation`, shown in the next section, prints the same envelope for both forms and also verifies it, so prefer it where you can.
 
 ## Verifying container image attestations
 
@@ -181,7 +199,7 @@ cosign verify-attestation \
 
 ## Air-gapped and egress-restricted environments
 
-The commands in this guide reach the public Sigstore infrastructure to fetch the trust root Cosign verifies against. If that infrastructure is unreachable, you can export the trust root on a connected machine and pass it to Cosign as a file. Transparency-log verification still works, because the signature carries its own signed entry timestamp.
+The commands in this guide reach the public Sigstore infrastructure to fetch the trust root Cosign verifies against. If that infrastructure is unreachable, you can export the trust root on a connected machine and pass it to Cosign with `--trusted-root`. Transparency-log verification still works offline, because each signature carries its own log entry and signed timestamp. Cosign does not contact Rekor during verification, so `--rekor-url` is not needed.
 
 The signature is a separate artifact from the image, so mirroring the image alone leaves it behind. For the full procedure, including how to move signatures and attestations across an air gap, see [Verifying signatures in air-gapped environments](/open-source/sigstore/cosign/verifying-in-air-gapped-environments/).
 
@@ -197,6 +215,8 @@ To avoid this problem, you could include either or both of the following `set` o
 - `set -o pipefail` ensures that status codes from Cosign aren't masked when piped to `jq`.
 
 ## Learn more
+
+To understand the move from legacy signature tags to Sigstore bundles, and what it means for your tooling, read [Migrating to Sigstore bundle signatures](/chainguard/containers/security-and-compliance/migrating-to-sigstore-bundles/).
 
 To get up to speed with Sigstore, you can review the [Sigstore](/open-source/sigstore/) section of Chainguard Academy, visit the upstream [Sigstore Docs](https://docs.sigstore.dev/) site, and check out the [Sigstore organization on GitHub](https://github.com/sigstore). You can learn more about verifying software artifacts with Cosign by reading [How to verify file signatures with Cosign](/open-source/sigstore/cosign/how-to-verify-file-signatures-with-cosign/).
 

@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "An overview of the differences between attestations and SBOMs"
 date: 2023-03-19T15:56:52-07:00
-lastmod: 2026-07-27T15:39:06+00:00
+lastmod: 2026-09-09T18:49:52+00:00
 draft: false
 tags: ["Cosign", "SBOM", "Conceptual"]
 images: []
@@ -34,6 +34,10 @@ An *attestation* allows the end users or consumers of a software artifact (in th
 Put differently, an attestation is a written assurance of a software artifact's *provenance*, or the verifiable information about the artifact describing where, when, and how it was produced. You can think of an attestation as a proclamation that "software artifact X" was produced by "person Y" at "time Z". Because of this extra provenance information, attestations are generally seen as being more trustworthy than SBOMs since you can identify who signed them and when.
 
 Both `cosign attest` and `cosign attach` associate an artifact with an image and upload it to a registry. However, `cosign attest` generates an [in-toto attestation](https://in-toto.io/) while `cosign attach` does not. `cosign attest` then attaches it to the provided image and uploads it to a registry as an OCI artifact with a `.att` extension.
+
+{{< note >}}
+The `.att`, `.sig`, and `.sbom` tags described on this page are the layout Cosign 2.x produces. Cosign 3.x stores signatures and attestations as [Sigstore bundles](https://docs.sigstore.dev/about/bundle/) attached to the image as OCI referrers by default, discoverable with `oras discover` or `cosign tree`. Chainguard Containers are moving to that layout; see [Migrating to Sigstore bundle signatures](/chainguard/containers/security-and-compliance/migrating-to-sigstore-bundles/).
+{{< /note >}}
 
 In the following example, `image.sbom` is an SBOM file that was previously created, `$IMAGE` is the image that will be attached to the SBOM, and `cosign.key` is the signer's private key.
 
