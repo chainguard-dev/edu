@@ -46,24 +46,24 @@
     "@fullhuman/postcss-purgecss": "^8.0",
     "autoprefixer": "^10.5",
     "bootstrap": "^5.3",
-    "eslint": "^10.9.1",
-    "globals": "^17.11.0",
+    "eslint": "^10.10.0",
+    "globals": "^17.12.0",
     "highlight.js": "^11.12",
-    "hugo-extended": "^0.164.0",
+    "hugo-extended": "^0.165.0",
     "instant.page": "^5.2",
     "lazysizes": "^5.3",
     "markdownlint-cli2": "^0.23.0",
     "postcss": "^8.5",
     "postcss-cli": "^11.0",
-    "sass-embedded": "^1.103.1",
+    "sass-embedded": "^1.104.0",
     "shx": "^0.4",
-    "stylelint": "^17.14.1",
+    "stylelint": "^17.15.0",
     "stylelint-config-standard-scss": "^17.0.0"
   },
   "dependencies": {
-    "@docsearch/css": "^5.0.4",
-    "@docsearch/js": "^5.0.4",
-    "@scalar/api-reference": "^1.67.0",
+    "@docsearch/css": "^5.0.5",
+    "@docsearch/js": "^5.0.5",
+    "@scalar/api-reference": "^1.68.0",
     "bootstrap-icons": "^1.13.1"
   }
 }
