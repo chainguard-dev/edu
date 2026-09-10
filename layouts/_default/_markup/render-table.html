@@ -1,0 +1,86 @@
+{{- /*
+  Table render hook. Reproduces Hugo's default table markup, and for tables
+  carrying the `table-auto` class it additionally supports grouped headers:
+  a header cell written as "Group / Label" becomes a "Label" cell under a
+  "Group" cell that spans every adjacent header cell with the same group.
+  Every leaf header cell gets a data-col attribute so CSS can match it to
+  its body column regardless of the spans.
+*/ -}}
+{{- $grouped := false }}
+{{- $head := slice }}
+{{- with .THead }}{{ $head = index . 0 }}{{ end }}
+{{- if in (.Attributes.class | default "") "table-auto" }}
+  {{- range $head }}{{ if in (string .Text) " / " }}{{ $grouped = true }}{{ end }}{{ end }}
+{{- end }}
+{{- $top := slice }}
+{{- $sub := slice }}
+{{- if $grouped }}
+  {{- range $i, $cell := $head }}
+    {{- $t := string $cell.Text }}
+    {{- $col := add $i 1 }}
+    {{- if in $t " / " }}
+      {{- $parts := split $t " / " }}
+      {{- $g := index $parts 0 }}
+      {{- $last := dict }}
+      {{- with $top }}{{ $last = index . (sub (len .) 1) }}{{ end }}
+      {{- if and $last.group (eq $last.text $g) }}
+        {{- $top = append (dict "text" $g "group" true "span" (add $last.span 1)) (first (sub (len $top) 1) $top) }}
+      {{- else }}
+        {{- $top = $top | append (dict "text" $g "group" true "span" 1) }}
+      {{- end }}
+      {{- $sub = $sub | append (dict "text" (index $parts 1) "col" $col "align" $cell.Alignment) }}
+    {{- else }}
+      {{- $top = $top | append (dict "text" $t "group" false "col" $col "align" $cell.Alignment) }}
+    {{- end }}
+  {{- end }}
+{{- end -}}
+<table
+  {{- range $k, $v := .Attributes }}
+    {{- if $v }}
+      {{- printf " %s=%q" $k $v | safeHTMLAttr }}
+    {{- end }}
+  {{- end }}>
+  <thead>
+    {{- if $grouped }}
+    <tr>
+      {{- range $top }}
+        {{- if .group }}
+      <th colspan="{{ .span }}" class="th-group">{{ .text | safeHTML }}</th>
+        {{- else }}
+      <th rowspan="2" data-col="{{ .col }}"
+        {{- with .align }}{{ printf " style=%q" (printf "text-align: %s" .) | safeHTMLAttr }}{{ end -}}
+      >{{ .text | safeHTML }}</th>
+        {{- end }}
+      {{- end }}
+    </tr>
+    <tr>
+      {{- range $sub }}
+      <th data-col="{{ .col }}"
+        {{- with .align }}{{ printf " style=%q" (printf "text-align: %s" .) | safeHTMLAttr }}{{ end -}}
+      >{{ .text | safeHTML }}</th>
+      {{- end }}
+    </tr>
+    {{- else }}
+    {{- range .THead }}
+    <tr>
+      {{- range $i, $cell := . }}
+      <th data-col="{{ add $i 1 }}"
+        {{- with $cell.Alignment }}{{ printf " style=%q" (printf "text-align: %s" .) | safeHTMLAttr }}{{ end -}}
+      >{{ $cell.Text }}</th>
+      {{- end }}
+    </tr>
+    {{- end }}
+    {{- end }}
+  </thead>
+  <tbody>
+    {{- range .TBody }}
+    <tr>
+      {{- range . }}
+      <td
+        {{- with .Alignment }}{{ printf " style=%q" (printf "text-align: %s" .) | safeHTMLAttr }}{{ end -}}
+      >{{ .Text }}</td>
+      {{- end }}
+    </tr>
+    {{- end }}
+  </tbody>
+</table>

@@ -125,13 +125,20 @@ html[data-dark-mode] .logo-purple {
         padding-right: 0.5rem;
     }
 
-    // Header stays visible while scrolling through a long table. Needs an
+    // Header stays visible while scrolling through a long table. Sticky on
+    // the whole thead so a grouped two-row header moves as one. Needs an
     // opaque background so rows do not show through it.
-    >thead>tr>th {
+    >thead {
         position: sticky;
         top: 0;
         z-index: 1;
         background-color: var(--body-background);
+    }
+
+    // Group label spanning several columns (see render-table.html).
+    >thead>tr>th.th-group {
+        text-align: center;
+        border-bottom: 1px solid var(--table-row-border-color);
     }
 
     td {
@@ -149,7 +156,7 @@ html[data-dark-mode] .logo-purple {
     // row highlight and the hovered cell shows both.
     @for $i from 1 through 8 {
         &:has(td:nth-child(#{$i}):hover) {
-            >thead>tr>th:nth-child(#{$i}),
+            >thead>tr>th[data-col="#{$i}"],
             >tbody>tr>td:nth-child(#{$i}) {
                 box-shadow: inset 0 0 0 100vmax var(--table-auto-col-hover);
             }
