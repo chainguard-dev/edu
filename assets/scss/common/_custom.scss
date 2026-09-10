@@ -102,6 +102,76 @@ html[data-dark-mode] .logo-purple {
     overflow-wrap: anywhere;
 }
 
+// Opt-in for reference tables (e.g. OpenSSL algorithm lists) where one column
+// holds long identifiers and the rest are short flags: size columns to their
+// content instead of the fixed equal split, keep every cell on one line, pin
+// the header row while scrolling, and highlight the hovered row and column.
+// Enable per table in markdown with a `{.table-auto}` line after the table.
+.docs-content>table.table-auto {
+    --table-auto-row-hover: rgba(0, 0, 0, 0.05);
+    --table-auto-col-hover: rgba(93, 46, 232, 0.09);
+
+    table-layout: auto;
+    overflow-wrap: normal;
+
+    :root[data-dark-mode] & {
+        --table-auto-row-hover: rgba(255, 255, 255, 0.07);
+        --table-auto-col-hover: rgba(160, 130, 255, 0.16);
+    }
+
+    th,
+    td {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    // Header stays visible while scrolling through a long table. Sticky on
+    // the whole thead so a grouped two-row header moves as one. Needs an
+    // opaque background so rows do not show through it.
+    >thead {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        background-color: var(--body-background);
+    }
+
+    // Group label spanning several columns (see render-table.html).
+    >thead>tr>th.th-group {
+        text-align: center;
+        border-bottom: 1px solid var(--table-row-border-color);
+    }
+
+    td {
+        font-size: 0.875rem; // $text-sm
+        white-space: nowrap;
+    }
+
+    // Row highlight on hover.
+    >tbody>tr:hover>td {
+        background-color: var(--table-auto-row-hover);
+    }
+
+    // Column highlight on hover, including its header. Bootstrap already
+    // paints cell state with an inset box-shadow, so this layers over the
+    // row highlight and the hovered cell shows both.
+    @for $i from 1 through 8 {
+        &:has(td:nth-child(#{$i}):hover) {
+            >thead>tr>th[data-col="#{$i}"],
+            >tbody>tr>td:nth-child(#{$i}) {
+                box-shadow: inset 0 0 0 100vmax var(--table-auto-col-hover);
+            }
+        }
+    }
+
+    // Too wide for small screens: scroll the table sideways instead of
+    // squeezing the identifiers. (This also disables the sticky header on
+    // small screens, since the table becomes its own scroll container.)
+    @media (max-width: $MobileLayoutWidth) {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
 // Beat <a> reset
 .docs-content.docs-content a:not(.tag) {
     color: var(--article-link-color);
