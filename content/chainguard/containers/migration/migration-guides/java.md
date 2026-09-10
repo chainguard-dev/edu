@@ -8,179 +8,200 @@ aliases:
 - /chainguard/containers/videos/java-images/
 - /get-started/migration/migration-guides/java-images/
 - /chainguard/containers/migration/migration-guides/java-images/
-lead: "Chainguard's Java containers enable seamless migration from traditional Java base images while providing enhanced security posture and significantly smaller image sizes."
-description: "Learn how to migrate Java applications to Chainguard Containers for reduced vulnerabilities, smaller images, and comprehensive JDK/JRE support with daily security updates"
+description: "Learn how to port a Java Dockerfile to Chainguard's Maven, Gradle, JDK, and JRE containers, including a worked Spring Boot example and the differences from the Java images on Docker Hub"
 type: "article"
 date: 2024-04-02T15:21:01+00:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-09-09T00:00:00+00:00
 draft: false
+tags: ["Chainguard Containers", "Migration"]
 images: []
-menu:
-  docs:
-    parent: "migration-guides"
 weight: 020
 toc: true
 ---
 
-{{< youtube FYOVcSv1-oY >}}
+Chainguard's Java containers fill the same roles as the Java base images found on Docker Hub, such as `eclipse-temurin` and `maven`, but are built on [Wolfi](/open-source/wolfi/) with a much smaller package set. Chainguard builds its own JDK from source in Wolfi, and rebuilds these containers nightly so security patches land without manual intervention. Porting a Dockerfile takes a handful of changes, mostly around the non-root user and the absent shell, which [Differences from the Java images on Docker Hub](#differences-from-the-java-images-on-docker-hub) covers in full. For current CVE data on a specific container and tag, refer to the [JRE entry in the Chainguard Containers directory](https://images.chainguard.dev/directory/image/jre/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-java).
 
-## Tools used in this video
+{{< details "What is Distroless?" >}}
+{{< blurb/distroless >}}
+{{< /details >}}
 
-* [Docker](https://docker.com)
-
-## Resources
-
-* Blog on [bootstrapping Java in Wolfi](https://www.chainguard.dev/unchained/fully-bootstrapping-java-from-source-in-wolfi)
-* [Learning Labs Git repository](https://github.com/chainguard-dev/learning-labs-java) with code used in demo
+{{< details "What is Wolfi OS?" >}}
+{{< blurb/wolfi >}}
+{{< /details >}}
 
 {{< details "What are multi-stage builds?" >}}
 {{< blurb/multistage >}}
 {{< /details >}}
 
-## Transcript
+This guide is intended to help you port an existing Java Dockerfile to a Chainguard Containers base.
 
-Okay, I want to give a quick overview of how to use the Chainguard Java images.
+## Java Chainguard Containers
 
-And in particular, I want to show how to port an existing application to use the Chainguard Java images.
+Chainguard publishes four containers for Java, split by the job they do:
 
-So our images are largely equivalent to the existing Java images that you can find on the Docker Hub, such as the Eclipse Temurin ones.
+| Container | Contents | Use it for |
+| --- | --- | --- |
+| [`maven`](https://images.chainguard.dev/directory/image/maven/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-java) | JDK plus Apache Maven | The build stage of a Maven project |
+| [`gradle`](https://images.chainguard.dev/directory/image/gradle/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-java) | JDK plus Gradle | The build stage of a Gradle project |
+| [`jdk`](https://images.chainguard.dev/directory/image/jdk/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-java) | Full Java Development Kit | Compiling inside the container without Maven or Gradle |
+| [`jre`](https://images.chainguard.dev/directory/image/jre/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-java) | Java Runtime Environment only | Running a compiled JAR in production |
 
-The difference is that we're much more focused on producing minimal images with a low CVE count.
+The `jre` container is the production target. It has no compiler, no build tooling, no shell, and no package manager, which keeps it small but also means you cannot extend it in place. The build containers include a shell and a package manager and can be extended freely.
 
-We do build our own JDK and there's a [really great blog](https://www.chainguard.dev/unchained/fully-bootstrapping-java-from-source-in-wolfi) on the Chainguard site that explains how we do this and how we bootstrap from the really early versions of Java, which I thoroughly recommend checking out and I will link in the notes.
+Each of these also comes in a [development variant](/chainguard/containers/concepts/container-variants/), distinguished by the tag suffix (for example, `jre:latest-dev`). The development variants add a shell and package manager to a runtime container, which makes them useful for debugging and for the rare application that needs system tooling at runtime.
 
-For this video I'm going to use an example created by my colleague Mauren Berti, so all the hard work in this video is actually down to her.
+The recommended approach for migration is to use a multi-stage build: compile in `maven` or `gradle`, then copy the JAR into `jre`. This guide's [migration example](#migration-example) builds exactly that.
 
-So the starting point for this video is this example app.
+## Migrating from other distributions
 
-It's a Spring Boot app and all it does is listen on port 8080 and return "Hello world" effectively.
+Dockerfiles often contain commands specific to the Linux distribution they are based on. Most commonly this relates to package installation (`apt` versus `yum` versus `apk`), but it also covers the default shell (`bash` versus `ash`) and default utilities (`groupadd` versus `addgroup`). The high-level guide on [Migrating to Chainguard Containers](/chainguard/containers/migration/migrating-to-chainguard-images/) covers distro-based migration and package compatibility for Debian, Alpine, Ubuntu, and Red Hat UBI base images.
 
-So here is the Dockerfile and we can see it starts with `FROM maven`.
+## Installing further dependencies
 
-So this is using the Docker official image for maven which itself is built on top of Eclipse Temurin.
+Java applications sometimes need native libraries at build time, runtime, or both. Wolfi has a large package repository, though package names may differ from other distributions.
 
-All we're doing then is copying over some source code, building it with maven, doing a little bit of cleanup on this step to get rid of some build artifacts and then we're copying the jar file to the app directory and setting an entrypoint.
+The easiest way to search is with apk tools in a `wolfi-base` container:
 
-So we should be able to build that fairly easily and now I should be able to run it.
+```shell
+docker run -it --rm cgr.dev/chainguard/wolfi-base
+```
 
-That was pretty quick because it was cached already.
+```shell
+apk update
+apk search freetype
+```
 
-If you build it yourself it will take a little bit longer because it will have to download all the various dependencies.
+Add the packages you find to the build stage of your Dockerfile. Note that `apk add` needs write access, so a Dockerfile that installs packages has to switch to the root user first with `USER root`. For more searching tips, check the [Searching for Packages](/chainguard/containers/migration/migrating-to-chainguard-images/#searching-for-packages) section of the base migration guide.
 
-So let's see if I can get this right.
+## Differences from the Java images on Docker Hub
 
-`docker run --rm -d --port 8080`
+If you are migrating from Docker Hub's `maven` image or from `eclipse-temurin`, a few differences matter:
 
-to port 8080 on the host.
+- **The containers run as a non-root user.** UID `65532` is the default, where the Docker Hub images run as root. If a build step needs elevated privileges, add `USER root` before it, and switch back for the production stage.
+- **`WORKDIR` differs by container.** It is `/app` in `jre`, and `/home/build` in `maven`, `gradle`, and `jdk`.
+- **The entrypoint is the tool, not a shell.** `jre` sets `/usr/bin/java` and `maven` sets `/usr/bin/mvn`, so arguments you pass to `docker run` go to that program. For example, `docker run cgr.dev/chainguard/jre:latest -version` prints the container's Java version. To get a shell you need a `-dev` variant and an explicit entrypoint override: `docker run --entrypoint /bin/sh -it cgr.dev/chainguard/jre:latest-dev`.
+- **`JAVA_HOME` is `/usr/lib/jvm/default-jvm`.** Scripts that hardcode a Temurin path need updating.
+- **There are far fewer libraries and utilities present.** An application may turn out to have a dependency the container doesn't carry, which you need to add explicitly.
 
-Image was called `java-maven`.
+## Migration example
 
-So now hopefully if I do `curl localhost:8080/hello` I get "Hello world" back.
+This example ports a Spring Boot application from Docker Hub's `maven` image to Chainguard's Maven and JRE containers, in two steps. The application listens on port `8080` and answers `/hello`. Its source is in the [`learning-labs-java` repository](https://github.com/chainguard-dev/learning-labs-java):
 
-So that's the application working.
+```shell
+git clone https://github.com/chainguard-dev/learning-labs-java.git
+cd learning-labs-java
+```
 
-We can take a look at the logs if we like.
+Each step writes a new Dockerfile rather than editing one in place, so you can build all three and compare them side by side. The repository ships its own `Dockerfile` variants from when the accompanying video was recorded, but those pin container digests from 2024; the files you create here track current tags instead, which is what makes the size and CVE comparison meaningful.
 
-Okay nothing surprising there.
+### The starting point
 
-It's a Tomcat application.
+Save the following as `Dockerfile.classic`. This Dockerfile is a single-stage build on Docker Hub's `maven` image, which is itself built on Eclipse Temurin:
 
-So if we look at the size of the image we can see it's 585 megabytes.
+```Dockerfile
+FROM maven:latest
 
-So quite a large container but nothing too surprising for a Java image.
+WORKDIR /work
 
-If we look at the CVEs -- I'm going to use Docker Scout, use grype or whatever -- then you can see Docker Scout is reporting there's 10 medium and 17 low CVEs.
+COPY src/ src/
+COPY pom.xml pom.xml
 
-Honestly I don't think it's a terrible result but let's see if we can do better.
+RUN mvn clean package
 
-So let's take a look at this Dockerfile and what I'm going to do here is change to use `cgr.dev/chainguard/maven`.
+WORKDIR /app
+RUN cp /work/target/java-demo-app-1.0.0.jar .
 
-So that's using the `cgr.dev`, Chainguard's registry.
+ENTRYPOINT ["java", "-jar", "java-demo-app-1.0.0.jar"]
+```
 
-You could just delete the `cgr.dev` and use the Docker Hub because we now have Chainguard images on the Docker Hub under the Chainguard workspace.
+Build and run it:
 
-But let's just do that for the minute and we will rebuild it.
+```shell
+docker build -f Dockerfile.classic -t java-maven .
+docker run --rm -d --name java-demo -p 8080:8080 java-maven
+curl localhost:8080/hello
+docker stop java-demo
+```
 
-This time I'll add "cg" on the end so we can see the difference.
+The result is a working application in a large container. Everything Maven needed in order to build the JAR is still sitting in the image that runs it.
 
-And there we go.
+### Step 1: change the base container
 
-So let's take a look at `java-maven-cg`.
+Copy `Dockerfile.classic` to `Dockerfile.cg` and change a single line, the `FROM` instruction:
 
-So I think we are 585 megabytes.
+```Dockerfile
+FROM cgr.dev/chainguard/maven:latest
+```
 
-So we've dropped it by 220 megabytes or 225 megabytes to 360 megabytes.
+The remainder of the file is unchanged. Build it under a new tag to allow a direct comparison:
 
-So that's a fairly big saving by just making -- just adding -- `cgr.dev/chainguard` to the start.
+```shell
+docker build -f Dockerfile.cg -t java-maven-cg .
+```
 
-But more interestingly what happens to the CVEs?
+That single line cuts the image size substantially, and clears out the operating-system package findings a scanner reports, because there are far fewer packages left to report on. Compare the two directly:
 
-So if I run Docker Scout on this image we see there's zero CVEs.
+```shell
+docker images | grep java-maven
+grype java-maven
+grype java-maven-cg
+```
 
-So I've made a very small change and we've dropped the size of the image and we've removed all the known CVEs.
+This base swap replaces the operating system underneath your application, so findings against distribution packages largely go away. It does not touch your application's own dependencies: the JARs Maven resolved from `pom.xml` are identical in both images, so any CVEs in those survive the change. Fixing those means updating the dependencies themselves, which is what [Chainguard Libraries for Java](/chainguard/libraries/java/overview/) addresses.
 
-So that's a pretty effective change in my book.
+If you prefer Docker Hub to `cgr.dev`, Chainguard's Free containers are mirrored there under the `chainguard` organization, so `FROM chainguard/maven:latest` also works.
 
-But we can still take it further.
+### Step 2: split the build into two stages
 
-I'm going to use Mauren's hard work and we'll look at how you can create a multi-stage Docker build.
+The container still carries Maven and a full JDK into production. A multi-stage build compiles in the Maven container and copies only the JAR into the JRE container. Save the following as `Dockerfile.cg-multi`:
 
-I've done `docker reset`.
+```Dockerfile
+FROM cgr.dev/chainguard/maven:latest AS builder
 
-I meant to do `git reset`.
+WORKDIR /work
 
-Okay.
+COPY src/ src/
+COPY pom.xml pom.xml
 
-`git switch` to the Chainguard multi-stage JRE image.
+RUN mvn clean package
 
-And if we look at the Dockerfile and what we now have is a multi-stage build.
+FROM cgr.dev/chainguard/jre:latest AS runner
 
-So we're using the maven image as a builder.
+WORKDIR /app
 
-So we've got this "as builder" step but now we've got a second build step down here where we say "as runner".
+COPY --from=builder /work/target/java-demo-app-1.0.0.jar .
 
-So this code is more or less the same.
+ENTRYPOINT ["java", "-jar", "java-demo-app-1.0.0.jar"]
+```
 
-We have taken out the entrypoint but now we're copying the jar file from the builder and running it here.
+```shell
+docker build -f Dockerfile.cg-multi -t java-maven-multi-cg .
+docker run --rm -d --name java-demo -p 8080:8080 java-maven-multi-cg
+curl localhost:8080/hello
+docker stop java-demo
+```
 
-And this image is just a JRE image.
+The application behaves the same, in a container roughly 250 MB smaller than the single-stage Chainguard build, because the build tooling never reaches the final stage. The `jre` container also has no shell, so there is nothing for an attacker who reaches the container to run.
 
-So it doesn't have all the build tooling associated with the maven image.
+This step cuts scanner findings a second time, and for a different reason than the base swap did. A single-stage build ships Maven's own bundled JARs and everything it downloaded into the local repository, and a scanner reports on all of them. Only the application JAR survives the copy into the final stage:
 
-Okay let's try building that.
+```shell
+grype java-maven-multi-cg
+```
 
-That looks good.
+There are two important things to note on the `COPY` line. The JAR filename comes from the project's `pom.xml`, so it differs in your application; a wildcard such as `COPY --from=builder /work/target/*.jar app.jar` avoids restating the version. Additionally, because `jre` already sets `WORKDIR` to `/app`, the `WORKDIR` line in the runner stage is explicit rather than required.
 
-So if I do... well I guess we should prove it still works.
+### Video demonstration
 
-So if I do `docker run`.
+The following video walks through the same migration outlined in the previous steps:
 
-I'll do `docker ps` first.
+{{< youtube FYOVcSv1-oY >}}
 
-`docker rm -f 12`
+## Additional resources
 
-Now if I do `docker run` again.
-
-So `java-maven-multi-chainguard`.
-
-`curl localhost 8080/hello`
-
-So still working just the same as before but now `java-maven-multi-cg` -- we can see we've got the size down a little bit further.
-
-So I think it was what 360 megabytes and now we've got it down to 325 megabytes.
-
-So we've removed 35 megabytes of build tooling in there.
-
-And also if we check the CVEs again hopefully that will still be zero.
-
-Yeah, so zero CVEs but we've reduced the size and number of packages in the image.
-
-So that's quite a big win.
-
-Took a little bit more work to get to the multi-stage build but not a ridiculous amount.
-
-So that's about it.
-
-We've seen how you can use Chainguard's maven and JRE images to reduce the size and CVE count in a Java application with relatively little work.
-
-Please do take a look and let me know how you get on.
+- The [JRE container documentation](https://images.chainguard.dev/directory/image/jre/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-java) has full details on the Java containers, including usage, provenance, and security advisories.
+- [Build Java containers with Jib](/chainguard/containers/building-and-modifying/build-tools/building-java-containers-with-jib/) covers building Java containers without writing a Dockerfile at all, using Jib's Maven and Gradle plugins.
+- [Building minimal container images](/chainguard/containers/building-and-modifying/building-minimal-containers/) explains the multi-stage pattern this guide uses, and when a runtime container is the right final base.
+- [Fully bootstrapping Java from source in Wolfi](https://www.chainguard.dev/unchained/fully-bootstrapping-java-from-source-in-wolfi) describes how Chainguard builds its JDK.
+- [Debugging distroless container images](/chainguard/containers/troubleshooting/debugging-distroless-images/) covers working with a production container that has no shell.
+- [How to port a sample application to Chainguard Containers](/chainguard/containers/migration/porting-apps-to-chainguard/) works through porting a legacy application.
