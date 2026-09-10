@@ -6,7 +6,7 @@ linktitle: "API v2 tutorial"
 type: "article"
 description: "Tutorial with examples showing how you can use the Chainguard API v2."
 date: 2026-03-30T08:49:31+00:00
-lastmod: 2026-08-11T12:06:07+00:00
+lastmod: 2026-09-10T18:14:49+00:00
 draft: false
 tags: ["Chainguard Console", "Procedural"]
 images: []
@@ -51,6 +51,8 @@ This guide walks through the v2 API using real `curl` commands. If you're migrat
 All endpoints live under a versioned path per domain: `/iam/v2/`, `/registry/v2/`, `/vulnerabilities/v2/`, `/libraries/v2/`, `/advisory/v2/`, `/events/v2/`, and `/ping/v2/`.
 
 The worked examples in this guide focus on IAM, Registry, and Vulnerabilities. The other domains follow the same request and response conventions.
+
+For an IAM resource used end to end in an administrative task, refer to [Automate IdP group mappings with the API](/platform/administration/custom-idps/grant-roles-from-groups/#automate-mappings-with-the-api), which maps identity provider groups to Chainguard roles in bulk with the `ExternalGroupRoleMappings` endpoints.
 
 ## Prerequisites
 
