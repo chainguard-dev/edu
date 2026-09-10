@@ -4,7 +4,7 @@ linktitle: "Add a package"
 description: "Choose how to add a package to a Chainguard Container, find the package name, apply the change, and confirm the package reached the finished image."
 type: "article"
 date: 2026-09-09T00:00:00+00:00
-lastmod: 2026-09-10T12:11:42+00:00
+lastmod: 2026-09-10T12:15:07+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Procedural"]
 images: []
@@ -22,9 +22,9 @@ The following table compares the available approaches:
 
 | Approach | Use it when | What you need |
 | --- | --- | --- |
-| [Custom Assembly in the Console](#add-the-package-in-the-console) | You want to browse the packages your organization can add and apply the change in a few clicks. | A Console account with a role that has the `repo.update` capability. |
-| [Custom Assembly with `chainctl`, interactively](#add-the-package-with-chainctl-interactively) | You work from a terminal and want to review a diff before it applies. | `chainctl`, installed and authenticated. |
-| [Custom Assembly with `chainctl`, non-interactively](#add-the-package-with-chainctl-non-interactively) | You keep image configuration in version control or apply it from CI/CD. | `chainctl` and a YAML build configuration file. |
+| [Custom Assembly in the Console](#add-the-package) | You want to browse the packages your organization can add and apply the change in a few clicks. | A Console account with a role that has the `repo.update` capability. |
+| [Custom Assembly with `chainctl`, interactively](#add-the-package) | You work from a terminal and want to review a diff before it applies. | `chainctl`, installed and authenticated. |
+| [Custom Assembly with `chainctl`, non-interactively](#add-the-package) | You keep image configuration in version control or apply it from CI/CD. | `chainctl` and a YAML build configuration file. |
 | [Custom Assembly with the Chainguard API](/chainguard/containers/custom-assembly/custom-assembly-api-demo/) | You're building your own tooling around Custom Assembly. | An API client and a Chainguard token. |
 | [`apk add` in a Dockerfile](/chainguard/containers/using-and-deploying/using-containers/#extending-chainguard-base-containers) | You build on a `-dev` variant or on `wolfi-base`, and you're prepared to pin package versions and image digests yourself. | A Dockerfile and a container image that includes `apk`. |
 | [`apk` with `chroot` in a multi-stage build](/chainguard/containers/building-and-modifying/install-apks-in-distroless-variants/) | You need a package in a distroless image and Custom Assembly doesn't fit your workflow. | A multi-stage Dockerfile. |
@@ -81,9 +81,11 @@ From the container's shell, run `apk update` and then `apk search`.
 
 ## Add the package
 
-The three procedures that follow all produce the same result. Pick the one that matches how you work.
+The three procedures below all produce the same result. Pick the tab that matches how you work.
 
-### Add the package in the Console
+{{< tabs label="Ways to add a package with Custom Assembly" >}}
+
+{{% tab title="Console" %}}
 
 1. In the [Chainguard Console](https://console.chainguard.dev), open the image you want to customize.
 2. Click **Customize image**, then select the packages to add.
@@ -93,7 +95,9 @@ The three procedures that follow all produce the same result. Pick the one that 
 
 For the full walkthrough, including how to edit or remove customizations later, see [Using the Chainguard Console to manage Custom Assembly resources](/chainguard/containers/custom-assembly/custom-assembly-console/).
 
-### Add the package with chainctl interactively
+{{% /tab %}}
+
+{{% tab title="chainctl, interactively" %}}
 
 1. Open the image's build configuration:
 
@@ -133,7 +137,9 @@ For the full walkthrough, including how to edit or remove customizations later, 
 
 To save the result as a new image rather than changing the existing one, add `--save-as $NEW_NAME`. For the rest of what you can set in this file, including environment variables, annotations, and custom user accounts, see [Using chainctl to manage Custom Assembly resources](/chainguard/containers/custom-assembly/custom-assembly-chainctl/).
 
-### Add the package with chainctl non-interactively
+{{% /tab %}}
+
+{{% tab title="chainctl, non-interactively" %}}
 
 Both `apply` and `edit` accept a configuration file, which skips the editor and the prompt. Use this form in CI/CD and anywhere you keep image configuration in version control.
 
@@ -166,6 +172,10 @@ Both `apply` and `edit` accept a configuration file, which skips the editor and 
 To save the result as a new image, add `--save-as $NEW_NAME`. This works when you target a single repository; it isn't available when you target several at once with repeated `--repo` flags or a wildcard.
 
 For a worked GitHub Actions pipeline built around these commands, see [Using GitOps to manage Custom Assembly resources](/chainguard/containers/custom-assembly/custom-assembly-gitops/).
+
+{{% /tab %}}
+
+{{< /tabs >}}
 
 ## Confirm the package is in the image
 
