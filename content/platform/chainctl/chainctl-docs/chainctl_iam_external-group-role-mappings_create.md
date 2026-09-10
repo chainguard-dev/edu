@@ -1,5 +1,5 @@
 ---
-date: 2026-09-08T21:52:12Z
+date: 2026-09-09T16:25:08Z
 title: "chainctl iam external-group-role-mappings create"
 slug: chainctl_iam_external-group-role-mappings_create
 url: /platform/chainctl/chainctl-docs/chainctl_iam_external-group-role-mappings_create/
