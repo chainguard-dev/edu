@@ -5,7 +5,7 @@ lead: ""
 description: "How to map groups from a custom identity provider to Chainguard roles so access follows group membership."
 type: "article"
 date: 2026-07-01T08:48:45+00:00
-lastmod: 2026-07-01T08:48:45+00:00
+lastmod: 2026-09-10T18:12:46+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -106,6 +106,8 @@ To review the mappings you've configured, run the `list` subcommand:
 chainctl iam external-group-role-mappings list --parent $ORGANIZATION
 ```
 
+Each command creates one mapping. To map many groups at once, see [Automate mappings with the API](#automate-mappings-with-the-api).
+
 ## Step 4: Verify the mapping
 
 1. Have a user who belongs to the mapped group log in to Chainguard through your IdP.
@@ -145,6 +147,133 @@ When you need to revoke a user's access immediately, as with a compromised accou
 
 The existing session still expires on its own within the hour, and the IdP change blocks re-authorization after that.
 
+## Automate mappings with the API
+
+Each `chainctl` command in this guide handles one mapping. When your IdP has dozens or hundreds of groups to map, or when you manage Chainguard access from a pipeline, use the [Chainguard API](/platform/api/api-v2-tutorial/) instead. Its `ExternalGroupRoleMappings` endpoints create, list, and delete the same mappings `chainctl` does, and the results behave identically: additive, session-scoped, and re-evaluated at each login.
+
+These examples reuse the `ORGANIZATION` and `IDENTITY_PROVIDER` variables from the [prerequisites](#prerequisites). Add a token and the API host:
+
+```sh
+export TOKEN=$(chainctl auth token)
+export API=https://console-api.enforce.dev
+```
+
+That token is your own and expires within an hour. To run these calls from a pipeline, authenticate as an [assumable identity](/platform/administration/assumable-ids/assumable-ids/) that holds the access described in [Permissions for the calling identity](#permissions-for-the-calling-identity).
+
+### Look up the role UIDP
+
+`chainctl` accepts a role name, but the API takes the role's UIDP. Retrieve it by name:
+
+```sh
+export ROLE=$(curl -s -H "Authorization: Bearer $TOKEN" \
+  "$API/iam/v2/roles?name=editor" | jq -r '.roles[0].uid')
+```
+
+### Create one mapping
+
+The identity provider owns the mapping, so its UIDP goes in the request path and the body carries the rest. The fields correspond to the flags in [Step 3](#step-3-map-a-group-to-a-role):
+
+| `chainctl` flag | API equivalent |
+| :---- | :---- |
+| `--idp` | The identity provider UIDP in the request path |
+| `--external-group-id` | `externalGroupId` |
+| `--role` | `roleUid`, which takes the role's UIDP rather than its name |
+| `--scope` | `scope` |
+
+```sh
+curl -s -X POST -H "Authorization: Bearer $TOKEN" \
+  -H "Content-Type: application/json" \
+  "$API/iam/v2/externalGroupRoleMappings/$IDENTITY_PROVIDER" \
+  -d "{\"externalGroupId\": \"app-admins\", \"roleUid\": \"$ROLE\", \"scope\": \"$ORGANIZATION\"}" | jq .
+```
+
+```json
+{
+  "uid": "d9e2f1a0.../4b0a7c19c3e2f8d1/e54a7ea6f02e5dff",
+  "identityProviderUid": "d9e2f1a0.../4b0a7c19c3e2f8d1",
+  "externalGroupId": "app-admins",
+  "roleUid": "0e4b93c2...",
+  "scope": "d9e2f1a0...",
+  "createTime": "2026-09-10T18:04:21.968Z"
+}
+```
+
+Keep the `uid` from the response. It's the mapping's own UIDP, rooted under the identity provider, and deleting the mapping later requires it.
+
+### Create many mappings
+
+The API has no batch create, so loop over your groups. This example maps every group listed in `groups.txt` to one role and reports the result of each call:
+
+```sh
+while read -r group; do
+  status=$(curl -s -o response.json -w '%{http_code}' \
+    -X POST -H "Authorization: Bearer $TOKEN" \
+    -H "Content-Type: application/json" \
+    "$API/iam/v2/externalGroupRoleMappings/$IDENTITY_PROVIDER" \
+    -d "{\"externalGroupId\": \"$group\", \"roleUid\": \"$ROLE\", \"scope\": \"$ORGANIZATION\"}")
+  case "$status" in
+    200) echo "created: $group" ;;
+    409) echo "exists:  $group" ;;
+    *)   echo "failed:  $group (HTTP $status)"; jq -c . response.json ;;
+  esac
+done < groups.txt
+```
+
+A mapping that already exists returns HTTP 409 rather than a second record, so you can re-run the loop after fixing a failure without creating anything twice. To grant more than one role, run the loop once per role with its own group list.
+
+### List mappings
+
+Read back every mapping under an identity provider:
+
+```sh
+curl -s -H "Authorization: Bearer $TOKEN" \
+  "$API/iam/v2/externalGroupRoleMappings?identity_provider_uid=$IDENTITY_PROVIDER" \
+  | jq '{totalCount, mappings: [.externalGroupRoleMappings[] | {uid, externalGroupId, roleUid}]}'
+```
+
+`totalCount` reports how many mappings match. Results are paginated, so a `nextPageToken` in the response means more pages remain, as described in [Pagination](/platform/api/api-v2-tutorial/#3-pagination).
+
+### Delete mappings
+
+Delete a single mapping by its UIDP:
+
+```sh
+curl -s -X DELETE -H "Authorization: Bearer $TOKEN" \
+  "$API/iam/v2/externalGroupRoleMappings/$MAPPING_UID"
+```
+
+A successful delete returns an empty JSON object, and a mapping that's already gone returns HTTP 404.
+
+To remove several mappings in one call, pass their UIDPs to the `:batchDelete` endpoint along with the identity provider they belong to:
+
+```sh
+curl -s -X POST -H "Authorization: Bearer $TOKEN" \
+  -H "Content-Type: application/json" \
+  "$API/iam/v2/externalGroupRoleMappings:batchDelete" \
+  -d "{\"parent\": \"$IDENTITY_PROVIDER\", \"names\": [\"$MAPPING_UID_1\", \"$MAPPING_UID_2\"]}" | jq .
+```
+
+The response lists the mappings it deleted. Names that no longer exist are skipped without error, so repeating a teardown is safe. Every name must belong to the identity provider named in `parent`; one that doesn't fails the whole call with `INVALID_ARGUMENT` and deletes nothing.
+
+The API has no equivalent of the `--all` flag. To clear every mapping for a provider you're offboarding, list them first and feed their UIDPs to `:batchDelete`:
+
+```sh
+MAPPINGS=$(curl -s -H "Authorization: Bearer $TOKEN" \
+  "$API/iam/v2/externalGroupRoleMappings?identity_provider_uid=$IDENTITY_PROVIDER" \
+  | jq -c '[.externalGroupRoleMappings[].uid]')
+
+curl -s -X POST -H "Authorization: Bearer $TOKEN" \
+  -H "Content-Type: application/json" \
+  "$API/iam/v2/externalGroupRoleMappings:batchDelete" \
+  -d "{\"parent\": \"$IDENTITY_PROVIDER\", \"names\": $MAPPINGS}" | jq .
+```
+
+This revokes the mapped roles for every group under that provider, so review the list output before you run the delete.
+
+### Permissions for the calling identity
+
+Creating a mapping grants a role, so the API enforces an anti-escalation rule. The identity making the call needs permission to create identity providers and role bindings, and it must already hold every capability the mapped role grants. An identity can't create a mapping that grants access it doesn't have itself. The `owner` role satisfies all three requirements.
+
 ## Limits
 
 Identity providers cap how many groups a token can carry. Past that limit, the IdP stops sending the inline `groups` claim. This means Chainguard no longer receives the user's groups, and their mappings don't resolve. Keep the emitted set small by sending only the groups you map:
@@ -160,3 +289,5 @@ Identity providers cap how many groups a token can carry. Past that limit, the I
 - [Overview of the Chainguard IAM model](/platform/administration/iam-organizations/overview-of-chainguard-iam-model/)
 - [Manage identity and access with chainctl](/chainguard/chainctl-usage/chainctl-iam/)
 - [Subscribe to Chainguard Events](/platform/administration/cloudevents/events-example/)
+- [Chainguard API v2 tutorial](/platform/api/api-v2-tutorial/)
+- [ExternalGroupRoleMappingsService in the API v2 specification](/platform/api/spec-api-v2/#tag/externalgrouprolemappingsservice)
