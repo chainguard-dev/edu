@@ -26,7 +26,7 @@ Default columns represent algorithms that are negotiated by default.
 The tables are presented in the format similar to the [IANA TLS
 Parameters](https://www.iana.org/assignments/tls-parameters).
 
-For more information about Trasport Layer Security (TLS) please see the following references:
+For more information about Transport Layer Security (TLS) please see the following references:
 
 - [BCP 195](https://www.rfc-editor.org/info/bcp195/)
 - [RFC 9846](https://www.rfc-editor.org/info/rfc9846/)
