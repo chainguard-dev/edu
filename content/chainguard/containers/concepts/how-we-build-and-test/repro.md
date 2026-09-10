@@ -1,42 +1,53 @@
 ---
 title: "Reproducibility and Chainguard Containers"
-linktitle: "Video: Reproducibility"
+linktitle: "Reproducibility"
+description: "What makes a build reproducible, and how to rebuild any Chainguard Container from its signed apko configuration and confirm the result matches bit for bit"
+type: "article"
+date: 2024-05-20T12:21:01+00:00
+lastmod: 2026-09-09T00:00:00+00:00
+draft: false
+tags: ["Chainguard Containers"]
+images: []
+weight: 030
+toc: true
 aliases:
 - /chainguard/chainguard-images/videos/repro/
 - /chainguard/chainguard-images/staying-secure/repro/
 - /chainguard/containers/videos/repro/
 - /chainguard/containers/staying-secure/repro/
-lead: ""
-description: "This video explains the importance of reproducibility and how to recreate any
-Chainguard image from an attestation."
-type: "article"
-date: 2024-05-20T12:21:01+00:00
-lastmod: 2024-05-20T12:21:01+00:00
-draft: false
-images: []
-weight: 030
-toc: true
 ---
 
-{{< youtube 0Qn2J89UEvI >}}
+A build is reproducible when the same inputs produce the same output, bit for bit, regardless of who runs it and when they run it. Chainguard builds its containers with [apko](https://github.com/chainguard-dev/apko) from a declarative configuration, and publishes that configuration as a signed attestation on every build. You can retrieve the configuration, rebuild the container yourself, and check the digest you get against the one Chainguard published.
 
-## Clarification
+## What reproducibility requires
 
-In this video we mention needing to keep copies of old APKs in order to be able to recreate images.
-This wasn't fully accurate — in fact we do keep all our previously issued APKs, so you can build
-images from months (and in the future, years) ago without issue. We currently retain all of these
-package versions indefinitely (only servicing latest), but in the future we may age things out just
-to manage the size of the index.
+Reproducibility requires more than a build that succeeds twice. Binary identical means every byte matches, so a reproducible build has to control three things:
 
-## Tools used in this video
+- **The versions of its inputs.** Not only source code, but every dependency, each pinned to an exact version.
+- **The version of the build tooling.** The same inputs run through two versions of a build tool can produce two different results.
+- **Anything that varies from run to run.** Timestamps and generated unique IDs are the most common causes. They change on every build, and they change the output along with them.
 
-* [cosign](https://github.com/sigstore/cosign)
-* [apko](https://github.com/chainguard-dev/apko)
-* [diffoci](https://github.com/reproducible-containers/diffoci)
+When a build meets those conditions, anyone can verify its output independently: rather than trusting that a container was built from the configuration it claims, you can rebuild it and compare the digests.
 
-## Commands
+## Reproduce a Chainguard Container
 
-Retrieving the build configuration for the latest version of nginx:
+You need [cosign](https://github.com/sigstore/cosign), [apko](https://github.com/chainguard-dev/apko), [crane](https://github.com/google/go-containerregistry/tree/main/cmd/crane), `jq`, and a registry you can push to. cosign and apko are both distributed as signed binaries on their GitHub releases pages, and apko can also run from a container if you would rather not install it. The examples use `cgr.dev/chainguard/nginx`, one of Chainguard's [Free containers](/chainguard/containers/concepts/container-categories/#free-containers), so they run as written.
+
+### Record the digest you want to match
+
+```sh
+crane digest cgr.dev/chainguard/nginx:latest
+```
+
+```output
+sha256:<digest>
+```
+
+Chainguard moves the `latest` tag as it publishes rebuilds, so start by pinning down which build you're reproducing. The `<digest>` you get back is the value to match at the end; it differs from the one anyone else gets unless you both pull the same build. [Inspecting Chainguard Containers](/chainguard/containers/troubleshooting/inspecting-containers/) covers digests in more detail.
+
+### Retrieve the build configuration
+
+Every build carries its apko configuration as an attestation. The following command verifies that attestation and writes the configuration to a file:
 
 ```shell
 cosign verify-attestation \
@@ -46,193 +57,117 @@ cosign verify-attestation \
   cgr.dev/chainguard/nginx:latest | jq -r .payload | base64 -d | jq .predicate > latest.apko.json
 ```
 
-Building the image:
+The two certificate flags are what make that a verification. They tell cosign to accept the attestation only if it was signed by the GitHub Actions workflow that builds Chainguard's containers, using a certificate from that workflow's OIDC issuer. Without them you would be reading an attestation that is present, rather than one that is genuine. The rest of the pipeline unwraps the result: `jq -r .payload` takes the in-toto payload, `base64 -d` decodes it, and `jq .predicate` keeps the apko configuration itself.
+
+Read the configuration back from the file that the configuration was piped into:
 
 ```shell
-apko publish latest.apko.json ttl.sh/nginx-repro
-
+jq . latest.apko.json
 ```
 
-## Transcript
+The following shows this command's abridged output, highlighting a few fields worth calling out:
 
-Okay, so I want to talk about a topic that I think is hugely important to engineering reliability and security, but doesn't get talked about very much.
+```json
+{
+  "contents": {
+    "packages": [
+      "ca-certificates-bundle=20260611-r1",
+      "glibc-2.44-locale-posix=2.44-r6",
+      "glibc-2.44=2.44-r6",
+      "ld-linux-2.44=2.44-r6",
+      "..."
+    ],
+    "repositories": [
+      "https://apk.cgr.dev/chainguard"
+    ]
+  },
+  "accounts": {
+    "run-as": "65532",
+    "users": [
+      { "gid": 65532, "homedir": "/home/nginx", "uid": 65532, "username": "nginx" }
+    ]
+  },
+  "archs": [ "amd64", "arm64" ],
+  "entrypoint": { "command": "/usr/sbin/nginx" },
+  "stop-signal": "SIGQUIT"
+}
+```
 
-And that's reproducibility.
+apko builds are declarative: the configuration names a list of APK packages and some metadata, and nothing more. Two details in it matter. Each package is pinned to an exact version, and the list is complete — `glibc` does not quietly pull in a dependency that the file doesn't name. Everything else in the file is metadata that the build applies to the finished container: the user account to run as, the architectures to build, the entrypoint, the stop signal.
 
-Reproducibility is basically the idea that I run the same build twice, I should get the same thing out.
+### Rebuild and compare
 
-And that sounds trivial, but it's not.
+Point apko at the configuration and give it somewhere to push:
 
-For true reproducibility, we want things to be binary identical.
+```sh
+apko publish latest.apko.json ttl.sh/nginx-repro
+```
 
-That is, I run the same build twice, and I get the same thing out down to the last bit.
+apko builds one image per architecture in the `archs` list, assembles them into an index, pushes the result, and prints the digest of what it pushed as its final line:
 
-We also want somebody else in a different time and place to be able to run the same build and get exactly the same thing out again.
+```output
+ttl.sh/nginx-repro@sha256:<digest>
+```
 
-So this means we need to control versioning, not just the source code and inputs, but also the build tooling.
+That digest is the same `<digest>` the first step recorded, which means the rebuild is byte-for-byte identical to the container Chainguard published. The registry it was pushed to has no bearing on the value: a digest covers the content, not where it lives.
 
-Because if you run with a different version of your build tool, you could well get a different result.
+To run apko from its container instead of installing it, mount the directory holding the configuration and pass the same arguments:
 
-But typically where things go wrong is you have unique IDs or timestamps somewhere in your build.
+```shell
+docker run --rm -v "$PWD":/work -w /work cgr.dev/chainguard/apko:latest publish latest.apko.json ttl.sh/nginx-repro
+```
 
-And of course, that causes a different result on each run.
+`apko publish` needs a registry to push to. These examples use [ttl.sh](https://ttl.sh), a free registry whose images expire after a short time, which suits a throwaway comparison. Any registry you can write to works.
 
-Now, reproducibility is important to us at Chainguard, and I wanted to show how you can reproduce Chainguard images yourself.
+### Compare images that don't match
 
-So, to the terminal.
+When two digests differ, [diffoci](https://github.com/reproducible-containers/diffoci) reports the specific differences between the images rather than leaving you to compare two hashes:
 
-Okay, so let's start by pulling the NGINX image.
+```sh
+diffoci diff cgr.dev/chainguard/nginx:latest ttl.sh/nginx-repro
+```
 
-Now, the interesting bit here is this line here.
+When the images match, the command exits without reporting anything. When they differ, it lists the differing files and where they differ. Add `--ignore-timestamps` to set aside timestamp differences, or `--semantic` to ignore everything diffoci treats as non-substantive, including file ordering and redundant file mode bits.
 
-So this is the digest for the NGINX image.
+## What limits reproducibility
 
-The digest is basically a SHA hash of the image, so it uniquely specifies that image.
+Three factors can prevent an exact match, and each is worth understanding before concluding that a rebuild has failed.
 
-If we manage to recreate this image, we should end up with exactly the same SHA hash.
+- **The version of apko matters.** A change in how a build tool handles something as small as a symbolic link is enough to change a digest. Every Chainguard Container records the version that built it in its SLSA provenance attestation:
 
-Okay, and the way we're going to try to recreate it is we're going to start by using cosign to get the apko image configuration.
+  ```shell
+  cosign verify-attestation \
+    --type https://slsa.dev/provenance/v1 \
+    --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+    --certificate-identity https://github.com/chainguard-images/images/.github/workflows/release.yaml@refs/heads/main \
+    cgr.dev/chainguard/nginx:latest | jq -r .payload | base64 -d | jq .predicate.runDetails.builder
+  ```
 
-So this is an attestation that includes the build config to build that image.
+  ```output
+  {
+    "id": "https://github.com/chainguard-dev/terraform-provider-apko",
+    "version": {
+      "apko": "v1.2.43",
+      "terraform-provider-apko": "v1.2.20"
+    }
+  }
+  ```
 
-And what we're saying here is this attestation should have been signed using the certificate for the corresponding GitHub action, and the identity should correspond to the workflow that created this attestation.
+  If a rebuild produces a different digest, check that version first.
 
-Here we specify the image we're interested in.
+- **APKs cannot be rebuilt bit for bit from source.** You can build the packages themselves from source, and their contents match, but each APK embeds a signature made with Chainguard's private signing key. Without that key you cannot produce an identical package file.
 
-So here we've got `nginx:latest`.
+- **The pinned package versions have to be available.** apko installs the exact versions the configuration names, so reproducing an old container depends on those versions still being served from the repository it points at.
 
-Of course, you can change that for whatever image you're interested in.
+## Correction to the video
 
-We could also have specified the full SHA there.
+The following video says that Chainguard keeps older package versions only for a short time, and that reproducing an older container therefore means holding your own copies of the APKs. That statement is not accurate. Chainguard retains every package version it has issued, so you can rebuild containers from months ago without arranging your own storage. Chainguard may age older versions out in the future to keep the package index manageable, and only the latest versions are serviced with fixes, but retention today is indefinite.
 
-That would have made sense as well.
+{{< youtube 0Qn2J89UEvI >}}
 
-We then extract the payload section from the JSON that gets returned.
-
-We deconvert that from base64, and then we pull out the predicate section to finally give us our JSON file that includes our apko.
-
-So let's run that.
-
-Okay, and we get some output just telling us that it has managed to successfully verify the attestation, so we know it's genuine.
-
-And let's take a look at what it's created.
-
-So this is our apko file.
-
-It's a pretty simple build file.
-
-Apko is a very simple build system.
-
-Basically, all you can do is specify a list of APK packages to install in the image plus some metadata.
-
-So at the top there, you saw some stuff relating to UNIX accounts to create, some annotations to add to the image, the architectures we're going to build for, the CMD line for the Docker file, and then all these lists of versioned APK dependencies.
-
-And this is the full list of dependencies.
-
-So it's not the case that `libgcc` is going to pull in another dependency that's not listed here.
-
-This is the full list.
-
-And they're all coming from `packages.wolfi.dev`, as we expect.
-
-Also set an ENTRYPOINT and some environment stuff.
-
-And that's about it.
-
-Okay, so let's try running apko with that file.
-
-We're actually going to call `apko publish`.
-
-So what we're seeing here is `apko publish`, which is going to build from this `latest.apko.json` file.
-
-And then it's going to publish the image that results to this repo, `ttl.sh/nginx-repro`.
-
-So `ttl.sh`, if you've not seen it, it's basically a free to use Docker registry that you can upload anything to, but it only sits there for a short amount of time.
-
-So it's a temporary registry for testing things if you like.
-
-And that's from Replicated.
-
-So thank you very much, Replicated.
-
-Okay, so what's happening here?
-
-I clicked run there.
-
-And we're building images for both AMD64 and ARM64.
-
-We see it installed in all the packages.
-
-And in fact, you'll see that twice because, of course, we're building two images.
-
-Also building some of the other container stuff and SBOMs for these images.
-
-And that's about it.
-
-Now, important bit is at the bottom here.
-
-Here we have our SHA again.
-
-So this is the SHA of the image it's created.
-
-And it's `f705`.
-
-I've forgotten what it was before.
-
-So let's download nginx again and see if it matches.
-
-And it does.
-
-So that's pretty cool.
-
-We've managed to recreate this Chainguard image bit for bit and push it to this repo.
-
-And it's relatively unusual for build tooling to be able to do that with container images.
-
-But here we've done it with apko and Chainguard images.
-
-There are, however, a few things to be aware of.
-
-So if I take a look at this `latest.apko.json`, first thing to be aware of is all these APKs are specified as specific versions that were used.
-
-Now, Wolfi is a rolling repo.
-
-We don't keep older versions of packages for very long.
-
-So in six months time, I'm unlikely to be able to download some of these packages at these exact versions.
-
-So if you want to be able to recreate this, you'd have to have access to the old packages somehow.
-
-The second one is you may think, well, OK, but can I reproduce these packages from source?
-
-And yes, you can.
-
-But the issue is you won't end up with binary identical versions because the APKs themselves include signatures inside them that have been signed using Wolfi's signing key, and of course you won't have access to the private signing key.
-
-So you're going to be unable to create a binary identical version of the APKs.
-
-Finally, do you remember what I said earlier about build tooling?
-
-So this created with this version of apko, which I actually built from the head of the repo.
-
-I did originally try with a different version that was released and that actually failed to reproduce.
-
-And I got a different digest because it handled links slightly differently.
-
-So a minor difference in the build tooling caused the binaries to be different.
-
-So one thing I would say is if you're playing with reproducing images, there's a really great tool called diffoci.
-
-And you run diffoci on on your images, then it'll tell you exactly what the difference between two images are.
-
-So if I run it here on these two images, it basically just tells me, yeah, those match.
-
-But if I run it on different images, I'll give you a full list of which files inside the images are different and where they're different.
-
-So a really, really useful tool there.
-
-And it'll also allow you to filter out things like timestamp differences if you're not interested in them.
-
-OK, so that was a long way of saying that Chainguard images are reproducible and you can even reproduce them yourselves.
-
-Please do give us a go and let me know how you get on.
+## Related reading
+
+- [How to retrieve SBOMs and attestations for Chainguard Containers](/chainguard/containers/security-and-compliance/retrieve-image-sboms/) — the other attestation types published alongside the apko configuration, and how to fetch them.
+- [Inspecting Chainguard Containers](/chainguard/containers/troubleshooting/inspecting-containers/) — identifying a build by digest, and reading the software versions inside it.
+- [Verifying Chainguard Containers and metadata signatures with Cosign](/chainguard/containers/security-and-compliance/verifying-chainguard-images-and-metadata-signatures-with-cosign/) — verifying signatures and provenance more generally.
+- [How Chainguard Containers are tested](/chainguard/containers/concepts/how-we-build-and-test/images-testing/) — what happens to a container before it's published.
