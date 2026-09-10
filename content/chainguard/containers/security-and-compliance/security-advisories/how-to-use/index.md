@@ -15,7 +15,7 @@ aliases:
 type: "article"
 description: "Article outlining how one can explore and use the Security Advisories found on the Chainguard Container Directory."
 date: 2023-12-27T11:07:52+02:00
-lastmod: 2026-09-09T17:33:40+00:00
+lastmod: 2026-09-10T15:51:02+00:00
 draft: false
 tags: ["Chainguard Containers", "CVE"]
 images: []
@@ -32,6 +32,14 @@ In alignment with the [Chainguard Containers product release lifecycle](/chaingu
 We do not actively monitor non-supported versions of a package or image. Our efforts are centered on keeping the latest versions up-to-date and as close to zero CVEs as we can, while encouraging customers to upgrade and stay on supported versions.
 
 This guide outlines how you can use Chainguard's Security Advisories to learn more about the status of a CVE within a given package. It will walk through a practical example of discovering a vulnerability in a Chainguard Container, searching for Security Advisories associated with this vulnerability, and then comparing the original container image with a later version.
+
+## Advisory database scope
+
+Chainguard Security Advisories cover vulnerabilities in APK packages. The advisory lookup does not determine whether a finding affects a Go module, Java dependency, or another non-APK component.
+
+For an APK finding in a Chainguard image, use [Check whether a reported CVE affects your container](/chainguard/containers/security-and-compliance/vulnerability-management/cve-status/) to compare the scanner result with the advisories for the packages in the image. Use the image digest and the platform that the scanner analyzed.
+
+For a Go-module or Java-dependency finding, the absence of an APK advisory does not make it a false positive. Validate these findings against the scanner's language-package evidence and the dependency's upstream advisory data, as described in [When the finding is a Go module or Java dependency](/chainguard/containers/security-and-compliance/vulnerability-management/cve-status/#when-the-finding-is-a-go-module-or-java-dependency).
 
 ## Prerequisites
 
