@@ -4,12 +4,13 @@ linktitle: "FAQ"
 description: "Frequently asked questions about Chainguard Libraries, including security benefits, supported ecosystems, and how automated patching protects against supply chain attacks"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-09-01T13:45:43+00:00
+lastmod: 2026-09-10T14:55:52+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 aliases:
   - /chainguard/libraries/how-libraries-help-developers/
   - /chainguard/libraries/faq/
+  - /chainguard/libraries/how-libraries-plug-into-workflow/
 menu:
   docs:
     parent: "troubleshooting"
@@ -40,6 +41,26 @@ scanning. Packages identified as malicious are blocked.
 **Dustin Kirkland**: Yeah, so building off of that Chainguard Factory, we've actually repurposed all of that automation to not just build packages and containers, but actually fetch libraries directly from their upstream source and recompile those Java binaries—JARs—and those Python binaries—wheels—in a new format, or in the same format rather, but totally bootstrapped from source. The fact that we can rebuild those libraries means that we can actually patch them if necessary.
 
 Now, in doing so, we've created an entire repository of Python wheels and Java JARs that we can publish and hydrate into a customer's environment, so that their developers can retrieve their libraries from a secure source, from a trusted source, and avoid malicious packages—deliberately modified or intentionally compromised packages—which, you know, we find in PyPI.org or in Maven Central from time to time. But Chainguard building those from source ensures that that entire open source ecosystem is secured in the same way that we're securing the packages and the container ecosystems.
+
+{{< /details >}}
+
+## How does Chainguard Libraries plug into a developer's workflow?
+
+{{< details "Watch: How Chainguard Libraries plugs into a developer's workflow" >}}
+
+{{< youtube SBisxaL855k >}}
+
+### Transcript
+
+**Interviewer**: So Dustin, how does Libraries actually plug into a developer workflow?
+
+**Dustin Kirkland**: Yeah, so I used the word "hydrate" earlier. We hydrate typically a JFrog Artifactory or a Cloudsmith—we hydrate that registry of artifacts with Chainguard securely built artifacts. And we produce this constant flow of tens of thousands of those library version tuples into that environment. And our customers can come to us and get a license for our entire Java ecosystem or our entire Python ecosystem.
+
+So from that sense, we're certainly not an artifact registry. You use the artifact registry that's typically used inside of your organization. We help populate that with secure artifacts. This is fairly similar to our approach with containers, where we're not a scanner, but what we're trying to do is complement the scanners that you have with better containers that have fewer CVEs, and you end up with cleaner scan results. So in this artifact sense, we're not an artifact registry, but we're putting better binaries into that artifact destination.
+
+**Interviewer**: So once the artifact registry is set up, is there any changes to actual developers' workflow, or will it just work?
+
+**Dustin Kirkland**: Typically not. I mean, if inside of your organization you already have an artifact registry and your developers are pip installing or maybe even importing those classes and libraries from that artifact repository, we're just replacing the artifacts that may have additional vulnerabilities or potentially malicious code with artifacts that have fewer vulnerabilities and are immune to that malicious code.
 
 {{< /details >}}
 
