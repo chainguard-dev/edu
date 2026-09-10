@@ -5,11 +5,21 @@
   "Group" cell that spans every adjacent header cell with the same group.
   Every leaf header cell gets a data-col attribute so CSS can match it to
   its body column regardless of the spans.
+
+  A page opts every table in with `table_layout: auto` in its front matter.
+  (A `{.table-auto}` attribute line after a table also works, but
+  markdownlint reads it as a one-cell table row, MD056.)
 */ -}}
+{{- $attrs := .Attributes }}
+{{- $class := $attrs.class | default "" }}
+{{- if and (eq .Page.Params.table_layout "auto") (not (in $class "table-auto")) }}
+  {{- $class = trim (printf "%s table-auto" $class) " " }}
+  {{- $attrs = merge $attrs (dict "class" $class) }}
+{{- end }}
 {{- $grouped := false }}
 {{- $head := slice }}
 {{- with .THead }}{{ $head = index . 0 }}{{ end }}
-{{- if in (.Attributes.class | default "") "table-auto" }}
+{{- if in $class "table-auto" }}
   {{- range $head }}{{ if in (string .Text) " / " }}{{ $grouped = true }}{{ end }}{{ end }}
 {{- end }}
 {{- $top := slice }}
@@ -35,7 +45,7 @@
   {{- end }}
 {{- end -}}
 <table
-  {{- range $k, $v := .Attributes }}
+  {{- range $k, $v := $attrs }}
     {{- if $v }}
       {{- printf " %s=%q" $k $v | safeHTMLAttr }}
     {{- end }}

@@ -12,6 +12,7 @@ menu:
     parent: "chainguard-os"
     identifier: "Chainguard OpenSSL 3.6"
 toc: true
+table_layout: auto
 ---
 
 This is a summary of available algorithms in Chainguard OpenSSL 3.6
@@ -179,7 +180,6 @@ For more information about Transport Layer Security (TLS) please see the followi
 | 0xCC,0xAC | TLS_ECDHE_PSK_WITH_CHACHA20_POLY1305_SHA256 | Yes |  |  |  |
 | 0xCC,0xAD | TLS_DHE_PSK_WITH_CHACHA20_POLY1305_SHA256 | Yes |  |  |  |
 | 0xCC,0xAE | TLS_RSA_PSK_WITH_CHACHA20_POLY1305_SHA256 | Yes |  |  |  |
-{.table-auto}
 
 ## TLS Supported Groups
 
@@ -215,7 +215,6 @@ For more information about Transport Layer Security (TLS) please see the followi
 | 4587 | SecP256r1MLKEM768 | Yes | Yes |  |  |
 | 4588 | X25519MLKEM768 | Yes | First |  |  |
 | 4589 | SecP384r1MLKEM1024 | Yes | Yes |  |  |
-{.table-auto}
 
 ## TLS SignatureScheme
 
@@ -250,7 +249,6 @@ For more information about Transport Layer Security (TLS) please see the followi
 | 0x0904 | mldsa44 | Yes | Yes |  |  |
 | 0x0905 | mldsa65 | Yes | Yes |  |  |
 | 0x0906 | mldsa87 | Yes | Yes |  |  |
-{.table-auto}
 
 ## Elliptic Curves
 
@@ -295,4 +293,3 @@ For more information about Transport Layer Security (TLS) please see the followi
 | 2.23.43.1.4.8 | wap-wsg-idm-ecid-wtls8 | Yes |  |  |  |
 | 2.23.43.1.4.9 | wap-wsg-idm-ecid-wtls9 | Yes |  |  |  |
 | 2.23.43.1.4.12 | wap-wsg-idm-ecid-wtls12 | Yes |  |  |  |
-{.table-auto}
