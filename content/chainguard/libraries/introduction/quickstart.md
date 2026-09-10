@@ -4,7 +4,7 @@ linktitle: "Quickstart"
 description: "Learn how to get started with Chainguard Libraries"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-09-09T17:33:40+00:00
+lastmod: 2026-09-10T12:58:57+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -102,7 +102,7 @@ Learn how to set up direct access in the build configuration documentation for
 [Pull tokens](/chainguard/libraries/introduction/access/#creating-pull-tokens-for-libraries)
 are required for authentication. You can [create one using `chainctl`](/platform/chainctl/chainctl-docs/chainctl_auth_pull-token_create/):
 
-{{< tabs >}}
+{{< tabs label="Language ecosystem for creating a pull token" >}}
 
 {{% tab title="Java" %}}
 
@@ -154,7 +154,7 @@ If you [configure upstream fallback](/chainguard/libraries/introduction/overview
 
 Upstream packages served through the Chainguard Repository are subject to configurable policy controls such as cooldown and malware protection. It is strongly recommended that you follow this approach.
 
-{{< tabs >}}
+{{< tabs label="Language ecosystem for build tool configuration" >}}
 
 {{% tab title="Java" %}}
 

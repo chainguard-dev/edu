@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Java project to pull dependencies from Chainguard Libraries"
 date: 2026-07-02T00:00:00+00:00
-lastmod: 2026-09-09T17:33:40+00:00
+lastmod: 2026-09-10T12:58:57+00:00
 tags: ["Chainguard Libraries", "Java"]
 menu:
   docs:
@@ -59,7 +59,7 @@ It can take up to 30 minutes for the fallback and cooldown policies to take effe
 
 Before making any changes, confirm your project builds cleanly against Maven Central.
 
-{{< tabs >}}
+{{< tabs label="Build tool for confirming your baseline build" >}}
 
 {{% tab title="Maven" %}}
 
@@ -132,7 +132,7 @@ The `https://libraries.cgr.dev/java/` endpoint is also the [Chainguard Repositor
 
 ### Direct access
 
-{{< tabs >}}
+{{< tabs label="Build tool for direct access configuration" >}}
 
 {{% tab title="Maven" %}}
 
@@ -286,7 +286,7 @@ If your organization uses a repository manager, configure it to use Chainguard L
 
 Once configured, point your build tool at your repository manager URL. In this setup, the credentials your build tool uses are your repository manager credentials — not a Chainguard pull token.
 
-{{< tabs >}}
+{{< tabs label="Build tool for repository manager configuration" >}}
 
 {{% tab title="Maven" %}}
 
@@ -414,7 +414,7 @@ Replace `https://repo.example.com/java-all/` with your repo manager's virtual re
 
 To force re-resolution from Chainguard, you can clear local caches or clear only relevant artifacts.
 
-{{< tabs >}}
+{{< tabs label="Build tool for refreshing dependencies" >}}
 
 {{% tab title="Maven" %}}
 
@@ -461,7 +461,7 @@ bazel clean --expunge
 
 Run a full build and capture the output.
 
-{{< tabs >}}
+{{< tabs label="Build tool for building the project" >}}
 
 {{% tab title="Maven" %}}
 
@@ -511,7 +511,7 @@ To check whether a specific artifact was built by Chainguard, use `chainctl libr
 
 When upstream fallback is enabled, [packages that aren't built by Chainguard] are subject to Chainguard's security controls.
 
-{{< tabs >}}
+{{< tabs label="Build tool for verifying artifacts" >}}
 
 {{% tab title="Maven" %}}
 

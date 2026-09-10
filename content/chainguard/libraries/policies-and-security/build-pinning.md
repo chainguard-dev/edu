@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Build pinning"
 description: "Use build pinning to keep library artifacts stable across rebuilds."
 date: 2026-08-19T08:04:00+00:00
-lastmod: 2026-08-21T15:16:45+00:00
+lastmod: 2026-09-10T12:58:57+00:00
 draft: false
 tags: ["Chainguard Libraries", "Build pinning"]
 menu:
@@ -102,7 +102,7 @@ To move a package from an upstream-sourced artifact to a Chainguard-built one, y
 
 First, force a fresh install:
 
-{{< tabs >}}
+{{< tabs label="Language ecosystem for adopting a Chainguard build" >}}
 
 {{% tab title="Java" %}}
 

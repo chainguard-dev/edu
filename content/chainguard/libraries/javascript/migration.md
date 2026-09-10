@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing JavaScript project to pull dependencies from Chainguard Libraries"
 date: 2026-06-01T00:00:00+00:00
-lastmod: 2026-09-09T17:33:40+00:00
+lastmod: 2026-09-10T12:58:57+00:00
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
   docs:
@@ -104,7 +104,7 @@ one place.
 
 To see all currently active npm configuration and where each value comes from:
 
-{{< tabs >}}
+{{< tabs label="Package manager for auditing registry configuration" >}}
 
 {{% tab title="npm" %}}
 
@@ -315,7 +315,7 @@ Once configured, point your build tool at your repository manager URL. In this
 setup, the credentials your build tool uses are your repository manager
 credentials — not a Chainguard pull token.
 
-{{< tabs >}}
+{{< tabs label="Package manager for repository manager configuration" >}}
 
 {{% tab title="npm or Yarn Classic" %}}
 
@@ -406,7 +406,7 @@ You can update your lockfile in one of two ways. Update the checksums in place t
 keep your existing pinned versions, or regenerate the lockfile if you also want to
 refresh your dependency versions.
 
-{{< tabs >}}
+{{< tabs label="Lockfile update approach" >}}
 
 {{% tab title="Update in place" %}}
 
@@ -478,7 +478,7 @@ Libraries](#packages-not-available-in-chainguard-libraries) for next steps.
 
 ## Step 4: Delete node_modules and clear caches
 
-{{< tabs >}}
+{{< tabs label="Package manager for clearing caches" >}}
 
 {{% tab title="npm" %}}
 
@@ -573,7 +573,7 @@ your repository manager host, not `registry.npmjs.org`.
 
 > Note: When using the `update-hashes` command, some package managers and tool versions default to appending the hash rather than replacing it. In some cases, the resulting dual-hash format fails on install. If you encounter integrity errors, [run the command again](#step-3-update-your-lockfile) and include the `--replace` flag.
 
-{{< tabs >}}
+{{< tabs label="Package manager for reinstalling dependencies" >}}
 
 {{% tab title="npm" %}}
 
@@ -652,7 +652,7 @@ their directory structure.
 
 When upstream fallback is enabled, [packages that aren't built by Chainguard](#packages-not-available-in-chainguard-libraries) are subject to Chainguard's security controls.
 
-{{< tabs >}}
+{{< tabs label="Package manager for verifying libraries" >}}
 
 {{% tab title="npm" %}}
 
