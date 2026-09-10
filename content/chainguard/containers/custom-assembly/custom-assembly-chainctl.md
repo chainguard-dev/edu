@@ -4,7 +4,7 @@ linktitle: "Manage with chainctl"
 type: "article"
 description: "How to use chainctl to manage Custom Assembly resources."
 date: 2025-05-01T11:07:52+02:00
-lastmod: 2026-09-09T17:33:40+00:00
+lastmod: 2026-09-09T18:05:27+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural", "Custom Assembly"]
 images: []
@@ -26,10 +26,16 @@ You can use [`chainctl`, Chainguard's command-line interface tool](/platform/cha
 
 ## Adding packages to a customized container image
 
-To edit one of your organization's Custom Assembly container images, you can run the `chainctl image repo build edit` command:
+`chainctl` offers two ways to change the packages in a Custom Assembly container image. The `edit` subcommand opens the build configuration in your text editor, and the `apply` subcommand takes a configuration file you've already written. Both produce the same result, and both start a build once you confirm the change.
+
+For a shorter, task-first version of these procedures, along with how to find a package name and how to confirm the package reached the finished image, see [Adding a package to a Chainguard Container](/chainguard/containers/building-and-modifying/adding-packages/).
+
+### Editing packages interactively
+
+To edit one of your organization's Custom Assembly container images, you can run the `chainctl images repos build edit` command:
 
 ```shell
-chainctl image repo build edit --parent $ORGANIZATION --repo $CONTAINER
+chainctl images repos build edit --parent $ORGANIZATION --repo $CONTAINER
 ```
 
 This example includes the `--parent` flag, which points to the name of your organization, and the `--repo` argument, which points to the name of the image you want to customize. If you omit these arguments, `chainctl` will prompt you to select your organization and container image interactively.
@@ -65,6 +71,8 @@ Enter `y` to apply the changes.
 
 Following that, you'll be able to see the updated builds in the Chainguard Console, though it may take a few minutes for these changes to populate.
 
+### Applying packages non-interactively
+
 To edit a customized container image without any interactivity, you can use the `apply` subcommand. This method requires you to have a YAML file listing the desired packages, like the example created with this command:
 
 ```shell
@@ -80,7 +88,7 @@ EOF
 Then include this file in the `apply` command by adding the `-f` argument:
 
 ```shell
-chainctl image repo build apply -f build.yaml --parent $ORGANIZATION --repo $CONTAINER --yes
+chainctl images repos build apply -f build.yaml --parent $ORGANIZATION --repo $CONTAINER --yes
 ```
 
 This command will again ask you to confirm that you want to apply the new configuration. To make this example completely declarative, this example includes `--yes` to automatically confirm the changes:
@@ -107,24 +115,36 @@ Do you want to continue? [y,N]:
 
 This approach is useful in cases where you would prefer to avoid any kind of interactivity, as in a CI/CD or other automation system.
 
+To see what a configuration file would change without changing anything, replace `--yes` with `--dry-run`. The command prints the same diff and then exits with a non-zero status if there's anything to apply, which makes it usable as a drift check in a pipeline:
+
+```shell
+chainctl images repos build apply -f build.yaml --parent $ORGANIZATION --repo $CONTAINER --dry-run
+```
+
+The `edit` subcommand also accepts a configuration file through its own `-f` argument. Passing a file to `edit` skips the text editor but still prompts you to confirm the diff:
+
+```shell
+chainctl images repos build edit -f build.yaml --parent $ORGANIZATION --repo $CONTAINER
+```
+
 ### Using the `--save-as` option
 
 When customizing a Chainguard Container with Custom Assembly, you have the option to either customize the image itself or create a new image based on the original with your customizations applied to it.
 
-For example, say your organization has access to Chainguard's [`node` container image](https://images.chainguard.dev/directory/image/node/versions). If you use Custom Assembly to customize the `node` image without creating a new image, then the customizations applied to it will also apply to any users in your organization that are already consuming the image. Anyone who runs `docker pull cgr.dev/example.come/node` will download the customized image instead of the original, uncustomized one.
+For example, say your organization has access to Chainguard's [`node` container image](https://images.chainguard.dev/directory/image/node/versions). If you use Custom Assembly to customize the `node` image without creating a new image, then the customizations applied to it will also apply to any users in your organization that are already consuming the image. Anyone who runs `docker pull cgr.dev/example.com/node` will download the customized image instead of the original, uncustomized one.
 
 By creating a new image with Custom Assembly, you can customize the image without impacting any of the users or workflows already consuming it. You could also create multiple customized images based on the `node` container image to support specific functions.
 
 To use `chainctl` to create new customized container images with Custom Assembly, you must include the `--save-as` option, like this:
 
 ```shell
-chainctl image repo build edit --parent $ORGANIZATION --repo $CONTAINER --save-as $NEW_NAME
+chainctl images repos build edit --parent $ORGANIZATION --repo $CONTAINER --save-as $NEW_NAME
 ```
 
 The following example command creates a new image named `custom-node` after applying the customizations:
 
 ```shell
-chainctl image repo build edit --parent example.com --repo node --save-as custom-node
+chainctl images repos build edit --parent example.com --repo node --save-as custom-node
 ```
 
 Once you run this example, the new container image would be accessible from the following URL:
@@ -133,7 +153,13 @@ Once you run this example, the new container image would be accessible from the 
 cgr.dev/example.com/custom-node
 ```
 
-Note that you **must** pass the new image's name when using the `--save-as` option; `chainctl` will return an error if you don't include a new name. Additionally, you can only use this option with the `edit` subcommand; you cannot create a new image declaratively using the `apply` subcommand.
+The `apply` subcommand accepts `--save-as` as well, so you can create a new image without any interactivity:
+
+```shell
+chainctl images repos build apply -f build.yaml --parent example.com --repo node --save-as custom-node --yes
+```
+
+Note that you **must** pass the new image's name when using the `--save-as` option; `chainctl` will return an error if you don't include a new name. Additionally, `--save-as` applies to a single source repository. It isn't available when you target several repositories at once, either by passing `--repo` more than once or by using a wildcard.
 
 ## Adding custom annotations and environment variables
 
@@ -146,7 +172,7 @@ Chainguard Containers include metadata in the form of *annotations*. These annot
 With Custom Assembly, you can add custom annotations to your Chainguard Containers using `chainctl`. The process is the same as the one outlined previously for adding packages. First run a command like the following:
 
 ```shell
-chainctl image repo build edit --parent $ORGANIZATION --repo $CONTAINER
+chainctl images repos build edit --parent $ORGANIZATION --repo $CONTAINER
 ```
 
 In the text editor, add an `annotations` section to the bottom of the file like the following example:
@@ -173,10 +199,10 @@ Note that Custom Assembly blocks `org.opencontainers` and `dev.chainguard` annot
 
 Chainguard Containers often come with a set of predefined environment variables. These are useful for setting certain configuration details that are available to the container at runtime.
 
-You can follow the same procedure for adding custom annotations to add custom environment variables to your Custom Assembly container images. Start by running a `chainctl image repo build edit` command:
+You can follow the same procedure for adding custom annotations to add custom environment variables to your Custom Assembly container images. Start by running a `chainctl images repos build edit` command:
 
 ```shell
-chainctl image repo build edit --parent $ORGANIZATION --repo $CONTAINER
+chainctl images repos build edit --parent $ORGANIZATION --repo $CONTAINER
 ```
 
 In the text editor, add an `environment` section like the following example:
@@ -206,10 +232,10 @@ Custom Assembly lets you replace the default APK repository URLs written to `/et
 
 > **Note**: This feature only affects which repository URLs are written into the image for runtime use. Build-time package resolution always uses Chainguard's `apk.cgr.dev` repositories. For more details on limitations and compatibility, refer to the [Custom runtime repositories overview](/chainguard/containers/custom-assembly/overview/#custom-runtime-repositories).
 
-To add custom runtime repositories, use `chainctl image repo build edit` as with other customizations:
+To add custom runtime repositories, use `chainctl images repos build edit` as with other customizations:
 
 ```shell
-chainctl image repo build edit --parent $ORGANIZATION --repo $CONTAINER
+chainctl images repos build edit --parent $ORGANIZATION --repo $CONTAINER
 ```
 
 In the text editor, add a `runtime_repositories` field under `contents`:
@@ -248,7 +274,7 @@ EOF
 ```
 
 ```shell
-chainctl image repo build apply -f build.yaml --parent $ORGANIZATION --repo $CONTAINER --yes
+chainctl images repos build apply -f build.yaml --parent $ORGANIZATION --repo $CONTAINER --yes
 ```
 
 To remove custom runtime repositories and revert to the default `virtualapk.cgr.dev` URLs, edit the configuration and remove the `runtime_repositories` field entirely.
@@ -274,7 +300,7 @@ Custom Assembly images trust only Chainguard's APK signing key by default. If yo
 To add a runtime key, pass the public key file to the `--with-runtime-keys` option:
 
 ```shell
-chainctl image repo build edit --parent $ORGANIZATION --repo $CONTAINER --with-runtime-keys=key-ee8fa0a3.rsa.pub
+chainctl images repos build edit --parent $ORGANIZATION --repo $CONTAINER --with-runtime-keys=key-ee8fa0a3.rsa.pub
 ```
 
 Each file becomes a key in `/etc/apk/keys` named after the file's basename. The name must match the filename referenced by your repository's APKINDEX signature (`.SIGN.RSA256.<name>`), because `apk` looks up the key by that name during verification. `chainctl` uses filenames verbatim and returns an error if two files share the same basename.
@@ -315,7 +341,7 @@ Runtime keys are validated when the configuration is applied. The following rule
 You can also use the `list` subcommand to retrieve every one of a customized image's builds from the past 24 hours:
 
 ```shell
-chainctl image repo build list --parent $ORGANIZATION --repo $REPO
+chainctl images repos build list --parent $ORGANIZATION --repo $REPO
 ```
 
 This command is useful for quickly determining which builds were successful or failed:
@@ -333,7 +359,7 @@ This command is useful for quickly determining which builds were successful or f
 Lastly, you can also retrieve the logs for a given build with the `logs` subcommand:
 
 ```shell
-chainctl image repo build logs --parent $ORGANIZATION --repo $REPO
+chainctl images repos build logs --parent $ORGANIZATION --repo $REPO
 ```
 
 This command will prompt you to select the build report you want to view. These are organized in reverse chronological order by the time of each build:

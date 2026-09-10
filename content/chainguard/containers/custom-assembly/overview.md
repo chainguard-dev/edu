@@ -10,7 +10,7 @@ aliases:
 type: "article"
 description: "How to use Chainguard's Custom Assembly tool"
 date: 2025-02-19T11:07:52+02:00
-lastmod: 2026-09-09T17:33:40+00:00
+lastmod: 2026-09-09T18:05:27+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly"]
 images: []
@@ -29,11 +29,19 @@ additional packages, environment variables, user accounts, and certificates,
 teams can reduce CVE exposure while maintaining the flexibility their workflows
 demand.
 
-This overview of Custom Assembly outlines how it works, its limitations, and how you can use container images customized with Custom Assembly. For a more hands-on tutorial on using Custom Assembly, Chainguard Academy currently has documentation for the following methods of managing the tool:
+This overview of Custom Assembly outlines how it works, its limitations, and how you can use container images customized with Custom Assembly.
 
-* [Using the Chainguard Console](/chainguard/containers/custom-assembly/custom-assembly-console/)
-* [Using `chainctl`, Chainguard's command-line interface tool](/chainguard/containers/custom-assembly/custom-assembly-chainctl/)
-* [Using Chainguard's API](/chainguard/containers/custom-assembly/custom-assembly-api-demo/)
+You can drive Custom Assembly through any of the following interfaces. They produce the same result, so pick the one that matches how you work:
+
+| Interface | Use it when |
+| --- | --- |
+| [The Chainguard Console](/chainguard/containers/custom-assembly/custom-assembly-console/) | You want to browse the packages your organization can add and apply the change in a few clicks. |
+| [`chainctl`, interactively](/chainguard/containers/custom-assembly/custom-assembly-chainctl/#editing-packages-interactively) | You work from a terminal and want to review a diff before it applies. |
+| [`chainctl`, non-interactively](/chainguard/containers/custom-assembly/custom-assembly-chainctl/#applying-packages-non-interactively) | You keep image configuration in version control or apply it from CI/CD. |
+| [GitOps](/chainguard/containers/custom-assembly/custom-assembly-gitops/) | You want a pipeline that applies configuration changes as they merge. |
+| [Chainguard's API](/chainguard/containers/custom-assembly/custom-assembly-api-demo/) | You're building your own tooling around Custom Assembly. |
+
+If you're adding a package for the first time, [Adding a package to a Chainguard Container](/chainguard/containers/building-and-modifying/adding-packages/) walks the whole task end to end, from finding the package name to confirming it reached the finished image.
 
 With Custom Assembly, you can add the following to your container images:
 

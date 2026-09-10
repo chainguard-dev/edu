@@ -5,7 +5,7 @@ type: "article"
 description: "Learn about Chainguard Containers, distroless images, and how they provide enhanced security through minimal attack surface and comprehensive supply chain features."
 lead: "Chainguard Containers are security-hardened container images built with a distroless approach, containing only essential application components and runtime dependencies."
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2025-07-23T16:52:56+00:00
+lastmod: 2026-09-09T18:07:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -36,9 +36,9 @@ All Chainguard Containers are built with a consistent set of security and supply
 
 Chainguard Containers include features that allow you to customize images, manage updates, and meet security and compliance requirements across the container lifecycle:
 
-- [Custom Assembly](/chainguard/containers/custom-assembly/overview/): Customize Chainguard images by adding packages, configuration files, and certificates using chainctl, without maintaining your own Dockerfiles.
+- [Custom Assembly](/chainguard/containers/custom-assembly/overview/): Customize Chainguard images by adding packages, configuration files, and certificates from the Chainguard Console, `chainctl`, or the Chainguard API, without maintaining your own Dockerfiles.
 - Custom certificates: Add trusted certificates [to existing containers via Custom Assembly](/chainguard/containers/custom-assembly/custom-assembly-certs/) (for organization-specific or environment-specific certificates) or by [using incert to build images with certificates embedded at build time](/chainguard/containers/custom-assembly/incert-custom-certs/).
-- [Packages](/chainguard/containers/building-and-modifying/packages/package-model/): Install and manage additional packages in Chainguard images while preserving Chainguard’s minimal, secure-by-default base images.
+- [Packages](/chainguard/containers/building-and-modifying/adding-packages/): Install and manage additional packages in Chainguard images while preserving Chainguard’s minimal, secure-by-default base images.
 - [EOL grace periods](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/): Control how end-of-life packages are handled in images to balance security requirements with operational stability.
 - [STIGs](/chainguard/containers/security-and-compliance/stigs/): Use DISA STIG–aligned images to support compliance-driven environments.
 - [Unique tags](/chainguard/containers/reference/unique-tags/) and [tag history](/chainguard/containers/reference/using-the-tag-history-api/): Track image changes over time with immutable tags and access tag history via API.
