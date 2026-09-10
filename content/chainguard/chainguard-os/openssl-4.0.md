@@ -52,9 +52,9 @@ For more information about Transport Layer Security (TLS) please see the followi
 | 0x00,0x9F |  | TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 |  |  | Yes |  |
 | 0x00,0xA6 |  | TLS_DH_anon_WITH_AES_128_GCM_SHA256 |  |  | Yes |  |
 | 0x00,0xA7 |  | TLS_DH_anon_WITH_AES_256_GCM_SHA384 |  |  | Yes |  |
-| 0x13,0x01 | 1 | TLS_AES_128_GCM_SHA256 | Yes | Yes | Yes | Yes |
-| 0x13,0x02 | 3 | TLS_AES_256_GCM_SHA384 | Yes | Yes | Yes | Yes |
-| 0x13,0x03 |  | TLS_CHACHA20_POLY1305_SHA256 | Yes | Yes |  |  |
+| 0x13,0x01 | Yes | TLS_AES_128_GCM_SHA256 | Yes | Yes | Yes | Yes |
+| 0x13,0x02 | Yes | TLS_AES_256_GCM_SHA384 | Yes | Yes | Yes | Yes |
+| 0x13,0x03 | Yes | TLS_CHACHA20_POLY1305_SHA256 | Yes | Yes |  |  |
 | 0xC0,0x09 |  | TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA | Yes |  |  |  |
 | 0xC0,0x0A |  | TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA | Yes |  |  |  |
 | 0xC0,0x13 |  | TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA | Yes |  |  |  |
@@ -99,12 +99,12 @@ For more information about Transport Layer Security (TLS) please see the followi
 | 258 |  | ffdhe4096 |  |  | Yes |  |
 | 259 |  | ffdhe6144 |  |  | Yes |  |
 | 260 |  | ffdhe8192 |  |  | Yes |  |
-| 512 | 1 | MLKEM512 | Yes |  | Yes |  |
-| 513 | 3 | MLKEM768 | Yes |  | Yes |  |
-| 514 | 5 | MLKEM1024 | Yes | Yes | Yes | **First** |
-| 4587 | 3 | SecP256r1MLKEM768 | Yes | Yes | Yes | Yes |
-| 4588 | 3 | X25519MLKEM768 | Yes | **First** | Yes | Yes |
-| 4589 | 5 | SecP384r1MLKEM1024 | Yes | Yes | Yes | Yes |
+| 512 | Yes | MLKEM512 | Yes |  | Yes |  |
+| 513 | Yes | MLKEM768 | Yes |  | Yes |  |
+| 514 | Yes | MLKEM1024 | Yes | Yes | Yes | **First** |
+| 4587 | Yes | SecP256r1MLKEM768 | Yes | Yes | Yes | Yes |
+| 4588 | Yes | X25519MLKEM768 | Yes | **First** | Yes | Yes |
+| 4589 | Yes | SecP384r1MLKEM1024 | Yes | Yes | Yes | Yes |
 
 ## TLS SignatureScheme
 
@@ -127,9 +127,9 @@ For more information about Transport Layer Security (TLS) please see the followi
 | 0x081A |  | ecdsa_brainpoolP256r1tls13_sha256 |  |  |  |  |
 | 0x081B |  | ecdsa_brainpoolP384r1tls13_sha384 |  |  |  |  |
 | 0x081C |  | ecdsa_brainpoolP512r1tls13_sha512 |  |  |  |  |
-| 0x0904 | 2 | mldsa44 | Yes | Yes | Yes | Yes |
-| 0x0905 | 3 | mldsa65 | Yes | Yes | Yes | Yes |
-| 0x0906 | 5 | mldsa87 | Yes | Yes | Yes | Yes |
+| 0x0904 | Yes | mldsa44 | Yes | Yes | Yes | Yes |
+| 0x0905 | Yes | mldsa65 | Yes | Yes | Yes | Yes |
+| 0x0906 | Yes | mldsa87 | Yes | Yes | Yes | Yes |
 
 ## Elliptic Curves
 
