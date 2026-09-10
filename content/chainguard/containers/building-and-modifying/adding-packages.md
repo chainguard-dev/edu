@@ -4,7 +4,7 @@ linktitle: "Add a package"
 description: "Choose how to add a package to a Chainguard Container, find the package name, apply the change, and confirm the package reached the finished image."
 type: "article"
 date: 2026-09-09T00:00:00+00:00
-lastmod: 2026-09-10T12:15:07+00:00
+lastmod: 2026-09-10T12:23:46+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Procedural"]
 images: []
@@ -47,13 +47,17 @@ Custom Assembly adds packages to an image; it can't remove the packages the sour
 
 ## Find the package name
 
-You can add only the packages your organization is entitled to, which are the packages that appear in the Chainguard Containers you already have access to. Package names often carry a version stream — `python-3.14` rather than `python` — so confirm the exact name before you add it.
+You can add only the packages your organization is entitled to, which are the packages that appear in the Chainguard Containers you already have access to. Package names often carry a version stream — `python-3.14` rather than `python` — so confirm the exact name before you add it. Look it up in the Console, or with `apk` from inside a running container.
 
-### Find a package in the Console
+{{< tabs label="Ways to find a package name" >}}
+
+{{% tab title="Console" %}}
 
 Open the image in the [Chainguard Console](https://console.chainguard.dev), click **Customize image**, then use the **Filter packages** box. The list holds every package your organization can add. If the package you want isn't listed, [open a Chainguard support ticket](/get-started/get-support/).
 
-### Find a package with apk
+{{% /tab %}}
+
+{{% tab title="apk" %}}
 
 Container images that include `apk` — such as a `-dev` variant — can search the repository from inside a running container. For a free container image, no authentication is needed:
 
@@ -78,6 +82,10 @@ docker run -it --rm --entrypoint /bin/sh --user root \
 ```
 
 From the container's shell, run `apk update` and then `apk search`.
+
+{{% /tab %}}
+
+{{< /tabs >}}
 
 ## Add the package
 
