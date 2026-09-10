@@ -10682,17 +10682,9 @@
         },
         "type": "object"
       },
-      "chainguard.platform.registry.v2.StigGroupCount": {
-        "description": "StigGroupCount is the per-group rollup of rule verdicts: one entry per\ngroup in the scan content, so consumers render grouped sections without\nwalking every rule result.",
+      "chainguard.platform.registry.v2.StigGroupSummary": {
+        "description": "StigGroupSummary is the per-group rollup of rule results: one entry per\ngroup in the scan content, so consumers render grouped sections without\nwalking every rule result.",
         "properties": {
-          "counts": {
-            "description": "Number of the group's rules per verdict state.",
-            "items": {
-              "$ref": "#/components/schemas/chainguard.platform.registry.v2.StigStateCount"
-            },
-            "readOnly": true,
-            "type": "array"
-          },
           "groupId": {
             "description": "ID of the group, matching StigRuleResult.group_id.",
             "readOnly": true,
@@ -10702,30 +10694,30 @@
             "description": "Human-readable title of the group; empty when the content defines none.",
             "readOnly": true,
             "type": "string"
+          },
+          "resultCounts": {
+            "description": "Number of the group's rules per result.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.v2.StigResultCount"
+            },
+            "readOnly": true,
+            "type": "array"
           }
         },
         "type": "object"
       },
       "chainguard.platform.registry.v2.StigReport": {
-        "description": "StigReport is the complete result of one STIG scan of an image: every\nrule result, per-state counts, and the scan metadata. Fields the scan\ngeneration could not record are zero, with an explicit marker where\n\"unknown\" must stay distinguishable from \"empty\".",
+        "description": "StigReport is a structured projection of one canonical XCCDF results\ndocument. Fields the report producer could not record are zero, with an\nexplicit marker where \"unknown\" must stay distinguishable from \"empty\".",
         "properties": {
-          "counts": {
-            "description": "Number of rules per verdict state.",
-            "items": {
-              "$ref": "#/components/schemas/chainguard.platform.registry.v2.StigStateCount"
-            },
-            "readOnly": true,
-            "type": "array"
-          },
-          "datastreamVersion": {
-            "description": "SCAP datastream version the scan evaluated against. Meaningful only\nwhen datastream_version_known is true.",
+          "architecture": {
+            "description": "Architecture of the manifest whose filesystem contents were evaluated;\nabsent when it cannot be determined for a historical report.",
             "readOnly": true,
             "type": "string"
           },
-          "datastreamVersionKnown": {
-            "description": "Whether the scan recorded a datastream version. False for reports\nfrom generations that could not carry it, making that absence\nexplicit rather than empty-but-plausible.",
+          "datastreamVersion": {
+            "description": "SCAP datastream version the scan evaluated against; absent when the scan\ngeneration did not record it.",
             "readOnly": true,
-            "type": "boolean"
+            "type": "string"
           },
           "endTime": {
             "description": "Scan end time; unset when the scan document did not record it.",
@@ -10733,10 +10725,10 @@
             "readOnly": true,
             "type": "string"
           },
-          "groupCounts": {
+          "groups": {
             "description": "Per-group rollup of rule verdicts, one entry per group in the scan\ncontent, ordered by group ID. Empty when the scan document does not\ngroup its rules.",
             "items": {
-              "$ref": "#/components/schemas/chainguard.platform.registry.v2.StigGroupCount"
+              "$ref": "#/components/schemas/chainguard.platform.registry.v2.StigGroupSummary"
             },
             "readOnly": true,
             "type": "array"
@@ -10745,6 +10737,14 @@
             "description": "XCCDF profile the scan evaluated.",
             "readOnly": true,
             "type": "string"
+          },
+          "resultCounts": {
+            "description": "Number of rules per result.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.v2.StigResultCount"
+            },
+            "readOnly": true,
+            "type": "array"
           },
           "rules": {
             "description": "Every rule result from the scan, all states preserved.",
@@ -10755,18 +10755,23 @@
             "type": "array"
           },
           "scannedDigest": {
-            "description": "Digest of the manifest whose STIG attestation produced this report.\nEqual to the requested digest when the image itself was scanned; the\nassembly-origin (base image) digest when the image is a custom-assembled\nrebuild served from its origin's scan — in that case the report\ndescribes the origin's pre-assembly contents.",
+            "description": "Digest of the manifest whose filesystem contents were evaluated. Equal\nto the requested digest when the image itself was scanned; the assembly\norigin digest when serving the report for a custom-assembled rebuild.",
             "readOnly": true,
             "type": "string"
           },
           "scannerImage": {
-            "description": "Scanner image reference that produced the report; empty when the\nscan generation did not record scanner identity.",
+            "description": "Scanner image reference that produced the report; absent when the scan\ngeneration did not record scanner identity.",
             "readOnly": true,
             "type": "string"
           },
           "startTime": {
             "description": "Scan start time; unset when the scan document did not record it.",
             "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "xccdfSha256": {
+            "description": "Lowercase hexadecimal SHA-256 digest of the canonical XCCDF XML returned\nby DownloadStigReport.",
             "readOnly": true,
             "type": "string"
           }
@@ -10789,6 +10794,27 @@
           "STIG_RESULT_INFORMATIONAL"
         ],
         "type": "string"
+      },
+      "chainguard.platform.registry.v2.StigResultCount": {
+        "description": "StigResultCount is the number of rules with a given result.",
+        "properties": {
+          "count": {
+            "description": "Number of rules with that verdict.",
+            "format": "int32",
+            "readOnly": true,
+            "type": "integer"
+          },
+          "result": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.v2.StigResult"
+              }
+            ],
+            "description": "The rule verdict being counted.",
+            "readOnly": true
+          }
+        },
+        "type": "object"
       },
       "chainguard.platform.registry.v2.StigRuleResult": {
         "description": "StigRuleResult is one XCCDF rule result from the scan.",
@@ -10831,27 +10857,6 @@
             "description": "Human-readable rule title; empty when unavailable.",
             "readOnly": true,
             "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "chainguard.platform.registry.v2.StigStateCount": {
-        "description": "StigStateCount is the number of rules whose verdict is a given state.",
-        "properties": {
-          "count": {
-            "description": "Number of rules with that verdict.",
-            "format": "int32",
-            "readOnly": true,
-            "type": "integer"
-          },
-          "result": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/chainguard.platform.registry.v2.StigResult"
-              }
-            ],
-            "description": "The rule verdict being counted.",
-            "readOnly": true
           }
         },
         "type": "object"
@@ -12595,6 +12600,28 @@
               "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2.VulnCount"
             },
             "readOnly": true,
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "google.api.HttpBody": {
+        "description": "Message that represents an arbitrary HTTP body. It should only be used for\npayload formats that can't be represented as JSON, such as raw binary or\nan HTML page.\n\n\nThis message can be used both in streaming and non-streaming API methods in\nthe request as well as the response.\n\nIt can be used as a top-level request field, which is convenient if one\nwants to extract parameters from either the URL or HTTP template into the\nrequest fields and also want access to the raw HTTP body.\n\nExample:\n\n    message GetResourceRequest {\n      // A unique request id.\n      string request_id = 1;\n\n      // The raw HTTP body is bound to this field.\n      google.api.HttpBody http_body = 2;\n\n    }\n\n    service ResourceService {\n      rpc GetResource(GetResourceRequest)\n        returns (google.api.HttpBody);\n      rpc UpdateResource(google.api.HttpBody)\n        returns (google.protobuf.Empty);\n\n    }\n\nExample with streaming methods:\n\n    service CaldavService {\n      rpc GetCalendar(stream google.api.HttpBody)\n        returns (stream google.api.HttpBody);\n      rpc UpdateCalendar(stream google.api.HttpBody)\n        returns (stream google.api.HttpBody);\n\n    }\n\nUse of this type only changes how the request and response bodies are\nhandled, all other features will continue to work unchanged.",
+        "properties": {
+          "contentType": {
+            "description": "The HTTP Content-Type header value specifying the content type of the body.",
+            "type": "string"
+          },
+          "data": {
+            "description": "The HTTP request/response body as raw binary.",
+            "format": "byte",
+            "type": "string"
+          },
+          "extensions": {
+            "description": "Application specific response metadata. Must be set in the first response\nfor streaming APIs.",
+            "items": {
+              "$ref": "#/components/schemas/google.protobuf.Any"
+            },
             "type": "array"
           }
         },
@@ -27587,7 +27614,7 @@
     },
     "/registry/v2/repos/{repoUid}/digests/{digest}/stig": {
       "get": {
-        "description": "GetStigReport returns the complete STIG report for an image manifest:\nevery rule result with its state and group categorization, per-state\ncounts (overall and per group), the scan metadata, and the digest of\nthe manifest whose attestation produced the report. A NOT_FOUND error\nmeans the image carries no STIG attestation — which covers both\nnon-FIPS images and FIPS images that have not been scanned — and is\ndistinct from a report with zero failures.",
+        "description": "GetStigReport returns a structured projection of the STIG report for an\nimage manifest. A NOT_FOUND error means no report exists for the image,\nwhich is distinct from a report with zero failures.",
         "operationId": "StigReportsService_GetStigReport",
         "parameters": [
           {
@@ -27641,6 +27668,67 @@
           }
         },
         "summary": "Get Stig Report",
+        "tags": [
+          "StigReportsService"
+        ]
+      }
+    },
+    "/registry/v2/repos/{repoUid}/digests/{digest}/stig:download": {
+      "get": {
+        "description": "DownloadStigReport returns the report's canonical XCCDF XML document.\nIts data is the exact document represented by GetStigReport, identified\nby StigReport.xccdf_sha256.",
+        "operationId": "StigReportsService_DownloadStigReport",
+        "parameters": [
+          {
+            "description": "UIDP of the repository containing the image.",
+            "in": "path",
+            "name": "repoUid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Digest of the image manifest whose XCCDF document to download.",
+            "in": "path",
+            "name": "digest",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Architecture to descend into when the digest addresses an OCI index\n(e.g., \"amd64\", \"arm64\"). When empty, the document is read from the\nmanifest as addressed by the digest, with no per-architecture descent.",
+            "in": "query",
+            "name": "architecture",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.api.HttpBody"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Download Stig Report",
         "tags": [
           "StigReportsService"
         ]
