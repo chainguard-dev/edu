@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-09-09T17:33:40+00:00
+lastmod: 2026-09-10T12:58:57+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -45,7 +45,7 @@ It can take up to 30 minutes for fallback policy changes to take effect.
 
 For authentication, you need a pull token or the Python keyring provider.
 
-{{< tabs >}}
+{{< tabs label="Authentication method" >}}
 
 {{% tab title="Pull token" %}}
 
@@ -99,7 +99,7 @@ First, configure authentication using a pull token or the Python keyring provide
 
 Setting pull token credentials in `.netrc` is a common approach for individual work stations. Setting authentication in `pip.conf` is preferred for CI/CD, where you need credentials isolated per project or per pipeline rather than a single shared home-directory file.
 
-{{< tabs >}}
+{{< tabs label="Direct access authentication method" >}}
 
 {{% tab title="Pull token in .netrc" %}}
 
@@ -187,7 +187,7 @@ Next, point your build tool at the Chainguard index.
 
 Note that Chainguard publishes both standard and [remediated Python indexes](/chainguard/libraries/policies-and-security/cve-remediation/). Remediated versions use a `+cgr.N` local-version suffix, and Python package managers treat those as compatible higher-precedence replacements for the base version. In addition, CUDA-enabled Python libraries use separate CUDA-specific indexes such as `https://libraries.cgr.dev/cu128/simple/`, and they are not dependency-complete for NVIDIA toolkit components.  
 
-{{< tabs >}}
+{{< tabs label="Package manager for build tool configuration" >}}
 
 {{% tab title="pip" %}}
 
@@ -253,7 +253,7 @@ If your organization uses a repository manager, configure Chainguard Libraries a
 
 Once configured, point your build tool at your repository manager URL instead of `libraries.cgr.dev` directly. In this setup, the credentials are your repository manager credentials — not a Chainguard pull token.
 
-{{< tabs >}}
+{{< tabs label="Package manager for repository manager setup" >}}
 
 {{% tab title="pip" %}}
 
@@ -314,7 +314,7 @@ Your existing lockfile or hash-pinned `requirements.txt` contains checksums gene
 
 You can update your lockfile in one of two ways. Update the checksums in place to keep your existing pinned versions, or regenerate the lockfile if you also want to refresh your dependency versions.
 
-{{< tabs >}}
+{{< tabs label="Lockfile update approach" >}}
 
 {{% tab title="Update in place" %}}
 
@@ -390,7 +390,7 @@ poetry lock
 Reinstalling after switching indexes can silently reuse a cached artifact
 from your previous index, with no error indicating this happened. To avoid this, clear caches.
 
-{{< tabs >}}
+{{< tabs label="Package manager for clearing caches" >}}
 
 {{% tab title="pip" %}}
 
@@ -428,7 +428,7 @@ docker build --no-cache .
 
 Reinstall dependencies and confirm that the lockfile reflects Chainguard as the source.
 
-{{< tabs >}}
+{{< tabs label="Package manager for reinstalling dependencies" >}}
 
 {{% tab title="pip" %}}
 
@@ -461,7 +461,7 @@ poetry install
 
 After reinstalling, you can use `chainctl` to verify which dependencies are built by Chainguard. When upstream fallback is enabled, [libraries that aren't built by Chainguard](#packages-not-available-in-chainguard-libraries) are subject to Chainguard's security controls.
 
-{{< tabs >}}
+{{< tabs label="Package manager for verifying libraries" >}}
 
 {{% tab title="pip and uv" %}}
 
