@@ -17,7 +17,7 @@ toc: true
 This is a summary of available algorithms in Chainguard OpenSSL 3.6
 (non-fips) and Chainguard FIPS Provider for OpenSSL 3.4.
 
-Majority of the available algorithms are not enabled default and are
+The majority of the available algorithms are not enabled default and are
 only available with manual overrides, configuration, and reduction of
 default security level of 2, to a lower value. Those that are
 available in FIPS also require manual overrides and configuration. The
