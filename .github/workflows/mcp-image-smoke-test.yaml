@@ -10,14 +10,20 @@ on:
     paths:
       - scripts/**
       - .github/workflows/mcp-image-smoke-test.yaml
+      # The unit tests parse this bundle, and the nightly refresh PR is the
+      # only change that can break them on real compiler output. Without it
+      # here, a refresh regression stays hidden until some unrelated PR
+      # touches scripts/ and inherits the failure.
+      - static/downloads/chainguard-complete-docs.md
 
 permissions: {}
 
 jobs:
   # Unit tests for the document index (DOCS-181). The smoke test below proves
   # the server starts and answers; it cannot tell whether search returns the
-  # right page. These run against the bundle committed to the repo, so they
-  # catch a parser regression on the real document structure.
+  # right page. These parse the bundle committed to the repo, which the nightly
+  # job refreshes from live content, so they catch a parser regression against
+  # the real document structure.
   unit-test:
     if: github.repository == 'chainguard-dev/edu'
     runs-on: ubuntu-latest
