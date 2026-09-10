@@ -4,7 +4,7 @@ linktitle: "Add a package"
 description: "Choose how to add a package to a Chainguard Container, find the package name, apply the change, and confirm the package reached the finished image."
 type: "article"
 date: 2026-09-09T00:00:00+00:00
-lastmod: 2026-09-09T18:10:30+00:00
+lastmod: 2026-09-10T12:11:42+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Procedural"]
 images: []
@@ -51,11 +51,11 @@ You can add only the packages your organization is entitled to, which are the pa
 
 ### Find a package in the Console
 
-Open the image in the [Chainguard Console](https://console.chainguard.dev), click **Customize image**, then use the **Filter packages** box. The list holds every package your organization can add. If the package you want isn't listed, open a Chainguard support ticket.
+Open the image in the [Chainguard Console](https://console.chainguard.dev), click **Customize image**, then use the **Filter packages** box. The list holds every package your organization can add. If the package you want isn't listed, [open a Chainguard support ticket](/get-started/get-support/).
 
 ### Find a package with apk
 
-Container images that include `apk` — a `-dev` variant does — can search the repository from inside a running container. For a free container image, no authentication is needed:
+Container images that include `apk` — such as a `-dev` variant — can search the repository from inside a running container. For a free container image, no authentication is needed:
 
 ```shell
 docker run --rm --entrypoint sh cgr.dev/chainguard/wolfi-base:latest \
