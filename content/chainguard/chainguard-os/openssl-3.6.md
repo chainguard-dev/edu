@@ -194,12 +194,12 @@ For more information about Transport Layer Security (TLS) please see the followi
 | 21 | secp224r1 | Yes |  | Yes |  |
 | 22 | secp256k1 | Yes |  |  |  |
 | 23 | secp256r1 | Yes | Yes | Yes | Yes |
-| 24 | secp384r1 | Yes | Yes | Yes | First & Preshare |
+| 24 | secp384r1 | Yes | Yes | Yes | **First** & **Preshare** |
 | 25 | secp521r1 | Yes | Yes | Yes |  |
 | 26 | brainpoolP256r1 | Yes |  |  |  |
 | 27 | brainpoolP384r1 | Yes |  |  |  |
 | 28 | brainpoolP512r1 | Yes |  |  |  |
-| 29 | x25519 | Yes | Preshare |  |  |
+| 29 | x25519 | Yes | **Preshare** |  |  |
 | 30 | x448 | Yes | Yes |  |  |
 | 31 | brainpoolP256r1tls13 | Yes |  |  |  |
 | 32 | brainpoolP384r1tls13 | Yes |  |  |  |
@@ -213,7 +213,7 @@ For more information about Transport Layer Security (TLS) please see the followi
 | 513 | MLKEM768 | Yes |  |  |  |
 | 514 | MLKEM1024 | Yes | Yes |  |  |
 | 4587 | SecP256r1MLKEM768 | Yes | Yes |  |  |
-| 4588 | X25519MLKEM768 | Yes | First |  |  |
+| 4588 | X25519MLKEM768 | Yes | **First** |  |  |
 | 4589 | SecP384r1MLKEM1024 | Yes | Yes |  |  |
 
 ## TLS SignatureScheme
