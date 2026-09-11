@@ -146,6 +146,12 @@ html[data-dark-mode] .logo-purple {
         white-space: nowrap;
     }
 
+    // Section row labelling the rows below it (see render-table.html).
+    >tbody>tr>td.td-section {
+        font-weight: 600;
+        border-bottom: 1px solid var(--table-row-border-color);
+    }
+
     // Row highlight on hover.
     >tbody>tr:hover>td {
         background-color: var(--table-auto-row-hover);
