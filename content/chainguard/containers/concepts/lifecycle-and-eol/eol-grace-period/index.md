@@ -95,12 +95,10 @@ The API endpoint you can reach for EOL data is [`Registry_ListEolTags`](/platfor
 To follow along, you'll need to know the unique ID path (UIDP) of the container image repository you'd like to retrieve end-of-life data for. You can find this with the following `chainctl` command:
 
 ```shell
-chainctl images repos list --parent $ORGANIZATION -o wide
+chainctl images repos list -o wide
 ```
 
-Replace `$ORGANIZATION` with the name of your organization.
-
-This command will return a table showing the UIDPs of every Chainguard Container the specified organization has access to:
+This command will return a table showing the UIDPs of every Chainguard Container your organization has access to:
 
 ```output
                 ID                 |      REGISTRY       |   REPO   |        BUNDLES        |    TIER

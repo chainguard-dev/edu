@@ -42,9 +42,9 @@ The `owner`, `editor`, and `viewer` roles are useful for user profiles that requ
 
 Every role has at least one of four capabilities (`create`, `list`, `update`, `delete`) in relation to at least one Chainguard resource. For example, the `apk.pull` role only grants `list` access for APK packages and groups. This means identities with this role can pull the organization's APK packages and retrieve information about the organization, but won't have general access to the organization's [Chainguard registry](/chainguard/containers/registry/overview/) access.
 
-Chainguard's built-in default roles serve as building blocks and can be complemented with custom roles for specific use cases. Custom roles can extend or restrict default role capabilities, and offer or your organization greater flexibility, allowing you to mix default and custom roles based on your team's structure and needs.
+Chainguard's built-in default roles serve as building blocks and can be complemented with custom roles for specific use cases. Custom roles can extend or restrict default role capabilities, and offer your organization greater flexibility, allowing you to mix default and custom roles based on your team's structure and needs.
 
-When assigning a role, do so based on the principle of least privilege; assign only the role needed for the indentity's function. For example, CI systems should have a role like `registry.pull`, not `editor`.
+When assigning a role, do so based on the principle of least privilege; assign only the role needed for the identity's function. For example, CI systems should have a role like `registry.pull`, not `editor`.
 
 You can run `chainctl iam roles list` to retrieve a list of all the roles available to your organization and review each of their specific capabilities. This command will list all the built-in roles as well as any custom roles created for your organization. The next section outlines how to create and manage such custom roles.
 
@@ -65,18 +65,20 @@ chainctl iam roles create my-role
 
 After running this command, an interactive prompt will appear asking you to select what capabilities the new role should have and the organization under which the role should be created.
 
-You can avoid using the interactive prompt by including the `--parent` and `--capabilities` options in this command.
+You can avoid the interactive prompt by including the `--capabilities` option in this command.
 
 ```sh
-chainctl iam roles create new-role --parent=example-org --capabilities=roles.list
+chainctl iam roles create new-role --capabilities=roles.list
 ```
 
-This example creates a new role named `new-role` under an organization named `example-org`. The new role will only have the ability to list roles in the organization.
+This example creates a new role named `new-role` in your organization. The new role can only list roles in the organization.
+
+`chainctl` selects your organization automatically when you belong to only one. If you have access to more than one organization or folder, it prompts you to choose; add `--parent=<organization>` to skip the prompt.
 
 You can also grant multiple capabilities to a custom role with one command, as in this example:
 
 ```sh
-chainctl iam roles create puller-role --parent=example-org --capabilities=apk.list,groups.list,manifest.list,manifest.metadata.list,record_signatures.list,repo.list,sboms.list,tag.list,vuln.list
+chainctl iam roles create puller-role --capabilities=apk.list,groups.list,manifest.list,manifest.metadata.list,record_signatures.list,repo.list,sboms.list,tag.list,vuln.list
 ```
 
 This example command creates a role named `puller-role` that has the following capabilities:
@@ -140,13 +142,13 @@ chainctl iam role-bindings create
 
 This will start an interactive prompt where you can enter the appropriate details for this new role-binding. Specifically, you'll be prompted to specify the identity to bind, the role you want the identity bound to, and the organization that the role-binding should belong to.
 
-To avoid using the interactive prompt, you can add these details to the command by including the `--identity`, `--role`, and `--parent` options.
+To avoid the interactive prompt, add these details to the command by including the `--identity` and `--role` options.
 
 ```sh
-chainctl iam role-bindings create --identity=example-id --role=viewer --parent=example-org
+chainctl iam role-bindings create --identity=example-id --role=viewer
 ```
 
-This example creates a role-binding for the identity `example-id` with the built-in `viewer` role in an organization named `example-org`.
+This example creates a role-binding for the identity `example-id` with the built-in `viewer` role in your organization.
 
 Note that in order to use the `--identity` option like this, you will need to know the given identity's UIDP. You can find a list of all your identities' UIDPs by running `chainctl iam identities ls`. The identities' UIDPs will appear in the resulting `ID` column.
 

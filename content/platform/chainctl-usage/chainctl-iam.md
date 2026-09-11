@@ -70,7 +70,7 @@ This command can also create, delete, and update your organization's identity pr
 To tell chainctl about your OIDC provider and enable users to start using it, use create:
 
 ```shell
-chainctl iam identity-provider create --name=google --parent=example \
+chainctl iam identity-provider create --name=google \
 --oidc-issuer=https://accounts.google.com \
 --oidc-client-id=foo \
 --oidc-client-secret=bar \

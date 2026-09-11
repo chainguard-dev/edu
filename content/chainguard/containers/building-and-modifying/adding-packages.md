@@ -110,10 +110,10 @@ For the full walkthrough, including how to edit or remove customizations later, 
 1. Open the image's build configuration:
 
     ```shell
-    chainctl images repos build edit --parent $ORGANIZATION --repo $CONTAINER
+    chainctl images repos build edit --repo $CONTAINER
     ```
 
-    Replace `$ORGANIZATION` with your organization's name and `$CONTAINER` with the name of the image. If you omit either flag, `chainctl` prompts you to choose.
+    Replace `$CONTAINER` with the name of the image. If you omit it, `chainctl` prompts you to choose. It also prompts for the organization when you have access to more than one; pass `--parent=<organization>` to skip that prompt.
 
 2. `chainctl` opens the configuration in your default text editor. Add the package under `contents.packages`:
 
@@ -166,7 +166,7 @@ Both `apply` and `edit` accept a configuration file, which skips the editor and 
 2. Preview what the file would change, without changing anything:
 
     ```shell
-    chainctl images repos build apply -f build.yaml --parent $ORGANIZATION --repo $CONTAINER --dry-run
+    chainctl images repos build apply -f build.yaml --repo $CONTAINER --dry-run
     ```
 
     `--dry-run` prints the diff and exits with a non-zero status if there's anything to apply, which makes it usable as a drift check in a pipeline.
@@ -174,7 +174,7 @@ Both `apply` and `edit` accept a configuration file, which skips the editor and 
 3. Apply the configuration. `--yes` confirms the change without prompting:
 
     ```shell
-    chainctl images repos build apply -f build.yaml --parent $ORGANIZATION --repo $CONTAINER --yes
+    chainctl images repos build apply -f build.yaml --repo $CONTAINER --yes
     ```
 
 To save the result as a new image, add `--save-as $NEW_NAME`. This works when you target a single repository; it isn't available when you target several at once with repeated `--repo` flags or a wildcard.
@@ -192,7 +192,7 @@ Custom Assembly builds run on Chainguard's infrastructure and normally finish in
 1. Check that the build succeeded:
 
     ```shell
-    chainctl images repos build list --parent $ORGANIZATION --repo $CONTAINER
+    chainctl images repos build list --repo $CONTAINER
     ```
 
     ```output
@@ -249,7 +249,7 @@ Custom Assembly builds run on Chainguard's infrastructure and normally finish in
 A Custom Assembly build reports failure only after it finishes. Retrieve the logs for a build with the `logs` subcommand, which prompts you to pick a build report:
 
 ```shell
-chainctl images repos build logs --parent $ORGANIZATION --repo $CONTAINER
+chainctl images repos build logs --repo $CONTAINER
 ```
 
 In the Console, click a row on the image's **Builds** tab to open the same logs.

@@ -72,7 +72,7 @@ chainctl auth login
 
 Note that you can use this bootstrap account as a [backup account](/chainguard/administration/custom-idps/custom-idps/#backup-accounts) — that is, an account you can use to log in if you ever lose access to your primary account. However, if you prefer to remove this role-binding after configuring the custom IdP, you can do so.
 
-You also need the ID of the Chainguard organization where you want to install the identity provider. Your choice doesn't affect how your users authenticate, but it does determine who has permission to modify the SSO configuration.
+If you belong to more than one Chainguard organization, you also need the ID of the one where you want to install the identity provider. Your choice doesn't affect how your users authenticate, but it does determine who has permission to modify the SSO configuration.
 
 To retrieve a list of the Chainguard organizations you belong to, along with their IDs, run the following command.
 
@@ -89,18 +89,16 @@ chainctl iam organizations ls -o table
 
 Note the `ID` value for your chosen organization.
 
-With this information in hand, create a new identity provider with the following commands. Replace `<application_client_id>`, `<client_secret>`, and `<directory_tenant_id>` with the values from your Entra ID application, and `<organization_id>` with the organization ID you just noted.
+With this information in hand, create a new identity provider with the following commands. Replace `<application_client_id>`, `<client_secret>`, and `<directory_tenant_id>` with the values from your Entra ID application.
 
 ```sh
 export NAME=entra-id
 export CLIENT_ID=<application_client_id>
 export CLIENT_SECRET=<client_secret>
-export ORG=<organization_id>
 export TENANT_ID=<directory_tenant_id>
 export ISSUER="https://login.microsoftonline.com/${TENANT_ID}/v2.0"
 chainctl iam identity-providers create \
   --configuration-type=OIDC \
-  --parent=${ORG} \
   --name=${NAME} \
   --oidc-issuer=${ISSUER} \
   --oidc-client-id=${CLIENT_ID} \
@@ -109,6 +107,8 @@ chainctl iam identity-providers create \
   --oidc-additional-scopes=profile \
   --default-role=viewer
 ```
+
+`chainctl` installs the provider in your organization automatically when you belong to only one. If you have access to more than one, add `--parent=<organization_id>` to choose where it is installed.
 
 {{< note >}}
 Customers using Azure Government Cloud should set `ISSUER="https://login.microsoftonline.us/${TENANT_ID}/v2.0"` instead.

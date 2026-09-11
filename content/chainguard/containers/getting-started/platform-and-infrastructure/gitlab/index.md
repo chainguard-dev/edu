@@ -118,7 +118,6 @@ Create a long-lived pull token for your Chainguard organization:
 
 ```shell
 chainctl auth pull-token create \
-  --parent $ORGANIZATION \
   --name gitlab-pull-token \
   --ttl 8760h
 ```

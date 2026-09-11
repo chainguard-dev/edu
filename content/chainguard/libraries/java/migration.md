@@ -97,10 +97,10 @@ All dependencies should download from Central and tests should pass. This gives 
 You must be an Owner or have the `libraries.java.pull_token_creator` permission to create a pull token.
 You can [create a pull token in the Chainguard Console](/chainguard/libraries/introduction/access/#creating-pull-tokens-with-the-chainguard-console), or via `chainctl`.
 
-The following command creates the token and populates environment variables directly. Make sure to replace `example.org` with your own Chainguard org name:
+The following command creates the token and populates environment variables directly. If you have access to more than one Chainguard organization, add `--parent=<organization>` to choose which one the token belongs to:
 
 ```shell
-eval $(chainctl auth pull-token --parent=example.org --repository=java --name=my-java-token --output=env)
+eval $(chainctl auth pull-token --repository=java --name=my-java-token --output=env)
 ```
 
 This results in values for the `CHAINGUARD_JAVA_IDENTITY_ID` and `CHAINGUARD_JAVA_TOKEN` variables. The token is named `my-java-token`, with a default expiration of 30 days. To configure the expiration, use the `--ttl` flag.

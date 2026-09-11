@@ -37,12 +37,6 @@ To follow this guide, you need:
 - An active Chainguard organization.
 - Owner access on the organization.
 
-The examples in this guide use an `$ORGANIZATION` environment variable to refer to your organization. Set it to the name of your organization before you begin:
-
-```shell
-export ORGANIZATION=<your-organization>
-```
-
 ## Preliminary steps
 
 Before using Chainguard Actions, log in to Chainguard and enable the Chainguard Actions entitlement for your organization.
@@ -56,7 +50,7 @@ chainctl auth login
 Create the Chainguard Actions entitlement to enable access to the hardened actions hosted at `github.com/chainguard-actions`:
 
 ```shell
-chainctl actions entitlements create --parent $ORGANIZATION
+chainctl actions entitlements create
 ```
 
 The output confirms the entitlement:
@@ -68,7 +62,7 @@ Enabled Actions product for org chainguard.edu ($ENTITLEMENT_ID) [entitlement id
 Confirm your entitlement:
 
 ```shell
-chainctl actions entitlements list --parent $ORGANIZATION
+chainctl actions entitlements list
 ```
 
 ```output

@@ -93,10 +93,10 @@ To get started, create [a pull token](/chainguard/chainguard-registry/authentica
 To create a pull token with `chainctl`, run the following command:
 
 ```sh
-chainctl auth configure-docker --pull-token --parent <organization>
+chainctl auth configure-docker --pull-token
 ```
 
-Be sure to replace `<organization>` with your organization's name or ID.
+`chainctl` uses your organization automatically when you belong to only one. If you have access to more than one, add `--parent <organization>`, replacing `<organization>` with the name or ID you want to use.
 
 > **Note**: You can find your Chainguard organization's name or ID by running `chainctl iam organizations list -o table`.
 

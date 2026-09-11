@@ -27,8 +27,9 @@ system. This guide explains how to access (download) Chainguard library artifact
 - Ensure you have access to Chainguard Libraries.
     - If you are not a Chainguard user yet, a new Chainguard account must be
 created and you must [add an entitlement to Chainguard Libraries](/chainguard/libraries/introduction/access/#manage-library-entitlements).
-- Confirm the name of your organization so you can use it with the `--parent`
-parameter to specify your organization when running commands with `chainctl`.
+- If you have access to more than one Chainguard organization, confirm the name
+of the one you want to use. You can then pass it to `chainctl` commands with the
+`--parent` parameter.
 
 ### Direct access vs. artifact manager
 
@@ -102,7 +103,7 @@ auth pull-token](/platform/chainctl/chainctl-docs/chainctl_auth_pull-token/)
 command:
 
 ```shell
-chainctl auth pull-token --repository=java --parent=example --ttl=8670h
+chainctl auth pull-token --repository=java --ttl=8670h
 ```
 
 - `--repository=java`: retrieve the token for use with [Chainguard Libraries for
@@ -110,8 +111,6 @@ chainctl auth pull-token --repository=java --parent=example --ttl=8670h
   [Chainguard Libraries for Python](/chainguard/libraries/python/overview/) and
   `javascript` for a token to use [Chainguard Libraries for
   JavaScript](/chainguard/libraries/javascript/overview/).
-- `--parent=example`: specify the parent organization for your account as
-  provided when requesting access to Chainguard Libraries and replace `example`.
 - `--ttl=8670h`: set the duration for the validity of the token, defaults to
   `720h` (equivalent to 30 days), maximum valid value is `8760h` (equivalent to
   365 days), valid unit strings range from nanoseconds to hours and are `ns`,
@@ -120,11 +119,11 @@ chainctl auth pull-token --repository=java --parent=example --ttl=8670h
 Use the optional `--name` flag to supply a meaningful and short name for the
 token, to be able to locate it easier at a later stage.
 
-When omitting the parent parameter, potentially a list of organizations is
-displayed. Use the arrow keys to navigate the selection displayed after the
-question “With which location is the pull token associated?” and select the
-organization that has the entitlement to access Chainguard Libraries for Java.
-Press `/` to filter the list.
+If you belong to a single organization, `chainctl` selects it automatically. If
+you have access to more than one, it asks “With which location is the pull token
+associated?” Use the arrow keys to select the organization that has the
+entitlement to access Chainguard Libraries for Java, and press `/` to filter the
+list. Pass `--parent=<organization>` to skip the prompt.
 
 `chainctl` returns a username and password suitable for basic authentication in
 the response:
@@ -206,7 +205,7 @@ Use the `env` environment output option to create a snippet for a new token
 suitable for integration in a script.
 
 ```shell
-$ chainctl auth pull-token --output env --repository=java --parent=example
+$ chainctl auth pull-token --output env --repository=java
 export CHAINGUARD_JAVA_IDENTITY_ID=<identity-id>
 export CHAINGUARD_JAVA_TOKEN=<pull-token>
 ```
@@ -215,7 +214,7 @@ Combine the call with `eval` to populate the environment variables directly by
 calling `chainctl`:
 
 ```shell
-eval $(chainctl auth pull-token --output env --repository=java --parent=example)
+eval $(chainctl auth pull-token --output env --repository=java)
 ```
 
 Equivalent commands for Python and JavaScript are supported and result in values
@@ -470,7 +469,7 @@ Use the identifier or name of your organization `example` and the `--expired`
 flag to remove all expired pull tokens:
 
 ```shell
-chainctl iam ids rm --expired --parent=example
+chainctl iam ids rm --expired
 ```
 
 <a id="entitlement"></a>
@@ -500,7 +499,7 @@ To update the upstream fallback policy on an existing entitlement, rerun the `cr
 You can delete an ecosystem library entitlement for a specific ecosystem from your organization with [`chainctl libraries entitlements delete`](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/):
 
 ```shell
-chainctl libraries entitlements delete --ecosystem=JAVASCRIPT --parent=example
+chainctl libraries entitlements delete --ecosystem=JAVASCRIPT
 ```
 
 ### List entitlements

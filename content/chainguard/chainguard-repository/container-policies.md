@@ -67,7 +67,7 @@ Chainguard ships a set of system policies that are available to every organizati
 The `no-eol` policy denies any image whose primary package has reached its end-of-life (EOL) date. An image is allowed when it has no recorded EOL date, or when that date is still in the future. This policy takes no parameters.
 
 ```shell
-chainctl policies enable --policy=no-eol --mode=DRY_RUN --parent=$ORGANIZATION
+chainctl policies enable --policy=no-eol --mode=DRY_RUN
 ```
 
 ### cooldown
@@ -77,7 +77,7 @@ The `cooldown` policy denies images that are newer than a minimum age, measured 
 It accepts one parameter, `days`, an integer number of days an image must exist before it is allowed. The default is `7`, and accepted values range from `1` to `365`.
 
 ```shell
-chainctl policies enable --policy=cooldown --mode=DRY_RUN --param=days=14 --parent=$ORGANIZATION
+chainctl policies enable --policy=cooldown --mode=DRY_RUN --param=days=14
 ```
 
 ### support-window
@@ -87,7 +87,7 @@ The `support-window` policy requires an image's primary package to have a minimu
 It accepts one parameter, `months`, an integer minimum number of months of support. The default is `6`, and accepted values range from `1` to `24`.
 
 ```shell
-chainctl policies enable --policy=support-window --mode=DRY_RUN --param=months=12 --parent=$ORGANIZATION
+chainctl policies enable --policy=support-window --mode=DRY_RUN --param=months=12
 ```
 
 ## Usage
@@ -97,43 +97,43 @@ Policies are managed using `chainctl`. System policies are shipped with the plat
 See which policies are available to your organization:
 
 ```shell
-chainctl policies list --parent=$ORGANIZATION
+chainctl policies list
 ```
 
 Inspect a policy to see its full definition and configurable parameters before enabling it:
 
 ```shell
-chainctl policies describe --policy=$POLICY --parent=$ORGANIZATION
+chainctl policies describe --policy=$POLICY
 ```
 
 See which policies are currently active:
 
 ```shell
-chainctl policies binding list --parent=$ORGANIZATION
+chainctl policies binding list
 ```
 
 Activate a policy in `DRY_RUN` mode. This example activates the "no end-of-life" artifacts policy. Chainguard recommends that you roll out policies using `DRY_RUN` mode first and track for a time to be certain it has the impact you intend before moving to `ENFORCE`.
 
 ```shell
-chainctl policies enable --policy=no-eol --mode=DRY_RUN --parent=$ORGANIZATION
+chainctl policies enable --policy=no-eol --mode=DRY_RUN
 ```
 
 Some policies accept parameters. Use `--param=KEY=VALUE` to supply them:
 
 ```shell
-chainctl policies enable --policy=cooldown --mode=DRY_RUN --param=days=7 --parent=$ORGANIZATION
+chainctl policies enable --policy=cooldown --mode=DRY_RUN --param=days=7
 ```
 
 Promote a policy to `ENFORCE`:
 
 ```shell
-chainctl policies enable --policy=no-eol --mode=ENFORCE --parent=$ORGANIZATION
+chainctl policies enable --policy=no-eol --mode=ENFORCE
 ```
 
 Disable a policy:
 
 ```shell
-chainctl policies disable --policy=no-eol --parent=$ORGANIZATION
+chainctl policies disable --policy=no-eol
 ```
 
 ## Checking whether an image is allowed
@@ -178,7 +178,7 @@ This is distinct from `chainctl policies check`, which evaluates one image again
 List the decisions recorded for your organization:
 
 ```shell
-chainctl policies decision list --parent=$ORGANIZATION
+chainctl policies decision list
 ```
 
 ```output
@@ -192,14 +192,14 @@ chainctl policies decision list --parent=$ORGANIZATION
 Narrow the results with filters. To see only the pulls a policy denied, filter by outcome:
 
 ```shell
-chainctl policies decision list --parent=$ORGANIZATION --result=DENIED
+chainctl policies decision list --result=DENIED
 ```
 
 You can also restrict to a single policy, a single mode (`ENFORCE` or `DRY_RUN`), a time window, or a single image, and request JSON for further processing. The `--since` flag takes a number of days with a `d` suffix (for example `7d`), and `--repo` accepts an image as `REPO` or `REPO:TAG`:
 
 ```shell
-chainctl policies decision list --parent=$ORGANIZATION --policy=no-eol --mode=ENFORCE --since=30d -o json
-chainctl policies decision list --parent=$ORGANIZATION --repo=nginx:latest
+chainctl policies decision list --policy=no-eol --mode=ENFORCE --since=30d -o json
+chainctl policies decision list --repo=nginx:latest
 ```
 
 Decisions are deduplicated per day, so repeated pulls of the same digest under the same policy and outcome appear once for that day rather than once per pull.
@@ -207,7 +207,7 @@ Decisions are deduplicated per day, so repeated pulls of the same digest under t
 Decisions are listed newest first. The command returns at most 20 decisions by default; use `--limit` to change the page size, which accepts a value from `1` to `100`:
 
 ```shell
-chainctl policies decision list --parent=$ORGANIZATION --limit=50
+chainctl policies decision list --limit=50
 ```
 
 ## Example: staging a policy with dry run
@@ -217,19 +217,19 @@ chainctl policies decision list --parent=$ORGANIZATION --limit=50
 First, enable the policy in `DRY_RUN` mode:
 
 ```shell
-chainctl policies enable --policy=no-eol --mode=DRY_RUN --parent=$ORGANIZATION
+chainctl policies enable --policy=no-eol --mode=DRY_RUN
 ```
 
 Let your normal pull traffic flow for a representative period. Then review what the policy denied while in dry run. Use `--since` to limit the review to a recent window, here the last seven days:
 
 ```shell
-chainctl policies decision list --parent=$ORGANIZATION --policy=no-eol --mode=DRY_RUN --result=DENIED --since=7d
+chainctl policies decision list --policy=no-eol --mode=DRY_RUN --result=DENIED --since=7d
 ```
 
 Each `DENIED` row is a pull that would have been blocked under `ENFORCE`. Inspect the digests to confirm the policy is catching what you intend and nothing critical to your workloads. If the results look wrong, adjust the policy's parameters or disable it; if they look right, promote the binding to enforcement:
 
 ```shell
-chainctl policies enable --policy=no-eol --mode=ENFORCE --parent=$ORGANIZATION
+chainctl policies enable --policy=no-eol --mode=ENFORCE
 ```
 
 After promoting, keep reviewing decisions to confirm enforcement behaves as expected. The same command now returns `ENFORCE`-mode rows for the pulls the policy is actively blocking.
@@ -248,8 +248,7 @@ Waive a policy for a specific image, identified by digest, with a reason:
 chainctl policies override create \
   --policy=no-eol \
   --artifact_id=sha256:abc123... \
-  --reason="approved exception, ticket OPS-42" \
-  --parent=$ORGANIZATION
+  --reason="approved exception, ticket OPS-42"
 ```
 
 The `--artifact_id` value must be a manifest digest rather than a tag, so the waiver targets one exact artifact. A given policy and image can carry at most one override; to change an existing one, delete it and create it again. For `chainctl` versions 0.2.337 and earlier, use the `--digest` tag instead of `--artifact_id`.
@@ -257,7 +256,7 @@ The `--artifact_id` value must be a manifest digest rather than a tag, so the wa
 Review the active overrides for an organization to see what has been waived, by whom, and why:
 
 ```shell
-chainctl policies override list --parent=$ORGANIZATION
+chainctl policies override list
 ```
 
 ```output
@@ -539,7 +538,7 @@ line 12:5: rego_type_error: undefined ref: input.parameters.day
 **From a manifest.** This is the primary path, and the only one that supports parameters:
 
 ```shell
-chainctl policies custom create --file policy.yaml --parent=$ORGANIZATION
+chainctl policies custom create --file policy.yaml
 ```
 
 **From a raw Rego file.** A shortcut for parameterless policies, where writing a manifest for two fields is more ceremony than it is worth. `--name` and `--resource-type` are both required in this mode; `--description` is optional:
@@ -549,8 +548,7 @@ chainctl policies custom create \
   --expression lts-only.rego \
   --name lts-only \
   --resource-type Repo \
-  --description "Allow only LTS versions of the main package" \
-  --parent=$ORGANIZATION
+  --description "Allow only LTS versions of the main package"
 ```
 
 If a policy declares parameters, it must be created from a manifest — there is no flag equivalent for a parameter schema. In `--file` mode the manifest is authoritative.
@@ -573,14 +571,14 @@ Names are validated on create and update. A name must:
 **Full replacement from a manifest.** The manifest supplants the entire definition — the resulting policy is exactly what the manifest declares, and any field the manifest omits is cleared:
 
 ```shell
-chainctl policies custom update --policy lts-only --file policy.yaml --parent=$ORGANIZATION
+chainctl policies custom update --policy lts-only --file policy.yaml
 ```
 
 **Partial update from flags.** Only the fields you pass are changed; everything else is preserved:
 
 ```shell
 # Rename
-chainctl policies custom update --policy lts-only --name lts-strict --parent=$ORGANIZATION
+chainctl policies custom update --policy lts-only --name lts-strict
 
 # Change just the description
 chainctl policies custom update --policy lts-only --description "Allow only LTS main packages"
@@ -616,7 +614,7 @@ Note: parameter_schemas changed. Existing bindings were not re-validated against
 `chainctl policies custom delete` permanently removes a custom policy:
 
 ```shell
-chainctl policies custom delete --policy lts-only --parent=$ORGANIZATION
+chainctl policies custom delete --policy lts-only
 ```
 
 Only custom policies can be deleted; system policies are managed by Chainguard and are rejected with an error.
@@ -639,7 +637,7 @@ chainctl policies custom delete --policy 720a...c81 --force
 As with `update`, pass `--resource-type` when a name is shared across resource types:
 
 ```shell
-chainctl policies custom delete --policy minimum-version --resource-type Python --parent=$ORGANIZATION
+chainctl policies custom delete --policy minimum-version --resource-type Python
 ```
 
 ### A full custom policy lifecycle
@@ -655,19 +653,19 @@ chainctl policies custom validate --file lts-only.yaml
 Create the policy. This defines it but does not activate it — a policy with no binding has no effect:
 
 ```shell
-chainctl policies custom create --file lts-only.yaml --parent=$ORGANIZATION
+chainctl policies custom create --file lts-only.yaml
 ```
 
 Confirm it is there. Custom policies appear alongside system policies, distinguished by the type column:
 
 ```shell
-chainctl policies list --parent=$ORGANIZATION
+chainctl policies list
 ```
 
 Activate it in `DRY_RUN` mode, which records outcomes without blocking any pulls:
 
 ```shell
-chainctl policies enable --policy=lts-only --mode=DRY_RUN --parent=$ORGANIZATION
+chainctl policies enable --policy=lts-only --mode=DRY_RUN
 ```
 
 Check a specific image against your active policies without waiting for a pull:
@@ -679,26 +677,26 @@ chainctl policies check cgr.dev/$ORGANIZATION/python:latest
 Let your normal pull traffic run for a representative period, then review what the policy would have denied:
 
 ```shell
-chainctl policies decision list --parent=$ORGANIZATION --policy=lts-only --result=DENIED --since=7d
+chainctl policies decision list --policy=lts-only --result=DENIED --since=7d
 ```
 
 Each `DENIED` row is a pull that would have been blocked under `ENFORCE`. If the results are as
 expected, promote the binding:
 
 ```shell
-chainctl policies enable --policy=lts-only --mode=ENFORCE --parent=$ORGANIZATION
+chainctl policies enable --policy=lts-only --mode=ENFORCE
 ```
 
 To stop enforcing without deleting the policy, disable the binding. The definition stays in place and can be re-enabled later:
 
 ```shell
-chainctl policies disable --policy=lts-only --parent=$ORGANIZATION
+chainctl policies disable --policy=lts-only
 ```
 
 To remove the policy entirely, along with its bindings and overrides:
 
 ```shell
-chainctl policies custom delete --policy lts-only --parent=$ORGANIZATION
+chainctl policies custom delete --policy lts-only
 ```
 
 ## Custom policies FAQ
@@ -734,7 +732,7 @@ Once you know which policy is responsible, work through the usual causes in this
 To see what a policy has actually decided against real pull traffic, use the decision log rather than `check`:
 
 ```shell
-chainctl policies decision list --parent=$ORGANIZATION --policy=lts-only --result=DENIED --since=7d
+chainctl policies decision list --policy=lts-only --result=DENIED --since=7d
 ```
 
 Note that `check` evaluates against your current configuration on demand, while decisions are the historical record of evaluations that already happened during real pulls.
@@ -757,7 +755,7 @@ The [input document reference](#the-input-document) has the full table with type
 To see the shape of the input against a real policy, inspect a system policy, which reads the same document:
 
 ```shell
-chainctl policies describe --policy=no-eol --parent=$ORGANIZATION -o json
+chainctl policies describe --policy=no-eol -o json
 ```
 
 ### Why was my Rego rejected at write time?
@@ -807,8 +805,8 @@ This is the authoritative check. A manifest that validates cleanly will not be r
 The most realistic check is the platform itself. Create the policy and enable it in `DRY_RUN` mode, which records outcomes without blocking any pulls:
 
 ```shell
-chainctl policies custom create --file policy.yaml --parent=$ORGANIZATION
-chainctl policies enable --policy=lts-only --mode=DRY_RUN --parent=$ORGANIZATION
+chainctl policies custom create --file policy.yaml
+chainctl policies enable --policy=lts-only --mode=DRY_RUN
 ```
 
 Check a specific image immediately:
@@ -820,7 +818,7 @@ chainctl policies check cgr.dev/$ORGANIZATION/python:latest
 Then let normal pull traffic run for a representative period and review what the policy would have blocked:
 
 ```shell
-chainctl policies decision list --parent=$ORGANIZATION --policy=lts-only --result=DENIED --since=7d
+chainctl policies decision list --policy=lts-only --result=DENIED --since=7d
 ```
 
 Every `DENIED` row is a pull that would have failed under `ENFORCE`. Promote the binding only once those results match your expectations.
@@ -844,7 +842,7 @@ Policy names are unique per resource type, not per organization, so a `Repo` pol
 When a name is ambiguous, `chainctl policies custom update` and `delete` accept `--resource-type` to disambiguate:
 
 ```shell
-chainctl policies custom delete --policy minimum-version --resource-type Python --parent=$ORGANIZATION
+chainctl policies custom delete --policy minimum-version --resource-type Python
 ```
 
 The flag is ignored when `--policy` is given as a UIDP, which already identifies a single policy.
@@ -856,7 +854,7 @@ Updating a policy from a manifest is a full replacement, so a policy can gain, l
 `chainctl` warns you when an update changes the parameter schema. Review your bindings afterwards:
 
 ```shell
-chainctl policies binding list --parent=$ORGANIZATION
+chainctl policies binding list
 ```
 
 Re-enable any binding whose parameters no longer match the policy's schema, supplying the current parameters with `--param=KEY=VALUE`.
@@ -878,7 +876,7 @@ Pulling an image with a client such as Docker involves two separate requests: a 
 To work around this, create an override for each denied digest. First attempt the pull so both decisions are recorded, then use [policy decisions](#policy-decisions) to find the digests that were blocked:
 
 ```shell
-chainctl policies decision list --parent=$ORGANIZATION --result=DENIED
+chainctl policies decision list --result=DENIED
 ```
 
 ```output
@@ -894,14 +892,12 @@ Create an override for each of the denied digests:
 chainctl policies override create \
   --policy=cooldown \
   --artifact_id=sha256:609aeb... \
-  --reason="approved exception, ticket OPS-42" \
-  --parent=$ORGANIZATION
+  --reason="approved exception, ticket OPS-42"
 
 chainctl policies override create \
   --policy=cooldown \
   --artifact_id=sha256:db532b... \
-  --reason="approved exception, ticket OPS-42" \
-  --parent=$ORGANIZATION
+  --reason="approved exception, ticket OPS-42"
 ```
 
 With both digests waived, the pull is allowed. Remember that the override is subject to the cache refresh described above, so allow a short delay before retrying the pull.

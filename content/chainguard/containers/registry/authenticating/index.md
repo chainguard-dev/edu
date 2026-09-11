@@ -217,7 +217,6 @@ chainctl iam identities create circleci-identity
 --identity-issuer="https://oidc.circleci.com/org/1234"
 --subject-pattern="org/1234/project/.+$"
 --role=registry.pull
---parent=$ORGANIZATION
 ```
 
 Use the identity created in the above command, shown here in the third `run` section as `5678`, to configure your workflow to install `chainctl` and assume this identity when the workflow runs:
@@ -283,8 +282,7 @@ Next, use `chainctl` to create an [assumed identity](/platform/administration/as
 chainctl iam identities create entraid-identity \
   --identity-issuer="https://login.microsoftonline.com/{tenant}/v2.0" \
   --subject-pattern="^.+$" \ # matches all users from this issuer, adjust to restrict access
-  --role=registry.pull \
-  --parent="$ORGANIZATION"
+  --role=registry.pull
 ```
 
 Use the identity created in the above command, shown here in the third `run` section as `entraid-identity`, to configure your workflow to install `chainctl` and assume this identity when the workflow runs:

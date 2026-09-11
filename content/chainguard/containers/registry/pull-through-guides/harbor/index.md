@@ -40,7 +40,7 @@ Before configuring a proxy cache or replication rule, you must create a registry
 If you don't already have one, generate a pull token in your organization:
 
 ```shell
-chainctl auth configure-docker --parent <org-name> --pull-token
+chainctl auth configure-docker --pull-token
 ```
 
 This returns username and password credentials:

@@ -65,10 +65,10 @@ Click **Delete** and enter the name of the container image to confirm that you w
 
 You can also use [`chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/), Chainguard's command-line interface, to change the name of a container image that has already been added to your organization.
 
-To begin, run a command like the following to check whether the container image you want to add is already in your organization. This example checks whether the `php` container image is included in the `example.com` organization:
+To begin, run a command like the following to check whether the container image you want to add is already in your organization. This example checks whether the `php` container image is included:
 
 ```shell
-chainctl images repos list --parent=example.com --repo=php -o json | jq -r '.items[0].id'
+chainctl images repos list --repo=php -o json | jq -r '.items[0].id'
 ```
 
 ```Output
@@ -80,7 +80,7 @@ Note that this example uses [`jq`](https://jqlang.org/), a lightweight command-l
 Knowing that the image is included in the organization, you can rename it. This example renames the `php` container image to `php-new`:
 
 ```shell
-chainctl images repo update php --parent=example.com --name=php-new
+chainctl images repo update php --name=php-new
 ```
 
 ```Output
@@ -94,7 +94,7 @@ After making this change, references to the previous name will no longer work fo
 If you happen to rename an image in error, you can change it back using the same command, swapping the old name and new name:
 
 ```shell
-chainctl images repo update php-new --parent=example.com --name=php
+chainctl images repo update php-new --name=php
 ```
 
 ## Learn more

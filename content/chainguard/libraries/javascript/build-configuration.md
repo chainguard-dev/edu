@@ -103,9 +103,10 @@ which requires authentication. Where it fetches from depends on your environment
 Authenticating to `libraries.cgr.dev` directly:
 
 - **Logged in locally**: Run the command while authenticated; if you have no
-  other credential it prompts for an organization and authenticates with a
-  [pull token](/chainguard/libraries/introduction/access/#pull-token). Pass
-  `--parent <organization>` to skip the prompt. To avoid the prompt entirely,
+  other credential it authenticates with a
+  [pull token](/chainguard/libraries/introduction/access/#pull-token) for your
+  organization, prompting for one only if you have access to more than one. Pass
+  `--parent <organization>` to skip that prompt. To avoid it entirely,
   scope your login to the libraries registry once with
   `chainctl auth login --audience=libraries.cgr.dev` — that session is then used
   automatically. (`chainctl auth configure-npm` also sets up this
@@ -351,7 +352,7 @@ Before installing packages, you can verify that authentication is configured cor
 npm ping --userconfig .npmrc
 ```
 
-A successful respoonse looks like:
+A successful response looks like:
 
 ```bash
 npm notice PING https://libraries.cgr.dev/javascript/
@@ -516,7 +517,7 @@ pnpm install
 
 As an alternative, you can remove the `node_modules` directory _and_ the `pnpm-lock.yaml` file, then reinstall. This regenerates the lockfile and updates the hashes. Regenerating re-resolves your dependencies, so it can change your pinned versions, and any new versions published within your configured cooldown window will return an error. See [Update your lockfile](/chainguard/libraries/javascript/migration/#step-3-update-your-lockfile).
 
-**Clear pnpmn caches**
+**Clear pnpm caches**
 
 pnpm has three separate layers of cached data. If you encounter stale or corrupted package data, you can clear all of these caches:
 

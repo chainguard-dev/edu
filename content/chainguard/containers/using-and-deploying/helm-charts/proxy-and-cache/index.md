@@ -25,11 +25,10 @@ In Artifactory's **Administration** module, select **Repositories**, then **Crea
 To determine values for the `User Name` and `Password / Access Token` fields, run the following command:
 
 ```bash
-$ORGANIZATION=YOUR-ORGANIZATION
-chainctl auth configure-docker --pull-token --save --parent $ORGANIZATION
+chainctl auth configure-docker --pull-token --save
 ```
 
-Set $ORGANIZATION to be the organization name you're pulling Helm Charts from. Output will look like this:
+Output will look like this:
 
 ```bash
 To use this pull token in another environment, run this command:
@@ -62,7 +61,7 @@ Finally, we'll create a Kubernetes Secret that will be used to pull the `kafka-i
 ```bash
 JFROG_USERNAME= # Your username, i.e. username@chainguard.dev
 JFROG_TOKEN= # Your token
-ORGANIZATION= # Your organization, i.e. YOUR-ORGANIZATION - you may already have this set from a previous example
+ORGANIZATION= # Your organization, i.e. YOUR-ORGANIZATION
 kubectl create secret docker-registry chainguard-pull-secret \
     --docker-server=chainguard.jfrog.io \
     --docker-username=$JFROG_USERNAME \

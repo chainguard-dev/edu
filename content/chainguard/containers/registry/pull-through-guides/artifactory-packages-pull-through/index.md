@@ -34,16 +34,10 @@ In order to complete this tutorial, you need the following:
 
 When configuring an Artifactory remote repository to function as a pull-through cache for packages from a Chainguard private APK repository, the remote repository must authenticate to Chainguard. This section outlines the steps necessary to create a Chainguard pull token and configure the required permissions to access your Chainguard organization's private APK repository:
 
-Set your Chainguard organization identifier as an environment variable. Replace the `example.org` placeholder with your organization's name as it appears in the Chainguard Console:
+Generate a pull token:
 
 ```shell
-export CHAINGUARD_ORG=example.org
-```
-
-Next, generate a pull token:
-
-```shell
-chainctl auth pull-token --repository=apk --parent=${CHAINGUARD_ORG} -o env
+chainctl auth pull-token --repository=apk -o env
 ```
 
 This `chainctl` command's `--repository=apk` flag creates a role binding to bind the pull token identity the `apk.pull` role, enabling the identity to download packages from the private APK repository of the parent organization.
@@ -78,7 +72,7 @@ To set up the remote repository:
 This takes you to a **Basic** configuration tab where you can enter the following details for the remote repository:
 
 * **Repository Key** — This is a name used to identify your remote repository, for example `cg-private`.
-* **URL** — This must be set to `https://apk.cgr.dev/${CHAINGUARD_ORG}`, but with your organization's actual name in place of `${CHAINGUARD_ORG}`. For example, if your organization is named `example` use `https://apk.cgr.dev/example`.
+* **URL** — This must be set to `https://apk.cgr.dev/<organization>`, replacing `<organization>` with your organization's name as it appears in the Chainguard Console. For example, if your organization is named `example` use `https://apk.cgr.dev/example`.
 * **User Name** — This is used by Artifactory to authenticate to Chainguard and access your private APK repository. Use the pull token `Username` value you generated with `chainctl` in the previous step.
 * **Password / Access Token** — This is used along with the user name to authenticate to Chainguard. Here, enter the `Password` value returned by the `chainctl auth pull-token` command in the previous section.
 
