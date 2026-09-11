@@ -6,8 +6,6 @@
 {{ $highlight := resources.Get "js/highlight.js" -}}
 {{ $highlight := $highlight | js.Build -}}
 
-{{ $mermaid := resources.Get "js/mermaid.js" | js.Build -}}
-
 {{ $app := resources.Get "js/app.js" -}}
 
 {{ $slice := slice $app -}}
@@ -52,16 +50,12 @@
     <script src="{{ $highlight.RelPermalink }}" defer></script>
   {{ end -}}
     <script src="{{ $js.RelPermalink }}" defer></script>
-  {{ with .Params.mermaid -}}
-    <script src="{{ $mermaid.RelPermalink }}" defer></script>
-  {{ end -}}
   <script src="{{ $index.RelPermalink }}" defer></script>
 {{ else -}}
   {{ $js := $js | minify | fingerprint "sha512" -}}
   {{ $index := $index | minify | fingerprint "sha512" -}}
   {{ $bs := $bs | minify | fingerprint "sha512" -}}
   {{ $highlight := $highlight | minify | fingerprint "sha512" -}}
-  {{ $mermaid := $mermaid | minify | fingerprint "sha512" -}}
   {{ if .Site.Params.options.bootStrapJs -}}
     <script src="{{ $bs.RelPermalink }}" integrity="{{ $bs.Data.Integrity }}" crossorigin="anonymous" defer></script>
   {{ end -}}
@@ -69,9 +63,6 @@
     <script src="{{ $highlight.RelPermalink }}" integrity="{{ $highlight.Data.Integrity }}" crossorigin="anonymous" defer></script>
   {{ end -}}
   <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" crossorigin="anonymous" defer></script>
-  {{ with .Params.mermaid -}}
-    <script src="{{ $mermaid.RelPermalink }}" integrity="{{ $mermaid.Data.Integrity }}" crossorigin="anonymous" defer></script>
-  {{ end -}}
   <script src="{{ $index.Permalink }}" integrity="{{ $index.Data.Integrity }}" crossorigin="anonymous" defer></script>
 {{ end -}}
 
