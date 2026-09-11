@@ -23,7 +23,7 @@ only available with manual overrides, configuration, and reduction of
 default security level of 2, to a lower value. Those that are
 available in FIPS also require manual overrides and configuration.
 
-The Non-FIPS and FIPS columns read as follows:
+The v4.0 and FIPS v3.6 columns read as follows:
 
 - **Default**: negotiated by default under the shipped Chainguard OS
   crypto policy. For key exchange groups, **First** marks the most
@@ -53,7 +53,7 @@ For more information about Transport Layer Security (TLS) please see the followi
 
 ## TLS Cipher Suites
 
-| Value | Cipher Suite | Non-FIPS | FIPS | PQC |
+| Value | Cipher Suite | v4.0 | FIPS v3.6 | PQC |
 |---|---|---|---|---|
 | TLSv1.3 | | | | |
 | 0x13,0x01 | TLS_AES_128_GCM_SHA256 | Default | Default | Yes |
@@ -78,7 +78,7 @@ For more information about Transport Layer Security (TLS) please see the followi
 
 ## TLS Supported Groups
 
-| Value | Supported Group | Non-FIPS | FIPS | PQC |
+| Value | Supported Group | v4.0 | FIPS v3.6 | PQC |
 |---|---|---|---|---|
 | PQC TLSv1.3 | | | | |
 | 512 | MLKEM512 | Available | Available | Yes |
@@ -101,7 +101,7 @@ The brainpool rows combine two codepoints each: the first one (`brainpoolP256r1`
 
 ## TLS SignatureScheme
 
-| Value | Signature Scheme | Non-FIPS | FIPS | PQC |
+| Value | Signature Scheme | v4.0 | FIPS v3.6 | PQC |
 |---|---|---|---|---|
 | PQC TLSv1.3 | | | | |
 | 0x0904 | mldsa44 | Default | Default | Yes |
@@ -128,7 +128,7 @@ The brainpool rows combine two codepoints each: the first one (`brainpoolP256r1`
 
 ## Elliptic Curves
 
-| OID | Elliptic Curve | Non-FIPS | FIPS |
+| OID | Elliptic Curve | v4.0 | FIPS v3.6 |
 |---|---|---|---|
 | 1.2.840.10045.3.1.7 | prime256v1 (P-256, secp256r1) | Default | Default |
 | 1.3.36.3.3.2.8.1.1.7 | brainpoolP256r1 | Default |  |
