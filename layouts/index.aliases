@@ -2,18 +2,17 @@
 Builds the nginx map that turns every Hugo alias into a 301. nginx.conf
 includes the result as /etc/nginx/aliases.
 
-The ([/?].*)? bound matches the alias itself, anything in its subtree, or a
-query string, but not a longer path segment that merely starts with the alias.
-An open-ended bound lets a rule feed itself: an alias of
-/pull-through-guides/artifactory on a page that now lives at
-/pull-through-guides/artifactory-containers-pull-through matches its own
-target and appends the suffix on every hop, so the URL never resolves
-(DOCS-186).
+The (/.*)? bound matches the alias itself or anything in its subtree, but not
+a longer path segment that merely starts with the alias. An open-ended bound
+lets a rule feed itself: an alias of /pull-through-guides/artifactory on a
+page that now lives at /pull-through-guides/artifactory-containers-pull-through
+matches its own target and appends the suffix on every hop, so the URL never
+resolves (DOCS-186).
 
-"?" belongs in the character class because nginx matches this map against
-$request_uri, which carries the query string. Bounding on "/" alone would
-stop matching an aliased URL written without a trailing slash but with a
-query, such as /chainguard/fips?utm_source=x, and send it to a 404.
+The bound needs no "?" because nginx.conf matches this map against a key with
+the query string already stripped (DOCS-187). Matching $request_uri directly
+would need "?" in a character class here, and the query would then land in $1
+and be duplicated by the rewrite that applies the map.
 
 nginx takes the first regex in a map that matches, so the rules are written
 longest alias first. An alias that is a prefix of another one would otherwise
@@ -32,5 +31,5 @@ the wrong page.
 {{- end -}}
 {{- end -}}
 {{- range sort $rules "length" "desc" -}}
-"~^{{ .alias }}([/?].*)?$" {{ .target }}$1;
+"~^{{ .alias }}(/.*)?$" {{ .target }}$1;
 {{ end -}}
