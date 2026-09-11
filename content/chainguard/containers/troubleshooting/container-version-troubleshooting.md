@@ -6,7 +6,7 @@ aliases:
 type: "article"
 description: "When a container or version isn't available to you: how to identify which situation you're in, what to do about each, and when to open a support request."
 date: 2026-09-02T00:00:00+00:00
-lastmod: 2026-09-11T12:56:16+00:00
+lastmod: 2026-09-11T13:20:58+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -28,7 +28,7 @@ Browsing an image in the Directory doesn't mean your organization can pull it. F
 
 ## Find your situation
 
-Several of these situations turn on a label in the Console. On a container's **Tags** tab, the **Pull URL** column shows the pull URL for a version when your organization can pull that version. When it can't, the column shows a status label instead, and that label describes the repository rather than the version on that row. A label where you expected a URL means the version isn't available to you.
+You identify several of these situations from a label in the Console. On a container's **Tags** tab, the **Pull URL** column shows the pull URL for a version when your organization can pull that version. When it can't, the column shows a status label instead, and that label describes the repository rather than the version on that row. A label where you expected a URL means the version isn't available to you.
 
 Look up the image in the Directory, then match what you see to the following table:
 
@@ -83,13 +83,13 @@ When a container is added to an organization, only its actively supported tags c
 
 Those records outlive the images they name. A superseded tag can still appear in the Console with a pull URL beside it, and still be listed by `chainctl`, while pulling it returns `MANIFEST_UNKNOWN`. A tag's presence in a listing is a weaker signal than whether that tag is still active.
 
-So check against the active tags, which uses your default organization:
+So check against the active tags. This command reads your default organization:
 
 ```shell
 chainctl images tags list --repo=$IMAGE --active-only
 ```
 
-If the tag you want isn't in that output, treat it as unavailable, whatever the Directory or the Console shows for it. Drop `--active-only` to see everything your organization holds, including tags that are no longer maintained and may no longer pull.
+If the tag you want isn't in that output, treat it as unavailable, whatever the Directory or the Console shows for it. Drop `--active-only` to see everything your organization holds, including tags that are no longer maintained. Some of those will fail to pull.
 
 What you do next depends on which kind of tag it is:
 
