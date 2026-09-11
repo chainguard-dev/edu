@@ -1,7 +1,7 @@
 ---
-title : "Chainguard OpenSSL 4.0 configuration"
+title : "OpenSSL 4.0 Configuration"
 lead: ""
-description: "Chainguard OpenSSL 4.0 configuration"
+description: "OpenSSL 4.0 Configuration"
 type: "article"
 date: 2026-09-10T00:48:23+00:00
 lastmod: 2026-09-11T00:00:00+00:00
@@ -30,6 +30,9 @@ The Non-FIPS and FIPS columns read as follows:
   preferred group and **Preshare** the group whose key share is sent
   in the first ClientHello.
 - **Available**: works, but only with manual configuration.
+- **Non-TLS only**: the elliptic curve works for keys, signatures and
+  certificates, but has no TLS supported group and so cannot be used
+  in TLS.
 - Blank: not available.
 
 The tables are presented in the format similar to the [IANA TLS
@@ -85,7 +88,6 @@ For more information about Transport Layer Security (TLS) please see the followi
 | 4588 | X25519MLKEM768 | **First** | Default | Yes |
 | 4589 | SecP384r1MLKEM1024 | Default | Default | Yes |
 | TLSv1.2 & TLSv1.3 | | | | |
-| 21 | secp224r1 |  | Available |  |
 | 23 | secp256r1 | Default | Default |  |
 | 24 | secp384r1 | Default | Preshare |  |
 | 25 | secp521r1 | Default | Default |  |
