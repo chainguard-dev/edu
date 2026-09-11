@@ -1599,6 +1599,12 @@
             "type": "string"
           }
         },
+        "required": [
+          "issuer",
+          "issuerPattern",
+          "subject",
+          "subjectPattern"
+        ],
         "type": "object"
       },
       "chainguard.platform.iam.v2beta1.Identity.StaticKeys": {
@@ -2238,6 +2244,16 @@
         },
         "type": "object"
       },
+      "chainguard.platform.iam.v2beta1.ManagedBy": {
+        "default": "MANAGED_BY_UNSPECIFIED",
+        "description": "ManagedBy identifies the automation that owns a role binding.\n\n - MANAGED_BY_UNSPECIFIED: MANAGED_BY_UNSPECIFIED is the proto3 zero value. The API never returns it —\nevery binding is either MANUAL or SCIM.\n - MANAGED_BY_MANUAL: MANAGED_BY_MANUAL means a human operator created the binding. Automated\nreconcilers never revoke it.\n - MANAGED_BY_SCIM: MANAGED_BY_SCIM means the SCIM reconciler provisioned the binding for the\nIdentityProvider recorded in managed_by_uidp. It cannot be edited through\nthis API.",
+        "enum": [
+          "MANAGED_BY_UNSPECIFIED",
+          "MANAGED_BY_MANUAL",
+          "MANAGED_BY_SCIM"
+        ],
+        "type": "string"
+      },
       "chainguard.platform.iam.v2beta1.OrgKind": {
         "default": "ORG_KIND_UNSPECIFIED",
         "description": "OrgKind is the kind of organization the group belongs to.\n\n - ORG_KIND_UNSPECIFIED: Organization kind is not yet set.\n - ORG_KIND_STARTER: Free catalog starter organizations.\n - ORG_KIND_CUSTOMER: Paid customer organizations.\n - ORG_KIND_DEV: Personal developer organizations.\n - ORG_KIND_INFRA: Organizations that are used for infrastructure or automation.\n - ORG_KIND_AWS_MARKETPLACE: Organizations that are created via AWS Marketplace Subscriptions.\nOrgs can move from this kind to CUSTOMER upon up-sell.",
@@ -2395,6 +2411,20 @@
           },
           "identityUid": {
             "description": "The identity UID to bind to the role.\nSet this field when creating or updating a role binding.",
+            "type": "string"
+          },
+          "managedBy": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.ManagedBy"
+              }
+            ],
+            "description": "Who manages this role binding. MANUAL bindings are human-created and are\nnever revoked by a reconciler; SCIM bindings are owned by the\nIdentityProvider in managed_by_uidp and cannot be edited through this API.",
+            "readOnly": true
+          },
+          "managedByUidp": {
+            "description": "UIDP of the IdentityProvider that manages this role binding. Empty for\nMANUAL bindings; set for SCIM bindings.",
+            "readOnly": true,
             "type": "string"
           },
           "role": {
@@ -8450,6 +8480,20 @@
                   },
                   "identityUid": {
                     "description": "The identity UID to bind to the role.\nSet this field when creating or updating a role binding.",
+                    "type": "string"
+                  },
+                  "managedBy": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.ManagedBy"
+                      }
+                    ],
+                    "description": "Who manages this role binding. MANUAL bindings are human-created and are\nnever revoked by a reconciler; SCIM bindings are owned by the\nIdentityProvider in managed_by_uidp and cannot be edited through this API.",
+                    "readOnly": true
+                  },
+                  "managedByUidp": {
+                    "description": "UIDP of the IdentityProvider that manages this role binding. Empty for\nMANUAL bindings; set for SCIM bindings.",
+                    "readOnly": true,
                     "type": "string"
                   },
                   "role": {

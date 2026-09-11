@@ -1739,6 +1739,36 @@
         },
         "type": "object"
       },
+      "chainguard.platform.argos.DumpVEXMetadata": {
+        "description": "DumpVEXMetadata is the first message in a Dump stream, carrying archive\nprovenance. Subsequent messages carry raw tar.gz chunks via DumpVEXResponse.",
+        "properties": {
+          "generated_at": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string"
+          },
+          "size_bytes": {
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.DumpVEXResponse": {
+        "description": "DumpVEXResponse is either the leading metadata frame or a raw archive chunk.",
+        "properties": {
+          "chunk": {
+            "format": "byte",
+            "type": "string"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/chainguard.platform.argos.DumpVEXMetadata"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.argos.Event": {
         "properties": {
           "fixed": {
@@ -2016,6 +2046,21 @@
               }
             ],
             "description": "patch_status is the patch-generation state of this record."
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.VEXDocument": {
+        "properties": {
+          "document": {
+            "description": "document is the .openvex.json bytes, verbatim.",
+            "format": "byte",
+            "type": "string"
+          },
+          "modified": {
+            "description": "modified is the feed index entry's modified time for this document.",
+            "format": "date-time",
+            "type": "string"
           }
         },
         "type": "object"
@@ -3355,6 +3400,16 @@
         },
         "type": "object"
       },
+      "chainguard.platform.iam.ManagedBy": {
+        "default": "MANAGED_BY_UNSPECIFIED",
+        "description": "ManagedBy identifies the automation that owns a role binding.\n\n - MANAGED_BY_UNSPECIFIED: MANAGED_BY_UNSPECIFIED is the proto3 zero value; the API never returns it\n(every binding reads as MANUAL or SCIM).\n - MANAGED_BY_MANUAL: MANAGED_BY_MANUAL means a human operator created the binding.\n - MANAGED_BY_SCIM: MANAGED_BY_SCIM means the SCIM reconciler provisioned the binding for the\nIdentityProvider recorded in managed_by_uidp.",
+        "enum": [
+          "MANAGED_BY_UNSPECIFIED",
+          "MANAGED_BY_MANUAL",
+          "MANAGED_BY_SCIM"
+        ],
+        "type": "string"
+      },
       "chainguard.platform.iam.OrgKind": {
         "default": "ORG_KIND_UNSPECIFIED",
         "description": "OrgKind is the kind of organization the group belongs to.\n\n - ORG_KIND_STARTER: Free catalog starter organizations.\n - ORG_KIND_CUSTOMER: Paid customer organizations.\n - ORG_KIND_DEV: Personal developer organizations.\n - ORG_KIND_INFRA: Organizations that are used for infrastructure or automation.\n - ORG_KIND_AWS_MARKETPLACE: Organizations that are created via AWS Marketplace Subscriptions.\nOrgs can move from this kind to CUSTOMER upon up-sell.",
@@ -3546,6 +3601,18 @@
           },
           "identity": {
             "description": "identity, UID of the Identity bound.",
+            "type": "string"
+          },
+          "managedBy": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.ManagedBy"
+              }
+            ],
+            "description": "managed_by identifies whether the binding is human-managed (MANUAL) or\nSCIM-provisioned (SCIM). Empty/unspecified is never returned; it reads as\nMANUAL."
+          },
+          "managedByUidp": {
+            "description": "managed_by_uidp is the UIDP of the managing IdentityProvider for SCIM\nbindings; empty for MANUAL bindings.",
             "type": "string"
           },
           "role": {
@@ -5149,6 +5216,16 @@
         },
         "type": "object"
       },
+      "chainguard.platform.iam.v2.ManagedBy": {
+        "default": "MANAGED_BY_UNSPECIFIED",
+        "description": "ManagedBy identifies the automation that owns a role binding.\n\n - MANAGED_BY_UNSPECIFIED: MANAGED_BY_UNSPECIFIED is the proto3 zero value. The API never returns it —\nevery binding is either MANUAL or SCIM.\n - MANAGED_BY_MANUAL: MANAGED_BY_MANUAL means a human operator created the binding. Automated\nreconcilers never revoke it.\n - MANAGED_BY_SCIM: MANAGED_BY_SCIM means the SCIM reconciler provisioned the binding for the\nIdentityProvider recorded in managed_by_uidp. It cannot be edited through\nthis API.",
+        "enum": [
+          "MANAGED_BY_UNSPECIFIED",
+          "MANAGED_BY_MANUAL",
+          "MANAGED_BY_SCIM"
+        ],
+        "type": "string"
+      },
       "chainguard.platform.iam.v2.OrgKind": {
         "default": "ORG_KIND_UNSPECIFIED",
         "description": "OrgKind is the kind of organization the group belongs to.\n\n - ORG_KIND_UNSPECIFIED: Organization kind is not yet set.\n - ORG_KIND_STARTER: Free catalog starter organizations.\n - ORG_KIND_CUSTOMER: Paid customer organizations.\n - ORG_KIND_DEV: Personal developer organizations.\n - ORG_KIND_INFRA: Organizations that are used for infrastructure or automation.\n - ORG_KIND_AWS_MARKETPLACE: Organizations that are created via AWS Marketplace Subscriptions.\nOrgs can move from this kind to CUSTOMER upon up-sell.",
@@ -5306,6 +5383,20 @@
           },
           "identityUid": {
             "description": "The identity UID to bind to the role.\nSet this field when creating or updating a role binding.",
+            "type": "string"
+          },
+          "managedBy": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2.ManagedBy"
+              }
+            ],
+            "description": "Who manages this role binding. MANUAL bindings are human-created and are\nnever revoked by a reconciler; SCIM bindings are owned by the\nIdentityProvider in managed_by_uidp and cannot be edited through this API.",
+            "readOnly": true
+          },
+          "managedByUidp": {
+            "description": "UIDP of the IdentityProvider that manages this role binding. Empty for\nMANUAL bindings; set for SCIM bindings.",
+            "readOnly": true,
             "type": "string"
           },
           "role": {
@@ -8642,6 +8733,11 @@
               }
             ],
             "description": "The catalog tier of the image."
+          },
+          "entitlementId": {
+            "description": "The entitlement this image attachment belongs to. On responses that report\none entry per affected entitlement, this disambiguates which entitlement\neach entry came from.",
+            "readOnly": true,
+            "type": "string"
           },
           "expirationTime": {
             "description": "When access to this image expires. Unset means no expiration.",
@@ -14302,6 +14398,100 @@
         "summary": "Get Vuln",
         "tags": [
           "ArgosOSV"
+        ]
+      }
+    },
+    "/argos/v1/vex/documents/{ecosystem}/{package}": {
+      "get": {
+        "description": "GetDocument returns the per-package OpenVEX document, verbatim as\npublished to the feed.",
+        "operationId": "ArgosVEX_GetDocument",
+        "parameters": [
+          {
+            "description": "ecosystem is the purl type, e.g. \"maven\", \"pypi\".",
+            "in": "path",
+            "name": "ecosystem",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "package is the package name including any namespace, e.g.\n\"io.netty/netty-codec-dns\", \"@babel/traverse\".",
+            "in": "path",
+            "name": "package",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.argos.VEXDocument"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Document",
+        "tags": [
+          "ArgosVEX"
+        ]
+      }
+    },
+    "/argos/v1/vex/dump": {
+      "get": {
+        "description": "Dump streams the full feed archive (tar.gz). The first frame is\nmetadata; subsequent frames are chunks. Chunk size is server-chosen,\n\u003c 4MB.",
+        "operationId": "ArgosVEX_Dump",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "$ref": "#/components/schemas/google.rpc.Status"
+                    },
+                    "result": {
+                      "$ref": "#/components/schemas/chainguard.platform.argos.DumpVEXResponse"
+                    }
+                  },
+                  "title": "Stream result of chainguard.platform.argos.DumpVEXResponse",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "A successful response.(streaming responses)"
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Dump",
+        "tags": [
+          "ArgosVEX"
         ]
       }
     },
@@ -20190,6 +20380,20 @@
                   },
                   "identityUid": {
                     "description": "The identity UID to bind to the role.\nSet this field when creating or updating a role binding.",
+                    "type": "string"
+                  },
+                  "managedBy": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/chainguard.platform.iam.v2.ManagedBy"
+                      }
+                    ],
+                    "description": "Who manages this role binding. MANUAL bindings are human-created and are\nnever revoked by a reconciler; SCIM bindings are owned by the\nIdentityProvider in managed_by_uidp and cannot be edited through this API.",
+                    "readOnly": true
+                  },
+                  "managedByUidp": {
+                    "description": "UIDP of the IdentityProvider that manages this role binding. Empty for\nMANUAL bindings; set for SCIM bindings.",
+                    "readOnly": true,
                     "type": "string"
                   },
                   "role": {
@@ -29818,6 +30022,9 @@
     },
     {
       "name": "ArgosOSV"
+    },
+    {
+      "name": "ArgosVEX"
     },
     {
       "name": "ArgosVulns"
