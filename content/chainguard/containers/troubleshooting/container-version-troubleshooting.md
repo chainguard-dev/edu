@@ -6,7 +6,7 @@ aliases:
 type: "article"
 description: "When a container or version isn't available to you: how to identify which situation you're in, what to do about each, and when to open a support request."
 date: 2026-09-02T00:00:00+00:00
-lastmod: 2026-09-11T12:37:43+00:00
+lastmod: 2026-09-11T12:52:54+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -79,9 +79,9 @@ Either message means the sync hasn't finished. Wait a few minutes, then reload t
 
 ### The tag isn't in your organization's registry
 
-Your organization receives the actively supported tags for a container, not every tag the Directory lists for it. A tag that has been superseded within its version stream was never synced to your registry, and it won't arrive on its own.
+When a container is added to an organization, only its actively supported tags come across. An organization that has carried a container for a long time also holds older tags, which were the supported ones when they arrived. What your registry contains therefore depends on when the container was added and how long you've had it, and the tag you want may not be there at all.
 
-List the tags your organization actually has:
+List the tags your organization has, which uses your default organization:
 
 ```shell
 chainctl images tags list --repo=$IMAGE
