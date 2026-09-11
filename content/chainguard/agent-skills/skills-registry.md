@@ -42,7 +42,7 @@ Before your org can push or install skills, create a skills entitlement.
 > **Note**: You must have the `owner` role in your organization to create a skills entitlement and accept the Skills Registry terms of service.
 
 ```shell
-chainctl skills entitlements create --parent $ORG
+chainctl skills entitlements create
 ```
 
 ```output
@@ -274,7 +274,7 @@ Unlike `uninstall`, `delete` removes the skill from the registry for your whole 
 
 | Action | Command |
 | ----- | ----- |
-| Enable the entitlement | `chainctl skills entitlements create --parent $ORG` |
+| Enable the entitlement | `chainctl skills entitlements create` |
 | Accept the registry terms | `chainctl skills accept-terms --group $ORG` |
 | Validate a skill | `chainctl skills validate <name>` |
 | Push a skill | `chainctl skills push <name> --group $ORG --tag <version>` |

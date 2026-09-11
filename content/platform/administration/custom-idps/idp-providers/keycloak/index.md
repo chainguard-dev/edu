@@ -63,7 +63,7 @@ To configure Chainguard, make a note of the following details from your Keycloak
 * **Client Secret**: This can be found on the **Credentials** tab of the Keycloak Client.
 * **Issuer**: Your **Issuer** URL is defined by the following pattern `https://<keycloak_server_address>/realms/<realm_name>`
 
-You will also need the UIDP for the Chainguard organization under which you want to install the identity provider.  Your selection won’t affect how your users authenticate but will have implications on who has permission to modify the SSO configuration.
+If you belong to more than one Chainguard organization, you will also need the UIDP of the one under which you want to install the identity provider. Your selection won’t affect how your users authenticate but will have implications on who has permission to modify the SSO configuration.
 
 You can retrieve a list of all the Chainguard organizations you belong to — along with their UIDPs — with the following command.
 
@@ -80,13 +80,12 @@ chainctl iam organizations ls -o table
 
 Note down the `ID` value for your chosen organization.
 
-With this information in hand, create a new identity provider with the following commands. Replace `<client_id>` and `<client_secret>` with the values from your Keycloak client, `<keycloak_server_address>` and `<realm_name>` with your Keycloak server address and realm, and `<organization_id>` with the organization ID you just noted.
+With this information in hand, create a new identity provider with the following commands. Replace `<client_id>` and `<client_secret>` with the values from your Keycloak client, and `<keycloak_server_address>` and `<realm_name>` with your Keycloak server address and realm.
 
 ```sh
 export NAME=keycloak-idp
 export CLIENT_ID=<client_id>
 export CLIENT_SECRET=<client_secret>
-export ORG=<organization_id>
 export ISSUER="https://<keycloak_server_address>/realms/<realm_name>"
 chainctl iam identity-provider create \
   --configuration-type=OIDC \
@@ -95,10 +94,11 @@ chainctl iam identity-provider create \
   --oidc-issuer=${ISSUER} \
   --oidc-additional-scopes=email \
   --oidc-additional-scopes=profile \
-  --parent=${ORG} \
   --default-role=viewer \
   --name=${NAME}
 ```
+
+`chainctl` installs the provider in your organization automatically when you belong to only one. If you have access to more than one, add `--parent=<organization_id>` to choose where it is installed.
 
 Note the `--default-role` option. This defines the default role granted to users registering with this identity provider. This example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. If you don't include this option, you'll be prompted to specify the role interactively. For more information, refer to the [IAM and security section](/chainguard/administration/custom-idps/custom-idps/#iam-and-security) of our Introduction to Custom Identity Providers in Chainguard tutorial.
 

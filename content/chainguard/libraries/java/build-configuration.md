@@ -782,7 +782,7 @@ find ~/.gradle/caches/modules-2/files-2.1/com.google.guava/guava -name "*.jar" |
 Then copy the exact path to the jar and verify it with `chainctl`:
 
 ```bash
-chainctl libraries verify --parent your-org /full/path/to/guava-<version>.jar
+chainctl libraries verify /full/path/to/guava-<version>.jar
 ```
 
 > **Note**: Running `chainctl libraries verify` requires the `libraries.java.pull` permission or the Owner role.

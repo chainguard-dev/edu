@@ -132,11 +132,10 @@ Then use this variable to create a role binding that grants the custom role to t
 ```shell
 chainctl iam role-bindings create \
   --identity=$IDENTITY_ID \
-  --role=<custom-role> \
-  --parent=<chainguard-org>
+  --role=<custom-role>
 ```
 
-Be sure to replace `<custom-role>` with the name of the custom role you created and `<chainguard-org>` with the name of your Chainguard organization.
+Be sure to replace `<custom-role>` with the name of the custom role you created. If you have access to more than one organization, add `--parent <chainguard-org>` to choose where the role binding is created.
 
 ## Step 3: Note your identity ID
 

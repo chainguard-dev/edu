@@ -408,7 +408,7 @@ provides lifecycle information about a Chainguard container image's tags.
 For instance, the following snippet retrieves EOL data for the `python` image:
 
 ```sh
-REPO_ID=$(chainctl images repos list --repo=python --parent=${ORGANIZATION} -o json | jq -r '.items[0].id')
+REPO_ID=$(chainctl images repos list --repo=python -o json | jq -r '.items[0].id')
 
 curl -H "Authorization: Bearer $(chainctl auth token)" \
     "https://console-api.enforce.dev/registry/v1/eoltags?uidp.childrenOf=${REPO_ID}" \

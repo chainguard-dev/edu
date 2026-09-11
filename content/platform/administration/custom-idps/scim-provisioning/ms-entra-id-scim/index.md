@@ -49,24 +49,22 @@ chainctl auth login
 
 This bootstrap account can serve as a [backup account](/platform/administration/custom-idps/custom-idps/#backup-accounts) if you ever lose access to your primary login.
 
-Retrieve the ID of the organization where you want to install the identity provider.
+If you belong to more than one organization, retrieve the ID of the one where you want to install the identity provider.
 
 ```sh
 chainctl iam organizations ls -o table
 ```
 
-Then create the identity provider. Replace `<application_client_id>`, `<client_secret>`, and `<directory_tenant_id>` with the three values from the previous step, and `<organization_id>` with the organization ID you just retrieved.
+Then create the identity provider. Replace `<application_client_id>`, `<client_secret>`, and `<directory_tenant_id>` with the three values from the previous step.
 
 ```sh
 export NAME=entra-id
 export CLIENT_ID=<application_client_id>
 export CLIENT_SECRET=<client_secret>
-export ORG=<organization_id>
 export TENANT_ID=<directory_tenant_id>
 export ISSUER="https://login.microsoftonline.com/${TENANT_ID}/v2.0"
 chainctl iam identity-providers create \
   --configuration-type=OIDC \
-  --parent=${ORG} \
   --name=${NAME} \
   --oidc-issuer=${ISSUER} \
   --oidc-client-id=${CLIENT_ID} \
@@ -77,6 +75,8 @@ chainctl iam identity-providers create \
   --default-role=viewer \
   -o json
 ```
+
+`chainctl` installs the provider in your organization automatically when you belong to only one. If you have access to more than one, add `--parent=<organization_id>` to choose where it is installed.
 
 This `create` command includes two options specific to SCIM linking with Entra ID:
 

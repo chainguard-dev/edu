@@ -334,7 +334,7 @@ commands to set environment variables `CHAINGUARD_IDENTITY_ID` for username and
 `CHAINGUARD_TOKEN` for password values and basic authentication use.
 
 ```shell
-chainctl auth pull-token --repository=apk --ttl=2190h --output=env --parent=ORGANIZATION
+chainctl auth pull-token --repository=apk --ttl=2190h --output=env
 ```
 
 ```output
@@ -355,18 +355,17 @@ repository of the parent organization.
   names such as `CHAINGUARD_JAVA_IDENTITY_ID`. Refer to [pull token output
   formats and credential
   names](/platform/chainctl-usage/pull-token-output/) for the full mapping.
-* `--parent=ORGANIZATION`: specify the parent organization for your account as
-  provided when requesting access and replace `ORGANIZATION`.
 
 Each invocation of the command creates a new identity with access rights as a
-pull token.
+pull token. `chainctl` uses your organization automatically when you belong to
+only one; if you have access to more than one, add `--parent=ORGANIZATION`.
 
 Combine the call with `eval` to populate the environment variables directly by
 calling `chainctl`. The following example uses the default TTL value of 30 days,
 which is suitable for regular CI runs:
 
 ```shell
-eval $(chainctl auth pull-token --repository=apk --output env --parent=ORGANIZATION)
+eval $(chainctl auth pull-token --repository=apk --output env)
 ```
 
 The generated pull token can be provided in the `HTTP_AUTH` environment variable

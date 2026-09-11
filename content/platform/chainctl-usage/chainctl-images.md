@@ -26,7 +26,7 @@ When you want to know which Chainguard Containers are available to your account,
 chainctl images list
 ```
 
-This will respond with a list of organizations available to your account. For most users, there will only be one entry in the list. This example shows an account with access to several organizations within the fictional MyCorp.
+If your account has access to more than one organization, the command asks which one to list images from. Most users belong to a single organization, and `chainctl` selects it automatically. This example shows an account with access to several organizations within the fictional MyCorp.
 
 ```output
     Which organization would you like to list images from?
@@ -80,16 +80,16 @@ chainctl images repos list
 
 To examine the history of an image tag in chainctl, like when it was updated and the associated digests for each update, use `chainctl images history`. This will also return information such as how many times a variant has been built and for which platforms, along with the time and digests for each.
 
-To examine the history without using the menu shown earlier, use the optional `--parent=$ORGANIZATION` switch to designate your org, like this:
+Pass the image and tag directly to skip the menu shown earlier:
 
 ```shell
-chainctl images history $IMAGE:$TAG --parent=$ORGANIZATION
+chainctl images history $IMAGE:$TAG
 ```
 
 For example, let's find the history of one of the `python` image variants from our previous list, `3.12.7`. So we enter:
 
 ```shell
-chainctl images history python:3.12.7 --parent=chainguard.edu
+chainctl images history python:3.12.7
 ```
 
 The returned list is longer than is shown here, but here's a useful excerpt:
@@ -131,7 +131,7 @@ The command returns a reverse-chronological history of when a specific tag was u
 When the release version tag is not provided, the command will present you with a menu that lets you select which tag you'd like to obtain the history for. For example, if you enter:
 
 ```shell
-chainctl images history python --parent=chainguard.edu
+chainctl images history python
 ```
 
 This will present you with a menu like this:

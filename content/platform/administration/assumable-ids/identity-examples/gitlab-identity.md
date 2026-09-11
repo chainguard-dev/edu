@@ -36,7 +36,7 @@ Additionally, the Terraform method requires you to have `terraform` installed on
 
 You can create a new Chainguard identity that a GitLab CI/CD pipeline can assume by running the following command.
 
-Be sure to replace `<organization>` with the name of the Chainguard organization you want this identity to be used for. You'll also need to replace `<group_name>` and `<project_name>` with your actual GitLab group and project names.
+Be sure to replace `<group_name>` and `<project_name>` with your actual GitLab group and project names. If you have access to more than one Chainguard organization, add `--parent=<organization>` to choose where the identity is created.
 
 For example, if your GitLab project URL is `https://gitlab.com/mycompany/myproject`, then:
 
@@ -45,7 +45,6 @@ For example, if your GitLab project URL is `https://gitlab.com/mycompany/myproje
 
 ```shell
 chainctl iam identities create cg-gitlab-id \
-  --parent=<organization> \
   --identity-issuer="https://gitlab.com" \
   --subject="project_path:<group_name>/<project_name>:ref_type:branch:ref:main" \
   --audience="https://gitlab.com" \
@@ -82,7 +81,6 @@ For a private instance, pin the signing keys when you create the identity by pas
 
 ```shell
 chainctl iam identities create cg-gitlab-id \
-  --parent=<organization> \
   --identity-issuer="https://<your-gitlab-instance>" \
   --issuer-keys="$(curl -s https://<your-gitlab-instance>/oauth/discovery/keys)" \
   --subject="project_path:<group_name>/<project_name>:ref_type:branch:ref:main" \

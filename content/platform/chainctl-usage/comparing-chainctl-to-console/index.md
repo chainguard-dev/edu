@@ -100,10 +100,10 @@ This list contains columns with data about each image release, like the Pull URL
 
 ### Review container image history using chainctl
 
-To examine the history of an image using `chainctl`, enter this, replacing ORGANIZATION with your organization:
+To examine the history of an image using `chainctl`, enter this:
 
 ```sh
-chainctl image history kubectl:latest --parent=ORGANIZATION
+chainctl image history kubectl:latest
 ```
 
 This will return a reverse-chronological history of when a specific tag was update to point to a new manifest digest. This list can be long. Here's an excerpt:

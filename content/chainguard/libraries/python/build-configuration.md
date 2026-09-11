@@ -200,9 +200,10 @@ configuration](/chainguard/libraries/python/global-configuration/) page.
 which requires authentication. Choose whichever fits your environment:
 
 - **Logged in locally**: Run the command while authenticated; if you have no
-  other credential it prompts for an organization and authenticates with a
-  [pull token](/chainguard/libraries/introduction/access/#pull-token). Pass
-  `--parent <organization>` to skip the prompt. To avoid the prompt entirely,
+  other credential it authenticates with a
+  [pull token](/chainguard/libraries/introduction/access/#pull-token) for your
+  organization, prompting for one only if you have access to more than one. Pass
+  `--parent <organization>` to skip that prompt. To avoid it entirely,
   scope your login to the libraries registry once with
   `chainctl auth login --audience=libraries.cgr.dev` — that session is then used
   automatically.

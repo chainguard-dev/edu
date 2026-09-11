@@ -61,11 +61,10 @@ Before you start, make sure that:
 Run `chainctl guardener github migrate create` with the repository to migrate:
 
 ```shell
-chainctl guardener github migrate create <owner>/<repo> \
-  --parent <group-name>
+chainctl guardener github migrate create <owner>/<repo>
 ```
 
-The repository can be given as `owner/repo` shorthand or as a full URL (`https://github.com/owner/repo`); only github.com repositories are supported today. `--parent` is the Chainguard organization that owns the GitHub App installation — if you omit it, `chainctl` prompts you to select one.
+The repository can be given as `owner/repo` shorthand or as a full URL (`https://github.com/owner/repo`); only github.com repositories are supported today. The migration runs under the Chainguard organization that owns the GitHub App installation. `chainctl` selects that organization automatically when only one is available and prompts you when there are several; pass `--parent <group-name>` to name it explicitly.
 
 By default the command waits for the migration to finish (up to 10 minutes, adjustable with `--timeout`) and prints the result:
 

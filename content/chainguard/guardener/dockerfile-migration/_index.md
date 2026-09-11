@@ -35,13 +35,15 @@ You also need the following:
 - Your Dockerfile and build context (source code and other inputs) present on the same machine where you run the migration.
 - A user with permission to accept the Guardener legal terms must accept them for your organization before anyone can run a session. Refer to [IAM access](#iam-access) below for the roles involved.
 
-If you encounter permission errors, check your available groups and verify role bindings:
+If you encounter permission errors, check your available organizations and verify role bindings:
 
 ```shell
 chainctl iam organizations list -o table
 
-chainctl iam role-bindings create --parent <group-id> --identity <identity> --role <role-with-repo.create>
+chainctl iam role-bindings create --identity <identity> --role <role-with-repo.create>
 ```
+
+If you have access to more than one organization or folder, add `--parent <organization>` to the second command to choose where the role binding is created.
 
 ## How it works
 

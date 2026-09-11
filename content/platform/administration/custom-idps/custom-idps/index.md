@@ -167,14 +167,13 @@ chainctl auth login
 
 The bootstrap account can use any supported IdP -- for example you may choose to temporarily use a personal Google account. You can leave this account active as a [backup account](/platform/administration/custom-idps/custom-idps/#backup-accounts) or, if you prefer, you can delete the account by removing the role-binding after configuring the custom IdP.
 
-Create a new identity provider using the details you noted from your OIDC application. Replace `<application_client_id>`, `<client_secret>`, and `<issuer_url>` with the values from your own application, and `<organization_id>` with the UIDP of the organization where you want to install the identity provider.
+Create a new identity provider using the details you noted from your OIDC application. Replace `<application_client_id>`, `<client_secret>`, and `<issuer_url>` with the values from your own application.
 
 ```sh
 export NAME=my-sso-identity-provider
 export CLIENT_ID=<application_client_id>
 export CLIENT_SECRET=<client_secret>
 export ISSUER=<issuer_url>
-export ORG=<organization_id>
 chainctl iam identity-provider create \
   --configuration-type=OIDC \
   --oidc-client-id=${CLIENT_ID} \
@@ -182,17 +181,15 @@ chainctl iam identity-provider create \
   --oidc-issuer=${ISSUER} \
   --oidc-additional-scopes=email \
   --oidc-additional-scopes=profile \
-  --parent=${ORG} \
   --default-role=viewer \
   --name=${NAME}
 ```
 
+`chainctl` installs the provider in your organization automatically when you belong to only one. If you have access to more than one, add `--parent=<organization_id>` to choose where it is installed.
+
 The `oidc-issuer`, `oidc-client-id`, and `oidc-issuer-secret` values are required when setting up an OIDC configuration with `chainctl`. You must also include a unique name for each custom IdP account.
 
-Be aware that if you don't include the `--parent` or `--default-role` options in the command, you will be prompted to select these values interactively
-
-- The `--parent` option specifies which Chainguard IAM organization your identity provider will be installed under.
-- The `--default-role` option defines the default role granted to users registering with this identity provider. The previous example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. For more information, refer to the [IAM and Security section](#iam-and-security).
+If you omit the `--default-role` option, `chainctl` prompts you to select a value interactively. This option defines the default role granted to users registering with this identity provider. The previous example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. For more information, refer to the [IAM and Security section](#iam-and-security).
 
 You can retrieve a list of all your Chainguard organizations — along with their UIDPs — with the following command.
 

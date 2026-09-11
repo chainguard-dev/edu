@@ -49,10 +49,10 @@ With Custom Assembly, you can add custom certificates to your Chainguard Contain
 You can add certificates interactively by running a command like the following:
 
 ```shell
-chainctl images repos build edit --parent $ORGANIZATION --repo $CONTAINER
+chainctl images repos build edit --repo $CONTAINER
 ```
 
-This will open your default text editor with the current configuration. This example includes the `--parent` flag, which points to the name of your organization, and the `--repo` argument, which points to the name of the image you want to customize. If you omit these arguments, `chainctl` will prompt you to select your organization and container image interactively.
+This will open your default text editor with the current configuration. This example includes the `--repo` argument, which points to the name of the image you want to customize. If you omit it, `chainctl` prompts you to select a container image interactively. It also prompts for the organization when you have access to more than one; pass `--parent=<organization>` to skip that prompt.
 
 In the editor, add one or more `certificates` sections with your custom certificates. Note that each entry must contain exactly one PEM block (`BEGIN CERTIFICATE` to `END CERTIFICATE`):
 
@@ -95,7 +95,7 @@ This adds (concatenates) the provided inline certificates to the default trustst
 Alternatively, you can use the `--with-certificates` flag to pre-populate the `certificates.additional` section from a selected `.pem` file. Here is an example invocation that uses a `.pem` file named `certificates.pem`:
 
 ```shell
-chainctl images repos build edit --with-certificates certificate.pem --parent $ORGANIZATION --repo $CONTAINER
+chainctl images repos build edit --with-certificates certificate.pem --repo $CONTAINER
 ```
 
 As with the previous example, this will open up the configuration in your default editor. After saving and closing the editor, `chainctl` will prompt you to confirm the changes before applying them.
@@ -119,7 +119,7 @@ EOF
 Then include this file in the `apply` command by adding the `-f` argument:
 
 ```shell
-chainctl image repos build apply --parent $ORGANIZATION --repo $CONTAINER -f cert.yaml --yes
+chainctl image repos build apply --repo $CONTAINER -f cert.yaml --yes
 ```
 
 This command will again ask you to confirm that you want to apply the new configuration. To make this example completely declarative, this example includes `--yes` to automatically confirm the changes:
