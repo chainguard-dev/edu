@@ -77,6 +77,14 @@ For more information about Transport Layer Security (TLS) please see the followi
 
 | Value | Supported Group | Non-FIPS | FIPS | PQC |
 |---|---|---|---|---|
+| PQC TLSv1.3 | | | | |
+| 512 | MLKEM512 | Available | Available | Yes |
+| 513 | MLKEM768 | Available | Available | Yes |
+| 514 | MLKEM1024 | Default | **First** | Yes |
+| 4587 | SecP256r1MLKEM768 | Default | Default | Yes |
+| 4588 | X25519MLKEM768 | **First** | Default | Yes |
+| 4589 | SecP384r1MLKEM1024 | Default | Default | Yes |
+| TLSv1.2 & TLSv1.3 | | | | |
 | 21 | secp224r1 |  | Available |  |
 | 23 | secp256r1 | Default | Default |  |
 | 24 | secp384r1 | Default | Preshare |  |
@@ -86,12 +94,6 @@ For more information about Transport Layer Security (TLS) please see the followi
 | 28, 33 | brainpoolP512r1 | Default |  |  |
 | 29 | x25519 | Preshare |  |  |
 | 30 | x448 | Default |  |  |
-| 512 | MLKEM512 | Available | Available | Yes |
-| 513 | MLKEM768 | Available | Available | Yes |
-| 514 | MLKEM1024 | Default | **First** | Yes |
-| 4587 | SecP256r1MLKEM768 | Default | Default | Yes |
-| 4588 | X25519MLKEM768 | **First** | Default | Yes |
-| 4589 | SecP384r1MLKEM1024 | Default | Default | Yes |
 
 The brainpool rows combine two codepoints each: the first one (`brainpoolP256r1`, `brainpoolP384r1`, `brainpoolP512r1`) is what TLS 1.2 negotiates, the second one (`brainpoolP256r1tls13`, `brainpoolP384r1tls13`, `brainpoolP512r1tls13`) is the TLS 1.3 name of the same curve.
 
@@ -99,6 +101,11 @@ The brainpool rows combine two codepoints each: the first one (`brainpoolP256r1`
 
 | Value | Signature Scheme | Non-FIPS | FIPS | PQC |
 |---|---|---|---|---|
+| PQC TLSv1.3 | | | | |
+| 0x0904 | mldsa44 | Default | Default | Yes |
+| 0x0905 | mldsa65 | Default | Default | Yes |
+| 0x0906 | mldsa87 | Default | Default | Yes |
+| TLSv1.2 & TLSv1.3 | | | | |
 | 0x0401 | rsa_pkcs1_sha256 | Default | Default |  |
 | 0x0403 | ecdsa_secp256r1_sha256 | Default | Default |  |
 | 0x0501 | rsa_pkcs1_sha384 | Default | Default |  |
@@ -116,29 +123,15 @@ The brainpool rows combine two codepoints each: the first one (`brainpoolP256r1`
 | 0x081A | ecdsa_brainpoolP256r1tls13_sha256 | Default |  |  |
 | 0x081B | ecdsa_brainpoolP384r1tls13_sha384 | Default |  |  |
 | 0x081C | ecdsa_brainpoolP512r1tls13_sha512 | Default |  |  |
-| 0x0904 | mldsa44 | Default | Default | Yes |
-| 0x0905 | mldsa65 | Default | Default | Yes |
-| 0x0906 | mldsa87 | Default | Default | Yes |
 
 ## Elliptic Curves
 
 | OID | Elliptic Curve | Non-FIPS | FIPS |
 |---|---|---|---|
 | 1.2.840.10045.3.1.7 | prime256v1 (P-256, secp256r1) | Default | Default |
-| 1.3.36.3.3.2.8.1.1.1 | brainpoolP160r1 |  |  |
-| 1.3.36.3.3.2.8.1.1.2 | brainpoolP160t1 |  |  |
-| 1.3.36.3.3.2.8.1.1.3 | brainpoolP192r1 |  |  |
-| 1.3.36.3.3.2.8.1.1.4 | brainpoolP192t1 |  |  |
-| 1.3.36.3.3.2.8.1.1.5 | brainpoolP224r1 |  |  |
-| 1.3.36.3.3.2.8.1.1.6 | brainpoolP224t1 |  |  |
 | 1.3.36.3.3.2.8.1.1.7 | brainpoolP256r1 | Default |  |
-| 1.3.36.3.3.2.8.1.1.8 | brainpoolP256t1 |  |  |
-| 1.3.36.3.3.2.8.1.1.9 | brainpoolP320r1 |  |  |
-| 1.3.36.3.3.2.8.1.1.10 | brainpoolP320t1 |  |  |
 | 1.3.36.3.3.2.8.1.1.11 | brainpoolP384r1 | Default |  |
-| 1.3.36.3.3.2.8.1.1.12 | brainpoolP384t1 |  |  |
 | 1.3.36.3.3.2.8.1.1.13 | brainpoolP512r1 | Default |  |
-| 1.3.36.3.3.2.8.1.1.14 | brainpoolP512t1 |  |  |
-| 1.3.132.0.10 | secp256k1 | Available |  |
+| 1.3.132.0.10 | secp256k1 | Non-TLS only |  |
 | 1.3.132.0.34 | secp384r1 (P-384) | Default | Default |
 | 1.3.132.0.35 | secp521r1 (P-521) | Default | Default |
