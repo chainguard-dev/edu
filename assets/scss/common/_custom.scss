@@ -146,6 +146,12 @@ html[data-dark-mode] .logo-purple {
         white-space: nowrap;
     }
 
+    // Section row labelling the rows below it (see render-table.html).
+    >tbody>tr>td.td-section {
+        font-weight: 600;
+        border-bottom: 1px solid var(--table-row-border-color);
+    }
+
     // Row highlight on hover.
     >tbody>tr:hover>td {
         background-color: var(--table-auto-row-hover);
@@ -170,6 +176,12 @@ html[data-dark-mode] .logo-purple {
         display: block;
         overflow-x: auto;
     }
+}
+
+// Bold header cells. Needs the same specificity as the `body[class][class][class]
+// table th { font-weight: normal }` reset in _resets.scss; Gellix ships 400 and 700.
+body[class][class][class] .docs-content>table.table-auto>thead>tr>th {
+    font-weight: 700;
 }
 
 // Beat <a> reset

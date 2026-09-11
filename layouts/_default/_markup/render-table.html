@@ -4,7 +4,9 @@
   a header cell written as "Group / Label" becomes a "Label" cell under a
   "Group" cell that spans every adjacent header cell with the same group.
   Every leaf header cell gets a data-col attribute so CSS can match it to
-  its body column regardless of the spans.
+  its body column regardless of the spans. A body row with text only in its
+  first cell becomes a section row: one cell spanning the whole table, for
+  labelling the rows that follow it.
 
   A page opts every table in with `table_layout: auto` in its front matter.
   (A `{.table-auto}` attribute line after a table also works, but
@@ -84,11 +86,17 @@
   </thead>
   <tbody>
     {{- range .TBody }}
+    {{- $section := and (in $class "table-auto") (gt (len .) 1) (ne (string (index . 0).Text) "") }}
+    {{- range after 1 . }}{{ if ne (string .Text) "" }}{{ $section = false }}{{ end }}{{ end }}
     <tr>
+      {{- if $section }}
+      <td colspan="{{ len . }}" class="td-section">{{ (index . 0).Text }}</td>
+      {{- else }}
       {{- range . }}
       <td
         {{- with .Alignment }}{{ printf " style=%q" (printf "text-align: %s" .) | safeHTMLAttr }}{{ end -}}
       >{{ .Text }}</td>
+      {{- end }}
       {{- end }}
     </tr>
     {{- end }}
