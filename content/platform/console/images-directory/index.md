@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "A walkthrough of the Chainguard Console."
 date: 2024-02-23T11:07:52+02:00
-lastmod: 2026-09-02T13:31:42+00:00
+lastmod: 2026-09-11T12:38:00+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -84,7 +84,7 @@ Each container image details page has several tabs that provide information abou
 The default page for each image is the **Tags** tab which contains information about the version tags available for each image. This contains a table with columns:
 
 * **Tag**: this column lists each tag available for the container image
-* **Pull URL**: the URL you can use to download each version of the Container. In the Console, Production Containers you don't already have access to will show a message reading `Add to organization` if you're logged in under an organization with access to Production Containers; if you're logged in under an organization without entitlement, the message reads `Request image` or `Request chart`. For what to do about either message, refer to [Troubleshoot container and version availability](/chainguard/containers/troubleshooting/container-version-troubleshooting/).
+* **Pull URL**: the URL you can use to download a version, shown when your organization can pull that version. When it can't, this column shows a status label in place of the URL: **Add to organization for access**, **Add image for access**, **Request image for access**, **Available in organization**, **Unavailable to organization**, or **Contact us for access**. These labels describe the repository rather than the version on that row, so **Available in organization** can appear beside a version you can't pull. For what each label means and what to do about it, refer to [Troubleshoot container and version availability](/chainguard/containers/troubleshooting/container-version-troubleshooting/).
 * **Compressed size**: the size of the image, in megabytes
 * **Last changed**: when each version of the image was last updated
 
