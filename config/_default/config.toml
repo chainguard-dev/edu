@@ -128,9 +128,6 @@ notAlternative = true
     min = "0.80.0"
     max = ""
   [[module.mounts]]
-    source = "node_modules/mermaid"
-    target = "assets/js/vendor/mermaid"
-  [[module.mounts]]
     source = "node_modules/@scalar/api-reference/dist"
     target = "assets/css/vendor/scalar"
     files = ["/style.css"]
