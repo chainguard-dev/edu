@@ -178,6 +178,12 @@ html[data-dark-mode] .logo-purple {
     }
 }
 
+// Bold header cells. Needs the same specificity as the `body[class][class][class]
+// table th { font-weight: normal }` reset in _resets.scss; Gellix ships 400 and 700.
+body[class][class][class] .docs-content>table.table-auto>thead>tr>th {
+    font-weight: 700;
+}
+
 // Beat <a> reset
 .docs-content.docs-content a:not(.tag) {
     color: var(--article-link-color);

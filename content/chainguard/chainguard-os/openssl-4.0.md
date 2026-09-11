@@ -54,7 +54,7 @@ For more information about Transport Layer Security (TLS) please see the followi
 |---|---|---|---|---|
 | TLSv1.3 | | | | |
 | 0x13,0x01 | TLS_AES_128_GCM_SHA256 | Default | Default | Yes |
-| 0x13,0x02 | TLS_AES_256_GCM_SHA384 | Default | Default | Yes |
+| 0x13,0x02 | TLS_AES_256_GCM_SHA384 | **First** | **First** | Yes |
 | 0x13,0x03 | TLS_CHACHA20_POLY1305_SHA256 | Default |  | Yes |
 | TLSv1.2 | | | | |
 | 0xC0,0x23 | TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 | Available | Available |  |
@@ -62,9 +62,9 @@ For more information about Transport Layer Security (TLS) please see the followi
 | 0xC0,0x27 | TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 | Available | Available |  |
 | 0xC0,0x28 | TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 | Available | Available |  |
 | 0xC0,0x2B | TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 | Default | Default |  |
-| 0xC0,0x2C | TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 | Default | Default |  |
+| 0xC0,0x2C | TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 | **First** | **First** |  |
 | 0xC0,0x2F | TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 | Default | Default |  |
-| 0xC0,0x30 | TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 | Default | Default |  |
+| 0xC0,0x30 | TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 | **First** | **First** |  |
 | 0xC0,0x37 | TLS_ECDHE_PSK_WITH_AES_128_CBC_SHA256 | Available | Available |  |
 | 0xC0,0x38 | TLS_ECDHE_PSK_WITH_AES_256_CBC_SHA384 | Available | Available |  |
 | 0xC0,0xAC | TLS_ECDHE_ECDSA_WITH_AES_128_CCM | Available | Available |  |
@@ -88,9 +88,9 @@ For more information about Transport Layer Security (TLS) please see the followi
 | 30 | x448 | Default |  |  |
 | 512 | MLKEM512 | Available | Available | Yes |
 | 513 | MLKEM768 | Available | Available | Yes |
-| 514 | MLKEM1024 | Default | First | Yes |
+| 514 | MLKEM1024 | Default | **First** | Yes |
 | 4587 | SecP256r1MLKEM768 | Default | Default | Yes |
-| 4588 | X25519MLKEM768 | First | Default | Yes |
+| 4588 | X25519MLKEM768 | **First** | Default | Yes |
 | 4589 | SecP384r1MLKEM1024 | Default | Default | Yes |
 
 The brainpool rows combine two codepoints each: the first one (`brainpoolP256r1`, `brainpoolP384r1`, `brainpoolP512r1`) is what TLS 1.2 negotiates, the second one (`brainpoolP256r1tls13`, `brainpoolP384r1tls13`, `brainpoolP512r1tls13`) is the TLS 1.3 name of the same curve.
