@@ -6,7 +6,7 @@ aliases:
 type: "article"
 description: "When a container or version isn't available to you: how to identify which situation you're in, what to do about each, and when to open a support request."
 date: 2026-09-02T00:00:00+00:00
-lastmod: 2026-09-11T12:52:54+00:00
+lastmod: 2026-09-11T12:55:37+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -79,15 +79,17 @@ Either message means the sync hasn't finished. Wait a few minutes, then reload t
 
 ### The tag isn't in your organization's registry
 
-When a container is added to an organization, only its actively supported tags come across. An organization that has carried a container for a long time also holds older tags, which were the supported ones when they arrived. What your registry contains therefore depends on when the container was added and how long you've had it, and the tag you want may not be there at all.
+When a container is added to an organization, only its actively supported tags come across. An organization that has carried a container for a long time also holds records of older tags, from back when those tags were the supported ones.
 
-List the tags your organization has, which uses your default organization:
+Those records outlive the images they name. A superseded tag can still appear in the Console with a pull URL beside it, and still be listed by `chainctl`, while pulling it returns `MANIFEST_UNKNOWN`. A tag's presence in a listing is a weaker signal than whether that tag is still active.
+
+So check against the active tags, which uses your default organization:
 
 ```shell
-chainctl images tags list --repo=$IMAGE
+chainctl images tags list --repo=$IMAGE --active-only
 ```
 
-Add `--active-only` to drop tags that are no longer maintained. Compare the result against the tags on the container's page in the Directory. A tag that appears in the Directory but not in this output isn't in your registry.
+If the tag you want isn't in that output, treat it as unavailable, whatever the Directory or the Console shows for it. Drop `--active-only` to see everything your organization holds, including tags that are no longer maintained and may no longer pull.
 
 What you do next depends on which kind of tag it is:
 
