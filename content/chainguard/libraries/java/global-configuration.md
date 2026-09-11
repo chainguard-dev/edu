@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for Java in your organization"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-09-11T13:54:27+00:00
+lastmod: 2026-09-11T15:58:17+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java"]
 images: []
@@ -279,8 +279,6 @@ for proxying and hosting, and virtual repositories to combine them. Refer to the
 Artifactory](https://docs.jfrog.com/artifactory/docs/maven-repositories)
 for more information.
 
-{{< blurb/jfrog-curation >}}
-
 If you follow the recommended approach to rely on Chainguard Repository's
 upstream fallback, disable or remove any existing Artifactory remote repository
 that points at Maven Central, and remove it from the virtual repository your
@@ -288,6 +286,10 @@ builds resolve against. A remote pointing directly at Maven Central bypasses
 those protections. Since Artifactory resolves through the virtual repository in
 order, a misconfiguration can result in Artifactory serving an unprotected
 package.
+
+### JFrog Curation and Chainguard Libraries
+
+{{< blurb/jfrog-curation >}}
 
 ### Initial configuration
 
