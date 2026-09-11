@@ -4,7 +4,7 @@ linktitle: "EOL grace period"
 type: "article"
 description: "Understanding Chainguard's end-of-life (EOL) grace period."
 date: 2025-05-14T08:49:31+00:00
-lastmod: 2026-08-07T13:38:58+00:00
+lastmod: 2026-09-11T13:07:32+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -34,9 +34,9 @@ Chainguard's EOL grace period gives customers access to new builds of container 
 
 > **Note**: Chainguard is **not** able to offer any exceptions to the 6 month limit for the EOL grace period.
 
-You will be able to find the end date of a given container image version's grace period in the [Chainguard Console](https://console.chainguard.dev/). From the **Organization Images** tab, select an image. You'll be taken to that container image's **Versions** page, and the end date of each grace period will be listed under the respective version:
+You will be able to find the end date of a given container image version's grace period in the [Chainguard Console](https://console.chainguard.dev/). From the **Organization Images** tab, select an image. You'll be taken to that container image's **Tags** tab, and the end date of each grace period will be listed under the respective version:
 
-<center><img src="eol-gp-2.png" alt="Screenshot of a portion of an image's 'Versions' tab, showing the Grace Period end dates for several versions of the image." style="width:300px;"></center>
+<center><img src="eol-gp-2.png" alt="Screenshot of a portion of an image's 'Tags' tab, showing the Grace Period end dates for several versions of the image." style="width:300px;"></center>
 <br />
 
 As of this writing, a container image must meet four key requirements to be eligible for coverage under the EOL grace period:
