@@ -7,7 +7,7 @@ type: "article"
 description: "Learn the login flows chainctl supports, including interactive browser login, headless device-code login, social login providers, and assumable identities."
 lead: "chainctl supports several ways to authenticate to the Chainguard platform, so you can log in from a laptop, a browserless server, or a CI/CD pipeline."
 date: 2026-08-21T00:00:00+00:00
-lastmod: 2026-08-21T00:00:00+00:00
+lastmod: 2026-09-11T14:07:20+00:00
 draft: false
 tags: ["chainctl"]
 images: []
@@ -59,6 +59,8 @@ chainctl auth login --social-login github
 You can also set a default provider in your configuration with the `default.social-login` setting. See [Manage your chainctl configuration](/platform/chainctl-usage/manage-chainctl-config/).
 
 > Note: If your organization has configured a custom identity provider, authenticate with `--org-name` or `--identity-provider` instead. See [custom identity providers](/platform/administration/custom-idps/custom-idps/).
+
+Which provider you authenticate with also determines who manages your multi-factor authentication. To move it to a new device, see [Change or reset your MFA device](/get-started/mfa-devices/).
 
 ## Assumable identities for CI/CD
 

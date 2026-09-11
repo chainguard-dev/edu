@@ -5,7 +5,7 @@ lead: "Chainguard offers several ways to get help, and the right one depends on 
 description: "Get help from Chainguard: check the self-service options, choose the right support channel, and open a ticket a support engineer can act on."
 type: "article"
 date: 2026-09-01T00:00:00+00:00
-lastmod: 2026-09-02T13:31:42+00:00
+lastmod: 2026-09-11T14:07:20+00:00
 draft: false
 tags: ["Getting Started"]
 images: []
@@ -31,7 +31,7 @@ The support portal handles most requests, but it isn't the only route, and for s
 
 - **You have a problem with a Chainguard product or with your organization's configuration.** Open a ticket in the [support portal](https://support.chainguard.dev/).
 
-- **You can't sign in to the Chainguard Console, and your organization uses single sign-on — for example, you've lost the device running your authenticator app.** Contact the identity provider administrator at your own organization. When you sign in through Google, GitHub, GitLab, or a corporate identity provider, that provider manages your multi-factor authentication, and Chainguard can neither see it nor change it.
+- **You need to move your multi-factor authentication to a new device, or you've lost the device running your authenticator app.** Where you make that change depends on how you sign in, and for most sign-in paths it isn't Chainguard that manages your MFA. See [Change or reset your MFA device](/get-started/mfa-devices/).
 
 - **You can't sign in at all, so you can't reach the portal.** Email [support@chainguard.dev](mailto:support@chainguard.dev).
 

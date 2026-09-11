@@ -8,7 +8,7 @@ lead: "Chainguard custom IdPs"
 description: "An introduction to and overview of Chainguard's custom IdP support features"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2026-09-09T17:33:40+00:00
+lastmod: 2026-09-11T14:07:20+00:00
 draft: false
 tags: ["Chainguard Containers", "Overview"]
 images: []
@@ -92,7 +92,7 @@ To learn more about working with your `chainctl` config, you can read our doc on
 
 ### Authenticate with the Chainguard Console
 
-To authenticate with the Chainguard Console, [open the login screen](https://console.chainguard.dev?feature.emailAuth=true). Then, select one of the following options:
+To authenticate with the Chainguard Console, [open the login screen](https://console.chainguard.dev). Then, select one of the following options:
 
 - To use your organization's SSO, enter your Organization or email address and click **Continue**.
 - To use a third-party identity provider, click the corresponding option from the list.
@@ -101,6 +101,8 @@ To authenticate with the Chainguard Console, [open the login screen](https://con
 <center><img src="/platform/administration/custom-idps/custom-idps/cg-all-signin-24.png" alt="Screenshot showing an example Chainguard login box, with all described options shown." style="width:600px;"></center>
 
 In each of these cases, you will be redirected to an external identity provider to authenticate and then returned to the Chainguard Console. If you are using your email and a password, authentication is handled by and credentials are stored with [Auth0](https://auth0.com/).
+
+Multi-factor authentication follows the same split. Your own identity provider manages it for users who sign in through your SSO integration, while Chainguard manages it for users who sign in with an email address and a password. See [Change or reset your MFA device](/get-started/mfa-devices/) for what each group should do to move MFA to a new device.
 
 ## Setup and administration
 
