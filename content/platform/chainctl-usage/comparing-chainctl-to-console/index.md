@@ -6,7 +6,7 @@ linktitle: "chainctl vs Console"
 type: "article"
 description: "Learn when to use chainctl CLI versus Chainguard Console for managing container security, with practical examples and use case recommendations"
 date: 2025-06-02T11:07:52+02:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-11T13:15:07+00:00
 draft: false
 tags: ["chainctl", "Chainguard Console"]
 images: []
@@ -42,8 +42,8 @@ To find the images available to you in the Console, do this:
 1. Open the [Console](https://console.chainguard.dev)
 ![Screenshot showing the Overview page in the Console.](console-overview.png)
 
-1. On the Overview page that opens, click **Organization Images** in the sidebar.
-![Screenshot showing the Organization Images page in the Console, which lists all of the images available along with data for each including Status, Latest tag, Pull URL, and when the image was last updated.](console-org-images.png)
+1. On the Overview page that opens, click **Images** in the sidebar.
+![Screenshot showing the Images page in the Console, which lists all of the images available along with data for each including Status, Latest tag, Pull URL, and when the image was last updated.](console-org-images.png)
 
 ### Find available images with chainctl
 

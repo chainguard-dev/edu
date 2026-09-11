@@ -6,7 +6,7 @@ aliases:
 type: "article"
 description: "When a container or version isn't available to you: how to identify which situation you're in, what to do about each, and when to open a support request."
 date: 2026-09-02T00:00:00+00:00
-lastmod: 2026-09-02T16:34:51+00:00
+lastmod: 2026-09-11T13:20:58+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -17,7 +17,7 @@ weight: 010
 toc: true
 ---
 
-You need a container image, or a particular version of one, and you can't pull it. The right next step depends on why it's missing, and there are four distinct reasons. This guide helps you tell them apart and resolve each one.
+You need a container image, or a particular version of one, and you can't pull it. The right next step depends on why it's missing, and there are five distinct reasons. This guide helps you tell them apart and resolve each one.
 
 First, distinguish between the public container registry and your organization's registry:
 
@@ -28,12 +28,15 @@ Browsing an image in the Directory doesn't mean your organization can pull it. F
 
 ## Find your situation
 
+You identify several of these situations from a label in the Console. On a container's **Tags** tab, the **Pull URL** column shows the pull URL for a version when your organization can pull that version. When it can't, the column shows a status label instead, and that label describes the repository rather than the version on that row. A label where you expected a URL means the version isn't available to you.
+
 Look up the image in the Directory, then match what you see to the following table:
 
 | What you find | Go to |
 | --- | --- |
 | The image is in the Directory, but the Console shows **Unavailable to organization**, **Add to organization for access**, or **Request image for access** | [The container isn't in your organization's catalog](#the-container-isnt-in-your-organizations-catalog) |
 | The image isn't in the Directory at all | [Chainguard doesn't build the container](#chainguard-doesnt-build-the-container) |
+| The version is listed and the Console shows **Available in organization**, but the pull fails | [The version shows as available but won't pull](#the-version-shows-as-available-but-wont-pull) |
 | The image is in the Directory, but not the version you need | [The version you need isn't listed](#the-version-you-need-isnt-listed) |
 | The version is listed with a pause icon, an **Expired** status, or an end-of-life date that has passed | [The version has reached end of life](#the-version-has-reached-end-of-life) |
 
@@ -58,6 +61,40 @@ If the image doesn't appear in the Directory, Chainguard doesn't build it yet, a
 Submitting requests requires membership in a [verified organization](/platform/administration/iam-organizations/verified-orgs/). The form asks for the resource type, the resource's existing public name, and a link to the upstream open source repository.
 
 Some requests can't be fulfilled. Chainguard won't build resources from proprietary code, won't build projects that no longer receive upstream updates, and can't always produce a FIPS variant. For the full process and the current limitations, see [Requesting new Chainguard resources](/chainguard/containers/reference/request-resources/).
+
+## The version shows as available but won't pull
+
+The **Pull URL** column reads **Available in organization**, but `docker pull` on that exact tag returns not found.
+
+That label is about the repository: your organization has the container, and at least one of its versions is active. It says nothing about the version on the row where you read it. The column falls back to a label only when it has no pull URL to show for that row, so seeing one tells you this version has no pull URL for you. Two things cause that.
+
+### The container is still syncing
+
+When a container is added to an organization, its tags take a few minutes to reach that organization's registry. While the sync runs, an upload icon appears alongside the filters above the version list. Hover over it to see which stage it's in:
+
+* `A new update for this image has been queued and will begin shortly.`
+* `This image is currently being updated with newly built tags.`
+
+Either message means the sync hasn't finished. Wait a few minutes, then reload the page. The icon appears only in your organization's view of the container, so not seeing it doesn't rule out a sync in progress. If the icon persists for more than a couple of hours, treat this as the next case.
+
+### The tag isn't in your organization's registry
+
+When a container is added to an organization, only its actively supported tags come across. An organization that has carried a container for a long time also holds records of older tags, from back when those tags were the supported ones.
+
+Those records outlive the images they name. A superseded tag can still appear in the Console with a pull URL beside it, and still be listed by `chainctl`, while pulling it returns `MANIFEST_UNKNOWN`. A tag's presence in a listing is a weaker signal than whether that tag is still active.
+
+So check against the active tags. This command reads your default organization:
+
+```shell
+chainctl images tags list --repo=$IMAGE --active-only
+```
+
+If the tag you want isn't in that output, treat it as unavailable, whatever the Directory or the Console shows for it. Drop `--active-only` to see everything your organization holds, including tags that are no longer maintained. Some of those will fail to pull.
+
+What you do next depends on which kind of tag it is:
+
+* The tag is actively maintained and missing from your organization. [Open a support request](#open-a-support-request).
+* The tag has been superseded within its stream. Use that stream's current tag, or pin the exact build you need by digest, as described in [The version you need isn't listed](#the-version-you-need-isnt-listed).
 
 ## The version you need isn't listed
 
@@ -96,7 +133,7 @@ A digest identifies one build and keeps identifying that same build even after t
 
 When the Directory shows a tag as actively maintained but that tag isn't available in your organization's registry, that's worth reporting. [Open a support request](#open-a-support-request) with the image name and the exact tag.
 
-The Console makes the same point from the image's **Versions** tab. Below the tag table is a link labeled **Looking for older tags?**, which explains that only actively supported tags are available when an image is added to your organization, and asks you to try a supported tag before opening a request.
+The Console makes the same point from the image's **Tags** tab. Below the tag table is a link labeled **Looking for older tags?**, which explains that only actively supported tags are available when an image is added to your organization, and asks you to try a supported tag before opening a request.
 
 ## The version has reached end of life
 
