@@ -6,7 +6,7 @@ aliases:
 type: "article"
 description: "When a container or version isn't available to you: how to identify which situation you're in, what to do about each, and when to open a support request."
 date: 2026-09-02T00:00:00+00:00
-lastmod: 2026-09-11T12:55:37+00:00
+lastmod: 2026-09-11T12:56:16+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -66,7 +66,7 @@ Some requests can't be fulfilled. Chainguard won't build resources from propriet
 
 The **Pull URL** column reads **Available in organization**, but `docker pull` on that exact tag returns not found.
 
-That label is about the repository: your organization has the container, and at least one of its versions is active. It says nothing about the version on the row where you read it. Because the column shows a pull URL whenever a version is pullable, a label in that position means this version has no pull URL for you. Two things cause that.
+That label is about the repository: your organization has the container, and at least one of its versions is active. It says nothing about the version on the row where you read it. The column falls back to a label only when it has no pull URL to show for that row, so seeing one tells you this version has no pull URL for you. Two things cause that.
 
 ### The container is still syncing
 
