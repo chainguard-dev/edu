@@ -14,7 +14,7 @@ description: "An overview of the formation of false positive and false negative 
 lead: "An overview of the formation of false positive and false negative vulnerability results in container image scanners"
 type: "article"
 date: 2023-09-14T16:59:04+00:00
-lastmod: 2026-08-31T15:18:48+00:00
+lastmod: 2026-09-11T17:42:16+00:00
 contributors: ["Michelle McAveety"]
 draft: false
 tags: ["CVE", "Overview", "Conceptual"]
@@ -61,6 +61,35 @@ It is worth noting that these false positive vulnerabilities could impact you if
 ### Missing or mismatched information
 
 Inconsistencies in package versioning conventions may cause scanners to fail in detecting the correct versions of your software components. Software vendors choose different version naming schemes for their products, so scanners may not easily detect what package versions are in use. Alternatively, missing or inconsistent data on vulnerable package versions in vulnerability databases can have a similar effect. In both cases, your scanner may struggle in correlating the package version in your container to package versions in vulnerability records, producing false positives and negatives where components are mismatched.
+
+### Go components reported as `(devel)`
+
+Some Go binaries report their module version as `(devel)` instead of a release version. This commonly occurs when a binary is built without release-version metadata. A component catalog can show the pattern like this:
+
+```output
+NAME          VERSION  TYPE
+cmd/addr2line  (devel)  go-module
+cmd/asm        (devel)  go-module
+cmd/buildid    (devel)  go-module
+cmd/cgo        (devel)  go-module
+cmd/compile    (devel)  go-module
+...
+```
+
+This is component-catalog output, not a list of confirmed vulnerabilities. The important signal is the combination of a Go component type and the literal `(devel)` version.
+
+When a scanner cannot map `(devel)` to a concrete module version, it may be unable to compare the component with fixed-version ranges. The scanner can then report every CVE known for that module, including CVEs that do not apply to the exact source revision or binary being scanned. Treat this pattern as a version-metadata limitation to investigate, not as proof that every reported CVE is present.
+
+#### How to investigate a `(devel)` result
+
+1. Confirm the component name, module path, and component type in the scanner or SBOM output.
+2. Confirm that the finding is a Go module or binary component, not an APK package with a similar name.
+3. Inspect the binary’s embedded Go build metadata, or the build configuration that produced it, to determine whether a release or commit version is available.
+4. Compare the scanner’s affected and fixed-version ranges with the source revision or release used to build the binary.
+5. Rebuild with version metadata when possible, then regenerate the SBOM and rescan.
+6. If the scanner still reports the CVEs, provide the image digest, binary or module name, reported `(devel)` version, scanner and database versions, and the relevant scan output when requesting support.
+
+Do not use `chainctl images advisories list` to validate this finding; that command checks APK packages only. For a Go-module finding, use the scanner’s language-package evidence and the dependency’s upstream advisory data.
 
 ### SCA vs SAST tools
 
