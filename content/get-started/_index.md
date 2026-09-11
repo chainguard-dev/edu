@@ -3,7 +3,7 @@ title: "Get started"
 lead: "New to Chainguard? Start here. Orient yourself, then pick the path that matches what you're trying to do — build with containers, build with libraries, evaluate trust, or migrate an organization."
 description: "Get started with Chainguard: orient yourself, then choose your path — build with containers, build with libraries, evaluate trust, or migrate an existing organization."
 date: 2026-06-09T08:48:23+00:00
-lastmod: 2026-09-01T16:18:53+00:00
+lastmod: 2026-09-11T14:07:20+00:00
 draft: false
 images: []
 weight: 1
@@ -33,4 +33,4 @@ Already convinced and ready to move existing workloads over? Step through the [m
 
 ## Get help
 
-Stuck on something the documentation doesn't cover? [Get support](/get-started/get-support/) explains what to check first, which channel handles your kind of request, and how to open a support ticket when you need one.
+Stuck on something the documentation doesn't cover? [Get support](/get-started/get-support/) explains what to check first, which channel handles your kind of request, and how to open a support ticket when you need one. If you're locked out because you replaced or lost the device running your authenticator app, start with [Change or reset your MFA device](/get-started/mfa-devices/).

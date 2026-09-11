@@ -5,7 +5,7 @@ lead: ""
 description: "How to stop users from authenticating to Chainguard with social logins by blocking the Chainguard app in your identity provider, using Google Workspace as an example"
 type: "article"
 date: 2026-07-02T08:48:45+00:00
-lastmod: 2026-07-02T08:48:45+00:00
+lastmod: 2026-09-11T14:07:20+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -22,7 +22,9 @@ Chainguard doesn't currently offer a native setting to disable social logins. Ho
 
 ## Prerequisites
 
-Before blocking social logins, make sure you have a working custom identity provider and a recovery path in place. Some organizations intentionally keep a social login (or an email and password account) as a [backup, break-glass account](/chainguard/administration/custom-idps/custom-idps/#backup-accounts) in case they are ever locked out of their identity provider. If you block Google login without another recovery mechanism, an identity provider outage or misconfiguration could lock every user out of your organization.
+Before blocking social logins, make sure you have a working custom identity provider and a recovery path in place. Some organizations intentionally keep a social login (or an email and password account) as a [backup, break-glass account](/platform/administration/custom-idps/custom-idps/#backup-accounts) in case they are ever locked out of their identity provider. If you block Google login without another recovery mechanism, an identity provider outage or misconfiguration could lock every user out of your organization.
+
+Chainguard manages MFA for email and password accounts, so replacing a lost authenticator device on a break-glass account of that kind takes a support ticket rather than a self-service change. Factor that turnaround into your recovery plan, and see [Change or reset your MFA device](/get-started/mfa-devices/) for the process.
 
 We recommend confirming both of the following before proceeding:
 
