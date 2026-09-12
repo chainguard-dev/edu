@@ -1916,6 +1916,13 @@
             "format": "date-time",
             "type": "string"
           },
+          "references": {
+            "description": "references lists the record's OSV-spec typed reference URLs. Chainguard\npopulates FIX-typed entries with the verified upstream fix commit; see\nReference.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.argos.Reference"
+            },
+            "type": "array"
+          },
           "related": {
             "items": {
               "type": "string"
@@ -1993,6 +2000,42 @@
           "SEMVER",
           "ECOSYSTEM",
           "GIT"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.argos.Reference": {
+        "description": "Reference is one OSV-spec references[] entry: a typed, record-level URL\n(https://ossf.github.io/osv-schema/#references-field). Chainguard emits\nFIX-typed references naming the verified upstream fix commit — the exact\ncommit, validated by tag ancestry in the named repository, behind the\nrecord's highest fixed boundary. A reference is record-level and carries\nno binding to any affected range or version, per the OSV spec.",
+        "properties": {
+          "type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.argos.Reference.ReferenceType"
+              }
+            ],
+            "description": "type is the reference type."
+          },
+          "url": {
+            "description": "url is the fully-qualified URL, scheme included.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.Reference.ReferenceType": {
+        "default": "UNSPECIFIED",
+        "description": "ReferenceType mirrors the OSV spec's reference type vocabulary. Value\nnames are deliberately unprefixed so the JSON wire form matches OSV\nverbatim (the spec uses bare \"FIX\" / \"WEB\" / ...); nested-enum scoping\nmeans Go consumers see Reference_FIX, Reference_WEB, etc.",
+        "enum": [
+          "UNSPECIFIED",
+          "ADVISORY",
+          "ARTICLE",
+          "DETECTION",
+          "DISCUSSION",
+          "REPORT",
+          "FIX",
+          "INTRODUCED",
+          "PACKAGE",
+          "EVIDENCE",
+          "WEB"
         ],
         "type": "string"
       },
@@ -3230,6 +3273,14 @@
           "pkceEnabled": {
             "description": "pkce_enabled is whether to use PKCE (RFC 7636) when exchanging authorization codes\nwith this upstream identity provider. Required by OAuth 2.1.",
             "type": "boolean"
+          },
+          "tokenEndpointAuthMethod": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.IdentityProvider.OIDC.TokenEndpointAuthMethod"
+              }
+            ],
+            "description": "Overrides discovery-based token-endpoint auth-method selection for the\nauthorization-code exchange. Discovery advertises what the token endpoint\nsupports, not how a specific client registration is configured: a\nprovider can advertise client_secret_post at the endpoint while an\nindividual app is registered for client_secret_basic, so the discovered\nmethod is rejected. Pin the registered method here to resolve that. Unset\ndefers to discovery. Ignored for a public (PKCE, no client secret)\nclient, which sends no secret to present. Mutable."
           }
         },
         "type": "object"
@@ -3241,6 +3292,16 @@
           "CORRELATION_RULE_UNSPECIFIED",
           "CORRELATION_RULE_SUB_EQUALS_EXTERNAL_ID",
           "CORRELATION_RULE_OID_EQUALS_EXTERNAL_ID"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.iam.IdentityProvider.OIDC.TokenEndpointAuthMethod": {
+        "default": "TOKEN_ENDPOINT_AUTH_METHOD_UNSPECIFIED",
+        "description": "TokenEndpointAuthMethod selects how the confidential client's\nclient_secret is presented to the IdP token endpoint during the\nauthorization-code exchange.\n\n - TOKEN_ENDPOINT_AUTH_METHOD_UNSPECIFIED: Defer to discovery: client_secret_post when the provider's\ntoken_endpoint_auth_methods_supported advertises it, otherwise\nclient_secret_basic. This is the default behavior.\n - TOKEN_ENDPOINT_AUTH_METHOD_CLIENT_SECRET_BASIC: Present the client_secret with HTTP Basic (client_secret_basic).\n - TOKEN_ENDPOINT_AUTH_METHOD_CLIENT_SECRET_POST: Present the client_secret in the request body (client_secret_post).",
+        "enum": [
+          "TOKEN_ENDPOINT_AUTH_METHOD_UNSPECIFIED",
+          "TOKEN_ENDPOINT_AUTH_METHOD_CLIENT_SECRET_BASIC",
+          "TOKEN_ENDPOINT_AUTH_METHOD_CLIENT_SECRET_POST"
         ],
         "type": "string"
       },
@@ -4812,6 +4873,14 @@
           "pkceEnabled": {
             "description": "Whether to use PKCE (RFC 7636) when exchanging authorization codes\nwith this upstream identity provider. Required by OAuth 2.1.",
             "type": "boolean"
+          },
+          "tokenEndpointAuthMethod": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2.IdentityProvider.OIDC.TokenEndpointAuthMethod"
+              }
+            ],
+            "description": "Overrides discovery-based token-endpoint auth-method selection for the\nauthorization-code exchange. Discovery advertises what the token endpoint\nsupports, not how a specific client registration is configured: a\nprovider can advertise client_secret_post at the endpoint while an\nindividual app is registered for client_secret_basic, so the discovered\nmethod is rejected. Pin the registered method here to resolve that. Unset\ndefers to discovery. Ignored for a public (PKCE, no client secret)\nclient, which sends no secret to present. Mutable."
           }
         },
         "required": [
@@ -4827,6 +4896,16 @@
           "CORRELATION_RULE_UNSPECIFIED",
           "CORRELATION_RULE_SUB_EQUALS_EXTERNAL_ID",
           "CORRELATION_RULE_OID_EQUALS_EXTERNAL_ID"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.iam.v2.IdentityProvider.OIDC.TokenEndpointAuthMethod": {
+        "default": "TOKEN_ENDPOINT_AUTH_METHOD_UNSPECIFIED",
+        "description": "TokenEndpointAuthMethod selects how the confidential client's\nclient_secret is presented to the IdP token endpoint during the\nauthorization-code exchange.\n\n - TOKEN_ENDPOINT_AUTH_METHOD_UNSPECIFIED: Defer to discovery: client_secret_post when the provider's\ntoken_endpoint_auth_methods_supported advertises it, otherwise\nclient_secret_basic. This is the default behavior.\n - TOKEN_ENDPOINT_AUTH_METHOD_CLIENT_SECRET_BASIC: Present the client_secret with HTTP Basic (client_secret_basic).\n - TOKEN_ENDPOINT_AUTH_METHOD_CLIENT_SECRET_POST: Present the client_secret in the request body (client_secret_post).",
+        "enum": [
+          "TOKEN_ENDPOINT_AUTH_METHOD_UNSPECIFIED",
+          "TOKEN_ENDPOINT_AUTH_METHOD_CLIENT_SECRET_BASIC",
+          "TOKEN_ENDPOINT_AUTH_METHOD_CLIENT_SECRET_POST"
         ],
         "type": "string"
       },
