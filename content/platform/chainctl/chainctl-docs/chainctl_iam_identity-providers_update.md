@@ -1,5 +1,5 @@
 ---
-date: 2026-09-10T20:39:52Z
+date: 2026-09-11T15:58:59Z
 title: "chainctl iam identity-providers update"
 slug: chainctl_iam_identity-providers_update
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_update/
@@ -30,17 +30,18 @@ chainctl iam identity-providers update IDENTITY_PROVIDER_ID [--name=NAME] [--des
 ### Options
 
 ```
-      --configuration-type string            Type of identity provider. Only OIDC supported currently (default "OIDC")
-      --default-role string                  Optional role to grant users on first login
-      --description string                   Description of identity provider
-      --name string                          Name of identity provider
-      --oidc-additional-scopes stringArray   additional scopes to request for OIDC type identity provider
-      --oidc-client-id string                client id for OIDC type identity provider
-      --oidc-client-secret string            client secret for OIDC type identity provider
-      --oidc-groups-claim string             OIDC token claim carrying group memberships, used for group-to-role mappings (empty disables group mapping). Manage the mappings with 'chainctl iam identity-providers group-mappings'.
-      --oidc-issuer string                   Issuer URL for OIDC type identity provider
-      --oidc-pkce-enabled                    Include a PKCE challenge during authorization code exchange. Upstream IDP must be configured to respond.
-  -y, --yes                                  Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+      --configuration-type string                Type of identity provider. Only OIDC supported currently (default "OIDC")
+      --default-role string                      Optional role to grant users on first login
+      --description string                       Description of identity provider
+      --name string                              Name of identity provider
+      --oidc-additional-scopes stringArray       additional scopes to request for OIDC type identity provider
+      --oidc-client-id string                    client id for OIDC type identity provider
+      --oidc-client-secret string                client secret for OIDC type identity provider
+      --oidc-groups-claim string                 OIDC token claim carrying group memberships, used for group-to-role mappings (empty disables group mapping). Manage the mappings with 'chainctl iam identity-providers group-mappings'.
+      --oidc-issuer string                       Issuer URL for OIDC type identity provider
+      --oidc-pkce-enabled                        Include a PKCE challenge during authorization code exchange. Upstream IDP must be configured to respond.
+      --oidc-token-endpoint-auth-method string   How the client secret is presented at the token endpoint: basic or post. Empty selects the method the IDP advertises in discovery. Set it when the IDP endpoint advertises one method but the specific app registration expects the other.
+  -y, --yes                                      Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
 ```
 
 ### Options inherited from parent commands
