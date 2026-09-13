@@ -1,6 +1,6 @@
 # Chainguard Documentation Bundle
 
-_Compiled on: 2026-09-11 02:22:31_
+_Compiled on: 2026-09-13 02:22:04_
 
 This document contains Chainguard documentation compiled from multiple sources.
 
@@ -4418,7 +4418,7 @@ Chainguard ships a set of system policies that are available to every organizati
 The `no-eol` policy denies any image whose primary package has reached its end-of-life (EOL) date. An image is allowed when it has no recorded EOL date, or when that date is still in the future. This policy takes no parameters.
 
 ```shell
-chainctl policies enable --policy=no-eol --mode=DRY_RUN --parent=$ORGANIZATION
+chainctl policies enable --policy=no-eol --mode=DRY_RUN
 ```
 
 ### cooldown
@@ -4428,7 +4428,7 @@ The `cooldown` policy denies images that are newer than a minimum age, measured 
 It accepts one parameter, `days`, an integer number of days an image must exist before it is allowed. The default is `7`, and accepted values range from `1` to `365`.
 
 ```shell
-chainctl policies enable --policy=cooldown --mode=DRY_RUN --param=days=14 --parent=$ORGANIZATION
+chainctl policies enable --policy=cooldown --mode=DRY_RUN --param=days=14
 ```
 
 ### support-window
@@ -4438,7 +4438,7 @@ The `support-window` policy requires an image's primary package to have a minimu
 It accepts one parameter, `months`, an integer minimum number of months of support. The default is `6`, and accepted values range from `1` to `24`.
 
 ```shell
-chainctl policies enable --policy=support-window --mode=DRY_RUN --param=months=12 --parent=$ORGANIZATION
+chainctl policies enable --policy=support-window --mode=DRY_RUN --param=months=12
 ```
 
 ## Usage
@@ -4448,43 +4448,43 @@ Policies are managed using `chainctl`. System policies are shipped with the plat
 See which policies are available to your organization:
 
 ```shell
-chainctl policies list --parent=$ORGANIZATION
+chainctl policies list
 ```
 
 Inspect a policy to see its full definition and configurable parameters before enabling it:
 
 ```shell
-chainctl policies describe --policy=$POLICY --parent=$ORGANIZATION
+chainctl policies describe --policy=$POLICY
 ```
 
 See which policies are currently active:
 
 ```shell
-chainctl policies binding list --parent=$ORGANIZATION
+chainctl policies binding list
 ```
 
 Activate a policy in `DRY_RUN` mode. This example activates the "no end-of-life" artifacts policy. Chainguard recommends that you roll out policies using `DRY_RUN` mode first and track for a time to be certain it has the impact you intend before moving to `ENFORCE`.
 
 ```shell
-chainctl policies enable --policy=no-eol --mode=DRY_RUN --parent=$ORGANIZATION
+chainctl policies enable --policy=no-eol --mode=DRY_RUN
 ```
 
 Some policies accept parameters. Use `--param=KEY=VALUE` to supply them:
 
 ```shell
-chainctl policies enable --policy=cooldown --mode=DRY_RUN --param=days=7 --parent=$ORGANIZATION
+chainctl policies enable --policy=cooldown --mode=DRY_RUN --param=days=7
 ```
 
 Promote a policy to `ENFORCE`:
 
 ```shell
-chainctl policies enable --policy=no-eol --mode=ENFORCE --parent=$ORGANIZATION
+chainctl policies enable --policy=no-eol --mode=ENFORCE
 ```
 
 Disable a policy:
 
 ```shell
-chainctl policies disable --policy=no-eol --parent=$ORGANIZATION
+chainctl policies disable --policy=no-eol
 ```
 
 ## Checking whether an image is allowed
@@ -4529,7 +4529,7 @@ This is distinct from `chainctl policies check`, which evaluates one image again
 List the decisions recorded for your organization:
 
 ```shell
-chainctl policies decision list --parent=$ORGANIZATION
+chainctl policies decision list
 ```
 
 ```output
@@ -4543,14 +4543,14 @@ chainctl policies decision list --parent=$ORGANIZATION
 Narrow the results with filters. To see only the pulls a policy denied, filter by outcome:
 
 ```shell
-chainctl policies decision list --parent=$ORGANIZATION --result=DENIED
+chainctl policies decision list --result=DENIED
 ```
 
 You can also restrict to a single policy, a single mode (`ENFORCE` or `DRY_RUN`), a time window, or a single image, and request JSON for further processing. The `--since` flag takes a number of days with a `d` suffix (for example `7d`), and `--repo` accepts an image as `REPO` or `REPO:TAG`:
 
 ```shell
-chainctl policies decision list --parent=$ORGANIZATION --policy=no-eol --mode=ENFORCE --since=30d -o json
-chainctl policies decision list --parent=$ORGANIZATION --repo=nginx:latest
+chainctl policies decision list --policy=no-eol --mode=ENFORCE --since=30d -o json
+chainctl policies decision list --repo=nginx:latest
 ```
 
 Decisions are deduplicated per day, so repeated pulls of the same digest under the same policy and outcome appear once for that day rather than once per pull.
@@ -4558,7 +4558,7 @@ Decisions are deduplicated per day, so repeated pulls of the same digest under t
 Decisions are listed newest first. The command returns at most 20 decisions by default; use `--limit` to change the page size, which accepts a value from `1` to `100`:
 
 ```shell
-chainctl policies decision list --parent=$ORGANIZATION --limit=50
+chainctl policies decision list --limit=50
 ```
 
 ## Example: staging a policy with dry run
@@ -4568,19 +4568,19 @@ chainctl policies decision list --parent=$ORGANIZATION --limit=50
 First, enable the policy in `DRY_RUN` mode:
 
 ```shell
-chainctl policies enable --policy=no-eol --mode=DRY_RUN --parent=$ORGANIZATION
+chainctl policies enable --policy=no-eol --mode=DRY_RUN
 ```
 
 Let your normal pull traffic flow for a representative period. Then review what the policy denied while in dry run. Use `--since` to limit the review to a recent window, here the last seven days:
 
 ```shell
-chainctl policies decision list --parent=$ORGANIZATION --policy=no-eol --mode=DRY_RUN --result=DENIED --since=7d
+chainctl policies decision list --policy=no-eol --mode=DRY_RUN --result=DENIED --since=7d
 ```
 
 Each `DENIED` row is a pull that would have been blocked under `ENFORCE`. Inspect the digests to confirm the policy is catching what you intend and nothing critical to your workloads. If the results look wrong, adjust the policy's parameters or disable it; if they look right, promote the binding to enforcement:
 
 ```shell
-chainctl policies enable --policy=no-eol --mode=ENFORCE --parent=$ORGANIZATION
+chainctl policies enable --policy=no-eol --mode=ENFORCE
 ```
 
 After promoting, keep reviewing decisions to confirm enforcement behaves as expected. The same command now returns `ENFORCE`-mode rows for the pulls the policy is actively blocking.
@@ -4599,8 +4599,7 @@ Waive a policy for a specific image, identified by digest, with a reason:
 chainctl policies override create \
   --policy=no-eol \
   --artifact_id=sha256:abc123... \
-  --reason="approved exception, ticket OPS-42" \
-  --parent=$ORGANIZATION
+  --reason="approved exception, ticket OPS-42"
 ```
 
 The `--artifact_id` value must be a manifest digest rather than a tag, so the waiver targets one exact artifact. A given policy and image can carry at most one override; to change an existing one, delete it and create it again. For `chainctl` versions 0.2.337 and earlier, use the `--digest` tag instead of `--artifact_id`.
@@ -4608,7 +4607,7 @@ The `--artifact_id` value must be a manifest digest rather than a tag, so the wa
 Review the active overrides for an organization to see what has been waived, by whom, and why:
 
 ```shell
-chainctl policies override list --parent=$ORGANIZATION
+chainctl policies override list
 ```
 
 ```output
@@ -4890,7 +4889,7 @@ line 12:5: rego_type_error: undefined ref: input.parameters.day
 **From a manifest.** This is the primary path, and the only one that supports parameters:
 
 ```shell
-chainctl policies custom create --file policy.yaml --parent=$ORGANIZATION
+chainctl policies custom create --file policy.yaml
 ```
 
 **From a raw Rego file.** A shortcut for parameterless policies, where writing a manifest for two fields is more ceremony than it is worth. `--name` and `--resource-type` are both required in this mode; `--description` is optional:
@@ -4900,8 +4899,7 @@ chainctl policies custom create \
   --expression lts-only.rego \
   --name lts-only \
   --resource-type Repo \
-  --description "Allow only LTS versions of the main package" \
-  --parent=$ORGANIZATION
+  --description "Allow only LTS versions of the main package"
 ```
 
 If a policy declares parameters, it must be created from a manifest — there is no flag equivalent for a parameter schema. In `--file` mode the manifest is authoritative.
@@ -4924,14 +4922,14 @@ Names are validated on create and update. A name must:
 **Full replacement from a manifest.** The manifest supplants the entire definition — the resulting policy is exactly what the manifest declares, and any field the manifest omits is cleared:
 
 ```shell
-chainctl policies custom update --policy lts-only --file policy.yaml --parent=$ORGANIZATION
+chainctl policies custom update --policy lts-only --file policy.yaml
 ```
 
 **Partial update from flags.** Only the fields you pass are changed; everything else is preserved:
 
 ```shell
 # Rename
-chainctl policies custom update --policy lts-only --name lts-strict --parent=$ORGANIZATION
+chainctl policies custom update --policy lts-only --name lts-strict
 
 # Change just the description
 chainctl policies custom update --policy lts-only --description "Allow only LTS main packages"
@@ -4967,7 +4965,7 @@ Note: parameter_schemas changed. Existing bindings were not re-validated against
 `chainctl policies custom delete` permanently removes a custom policy:
 
 ```shell
-chainctl policies custom delete --policy lts-only --parent=$ORGANIZATION
+chainctl policies custom delete --policy lts-only
 ```
 
 Only custom policies can be deleted; system policies are managed by Chainguard and are rejected with an error.
@@ -4990,7 +4988,7 @@ chainctl policies custom delete --policy 720a...c81 --force
 As with `update`, pass `--resource-type` when a name is shared across resource types:
 
 ```shell
-chainctl policies custom delete --policy minimum-version --resource-type Python --parent=$ORGANIZATION
+chainctl policies custom delete --policy minimum-version --resource-type Python
 ```
 
 ### A full custom policy lifecycle
@@ -5006,19 +5004,19 @@ chainctl policies custom validate --file lts-only.yaml
 Create the policy. This defines it but does not activate it — a policy with no binding has no effect:
 
 ```shell
-chainctl policies custom create --file lts-only.yaml --parent=$ORGANIZATION
+chainctl policies custom create --file lts-only.yaml
 ```
 
 Confirm it is there. Custom policies appear alongside system policies, distinguished by the type column:
 
 ```shell
-chainctl policies list --parent=$ORGANIZATION
+chainctl policies list
 ```
 
 Activate it in `DRY_RUN` mode, which records outcomes without blocking any pulls:
 
 ```shell
-chainctl policies enable --policy=lts-only --mode=DRY_RUN --parent=$ORGANIZATION
+chainctl policies enable --policy=lts-only --mode=DRY_RUN
 ```
 
 Check a specific image against your active policies without waiting for a pull:
@@ -5030,26 +5028,26 @@ chainctl policies check cgr.dev/$ORGANIZATION/python:latest
 Let your normal pull traffic run for a representative period, then review what the policy would have denied:
 
 ```shell
-chainctl policies decision list --parent=$ORGANIZATION --policy=lts-only --result=DENIED --since=7d
+chainctl policies decision list --policy=lts-only --result=DENIED --since=7d
 ```
 
 Each `DENIED` row is a pull that would have been blocked under `ENFORCE`. If the results are as
 expected, promote the binding:
 
 ```shell
-chainctl policies enable --policy=lts-only --mode=ENFORCE --parent=$ORGANIZATION
+chainctl policies enable --policy=lts-only --mode=ENFORCE
 ```
 
 To stop enforcing without deleting the policy, disable the binding. The definition stays in place and can be re-enabled later:
 
 ```shell
-chainctl policies disable --policy=lts-only --parent=$ORGANIZATION
+chainctl policies disable --policy=lts-only
 ```
 
 To remove the policy entirely, along with its bindings and overrides:
 
 ```shell
-chainctl policies custom delete --policy lts-only --parent=$ORGANIZATION
+chainctl policies custom delete --policy lts-only
 ```
 
 ## Custom policies FAQ
@@ -5085,7 +5083,7 @@ Once you know which policy is responsible, work through the usual causes in this
 To see what a policy has actually decided against real pull traffic, use the decision log rather than `check`:
 
 ```shell
-chainctl policies decision list --parent=$ORGANIZATION --policy=lts-only --result=DENIED --since=7d
+chainctl policies decision list --policy=lts-only --result=DENIED --since=7d
 ```
 
 Note that `check` evaluates against your current configuration on demand, while decisions are the historical record of evaluations that already happened during real pulls.
@@ -5108,7 +5106,7 @@ The [input document reference](#the-input-document) has the full table with type
 To see the shape of the input against a real policy, inspect a system policy, which reads the same document:
 
 ```shell
-chainctl policies describe --policy=no-eol --parent=$ORGANIZATION -o json
+chainctl policies describe --policy=no-eol -o json
 ```
 
 ### Why was my Rego rejected at write time?
@@ -5158,8 +5156,8 @@ This is the authoritative check. A manifest that validates cleanly will not be r
 The most realistic check is the platform itself. Create the policy and enable it in `DRY_RUN` mode, which records outcomes without blocking any pulls:
 
 ```shell
-chainctl policies custom create --file policy.yaml --parent=$ORGANIZATION
-chainctl policies enable --policy=lts-only --mode=DRY_RUN --parent=$ORGANIZATION
+chainctl policies custom create --file policy.yaml
+chainctl policies enable --policy=lts-only --mode=DRY_RUN
 ```
 
 Check a specific image immediately:
@@ -5171,7 +5169,7 @@ chainctl policies check cgr.dev/$ORGANIZATION/python:latest
 Then let normal pull traffic run for a representative period and review what the policy would have blocked:
 
 ```shell
-chainctl policies decision list --parent=$ORGANIZATION --policy=lts-only --result=DENIED --since=7d
+chainctl policies decision list --policy=lts-only --result=DENIED --since=7d
 ```
 
 Every `DENIED` row is a pull that would have failed under `ENFORCE`. Promote the binding only once those results match your expectations.
@@ -5195,7 +5193,7 @@ Policy names are unique per resource type, not per organization, so a `Repo` pol
 When a name is ambiguous, `chainctl policies custom update` and `delete` accept `--resource-type` to disambiguate:
 
 ```shell
-chainctl policies custom delete --policy minimum-version --resource-type Python --parent=$ORGANIZATION
+chainctl policies custom delete --policy minimum-version --resource-type Python
 ```
 
 The flag is ignored when `--policy` is given as a UIDP, which already identifies a single policy.
@@ -5207,7 +5205,7 @@ Updating a policy from a manifest is a full replacement, so a policy can gain, l
 `chainctl` warns you when an update changes the parameter schema. Review your bindings afterwards:
 
 ```shell
-chainctl policies binding list --parent=$ORGANIZATION
+chainctl policies binding list
 ```
 
 Re-enable any binding whose parameters no longer match the policy's schema, supplying the current parameters with `--param=KEY=VALUE`.
@@ -5229,7 +5227,7 @@ Pulling an image with a client such as Docker involves two separate requests: a 
 To work around this, create an override for each denied digest. First attempt the pull so both decisions are recorded, then use [policy decisions](#policy-decisions) to find the digests that were blocked:
 
 ```shell
-chainctl policies decision list --parent=$ORGANIZATION --result=DENIED
+chainctl policies decision list --result=DENIED
 ```
 
 ```output
@@ -5245,14 +5243,12 @@ Create an override for each of the denied digests:
 chainctl policies override create \
   --policy=cooldown \
   --artifact_id=sha256:609aeb... \
-  --reason="approved exception, ticket OPS-42" \
-  --parent=$ORGANIZATION
+  --reason="approved exception, ticket OPS-42"
 
 chainctl policies override create \
   --policy=cooldown \
   --artifact_id=sha256:db532b... \
-  --reason="approved exception, ticket OPS-42" \
-  --parent=$ORGANIZATION
+  --reason="approved exception, ticket OPS-42"
 ```
 
 With both digests waived, the pull is allowed. Remember that the override is subject to the cache refresh described above, so allow a short delay before retrying the pull.
@@ -6240,7 +6236,7 @@ find ~/.gradle/caches/modules-2/files-2.1/com.google.guava/guava -name "*.jar" |
 Then copy the exact path to the jar and verify it with `chainctl`:
 
 ```bash
-chainctl libraries verify --parent your-org /full/path/to/guava-<version>.jar
+chainctl libraries verify /full/path/to/guava-<version>.jar
 ```
 
 > **Note**: Running `chainctl libraries verify` requires the `libraries.java.pull` permission or the Owner role.
@@ -6990,10 +6986,10 @@ All dependencies should download from Central and tests should pass. This gives 
 You must be an Owner or have the `libraries.java.pull_token_creator` permission to create a pull token.
 You can [create a pull token in the Chainguard Console](/chainguard/libraries/introduction/access/#creating-pull-tokens-with-the-chainguard-console), or via `chainctl`.
 
-The following command creates the token and populates environment variables directly. Make sure to replace `example.org` with your own Chainguard org name:
+The following command creates the token and populates environment variables directly. If you have access to more than one Chainguard organization, add `--parent=<organization>` to choose which one the token belongs to:
 
 ```shell
-eval $(chainctl auth pull-token --parent=example.org --repository=java --name=my-java-token --output=env)
+eval $(chainctl auth pull-token --repository=java --name=my-java-token --output=env)
 ```
 
 This results in values for the `CHAINGUARD_JAVA_IDENTITY_ID` and `CHAINGUARD_JAVA_TOKEN` variables. The token is named `my-java-token`, with a default expiration of 30 days. To configure the expiration, use the `--ttl` flag.
@@ -7878,8 +7874,9 @@ system. This guide explains how to access (download) Chainguard library artifact
 - Ensure you have access to Chainguard Libraries.
     - If you are not a Chainguard user yet, a new Chainguard account must be
 created and you must [add an entitlement to Chainguard Libraries](/chainguard/libraries/introduction/access/#manage-library-entitlements).
-- Confirm the name of your organization so you can use it with the `--parent`
-parameter to specify your organization when running commands with `chainctl`.
+- If you have access to more than one Chainguard organization, confirm the name
+of the one you want to use. You can then pass it to `chainctl` commands with the
+`--parent` parameter.
 
 ### Direct access vs. artifact manager
 
@@ -7953,7 +7950,7 @@ auth pull-token](/platform/chainctl/chainctl-docs/chainctl_auth_pull-token/)
 command:
 
 ```shell
-chainctl auth pull-token --repository=java --parent=example --ttl=8670h
+chainctl auth pull-token --repository=java --ttl=8670h
 ```
 
 - `--repository=java`: retrieve the token for use with [Chainguard Libraries for
@@ -7961,8 +7958,6 @@ chainctl auth pull-token --repository=java --parent=example --ttl=8670h
   [Chainguard Libraries for Python](/chainguard/libraries/python/overview/) and
   `javascript` for a token to use [Chainguard Libraries for
   JavaScript](/chainguard/libraries/javascript/overview/).
-- `--parent=example`: specify the parent organization for your account as
-  provided when requesting access to Chainguard Libraries and replace `example`.
 - `--ttl=8670h`: set the duration for the validity of the token, defaults to
   `720h` (equivalent to 30 days), maximum valid value is `8760h` (equivalent to
   365 days), valid unit strings range from nanoseconds to hours and are `ns`,
@@ -7971,11 +7966,11 @@ chainctl auth pull-token --repository=java --parent=example --ttl=8670h
 Use the optional `--name` flag to supply a meaningful and short name for the
 token, to be able to locate it easier at a later stage.
 
-When omitting the parent parameter, potentially a list of organizations is
-displayed. Use the arrow keys to navigate the selection displayed after the
-question “With which location is the pull token associated?” and select the
-organization that has the entitlement to access Chainguard Libraries for Java.
-Press `/` to filter the list.
+If you belong to a single organization, `chainctl` selects it automatically. If
+you have access to more than one, it asks “With which location is the pull token
+associated?” Use the arrow keys to select the organization that has the
+entitlement to access Chainguard Libraries for Java, and press `/` to filter the
+list. Pass `--parent=<organization>` to skip the prompt.
 
 `chainctl` returns a username and password suitable for basic authentication in
 the response:
@@ -8057,7 +8052,7 @@ Use the `env` environment output option to create a snippet for a new token
 suitable for integration in a script.
 
 ```shell
-$ chainctl auth pull-token --output env --repository=java --parent=example
+$ chainctl auth pull-token --output env --repository=java
 export CHAINGUARD_JAVA_IDENTITY_ID=<identity-id>
 export CHAINGUARD_JAVA_TOKEN=<pull-token>
 ```
@@ -8066,7 +8061,7 @@ Combine the call with `eval` to populate the environment variables directly by
 calling `chainctl`:
 
 ```shell
-eval $(chainctl auth pull-token --output env --repository=java --parent=example)
+eval $(chainctl auth pull-token --output env --repository=java)
 ```
 
 Equivalent commands for Python and JavaScript are supported and result in values
@@ -8321,7 +8316,7 @@ Use the identifier or name of your organization `example` and the `--expired`
 flag to remove all expired pull tokens:
 
 ```shell
-chainctl iam ids rm --expired --parent=example
+chainctl iam ids rm --expired
 ```
 
 <a id="entitlement"></a>
@@ -8351,7 +8346,7 @@ To update the upstream fallback policy on an existing entitlement, rerun the `cr
 You can delete an ecosystem library entitlement for a specific ecosystem from your organization with [`chainctl libraries entitlements delete`](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/):
 
 ```shell
-chainctl libraries entitlements delete --ecosystem=JAVASCRIPT --parent=example
+chainctl libraries entitlements delete --ecosystem=JAVASCRIPT
 ```
 
 ### List entitlements
@@ -9201,9 +9196,10 @@ which requires authentication. Where it fetches from depends on your environment
 Authenticating to `libraries.cgr.dev` directly:
 
 - **Logged in locally**: Run the command while authenticated; if you have no
-  other credential it prompts for an organization and authenticates with a
-  [pull token](/chainguard/libraries/introduction/access/#pull-token). Pass
-  `--parent <organization>` to skip the prompt. To avoid the prompt entirely,
+  other credential it authenticates with a
+  [pull token](/chainguard/libraries/introduction/access/#pull-token) for your
+  organization, prompting for one only if you have access to more than one. Pass
+  `--parent <organization>` to skip that prompt. To avoid it entirely,
   scope your login to the libraries registry once with
   `chainctl auth login --audience=libraries.cgr.dev` — that session is then used
   automatically. (`chainctl auth configure-npm` also sets up this
@@ -9449,7 +9445,7 @@ Before installing packages, you can verify that authentication is configured cor
 npm ping --userconfig .npmrc
 ```
 
-A successful respoonse looks like:
+A successful response looks like:
 
 ```bash
 npm notice PING https://libraries.cgr.dev/javascript/
@@ -9614,7 +9610,7 @@ pnpm install
 
 As an alternative, you can remove the `node_modules` directory _and_ the `pnpm-lock.yaml` file, then reinstall. This regenerates the lockfile and updates the hashes. Regenerating re-resolves your dependencies, so it can change your pinned versions, and any new versions published within your configured cooldown window will return an error. See [Update your lockfile](/chainguard/libraries/javascript/migration/#step-3-update-your-lockfile).
 
-**Clear pnpmn caches**
+**Clear pnpm caches**
 
 pnpm has three separate layers of cached data. If you encounter stale or corrupted package data, you can clear all of these caches:
 
@@ -13497,9 +13493,10 @@ configuration](/chainguard/libraries/python/global-configuration/) page.
 which requires authentication. Choose whichever fits your environment:
 
 - **Logged in locally**: Run the command while authenticated; if you have no
-  other credential it prompts for an organization and authenticates with a
-  [pull token](/chainguard/libraries/introduction/access/#pull-token). Pass
-  `--parent <organization>` to skip the prompt. To avoid the prompt entirely,
+  other credential it authenticates with a
+  [pull token](/chainguard/libraries/introduction/access/#pull-token) for your
+  organization, prompting for one only if you have access to more than one. Pass
+  `--parent <organization>` to skip that prompt. To avoid it entirely,
   scope your login to the libraries registry once with
   `chainctl auth login --audience=libraries.cgr.dev` — that session is then used
   automatically.
@@ -16288,11 +16285,10 @@ Before you start, make sure that:
 Run `chainctl guardener github migrate create` with the repository to migrate:
 
 ```shell
-chainctl guardener github migrate create <owner>/<repo> \
-  --parent <group-name>
+chainctl guardener github migrate create <owner>/<repo>
 ```
 
-The repository can be given as `owner/repo` shorthand or as a full URL (`https://github.com/owner/repo`); only github.com repositories are supported today. `--parent` is the Chainguard organization that owns the GitHub App installation — if you omit it, `chainctl` prompts you to select one.
+The repository can be given as `owner/repo` shorthand or as a full URL (`https://github.com/owner/repo`); only github.com repositories are supported today. The migration runs under the Chainguard organization that owns the GitHub App installation. `chainctl` selects that organization automatically when only one is available and prompts you when there are several; pass `--parent <group-name>` to name it explicitly.
 
 By default the command waits for the migration to finish (up to 10 minutes, adjustable with `--timeout`) and prints the result:
 
@@ -16399,13 +16395,15 @@ You also need the following:
 - Your Dockerfile and build context (source code and other inputs) present on the same machine where you run the migration.
 - A user with permission to accept the Guardener legal terms must accept them for your organization before anyone can run a session. Refer to [IAM access](#iam-access) below for the roles involved.
 
-If you encounter permission errors, check your available groups and verify role bindings:
+If you encounter permission errors, check your available organizations and verify role bindings:
 
 ```shell
 chainctl iam organizations list -o table
 
-chainctl iam role-bindings create --parent <group-id> --identity <identity> --role <role-with-repo.create>
+chainctl iam role-bindings create --identity <identity> --role <role-with-repo.create>
 ```
+
+If you have access to more than one organization or folder, add `--parent <organization>` to the second command to choose where the role binding is created.
 
 ## How it works
 
@@ -16888,7 +16886,7 @@ Before your org can push or install skills, create a skills entitlement.
 > **Note**: You must have the `owner` role in your organization to create a skills entitlement and accept the Skills Registry terms of service.
 
 ```shell
-chainctl skills entitlements create --parent $ORG
+chainctl skills entitlements create
 ```
 
 ```output
@@ -17120,7 +17118,7 @@ Unlike `uninstall`, `delete` removes the skill from the registry for your whole 
 
 | Action | Command |
 | ----- | ----- |
-| Enable the entitlement | `chainctl skills entitlements create --parent $ORG` |
+| Enable the entitlement | `chainctl skills entitlements create` |
 | Accept the registry terms | `chainctl skills accept-terms --group $ORG` |
 | Validate a skill | `chainctl skills validate <name>` |
 | Push a skill | `chainctl skills push <name> --group $ORG --tag <version>` |
@@ -19138,11 +19136,10 @@ In Artifactory's **Administration** module, select **Repositories**, then **Crea
 To determine values for the `User Name` and `Password / Access Token` fields, run the following command:
 
 ```bash
-$ORGANIZATION=YOUR-ORGANIZATION
-chainctl auth configure-docker --pull-token --save --parent $ORGANIZATION
+chainctl auth configure-docker --pull-token --save
 ```
 
-Set $ORGANIZATION to be the organization name you're pulling Helm Charts from. Output will look like this:
+Output will look like this:
 
 ```bash
 To use this pull token in another environment, run this command:
@@ -19175,7 +19172,7 @@ Finally, we'll create a Kubernetes Secret that will be used to pull the `kafka-i
 ```bash
 JFROG_USERNAME= # Your username, i.e. username@chainguard.dev
 JFROG_TOKEN= # Your token
-ORGANIZATION= # Your organization, i.e. YOUR-ORGANIZATION - you may already have this set from a previous example
+ORGANIZATION= # Your organization, i.e. YOUR-ORGANIZATION
 kubectl create secret docker-registry chainguard-pull-secret \
     --docker-server=chainguard.jfrog.io \
     --docker-username=$JFROG_USERNAME \
@@ -19786,10 +19783,10 @@ For the full walkthrough, including how to edit or remove customizations later, 
 1. Open the image's build configuration:
 
     ```shell
-    chainctl images repos build edit --parent $ORGANIZATION --repo $CONTAINER
+    chainctl images repos build edit --repo $CONTAINER
     ```
 
-    Replace `$ORGANIZATION` with your organization's name and `$CONTAINER` with the name of the image. If you omit either flag, `chainctl` prompts you to choose.
+    Replace `$CONTAINER` with the name of the image. If you omit it, `chainctl` prompts you to choose. It also prompts for the organization when you have access to more than one; pass `--parent=<organization>` to skip that prompt.
 
 2. `chainctl` opens the configuration in your default text editor. Add the package under `contents.packages`:
 
@@ -19842,7 +19839,7 @@ Both `apply` and `edit` accept a configuration file, which skips the editor and 
 2. Preview what the file would change, without changing anything:
 
     ```shell
-    chainctl images repos build apply -f build.yaml --parent $ORGANIZATION --repo $CONTAINER --dry-run
+    chainctl images repos build apply -f build.yaml --repo $CONTAINER --dry-run
     ```
 
     `--dry-run` prints the diff and exits with a non-zero status if there's anything to apply, which makes it usable as a drift check in a pipeline.
@@ -19850,7 +19847,7 @@ Both `apply` and `edit` accept a configuration file, which skips the editor and 
 3. Apply the configuration. `--yes` confirms the change without prompting:
 
     ```shell
-    chainctl images repos build apply -f build.yaml --parent $ORGANIZATION --repo $CONTAINER --yes
+    chainctl images repos build apply -f build.yaml --repo $CONTAINER --yes
     ```
 
 To save the result as a new image, add `--save-as $NEW_NAME`. This works when you target a single repository; it isn't available when you target several at once with repeated `--repo` flags or a wildcard.
@@ -19868,7 +19865,7 @@ Custom Assembly builds run on Chainguard's infrastructure and normally finish in
 1. Check that the build succeeded:
 
     ```shell
-    chainctl images repos build list --parent $ORGANIZATION --repo $CONTAINER
+    chainctl images repos build list --repo $CONTAINER
     ```
 
     ```output
@@ -19925,7 +19922,7 @@ Custom Assembly builds run on Chainguard's infrastructure and normally finish in
 A Custom Assembly build reports failure only after it finishes. Retrieve the logs for a build with the `logs` subcommand, which prompts you to pick a build report:
 
 ```shell
-chainctl images repos build logs --parent $ORGANIZATION --repo $CONTAINER
+chainctl images repos build logs --repo $CONTAINER
 ```
 
 In the Console, click a row on the image's **Builds** tab to open the same logs.
@@ -21248,7 +21245,7 @@ commands to set environment variables `CHAINGUARD_IDENTITY_ID` for username and
 `CHAINGUARD_TOKEN` for password values and basic authentication use.
 
 ```shell
-chainctl auth pull-token --repository=apk --ttl=2190h --output=env --parent=ORGANIZATION
+chainctl auth pull-token --repository=apk --ttl=2190h --output=env
 ```
 
 ```output
@@ -21269,18 +21266,17 @@ repository of the parent organization.
   names such as `CHAINGUARD_JAVA_IDENTITY_ID`. Refer to [pull token output
   formats and credential
   names](/platform/chainctl-usage/pull-token-output/) for the full mapping.
-* `--parent=ORGANIZATION`: specify the parent organization for your account as
-  provided when requesting access and replace `ORGANIZATION`.
 
 Each invocation of the command creates a new identity with access rights as a
-pull token.
+pull token. `chainctl` uses your organization automatically when you belong to
+only one; if you have access to more than one, add `--parent=ORGANIZATION`.
 
 Combine the call with `eval` to populate the environment variables directly by
 calling `chainctl`. The following example uses the default TTL value of 30 days,
 which is suitable for regular CI runs:
 
 ```shell
-eval $(chainctl auth pull-token --repository=apk --output env --parent=ORGANIZATION)
+eval $(chainctl auth pull-token --repository=apk --output env)
 ```
 
 The generated pull token can be provided in the `HTTP_AUTH` environment variable
@@ -21908,10 +21904,10 @@ Click **Delete** and enter the name of the container image to confirm that you w
 
 You can also use [`chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/), Chainguard's command-line interface, to change the name of a container image that has already been added to your organization.
 
-To begin, run a command like the following to check whether the container image you want to add is already in your organization. This example checks whether the `php` container image is included in the `example.com` organization:
+To begin, run a command like the following to check whether the container image you want to add is already in your organization. This example checks whether the `php` container image is included:
 
 ```shell
-chainctl images repos list --parent=example.com --repo=php -o json | jq -r '.items[0].id'
+chainctl images repos list --repo=php -o json | jq -r '.items[0].id'
 ```
 
 ```Output
@@ -21923,7 +21919,7 @@ Note that this example uses [`jq`](https://jqlang.org/), a lightweight command-l
 Knowing that the image is included in the organization, you can rename it. This example renames the `php` container image to `php-new`:
 
 ```shell
-chainctl images repo update php --parent=example.com --name=php-new
+chainctl images repo update php --name=php-new
 ```
 
 ```Output
@@ -21937,7 +21933,7 @@ After making this change, references to the previous name will no longer work fo
 If you happen to rename an image in error, you can change it back using the same command, swapping the old name and new name:
 
 ```shell
-chainctl images repo update php-new --parent=example.com --name=php
+chainctl images repo update php-new --name=php
 ```
 
 ## Learn more
@@ -21953,7 +21949,7 @@ Chainguard's Catalog Pricing provides access across Chainguard's library of cont
 ### Troubleshoot container and version availability
 _Path: chainguard/containers/troubleshooting/container-version-troubleshooting.md_
 
-You need a container image, or a particular version of one, and you can't pull it. The right next step depends on why it's missing, and there are four distinct reasons. This guide helps you tell them apart and resolve each one.
+You need a container image, or a particular version of one, and you can't pull it. The right next step depends on why it's missing, and there are five distinct reasons. This guide helps you tell them apart and resolve each one.
 
 First, distinguish between the public container registry and your organization's registry:
 
@@ -21964,12 +21960,15 @@ Browsing an image in the Directory doesn't mean your organization can pull it. F
 
 ## Find your situation
 
+You identify several of these situations from a label in the Console. On a container's **Tags** tab, the **Pull URL** column shows the pull URL for a version when your organization can pull that version. When it can't, the column shows a status label instead, and that label describes the repository rather than the version on that row. A label where you expected a URL means the version isn't available to you.
+
 Look up the image in the Directory, then match what you see to the following table:
 
 | What you find | Go to |
 | --- | --- |
 | The image is in the Directory, but the Console shows **Unavailable to organization**, **Add to organization for access**, or **Request image for access** | [The container isn't in your organization's catalog](#the-container-isnt-in-your-organizations-catalog) |
 | The image isn't in the Directory at all | [Chainguard doesn't build the container](#chainguard-doesnt-build-the-container) |
+| The version is listed and the Console shows **Available in organization**, but the pull fails | [The version shows as available but won't pull](#the-version-shows-as-available-but-wont-pull) |
 | The image is in the Directory, but not the version you need | [The version you need isn't listed](#the-version-you-need-isnt-listed) |
 | The version is listed with a pause icon, an **Expired** status, or an end-of-life date that has passed | [The version has reached end of life](#the-version-has-reached-end-of-life) |
 
@@ -21994,6 +21993,40 @@ If the image doesn't appear in the Directory, Chainguard doesn't build it yet, a
 Submitting requests requires membership in a [verified organization](/platform/administration/iam-organizations/verified-orgs/). The form asks for the resource type, the resource's existing public name, and a link to the upstream open source repository.
 
 Some requests can't be fulfilled. Chainguard won't build resources from proprietary code, won't build projects that no longer receive upstream updates, and can't always produce a FIPS variant. For the full process and the current limitations, see [Requesting new Chainguard resources](/chainguard/containers/reference/request-resources/).
+
+## The version shows as available but won't pull
+
+The **Pull URL** column reads **Available in organization**, but `docker pull` on that exact tag returns not found.
+
+That label is about the repository: your organization has the container, and at least one of its versions is active. It says nothing about the version on the row where you read it. The column falls back to a label only when it has no pull URL to show for that row, so seeing one tells you this version has no pull URL for you. Two things cause that.
+
+### The container is still syncing
+
+When a container is added to an organization, its tags take a few minutes to reach that organization's registry. While the sync runs, an upload icon appears alongside the filters above the version list. Hover over it to see which stage it's in:
+
+* `A new update for this image has been queued and will begin shortly.`
+* `This image is currently being updated with newly built tags.`
+
+Either message means the sync hasn't finished. Wait a few minutes, then reload the page. The icon appears only in your organization's view of the container, so not seeing it doesn't rule out a sync in progress. If the icon persists for more than a couple of hours, treat this as the next case.
+
+### The tag isn't in your organization's registry
+
+When a container is added to an organization, only its actively supported tags come across. An organization that has carried a container for a long time also holds records of older tags, from back when those tags were the supported ones.
+
+Those records outlive the images they name. A superseded tag can still appear in the Console with a pull URL beside it, and still be listed by `chainctl`, while pulling it returns `MANIFEST_UNKNOWN`. A tag's presence in a listing is a weaker signal than whether that tag is still active.
+
+So check against the active tags. This command reads your default organization:
+
+```shell
+chainctl images tags list --repo=$IMAGE --active-only
+```
+
+If the tag you want isn't in that output, treat it as unavailable, whatever the Directory or the Console shows for it. Drop `--active-only` to see everything your organization holds, including tags that are no longer maintained. Some of those will fail to pull.
+
+What you do next depends on which kind of tag it is:
+
+* The tag is actively maintained and missing from your organization. [Open a support request](#open-a-support-request).
+* The tag has been superseded within its stream. Use that stream's current tag, or pin the exact build you need by digest, as described in [The version you need isn't listed](#the-version-you-need-isnt-listed).
 
 ## The version you need isn't listed
 
@@ -22032,7 +22065,7 @@ A digest identifies one build and keeps identifying that same build even after t
 
 When the Directory shows a tag as actively maintained but that tag isn't available in your organization's registry, that's worth reporting. [Open a support request](#open-a-support-request) with the image name and the exact tag.
 
-The Console makes the same point from the image's **Versions** tab. Below the tag table is a link labeled **Looking for older tags?**, which explains that only actively supported tags are available when an image is added to your organization, and asks you to try a supported tag before opening a request.
+The Console makes the same point from the image's **Tags** tab. Below the tag table is a link labeled **Looking for older tags?**, which explains that only actively supported tags are available when an image is added to your organization, and asks you to try a supported tag before opening a request.
 
 ## The version has reached end of life
 
@@ -24048,7 +24081,7 @@ provides lifecycle information about a Chainguard container image's tags.
 For instance, the following snippet retrieves EOL data for the `python` image:
 
 ```sh
-REPO_ID=$(chainctl images repos list --repo=python --parent=${ORGANIZATION} -o json | jq -r '.items[0].id')
+REPO_ID=$(chainctl images repos list --repo=python -o json | jq -r '.items[0].id')
 
 curl -H "Authorization: Bearer $(chainctl auth token)" \
     "https://console-api.enforce.dev/registry/v1/eoltags?uidp.childrenOf=${REPO_ID}" \
@@ -24121,9 +24154,9 @@ Chainguard's EOL grace period gives customers access to new builds of container 
 
 > **Note**: Chainguard is **not** able to offer any exceptions to the 6 month limit for the EOL grace period.
 
-You will be able to find the end date of a given container image version's grace period in the [Chainguard Console](https://console.chainguard.dev/). From the **Organization Images** tab, select an image. You'll be taken to that container image's **Versions** page, and the end date of each grace period will be listed under the respective version:
+You will be able to find the end date of a given container image version's grace period in the [Chainguard Console](https://console.chainguard.dev/). From **Images**, select an image on the **Organization** tab. You'll be taken to that container image's **Tags** tab, and the end date of each grace period will be listed under the respective version:
 
-<center><img src="eol-gp-2.png" alt="Screenshot of a portion of an image's 'Versions' tab, showing the Grace Period end dates for several versions of the image." style="width:300px;"></center>
+<center><img src="eol-gp-2.png" alt="Screenshot of a portion of an image's 'Tags' tab, showing the Grace Period end dates for several versions of the image." style="width:300px;"></center>
 <br />
 
 As of this writing, a container image must meet four key requirements to be eligible for coverage under the EOL grace period:
@@ -24182,12 +24215,10 @@ The API endpoint you can reach for EOL data is [`Registry_ListEolTags`](/platfor
 To follow along, you'll need to know the unique ID path (UIDP) of the container image repository you'd like to retrieve end-of-life data for. You can find this with the following `chainctl` command:
 
 ```shell
-chainctl images repos list --parent $ORGANIZATION -o wide
+chainctl images repos list -o wide
 ```
 
-Replace `$ORGANIZATION` with the name of your organization.
-
-This command will return a table showing the UIDPs of every Chainguard Container the specified organization has access to:
+This command will return a table showing the UIDPs of every Chainguard Container your organization has access to:
 
 ```output
                 ID                 |      REGISTRY       |   REPO   |        BUNDLES        |    TIER
@@ -24566,11 +24597,10 @@ Then use this variable to create a role binding that grants the custom role to t
 ```shell
 chainctl iam role-bindings create \
   --identity=$IDENTITY_ID \
-  --role=<custom-role> \
-  --parent=<chainguard-org>
+  --role=<custom-role>
 ```
 
-Be sure to replace `<custom-role>` with the name of the custom role you created and `<chainguard-org>` with the name of your Chainguard organization.
+Be sure to replace `<custom-role>` with the name of the custom role you created. If you have access to more than one organization, add `--parent <chainguard-org>` to choose where the role binding is created.
 
 ## Step 3: Note your identity ID
 
@@ -25489,7 +25519,7 @@ This means that in order to use Custom Assembly (including `--save-as`), your ac
 To create such a custom role, you can use the `chainctl iam roles create` command. The following example creates a custom role named `ca-role` with all the same capabilities as the `viewer` role, but with the added `repo.update` and `repo.create` capabilities:
 
 ```shell
-chainctl iam roles create ca-role --parent=$ORGANIZATION --capabilities=repo.create,repo.update,build_report.list,account_associations.list,apk.list,group_invites.list,groups.list,identity.list,identity_providers.list,libraries.artifacts.list,libraries.entitlements.list,manifest.list,manifest.metadata.list,record_signatures.list,registry.entitlements.list,repo.list,roles.list,sboms.list,subscriptions.list,tag.list,version.list,vuln_report.list,vuln_reports.list
+chainctl iam roles create ca-role --capabilities=repo.create,repo.update,build_report.list,account_associations.list,apk.list,group_invites.list,groups.list,identity.list,identity_providers.list,libraries.artifacts.list,libraries.entitlements.list,manifest.list,manifest.metadata.list,record_signatures.list,registry.entitlements.list,repo.list,roles.list,sboms.list,subscriptions.list,tag.list,version.list,vuln_report.list,vuln_reports.list
 ```
 
 After creating this custom role, you would need to bind it to any identities in your organization that you want to be able to manage Custom Assembly resources. Check out our [Overview of roles and role-bindings in Chainguard](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/) to learn more.
@@ -25660,10 +25690,10 @@ For a shorter, task-first version of these procedures, along with how to find a 
 To edit one of your organization's Custom Assembly container images, you can run the `chainctl images repos build edit` command:
 
 ```shell
-chainctl images repos build edit --parent $ORGANIZATION --repo $CONTAINER
+chainctl images repos build edit --repo $CONTAINER
 ```
 
-This example includes the `--parent` flag, which points to the name of your organization, and the `--repo` argument, which points to the name of the image you want to customize. If you omit these arguments, `chainctl` will prompt you to select your organization and container image interactively.
+This example includes the `--repo` argument, which points to the name of the image you want to customize. If you omit it, `chainctl` prompts you to select a container image interactively. It also prompts for the organization when you have access to more than one; pass `--parent=<organization>` to skip that prompt.
 
 This command will open up a file with your machine's default text editor. This file will contain a structure like the following:
 
@@ -25713,7 +25743,7 @@ EOF
 Then include this file in the `apply` command by adding the `-f` argument:
 
 ```shell
-chainctl images repos build apply -f build.yaml --parent $ORGANIZATION --repo $CONTAINER --yes
+chainctl images repos build apply -f build.yaml --repo $CONTAINER --yes
 ```
 
 This command will again ask you to confirm that you want to apply the new configuration. To make this example completely declarative, this example includes `--yes` to automatically confirm the changes:
@@ -25743,13 +25773,13 @@ This approach is useful in cases where you would prefer to avoid any kind of int
 To see what a configuration file would change without changing anything, replace `--yes` with `--dry-run`. The command prints the same diff and then exits with a non-zero status if there's anything to apply, which makes it usable as a drift check in a pipeline:
 
 ```shell
-chainctl images repos build apply -f build.yaml --parent $ORGANIZATION --repo $CONTAINER --dry-run
+chainctl images repos build apply -f build.yaml --repo $CONTAINER --dry-run
 ```
 
 The `edit` subcommand also accepts a configuration file through its own `-f` argument. Passing a file to `edit` skips the text editor but still prompts you to confirm the diff:
 
 ```shell
-chainctl images repos build edit -f build.yaml --parent $ORGANIZATION --repo $CONTAINER
+chainctl images repos build edit -f build.yaml --repo $CONTAINER
 ```
 
 ### Using the `--save-as` option
@@ -25763,13 +25793,13 @@ By creating a new image with Custom Assembly, you can customize the image withou
 To use `chainctl` to create new customized container images with Custom Assembly, you must include the `--save-as` option, like this:
 
 ```shell
-chainctl images repos build edit --parent $ORGANIZATION --repo $CONTAINER --save-as $NEW_NAME
+chainctl images repos build edit --repo $CONTAINER --save-as $NEW_NAME
 ```
 
 The following example command creates a new image named `custom-node` after applying the customizations:
 
 ```shell
-chainctl images repos build edit --parent example.com --repo node --save-as custom-node
+chainctl images repos build edit --repo node --save-as custom-node
 ```
 
 Once you run this example, the new container image would be accessible from the following URL:
@@ -25781,7 +25811,7 @@ cgr.dev/example.com/custom-node
 The `apply` subcommand accepts `--save-as` as well, so you can create a new image without any interactivity:
 
 ```shell
-chainctl images repos build apply -f build.yaml --parent example.com --repo node --save-as custom-node --yes
+chainctl images repos build apply -f build.yaml --repo node --save-as custom-node --yes
 ```
 
 Note that you **must** pass the new image's name when using the `--save-as` option; `chainctl` will return an error if you don't include a new name. Additionally, `--save-as` applies to a single source repository. It isn't available when you target several repositories at once, either by passing `--repo` more than once or by using a wildcard.
@@ -25797,7 +25827,7 @@ Chainguard Containers include metadata in the form of *annotations*. These annot
 With Custom Assembly, you can add custom annotations to your Chainguard Containers using `chainctl`. The process is the same as the one outlined previously for adding packages. First run a command like the following:
 
 ```shell
-chainctl images repos build edit --parent $ORGANIZATION --repo $CONTAINER
+chainctl images repos build edit --repo $CONTAINER
 ```
 
 In the text editor, add an `annotations` section to the bottom of the file like the following example:
@@ -25827,7 +25857,7 @@ Chainguard Containers often come with a set of predefined environment variables.
 You can follow the same procedure for adding custom annotations to add custom environment variables to your Custom Assembly container images. Start by running a `chainctl images repos build edit` command:
 
 ```shell
-chainctl images repos build edit --parent $ORGANIZATION --repo $CONTAINER
+chainctl images repos build edit --repo $CONTAINER
 ```
 
 In the text editor, add an `environment` section like the following example:
@@ -25860,7 +25890,7 @@ Custom Assembly lets you replace the default APK repository URLs written to `/et
 To add custom runtime repositories, use `chainctl images repos build edit` as with other customizations:
 
 ```shell
-chainctl images repos build edit --parent $ORGANIZATION --repo $CONTAINER
+chainctl images repos build edit --repo $CONTAINER
 ```
 
 In the text editor, add a `runtime_repositories` field under `contents`:
@@ -25899,7 +25929,7 @@ EOF
 ```
 
 ```shell
-chainctl images repos build apply -f build.yaml --parent $ORGANIZATION --repo $CONTAINER --yes
+chainctl images repos build apply -f build.yaml --repo $CONTAINER --yes
 ```
 
 To remove custom runtime repositories and revert to the default `virtualapk.cgr.dev` URLs, edit the configuration and remove the `runtime_repositories` field entirely.
@@ -25925,7 +25955,7 @@ Custom Assembly images trust only Chainguard's APK signing key by default. If yo
 To add a runtime key, pass the public key file to the `--with-runtime-keys` option:
 
 ```shell
-chainctl images repos build edit --parent $ORGANIZATION --repo $CONTAINER --with-runtime-keys=key-ee8fa0a3.rsa.pub
+chainctl images repos build edit --repo $CONTAINER --with-runtime-keys=key-ee8fa0a3.rsa.pub
 ```
 
 Each file becomes a key in `/etc/apk/keys` named after the file's basename. The name must match the filename referenced by your repository's APKINDEX signature (`.SIGN.RSA256.<name>`), because `apk` looks up the key by that name during verification. `chainctl` uses filenames verbatim and returns an error if two files share the same basename.
@@ -25966,7 +25996,7 @@ Runtime keys are validated when the configuration is applied. The following rule
 You can also use the `list` subcommand to retrieve every one of a customized image's builds from the past 24 hours:
 
 ```shell
-chainctl images repos build list --parent $ORGANIZATION --repo $REPO
+chainctl images repos build list --repo $REPO
 ```
 
 This command is useful for quickly determining which builds were successful or failed:
@@ -25984,7 +26014,7 @@ This command is useful for quickly determining which builds were successful or f
 Lastly, you can also retrieve the logs for a given build with the `logs` subcommand:
 
 ```shell
-chainctl images repos build logs --parent $ORGANIZATION --repo $REPO
+chainctl images repos build logs --repo $REPO
 ```
 
 This command will prompt you to select the build report you want to view. These are organized in reverse chronological order by the time of each build:
@@ -26026,7 +26056,6 @@ For example, if you wanted to apply custom certs at scale across every repo you 
 
 ```shell
 chainctl images repos build apply \
-  --parent=$ORGANIZATION \
   --repo="kubernetes-*" \
   --with-certificates=ca.pem
 ```
@@ -26081,10 +26110,10 @@ With Custom Assembly, you can add custom certificates to your Chainguard Contain
 You can add certificates interactively by running a command like the following:
 
 ```shell
-chainctl images repos build edit --parent $ORGANIZATION --repo $CONTAINER
+chainctl images repos build edit --repo $CONTAINER
 ```
 
-This will open your default text editor with the current configuration. This example includes the `--parent` flag, which points to the name of your organization, and the `--repo` argument, which points to the name of the image you want to customize. If you omit these arguments, `chainctl` will prompt you to select your organization and container image interactively.
+This will open your default text editor with the current configuration. This example includes the `--repo` argument, which points to the name of the image you want to customize. If you omit it, `chainctl` prompts you to select a container image interactively. It also prompts for the organization when you have access to more than one; pass `--parent=<organization>` to skip that prompt.
 
 In the editor, add one or more `certificates` sections with your custom certificates. Note that each entry must contain exactly one PEM block (`BEGIN CERTIFICATE` to `END CERTIFICATE`):
 
@@ -26127,7 +26156,7 @@ This adds (concatenates) the provided inline certificates to the default trustst
 Alternatively, you can use the `--with-certificates` flag to pre-populate the `certificates.additional` section from a selected `.pem` file. Here is an example invocation that uses a `.pem` file named `certificates.pem`:
 
 ```shell
-chainctl images repos build edit --with-certificates certificate.pem --parent $ORGANIZATION --repo $CONTAINER
+chainctl images repos build edit --with-certificates certificate.pem --repo $CONTAINER
 ```
 
 As with the previous example, this will open up the configuration in your default editor. After saving and closing the editor, `chainctl` will prompt you to confirm the changes before applying them.
@@ -26151,7 +26180,7 @@ EOF
 Then include this file in the `apply` command by adding the `-f` argument:
 
 ```shell
-chainctl image repos build apply --parent $ORGANIZATION --repo $CONTAINER -f cert.yaml --yes
+chainctl image repos build apply --repo $CONTAINER -f cert.yaml --yes
 ```
 
 This command will again ask you to confirm that you want to apply the new configuration. To make this example completely declarative, this example includes `--yes` to automatically confirm the changes:
@@ -26582,6 +26611,17 @@ Use `chainctl images advisories list` to compare the advisories for the APK pack
 
 > **Note:** This command checks **APK packages only**. It does not determine whether a CVE affects a Go module, Java dependency, or another non-APK component in the image.
 
+## FIPS variants
+
+FIPS variants use the same package-level advisory process as other Chainguard images. `chainctl images advisories list` does not determine coverage from the image name or the `-fips` suffix. It reads the APK package names and versions in the image SBOM, then looks up advisories for those APK packages. This means:
+
+- If a FIPS image contains the same APK package and version as a non-FIPS image, the same package advisory can apply.
+- If a FIPS image contains a FIPS-specific package name or version, that package needs a corresponding advisory record.
+- A FIPS image may have a different advisory result from its non-FIPS counterpart because its package set or versions differ.
+- An empty result does not by itself mean that the FIPS image is not affected or that the CVE is not covered.
+
+For a FIPS finding, use the exact image digest and platform, then compare the scanner’s package name and version with the APK package data in the image SBOM. Search the Security Advisories page for the exact package and CVE. If the APK package is present but no matching advisory exists, treat the result as an advisory-coverage question and include the image digest, package name and version, CVE, scanner and database versions, and scan output when contacting Support.
+
 ## Prerequisites
 
 You need:
@@ -26741,15 +26781,15 @@ The **Historical CVEs** tab has two boxes. The first box is labeled **Resolved C
 
 ### Comparison tab
 
-You can find this same comparison data when navigating to a specific container image in either the **Browse Containers** section or in your **Organization Containers**. After navigating to either of these sections, click on or search for any image you like.
+You can find this same comparison data when navigating to a specific container image from **Images**, on either the **Organization** or **Chainguard catalog** tab. After navigating to either tab, click on or search for any image you like.
 
-By default, you will be taken to the container image's **Versions** tab. Click on the **Comparison** tab at the far right. There, you'll be presented with the same comparison information found in the **Reports** section. At the top are some control menus, allowing you to select the date range for the comparison and, if available, the alternative you'd like to compare the Chainguard Container against.
+By default, you will be taken to the container image's **Tags** tab. Click on the **Comparison** tab at the far right. There, you'll be presented with the same comparison information found in the **Reports** section. At the top are some control menus, allowing you to select the date range for the comparison and, if available, the alternative you'd like to compare the Chainguard Container against.
 
 ## Accessing CVE visualizations in the Containers Directory
 
-Similar to the CVE reports found in the **Browse Containers** and **Organization Containers** section of the Chainguard Console, you can find CVE reports for every one of Chainguard's container images in the [Containers Directory](https://images.chainguard.dev/).
+Similar to the CVE reports found under **Images** in the Chainguard Console, you can find CVE reports for every one of Chainguard's container images in the [Containers Directory](https://images.chainguard.dev/).
 
-After navigating to the directory, click on or search for any container image you like. Again, you will be taken to the image's **Versions** tab by default. Click on the **Comparison** tab at the right to view the CVE Comparison data.
+After navigating to the directory, click on or search for any container image you like. Again, you will be taken to the image's **Tags** tab by default. Click on the **Comparison** tab at the right to view the CVE Comparison data.
 
 ## Limitations
 
@@ -28351,6 +28391,35 @@ It is worth noting that these false positive vulnerabilities could impact you if
 ### Missing or mismatched information
 
 Inconsistencies in package versioning conventions may cause scanners to fail in detecting the correct versions of your software components. Software vendors choose different version naming schemes for their products, so scanners may not easily detect what package versions are in use. Alternatively, missing or inconsistent data on vulnerable package versions in vulnerability databases can have a similar effect. In both cases, your scanner may struggle in correlating the package version in your container to package versions in vulnerability records, producing false positives and negatives where components are mismatched.
+
+### Go components reported as `(devel)`
+
+Some Go binaries report their module version as `(devel)` instead of a release version. This commonly occurs when a binary is built without release-version metadata. A component catalog can show the pattern like this:
+
+```output
+NAME          VERSION  TYPE
+cmd/addr2line  (devel)  go-module
+cmd/asm        (devel)  go-module
+cmd/buildid    (devel)  go-module
+cmd/cgo        (devel)  go-module
+cmd/compile    (devel)  go-module
+...
+```
+
+This is component-catalog output, not a list of confirmed vulnerabilities. The important signal is the combination of a Go component type and the literal `(devel)` version.
+
+When a scanner cannot map `(devel)` to a concrete module version, it may be unable to compare the component with fixed-version ranges. The scanner can then report every CVE known for that module, including CVEs that do not apply to the exact source revision or binary being scanned. Treat this pattern as a version-metadata limitation to investigate, not as proof that every reported CVE is present.
+
+#### How to investigate a `(devel)` result
+
+1. Confirm the component name, module path, and component type in the scanner or SBOM output.
+2. Confirm that the finding is a Go module or binary component, not an APK package with a similar name.
+3. Inspect the binary’s embedded Go build metadata, or the build configuration that produced it, to determine whether a release or commit version is available.
+4. Compare the scanner’s affected and fixed-version ranges with the source revision or release used to build the binary.
+5. Rebuild with version metadata when possible, then regenerate the SBOM and rescan.
+6. If the scanner still reports the CVEs, provide the image digest, binary or module name, reported `(devel)` version, scanner and database versions, and the relevant scan output when requesting support.
+
+Do not use `chainctl images advisories list` to validate this finding; that command checks APK packages only. For a Go-module finding, use the scanner’s language-package evidence and the dependency’s upstream advisory data.
 
 ### SCA vs SAST tools
 
@@ -30943,7 +31012,7 @@ Before configuring a proxy cache or replication rule, you must create a registry
 If you don't already have one, generate a pull token in your organization:
 
 ```shell
-chainctl auth configure-docker --parent <org-name> --pull-token
+chainctl auth configure-docker --pull-token
 ```
 
 This returns username and password credentials:
@@ -31062,16 +31131,10 @@ In order to complete this tutorial, you need the following:
 
 When configuring an Artifactory remote repository to function as a pull-through cache for packages from a Chainguard private APK repository, the remote repository must authenticate to Chainguard. This section outlines the steps necessary to create a Chainguard pull token and configure the required permissions to access your Chainguard organization's private APK repository:
 
-Set your Chainguard organization identifier as an environment variable. Replace the `example.org` placeholder with your organization's name as it appears in the Chainguard Console:
+Generate a pull token:
 
 ```shell
-export CHAINGUARD_ORG=example.org
-```
-
-Next, generate a pull token:
-
-```shell
-chainctl auth pull-token --repository=apk --parent=${CHAINGUARD_ORG} -o env
+chainctl auth pull-token --repository=apk -o env
 ```
 
 This `chainctl` command's `--repository=apk` flag creates a role binding to bind the pull token identity the `apk.pull` role, enabling the identity to download packages from the private APK repository of the parent organization.
@@ -31106,7 +31169,7 @@ To set up the remote repository:
 This takes you to a **Basic** configuration tab where you can enter the following details for the remote repository:
 
 * **Repository Key** — This is a name used to identify your remote repository, for example `cg-private`.
-* **URL** — This must be set to `https://apk.cgr.dev/${CHAINGUARD_ORG}`, but with your organization's actual name in place of `${CHAINGUARD_ORG}`. For example, if your organization is named `example` use `https://apk.cgr.dev/example`.
+* **URL** — This must be set to `https://apk.cgr.dev/<organization>`, replacing `<organization>` with your organization's name as it appears in the Chainguard Console. For example, if your organization is named `example` use `https://apk.cgr.dev/example`.
 * **User Name** — This is used by Artifactory to authenticate to Chainguard and access your private APK repository. Use the pull token `Username` value you generated with `chainctl` in the previous step.
 * **Password / Access Token** — This is used along with the user name to authenticate to Chainguard. Here, enter the `Password` value returned by the `chainctl auth pull-token` command in the previous section.
 
@@ -31473,10 +31536,10 @@ To get started, create [a pull token](/chainguard/chainguard-registry/authentica
 To create a pull token with `chainctl`, run the following command:
 
 ```sh
-chainctl auth configure-docker --pull-token --parent <organization>
+chainctl auth configure-docker --pull-token
 ```
 
-Be sure to replace `<organization>` with your organization's name or ID.
+`chainctl` uses your organization automatically when you belong to only one. If you have access to more than one, add `--parent <organization>`, replacing `<organization>` with the name or ID you want to use.
 
 > **Note**: You can find your Chainguard organization's name or ID by running `chainctl iam organizations list -o table`.
 
@@ -31845,7 +31908,6 @@ chainctl iam identities create circleci-identity
 --identity-issuer="https://oidc.circleci.com/org/1234"
 --subject-pattern="org/1234/project/.+$"
 --role=registry.pull
---parent=$ORGANIZATION
 ```
 
 Use the identity created in the above command, shown here in the third `run` section as `5678`, to configure your workflow to install `chainctl` and assume this identity when the workflow runs:
@@ -31911,8 +31973,7 @@ Next, use `chainctl` to create an [assumed identity](/platform/administration/as
 chainctl iam identities create entraid-identity \
   --identity-issuer="https://login.microsoftonline.com/{tenant}/v2.0" \
   --subject-pattern="^.+$" \ # matches all users from this issuer, adjust to restrict access
-  --role=registry.pull \
-  --parent="$ORGANIZATION"
+  --role=registry.pull
 ```
 
 Use the identity created in the above command, shown here in the third `run` section as `entraid-identity`, to configure your workflow to install `chainctl` and assume this identity when the workflow runs:
@@ -32262,7 +32323,6 @@ Create a long-lived pull token for your Chainguard organization:
 
 ```shell
 chainctl auth pull-token create \
-  --parent $ORGANIZATION \
   --name gitlab-pull-token \
   --ttl 8760h
 ```
@@ -41427,12 +41487,6 @@ To follow this guide, you need:
 - An active Chainguard organization.
 - Owner access on the organization.
 
-The examples in this guide use an `$ORGANIZATION` environment variable to refer to your organization. Set it to the name of your organization before you begin:
-
-```shell
-export ORGANIZATION=<your-organization>
-```
-
 ## Preliminary steps
 
 Before using Chainguard Actions, log in to Chainguard and enable the Chainguard Actions entitlement for your organization.
@@ -41446,7 +41500,7 @@ chainctl auth login
 Create the Chainguard Actions entitlement to enable access to the hardened actions hosted at `github.com/chainguard-actions`:
 
 ```shell
-chainctl actions entitlements create --parent $ORGANIZATION
+chainctl actions entitlements create
 ```
 
 The output confirms the entitlement:
@@ -41458,7 +41512,7 @@ Enabled Actions product for org chainguard.edu ($ENTITLEMENT_ID) [entitlement id
 Confirm your entitlement:
 
 ```shell
-chainctl actions entitlements list --parent $ORGANIZATION
+chainctl actions entitlements list
 ```
 
 ```output
@@ -41922,23 +41976,38 @@ Chainguard OS is designed specifically for more secure and containerized applica
 
 ---
 
-### Chainguard OpenSSL 3.6 configuration
-_Path: chainguard/chainguard-os/openssl-3.6.md_
+### OpenSSL 4.0 Configuration
+_Path: chainguard/chainguard-os/openssl-4.0.md_
 
-This is a summary of available algorithms in Chainguard OpenSSL 3.6
-(non-fips) and Chainguard FIPS Provider for OpenSSL 3.4.
+This is a summary of available algorithms in Chainguard OpenSSL 4.0
+(non-fips) and Chainguard FIPS Provider for OpenSSL 3.6.
 
-The majority of the available algorithms are not enabled default and are
+The majority of the available algorithms are not enabled by default and are
 only available with manual overrides, configuration, and reduction of
 default security level of 2, to a lower value. Those that are
-available in FIPS also require manual overrides and configuration. The
-Default columns represent algorithms that are negotiated by default.
+available in FIPS also require manual overrides and configuration.
+
+The v4.0 and FIPS v3.6 columns read as follows:
+
+- **Default**: negotiated by default under the shipped Chainguard OS
+  crypto policy. For key exchange groups, **First** marks the most
+  preferred group and **Preshare** the group whose key share is sent
+  in the first ClientHello.
+- **Available**: works, but only with manual configuration.
+- **Non-TLS only**: the elliptic curve works for keys, signatures and
+  certificates, but has no TLS supported group and so cannot be used
+  in TLS.
+- Blank: not available.
 
 The tables are presented in the format similar to the [IANA TLS
 Parameters](https://www.iana.org/assignments/tls-parameters).
 
 For more information about Transport Layer Security (TLS) please see the following references:
 
+- [NIST PQC](https://csrc.nist.gov/projects/post-quantum-cryptography)
+- [RFC10024](https://www.rfc-editor.org/info/rfc10024/)
+- [draft-ietf-tls-mldsa](https://www.ietf.org/archive/id/draft-ietf-tls-mldsa-05.html)
+- [RFC10015](https://www.rfc-editor.org/rfc/rfc10015.html)
 - [BCP 195](https://www.rfc-editor.org/info/bcp195/)
 - [RFC 9846](https://www.rfc-editor.org/info/rfc9846/)
 - [RFC 5246](https://www.rfc-editor.org/info/rfc5246/)
@@ -41948,261 +42017,398 @@ For more information about Transport Layer Security (TLS) please see the followi
 
 ## TLS Cipher Suites
 
-| TLS Cipher Suite / value | TLS Cipher Suite / description | Non-FIPS / Available | Non-FIPS / Default | FIPS / Available | FIPS / Default |
-|---|---|---|---|---|---|
-| 0x00,0x2F | TLS_RSA_WITH_AES_128_CBC_SHA | Yes |  |  |  |
-| 0x00,0x32 | TLS_DHE_DSS_WITH_AES_128_CBC_SHA | Yes |  |  |  |
-| 0x00,0x33 | TLS_DHE_RSA_WITH_AES_128_CBC_SHA | Yes |  | Yes |  |
-| 0x00,0x34 | TLS_DH_anon_WITH_AES_128_CBC_SHA | Yes |  | Yes |  |
-| 0x00,0x35 | TLS_RSA_WITH_AES_256_CBC_SHA | Yes |  |  |  |
-| 0x00,0x38 | TLS_DHE_DSS_WITH_AES_256_CBC_SHA | Yes |  |  |  |
-| 0x00,0x39 | TLS_DHE_RSA_WITH_AES_256_CBC_SHA | Yes |  | Yes |  |
-| 0x00,0x3A | TLS_DH_anon_WITH_AES_256_CBC_SHA | Yes |  | Yes |  |
-| 0x00,0x3C | TLS_RSA_WITH_AES_128_CBC_SHA256 | Yes |  |  |  |
-| 0x00,0x3D | TLS_RSA_WITH_AES_256_CBC_SHA256 | Yes |  |  |  |
-| 0x00,0x40 | TLS_DHE_DSS_WITH_AES_128_CBC_SHA256 | Yes |  |  |  |
-| 0x00,0x41 | TLS_RSA_WITH_CAMELLIA_128_CBC_SHA | Yes |  |  |  |
-| 0x00,0x44 | TLS_DHE_DSS_WITH_CAMELLIA_128_CBC_SHA | Yes |  |  |  |
-| 0x00,0x45 | TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA | Yes |  |  |  |
-| 0x00,0x46 | TLS_DH_anon_WITH_CAMELLIA_128_CBC_SHA | Yes |  |  |  |
-| 0x00,0x67 | TLS_DHE_RSA_WITH_AES_128_CBC_SHA256 | Yes |  | Yes |  |
-| 0x00,0x6A | TLS_DHE_DSS_WITH_AES_256_CBC_SHA256 | Yes |  |  |  |
-| 0x00,0x6B | TLS_DHE_RSA_WITH_AES_256_CBC_SHA256 | Yes |  | Yes |  |
-| 0x00,0x6C | TLS_DH_anon_WITH_AES_128_CBC_SHA256 | Yes |  | Yes |  |
-| 0x00,0x6D | TLS_DH_anon_WITH_AES_256_CBC_SHA256 | Yes |  | Yes |  |
-| 0x00,0x84 | TLS_RSA_WITH_CAMELLIA_256_CBC_SHA | Yes |  |  |  |
-| 0x00,0x87 | TLS_DHE_DSS_WITH_CAMELLIA_256_CBC_SHA | Yes |  |  |  |
-| 0x00,0x88 | TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA | Yes |  |  |  |
-| 0x00,0x89 | TLS_DH_anon_WITH_CAMELLIA_256_CBC_SHA | Yes |  |  |  |
-| 0x00,0x8C | TLS_PSK_WITH_AES_128_CBC_SHA | Yes |  | Yes |  |
-| 0x00,0x8D | TLS_PSK_WITH_AES_256_CBC_SHA | Yes |  | Yes |  |
-| 0x00,0x90 | TLS_DHE_PSK_WITH_AES_128_CBC_SHA | Yes |  | Yes |  |
-| 0x00,0x91 | TLS_DHE_PSK_WITH_AES_256_CBC_SHA | Yes |  | Yes |  |
-| 0x00,0x94 | TLS_RSA_PSK_WITH_AES_128_CBC_SHA | Yes |  |  |  |
-| 0x00,0x95 | TLS_RSA_PSK_WITH_AES_256_CBC_SHA | Yes |  |  |  |
-| 0x00,0x9C | TLS_RSA_WITH_AES_128_GCM_SHA256 | Yes |  |  |  |
-| 0x00,0x9D | TLS_RSA_WITH_AES_256_GCM_SHA384 | Yes |  |  |  |
-| 0x00,0x9E | TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 | Yes |  | Yes |  |
-| 0x00,0x9F | TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 | Yes |  | Yes |  |
-| 0x00,0xA2 | TLS_DHE_DSS_WITH_AES_128_GCM_SHA256 | Yes |  |  |  |
-| 0x00,0xA3 | TLS_DHE_DSS_WITH_AES_256_GCM_SHA384 | Yes |  |  |  |
-| 0x00,0xA6 | TLS_DH_anon_WITH_AES_128_GCM_SHA256 | Yes |  | Yes |  |
-| 0x00,0xA7 | TLS_DH_anon_WITH_AES_256_GCM_SHA384 | Yes |  | Yes |  |
-| 0x00,0xA8 | TLS_PSK_WITH_AES_128_GCM_SHA256 | Yes |  | Yes |  |
-| 0x00,0xA9 | TLS_PSK_WITH_AES_256_GCM_SHA384 | Yes |  | Yes |  |
-| 0x00,0xAA | TLS_DHE_PSK_WITH_AES_128_GCM_SHA256 | Yes |  | Yes |  |
-| 0x00,0xAB | TLS_DHE_PSK_WITH_AES_256_GCM_SHA384 | Yes |  | Yes |  |
-| 0x00,0xAC | TLS_RSA_PSK_WITH_AES_128_GCM_SHA256 | Yes |  |  |  |
-| 0x00,0xAD | TLS_RSA_PSK_WITH_AES_256_GCM_SHA384 | Yes |  |  |  |
-| 0x00,0xAE | TLS_PSK_WITH_AES_128_CBC_SHA256 | Yes |  | Yes |  |
-| 0x00,0xAF | TLS_PSK_WITH_AES_256_CBC_SHA384 | Yes |  | Yes |  |
-| 0x00,0xB2 | TLS_DHE_PSK_WITH_AES_128_CBC_SHA256 | Yes |  | Yes |  |
-| 0x00,0xB3 | TLS_DHE_PSK_WITH_AES_256_CBC_SHA384 | Yes |  | Yes |  |
-| 0x00,0xB6 | TLS_RSA_PSK_WITH_AES_128_CBC_SHA256 | Yes |  |  |  |
-| 0x00,0xB7 | TLS_RSA_PSK_WITH_AES_256_CBC_SHA384 | Yes |  |  |  |
-| 0x00,0xBA | TLS_RSA_WITH_CAMELLIA_128_CBC_SHA256 | Yes |  |  |  |
-| 0x00,0xBD | TLS_DHE_DSS_WITH_CAMELLIA_128_CBC_SHA256 | Yes |  |  |  |
-| 0x00,0xBE | TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA256 | Yes |  |  |  |
-| 0x00,0xBF | TLS_DH_anon_WITH_CAMELLIA_128_CBC_SHA256 | Yes |  |  |  |
-| 0x00,0xC0 | TLS_RSA_WITH_CAMELLIA_256_CBC_SHA256 | Yes |  |  |  |
-| 0x00,0xC3 | TLS_DHE_DSS_WITH_CAMELLIA_256_CBC_SHA256 | Yes |  |  |  |
-| 0x00,0xC4 | TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA256 | Yes |  |  |  |
-| 0x00,0xC5 | TLS_DH_anon_WITH_CAMELLIA_256_CBC_SHA256 | Yes |  |  |  |
-| 0x13,0x01 | TLS_AES_128_GCM_SHA256 | Yes | Yes | Yes | Yes |
-| 0x13,0x02 | TLS_AES_256_GCM_SHA384 | Yes | Yes | Yes | Yes |
-| 0x13,0x03 | TLS_CHACHA20_POLY1305_SHA256 | Yes | Yes |  |  |
-| 0xC0,0x09 | TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA | Yes |  | Yes |  |
-| 0xC0,0x0A | TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA | Yes |  | Yes |  |
-| 0xC0,0x13 | TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA | Yes |  | Yes |  |
-| 0xC0,0x14 | TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA | Yes |  | Yes |  |
-| 0xC0,0x18 | TLS_ECDH_anon_WITH_AES_128_CBC_SHA | Yes |  | Yes |  |
-| 0xC0,0x19 | TLS_ECDH_anon_WITH_AES_256_CBC_SHA | Yes |  | Yes |  |
-| 0xC0,0x1D | TLS_SRP_SHA_WITH_AES_128_CBC_SHA | Yes |  | Yes |  |
-| 0xC0,0x1E | TLS_SRP_SHA_RSA_WITH_AES_128_CBC_SHA | Yes |  | Yes |  |
-| 0xC0,0x1F | TLS_SRP_SHA_DSS_WITH_AES_128_CBC_SHA | Yes |  |  |  |
-| 0xC0,0x20 | TLS_SRP_SHA_WITH_AES_256_CBC_SHA | Yes |  | Yes |  |
-| 0xC0,0x21 | TLS_SRP_SHA_RSA_WITH_AES_256_CBC_SHA | Yes |  | Yes |  |
-| 0xC0,0x22 | TLS_SRP_SHA_DSS_WITH_AES_256_CBC_SHA | Yes |  |  |  |
-| 0xC0,0x23 | TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 | Yes |  | Yes |  |
-| 0xC0,0x24 | TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 | Yes |  | Yes |  |
-| 0xC0,0x27 | TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 | Yes |  | Yes |  |
-| 0xC0,0x28 | TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 | Yes |  | Yes |  |
-| 0xC0,0x2B | TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 | Yes | Yes | Yes | Yes |
-| 0xC0,0x2C | TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 | Yes | Yes | Yes | Yes |
-| 0xC0,0x2F | TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 | Yes | Yes | Yes | Yes |
-| 0xC0,0x30 | TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 | Yes | Yes | Yes | Yes |
-| 0xC0,0x35 | TLS_ECDHE_PSK_WITH_AES_128_CBC_SHA | Yes |  | Yes |  |
-| 0xC0,0x36 | TLS_ECDHE_PSK_WITH_AES_256_CBC_SHA | Yes |  | Yes |  |
-| 0xC0,0x37 | TLS_ECDHE_PSK_WITH_AES_128_CBC_SHA256 | Yes |  | Yes |  |
-| 0xC0,0x38 | TLS_ECDHE_PSK_WITH_AES_256_CBC_SHA384 | Yes |  | Yes |  |
-| 0xC0,0x50 | TLS_RSA_WITH_ARIA_128_GCM_SHA256 | Yes |  |  |  |
-| 0xC0,0x51 | TLS_RSA_WITH_ARIA_256_GCM_SHA384 | Yes |  |  |  |
-| 0xC0,0x52 | TLS_DHE_RSA_WITH_ARIA_128_GCM_SHA256 | Yes |  |  |  |
-| 0xC0,0x53 | TLS_DHE_RSA_WITH_ARIA_256_GCM_SHA384 | Yes |  |  |  |
-| 0xC0,0x56 | TLS_DHE_DSS_WITH_ARIA_128_GCM_SHA256 | Yes |  |  |  |
-| 0xC0,0x57 | TLS_DHE_DSS_WITH_ARIA_256_GCM_SHA384 | Yes |  |  |  |
-| 0xC0,0x5C | TLS_ECDHE_ECDSA_WITH_ARIA_128_GCM_SHA256 | Yes |  |  |  |
-| 0xC0,0x5D | TLS_ECDHE_ECDSA_WITH_ARIA_256_GCM_SHA384 | Yes |  |  |  |
-| 0xC0,0x60 | TLS_ECDHE_RSA_WITH_ARIA_128_GCM_SHA256 | Yes |  |  |  |
-| 0xC0,0x61 | TLS_ECDHE_RSA_WITH_ARIA_256_GCM_SHA384 | Yes |  |  |  |
-| 0xC0,0x6A | TLS_PSK_WITH_ARIA_128_GCM_SHA256 | Yes |  |  |  |
-| 0xC0,0x6B | TLS_PSK_WITH_ARIA_256_GCM_SHA384 | Yes |  |  |  |
-| 0xC0,0x6C | TLS_DHE_PSK_WITH_ARIA_128_GCM_SHA256 | Yes |  |  |  |
-| 0xC0,0x6D | TLS_DHE_PSK_WITH_ARIA_256_GCM_SHA384 | Yes |  |  |  |
-| 0xC0,0x6E | TLS_RSA_PSK_WITH_ARIA_128_GCM_SHA256 | Yes |  |  |  |
-| 0xC0,0x6F | TLS_RSA_PSK_WITH_ARIA_256_GCM_SHA384 | Yes |  |  |  |
-| 0xC0,0x72 | TLS_ECDHE_ECDSA_WITH_CAMELLIA_128_CBC_SHA256 | Yes |  |  |  |
-| 0xC0,0x73 | TLS_ECDHE_ECDSA_WITH_CAMELLIA_256_CBC_SHA384 | Yes |  |  |  |
-| 0xC0,0x76 | TLS_ECDHE_RSA_WITH_CAMELLIA_128_CBC_SHA256 | Yes |  |  |  |
-| 0xC0,0x77 | TLS_ECDHE_RSA_WITH_CAMELLIA_256_CBC_SHA384 | Yes |  |  |  |
-| 0xC0,0x94 | TLS_PSK_WITH_CAMELLIA_128_CBC_SHA256 | Yes |  |  |  |
-| 0xC0,0x95 | TLS_PSK_WITH_CAMELLIA_256_CBC_SHA384 | Yes |  |  |  |
-| 0xC0,0x96 | TLS_DHE_PSK_WITH_CAMELLIA_128_CBC_SHA256 | Yes |  |  |  |
-| 0xC0,0x97 | TLS_DHE_PSK_WITH_CAMELLIA_256_CBC_SHA384 | Yes |  |  |  |
-| 0xC0,0x98 | TLS_RSA_PSK_WITH_CAMELLIA_128_CBC_SHA256 | Yes |  |  |  |
-| 0xC0,0x99 | TLS_RSA_PSK_WITH_CAMELLIA_256_CBC_SHA384 | Yes |  |  |  |
-| 0xC0,0x9A | TLS_ECDHE_PSK_WITH_CAMELLIA_128_CBC_SHA256 | Yes |  |  |  |
-| 0xC0,0x9B | TLS_ECDHE_PSK_WITH_CAMELLIA_256_CBC_SHA384 | Yes |  |  |  |
-| 0xC0,0x9C | TLS_RSA_WITH_AES_128_CCM | Yes |  |  |  |
-| 0xC0,0x9D | TLS_RSA_WITH_AES_256_CCM | Yes |  |  |  |
-| 0xC0,0x9E | TLS_DHE_RSA_WITH_AES_128_CCM | Yes |  | Yes |  |
-| 0xC0,0x9F | TLS_DHE_RSA_WITH_AES_256_CCM | Yes |  | Yes |  |
-| 0xC0,0xA0 | TLS_RSA_WITH_AES_128_CCM_8 | Yes |  |  |  |
-| 0xC0,0xA1 | TLS_RSA_WITH_AES_256_CCM_8 | Yes |  |  |  |
-| 0xC0,0xA2 | TLS_DHE_RSA_WITH_AES_128_CCM_8 | Yes |  | Yes |  |
-| 0xC0,0xA3 | TLS_DHE_RSA_WITH_AES_256_CCM_8 | Yes |  | Yes |  |
-| 0xC0,0xA4 | TLS_PSK_WITH_AES_128_CCM | Yes |  | Yes |  |
-| 0xC0,0xA5 | TLS_PSK_WITH_AES_256_CCM | Yes |  | Yes |  |
-| 0xC0,0xA6 | TLS_DHE_PSK_WITH_AES_128_CCM | Yes |  | Yes |  |
-| 0xC0,0xA7 | TLS_DHE_PSK_WITH_AES_256_CCM | Yes |  | Yes |  |
-| 0xC0,0xA8 | TLS_PSK_WITH_AES_128_CCM_8 | Yes |  | Yes |  |
-| 0xC0,0xA9 | TLS_PSK_WITH_AES_256_CCM_8 | Yes |  | Yes |  |
-| 0xC0,0xAA | TLS_PSK_DHE_WITH_AES_128_CCM_8 | Yes |  | Yes |  |
-| 0xC0,0xAB | TLS_PSK_DHE_WITH_AES_256_CCM_8 | Yes |  | Yes |  |
-| 0xC0,0xAC | TLS_ECDHE_ECDSA_WITH_AES_128_CCM | Yes |  | Yes |  |
-| 0xC0,0xAD | TLS_ECDHE_ECDSA_WITH_AES_256_CCM | Yes |  | Yes |  |
-| 0xC0,0xAE | TLS_ECDHE_ECDSA_WITH_AES_128_CCM_8 | Yes |  | Yes |  |
-| 0xC0,0xAF | TLS_ECDHE_ECDSA_WITH_AES_256_CCM_8 | Yes |  | Yes |  |
-| 0xCC,0xA8 | TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 | Yes | Yes |  |  |
-| 0xCC,0xA9 | TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 | Yes | Yes |  |  |
-| 0xCC,0xAA | TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256 | Yes |  |  |  |
-| 0xCC,0xAB | TLS_PSK_WITH_CHACHA20_POLY1305_SHA256 | Yes |  |  |  |
-| 0xCC,0xAC | TLS_ECDHE_PSK_WITH_CHACHA20_POLY1305_SHA256 | Yes |  |  |  |
-| 0xCC,0xAD | TLS_DHE_PSK_WITH_CHACHA20_POLY1305_SHA256 | Yes |  |  |  |
-| 0xCC,0xAE | TLS_RSA_PSK_WITH_CHACHA20_POLY1305_SHA256 | Yes |  |  |  |
+| Value | Cipher Suite | v4.0 | FIPS v3.6 | PQC |
+|---|---|---|---|---|
+| TLSv1.3 | | | | |
+| 0x13,0x01 | TLS_AES_128_GCM_SHA256 | Default | Default | Yes |
+| 0x13,0x02 | TLS_AES_256_GCM_SHA384 | **First** | **First** | Yes |
+| 0x13,0x03 | TLS_CHACHA20_POLY1305_SHA256 | Default |  | Yes |
+| TLSv1.2 | | | | |
+| 0xC0,0x23 | TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 | Available | Available |  |
+| 0xC0,0x24 | TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 | Available | Available |  |
+| 0xC0,0x27 | TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 | Available | Available |  |
+| 0xC0,0x28 | TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 | Available | Available |  |
+| 0xC0,0x2B | TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 | Default | Default |  |
+| 0xC0,0x2C | TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 | **First** | **First** |  |
+| 0xC0,0x2F | TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 | Default | Default |  |
+| 0xC0,0x30 | TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 | **First** | **First** |  |
+| 0xC0,0x37 | TLS_ECDHE_PSK_WITH_AES_128_CBC_SHA256 | Available | Available |  |
+| 0xC0,0x38 | TLS_ECDHE_PSK_WITH_AES_256_CBC_SHA384 | Available | Available |  |
+| 0xC0,0xAC | TLS_ECDHE_ECDSA_WITH_AES_128_CCM | Available | Available |  |
+| 0xC0,0xAD | TLS_ECDHE_ECDSA_WITH_AES_256_CCM | Available | Available |  |
+| 0xCC,0xA8 | TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 | Default |  |  |
+| 0xCC,0xA9 | TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 | Default |  |  |
+| 0xCC,0xAC | TLS_ECDHE_PSK_WITH_CHACHA20_POLY1305_SHA256 | Available |  |  |
 
 ## TLS Supported Groups
 
-| TLS Supported Group / value | TLS Supported Group / description | Non-FIPS / Available | Non-FIPS / Default | FIPS / Available | FIPS / Default |
-|---|---|---|---|---|---|
-| 15 | secp160k1 | Yes |  |  |  |
-| 16 | secp160r1 | Yes |  |  |  |
-| 17 | secp160r2 | Yes |  |  |  |
-| 18 | secp192k1 | Yes |  |  |  |
-| 19 | secp192r1 | Yes |  |  |  |
-| 20 | secp224k1 | Yes |  |  |  |
-| 21 | secp224r1 | Yes |  | Yes |  |
-| 22 | secp256k1 | Yes |  |  |  |
-| 23 | secp256r1 | Yes | Yes | Yes | Yes |
-| 24 | secp384r1 | Yes | Yes | Yes | First & Preshare |
-| 25 | secp521r1 | Yes | Yes | Yes |  |
-| 26 | brainpoolP256r1 | Yes |  |  |  |
-| 27 | brainpoolP384r1 | Yes |  |  |  |
-| 28 | brainpoolP512r1 | Yes |  |  |  |
-| 29 | x25519 | Yes | Preshare |  |  |
-| 30 | x448 | Yes | Yes |  |  |
-| 31 | brainpoolP256r1tls13 | Yes |  |  |  |
-| 32 | brainpoolP384r1tls13 | Yes |  |  |  |
-| 33 | brainpoolP512r1tls13 | Yes |  |  |  |
-| 256 | ffdhe2048 | Yes |  | Yes |  |
-| 257 | ffdhe3072 | Yes |  | Yes |  |
-| 258 | ffdhe4096 | Yes |  | Yes |  |
-| 259 | ffdhe6144 | Yes |  | Yes |  |
-| 260 | ffdhe8192 | Yes |  | Yes |  |
-| 512 | MLKEM512 | Yes |  |  |  |
-| 513 | MLKEM768 | Yes |  |  |  |
-| 514 | MLKEM1024 | Yes | Yes |  |  |
-| 4587 | SecP256r1MLKEM768 | Yes | Yes |  |  |
-| 4588 | X25519MLKEM768 | Yes | First |  |  |
-| 4589 | SecP384r1MLKEM1024 | Yes | Yes |  |  |
+| Value | Supported Group | v4.0 | FIPS v3.6 | PQC |
+|---|---|---|---|---|
+| PQC TLSv1.3 | | | | |
+| 512 | MLKEM512 | Available | Available | Yes |
+| 513 | MLKEM768 | Available | Available | Yes |
+| 514 | MLKEM1024 | Default | **First** | Yes |
+| 4587 | SecP256r1MLKEM768 | Default | Default | Yes |
+| 4588 | X25519MLKEM768 | **First** | Default | Yes |
+| 4589 | SecP384r1MLKEM1024 | Default | Default | Yes |
+| TLSv1.2 & TLSv1.3 | | | | |
+| 23 | secp256r1 | Default | Default |  |
+| 24 | secp384r1 | Default | Preshare |  |
+| 25 | secp521r1 | Default | Default |  |
+| 26, 31 | brainpoolP256r1 | Default |  |  |
+| 27, 32 | brainpoolP384r1 | Default |  |  |
+| 28, 33 | brainpoolP512r1 | Default |  |  |
+| 29 | x25519 | Preshare |  |  |
+| 30 | x448 | Default |  |  |
+
+The brainpool rows combine two codepoints each: the first one (`brainpoolP256r1`, `brainpoolP384r1`, `brainpoolP512r1`) is what TLS 1.2 negotiates, the second one (`brainpoolP256r1tls13`, `brainpoolP384r1tls13`, `brainpoolP512r1tls13`) is the TLS 1.3 name of the same curve.
 
 ## TLS SignatureScheme
 
-| TLS Signature Scheme / value | TLS Signature Scheme / description | Non-FIPS / Available | Non-FIPS / Default | FIPS / Available | FIPS / Default |
-|---|---|---|---|---|---|
-| 0x0201 | rsa_pkcs1_sha1 | Yes |  |  |  |
-| 0x0202 | Reserved for backward compatibility (dsa_sha1) | Yes |  |  |  |
-| 0x0203 | ecdsa_sha1 | Yes |  |  |  |
-| 0x0301 | Reserved for backward compatibility (rsa_pkcs1_sha224) | Yes |  | Yes |  |
-| 0x0302 | Reserved for backward compatibility (dsa_sha224) | Yes |  |  |  |
-| 0x0303 | Reserved for backward compatibility (ecdsa_sha224) | Yes |  | Yes |  |
-| 0x0401 | rsa_pkcs1_sha256 | Yes | Yes | Yes | Yes |
-| 0x0402 | Reserved for backward compatibility (dsa_sha256) | Yes |  |  |  |
-| 0x0403 | ecdsa_secp256r1_sha256 | Yes | Yes | Yes | Yes |
-| 0x0501 | rsa_pkcs1_sha384 | Yes | Yes | Yes | Yes |
-| 0x0502 | Reserved for backward compatibility (dsa_sha384) | Yes |  |  |  |
-| 0x0503 | ecdsa_secp384r1_sha384 | Yes | Yes | Yes | Yes |
-| 0x0601 | rsa_pkcs1_sha512 | Yes | Yes | Yes | Yes |
-| 0x0602 | Reserved for backward compatibility (dsa_sha512) | Yes |  |  |  |
-| 0x0603 | ecdsa_secp521r1_sha512 | Yes | Yes | Yes | Yes |
-| 0x0804 | rsa_pss_rsae_sha256 | Yes | Yes | Yes | Yes |
-| 0x0805 | rsa_pss_rsae_sha384 | Yes | Yes | Yes | Yes |
-| 0x0806 | rsa_pss_rsae_sha512 | Yes | Yes | Yes | Yes |
-| 0x0807 | ed25519 | Yes | Yes | Yes | Yes |
-| 0x0808 | ed448 | Yes | Yes | Yes | Yes |
-| 0x0809 | rsa_pss_pss_sha256 | Yes | Yes | Yes | Yes |
-| 0x080A | rsa_pss_pss_sha384 | Yes | Yes | Yes | Yes |
-| 0x080B | rsa_pss_pss_sha512 | Yes | Yes | Yes | Yes |
-| 0x081A | ecdsa_brainpoolP256r1tls13_sha256 | Yes |  |  |  |
-| 0x081B | ecdsa_brainpoolP384r1tls13_sha384 | Yes |  |  |  |
-| 0x081C | ecdsa_brainpoolP512r1tls13_sha512 | Yes |  |  |  |
-| 0x0904 | mldsa44 | Yes | Yes |  |  |
-| 0x0905 | mldsa65 | Yes | Yes |  |  |
-| 0x0906 | mldsa87 | Yes | Yes |  |  |
+| Value | Signature Scheme | v4.0 | FIPS v3.6 | PQC |
+|---|---|---|---|---|
+| PQC TLSv1.3 | | | | |
+| 0x0904 | mldsa44 | Default | Default | Yes |
+| 0x0905 | mldsa65 | Default | Default | Yes |
+| 0x0906 | mldsa87 | Default | Default | Yes |
+| TLSv1.2 & TLSv1.3 | | | | |
+| 0x0401 | rsa_pkcs1_sha256 | Default | Default |  |
+| 0x0403 | ecdsa_secp256r1_sha256 | Default | Default |  |
+| 0x0501 | rsa_pkcs1_sha384 | Default | Default |  |
+| 0x0503 | ecdsa_secp384r1_sha384 | Default | Default |  |
+| 0x0601 | rsa_pkcs1_sha512 | Default | Default |  |
+| 0x0603 | ecdsa_secp521r1_sha512 | Default | Default |  |
+| 0x0804 | rsa_pss_rsae_sha256 | Default | Default |  |
+| 0x0805 | rsa_pss_rsae_sha384 | Default | Default |  |
+| 0x0806 | rsa_pss_rsae_sha512 | Default | Default |  |
+| 0x0807 | ed25519 | Default | Default |  |
+| 0x0808 | ed448 | Default | Default |  |
+| 0x0809 | rsa_pss_pss_sha256 | Default | Default |  |
+| 0x080A | rsa_pss_pss_sha384 | Default | Default |  |
+| 0x080B | rsa_pss_pss_sha512 | Default | Default |  |
+| 0x081A | ecdsa_brainpoolP256r1tls13_sha256 | Default |  |  |
+| 0x081B | ecdsa_brainpoolP384r1tls13_sha384 | Default |  |  |
+| 0x081C | ecdsa_brainpoolP512r1tls13_sha512 | Default |  |  |
 
 ## Elliptic Curves
 
-| Elliptic Curve / OID | Elliptic Curve / description | Non-FIPS / Available | Non-FIPS / Default | FIPS / Available | FIPS / Default |
-|---|---|---|---|---|---|
-| 1.2.840.10045.3.1.1 | prime192v1 (P-192, secp192r1) | Yes |  | Verify only |  |
-| 1.2.840.10045.3.1.2 | prime192v2 | Yes |  |  |  |
-| 1.2.840.10045.3.1.3 | prime192v3 | Yes |  |  |  |
-| 1.2.840.10045.3.1.4 | prime239v1 | Yes |  |  |  |
-| 1.2.840.10045.3.1.5 | prime239v2 | Yes |  |  |  |
-| 1.2.840.10045.3.1.6 | prime239v3 | Yes |  |  |  |
-| 1.2.840.10045.3.1.7 | prime256v1 (P-256, secp256r1) | Yes | Yes | Yes | Yes |
-| 1.3.36.3.3.2.8.1.1.1 | brainpoolP160r1 | Yes |  |  |  |
-| 1.3.36.3.3.2.8.1.1.2 | brainpoolP160t1 | Yes |  |  |  |
-| 1.3.36.3.3.2.8.1.1.3 | brainpoolP192r1 | Yes |  |  |  |
-| 1.3.36.3.3.2.8.1.1.4 | brainpoolP192t1 | Yes |  |  |  |
-| 1.3.36.3.3.2.8.1.1.5 | brainpoolP224r1 | Yes |  |  |  |
-| 1.3.36.3.3.2.8.1.1.6 | brainpoolP224t1 | Yes |  |  |  |
-| 1.3.36.3.3.2.8.1.1.7 | brainpoolP256r1 | Yes |  |  |  |
-| 1.3.36.3.3.2.8.1.1.8 | brainpoolP256t1 | Yes |  |  |  |
-| 1.3.36.3.3.2.8.1.1.9 | brainpoolP320r1 | Yes |  |  |  |
-| 1.3.36.3.3.2.8.1.1.10 | brainpoolP320t1 | Yes |  |  |  |
-| 1.3.36.3.3.2.8.1.1.11 | brainpoolP384r1 | Yes |  |  |  |
-| 1.3.36.3.3.2.8.1.1.12 | brainpoolP384t1 | Yes |  |  |  |
-| 1.3.36.3.3.2.8.1.1.13 | brainpoolP512r1 | Yes |  |  |  |
-| 1.3.36.3.3.2.8.1.1.14 | brainpoolP512t1 | Yes |  |  |  |
-| 1.3.132.0.6 | secp112r1 | Yes |  |  |  |
-| 1.3.132.0.7 | secp112r2 | Yes |  |  |  |
-| 1.3.132.0.8 | secp160r1 | Yes |  |  |  |
-| 1.3.132.0.9 | secp160k1 | Yes |  |  |  |
-| 1.3.132.0.10 | secp256k1 | Yes |  |  |  |
-| 1.3.132.0.28 | secp128r1 | Yes |  |  |  |
-| 1.3.132.0.29 | secp128r2 | Yes |  |  |  |
-| 1.3.132.0.30 | secp160r2 | Yes |  |  |  |
-| 1.3.132.0.31 | secp192k1 | Yes |  |  |  |
-| 1.3.132.0.32 | secp224k1 | Yes |  |  |  |
-| 1.3.132.0.33 | secp224r1 (P-224) | Yes |  | Yes |  |
-| 1.3.132.0.34 | secp384r1 (P-384) | Yes | Yes | Yes | Yes |
-| 1.3.132.0.35 | secp521r1 (P-521) | Yes | Yes | Yes | TLS 1.3 only |
-| 2.23.43.1.4.6 | wap-wsg-idm-ecid-wtls6 | Yes |  |  |  |
-| 2.23.43.1.4.7 | wap-wsg-idm-ecid-wtls7 | Yes |  |  |  |
-| 2.23.43.1.4.8 | wap-wsg-idm-ecid-wtls8 | Yes |  |  |  |
-| 2.23.43.1.4.9 | wap-wsg-idm-ecid-wtls9 | Yes |  |  |  |
-| 2.23.43.1.4.12 | wap-wsg-idm-ecid-wtls12 | Yes |  |  |  |
+| OID | Elliptic Curve | v4.0 | FIPS v3.6 |
+|---|---|---|---|
+| 1.2.840.10045.3.1.7 | prime256v1 (P-256, secp256r1) | Default | Default |
+| 1.3.36.3.3.2.8.1.1.7 | brainpoolP256r1 | Default |  |
+| 1.3.36.3.3.2.8.1.1.11 | brainpoolP384r1 | Default |  |
+| 1.3.36.3.3.2.8.1.1.13 | brainpoolP512r1 | Default |  |
+| 1.3.132.0.10 | secp256k1 | Non-TLS only |  |
+| 1.3.132.0.34 | secp384r1 (P-384) | Default | Default |
+| 1.3.132.0.35 | secp521r1 (P-521) | Default | Default |
+
+---
+
+### OpenSSL 3.6 Configuration
+_Path: chainguard/chainguard-os/openssl-3.6.md_
+
+This is a summary of available algorithms in Chainguard OpenSSL 3.6
+(non-fips) and Chainguard FIPS Provider for OpenSSL 3.4.
+
+The majority of the available algorithms are not enabled by default and are
+only available with manual overrides, configuration, and reduction of
+default security level of 2, to a lower value. Those that are
+available in FIPS also require manual overrides and configuration.
+
+The v3.6 and FIPS v3.4 columns read as follows:
+
+- **Default**: negotiated by default under the shipped Chainguard OS
+  crypto policy. For key exchange groups, **First** marks the most
+  preferred group and **Preshare** the group whose key share is sent
+  in the first ClientHello.
+- **Available**: works, but only with manual configuration.
+- **Non-TLS only**: the elliptic curve works for keys, signatures and
+  certificates, but has no TLS supported group and so cannot be used
+  in TLS.
+- **Verify only**: the FIPS provider verifies signatures on the curve
+  but does not generate keys or sign with it.
+- Blank: not available.
+
+The tables are presented in the format similar to the [IANA TLS
+Parameters](https://www.iana.org/assignments/tls-parameters).
+
+For more information about Transport Layer Security (TLS) please see the following references:
+
+- [NIST PQC](https://csrc.nist.gov/projects/post-quantum-cryptography)
+- [RFC10024](https://www.rfc-editor.org/info/rfc10024/)
+- [draft-ietf-tls-mldsa](https://www.ietf.org/archive/id/draft-ietf-tls-mldsa-05.html)
+- [RFC10015](https://www.rfc-editor.org/rfc/rfc10015.html)
+- [BCP 195](https://www.rfc-editor.org/info/bcp195/)
+- [RFC 9846](https://www.rfc-editor.org/info/rfc9846/)
+- [RFC 5246](https://www.rfc-editor.org/info/rfc5246/)
+- [NIST SP 800-52 Rev. 2](https://csrc.nist.gov/pubs/sp/800/52/r2/final)
+- [RFC 9151](https://www.rfc-editor.org/info/rfc9151/)
+- [draft-becker-cnsa2-tls-profile](https://datatracker.ietf.org/doc/draft-becker-cnsa2-tls-profile/)
+
+## TLS Cipher Suites
+
+| Value | Cipher Suite | v3.6 | FIPS v3.4 | PQC |
+|---|---|---|---|---|
+| TLSv1.3 | | | | |
+| 0x13,0x01 | TLS_AES_128_GCM_SHA256 | Default | Default | Yes |
+| 0x13,0x02 | TLS_AES_256_GCM_SHA384 | **First** | **First** | Yes |
+| 0x13,0x03 | TLS_CHACHA20_POLY1305_SHA256 | Default |  | Yes |
+| TLSv1.2 | | | | |
+| 0x00,0x2F | TLS_RSA_WITH_AES_128_CBC_SHA | Available |  |  |
+| 0x00,0x32 | TLS_DHE_DSS_WITH_AES_128_CBC_SHA | Available |  |  |
+| 0x00,0x33 | TLS_DHE_RSA_WITH_AES_128_CBC_SHA | Available | Available |  |
+| 0x00,0x34 | TLS_DH_anon_WITH_AES_128_CBC_SHA | Available | Available |  |
+| 0x00,0x35 | TLS_RSA_WITH_AES_256_CBC_SHA | Available |  |  |
+| 0x00,0x38 | TLS_DHE_DSS_WITH_AES_256_CBC_SHA | Available |  |  |
+| 0x00,0x39 | TLS_DHE_RSA_WITH_AES_256_CBC_SHA | Available | Available |  |
+| 0x00,0x3A | TLS_DH_anon_WITH_AES_256_CBC_SHA | Available | Available |  |
+| 0x00,0x3C | TLS_RSA_WITH_AES_128_CBC_SHA256 | Available |  |  |
+| 0x00,0x3D | TLS_RSA_WITH_AES_256_CBC_SHA256 | Available |  |  |
+| 0x00,0x40 | TLS_DHE_DSS_WITH_AES_128_CBC_SHA256 | Available |  |  |
+| 0x00,0x41 | TLS_RSA_WITH_CAMELLIA_128_CBC_SHA | Available |  |  |
+| 0x00,0x44 | TLS_DHE_DSS_WITH_CAMELLIA_128_CBC_SHA | Available |  |  |
+| 0x00,0x45 | TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA | Available |  |  |
+| 0x00,0x46 | TLS_DH_anon_WITH_CAMELLIA_128_CBC_SHA | Available |  |  |
+| 0x00,0x67 | TLS_DHE_RSA_WITH_AES_128_CBC_SHA256 | Available | Available |  |
+| 0x00,0x6A | TLS_DHE_DSS_WITH_AES_256_CBC_SHA256 | Available |  |  |
+| 0x00,0x6B | TLS_DHE_RSA_WITH_AES_256_CBC_SHA256 | Available | Available |  |
+| 0x00,0x6C | TLS_DH_anon_WITH_AES_128_CBC_SHA256 | Available | Available |  |
+| 0x00,0x6D | TLS_DH_anon_WITH_AES_256_CBC_SHA256 | Available | Available |  |
+| 0x00,0x84 | TLS_RSA_WITH_CAMELLIA_256_CBC_SHA | Available |  |  |
+| 0x00,0x87 | TLS_DHE_DSS_WITH_CAMELLIA_256_CBC_SHA | Available |  |  |
+| 0x00,0x88 | TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA | Available |  |  |
+| 0x00,0x89 | TLS_DH_anon_WITH_CAMELLIA_256_CBC_SHA | Available |  |  |
+| 0x00,0x8C | TLS_PSK_WITH_AES_128_CBC_SHA | Available | Available |  |
+| 0x00,0x8D | TLS_PSK_WITH_AES_256_CBC_SHA | Available | Available |  |
+| 0x00,0x90 | TLS_DHE_PSK_WITH_AES_128_CBC_SHA | Available | Available |  |
+| 0x00,0x91 | TLS_DHE_PSK_WITH_AES_256_CBC_SHA | Available | Available |  |
+| 0x00,0x94 | TLS_RSA_PSK_WITH_AES_128_CBC_SHA | Available |  |  |
+| 0x00,0x95 | TLS_RSA_PSK_WITH_AES_256_CBC_SHA | Available |  |  |
+| 0x00,0x9C | TLS_RSA_WITH_AES_128_GCM_SHA256 | Available |  |  |
+| 0x00,0x9D | TLS_RSA_WITH_AES_256_GCM_SHA384 | Available |  |  |
+| 0x00,0x9E | TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 | Available | Available |  |
+| 0x00,0x9F | TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 | Available | Available |  |
+| 0x00,0xA2 | TLS_DHE_DSS_WITH_AES_128_GCM_SHA256 | Available |  |  |
+| 0x00,0xA3 | TLS_DHE_DSS_WITH_AES_256_GCM_SHA384 | Available |  |  |
+| 0x00,0xA6 | TLS_DH_anon_WITH_AES_128_GCM_SHA256 | Available | Available |  |
+| 0x00,0xA7 | TLS_DH_anon_WITH_AES_256_GCM_SHA384 | Available | Available |  |
+| 0x00,0xA8 | TLS_PSK_WITH_AES_128_GCM_SHA256 | Available | Available |  |
+| 0x00,0xA9 | TLS_PSK_WITH_AES_256_GCM_SHA384 | Available | Available |  |
+| 0x00,0xAA | TLS_DHE_PSK_WITH_AES_128_GCM_SHA256 | Available | Available |  |
+| 0x00,0xAB | TLS_DHE_PSK_WITH_AES_256_GCM_SHA384 | Available | Available |  |
+| 0x00,0xAC | TLS_RSA_PSK_WITH_AES_128_GCM_SHA256 | Available |  |  |
+| 0x00,0xAD | TLS_RSA_PSK_WITH_AES_256_GCM_SHA384 | Available |  |  |
+| 0x00,0xAE | TLS_PSK_WITH_AES_128_CBC_SHA256 | Available | Available |  |
+| 0x00,0xAF | TLS_PSK_WITH_AES_256_CBC_SHA384 | Available | Available |  |
+| 0x00,0xB2 | TLS_DHE_PSK_WITH_AES_128_CBC_SHA256 | Available | Available |  |
+| 0x00,0xB3 | TLS_DHE_PSK_WITH_AES_256_CBC_SHA384 | Available | Available |  |
+| 0x00,0xB6 | TLS_RSA_PSK_WITH_AES_128_CBC_SHA256 | Available |  |  |
+| 0x00,0xB7 | TLS_RSA_PSK_WITH_AES_256_CBC_SHA384 | Available |  |  |
+| 0x00,0xBA | TLS_RSA_WITH_CAMELLIA_128_CBC_SHA256 | Available |  |  |
+| 0x00,0xBD | TLS_DHE_DSS_WITH_CAMELLIA_128_CBC_SHA256 | Available |  |  |
+| 0x00,0xBE | TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA256 | Available |  |  |
+| 0x00,0xBF | TLS_DH_anon_WITH_CAMELLIA_128_CBC_SHA256 | Available |  |  |
+| 0x00,0xC0 | TLS_RSA_WITH_CAMELLIA_256_CBC_SHA256 | Available |  |  |
+| 0x00,0xC3 | TLS_DHE_DSS_WITH_CAMELLIA_256_CBC_SHA256 | Available |  |  |
+| 0x00,0xC4 | TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA256 | Available |  |  |
+| 0x00,0xC5 | TLS_DH_anon_WITH_CAMELLIA_256_CBC_SHA256 | Available |  |  |
+| 0xC0,0x09 | TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA | Available | Available |  |
+| 0xC0,0x0A | TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA | Available | Available |  |
+| 0xC0,0x13 | TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA | Available | Available |  |
+| 0xC0,0x14 | TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA | Available | Available |  |
+| 0xC0,0x18 | TLS_ECDH_anon_WITH_AES_128_CBC_SHA | Available | Available |  |
+| 0xC0,0x19 | TLS_ECDH_anon_WITH_AES_256_CBC_SHA | Available | Available |  |
+| 0xC0,0x1D | TLS_SRP_SHA_WITH_AES_128_CBC_SHA | Available | Available |  |
+| 0xC0,0x1E | TLS_SRP_SHA_RSA_WITH_AES_128_CBC_SHA | Available | Available |  |
+| 0xC0,0x1F | TLS_SRP_SHA_DSS_WITH_AES_128_CBC_SHA | Available |  |  |
+| 0xC0,0x20 | TLS_SRP_SHA_WITH_AES_256_CBC_SHA | Available | Available |  |
+| 0xC0,0x21 | TLS_SRP_SHA_RSA_WITH_AES_256_CBC_SHA | Available | Available |  |
+| 0xC0,0x22 | TLS_SRP_SHA_DSS_WITH_AES_256_CBC_SHA | Available |  |  |
+| 0xC0,0x23 | TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 | Available | Available |  |
+| 0xC0,0x24 | TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 | Available | Available |  |
+| 0xC0,0x27 | TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 | Available | Available |  |
+| 0xC0,0x28 | TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 | Available | Available |  |
+| 0xC0,0x2B | TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 | Default | Default |  |
+| 0xC0,0x2C | TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 | **First** | **First** |  |
+| 0xC0,0x2F | TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 | Default | Default |  |
+| 0xC0,0x30 | TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 | **First** | **First** |  |
+| 0xC0,0x35 | TLS_ECDHE_PSK_WITH_AES_128_CBC_SHA | Available | Available |  |
+| 0xC0,0x36 | TLS_ECDHE_PSK_WITH_AES_256_CBC_SHA | Available | Available |  |
+| 0xC0,0x37 | TLS_ECDHE_PSK_WITH_AES_128_CBC_SHA256 | Available | Available |  |
+| 0xC0,0x38 | TLS_ECDHE_PSK_WITH_AES_256_CBC_SHA384 | Available | Available |  |
+| 0xC0,0x50 | TLS_RSA_WITH_ARIA_128_GCM_SHA256 | Available |  |  |
+| 0xC0,0x51 | TLS_RSA_WITH_ARIA_256_GCM_SHA384 | Available |  |  |
+| 0xC0,0x52 | TLS_DHE_RSA_WITH_ARIA_128_GCM_SHA256 | Available |  |  |
+| 0xC0,0x53 | TLS_DHE_RSA_WITH_ARIA_256_GCM_SHA384 | Available |  |  |
+| 0xC0,0x56 | TLS_DHE_DSS_WITH_ARIA_128_GCM_SHA256 | Available |  |  |
+| 0xC0,0x57 | TLS_DHE_DSS_WITH_ARIA_256_GCM_SHA384 | Available |  |  |
+| 0xC0,0x5C | TLS_ECDHE_ECDSA_WITH_ARIA_128_GCM_SHA256 | Available |  |  |
+| 0xC0,0x5D | TLS_ECDHE_ECDSA_WITH_ARIA_256_GCM_SHA384 | Available |  |  |
+| 0xC0,0x60 | TLS_ECDHE_RSA_WITH_ARIA_128_GCM_SHA256 | Available |  |  |
+| 0xC0,0x61 | TLS_ECDHE_RSA_WITH_ARIA_256_GCM_SHA384 | Available |  |  |
+| 0xC0,0x6A | TLS_PSK_WITH_ARIA_128_GCM_SHA256 | Available |  |  |
+| 0xC0,0x6B | TLS_PSK_WITH_ARIA_256_GCM_SHA384 | Available |  |  |
+| 0xC0,0x6C | TLS_DHE_PSK_WITH_ARIA_128_GCM_SHA256 | Available |  |  |
+| 0xC0,0x6D | TLS_DHE_PSK_WITH_ARIA_256_GCM_SHA384 | Available |  |  |
+| 0xC0,0x6E | TLS_RSA_PSK_WITH_ARIA_128_GCM_SHA256 | Available |  |  |
+| 0xC0,0x6F | TLS_RSA_PSK_WITH_ARIA_256_GCM_SHA384 | Available |  |  |
+| 0xC0,0x72 | TLS_ECDHE_ECDSA_WITH_CAMELLIA_128_CBC_SHA256 | Available |  |  |
+| 0xC0,0x73 | TLS_ECDHE_ECDSA_WITH_CAMELLIA_256_CBC_SHA384 | Available |  |  |
+| 0xC0,0x76 | TLS_ECDHE_RSA_WITH_CAMELLIA_128_CBC_SHA256 | Available |  |  |
+| 0xC0,0x77 | TLS_ECDHE_RSA_WITH_CAMELLIA_256_CBC_SHA384 | Available |  |  |
+| 0xC0,0x94 | TLS_PSK_WITH_CAMELLIA_128_CBC_SHA256 | Available |  |  |
+| 0xC0,0x95 | TLS_PSK_WITH_CAMELLIA_256_CBC_SHA384 | Available |  |  |
+| 0xC0,0x96 | TLS_DHE_PSK_WITH_CAMELLIA_128_CBC_SHA256 | Available |  |  |
+| 0xC0,0x97 | TLS_DHE_PSK_WITH_CAMELLIA_256_CBC_SHA384 | Available |  |  |
+| 0xC0,0x98 | TLS_RSA_PSK_WITH_CAMELLIA_128_CBC_SHA256 | Available |  |  |
+| 0xC0,0x99 | TLS_RSA_PSK_WITH_CAMELLIA_256_CBC_SHA384 | Available |  |  |
+| 0xC0,0x9A | TLS_ECDHE_PSK_WITH_CAMELLIA_128_CBC_SHA256 | Available |  |  |
+| 0xC0,0x9B | TLS_ECDHE_PSK_WITH_CAMELLIA_256_CBC_SHA384 | Available |  |  |
+| 0xC0,0x9C | TLS_RSA_WITH_AES_128_CCM | Available |  |  |
+| 0xC0,0x9D | TLS_RSA_WITH_AES_256_CCM | Available |  |  |
+| 0xC0,0x9E | TLS_DHE_RSA_WITH_AES_128_CCM | Available | Available |  |
+| 0xC0,0x9F | TLS_DHE_RSA_WITH_AES_256_CCM | Available | Available |  |
+| 0xC0,0xA0 | TLS_RSA_WITH_AES_128_CCM_8 | Available |  |  |
+| 0xC0,0xA1 | TLS_RSA_WITH_AES_256_CCM_8 | Available |  |  |
+| 0xC0,0xA2 | TLS_DHE_RSA_WITH_AES_128_CCM_8 | Available | Available |  |
+| 0xC0,0xA3 | TLS_DHE_RSA_WITH_AES_256_CCM_8 | Available | Available |  |
+| 0xC0,0xA4 | TLS_PSK_WITH_AES_128_CCM | Available | Available |  |
+| 0xC0,0xA5 | TLS_PSK_WITH_AES_256_CCM | Available | Available |  |
+| 0xC0,0xA6 | TLS_DHE_PSK_WITH_AES_128_CCM | Available | Available |  |
+| 0xC0,0xA7 | TLS_DHE_PSK_WITH_AES_256_CCM | Available | Available |  |
+| 0xC0,0xA8 | TLS_PSK_WITH_AES_128_CCM_8 | Available | Available |  |
+| 0xC0,0xA9 | TLS_PSK_WITH_AES_256_CCM_8 | Available | Available |  |
+| 0xC0,0xAA | TLS_PSK_DHE_WITH_AES_128_CCM_8 | Available | Available |  |
+| 0xC0,0xAB | TLS_PSK_DHE_WITH_AES_256_CCM_8 | Available | Available |  |
+| 0xC0,0xAC | TLS_ECDHE_ECDSA_WITH_AES_128_CCM | Available | Available |  |
+| 0xC0,0xAD | TLS_ECDHE_ECDSA_WITH_AES_256_CCM | Available | Available |  |
+| 0xC0,0xAE | TLS_ECDHE_ECDSA_WITH_AES_128_CCM_8 | Available | Available |  |
+| 0xC0,0xAF | TLS_ECDHE_ECDSA_WITH_AES_256_CCM_8 | Available | Available |  |
+| 0xCC,0xA8 | TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 | Default |  |  |
+| 0xCC,0xA9 | TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 | Default |  |  |
+| 0xCC,0xAA | TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256 | Available |  |  |
+| 0xCC,0xAB | TLS_PSK_WITH_CHACHA20_POLY1305_SHA256 | Available |  |  |
+| 0xCC,0xAC | TLS_ECDHE_PSK_WITH_CHACHA20_POLY1305_SHA256 | Available |  |  |
+| 0xCC,0xAD | TLS_DHE_PSK_WITH_CHACHA20_POLY1305_SHA256 | Available |  |  |
+| 0xCC,0xAE | TLS_RSA_PSK_WITH_CHACHA20_POLY1305_SHA256 | Available |  |  |
+
+46 of the TLSv1.2 suites (those whose minimum protocol version is TLS 1.0) also negotiate on TLS 1.0 and TLS 1.1 in the non-FIPS build when the shipped policy, which sets the minimum protocol version to TLS 1.2, is bypassed. TLS 1.0 and TLS 1.1 never work with the FIPS provider.
+
+## TLS Supported Groups
+
+| Value | Supported Group | v3.6 | FIPS v3.4 | PQC |
+|---|---|---|---|---|
+| PQC TLSv1.3 | | | | |
+| 512 | MLKEM512 | Available |  | Yes |
+| 513 | MLKEM768 | Available |  | Yes |
+| 514 | MLKEM1024 | Default |  | Yes |
+| 4587 | SecP256r1MLKEM768 | Default |  | Yes |
+| 4588 | X25519MLKEM768 | **First** |  | Yes |
+| 4589 | SecP384r1MLKEM1024 | Default |  | Yes |
+| TLSv1.2 & TLSv1.3 | | | | |
+| 15 | secp160k1 | Available |  |  |
+| 16 | secp160r1 | Available |  |  |
+| 17 | secp160r2 | Available |  |  |
+| 18 | secp192k1 | Available |  |  |
+| 19 | secp192r1 | Available |  |  |
+| 20 | secp224k1 | Available |  |  |
+| 21 | secp224r1 | Available | Available |  |
+| 22 | secp256k1 | Available |  |  |
+| 23 | secp256r1 | Default | Default |  |
+| 24 | secp384r1 | Default | **First** & Preshare |  |
+| 25 | secp521r1 | Default | Available |  |
+| 26, 31 | brainpoolP256r1 | Available |  |  |
+| 27, 32 | brainpoolP384r1 | Available |  |  |
+| 28, 33 | brainpoolP512r1 | Available |  |  |
+| 29 | x25519 | Preshare |  |  |
+| 30 | x448 | Default |  |  |
+| 256 | ffdhe2048 | Available | Available |  |
+| 257 | ffdhe3072 | Available | Available |  |
+| 258 | ffdhe4096 | Available | Available |  |
+| 259 | ffdhe6144 | Available | Available |  |
+| 260 | ffdhe8192 | Available | Available |  |
+
+The brainpool rows combine two codepoints each: the first one (`brainpoolP256r1`, `brainpoolP384r1`, `brainpoolP512r1`) is what TLS 1.2 negotiates, the second one (`brainpoolP256r1tls13`, `brainpoolP384r1tls13`, `brainpoolP512r1tls13`) is the TLS 1.3 name of the same curve.
+
+## TLS SignatureScheme
+
+| Value | Signature Scheme | v3.6 | FIPS v3.4 | PQC |
+|---|---|---|---|---|
+| PQC TLSv1.3 | | | | |
+| 0x0904 | mldsa44 | Default |  | Yes |
+| 0x0905 | mldsa65 | Default |  | Yes |
+| 0x0906 | mldsa87 | Default |  | Yes |
+| TLSv1.2 & TLSv1.3 | | | | |
+| 0x0201 | rsa_pkcs1_sha1 | Available |  |  |
+| 0x0202 | Reserved for backward compatibility (dsa_sha1) | Available |  |  |
+| 0x0203 | ecdsa_sha1 | Available |  |  |
+| 0x0301 | Reserved for backward compatibility (rsa_pkcs1_sha224) | Available | Available |  |
+| 0x0302 | Reserved for backward compatibility (dsa_sha224) | Available |  |  |
+| 0x0303 | Reserved for backward compatibility (ecdsa_sha224) | Available | Available |  |
+| 0x0401 | rsa_pkcs1_sha256 | Default | Default |  |
+| 0x0402 | Reserved for backward compatibility (dsa_sha256) | Available |  |  |
+| 0x0403 | ecdsa_secp256r1_sha256 | Default | Default |  |
+| 0x0501 | rsa_pkcs1_sha384 | Default | Default |  |
+| 0x0502 | Reserved for backward compatibility (dsa_sha384) | Available |  |  |
+| 0x0503 | ecdsa_secp384r1_sha384 | Default | Default |  |
+| 0x0601 | rsa_pkcs1_sha512 | Default | Default |  |
+| 0x0602 | Reserved for backward compatibility (dsa_sha512) | Available |  |  |
+| 0x0603 | ecdsa_secp521r1_sha512 | Default | Default |  |
+| 0x0804 | rsa_pss_rsae_sha256 | Default | Default |  |
+| 0x0805 | rsa_pss_rsae_sha384 | Default | Default |  |
+| 0x0806 | rsa_pss_rsae_sha512 | Default | Default |  |
+| 0x0807 | ed25519 | Default | Default |  |
+| 0x0808 | ed448 | Default | Default |  |
+| 0x0809 | rsa_pss_pss_sha256 | Default | Default |  |
+| 0x080A | rsa_pss_pss_sha384 | Default | Default |  |
+| 0x080B | rsa_pss_pss_sha512 | Default | Default |  |
+| 0x081A | ecdsa_brainpoolP256r1tls13_sha256 | Available |  |  |
+| 0x081B | ecdsa_brainpoolP384r1tls13_sha384 | Available |  |  |
+| 0x081C | ecdsa_brainpoolP512r1tls13_sha512 | Available |  |  |
+
+## Elliptic Curves
+
+| OID | Elliptic Curve | v3.6 | FIPS v3.4 |
+|---|---|---|---|
+| 1.2.840.10045.3.1.1 | prime192v1 (P-192, secp192r1) | Available | Verify only |
+| 1.2.840.10045.3.1.2 | prime192v2 | Non-TLS only |  |
+| 1.2.840.10045.3.1.3 | prime192v3 | Non-TLS only |  |
+| 1.2.840.10045.3.1.4 | prime239v1 | Non-TLS only |  |
+| 1.2.840.10045.3.1.5 | prime239v2 | Non-TLS only |  |
+| 1.2.840.10045.3.1.6 | prime239v3 | Non-TLS only |  |
+| 1.2.840.10045.3.1.7 | prime256v1 (P-256, secp256r1) | Default | Default |
+| 1.3.36.3.3.2.8.1.1.1 | brainpoolP160r1 | Non-TLS only |  |
+| 1.3.36.3.3.2.8.1.1.2 | brainpoolP160t1 | Non-TLS only |  |
+| 1.3.36.3.3.2.8.1.1.3 | brainpoolP192r1 | Non-TLS only |  |
+| 1.3.36.3.3.2.8.1.1.4 | brainpoolP192t1 | Non-TLS only |  |
+| 1.3.36.3.3.2.8.1.1.5 | brainpoolP224r1 | Non-TLS only |  |
+| 1.3.36.3.3.2.8.1.1.6 | brainpoolP224t1 | Non-TLS only |  |
+| 1.3.36.3.3.2.8.1.1.7 | brainpoolP256r1 | Available |  |
+| 1.3.36.3.3.2.8.1.1.8 | brainpoolP256t1 | Non-TLS only |  |
+| 1.3.36.3.3.2.8.1.1.9 | brainpoolP320r1 | Non-TLS only |  |
+| 1.3.36.3.3.2.8.1.1.10 | brainpoolP320t1 | Non-TLS only |  |
+| 1.3.36.3.3.2.8.1.1.11 | brainpoolP384r1 | Available |  |
+| 1.3.36.3.3.2.8.1.1.12 | brainpoolP384t1 | Non-TLS only |  |
+| 1.3.36.3.3.2.8.1.1.13 | brainpoolP512r1 | Available |  |
+| 1.3.36.3.3.2.8.1.1.14 | brainpoolP512t1 | Non-TLS only |  |
+| 1.3.132.0.6 | secp112r1 | Non-TLS only |  |
+| 1.3.132.0.7 | secp112r2 | Non-TLS only |  |
+| 1.3.132.0.8 | secp160r1 | Available |  |
+| 1.3.132.0.9 | secp160k1 | Available |  |
+| 1.3.132.0.10 | secp256k1 | Available |  |
+| 1.3.132.0.28 | secp128r1 | Non-TLS only |  |
+| 1.3.132.0.29 | secp128r2 | Non-TLS only |  |
+| 1.3.132.0.30 | secp160r2 | Available |  |
+| 1.3.132.0.31 | secp192k1 | Available |  |
+| 1.3.132.0.32 | secp224k1 | Available |  |
+| 1.3.132.0.33 | secp224r1 (P-224) | Available | Available |
+| 1.3.132.0.34 | secp384r1 (P-384) | Default | Default |
+| 1.3.132.0.35 | secp521r1 (P-521) | Default | Default, TLS 1.3 only |
+| 2.23.43.1.4.6 | wap-wsg-idm-ecid-wtls6 | Non-TLS only |  |
+| 2.23.43.1.4.7 | wap-wsg-idm-ecid-wtls7 | Non-TLS only |  |
+| 2.23.43.1.4.8 | wap-wsg-idm-ecid-wtls8 | Non-TLS only |  |
+| 2.23.43.1.4.9 | wap-wsg-idm-ecid-wtls9 | Non-TLS only |  |
+| 2.23.43.1.4.12 | wap-wsg-idm-ecid-wtls12 | Non-TLS only |  |
 
 ---
 
@@ -50348,6 +50554,71 @@ Not all output formats make sense for all commands, so test thoroughly before yo
 
 ---
 
+### Change or reset your MFA device
+_Path: get-started/mfa-devices.md_
+
+You might need to move your multi-factor authentication (MFA, also called 2FA) to a new device because you replaced your phone, changed authenticator apps, or lost the device that generates your codes. Where you make that change depends on how you sign in to the Chainguard Console, because Chainguard manages MFA for only one of the sign-in paths.
+
+## Find out which sign-in path you use
+
+The Console login screen has buttons for Google, GitHub, and GitLab, along with a single field that accepts either your email address or your organization name. What you click or enter there determines your path:
+
+- **You click Google, GitHub, or GitLab.** That provider signs you in.
+
+- **You enter your organization name.** The Console sends you to the identity provider your organization registered.
+
+- **You enter an email address whose domain your organization registered with a custom identity provider.** The Console sends you to that provider.
+
+- **You enter any other email address.** The Console sends you to Chainguard's email and password sign-in, which always asks for a one-time code from an authenticator app.
+
+Your path determines who holds your MFA enrollment:
+
+| How you sign in | Who manages your MFA | Where to change it |
+| --- | --- | --- |
+| Google, GitHub, or GitLab | That provider | Your account settings with that provider |
+| Your organization's identity provider, such as Okta, Microsoft Entra ID, Ping Identity, or Keycloak | Your own organization | Your internal IT or identity provider administrator |
+| Your email address and a password | Chainguard | A support ticket opened by an Owner in your organization |
+
+## Change MFA managed by an identity provider
+
+When you sign in through Google, GitHub, GitLab, or your organization's own identity provider, that provider holds your MFA enrollment. Chainguard can neither see it nor change it, so Chainguard support can't reset it for you. Change it where you manage the rest of that account:
+
+- **Google.** See [Turn on 2-Step Verification](https://support.google.com/accounts/answer/185839) in Google Account Help.
+
+- **GitHub.** See [Configuring two-factor authentication](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication).
+
+- **GitLab.** See [Two-factor authentication](https://docs.gitlab.com/user/profile/account/two_factor_authentication/).
+
+- **A corporate identity provider.** Contact your internal IT helpdesk or the administrator who manages the provider.
+
+After you change MFA with your provider, sign in to the Console as usual. Nothing needs to change on the Chainguard side.
+
+## Change MFA for email and password sign-in
+
+Chainguard manages this path through Auth0, which hosts the sign-in screen at `auth.chainguard.dev` and holds your MFA enrollment. MFA is required here, so this path always asks for a code. You can't change or reset your own device: the Console has no MFA settings page, and Chainguard's sign-in configuration includes no self-service reset.
+
+If you still have your old device, check whether your authenticator app can move the entry for you. Some apps can transfer an existing entry to a new device, though whether yours can, and how, depends on the app. If it can't, or if you no longer have the old device, ask Chainguard to reset your enrollment.
+
+### Ask for a reset
+
+Chainguard doesn't act on an MFA reset requested from the account's own email address. Anyone who controlled your mailbox could already request a password reset, so treating an emailed request as proof of identity would defeat the purpose of the second factor.
+
+Instead, ask an Owner in your Chainguard organization to open a support ticket on your behalf. [Resetting your MFA device for the Chainguard Console](https://support.chainguard.dev/hc/en-us/articles/52523310297115-Resetting-your-MFA-device-for-the-Chainguard-Console) in the Chainguard knowledge base describes the process.
+
+Once support clears your enrollment, sign in to the Console again. The sign-in flow prompts you to enroll and displays a new QR code, which you scan with your authenticator app to finish. You won't receive an automatic notification when the reset happens, so watch your support ticket for the update.
+
+## One email address, two identities
+
+If your organization registered a custom identity provider after you had already created an email and password account, you might hold two separate Chainguard identities that share one email address. Chainguard identifies you by the provider that issued your login together with your ID at that provider, not by your email address, so the platform treats the two as distinct accounts. Each carries its own MFA, in a different place.
+
+When the Console asks for a code from an authenticator app and you expected to sign in through your organization's provider, you're on the email and password path. Enter your organization name in the login field instead of your email address to reach your provider.
+
+## Get more help
+
+If you can't sign in at all and therefore can't reach the support portal, see [Get support](/get-started/get-support/) for the right channel.
+
+---
+
 ### Get started
 _Path: get-started/_index.md_
 
@@ -50375,7 +50646,7 @@ Already convinced and ready to move existing workloads over? Step through the [m
 
 ## Get help
 
-Stuck on something the documentation doesn't cover? [Get support](/get-started/get-support/) explains what to check first, which channel handles your kind of request, and how to open a support ticket when you need one.
+Stuck on something the documentation doesn't cover? [Get support](/get-started/get-support/) explains what to check first, which channel handles your kind of request, and how to open a support ticket when you need one. If you're locked out because you replaced or lost the device running your authenticator app, start with [Change or reset your MFA device](/get-started/mfa-devices/).
 
 ---
 
@@ -50551,7 +50822,7 @@ The support portal handles most requests, but it isn't the only route, and for s
 
 - **You have a problem with a Chainguard product or with your organization's configuration.** Open a ticket in the [support portal](https://support.chainguard.dev/).
 
-- **You can't sign in to the Chainguard Console, and your organization uses single sign-on — for example, you've lost the device running your authenticator app.** Contact the identity provider administrator at your own organization. When you sign in through Google, GitHub, GitLab, or a corporate identity provider, that provider manages your multi-factor authentication, and Chainguard can neither see it nor change it.
+- **You need to move your multi-factor authentication to a new device, or you've lost the device running your authenticator app.** Where you make that change depends on how you sign in, and for most sign-in paths it isn't Chainguard that manages your MFA. See [Change or reset your MFA device](/get-started/mfa-devices/).
 
 - **You can't sign in at all, so you can't reach the portal.** Email [support@chainguard.dev](mailto:support@chainguard.dev).
 
@@ -50843,7 +51114,7 @@ Each container image details page has several tabs that provide information abou
 The default page for each image is the **Tags** tab which contains information about the version tags available for each image. This contains a table with columns:
 
 * **Tag**: this column lists each tag available for the container image
-* **Pull URL**: the URL you can use to download each version of the Container. In the Console, Production Containers you don't already have access to will show a message reading `Add to organization` if you're logged in under an organization with access to Production Containers; if you're logged in under an organization without entitlement, the message reads `Request image` or `Request chart`. For what to do about either message, refer to [Troubleshoot container and version availability](/chainguard/containers/troubleshooting/container-version-troubleshooting/).
+* **Pull URL**: the URL you can use to download a version, shown when your organization can pull that version. When it can't, this column shows a status label in place of the URL: **Add to organization for access**, **Add image for access**, **Request image for access**, **Available in organization**, **Unavailable to organization**, or **Contact us for access**. These labels describe the repository rather than the version on that row, so **Available in organization** can appear beside a version you can't pull. For what each label means and what to do about it, refer to [Troubleshoot container and version availability](/chainguard/containers/troubleshooting/container-version-troubleshooting/).
 * **Compressed size**: the size of the image, in megabytes
 * **Last changed**: when each version of the image was last updated
 
@@ -53062,7 +53333,7 @@ Additionally, the Terraform method requires you to have `terraform` installed on
 
 You can create a new Chainguard identity that a GitLab CI/CD pipeline can assume by running the following command.
 
-Be sure to replace `<organization>` with the name of the Chainguard organization you want this identity to be used for. You'll also need to replace `<group_name>` and `<project_name>` with your actual GitLab group and project names.
+Be sure to replace `<group_name>` and `<project_name>` with your actual GitLab group and project names. If you have access to more than one Chainguard organization, add `--parent=<organization>` to choose where the identity is created.
 
 For example, if your GitLab project URL is `https://gitlab.com/mycompany/myproject`, then:
 
@@ -53071,7 +53342,6 @@ For example, if your GitLab project URL is `https://gitlab.com/mycompany/myproje
 
 ```shell
 chainctl iam identities create cg-gitlab-id \
-  --parent=<organization> \
   --identity-issuer="https://gitlab.com" \
   --subject="project_path:<group_name>/<project_name>:ref_type:branch:ref:main" \
   --audience="https://gitlab.com" \
@@ -53108,7 +53378,6 @@ For a private instance, pin the signing keys when you create the identity by pas
 
 ```shell
 chainctl iam identities create cg-gitlab-id \
-  --parent=<organization> \
   --identity-issuer="https://<your-gitlab-instance>" \
   --issuer-keys="$(curl -s https://<your-gitlab-instance>/oauth/discovery/keys)" \
   --subject="project_path:<group_name>/<project_name>:ref_type:branch:ref:main" \
@@ -55312,7 +55581,7 @@ To learn more about working with your `chainctl` config, you can read our doc on
 
 ### Authenticate with the Chainguard Console
 
-To authenticate with the Chainguard Console, [open the login screen](https://console.chainguard.dev?feature.emailAuth=true). Then, select one of the following options:
+To authenticate with the Chainguard Console, [open the login screen](https://console.chainguard.dev). Then, select one of the following options:
 
 - To use your organization's SSO, enter your Organization or email address and click **Continue**.
 - To use a third-party identity provider, click the corresponding option from the list.
@@ -55321,6 +55590,8 @@ To authenticate with the Chainguard Console, [open the login screen](https://con
 <center><img src="/platform/administration/custom-idps/custom-idps/cg-all-signin-24.png" alt="Screenshot showing an example Chainguard login box, with all described options shown." style="width:600px;"></center>
 
 In each of these cases, you will be redirected to an external identity provider to authenticate and then returned to the Chainguard Console. If you are using your email and a password, authentication is handled by and credentials are stored with [Auth0](https://auth0.com/).
+
+Multi-factor authentication follows the same split. Your own identity provider manages it for users who sign in through your SSO integration, while Chainguard manages it for users who sign in with an email address and a password. See [Change or reset your MFA device](/get-started/mfa-devices/) for what each group should do to move MFA to a new device.
 
 ## Setup and administration
 
@@ -55387,14 +55658,13 @@ chainctl auth login
 
 The bootstrap account can use any supported IdP -- for example you may choose to temporarily use a personal Google account. You can leave this account active as a [backup account](/platform/administration/custom-idps/custom-idps/#backup-accounts) or, if you prefer, you can delete the account by removing the role-binding after configuring the custom IdP.
 
-Create a new identity provider using the details you noted from your OIDC application. Replace `<application_client_id>`, `<client_secret>`, and `<issuer_url>` with the values from your own application, and `<organization_id>` with the UIDP of the organization where you want to install the identity provider.
+Create a new identity provider using the details you noted from your OIDC application. Replace `<application_client_id>`, `<client_secret>`, and `<issuer_url>` with the values from your own application.
 
 ```sh
 export NAME=my-sso-identity-provider
 export CLIENT_ID=<application_client_id>
 export CLIENT_SECRET=<client_secret>
 export ISSUER=<issuer_url>
-export ORG=<organization_id>
 chainctl iam identity-provider create \
   --configuration-type=OIDC \
   --oidc-client-id=${CLIENT_ID} \
@@ -55402,17 +55672,15 @@ chainctl iam identity-provider create \
   --oidc-issuer=${ISSUER} \
   --oidc-additional-scopes=email \
   --oidc-additional-scopes=profile \
-  --parent=${ORG} \
   --default-role=viewer \
   --name=${NAME}
 ```
 
+`chainctl` installs the provider in your organization automatically when you belong to only one. If you have access to more than one, add `--parent=<organization_id>` to choose where it is installed.
+
 The `oidc-issuer`, `oidc-client-id`, and `oidc-issuer-secret` values are required when setting up an OIDC configuration with `chainctl`. You must also include a unique name for each custom IdP account.
 
-Be aware that if you don't include the `--parent` or `--default-role` options in the command, you will be prompted to select these values interactively
-
-- The `--parent` option specifies which Chainguard IAM organization your identity provider will be installed under.
-- The `--default-role` option defines the default role granted to users registering with this identity provider. The previous example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. For more information, refer to the [IAM and Security section](#iam-and-security).
+If you omit the `--default-role` option, `chainctl` prompts you to select a value interactively. This option defines the default role granted to users registering with this identity provider. The previous example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. For more information, refer to the [IAM and Security section](#iam-and-security).
 
 You can retrieve a list of all your Chainguard organizations — along with their UIDPs — with the following command.
 
@@ -55637,7 +55905,7 @@ chainctl auth login
 
 Note that you can use this bootstrap account as a [backup account](/chainguard/administration/custom-idps/custom-idps/#backup-accounts) — that is, an account you can use to log in if you ever lose access to your primary account. However, if you prefer to remove this role-binding after configuring the custom IdP, you can do so.
 
-You also need the ID of the Chainguard organization where you want to install the identity provider. Your choice doesn't affect how your users authenticate, but it does determine who has permission to modify the SSO configuration.
+If you belong to more than one Chainguard organization, you also need the ID of the one where you want to install the identity provider. Your choice doesn't affect how your users authenticate, but it does determine who has permission to modify the SSO configuration.
 
 To retrieve a list of the Chainguard organizations you belong to, along with their IDs, run the following command.
 
@@ -55654,18 +55922,16 @@ chainctl iam organizations ls -o table
 
 Note the `ID` value for your chosen organization.
 
-With this information in hand, create a new identity provider with the following commands. Replace `<application_client_id>`, `<client_secret>`, and `<directory_tenant_id>` with the values from your Entra ID application, and `<organization_id>` with the organization ID you just noted.
+With this information in hand, create a new identity provider with the following commands. Replace `<application_client_id>`, `<client_secret>`, and `<directory_tenant_id>` with the values from your Entra ID application.
 
 ```sh
 export NAME=entra-id
 export CLIENT_ID=<application_client_id>
 export CLIENT_SECRET=<client_secret>
-export ORG=<organization_id>
 export TENANT_ID=<directory_tenant_id>
 export ISSUER="https://login.microsoftonline.com/${TENANT_ID}/v2.0"
 chainctl iam identity-providers create \
   --configuration-type=OIDC \
-  --parent=${ORG} \
   --name=${NAME} \
   --oidc-issuer=${ISSUER} \
   --oidc-client-id=${CLIENT_ID} \
@@ -55674,6 +55940,8 @@ chainctl iam identity-providers create \
   --oidc-additional-scopes=profile \
   --default-role=viewer
 ```
+
+`chainctl` installs the provider in your organization automatically when you belong to only one. If you have access to more than one, add `--parent=<organization_id>` to choose where it is installed.
 
 {{< note >}}
 Customers using Azure Government Cloud should set `ISSUER="https://login.microsoftonline.us/${TENANT_ID}/v2.0"` instead.
@@ -55753,7 +56021,7 @@ To configure Chainguard, make a note of the following details from your Keycloak
 * **Client Secret**: This can be found on the **Credentials** tab of the Keycloak Client.
 * **Issuer**: Your **Issuer** URL is defined by the following pattern `https://<keycloak_server_address>/realms/<realm_name>`
 
-You will also need the UIDP for the Chainguard organization under which you want to install the identity provider.  Your selection won’t affect how your users authenticate but will have implications on who has permission to modify the SSO configuration.
+If you belong to more than one Chainguard organization, you will also need the UIDP of the one under which you want to install the identity provider. Your selection won’t affect how your users authenticate but will have implications on who has permission to modify the SSO configuration.
 
 You can retrieve a list of all the Chainguard organizations you belong to — along with their UIDPs — with the following command.
 
@@ -55770,13 +56038,12 @@ chainctl iam organizations ls -o table
 
 Note down the `ID` value for your chosen organization.
 
-With this information in hand, create a new identity provider with the following commands. Replace `<client_id>` and `<client_secret>` with the values from your Keycloak client, `<keycloak_server_address>` and `<realm_name>` with your Keycloak server address and realm, and `<organization_id>` with the organization ID you just noted.
+With this information in hand, create a new identity provider with the following commands. Replace `<client_id>` and `<client_secret>` with the values from your Keycloak client, and `<keycloak_server_address>` and `<realm_name>` with your Keycloak server address and realm.
 
 ```sh
 export NAME=keycloak-idp
 export CLIENT_ID=<client_id>
 export CLIENT_SECRET=<client_secret>
-export ORG=<organization_id>
 export ISSUER="https://<keycloak_server_address>/realms/<realm_name>"
 chainctl iam identity-provider create \
   --configuration-type=OIDC \
@@ -55785,10 +56052,11 @@ chainctl iam identity-provider create \
   --oidc-issuer=${ISSUER} \
   --oidc-additional-scopes=email \
   --oidc-additional-scopes=profile \
-  --parent=${ORG} \
   --default-role=viewer \
   --name=${NAME}
 ```
+
+`chainctl` installs the provider in your organization automatically when you belong to only one. If you have access to more than one, add `--parent=<organization_id>` to choose where it is installed.
 
 Note the `--default-role` option. This defines the default role granted to users registering with this identity provider. This example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. If you don't include this option, you'll be prompted to specify the role interactively. For more information, refer to the [IAM and security section](/chainguard/administration/custom-idps/custom-idps/#iam-and-security) of our Introduction to Custom Identity Providers in Chainguard tutorial.
 
@@ -55982,7 +56250,7 @@ To configure Chainguard make a note of the following settings from your Ping app
 * Client Secret
 * Issuer URL
 
-You will also need the UIDP for the Chainguard organization under which you want to install the identity provider.  Your selection won’t affect how your users authenticate but will have implications on who has permission to modify the SSO configuration.
+If you belong to more than one Chainguard organization, you will also need the UIDP of the one under which you want to install the identity provider. Your selection won’t affect how your users authenticate but will have implications on who has permission to modify the SSO configuration.
 
 You can retrieve a list of all the Chainguard organizations you belong to — along with their UIDPs — with the following command.
 
@@ -55999,14 +56267,13 @@ chainctl iam organizations ls -o table
 
 Note down the `ID` value for your chosen organization.
 
-With this information in hand, create a new identity provider with the following commands. Replace `<client_id>`, `<client_secret>`, and `<issuer_url>` with the values from your Ping Identity application, and `<organization_id>` with the organization ID you just noted.
+With this information in hand, create a new identity provider with the following commands. Replace `<client_id>`, `<client_secret>`, and `<issuer_url>` with the values from your Ping Identity application.
 
 ```sh
 export NAME=ping-id
 export CLIENT_ID=<client_id>
 export CLIENT_SECRET=<client_secret>
 export ISSUER=<issuer_url>
-export ORG=<organization_id>
 chainctl iam identity-provider create \
   --configuration-type=OIDC \
   --oidc-client-id=${CLIENT_ID} \
@@ -56014,10 +56281,11 @@ chainctl iam identity-provider create \
   --oidc-issuer=${ISSUER} \
   --oidc-additional-scopes=email \
   --oidc-additional-scopes=profile \
-  --parent=${ORG} \
   --default-role=viewer \
   --name=${NAME}
 ```
+
+`chainctl` installs the provider in your organization automatically when you belong to only one. If you have access to more than one, add `--parent=<organization_id>` to choose where it is installed.
 
 Note the `--default-role` option. This defines the default role granted to users registering with this identity provider. This example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. If you don't include this option, you'll be prompted to specify the role interactively. For more information, refer to the [IAM and security section](/chainguard/administration/custom-idps/custom-idps/#iam-and-security) of our Introduction to Custom Identity Providers in Chainguard tutorial.
 
@@ -56177,24 +56445,22 @@ chainctl auth login
 
 This bootstrap account can serve as a [backup account](/platform/administration/custom-idps/custom-idps/#backup-accounts) if you ever lose access to your primary login.
 
-Retrieve the ID of the organization where you want to install the identity provider.
+If you belong to more than one organization, retrieve the ID of the one where you want to install the identity provider.
 
 ```sh
 chainctl iam organizations ls -o table
 ```
 
-Then create the identity provider. Replace `<application_client_id>`, `<client_secret>`, and `<directory_tenant_id>` with the three values from the previous step, and `<organization_id>` with the organization ID you just retrieved.
+Then create the identity provider. Replace `<application_client_id>`, `<client_secret>`, and `<directory_tenant_id>` with the three values from the previous step.
 
 ```sh
 export NAME=entra-id
 export CLIENT_ID=<application_client_id>
 export CLIENT_SECRET=<client_secret>
-export ORG=<organization_id>
 export TENANT_ID=<directory_tenant_id>
 export ISSUER="https://login.microsoftonline.com/${TENANT_ID}/v2.0"
 chainctl iam identity-providers create \
   --configuration-type=OIDC \
-  --parent=${ORG} \
   --name=${NAME} \
   --oidc-issuer=${ISSUER} \
   --oidc-client-id=${CLIENT_ID} \
@@ -56205,6 +56471,8 @@ chainctl iam identity-providers create \
   --default-role=viewer \
   -o json
 ```
+
+`chainctl` installs the provider in your organization automatically when you belong to only one. If you have access to more than one, add `--parent=<organization_id>` to choose where it is installed.
 
 This `create` command includes two options specific to SCIM linking with Entra ID:
 
@@ -56726,7 +56994,9 @@ Chainguard doesn't currently offer a native setting to disable social logins. Ho
 
 ## Prerequisites
 
-Before blocking social logins, make sure you have a working custom identity provider and a recovery path in place. Some organizations intentionally keep a social login (or an email and password account) as a [backup, break-glass account](/chainguard/administration/custom-idps/custom-idps/#backup-accounts) in case they are ever locked out of their identity provider. If you block Google login without another recovery mechanism, an identity provider outage or misconfiguration could lock every user out of your organization.
+Before blocking social logins, make sure you have a working custom identity provider and a recovery path in place. Some organizations intentionally keep a social login (or an email and password account) as a [backup, break-glass account](/platform/administration/custom-idps/custom-idps/#backup-accounts) in case they are ever locked out of their identity provider. If you block Google login without another recovery mechanism, an identity provider outage or misconfiguration could lock every user out of your organization.
+
+Chainguard manages MFA for email and password accounts, so replacing a lost authenticator device on a break-glass account of that kind takes a support ticket rather than a self-service change. Factor that turnaround into your recovery plan, and see [Change or reset your MFA device](/get-started/mfa-devices/) for the process.
 
 We recommend confirming both of the following before proceeding:
 
@@ -57025,7 +57295,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: cgr.dev
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository being pulled from
-Ce-Time: 2026-09-09T16:25:14.528054363Z
+Ce-Time: 2026-09-10T20:39:54.260637792Z
 Ce-Type: dev.chainguard.registry.pull.v1
 Content-Length: 777
 Content-Type: application/json
@@ -57055,7 +57325,7 @@ User-Agent: Chainguard Enforce
     "tag": "The tag of the image being pulled",
     "type": "Type determines whether the object being pulled is a manifest or blob",
     "user_agent": "The user-agent of the client who pulled",
-    "when": "2026-09-09T16:25:14.527063"
+    "when": "2026-09-10T20:39:54.259637"
   }
 }
 
@@ -57078,7 +57348,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: cgr.dev
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository being pushed to
-Ce-Time: 2026-09-09T16:25:14.52727832Z
+Ce-Time: 2026-09-10T20:39:54.259850533Z
 Ce-Type: dev.chainguard.registry.push.v1
 Content-Length: 707
 Content-Type: application/json
@@ -57107,7 +57377,7 @@ User-Agent: Chainguard Enforce
     "tag": "The tag of the image being pushed",
     "type": "Type determines whether the object being pushed is a manifest or blob",
     "user_agent": "The user-agent of the client who pushed",
-    "when": "2026-09-09T16:25:14.527036"
+    "when": "2026-09-10T20:39:54.259614"
   }
 }
 
@@ -57130,7 +57400,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/auth/v1/register
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP
-Ce-Time: 2026-09-09T16:25:14.540784244Z
+Ce-Time: 2026-09-10T20:39:54.268359678Z
 Ce-Type: dev.chainguard.api.auth.registered.v1
 Content-Length: 154
 Content-Type: application/json
@@ -57170,7 +57440,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier of the subscription
-Ce-Time: 2026-09-09T16:25:14.529782455Z
+Ce-Time: 2026-09-10T20:39:54.271817179Z
 Ce-Type: dev.chainguard.api.events.subscription.created.v1
 Content-Length: 152
 Content-Type: application/json
@@ -57208,7 +57478,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier of the subscription to delete
-Ce-Time: 2026-09-09T16:25:14.529907747Z
+Ce-Time: 2026-09-10T20:39:54.27202565Z
 Ce-Type: dev.chainguard.api.events.subscription.deleted.v1
 Content-Length: 119
 Content-Type: application/json
@@ -57247,7 +57517,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-09-09T16:25:14.528629655Z
+Ce-Time: 2026-09-10T20:39:54.277413297Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -57288,7 +57558,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-09-09T16:25:14.528929809Z
+Ce-Time: 2026-09-10T20:39:54.277624224Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -57325,7 +57595,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-09T16:25:14.529127648Z
+Ce-Time: 2026-09-10T20:39:54.277811359Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -57373,7 +57643,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-09-09T16:25:14.534337412Z
+Ce-Time: 2026-09-10T20:39:54.27542423Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -57419,7 +57689,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-09-09T16:25:14.535487396Z
+Ce-Time: 2026-09-10T20:39:54.275623868Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -57465,7 +57735,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-09-09T16:25:14.535655626Z
+Ce-Time: 2026-09-10T20:39:54.275824435Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -57504,7 +57774,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-09-09T16:25:14.52931071Z
+Ce-Time: 2026-09-10T20:39:54.264608519Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -57544,7 +57814,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-09-09T16:25:14.529481908Z
+Ce-Time: 2026-09-10T20:39:54.264907945Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -57583,7 +57853,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-09-09T16:25:14.545350242Z
+Ce-Time: 2026-09-10T20:39:54.273430954Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -57622,7 +57892,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-09-09T16:25:14.545498599Z
+Ce-Time: 2026-09-10T20:39:54.273640457Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -57661,7 +57931,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-09-09T16:25:14.545647076Z
+Ce-Time: 2026-09-10T20:39:54.273785926Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -57700,7 +57970,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-09-09T16:25:14.545033399Z
+Ce-Time: 2026-09-10T20:39:54.274216653Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -57743,7 +58013,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-09-09T16:25:14.545142555Z
+Ce-Time: 2026-09-10T20:39:54.274437388Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -57783,7 +58053,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-09-09T16:25:14.545245158Z
+Ce-Time: 2026-09-10T20:39:54.274610674Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -57822,7 +58092,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-09-09T16:25:14.530869748Z
+Ce-Time: 2026-09-10T20:39:54.27602433Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -57865,7 +58135,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-09-09T16:25:14.531063867Z
+Ce-Time: 2026-09-10T20:39:54.276224537Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -57905,7 +58175,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-09-09T16:25:14.531230393Z
+Ce-Time: 2026-09-10T20:39:54.276395303Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -57942,7 +58212,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-09T16:25:14.53137431Z
+Ce-Time: 2026-09-10T20:39:54.276538172Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -57982,7 +58252,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-09T16:25:14.531573861Z
+Ce-Time: 2026-09-10T20:39:54.276742458Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -58026,7 +58296,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-09T16:25:14.531759323Z
+Ce-Time: 2026-09-10T20:39:54.276957722Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -58065,7 +58335,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-09T16:25:14.531938201Z
+Ce-Time: 2026-09-10T20:39:54.277126111Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -58106,7 +58376,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-09-09T16:25:14.53801546Z
+Ce-Time: 2026-09-10T20:39:54.272228993Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -58148,7 +58418,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings/batch
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-09-09T16:25:14.538164393Z
+Ce-Time: 2026-09-10T20:39:54.272418088Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -58191,7 +58461,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-09-09T16:25:14.538297566Z
+Ce-Time: 2026-09-10T20:39:54.272572429Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -58230,7 +58500,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-09-09T16:25:14.538508005Z
+Ce-Time: 2026-09-10T20:39:54.272755291Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -58269,7 +58539,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-09-09T16:25:14.54276652Z
+Ce-Time: 2026-09-10T20:39:54.267746057Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -58308,7 +58578,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-09-09T16:25:14.54292219Z
+Ce-Time: 2026-09-10T20:39:54.2679376Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -58347,7 +58617,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-09-09T16:25:14.543060778Z
+Ce-Time: 2026-09-10T20:39:54.268115838Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -58386,7 +58656,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-09-09T16:25:14.533297913Z
+Ce-Time: 2026-09-10T20:39:54.273985389Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -58429,7 +58699,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the destination organization
-Ce-Time: 2026-09-09T16:25:14.529623145Z
+Ce-Time: 2026-09-10T20:39:54.26854814Z
 Ce-Type: dev.chainguard.api.platform.registry.chart.added.v1
 Content-Length: 208
 Content-Type: application/json
@@ -58474,7 +58744,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-09T16:25:14.536081161Z
+Ce-Time: 2026-09-10T20:39:54.265289238Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.created.v1
 Content-Length: 243
 Content-Type: application/json
@@ -58516,7 +58786,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-09T16:25:14.536352018Z
+Ce-Time: 2026-09-10T20:39:54.265508997Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -58558,7 +58828,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-09T16:25:14.536594931Z
+Ce-Time: 2026-09-10T20:39:54.265692388Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.deleted.v1
 Content-Length: 116
 Content-Type: application/json
@@ -58595,7 +58865,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-09-09T16:25:14.536734327Z
+Ce-Time: 2026-09-10T20:39:54.265854153Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.created.v1
 Content-Length: 197
 Content-Type: application/json
@@ -58634,7 +58904,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-09-09T16:25:14.536909478Z
+Ce-Time: 2026-09-10T20:39:54.266020095Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.updated.v1
 Content-Length: 197
 Content-Type: application/json
@@ -58673,7 +58943,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-09-09T16:25:14.537031826Z
+Ce-Time: 2026-09-10T20:39:54.266199469Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.deleted.v1
 Content-Length: 109
 Content-Type: application/json
@@ -58712,7 +58982,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-09-09T16:25:14.539772401Z
+Ce-Time: 2026-09-10T20:39:54.262004911Z
 Ce-Type: dev.chainguard.api.policies.bindings.created.v1
 Content-Length: 245
 Content-Type: application/json
@@ -58756,7 +59026,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-09-09T16:25:14.53997728Z
+Ce-Time: 2026-09-10T20:39:54.262279744Z
 Ce-Type: dev.chainguard.api.policies.bindings.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -58800,7 +59070,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-09-09T16:25:14.540132165Z
+Ce-Time: 2026-09-10T20:39:54.262540129Z
 Ce-Type: dev.chainguard.api.policies.bindings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -58839,7 +59109,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/overrides
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the override
-Ce-Time: 2026-09-09T16:25:14.540317772Z
+Ce-Time: 2026-09-10T20:39:54.262810738Z
 Ce-Type: dev.chainguard.api.policies.overrides.created.v1
 Content-Length: 303
 Content-Type: application/json
@@ -58881,7 +59151,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/overrides
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the override
-Ce-Time: 2026-09-09T16:25:14.540533651Z
+Ce-Time: 2026-09-10T20:39:54.263073003Z
 Ce-Type: dev.chainguard.api.policies.overrides.deleted.v1
 Content-Length: 94
 Content-Type: application/json
@@ -58920,7 +59190,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-09-09T16:25:14.538906939Z
+Ce-Time: 2026-09-10T20:39:54.26116677Z
 Ce-Type: dev.chainguard.api.policies.policies.created.v1
 Content-Length: 337
 Content-Type: application/json
@@ -58964,7 +59234,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-09-09T16:25:14.539399596Z
+Ce-Time: 2026-09-10T20:39:54.261451036Z
 Ce-Type: dev.chainguard.api.policies.policies.updated.v1
 Content-Length: 337
 Content-Type: application/json
@@ -59008,7 +59278,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-09-09T16:25:14.539588722Z
+Ce-Time: 2026-09-10T20:39:54.261672915Z
 Ce-Type: dev.chainguard.api.policies.policies.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -59047,7 +59317,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-09-09T16:25:14.543293147Z
+Ce-Time: 2026-09-10T20:39:54.269306926Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -59093,7 +59363,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-09-09T16:25:14.543473313Z
+Ce-Time: 2026-09-10T20:39:54.2708777Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -59130,7 +59400,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-09-09T16:25:14.543629558Z
+Ce-Time: 2026-09-10T20:39:54.271132172Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -59178,7 +59448,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-09-09T16:25:14.532171121Z
+Ce-Time: 2026-09-10T20:39:54.279242623Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -59219,7 +59489,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-09-09T16:25:14.532350728Z
+Ce-Time: 2026-09-10T20:39:54.279400549Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -59256,7 +59526,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-09T16:25:14.532493557Z
+Ce-Time: 2026-09-10T20:39:54.279548842Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -59304,7 +59574,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-09-09T16:25:14.542143715Z
+Ce-Time: 2026-09-10T20:39:54.271373588Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -59344,7 +59614,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-09-09T16:25:14.542253759Z
+Ce-Time: 2026-09-10T20:39:54.271552322Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -59383,7 +59653,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-09-09T16:25:14.537380846Z
+Ce-Time: 2026-09-10T20:39:54.279772057Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -59420,7 +59690,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-09-09T16:25:14.537599629Z
+Ce-Time: 2026-09-10T20:39:54.279939967Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -59459,7 +59729,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-09-09T16:25:14.537775332Z
+Ce-Time: 2026-09-10T20:39:54.280057395Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -59500,7 +59770,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-09-09T16:25:14.530124723Z
+Ce-Time: 2026-09-10T20:39:54.280228065Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -59543,7 +59813,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-09-09T16:25:14.530283736Z
+Ce-Time: 2026-09-10T20:39:54.280350549Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -59580,7 +59850,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-09-09T16:25:14.530445966Z
+Ce-Time: 2026-09-10T20:39:54.280445688Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -59620,7 +59890,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities:updateIdentityMetadata
 Ce-Specversion: 1.0
 Ce-Subject: The caller's identity UID
-Ce-Time: 2026-09-09T16:25:14.530595555Z
+Ce-Time: 2026-09-10T20:39:54.28054938Z
 Ce-Type: dev.chainguard.api.iam.identity.metadata.updated.v1
 Content-Length: 135
 Content-Type: application/json
@@ -59660,7 +59930,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-09-09T16:25:14.541079318Z
+Ce-Time: 2026-09-10T20:39:54.278075272Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -59703,7 +59973,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-09-09T16:25:14.541256604Z
+Ce-Time: 2026-09-10T20:39:54.27826307Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -59743,7 +60013,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-09-09T16:25:14.541413177Z
+Ce-Time: 2026-09-10T20:39:54.278422635Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -59780,7 +60050,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-09T16:25:14.541550014Z
+Ce-Time: 2026-09-10T20:39:54.278550648Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -59820,7 +60090,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-09T16:25:14.541670594Z
+Ce-Time: 2026-09-10T20:39:54.278711101Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -59864,7 +60134,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-09T16:25:14.541792719Z
+Ce-Time: 2026-09-10T20:39:54.278898444Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -59903,7 +60173,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-09T16:25:14.541886826Z
+Ce-Time: 2026-09-10T20:39:54.279034864Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -59944,7 +60214,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay binding
-Ce-Time: 2026-09-09T16:25:14.533487463Z
+Ce-Time: 2026-09-10T20:39:54.27294193Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.created.v1
 Content-Length: 449
 Content-Type: application/json
@@ -59999,7 +60269,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the deleted overlay binding
-Ce-Time: 2026-09-09T16:25:14.53368067Z
+Ce-Time: 2026-09-10T20:39:54.273203234Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.deleted.v1
 Content-Length: 120
 Content-Type: application/json
@@ -60038,7 +60308,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay
-Ce-Time: 2026-09-09T16:25:14.542373171Z
+Ce-Time: 2026-09-10T20:39:54.267270369Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.created.v1
 Content-Length: 224
 Content-Type: application/json
@@ -60083,7 +60353,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the deleted overlay
-Ce-Time: 2026-09-09T16:25:14.542562361Z
+Ce-Time: 2026-09-10T20:39:54.267539682Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.deleted.v1
 Content-Length: 112
 Content-Type: application/json
@@ -60122,7 +60392,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-09T16:25:14.544558262Z
+Ce-Time: 2026-09-10T20:39:54.263462768Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.created.v1
 Content-Length: 243
 Content-Type: application/json
@@ -60164,7 +60434,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-09T16:25:14.544689419Z
+Ce-Time: 2026-09-10T20:39:54.263752682Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -60206,7 +60476,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-09T16:25:14.544785838Z
+Ce-Time: 2026-09-10T20:39:54.263950393Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.deleted.v1
 Content-Length: 116
 Content-Type: application/json
@@ -60243,7 +60513,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-09T16:25:14.544882018Z
+Ce-Time: 2026-09-10T20:39:54.264143807Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -60287,7 +60557,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-09-09T16:25:14.53270326Z
+Ce-Time: 2026-09-10T20:39:54.266472966Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -60329,7 +60599,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-09-09T16:25:14.532914931Z
+Ce-Time: 2026-09-10T20:39:54.266686221Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -60366,7 +60636,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings:batchCreate
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-09-09T16:25:14.533040624Z
+Ce-Time: 2026-09-10T20:39:54.266846635Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -60409,7 +60679,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-09-09T16:25:14.533188613Z
+Ce-Time: 2026-09-10T20:39:54.267049402Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -60450,7 +60720,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-09-09T16:25:14.544174241Z
+Ce-Time: 2026-09-10T20:39:54.280753763Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -60489,7 +60759,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-09-09T16:25:14.544279909Z
+Ce-Time: 2026-09-10T20:39:54.280896031Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -60528,7 +60798,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-09-09T16:25:14.544399545Z
+Ce-Time: 2026-09-10T20:39:54.280996267Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -60567,7 +60837,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-09-09T16:25:14.543837781Z
+Ce-Time: 2026-09-10T20:39:54.27501808Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.created.v1
 Content-Length: 197
 Content-Type: application/json
@@ -60606,7 +60876,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-09-09T16:25:14.544022892Z
+Ce-Time: 2026-09-10T20:39:54.275179965Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.deleted.v1
 Content-Length: 109
 Content-Type: application/json
@@ -60645,7 +60915,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-09-09T16:25:14.542004118Z
+Ce-Time: 2026-09-10T20:39:54.274801017Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -61238,9 +61508,9 @@ The `owner`, `editor`, and `viewer` roles are useful for user profiles that requ
 
 Every role has at least one of four capabilities (`create`, `list`, `update`, `delete`) in relation to at least one Chainguard resource. For example, the `apk.pull` role only grants `list` access for APK packages and groups. This means identities with this role can pull the organization's APK packages and retrieve information about the organization, but won't have general access to the organization's [Chainguard registry](/chainguard/containers/registry/overview/) access.
 
-Chainguard's built-in default roles serve as building blocks and can be complemented with custom roles for specific use cases. Custom roles can extend or restrict default role capabilities, and offer or your organization greater flexibility, allowing you to mix default and custom roles based on your team's structure and needs.
+Chainguard's built-in default roles serve as building blocks and can be complemented with custom roles for specific use cases. Custom roles can extend or restrict default role capabilities, and offer your organization greater flexibility, allowing you to mix default and custom roles based on your team's structure and needs.
 
-When assigning a role, do so based on the principle of least privilege; assign only the role needed for the indentity's function. For example, CI systems should have a role like `registry.pull`, not `editor`.
+When assigning a role, do so based on the principle of least privilege; assign only the role needed for the identity's function. For example, CI systems should have a role like `registry.pull`, not `editor`.
 
 You can run `chainctl iam roles list` to retrieve a list of all the roles available to your organization and review each of their specific capabilities. This command will list all the built-in roles as well as any custom roles created for your organization. The next section outlines how to create and manage such custom roles.
 
@@ -61261,18 +61531,20 @@ chainctl iam roles create my-role
 
 After running this command, an interactive prompt will appear asking you to select what capabilities the new role should have and the organization under which the role should be created.
 
-You can avoid using the interactive prompt by including the `--parent` and `--capabilities` options in this command.
+You can avoid the interactive prompt by including the `--capabilities` option in this command.
 
 ```sh
-chainctl iam roles create new-role --parent=example-org --capabilities=roles.list
+chainctl iam roles create new-role --capabilities=roles.list
 ```
 
-This example creates a new role named `new-role` under an organization named `example-org`. The new role will only have the ability to list roles in the organization.
+This example creates a new role named `new-role` in your organization. The new role can only list roles in the organization.
+
+`chainctl` selects your organization automatically when you belong to only one. If you have access to more than one organization or folder, it prompts you to choose; add `--parent=<organization>` to skip the prompt.
 
 You can also grant multiple capabilities to a custom role with one command, as in this example:
 
 ```sh
-chainctl iam roles create puller-role --parent=example-org --capabilities=apk.list,groups.list,manifest.list,manifest.metadata.list,record_signatures.list,repo.list,sboms.list,tag.list,vuln.list
+chainctl iam roles create puller-role --capabilities=apk.list,groups.list,manifest.list,manifest.metadata.list,record_signatures.list,repo.list,sboms.list,tag.list,vuln.list
 ```
 
 This example command creates a role named `puller-role` that has the following capabilities:
@@ -61336,13 +61608,13 @@ chainctl iam role-bindings create
 
 This will start an interactive prompt where you can enter the appropriate details for this new role-binding. Specifically, you'll be prompted to specify the identity to bind, the role you want the identity bound to, and the organization that the role-binding should belong to.
 
-To avoid using the interactive prompt, you can add these details to the command by including the `--identity`, `--role`, and `--parent` options.
+To avoid the interactive prompt, add these details to the command by including the `--identity` and `--role` options.
 
 ```sh
-chainctl iam role-bindings create --identity=example-id --role=viewer --parent=example-org
+chainctl iam role-bindings create --identity=example-id --role=viewer
 ```
 
-This example creates a role-binding for the identity `example-id` with the built-in `viewer` role in an organization named `example-org`.
+This example creates a role-binding for the identity `example-id` with the built-in `viewer` role in your organization.
 
 Note that in order to use the `--identity` option like this, you will need to know the given identity's UIDP. You can find a list of all your identities' UIDPs by running `chainctl iam identities ls`. The identities' UIDPs will appear in the resulting `ID` column.
 
@@ -62813,9 +63085,11 @@ The one functionality that errs on the side of non-security function is calculat
 Examples of such non-security usage are:
 
 * Webpack 4 uses MD4 to precompute perfect hashtables from trusted input at build time, refer to [this issue](https://github.com/webpack/webpack/issues/14560).
+* Yarn, .ZIP, JAR, PDF require MD5 as part of the frozen fileformats they use
 * Amazon S3 supports many algorithms for object integrity checking over trusted channel, including MD5 and SHA1, refer to [the official docs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity-upload.html). Many client implementations default to MD5.
 * Google Cloud Storage can use CRC32C or MD5, and clients typically default to MD5 for object integrity during uploads [docs](https://docs.cloud.google.com/storage/docs/data-validation)
-* PDF document identifiers require MD5 by standard, and no newer version of the standard exists.
+* AES-ECB insecure when used directly, but is used by QUIC and DTLSv1.3 protocols for non-security obfuscation of public information
+* SHA-1 is still widely used for hash addressable content and lookup tables, for example `apk-tools` and git.
 
 In all of the above use cases digest calculation does not provide any security functionality, it is meant to detect accidental corruption or improve speed. Overall, data is typically protected by SHA2-256 and is transmitted over a secure and authenticated TLS channel.
 
@@ -62825,116 +63099,37 @@ However, if you need interoperability with existing formats and services *and* i
 
 Although SHA1 is currently approved, it is already deprecated by RFCs. NIST is deprecating SHA1 by 2030.  The implementations below are forward-looking and attempt to address access to MD5 today and SHA1 in the future.
 
-SHA1 is available as approved in Chainguard FIPS Provider for OpenSSL versions 3.0.9, 3.1.2 and 3.4.0. It is non-approved starting in version 3.6.0. The below guidance will apply to SHA1 as well, likely beginning in 2027.
+SHA1 is available as approved in Chainguard FIPS Provider for OpenSSL versions 3.0.9, 3.1.2 and 3.4.0. It is non-approved starting in version 3.6.0.
 
 ## Access to unapproved algorithms for non-security purposes
 
-### OpenSSL FIPS, MD5, and SHA1
+### Chainguard Legacy Approved provider for OpenSSL
 
-Chainguard FIPS images are configured to load the Chainguard FIPS Provider for OpenSSL in approved-only mode, and the libcrypto public API has default property query string set to `fips=yes`. This means that the CMVP validated cryptographic module is operating in approved-only mode and all unqualified requests for algorithms and services are always returned as FIPS approved and allowed.
+Chainguard FIPS and non-FIPS images are configured to use a legacy provider that exposes the above mentioned algorithms for non-security purposes. At runtime one can choose to disable them with an environment variable `CHAINGUARD_LEGACY_APPROVED=0`. This provider enables all OpenSSL applications to uniformally access legacy algorithms for non-security purposes. They do remain blocked from being used inside the FIPS module boundary for security purposes such as protecting data at rest or in transit.
 
-Separately, in the Base provider, outside of the CMVP cryptographic module boundary, MD5 and SHA1 are available as a non-approved disallowed service (as in, it is viewed as a non-cryptographic plaintext one-way compression algorithm). You can request access to them on an opt-in basis using a `?fips=yes` property query string (which means to prefer FIPS implementation if there is one, and fallback to a non-FIPS implementation if not available), or `-fips` property query strings (meaning, disregard the request for a FIPS implementation, and return any available implementation) using the C API or command line options to calculate message digests.
+This guidance applies to all images and software that uses OpenSSL:
 
-Using these digests in higher-level algorithms and services is blocked in the Chainguard FIPS Provider for OpenSSL. We recommend `?fips=yes` because it is more portable across other OpenSSL FIPS implementations from other vendors with different implementations and semantics. For example, majority of FIPS modules still provide SHA1 as an approved service.
+* python-fips
+* node-fips
+* jdk-openssl-fips
+* postgresql-fips
+* dotnet-fips
 
-The end result is that `openssl dgst` calculation is possible on opt-in basis, while `openssl dsgst -sign, -verify, -hmac` is blocked.
+And many others.
 
-Examples:
+### Python grpc, pyca, cryptography FIPS and MD5
 
-```shell
-$ echo chainguard | openssl dgst -md5
-Error setting digest
-801B3D417B7F0000:error:0308010C:digital envelope routines:inner_evp_generic_fetch:unsupported:crypto/evp/evp_fetch.c:375:Global default library context, Algorithm (MD5 : 89), Properties ()
-801B3D417B7F0000:error:03000086:digital envelope routines:evp_md_init_internal:initialization error:crypto/evp/digest.c:271:
-```
+If you are compiling grpc or pycryptography from source; or installing it from PyPI; it may come with a vendored and statically linked copy of a cryptographic library and will not operate in FIPS mode. In such cases, all usage of it may be non-approved.
 
-```shell
-$ printf chainguard | openssl dgst -propquery '?fips=yes' -md5
-MD5(stdin)= f8d689ee8221617c032b0e71f9c597ac
-```
+If you install grpc and pycryptography through [Custom Assembly](https://edu.chainguard.dev/chainguard/containers/custom-assembly/overview/), it will be dynamically linked with Chainguard OpenSSL and will use the above guidance.
 
-Note that calculating HMAC is still blocked:
+### Go-fips / Go-openssl-fips
 
-```shell
-$ printf chainguard | openssl dgst -propquery '?fips=yes' -md5 -hmac averylonghmackey
-Error setting context
-80AB9D605C7F0000:error:0308010C:digital envelope routines:inner_evp_generic_fetch:unsupported:crypto/evp/evp_fetch.c:341:FIPS internal library context, Algorithm (md5 : 0), Properties (<null>)
-```
+Access to MD5 digest is provided using native Go implementation, whilst any form of authentication, authorisation, digital signatures and TLS with MD5 is blocked.
 
-There are some caveats and bypasses, some digital signature algorithms allow signing raw data, or prehashed values. Such operations may succeed and raise a dynamic service indicator that such operation is non-approved, as the module cannot guess what data was signed. In such cases, one can calculate the MD5 hash out of band, pad it according to PKCSv1.5 and RSA2048 modulus size, and execute raw RSA signing operation. Such a service is non-approved, and it is not possible to know whether it is being abused to sign an MD5 hash instead of SHA256. *Please don't do this* (your FIPS auditors will require that you change it). Higher level one-shot EVP APIs typically accept a message to sign, perform hashing and padding internally, and correctly block creating MD5 signatures. This again highlights that FIPS is about consent: one should use FIPS cryptography intentionally. This is not a hypothetical example. This technique is used to trick FIPS-approved Cloud KMS in GCP to create valid MD5 and SHA1 signatures, even though the message based API only supports SHA256 signatures and up.
+### All other projects
 
-If there is C/C++ software that uses OpenSSL APIs and needs access to MD5 and doesn't support `-fips` property query string, please [open a support request](https://support.chainguard.dev/) for Chainguard engineering to look into adding support. Refer to [Get support](/get-started/get-support/) for the portal's prerequisites.
-
-### Python FIPS and MD5
-
-The Python standard library has a keyword argument to specify using a digest for security purposes, refer to [the Python documentation](https://docs.python.org/3/library/hashlib.html#hashlib.md5).
-
-Here are examples:
-
-```python
->>> import hashlib
->>> hashlib.md5(b"chainguard").hexdigest()
-Traceback (most recent call last):
-  File "<python-input-12>", line 1, in <module>
-    hashlib.md5(b"chainguard").hexdigest()
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-_hashlib.UnsupportedDigestmodError: [digital envelope routines] unsupported
-```
-
-```python
->>> hashlib.md5(b"chainguard", usedforsecurity=False).hexdigest()
-'f8d689ee8221617c032b0e71f9c597ac'
-```
-
-If this usage is needed in any of the imported libraries, you can use [mock](https://docs.python.org/3/library/unittest.mock.html#where-to-patch) techniques to patch the code to pass the correct argument.
-
-Alternatively, submit upstream fixes to correct the code. Here are some examples contributed by Chainguard engineers:
-
-* [Google Cloud Platform storage pull request](https://github.com/googleapis/python-storage/pull/1522)
-* [PyPDF project pull request](https://github.com/py-pdf/pypdf/pull/3438)
-
-If there are Python projects that need MD5 access in FIPS mode and currently do not use `usedforsecurity=False` please [open a support request](https://support.chainguard.dev/) for Chainguard engineering to look into adding support.
-
-### Python pyca/cryptography FIPS and MD5
-
-If you are compiling pycryptography or installing it from PyPI, it may come with a vendored and statically linked copy of a cryptographic library and will not operate in FIPS mode. In such cases, all usage of it may be non-approved.
-
-If you install pycryptography through [Custom Assembly](https://edu.chainguard.dev/chainguard/containers/custom-assembly/overview/), it will be linked with Chainguard OpenSSL and will correctly enforce FIPS compliance and operating in approved mode.
-
-### .NET FIPS and MD5
-
-.NET upstream chooses to always fetch the MD5 algorithm with `-fips` property query string. To verify that MD5 is blocked for security purposes, you can instead test that HMAC-MD5 is blocked.
-
-### Go FIPS and MD5
-
-MD5 was deprecated before the Go language was created. The MD5 implementation at [crypto/md5](https://pkg.go.dev/crypto/md5) states that it should not be used for security purposes.
-
-Currently Chainguard offers two Go FIPS toolchains. Both of them are based on the [microsoft/go](https://github.com/microsoft/go) toolchain and use OpenSSL FIPS at runtime:
-
-* The [go-fips](https://images.chainguard.dev/directory/image/go-fips/overview) image always allows MD5 usage.
-* The [go-msft-fips](https://images.chainguard.dev/directory/image/go-msft-fips/overview) image always blocks MD5 usage.
-
-There are a few codepaths in the Go standard library where MD5 is used for authentication. Chainguard is working to correctly block these, and unify the two toolchains into one.
-
-### Java FIPS and MD5
-
-Currently all Java FIPS implementations in Chainguard FIPS images are powered by BouncyCastle FIPS as a JAR on the module path. This currently requires loading Sun crypto provider which currently always allows MD5.
-
-Chainguard is working on using jlink to integrate BouncyCastle FIPS into the runtime image, to eliminate the Sun dependency. Then it will be possible to control MD5 access with BouncyCastle specific security properties. This guidance will be updated when the situation changes.
-
-If blocking behavior is required, ensure to request implementation from the `BCFIPS` provider, or check for `BCFIPS` provider, as it has highest priority in the `java.security` hardened configuration.
-
-### Node FIPS and MD5
-
-Currently under investigation.
-
-### PostgreSQL and MD5
-
-Currently under investigation.
-
-## All other projects
-
-If you have queries about this guidance, or any other packages, projects, languages or ecosystems, click "No" below and fill in feedback, or please [open a support ticket](https://support.chainguard.dev/).
+If you have queries about this guidance, or any other packages, projects, languages or ecosystems, in the feedback section on this page select "No" and please fill in feedback, or please [open a support ticket](https://support.chainguard.dev/).
 
 ---
 
@@ -67207,7 +67402,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_pull-token_create.md_
 Create a pull token.
 
 ```
-chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|dotnet|dotnet_athena|go|python_athena|go_athena|java|python|javascript|java_athena|javascript_athena}] [flags]
+chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|java|java_athena|python_athena|dotnet_athena|python|javascript|javascript_athena|dotnet|go|go_athena}] [flags]
 ```
 
 ### Examples
@@ -67235,7 +67430,7 @@ chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, dotnet, dotnet_athena, go, python_athena, go_athena, java, python, javascript, java_athena, javascript_athena. (default "oci")
+      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, java, java_athena, python_athena, dotnet_athena, python, javascript, javascript_athena, dotnet, go, go_athena. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
 ```
@@ -67376,7 +67571,7 @@ chainctl auth pull-token [flags]
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, dotnet, dotnet_athena, go, python_athena, go_athena, java, python, javascript, java_athena, javascript_athena. (default "oci")
+      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, java, java_athena, python_athena, dotnet_athena, python, javascript, javascript_athena, dotnet, go, go_athena. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
 ```
@@ -73175,7 +73370,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_pull-token_list.md_
 List all pull-tokens
 
 ```
-chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|dotnet|dotnet_athena|go|python_athena|go_athena|java|python|javascript|java_athena|javascript_athena}] [flags]
+chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|java|java_athena|python_athena|dotnet_athena|python|javascript|javascript_athena|dotnet|go|go_athena}] [flags]
 ```
 
 ### Examples
@@ -73202,7 +73397,7 @@ chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--reposi
 ```
       --expired             If true return only expired pull tokens.
       --parent string       The IAM organization or folder with which the pull-token identity is associated.
-      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, dotnet, dotnet_athena, go, python_athena, go_athena, java, python, javascript, java_athena, javascript_athena
+      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, java, java_athena, python_athena, dotnet_athena, python, javascript, javascript_athena, dotnet, go, go_athena
 ```
 
 ### Options inherited from parent commands
@@ -75538,6 +75733,8 @@ You can also set a default provider in your configuration with the `default.soci
 
 > Note: If your organization has configured a custom identity provider, authenticate with `--org-name` or `--identity-provider` instead. See [custom identity providers](/platform/administration/custom-idps/custom-idps/).
 
+Which provider you authenticate with also determines who manages your multi-factor authentication. To move it to a new device, see [Change or reset your MFA device](/get-started/mfa-devices/).
+
 ## Assumable identities for CI/CD
 
 Assumable identities let automation tools like GitHub Actions or AWS Lambda connect to and manage Chainguard resources without interactive login. See the [guide on assumable identities](/platform/administration/assumable-ids/assumable-ids/).
@@ -75565,7 +75762,7 @@ When you want to know which Chainguard Containers are available to your account,
 chainctl images list
 ```
 
-This will respond with a list of organizations available to your account. For most users, there will only be one entry in the list. This example shows an account with access to several organizations within the fictional MyCorp.
+If your account has access to more than one organization, the command asks which one to list images from. Most users belong to a single organization, and `chainctl` selects it automatically. This example shows an account with access to several organizations within the fictional MyCorp.
 
 ```output
     Which organization would you like to list images from?
@@ -75619,16 +75816,16 @@ chainctl images repos list
 
 To examine the history of an image tag in chainctl, like when it was updated and the associated digests for each update, use `chainctl images history`. This will also return information such as how many times a variant has been built and for which platforms, along with the time and digests for each.
 
-To examine the history without using the menu shown earlier, use the optional `--parent=$ORGANIZATION` switch to designate your org, like this:
+Pass the image and tag directly to skip the menu shown earlier:
 
 ```shell
-chainctl images history $IMAGE:$TAG --parent=$ORGANIZATION
+chainctl images history $IMAGE:$TAG
 ```
 
 For example, let's find the history of one of the `python` image variants from our previous list, `3.12.7`. So we enter:
 
 ```shell
-chainctl images history python:3.12.7 --parent=chainguard.edu
+chainctl images history python:3.12.7
 ```
 
 The returned list is longer than is shown here, but here's a useful excerpt:
@@ -75670,7 +75867,7 @@ The command returns a reverse-chronological history of when a specific tag was u
 When the release version tag is not provided, the command will present you with a menu that lets you select which tag you'd like to obtain the history for. For example, if you enter:
 
 ```shell
-chainctl images history python --parent=chainguard.edu
+chainctl images history python
 ```
 
 This will present you with a menu like this:
@@ -76856,7 +77053,7 @@ This command can also create, delete, and update your organization's identity pr
 To tell chainctl about your OIDC provider and enable users to start using it, use create:
 
 ```shell
-chainctl iam identity-provider create --name=google --parent=example \
+chainctl iam identity-provider create --name=google \
 --oidc-issuer=https://accounts.google.com \
 --oidc-client-id=foo \
 --oidc-client-secret=bar \
@@ -77000,8 +77197,8 @@ To find the images available to you in the Console, do this:
 1. Open the [Console](https://console.chainguard.dev)
 ![Screenshot showing the Overview page in the Console.](console-overview.png)
 
-1. On the Overview page that opens, click **Organization Images** in the sidebar.
-![Screenshot showing the Organization Images page in the Console, which lists all of the images available along with data for each including Status, Latest tag, Pull URL, and when the image was last updated.](console-org-images.png)
+1. On the Overview page that opens, click **Images** in the sidebar.
+![Screenshot showing the Images page in the Console, which lists all of the images available along with data for each including Status, Latest tag, Pull URL, and when the image was last updated.](console-org-images.png)
 
 ### Find available images with chainctl
 
@@ -77058,10 +77255,10 @@ This list contains columns with data about each image release, like the Pull URL
 
 ### Review container image history using chainctl
 
-To examine the history of an image using `chainctl`, enter this, replacing ORGANIZATION with your organization:
+To examine the history of an image using `chainctl`, enter this:
 
 ```sh
-chainctl image history kubectl:latest --parent=ORGANIZATION
+chainctl image history kubectl:latest
 ```
 
 This will return a reverse-chronological history of when a specific tag was update to point to a new manifest digest. This list can be long. Here's an excerpt:
