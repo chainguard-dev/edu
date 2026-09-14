@@ -62,6 +62,8 @@ To author and manage your own policies, see:
 
 Chainguard ships a set of system policies that are available to every organization. The list below describes each one and its configurable parameters. To confirm which policies are available to you and see their full definitions, use `chainctl policies list` and `chainctl policies describe` as shown under [Usage](#usage).
 
+When a policy denies a pull, it emits a reason describing what fired. Each policy has its own reason format. All reasons are visible in the REASON column of `chainctl policies decision list` and expand to every reason line under `--show-decision-details` (see [Policy decisions](#policy-decisions)).
+
 ### no-eol
 
 The `no-eol` policy denies any image whose primary package has reached its end-of-life (EOL) date. An image is allowed when it has no recorded EOL date, or when that date is still in the future. This policy takes no parameters.
@@ -169,7 +171,7 @@ Note that a `DRY_RUN` denial also produces a non-zero exit, so a passing `check`
 
 ## Policy decisions
 
-Every time an image is pulled and evaluated against an active policy, the platform records the outcome as a *decision*. A decision is the result of evaluating a single image digest against a single policy at pull time. It captures the policy, the digest, the mode the policy ran under (`ENFORCE` or `DRY_RUN`), the outcome (`ALLOWED`, `DENIED`, or `ERROR`), and the day the pull happened.
+Every time an image is pulled and evaluated against an active policy, the platform records the outcome as a *decision*. A decision is the result of evaluating a single image digest against a single policy at pull time. It captures the policy, the artifact, the mode the policy ran under (`ENFORCE` or `DRY_RUN`), the outcome (`ALLOWED`, `DENIED`, or `ERROR`), the reason the policy produced for that outcome, and the day the pull happened.
 
 Decisions are recorded for all evaluations, regardless of mode or outcome. Together they form an audit log of what your policies did against real pull traffic. Use them to answer questions like "why was this image blocked?", "what has this policy decided over the past month?", and "what would this policy block if I enforced it?".
 
@@ -182,12 +184,16 @@ chainctl policies decision list
 ```
 
 ```output
- REPOSITORY |     DIGEST     |  POLICY  |   MODE   | RESULT  | PULLED ON
-------------|----------------|----------|----------|---------|------------
- nginx      | sha256:1a2b3c… | cooldown | DRY_RUN  | DENIED  | 2026-06-28
- nginx      | sha256:4d5e6f… | no-eol   | ENFORCED | DENIED  | 2026-06-28
- bash       | sha256:7a8b9c… | no-eol   | ENFORCED | ALLOWED | 2026-06-27
+ REPOSITORY |  ARTIFACT ID   |  POLICY  |   MODE   | RESULT  |                REASON                 | PULLED ON
+------------|----------------|----------|----------|---------|---------------------------------------|------------
+ nginx      | sha256:1a2b3c… | cooldown | DRY_RUN  | DENIED  | denied: image built within the 7-…, + | 2026-06-28
+ nginx      | sha256:4d5e6f… | no-eol   | ENFORCED | DENIED  | denied: main package reached end o…   | 2026-06-28
+ bash       | sha256:7a8b9c… | no-eol   | ENFORCED | ALLOWED | -                                     | 2026-06-27
 ```
+
+The ARTIFACT ID column shows a short form of the image digest, use `-o json` to see the full value or `chainctl policies decision list --show-artifact-ids` to list all artifact ids (see [List the unique artifacts in the current result set](#list-the-unique-artifacts-in-the-current-result-set)). The REASON column shows the first line of the policy's own denial reason, with `+ N more` appended when a decision has additional lines.
+
+### Filter decisions
 
 Narrow the results with filters. To see only the pulls a policy denied, filter by outcome:
 
@@ -195,11 +201,49 @@ Narrow the results with filters. To see only the pulls a policy denied, filter b
 chainctl policies decision list --result=DENIED
 ```
 
-You can also restrict to a single policy, a single mode (`ENFORCE` or `DRY_RUN`), a time window, or a single image, and request JSON for further processing. The `--since` flag takes a number of days with a `d` suffix (for example `7d`), and `--repo` accepts an image as `REPO` or `REPO:TAG`:
+You can also restrict to a single policy, a single mode (`ENFORCE` or `DRY_RUN`), a time window, a single image, or a single artifact. The `--since` flag takes a number of days with a `d` suffix (for example `7d`); `--repo` accepts an image as `REPO` or `REPO:TAG`; and `--artifact-id` accepts a full image digest (`sha256:…`) or a PURL and returns every decision recorded for that specific artifact:
 
 ```shell
 chainctl policies decision list --policy=no-eol --mode=ENFORCE --since=30d -o json
 chainctl policies decision list --repo=nginx:latest
+chainctl policies decision list --artifact-id=sha256:1a2b3c4d5e6f...
+```
+
+### Inspect full denial reasons with --show-decision-details
+
+The compact table only shows the first reason line. To see every reason a policy produced for a decision, use `--show-decision-details`. This replaces the table with a per-artifact expanded block: every policy that evaluated the artifact is listed, and every reason it produced is printed under a `Reasons:` sub-section. `ALLOWED` verdicts print `- None.` as a positive summary; `DENIED` verdicts without a reasons rule and `ERROR` verdicts drop the `Reasons:` sub-section entirely.
+
+```shell
+chainctl policies decision list --show-decision-details
+```
+
+```output
+Repository:  nginx
+Artifact ID: sha256:1a2b3c4d5e6f708192a3b4c5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e7f809
+Pulled on:   2026-06-28
+
+Policy: cooldown (DRY_RUN)  →  DENIED
+  Reasons:
+    - denied: image built within the 7-day cooldown window (built 2026-06-24, pulled 2026-06-28)
+```
+
+Combine `--show-decision-details` with `--artifact-id` to focus on a single image and see the full picture across every policy that evaluated it:
+
+```shell
+chainctl policies decision list --artifact-id=sha256:1a2b3c4d5e6f... --show-decision-details
+```
+
+### List the unique artifacts in the current result set
+
+`--show-artifact-ids` prints the unique full artifact IDs in the current result set, one per line, deduplicated across policies (an image evaluated by four policies still shows once). Useful for scripting a follow-up query per artifact:
+
+```shell
+chainctl policies decision list --result=DENIED --show-artifact-ids
+```
+
+```output
+sha256:1a2b3c4d5e6f708192a3b4c5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e7f809
+sha256:4d5e6f708192a3b4c5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e7f8091a2b3c
 ```
 
 Decisions are deduplicated per day, so repeated pulls of the same digest under the same policy and outcome appear once for that day rather than once per pull.
@@ -209,6 +253,8 @@ Decisions are listed newest first. The command returns at most 20 decisions by d
 ```shell
 chainctl policies decision list --limit=50
 ```
+
+JSON output is not affected by `--show-decision-details` or `--show-artifact-ids`, those flags are display-only. `-o json` always returns the full artifact ID and every reason line unchanged.
 
 ## Example: staging a policy with dry run
 
@@ -880,10 +926,10 @@ chainctl policies decision list --result=DENIED
 ```
 
 ```output
- REPOSITORY |     DIGEST     |  POLICY  |   MODE   | RESULT | PULLED ON
-------------|----------------|----------|----------|--------|------------
- curl       | sha256:609aeb… | cooldown | ENFORCED | DENIED | 2026-07-02
- curl       | sha256:db532b… | cooldown | ENFORCED | DENIED | 2026-07-02
+ REPOSITORY |  ARTIFACT ID   |  POLICY  |   MODE   | RESULT |                REASON                 | PULLED ON
+------------|----------------|----------|----------|--------|---------------------------------------|------------
+ curl       | sha256:609aeb… | cooldown | ENFORCED | DENIED | denied: image built within the 7-…, + | 2026-07-02
+ curl       | sha256:db532b… | cooldown | ENFORCED | DENIED | denied: image built within the 7-…, + | 2026-07-02
 ```
 
 Create an override for each of the denied digests:
