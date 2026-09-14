@@ -4,7 +4,7 @@ linktitle: "Vulnerability scanners"
 description: "Details for using vulnerability scanners with Chainguard Libraries."
 type: "article"
 date: 2025-10-04T12:00:00+00:00
-lastmod: 2025-10-04T12:00:00+00:00
+lastmod: 2026-09-08T15:16:04+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -28,6 +28,8 @@ applied. These fixes are backported from newer versions of the open source
 project by Chainguard to create new libraries of older versions containing these
 newer changes. Find more details in [CVE
 Remediation](/chainguard/libraries/policies-and-security/cve-remediation/).
+
+Chainguard publishes remediation data through a [public OpenVEX feed](https://libraries.cgr.dev/openvex/v1/all.json), which supported scanners can use to identify remediated library versions and report fixed vulnerabilities accurately.
 
 This page provides an overview of vulnerability scanning for libraries and
 the use of specific scanning applications in the following sections. For more
@@ -86,6 +88,7 @@ Libraries are provided in the following sections.
 | --- | --- | --- |
 | Amazon Inspector | ✓ | ✓ |
 | Anchore Enterprise | ✓ | ✓ |
+| Apiiro | ✓ | ✓ |
 | Grype | ✓ | ✓ |
 | Trivy | ✓ | ✓ |
 | Upwind | ✓ | ✓ |
@@ -110,6 +113,12 @@ To ensure remediated CVEs are filtered out by default, disable CPE matching for
 the ecosystem in which you are using Chainguard Libraries. Instructions for
 disabling CPE matching are available in the [Anchore
 documentation](https://docs.anchore.com/current/docs/vulnerability_management/).
+
+### Apiiro
+
+Apiiro supports the recognition of remediated Chainguard Libraries for Java and Python when scanning applications and images. Apiiro identifies remediated versions using Chainguard's ecosystem-specific version suffixes and distinguishes them from non-remediated package versions.
+
+Apiiro uses Chainguard's public VEX feed to identify vulnerabilities fixed in remediated library versions. Vulnerabilities not covered by a Chainguard remediation remain active findings.
 
 ### Grype
 
