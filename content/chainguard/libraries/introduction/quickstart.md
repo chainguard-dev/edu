@@ -4,7 +4,7 @@ linktitle: "Quickstart"
 description: "Learn how to get started with Chainguard Libraries"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-09-10T12:58:57+00:00
+lastmod: 2026-09-15T21:38:39+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -47,7 +47,19 @@ Before getting started:
 
 * If you're not yet a Chainguard user, you must [create an
       account](https://console.chainguard.dev/auth/login).
-* [Install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) and
+* Entitle access for yourself to Chainguard Libraries:
+
+{{< tabs label="Select method for entitling access to Chainguard Libraries" >}}
+
+{{% tab title="Console" %}}
+
+To create an entitlement and pull token in the Chainguard Console: while viewing a library ecosystem page, follow the prompts to create an access token.
+
+{{% /tab %}}
+
+{{% tab title="chainctl" %}}
+
+First, [install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) and
   log in:
 
    ```bash
@@ -56,10 +68,7 @@ Before getting started:
 
    {{< blurb/chainctl-auth >}}
 
-* Entitle access for yourself to Chainguard Libraries.
-    * Chainguard Libraries are available to Catalog Starter and Free tier users,
-      and trial users.
-    * Run the following [chainctl libraries](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements/) command to create an entitlement for libraries:
+Run the following [chainctl libraries](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements/) command to create an entitlement for libraries:
 
 ```bash
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT
@@ -67,7 +76,11 @@ chainctl libraries entitlements create --ecosystems=JAVASCRIPT
 
 The available `ecosystems` are `JAVA`, `JAVASCRIPT`, and `PYTHON`.
 
-Alternatively, you can create an entitlement and pull token in the Chainguard Console: while viewing a library ecosystem page, follow the prompts to create an access token.
+{{% /tab %}}
+
+{{< /tabs >}}
+
+Chainguard Libraries are available to Catalog Starter and Free tier users, and trial users.
 
 ## Step 1: Choose your access method
 
