@@ -5,7 +5,7 @@ type: "article"
 lead: "Details for installing Cosign across operating systems to sign software artifacts"
 description: "Details for installing Cosign across operating systems"
 date: 2022-07-13T08:49:31+00:00
-lastmod: 2025-12-26T15:16:50+01:00
+lastmod: 2026-09-14T00:00:00+00:00
 draft: false
 tags: ["Cosign", "Procedural"]
 images: []
@@ -120,13 +120,13 @@ The resulting binary from this installation will be placed at `$GOPATH/bin/cosig
 
 You can install Cosign with Go directly from the [Cosign GitHub releases page](https://github.com/sigstore/cosign/releases).
 
-At the time of writing, the newest release is [v3.0.2](https://github.com/sigstore/cosign/releases/tag/v3.0.2). You can download this version with the following command:
+At the time of writing, the newest release is [v3.1.3](https://github.com/sigstore/cosign/releases/tag/v3.1.3). You can download this version with the following command:
 
 ```sh
-go install github.com/sigstore/cosign/v2/cmd/cosign@v3.0.2
+go install github.com/sigstore/cosign/v3/cmd/cosign@v3.1.3
 ```
 
-The resulting binary from this installation will be placed at `$GOPATH/bin/cosign`. Check the [release page]([Cosign GitHub releases page](https://github.com/sigstore/cosign/releases) for additional releases.
+The resulting binary from this installation will be placed at `$GOPATH/bin/cosign`. Check the [Cosign GitHub releases page](https://github.com/sigstore/cosign/releases) for additional releases.
 
 ## Installing Cosign with the Cosign binary
 
