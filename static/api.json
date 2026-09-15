@@ -1769,6 +1769,75 @@
         },
         "type": "object"
       },
+      "chainguard.platform.argos.Embargo": {
+        "description": "Embargo is the embargo period on a record: when the validation window\nopened, when it closes, and what state it is in.\n\nThe window is identical for every recipient of the record: no field here\nvaries by caller.",
+        "properties": {
+          "ends_at": {
+            "description": "ends_at is when the window currently closes. This is the date to act on;\nit moves only by a reviewed extension decision.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "extension": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.argos.Embargo.Extension"
+              }
+            ],
+            "description": "extension is the current extension decision, absent while the period is\nin its default state. It is identical for every recipient of the record."
+          },
+          "started_at": {
+            "description": "started_at is when the validation window opened.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "status": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.argos.EmbargoStatus"
+              }
+            ],
+            "description": "status is the state of the period."
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.Embargo.Extension": {
+        "description": "Extension is a reviewed decision on an extension request.",
+        "properties": {
+          "decided_at": {
+            "description": "decided_at is when it was approved or denied. A denial is recorded\nwithout moving ends_at.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "reason": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.argos.ExtensionReason"
+              }
+            ],
+            "description": "reason is the rationale, from the closed ExtensionReason set."
+          },
+          "requested_at": {
+            "description": "requested_at is when the extension was requested.",
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.EmbargoStatus": {
+        "default": "EMBARGO_STATUS_UNSPECIFIED",
+        "description": "EmbargoStatus is the state of the embargo period on a record.\n\nValues may be added over time. Treat an unrecognised value as\nEMBARGO_STATUS_UNSPECIFIED rather than assuming this set is closed.",
+        "enum": [
+          "EMBARGO_STATUS_UNSPECIFIED",
+          "EMBARGO_STATUS_DEFAULT",
+          "EMBARGO_STATUS_EXTENSION_APPROVED",
+          "EMBARGO_STATUS_EXTENSION_DENIED",
+          "EMBARGO_STATUS_EXPIRED",
+          "EMBARGO_STATUS_VOIDED"
+        ],
+        "type": "string"
+      },
       "chainguard.platform.argos.Event": {
         "properties": {
           "fixed": {
@@ -1785,6 +1854,17 @@
           }
         },
         "type": "object"
+      },
+      "chainguard.platform.argos.ExtensionReason": {
+        "default": "EXTENSION_REASON_UNSPECIFIED",
+        "description": "ExtensionReason is the rationale recorded with an embargo extension\ndecision, drawn from a fixed set of values rather than free text. Values may\nbe added over time; treat an unrecognised value as\nEXTENSION_REASON_UNSPECIFIED.",
+        "enum": [
+          "EXTENSION_REASON_UNSPECIFIED",
+          "EXTENSION_REASON_UPSTREAM_ENGAGED",
+          "EXTENSION_REASON_PATCH_IN_REVIEW",
+          "EXTENSION_REASON_CONTRACTUAL_CAP_REACHED"
+        ],
+        "type": "string"
       },
       "chainguard.platform.argos.FixedArtifact": {
         "description": "FixedArtifact names one published Chainguard rebuild containing a fix.",
@@ -2082,6 +2162,14 @@
       "chainguard.platform.argos.TopLevelDatabaseSpecific": {
         "description": "TopLevelDatabaseSpecific is the Chainguard-defined content for the OSV-spec\ntop-level database_specific field: a JSON object holding additional\ninformation about the vulnerability as defined by the database from which\nthe record was obtained. Unlike the per-Affected DatabaseSpecific, this\napplies to the whole vulnerability record.",
         "properties": {
+          "embargo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.argos.Embargo"
+              }
+            ],
+            "description": "embargo is the embargo period on this record, absent when no period has\nbeen established."
+          },
           "patch_status": {
             "allOf": [
               {
