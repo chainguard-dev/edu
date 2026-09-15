@@ -116,39 +116,6 @@ migrate:
 - `ignore.files` — workflow files (under `.github/workflows/`) to skip.
 - `ignore.actions` — upstream actions to leave untouched.
 
-## Migrate across major versions
-
-By default, automated migration only replaces an action when Chainguard supplies a hardened equivalent at the **exact same version** you have pinned. If your workflow pins a version older than anything Chainguard currently builds — for example, `actions/checkout` at `v3.6.0` when the catalog starts at `v4` — the Guardener finds no same-version equivalent and leaves the pin untouched.
-
-If your team is comfortable moving to a newer major version, opt into the smallest-major-bump strategy so the Guardener can migrate these pins to the closest available Chainguard-supplied version:
-
-```yaml
-enabled: true
-migrate:
-  enabled: true
-  version-strategy: smallest-major-bump
-```
-
-When `version-strategy: smallest-major-bump` is set and there is no exact match, the Guardener selects the **newest stable release in the lowest Chainguard-supplied major version at or above your pinned major**. For the example above, it would rewrite the pin to the hardened `actions-checkout` equivalent of `v4.3.1`:
-
-```yaml
-# before
-- uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
-
-# after
-- uses: chainguard-actions/actions-checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
-```
-
-The generated migration pull request shows the source and target versions separately, so any major-version change is explicit and easy to review.
-
-This strategy is deliberately conservative:
-
-- **Exact matches always win.** The bump only applies when no same-version equivalent exists.
-- **It never downgrades.** The selected version is always at or above your pinned major.
-- **It skips references it cannot reason about.** Prereleases, releases without a published SHA, and bare SHA pins whose upstream version cannot be recovered are left untouched.
-
-Omit `version-strategy` (or set it to `exact`, the default) to keep the original behavior of migrating only on exact version matches.
-
 ## Configuration reference
 
 | Field                    | Default | Purpose                                                                             |
