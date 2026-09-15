@@ -4,7 +4,7 @@ linktitle: "Python overview"
 description: "Learn about Chainguard Libraries for Python, providing enhanced security for PyPI packages through automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-04-09T04:00:00+00:00
-lastmod: 2026-09-15T21:13:45+00:00
+lastmod: 2026-09-15T21:19:16+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python", "Overview"]
 menu:
@@ -80,13 +80,8 @@ access control across your organization, or use it [directly from individual
 build tools](/chainguard/libraries/python/build-configuration/).
 
 > Note: The Chainguard Repository endpoint does not include remediated packages
-> with `+cgr` version suffixes. To use those versions, configure the separate
-> `python-remediated` index as a higher-priority source, as described in the
-> [global configuration
-> documentation](/chainguard/libraries/python/global-configuration/). Your
-> repository manager can combine both sources behind a single internal endpoint,
-> allowing developers and build tools to use one URL while preserving access to
-> remediated packages.
+> with `+cgr` version suffixes. To use those versions, you must also configure the separate
+> `python-remediated` index.
 
 Follow the steps detailed in [Manual access](#manual) to browse the Python index
 and find available packages, package versions, source distribution (sdist), and
