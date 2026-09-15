@@ -4,7 +4,7 @@ linktitle: "Changelog"
 type: "article"
 description: "Weekly changelog of Chainguard product updates — product announcements, breaking changes, container images reaching end-of-life or leaving the catalog, and images newly added to it."
 date: 2026-07-28T00:00:00+00:00
-lastmod: 2026-09-07T00:00:00+00:00
+lastmod: 2026-09-15T19:48:56+00:00
 draft: false
 tags: ["Chainguard Containers", "Changelog"]
 images: []
@@ -16,6 +16,58 @@ tocEndLevel: 2
 This page logs Chainguard product updates week by week, newest first: product announcements, breaking changes, container images that reached end-of-life or are no longer available, and images newly added to the catalog. Each event is listed once, in the week it first appeared.
 
 Breaking changes and product announcements cover the entire Chainguard portfolio, while end-of-life, availability, and new-image entries relate specifically to Chainguard Containers. This page summarizes the changes most likely to affect your work rather than every change Chainguard ships. Routine updates, such as new tags for existing images, are not listed individually. For the current tags and versions of any container image, refer to its entry in the [Chainguard Directory](https://images.chainguard.dev/directory).
+
+## Week of 2026-09-14
+
+{{< changelog-label "Breaking Changes" >}}
+
+### sonar-scanner-cli default user change
+
+_Effective October 12, 2026._
+
+Chainguard's `sonar-scanner-cli` image changes its default user from `root` (UID 0) to `nonroot` (UID 65532), aligning it with the upstream image and the principle of least privilege. The default working directory `/usr/src` is owned by `65532:0` with mode `0775`, and the scanner's scratch directory moves from `<project>/.scannerwork` to `/tmp/.scannerwork`.
+
+- **Affected:** organizations running `sonar-scanner-cli` as root by default — including derived images that install packages or write to system paths as root, pipelines that read `report-task.txt` from the old `.scannerwork` location, and scans that write output files into the mounted project directory. Deployments that already override the container user, or that mount a project and run the image as-is, are unaffected.
+- **Action:** derived images that need root for build steps should add `USER root` before those steps and switch back to `USER 65532` afterward. Pipelines reading `report-task.txt` from the workspace should read it from `/tmp/.scannerwork`, or set `-Dsonar.working.directory=<project>/.scannerwork` and ensure the workspace is writable by the container user. To restore the previous behavior temporarily, run with `--user 0` (Docker), `USER root` (Dockerfile), or `runAsUser: 0` (Kubernetes), or pin to a digest built before the effective date.
+
+{{< changelog-label "EOL" >}}
+
+Chainguard offers [a grace period](/chainguard/containers/features/eol-gp-overview/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images that have reached end-of-life
+
+The following container images reached end-of-life and entered their grace period:
+
+| Image | End-of-life | Grace period ends |
+| --- | --- | --- |
+| `kuma:2.12` | 2026-09-09 | 2027-03-09 |
+
+{{< changelog-label "New Images" >}}
+
+Chainguard built 26 new container images this week, including both standard and FIPS variants.
+
+<table class="cl-images">
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td><a href="https://images.chainguard.dev/directory/image/clamav-prometheus-exporter/versions"><code>clamav-prometheus-exporter</code></a></td><td>application +fips</td><td>2026-09-07</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-azure-marketplaceordering/versions"><code>crossplane-azure-marketplaceordering</code></a></td><td>application</td><td>2026-09-07</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kserve-sklearnserver/versions"><code>kserve-sklearnserver</code></a></td><td>ai</td><td>2026-09-07</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/commercial-spilo-fips/versions"><code>commercial-spilo-fips</code></a></td><td>fips</td><td>2026-09-08</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/graphql-hive-gateway/versions"><code>graphql-hive-gateway</code></a></td><td>application</td><td>2026-09-08</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/jupyterhub-k8s-singleuser-sample/versions"><code>jupyterhub-k8s-singleuser-sample</code></a></td><td>application +fips</td><td>2026-09-08</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/nuxeo-2025/versions"><code>nuxeo-2025</code></a></td><td>application</td><td>2026-09-08</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/chainguard-server-hypervisor-aws/versions"><code>chainguard-server-hypervisor-aws</code></a></td><td>base</td><td>2026-09-09</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/mongodb-kubernetes/versions"><code>mongodb-kubernetes</code></a></td><td>application +fips</td><td>2026-09-09</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/opentelemetry-python-instrumentation-fips/versions"><code>opentelemetry-python-instrumentation-fips</code></a></td><td>fips</td><td>2026-09-09</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/strimzi-kafka-fips/versions"><code>strimzi-kafka-fips</code></a></td><td>fips</td><td>2026-09-09</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-aws-emrcontainers/versions"><code>crossplane-aws-emrcontainers</code></a></td><td>application +fips</td><td>2026-09-11</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kro/versions"><code>kro</code></a></td><td>application +fips</td><td>2026-09-11</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/pyrra/versions"><code>pyrra</code></a></td><td>application +fips</td><td>2026-09-11</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/starboard-exporter/versions"><code>starboard-exporter</code></a></td><td>application +fips</td><td>2026-09-11</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/krakend/versions"><code>krakend</code></a></td><td>application +fips</td><td>2026-09-14</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/mongodb-search/versions"><code>mongodb-search</code></a></td><td>application +fips</td><td>2026-09-14</td></tr>
+</tbody>
+</table>
 
 ## Week of 2026-09-07
 
