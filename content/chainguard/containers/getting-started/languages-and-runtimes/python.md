@@ -24,7 +24,7 @@ Chainguard's Python container images provide a more secure foundation for Python
 
 Two variants of Chainguard Python images are available: a minimal runtime image containing only Python and its standard library, and a `-dev` variant that includes pip and a shell for development purposes. Since most Python applications require third-party packages, the recommended approach is using a [multi-stage Docker build](https://docs.docker.com/build/building/multi-stage/) with the `-dev` image for dependency installation and the minimal image for runtime.
 
-In this guide, we'll cover two examples to showcase Python container images based on Wolfi as a runtime. In the first, we'll use the minimal image containing just Python (which has access to the [Python standard library](https://docs.python.org/3/library/)), and in the second we'll demonstrate a multi-stage build.
+This guide covers two examples of Python container images based on Wolfi as a runtime. The first uses the minimal image containing just Python, which has access to the [Python standard library](https://docs.python.org/3/library/). The second demonstrates a multi-stage build.
 
 {{< details "What is distroless?" >}}
 {{< blurb/distroless >}}
@@ -44,27 +44,22 @@ In this guide, we'll cover two examples to showcase Python container images base
 
 ## Example 1 — Minimal Python Chainguard Container
 
-In this example, we'll build and run a distroless Python Chainguard Container in a single-stage build process. We'll first make a demonstration app and then build and run it.
+In this example, you'll build and run a distroless Python Chainguard Container in a single-stage build process. You'll first make a demonstration app, then build and run it.
 
 ### Step 1: Setting up a demo application
 
-We'll start by creating a basic command-line Python application to serve as a demo. This app will generate random octopus facts based on a list in a text file. This app will use the `random` module from the Python standard library.
+Start by creating a basic command-line Python application to serve as a demo. This app generates random octopus facts based on a list in a text file, using the `random` module from the Python standard library.
 
-First, create a directory for your app. You can use any meaningful name and path; our example will use `octo-facts/`.
+First, create a directory for your app. You can use any meaningful name and path; this example uses `octo-facts/`.
 
 ```shell
 mkdir ~/octo-facts/ && cd $_
 ```
 
-Create a new file to serve as the application entry point. We’ll use `main.py`. You can edit this file in whatever code editor you would like. We'll use Nano as an example.
+Create a new file named `main.py` to serve as the application entry point. The following Python script defines a light CLI app that takes in a text file, `facts.txt`, and returns a random line from that file.
 
 ```shell
-nano main.py
-```
-
-The following Python script defines a light CLI app that takes in a text file, `octo-facts.txt`, and returns a random line from that file.
-
-```python
+cat > main.py <<'EOF'
 '''Import random module to implement random.choice() function'''
 import random
 
@@ -81,10 +76,8 @@ def main():
 
 if __name__ == "__main__":
     main()
-
+EOF
 ```
-
-Copy this code to your `main.py` script, save and close the file.
 
 Next, pull down the `facts.txt` file with `curl`. [Inspect the URL](https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/python/octo-facts/facts.txt) before downloading it to ensure it is safe to do so. Make sure you are still in the same directory where your `main.py` script is.
 
@@ -92,7 +85,7 @@ Next, pull down the `facts.txt` file with `curl`. [Inspect the URL](https://raw.
 curl -O https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/python/octo-facts/facts.txt
 ```
 
-At this point, you can run the script and be sure you are satisfied with the functionality. It is recommended that you use a Python programming environment. Ensure whether you will be using the `python` or `python3` command.
+At this point, you can run the script and be sure you are satisfied with the functionality. We recommend that you use a Python programming environment. Determine whether your system uses the `python` or `python3` command.
 
 ```shell
 python main.py
@@ -108,22 +101,17 @@ The demo application is now ready. In the next step, you’ll create a Dockerfil
 
 ### Step 2: Creating the Dockerfile
 
-For this single-stage build, we'll only use one `FROM` line in our Dockerfile. Our resulting container will be based on the distroless Python Wolfi container image, which means it doesn’t come with a package manager or even a shell.
+For this single-stage build, you'll only need one `FROM` line in your Dockerfile. The resulting container is based on the distroless Python Wolfi container image, which means it doesn’t come with a package manager or even a shell.
 
-We'll begin by creating a Dockerfile. Again, you can use any code editor of your choice, we'll use Nano for demonstration purposes.
+Begin by creating a Dockerfile. The following Dockerfile:
+
+1. Starts a build stage based on the `python:latest` image;
+2. Declares the working directory;
+3. Copies the script and the text file that's being read;
+4. Sets up the application as entry point for this container.
 
 ```shell
-nano Dockerfile
-```
-
-The following Dockerfile will:
-
-1. Start a build stage based on the `python:latest` image;
-2. Declare the working directory;
-3. Copy the script and the text file that's being read;
-4. Set up the application as entry point for this container.
-
-```Dockerfile
+cat > Dockerfile <<'EOF'
 FROM cgr.dev/chainguard/python:latest
 
 WORKDIR /octo-facts
@@ -131,9 +119,8 @@ WORKDIR /octo-facts
 COPY main.py facts.txt ./
 
 ENTRYPOINT [ "python", "/octo-facts/main.py" ]
+EOF
 ```
-
-Save the file when you're finished.
 
 You can now build the container image. If you receive an error, try again with `sudo`.
 
@@ -157,43 +144,33 @@ You have successfully completed the single-stage Python Chainguard Container. At
 
 ## Example 2 — Multi-stage build for Python Chainguard Container
 
-In this example, we'll build and run a multi-stage Python Chainguard Container. We'll have a build image
-that includes pip and a shell before creating a final distroless image without these development
+In this example, you'll build and run a multi-stage Python Chainguard Container. The build image
+includes pip and a shell, and the final distroless image leaves out these development
 tools for production.
 
 ### Step 1: Setting up a demo application
 
-We'll start by creating a Python application that will take in an image file and convert it to ANSI escape sequences on the CLI to render an image.
+Start by creating a Python application that takes in an image file and converts it to ANSI escape sequences on the CLI to render an image.
 
-To begin, create a directory for your app. You can use any meaningful name and path that resonates with you, our example will use `linky/`.
+To begin, create a directory for your app. You can use any meaningful name and path that resonates with you; this example uses `linky/`.
 
 ```shell
 mkdir ~/linky/ && cd $_
 ```
 
-We'll first write out the requirements for our app in a new file, for example we named our file `requirements.txt`. You can edit this file in your preferred code editor, in our case we will use Nano.
+First, write out the requirements for your app in a file named `requirements.txt`. This installs version 0.2.2 of [climage](https://pypi.org/project/climage/), which converts images into ANSI escape sequences:
 
 ```shell
-nano requirements.txt
+cat > requirements.txt <<'EOF'
+climage==0.2.2
+EOF
 ```
 
-We'll use version 68.2.2 of Python [setuptools](https://pypi.org/project/setuptools/) and also install [climage](https://pypi.org/project/climage/). We need to use a slightly older version of setuptools for compatibility with climage. Add the following text to the file:
+Create a file named `linky.py` to hold your Python code. It defines a CLI app that takes in an
+image file, `linky.png`, and prints a representation of that file to the terminal:
 
 ```shell
-setuptools==70.0.0
-climage==0.2.0
-```
-
-Save the file and we will next create a new file with our python code called `linky.py`. You can edit this file in whatever code editor you would like. We’ll use Nano as an example.
-
-```shell
-nano linky.py
-```
-
-Add the following Python code which defines a CLI app that takes in an image file, `linky.png`, and
-prints a representation of that file to the terminal:
-
-```python
+cat > linky.py <<'EOF'
 '''import climage module to display images on terminal'''
 from climage import convert
 
@@ -205,6 +182,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+EOF
 ```
 
 Next, pull down the `linky.png` image file with `curl`. [Inspect the URL](https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/python/linky/linky.png) before downloading it to ensure it is safe to do so. Make sure you are still in the same directory where your `linky.py` script is.
@@ -213,43 +191,33 @@ Next, pull down the `linky.png` image file with `curl`. [Inspect the URL](https:
 curl -O https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/python/linky/linky.png
 ```
 
-If you have python and pip installed in your local environment, you can now install the dependencies with `pip` and run our program. Don't worry if you don't have python installed, you can simply skip this step and move onto the Dockerfile.
-
-```shell
-pip install -r requirements.txt
-python linky.py
-```
-
-You'll receive a representation of the Chainguard Linky logo on the command line. With your demo application ready, you're ready to move onto the container stage.
+With your demo application ready, you can move on to the container stage.
 
 ### Step 2: Creating the Dockerfile
 
-To make sure our final container is distroless while still being able to install dependencies with pip,
-our build will consist of two stages: first, we’ll build the application using the
+To keep the final container distroless while still being able to install dependencies with pip,
+the build consists of two stages: first, you’ll build the application using the
 `python:latest-dev` image variant, a Wolfi-based image that includes pip and other useful tools for
-development. Then, we’ll create a separate stage for the final image. The resulting container will be
+development. Then, you’ll create a separate stage for the final image. The resulting container is
 based on the distroless Python Wolfi container image, which means it doesn’t come with pip or even a shell.
 
-Begin by editing a Dockerfile, with Nano for instance.
+Begin by creating a Dockerfile. The following Dockerfile:
+
+1. Starts a new build stage based on the `python:latest-dev` container image and calls it `builder`;
+2. Creates a new virtual environment to cleanly hold the application's dependencies, using
+   `--without-pip` to keep pip out of the environment and therefore out of the final image;
+3. Copies `requirements.txt` from the current directory to the `/linky` location in the container;
+4. Runs `pip --python /linky/venv/bin/python install --no-cache-dir -r requirements.txt` to install
+   dependencies, where `--python` points the builder's own pip at the virtual environment;
+5. Starts a new build stage based on the `python:latest` image;
+6. Copies the dependencies in the virtual environment from the builder stage, and the source code from
+   the current directory;
+7. Sets up the application as the entry point for this container.
+
+Write this configuration to your own Dockerfile:
 
 ```shell
-nano Dockerfile
-```
-
-The following Dockerfile will:
-
-1. Start a new build stage based on the `python:latest-dev` container image and call it `builder`;
-2. Create a new virtual environment to cleanly hold the application's dependencies;
-3. Copy `requirements.txt` from the current directory to the `/linky` location in the container;
-4. Run `pip install --no-cache-dir -r requirements.txt` to install dependencies;
-5. Start a new build stage based on the `python:latest` image;
-6. Copy the dependencies in the virtual environment from the builder stage, and the source code from
-   the current directory;
-7. Set up the application as the entry point for this container.
-
-Copy this configuration to your own Dockerfile:
-
-```Dockerfile
+cat > Dockerfile <<'EOF'
 FROM cgr.dev/chainguard/python:latest-dev AS builder
 
 ENV LANG=C.UTF-8
@@ -259,10 +227,10 @@ ENV PATH="/linky/venv/bin:$PATH"
 
 WORKDIR /linky
 
-RUN python -m venv /linky/venv
+RUN python -m venv --without-pip /linky/venv
 COPY requirements.txt .
 
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip --python /linky/venv/bin/python install --no-cache-dir -r requirements.txt
 
 FROM cgr.dev/chainguard/python:latest
 
@@ -275,9 +243,8 @@ COPY linky.py linky.png ./
 COPY --from=builder /linky/venv /venv
 
 ENTRYPOINT [ "python", "/linky/linky.py" ]
+EOF
 ```
-
-Save the file when you’re finished.
 
 You can now build the container image. If you receive a permission error, try running under `sudo`.
 

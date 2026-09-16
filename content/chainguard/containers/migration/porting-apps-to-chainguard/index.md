@@ -23,9 +23,9 @@ toc: true
 
 * Chainguard's distroless Containers have no shell or package manager by default. This is great for security, but sometimes you need these things, especially in builder images. For those cases we have `-dev` variants (such as `cgr.dev/chainguard/python:latest-dev`) which do include a shell and package manager.
 * Chainguard Containers typically don't run as root, so a `USER root` statement may be required before installing software. This should be a temporary escalation only; after completing any root-level operations, you should create and switch to a dedicated non-root user (for example, using `addgroup` and `adduser`) or use the image's built-in non-root user. Leaving the container running as root defeats the security purpose of using minimal images.
-* The `-dev` variants and `wolfi-base` / `chainguard-base` use BusyBox by default, so any `groupadd` or `useradd` commands will need to be ported to `addgroup` and `adduser`.
+* The `-dev` variants and `wolfi-base` / `chainguard-base` use BusyBox by default, so you need to port any `groupadd` or `useradd` commands to `addgroup` and `adduser`.
 * The [Free tier](/chainguard/containers/concepts/container-categories/#free-containers) of Containers provides `:latest` and `:latest-dev` versions. Our paid Production Containers offer tags for major and minor versions.
-* We use apk tooling, so `apt install` commands will become `apk add`.
+* We use apk tooling, so `apt install` commands become `apk add`.
 * Chainguard Containers are based on `glibc` and our packages cannot be mixed with Alpine packages.
 * In some cases, the entrypoint in Chainguard Containers can be different from equivalent container images based on other distros, which can lead to unexpected behavior. You should always check the image's specific documentation to understand how the entrypoint works.
 * When needed, Chainguard recommends using a Base Container like `chainguard-base` or a `-dev` variant to install an application's OS-level dependencies.
@@ -33,14 +33,14 @@ toc: true
 
 ## The sample application
 
-The application in question is [identidock](https://github.com/using-docker/identidock). This application was written for the book [Using Docker](https://learning.oreilly.com/library/view/using-docker/9781491915752/) about ten years ago, which shows that we can still migrate software of this age to a new container while realizing the benefits of a no-to-low CVE count. The application itself will create [identicons](https://en.wikipedia.org/wiki/Identicon) for a user name, similar to what [GitHub generates for users with no avatar](https://github.blog/2013-08-14-identicons/). It was designed at the time to demonstrate a "microservices" approach, and as such it's made up of 3 services:
+The application in question is [identidock](https://github.com/using-docker/identidock). This application was written for the book [Using Docker](https://learning.oreilly.com/library/view/using-docker/9781491915752/) about ten years ago, which shows that we can still migrate software of this age to a new container while realizing the benefits of a no-to-low CVE count. The application itself creates [identicons](https://en.wikipedia.org/wiki/Identicon) for a user name, similar to what [GitHub generates for users with no avatar](https://github.blog/2013-08-14-identicons/). It was designed at the time to demonstrate a "microservices" approach, and as such it's made up of 3 services:
 
 * The main identidock service, which takes the requests and talks to the
   [dnmonster](https://github.com/amouat/dnmonster) service and the redis cache
 * A NodeJS application which creates the identicons
 * Redis which is used as a simple cache
 
-The services are put together as shown in the below diagram. The user only talks to the identidock service. The identidock service will first check the cache to see if it has already created an identicon for the input and, if not, requests a new identicon from the dnmonster service. The identicon is then returned to the user and saved to the cache if required.
+The following diagram shows how the services fit together. The user only talks to the identidock service. The identidock service first checks the cache to see if it has already created an identicon for the input and, if not, requests a new identicon from the dnmonster service. The identicon is then returned to the user and saved to the cache if required.
 
 ![Diagram of Identidock architecture](arch.png)
 
@@ -65,7 +65,7 @@ docker run -d -p 8080:8080 amouat/dnmonster
 curl --output ./monster.png 'localhost:8080/monster/wolfi?size=100'
 ```
 
-In this example, we give dnmonster the input "wolfi", for which it will produce the following image:
+In this example, we give dnmonster the input "wolfi", for which it produces the following image:
 
 ![Simple "monster" art](monster.png "Monster generated for wolfi input")
 
@@ -145,9 +145,9 @@ To:
 FROM cgr.dev/chainguard/node:latest-dev
 ```
 
-Unlike the `cgr.dev/chainguard/node:latest` image, the `:latest-dev` version includes a shell and package manager, which we will need for some of the build steps. In general, it's better to use the more minimal `:latest` version where possible in order to keep the size down and reduce the tooling available to attackers. Often the `:latest-dev` container image can be used as a build step in a multi-stage, with a more minimal image such as `:latest` used in the final production image.
+Unlike the `cgr.dev/chainguard/node:latest` image, the `:latest-dev` version includes a shell and package manager, which we need for some of the build steps. In general, it's better to use the more minimal `:latest` version where possible in order to keep the size down and reduce the tooling available to attackers. Often the `:latest-dev` container image can be used as a build step in a multi-stage, with a more minimal image such as `:latest` used in the final production image.
 
-If you try building this image, you'll find that it breaks in several places. The container image needs to install various libraries so that it can compile the [`node-canvas`](https://github.com/Automattic/node-canvas) dependency, and this looks a bit different in Debian than it does in [Wolfi](https://github.com/wolfi-dev/) (the OS powering Chainguard Containers). In Wolfi, we first need to switch to the root user to install software and we use `apk add` instead of `apt-get`. We then need to figure out the Wolfi equivalents of the various Debian packages, which may not always have a one-to-one correspondence. There are tools to help here – you can consult our [migration guides](/chainguard/containers/migration/compatibility/debian-compatibility/) and use apk tools (like `apk search libjpeg`), but searching the [Wolfi GitHub](https://github.com/wolfi-dev/os) repository for package names will often provide you with what you’re looking for.
+If you try building this image, you'll find that it breaks in several places. The container image needs to install various libraries so that it can compile the [`node-canvas`](https://github.com/Automattic/node-canvas) dependency, and this looks a bit different in Debian than it does in [Wolfi](https://github.com/wolfi-dev/) (the OS powering Chainguard Containers). In Wolfi, we first need to switch to the root user to install software and we use `apk add` instead of `apt-get`. We then need to figure out the Wolfi equivalents of the various Debian packages, which may not always have a one-to-one correspondence. There are tools to help here – you can consult our [migration guides](/chainguard/containers/migration/compatibility/debian-compatibility/) and use apk tools (like `apk search libjpeg`), but searching the [Wolfi GitHub](https://github.com/wolfi-dev/os) repository for package names often provides you with what you’re looking for.
 
 Make these changes by replacing the `RUN apt-get …` line with the following `RUN apk update` and adding a `USER root` line. The start of the Dockerfile should look like this:
 
@@ -167,7 +167,7 @@ The next change we need to make is to the `RUN groupadd …` line. Chainguard Co
 RUN addgroup dnmonster && adduser -D -G dnmonster dnmonster
 ```
 
-Finally, the default entrypoint for the Chainguard container image is `/usr/bin/node`. If we leave the `CMD` as it is, it will be interpreted as an argument to node, which isn't what we want. The Docker official image uses an entrypoint script to interpret commands, but this isn't available in the `cgr.dev/chainguard/node:latest-dev` image. The easiest fix is to change the `CMD` command to `ENTRYPOINT` which will override the `/usr/bin/node` command:
+Finally, the default entrypoint for the Chainguard container image is `/usr/bin/node`. If we leave the `CMD` as it is, node interprets it as an argument, which isn't what we want. The Docker official image uses an entrypoint script to interpret commands, but this isn't available in the `cgr.dev/chainguard/node:latest-dev` image. The fix is to change the `CMD` command to `ENTRYPOINT`, which overrides the `/usr/bin/node` command:
 
 ```Dockerfile
 ENTRYPOINT [ "npm", "start" ]
@@ -311,7 +311,7 @@ This results in a container image that is now 620MB in size and has 0 CVEs.
 
 We're most of the way now, but there are still a couple of finishing touches to make. The first one is to remove the dnmonster user. The wolfi-base image already defines a `nonroot` user, so we can make the build a little less complicated by using that user directly. The second one is to add in a process manager. We have node running as the root process (PID 1) in the container, which isn't ideal as it doesn't handle some of the responsibilities that come with running as PID 1, such as forwarding signals to subprocesses. You can see this most clearly when you try to stop the image – it takes several seconds as the process doesn't respond to the SIGTERM signal sent by Docker and has to be hard killed with SIGKILL. To fix this, we can add [`tini`](https://github.com/krallin/tini), a small init for containers.
 
-The `tini` binary will run as PID 1, launch npm as a subprocess and take care of PID 1 responsibilities. Now, the final Dockerfile looks like this:
+The `tini` binary runs as PID 1, launches npm as a subprocess, and takes care of PID 1 responsibilities. Now, the final Dockerfile looks like this:
 
 ```Dockerfile
 FROM cgr.dev/chainguard/node:latest-dev AS build
@@ -366,7 +366,7 @@ curl --output ./monster.png 'localhost:8080/monster/wolfi?size=100'
 
 ## Updating the Python microservice
 
-The next service we will look at updating is Identidock, the main entrypoint for the application. Identidock is responsible for looking up requests in the cache and falling-back to calling the dnmonster service if they're not present.
+The next service we update is Identidock, the main entrypoint for the application. Identidock is responsible for looking up requests in the cache and falling-back to calling the dnmonster service if they're not present.
 
 Again, the version of the code on the v1 branch already contains a few updates from the original code, but in this case all that was needed was to bump various libraries to newer versions. The Dockerfile for the v1 version can be found in the identidock folder and looks like:
 
@@ -419,7 +419,7 @@ grype docker:identidock
 
 At the time of writing, this container image is 1.51GB with hundreds of vulnerabilities (7 critical) according to Grype.
 
-Again as a first step, we will try to switch out directly to the Chainguard Container. To do this, edit the Dockerfile so the first line reads:
+Again as a first step, we try switching directly to the Chainguard Container. To do this, edit the Dockerfile so the first line reads:
 
 ```Dockerfile
 FROM cgr.dev/chainguard/python:latest-dev
@@ -432,7 +432,7 @@ USER root
 RUN addgroup uwsgi && adduser -D -G uwsgi uwsgi
 ```
 
-The image now builds, but there are issues due to differences in the image entrypoint. If you run the container image, you will get a confusing error message such as:
+The image now builds, but there are issues due to differences in the image entrypoint. If you run the container image, you get a confusing error message such as:
 
 ```bash
 `File "/cmd.sh", line 4`
@@ -462,7 +462,7 @@ else
 fi
 ```
 
-This script decides how to run the application depending on how the `ENV` environment variable is set. The idea here is to allow us to use the same image in development, testing, and production. This approach is no longer recommended as it leads to development tooling being present in the production environment. Even though the development tooling isn't run in production, it is still bloating the image and is potentially exploitable by attackers. Therefore, we will use a different approach and break the Dockerfile into separate development and production images.
+This script decides how to run the application depending on how the `ENV` environment variable is set. The idea here is to allow us to use the same image in development, testing, and production. This approach is no longer recommended as it leads to development tooling being present in the production environment. Even though the development tooling isn't run in production, it is still bloating the image and is potentially exploitable by attackers. Therefore, we use a different approach and break the Dockerfile into separate development and production images.
 
 Let’s skip to the final Dockerfile for our image and walk through the changes made. These changes address multiple issues, beyond just having multiple images, and are based on the [Chainguard Academy guide to Python images](/chainguard/containers/getting-started/languages-and-runtimes/python/).
 
@@ -477,9 +477,9 @@ ENV PYTHONUNBUFFERED=1
 ENV PATH="/app/venv/bin:$PATH"
 
 WORKDIR /app
-RUN python -m venv /app/venv
+RUN python -m venv --without-pip /app/venv
 COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip --python /app/venv/bin/python install --no-cache-dir -r requirements.txt
 COPY app /app
 
 EXPOSE 5000
@@ -515,7 +515,7 @@ The first thing to notice is that we have a multistage build now. If you want th
 docker build --pull --target dev -t identidock:dev .
 ```
 
-Otherwise, you will get the standard variant only.
+Otherwise, you get the standard variant only.
 
 There are several more environment variables defined. These prevent the creation of Python bytecode and buffering of output.
 
@@ -523,7 +523,7 @@ The installation of pip modules has moved to the `requirements.txt` file. The ma
 
 The development server runs on port 5000, while the production server runs on port 9090. We could edit this so they both run on the same port, but this approach reduces the chance of accidentally running the development server in production. The development server is started directly from the entrypoint, so we are no longer dependent on an entrypoint script, simplifying our architecture.
 
-To get a minimal, clean production install, we are using a Python virtual environment([venv](https://docs.python.org/3/library/venv.html)) in the development image to isolate all dependencies, which are then copied over to the production image. Finally, the production image has been changed to use [gunicorn](https://gunicorn.org/) as [uwsgi has entered "maintenance mode"](https://github.com/unbit/uwsgi).
+To get a minimal, clean production install, we are using a Python virtual environment ([venv](https://docs.python.org/3/library/venv.html)) in the development image to isolate all dependencies, which are then copied over to the production image. The `--without-pip` flag keeps pip out of that environment, so the production image carries only the packages the application imports. Installing into the environment then takes `pip --python /app/venv/bin/python`, which runs the development image's system pip against the environment. If you work inside the development container, use that same `--python` flag to add a package, because a bare `pip install` targets the system interpreter instead. Finally, the production image has been changed to use [gunicorn](https://gunicorn.org/) as [uwsgi has entered "maintenance mode"](https://github.com/unbit/uwsgi).
 
 Build the final image:
 
@@ -589,7 +589,7 @@ If you now run `docker compose up --build`, you should have a working applicatio
 
 There are some differences between this version and the original. The environment variable used for switching between image variants has been removed and the ports have changed to reflect the default port used in gunicorn.
 
-This Compose file doesn't contain support for a development workflow currently – ideally we would be able to quickly iterate on our code without building a new image. The original file used volumes to achieve this, but this isn't something we want to do with the production image. One solution is to have a separate development Compose file, which will build the development image and use a volume to mount code at runtime for immediate feedback. New versions of Docker also support [Compose Watch](https://docs.docker.com/compose/file-watch/) which can be a more efficient and granular solution than volume mounts. Refer to [What is Docker Compose Watch and what problem does it solve?](https://collabnix.com/what-is-docker-compose-watch-and-what-problem-does-it-solve/) for an introductory tutorial on using Compose Watch.
+This Compose file doesn't contain support for a development workflow currently – ideally we would be able to quickly iterate on our code without building a new image. The original file used volumes to achieve this, but this isn't something we want to do with the production image. One solution is to have a separate development Compose file, which builds the development image and uses a volume to mount code at runtime for immediate feedback. New versions of Docker also support [Compose Watch](https://docs.docker.com/compose/file-watch/) which can be a more efficient and granular solution than volume mounts. Refer to [What is Docker Compose Watch and what problem does it solve?](https://collabnix.com/what-is-docker-compose-watch-and-what-problem-does-it-solve/) for an introductory tutorial on using Compose Watch.
 
 ## Conclusion
 
