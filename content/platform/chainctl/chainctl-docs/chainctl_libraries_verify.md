@@ -1,5 +1,5 @@
 ---
-date: 2026-09-14T20:00:43Z
+date: 2026-09-15T20:06:33Z
 title: "chainctl libraries verify"
 slug: chainctl_libraries_verify
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_verify/
@@ -30,6 +30,41 @@ For container images, you can use:
 JavaScript package manager caches (npm, pnpm, Yarn Classic) are auto-detected
 in container images and local directories by their structure.
 
+Passing a JavaScript lockfile (package-lock.json, npm-shrinkwrap.json,
+pnpm-lock.yaml, yarn.lock, bun.lock) reports which of its registry entries carry
+a digest covered by a Chainguard attestation, using the integrity hashes the
+lockfile records. No install or package cache is required.
+
+An entry counts as verified only when the attested digest is bound to the
+tarball bytes the entry permits — that is, when any install honoring the entry's
+integrity constraint must use the attested bytes. A lone integrity hash binds:
+the package manager rejects any tarball that does not match it. An entry listing
+several hashes does not, since any of them may be satisfied — those are reported
+as attested but not bound, unless the resolved URL names the same package on
+Chainguard's built route (libraries.cgr.dev/javascript/), which fixes the
+source. The upstream proxy route serves upstream bytes and does not bind.
+
+A lockfile rewritten by "libraries update-hashes" in its default append mode
+keeps the original registry hash alongside the Chainguard one. Such entries
+verify only while resolved points at the Chainguard built route, so behind a
+private proxy or custom --registry-url they report as not bound. Use
+"libraries update-hashes --replace" to record a single Chainguard hash per
+entry, which binds regardless of where the entry resolves from.
+
+No downloaded bytes are examined, and platform, optional dependencies, overrides,
+and registry configuration still affect what a package manager selects. Entries
+with no usable digest — linked and git dependencies, and Yarn Berry's non-SRI
+checksums — are reported at zero coverage.
+
+Entries the registry could not answer for — an outage, or rejected credentials —
+are reported as unchecked rather than unverified, since a service problem is not
+a provenance finding. Requests are retried before an entry is called unchecked.
+
+This report is informational: the exit status does not reflect coverage. Coverage
+counts entries Chainguard built from source, so a package that is simply not
+built from source is not a defect, and gating a build on the percentage is not
+the intended use. Per-entry results are available with "-o json --detailed".
+
 Remediated (CVE-patched) Java artifacts, whose versions carry a "-0.cgr.<rev>" suffix
 (e.g. 3.5.0-0.cgr.2), are resolved from the java-remediated repository; other Java
 artifacts are resolved from the java repository.
@@ -58,6 +93,13 @@ chainctl libraries verify [path...] [flags]
 
   # Analyze remote artifact
   chainctl libraries verify remote:example.com/maven2/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar
+
+  # Verify a lockfile without installing anything
+  chainctl libraries verify package-lock.json
+  chainctl libraries verify pnpm-lock.yaml
+
+  # Per-entry results for machine consumption
+  chainctl libraries verify package-lock.json -o json --detailed
 
   # Verify npm cache (auto-detected by _cacache/index-v5/ structure)
   chainctl libraries verify "$(npm config get cache)"

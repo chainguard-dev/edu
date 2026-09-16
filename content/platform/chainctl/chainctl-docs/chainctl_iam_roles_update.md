@@ -1,5 +1,5 @@
 ---
-date: 2026-09-14T20:00:43Z
+date: 2026-09-15T20:06:33Z
 title: "chainctl iam roles update"
 slug: chainctl_iam_roles_update
 url: /platform/chainctl/chainctl-docs/chainctl_iam_roles_update/
