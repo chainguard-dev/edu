@@ -271,7 +271,7 @@ Check out minimal example projects for
 
 ## Step 4: Verify your libraries
 
-After setup, you can verify which dependencies were built from source by Chainguard. This step requires [`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/); if you entitled access through the Chainguard Console, install and log in to `chainctl` before continuing.
+After setup, you can verify which dependencies were built from source by Chainguard. This step requires [`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/); if you entitled access through the Chainguard Console, install `chainctl` and log in with `chainctl auth login` before continuing.
 
 ```bash
 chainctl libraries verify /path/to/artifact
