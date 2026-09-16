@@ -4,7 +4,7 @@ linktitle: "Python overview"
 description: "Learn about Chainguard Libraries for Python, providing enhanced security for PyPI packages through automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-04-09T04:00:00+00:00
-lastmod: 2026-09-09T15:46:42+00:00
+lastmod: 2026-09-15T21:19:16+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python", "Overview"]
 menu:
@@ -69,12 +69,19 @@ that source be available. Therefore, packages that do not provide a valid source
 URL cannot be rebuilt within the Chainguard Factory.
 
 Chainguard Libraries for Python can be consumed through [Chainguard
-Repository](/chainguard/libraries/chainguard-repository/), which provides a single endpoint for Python package retrieval and
-supports protected upstream fallback when configured for your organization. This
-allows builds to prefer Chainguard-built packages first while still covering
-packages or wheel files that Chainguard does not currently serve directly. Configure this endpoint [globally through a repository manager](/chainguard/libraries/python/global-configuration/) for centralized
+Repository](/chainguard/libraries/chainguard-repository/), which provides a
+single endpoint for Python package retrieval and supports protected upstream
+fallback when configured for your organization. This allows builds to prefer
+Chainguard-built packages first while still covering packages or wheel files
+that Chainguard does not currently serve directly. Configure this endpoint
+[globally through a repository
+manager](/chainguard/libraries/python/global-configuration/) for centralized
 access control across your organization, or use it [directly from individual
 build tools](/chainguard/libraries/python/build-configuration/).
+
+> Note: The Chainguard Repository endpoint does not include remediated packages
+> with `+cgr` version suffixes. To use those versions, you must also configure the separate
+> `python-remediated` index.
 
 Follow the steps detailed in [Manual access](#manual) to browse the Python index
 and find available packages, package versions, source distribution (sdist), and
