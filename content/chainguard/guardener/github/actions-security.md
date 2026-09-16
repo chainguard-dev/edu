@@ -4,7 +4,7 @@ linktitle: "Hardened Actions"
 description: "Configure Chainguard Guardener to recommend and migrate your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-09-09T17:33:40+00:00
+lastmod: 2026-09-15T00:00:00+00:00
 draft: false
 tags: ["GitHub", "Automation"]
 images: []
@@ -123,6 +123,7 @@ migrate:
 | `enabled`                | `true`  | Enables inline pull request recommendation comments.                                |
 | `migrate.enabled`        | `false` | Opts into automated migration pull requests.                                        |
 | `migrate.period`         | `24h`   | How often the migration pull request is refreshed. Clamped to a minimum of one day. |
+| `migrate.version-strategy` | `exact` | Version selection when no exact equivalent exists. Set to `smallest-major-bump` to migrate older pins to the closest Chainguard-supplied major version. |
 | `migrate.ignore.files`   | —       | Glob patterns for workflow files to skip during migration.                          |
 | `migrate.ignore.actions` | —       | Glob patterns for upstream actions to skip during migration.                        |
 
