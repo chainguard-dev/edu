@@ -144,9 +144,7 @@ You have successfully completed the single-stage Python Chainguard Container. At
 
 ## Example 2 — Multi-stage build for Python Chainguard Container
 
-In this example, you'll build and run a multi-stage Python Chainguard Container. The build image
-includes pip and a shell, and the final distroless image leaves out these development
-tools for production.
+In this example, you'll build and run a multi-stage Python Chainguard Container. The build image includes pip and a shell, and the final distroless image leaves out these development tools for production.
 
 ### Step 1: Setting up a demo application
 
@@ -195,23 +193,16 @@ With your demo application ready, you can move on to the container stage.
 
 ### Step 2: Creating the Dockerfile
 
-To keep the final container distroless while still being able to install dependencies with pip,
-the build consists of two stages: first, you’ll build the application using the
-`python:latest-dev` image variant, a Wolfi-based image that includes pip and other useful tools for
-development. Then, you’ll create a separate stage for the final image. The resulting container is
-based on the distroless Python Wolfi container image, which means it doesn’t come with pip or even a shell.
+To keep the final container distroless while still being able to install dependencies with pip, the build consists of two stages: first, you’ll build the application using the `python:latest-dev` image variant, a Wolfi-based image that includes pip and other useful tools for development. Then, you’ll create a separate stage for the final image. The resulting container is based on the distroless Python Wolfi container image, which means it doesn’t come with pip or even a shell.
 
 Begin by creating a Dockerfile. The following Dockerfile:
 
 1. Starts a new build stage based on the `python:latest-dev` container image and calls it `builder`;
-2. Creates a new virtual environment to cleanly hold the application's dependencies, using
-   `--without-pip` to keep pip out of the environment and therefore out of the final image;
+2. Creates a new virtual environment to cleanly hold the application's dependencies, using `--without-pip` to keep pip out of the environment and therefore out of the final image;
 3. Copies `requirements.txt` from the current directory to the `/linky` location in the container;
-4. Runs `pip --python /linky/venv/bin/python install --no-cache-dir -r requirements.txt` to install
-   dependencies, where `--python` points the builder's own pip at the virtual environment;
+4. Runs `pip --python /linky/venv/bin/python install --no-cache-dir -r requirements.txt` to install dependencies, where `--python` points the builder's own pip at the virtual environment;
 5. Starts a new build stage based on the `python:latest` image;
-6. Copies the dependencies in the virtual environment from the builder stage, and the source code from
-   the current directory;
+6. Copies the dependencies in the virtual environment from the builder stage, and the source code from the current directory;
 7. Sets up the application as the entry point for this container.
 
 Write this configuration to your own Dockerfile:
