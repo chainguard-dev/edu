@@ -59,7 +59,7 @@ To create an entitlement and pull token in the Chainguard Console: while viewing
 
 {{% tab title="chainctl" %}}
 
-First, [install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) and log in:
+[Install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) and log in:
 
 ```bash
 chainctl auth login
