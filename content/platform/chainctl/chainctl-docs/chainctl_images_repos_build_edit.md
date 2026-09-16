@@ -1,5 +1,5 @@
 ---
-date: 2026-09-14T20:00:43Z
+date: 2026-09-15T20:06:33Z
 title: "chainctl images repos build edit"
 slug: chainctl_images_repos_build_edit
 url: /platform/chainctl/chainctl-docs/chainctl_images_repos_build_edit/
@@ -53,6 +53,11 @@ Customizable sections:
   contents.packages
     Add additional packages to install in the image (e.g., development tools,
     utilities). Packages must be available in Chainguard's package repository.
+    Package names may include the {{major}} and {{minor}} template tokens,
+    which expand to the corresponding components of the base image's main
+    package version at build time. For example, "py{{major}}.{{minor}}-cryptography"
+    becomes "py3.13-cryptography" on an image whose main package is
+    python-3.13, and tracks the base image as its version moves.
 
   contents.runtime_repositories
     Add APK repositories to /etc/apk/repositories in the image for runtime

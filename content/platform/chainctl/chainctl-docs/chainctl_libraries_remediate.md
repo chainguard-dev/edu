@@ -1,5 +1,5 @@
 ---
-date: 2026-09-14T20:00:43Z
+date: 2026-09-15T20:06:33Z
 title: "chainctl libraries remediate"
 slug: chainctl_libraries_remediate
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_remediate/
@@ -22,7 +22,11 @@ direct-dependency pins and package-manager overrides that deliver it.
 Provide a project directory, or omit it to use the current directory. The
 package manager is detected from the lockfile: package-lock.json (npm),
 pnpm-lock.yaml (pnpm), yarn.lock (Yarn Classic and Berry), bun.lock/bun.lockb
-(Bun), or deno.lock (Deno, for package.json-based projects).
+(Bun), or deno.lock (Deno).
+
+For Deno projects, chainctl requires Deno 2.7 or later, package.json, and deno.lock.
+It uses npm overrides in package.json to pin dependencies to -cgr.N versions.
+It rejects Deno projects with deno.json or deno.jsonc in the project root.
 
 A -cgr.N prerelease is never matched by a normal range such as ^1.3.1, so
 adoption is always deliberate: delivery is an exact pin plus a package-manager

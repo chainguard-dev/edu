@@ -1,5 +1,5 @@
 ---
-date: 2026-09-14T20:00:43Z
+date: 2026-09-15T20:06:33Z
 title: "chainctl libraries packages list"
 slug: chainctl_libraries_packages_list
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_packages_list/
@@ -24,7 +24,7 @@ chainctl libraries packages list --ecosystem ECOSYSTEM [--query QUERY] [--output
 ### Options
 
 ```
-      --ecosystem string   The ecosystem to list packages for (JAVA, PYTHON, JAVASCRIPT).
+      --ecosystem string   The ecosystem to list packages for (JAVA, JAVASCRIPT, PYTHON).
       --limit int32        The maximum number of packages to return; results are paginated automatically up to this limit. (default 50)
       --query string       A search string to filter packages by name. If empty, all packages in the ecosystem are returned.
       --remediated         Only return remediated packages.

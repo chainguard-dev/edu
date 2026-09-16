@@ -10741,6 +10741,88 @@
           "OverlayBindingsService"
         ]
       },
+      "patch": {
+        "description": "UpdateOverlayBinding updates a binding's tag selector — its only\nmutable field. The binding's repo and overlay reference are\nimmutable: moving a binding to another repo or re-pointing it at\nanother overlay is delete-and-recreate.",
+        "operationId": "OverlayBindingsService_UpdateOverlayBinding",
+        "parameters": [
+          {
+            "description": "The unique identifier of this OverlayBinding, a UIDP under the repo\nit attaches to.",
+            "in": "path",
+            "name": "uid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "properties": {
+                  "overlay": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.Overlay"
+                      }
+                    ],
+                    "description": "The referenced Overlay expanded inline (uid, name, and its config\nrendered packages-only) so list responses are audit-complete without\na follow-up call.",
+                    "readOnly": true
+                  },
+                  "repo": {
+                    "description": "The UIDP of the repo this binding applies to.",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "tagSelector": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.TagSelector"
+                      }
+                    ],
+                    "description": "The selector picking which tags on the repo this binding applies to.\nSee TagSelector for the supported kinds and precedence rules."
+                  }
+                },
+                "required": [
+                  "tagSelector"
+                ],
+                "title": "The binding to update. The uid identifies the binding; tag_selector\nis its only mutable field. The repo and overlay reference are\nimmutable (OUTPUT_ONLY): moving a binding is delete on the old repo\nplus create on the new one.",
+                "type": "object"
+              }
+            }
+          },
+          "description": "The binding to update. The uid identifies the binding; tag_selector\nis its only mutable field. The repo and overlay reference are\nimmutable (OUTPUT_ONLY): moving a binding is delete on the old repo\nplus create on the new one.",
+          "required": true,
+          "x-originalParamName": "overlayBinding"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.OverlayBinding"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Update Overlay Binding",
+        "tags": [
+          "OverlayBindingsService"
+        ]
+      },
       "post": {
         "description": "CreateOverlayBinding attaches an existing overlay to one repo under\na tag selector. See TagSelector for the supported selector kinds\n(EXACT, ALL, VARIANT) and the precedence order applied when multiple\nbindings match a single tag at rebuild time.",
         "operationId": "OverlayBindingsService_CreateOverlayBinding",
@@ -10995,6 +11077,79 @@
           }
         },
         "summary": "Get Overlay",
+        "tags": [
+          "OverlaysService"
+        ]
+      },
+      "patch": {
+        "description": "UpdateOverlay updates an overlay's mutable fields: its name and its\nconfig. Only config.contents.packages may be populated; any other\nconfig field fails with InvalidArgument.",
+        "operationId": "OverlaysService_UpdateOverlay",
+        "parameters": [
+          {
+            "description": "The unique identifier of this Overlay, a UIDP under the owning group.",
+            "in": "path",
+            "name": "uid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "properties": {
+                  "config": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay"
+                      }
+                    ],
+                    "description": "The overlay content, the same shape as Repo.custom_overlay. Only\ncontents.packages may be set this milestone: at least one package is\nrequired on create, and any other populated field is rejected."
+                  },
+                  "name": {
+                    "description": "The name of the Overlay, unique among the group's overlays.",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "config"
+                ],
+                "title": "The overlay to update. The uid identifies the overlay.",
+                "type": "object"
+              }
+            }
+          },
+          "description": "The overlay to update. The uid identifies the overlay.",
+          "required": true,
+          "x-originalParamName": "overlay"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.Overlay"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Update Overlay",
         "tags": [
           "OverlaysService"
         ]
