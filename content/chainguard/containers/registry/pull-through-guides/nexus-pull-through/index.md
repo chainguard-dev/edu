@@ -1,6 +1,6 @@
 ---
 title: "How to set up pull through from Chainguard's registry to Nexus"
-linktitle: "Nexus"
+linktitle: "Nexus — containers"
 aliases:
 - /chainguard/chainguard-registry/nexus-pull-through/
 - /chainguard/chainguard-registry/pull-through-guides/nexus-pull-through/
