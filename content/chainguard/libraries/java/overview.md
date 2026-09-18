@@ -4,7 +4,7 @@ linktitle: "Java overview"
 description: "Learn about Chainguard Libraries for Java, providing enhanced security for Maven dependencies through automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-28T16:31:04+00:00
+lastmod: 2026-09-18T14:45:23+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java", "Overview"]
 menu:
@@ -98,11 +98,7 @@ often not available:
 As a result, **you must configure the repository as the first point of contact and
 request for any retrieval of a library**. This ensures that any library that is
 available from Chainguard is also used. In addition, any failed requests are
-flagged at Chainguard and backfill processes are run where possible.
-
-At the same time, you must continue to use the Maven Central Repository, and any
-other repository that fills the needs for libraries that are not available from
-the Chainguard Libraries repository.
+flagged at Chainguard and backfill processes are run where possible. With [upstream fallback](#upstream-fallback-policy-and-controls) enabled, Chainguard retrieves missing artifacts from Maven Central and applies security controls. Direct fallback to Maven Central bypasses Chainguard's malware-resistance controls.
 
 Typically the access is [configured globally on a repository manager for your
 organization](/chainguard/libraries/java/global-configuration/). This approach
