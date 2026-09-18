@@ -63,33 +63,33 @@ Take note of the `Username` and `Password`. You'll need them when setting up the
 
 The routing rules will split incoming requests between the two proxies. They need to exist first, since each proxy references one by name.
 
-Log in to Nexus as an **admin**. Open Administration (the cog in the top bar) and select **Repository** ⇒ **Routing Rules**.
+Log in to Nexus as an administrator. Open **Settings** and select **Repository** ⇒ **Routing Rules**.
 
 Click the **Create Routing Rule** button and enter the following details:
 
 * **Name** — `chainguard-apk-block-index`
 * **Description** — `Block APKINDEX.tar.gz paths from the packages proxy.`
 * **Mode** — `Block`
-* **Matcher** — `.*APKINDEX\.tar\.gz`
+* **Matchers** — `.*APKINDEX\.tar\.gz`
 
 Click **Create Routing Rule** to save. Then repeat the process for the second rule:
 
 * **Name** — `chainguard-apk-only-index`
 * **Description** — `Restrict the index proxy to APKINDEX.tar.gz paths only.`
 * **Mode** — `Allow`
-* **Matcher** — `.*APKINDEX\.tar\.gz`
+* **Matchers** — `.*APKINDEX\.tar\.gz`
 
 ### Creating the packages proxy
 
 This proxy handles `.apk` requests. Because packages won't change, its cache never needs to expire.
 
-From the Administration view, select **Repository** ⇒ **Repositories**, click the **Create repository** button, and select the **raw (proxy)** recipe. Enter the following details:
+From **Settings**, select **Repository** ⇒ **Repositories**, click the **Create repository** button, and select the **raw (proxy)** recipe. Enter the following details:
 
 * **Name** — `chainguard-apk-packages`
 * **Online** — Enabled.
 * **Remote storage** — `https://apk.cgr.dev/<organization>`, replacing `<organization>` with your organization's name as it appears in the Chainguard Console.
 * **Preserve encoded characters in URLs** — Enabled. `apk.cgr.dev` redirects `.apk` requests to a Cloudflare R2 presigned URL whose signature covers percent-encoded characters (`%2B`, `%2F`, `%3D`). Nexus's default URL normalization would decode them and break the signature.
-* **Content Max Age** — `-1` (never expire).
+* **Maximum component age** — `-1` (never expire).
 * **Routing Rule** — `chainguard-apk-block-index`.
 
 In the **HTTP** section, check **Authentication**, select the `Username` type, and enter the `Username` and `Password` from the pull token you generated earlier. Click **Create repository**.
@@ -103,7 +103,7 @@ Repeat the process to create a second raw (proxy) repository with the following 
 * **Name** — `chainguard-apk-index`
 * **Remote storage** — Same as the packages proxy.
 * **Preserve encoded characters in URLs** — Enabled.
-* **Content Max Age** — `1` (one minute). Tune higher to reduce origin fetches, or lower for faster visibility of new packages.
+* **Maximum component age** — `15` (minutes). Tune higher to reduce origin fetches, or lower for faster visibility of new packages.
 * **Routing Rule** — `chainguard-apk-only-index`.
 
 Populate the **HTTP** authentication fields with the same pull token credentials, then click **Create repository**.
