@@ -1,6 +1,6 @@
 # Chainguard Documentation Bundle
 
-_Compiled on: 2026-09-16 02:21:57_
+_Compiled on: 2026-09-18 02:21:30_
 
 This document contains Chainguard documentation compiled from multiple sources.
 
@@ -15242,12 +15242,19 @@ that source be available. Therefore, packages that do not provide a valid source
 URL cannot be rebuilt within the Chainguard Factory.
 
 Chainguard Libraries for Python can be consumed through [Chainguard
-Repository](/chainguard/libraries/chainguard-repository/), which provides a single endpoint for Python package retrieval and
-supports protected upstream fallback when configured for your organization. This
-allows builds to prefer Chainguard-built packages first while still covering
-packages or wheel files that Chainguard does not currently serve directly. Configure this endpoint [globally through a repository manager](/chainguard/libraries/python/global-configuration/) for centralized
+Repository](/chainguard/libraries/chainguard-repository/), which provides a
+single endpoint for Python package retrieval and supports protected upstream
+fallback when configured for your organization. This allows builds to prefer
+Chainguard-built packages first while still covering packages or wheel files
+that Chainguard does not currently serve directly. Configure this endpoint
+[globally through a repository
+manager](/chainguard/libraries/python/global-configuration/) for centralized
 access control across your organization, or use it [directly from individual
 build tools](/chainguard/libraries/python/build-configuration/).
+
+> Note: The Chainguard Repository endpoint does not include remediated packages
+> with `+cgr` version suffixes. To use those versions, you must also configure the separate
+> `python-remediated` index.
 
 Follow the steps detailed in [Manual access](#manual) to browse the Python index
 and find available packages, package versions, source distribution (sdist), and
@@ -16445,6 +16452,7 @@ migrate:
 | `enabled`                | `true`  | Enables inline pull request recommendation comments.                                |
 | `migrate.enabled`        | `false` | Opts into automated migration pull requests.                                        |
 | `migrate.period`         | `24h`   | How often the migration pull request is refreshed. Clamped to a minimum of one day. |
+| `migrate.version-strategy` | `exact` | Version selection when no exact equivalent exists. Set to `smallest-major-bump` to migrate older pins to the closest Chainguard-supplied major version. |
 | `migrate.ignore.files`   | —       | Glob patterns for workflow files to skip during migration.                          |
 | `migrate.ignore.actions` | —       | Glob patterns for upstream actions to skip during migration.                        |
 
@@ -32855,7 +32863,7 @@ Chainguard's Python container images provide a more secure foundation for Python
 
 Two variants of Chainguard Python images are available: a minimal runtime image containing only Python and its standard library, and a `-dev` variant that includes pip and a shell for development purposes. Since most Python applications require third-party packages, the recommended approach is using a [multi-stage Docker build](https://docs.docker.com/build/building/multi-stage/) with the `-dev` image for dependency installation and the minimal image for runtime.
 
-In this guide, we'll cover two examples to showcase Python container images based on Wolfi as a runtime. In the first, we'll use the minimal image containing just Python (which has access to the [Python standard library](https://docs.python.org/3/library/)), and in the second we'll demonstrate a multi-stage build.
+This guide covers two examples of Python container images based on Wolfi as a runtime. The first uses the minimal image containing just Python, which has access to the [Python standard library](https://docs.python.org/3/library/). The second demonstrates a multi-stage build.
 
 {{< details "What is distroless?" >}}
 {{< blurb/distroless >}}
@@ -32875,27 +32883,22 @@ In this guide, we'll cover two examples to showcase Python container images base
 
 ## Example 1 — Minimal Python Chainguard Container
 
-In this example, we'll build and run a distroless Python Chainguard Container in a single-stage build process. We'll first make a demonstration app and then build and run it.
+In this example, you'll build and run a distroless Python Chainguard Container in a single-stage build process. You'll first make a demonstration app, then build and run it.
 
 ### Step 1: Setting up a demo application
 
-We'll start by creating a basic command-line Python application to serve as a demo. This app will generate random octopus facts based on a list in a text file. This app will use the `random` module from the Python standard library.
+Start by creating a basic command-line Python application to serve as a demo. This app generates random octopus facts based on a list in a text file, using the `random` module from the Python standard library.
 
-First, create a directory for your app. You can use any meaningful name and path; our example will use `octo-facts/`.
+First, create a directory for your app. You can use any meaningful name and path; this example uses `octo-facts/`.
 
 ```shell
 mkdir ~/octo-facts/ && cd $_
 ```
 
-Create a new file to serve as the application entry point. We’ll use `main.py`. You can edit this file in whatever code editor you would like. We'll use Nano as an example.
+Create a new file named `main.py` to serve as the application entry point. The following Python script defines a light CLI app that takes in a text file, `facts.txt`, and returns a random line from that file.
 
 ```shell
-nano main.py
-```
-
-The following Python script defines a light CLI app that takes in a text file, `octo-facts.txt`, and returns a random line from that file.
-
-```python
+cat > main.py <<'EOF'
 '''Import random module to implement random.choice() function'''
 import random
 
@@ -32911,10 +32914,8 @@ def main():
 
 if __name__ == "__main__":
     main()
-
+EOF
 ```
-
-Copy this code to your `main.py` script, save and close the file.
 
 Next, pull down the `facts.txt` file with `curl`. [Inspect the URL](https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/python/octo-facts/facts.txt) before downloading it to ensure it is safe to do so. Make sure you are still in the same directory where your `main.py` script is.
 
@@ -32922,7 +32923,7 @@ Next, pull down the `facts.txt` file with `curl`. [Inspect the URL](https://raw.
 curl -O https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/python/octo-facts/facts.txt
 ```
 
-At this point, you can run the script and be sure you are satisfied with the functionality. It is recommended that you use a Python programming environment. Ensure whether you will be using the `python` or `python3` command.
+At this point, you can run the script and be sure you are satisfied with the functionality. We recommend that you use a Python programming environment. Determine whether your system uses the `python` or `python3` command.
 
 ```shell
 python main.py
@@ -32938,22 +32939,17 @@ The demo application is now ready. In the next step, you’ll create a Dockerfil
 
 ### Step 2: Creating the Dockerfile
 
-For this single-stage build, we'll only use one `FROM` line in our Dockerfile. Our resulting container will be based on the distroless Python Wolfi container image, which means it doesn’t come with a package manager or even a shell.
+For this single-stage build, you'll only need one `FROM` line in your Dockerfile. The resulting container is based on the distroless Python Wolfi container image, which means it doesn’t come with a package manager or even a shell.
 
-We'll begin by creating a Dockerfile. Again, you can use any code editor of your choice, we'll use Nano for demonstration purposes.
+Begin by creating a Dockerfile. The following Dockerfile:
+
+1. Starts a build stage based on the `python:latest` image;
+2. Declares the working directory;
+3. Copies the script and the text file that's being read;
+4. Sets up the application as entry point for this container.
 
 ```shell
-nano Dockerfile
-```
-
-The following Dockerfile will:
-
-1. Start a build stage based on the `python:latest` image;
-2. Declare the working directory;
-3. Copy the script and the text file that's being read;
-4. Set up the application as entry point for this container.
-
-```Dockerfile
+cat > Dockerfile <<'EOF'
 FROM cgr.dev/chainguard/python:latest
 
 WORKDIR /octo-facts
@@ -32961,9 +32957,8 @@ WORKDIR /octo-facts
 COPY main.py facts.txt ./
 
 ENTRYPOINT [ "python", "/octo-facts/main.py" ]
+EOF
 ```
-
-Save the file when you're finished.
 
 You can now build the container image. If you receive an error, try again with `sudo`.
 
@@ -32987,43 +32982,31 @@ You have successfully completed the single-stage Python Chainguard Container. At
 
 ## Example 2 — Multi-stage build for Python Chainguard Container
 
-In this example, we'll build and run a multi-stage Python Chainguard Container. We'll have a build image
-that includes pip and a shell before creating a final distroless image without these development
-tools for production.
+In this example, you'll build and run a multi-stage Python Chainguard Container. The build image includes pip and a shell, and the final distroless image leaves out these development tools for production.
 
 ### Step 1: Setting up a demo application
 
-We'll start by creating a Python application that will take in an image file and convert it to ANSI escape sequences on the CLI to render an image.
+Start by creating a Python application that takes in an image file and converts it to ANSI escape sequences on the CLI to render an image.
 
-To begin, create a directory for your app. You can use any meaningful name and path that resonates with you, our example will use `linky/`.
+To begin, create a directory for your app. You can use any meaningful name and path that resonates with you; this example uses `linky/`.
 
 ```shell
 mkdir ~/linky/ && cd $_
 ```
 
-We'll first write out the requirements for our app in a new file, for example we named our file `requirements.txt`. You can edit this file in your preferred code editor, in our case we will use Nano.
+First, write out the requirements for your app in a file named `requirements.txt`. This installs version 0.2.2 of [climage](https://pypi.org/project/climage/), which converts images into ANSI escape sequences:
 
 ```shell
-nano requirements.txt
+cat > requirements.txt <<'EOF'
+climage==0.2.2
+EOF
 ```
 
-We'll use version 68.2.2 of Python [setuptools](https://pypi.org/project/setuptools/) and also install [climage](https://pypi.org/project/climage/). We need to use a slightly older version of setuptools for compatibility with climage. Add the following text to the file:
+Create a file named `linky.py` to hold your Python code. It defines a CLI app that takes in an
+image file, `linky.png`, and prints a representation of that file to the terminal:
 
 ```shell
-setuptools==70.0.0
-climage==0.2.0
-```
-
-Save the file and we will next create a new file with our python code called `linky.py`. You can edit this file in whatever code editor you would like. We’ll use Nano as an example.
-
-```shell
-nano linky.py
-```
-
-Add the following Python code which defines a CLI app that takes in an image file, `linky.png`, and
-prints a representation of that file to the terminal:
-
-```python
+cat > linky.py <<'EOF'
 '''import climage module to display images on terminal'''
 from climage import convert
 
@@ -33034,6 +33017,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+EOF
 ```
 
 Next, pull down the `linky.png` image file with `curl`. [Inspect the URL](https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/python/linky/linky.png) before downloading it to ensure it is safe to do so. Make sure you are still in the same directory where your `linky.py` script is.
@@ -33042,43 +33026,26 @@ Next, pull down the `linky.png` image file with `curl`. [Inspect the URL](https:
 curl -O https://raw.githubusercontent.com/chainguard-dev/edu-images-demos/main/python/linky/linky.png
 ```
 
-If you have python and pip installed in your local environment, you can now install the dependencies with `pip` and run our program. Don't worry if you don't have python installed, you can simply skip this step and move onto the Dockerfile.
-
-```shell
-pip install -r requirements.txt
-python linky.py
-```
-
-You'll receive a representation of the Chainguard Linky logo on the command line. With your demo application ready, you're ready to move onto the container stage.
+With your demo application ready, you can move on to the container stage.
 
 ### Step 2: Creating the Dockerfile
 
-To make sure our final container is distroless while still being able to install dependencies with pip,
-our build will consist of two stages: first, we’ll build the application using the
-`python:latest-dev` image variant, a Wolfi-based image that includes pip and other useful tools for
-development. Then, we’ll create a separate stage for the final image. The resulting container will be
-based on the distroless Python Wolfi container image, which means it doesn’t come with pip or even a shell.
+To keep the final container distroless while still being able to install dependencies with pip, the build consists of two stages: first, you’ll build the application using the `python:latest-dev` image variant, a Wolfi-based image that includes pip and other useful tools for development. Then, you’ll create a separate stage for the final image. The resulting container is based on the distroless Python Wolfi container image, which means it doesn’t come with pip or even a shell.
 
-Begin by editing a Dockerfile, with Nano for instance.
+Begin by creating a Dockerfile. The following Dockerfile:
+
+1. Starts a new build stage based on the `python:latest-dev` container image and calls it `builder`;
+2. Creates a new virtual environment to cleanly hold the application's dependencies, using `--without-pip` to keep pip out of the environment and therefore out of the final image;
+3. Copies `requirements.txt` from the current directory to the `/linky` location in the container;
+4. Runs `pip --python /linky/venv/bin/python install --no-cache-dir -r requirements.txt` to install dependencies, where `--python` points the builder's own pip at the virtual environment;
+5. Starts a new build stage based on the `python:latest` image;
+6. Copies the dependencies in the virtual environment from the builder stage, and the source code from the current directory;
+7. Sets up the application as the entry point for this container.
+
+Write this configuration to your own Dockerfile:
 
 ```shell
-nano Dockerfile
-```
-
-The following Dockerfile will:
-
-1. Start a new build stage based on the `python:latest-dev` container image and call it `builder`;
-2. Create a new virtual environment to cleanly hold the application's dependencies;
-3. Copy `requirements.txt` from the current directory to the `/linky` location in the container;
-4. Run `pip install --no-cache-dir -r requirements.txt` to install dependencies;
-5. Start a new build stage based on the `python:latest` image;
-6. Copy the dependencies in the virtual environment from the builder stage, and the source code from
-   the current directory;
-7. Set up the application as the entry point for this container.
-
-Copy this configuration to your own Dockerfile:
-
-```Dockerfile
+cat > Dockerfile <<'EOF'
 FROM cgr.dev/chainguard/python:latest-dev AS builder
 
 ENV LANG=C.UTF-8
@@ -33088,10 +33055,10 @@ ENV PATH="/linky/venv/bin:$PATH"
 
 WORKDIR /linky
 
-RUN python -m venv /linky/venv
+RUN python -m venv --without-pip /linky/venv
 COPY requirements.txt .
 
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip --python /linky/venv/bin/python install --no-cache-dir -r requirements.txt
 
 FROM cgr.dev/chainguard/python:latest
 
@@ -33104,9 +33071,8 @@ COPY linky.py linky.png ./
 COPY --from=builder /linky/venv /venv
 
 ENTRYPOINT [ "python", "/linky/linky.py" ]
+EOF
 ```
-
-Save the file when you’re finished.
 
 You can now build the container image. If you receive a permission error, try running under `sudo`.
 
@@ -37698,7 +37664,7 @@ Chainguard Containers are built on [Wolfi](/open-source/wolfi/), a [distroless](
 {{< blurb/multistage >}}
 {{< /details >}}
 
-Because Chainguard Containers aim to be minimal, adapting your containerized application requires that you consider some additional factors that will be discussed below.
+Because Chainguard Containers aim to be minimal, adapting your containerized application requires that you consider some additional factors, which the following sections describe.
 
 ## Chainguard Containers for Python overview
 
@@ -37708,7 +37674,7 @@ We distribute two versions of our [Python container image](https://images.chaing
 
 When migrating your Python application, keep in mind these differences between the [Chainguard Container for Python](https://images.chainguard.dev/directory/image/python/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-python) and the [official Docker image](https://hub.docker.com/_/python).
 
-- The entrypoint for the Chainguard Container for Python is `/usr/bin/python`. When running either the `latest` or `latest-dev` versions of the image interactively, you'll be working in the Python interpreter. When using `CMD` in your Dockerfiles, provided commands will be passed to `python` by default. If you change the path to include binaries from a virtual environment, you should manually set the entrypoint or your Dockerfile will continue to use the included system Python as the entrypoint and you will not have access to installed packages in the virtual environment.
+- The entrypoint for the Chainguard Container for Python is `/usr/bin/python`. When running either the `latest` or `latest-dev` versions of the image interactively, you'll be working in the Python interpreter. When using `CMD` in your Dockerfiles, the container passes the provided commands to `python` by default. If you change the path to include binaries from a virtual environment, you should manually set the entrypoint. Otherwise, your Dockerfile continues to use the included system Python as the entrypoint, and you won't have access to installed packages in the virtual environment.
 - Chainguard Containers for Python run as the `nonroot` user by default. If you need elevated permissions, such as to add packages with `apk`, run the image as `--user root`. You should not use the root user in a production scenario.
 - The `/home` and `/home/nonroot` directories are owned by the nonroot user.
 - The `python:latest` Chainguard Container intended for production does not include a `sh`, `ash`, or `bash`. Refer to the [Debugging distroless](/chainguard/containers/debugging-distroless-images/) guide for advice on resolving issues without the use of these shells.
@@ -37728,10 +37694,10 @@ FROM cgr.dev/chainguard/python:latest-dev AS dev
 
 WORKDIR /flask-app
 
-RUN python -m venv venv
+RUN python -m venv --without-pip venv
 ENV PATH="/flask-app/venv/bin":$PATH
 COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+RUN pip --python /flask-app/venv/bin/python install -r requirements.txt
 
 FROM cgr.dev/chainguard/python:latest
 
@@ -37750,7 +37716,9 @@ When running an application containerized with the above Dockerfile, the applica
 
 As you can see, the primary difference in this Flask application compared to the pre-migration application is the use of a multistage build. In the initial stage, we copy our requirements into the development version of the Python Chainguard Image, initialize a virtual environment, and install needed packages with pip. In the second stage, we copy the virtual environment from the development image, copy the application from the host, set exposed port metadata, and run the application with the [Gunicorn](https://gunicorn.org/) WSGI server.
 
-By default, the entrypoint for the Python Chainguard Container is `/usr/bin/python` rather than `bash`. However, if you shadow the included system `python` with the virtual environment `python` on the path as we do above, you should set the entrypoint explicitly. Otherwise, you will not have access to the packages included in your virtual environment.
+We create the virtual environment with `--without-pip` and install into it with `pip --python`, which runs the development image's own pip against the virtual environment. Because the second stage copies that environment into the production image, anything installed there ships to production. Leaving pip out keeps the production image limited to the packages your application imports.
+
+By default, the entrypoint for the Python Chainguard Container is `/usr/bin/python` rather than `bash`. However, if you shadow the included system `python` with the virtual environment `python` on the path as we do above, you should set the entrypoint explicitly. Otherwise, you won't have access to the packages included in your virtual environment.
 
 We recommend that you pin dependencies to specific versions in your own application. The example Flask application script linked above also enables debug mode, which should be turned off in a production scenario.
 
@@ -38930,9 +38898,9 @@ _Path: chainguard/containers/migration/porting-apps-to-chainguard/index.md_
 
 * Chainguard's distroless Containers have no shell or package manager by default. This is great for security, but sometimes you need these things, especially in builder images. For those cases we have `-dev` variants (such as `cgr.dev/chainguard/python:latest-dev`) which do include a shell and package manager.
 * Chainguard Containers typically don't run as root, so a `USER root` statement may be required before installing software. This should be a temporary escalation only; after completing any root-level operations, you should create and switch to a dedicated non-root user (for example, using `addgroup` and `adduser`) or use the image's built-in non-root user. Leaving the container running as root defeats the security purpose of using minimal images.
-* The `-dev` variants and `wolfi-base` / `chainguard-base` use BusyBox by default, so any `groupadd` or `useradd` commands will need to be ported to `addgroup` and `adduser`.
+* The `-dev` variants and `wolfi-base` / `chainguard-base` use BusyBox by default, so you need to port any `groupadd` or `useradd` commands to `addgroup` and `adduser`.
 * The [Free tier](/chainguard/containers/concepts/container-categories/#free-containers) of Containers provides `:latest` and `:latest-dev` versions. Our paid Production Containers offer tags for major and minor versions.
-* We use apk tooling, so `apt install` commands will become `apk add`.
+* We use apk tooling, so `apt install` commands become `apk add`.
 * Chainguard Containers are based on `glibc` and our packages cannot be mixed with Alpine packages.
 * In some cases, the entrypoint in Chainguard Containers can be different from equivalent container images based on other distros, which can lead to unexpected behavior. You should always check the image's specific documentation to understand how the entrypoint works.
 * When needed, Chainguard recommends using a Base Container like `chainguard-base` or a `-dev` variant to install an application's OS-level dependencies.
@@ -38940,14 +38908,14 @@ _Path: chainguard/containers/migration/porting-apps-to-chainguard/index.md_
 
 ## The sample application
 
-The application in question is [identidock](https://github.com/using-docker/identidock). This application was written for the book [Using Docker](https://learning.oreilly.com/library/view/using-docker/9781491915752/) about ten years ago, which shows that we can still migrate software of this age to a new container while realizing the benefits of a no-to-low CVE count. The application itself will create [identicons](https://en.wikipedia.org/wiki/Identicon) for a user name, similar to what [GitHub generates for users with no avatar](https://github.blog/2013-08-14-identicons/). It was designed at the time to demonstrate a "microservices" approach, and as such it's made up of 3 services:
+The application in question is [identidock](https://github.com/using-docker/identidock). This application was written for the book [Using Docker](https://learning.oreilly.com/library/view/using-docker/9781491915752/) about ten years ago, which shows that we can still migrate software of this age to a new container while realizing the benefits of a no-to-low CVE count. The application itself creates [identicons](https://en.wikipedia.org/wiki/Identicon) for a user name, similar to what [GitHub generates for users with no avatar](https://github.blog/2013-08-14-identicons/). It was designed at the time to demonstrate a "microservices" approach, and as such it's made up of 3 services:
 
 * The main identidock service, which takes the requests and talks to the
   [dnmonster](https://github.com/amouat/dnmonster) service and the redis cache
 * A NodeJS application which creates the identicons
 * Redis which is used as a simple cache
 
-The services are put together as shown in the below diagram. The user only talks to the identidock service. The identidock service will first check the cache to see if it has already created an identicon for the input and, if not, requests a new identicon from the dnmonster service. The identicon is then returned to the user and saved to the cache if required.
+The following diagram shows how the services fit together. The user only talks to the identidock service. The identidock service first checks the cache to see if it has already created an identicon for the input and, if not, requests a new identicon from the dnmonster service. The identicon is then returned to the user and saved to the cache if required.
 
 ![Diagram of Identidock architecture](arch.png)
 
@@ -38972,7 +38940,7 @@ docker run -d -p 8080:8080 amouat/dnmonster
 curl --output ./monster.png 'localhost:8080/monster/wolfi?size=100'
 ```
 
-In this example, we give dnmonster the input "wolfi", for which it will produce the following image:
+In this example, we give dnmonster the input "wolfi", for which it produces the following image:
 
 ![Simple "monster" art](monster.png "Monster generated for wolfi input")
 
@@ -39052,9 +39020,9 @@ To:
 FROM cgr.dev/chainguard/node:latest-dev
 ```
 
-Unlike the `cgr.dev/chainguard/node:latest` image, the `:latest-dev` version includes a shell and package manager, which we will need for some of the build steps. In general, it's better to use the more minimal `:latest` version where possible in order to keep the size down and reduce the tooling available to attackers. Often the `:latest-dev` container image can be used as a build step in a multi-stage, with a more minimal image such as `:latest` used in the final production image.
+Unlike the `cgr.dev/chainguard/node:latest` image, the `:latest-dev` version includes a shell and package manager, which we need for some of the build steps. In general, it's better to use the more minimal `:latest` version where possible in order to keep the size down and reduce the tooling available to attackers. Often the `:latest-dev` container image can be used as a build step in a multi-stage, with a more minimal image such as `:latest` used in the final production image.
 
-If you try building this image, you'll find that it breaks in several places. The container image needs to install various libraries so that it can compile the [`node-canvas`](https://github.com/Automattic/node-canvas) dependency, and this looks a bit different in Debian than it does in [Wolfi](https://github.com/wolfi-dev/) (the OS powering Chainguard Containers). In Wolfi, we first need to switch to the root user to install software and we use `apk add` instead of `apt-get`. We then need to figure out the Wolfi equivalents of the various Debian packages, which may not always have a one-to-one correspondence. There are tools to help here – you can consult our [migration guides](/chainguard/containers/migration/compatibility/debian-compatibility/) and use apk tools (like `apk search libjpeg`), but searching the [Wolfi GitHub](https://github.com/wolfi-dev/os) repository for package names will often provide you with what you’re looking for.
+If you try building this image, you'll find that it breaks in several places. The container image needs to install various libraries so that it can compile the [`node-canvas`](https://github.com/Automattic/node-canvas) dependency, and this looks a bit different in Debian than it does in [Wolfi](https://github.com/wolfi-dev/) (the OS powering Chainguard Containers). In Wolfi, we first need to switch to the root user to install software and we use `apk add` instead of `apt-get`. We then need to figure out the Wolfi equivalents of the various Debian packages, which may not always have a one-to-one correspondence. There are tools to help here – you can consult our [migration guides](/chainguard/containers/migration/compatibility/debian-compatibility/) and use apk tools (like `apk search libjpeg`), but searching the [Wolfi GitHub](https://github.com/wolfi-dev/os) repository for package names often provides you with what you’re looking for.
 
 Make these changes by replacing the `RUN apt-get …` line with the following `RUN apk update` and adding a `USER root` line. The start of the Dockerfile should look like this:
 
@@ -39074,7 +39042,7 @@ The next change we need to make is to the `RUN groupadd …` line. Chainguard Co
 RUN addgroup dnmonster && adduser -D -G dnmonster dnmonster
 ```
 
-Finally, the default entrypoint for the Chainguard container image is `/usr/bin/node`. If we leave the `CMD` as it is, it will be interpreted as an argument to node, which isn't what we want. The Docker official image uses an entrypoint script to interpret commands, but this isn't available in the `cgr.dev/chainguard/node:latest-dev` image. The easiest fix is to change the `CMD` command to `ENTRYPOINT` which will override the `/usr/bin/node` command:
+Finally, the default entrypoint for the Chainguard container image is `/usr/bin/node`. If we leave the `CMD` as it is, node interprets it as an argument, which isn't what we want. The Docker official image uses an entrypoint script to interpret commands, but this isn't available in the `cgr.dev/chainguard/node:latest-dev` image. The fix is to change the `CMD` command to `ENTRYPOINT`, which overrides the `/usr/bin/node` command:
 
 ```Dockerfile
 ENTRYPOINT [ "npm", "start" ]
@@ -39218,7 +39186,7 @@ This results in a container image that is now 620MB in size and has 0 CVEs.
 
 We're most of the way now, but there are still a couple of finishing touches to make. The first one is to remove the dnmonster user. The wolfi-base image already defines a `nonroot` user, so we can make the build a little less complicated by using that user directly. The second one is to add in a process manager. We have node running as the root process (PID 1) in the container, which isn't ideal as it doesn't handle some of the responsibilities that come with running as PID 1, such as forwarding signals to subprocesses. You can see this most clearly when you try to stop the image – it takes several seconds as the process doesn't respond to the SIGTERM signal sent by Docker and has to be hard killed with SIGKILL. To fix this, we can add [`tini`](https://github.com/krallin/tini), a small init for containers.
 
-The `tini` binary will run as PID 1, launch npm as a subprocess and take care of PID 1 responsibilities. Now, the final Dockerfile looks like this:
+The `tini` binary runs as PID 1, launches npm as a subprocess, and takes care of PID 1 responsibilities. Now, the final Dockerfile looks like this:
 
 ```Dockerfile
 FROM cgr.dev/chainguard/node:latest-dev AS build
@@ -39273,7 +39241,7 @@ curl --output ./monster.png 'localhost:8080/monster/wolfi?size=100'
 
 ## Updating the Python microservice
 
-The next service we will look at updating is Identidock, the main entrypoint for the application. Identidock is responsible for looking up requests in the cache and falling-back to calling the dnmonster service if they're not present.
+The next service we update is Identidock, the main entrypoint for the application. Identidock is responsible for looking up requests in the cache and falling-back to calling the dnmonster service if they're not present.
 
 Again, the version of the code on the v1 branch already contains a few updates from the original code, but in this case all that was needed was to bump various libraries to newer versions. The Dockerfile for the v1 version can be found in the identidock folder and looks like:
 
@@ -39326,7 +39294,7 @@ grype docker:identidock
 
 At the time of writing, this container image is 1.51GB with hundreds of vulnerabilities (7 critical) according to Grype.
 
-Again as a first step, we will try to switch out directly to the Chainguard Container. To do this, edit the Dockerfile so the first line reads:
+Again as a first step, we try switching directly to the Chainguard Container. To do this, edit the Dockerfile so the first line reads:
 
 ```Dockerfile
 FROM cgr.dev/chainguard/python:latest-dev
@@ -39339,7 +39307,7 @@ USER root
 RUN addgroup uwsgi && adduser -D -G uwsgi uwsgi
 ```
 
-The image now builds, but there are issues due to differences in the image entrypoint. If you run the container image, you will get a confusing error message such as:
+The image now builds, but there are issues due to differences in the image entrypoint. If you run the container image, you get a confusing error message such as:
 
 ```bash
 `File "/cmd.sh", line 4`
@@ -39369,7 +39337,7 @@ else
 fi
 ```
 
-This script decides how to run the application depending on how the `ENV` environment variable is set. The idea here is to allow us to use the same image in development, testing, and production. This approach is no longer recommended as it leads to development tooling being present in the production environment. Even though the development tooling isn't run in production, it is still bloating the image and is potentially exploitable by attackers. Therefore, we will use a different approach and break the Dockerfile into separate development and production images.
+This script decides how to run the application depending on how the `ENV` environment variable is set. The idea here is to allow us to use the same image in development, testing, and production. This approach is no longer recommended as it leads to development tooling being present in the production environment. Even though the development tooling isn't run in production, it is still bloating the image and is potentially exploitable by attackers. Therefore, we use a different approach and break the Dockerfile into separate development and production images.
 
 Let’s skip to the final Dockerfile for our image and walk through the changes made. These changes address multiple issues, beyond just having multiple images, and are based on the [Chainguard Academy guide to Python images](/chainguard/containers/getting-started/languages-and-runtimes/python/).
 
@@ -39384,9 +39352,9 @@ ENV PYTHONUNBUFFERED=1
 ENV PATH="/app/venv/bin:$PATH"
 
 WORKDIR /app
-RUN python -m venv /app/venv
+RUN python -m venv --without-pip /app/venv
 COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip --python /app/venv/bin/python install --no-cache-dir -r requirements.txt
 COPY app /app
 
 EXPOSE 5000
@@ -39422,7 +39390,7 @@ The first thing to notice is that we have a multistage build now. If you want th
 docker build --pull --target dev -t identidock:dev .
 ```
 
-Otherwise, you will get the standard variant only.
+Otherwise, you get the standard variant only.
 
 There are several more environment variables defined. These prevent the creation of Python bytecode and buffering of output.
 
@@ -39430,7 +39398,7 @@ The installation of pip modules has moved to the `requirements.txt` file. The ma
 
 The development server runs on port 5000, while the production server runs on port 9090. We could edit this so they both run on the same port, but this approach reduces the chance of accidentally running the development server in production. The development server is started directly from the entrypoint, so we are no longer dependent on an entrypoint script, simplifying our architecture.
 
-To get a minimal, clean production install, we are using a Python virtual environment([venv](https://docs.python.org/3/library/venv.html)) in the development image to isolate all dependencies, which are then copied over to the production image. Finally, the production image has been changed to use [gunicorn](https://gunicorn.org/) as [uwsgi has entered "maintenance mode"](https://github.com/unbit/uwsgi).
+To get a minimal, clean production install, we are using a Python virtual environment ([venv](https://docs.python.org/3/library/venv.html)) in the development image to isolate all dependencies, which are then copied over to the production image. The `--without-pip` flag keeps pip out of that environment, so the production image carries only the packages the application imports. Installing into the environment then takes `pip --python /app/venv/bin/python`, which runs the development image's system pip against the environment. If you work inside the development container, use that same `--python` flag to add a package, because a bare `pip install` targets the system interpreter instead. Finally, the production image has been changed to use [gunicorn](https://gunicorn.org/) as [uwsgi has entered "maintenance mode"](https://github.com/unbit/uwsgi).
 
 Build the final image:
 
@@ -39496,7 +39464,7 @@ If you now run `docker compose up --build`, you should have a working applicatio
 
 There are some differences between this version and the original. The environment variable used for switching between image variants has been removed and the ports have changed to reflect the default port used in gunicorn.
 
-This Compose file doesn't contain support for a development workflow currently – ideally we would be able to quickly iterate on our code without building a new image. The original file used volumes to achieve this, but this isn't something we want to do with the production image. One solution is to have a separate development Compose file, which will build the development image and use a volume to mount code at runtime for immediate feedback. New versions of Docker also support [Compose Watch](https://docs.docker.com/compose/file-watch/) which can be a more efficient and granular solution than volume mounts. Refer to [What is Docker Compose Watch and what problem does it solve?](https://collabnix.com/what-is-docker-compose-watch-and-what-problem-does-it-solve/) for an introductory tutorial on using Compose Watch.
+This Compose file doesn't contain support for a development workflow currently – ideally we would be able to quickly iterate on our code without building a new image. The original file used volumes to achieve this, but this isn't something we want to do with the production image. One solution is to have a separate development Compose file, which builds the development image and uses a volume to mount code at runtime for immediate feedback. New versions of Docker also support [Compose Watch](https://docs.docker.com/compose/file-watch/) which can be a more efficient and granular solution than volume mounts. Refer to [What is Docker Compose Watch and what problem does it solve?](https://collabnix.com/what-is-docker-compose-watch-and-what-problem-does-it-solve/) for an introductory tutorial on using Compose Watch.
 
 ## Conclusion
 
@@ -57393,7 +57361,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: cgr.dev
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository being pulled from
-Ce-Time: 2026-09-14T20:00:51.552421512Z
+Ce-Time: 2026-09-15T20:06:41.517324018Z
 Ce-Type: dev.chainguard.registry.pull.v1
 Content-Length: 777
 Content-Type: application/json
@@ -57423,7 +57391,7 @@ User-Agent: Chainguard Enforce
     "tag": "The tag of the image being pulled",
     "type": "Type determines whether the object being pulled is a manifest or blob",
     "user_agent": "The user-agent of the client who pulled",
-    "when": "2026-09-14T20:00:51.551509"
+    "when": "2026-09-15T20:06:41.516384"
   }
 }
 
@@ -57446,7 +57414,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: cgr.dev
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository being pushed to
-Ce-Time: 2026-09-14T20:00:51.551719955Z
+Ce-Time: 2026-09-15T20:06:41.516619528Z
 Ce-Type: dev.chainguard.registry.push.v1
 Content-Length: 707
 Content-Type: application/json
@@ -57475,7 +57443,7 @@ User-Agent: Chainguard Enforce
     "tag": "The tag of the image being pushed",
     "type": "Type determines whether the object being pushed is a manifest or blob",
     "user_agent": "The user-agent of the client who pushed",
-    "when": "2026-09-14T20:00:51.551486"
+    "when": "2026-09-15T20:06:41.516348"
   }
 }
 
@@ -57498,7 +57466,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/auth/v1/register
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP
-Ce-Time: 2026-09-14T20:00:51.55344972Z
+Ce-Time: 2026-09-15T20:06:41.525085731Z
 Ce-Type: dev.chainguard.api.auth.registered.v1
 Content-Length: 154
 Content-Type: application/json
@@ -57538,7 +57506,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier of the subscription
-Ce-Time: 2026-09-14T20:00:51.556498765Z
+Ce-Time: 2026-09-15T20:06:41.53676211Z
 Ce-Type: dev.chainguard.api.events.subscription.created.v1
 Content-Length: 152
 Content-Type: application/json
@@ -57576,7 +57544,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier of the subscription to delete
-Ce-Time: 2026-09-14T20:00:51.556737988Z
+Ce-Time: 2026-09-15T20:06:41.536966888Z
 Ce-Type: dev.chainguard.api.events.subscription.deleted.v1
 Content-Length: 119
 Content-Type: application/json
@@ -57615,7 +57583,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-09-14T20:00:51.556959499Z
+Ce-Time: 2026-09-15T20:06:41.518855039Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -57656,7 +57624,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-09-14T20:00:51.557180785Z
+Ce-Time: 2026-09-15T20:06:41.519106918Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -57693,7 +57661,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-14T20:00:51.55738344Z
+Ce-Time: 2026-09-15T20:06:41.51932716Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -57741,7 +57709,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-09-14T20:00:51.560181525Z
+Ce-Time: 2026-09-15T20:06:41.523502393Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -57787,7 +57755,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-09-14T20:00:51.561506157Z
+Ce-Time: 2026-09-15T20:06:41.523719235Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -57833,7 +57801,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-09-14T20:00:51.561697099Z
+Ce-Time: 2026-09-15T20:06:41.523861554Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -57872,7 +57840,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-09-14T20:00:51.56508193Z
+Ce-Time: 2026-09-15T20:06:41.521794056Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -57912,7 +57880,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-09-14T20:00:51.565506839Z
+Ce-Time: 2026-09-15T20:06:41.522088829Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -57951,7 +57919,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-09-14T20:00:51.56939319Z
+Ce-Time: 2026-09-15T20:06:41.540931407Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -57990,7 +57958,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-09-14T20:00:51.56961294Z
+Ce-Time: 2026-09-15T20:06:41.541121859Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -58029,7 +57997,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-09-14T20:00:51.569784106Z
+Ce-Time: 2026-09-15T20:06:41.54126249Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -58068,7 +58036,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-09-14T20:00:51.552955385Z
+Ce-Time: 2026-09-15T20:06:41.537171995Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -58111,7 +58079,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-09-14T20:00:51.553147983Z
+Ce-Time: 2026-09-15T20:06:41.537396893Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -58151,7 +58119,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-09-14T20:00:51.553299691Z
+Ce-Time: 2026-09-15T20:06:41.537568425Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -58190,7 +58158,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-09-14T20:00:51.567370656Z
+Ce-Time: 2026-09-15T20:06:41.538825128Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -58233,7 +58201,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-09-14T20:00:51.567533181Z
+Ce-Time: 2026-09-15T20:06:41.539013804Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -58273,7 +58241,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-09-14T20:00:51.567637056Z
+Ce-Time: 2026-09-15T20:06:41.53913178Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -58310,7 +58278,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-14T20:00:51.567736219Z
+Ce-Time: 2026-09-15T20:06:41.539241061Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -58350,7 +58318,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-14T20:00:51.567849015Z
+Ce-Time: 2026-09-15T20:06:41.539343342Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -58394,7 +58362,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-14T20:00:51.567976794Z
+Ce-Time: 2026-09-15T20:06:41.539457951Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -58433,7 +58401,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-14T20:00:51.568097774Z
+Ce-Time: 2026-09-15T20:06:41.539543721Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -58474,7 +58442,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-09-14T20:00:51.559078547Z
+Ce-Time: 2026-09-15T20:06:41.519653043Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -58516,7 +58484,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings/batch
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-09-14T20:00:51.559299754Z
+Ce-Time: 2026-09-15T20:06:41.519897507Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -58559,7 +58527,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-09-14T20:00:51.559489352Z
+Ce-Time: 2026-09-15T20:06:41.520157594Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -58598,7 +58566,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-09-14T20:00:51.5596253Z
+Ce-Time: 2026-09-15T20:06:41.520392179Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -58637,7 +58605,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-09-14T20:00:51.558486417Z
+Ce-Time: 2026-09-15T20:06:41.527679275Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -58676,7 +58644,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-09-14T20:00:51.55870152Z
+Ce-Time: 2026-09-15T20:06:41.528952008Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -58715,7 +58683,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-09-14T20:00:51.558870685Z
+Ce-Time: 2026-09-15T20:06:41.529143724Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -58754,7 +58722,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-09-14T20:00:51.561869368Z
+Ce-Time: 2026-09-15T20:06:41.524769119Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -58797,7 +58765,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the destination organization
-Ce-Time: 2026-09-14T20:00:51.572242916Z
+Ce-Time: 2026-09-15T20:06:41.522385866Z
 Ce-Type: dev.chainguard.api.platform.registry.chart.added.v1
 Content-Length: 208
 Content-Type: application/json
@@ -58842,7 +58810,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-14T20:00:51.55372792Z
+Ce-Time: 2026-09-15T20:06:41.539800769Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.created.v1
 Content-Length: 243
 Content-Type: application/json
@@ -58884,7 +58852,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-14T20:00:51.553915094Z
+Ce-Time: 2026-09-15T20:06:41.539999748Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -58926,7 +58894,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-14T20:00:51.554026473Z
+Ce-Time: 2026-09-15T20:06:41.540191799Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.deleted.v1
 Content-Length: 116
 Content-Type: application/json
@@ -58963,7 +58931,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-09-14T20:00:51.554117548Z
+Ce-Time: 2026-09-15T20:06:41.54033319Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.created.v1
 Content-Length: 197
 Content-Type: application/json
@@ -59002,7 +58970,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-09-14T20:00:51.554288513Z
+Ce-Time: 2026-09-15T20:06:41.540498651Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.updated.v1
 Content-Length: 197
 Content-Type: application/json
@@ -59041,7 +59009,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-09-14T20:00:51.554519104Z
+Ce-Time: 2026-09-15T20:06:41.540647698Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.deleted.v1
 Content-Length: 109
 Content-Type: application/json
@@ -59080,7 +59048,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-09-14T20:00:51.570536992Z
+Ce-Time: 2026-09-15T20:06:41.530410282Z
 Ce-Type: dev.chainguard.api.policies.bindings.created.v1
 Content-Length: 245
 Content-Type: application/json
@@ -59124,7 +59092,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-09-14T20:00:51.57072903Z
+Ce-Time: 2026-09-15T20:06:41.532976259Z
 Ce-Type: dev.chainguard.api.policies.bindings.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -59168,7 +59136,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-09-14T20:00:51.570859962Z
+Ce-Time: 2026-09-15T20:06:41.53324241Z
 Ce-Type: dev.chainguard.api.policies.bindings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -59207,7 +59175,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/overrides
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the override
-Ce-Time: 2026-09-14T20:00:51.571010207Z
+Ce-Time: 2026-09-15T20:06:41.533389704Z
 Ce-Type: dev.chainguard.api.policies.overrides.created.v1
 Content-Length: 303
 Content-Type: application/json
@@ -59249,7 +59217,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/overrides
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the override
-Ce-Time: 2026-09-14T20:00:51.571172428Z
+Ce-Time: 2026-09-15T20:06:41.533547102Z
 Ce-Type: dev.chainguard.api.policies.overrides.deleted.v1
 Content-Length: 94
 Content-Type: application/json
@@ -59288,7 +59256,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-09-14T20:00:51.570021801Z
+Ce-Time: 2026-09-15T20:06:41.529462495Z
 Ce-Type: dev.chainguard.api.policies.policies.created.v1
 Content-Length: 337
 Content-Type: application/json
@@ -59332,7 +59300,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-09-14T20:00:51.570218527Z
+Ce-Time: 2026-09-15T20:06:41.529733045Z
 Ce-Type: dev.chainguard.api.policies.policies.updated.v1
 Content-Length: 337
 Content-Type: application/json
@@ -59376,7 +59344,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-09-14T20:00:51.570386708Z
+Ce-Time: 2026-09-15T20:06:41.529895475Z
 Ce-Type: dev.chainguard.api.policies.policies.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -59415,7 +59383,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-09-14T20:00:51.557763115Z
+Ce-Time: 2026-09-15T20:06:41.533781383Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -59461,7 +59429,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-09-14T20:00:51.558017747Z
+Ce-Time: 2026-09-15T20:06:41.533977242Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -59498,7 +59466,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-09-14T20:00:51.558235954Z
+Ce-Time: 2026-09-15T20:06:41.534106658Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -59546,7 +59514,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-09-14T20:00:51.554855643Z
+Ce-Time: 2026-09-15T20:06:41.517803475Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -59587,7 +59555,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-09-14T20:00:51.555038992Z
+Ce-Time: 2026-09-15T20:06:41.518206865Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -59624,7 +59592,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-14T20:00:51.555176428Z
+Ce-Time: 2026-09-15T20:06:41.51853282Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -59672,7 +59640,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-09-14T20:00:51.559787841Z
+Ce-Time: 2026-09-15T20:06:41.52414248Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -59712,7 +59680,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-09-14T20:00:51.559951902Z
+Ce-Time: 2026-09-15T20:06:41.524338451Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -59751,7 +59719,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-09-14T20:00:51.571749493Z
+Ce-Time: 2026-09-15T20:06:41.534282846Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -59788,7 +59756,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-09-14T20:00:51.57189685Z
+Ce-Time: 2026-09-15T20:06:41.534428421Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -59827,7 +59795,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-09-14T20:00:51.572055647Z
+Ce-Time: 2026-09-15T20:06:41.53457494Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -59868,7 +59836,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-09-14T20:00:51.572504796Z
+Ce-Time: 2026-09-15T20:06:41.535283118Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -59911,7 +59879,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-09-14T20:00:51.572697706Z
+Ce-Time: 2026-09-15T20:06:41.535469866Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -59948,7 +59916,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-09-14T20:00:51.57283139Z
+Ce-Time: 2026-09-15T20:06:41.535594545Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -59988,7 +59956,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities:updateIdentityMetadata
 Ce-Specversion: 1.0
 Ce-Subject: The caller's identity UID
-Ce-Time: 2026-09-14T20:00:51.572995459Z
+Ce-Time: 2026-09-15T20:06:41.535698635Z
 Ce-Type: dev.chainguard.api.iam.identity.metadata.updated.v1
 Content-Length: 135
 Content-Type: application/json
@@ -60028,7 +59996,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-09-14T20:00:51.568567764Z
+Ce-Time: 2026-09-15T20:06:41.52537828Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -60071,7 +60039,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-09-14T20:00:51.568678656Z
+Ce-Time: 2026-09-15T20:06:41.525608209Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -60111,7 +60079,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-09-14T20:00:51.568787811Z
+Ce-Time: 2026-09-15T20:06:41.525797373Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -60148,7 +60116,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-14T20:00:51.568893366Z
+Ce-Time: 2026-09-15T20:06:41.525993872Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -60188,7 +60156,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-14T20:00:51.568983665Z
+Ce-Time: 2026-09-15T20:06:41.526208322Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -60232,7 +60200,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-14T20:00:51.569087908Z
+Ce-Time: 2026-09-15T20:06:41.526413013Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -60271,7 +60239,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-14T20:00:51.569169959Z
+Ce-Time: 2026-09-15T20:06:41.526597809Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -60312,8 +60280,63 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay binding
-Ce-Time: 2026-09-14T20:00:51.564615772Z
+Ce-Time: 2026-09-15T20:06:41.522711749Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.created.v1
+Content-Length: 449
+Content-Type: application/json
+User-Agent: Chainguard Enforce
+
+```
+
+#### Example HTTP Body
+
+```json
+{
+  "actor": {
+    "subject": "identity that triggered the event"
+  },
+  "body": {
+    "overlay": {
+      "config": {
+        "contents": {
+          "packages": [
+            "The APK package names the attached overlay adds"
+          ]
+        }
+      },
+      "name": "The unique name of the attached overlay",
+      "uid": "The identifier of the attached overlay"
+    },
+    "repo": "The identifier of the repo this binding applies to",
+    "tag_selector": {
+      "kind": 1,
+      "tags": [
+        "The exact tag names this binding applies to"
+      ]
+    },
+    "uid": "The identifier of this overlay binding"
+  }
+}
+
+```
+
+### Method: UpdateOverlayBinding
+
+#### Example HTTP Headers
+
+```
+POST / HTTP/1.1
+Host: console-api.enforce.dev
+Accept-Encoding: gzip
+Authorization: Bearer oidctoken
+Ce-Audience: customer
+Ce-Group: UID of parent group
+Ce-Id: cloudevent generated UUID
+Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
+Ce-Specversion: 1.0
+Ce-Subject: The identifier of this overlay binding
+Ce-Time: 2026-09-15T20:06:41.523030016Z
+Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.updated.v1
 Content-Length: 449
 Content-Type: application/json
 User-Agent: Chainguard Enforce
@@ -60367,7 +60390,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the deleted overlay binding
-Ce-Time: 2026-09-14T20:00:51.564889924Z
+Ce-Time: 2026-09-15T20:06:41.52327212Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.deleted.v1
 Content-Length: 120
 Content-Type: application/json
@@ -60406,8 +60429,53 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay
-Ce-Time: 2026-09-14T20:00:51.568277356Z
+Ce-Time: 2026-09-15T20:06:41.537786403Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.created.v1
+Content-Length: 224
+Content-Type: application/json
+User-Agent: Chainguard Enforce
+
+```
+
+#### Example HTTP Body
+
+```json
+{
+  "actor": {
+    "subject": "identity that triggered the event"
+  },
+  "body": {
+    "config": {
+      "contents": {
+        "packages": [
+          "The APK package names this overlay adds"
+        ]
+      }
+    },
+    "name": "The unique name of the overlay",
+    "uid": "The identifier of this overlay"
+  }
+}
+
+```
+
+### Method: UpdateOverlay
+
+#### Example HTTP Headers
+
+```
+POST / HTTP/1.1
+Host: console-api.enforce.dev
+Accept-Encoding: gzip
+Authorization: Bearer oidctoken
+Ce-Audience: customer
+Ce-Group: UID of parent group
+Ce-Id: cloudevent generated UUID
+Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
+Ce-Specversion: 1.0
+Ce-Subject: The identifier of this overlay
+Ce-Time: 2026-09-15T20:06:41.537982191Z
+Ce-Type: dev.chainguard.api.platform.registry.overlay.updated.v1
 Content-Length: 224
 Content-Type: application/json
 User-Agent: Chainguard Enforce
@@ -60451,7 +60519,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the deleted overlay
-Ce-Time: 2026-09-14T20:00:51.568403447Z
+Ce-Time: 2026-09-15T20:06:41.538142332Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.deleted.v1
 Content-Length: 112
 Content-Type: application/json
@@ -60490,7 +60558,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-14T20:00:51.562472259Z
+Ce-Time: 2026-09-15T20:06:41.520773218Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.created.v1
 Content-Length: 243
 Content-Type: application/json
@@ -60532,7 +60600,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-14T20:00:51.562651504Z
+Ce-Time: 2026-09-15T20:06:41.521069487Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -60574,7 +60642,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-14T20:00:51.562800749Z
+Ce-Time: 2026-09-15T20:06:41.521301616Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.deleted.v1
 Content-Length: 116
 Content-Type: application/json
@@ -60611,7 +60679,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-14T20:00:51.562936361Z
+Ce-Time: 2026-09-15T20:06:41.521484268Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -60655,7 +60723,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-09-14T20:00:51.56388143Z
+Ce-Time: 2026-09-15T20:06:41.536027229Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -60697,7 +60765,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-09-14T20:00:51.564049763Z
+Ce-Time: 2026-09-15T20:06:41.536224929Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -60734,7 +60802,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings:batchCreate
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-09-14T20:00:51.564186103Z
+Ce-Time: 2026-09-15T20:06:41.536389918Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -60777,7 +60845,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-09-14T20:00:51.564404918Z
+Ce-Time: 2026-09-15T20:06:41.536563675Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -60818,7 +60886,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-09-14T20:00:51.563163584Z
+Ce-Time: 2026-09-15T20:06:41.534741617Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -60857,7 +60925,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-09-14T20:00:51.563332405Z
+Ce-Time: 2026-09-15T20:06:41.534854657Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -60896,7 +60964,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-09-14T20:00:51.563473521Z
+Ce-Time: 2026-09-15T20:06:41.535044029Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -60935,7 +61003,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-09-14T20:00:51.571404579Z
+Ce-Time: 2026-09-15T20:06:41.538384629Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.created.v1
 Content-Length: 197
 Content-Type: application/json
@@ -60974,7 +61042,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-09-14T20:00:51.571544143Z
+Ce-Time: 2026-09-15T20:06:41.53857356Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.deleted.v1
 Content-Length: 109
 Content-Type: application/json
@@ -61013,7 +61081,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-09-14T20:00:51.573217514Z
+Ce-Time: 2026-09-15T20:06:41.526847025Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -64007,8 +64075,9 @@ Remove a published version of a skill.
 
 Delete a single version:   org/name:tag
 A tag is required to prevent accidental deletion of "latest", and deleting the
-"latest" tag requires additional confirmation. When you delete a skill's last
-remaining version, the now-empty skill entry is removed too, so it no longer
+"latest" tag requires additional confirmation. Digest references are not supported.
+When you delete a skill's last remaining version, the now-empty skill entry is
+removed too, so it no longer
 lingers in "skills list" with no pullable content.
 
 Clear an already-empty skill:   org/name
@@ -64688,7 +64757,11 @@ direct-dependency pins and package-manager overrides that deliver it.
 Provide a project directory, or omit it to use the current directory. The
 package manager is detected from the lockfile: package-lock.json (npm),
 pnpm-lock.yaml (pnpm), yarn.lock (Yarn Classic and Berry), bun.lock/bun.lockb
-(Bun), or deno.lock (Deno, for package.json-based projects).
+(Bun), or deno.lock (Deno).
+
+For Deno projects, chainctl requires Deno 2.7 or later, package.json, and deno.lock.
+It uses npm overrides in package.json to pin dependencies to -cgr.N versions.
+It rejects Deno projects with deno.json or deno.jsonc in the project root.
 
 A -cgr.N prerelease is never matched by a normal range such as ^1.3.1, so
 adoption is always deliberate: delivery is an exact pin plus a package-manager
@@ -64827,7 +64900,7 @@ chainctl libraries packages malware list [--ecosystem ECOSYSTEM] [--package NAME
 
 ```
       --before string      Only show entries blocked strictly before this RFC3339 time. Combine with --since to query a bounded range.
-      --ecosystem string   Only show blocklist entries for this ecosystem (JAVA, PYTHON, JAVASCRIPT). If empty, all ecosystems are returned.
+      --ecosystem string   Only show blocklist entries for this ecosystem (JAVA, JAVASCRIPT, PYTHON). If empty, all ecosystems are returned.
       --exit-code          Exit with a non-zero status if any entries match, so the command can be used as a CI gate.
       --limit int32        The maximum number of entries to return; results are paginated automatically up to this limit. (default 50)
       --package string     Only show entries whose package name matches (exact).
@@ -67012,6 +67085,11 @@ Customizable sections:
   contents.packages
     Add additional packages to install in the image (e.g., development tools,
     utilities). Packages must be available in Chainguard's package repository.
+    Package names may include the {{major}} and {{minor}} template tokens,
+    which expand to the corresponding components of the base image's main
+    package version at build time. For example, "py{{major}}.{{minor}}-cryptography"
+    becomes "py3.13-cryptography" on an image whose main package is
+    python-3.13, and tracks the base image as its version moves.
 
   contents.runtime_repositories
     Add APK repositories to /etc/apk/repositories in the image for runtime
@@ -67602,7 +67680,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_pull-token_create.md_
 Create a pull token.
 
 ```
-chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|java|python|javascript|java_athena|javascript_athena|dotnet|go_athena|python_athena|dotnet_athena|go}] [flags]
+chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|dotnet|go_athena|java|python|javascript|java_athena|python_athena|javascript_athena|dotnet_athena|go}] [flags]
 ```
 
 ### Examples
@@ -67630,7 +67708,7 @@ chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, java, python, javascript, java_athena, javascript_athena, dotnet, go_athena, python_athena, dotnet_athena, go. (default "oci")
+      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, dotnet, go_athena, java, python, javascript, java_athena, python_athena, javascript_athena, dotnet_athena, go. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
 ```
@@ -67771,7 +67849,7 @@ chainctl auth pull-token [flags]
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, java, python, javascript, java_athena, javascript_athena, dotnet, go_athena, python_athena, dotnet_athena, go. (default "oci")
+      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, dotnet, go_athena, java, python, javascript, java_athena, python_athena, javascript_athena, dotnet_athena, go. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
 ```
@@ -67929,6 +68007,41 @@ For container images, you can use:
 JavaScript package manager caches (npm, pnpm, Yarn Classic) are auto-detected
 in container images and local directories by their structure.
 
+Passing a JavaScript lockfile (package-lock.json, npm-shrinkwrap.json,
+pnpm-lock.yaml, yarn.lock, bun.lock) reports which of its registry entries carry
+a digest covered by a Chainguard attestation, using the integrity hashes the
+lockfile records. No install or package cache is required.
+
+An entry counts as verified only when the attested digest is bound to the
+tarball bytes the entry permits — that is, when any install honoring the entry's
+integrity constraint must use the attested bytes. A lone integrity hash binds:
+the package manager rejects any tarball that does not match it. An entry listing
+several hashes does not, since any of them may be satisfied — those are reported
+as attested but not bound, unless the resolved URL names the same package on
+Chainguard's built route (libraries.cgr.dev/javascript/), which fixes the
+source. The upstream proxy route serves upstream bytes and does not bind.
+
+A lockfile rewritten by "libraries update-hashes" in its default append mode
+keeps the original registry hash alongside the Chainguard one. Such entries
+verify only while resolved points at the Chainguard built route, so behind a
+private proxy or custom --registry-url they report as not bound. Use
+"libraries update-hashes --replace" to record a single Chainguard hash per
+entry, which binds regardless of where the entry resolves from.
+
+No downloaded bytes are examined, and platform, optional dependencies, overrides,
+and registry configuration still affect what a package manager selects. Entries
+with no usable digest — linked and git dependencies, and Yarn Berry's non-SRI
+checksums — are reported at zero coverage.
+
+Entries the registry could not answer for — an outage, or rejected credentials —
+are reported as unchecked rather than unverified, since a service problem is not
+a provenance finding. Requests are retried before an entry is called unchecked.
+
+This report is informational: the exit status does not reflect coverage. Coverage
+counts entries Chainguard built from source, so a package that is simply not
+built from source is not a defect, and gating a build on the percentage is not
+the intended use. Per-entry results are available with "-o json --detailed".
+
 Remediated (CVE-patched) Java artifacts, whose versions carry a "-0.cgr.<rev>" suffix
 (e.g. 3.5.0-0.cgr.2), are resolved from the java-remediated repository; other Java
 artifacts are resolved from the java repository.
@@ -67957,6 +68070,13 @@ chainctl libraries verify [path...] [flags]
 
   # Analyze remote artifact
   chainctl libraries verify remote:example.com/maven2/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar
+
+  # Verify a lockfile without installing anything
+  chainctl libraries verify package-lock.json
+  chainctl libraries verify pnpm-lock.yaml
+
+  # Per-entry results for machine consumption
+  chainctl libraries verify package-lock.json -o json --detailed
 
   # Verify npm cache (auto-detected by _cacache/index-v5/ structure)
   chainctl libraries verify "$(npm config get cache)"
@@ -69289,8 +69409,8 @@ Download a published skill to a local directory.
 
 Download a published skill to a local directory.
 
-<ref> is a skill reference of the form org/name[:tag].
-<dir> is the destination directory.
+The reference accepts org/name:tag or org/name@sha256:DIGEST.
+The optional directory sets the download destination.
 
 ```
 chainctl skills pull <ref> [<dir>] [flags]
@@ -70174,7 +70294,7 @@ chainctl libraries packages list --ecosystem ECOSYSTEM [--query QUERY] [--output
 ### Options
 
 ```
-      --ecosystem string   The ecosystem to list packages for (JAVA, PYTHON, JAVASCRIPT).
+      --ecosystem string   The ecosystem to list packages for (JAVA, JAVASCRIPT, PYTHON).
       --limit int32        The maximum number of packages to return; results are paginated automatically up to this limit. (default 50)
       --query string       A search string to filter packages by name. If empty, all packages in the ecosystem are returned.
       --remediated         Only return remediated packages.
@@ -73571,7 +73691,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_pull-token_list.md_
 List all pull-tokens
 
 ```
-chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|java|python|javascript|java_athena|javascript_athena|dotnet|go_athena|python_athena|dotnet_athena|go}] [flags]
+chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|dotnet|go_athena|java|python|javascript|java_athena|python_athena|javascript_athena|dotnet_athena|go}] [flags]
 ```
 
 ### Examples
@@ -73598,7 +73718,7 @@ chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--reposi
 ```
       --expired             If true return only expired pull tokens.
       --parent string       The IAM organization or folder with which the pull-token identity is associated.
-      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, java, python, javascript, java_athena, javascript_athena, dotnet, go_athena, python_athena, dotnet_athena, go
+      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, dotnet, go_athena, java, python, javascript, java_athena, python_athena, javascript_athena, dotnet_athena, go
 ```
 
 ### Options inherited from parent commands
@@ -73988,6 +74108,11 @@ Customizable sections:
   contents.packages
     Add additional packages to install in the image (e.g., development tools,
     utilities). Packages must be available in Chainguard's package repository.
+    Package names may include the {{major}} and {{minor}} template tokens,
+    which expand to the corresponding components of the base image's main
+    package version at build time. For example, "py{{major}}.{{minor}}-cryptography"
+    becomes "py3.13-cryptography" on an image whose main package is
+    python-3.13, and tracks the base image as its version moves.
 
   contents.runtime_repositories
     Add APK repositories to /etc/apk/repositories in the image for runtime
@@ -74573,7 +74698,7 @@ chainctl libraries packages count [--output=json|table] [flags]
 ### Options
 
 ```
-      --ecosystem string   The ecosystem to count packages for (JAVA, PYTHON, JAVASCRIPT).
+      --ecosystem string   The ecosystem to count packages for (JAVA, JAVASCRIPT, PYTHON).
 ```
 
 ### Options inherited from parent commands
