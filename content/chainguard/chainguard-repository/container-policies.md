@@ -478,14 +478,6 @@ Everything else in the OPA standard library is available, including the namespac
 
 Custom policies are managed with the `chainctl policies custom` command group, which provides four subcommands: `validate`, `create`, `update`, and `delete`.
 
-Creating, updating, and deleting custom policies requires that the feature be enabled for your organization. If it is not, these commands return:
-
-```output
-You are not entitled to use Policies.
-
-To enable this feature, contact your Customer Success Team.
-```
-
 ### The policy manifest
 
 A custom policy is defined by a YAML manifest. Because the manifest is a single file, it can be checked into git, reviewed on a pull request, and validated in CI alongside the rest of your infrastructure.
