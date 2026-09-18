@@ -3299,7 +3299,7 @@
       "chainguard.platform.iam.IdentityProvider": {
         "properties": {
           "defaultRole": {
-            "description": "default_role is the UIDP of an optional default role\nto grant users of this identity provider.",
+            "description": "default_role is the UIDP of the default role to grant users of this\nidentity provider on first login. It is required unless SCIM provisioning is\nenabled for the provider, in which case it may be omitted. SCIM configuration\nrequires the v2 API; a provider managed solely through v1 always requires a\ndefault role.",
             "type": "string"
           },
           "description": {
@@ -3512,7 +3512,7 @@
       "chainguard.platform.iam.IdentityProviders.UpdateBody": {
         "properties": {
           "defaultRole": {
-            "description": "default_role is the UIDP of an optional default role\nto grant users of this identity provider.",
+            "description": "default_role is the UIDP of the default role to grant users of this\nidentity provider on first login. It is required unless SCIM provisioning is\nenabled for the provider, in which case it may be omitted. SCIM configuration\nrequires the v2 API; a provider managed solely through v1 always requires a\ndefault role.",
             "type": "string"
           },
           "description": {
@@ -4878,7 +4878,7 @@
             "type": "string"
           },
           "defaultRole": {
-            "description": "The UIDP of the default role to grant users of this identity provider\non initial authentication. Users who already have an identity on this platform\nare unaffected.",
+            "description": "The UIDP of the default role to grant users of this identity provider on\ninitial authentication. Users who already have an identity on this platform\nare unaffected. Required when SCIM provisioning is not enabled for the\nprovider (enforced server-side, gated on the live SCIM state); cleared when\nSCIM is enabled, since a SCIM provider grants access only to provisioned\nusers. May be set again while SCIM is enabled, as an explicit opt-in.",
             "type": "string"
           },
           "description": {
@@ -4919,8 +4919,7 @@
           }
         },
         "required": [
-          "name",
-          "defaultRole"
+          "name"
         ],
         "type": "object"
       },
@@ -11662,6 +11661,10 @@
           "pendingUpstreamFix": {
             "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v1.AdvisoryEvent.PendingUpstreamFix"
           },
+          "reviewNote": {
+            "description": "review_note is the reviewer's explanation, set when transitioning an\nevent to REQUEST_CHANGES or REJECTED.",
+            "type": "string"
+          },
           "reviewer": {
             "title": "reviewer is the person who reviewed this event",
             "type": "string"
@@ -11894,6 +11897,10 @@
           },
           "pendingUpstreamFix": {
             "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v1.AdvisoryEvent.PendingUpstreamFix"
+          },
+          "reviewNote": {
+            "description": "review_note is the reviewer's explanation, set when transitioning an\nevent to REQUEST_CHANGES or REJECTED.",
+            "type": "string"
           },
           "reviewer": {
             "title": "reviewer is the person who reviewed this event",
@@ -20151,7 +20158,7 @@
                     "type": "string"
                   },
                   "defaultRole": {
-                    "description": "The UIDP of the default role to grant users of this identity provider\non initial authentication. Users who already have an identity on this platform\nare unaffected.",
+                    "description": "The UIDP of the default role to grant users of this identity provider on\ninitial authentication. Users who already have an identity on this platform\nare unaffected. Required when SCIM provisioning is not enabled for the\nprovider (enforced server-side, gated on the live SCIM state); cleared when\nSCIM is enabled, since a SCIM provider grants access only to provisioned\nusers. May be set again while SCIM is enabled, as an explicit opt-in.",
                     "type": "string"
                   },
                   "description": {
@@ -20187,8 +20194,7 @@
                   }
                 },
                 "required": [
-                  "name",
-                  "defaultRole"
+                  "name"
                 ],
                 "title": "The identity provider to update.",
                 "type": "object"

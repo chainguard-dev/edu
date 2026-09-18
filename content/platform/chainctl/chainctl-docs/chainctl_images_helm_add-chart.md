@@ -1,5 +1,5 @@
 ---
-date: 2026-09-15T20:06:33Z
+date: 2026-09-17T22:08:55Z
 title: "chainctl images helm add-chart"
 slug: chainctl_images_helm_add-chart
 url: /platform/chainctl/chainctl-docs/chainctl_images_helm_add-chart/

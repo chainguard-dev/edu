@@ -1730,7 +1730,7 @@
             "type": "string"
           },
           "defaultRole": {
-            "description": "The UIDP of the default role to grant users of this identity provider\non initial authentication. Users who already have an identity on this platform\nare unaffected.",
+            "description": "The UIDP of the default role to grant users of this identity provider on\ninitial authentication. Users who already have an identity on this platform\nare unaffected. Required when SCIM provisioning is not enabled for the\nprovider (enforced server-side, gated on the live SCIM state); cleared when\nSCIM is enabled, since a SCIM provider grants access only to provisioned\nusers. May be set again while SCIM is enabled, as an explicit opt-in.",
             "type": "string"
           },
           "description": {
@@ -1771,8 +1771,7 @@
           }
         },
         "required": [
-          "name",
-          "defaultRole"
+          "name"
         ],
         "type": "object"
       },
@@ -4249,7 +4248,7 @@
             "type": "string"
           },
           "uid": {
-            "description": "The unique identifier of this Overlay, a UIDP under the owning group.",
+            "description": "The unique identifier of this Overlay, a UIDP under the owning group.\nCarries iam_scope so requests that embed the resource (UpdateOverlay)\nresolve their authorization scope from it.",
             "readOnly": true,
             "type": "string"
           }
@@ -4286,7 +4285,7 @@
             "description": "The selector picking which tags on the repo this binding applies to.\nSee TagSelector for the supported kinds and precedence rules."
           },
           "uid": {
-            "description": "The unique identifier of this OverlayBinding, a UIDP under the repo\nit attaches to.",
+            "description": "The unique identifier of this OverlayBinding, a UIDP under the repo\nit attaches to. Carries iam_scope so requests that embed the resource\n(UpdateOverlayBinding) resolve their authorization scope from it.",
             "readOnly": true,
             "type": "string"
           }
@@ -4749,6 +4748,11 @@
               }
             ],
             "description": "A fix is pending on the upstream repository."
+          },
+          "reviewNote": {
+            "description": "The reviewer's explanation, set when transitioning an event to\nREQUEST_CHANGES or REJECTED. Read-only via this API version (v2beta1 has\nno event-update RPC); set through v1's UpdateAdvisoryEvent.",
+            "readOnly": true,
+            "type": "string"
           },
           "reviewState": {
             "allOf": [
@@ -8102,7 +8106,7 @@
                     "type": "string"
                   },
                   "defaultRole": {
-                    "description": "The UIDP of the default role to grant users of this identity provider\non initial authentication. Users who already have an identity on this platform\nare unaffected.",
+                    "description": "The UIDP of the default role to grant users of this identity provider on\ninitial authentication. Users who already have an identity on this platform\nare unaffected. Required when SCIM provisioning is not enabled for the\nprovider (enforced server-side, gated on the live SCIM state); cleared when\nSCIM is enabled, since a SCIM provider grants access only to provisioned\nusers. May be set again while SCIM is enabled, as an explicit opt-in.",
                     "type": "string"
                   },
                   "description": {
@@ -8138,8 +8142,7 @@
                   }
                 },
                 "required": [
-                  "name",
-                  "defaultRole"
+                  "name"
                 ],
                 "title": "The identity provider to update.",
                 "type": "object"
@@ -10365,7 +10368,7 @@
         ]
       }
     },
-    "/libraries/v2beta1/requestedLibraries:versions": {
+    "/libraries/v2beta1/requestedLibraries:listRequestedLibraryVersions": {
       "get": {
         "description": "A requested library is a computed aggregate identified by name and ecosystem\nrather than a stored resource with a uid, so this reads as a custom method on\nthe collection instead of a sub-resource of an addressable parent.",
         "operationId": "RequestGroupsService_ListRequestedLibraryVersions",
@@ -10746,7 +10749,7 @@
         "operationId": "OverlayBindingsService_UpdateOverlayBinding",
         "parameters": [
           {
-            "description": "The unique identifier of this OverlayBinding, a UIDP under the repo\nit attaches to.",
+            "description": "The unique identifier of this OverlayBinding, a UIDP under the repo\nit attaches to. Carries iam_scope so requests that embed the resource\n(UpdateOverlayBinding) resolve their authorization scope from it.",
             "in": "path",
             "name": "uid",
             "required": true,
@@ -11086,7 +11089,7 @@
         "operationId": "OverlaysService_UpdateOverlay",
         "parameters": [
           {
-            "description": "The unique identifier of this Overlay, a UIDP under the owning group.",
+            "description": "The unique identifier of this Overlay, a UIDP under the owning group.\nCarries iam_scope so requests that embed the resource (UpdateOverlay)\nresolve their authorization scope from it.",
             "in": "path",
             "name": "uid",
             "required": true,

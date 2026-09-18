@@ -1,5 +1,5 @@
 ---
-date: 2026-09-15T20:06:33Z
+date: 2026-09-17T22:08:55Z
 title: "chainctl auth token"
 slug: chainctl_auth_token
 url: /platform/chainctl/chainctl-docs/chainctl_auth_token/
@@ -21,6 +21,7 @@ chainctl auth token [flags]
 
 ```
       --capabilities strings   Request a token narrowed to the given capabilities.
+      --interactive            Allow browser or device login when needed, even when stderr is redirected.
       --scope strings          Request a token with scope reduced to the given groups.
 ```
 

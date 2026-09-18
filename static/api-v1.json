@@ -2466,7 +2466,7 @@
       "chainguard.platform.iam.IdentityProvider": {
         "properties": {
           "defaultRole": {
-            "description": "default_role is the UIDP of an optional default role\nto grant users of this identity provider.",
+            "description": "default_role is the UIDP of the default role to grant users of this\nidentity provider on first login. It is required unless SCIM provisioning is\nenabled for the provider, in which case it may be omitted. SCIM configuration\nrequires the v2 API; a provider managed solely through v1 always requires a\ndefault role.",
             "type": "string"
           },
           "description": {
@@ -2679,7 +2679,7 @@
       "chainguard.platform.iam.IdentityProviders.UpdateBody": {
         "properties": {
           "defaultRole": {
-            "description": "default_role is the UIDP of an optional default role\nto grant users of this identity provider.",
+            "description": "default_role is the UIDP of the default role to grant users of this\nidentity provider on first login. It is required unless SCIM provisioning is\nenabled for the provider, in which case it may be omitted. SCIM configuration\nrequires the v2 API; a provider managed solely through v1 always requires a\ndefault role.",
             "type": "string"
           },
           "description": {
@@ -8194,6 +8194,10 @@
           "pendingUpstreamFix": {
             "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v1.AdvisoryEvent.PendingUpstreamFix"
           },
+          "reviewNote": {
+            "description": "review_note is the reviewer's explanation, set when transitioning an\nevent to REQUEST_CHANGES or REJECTED.",
+            "type": "string"
+          },
           "reviewer": {
             "title": "reviewer is the person who reviewed this event",
             "type": "string"
@@ -8426,6 +8430,10 @@
           },
           "pendingUpstreamFix": {
             "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v1.AdvisoryEvent.PendingUpstreamFix"
+          },
+          "reviewNote": {
+            "description": "review_note is the reviewer's explanation, set when transitioning an\nevent to REQUEST_CHANGES or REJECTED.",
+            "type": "string"
           },
           "reviewer": {
             "title": "reviewer is the person who reviewed this event",
