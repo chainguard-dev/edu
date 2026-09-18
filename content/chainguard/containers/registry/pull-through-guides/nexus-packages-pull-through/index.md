@@ -25,7 +25,7 @@ This tutorial shows how to set up Alpine package (apk) pull-through caches with 
 
 In order to complete this tutorial, you need the following:
 
-* Administrative privileges over a Nexus instance. If you'd like to test this configuration, you can either download a trial from [Sonatype's website](https://www.sonatype.com/products/sonatype-nexus-oss-download) or run it as a [Docker container](https://github.com/sonatype/docker-nexus3).
+* Administrative privileges over a Sonatype Nexus Repository instance running **3.94 or later**. If you'd like to test this configuration, you can either download a trial from [Sonatype's website](https://www.sonatype.com/products/sonatype-nexus-oss-download) or run it as a [Docker container](https://github.com/sonatype/docker-nexus3).
 * [`chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/)
 * Administrative privileges within your Chainguard organization to create role-bindings (`role_bindings.create`); this capability is available to users with [the `owner` role](/chainguard/administration/iam-organizations/roles-role-bindings/capabilities-reference/#chainguard-role-capabilities).
 
