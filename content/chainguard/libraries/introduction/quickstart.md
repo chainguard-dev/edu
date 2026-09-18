@@ -4,7 +4,7 @@ linktitle: "Quickstart"
 description: "Learn how to get started with Chainguard Libraries"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-09-10T12:58:57+00:00
+lastmod: 2026-09-15T21:45:19+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -47,19 +47,27 @@ Before getting started:
 
 * If you're not yet a Chainguard user, you must [create an
       account](https://console.chainguard.dev/auth/login).
-* [Install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) and
-  log in:
+* Entitle access for yourself to Chainguard Libraries:
 
-   ```bash
-   chainctl auth login
-   ```
+{{< tabs label="Select method for entitling access to Chainguard Libraries" >}}
 
-   {{< blurb/chainctl-auth >}}
+{{% tab title="Console" %}}
 
-* Entitle access for yourself to Chainguard Libraries.
-    * Chainguard Libraries are available to Catalog Starter and Free tier users,
-      and trial users.
-    * Run the following [chainctl libraries](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements/) command to create an entitlement for libraries:
+To create an entitlement and pull token in the Chainguard Console: while viewing a library ecosystem page, follow the prompts to create an access token.
+
+{{% /tab %}}
+
+{{% tab title="chainctl" %}}
+
+[Install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) and log in:
+
+```bash
+chainctl auth login
+```
+
+{{< blurb/chainctl-auth >}}
+
+Run the following [chainctl libraries](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements/) command to create an entitlement for libraries:
 
 ```bash
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT
@@ -67,7 +75,11 @@ chainctl libraries entitlements create --ecosystems=JAVASCRIPT
 
 The available `ecosystems` are `JAVA`, `JAVASCRIPT`, and `PYTHON`.
 
-Alternatively, you can create an entitlement and pull token in the Chainguard Console: while viewing a library ecosystem page, follow the prompts to create an access token.
+{{% /tab %}}
+
+{{< /tabs >}}
+
+Chainguard Libraries are available to Catalog Starter and Free tier users, and trial users.
 
 ## Step 1: Choose your access method
 
@@ -100,7 +112,13 @@ Learn how to set up direct access in the build configuration documentation for
 ## Step 2: Create a pull token
 
 [Pull tokens](/chainguard/libraries/introduction/access/#creating-pull-tokens-for-libraries)
-are required for authentication. You can [create one using `chainctl`](/platform/chainctl/chainctl-docs/chainctl_auth_pull-token_create/):
+are required for authentication.
+
+You can [create pull tokens via the Chainguard
+Console](/chainguard/libraries/introduction/access/#creating-pull-tokens-with-the-chainguard-console)
+under **Overview > Manage pull tokens > Create access token**.
+
+You can also [create one using `chainctl`](/platform/chainctl/chainctl-docs/chainctl_auth_pull-token_create/):
 
 {{< tabs label="Language ecosystem for creating a pull token" >}}
 
@@ -134,10 +152,6 @@ chainctl auth pull-token create --repository=python --ttl=720h
 
 The command returns a username and password for basic authentication. Store
 these securely, as they won't be shown again.
-
-You can also [create pull tokens via the Chainguard
-Console](/chainguard/libraries/introduction/access/#creating-pull-tokens-with-the-chainguard-console)
-under **Overview > Manage pull tokens > Create access token**.
 
 Learn more about pull tokens, and using environment variables for pull token credentials, in the [Libraries access documentation](/chainguard/libraries/introduction/access/).
 
@@ -257,7 +271,7 @@ Check out minimal example projects for
 
 ## Step 4: Verify your libraries
 
-After setup, you can verify which dependencies were built from source by Chainguard:
+After setup, you can verify which dependencies were built from source by Chainguard. This step requires [`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/); if you entitled access through the Chainguard Console, install `chainctl` and log in with `chainctl auth login` before continuing.
 
 ```bash
 chainctl libraries verify /path/to/artifact
