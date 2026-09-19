@@ -1,21 +1,26 @@
 ---
 date: 2026-09-18T19:27:05Z
-title: "chainctl auth token capabilities"
-slug: chainctl_auth_token_capabilities
-url: /platform/chainctl/chainctl-docs/chainctl_auth_token_capabilities/
+title: "chainctl auth configure"
+slug: chainctl_auth_configure
+url: /platform/chainctl/chainctl-docs/chainctl_auth_configure/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl auth token capabilities
+## chainctl auth configure
 
-Print the capabilities of the local Chainguard Token.
+Configure a local tool to authenticate to Chainguard.
 
-```
-chainctl auth token capabilities [flags]
-```
+### Synopsis
+
+Configure a local tool to authenticate to Chainguard.
+
+Each subcommand writes credentials where its tool looks for them, using
+your current Chainguard session. With --pull-token it writes a
+longer-lived credential instead, for environments that cannot run an
+interactive login (CI systems, build servers, etc.).
 
 ### Options inherited from parent commands
 
@@ -34,5 +39,7 @@ chainctl auth token capabilities [flags]
 
 ### SEE ALSO
 
-* [chainctl auth token](/platform/chainctl/chainctl-docs/chainctl_auth_token/)	 - Print the local Chainguard Token.
+* [chainctl auth](/platform/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
+* [chainctl auth configure docker](/platform/chainctl/chainctl-docs/chainctl_auth_configure_docker/)	 - Configure a Docker credential helper
+* [chainctl auth configure npm](/platform/chainctl/chainctl-docs/chainctl_auth_configure_npm/)	 - Configure npm credentials for Chainguard Libraries for JavaScript
 
