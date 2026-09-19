@@ -3707,7 +3707,7 @@
       },
       "chainguard.platform.libraries.v2beta1.RequestedLibraryBuildStatus": {
         "default": "REQUESTED_LIBRARY_BUILD_STATUS_UNSPECIFIED",
-        "description": "RequestedLibraryBuildStatus is the build ladder across a library's requested versions.\n\nA version counts as buildable unless it is WONT_BUILD or NOT_FOUND_UPSTREAM,\nso versions Chainguard will never build do not hold a library short of\nCOMPLETE.\n\n - REQUESTED_LIBRARY_BUILD_STATUS_UNSPECIFIED: Unspecified build status.\n - REQUESTED_LIBRARY_BUILD_STATUS_REVIEWING: Submitted, but no build activity on any version yet.\n - REQUESTED_LIBRARY_BUILD_STATUS_IN_PROGRESS: Build activity has started on at least one version and at least one buildable\nversion is not built yet. A version that is already built, or that failed and\nwill be retried, counts as activity.\n - REQUESTED_LIBRARY_BUILD_STATUS_COMPLETE: Every buildable requested version is built, with at least one built and\nnothing still building or failed.\n - REQUESTED_LIBRARY_BUILD_STATUS_WONT_BUILD: No requested version is buildable.",
+        "description": "RequestedLibraryBuildStatus is the build ladder across a library's requested versions.\n\nA version counts as buildable unless it is WONT_BUILD or NOT_FOUND_UPSTREAM,\nso versions Chainguard will never build do not hold a library short of\nCOMPLETE.\n\n - REQUESTED_LIBRARY_BUILD_STATUS_UNSPECIFIED: Unspecified build status.\n - REQUESTED_LIBRARY_BUILD_STATUS_REVIEWING: Submitted, but no build activity on any version yet.\n - REQUESTED_LIBRARY_BUILD_STATUS_IN_PROGRESS: Build activity has started on at least one version and at least one buildable\nversion is not built yet. A version that is already built, or that failed and\nwill be retried, counts as activity.\n - REQUESTED_LIBRARY_BUILD_STATUS_COMPLETE: Every buildable requested version is built, with at least one built.\n\nThe rung is over versions, not over requests. A version counts as built\nonce any request for it resolved to an artifact, so a second request for\nthe same version -- whose own status may still say building, because a\nrequest's status is a snapshot from its own check -- does not reopen the\nlibrary. Reporting IN_PROGRESS there would tell the customer to wait for\nsomething they can already pull.\n - REQUESTED_LIBRARY_BUILD_STATUS_WONT_BUILD: No requested version is buildable.",
         "enum": [
           "REQUESTED_LIBRARY_BUILD_STATUS_UNSPECIFIED",
           "REQUESTED_LIBRARY_BUILD_STATUS_REVIEWING",
@@ -10273,7 +10273,7 @@
             }
           },
           {
-            "description": "Filter by computed build status.\n\n - REQUESTED_LIBRARY_BUILD_STATUS_UNSPECIFIED: Unspecified build status.\n - REQUESTED_LIBRARY_BUILD_STATUS_REVIEWING: Submitted, but no build activity on any version yet.\n - REQUESTED_LIBRARY_BUILD_STATUS_IN_PROGRESS: Build activity has started on at least one version and at least one buildable\nversion is not built yet. A version that is already built, or that failed and\nwill be retried, counts as activity.\n - REQUESTED_LIBRARY_BUILD_STATUS_COMPLETE: Every buildable requested version is built, with at least one built and\nnothing still building or failed.\n - REQUESTED_LIBRARY_BUILD_STATUS_WONT_BUILD: No requested version is buildable.",
+            "description": "Filter by computed build status.\n\n - REQUESTED_LIBRARY_BUILD_STATUS_UNSPECIFIED: Unspecified build status.\n - REQUESTED_LIBRARY_BUILD_STATUS_REVIEWING: Submitted, but no build activity on any version yet.\n - REQUESTED_LIBRARY_BUILD_STATUS_IN_PROGRESS: Build activity has started on at least one version and at least one buildable\nversion is not built yet. A version that is already built, or that failed and\nwill be retried, counts as activity.\n - REQUESTED_LIBRARY_BUILD_STATUS_COMPLETE: Every buildable requested version is built, with at least one built.\n\nThe rung is over versions, not over requests. A version counts as built\nonce any request for it resolved to an artifact, so a second request for\nthe same version -- whose own status may still say building, because a\nrequest's status is a snapshot from its own check -- does not reopen the\nlibrary. Reporting IN_PROGRESS there would tell the customer to wait for\nsomething they can already pull.\n - REQUESTED_LIBRARY_BUILD_STATUS_WONT_BUILD: No requested version is buildable.",
             "in": "query",
             "name": "buildStatus",
             "schema": {
@@ -11910,6 +11910,14 @@
             "name": "digest",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "description": "Include tags carrying an apk VCS snapshot suffix (_cvs, _svn, _git, _hg),\ne.g. \"3.14.7_git20260914\".",
+            "in": "query",
+            "name": "includeVcsSnapshots",
+            "schema": {
+              "type": "boolean"
             }
           },
           {

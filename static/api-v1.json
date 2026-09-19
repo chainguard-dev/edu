@@ -17064,6 +17064,14 @@
             "schema": {
               "type": "boolean"
             }
+          },
+          {
+            "description": "Exclude tags carrying an apk VCS snapshot suffix (_cvs, _svn, _git, _hg),\ne.g. \"3.14.7_git20260914\".",
+            "in": "query",
+            "name": "excludeVcsSnapshots",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -18331,6 +18339,14 @@
             "schema": {
               "type": "boolean"
             }
+          },
+          {
+            "description": "Exclude tags carrying an apk VCS snapshot suffix (_cvs, _svn, _git, _hg),\ne.g. \"3.14.7_git20260914\".",
+            "in": "query",
+            "name": "excludeVcsSnapshots",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -18598,6 +18614,14 @@
             "name": "digest",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "description": "Exclude tags carrying an apk VCS snapshot suffix (_cvs, _svn, _git, _hg),\ne.g. \"3.14.7_git20260914\".",
+            "in": "query",
+            "name": "excludeVcsSnapshots",
+            "schema": {
+              "type": "boolean"
             }
           }
         ],
