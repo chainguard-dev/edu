@@ -135,7 +135,7 @@ repos:
   # `npm run lint` rejects. `pre-commit autoupdate` bumps rev only and never
   # touches additional_dependencies, so nothing keeps these in step for us.
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: 8ba198123f6fb414e19d879a1270d6d72116d89b  # frozen: v10.10.0
+    rev: 809d037d62978decc620b5a55e8ee5b8b54d8d65  # frozen: v10.11.0
     hooks:
       - id: eslint
         files: ^(assets/js|config)/.*\.js$
@@ -146,7 +146,7 @@ repos:
 
   # Lint Markdown content against .markdownlint-cli2.jsonc.
   - repo: https://github.com/DavidAnson/markdownlint-cli2
-    rev: b82a6c8896e491b9cb377a99ff3412131920681b  # frozen: v0.23.2
+    rev: 916ad0aaa108c64d294101002066f530ea170b10  # frozen: v0.23.3
     hooks:
       - id: markdownlint-cli2
         # content/platform/chainctl/chainctl-docs/ is generated upstream (cobra
