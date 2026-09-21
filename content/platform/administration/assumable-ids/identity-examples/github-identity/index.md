@@ -10,7 +10,7 @@ lead: ""
 description: "Tutorial outlining how to create a Chainguard identity that can be assumed by a GitHub Actions workflow."
 type: "article"
 date: 2023-05-04T08:48:45+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-25T16:45:02+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -33,6 +33,7 @@ To complete this guide, you will need the following.
     * `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) to set this up.
     * `terraform` installed on your local machine. Terraform is an Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
 * A GitHub repository you can use for testing out GitHub identity federation. To complete this guide, you must have permissions to create GitHub Actions on this testing repo.
+* A Chainguard organization that can create assumable identities. [Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/) organizations can't, so authenticate those pipelines with a pull token instead. Refer to [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token).
 
 ## Creating an identity
 
