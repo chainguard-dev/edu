@@ -1,20 +1,20 @@
 ---
 date: 2026-09-18T19:27:05Z
-title: "chainctl auth status"
-slug: chainctl_auth_status
-url: /platform/chainctl/chainctl-docs/chainctl_auth_status/
+title: "chainctl auth configure docker"
+slug: chainctl_auth_configure_docker
+url: /platform/chainctl/chainctl-docs/chainctl_auth_configure_docker/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl auth status
+## chainctl auth configure docker
 
-Inspect the local Chainguard Token.
+Configure a Docker credential helper
 
 ```
-chainctl auth status [--output=json|table|terse] [flags]
+chainctl auth configure docker [flags]
 ```
 
 ### Options
@@ -24,9 +24,13 @@ chainctl auth status [--output=json|table|terse] [flags]
       --identity string            The unique ID of the identity to assume when logging in.
       --identity-provider string   The unique ID of the customer managed identity provider to authenticate with. Mutually exclusive with --org-name.
       --identity-token string      Use an explicit passed identity token or token path.
+      --name string                Optional name for the pull token (default "pull-token")
       --org-name string            Organization to use for authentication. If configured the organization's custom identity provider will be used. Mutually exclusive with --identity-provider.
-      --quick                      Whether to perform quick offline token checks (vs. calling the Validate API).
+      --parent string              The IAM organization or folder with which the pull-token identity is associated.
+      --pull-token                 Whether to register a pull token that can pull images
+      --save                       If true with --pull-token, save the pull token to the Docker config
       --social-login string        Which of the default identity providers to use for authentication. Must be one of: email, google, github, gitlab
+      --ttl ns                     Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
 ```
 
 ### Options inherited from parent commands
@@ -46,5 +50,5 @@ chainctl auth status [--output=json|table|terse] [flags]
 
 ### SEE ALSO
 
-* [chainctl auth](/platform/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
+* [chainctl auth configure](/platform/chainctl/chainctl-docs/chainctl_auth_configure/)	 - Configure a local tool to authenticate to Chainguard.
 

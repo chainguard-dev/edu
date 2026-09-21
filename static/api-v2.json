@@ -9381,6 +9381,14 @@
             }
           },
           {
+            "description": "Include tags carrying an apk VCS snapshot suffix (_cvs, _svn, _git, _hg),\ne.g. \"3.14.7_git20260914\".",
+            "in": "query",
+            "name": "includeVcsSnapshots",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
             "description": "Maximum number of results to return per page.\nDefault: 50, Maximum: 200.",
             "in": "query",
             "name": "pageSize",

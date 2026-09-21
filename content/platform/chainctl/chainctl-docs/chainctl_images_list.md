@@ -1,5 +1,5 @@
 ---
-date: 2026-09-17T22:08:55Z
+date: 2026-09-18T19:27:05Z
 title: "chainctl images list"
 slug: chainctl_images_list
 url: /platform/chainctl/chainctl-docs/chainctl_images_list/
@@ -14,7 +14,7 @@ toc: true
 List tagged images from Chainguard registries.
 
 ```
-chainctl images list [--repo=REPO_NAME] [--public | --parent=PARENT_NAME|PARENT_ID] [--updated-within=DURATION] [--show-dates] [--show-epochs] [--show-referrers] [--active-only] [--output=csv|id|json|table|terse|tree|wide]
+chainctl images list [--repo=REPO_NAME] [--public | --parent=PARENT_NAME|PARENT_ID] [--updated-within=DURATION] [--show-dates] [--show-epochs] [--show-referrers] [--show-vcs-snapshots] [--active-only] [--output=csv|id|json|table|terse|tree|wide]
 ```
 
 ### Options
@@ -28,6 +28,7 @@ chainctl images list [--repo=REPO_NAME] [--public | --parent=PARENT_NAME|PARENT_
       --show-dates                Whether to show date tags of the form latest-{date}.
       --show-epochs               Whether to show epoch tags of the form 1.2.3-r4.
       --show-referrers            Whether to show referrer tags of the form sha256-deadbeef.{sig,sbom,att}.
+      --show-vcs-snapshots        Whether to show VCS snapshot tags of the form 1.2.3_git20260914.
       --updated-within duration   The duration within which an image must have been updated (0 disables the filter).
 ```
 
