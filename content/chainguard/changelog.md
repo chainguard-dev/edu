@@ -4,7 +4,7 @@ linktitle: "Changelog"
 type: "article"
 description: "Weekly changelog of Chainguard product updates — product announcements, breaking changes, container images reaching end-of-life or leaving the catalog, and images newly added to it."
 date: 2026-07-28T00:00:00+00:00
-lastmod: 2026-09-15T19:48:56+00:00
+lastmod: 2026-09-21T18:05:42+00:00
 draft: false
 tags: ["Chainguard Containers", "Changelog"]
 images: []
@@ -16,6 +16,52 @@ tocEndLevel: 2
 This page logs Chainguard product updates week by week, newest first: product announcements, breaking changes, container images that reached end-of-life or are no longer available, and images newly added to the catalog. Each event is listed once, in the week it first appeared.
 
 Breaking changes and product announcements cover the entire Chainguard portfolio, while end-of-life, availability, and new-image entries relate specifically to Chainguard Containers. This page summarizes the changes most likely to affect your work rather than every change Chainguard ships. Routine updates, such as new tags for existing images, are not listed individually. For the current tags and versions of any container image, refer to its entry in the [Chainguard Directory](https://images.chainguard.dev/directory).
+
+## Week of 2026-09-21
+
+{{< changelog-label "Product Announcements" >}}
+
+### Sovereign Artifacts beta for EU data residency
+
+_Launched September 15, 2026._
+
+Sovereign Artifacts is a data-sovereignty capability for Chainguard Containers and Chainguard Libraries. For enrolled customers, it stores artifact bytes in an EU region, serves them from there, and backfills existing artifacts automatically. Pulls from Europe run about 30 percent faster.
+
+During the beta, authentication and build pipelines continue to run on US infrastructure.
+
+{{< changelog-label "EOL" >}}
+
+Chainguard offers [a grace period](/chainguard/containers/features/eol-gp-overview/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images that have reached end-of-life
+
+The following container images reached end-of-life and entered their grace period:
+
+| Image | End-of-life | Grace period ends |
+| --- | --- | --- |
+| `openjdk:26` | 2026-09-17 | 2027-03-17 |
+| `ceph:19` | 2026-09-19 | 2027-03-19 |
+
+{{< changelog-label "New Images" >}}
+
+Chainguard built 18 new container images this week, including both standard and FIPS variants.
+
+<table class="cl-images">
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td><a href="https://images.chainguard.dev/directory/image/cursor-agent/versions"><code>cursor-agent</code></a></td><td>application</td><td>2026-09-14</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/chainguard-desktop-workstation-pc/versions"><code>chainguard-desktop-workstation-pc</code></a></td><td>base</td><td>2026-09-15</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/commercial-avocado/versions"><code>commercial-avocado</code></a></td><td>commercial</td><td>2026-09-15</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/rustfs/versions"><code>rustfs</code></a></td><td>application</td><td>2026-09-15</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/cloudzero-agent/versions"><code>cloudzero-agent</code></a></td><td>application +fips</td><td>2026-09-16</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/trivy-k8s-wrapper/versions"><code>trivy-k8s-wrapper</code></a></td><td>application +fips</td><td>2026-09-16</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/access-log-exporter/versions"><code>access-log-exporter</code></a></td><td>application +fips</td><td>2026-09-18</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/datahub-gms/versions"><code>datahub-gms</code></a></td><td>application +fips</td><td>2026-09-18</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kates-connect/versions"><code>kates-connect</code></a></td><td>application +fips</td><td>2026-09-18</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kubeflow-trainer-controller-manager/versions"><code>kubeflow-trainer-controller-manager</code></a></td><td>application +fips</td><td>2026-09-18</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/tracee/versions"><code>tracee</code></a></td><td>application +fips</td><td>2026-09-18</td></tr>
+</tbody>
+</table>
 
 ## Week of 2026-09-14
 
