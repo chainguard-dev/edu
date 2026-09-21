@@ -42,7 +42,7 @@ You can name the repositories and rules whatever suits your organization; the ex
 The Nexus proxies need to authenticate to Chainguard to fetch packages from a private APK repository. Generate a pull token with `chainctl`:
 
 ```shell
-chainctl auth pull-token --repository=apk -o env
+chainctl auth pull-token --repository=apk
 ```
 
 The `--repository=apk` flag binds the pull token identity to the `apk.pull` role, so it can download packages from your organization's private APK repository. The output looks like this:
