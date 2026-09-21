@@ -21,6 +21,7 @@
     "prebuild": "npm run clean",
     "build": "hugo --gc --minify",
     "build:preview": "hugo --gc --minify --buildFuture",
+    "build:vercel": "curl -sfL https://raw.githubusercontent.com/chainguard-dev/dfc/main/pkg/dfc/builtin-mappings.yaml -o data/package-mappings.yaml && hugo --gc --minify --buildFuture -b \"https://${VERCEL_BRANCH_URL:?not set - enable System Environment Variables in the Vercel project}\"",
     "build:staging": "npm run build -e staging",
     "clean": "shx rm -rf public resources",
     "clean:install": "shx rm -rf package-lock.json node_modules ",

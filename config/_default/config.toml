@@ -19,7 +19,7 @@ disableLanguages = ["de", "nl"]
 # defaultContentLanguageInSubdir = true
 # add redirects/headers
 [outputs]
-home = ["HTML", "RSS", "ALIASES", "REDIRECTS", "HEADERS", "TXT", "FULLTXT", "AIMETADATA", "AISITEMAP", "CONCEPTS", "SITEMAP"]
+home = ["HTML", "RSS", "ALIASES", "REDIRECTS", "BULKREDIRECTS", "HEADERS", "TXT", "FULLTXT", "AIMETADATA", "AISITEMAP", "CONCEPTS", "SITEMAP"]
 section = ["HTML", "RSS", "SITEMAP", "MD"]
 page = ["HTML", "MD"]
 # remove .{ext} from text/netlify
@@ -30,6 +30,12 @@ delimiter = ""
 [outputFormats.REDIRECTS]
 mediaType = "text/netlify"
 baseName = "_redirects"
+isPlainText = true
+notAlternative = true
+# add output format for the Vercel bulk-redirects file
+[outputFormats.BULKREDIRECTS]
+mediaType = "application/json"
+baseName = "redirects"
 isPlainText = true
 notAlternative = true
 # add output format for alias meta refresh to 301 # redirects
