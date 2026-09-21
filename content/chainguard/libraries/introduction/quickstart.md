@@ -4,7 +4,7 @@ linktitle: "Quickstart"
 description: "Learn how to get started with Chainguard Libraries"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-09-15T21:45:19+00:00
+lastmod: 2026-09-18T19:22:26+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -203,7 +203,7 @@ and
   manager](/chainguard/libraries/javascript/global-configuration/): Add the Chainguard Libraries registry as a remote repository
   and configure it as the first choice for package resolution, with npm as a
   fallback only where necessary.
-* [Direct access](/chainguard/libraries/javascript/build-configuration/): Configure your `.npmrc` to use `https://libraries.cgr.dev/javascript/` as the registry.
+* [Direct access](/chainguard/libraries/javascript/build-configuration/): Configure your `.npmrc` to use `https://libraries.cgr.dev/javascript/` as the registry. You can do this automatically with [the `chainctl auth configure-npm` command](/chainguard/libraries/javascript/migration/#direct-access).
 
 Check out minimal example projects for
 [npm](/chainguard/libraries/javascript/build-configuration/#minimal-example-project),
