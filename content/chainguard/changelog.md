@@ -25,7 +25,7 @@ Breaking changes and product announcements cover the entire Chainguard portfolio
 
 _Launched September 15, 2026._
 
-Sovereign Artifacts is a data-sovereignty capability for Chainguard Containers and Chainguard Libraries. For enrolled customers, it stores artifact bytes in an EU region, serves them from there, and backfills existing artifacts automatically. Pulls from Europe run about 30 percent faster.
+[Sovereign Artifacts](https://www.chainguard.dev/unchained/announcing-the-sovereign-artifacts-beta) is a data-sovereignty capability for Chainguard Containers and Chainguard Libraries. For enrolled customers, it stores artifact bytes in an EU region, serves them from there, and backfills existing artifacts automatically. Pulls from Europe run about 30 percent faster.
 
 During the beta, authentication and build pipelines continue to run on US infrastructure.
 
