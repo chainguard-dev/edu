@@ -152,6 +152,7 @@ Before building, export your Nexus credentials and hostname. If Nexus is running
 export NEXUS_USER=my-nexus-user
 export NEXUS_PASSWORD=my-nexus-password
 export NEXUS_URL=my-nexus-hostname:8081
+export HTTP_AUTH="basic:*:${NEXUS_USER}:${NEXUS_PASSWORD}"
 ```
 
 > **Note**: If your Nexus username is an email address, you must percent-encode the `@` sign, as in `export NEXUS_USER=linky%40example.com`.
