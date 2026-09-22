@@ -128,7 +128,7 @@ Open a terminal and create a Dockerfile. The single quotes around `'EOF'` stop t
 
 ```shell
 cat > Dockerfile <<'EOF'
-FROM cgr.dev/chainguard/wolfi-base:latest
+FROM cgr.dev/chainguard/python:latest-dev
 USER root
 ARG NEXUS_URL
 RUN --mount=type=secret,id=http_auth,env=HTTP_AUTH,required=true \
@@ -140,7 +140,7 @@ USER nonroot
 EOF
 ```
 
-This Dockerfile uses the `wolfi-base` image, but any Chainguard container image that includes `apk` will do.
+This Dockerfile uses the `python:latest-dev` image. You don't have to use this particular image, but because we're using `apk` to install a package from Nexus, you should use a Chainguard container image that has this package manager available.
 
 The repository configuration, package install, and cleanup all happen in a single `RUN` so that the Nexus credentials never end up in an image layer. `--mount=type=secret` mounts the credentials only for the duration of the `RUN`, and the final `rm` removes the `/etc/apk/repositories` file that held them in plain text.
 
