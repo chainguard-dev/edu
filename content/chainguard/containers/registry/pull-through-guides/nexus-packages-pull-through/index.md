@@ -161,8 +161,7 @@ Then build the image, passing the credentials as Docker build secrets:
 
 ```shell
 docker build \
-  --secret id=nexus_user,env=NEXUS_USER \
-  --secret id=nexus_password,env=NEXUS_PASSWORD \
+  --secret id=http_auth,env=HTTP_AUTH \
   --build-arg NEXUS_URL=$NEXUS_URL \
   -t nexus-apk-build .
 ```
