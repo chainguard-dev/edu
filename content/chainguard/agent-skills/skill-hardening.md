@@ -128,7 +128,7 @@ You can also push a tagged artifact first and then explicitly request hardening:
 
 ```shell
 chainctl skills push ./harden-demo --group "$ORG" --tag v1.0.0
-chainctl skills describe "$UPLOADS_HOST/$ORG/harden-demo:v1.0.0"
+chainctl skills list --group "$ORG" --source uploads
 
 chainctl skills harden "$UPLOADS_HOST/$ORG/harden-demo:v1.0.0" \
   --group "$ORG" --wait --timeout 30m
@@ -158,9 +158,9 @@ chainctl skills list --group "$ORG"
 ```
 
 ```output
-     SOURCE     |  TYPE  | NAME  | LATEST TAG | UPDATED
-----------------|--------|-------|------------|---------
- skills.cgr.dev | folder | users | --         | --
+     SOURCE     |  TYPE  | NAME  | TAGS | UPDATED
+----------------|--------|-------|------|---------
+ skills.cgr.dev | folder | users | --   | --
 ```
 
 `users` is a registry folder containing namespaces for users who submit skills for hardening. A row with `TYPE` set to `folder` has no skill tag or update time, so those columns show `--`. The folder row alone does not tell you whether a hardening job has completed or whether your skill is inside it.
@@ -184,9 +184,9 @@ Add `--recursive` (or `-r`) to include skills from every nested folder in the li
 chainctl skills list --group "$ORG" --source skills --recursive
 ```
 
-For skills included in the listing, the `NAME` column shows the full path relative to the organization, such as `users/<user-namespace>/harden-demo`. Repeating the default non-recursive command continues to show only the top-level folder.
+The `NAME` column shows the full path relative to the organization, such as `users/<user-namespace>/harden-demo`. Repeating the default non-recursive command continues to show only the top-level folder.
 
-**Listing limitation:** `skills list` currently includes skill rows only for repositories with a `latest` tag. `--recursive` expands the folders but does not remove this filter. A completed hardening job can be available by its returned digest reference and still be absent from the listing. See [Find a skill that is missing from the listing](#find-a-skill-that-is-missing-from-the-listing).
+The `TAGS` column lists all tags for each skill, including version tags and generated hardening tags. Skills without tags are also listed, with `--` in that column. The CLI does not require a `latest` tag. MCP skill discovery uses `latest`, so its results can differ from the CLI listing.
 
 To browse one level at a time, append the registry folder path to `--group`:
 
@@ -215,15 +215,17 @@ Use the `SOURCE` column to distinguish the registries:
 
 | Source option | Registry | Contents |
 | --- | --- | --- |
-| `--source skills` (default) | `skills.cgr.dev` | Hardened skills with a `latest` tag, including skills in user namespaces. |
-| `--source uploads` | `uploads.cgr.dev` | Original uploads with a `latest` tag. |
-| `--source all` | Both registries | Skills with a `latest` tag from either source, labeled by registry. |
+| `--source skills` (default) | `skills.cgr.dev` | Hardened skills, including skills in user namespaces. |
+| `--source uploads` | `uploads.cgr.dev` | Original uploads. |
+| `--source all` | Both registries | Skills from either source, labeled by registry. |
 
 If you have only run `push`, follow [Harden an existing upload](#harden-an-existing-upload). If you already submitted a hardening job, use `chainctl skills status --group "$ORG" --id "$JOB_ID"` to check it. An entitlement listing or a `users` folder row is not a job status check.
 
 ### Find a skill that is missing from the listing
 
-An upload pushed only with `--tag v0.1.0` or `--tag v1.0.0` has no `latest` tag. A hardened result may also have a digest or generated version tag without `latest`. These artifacts can be pulled by their exact references even though `list` omits them. Changing `--source` does not remove the `latest` filter.
+First, check the source and folder: use `--source uploads` for an uploaded original, `--source skills` for a hardened result, and `--recursive` to include nested skills.
+
+Older `chainctl` builds display a `LATEST TAG` column and omit skills without a `latest` tag. This can hide version-tagged uploads and completed hardening results. [Update `chainctl`](/platform/chainctl-usage/chainctl-version-update/) to use the listing with all tags. You can also inspect and pull these artifacts by their exact references.
 
 For an upload, inspect the full reference from the `push` output:
 
@@ -232,15 +234,6 @@ chainctl skills describe "$UPLOADS_HOST/$ORG/harden-demo:v1.0.0"
 ```
 
 For a hardening job, use `status` and save the returned hardened reference as described in [Review and install the result](#review-and-install-the-result). Use that reference for `describe`, `pull`, or `install`; an empty listing does not mean the job failed.
-
-If you want a tagged upload to appear in `list`, you can publish it with both a version tag and `latest`:
-
-```shell
-chainctl skills push ./harden-demo --group "$ORG" --tag v1.0.0 --tag latest
-chainctl skills list --group "$ORG" --source uploads
-```
-
-Both tags point to the same uploaded artifact. This updates the upload's `latest` tag; it does not add a `latest` tag to the separate hardened result.
 
 ## Review and install the result
 

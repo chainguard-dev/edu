@@ -152,20 +152,19 @@ Here, `--strict` warns that the skill omits the recommended `license` field. War
 
 ### Push the skill to your organization's uploads registry
 
-From the parent directory of `hello-world/`, push the skill to your organization's uploads registry with a version tag and `latest`:
+From the parent directory of `hello-world/`, push the skill to your organization's uploads registry with a version tag:
 
 ```shell
-chainctl skills push hello-world --group "$ORG" --tag v1.0.0 --tag latest
+chainctl skills push hello-world --group "$ORG" --tag v1.0.0
 ```
 
 ```output
             REFERENCE             |        DIGEST
 ----------------------------------|------------------------
  uploads.cgr.dev/example.dev/hello-world:v1.0.0 | sha256:3196...
- uploads.cgr.dev/example.dev/hello-world:latest | sha256:3196...
 ```
 
-Both tags point to the same artifact. The `latest` tag makes the upload visible to `skills list`, which currently omits skills without that tag. Keep the versioned reference for the hardening submission below.
+Keep the versioned reference for the hardening submission below.
 
 ### List your uploads
 
@@ -176,14 +175,14 @@ chainctl skills list --group "$ORG" --source uploads
 ```
 
 ```output
-     SOURCE      | TYPE  |    NAME     | LATEST TAG | UPDATED
------------------|-------|-------------|------------|----------
- uploads.cgr.dev | skill | hello-world | latest     | just now
+     SOURCE      | TYPE  |    NAME     |  TAGS  | UPDATED
+-----------------|-------|-------------|--------|----------
+ uploads.cgr.dev | skill | hello-world | v1.0.0 | just now
 ```
 
 Without `--source uploads`, `list` shows the hardened registry. A successful push does not mean a hardened result is available there. Submit the upload for hardening in the next step.
 
-If you pushed only a version tag, inspect the exact reference with `chainctl skills describe "uploads.cgr.dev/$ORG/hello-world:v1.0.0"`. See [Find a skill that is missing from the listing](/chainguard/agent-skills/skill-hardening/#find-a-skill-that-is-missing-from-the-listing) for details.
+The `TAGS` column shows all tags for each skill. A `latest` tag is not required. If your output has a `LATEST TAG` column or omits the upload, see [Find a skill that is missing from the listing](/chainguard/agent-skills/skill-hardening/#find-a-skill-that-is-missing-from-the-listing).
 
 ### Harden the skill
 
@@ -215,7 +214,7 @@ chainctl skills list --group "$ORG" --source skills --recursive
 
 Without `--recursive`, the organization-level listing may show only a `users` row with `TYPE` set to `folder`. Expand the folder with `--recursive`, or browse it with `chainctl skills list --group "$ORG/users"`. See [Browse results in user folders](/chainguard/agent-skills/skill-hardening/#browse-results-in-user-folders) for the folder layout and how to show uploads alongside hardened results.
 
-The listing includes only skills with a `latest` tag. A completed hardening result can still be absent if it has only a digest or generated version tag. Use the exact `$HARDENED_REF` returned by the job to inspect and install that result.
+The listing includes skills with generated version tags and skills without tags. Use the exact `$HARDENED_REF` returned by the job to inspect and install the result you reviewed.
 
 ### Install the skill
 
@@ -278,7 +277,7 @@ Unlike `uninstall`, `delete` removes the skill from the registry for your whole 
 | Enable the entitlement | `chainctl skills entitlements create --parent "$ORG"` |
 | Accept the registry terms | `chainctl skills accept-terms --group "$ORG"` |
 | Validate a skill | `chainctl skills validate <name>` |
-| Upload a skill | `chainctl skills push <name> --group "$ORG" --tag <version> --tag latest` |
+| Upload a skill | `chainctl skills push <name> --group "$ORG" --tag <version>` |
 | List uploads | `chainctl skills list --group "$ORG" --source uploads` |
 | Harden a local skill | `chainctl skills harden ./<name> --group "$ORG" --wait` |
 | Check a hardening job | `chainctl skills status --group "$ORG" --id "$JOB_ID"` |
