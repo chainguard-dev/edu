@@ -131,14 +131,11 @@ cat > Dockerfile <<'EOF'
 FROM cgr.dev/chainguard/wolfi-base:latest
 USER root
 ARG NEXUS_URL
-RUN --mount=type=secret,id=nexus_user \
-    --mount=type=secret,id=nexus_password \
+RUN --mount=type=secret,id=http_auth,env=HTTP_AUTH,required=true \
     cp /etc/apk/repositories /etc/apk/repositories.disabled && \
-    echo "https://$(cat /run/secrets/nexus_user):$(cat /run/secrets/nexus_password)@${NEXUS_URL}/repository/chainguard-apk" > /etc/apk/repositories && \
+    echo "https://${NEXUS_URL}/repository/chainguard-apk" > /etc/apk/repositories && \
     apk update && \
-    apk add sed && \
-    rm /etc/apk/repositories && \
-    mv /etc/apk/repositories.disabled /etc/apk/repositories
+    apk add sed
 USER nonroot
 EOF
 ```
