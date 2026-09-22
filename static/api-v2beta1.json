@@ -2799,7 +2799,7 @@
       },
       "chainguard.platform.libraries.v2beta1.Availability": {
         "default": "AVAILABILITY_UNSPECIFIED",
-        "description": "Availability is the normalized build status of one requested version.\n\nIt never depends on whether the organization has upstream fallback enabled.\n\"Can Chainguard build this?\" is a different question from \"am I pulling\nupstream in the meantime?\", so an org that turned upstream off sees identical\nvalues and the identical requestable set. The toggle is reported separately on\nRequestGroup.org_upstream_enabled, for phrasing only.\n\n - AVAILABILITY_UNSPECIFIED: Unspecified availability.\n - AVAILABILITY_BUILT: Chainguard has built this exact version.\n - AVAILABILITY_CAN_BE_REQUESTED: Not built, and requestable. The upgrade field may name a newer built version.\n - AVAILABILITY_BLOCKED: On the malware block list. Still requestable, but the build is held until the\nblock is withdrawn — a false positive must not silently discard a legitimate\nrequest, and the daily refresh picks the item up once it clears.\n - AVAILABILITY_NOT_FOUND_UPSTREAM: The version does not exist on the upstream registry, so there is nothing to\nbuild. The only true dead end.\n - AVAILABILITY_WONT_BUILD: Chainguard will not build this version for policy reasons, such as licence or\nend-of-life.\n - AVAILABILITY_INVALID_REQUIREMENT: The requirement is not a parseable pinned package and version. Terminal and\nnot retried; the customer must fix or remove the line.\n - AVAILABILITY_BUILDING: A build has been triggered and is running.\n - AVAILABILITY_BUILD_FAILED: A build ran and failed. Retried automatically.",
+        "description": "Availability is the normalized build status of one requested version.\n\nIt never depends on whether the organization has upstream fallback enabled.\n\"Can Chainguard build this?\" is a different question from \"am I pulling\nupstream in the meantime?\", so an org that turned upstream off sees identical\nvalues and the identical requestable set. The toggle is reported separately on\nRequestGroup.org_upstream_enabled, for phrasing only.\n\n - AVAILABILITY_UNSPECIFIED: Unspecified availability.\n - AVAILABILITY_BUILT: Chainguard has built this exact version.\n - AVAILABILITY_CAN_BE_REQUESTED: Not built, and requestable. The upgrade field may name a newer built version.\n - AVAILABILITY_BLOCKED: On the malware block list. Still requestable, but the build is held until the\nblock is withdrawn — a false positive must not silently discard a legitimate\nrequest, and the daily refresh picks the item up once it clears.\n - AVAILABILITY_NOT_FOUND_UPSTREAM: The version does not exist on the upstream registry, so there is nothing to\nbuild. The only true dead end.\n - AVAILABILITY_WONT_BUILD: Chainguard will not build this version for policy reasons, such as licence or\nend-of-life.\n - AVAILABILITY_INVALID_REQUIREMENT: The requirement is not a parseable pinned package and version. Terminal and\nnot retried; the customer must fix or remove the line.\n - AVAILABILITY_BUILDING: A build has been triggered and is running.\n - AVAILABILITY_BUILD_FAILED: A build ran and failed. Retried automatically.\n - AVAILABILITY_HELD: The build was declined and is being held, and no retry will change that on\nits own — a later publish of the version is what releases it.\n\nDeliberately not folded into AVAILABILITY_BLOCKED. That value is specific to\nthe malware block list and is documented as still requestable; reusing it\nhere would give a customer the same answer for \"this may be malware\" and\n\"the build is held\", which are different situations with different\nresolutions. Unlike a blocked item, a held one is not requestable.",
         "enum": [
           "AVAILABILITY_UNSPECIFIED",
           "AVAILABILITY_BUILT",
@@ -2809,7 +2809,8 @@
           "AVAILABILITY_WONT_BUILD",
           "AVAILABILITY_INVALID_REQUIREMENT",
           "AVAILABILITY_BUILDING",
-          "AVAILABILITY_BUILD_FAILED"
+          "AVAILABILITY_BUILD_FAILED",
+          "AVAILABILITY_HELD"
         ],
         "type": "string"
       },
@@ -2823,7 +2824,7 @@
             "type": "integer"
           },
           "blockingSubmit": {
-            "description": "Items the customer must resolve before the group can be submitted: the sum\nof not_found_upstream, wont_build and invalid_requirement. Blocked items are\ndeliberately NOT counted here — they stay requestable with the build held.",
+            "description": "Items the customer must resolve before the group can be submitted: the sum\nof not_found_upstream, wont_build, invalid_requirement and held. Blocked\nitems are deliberately NOT counted here — they stay requestable with the\nbuild held.",
             "format": "int32",
             "readOnly": true,
             "type": "integer"
@@ -2848,6 +2849,12 @@
           },
           "canBeRequested": {
             "description": "Versions that are not built and can be requested.",
+            "format": "int32",
+            "readOnly": true,
+            "type": "integer"
+          },
+          "held": {
+            "description": "Versions whose build was declined and is being held. Counted in\nblocking_submit: unlike a blocked item, a held one is not requestable, so\nthe customer has to take it out of the group to submit.",
             "format": "int32",
             "readOnly": true,
             "type": "integer"
@@ -4233,7 +4240,7 @@
         "type": "object"
       },
       "chainguard.platform.registry.v2beta1.Overlay": {
-        "description": "Overlay is a named, reusable, org-scoped content fragment that\nbindings bind to repos.\n\nThe config is the same CustomOverlay shape as Repo.custom_overlay, so\nrelaxing the packages-only restriction later is a validation change,\nnot a wire change. The server accepts only contents.packages:\ncertificates, accounts, and the rest of the image content model stay\nout of the reusable object until they have had security review, and\nany other populated field is rejected with InvalidArgument. Reads\nrender only package content even if the stored configuration carries\nmore.",
+        "description": "Overlay is a named, reusable, org-scoped content fragment that\nbindings bind to repos.\n\nThe config is the same CustomOverlay shape as Repo.custom_overlay and\nis validated with the same field rules: reserved annotation\n(dev.chainguard., org.opencontainers.) and environment (CHAINGUARD_)\nprefixes are rejected, contents.runtime_repositories and\ncontents.runtime_keyring are gated on the custom-repos feature, and\ncertificate and keyring content must be valid PEM. Fields of the\ninternal image content model with no CustomOverlay counterpart stay\nunsettable. Reads render the stored config in full.",
         "properties": {
           "config": {
             "allOf": [
@@ -4241,7 +4248,7 @@
                 "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay"
               }
             ],
-            "description": "The overlay content, the same shape as Repo.custom_overlay. Only\ncontents.packages may be set this milestone: at least one package is\nrequired on create, and any other populated field is rejected."
+            "description": "The overlay content, the same shape as Repo.custom_overlay,\nvalidated with the same field rules. At least one customization\nfield must be set."
           },
           "name": {
             "description": "The name of the Overlay, unique among the group's overlays.",
@@ -4268,7 +4275,7 @@
                 "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.Overlay"
               }
             ],
-            "description": "The referenced Overlay expanded inline (uid, name, and its config\nrendered packages-only) so list responses are audit-complete without\na follow-up call.",
+            "description": "The referenced Overlay expanded inline (uid, name, and its config\nrendered in full) so list responses are audit-complete without\na follow-up call.",
             "readOnly": true
           },
           "repo": {
@@ -9889,7 +9896,7 @@
             }
           },
           {
-            "description": "Filter by build availability.\n\n - AVAILABILITY_UNSPECIFIED: Unspecified availability.\n - AVAILABILITY_BUILT: Chainguard has built this exact version.\n - AVAILABILITY_CAN_BE_REQUESTED: Not built, and requestable. The upgrade field may name a newer built version.\n - AVAILABILITY_BLOCKED: On the malware block list. Still requestable, but the build is held until the\nblock is withdrawn — a false positive must not silently discard a legitimate\nrequest, and the daily refresh picks the item up once it clears.\n - AVAILABILITY_NOT_FOUND_UPSTREAM: The version does not exist on the upstream registry, so there is nothing to\nbuild. The only true dead end.\n - AVAILABILITY_WONT_BUILD: Chainguard will not build this version for policy reasons, such as licence or\nend-of-life.\n - AVAILABILITY_INVALID_REQUIREMENT: The requirement is not a parseable pinned package and version. Terminal and\nnot retried; the customer must fix or remove the line.\n - AVAILABILITY_BUILDING: A build has been triggered and is running.\n - AVAILABILITY_BUILD_FAILED: A build ran and failed. Retried automatically.",
+            "description": "Filter by build availability.\n\n - AVAILABILITY_UNSPECIFIED: Unspecified availability.\n - AVAILABILITY_BUILT: Chainguard has built this exact version.\n - AVAILABILITY_CAN_BE_REQUESTED: Not built, and requestable. The upgrade field may name a newer built version.\n - AVAILABILITY_BLOCKED: On the malware block list. Still requestable, but the build is held until the\nblock is withdrawn — a false positive must not silently discard a legitimate\nrequest, and the daily refresh picks the item up once it clears.\n - AVAILABILITY_NOT_FOUND_UPSTREAM: The version does not exist on the upstream registry, so there is nothing to\nbuild. The only true dead end.\n - AVAILABILITY_WONT_BUILD: Chainguard will not build this version for policy reasons, such as licence or\nend-of-life.\n - AVAILABILITY_INVALID_REQUIREMENT: The requirement is not a parseable pinned package and version. Terminal and\nnot retried; the customer must fix or remove the line.\n - AVAILABILITY_BUILDING: A build has been triggered and is running.\n - AVAILABILITY_BUILD_FAILED: A build ran and failed. Retried automatically.\n - AVAILABILITY_HELD: The build was declined and is being held, and no retry will change that on\nits own — a later publish of the version is what releases it.\n\nDeliberately not folded into AVAILABILITY_BLOCKED. That value is specific to\nthe malware block list and is documented as still requestable; reusing it\nhere would give a customer the same answer for \"this may be malware\" and\n\"the build is held\", which are different situations with different\nresolutions. Unlike a blocked item, a held one is not requestable.",
             "in": "query",
             "name": "availability",
             "schema": {
@@ -9903,7 +9910,8 @@
                 "AVAILABILITY_WONT_BUILD",
                 "AVAILABILITY_INVALID_REQUIREMENT",
                 "AVAILABILITY_BUILDING",
-                "AVAILABILITY_BUILD_FAILED"
+                "AVAILABILITY_BUILD_FAILED",
+                "AVAILABILITY_HELD"
               ],
               "type": "string"
             }
@@ -10408,7 +10416,7 @@
             }
           },
           {
-            "description": "Filter by build availability.\n\n - AVAILABILITY_UNSPECIFIED: Unspecified availability.\n - AVAILABILITY_BUILT: Chainguard has built this exact version.\n - AVAILABILITY_CAN_BE_REQUESTED: Not built, and requestable. The upgrade field may name a newer built version.\n - AVAILABILITY_BLOCKED: On the malware block list. Still requestable, but the build is held until the\nblock is withdrawn — a false positive must not silently discard a legitimate\nrequest, and the daily refresh picks the item up once it clears.\n - AVAILABILITY_NOT_FOUND_UPSTREAM: The version does not exist on the upstream registry, so there is nothing to\nbuild. The only true dead end.\n - AVAILABILITY_WONT_BUILD: Chainguard will not build this version for policy reasons, such as licence or\nend-of-life.\n - AVAILABILITY_INVALID_REQUIREMENT: The requirement is not a parseable pinned package and version. Terminal and\nnot retried; the customer must fix or remove the line.\n - AVAILABILITY_BUILDING: A build has been triggered and is running.\n - AVAILABILITY_BUILD_FAILED: A build ran and failed. Retried automatically.",
+            "description": "Filter by build availability.\n\n - AVAILABILITY_UNSPECIFIED: Unspecified availability.\n - AVAILABILITY_BUILT: Chainguard has built this exact version.\n - AVAILABILITY_CAN_BE_REQUESTED: Not built, and requestable. The upgrade field may name a newer built version.\n - AVAILABILITY_BLOCKED: On the malware block list. Still requestable, but the build is held until the\nblock is withdrawn — a false positive must not silently discard a legitimate\nrequest, and the daily refresh picks the item up once it clears.\n - AVAILABILITY_NOT_FOUND_UPSTREAM: The version does not exist on the upstream registry, so there is nothing to\nbuild. The only true dead end.\n - AVAILABILITY_WONT_BUILD: Chainguard will not build this version for policy reasons, such as licence or\nend-of-life.\n - AVAILABILITY_INVALID_REQUIREMENT: The requirement is not a parseable pinned package and version. Terminal and\nnot retried; the customer must fix or remove the line.\n - AVAILABILITY_BUILDING: A build has been triggered and is running.\n - AVAILABILITY_BUILD_FAILED: A build ran and failed. Retried automatically.\n - AVAILABILITY_HELD: The build was declined and is being held, and no retry will change that on\nits own — a later publish of the version is what releases it.\n\nDeliberately not folded into AVAILABILITY_BLOCKED. That value is specific to\nthe malware block list and is documented as still requestable; reusing it\nhere would give a customer the same answer for \"this may be malware\" and\n\"the build is held\", which are different situations with different\nresolutions. Unlike a blocked item, a held one is not requestable.",
             "in": "query",
             "name": "availability",
             "schema": {
@@ -10422,7 +10430,8 @@
                 "AVAILABILITY_WONT_BUILD",
                 "AVAILABILITY_INVALID_REQUIREMENT",
                 "AVAILABILITY_BUILDING",
-                "AVAILABILITY_BUILD_FAILED"
+                "AVAILABILITY_BUILD_FAILED",
+                "AVAILABILITY_HELD"
               ],
               "type": "string"
             }
@@ -10770,7 +10779,7 @@
                         "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.Overlay"
                       }
                     ],
-                    "description": "The referenced Overlay expanded inline (uid, name, and its config\nrendered packages-only) so list responses are audit-complete without\na follow-up call.",
+                    "description": "The referenced Overlay expanded inline (uid, name, and its config\nrendered in full) so list responses are audit-complete without\na follow-up call.",
                     "readOnly": true
                   },
                   "repo": {
@@ -11085,7 +11094,7 @@
         ]
       },
       "patch": {
-        "description": "UpdateOverlay updates an overlay's mutable fields: its name and its\nconfig. Only config.contents.packages may be populated; any other\nconfig field fails with InvalidArgument.",
+        "description": "UpdateOverlay updates an overlay's mutable fields: its name and its\nconfig. A submitted config is validated like create and replaces the\nstored config wholesale.",
         "operationId": "OverlaysService_UpdateOverlay",
         "parameters": [
           {
@@ -11110,7 +11119,7 @@
                         "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay"
                       }
                     ],
-                    "description": "The overlay content, the same shape as Repo.custom_overlay. Only\ncontents.packages may be set this milestone: at least one package is\nrequired on create, and any other populated field is rejected."
+                    "description": "The overlay content, the same shape as Repo.custom_overlay,\nvalidated with the same field rules. At least one customization\nfield must be set."
                   },
                   "name": {
                     "description": "The name of the Overlay, unique among the group's overlays.",
@@ -11158,7 +11167,7 @@
         ]
       },
       "post": {
-        "description": "CreateOverlay creates a named overlay under a group. Only\nconfig.contents.packages may be populated; any other config field\nfails with InvalidArgument.",
+        "description": "CreateOverlay creates a named overlay under a group. The config may\npopulate any customer-settable CustomOverlay field and must populate\nat least one; it is validated with the same field rules as\nRepo.custom_overlay.",
         "operationId": "OverlaysService_CreateOverlay",
         "parameters": [
           {
