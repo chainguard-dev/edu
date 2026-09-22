@@ -142,7 +142,6 @@ EOF
 
 This Dockerfile uses the `python:latest-dev` image. You don't have to use this particular image, but because we're using `apk` to install a package from Nexus, you should use a Chainguard container image that has this package manager available.
 
-
 Not every package is available in every private APK repository. For example, your organization may not have access to the `sed` package. See our [private APK repository documentation](/chainguard/containers/building-and-modifying/packages/private-apk-repos/#about-private-apk-repositories) for more details.
 
 Before building, export your Nexus credentials and hostname. If Nexus is running locally, `NEXUS_URL` will be something like `localhost:8081`:
