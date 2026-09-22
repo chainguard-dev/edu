@@ -1,30 +1,43 @@
 ---
 date: 2026-09-21T22:21:18Z
-title: "chainctl libraries packages count"
-slug: chainctl_libraries_packages_count
-url: /platform/chainctl/chainctl-docs/chainctl_libraries_packages_count/
+title: "chainctl skills status"
+slug: chainctl_skills_status
+url: /platform/chainctl/chainctl-docs/chainctl_skills_status/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl libraries packages count
+## chainctl skills status
 
-Count Libraries packages per ecosystem.
+Check a harden job or wait for it to finish.
 
 ### Synopsis
 
-Report the total number of packages available in the Chainguard Libraries catalog, optionally scoped to a single ecosystem.
+Check the job ID printed by skills harden without uploading or submitting
+the skill again. --wait tracks the job to completion and downloads the hardened
+skill and report to ./hardened/NAME. A timeout or interrupt leaves the job running.
+Failures exit nonzero with the pipeline's failure reason.
 
 ```
-chainctl libraries packages count [--output=json|table] [flags]
+chainctl skills status --group <org> --id <job-id> [flags]
+```
+
+### Examples
+
+```
+  chainctl skills status --group my-org --id <job-id>
+  chainctl skills status --group my-org --id <job-id> --wait --timeout 30m
 ```
 
 ### Options
 
 ```
-      --ecosystem string   The ecosystem to count packages for (JAVA, JAVASCRIPT, PYTHON).
+  -g, --group string       Target organization name or UIDP (required).
+      --id string          Harden job ID (required).
+      --timeout duration   Maximum command duration with --wait (0 means no timeout).
+      --wait               Wait for hardening to finish and download the result.
 ```
 
 ### Options inherited from parent commands
@@ -44,5 +57,5 @@ chainctl libraries packages count [--output=json|table] [flags]
 
 ### SEE ALSO
 
-* [chainctl libraries packages](/platform/chainctl/chainctl-docs/chainctl_libraries_packages/)	 - Inspect Libraries packages.
+* [chainctl skills](/platform/chainctl/chainctl-docs/chainctl_skills/)	 - Skills registry related commands.
 

@@ -1,5 +1,5 @@
 ---
-date: 2026-09-18T19:27:05Z
+date: 2026-09-21T22:21:18Z
 title: "chainctl skills accept-terms"
 slug: chainctl_skills_accept-terms
 url: /platform/chainctl/chainctl-docs/chainctl_skills_accept-terms/
@@ -23,8 +23,7 @@ org name (e.g. "acme.com") or its UIDP; omit it for an interactive picker.
 
 For CI use cases where an interactive TUI isn't available, pass --yes. By
 using --yes you confirm you have read and agreed to the legal documents
-referenced in https://www.chainguard.dev/legal/agent-skills-disclosure,
-https://www.chainguard.dev/legal/agent-skills, and
+referenced in https://www.chainguard.dev/legal/agent-skills and
 https://www.chainguard.dev/legal/supplemental-dpa.
 
 ```
@@ -35,7 +34,7 @@ chainctl skills accept-terms [flags]
 
 ```
       --group string   Name or UIDP of the org to accept terms for
-      --yes            Accept legal terms non-interactively. By using this flag you confirm you have read and agreed to the documents referenced in https://www.chainguard.dev/legal/agent-skills-disclosure, https://www.chainguard.dev/legal/agent-skills, and https://www.chainguard.dev/legal/supplemental-dpa.
+      --yes            Accept legal terms non-interactively. By using this flag you confirm you have read and agreed to the documents referenced in https://www.chainguard.dev/legal/agent-skills and https://www.chainguard.dev/legal/supplemental-dpa.
 ```
 
 ### Options inherited from parent commands
