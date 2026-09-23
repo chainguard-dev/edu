@@ -28,7 +28,7 @@ Each hardened action:
 
 Chainguard Actions protect against common threats including tag hijacking, dependency confusion, `pull_request_target` abuse, and secret exfiltration.
 
-This page provides enough to get you started. Refer to the [Chainguard Actions README](https://github.com/chainguard-actions) in GitHub for deeper technical details and some example migrations.
+This page provides enough to get you started. Browse the [Chainguard Actions organization](https://github.com/chainguard-actions) to find a specific action and read its hardening report.
 
 ## What hardening checks and fixes
 
