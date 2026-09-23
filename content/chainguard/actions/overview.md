@@ -246,7 +246,7 @@ gh api repos/chainguard-actions/tj-actions-changed-files/commits/v47 --jq '.sha'
 ```
 
 ```output
-25a1eb5aa40568ec6f8c0e58f2e809ef4270ebfa
+4b4bd2ed96c7629e1c911f97f2390b91e1362735
 ```
 
 For the short SHA digest:
@@ -256,14 +256,16 @@ gh api repos/chainguard-actions/tj-actions-changed-files/commits/v47 --jq '.sha[
 ```
 
 ```output
-25a1eb5
+4b4bd2e
 ```
 
 The resulting `uses:` line with the full SHA digest:
 
 ```yaml
-- uses: chainguard-actions/tj-actions-changed-files@25a1eb5aa40568ec6f8c0e58f2e809ef4270ebfa # v47
+- uses: chainguard-actions/tj-actions-changed-files@4b4bd2ed96c7629e1c911f97f2390b91e1362735 # v47
 ```
+
+Run the command rather than copying the digest shown here. Because Chainguard re-hardens a published version in place and moves its tag, the SHA a version tag resolves to changes each time that version is re-hardened.
 
 ### Update your allowed-actions list.
 
