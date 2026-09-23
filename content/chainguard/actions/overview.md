@@ -20,7 +20,7 @@ The catalog holds more than 1,000 hardened actions. Coverage spans GitHub first-
 
 Each hardened action:
 
-- Is rebuilt from the upstream source at a pinned commit, then reviewed by a static ruleset and an AI-powered analysis pass
+- Pulls the upstream source at a pinned commit, reviews it using a static ruleset and an AI-powered analysis pass to harden
 - Has every internal `uses:` and container image reference pinned to an immutable SHA digest
 - Ships with a `HARDENING.md` report documenting exactly what was checked and fixed
 - Ships with a signed SLSA provenance attestation recording the upstream source and the ruleset version applied (releases published before signing began don't carry one)
