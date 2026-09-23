@@ -4,7 +4,7 @@ linktitle: "Skills Registry"
 description: "Enable the Chainguard Skills Registry, then upload, harden, install, and run an agent skill scoped to your organization."
 type: "article"
 date: 2026-06-05T08:48:45+00:00
-lastmod: 2026-09-22
+lastmod: 2026-09-23T16:38:42+00:00
 draft: false
 tags: ["Agent Skills", "Overview"]
 images: []
@@ -29,11 +29,7 @@ To follow this guide, you need:
 * An active Chainguard organization.
 * Owner access on the organization.
 
-The examples in this guide use an `$ORG` environment variable to refer to your organization. Set it to the name of your organization before you begin:
-
-```shell
-export ORG='your-organization'
-```
+In the commands below, replace `your-organization` with your organization's name or UIDP (its unique identifier).
 
 ## Enabling the skills entitlement
 
@@ -42,7 +38,7 @@ Before your org can push or install skills, create a skills entitlement.
 > **Note**: You must have the `owner` role in your organization to create a skills entitlement and accept the Skills Registry terms of service.
 
 ```shell
-chainctl skills entitlements create --parent "$ORG"
+chainctl skills entitlements create --parent your-organization
 ```
 
 ```output
@@ -52,7 +48,7 @@ Created skills entitlement for org example.dev (717b474ac6972745c5706a898aa6e67f
 Next, accept the Skills Registry terms of service for your org:
 
 ```shell
-chainctl skills accept-terms --group "$ORG"
+chainctl skills accept-terms --group your-organization
 ```
 
 This opens an interactive prompt:
@@ -155,7 +151,7 @@ Here, `--strict` warns that the skill omits the recommended `license` field. War
 From the parent directory of `hello-world/`, push the skill to your organization's uploads registry with a version tag:
 
 ```shell
-chainctl skills push hello-world --group "$ORG" --tag v1.0.0
+chainctl skills push hello-world --group your-organization --tag v1.0.0
 ```
 
 ```output
@@ -171,7 +167,7 @@ Keep the versioned reference for the hardening submission below.
 Confirm the upload with the `list` subcommand and `--source uploads`:
 
 ```shell
-chainctl skills list --group "$ORG" --source uploads
+chainctl skills list --group your-organization --source uploads
 ```
 
 ```output
@@ -189,8 +185,8 @@ The `TAGS` column shows all tags for each skill. A `latest` tag is not required.
 Submit the uploaded artifact and wait for the result:
 
 ```shell
-chainctl skills harden "uploads.cgr.dev/$ORG/hello-world:v1.0.0" \
-  --group "$ORG" --wait --timeout 30m
+chainctl skills harden uploads.cgr.dev/your-organization/hello-world:v1.0.0 \
+  --group your-organization --wait --timeout 30m
 ```
 
 The command prints a job ID, waits for hardening, and downloads the result to `./hardened/hello-world/`. Review the instructions and `HARDENING.md` report, including any findings that remain open.
@@ -209,10 +205,10 @@ For submissions directly from a local directory, checking a job later, and resum
 Hardened results are nested under `users/<user-namespace>/`. Add `--recursive` to browse skills inside those folders:
 
 ```shell
-chainctl skills list --group "$ORG" --source skills --recursive
+chainctl skills list --group your-organization --source skills --recursive
 ```
 
-Without `--recursive`, the organization-level listing may show only a `users` row with `TYPE` set to `folder`. Expand the folder with `--recursive`, or browse it with `chainctl skills list --group "$ORG/users"`. See [Browse results in user folders](/chainguard/agent-skills/skill-hardening/#browse-results-in-user-folders) for the folder layout and how to show uploads alongside hardened results.
+Without `--recursive`, the organization-level listing may show only a `users` row with `TYPE` set to `folder`. Expand the folder with `--recursive`, or browse it with `chainctl skills list --group your-organization/users`. See [Browse results in user folders](/chainguard/agent-skills/skill-hardening/#browse-results-in-user-folders) for the folder layout and how to show uploads alongside hardened results.
 
 The listing includes skills with generated version tags and skills without tags. Use the exact `$HARDENED_REF` returned by the job to inspect and install the result you reviewed.
 
@@ -274,14 +270,14 @@ Unlike `uninstall`, `delete` removes the skill from the registry for your whole 
 
 | Action | Command |
 | ----- | ----- |
-| Enable the entitlement | `chainctl skills entitlements create --parent "$ORG"` |
-| Accept the registry terms | `chainctl skills accept-terms --group "$ORG"` |
+| Enable the entitlement | `chainctl skills entitlements create --parent your-organization` |
+| Accept the registry terms | `chainctl skills accept-terms --group your-organization` |
 | Validate a skill | `chainctl skills validate <name>` |
-| Upload a skill | `chainctl skills push <name> --group "$ORG" --tag <version>` |
-| List uploads | `chainctl skills list --group "$ORG" --source uploads` |
-| Harden a local skill | `chainctl skills harden ./<name> --group "$ORG" --wait` |
-| Check a hardening job | `chainctl skills status --group "$ORG" --id "$JOB_ID"` |
-| List hardened skills in all folders | `chainctl skills list --group "$ORG" --recursive` |
+| Upload a skill | `chainctl skills push <name> --group your-organization --tag <version>` |
+| List uploads | `chainctl skills list --group your-organization --source uploads` |
+| Harden a local skill | `chainctl skills harden ./<name> --group your-organization --wait` |
+| Check a hardening job | `chainctl skills status --group your-organization --id "$JOB_ID"` |
+| List hardened skills in all folders | `chainctl skills list --group your-organization --recursive` |
 | Describe a hardened skill | `chainctl skills describe "$HARDENED_REF"` |
 | Install a hardened skill | `chainctl skills install "$HARDENED_REF"` |
 | Uninstall a skill | `chainctl skills uninstall "$INSTALLED_SKILL"` |

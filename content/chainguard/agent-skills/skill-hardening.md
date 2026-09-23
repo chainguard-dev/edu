@@ -4,7 +4,7 @@ linktitle: "Skill hardening"
 description: "Upload an agent skill for hardening, track the job, browse results in user folders, and review the report before installing the skill."
 type: "article"
 date: 2026-09-22
-lastmod: 2026-09-22
+lastmod: 2026-09-23T16:38:42+00:00
 draft: false
 tags: ["Agent Skills", "Getting Started", "chainctl"]
 images: []
@@ -26,10 +26,31 @@ This guide builds on [Getting started with the Chainguard Skills Registry](/chai
 You need:
 
 - An [installed and authenticated `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) that includes `skills harden` and `skills status`.
-- An organization with a Skills entitlement and accepted Skills terms.
+- An organization with a [Skills entitlement and accepted Skills terms](#set-up-your-organization).
 - Permission to upload skills, submit and read hardening jobs, and pull the results.
 
-Check that your version includes the commands:
+### Set up your organization
+
+In the commands below, replace `your-organization` with your organization's name or UIDP (its unique identifier).
+
+If onboarding is not already complete, an organization administrator with `skills.entitlements.create` and `terms.accept` permissions runs:
+
+```shell
+chainctl skills entitlements create --parent your-organization
+chainctl skills accept-terms --group your-organization
+```
+
+Review and accept the terms in the interactive prompt. To check whether the organization already has an entitlement, run:
+
+```shell
+chainctl skills entitlements list --parent your-organization
+```
+
+An entitlement enables access to the service. Its presence does not indicate that a skill has been uploaded or hardened.
+
+### Check your chainctl version
+
+Check that your `chainctl` version includes the commands:
 
 ```shell
 chainctl skills harden --help
@@ -37,28 +58,6 @@ chainctl skills status --help
 ```
 
 The `harden` help should show `--folder`, `--digest`, `--wait`, and `--timeout`. If it shows only the generic `skills` help, [update `chainctl`](/platform/chainctl-usage/chainctl-version-update/).
-
-Set the following variables for your organization. The examples use the production registries. `$ORG` can be your organization's name or UIDP (its unique identifier).
-
-```shell
-export ORG='your-organization'
-export UPLOADS_HOST='uploads.cgr.dev'
-```
-
-If onboarding is not already complete, an organization administrator with `skills.entitlements.create` and `terms.accept` permissions runs:
-
-```shell
-chainctl skills entitlements create --parent "$ORG"
-chainctl skills accept-terms --group "$ORG"
-```
-
-Review and accept the terms in the interactive prompt. To check whether the organization already has an entitlement, run:
-
-```shell
-chainctl skills entitlements list --parent "$ORG"
-```
-
-An entitlement enables access to the service. Its presence does not indicate that a skill has been uploaded or hardened.
 
 ## Create and validate an example skill
 
@@ -88,10 +87,12 @@ The directory name must match the frontmatter `name`. Keep the directory within 
 From the directory containing `harden-demo`, run:
 
 ```shell
-chainctl skills harden ./harden-demo --group "$ORG" --wait --timeout 30m
+chainctl skills harden ./harden-demo --group your-organization --wait --timeout 30m
 ```
 
 The command packages and uploads the directory, submits a hardening job, prints its ID, and waits for completion. `--folder ./harden-demo` is equivalent to the positional directory argument. A separate `skills push` is unnecessary for this workflow.
+
+The examples use the production registries. `chainctl` uploads to `uploads.cgr.dev` by default in production; no registry environment variable is required.
 
 On success, the command prints the hardened artifact's reference and digest and downloads it into `./hardened/harden-demo/`. The download includes `SKILL.md`, any supporting files, and `HARDENING.md` with the hardening report and findings.
 
@@ -108,14 +109,14 @@ The service generates the user namespace. Save the exact reference returned by t
 Omit `--wait` to return after submission. Use `-o id` to capture the job ID:
 
 ```shell
-JOB_ID=$(chainctl skills harden ./harden-demo --group "$ORG" -o id)
-chainctl skills status --group "$ORG" --id "$JOB_ID"
+JOB_ID=$(chainctl skills harden ./harden-demo --group your-organization -o id)
+chainctl skills status --group your-organization --id "$JOB_ID"
 ```
 
 To resume waiting and download the result:
 
 ```shell
-chainctl skills status --group "$ORG" --id "$JOB_ID" --wait --timeout 30m
+chainctl skills status --group your-organization --id "$JOB_ID" --wait --timeout 30m
 ```
 
 `--id` takes the 64-character job ID, without a `sha256:` prefix or an operation path. Repeating a submission with the same organization, user, skill name, and content digest returns the same job. Use `status` when you only need to check progress.
@@ -127,11 +128,11 @@ chainctl skills status --group "$ORG" --id "$JOB_ID" --wait --timeout 30m
 You can also push a tagged artifact first and then explicitly request hardening:
 
 ```shell
-chainctl skills push ./harden-demo --group "$ORG" --tag v1.0.0
-chainctl skills list --group "$ORG" --source uploads
+chainctl skills push ./harden-demo --group your-organization --tag v1.0.0
+chainctl skills list --group your-organization --source uploads
 
-chainctl skills harden "$UPLOADS_HOST/$ORG/harden-demo:v1.0.0" \
-  --group "$ORG" --wait --timeout 30m
+chainctl skills harden uploads.cgr.dev/your-organization/harden-demo:v1.0.0 \
+  --group your-organization --wait --timeout 30m
 ```
 
 `push` stores the original artifact in `uploads.cgr.dev`. Use `harden` to submit it for hardening and `status` to track the job. A successful push does not mean that a hardened result is available in `skills.cgr.dev`.
@@ -141,7 +142,7 @@ The upload must be in the same organization passed to `--group`. This command ac
 To select the exact artifact from the push output, use its digest instead:
 
 ```shell
-chainctl skills harden --group "$ORG" --name harden-demo \
+chainctl skills harden --group your-organization --name harden-demo \
   --digest 'sha256:<64-hex-digest-from-push>' --wait --timeout 30m
 ```
 
@@ -154,7 +155,7 @@ chainctl skills harden --group "$ORG" --name harden-demo \
 By default, `chainctl skills list` reads the hardened registry (`--source skills`) and shows only the immediate folders and skills at the selected level. For example:
 
 ```shell
-chainctl skills list --group "$ORG"
+chainctl skills list --group your-organization
 ```
 
 ```output
@@ -181,7 +182,7 @@ Each submitting user has a separate namespace, so different users can harden a s
 Add `--recursive` (or `-r`) to include skills from every nested folder in the listing:
 
 ```shell
-chainctl skills list --group "$ORG" --source skills --recursive
+chainctl skills list --group your-organization --source skills --recursive
 ```
 
 The `NAME` column shows the full path relative to the organization, such as `users/<user-namespace>/harden-demo`. Repeating the default non-recursive command continues to show only the top-level folder.
@@ -191,8 +192,8 @@ The `TAGS` column lists all tags for each skill, including version tags and gene
 To browse one level at a time, append the registry folder path to `--group`:
 
 ```shell
-chainctl skills list --group "$ORG/users"
-chainctl skills list --group "$ORG/users/<user-namespace>"
+chainctl skills list --group your-organization/users
+chainctl skills list --group "your-organization/users/<user-namespace>"
 ```
 
 Replace `<user-namespace>` with a folder name returned by the first command. These paths select registry folders; they do not refer to directories on your machine.
@@ -202,13 +203,13 @@ Replace `<user-namespace>` with a folder name returned by the first command. The
 If `push` returned an `uploads.cgr.dev` reference, select the uploads source to browse that registry:
 
 ```shell
-chainctl skills list --group "$ORG" --source uploads --recursive
+chainctl skills list --group your-organization --source uploads --recursive
 ```
 
 To browse uploads and hardened results in one listing:
 
 ```shell
-chainctl skills list --group "$ORG" --source all --recursive
+chainctl skills list --group your-organization --source all --recursive
 ```
 
 Use the `SOURCE` column to distinguish the registries:
@@ -219,7 +220,7 @@ Use the `SOURCE` column to distinguish the registries:
 | `--source uploads` | `uploads.cgr.dev` | Original uploads. |
 | `--source all` | Both registries | Skills from either source, labeled by registry. |
 
-If you have only run `push`, follow [Harden an existing upload](#harden-an-existing-upload). If you already submitted a hardening job, use `chainctl skills status --group "$ORG" --id "$JOB_ID"` to check it. An entitlement listing or a `users` folder row is not a job status check.
+If you have only run `push`, follow [Harden an existing upload](#harden-an-existing-upload). If you already submitted a hardening job, use `chainctl skills status --group your-organization --id "$JOB_ID"` to check it. An entitlement listing or a `users` folder row is not a job status check.
 
 ### Find a skill that is missing from the listing
 
@@ -230,7 +231,7 @@ Older `chainctl` builds display a `LATEST TAG` column and omit skills without a 
 For an upload, inspect the full reference from the `push` output:
 
 ```shell
-chainctl skills describe "$UPLOADS_HOST/$ORG/harden-demo:v1.0.0"
+chainctl skills describe uploads.cgr.dev/your-organization/harden-demo:v1.0.0
 ```
 
 For a hardening job, use `status` and save the returned hardened reference as described in [Review and install the result](#review-and-install-the-result). Use that reference for `describe`, `pull`, or `install`; an empty listing does not mean the job failed.
