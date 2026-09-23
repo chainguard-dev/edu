@@ -20,10 +20,10 @@ The catalog holds more than 1,000 hardened actions. Coverage spans GitHub first-
 
 Each hardened action:
 
-- Is built from source and evaluated through a rule-based and AI-powered hardening pipeline
+- Is rebuilt from the upstream source at a pinned commit, then reviewed by a static ruleset and an AI-powered analysis pass
 - Has every internal `uses:` and container image reference pinned to an immutable SHA digest
 - Ships with a `HARDENING.md` report documenting exactly what was checked and fixed
-- Ships with a signed SLSA provenance attestation recording the upstream source and the ruleset version applied
+- Ships with a signed SLSA provenance attestation recording the upstream source and the ruleset version applied (releases published before signing began don't carry one)
 - Is re-reviewed and re-hardened whenever upstream publishes a new version or Chainguard adds a new rule
 
 Chainguard Actions protect against common threats including tag hijacking, dependency confusion, `pull_request_target` abuse, and secret exfiltration.
@@ -32,19 +32,31 @@ This page provides enough to get you started. Refer to the [Chainguard Actions R
 
 ## What hardening checks and fixes
 
-Every action in the catalog is evaluated against the same ruleset. Each rule has a finding ID that appears in the action's `HARDENING.md` report, so you can trace any change back to the rule that produced it.
+Every action in the catalog goes through the same two-stage review. A deterministic static pre-pass runs first and catches patterns mechanically. An AI-powered analysis pass then evaluates the action against the policy ruleset. Findings from either stage carry an ID that appears in the action's `HARDENING.md` report, so you can trace any change back to the check that produced it.
+
+### Policy checks
 
 | Check | Finding IDs | Severity | What it catches |
 | ----- | ----------- | -------- | --------------- |
-| Unpinned uses | `unpinned-uses` | High | `uses:` references and `docker://` image references that point at a mutable tag or branch instead of an immutable commit SHA or image digest. |
+| Unpinned uses | `unpinned-uses` | High | A `uses:` reference or a `runs.image:` container reference pointing at a mutable tag or branch instead of an immutable commit SHA or image digest. The `docker://` prefix is optional, so `image: ghcr.io/example/tool:latest` is a finding too. |
 | Script injection | `script-injection` | High | Expressions such as `${{ inputs.name }}` interpolated directly into a `run:` block, where the shell can parse attacker-controlled text as commands. |
 | Unsafe shell | `unsafe-shell` | High | Remote content piped straight into an interpreter, such as `curl ... \| bash`. |
-| Hardcoded credentials | `hardcoded-credentials` | High | Literal secrets assigned to names containing `password`, `secret`, `token`, or `api_key`. |
+| Hardcoded credentials | `hardcoded-credentials` | High | Literal secrets assigned to names containing `password`, `secret`, `token`, `api_key`, or `aws_secret`. |
 | GitHub environment injection | `github-env-injection` | High | Untrusted values written to `$GITHUB_ENV`, `$GITHUB_PATH`, or `$GITHUB_OUTPUT` without newline sanitization, which lets an attacker inject variables into later steps. |
 | Suspicious run content | `suspicious-run-content` | High | Malicious patterns in `run:` blocks, including obfuscated execution, process memory access, dynamic evaluation, credential file access, outbound exfiltration, reverse shells, persistence, and environment secret scraping. |
-| Permissions | `missing-permissions`, `broad-permissions` | Medium | Workflows that leave `GITHUB_TOKEN` at its default permissions, or that set `read-all` or `write-all` instead of specific scopes. |
+| Permissions | `permissions`, `missing-permissions`, `broad-permissions` | Medium | Workflows that leave `GITHUB_TOKEN` at its default permissions, or that set `read-all` or `write-all` instead of specific scopes. |
 
-The checks read the action definition (`action.yml` or `action.yaml`) and every workflow under `.github/workflows/` in the action's own repository. They don't inspect built or vendored output: `dist/`, `vendor/`, and `node_modules/` are out of scope, as are the action's test fixtures.
+### Static pre-pass checks
+
+The static pre-pass complements the analysis pass by catching patterns the analysis may miss. It reports one finding per occurrence, so a report can list the same ID many times, each with its own location. `static-inline-injection` is the most common finding in the catalog for that reason.
+
+| Finding ID | Severity | What it catches |
+| ---------- | -------- | --------------- |
+| `static-inline-injection` | High | A single expression interpolated directly into a `run:` block. The finding names the expression and the step it appears in, and the fix moves the value into an `env:` map. |
+| `static-unsanitized-env-write` | Medium | An unsanitized write to a GitHub environment file. |
+| `invalid-yaml` | High | An action or workflow file that could not be parsed. |
+
+Both stages read the action definition (`action.yml` or `action.yaml`) and every workflow under `.github/workflows/` in the action's own repository. Neither inspects built or vendored output: `dist/`, `vendor/`, and `node_modules/` are out of scope, as are the action's test fixtures.
 
 Findings are fixed in place and the pipeline re-evaluates its own work, so a single hardening run can take several iterations before an action passes. Both the findings and the per-iteration notes are recorded in `HARDENING.md`.
 
@@ -53,10 +65,26 @@ Findings are fixed in place and the pipeline re-evaluates its own work, so a sin
 Actions rarely run alone. A composite action can call other actions, and an action can fetch container images, language packages, or binaries while it runs. Chainguard hardens the references it can see in the action's source:
 
 - **Nested action and image references are pinned.** Every `uses:` reference and container image reference inside a hardened action resolves to an immutable commit SHA or image digest, with the original tag preserved as a comment. A moved upstream tag can't change what a hardened action runs.
-- **The action's own workflows are hardened too.** The ruleset covers the workflows under `.github/workflows/` in the action's repository, not only the action definition, so the repository that produces the action is held to the same standard.
+- **The action's own workflows are reviewed too.** Both stages of the review cover the workflows under `.github/workflows/` in the action's repository, not only the action definition.
 - **Missing dependencies can be onboarded.** When a hardened action depends on an action that isn't in the catalog yet, [request that action](https://github.com/chainguard-actions/.github/issues/new?template=new-action.yml) and Chainguard hardens and publishes it.
 
-Two limits are worth knowing. Nested references are pinned to the upstream project's commit SHA, not rewritten to point at the Chainguard hardened equivalent; that rewriting is in development and isn't published yet. Language packages and binaries that an action downloads while it runs fall outside what the ruleset inspects.
+### Rewriting nested references to hardened equivalents
+
+Pinning a nested reference to an upstream commit SHA freezes what runs, but the code it freezes is still the upstream project's. Chainguard is rolling out a dependency graph that replaces those references with the Chainguard hardened counterpart instead, also pinned by commit SHA. When a dependency is hardened and published, every action that depends on it returns to the hardening queue so its `uses:` reference can be rewritten.
+
+The graph is enabled in production and rewriting is rolling out across the catalog, so a given action may not have been rewritten yet. Three limits apply where it does:
+
+- It covers composite actions only. Node and Docker actions have no `uses:` steps to rewrite.
+- It fires only when a hardened counterpart exists for that exact upstream commit.
+- It never rewrites a reference when the correct counterpart is ambiguous.
+
+To see what a particular action references today, read its `action.yml` on the version branch you plan to use.
+
+### Dependencies an action installs when it runs
+
+Dependency vulnerability management is not part of hardening today. When Chainguard rebuilds a JavaScript action's bundle, the builder installs exactly what the upstream lockfile pins, so the hardened action ships the same dependency versions the upstream release shipped. The rebuild reproduces the bundle rather than refreshing it: if an upstream release bundled a vulnerable package, so does the hardened release. Language packages and binaries that an action downloads while it runs are likewise outside what the review inspects.
+
+Dependency handling is an area Chainguard is actively building out, and the nested-reference rewriting described earlier is the first piece of it.
 
 To see the full dependency graph for your own repository, including actions reached through other actions, use the `--recursive` flag described in [View the actions you are currently using](#view-the-actions-you-are-currently-using-in-a-repository).
 
@@ -104,23 +132,41 @@ chainctl actions entitlements list
  $ENTITLEMENT_ID                          | 2026-06-18 17:33:24 UTC
 ```
 
+#### What the entitlement controls
+
+The entitlement records your organization's access to Chainguard Actions. It does not gate consumption of the actions themselves, and it can't: the hardened action repositories are public, and GitHub provides no mechanism to require authentication to consume a public action.
+
+Each hardened action runs a `runs.pre` hook that records a usage event to `https://actions.enforce.dev/actions/v1/record`. The hook returns no authorization decision, so there is nothing for the action to act on. It times out after 2 seconds and discards every error, which means Chainguard being slow or unreachable cannot fail your workflow. If your runners use an egress allowlist, add that host so the hook doesn't spend its timeout on every step.
+
+Refer to [Chainguard Actions telemetry and privacy](/chainguard/actions/telemetry/) for what the hook records and how to limit it.
+
 ### Step 2: Install the Guardener GitHub App
 
 The [Chainguard Guardener](/chainguard/guardener/github/getting-started/) GitHub App is the recommended way to adopt Chainguard Actions across more than a repository or two. Once you install it and link it to your Chainguard organization, the Guardener:
 
 - Inventories the actions your workflows use across every repository it can access
-- Opens and maintains a pull request that swaps in Chainguard hardened equivalents
 - Comments on pull requests that introduce unhardened actions, so your workflows don't drift back
+- Opens and maintains a pull request that swaps in Chainguard hardened equivalents, once you enable migration
 
 To set it up:
 
 1. Install the [Guardener GitHub App](https://github.com/apps/chainguard-guardener) on your GitHub organization.
 2. Link your Chainguard organization to your GitHub organization with `chainctl guardener github link`.
-3. Add a `.chainguard/actions.yaml` file to each repository you want the Guardener to work on.
+3. Add a `.chainguard/actions.yaml` file to the root of each repository you want the Guardener to work on.
 
-Installing the app doesn't change any repository on its own. Each repository opts in through its configuration file, and you can restrict the app to selected repositories when you install it.
+Both of the last two steps matter. Installing the app changes no repository on its own, and the Actions feature stays inert until `.chainguard/actions.yaml` exists in the repository. Once it does, pull request recommendations are on by default, but automated migration pull requests need `migrate.enabled: true` set explicitly:
 
-Refer to [Getting started with Chainguard Guardener](/chainguard/guardener/github/getting-started/) for the installation and linking steps, and to [Hardened Actions](/chainguard/guardener/github/actions-security/) for the configuration reference, the migration options, and the on-demand migration command. The Guardener GitHub App is in beta.
+```yaml
+enabled: true
+migrate:
+  enabled: true
+```
+
+If installing an app in your organization needs an administrator's approval, they will be asked to approve a specific set of GitHub permissions. [Permissions the Guardener requests](/chainguard/guardener/github/getting-started/#permissions-the-guardener-requests) lists each one and why it's needed, so you can take that to them before you start.
+
+Refer to [Getting started with Chainguard Guardener](/chainguard/guardener/github/getting-started/) for the installation and linking steps, and to [Hardened Actions](/chainguard/guardener/github/actions-security/) for the configuration reference, the migration options, and the on-demand migration command.
+
+The Guardener GitHub App is in beta. It runs in production and is supported, but its features and configuration may still change.
 
 If you'd rather not install a GitHub App, you can migrate with the [cg-actions](https://github.com/chainguard-dev/cg-skills/tree/main/skills/cg-actions) skill or by hand. Both approaches are covered in [Configure your workflows to use Chainguard Actions](#configure-your-workflows-to-use-chainguard-actions).
 
@@ -132,20 +178,29 @@ To use a Chainguard hardened action, edit your workflow's YAML configuration fil
 - uses: chainguard-actions/<action-name>@<version-tag>
 ```
 
-Action names often have the upstream organization appended to the action name for clarity, for example, `tj-actions/changed-files` becomes `tj-actions-changed-files`. This prevents two different sources of a `changed-files` action from clashing in the Chainguard Actions repository.
+Repository names are prefixed with the upstream organization, so `tj-actions/changed-files` becomes `tj-actions-changed-files`. This keeps two different sources of a `changed-files` action from clashing in the Chainguard Actions organization.
 
 Search the Chainguard Actions repository, find the action you want to use, and then use the name you find there.
 
 > **Note:** Don't reference a hardened action with `@main`. The main branch of each repository holds only metadata (`README.md`, `LICENSE_CHAINGUARD`, and `source.json`). The hardened action itself lives on the version branches, so a reference to `@main` fails to resolve.
 
+This example uses a version tag to show the mechanic, which is all that changes in your workflow. For any workflow you intend to keep, pin to a commit SHA instead, as described in [Choose how to reference an action](#choose-how-to-reference-an-action).
+
 ## Choose how to reference an action
 
-You can reference a hardened action by version tag or by commit SHA. The choice determines whether you receive re-hardening automatically, so make it deliberately.
+Pin to a commit SHA, and pair the pin with Dependabot or Renovate:
 
-- **Version tag**, for example `chainguard-actions/actions-checkout@v4`. Chainguard moves the tag when it republishes that version line, so you pick up re-hardening without touching your workflow. Every published build still has its own internal dependencies pinned to immutable SHAs. Tags in the hardened catalog are mutable by design.
-- **Commit SHA**, for example `chainguard-actions/actions-checkout@25a1eb5aa40568ec6f8c0e58f2e809ef4270ebfa`. The reference is immutable, so every run executes identical code. You stay on that build until you bump the SHA, which means you don't receive re-hardening until you do.
+```yaml
+- uses: chainguard-actions/actions-checkout@<sha> # v4
+```
 
-If your security policy requires immutable references, pin the SHA and let Dependabot or Renovate open the bump pull requests. Otherwise, a version tag keeps you current with less work.
+A commit SHA is the only immutable reference in the catalog. Tags are mutable by design, and not just the floating major version. Chainguard re-hardens published versions in place and moves the tag when it does, including fully qualified patch tags, so a single upstream release can be re-hardened several times with the same tag pointing somewhere new each time. Both `@v4` and `@v4.3.1` resolve to whatever was published most recently.
+
+Pinning on its own isn't enough, though. A pin with no tooling behind it is the one configuration that strands you: you stay on that build, and stop receiving re-hardening, until someone updates the SHA by hand. Dependabot and Renovate both track a pinned SHA against its tag and open a pull request when the tag moves, so you receive every re-hardening as a change your own CI validates before it reaches a live workflow. That gives you more control than a mutable tag does, and costs you nothing in freshness.
+
+Pinning is also the standard Chainguard applies to the actions it hardens. The `unpinned-uses` check fails any `uses:` reference on a tag, so if you run an actions linter against your own repository, referencing a hardened action by tag will register a finding.
+
+Use the canonical repository name in the reference. Some catalog repositories answer to an older name through a GitHub rename redirect — `chainguard-actions/checkout` reaches `chainguard-actions/actions-checkout`, for example — but a redirect isn't something to depend on in a pinned workflow.
 
 ## Configure your workflows to use Chainguard Actions
 
@@ -294,6 +349,10 @@ Each version branch contains:
 - The upstream action's own files, including its license and any documentation you can adapt for the hardened version
 
 Because `HARDENING.md` and the attestation are per-version, read them on the version branch you plan to use rather than on the main branch.
+
+Nearly every version branch in the catalog carries an attestation. A small number of older releases were published before Chainguard began signing them, so if a version branch has no `attestations/` directory, treat that release as unverifiable rather than as verified.
+
+Chainguard doesn't publish a customer-facing verification procedure yet. Verification requires the signing key's fingerprint, which isn't published, so there is no complete recipe to follow today. Tooling for this is planned. In the meantime the attestation is still useful as a record: it names the upstream commit the release was built from and the ruleset version that was applied.
 
 ## The continuous re-hardening process
 
