@@ -210,6 +210,10 @@ If you run into issues pulling from Chainguard's package repositories through Ne
 * Check that your environment meets all [network requirements](/chainguard/containers/registry/network-requirements/), and that Nexus can reach both `apk.cgr.dev` and `*.r2.cloudflarestorage.com`.
 * You may have misconfigured a repository. Delete and recreate the affected proxy or group to test with a clean setup.
 
+## Terraform
+
+If you would prefer to deploy this setup with Terraform, the [`nexus-apk-proxy`](https://github.com/chainguard-demo/cookbook/tree/main/terraform-modules/nexus-apk-proxy) module in the Chainguard [cookbook](https://github.com/chainguard-demo/cookbook) repository provides an example of creating a proxy group in the same configuration described by this guide.
+
 ## Learn more
 
 If you haven't already done so, you may find it useful to read through our [Registry overview](/chainguard/containers/registry/overview/) to learn more about Chainguard's registry. You can also learn more about Chainguard Containers by referring to our [documentation](/chainguard/containers/overview/), and learn more about working with the Chainguard platform by reviewing our [Administration documentation](/platform/administration/). For a walkthrough of how to set up Nexus as a pull-through cache for Chainguard Containers, refer to [our Nexus containers guide](/chainguard/containers/registry/pull-through-guides/nexus-pull-through/). If you'd like to learn more about Sonatype Nexus, we encourage you to refer to the [official Nexus documentation](https://help.sonatype.com/en/sonatype-nexus-repository.html).
