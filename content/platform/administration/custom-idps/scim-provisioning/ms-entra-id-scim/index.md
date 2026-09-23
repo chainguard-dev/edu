@@ -139,6 +139,10 @@ Chainguard's SCIM endpoint doesn't support value-filter paths. One is enough to 
 
 Keep the plain-path mappings. `userName` maps from `userPrincipalName`, which is the attribute Chainguard matches on. `active` maps through the default expression `Switch([IsSoftDeleted], , "False", "True", "True", "False")`, which inverts `IsSoftDeleted` so that a user Entra ID soft-deletes or unassigns arrives at Chainguard as inactive — this is what drives deactivation. If the application shows a **Provision Microsoft Entra ID Groups** mapping, disable it; Chainguard's SCIM endpoint accepts user provisioning only.
 
+{{< note >}}
+If your users' `userPrincipalName` and email addresses use different domains, change the **`userName`** mapping's **Source attribute** from `userPrincipalName` to `mail`. This provisions each user under their email address. Set it before provisioning any user; changing it later renames existing users.
+{{< /note >}}
+
 ### Assign users and turn on provisioning
 
 Under the application's **Users and groups**, assign the users or groups to provision.
