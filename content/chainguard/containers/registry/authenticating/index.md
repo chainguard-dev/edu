@@ -4,7 +4,7 @@ linktitle: "Authenticate"
 type: "article"
 description: "A guide on authenticating to Chainguard's registry to get container images"
 date: 2023-03-21T15:10:16+00:00
-lastmod: 2026-09-09T15:50:32+00:00
+lastmod: 2026-09-23T15:37:29+00:00
 tags: ["Chainguard Containers", "Registry"]
 draft: false
 images: []
@@ -125,6 +125,8 @@ Or Helm:
 ```sh
 helm registry login cgr.dev --username "$CHAINGUARD_IDENTITY_ID" --password "$CHAINGUARD_TOKEN"
 ```
+
+Helm needs this login even if your cluster already has a working `imagePullSecret`. That secret covers the image pulls your pods make. It has no effect on the Helm client, which authenticates to the registry on its own to fetch the chart when you run `helm install` against an `oci://` URL.
 
 The same username and password work with registry mirroring tools such as Artifactory. Refer to the [pull-through guides](/chainguard/containers/registry/pull-through-guides/) for tool-specific instructions.
 
@@ -343,6 +345,8 @@ kubectl create secret generic regcred \
  --from-file=.dockerconfigjson=<path/to/.docker/config.json> \
  --type=kubernetes.io/dockerconfigjson
 ```
+
+The `--type=kubernetes.io/dockerconfigjson` flag is required. Kubernetes reads pull credentials only from a secret of that type, and without the flag `kubectl create secret generic` creates an `Opaque` secret instead. The kubelet ignores an `Opaque` secret, so the pull runs unauthenticated and fails even though the credentials it holds are correct. If you adapt this command or move it into a manifest, keep the type — or use `kubectl create secret docker-registry`, which sets it for you.
 
 > **Important Note:** this will also make any other credentials you have configured in your Docker config available in the secret. Ensure only the necessary credentials are included.
 
