@@ -4,7 +4,7 @@ linktitle: "Install APKs in distroless"
 description: "Learn how to install APK packages into Chainguard's distroless container images that do not include package managers"
 type: "article"
 date: 2026-04-21T00:00:01+00:00
-lastmod: 2026-09-09T18:05:27+00:00
+lastmod: 2026-09-24T19:33:22+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -67,6 +67,7 @@ In short, we pull a distroless image, replicate its file structure as a folder o
 - You should build with the \`--no-cache\` flag enabled to ensure the latest remediated binaries are used and \`–pull\` to pull the most recent images.
 - Images built using this approach should be rebuilt periodically, even when reference base & build images did not change, to get updates of custom packages.
 - Scanners should correctly register packages in the final image.
+- If you build with [Kaniko](https://github.com/chainguard-forks/kaniko) rather than Docker/BuildKit, two lines in the examples on this page need to change. See [Appendix C](#appendix-c-example-code-for-chroot-method-kaniko).
 
 ### Example A: Preparing a Python virtual environment with APK install and runtime dependencies
 
@@ -422,3 +423,84 @@ Run the image:
 `docker run dynamic-binary`
 
 If the build was successful, you should see version information from libcurl as `output.t`.
+
+## Appendix C: Example code for chroot method (Kaniko)
+
+[Kaniko](https://github.com/chainguard-forks/kaniko) builds container images from a Dockerfile without a Docker daemon and is common in Kubernetes-based CI systems. Unlike Docker/BuildKit, Kaniko runs each Dockerfile instruction directly on the root filesystem of its executor container rather than in a per-stage snapshot. Because of this, two lines from the examples above fail under Kaniko:
+
+- `COPY --from=base / /base-chroot` fails with `could not save file: copying file: read /proc/1/attr/current: invalid argument`. When a later stage references an earlier stage, Kaniko saves that stage's files by copying them from the executor's live root filesystem, and `/` includes the executor's own `/proc`.
+- `COPY --from=build /base-chroot /` fails with `copying dir: chown /sys: read-only file system`. Chainguard Containers include empty `/dev`, `/proc`, and `/sys` directories, which are carried into the chroot along with the rest of the base image. When Kaniko copies the chroot onto `/`, it attempts to change ownership of the executor's real `/sys`.
+
+> **Note**: Kaniko's `--ignore-path` flag does not affect either failure. It applies only when Kaniko snapshots the filesystem into a layer or extracts a base image, and Kaniko already ignores mount points such as `/proc`, `/sys`, and `/dev` in those steps.
+
+Two small changes to the Dockerfile avoid both failures. The result also builds under Docker/BuildKit, so a single Dockerfile can serve both builders.
+
+Annotated `Dockerfile`:
+
+```Dockerfile
+# Pull unmodified base image
+FROM cgr.dev/chainguard/python:latest AS base
+
+# Pull build container with shell and apk
+FROM cgr.dev/chainguard/python:latest-dev AS build
+
+USER root
+# Copy base image contents to a subfolder, referencing the image rather than the "base" stage
+COPY --from=cgr.dev/chainguard/python:latest / /base-chroot
+
+# Customize base image chroot, then remove the kernel mount point directories
+RUN apk add --no-cache --no-scripts --root /base-chroot openssh-client && \
+  ldconfig -r /base-chroot && \
+  rm -rf /base-chroot/dev /base-chroot/proc /base-chroot/sys
+
+# Create customized production image
+FROM base
+# Copy customized base image
+COPY --from=build /base-chroot /
+
+ENTRYPOINT ["ssh"]
+CMD ["-V"]
+```
+
+Only two lines differ from the examples above.
+
+First, copy the filesystem of our reference image to a directory on the build image. Rather than the stage label (“base”) used above, reference the image directly:
+
+`COPY --from=cgr.dev/chainguard/python:latest / /base-chroot`
+
+Kaniko treats an image reference in `--from` as an additional stage and extracts it into its own directory, so the copy never touches the executor's root filesystem. Kaniko pulls the image a second time for this, which adds a few seconds to the build.
+
+Next, install APKs to the copied folder using chroot as before, then remove the `/dev`, `/proc`, and `/sys` directories from the chroot. The final image already has these directories from its base layer, so nothing is lost. We do this in the same `RUN` instruction as `apk add` to avoid an extra layer:
+
+`RUN apk add --no-cache --no-scripts --root /base-chroot openssh-client && ldconfig -r /base-chroot && rm -rf /base-chroot/dev /base-chroot/proc /base-chroot/sys`
+
+The final assembly is the same as in the examples above. The same two changes apply when assembling from `scratch` as in Appendix B. In that case, the final image will not contain `/dev`, `/proc`, or `/sys` directories at all, which is fine because the container runtime mounts them.
+
+Build the image. This example runs the Kaniko executor locally with Docker and writes the result to a tarball instead of pushing it to a registry:
+
+```sh
+docker run --rm \
+  -v "$PWD":/workspace \
+  cgr.dev/chainguard/kaniko:latest \
+  --dockerfile /workspace/Dockerfile \
+  --context dir:///workspace \
+  --no-push \
+  --tar-path /workspace/ssh-distroless.tar \
+  --destination ssh-distroless
+```
+
+In CI, remove `--no-push` and `--tar-path` and point `--destination` at your registry. If your base images come from your organization's private repository on `cgr.dev`, Kaniko needs a pull token in `/kaniko/.docker/config.json`; see [Authenticate to Chainguard's Registry](/chainguard/containers/registry/authenticating/#authenticating-with-a-pull-token).
+
+Load and run the image:
+
+`docker load -i ssh-distroless.tar`
+
+`docker run --rm ssh-distroless`
+
+If the build was successful, you should see version information from OpenSSH, similar to the following:
+
+```
+OpenSSH_10.5p1, OpenSSL 3.6.4 25 Aug 2026
+```
+
+The `python:latest` image does not include `ssh`, so this output confirms that the packages installed in the chroot were carried into the final image.
