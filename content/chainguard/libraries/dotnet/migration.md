@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing .NET project to pull dependencies from Chainguard Libraries"
 date: 2026-09-23T00:00:00+00:00
-lastmod: 2026-09-23T00:00:00+00:00
+lastmod: 2026-09-24T15:12:33+00:00
 tags: ["Chainguard Libraries", ".NET"]
 menu:
   docs:
@@ -34,20 +34,22 @@ Before getting started, you need:
 
 ### Create an entitlement
 
-To create an entitlement to Chainguard Libraries for .NET and enable upstream fallback, including a default 7-day cooldown, run:
+To create an entitlement to Chainguard Libraries for .NET, run:
 
 ```bash
-chainctl libraries entitlements create --ecosystems=DOTNET --policy=CHAINGUARD_AND_UPSTREAM
+chainctl libraries entitlements create --ecosystems=DOTNET
 ```
 
-You can also configure the cooldown policy after you create the entitlement. For example, to create and enforce a policy for a 14-day cooldown:
+You do not need to manually enable upstream fallback for .NET; the entitlement for .NET automatically includes Chainguard protections for upstream artifacts.
+
+You can also configure a cooldown policy after you create the entitlement. For example, to create and enforce a policy for a 14-day cooldown:
 
 ```bash
 chainctl libraries policy create --name=dotnet-cooldown-14d --cooldown-days=14
 chainctl libraries policy enable dotnet-cooldown-14d --ecosystem=DOTNET --mode=ENFORCE
 ```
 
-It can take up to 30 minutes for the fallback and cooldown policies to take effect. Learn more about cooldown and other policies in the [Libraries policies documentation](/chainguard/chainguard-repository/library-policies/).
+It can take up to 30 minutes for configured policies to take effect. Learn more about cooldown and other policies in the [Libraries policies documentation](/chainguard/chainguard-repository/library-policies/).
 
 ### Create a pull token
 

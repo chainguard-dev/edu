@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for .NET on your workstation"
 type: "article"
 date: 2026-09-23T00:00:00+00:00
-lastmod: 2026-09-23T00:00:00+00:00
+lastmod: 2026-09-24T15:12:33+00:00
 draft: false
 tags: ["Chainguard Libraries", ".NET"]
 menu:
@@ -17,7 +17,7 @@ toc: true
 
 Chainguard Libraries for .NET works with the standard NuGet client through a package-source configuration change. This page is a reference for configuration, authentication, and cache clearing. Apply these changes on every workstation and build server that builds and restores .NET dependencies, including CI/CD infrastructure.
 
-The `https://libraries.cgr.dev/dotnet` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for .NET. When [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) is enabled for your organization, this endpoint serves requested versions from upstream under Chainguard security controls.
+The `https://libraries.cgr.dev/dotnet` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for .NET. It serves requested versions from upstream [under Chainguard security controls](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls).
 
 This guide outlines build tool configuration. If you are looking for something else, refer to the following guides depending on your goals:
 
