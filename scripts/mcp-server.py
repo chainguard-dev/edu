@@ -993,6 +993,19 @@ if __name__ == "__main__":
         # host must be passed explicitly: the SDK runner defaults to 127.0.0.1,
         # but Cloud Run requires binding 0.0.0.0. streamable_http_path defaults
         # to "/mcp" (matches the 1.x mount) and max_request_body_size to 4 MiB.
-        server.run(transport="streamable-http", host=args.host, port=args.port)
+        #
+        # stateless_http holds no per-session state in instance memory. The
+        # service runs multiple Cloud Run instances behind a global load
+        # balancer with no session affinity, so a session minted by initialize
+        # on one instance is rejected with 404 "Session not found" when a
+        # follow-up request (e.g. notifications/initialized) lands on another
+        # (CUS-1340). The docs tools are read-only with no server-initiated
+        # notifications, so holding no shared session state has no downside.
+        server.run(
+            transport="streamable-http",
+            host=args.host,
+            port=args.port,
+            stateless_http=True,
+        )
     else:
         server.run()  # stdio
