@@ -1,5 +1,5 @@
 ---
-date: 2026-09-22T16:17:57Z
+date: 2026-09-23T09:48:16Z
 title: "chainctl skills versions"
 slug: chainctl_skills_versions
 url: /platform/chainctl/chainctl-docs/chainctl_skills_versions/
