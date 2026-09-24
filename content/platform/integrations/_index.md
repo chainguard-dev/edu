@@ -5,8 +5,8 @@ title : "Integrations"
 lead: ""
 description: "Chainguard integration documentation"
 type: "article"
-date: 
-lastmod: 
+date:
+lastmod:
 draft: false
 weight: 80
 ---
