@@ -9551,7 +9551,7 @@
     },
     "/libraries/v2beta1/requestGroups/{uid}": {
       "delete": {
-        "description": "A customer may delete their own drafts. Deleting a submitted group requires\nthe admin deleteSubmitted capability, since builds may already have run.",
+        "description": "Draft-only. A submitted group is refused, because the organization has\ncommitted to the builds it names and a member's ordinary delete capability\nmust not reach them. Deleting one is DeleteSubmittedRequestGroup below, whose\ncapability no customer role can hold.",
         "operationId": "RequestGroupsService_DeleteRequestGroup",
         "parameters": [
           {
@@ -10018,6 +10018,59 @@
           }
         },
         "summary": "List Request Group Items",
+        "tags": [
+          "RequestGroupsService"
+        ]
+      }
+    },
+    "/libraries/v2beta1/requestGroups/{uid}:deleteSubmittedRequestGroup": {
+      "delete": {
+        "description": "Chainguard-internal only, and a distinct method rather than a branch inside\nDeleteRequestGroup: which capability a caller needs would otherwise depend on\nthe group's lifecycle state, so no annotation could describe it and the rule\nwould have to be re-derived from a state read behind this surface. Two\nmethods let the interceptor decide from the annotation alone, which is how\nevery other RPC here is authorized.\n\nThe deletion itself is the same two-phase operation either way -- cancel,\ndrop the item rows, keep the tombstone -- so the two methods differ in who\nmay ask, not in what happens.",
+        "operationId": "RequestGroupsService_DeleteSubmittedRequestGroup",
+        "parameters": [
+          {
+            "description": "The group to delete.\n\nA flat UUID, not a Chainguard ID, as on GetRequestGroupRequest.uid. The IAM\nscope travels on parent below.",
+            "in": "path",
+            "name": "uid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          },
+          {
+            "description": "The organization that owns the group.\n\nCarries the IAM scope for this request, as on RefreshCoverageRequest.parent.\nRequired even though only Chainguard staff can call this: the capability is\nstill checked against an organization, and a staff-facing call is not an\nunscoped one.",
+            "in": "query",
+            "name": "parent",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Delete Submitted Request Group",
         "tags": [
           "RequestGroupsService"
         ]
