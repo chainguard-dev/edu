@@ -3,7 +3,7 @@ title: "Get started"
 lead: "New to Chainguard? Start here. Orient yourself, then pick the path that matches what you're trying to do — build with containers, build with libraries, evaluate trust, or migrate an organization."
 description: "Get started with Chainguard: orient yourself, then choose your path — build with containers, build with libraries, evaluate trust, or migrate an existing organization."
 date: 2026-06-09T08:48:23+00:00
-lastmod: 2026-09-11T14:07:20+00:00
+lastmod: 2026-09-24T13:48:11+00:00
 draft: false
 images: []
 weight: 1
@@ -26,6 +26,10 @@ Deciding whether Chainguard is right for your organization? Review how Chainguar
 ## Onboard your teams
 
 Already adopted Chainguard and need to bring your developers on board? Learn what your teams can pull, how access depends on your subscription, and how to retrieve SBOMs and provenance in the guide to [onboarding your teams](/get-started/onboard-your-teams/).
+
+## Set up your CI/CD pipeline
+
+Wiring Chainguard into a build pipeline? [Chainguard in your CI/CD pipeline](/get-started/cicd-pipeline/) maps where each product fits, in the order you'd encounter it — hardening the repository, authenticating without long-lived secrets, pulling trusted inputs, building, verifying, gating deploys, and staying current.
 
 ## Migrate an organization
 
