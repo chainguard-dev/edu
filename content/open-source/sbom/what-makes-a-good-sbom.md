@@ -4,7 +4,7 @@ description: "An explanation of what makes a good SBOM"
 lead: "A guide to SBOM quality"
 type: "article"
 date: 2022-08-04T15:21:01+02:00
-lastmod: 2026-07-27T15:39:06+00:00
+lastmod: 2026-09-24T16:28:41+00:00
 contributors: ["John Speed Meyers"]
 draft: false
 tags: ["SBOM", "Conceptual"]
@@ -16,7 +16,7 @@ weight: 10
 toc: true
 ---
 
-A [software bill of materials](/software-security/glossary/#sbom), or an SBOM (pronounced s-bomb), is a formal record of the components contained in a piece of software. It is analogous to an ingredients list for a recipe. And it has become recognized as one of the key building blocks of software supply chain security. Proponents rightfully point out that organizations can't secure their software if they don't know what's inside their software.
+A software bill of materials, or an SBOM (pronounced s-bomb), is a formal record of the components contained in a piece of software. It is analogous to an ingredients list for a recipe. And it has become recognized as one of the key building blocks of software supply chain security. Proponents rightfully point out that organizations can't secure their software if they don't know what's inside their software.
 
 As awareness and adoption of SBOM has grown, there has been a gradual acknowledgement that [not all SBOMs are created equal](https://www.chainguard.dev/unchained/not-all-sboms-are-created-equal), some are more or less useful, depending on the goals of the SBOM user and the contents of the SBOM. This guide exists to provide some guidance on evaluating the quality of an SBOM, suggesting common use cases and the data fields that support these use cases and open source SBOM quality tools.
 
