@@ -8,5 +8,5 @@ type: "article"
 date: 
 lastmod: 
 draft: false
-weight: 080
+weight: 80
 ---

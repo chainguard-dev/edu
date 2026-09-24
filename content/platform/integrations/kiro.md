@@ -62,10 +62,12 @@ Kiro can use Chainguard context to help with tasks such as:
 
 The power includes the following MCP servers:
 
-* `cg-api` for Chainguard platform and organization workflows
-* `cg-apk` for Wolfi package discovery
-* `cg-oci` for container image discovery and tag lookup
-* `cg-versions` for version and upgrade-path lookup
+* [`cg-api`](/platform/mcp-servers/cg-api/) for Chainguard platform and organization workflows
+* [`cg-apk`](/platform/mcp-servers/cg-apk/) for Wolfi package discovery
+* [`cg-oci`](/platform/mcp-servers/cg-oci/) for container image discovery and tag lookup
+* [`cg-versions`](/platform/mcp-servers/cg-versions/) for version and upgrade-path lookup
+
+You can also connect these servers to any MCP-compatible client without installing the Kiro power. Refer to the [Chainguard MCP servers overview](/platform/mcp-servers/overview/) for each server's endpoint, tools, and authentication options.
 
 ### Migrate a project to use Chainguard
 
