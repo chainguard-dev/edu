@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 530 708" width="530" height="708" role="img" aria-labelledby="diagram-title">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 530 718" width="530" height="718" role="img" aria-labelledby="diagram-title">
 <title id="diagram-title">Where Chainguard products fit in a CI/CD pipeline, from setting up access through staying current</title>
 <g font-family='system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif'>
 <rect x="10" y="10" width="150" height="44" rx="8" fill="#6226f0"/>
@@ -16,12 +16,12 @@
 <text x="85.0" y="107.0" fill="#ffffff" font-size="13" font-weight="600" text-anchor="middle" dominant-baseline="central">repository</text>
 <path d="M85.0 130 L85.0 140" stroke="#6226f0" stroke-width="2"/>
 <path d="M80.0 136 L85.0 144 L90.0 136 Z" fill="#6226f0"/>
-<rect x="168" y="68.0" width="161" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
-<text x="248.5" y="82.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Chainguard Guardener</text>
-<rect x="337" y="68.0" width="154" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
-<text x="414.0" y="82.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Commit verification</text>
-<rect x="168" y="102.0" width="133" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
-<text x="234.5" y="116.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Actions security</text>
+<rect x="168" y="68.0" width="85" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
+<text x="210.5" y="82.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Guardener</text>
+<rect x="261" y="68.0" width="133" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
+<text x="327.5" y="82.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Hardened Actions</text>
+<rect x="168" y="102.0" width="154" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
+<text x="245.0" y="116.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Commit Verification</text>
 <rect x="10" y="144" width="150" height="62" rx="8" fill="#6226f0"/>
 <text x="85.0" y="167.0" fill="#ffffff" font-size="13" font-weight="600" text-anchor="middle" dominant-baseline="central">2. Authenticate</text>
 <text x="85.0" y="183.0" fill="#ffffff" font-size="13" font-weight="600" text-anchor="middle" dominant-baseline="central">the pipeline</text>
@@ -33,68 +33,70 @@
 <text x="386.5" y="158.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">OIDC tokens</text>
 <rect x="168" y="178.0" width="119" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
 <text x="227.5" y="192.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">setup-chainctl</text>
-<rect x="10" y="220" width="150" height="52" rx="8" fill="#6226f0"/>
-<text x="85.0" y="238.0" fill="#ffffff" font-size="13" font-weight="600" text-anchor="middle" dominant-baseline="central">3. Replace</text>
-<text x="85.0" y="254.0" fill="#ffffff" font-size="13" font-weight="600" text-anchor="middle" dominant-baseline="central">workflow steps</text>
-<path d="M85.0 272 L85.0 282" stroke="#6226f0" stroke-width="2"/>
-<path d="M80.0 278 L85.0 286 L90.0 278 Z" fill="#6226f0"/>
-<rect x="168" y="232.0" width="147" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
-<text x="241.5" y="246.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Chainguard Actions</text>
-<rect x="323" y="232.0" width="182" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
-<text x="414.0" y="246.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Chainguard Agent Skills</text>
-<rect x="10" y="286" width="150" height="62" rx="8" fill="#6226f0"/>
-<text x="85.0" y="309.0" fill="#ffffff" font-size="13" font-weight="600" text-anchor="middle" dominant-baseline="central">4. Pull trusted</text>
-<text x="85.0" y="325.0" fill="#ffffff" font-size="13" font-weight="600" text-anchor="middle" dominant-baseline="central">inputs</text>
-<path d="M85.0 348 L85.0 358" stroke="#6226f0" stroke-width="2"/>
-<path d="M80.0 354 L85.0 362 L90.0 354 Z" fill="#6226f0"/>
-<rect x="168" y="286.0" width="168" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
-<text x="252.0" y="300.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Chainguard Containers</text>
-<rect x="344" y="286.0" width="161" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
-<text x="424.5" y="300.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Chainguard Libraries</text>
-<rect x="168" y="320.0" width="175" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
-<text x="255.5" y="334.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Chainguard OS packages</text>
-<rect x="10" y="362" width="150" height="62" rx="8" fill="#6226f0"/>
-<text x="85.0" y="393.0" fill="#ffffff" font-size="13" font-weight="600" text-anchor="middle" dominant-baseline="central">5. Build the image</text>
-<path d="M85.0 424 L85.0 434" stroke="#6226f0" stroke-width="2"/>
-<path d="M80.0 430 L85.0 438 L90.0 430 Z" fill="#6226f0"/>
-<rect x="168" y="362.0" width="126" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
-<text x="231.0" y="376.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Custom Assembly</text>
-<rect x="302" y="362.0" width="119" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
-<text x="361.5" y="376.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Chainguard VMs</text>
-<rect x="168" y="396.0" width="161" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
-<text x="248.5" y="410.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Dockerfile migration</text>
-<rect x="10" y="438" width="150" height="62" rx="8" fill="#6226f0"/>
-<text x="85.0" y="461.0" fill="#ffffff" font-size="13" font-weight="600" text-anchor="middle" dominant-baseline="central">6. Verify before</text>
-<text x="85.0" y="477.0" fill="#ffffff" font-size="13" font-weight="600" text-anchor="middle" dominant-baseline="central">shipping</text>
-<path d="M85.0 500 L85.0 510" stroke="#6226f0" stroke-width="2"/>
-<path d="M80.0 506 L85.0 514 L90.0 506 Z" fill="#6226f0"/>
-<rect x="168" y="438.0" width="175" height="28" rx="14.0" fill="#fdd5ff" stroke="#e202e0" stroke-width="1.5"/>
-<text x="255.5" y="452.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Signature verification</text>
-<rect x="351" y="438.0" width="57" height="28" rx="14.0" fill="#fdd5ff" stroke="#e202e0" stroke-width="1.5"/>
-<text x="379.5" y="452.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">SBOMs</text>
-<rect x="168" y="472.0" width="126" height="28" rx="14.0" fill="#fdd5ff" stroke="#e202e0" stroke-width="1.5"/>
-<text x="231.0" y="486.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">SLSA provenance</text>
-<rect x="10" y="514" width="150" height="44" rx="8" fill="#6226f0"/>
-<text x="85.0" y="536.0" fill="#ffffff" font-size="13" font-weight="600" text-anchor="middle" dominant-baseline="central">7. Gate the deploy</text>
-<path d="M85.0 558 L85.0 568" stroke="#6226f0" stroke-width="2"/>
-<path d="M80.0 564 L85.0 572 L90.0 564 Z" fill="#6226f0"/>
-<rect x="168" y="522.0" width="147" height="28" rx="14.0" fill="#fdd5ff" stroke="#e202e0" stroke-width="1.5"/>
-<text x="241.5" y="536.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Admission policies</text>
-<rect x="323" y="522.0" width="154" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
-<text x="400.0" y="536.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Repository policies</text>
-<rect x="10" y="572" width="150" height="62" rx="8" fill="#6226f0"/>
-<text x="85.0" y="603.0" fill="#ffffff" font-size="13" font-weight="600" text-anchor="middle" dominant-baseline="central">8. Stay current</text>
-<rect x="168" y="572.0" width="92" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
-<text x="214.0" y="586.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Digestabot</text>
-<rect x="268" y="572.0" width="99" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
-<text x="317.5" y="586.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">CloudEvents</text>
-<rect x="168" y="606.0" width="154" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
-<text x="245.0" y="620.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Security advisories</text>
-<rect x="330" y="606.0" width="133" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
-<text x="396.5" y="620.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">EOL Grace Period</text>
-<rect x="10" y="646" width="510" height="52" rx="8" fill="#ffffff" stroke="#c0a8fd" stroke-width="1.5"/>
-<rect x="22" y="655" width="22" height="14" rx="7" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
-<text x="54" y="662" fill="#0d161c" font-size="12" dominant-baseline="central">Chainguard product or feature</text>
-<rect x="22" y="675" width="22" height="14" rx="7" fill="#fdd5ff" stroke="#e202e0" stroke-width="1.5"/>
-<text x="54" y="682" fill="#0d161c" font-size="12" dominant-baseline="central">Open standard or practice you apply</text>
+<rect x="10" y="220" width="150" height="62" rx="8" fill="#6226f0"/>
+<text x="85.0" y="243.0" fill="#ffffff" font-size="13" font-weight="600" text-anchor="middle" dominant-baseline="central">3. Replace</text>
+<text x="85.0" y="259.0" fill="#ffffff" font-size="13" font-weight="600" text-anchor="middle" dominant-baseline="central">workflow steps</text>
+<path d="M85.0 282 L85.0 292" stroke="#6226f0" stroke-width="2"/>
+<path d="M80.0 288 L85.0 296 L90.0 288 Z" fill="#6226f0"/>
+<rect x="168" y="220.0" width="147" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
+<text x="241.5" y="234.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Chainguard Actions</text>
+<rect x="323" y="220.0" width="133" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
+<text x="389.5" y="234.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">cg-actions skill</text>
+<rect x="168" y="254.0" width="182" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
+<text x="259.0" y="268.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Chainguard Agent Skills</text>
+<rect x="10" y="296" width="150" height="62" rx="8" fill="#6226f0"/>
+<text x="85.0" y="319.0" fill="#ffffff" font-size="13" font-weight="600" text-anchor="middle" dominant-baseline="central">4. Pull trusted</text>
+<text x="85.0" y="335.0" fill="#ffffff" font-size="13" font-weight="600" text-anchor="middle" dominant-baseline="central">inputs</text>
+<path d="M85.0 358 L85.0 368" stroke="#6226f0" stroke-width="2"/>
+<path d="M80.0 364 L85.0 372 L90.0 364 Z" fill="#6226f0"/>
+<rect x="168" y="296.0" width="168" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
+<text x="252.0" y="310.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Chainguard Containers</text>
+<rect x="344" y="296.0" width="161" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
+<text x="424.5" y="310.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Chainguard Libraries</text>
+<rect x="168" y="330.0" width="175" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
+<text x="255.5" y="344.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Chainguard OS packages</text>
+<rect x="10" y="372" width="150" height="62" rx="8" fill="#6226f0"/>
+<text x="85.0" y="403.0" fill="#ffffff" font-size="13" font-weight="600" text-anchor="middle" dominant-baseline="central">5. Build the image</text>
+<path d="M85.0 434 L85.0 444" stroke="#6226f0" stroke-width="2"/>
+<path d="M80.0 440 L85.0 448 L90.0 440 Z" fill="#6226f0"/>
+<rect x="168" y="372.0" width="126" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
+<text x="231.0" y="386.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Custom Assembly</text>
+<rect x="302" y="372.0" width="119" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
+<text x="361.5" y="386.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Chainguard VMs</text>
+<rect x="168" y="406.0" width="161" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
+<text x="248.5" y="420.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Dockerfile migration</text>
+<rect x="10" y="448" width="150" height="62" rx="8" fill="#6226f0"/>
+<text x="85.0" y="471.0" fill="#ffffff" font-size="13" font-weight="600" text-anchor="middle" dominant-baseline="central">6. Verify before</text>
+<text x="85.0" y="487.0" fill="#ffffff" font-size="13" font-weight="600" text-anchor="middle" dominant-baseline="central">shipping</text>
+<path d="M85.0 510 L85.0 520" stroke="#6226f0" stroke-width="2"/>
+<path d="M80.0 516 L85.0 524 L90.0 516 Z" fill="#6226f0"/>
+<rect x="168" y="448.0" width="175" height="28" rx="14.0" fill="#fdd5ff" stroke="#e202e0" stroke-width="1.5"/>
+<text x="255.5" y="462.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Signature verification</text>
+<rect x="351" y="448.0" width="57" height="28" rx="14.0" fill="#fdd5ff" stroke="#e202e0" stroke-width="1.5"/>
+<text x="379.5" y="462.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">SBOMs</text>
+<rect x="168" y="482.0" width="126" height="28" rx="14.0" fill="#fdd5ff" stroke="#e202e0" stroke-width="1.5"/>
+<text x="231.0" y="496.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">SLSA provenance</text>
+<rect x="10" y="524" width="150" height="44" rx="8" fill="#6226f0"/>
+<text x="85.0" y="546.0" fill="#ffffff" font-size="13" font-weight="600" text-anchor="middle" dominant-baseline="central">7. Gate the deploy</text>
+<path d="M85.0 568 L85.0 578" stroke="#6226f0" stroke-width="2"/>
+<path d="M80.0 574 L85.0 582 L90.0 574 Z" fill="#6226f0"/>
+<rect x="168" y="532.0" width="147" height="28" rx="14.0" fill="#fdd5ff" stroke="#e202e0" stroke-width="1.5"/>
+<text x="241.5" y="546.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Admission policies</text>
+<rect x="323" y="532.0" width="154" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
+<text x="400.0" y="546.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Repository policies</text>
+<rect x="10" y="582" width="150" height="62" rx="8" fill="#6226f0"/>
+<text x="85.0" y="613.0" fill="#ffffff" font-size="13" font-weight="600" text-anchor="middle" dominant-baseline="central">8. Stay current</text>
+<rect x="168" y="582.0" width="92" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
+<text x="214.0" y="596.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Digestabot</text>
+<rect x="268" y="582.0" width="99" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
+<text x="317.5" y="596.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">CloudEvents</text>
+<rect x="168" y="616.0" width="154" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
+<text x="245.0" y="630.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Security advisories</text>
+<rect x="330" y="616.0" width="133" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
+<text x="396.5" y="630.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">EOL Grace Period</text>
+<rect x="10" y="656" width="510" height="52" rx="8" fill="#ffffff" stroke="#c0a8fd" stroke-width="1.5"/>
+<rect x="22" y="665" width="22" height="14" rx="7" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
+<text x="54" y="672" fill="#0d161c" font-size="12" dominant-baseline="central">Chainguard product or feature</text>
+<rect x="22" y="685" width="22" height="14" rx="7" fill="#fdd5ff" stroke="#e202e0" stroke-width="1.5"/>
+<text x="54" y="692" fill="#0d161c" font-size="12" dominant-baseline="central">Open standard or practice you apply</text>
 </g></svg>

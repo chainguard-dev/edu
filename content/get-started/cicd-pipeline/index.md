@@ -5,7 +5,7 @@ lead: "A map of where each Chainguard product fits in a CI/CD pipeline, in the o
 description: "Where each Chainguard product fits in a CI/CD pipeline: hardening the repository, authenticating without long-lived secrets, pulling trusted inputs, building, verifying, gating deploys, and staying current."
 type: "article"
 date: 2026-09-24T00:00:00+00:00
-lastmod: 2026-09-24T00:00:00+00:00
+lastmod: 2026-09-25T13:22:59+00:00
 draft: false
 tags: ["Getting Started"]
 images: []
@@ -19,7 +19,7 @@ This page walks the whole path in order so you can see how the pieces relate bef
 
 You don't have to adopt every stage, and you don't have to adopt them in order. Most organizations start at [Pull trusted inputs](#4-pull-trusted-inputs), because swapping a base image is the smallest change with the largest effect, then work outward from there.
 
-![Vertical flow diagram of a CI/CD pipeline in nine stages, each labeled with the Chainguard products and practices that apply. Stage 0, set up access: Chainguard Console, chainctl, IAM roles. Stage 1, harden the repository: Chainguard Guardener, commit verification, Actions security. Stage 2, authenticate the pipeline: assumable identities, OIDC tokens, setup-chainctl. Stage 3, replace workflow steps: Chainguard Actions, Chainguard Agent Skills. Stage 4, pull trusted inputs: Chainguard Containers, Chainguard Libraries, Chainguard OS packages. Stage 5, build the image: Custom Assembly, Chainguard VMs, Dockerfile migration. Stage 6, verify before shipping: signature verification, SBOMs, SLSA provenance. Stage 7, gate the deploy: admission policies, repository policies. Stage 8, stay current: Digestabot, CloudEvents, security advisories, EOL Grace Period.](cicd-lifecycle.svg)
+![Vertical flow diagram of a CI/CD pipeline in nine stages, each labeled with the Chainguard products and practices that apply. Stage 0, set up access: Chainguard Console, chainctl, IAM roles. Stage 1, harden the repository: Guardener, Hardened Actions, Commit Verification. Stage 2, authenticate the pipeline: assumable identities, OIDC tokens, setup-chainctl. Stage 3, replace workflow steps: Chainguard Actions, the cg-actions skill, Chainguard Agent Skills. Stage 4, pull trusted inputs: Chainguard Containers, Chainguard Libraries, Chainguard OS packages. Stage 5, build the image: Custom Assembly, Chainguard VMs, Dockerfile migration. Stage 6, verify before shipping: signature verification, SBOMs, SLSA provenance. Stage 7, gate the deploy: admission policies, repository policies. Stage 8, stay current: Digestabot, CloudEvents, security advisories, EOL Grace Period.](cicd-lifecycle.svg)
 
 ## 0. Set up access
 
@@ -35,13 +35,18 @@ The [Chainguard Console](/platform/console/) covers the same ground in a browser
 
 ## 1. Harden the repository
 
-Recent supply chain attacks have targeted the workflow file, not the artifact it produces. [Chainguard Guardener](/chainguard/guardener/) hardens the repository itself through a suite of capabilities you turn on one at a time:
+Recent supply chain attacks have targeted the workflow file, not the artifact it produces. [Guardener](/chainguard/guardener/) hardens the repository itself through a suite of capabilities you turn on one at a time.
 
-- [Commit verification](/chainguard/guardener/github/commit-verification/) enforces that commits come from identities you recognize.
-- [Actions security](/chainguard/guardener/github/actions-security/) finds insecure workflow patterns and opens pull requests that fix them.
-- [Dockerfile migration](/chainguard/guardener/dockerfile-migration/) converts an existing Dockerfile to Chainguard base images, and runs locally through `chainctl` rather than through the GitHub App.
+Two of them run through the [Guardener GitHub App](/chainguard/guardener/github/), enabled per repository by a file you commit to `.chainguard/`:
 
-Start with [getting started with Guardener](/chainguard/guardener/github/getting-started/).
+- [Hardened Actions](/chainguard/guardener/github/actions-security/) recommends and migrates your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents, either as non-blocking review comments or as a migration pull request.
+- [Commit Verification](/chainguard/guardener/github/commit-verification/) enforces cryptographically signed commits against a policy you control, covering both keyless Sigstore signatures and static keys such as GPG.
+
+A third runs locally rather than through the app:
+
+- [Dockerfile migration](/chainguard/guardener/dockerfile-migration/) converts your Dockerfiles to Chainguard Containers through the `chainctl agent dockerfile` commands.
+
+To install the app and link your Chainguard organization to your GitHub organization, see [getting started with Guardener](/chainguard/guardener/github/getting-started/).
 
 **Why it matters.** An attacker who can edit a workflow already has your secrets. Hardening the repository closes that door before anything reaches your build.
 
@@ -92,7 +97,12 @@ Then point each step at its hardened equivalent, pinned to a commit digest:
 
 Repository names in `chainguard-actions` carry the upstream organization as a prefix, so `tj-actions/changed-files` becomes `tj-actions-changed-files`. Run `chainctl actions discover` to list every action and container image your workflows reference, which tells you what there is to migrate. If your GitHub organization restricts which actions can run, add `chainguard-actions/*` to the allowed patterns first.
 
-If agents run anywhere in your pipeline, [Chainguard Agent Skills](/chainguard/agent-skills/overview/) applies the same idea to the skills those agents load.
+You don't have to make these edits by hand. Two tools do the migration for you, and which one fits depends on how much you're moving at once:
+
+- [Hardened Actions](/chainguard/guardener/github/actions-security/), through the Guardener GitHub App described in stage 1, inventories the actions in use across your organization and opens migration pull requests on a schedule. You can also trigger a run [on demand](/chainguard/guardener/github/actions-security/#run-an-on-demand-migration) with `chainctl guardener github migrate create`. Use this for a centralized, organization-wide rollout.
+- [cg-actions](https://github.com/chainguard-dev/cg-skills/tree/main/skills/cg-actions), a Claude Code skill, audits one repository's Actions usage and opens a pull request swapping in the hardened equivalents. Use this for a pilot, or where installing an app across the organization isn't an option.
+
+Separately, if agents run anywhere in your pipeline, [Chainguard Agent Skills](/chainguard/agent-skills/overview/) applies the same hardening idea to the skills those agents load.
 
 **Why it matters.** Migration is a one-line change per step, and it removes whole classes of attack — tag hijacking, `pull_request_target` abuse, and secret exfiltration — without changing what your workflow does.
 
