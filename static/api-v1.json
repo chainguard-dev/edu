@@ -16828,7 +16828,7 @@
     },
     "/registry/v1/entitlements/{parent}:removeImages": {
       "post": {
-        "description": "Removal is a soft delete: the underlying rows are retained with a deletion\ntimestamp so that history can be reconstructed for audit purposes.",
+        "description": "Removal is a soft delete: the underlying rows are retained with a deletion\ntimestamp so that history can be reconstructed for audit purposes.\n\nA removal the organization asked for is charged against the rolling 30-day\nswap quota, the same unit a swap costs, so removing an image and adding it\nback cannot dodge the quota. A removal performed by Chainguard staff on\nthe organization's behalf is not charged. See GetEffectiveEntitlements\n(swap_quota, swaps_used) for the current budget.",
         "operationId": "Entitlements_RemoveEntitlementImages",
         "parameters": [
           {
@@ -16926,7 +16926,7 @@
     },
     "/registry/v1/entitlements/{parent}:swapImages": {
       "post": {
-        "description": "A swap is the unit charged against the rolling 30-day swap quota: an N-for-N\nswap costs N. May return RESOURCE_EXHAUSTED when it would exceed the quota;\nsee GetEffectiveEntitlements (swap_quota, swaps_used).",
+        "description": "A swap is the unit charged against the rolling 30-day swap quota: an N-for-N\nswap costs N. May return RESOURCE_EXHAUSTED when it would exceed the quota;\nsee GetEffectiveEntitlements (swap_quota, swaps_used). A swap performed by\nChainguard staff on the organization's behalf is not charged, is not\nblocked by a budget the organization has already spent, and may always put\nback an image that was swapped out inside the window. A customer swap may\nget FAILED_PRECONDITION for that same re-add, on the entitlement the image\nwas swapped out of and while the organization's swap quota is finite.\nPer-tier and total image quotas apply to every caller.",
         "operationId": "Entitlements_SwapEntitlementImages",
         "parameters": [
           {
