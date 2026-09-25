@@ -1,5 +1,5 @@
 ---
-date: 2026-09-23T09:48:16Z
+date: 2026-09-24T09:03:37Z
 title: "chainctl libraries remediate"
 slug: chainctl_libraries_remediate
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_remediate/
@@ -15,9 +15,10 @@ Discover and apply Chainguard -cgr.N CVE remediations for a JavaScript project
 
 ### Synopsis
 
-remediate finds the highest installable Chainguard remediation (-cgr.N) for each
-package in a JavaScript project's resolved dependency tree, then writes the
-direct-dependency pins and package-manager overrides that deliver it.
+remediate scans a JavaScript project's resolved dependency tree against the
+Chainguard OpenVEX feed, reports the vulnerabilities the feed cites against it
+with the Chainguard remediation (-cgr.N) that clears each one, then writes the
+direct-dependency pins and package-manager overrides that deliver them.
 
 Provide a project directory, or omit it to use the current directory. The
 package manager is detected from the lockfile: package-lock.json (npm),
@@ -47,6 +48,17 @@ greatest -cgr.N published for that base version. Packages resolved from a
 non-public registry, and those whose lockfile entry cannot be proven to resolve
 through a public registry, are excluded.
 
+Each remediation is then classified against the OpenVEX feed. A feed statement
+fixing a vulnerability in <base>-cgr.N means the upstream <base> carries it, so
+a tree resolved to that base is reported as vulnerable, citing the CVE. A
+remediation with no statement against the resolved version is reported as a
+rebuild rather than a vulnerability; use --vulnerable-only to plan and gate on
+the vulnerable ones alone. Every finding cites the rebuild of its own base
+version that clears it; a finding is reported as backport-unavailable when the
+configured registry does not publish that rebuild. When the feed also clears a
+vulnerability at a later base version, that version is reported as a
+roll-forward option alongside the backport, never in place of it.
+
 Authentication matches 'chainctl libraries update-hashes': a libraries-scoped
 session ('chainctl auth login --audience=libraries.cgr.dev') is used directly;
 otherwise pass --token, --username/--password, or --parent to authenticate via
@@ -69,6 +81,9 @@ chainctl libraries remediate [project-dir] [flags]
   # Fail a CI job when an unadopted remediation exists
   chainctl libraries remediate --check
 
+  # Gate only on dependencies the OpenVEX feed cites a vulnerability against
+  chainctl libraries remediate --check --vulnerable-only
+
   # Machine-readable plan for a project in another directory
   chainctl libraries remediate --check --format json ./services/api
 ```
@@ -81,12 +96,14 @@ chainctl libraries remediate [project-dir] [flags]
       --ecosystems-url string   URL for the Ecosystems Proxy (defaults to https://libraries.cgr.dev). The /javascript path segment is appended automatically. Candidates are still validated against tarball URLs under https://libraries.cgr.dev/javascript, so only production or a proxy that preserves those URLs will yield remediations.
       --format string           Output format alias for --output: "json" or "none". Takes precedence over --output when both are set.
       --ignore-netrc            Do not read credentials from ~/.netrc ($NETRC).
-      --no-auth                 Send no authentication when discovering remediations. Overrides all ambient credential sources. Does not affect --apply, whose lockfile synchronization still authenticates to the registry with the project .npmrc. Mutually exclusive with the explicit --token and --username/--password flags.
+      --no-auth                 Send no authentication when discovering remediations. Overrides all ambient credential sources, including the ~/.netrc lookup that authenticates a --vex-url mirror. Does not affect --apply, whose lockfile synchronization still authenticates to the registry with the project .npmrc. Mutually exclusive with the explicit --token and --username/--password flags.
       --no-color                Disable colored output
       --parent string           Parent organization for authentication via 'chainctl auth pull-token'. Not needed when --token, --username/--password, the CHAINCTL_AUTH_TOKEN/CHAINCTL_REGISTRY_USERNAME env vars, or a matching ~/.netrc entry provides credentials.
       --password ps             Basic-auth password. Must be paired with --username. Also readable from $CHAINCTL_REGISTRY_PASSWORD. Prefer the env-var form to avoid leaking the value via ps or shell history.
       --token string            Literal bearer token to use as the basic-auth password (username is set to "token-user"). Mutually exclusive with --username/--password.
       --username string         Basic-auth username. Must be paired with --password. Also readable from $CHAINCTL_REGISTRY_USERNAME.
+      --vex-url string          URL serving the Chainguard OpenVEX feed (defaults to https://libraries.cgr.dev). The /openvex/v1 path segment is appended automatically. Defaulted separately from --ecosystems-url so pointing that at a private proxy does not move the scan off the published feed. The published feed needs no credentials; a mirror that does is authenticated from a matching ~/.netrc entry, never from the registry credential flags.
+      --vulnerable-only         Restrict the plan, the write set, and the --check gate to packages the OpenVEX feed cites a vulnerability against, ignoring remediations that only offer a newer rebuild.
 ```
 
 ### Options inherited from parent commands

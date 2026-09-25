@@ -1,5 +1,5 @@
 ---
-date: 2026-09-23T09:48:16Z
+date: 2026-09-24T09:03:37Z
 title: "chainctl images repos build list"
 slug: chainctl_images_repos_build_list
 url: /platform/chainctl/chainctl-docs/chainctl_images_repos_build_list/
@@ -22,7 +22,7 @@ chainctl images repos build list [--parent ORGANIZATION_NAME | ORGANIZATION_ID |
 ```
       --parent string   The name or id of the parent location to list build reports. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --recursive       Search repositories recursively through all descendants instead of just children
-      --repo string     Search for a specific repo by name, or ID.
+      --repo string     Search for a specific repo by name, or ID. A full repo ID identifies the repo on its own, so --parent is not needed.
 ```
 
 ### Options inherited from parent commands

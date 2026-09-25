@@ -1,5 +1,5 @@
 ---
-date: 2026-09-23T09:48:16Z
+date: 2026-09-24T09:03:37Z
 title: "chainctl iam folders delete"
 slug: chainctl_iam_folders_delete
 url: /platform/chainctl/chainctl-docs/chainctl_iam_folders_delete/
