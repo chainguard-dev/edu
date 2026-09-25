@@ -1,25 +1,26 @@
 ---
-title: "MCP Server for AI Documentation"
-linktitle: "MCP: AI Docs"
+title: "AI Docs: the Chainguard documentation MCP server"
+linktitle: "AI Docs"
 lead: "Model Context Protocol server for Chainguard documentation"
-description: "Access Chainguard documentation through MCP for AI assistants and automation"
+description: "Search Chainguard documentation from an AI tool or other MCP client"
 type: "article"
 date: 2026-01-02T21:00:00+00:00
-lastmod: 2026-09-04T15:07:32+00:00
+lastmod: 2026-09-25T19:01:09+00:00
 draft: false
 images: []
-weight: 600
+menu:
+  docs:
+    parent: "mcp-servers"
+    identifier: "ai-docs"
+weight: 060
 aliases:
+  - /mcp-server-ai-docs/
   - /chainguard/mcp-server-ai-docs/
 ---
 
-## Overview
+The Chainguard AI Documentation MCP server gives AI tools and other MCP clients searchable access to Chainguard's container image docs, security guides, and tool references. The server returns only the sections that match each query, so clients avoid loading the full documentation bundle into context.
 
-The Chainguard AI Documentation MCP server gives AI assistants and automation tools searchable access to Chainguard's container image docs, security guides, and tool references. The server returns only the sections that match each query, so clients avoid loading the full documentation bundle into context.
-
-## What is MCP?
-
-[Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is an open protocol that standardizes how AI applications access external data and tools. An MCP server exposes structured data and tools that AI clients can call to ground their responses in real information.
+For background on MCP and the other Chainguard MCP servers, refer to the [MCP servers overview](/platform/mcp-servers/overview/).
 
 ## Why use the MCP server?
 
@@ -27,7 +28,7 @@ The Chainguard AI Documentation MCP server gives AI assistants and automation to
 - **Structured queries.** Look up a specific image, search for a CVE, or find a package equivalent without writing custom scrapers.
 - **IDE integration.** Works with Claude Code, Claude Desktop, Cursor, and other MCP-compatible clients, so developers can reference Chainguard docs while they write code.
 
-## Getting started
+## Connect to the server
 
 ### Prerequisites
 
@@ -49,7 +50,7 @@ claude mcp add --transport http chainguard-docs https://mcp.edu.chainguard.dev/m
 
 The server is available immediately. Verify it with `claude mcp list`.
 
-> **Note:** The command sets up the docs MCP for use in the current directory. To scope use of the MCP server's availability to any directory that your user account uses, adjust the command by adding `--scope user` to the end.
+By default, the command registers the server for the current directory only. To make it available in every directory, add `--scope user`.
 
 #### Claude Desktop
 
@@ -74,7 +75,7 @@ The configuration file lives at:
 - **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
 - **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
 
-`npx` downloads and runs `mcp-remote` on demand, so Node.js must be installed on the host. Restart Claude Desktop after saving the file.
+`npx` downloads and runs `mcp-remote` on demand, so you need Node.js installed on the host. Restart Claude Desktop after saving the file.
 
 #### Cursor and other clients with native HTTP transport
 
@@ -100,7 +101,7 @@ To run the MCP server locally, pull the container image:
 docker pull ghcr.io/chainguard-dev/ai-docs:latest
 ```
 
-The image's `serve-mcp` entrypoint speaks stdio, which works with any MCP client that launches local processes. For Claude Desktop, add this block to `claude_desktop_config.json`:
+The image's `serve-mcp` entrypoint uses the stdio transport, which works with any MCP client that launches local processes. For Claude Desktop, add this block to `claude_desktop_config.json`:
 
 ```json
 {
@@ -129,12 +130,12 @@ The server exposes seven tools for querying documentation, mapping packages, and
 
 Search across all Chainguard documentation for relevant content.
 
-**Parameters:**
+*Parameters:*
 
 - `query` (string, required): Search query
 - `max_results` (integer, optional): Maximum results to return (default: 5)
 
-**Example prompts:**
+*Example prompts:*
 
 - "Search Chainguard docs for python CVE management"
 - "Find information about FIPS compliance"
@@ -144,11 +145,11 @@ Search across all Chainguard documentation for relevant content.
 
 Get documentation for a specific Chainguard container image.
 
-**Parameters:**
+*Parameters:*
 
-- `image_name` (string, required): Image name (e.g., "python", "node", "nginx")
+- `image_name` (string, required): Image name (for example, "python", "node", "nginx")
 
-**Example prompts:**
+*Example prompts:*
 
 - "Show me the Python image documentation"
 - "Get docs for the nginx image"
@@ -158,11 +159,11 @@ Get documentation for a specific Chainguard container image.
 
 List Chainguard container images with optional filtering. When the image catalog is available, each result includes the image's registry reference and whether documentation is available.
 
-**Parameters:**
+*Parameters:*
 
 - `filter` (string, optional): Filter images by name (for example, "python", "nginx", "apache")
 
-**Example prompts:**
+*Example prompts:*
 
 - "List all Chainguard images"
 - "Show me images related to Python"
@@ -171,7 +172,7 @@ List Chainguard container images with optional filtering. When the image catalog
 
 Get security-related documentation including CVE management, SBOMs, and signing.
 
-**Example prompts:**
+*Example prompts:*
 
 - "How does Chainguard handle CVEs?"
 - "Show me security documentation"
@@ -181,11 +182,11 @@ Get security-related documentation including CVE management, SBOMs, and signing.
 
 Get documentation for Chainguard tools and ecosystem components.
 
-**Parameters:**
+*Parameters:*
 
 - `tool_name` (string, required): Tool name: `wolfi`, `apko`, `melange`, or `chainctl`
 
-**Example prompts:**
+*Example prompts:*
 
 - "Show me wolfi documentation"
 - "How do I use apko?"
@@ -195,12 +196,12 @@ Get documentation for Chainguard tools and ecosystem components.
 
 Find the Wolfi package that replaces a Debian, Fedora, or Alpine package. Use this when migrating a Dockerfile to a Chainguard image and translating package names for `apk add`.
 
-**Parameters:**
+*Parameters:*
 
-- `package` (string, required): Upstream OS package name (e.g., "build-essential", "libssl-dev", "python3-pip")
-- `distro` (string, optional): Source distribution to search: `debian`, `fedora`, or `alpine`. Searches all distributions if omitted.
+- `package` (string, required): Upstream OS package name (for example, "build-essential", "libssl-dev", "python3-pip")
+- `distro` (string, optional): Source distribution to search: `debian`, `fedora`, or `alpine`. Searches all distributions if omitted. The catalog has no Alpine mappings yet, so an Alpine lookup returns no match.
 
-**Example prompts:**
+*Example prompts:*
 
 - "What's the Wolfi equivalent of Debian's build-essential?"
 - "Find the Chainguard package for libssl-dev"
@@ -212,11 +213,11 @@ Query `cgr.dev` for how current an image is. Returns the digest and build date o
 
 Tag lists omit the `sha256-` attachment tags that carry each image's signature, attestation, and SBOM, because they outnumber the image's real tags by several hundred to one.
 
-**Parameters:**
+*Parameters:*
 
 - `image_name` (string, required): Chainguard image name (such as "python", "node", "nginx")
 
-**Example prompts:**
+*Example prompts:*
 
 - "When was the Python image last built?"
 - "What tags are available for the Python image?"
@@ -227,47 +228,51 @@ Tag lists omit the `sha256-` attachment tags that carry each image's signature, 
 
 The `list_images` and `find_package_equivalent` tools draw from a pre-built catalog that ships with the server. The `check_image_freshness` tool queries the registry directly, and uses the catalog only to report whether an image has documentation. The catalog includes:
 
-- Every Chainguard container image with its registry reference, sourced from the image documentation
-- Package mappings from Debian, Fedora, and Alpine to their Wolfi equivalents
+- Chainguard container images that have documentation in the bundle, with their registry references. This doesn't cover every image in the registry.
+- Package mappings from Debian and Fedora to their Wolfi equivalents
 
 Each documentation build regenerates the catalog.
 
 ## Example usage
 
-Sample exchanges from a Claude Desktop session with the server connected:
+Sample exchanges from a Claude Code session with `chainguard-docs` connected. The documentation and images change often, so your answers will differ.
 
-```
-You: Search for python image security best practices
-
-Claude: [Uses search_docs tool]
-Based on the Chainguard documentation, here are Python image security best practices:
-...
+```Prompt
+How do I use a multi-stage build with the Chainguard Python image?
 ```
 
-```
-You: Show me the nginx image documentation
+```output
+  Called chainguard-docs (ctrl+o to expand)
 
-Claude: [Uses get_image_docs tool]
-Here's the complete documentation for the Chainguard nginx image:
-...
-```
-
-```
-You: What's the Wolfi equivalent of Debian's build-essential?
-
-Claude: [Uses find_package_equivalent tool]
-The Wolfi equivalent of Debian's build-essential is build-base. You can install it with:
-apk add build-base
-...
+● Use the -dev variant as the build stage and the minimal image as the
+  runtime stage. The -dev image includes pip and a shell, so install your
+  dependencies there, then copy them into the minimal image, which has
+  only Python and its standard library. The Getting started with the
+  Python Chainguard Container guide walks through a full example.
 ```
 
+```Prompt
+What's the Wolfi equivalent of Debian's build-essential?
 ```
-You: Is the python image up to date?
 
-Claude: [Uses check_image_freshness tool]
-The Chainguard Python image (cgr.dev/chainguard/python) was built today. The
-current digest of latest is sha256:ecf07c37..., and the repository's tags are
-latest and latest-dev.
+```output
+  Called chainguard-docs (ctrl+o to expand)
+
+● Debian's build-essential maps to build-base in Wolfi. Install it with:
+
+  apk add build-base
+```
+
+```Prompt
+When was the Python image last built, and what tags does it have?
+```
+
+```output
+  Called chainguard-docs (ctrl+o to expand)
+
+● The latest tag of cgr.dev/chainguard/python was built today. The public
+  repository carries two tags, latest and latest-dev. Version tags such as
+  3.13 aren't in the free catalog.
 ```
 
 ## Standalone installation (without Docker)
@@ -285,13 +290,14 @@ docker run --rm --user "$(id -u):$(id -g)" \
 # Writes chainguard-ai-docs.md, image-catalog.json, checksums.txt, and
 # verification.sh into a chainguard-ai-docs/ subdirectory
 
-# Install dependencies
-pip install -r mcp-requirements.txt
+# Install dependencies into a virtual environment
+python3 -m venv .venv
+.venv/bin/pip install -r mcp-requirements.txt
 
 # Run the server
 DOCS_PATH=chainguard-ai-docs/chainguard-ai-docs.md \
 CATALOG_PATH=chainguard-ai-docs/image-catalog.json \
-python3 mcp-server.py
+.venv/bin/python mcp-server.py
 ```
 
 The container runs as a non-root user, so pass `--user` to let it write to the mounted directory and to leave the extracted files owned by you.
@@ -302,7 +308,7 @@ To run this script under Claude Desktop, point the configuration at the local fi
 {
   "mcpServers": {
     "chainguard-docs": {
-      "command": "python3",
+      "command": "/path/to/.venv/bin/python",
       "args": ["/path/to/mcp-server.py"],
       "env": {
         "DOCS_PATH": "/path/to/chainguard-ai-docs.md",
@@ -313,14 +319,14 @@ To run this script under Claude Desktop, point the configuration at the local fi
 }
 ```
 
-## Self-hosting with HTTP transport
+## Self-host with HTTP transport
 
 Run your own HTTP instance when you need to expose the server inside a firewall or with custom configuration.
 
 ### From the standalone script
 
 ```bash
-python3 mcp-server.py --transport http --port 8080
+.venv/bin/python mcp-server.py --transport http --port 8080
 ```
 
 The server binds to `http://0.0.0.0:8080` with the MCP endpoint at `/mcp`.
@@ -328,7 +334,7 @@ The server binds to `http://0.0.0.0:8080` with the MCP endpoint at `/mcp`.
 Environment variables work too:
 
 ```bash
-MCP_TRANSPORT=http MCP_PORT=8080 python3 mcp-server.py
+MCP_TRANSPORT=http MCP_PORT=8080 .venv/bin/python mcp-server.py
 ```
 
 ### From Docker
@@ -337,7 +343,7 @@ MCP_TRANSPORT=http MCP_PORT=8080 python3 mcp-server.py
 docker run --rm -p 8080:8080 ghcr.io/chainguard-dev/ai-docs:latest serve-mcp-http
 ```
 
-Point your MCP client at `http://localhost:8080/mcp/`.
+Point your MCP client at `http://localhost:8080/mcp`.
 
 ### CLI flags
 
@@ -364,8 +370,8 @@ The container image follows the standard Chainguard pattern:
 
 - Built on `cgr.dev/chainguard/wolfi-base`
 - Runs as a non-root user
-- Signed with Cosign, with SBOM and provenance attached
-- Rebuilt regularly so known CVEs do not accumulate
+- Signed with Cosign
+- Rebuilt whenever the documentation changes, so known CVEs don't accumulate
 
 ## Troubleshooting
 
@@ -407,6 +413,7 @@ docker pull ghcr.io/chainguard-dev/ai-docs:latest
 
 ## Resources
 
+- [Chainguard MCP servers overview](/platform/mcp-servers/overview/)
 - [Model Context Protocol documentation](https://modelcontextprotocol.io/)
 - [Chainguard MCP blog post](https://www.chainguard.dev/unchained/meet-chainguard-mcps-bringing-supply-chain-security-to-the-ai-era)
 - [Developer Resources](/developer-resources/)
