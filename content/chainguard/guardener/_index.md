@@ -1,20 +1,20 @@
 ---
-title: "Chainguard Guardener"
-linktitle: "Chainguard Guardener"
-description: "Chainguard Guardener is a tool for managing and hardening your source code, with a growing suite of capabilities you opt into independently."
+title: "Guardener"
+linktitle: "Guardener"
+description: "Guardener is a tool for managing and hardening your source code, with a growing suite of capabilities you opt into independently."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-07-08T00:00:00+00:00
+lastmod: 2026-09-25T13:44:25+00:00
 draft: false
 images: []
 weight: 025
 ---
 
-Chainguard Guardener is a tool for managing and hardening your source code. Rather than adding a separate integration for every task, the Guardener provides a growing suite of capabilities that you opt into independently. Some capabilities run through a hardened GitHub App and are configured per repository through files committed to your codebase; others, such as Dockerfile migration, run locally through `chainctl`.
+Guardener is a tool for managing and hardening your source code. Rather than adding a separate integration for every task, Guardener provides a growing suite of capabilities that you opt into independently. Some capabilities run through a hardened GitHub App and are configured per repository through files committed to your codebase; others, such as Dockerfile migration, run locally through `chainctl`.
 
-{{< beta feature="Chainguard Guardener" access="organizations that have installed and linked the Chainguard Guardener GitHub App" >}}
+{{< beta feature="Guardener" access="organizations that have installed and linked the Guardener GitHub App" >}}
 
-The Guardener's capabilities fall into two groups:
+Guardener's capabilities fall into two groups:
 
 - **[GitHub App](/chainguard/guardener/github/)** — Capabilities that run through the Guardener GitHub App and are enabled per repository with `.chainguard/` configuration files:
     - **[Hardened Actions](/chainguard/guardener/github/actions-security/)** — Recommends and migrates your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents, through non-blocking pull request review comments or migration pull requests that run on a schedule or [on demand](/chainguard/guardener/github/actions-security/#run-an-on-demand-migration).

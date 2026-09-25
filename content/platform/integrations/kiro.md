@@ -7,7 +7,7 @@ lead: "Using Chainguard container images and libraries in AI-assisted developmen
 description: "Install the Chainguard Power for Kiro and use it to migrate projects to Chainguard container images and libraries."
 type: "article"
 date: 2026-06-18T00:00:00-04:00
-lastmod: 2026-08-28T16:31:04+00:00
+lastmod: 2026-09-25T13:44:25+00:00
 draft: false
 weight: 020
 ---
@@ -105,7 +105,7 @@ CMD ["python", "app.py"]
 Prompt Kiro with a request such as:
 
 ```Prompt
-Can you help me migrate this Dockerfile to use Chainguard Images?
+Can you help me migrate this Dockerfile to use Chainguard Containers?
 ```
 
 Kiro can then look up a Chainguard replacement image, translate system package installation to the appropriate Wolfi packages, rewrite the Dockerfile, and explain any important tradeoffs.

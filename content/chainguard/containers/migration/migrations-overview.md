@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "Key differences, a recommended rollout strategy, and troubleshooting guidance for moving existing container workloads to Chainguard Containers."
 date: 2024-07-22T12:56:52-00:00
-lastmod: 2026-09-09T13:12:18+00:00
+lastmod: 2026-09-25T13:44:25+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -155,7 +155,7 @@ Lastly, you might also find help in the [Chainguard Containers FAQs](/chainguard
 
 Once you have worked through the [sample application port](/chainguard/containers/migration/porting-apps-to-chainguard/#porting-key-points), the [Migration best practices and checklist](/chainguard/containers/migration/migration-checklist/) collects the steps worth running through before and during a rollout.
 
-To automate Dockerfile migration, [The Guardener](/chainguard/guardener/dockerfile-migration/) is an AI-powered agent that iteratively converts, builds, and validates your Dockerfiles for use with Chainguard Containers.
+To automate Dockerfile migration, [Guardener](/chainguard/guardener/dockerfile-migration/) is an AI-powered agent that iteratively converts, builds, and validates your Dockerfiles for use with Chainguard Containers.
 
 Chainguard Academy groups the rest of its migration material into three sets:
 

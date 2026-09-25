@@ -8,7 +8,7 @@ lead: "The Chainguard Repository is a single, policy-aware endpoint for all arti
 description: "Chainguard Repository overview"
 type: "article"
 date: 2026-03-16T08:48:23+00:00
-lastmod: 2026-09-01T13:45:43+00:00
+lastmod: 2026-09-25T13:44:25+00:00
 draft: false
 weight: 010
 ---
@@ -66,7 +66,7 @@ Available policies include:
 
 > **Note**: Chainguard recommends a 7-day cooldown when enabling upstream fallback, to block a large share of malicious packages identified shortly after publication. Shorter cooldown periods increase the risk of pulling malicious or compromised upstream packages before the broader ecosystem can detect and report them.
 
-The packages that make up Chainguard Images are checked against public malware identifier feeds, and any package with a known malware idenitifier is remediated before being used in any image.
+The packages that make up Chainguard Containers are checked against public malware identifier feeds, and any package with a known malware identifier is remediated before being used in any image.
 
 Refer to [Container pull policies](/chainguard/chainguard-repository/container-policies/) for more information.
 

@@ -4,7 +4,7 @@ linktitle: "Changelog"
 type: "article"
 description: "Weekly changelog of Chainguard product updates — product announcements, breaking changes, container images reaching end-of-life or leaving the catalog, and images newly added to it."
 date: 2026-07-28T00:00:00+00:00
-lastmod: 2026-09-21T18:05:42+00:00
+lastmod: 2026-09-25T13:44:25+00:00
 draft: false
 tags: ["Chainguard Containers", "Changelog"]
 images: []
@@ -383,9 +383,9 @@ For more information, refer to [Error messages](/chainguard/libraries/troublesho
 
 _Launched August 12, 2026._
 
-Chainguard Guardener, the automated migration tool, now covers GitHub Actions as well as container images. The GitHub App inventories the Actions in use across your organization's repositories, maps them to hardened Chainguard equivalents, and opens pull requests to swap them in, pinned to a specific SHA rather than a mutable tag. It runs in two modes: an upfront pass that surfaces existing Actions usage and opens migration pull requests, and ongoing standardization that watches workflow files and suggests Chainguard equivalents as new upstream Actions appear.
+Guardener, the automated migration tool, now covers GitHub Actions as well as container images. The GitHub App inventories the Actions in use across your organization's repositories, maps them to hardened Chainguard equivalents, and opens pull requests to swap them in, pinned to a specific SHA rather than a mutable tag. It runs in two modes: an upfront pass that surfaces existing Actions usage and opens migration pull requests, and ongoing standardization that watches workflow files and suggests Chainguard equivalents as new upstream Actions appear.
 
-For more information, refer to [Getting started with Chainguard Guardener](/chainguard/guardener/github/getting-started/).
+For more information, refer to [Getting started with Guardener](/chainguard/guardener/github/getting-started/).
 
 {{< changelog-label "Breaking Changes" >}}
 

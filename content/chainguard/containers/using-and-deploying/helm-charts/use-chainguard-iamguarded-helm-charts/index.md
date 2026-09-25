@@ -8,7 +8,7 @@ type: "article"
 description: "A primer on how to use Chainguard-produced iamguarded Helm charts to deploy Chainguard container images"
 lead: "A primer on how to use Chainguard-produced iamguarded Helm charts to deploy Chainguard container images"
 date: 2025-07-11T08:49:31+00:00
-lastmod: 2026-09-23T15:37:29+00:00
+lastmod: 2026-09-25T13:46:15+00:00
 draft: false
 tags: ["Chainguard Containers", "Helm charts", "iamguarded", "Product"]
 images: []
@@ -32,7 +32,7 @@ You can find iamguarded Helm charts in the [Chainguard Console](/platform/consol
 
 The following is an instructional guide for Chainguard users that are looking for Helm charts to use with their iamguarded Chainguard container images.
 
-If there is a FIPS version of the iamguarded image the chart needs, you can use these Helm charts with Chainguard FIPS container images, but you will need to set the image in the values because they use the non-FIPS images by default. We build a single chart per application and validate that both FIPS and non-FIPS Chainguard Images work with it. If there is no appropriate iamguarded-fips image then you cannot use a non-iamguarded FIPS image.
+If there is a FIPS version of the iamguarded image the chart needs, you can use these Helm charts with Chainguard FIPS container images, but you will need to set the image in the values because they use the non-FIPS images by default. We build a single chart per application and validate that both FIPS and non-FIPS Chainguard container images work with it. If there is no appropriate iamguarded-fips image then you cannot use a non-iamguarded FIPS image.
 
 ## Configuration requirements
 

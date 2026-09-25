@@ -1,10 +1,10 @@
 ---
-title: "Chainguard Guardener Hardened Actions"
+title: "Guardener Hardened Actions"
 linktitle: "Hardened Actions"
-description: "Configure Chainguard Guardener to recommend and migrate your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents."
+description: "Configure Guardener to recommend and migrate your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-09-15T00:00:00+00:00
+lastmod: 2026-09-25T13:44:25+00:00
 draft: false
 tags: ["GitHub", "Automation"]
 images: []
@@ -32,11 +32,11 @@ Add a `.chainguard/actions.yaml` file to your repository:
 enabled: true
 ```
 
-With just `enabled: true`, the Guardener posts non-blocking recommendation comments on pull requests that touch your workflows. It does not open pull requests of its own.
+With just `enabled: true`, Guardener posts non-blocking recommendation comments on pull requests that touch your workflows. It does not open pull requests of its own.
 
 ## Enable automated migration pull requests
 
-To have the Guardener periodically open and maintain a pull request that migrates your workflows, enable the `migrate` block:
+To have Guardener periodically open and maintain a pull request that migrates your workflows, enable the `migrate` block:
 
 ```yaml
 enabled: true
@@ -45,7 +45,7 @@ migrate:
   period: "168h"
 ```
 
-The Guardener opens (and keeps updated) a single migration pull request on the cadence you set with `period`.
+Guardener opens (and keeps updated) a single migration pull request on the cadence you set with `period`.
 
 ## Run an on-demand migration
 
