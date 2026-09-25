@@ -54,7 +54,7 @@
 <rect x="344" y="296.0" width="161" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
 <text x="424.5" y="310.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Chainguard Libraries</text>
 <rect x="168" y="330.0" width="175" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
-<text x="255.5" y="344.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Chainguard OS packages</text>
+<text x="255.5" y="344.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Chainguard OS Packages</text>
 <rect x="10" y="372" width="150" height="62" rx="8" fill="#6226f0"/>
 <text x="85.0" y="403.0" fill="#ffffff" font-size="13" font-weight="600" text-anchor="middle" dominant-baseline="central">5. Build the image</text>
 <path d="M85.0 434 L85.0 444" stroke="#6226f0" stroke-width="2"/>

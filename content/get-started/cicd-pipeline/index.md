@@ -5,7 +5,7 @@ lead: "A map of where each Chainguard product fits in a CI/CD pipeline, in the o
 description: "Where each Chainguard product fits in a CI/CD pipeline: hardening the repository, authenticating without long-lived secrets, pulling trusted inputs, building, verifying, gating deploys, and staying current."
 type: "article"
 date: 2026-09-24T00:00:00+00:00
-lastmod: 2026-09-25T13:22:59+00:00
+lastmod: 2026-09-25T16:22:27+00:00
 draft: false
 tags: ["Getting Started"]
 images: []
@@ -19,7 +19,7 @@ This page walks the whole path in order so you can see how the pieces relate bef
 
 You don't have to adopt every stage, and you don't have to adopt them in order. Most organizations start at [Pull trusted inputs](#4-pull-trusted-inputs), because swapping a base image is the smallest change with the largest effect, then work outward from there.
 
-![Vertical flow diagram of a CI/CD pipeline in nine stages, each labeled with the Chainguard products and practices that apply. Stage 0, set up access: Chainguard Console, chainctl, IAM roles. Stage 1, harden the repository: Guardener, Hardened Actions, Commit Verification. Stage 2, authenticate the pipeline: assumable identities, OIDC tokens, setup-chainctl. Stage 3, replace workflow steps: Chainguard Actions, the cg-actions skill, Chainguard Agent Skills. Stage 4, pull trusted inputs: Chainguard Containers, Chainguard Libraries, Chainguard OS packages. Stage 5, build the image: Custom Assembly, Chainguard VMs, Dockerfile migration. Stage 6, verify before shipping: signature verification, SBOMs, SLSA provenance. Stage 7, gate the deploy: admission policies, repository policies. Stage 8, stay current: Digestabot, CloudEvents, security advisories, EOL Grace Period.](cicd-lifecycle.svg)
+![Vertical flow diagram of a CI/CD pipeline in nine stages, each labeled with the Chainguard products and practices that apply. Stage 0, set up access: Chainguard Console, chainctl, IAM roles. Stage 1, harden the repository: Guardener, Hardened Actions, Commit Verification. Stage 2, authenticate the pipeline: assumable identities, OIDC tokens, setup-chainctl. Stage 3, replace workflow steps: Chainguard Actions, the cg-actions skill, Chainguard Agent Skills. Stage 4, pull trusted inputs: Chainguard Containers, Chainguard Libraries, Chainguard OS Packages. Stage 5, build the image: Custom Assembly, Chainguard VMs, Dockerfile migration. Stage 6, verify before shipping: signature verification, SBOMs, SLSA provenance. Stage 7, gate the deploy: admission policies, repository policies. Stage 8, stay current: Digestabot, CloudEvents, security advisories, EOL Grace Period.](cicd-lifecycle.svg)
 
 ## 0. Set up access
 
@@ -118,7 +118,7 @@ This is where most teams start. Point your builds at Chainguard for the three ki
 
 - **Language dependencies.** [Chainguard Libraries](/chainguard/libraries/introduction/overview/) rebuilds Java, Python, and JavaScript packages from source, and they're drop-in replacements for what you'd pull from Maven Central, PyPI, or npm. Configure your package manager with `chainctl auth configure-npm` or the equivalent for your ecosystem, then follow the [quickstart](/chainguard/libraries/introduction/quickstart/).
 
-- **System packages.** [Chainguard OS packages](/chainguard/chainguard-os/chainguard-os-packages/) are the APK packages the container images are assembled from, available when you need to install something at build time.
+- **System packages.** [Chainguard OS Packages](/chainguard/chainguard-os/chainguard-os-packages/) are the APK packages the container images are assembled from, available when you need to install something at build time.
 
 All of these are served through the [Chainguard Repository](/chainguard/chainguard-repository/overview/), which is also where you set the policies that govern what your organization is allowed to pull.
 
