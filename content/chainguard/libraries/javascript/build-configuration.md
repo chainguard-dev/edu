@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for JavaScript on your workstation"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-09-09T17:33:40+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
@@ -249,7 +249,7 @@ npm cache verify
 If your organization publishes its own packages to the public npm Registry under
 a scoped prefix (for example, `@your-org/package-name`), you may want those
 packages to be fetched directly from npm rather than going through the
-[Chainguard Repository](/chainguard/libraries/chainguard-repository/); for
+[Chainguard Repository](/chainguard/libraries/javascript/overview/); for
 example, to bypass the cooldown period for packages you own and trust.
 
 npm supports per-scope registry configuration, which lets you route packages

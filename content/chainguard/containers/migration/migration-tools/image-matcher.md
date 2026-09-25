@@ -11,12 +11,13 @@ linktitle: "Image Matcher"
 description: "Learn how the Chainguard Image Matcher uses SBOMs to recommend the closest Chainguard image equivalent for your existing container images."
 type: "article"
 date: 2026-05-26T00:00:00+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 weight: 020
 tags: ["Chainguard Images", "Migration", "SBOM", "API"]
 ---
 
-The [Chainguard Image Matcher](/chainguard/api/spec-api-v1/#tag/imagematcher) is an API-based tool that analyzes the software bill of materials (SBOM) of an existing container image and returns a ranked list of Chainguard images that most closely match it. It is designed to support migration workflows where you know what you are running today and want to find the best Chainguard equivalent.
+The [Chainguard Image Matcher](/platform/api/spec-api-v1/#tag/imagematcher) is an API-based tool that analyzes the software bill of materials (SBOM) of an existing container image and returns a ranked list of Chainguard images that most closely match it. It is designed to support migration workflows where you know what you are running today and want to find the best Chainguard equivalent.
 
 ## How it works
 

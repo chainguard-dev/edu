@@ -7,7 +7,7 @@ type: "article"
 description: "Use Cosign to verify non-container software artifacts"
 lead: "Cosign can verify software artifacts beyond containers"
 date: 2022-12-21T15:22:20+01:00
-lastmod: 2026-07-27T16:03:25+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Cosign", "Procedural"]
 images: []
@@ -26,7 +26,7 @@ This tutorial assumes you [have Cosign installed](/open-source/sigstore/cosign/h
 
 All `apko` releases include [keyless signatures using Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/#keyless-signing). You can verify the signature for an apko release using the `cosign` tool directly, or by calculating the SHA256 hash of the release and finding the corresponding Rekor transparency log entry.
 
-If you would like to learn how to verify a binary using Rekor or `curl`, follow the steps in our guide on [How to verify file signatures with Rekor or curl](/open-source/sigstore/rekor/how-to-verify-file-signatures-with-rekor-or-curl/).
+If you would like to learn how to verify a binary using Rekor or `curl`, follow the steps in our guide on [How to verify file signatures with Rekor or curl](/open-source/sigstore/cosign/how-to-verify-file-signatures-with-cosign/).
 
 We'll use the `apko_0.19.9_linux_arm64.tar.gz` tar archive from the `apko` [GitHub Release v0.19.9 page](https://github.com/chainguard-dev/apko/releases/tag/v0.19.9) in this example.
 

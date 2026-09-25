@@ -4,7 +4,7 @@ linktitle: "Dependency maintenance"
 description: "Manage Chainguard Libraries for Python dependencies after setup, including package updates, verification, and monitoring security improvements"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-28T16:31:04+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 images: []
@@ -79,7 +79,7 @@ Repository and is available in your repository manager or local repository it is
 not automatically replaced with the equivalent Chainguard Library version.
 
 To adopt new Chainguard-built artifacts, refer to the [build pinning
-documentation](/chainguard/libraries/build-pinning/#adopt-a-chainguard-build-after-removing-a-pin)
+documentation](/chainguard/libraries/policies-and-security/build-pinning/#adopt-a-chainguard-build-after-removing-a-pin)
 for instructions on removing existing pinned versions.
 
 Refreshing cached artifacts may also be necessary to solve other issues, such as

@@ -7,14 +7,14 @@ aliases:
 description: "Procedural tutorial outlining how to use Terraform to create Chainguard role-bindings for members of a GitHub team."
 type: "article"
 date: 2023-06-10T08:48:45+00:00
-lastmod: 2024-05-09T08:48:45+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Console", "Procedural"]
 images: []
 weight: 010
 ---
 
-There may be cases where an organization will want multiple users to have access to the same Chainguard organization. Chainguard allows you to grant other users access to Chainguard by [generating an invite link or code](/chainguard/administration/iam-organizations/how-to-manage-iam-organizations-in-chainguard/#inviting-others-to-an-organization).
+There may be cases where an organization will want multiple users to have access to the same Chainguard organization. Chainguard allows you to grant other users access to Chainguard by [generating an invite link or code](/platform/administration/iam-organizations/how-to-manage-iam-organizations-in-chainguard/#inviting-others-to-an-organization).
 
 In addition, you can now grant access to users using Terraform and identity providers like GitHub, GitLab, and Google. You can also manage access through these providers' existing group structures, like GitHub Teams or GitLab Groups. Granting access through Terraform helps to reduce the risk of unwanted users gaining access to Chainguard.
 
@@ -25,7 +25,7 @@ This guide outlines one method of using Terraform to grant members of a GitHub t
 To complete this guide, you will need the following.
 
 * `terraform` installed on your local machine. Terraform is an open-source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
-* `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up.
+* `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) to set this up.
 * Access to a GitHub team. If you'd like, you can create a new GitHub organization and team for testing purposes. Check out [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/creating-a-team) for details on how to do this.
 * A GitHub Personal Access Token, with a minimum of **read.org** access. Follow [GitHub's documentation on the subject](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) to learn how to set one up. Additionally, you will need to [configure SSO for your personal access token](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on) if required by your organization.
 

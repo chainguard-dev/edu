@@ -7,7 +7,7 @@ lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by an Azure workload using a managed identity."
 type: "article"
 date: 2026-05-15T00:00:00+00:00
-lastmod: 2026-05-15T00:00:00+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -16,10 +16,10 @@ weight: 011
 
 > **Note:** If you're authenticating from a workload running in Azure
 > Kubernetes Service (AKS), refer to the
-> [Kubernetes identity guide](/chainguard/administration/assumable-ids/identity-examples/kubernetes-identity/)
+> [Kubernetes identity guide](/platform/administration/assumable-ids/identity-examples/kubernetes-identity/)
 > instead.
 
-Chainguard's [_assumable identities_](/chainguard/administration/assumable-ids/assumable-ids/)
+Chainguard's [_assumable identities_](/platform/administration/assumable-ids/assumable-ids/)
 are identities that can be assumed by external applications or workflows in
 order to perform certain tasks that would otherwise have to be done by a human.
 
@@ -34,7 +34,7 @@ To complete this guide, you will need the following.
 
 - `chainctl` — the Chainguard command line interface tool — installed on your
   local machine. Follow our guide on
-  [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/)
+  [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/)
   to set this up.
 - The [Azure CLI (`az`)](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli),
   authenticated with `az login`.
@@ -133,7 +133,7 @@ chainctl iam id create azure-identity \
   --role=registry.pull
 ```
 
-This will return the [UIDP (unique identity path)](/chainguard/administration/cloudevents/events-reference/#uidp-identifiers)
+This will return the [UIDP (unique identity path)](/platform/administration/cloudevents/events-reference/#uidp-identifiers)
 of the identity, which we'll use when assuming it in the next section.
 
 If you need to retrieve the UIDP later, list the identity with this command:
@@ -379,4 +379,4 @@ az ad app delete --id <client-id>
 ## Learn more
 
 For more information about how assumable identities work in Chainguard, check
-out our [conceptual overview of assumable identities](/chainguard/administration/assumable-ids/assumable-ids/).
+out our [conceptual overview of assumable identities](/platform/administration/assumable-ids/assumable-ids/).

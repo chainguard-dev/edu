@@ -4,7 +4,7 @@ linktitle: "Requesting resources"
 type: "article"
 description: "How to submit requests for Chainguard to build new resources in the Console."
 date: 2026-02-26T11:07:52+02:00
-lastmod: 2026-09-02T13:31:42+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers", "Chainguard Console"]
 images: []
@@ -26,7 +26,7 @@ This guide provides an overview of how to submit a request for a new resource to
 
 ## Prerequisites
 
-In order to submit requests for new resources in the Chainguard Console, you must be part of a [verified organization](/chainguard/administration/iam-organizations/verified-orgs/). Users with access to only Chainguard's Free tier of container images will not be able to submit requests.
+In order to submit requests for new resources in the Chainguard Console, you must be part of a [verified organization](/platform/administration/iam-organizations/verified-orgs/). Users with access to only Chainguard's Free tier of container images will not be able to submit requests.
 
 ## The requests section
 

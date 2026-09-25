@@ -4,7 +4,7 @@ linktitle: "Python overview"
 description: "Learn about Chainguard Libraries for Python, providing enhanced security for PyPI packages through automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-04-09T04:00:00+00:00
-lastmod: 2026-09-15T21:19:16+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python", "Overview"]
 menu:
@@ -69,7 +69,7 @@ that source be available. Therefore, packages that do not provide a valid source
 URL cannot be rebuilt within the Chainguard Factory.
 
 Chainguard Libraries for Python can be consumed through [Chainguard
-Repository](/chainguard/libraries/chainguard-repository/), which provides a
+Repository](/chainguard/libraries/javascript/overview/), which provides a
 single endpoint for Python package retrieval and supports protected upstream
 fallback when configured for your organization. This allows builds to prefer
 Chainguard-built packages first while still covering packages or wheel files

@@ -7,7 +7,7 @@ lead: "An apk builder tool"
 type: "article"
 description: "melange is a declarative apk builder"
 date: 2022-07-21T15:21:01+02:00
-lastmod: 2024-08-01T15:21:01+02:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["melange", "Procedural"]
 images: []
@@ -301,6 +301,6 @@ You have successfully built a minimalist container image with your apk package i
 
 ## Conclusion
 
-In this guide, we packaged a PHP command-line app with melange. We also built a container image to install and run our custom apk, using the apko tool. For more information about apko, check our [Getting started with apko](/open-source/apko/getting-started-with-apko/) guide.
+In this guide, we packaged a PHP command-line app with melange. We also built a container image to install and run our custom apk, using the apko tool. For more information about apko, check our [Getting started with apko](/open-source/build-tools/apko/getting-started-with-apko/) guide.
 
 The demo files are available at the [melange-php-demos](https://github.com/chainguard-dev/melange-php-demos) repository, in the `hello-minicli` subfolder. For additional information on how to debug your builds and other features, check the [melange](https://github.com/chainguard-dev/melange) and [apko](https://github.com/chainguard-dev/apko) repositories on GitHub.

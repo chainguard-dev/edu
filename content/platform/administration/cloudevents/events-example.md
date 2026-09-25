@@ -6,7 +6,7 @@ linktitle: "Subscribe to events"
 type: "article"
 description: "."
 date: 2025-04-24T15:22:20+01:00
-lastmod: 2026-09-04T16:00:38+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Console", "CloudEvents", "Procedural"]
 images: []
@@ -17,7 +17,7 @@ weight: 010
 toc: true
 ---
 
-Chainguard implements [CloudEvents](/chainguard/administration/cloudevents/events-reference/), a specification for a standard format for events data. This means developers can use events (generated based on interactions with Chainguard resources) to initiate processes and thus automate certain actions. For example, you could set up infrastructure to listen for push events to an organization's private registry and [mirror any new Chainguard Containers in the registry to a third-party repository](/chainguard/administration/cloudevents/image-copy-gcr/).
+Chainguard implements [CloudEvents](/platform/administration/cloudevents/events-reference/), a specification for a standard format for events data. This means developers can use events (generated based on interactions with Chainguard resources) to initiate processes and thus automate certain actions. For example, you could set up infrastructure to listen for push events to an organization's private registry and [mirror any new Chainguard Containers in the registry to a third-party repository](/platform/administration/cloudevents/image-copy-gcr/).
 
 This article includes an example of how to use `chainctl` to create an event subscription. It also includes details on how to validate events from Chainguard and highlights some potential use cases for them. This article is primarily focused on Registry `push` and `pull` events. *Push* events occur when an image in your entitlement is added or updated. *Pull* events occur when an image is pulled from your Chainguard repository. Be aware, though, that there are also events related to IAM, such as user creation and adding identity providers.
 
@@ -123,7 +123,7 @@ This shows that you have successfully subscribed the test service to Chainguard 
 
 The webhook will get all events for your organization. You will need to filter them to only the events you are interested in, which can be done using the `ce-type` header. For pull events the type is `dev.chainguard.registry.pull.v1` and push events are of type `dev.chainguard.registry.push.v1`.
 
-A full description of all events and their types is [available on Chainguard Academy](/chainguard/administration/cloudevents/events-reference/).
+A full description of all events and their types is [available on Chainguard Academy](/platform/administration/cloudevents/events-reference/).
 
 ## Validating events
 
@@ -148,4 +148,4 @@ Chainguard's [platform-examples](https://github.com/chainguard-dev/platform-exam
 
 ## Learn more
 
-This article outlined details on what Chainguard Events are, how to use them, and some common use cases. For more information on CloudEvents, you can refer to [cloudevents.io](http://cloudevents.io/). You can also find more details in [Chainguard's CloudEvents reference documentation](/chainguard/administration/cloudevents/).
+This article outlined details on what Chainguard Events are, how to use them, and some common use cases. For more information on CloudEvents, you can refer to [cloudevents.io](http://cloudevents.io/). You can also find more details in [Chainguard's CloudEvents reference documentation](/platform/administration/cloudevents/).

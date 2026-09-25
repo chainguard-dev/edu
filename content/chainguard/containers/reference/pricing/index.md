@@ -4,7 +4,7 @@ linktitle: "Catalog pricing"
 type: "article"
 description: "Overview of Chainguard's container catalog pricing model and how to add container images to your organization through the self-serve catalog experience."
 date: 2025-08-19T08:49:31+00:00
-lastmod: 2026-08-21T13:01:57+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -35,7 +35,7 @@ Organizations that have signed up for Catalog Pricing can add container images t
 
 In order for a user to add images to their organization through the Self-Serve Experience, they must be bound to a role with the `repo (create, list, update)` capabilities. Additionally, it may be helpful for users working with the Self-Serve Experience to have the `registry.entitlement (list)` capability in order to understand their organization's registry access entitlements.
 
-The only built-in role with all of these capabilities is the `owner` role. Users intending to work with the self-serve catalog experience should be bound to the `owner` role or a custom role with the appropriate capabilities. Refer to our documentation [Roles and role-bindings](/chainguard/administration/iam-organizations/roles-role-bindings/) for more details.
+The only built-in role with all of these capabilities is the `owner` role. Users intending to work with the self-serve catalog experience should be bound to the `owner` role or a custom role with the appropriate capabilities. Refer to our documentation [Roles and role-bindings](/platform/administration/iam-organizations/roles-role-bindings/) for more details.
 
 To add a container to your organization through the Self-Serve Experience, start by logging in to the [Chainguard Console](https://console.chainguard.dev). After logging in, click **Images** in the left-hand navigation.
 
@@ -63,7 +63,7 @@ Click **Delete** and enter the name of the container image to confirm that you w
 
 ### Updating container image names with `chainctl`
 
-You can also use [`chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/), Chainguard's command-line interface, to change the name of a container image that has already been added to your organization.
+You can also use [`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/), Chainguard's command-line interface, to change the name of a container image that has already been added to your organization.
 
 To begin, run a command like the following to check whether the container image you want to add is already in your organization. This example checks whether the `php` container image is included:
 

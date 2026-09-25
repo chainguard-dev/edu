@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "Tutorial outlining how to set up a Nexus repository to pull container images through from Chainguard's registry."
 date: 2024-03-28T15:56:52-07:00
-lastmod: 2026-08-20T15:41:17+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -20,7 +20,7 @@ toc: true
 weight: 070
 ---
 
-Organizations can use Chainguard Containers along with third-party software repositories in order to integrate with current workflows as the single source of truth for software artifacts. In this situation, you can set up a proxy repository to function as a mirror of [Chainguard's registry](/chainguard/chainguard-registry/overview/). This mirror can then serve as a pull through cache for your Chainguard Containers.
+Organizations can use Chainguard Containers along with third-party software repositories in order to integrate with current workflows as the single source of truth for software artifacts. In this situation, you can set up a proxy repository to function as a mirror of [Chainguard's registry](/chainguard/containers/registry/overview/). This mirror can then serve as a pull through cache for your Chainguard Containers.
 
 This tutorial outlines how to set up a repository with [Sonatype Nexus](https://www.sonatype.com/products/sonatype-nexus-repository). Specifically, it will walk you through how to set up one repository you can use as a pull through cache for Chainguard's Free containers or for Production containers originating from a private Chainguard repository.
 
@@ -71,9 +71,9 @@ Be sure the `docker pull` command contains the correct Nexus URL for your reposi
 
 ## Setting up Nexus as a pull through for production containers
 
-Production Chainguard Containers are enterprise-ready images that come with patch SLAs and features such as [Federal Information Processing Standard](/chainguard/containers/working-with-images/fips-images/) (FIPS) readiness. The process for setting up an Nexus repository that you can use as a pull through cache for Production images is similar to the one outlined previously for Free containers, but with a few extra steps.
+Production Chainguard Containers are enterprise-ready images that come with patch SLAs and features such as [Federal Information Processing Standard](/platform/fips/fips-images/) (FIPS) readiness. The process for setting up an Nexus repository that you can use as a pull through cache for Production images is similar to the one outlined previously for Free containers, but with a few extra steps.
 
-To get started, you will need to create [a pull token](/chainguard/chainguard-registry/authenticating/#authenticating-with-a-pull-token) for your organization's registry. Pull tokens are longer-lived tokens that can be used to pull containers from other environments that don't support OIDC, such as some CI environments, Kubernetes clusters, or with registry mirroring tools like Nexus.
+To get started, you will need to create [a pull token](/chainguard/containers/registry/authenticating/#authenticating-with-a-pull-token) for your organization's registry. Pull tokens are longer-lived tokens that can be used to pull containers from other environments that don't support OIDC, such as some CI environments, Kubernetes clusters, or with registry mirroring tools like Nexus.
 
 Follow the instructions in the link above to create a pull token and take note of the values for `username` and `password` as you'll need this to configure a repository for pulling through Production container images.
 
@@ -114,4 +114,4 @@ If you run into issues when trying to pull Containers from Chainguard's Registry
 
 ## Learn more
 
-If you haven't already done so, you may find it useful to review our [Registry overview](/chainguard/chainguard-registry/overview/) to learn more about Chainguard's registry. You can also learn more about Chainguard Containers by checking out our [Containers documentation](/chainguard/containers/overview/). If you'd like to learn more about Sonatype Nexus, we encourage you to refer to the [official Nexus documentation](https://help.sonatype.com/en/sonatype-nexus-repository.html).
+If you haven't already done so, you may find it useful to review our [Registry overview](/chainguard/containers/registry/overview/) to learn more about Chainguard's registry. You can also learn more about Chainguard Containers by checking out our [Containers documentation](/chainguard/containers/overview/). If you'd like to learn more about Sonatype Nexus, we encourage you to refer to the [official Nexus documentation](https://help.sonatype.com/en/sonatype-nexus-repository.html).

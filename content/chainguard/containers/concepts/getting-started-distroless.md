@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "Why distroless containers are more secure: Chainguard's approach removes shells, package managers, and unnecessary components to minimize attack surface while maintaining compatibility"
 date: 2024-03-21T08:49:31+00:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers", "Overview"]
 images: []
@@ -230,4 +230,4 @@ php          cli-alpine   7879e816aba0   6 days ago   104MB
 
 Distroless images offer a compelling approach to creating minimal and secure container images by stripping away system components that are unnecessary at execution time, such as package managers and shells. While such images offer many advantages, they might require some adjustments in your existing development and deployment workflows. In this guide we demonstrated how to use multi stage builds to create final distroless images that include additional components, such as static binaries and application-level dependencies.
 
-You can find more examples in our [Getting started guides](/chainguard/containers/getting-started/) page. Check also our article on [Debugging distroless images](/chainguard/containers/debugging-distroless-images/) for important tips when you run into issues and need to debug containers running distroless images.
+You can find more examples in our [Getting started guides](/chainguard/containers/getting-started/) page. Check also our article on [Debugging distroless images](/chainguard/containers/troubleshooting/debugging-distroless-images/) for important tips when you run into issues and need to debug containers running distroless images.

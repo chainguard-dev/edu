@@ -6,7 +6,7 @@ lead: "Chainguard's chainctl CLI enables more secure management of container ima
 description: "Get started with chainctl basics including authentication, organization management, and essential commands for Chainguard's container security platform"
 type: "article"
 date: 2025-03-03T08:49:15+00:00
-lastmod: 2026-09-09T17:33:40+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["chainctl", "Getting Started"]
 images: []
@@ -17,7 +17,7 @@ Chainguard's `chainctl` provides command-line access to manage container images,
 
 ## Authenticate and check auth status
 
-To use `chainctl`, the first thing you must do is [authenticate with the Chainguard platform](/chainguard/chainguard-registry/authenticating/). Do so with:
+To use `chainctl`, the first thing you must do is [authenticate with the Chainguard platform](/chainguard/containers/registry/authenticating/). Do so with:
 
 ```shell
 chainctl auth login

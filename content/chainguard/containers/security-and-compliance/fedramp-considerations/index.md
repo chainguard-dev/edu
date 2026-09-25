@@ -4,7 +4,7 @@ linktitle: "FedRAMP considerations"
 type: "article"
 description: "A conceptual overview of Chainguard FIPS containers."
 date: 2025-01-29T15:56:52-07:00
-lastmod: 2026-08-21T13:20:23+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers", "FIPS"]
 images: []
@@ -129,7 +129,7 @@ The following table highlights the features of Chainguard Containers as mapped t
 </table>
 <br />
 
-Additionally, Chainguard helps support CM-6 configuration settings requirements. Chainguard announced the release of a STIG for the General Purpose Operating System (GPOS) SRG which specifies security requirements for general purpose operating systems running in a network. The goal for this STIG is that it will help customers confidently and securely integrate Chainguard Containers into their workflows. Please refer to our [STIGs overview](https://edu.chainguard.dev/chainguard/containers/working-with-images/image-stigs/#how-stigs-can-be-used-to-harden-images) for more information.
+Additionally, Chainguard helps support CM-6 configuration settings requirements. Chainguard announced the release of a STIG for the General Purpose Operating System (GPOS) SRG which specifies security requirements for general purpose operating systems running in a network. The goal for this STIG is that it will help customers confidently and securely integrate Chainguard Containers into their workflows. Please refer to our [STIGs overview](/chainguard/containers/security-and-compliance/stigs/#how-stigs-can-be-used-to-harden-container-images) for more information.
 
 ## Kernel-independent FIPS container images
 

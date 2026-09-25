@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "Tutorial outlining how to set up a Cloudsmith repository to pull containers through from Chainguard's registry."
 date: 2024-07-16T15:56:52-07:00
-lastmod: 2026-08-20T15:41:17+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -30,7 +30,7 @@ In order to complete this tutorial, you will need the following:
 * Docker installed on your local machine. Follow the [official installation instructions](https://docs.docker.com/engine/install/) to set this up.
 * Administrative privileges over a Cloudsmith project. You can set up an account by visiting the [Cloudsmith website](https://cloudsmith.com/).
 * If you plan to set up a Cloudsmith repository to serve as a pull through cache for Production container images, then you will also need to have privileges to create a pull token from Chainguard.
-    * Additionally, you'll need `chainctl` installed to create the pull token. If you haven't already installed this, follow the [installation guide](/chainguard/chainctl-usage/how-to-install-chainctl/).
+    * Additionally, you'll need `chainctl` installed to create the pull token. If you haven't already installed this, follow the [installation guide](/platform/chainctl-usage/how-to-install-chainctl/).
 
 ## Setting up Cloudsmith as a pull through for free containers
 
@@ -79,11 +79,11 @@ If you run into issues pulling images like this, ensure that your `docker pull` 
 
 ## Setting up Cloudsmith as a pull through for production container images
 
-Production Chainguard Containers are enterprise-ready images that come with patch SLAs and features such as [Federal Information Processing Standard](/chainguard/containers/working-with-images/fips-images/) (FIPS) readiness. The process for setting up a Cloudsmith repository that you can use as a pull through cache for Production containers is similar to the one outlined previously for Free containers, but with a few extra steps.
+Production Chainguard Containers are enterprise-ready images that come with patch SLAs and features such as [Federal Information Processing Standard](/platform/fips/fips-images/) (FIPS) readiness. The process for setting up a Cloudsmith repository that you can use as a pull through cache for Production containers is similar to the one outlined previously for Free containers, but with a few extra steps.
 
 You can create a new Cloudsmith repository or use the same repository you used as a pull through cache for Free containers.
 
-Next, you'll need to create [a pull token](/chainguard/chainguard-registry/authenticating/#authenticating-with-a-pull-token) for your organization's registry through Chainguard. Pull tokens are longer-lived tokens that can be used to pull Containers from other environments that don't support OIDC, such as some CI environments, Kubernetes clusters, or with registry mirroring tools like Cloudsmith.
+Next, you'll need to create [a pull token](/chainguard/containers/registry/authenticating/#authenticating-with-a-pull-token) for your organization's registry through Chainguard. Pull tokens are longer-lived tokens that can be used to pull Containers from other environments that don't support OIDC, such as some CI environments, Kubernetes clusters, or with registry mirroring tools like Cloudsmith.
 
 Log in with `chainctl`:
 
@@ -148,4 +148,4 @@ If you run into issues when trying to pull Containers from Chainguard's registry
 
 ## Learn more
 
-If you haven't already done so, you may find it useful to review our [Registry overview](/chainguard/chainguard-registry/overview/) to learn more about Chainguard's registry. You can also learn more about Chainguard Containers by checking out our [Containers documentation](/chainguard/containers/overview/). If you'd like to learn more about Cloudsmith, we encourage you to refer to the [official documentation](https://help.cloudsmith.io/docs/welcome-to-cloudsmith-docs).
+If you haven't already done so, you may find it useful to review our [Registry overview](/chainguard/containers/registry/overview/) to learn more about Chainguard's registry. You can also learn more about Chainguard Containers by checking out our [Containers documentation](/chainguard/containers/overview/). If you'd like to learn more about Cloudsmith, we encourage you to refer to the [official documentation](https://help.cloudsmith.io/docs/welcome-to-cloudsmith-docs).

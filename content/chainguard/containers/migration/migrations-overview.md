@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "Key differences, a recommended rollout strategy, and troubleshooting guidance for moving existing container workloads to Chainguard Containers."
 date: 2024-07-22T12:56:52-00:00
-lastmod: 2026-09-25T13:44:25+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -20,7 +20,7 @@ weight: 010
 toc: true
 ---
 
-Chainguard Containers are minimal by design — most are [distroless](/chainguard/containers/getting-started-distroless/), with no shell or package manager. That keeps the attack surface small, but it also means moving an existing workload over usually requires adjusting how your image installs dependencies, which user it runs as, and what its entrypoint expects.
+Chainguard Containers are minimal by design — most are [distroless](/chainguard/containers/concepts/getting-started-distroless/), with no shell or package manager. That keeps the attack surface small, but it also means moving an existing workload over usually requires adjusting how your image installs dependencies, which user it runs as, and what its entrypoint expects.
 
 This guide covers the differences that matter during a migration, a recommended rollout strategy, and what to do when something breaks. For background on what Chainguard Containers are and how they are built, refer to the [Chainguard Containers overview](/chainguard/containers/overview/).
 
@@ -193,4 +193,4 @@ Chainguard also offers a number of courses aimed to help teams understand and us
 * [Overview of Chainguard Containers](/chainguard/containers/overview/)
 * [How to use Chainguard Containers](/chainguard/containers/using-and-deploying/using-containers/)
 * [How to transition to secure container images with new migration guides (Blog)](https://www.chainguard.dev/unchained/how-to-transition-to-secure-container-images-with-new-migration-guides)
-* [Getting started with distroless containers](/chainguard/containers/getting-started-distroless/)
+* [Getting started with distroless containers](/chainguard/containers/concepts/getting-started-distroless/)

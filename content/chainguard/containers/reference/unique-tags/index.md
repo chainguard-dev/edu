@@ -13,7 +13,7 @@ aliases:
 type: "article"
 description: "Learn about Chainguard's unique tags feature for production container images, enabling precise version tracking and automated deployment workflows with timestamped tags"
 date: 2024-02-29T08:49:31+00:00
-lastmod: 2026-09-01T16:56:22+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -41,7 +41,7 @@ Unique Tags also allow for individual image repositories within a registry to be
 
 This granular level of control ensures that organizations can implement unique tagging in a way that best suits their organization's specific needs. It offers a tailored approach to image management, allowing for precise and efficient tracking of image versions and builds across different environments.
 
-Additionally, the Unique Tags feature is integrated with Chainguard's [Tag History API](/chainguard/containers/using-the-tag-history-api/) and [event notifications](/chainguard/administration/cloudevents/events-reference/). These integrations allow you to track changes over time.
+Additionally, the Unique Tags feature is integrated with Chainguard's [Tag History API](/chainguard/containers/reference/using-the-tag-history-api/) and [event notifications](/platform/administration/cloudevents/events-reference/). These integrations allow you to track changes over time.
 
 ## How do I find unique tags?
 

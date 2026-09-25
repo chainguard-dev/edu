@@ -4,7 +4,7 @@ description: "Chainguard Containers reduce the time and effort for establishing 
 lead: "Chainguard Containers reduce the time and effort for establishing CMMC 2.0 compliance"
 type: "article"
 date: 2024-08-09T19:10:09+00:00
-lastmod: 2024-08-15T19:10:09+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 contributors: []
 draft: false
 aliases:
@@ -18,7 +18,7 @@ weight: 005
 toc: true
 ---
 
-Achieving Cybersecurity Maturity Model Certification (CMMC) 2.0 Level 2 or Level 3 certification can be a complex and resource-intensive process, particularly for organizations managing containerized environments and addressing vulnerabilities. Chainguard simplifies this journey by offering specialized solutions that drastically reduce the time and effort needed to meet compliance requirements. Our FIPS-compliant [Federal Information Processing Standard](/chainguard/containers/working-with-images/fips-images/) images, combined with detailed SBOM (Software Bill of Materials) and STIG-hardened (Security Technical Implementation Guide) configurations, provide a strong foundation for meeting the requirements of CMMC 2.0.
+Achieving Cybersecurity Maturity Model Certification (CMMC) 2.0 Level 2 or Level 3 certification can be a complex and resource-intensive process, particularly for organizations managing containerized environments and addressing vulnerabilities. Chainguard simplifies this journey by offering specialized solutions that drastically reduce the time and effort needed to meet compliance requirements. Our FIPS-compliant [Federal Information Processing Standard](/platform/fips/fips-images/) images, combined with detailed SBOM (Software Bill of Materials) and STIG-hardened (Security Technical Implementation Guide) configurations, provide a strong foundation for meeting the requirements of CMMC 2.0.
 
 ## What are STIG-hardened FIPS images?
 

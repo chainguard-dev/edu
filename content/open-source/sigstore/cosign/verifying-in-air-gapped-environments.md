@@ -5,7 +5,7 @@ type: "article"
 description: "Use Cosign to verify container signatures and attestations without outbound network access"
 lead: "Cosign can verify signatures and attestations with no connection to the public Sigstore infrastructure"
 date: 2026-09-08T00:00:00+00:00
-lastmod: 2026-09-08T00:00:00+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Cosign", "Procedural"]
 images: []
@@ -182,7 +182,7 @@ cosign verify \
   registry.internal/chainguard/go:latest
 ```
 
-For more on these identities, see [Verifying Chainguard Containers and metadata signatures with Cosign](/chainguard/containers/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/).
+For more on these identities, see [Verifying Chainguard Containers and metadata signatures with Cosign](/chainguard/containers/security-and-compliance/verifying-chainguard-images-and-metadata-signatures-with-cosign/).
 
 ### Store signatures in a separate repository
 
@@ -218,4 +218,4 @@ That's a decision about trust domains and key custody, not a technical requireme
 
 ## Learn more
 
-For background on how Cosign verification works, read [An introduction to Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/). To verify Chainguard Containers in a connected environment, see [Verifying Chainguard Containers and metadata signatures with Cosign](/chainguard/containers/how-to-use/verifying-chainguard-images-and-metadata-signatures-with-cosign/). For mirroring Chainguard Containers into an internal registry, see the [pull-through guides](/chainguard/containers/chainguard-registry/pull-through-guides/).
+For background on how Cosign verification works, read [An introduction to Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/). To verify Chainguard Containers in a connected environment, see [Verifying Chainguard Containers and metadata signatures with Cosign](/chainguard/containers/security-and-compliance/verifying-chainguard-images-and-metadata-signatures-with-cosign/). For mirroring Chainguard Containers into an internal registry, see the [pull-through guides](/chainguard/containers/registry/pull-through-guides/).

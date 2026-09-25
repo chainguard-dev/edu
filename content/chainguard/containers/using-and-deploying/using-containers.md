@@ -11,7 +11,7 @@ type: "article"
 description: "Learn how to use Chainguard Containers in your applications, including pulling images, extending base images, and migrating from traditional container images"
 lead: "Chainguard Containers provide more secure, minimal base images that work with standard container tools like Docker and Kubernetes, making migration straightforward while improving security posture."
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2026-09-08T00:00:00+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -51,7 +51,7 @@ docker pull cgr.dev/chainguard/git:latest
 
 You may use tags to pull a specific version of a software like Git, or programming language version in a catalog you have access to. The Chainguard Containers Directory has tag history pages for each image, for example, the [Git Image Tags History](https://images.chainguard.dev/directory/image/git/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images), [PHP Image Tags History](https://images.chainguard.dev/directory/image/php/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images), and [JDK Image Tags History](https://images.chainguard.dev/directory/image/jdk/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images).
 
-You can learn about the Chainguard Containers tags history in our guide about [Using the Tag History API](/chainguard/containers/using-the-tag-history-api/).
+You can learn about the Chainguard Containers tags history in our guide about [Using the Tag History API](/chainguard/containers/reference/using-the-tag-history-api/).
 
 ### Pulling by digest
 
@@ -131,7 +131,7 @@ Continue reading the next section to learn more about building off of the Wolfi 
 
 ## Extending Chainguard base containers
 
-It often happens that you want a [distroless](/chainguard/containers/getting-started-distroless/) image with one or two extra packages, for example you may have a binary with a dependency on `curl` or `git`. Ideally you’d like a base image with this dependency already installed. There are a few options here:
+It often happens that you want a [distroless](/chainguard/containers/concepts/getting-started-distroless/) image with one or two extra packages, for example you may have a binary with a dependency on `curl` or `git`. Ideally you’d like a base image with this dependency already installed. There are a few options here:
 
 1. Compile the dependency from source and use a multi-stage Dockerfile to create a new base image. This works, but may require considerable effort to get the dependency compiling and to keep it up to date. This process quickly becomes untenable if you require several dependencies.
 2. Use the `wolfi-base` image that includes apk tools to install the package in the traditional Dockerfile manner. This works but sacrifices a lot of the advantages of the “distroless” philosophy.
@@ -199,7 +199,7 @@ You should get output like this, with a random piece of advice:
 "Big things have small beginnings."
 ```
 
-Check also the [Wolfi images with Dockerfiles](/open-source/wolfi/wolfi-with-dockerfiles/) guide for more examples using Wolfi-based images with Dockerfiles, and the [Getting started with distroless](/chainguard/containers/getting-started-distroless/) guide for more details about distroless images and how to use them in Docker multi-stage builds.
+Check also the [Wolfi images with Dockerfiles](/open-source/wolfi/wolfi-with-dockerfiles/) guide for more examples using Wolfi-based images with Dockerfiles, and the [Getting started with distroless](/chainguard/containers/concepts/getting-started-distroless/) guide for more details about distroless images and how to use them in Docker multi-stage builds.
 
 ## A note regarding package availability in Chainguard Containers
 

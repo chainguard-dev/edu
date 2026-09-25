@@ -3,7 +3,7 @@ title: "Building a Wolfi package"
 type: "article"
 description: "A deep-dive into the process of getting a new package into Wolfi OS"
 date: 2023-08-21T08:49:31+00:00
-lastmod: 2023-08-21T08:49:31+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Wolfi", "Procedural"]
 images: []
@@ -364,7 +364,7 @@ Another useful strategy is to include `set -x` before commands in your pipeline,
       chmod +x "${EXEC_DIR}/composer"
 ```
 
-Most build issues are caused by missed dependencies, even when the error message might be misleading. Another common reason for build errors are wrong file or directory paths. The [melange documentation](https://edu.chainguard.dev/open-source/melange/troubleshooting/) has more pointers to help with debugging, in case you need it.
+Most build issues are caused by missed dependencies, even when the error message might be misleading. Another common reason for build errors are wrong file or directory paths. The [melange documentation](/open-source/build-tools/melange/troubleshooting/) has more pointers to help with debugging, in case you need it.
 
 As mentioned before, there might be cases where you'll need to first build a dependency, and then use this dependency to build the package you need.
 

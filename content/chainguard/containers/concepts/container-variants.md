@@ -10,7 +10,7 @@ aliases:
 type: "article"
 description: "Learn about Chainguard's development container images and how they differ from our standard images."
 date: 2024-11-01T07:52:00+02:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -45,7 +45,7 @@ While our standard images can be considered to have advantages for security, the
 Though using Chainguard's standard container images in your final deployment will give you the benefits of distroless, development images have many use cases. These include:
 
 - **Building**: In many Dockerfile builds, you will need to generate software artifacts such as static binaries or virtual environments as part of the build process. Development images are ideal for this use case, and after these artifacts have been generated they can be copied to a standard image for use. Refer to [How to port a sample application to Chainguard Containers](/chainguard/containers/migration/porting-apps-to-chainguard/) for a detailed example.
-- **Debugging**: Our development images contain a number of useful utilities, but are otherwise designed to be as close as possible to the standard variant. This makes them useful for debugging, since you can test out build steps or the build environment using interactive shells and package managers. Refer to [Debugging distroless images](/chainguard/containers/debugging-distroless-images/) for more on this use case.
+- **Debugging**: Our development images contain a number of useful utilities, but are otherwise designed to be as close as possible to the standard variant. This makes them useful for debugging, since you can test out build steps or the build environment using interactive shells and package managers. Refer to [Debugging distroless images](/chainguard/containers/troubleshooting/debugging-distroless-images/) for more on this use case.
 - **Training**: In the case of AI images, you can use a development variant to train a model, then run the model in inference using a standard image.
 - **Deploying**: Development images are low-to-no CVE and are suitable for production.
 
@@ -80,4 +80,4 @@ It’s likely already clear that switching to our standard images requires a few
 
 - [Blog: Minimal container images: Towards a more secure future](https://www.chainguard.dev/unchained/minimal-container-images-towards-a-more-secure-future)
 - [Chainguard Academy: Overview of Chainguard Containers](/chainguard/containers/overview/)
-- [Chainguard Academy: Debugging distroless images](/chainguard/containers/debugging-distroless-images/)
+- [Chainguard Academy: Debugging distroless images](/chainguard/containers/troubleshooting/debugging-distroless-images/)

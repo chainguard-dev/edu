@@ -10,7 +10,7 @@ aliases:
 type: "article"
 description: "A conceptual overview of Security Technical Implementation Guides, which are available for Chainguard Containers."
 date: 2024-06-13T15:56:52-07:00
-lastmod: 2026-05-08T15:56:52-07:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -184,4 +184,4 @@ These containers can be validated against the General Purpose Operating System S
 
 ## Learn more
 
-You can use OpenSCAP to validate hardening checks against any Chainguard Container, including both FIPS and non-FIPS images, using the process described in [Getting started](#getting-started). Chainguard's STIG hardened FIPS Containers are also generally available. You can check out our [STIG repo](https://github.com/chainguard-dev/stigs?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) or [contact us](https://get.chainguard.dev/simplify-fedramp-compliance-5?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) for more information. If you'd like to learn more about how Chainguard Containers can help you meet FedRAMP compliance, we encourage you to refer to our overview of [Chainguard's FIPS-ready container images](/chainguard/containers/working-with-images/fips-images/).
+You can use OpenSCAP to validate hardening checks against any Chainguard Container, including both FIPS and non-FIPS images, using the process described in [Getting started](#getting-started). Chainguard's STIG hardened FIPS Containers are also generally available. You can check out our [STIG repo](https://github.com/chainguard-dev/stigs?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) or [contact us](https://get.chainguard.dev/simplify-fedramp-compliance-5?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) for more information. If you'd like to learn more about how Chainguard Containers can help you meet FedRAMP compliance, we encourage you to refer to our overview of [Chainguard's FIPS-ready container images](/platform/fips/fips-images/).

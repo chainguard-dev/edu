@@ -7,14 +7,14 @@ lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by a Kubernetes pod."
 type: "article"
 date: 2025-08-07T13:00:00+00:00
-lastmod: 2025-08-07T13:00:00+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
 weight: 012
 ---
 
-Chainguard's [*assumable identities*](/chainguard/administration/iam-organizations/assumable-ids/)
+Chainguard's [*assumable identities*](/platform/administration/assumable-ids/assumable-ids/)
 are identities that can be assumed by external applications or workflows in
 order to perform certain tasks that would otherwise have to be done by a human.
 
@@ -27,7 +27,7 @@ To complete this guide, you will need the following.
 
 * `chainctl` — the Chainguard command line interface tool — installed on your
   local machine. Follow our guide on
-  [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/)
+  [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/)
   to set this up.
 * `kubectl` - the command line interface tool for Kubernetes.
 * Access to a Kubernetes cluster.
@@ -187,4 +187,4 @@ chainctl iam id delete <identity-id>
 ## Learn more
 
 For more information about how assumable identities work in Chainguard, check
-out our [conceptual overview of assumable identities](/chainguard/administration/iam-organizations/assumable-ids/).
+out our [conceptual overview of assumable identities](/platform/administration/assumable-ids/assumable-ids/).

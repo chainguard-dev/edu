@@ -10,14 +10,14 @@ lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by a GitLab CI/CD pipeline."
 type: "article"
 date: 2023-06-28T08:48:45+00:00
-lastmod: 2026-08-18T17:17:24+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
 weight: 010
 ---
 
-Chainguard's [*assumable identities*](/chainguard/administration/assumable-ids/assumable-ids/) are identities that can be assumed by external applications or workflows in order to perform certain tasks that would otherwise have to be done by a human.
+Chainguard's [*assumable identities*](/platform/administration/assumable-ids/assumable-ids/) are identities that can be assumed by external applications or workflows in order to perform certain tasks that would otherwise have to be done by a human.
 
 This procedural tutorial outlines two methods for how to create a Chainguard identity: `chainctl` and Terraform. It then walks through how to create a GitLab CI/CD pipeline that will assume the identity to interact with Chainguard resources.
 
@@ -28,7 +28,7 @@ To complete this guide, you will need the following.
 Both methods outlined in this guide require you to have the following:
 
 * Access to a GitLab project and CI/CD pipeline you can use to test out the identity you'll create. GitLab provides a [quickstart tutorial on creating your first pipeline](https://docs.gitlab.com/ee/ci/quick_start/) which can be useful for getting a testing pipeline up and running.
-* `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up.
+* `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) to set this up.
 
 Additionally, the Terraform method requires you to have `terraform` installed on your local machine. Terraform is an open-source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
 
@@ -51,7 +51,7 @@ chainctl iam identities create cg-gitlab-id \
   --role=viewer
 ```
 
-Take note of the identity's full UIDP (unique identity path) as you'll need it to test this identity out in a [GitLab CI/CD configuration](/chainguard/administration/assumable-ids/identity-examples/gitlab-identity/#testing-the-identity-with-a-gitlab-cicd-pipeline).
+Take note of the identity's full UIDP (unique identity path) as you'll need it to test this identity out in a [GitLab CI/CD configuration](/platform/administration/assumable-ids/identity-examples/gitlab-identity/#testing-the-identity-with-a-gitlab-cicd-pipeline).
 
 This command creates an identity named `cg-gitlab-id` with the following claim matching rules:
 
@@ -63,7 +63,7 @@ These options' values are string literals; you can use `--identity-issuer-patter
 
 This command also binds the `viewer` role to the new identity. The `viewer` role provides read-only access to Chainguard resources, which is appropriate for most CI/CD use cases that need to pull images or inspect resources. You can also chain together multiple roles, as in `--role=registry.push,registry.pull`.
 
-To see all available roles and their permissions, run `chainctl iam roles list`. You can also learn more by reviewing our [Overview of roles and role-bindings in Chainguard](/chainguard/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
+To see all available roles and their permissions, run `chainctl iam roles list`. You can also learn more by reviewing our [Overview of roles and role-bindings in Chainguard](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
 
 If you ever need to retrieve information about it in the future, you can run the following command:
 
@@ -242,7 +242,7 @@ Outputs:
 gitlab-identity = "<your actions identity>"
 ```
 
-This is the identity's [UIDP (unique identity path)](/chainguard/administration/cloudevents/events-reference/#uidp-identifiers), which you configured the `gitlab.tf` file to emit in the previous section. Note this value down, as you'll need it to set up the GitLab CI pipeline you'll use to test the identity. If you need to retrieve this UIDP later on, though, you can always run the following `chainctl` command to obtain a list of the UIDPs of all your existing identities.
+This is the identity's [UIDP (unique identity path)](/platform/administration/cloudevents/events-reference/#uidp-identifiers), which you configured the `gitlab.tf` file to emit in the previous section. Note this value down, as you'll need it to set up the GitLab CI pipeline you'll use to test the identity. If you need to retrieve this UIDP later on, though, you can always run the following `chainctl` command to obtain a list of the UIDPs of all your existing identities.
 
 ```shell
 chainctl iam identities ls
@@ -379,4 +379,4 @@ Following that, all of the example resources created in this guide's Terraform i
 
 ## Learn more
 
-For more information about how assumable identities work in Chainguard, check out our [conceptual overview of assumable identities](/chainguard/administration/iam-organizations/assumable-ids/). Additionally, the Terraform documentation includes a section on [recommended best practices](https://developer.hashicorp.com/terraform/cloud-docs/recommended-practices) which you can refer to if you'd like to build on this Terraform configuration for a production environment. Likewise, for more information on using GitLab CI/CD pipelines, we encourage you to check out the [official documentation on the subject](https://docs.gitlab.com/ee/ci/pipelines/).
+For more information about how assumable identities work in Chainguard, check out our [conceptual overview of assumable identities](/platform/administration/assumable-ids/assumable-ids/). Additionally, the Terraform documentation includes a section on [recommended best practices](https://developer.hashicorp.com/terraform/cloud-docs/recommended-practices) which you can refer to if you'd like to build on this Terraform configuration for a production environment. Likewise, for more information on using GitLab CI/CD pipelines, we encourage you to check out the [official documentation on the subject](https://docs.gitlab.com/ee/ci/pipelines/).

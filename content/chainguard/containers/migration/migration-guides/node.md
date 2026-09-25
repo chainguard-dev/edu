@@ -16,7 +16,7 @@ aliases:
 type: "article"
 description: "Learn how to migrate Node.js applications to Chainguard Containers for reduced vulnerabilities, smaller image sizes, and automated security patching"
 date: 2024-05-09T15:56:52-07:00
-lastmod: 2026-09-08T17:57:46+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers", "Migration"]
 images: []
@@ -60,7 +60,7 @@ production image as the base for the final image.
 This extremely minimal approach to the runtime image is sometimes known as "distroless". For a
 deeper exploration of distroless images and their differences from standard base images, refer to
 the guide on [Getting Started with Distroless
-images](/chainguard/containers/getting-started-distroless/).
+images](/chainguard/containers/concepts/getting-started-distroless/).
 
 ## Migrating from other distributions
 
@@ -269,4 +269,4 @@ Node.js Dockerfile for a legacy application.
 images](https://github.com/BretFisher/nodejs-rocks-in-docker/), including advice for using
 distroless.
 
-- The [Debugging distroless](/chainguard/containers/debugging-distroless-images/) guide contains important information for debugging issues with distroless images. You can also refer to the [Verifying containers](/chainguard/containers/security-and-compliance/verifying-chainguard-images-and-metadata-signatures-with-cosign/) resource for details around provenance, SBOMs, and image signatures.
+- The [Debugging distroless](/chainguard/containers/troubleshooting/debugging-distroless-images/) guide contains important information for debugging issues with distroless images. You can also refer to the [Verifying containers](/chainguard/containers/security-and-compliance/verifying-chainguard-images-and-metadata-signatures-with-cosign/) resource for details around provenance, SBOMs, and image signatures.

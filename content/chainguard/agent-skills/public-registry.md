@@ -6,7 +6,7 @@ aliases:
 description: "Browse, inspect, install, and run hardened agent skills from Chainguard's public registry with chainctl."
 type: "article"
 date: 2026-06-08T08:48:45+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Agent Skills", "Overview"]
 images: []
@@ -25,7 +25,7 @@ This guide walks through the full workflow: listing the available skills, inspec
 
 ## Prerequisites
 
-To follow this guide, you need `chainctl` **v0.2.282** or later, installed. Refer to our guide on [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) if you don't have it yet.
+To follow this guide, you need `chainctl` **v0.2.282** or later, installed. Refer to our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) if you don't have it yet.
 
 Unlike a [private Chainguard skills registry](/chainguard/agent-skills/skills-registry/), the public registry requires no entitlement, terms acceptance, or organization membership. You do need a Chainguard account to list and pull skills, but you don't need to be a customer.
 

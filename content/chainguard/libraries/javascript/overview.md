@@ -6,7 +6,7 @@ aliases:
 description: "JavaScript libraries for your application development"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-08-28T16:31:04+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript", "Overview"]
 menu:
@@ -30,7 +30,7 @@ Chainguard Libraries for JavaScript provides access to a growing collection of
 popular Javascript packages rebuilt from source. New releases of packages
 requested by customers are built and added to the index by an automated system.
 These libraries can also be consumed through the [Chainguard
-Repository](/chainguard/libraries/chainguard-repository/), which provides a
+Repository](/chainguard/libraries/javascript/overview/), which provides a
 single endpoint for package retrieval and supports configurable security
 policies for both Chainguard-built and upstream packages.
 

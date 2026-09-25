@@ -8,13 +8,13 @@ linktitle: "Find a matching image"
 description: "How to call the Chainguard Image Matcher API with an existing SBOM to find the closest Chainguard image equivalent."
 type: "article"
 date: 2026-05-26T00:00:00+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 weight: 030
 draft: false
 tags: ["Chainguard Images", "Migration", "SBOM", "API"]
 ---
 
-This guide walks through calling the [Chainguard Image Matcher API](/chainguard/api/spec-api-v1/#tag/imagematcher) to find the best Chainguard equivalent for an existing container image. It assumes you already have an SBOM for the image you want to migrate.
+This guide walks through calling the [Chainguard Image Matcher API](/platform/api/spec-api-v1/#tag/imagematcher) to find the best Chainguard equivalent for an existing container image. It assumes you already have an SBOM for the image you want to migrate.
 
 For background on how the matcher works and how it scores recommendations, refer to [Image Matcher overview](/chainguard/containers/migration/migration-tools/image-matcher/).
 
@@ -24,7 +24,7 @@ Before getting started, you will need:
 
 - An SBOM for your source image in CycloneDX JSON format, with `purl` values on each component.
     - SBOMs produced by [Syft](https://github.com/anchore/syft), Trivy, `docker sbom`, or cdxgen all work.
-- `chainctl` [installed and authenticated](/chainguard/api/authentication/).
+- `chainctl` [installed and authenticated](/platform/api/authentication/).
 - `jq` installed.
 - Your Chainguard organization UID.
     - Retrieve it from **Settings > General** in the [Chainguard Console](https://console.chainguard.dev/org/-/settings/general), or run `chainctl iam groups list`.

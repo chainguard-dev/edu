@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "An overview of how to use incert — a Go program from Chainguard — to create container images with custom certificates built-in to them."
 date: 2023-07-03T11:07:52+02:00
-lastmod: 2023-07-08T11:07:52+02:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -269,4 +269,4 @@ This shows that `incert` built the certificate into the `curl` container as expe
 
 ## Learn more
 
-If you'd like to learn more about how you can use Chainguard Containers effectively, we encourage you to check out all of our resources on [Working with Chainguard Containers](/chainguard/containers/using-and-deploying/). Additionally, our [Recommended practices](/chainguard/containers/recommended-practices/) resources can be useful for ensuring the security of your container images.
+If you'd like to learn more about how you can use Chainguard Containers effectively, we encourage you to check out all of our resources on [Working with Chainguard Containers](/chainguard/containers/using-and-deploying/). Additionally, our [Recommended practices](/chainguard/containers/security-and-compliance/) resources can be useful for ensuring the security of your container images.

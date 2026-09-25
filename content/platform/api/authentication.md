@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "Tutorial with examples showing how you can authenticate with the Chainguard SDK's auth and auth/ggcr packages."
 date: 2025-06-04T08:49:31+00:00
-lastmod: 2026-09-09T17:33:40+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Console", "Procedural"]
 images: []
@@ -17,7 +17,7 @@ weight: 065
 
 There are several ways for users to interact with the Chainguard platform, with [`chainctl`](/platform/chainctl/) (Chainguard's command-line tool) and the [Chainguard Console](https://console.chainguard.dev/overview) (Chainguard's web interface) being the two most commonly-used methods. However, both of these require a human user to authenticate, and aren't useful for working with Chainguard resources programmatically.
 
-The [Chainguard SDK](https://github.com/chainguard-dev/sdk) serves to ease programmatic integration with the Chainguard platform. This guide highlights two examples from the SDK repository that show how to authenticate to the [Chainguard registry](/chainguard/chainguard-registry/overview/) using the `chainguard.dev/sdk/auth` and `chainguard.dev/sdk/auth/ggcr` packages. The first has you authenticate as a local user, while the second has you authenticate as an [assumed identity](/platform/administration/assumable-ids/assumable-ids/).
+The [Chainguard SDK](https://github.com/chainguard-dev/sdk) serves to ease programmatic integration with the Chainguard platform. This guide highlights two examples from the SDK repository that show how to authenticate to the [Chainguard registry](/chainguard/containers/registry/overview/) using the `chainguard.dev/sdk/auth` and `chainguard.dev/sdk/auth/ggcr` packages. The first has you authenticate as a local user, while the second has you authenticate as an [assumed identity](/platform/administration/assumable-ids/assumable-ids/).
 
 This page gives examples in Golang as well as using `curl`. For more information about the Golang examples, refer to the [`examples` folder](https://github.com/chainguard-dev/sdk/tree/main/examples/registry) in the SDK repository.
 
@@ -127,7 +127,7 @@ Then, retrieve an API token and use it to call the API:
 curl -H "Authorization: Bearer $(chainctl auth token)" https://console-api.enforce.dev/iam/v1/groups | jq '.'
 ```
 
-In our example, [we requested a list of groups the account belongs to](https://edu.chainguard.dev/chainguard/api/spec/#tag/groups/GET/iam/v1/groups). Then we piped the API response, which is in JSON, into `jq` to make it more easily readable by humans for our documentation sample. This will return output like the following, which has been edited for length:
+In our example, [we requested a list of groups the account belongs to](/platform/api/spec/#tag/groups/GET/iam/v1/groups). Then we piped the API response, which is in JSON, into `jq` to make it more easily readable by humans for our documentation sample. This will return output like the following, which has been edited for length:
 
 ```response
 {
@@ -245,7 +245,7 @@ Then, retrieve an API token and use it to call the API:
 curl -H "Authorization: Bearer $(chainctl auth token)" https://console-api.enforce.dev/iam/v1/groups | jq '.'
 ```
 
-In our example, [we requested a list of groups the account belongs to](https://edu.chainguard.dev/chainguard/api/spec/#tag/groups/GET/iam/v1/groups). Then we piped the API response, which is in JSON, into `jq` to make it more easily readable by humans for our documentation sample. This will return output like the following, which has been edited for length:
+In our example, [we requested a list of groups the account belongs to](/platform/api/spec/#tag/groups/GET/iam/v1/groups). Then we piped the API response, which is in JSON, into `jq` to make it more easily readable by humans for our documentation sample. This will return output like the following, which has been edited for length:
 
 ```response
 {
@@ -303,5 +303,5 @@ The Chainguard SDK is a powerful tool for interacting with the Chainguard platfo
 To learn more, you may be interested in the following resources:
 
 * [Overview of assumable identities in Chainguard](/platform/administration/assumable-ids/assumable-ids/)
-* [Authenticate to Chainguard's registry](/chainguard/chainguard-registry/authenticating/)
+* [Authenticate to Chainguard's registry](/chainguard/containers/registry/authenticating/)
 * [Chainguard OpenAPI specification](/platform/api/spec/)

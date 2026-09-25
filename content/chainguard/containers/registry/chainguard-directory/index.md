@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "A walkthrough of the Chainguard Directory."
 date: 2024-02-23T11:07:52+02:00
-lastmod: 2026-08-21T12:27:26+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -55,4 +55,4 @@ Click any chart name to learn the chart details.
 
 ## Learn more
 
-The Chainguard Containers Directory is a useful tool for understanding what Chainguard Containers are available. To better understand how to work with individual container images, you can see if we have a [getting started guide](/chainguard/containers/getting-started/) available. We also provide a guide on [how to view Security Advisories](/chainguard/containers/security-advisories/) through our [self-service public Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory).
+The Chainguard Containers Directory is a useful tool for understanding what Chainguard Containers are available. To better understand how to work with individual container images, you can see if we have a [getting started guide](/chainguard/containers/getting-started/) available. We also provide a guide on [how to view Security Advisories](/chainguard/containers/security-and-compliance/security-advisories/how-to-use/) through our [self-service public Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory).
