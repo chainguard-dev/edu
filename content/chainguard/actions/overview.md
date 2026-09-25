@@ -4,7 +4,7 @@ linktitle: "Actions overview"
 description: "Learn how Chainguard Actions provides hardened drop-in replacements for popular GitHub Actions to protect your CI/CD pipelines from supply chain attacks."
 type: "article"
 date: 2026-06-18T00:00:00+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-25T17:01:59+00:00
 draft: false
 tags: ["Chainguard Actions", "Overview"]
 menu:
@@ -142,7 +142,7 @@ Refer to [Chainguard Actions telemetry and privacy](/chainguard/actions/telemetr
 
 ### Step 2: Install the Guardener GitHub App
 
-The [Chainguard Guardener](/chainguard/guardener/github/getting-started/) GitHub App is the recommended way to adopt Chainguard Actions across more than a repository or two. Once you install it and link it to your Chainguard organization, the Guardener:
+The [Guardener](/chainguard/guardener/github/getting-started/) GitHub App is the recommended way to adopt Chainguard Actions across more than a repository or two. Once you install it and link it to your Chainguard organization, Guardener:
 
 - Inventories the actions your workflows use across every repository it can access
 - Comments on pull requests that introduce unhardened actions, so your workflows don't drift back
@@ -152,7 +152,7 @@ To set it up:
 
 1. Install the [Guardener GitHub App](https://github.com/apps/chainguard-guardener) on your GitHub organization.
 2. Link your Chainguard organization to your GitHub organization with `chainctl guardener github link`.
-3. Add a `.chainguard/actions.yaml` file to the root of each repository you want the Guardener to work on.
+3. Add a `.chainguard/actions.yaml` file to the root of each repository you want Guardener to work on.
 
 Both of the last two steps matter. Installing the app changes no repository on its own, and the Actions feature stays inert until `.chainguard/actions.yaml` exists in the repository. Once it does, pull request recommendations are on by default, but automated migration pull requests need `migrate.enabled: true` set explicitly:
 
@@ -162,9 +162,9 @@ migrate:
   enabled: true
 ```
 
-If installing an app in your organization needs an administrator's approval, they will be asked to approve a specific set of GitHub permissions. [Permissions the Guardener requests](/chainguard/guardener/github/getting-started/#permissions-the-guardener-requests) lists each one and why it's needed, so you can take that to them before you start.
+If installing an app in your organization needs an administrator's approval, they will be asked to approve a specific set of GitHub permissions. [Permissions Guardener requests](/chainguard/guardener/github/getting-started/#permissions-guardener-requests) lists each one and why it's needed, so you can take that to them before you start.
 
-Refer to [Getting started with Chainguard Guardener](/chainguard/guardener/github/getting-started/) for the installation and linking steps, and to [Hardened Actions](/chainguard/guardener/github/actions-security/) for the configuration reference, the migration options, and the on-demand migration command.
+Refer to [Getting started with Guardener](/chainguard/guardener/github/getting-started/) for the installation and linking steps, and to [Hardened Actions](/chainguard/guardener/github/actions-security/) for the configuration reference, the migration options, and the on-demand migration command.
 
 The Guardener GitHub App is in beta. It runs in production and is supported, but its features and configuration may still change.
 
@@ -375,6 +375,6 @@ If an action isn't working as expected, [open an action issue](https://github.co
 ## Learn more
 
 - [Chainguard Actions telemetry and privacy](/chainguard/actions/telemetry/)
-- [Hardened Actions with Chainguard Guardener](/chainguard/guardener/github/actions-security/)
+- [Hardened Actions with Guardener](/chainguard/guardener/github/actions-security/)
 - [Chainguard Actions product page](https://www.chainguard.dev/actions)
 - For other questions, [contact Chainguard](https://www.chainguard.dev/contact?utm=docs).
