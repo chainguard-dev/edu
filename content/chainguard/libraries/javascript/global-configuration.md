@@ -396,16 +396,88 @@ configuration](/chainguard/libraries/javascript/build-configuration/) and build 
 first test project. In a working setup the `javascript-chainguard` proxy
 repository contains all libraries retrieved from Chainguard.
 
+<a name="gar"></a>
+
 ## Google Artifact Registry
 
-Google Artifact Registry (GAR) is not an officially supported repository manager for Chainguard Libraries for JavaScript. However, it has been shown to work with the following configuration.
+Google Artifact Registry (GAR) is not an officially supported repository manager
+for Chainguard Libraries for JavaScript. However, it has been shown to work with
+the following configuration.
 
-Configure two GAR remote repositories, with upstream validation disabled on the second:
+[Google Artifact Registry](https://cloud.google.com/artifact-registry) supports
+the npm format for hosting artifacts in **Standard** repositories and proxying
+artifacts from public repositories in **Remote** repositories. Use **Virtual**
+repositories to combine them for consumption with npm and other build tools.
 
-* First remote repository: `javascript-chainguard` pointing to `https://libraries.cgr.dev/javascript` with upstream validation enabled
-* Second remote repository: `javascript-chainguard-upstream` pointing to `https://libraries.cgr.dev/javascript-upstream` with upstream validation disabled.
+The recommended approach is to rely on Chainguard Repository's [upstream
+fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls),
+configuring a single remote repository pointed at `https://libraries.cgr.dev/javascript/`
+rather than adding a separate public npm remote. A single remote on the plain
+`javascript/` path serves both Chainguard-built packages and policy-protected
+upstream packages through Chainguard's built-in fallback, so there is no need for
+a second remote or for disabling upstream validation. Refer to [Manually managing
+fallback](#manually-managing-fallback) if you need to control fallback ordering
+yourself.
 
-When using `artifactregistry-auth`, note that it only injects credentials for repositories explicitly listed in your `.npmrc`. Ensure you add a credentials entry for the `javascript-chainguard-upstream` repository alongside your existing `javascript-chainguard` entry, otherwise you will receive 404s for upstream-fallback packages.
+### Initial configuration
+
+Use the following steps to add the Chainguard Libraries for JavaScript repository
+as a remote repository and expose it through a virtual repository.
+
+1. Log in to the Google Cloud console as a user with administrator privileges.
+1. Navigate to your project and find the **Artifact Registry** with the search.
+1. Activate Artifact Registry if necessary.
+1. Navigate to your project and find the **Secret Manager** with the search.
+1. Activate **Secret Manager** if necessary.
+
+Before configuring the repositories, you must create a secret with the [password
+value as retrieved with chainctl](/chainguard/libraries/introduction/access/):
+
+1. Navigate to the **Secret Manager**
+1. Click **Create secret**.
+1. Set the **Name** to `chainguard-libraries-javascript`.
+1. Use the **Password** from chainctl output to set the **Secret value**.
+1. Click **Create secret**.
+
+Navigate to Artifact Registry and select **Repositories** in the left hand
+navigation under the **Artifact Registry** label to configure a remote
+repository for Chainguard Libraries for JavaScript:
+
+1. Click **+Create a Repository**.
+1. Configure the repository:
+    1. **Name**: `javascript-chainguard`
+    1. **Format**: `npm`
+    1. **Mode**: `Remote`
+    1. **Remote repository source**: `Custom`. Set the URL for the Custom repository to `https://libraries.cgr.dev/javascript/`.
+    1. **Remote repository authentication mode**: Select `Authenticated`.
+    1. Set **Username for the upstream repository** to the [value as retrieved
+   with chainctl](/chainguard/libraries/introduction/access/).
+    1. Select the *chainguard-libraries-javascript* secret in the list for the **Secret** input.
+    1. Choose a **Region** for your development in **Location type**.
+1. Click **Create**.
+
+If you are manually managing fallback rather than using the [Chainguard Repository's built-in fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls), configure an additional remote repository `javascript-public` for the public npm registry.
+
+Combine the `javascript-chainguard` repository into a new virtual repository:
+
+1. Click **+** to add another repository.
+1. Set the **Name** to `javascript-all`.
+1. Set the **Format** to `npm`.
+1. Set the **Mode** to `Virtual`.
+1. Click **Add upstream repository** in **Virtual upstream repositories**.
+1. Click **Browse**, then locate and select the `javascript-chainguard`
+   repository as **Repository 1** and set the **Policy name 1** to
+   `javascript-chainguard`.
+1. Add the public npm remote repository (`javascript-public`) as a second remote repository. Ensure `javascript-chainguard` maintains a higher priority.
+1. Choose a **Region** for your development in **Location type**.
+1. Click **Create**.
+
+### Build tool access
+
+Use the URL of the virtual repository in the [build
+configuration](/chainguard/libraries/javascript/build-configuration/) and build a
+first test project. In a working setup the `javascript-chainguard` remote
+repository contains all libraries retrieved from Chainguard.
 
 ## AWS CodeArtifact
 
