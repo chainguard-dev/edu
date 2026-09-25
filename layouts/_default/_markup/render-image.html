@@ -5,6 +5,16 @@
   {{ $image = .Page.Resources.GetMatch .Destination -}}
 {{ end -}}
 {{ with $image -}}
+  {{ if eq .MediaType.SubType "svg" -}}
+    {{/* SVG scales on its own, and Resize doesn't apply to it, so skip the
+         responsive srcset and emit the file directly. */ -}}
+    <img class="img-fluid"
+         src="{{ .Permalink }}"
+         alt="{{ $.Text }}"
+         loading="lazy"
+         decoding="async"
+         itemprop="image">
+  {{ else -}}
   {{ $lqip := $image.Resize site.Params.lqipWidth -}}
 
   {{ $imgSrc := "" -}}
@@ -24,12 +34,12 @@
 
   {{ if gt $image.Width site.Params.smallLimit -}}
     <figure class="figure" role="img" aria-labelledby="fig-{{ $image.Name | urlize }}">
-      <img class="figure-img img-fluid lazyload blur-up" 
-           data-sizes="auto" 
-           src="{{ $lqip.Permalink }}" 
-           data-srcset="{{ $imgSrcSet }}" 
-           width="{{ $image.Width }}" 
-           height="{{ $image.Height }}" 
+      <img class="figure-img img-fluid lazyload blur-up"
+           data-sizes="auto"
+           src="{{ $lqip.Permalink }}"
+           data-srcset="{{ $imgSrcSet }}"
+           width="{{ $image.Width }}"
+           height="{{ $image.Height }}"
            alt="{{ $.Text }}"
            loading="lazy"
            decoding="async"
@@ -38,15 +48,16 @@
       {{ with $.Title }}<figcaption id="fig-{{ $image.Name | urlize }}" class="figure-caption" itemprop="caption">{{ . | safeHTML }}</figcaption>{{ end -}}
     </figure>
   {{ else -}}
-    <img class="img-fluid lazyload blur-up" 
-         src="{{ $lqip.Permalink }}" 
-         data-src="{{ $image.Permalink }}" 
-         width="{{ $image.Width }}" 
-         height="{{ $image.Height }}" 
+    <img class="img-fluid lazyload blur-up"
+         src="{{ $lqip.Permalink }}"
+         data-src="{{ $image.Permalink }}"
+         width="{{ $image.Width }}"
+         height="{{ $image.Height }}"
          alt="{{ $.Text }}"
          loading="lazy"
          decoding="async"
          itemprop="image">
+  {{ end -}}
   {{ end -}}
 {{ else -}}
   {{ erroridf "image-not-found" "Image not found" -}}

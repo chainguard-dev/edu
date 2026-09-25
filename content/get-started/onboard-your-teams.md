@@ -110,3 +110,4 @@ Chainguard's platform reaches beyond containers and libraries. Your organization
 - Ready to pull your first container image? Work through a [language- or service-specific example](/get-started/containers-examples/).
 - Adopting Chainguard Libraries? Follow the [libraries on-ramp](/get-started/libraries-examples/).
 - Managing resources from the command line? See [Get started with chainctl](/get-started/getting-started-with-chainctl/).
+- Wiring Chainguard into a build pipeline? See [Chainguard in your CI/CD pipeline](/get-started/cicd-pipeline/).
