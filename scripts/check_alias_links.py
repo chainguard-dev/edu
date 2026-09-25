@@ -17,8 +17,15 @@ Run after a build:
 Exits non-zero and prints `file:line: stale -> canonical` for each finding.
 Pass --fix to apply the replacements in place.
 
-Not checked: `aliases:` frontmatter, which is supposed to contain alias paths,
-and fenced code blocks, where a URL is example text rather than a live link.
+Scope is `content/` and `layouts/` by choice, not by omission. Those hold the
+links a reader follows. Widening it to the rest of the repo would pull in
+contributor docs, archived artifacts, and the generated AI docs bundle, where a
+redirect costs a reader nothing. A stale link outside those two directories is
+fixed by hand.
+
+Within that scope, two things are skipped: `aliases:` frontmatter, which is
+supposed to contain alias paths, and fenced code blocks, where a URL is example
+text rather than a live link.
 """
 
 import argparse
