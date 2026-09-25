@@ -4,7 +4,7 @@ linktitle: "Telemetry and privacy"
 description: "Learn what telemetry Chainguard hardened actions send, why we collect it, and how to control it."
 type: "article"
 date: 2026-07-16T00:00:00+00:00
-lastmod: 2026-09-01T00:00:00+00:00
+lastmod: 2026-09-23T12:54:46+00:00
 draft: false
 tags: ["Chainguard Actions", "Telemetry", "Privacy"]
 menu:
@@ -28,7 +28,9 @@ We collect this data for two reasons:
 What we collect depends on whether your workflow grants `id-token: write`:
 
 - **Without `id-token: write`**: we record your repository name, a timestamp, and an "unverified" flag.
-- **With `id-token: write`**: the hook mints a GitHub OIDC token scoped to the `actions.chainguard.dev` audience and sends it so we can verify the record. From that token we store metadata: repository, actor, ref, sha, workflow path, repository visibility, and run identifiers.
+- **With `id-token: write`**: the hook mints a GitHub OIDC token scoped to the `actions.chainguard.dev` audience and sends it so we can verify the record. From that token we store metadata: repository, ref, sha, workflow path, repository visibility, and run identifiers.
+
+We do not store who triggered the run. The OIDC token identifies the account that started the workflow, and our service discards that claim where it assembles the usage event, so the actor never reaches any of our storage.
 
 The hook never grants itself `id-token: write`. It only uses the permission if your workflow already grants it. If you would rather we receive only your repository name, do not grant `id-token: write` to that job.
 
