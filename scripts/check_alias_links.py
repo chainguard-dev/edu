@@ -59,6 +59,32 @@ LINK_PATTERNS = [
     ),
 ]
 
+# Printed after the findings when the check fails. It is read in a CI log by
+# someone who has no build locally, so it spells out the whole sequence.
+FAILURE_HELP = """
+{count} internal link(s) above point at an alias path rather than at the page
+itself, so every reader who follows one takes an extra redirect.
+
+To fix them and turn this check green:
+
+  1. npm run build
+       Writes public/_aliases, the alias map this check reads.
+
+  2. python3 scripts/check_alias_links.py --fix
+       Rewrites each link listed above to its canonical path, keeping any
+       #anchor or ?query.
+
+  3. python3 scripts/check_alias_links.py
+       Confirms it now reports zero. No rebuild needed for this step: the
+       links changed, the alias map did not.
+
+  4. Commit the result and push.
+
+Do not fix this by deleting the alias from the target page's 'aliases:'
+frontmatter. That list still serves inbound links, bookmarks, and the
+production redirect map, so removing an entry turns a working redirect
+into a 404."""
+
 
 def load_aliases(alias_map=ALIAS_MAP):
     """Map each alias path to the canonical path it finally redirects to."""
@@ -207,12 +233,7 @@ def main():
         print(f"\nFixed {len(findings)} link(s). Rebuild and re-run to confirm.")
         return 0
 
-    print(
-        f"\n{len(findings)} internal link(s) point at an alias path instead of the "
-        f"page itself.\nEach costs the reader a redirect. Run "
-        f"'python3 scripts/check_alias_links.py --fix' to correct them.\n"
-        f"Leave the 'aliases:' frontmatter alone -- it still serves inbound links."
-    )
+    print(FAILURE_HELP.format(count=len(findings)))
     return 1
 
 
