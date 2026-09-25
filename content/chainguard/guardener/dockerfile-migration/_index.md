@@ -7,7 +7,7 @@ aliases:
 - /get-started/migration/the-guardener/
 type: "article"
 date: 2026-07-13T00:00:00+00:00
-lastmod: 2026-09-25T13:44:25+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["GitHub", "AI", "Chainguard Containers"]
 images: []
@@ -30,7 +30,7 @@ While Dockerfile migration is in beta, your organization needs to join the waitl
 
 You also need the following:
 
-- `chainctl` installed on your local machine. Refer to our [installation guide](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up if you haven't already done so.
+- `chainctl` installed on your local machine. Refer to our [installation guide](/platform/chainctl-usage/how-to-install-chainctl/) to set this up if you haven't already done so.
 - [Docker installed](https://docs.docker.com/engine/install/) and running locally.
 - Your Dockerfile and build context (source code and other inputs) present on the same machine where you run the migration.
 - A user with permission to accept the Guardener legal terms must accept them for your organization before anyone can run a session. Refer to [IAM access](#iam-access) below for the roles involved.
@@ -92,7 +92,7 @@ Access to Dockerfile migration is governed by Chainguard IAM roles:
 | Accepting the Guardener legal terms for your organization (required once before anyone can run sessions) | `guardener.admin` or `owner` |
 | Running Dockerfile migration sessions                                                                    | `guardener.user`             |
 
-Refer to the [Built-in roles and capabilities reference](/chainguard/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for details.
+Refer to the [Built-in roles and capabilities reference](/platform/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for details.
 
 ## Commands
 

@@ -4,7 +4,7 @@ linktitle: "Changelog"
 type: "article"
 description: "Weekly changelog of Chainguard product updates — product announcements, breaking changes, container images reaching end-of-life or leaving the catalog, and images newly added to it."
 date: 2026-07-28T00:00:00+00:00
-lastmod: 2026-09-25T13:44:25+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers", "Changelog"]
 images: []
@@ -31,7 +31,7 @@ During the beta, authentication and build pipelines continue to run on US infras
 
 {{< changelog-label "EOL" >}}
 
-Chainguard offers [a grace period](/chainguard/containers/features/eol-gp-overview/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
 ### Images that have reached end-of-life
 
@@ -78,7 +78,7 @@ Chainguard's `sonar-scanner-cli` image changes its default user from `root` (UID
 
 {{< changelog-label "EOL" >}}
 
-Chainguard offers [a grace period](/chainguard/containers/features/eol-gp-overview/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
 ### Images that have reached end-of-life
 
@@ -129,7 +129,7 @@ Choosing a FIPS module for Go previously meant choosing a toolchain at compile t
 
 Go 1.26 and earlier behave as before and remain supported until end-of-life, so you can migrate on your own schedule.
 
-For more information, refer to [Getting started with the Go Chainguard Container](/chainguard/containers/getting-started/go/).
+For more information, refer to [Getting started with the Go Chainguard Container](/chainguard/containers/getting-started/languages-and-runtimes/go/).
 
 ### Chainguard Libraries in JFrog
 

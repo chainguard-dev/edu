@@ -4,7 +4,7 @@ linktitle: "Custom certificates"
 type: "article"
 description: "How to add custom certificates to customized images with Custom Assembly."
 date: 2026-03-12T11:07:52+02:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural", "Custom Assembly"]
 images: []
@@ -29,7 +29,7 @@ Before getting started, you'll need the following:
 * Access to Chainguard's Custom Assembly tool, which is available to any organization with access to Production Chainguard Containers.
 * Permissions in your Chainguard organization to use Custom Assembly.
     * Review the [Custom Assembly permissions requirements](https://edu.chainguard.dev/chainguard/containers/custom-assembly/overview/#custom-assembly-permissions-requirements) for more information
-* [`chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) installed and configured.
+* [`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) installed and configured.
 * One or more PEM-encoded certificate files that you want to add to your container.
     * Each certificate must be a PEM-encoded string of an x509v3 certificate.
     * Private keys must not be passed as a certificate, and will be rejected.

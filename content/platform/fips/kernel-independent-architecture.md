@@ -6,7 +6,7 @@ linktitle: "Kernel-independent FIPS"
 type: "article"
 description: "Technical deep-dive into Chainguard's kernel-independent FIPS implementation using userspace entropy sources"
 date: 2025-10-16T08:00:00+00:00
-lastmod: 2025-10-16T08:00:00+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["FIPS", "Architecture", "Entropy"]
 images: []
@@ -257,7 +257,7 @@ The `openssl-config-fipshardened` package implements these configurations. Appli
 
 ## Next steps
 
-- [Getting started with FIPS](/chainguard/fips/getting-started/) - Deploy your first FIPS container
-- [Frequently asked questions](/chainguard/fips/faqs/) - Common questions about FIPS implementation
+- [Getting started with FIPS](/platform/fips/getting-started/) - Deploy your first FIPS container
+- [Frequently asked questions](/platform/fips/faqs/) - Common questions about FIPS implementation
 - [Blog: Kernel-Independent FIPS Images](https://www.chainguard.dev/unchained/kernel-independent-fips-images) - Original announcement with additional details
 - [Blog: Kernel-Independent FIPS for Java](https://www.chainguard.dev/unchained/announcing-kernel-independent-fips-for-java) - Java-specific implementation

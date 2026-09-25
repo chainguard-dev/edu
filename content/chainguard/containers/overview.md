@@ -5,7 +5,7 @@ type: "article"
 description: "Learn about Chainguard Containers, distroless images, and how they provide enhanced security through minimal attack surface and comprehensive supply chain features."
 lead: "Chainguard Containers are security-hardened container images built with a distroless approach, containing only essential application components and runtime dependencies."
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2026-09-09T18:07:04+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -18,9 +18,9 @@ aliases:
 
 [Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) are container images designed for enhanced security through minimalism and supply chain integrity. These images follow a distroless philosophy, containing only the application and its essential runtime dependencies, without shells, package managers, or other common utilities that can increase attack surface.
 
-Many Chainguard Containers implement a [distroless approach](/chainguard/containers/getting-started-distroless/), which means they exclude shells, package managers, and other utilities typically found in container images. This design significantly reduces potential security vulnerabilities. For development and debugging purposes, Chainguard provides `-dev` variants that include necessary tools while maintaining security best practices. All images are built using Chainguard OS, an operating system specifically designed to meet secure software supply chain requirements.
+Many Chainguard Containers implement a [distroless approach](/chainguard/containers/concepts/getting-started-distroless/), which means they exclude shells, package managers, and other utilities typically found in container images. This design significantly reduces potential security vulnerabilities. For development and debugging purposes, Chainguard provides `-dev` variants that include necessary tools while maintaining security best practices. All images are built using Chainguard OS, an operating system specifically designed to meet secure software supply chain requirements.
 
-Chainguard Containers are primarily available from [Chainguard's registry](/chainguard/chainguard-registry/overview/), but a selection of developer images is also available on [Docker Hub](https://hub.docker.com/u/chainguard). You can find the complete list of available Chainguard Containers in our public [Containers Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-overview) or within the [Chainguard Console](https://console.chainguard.dev/).
+Chainguard Containers are primarily available from [Chainguard's registry](/chainguard/containers/registry/overview/), but a selection of developer images is also available on [Docker Hub](https://hub.docker.com/u/chainguard). You can find the complete list of available Chainguard Containers in our public [Containers Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-overview) or within the [Chainguard Console](https://console.chainguard.dev/).
 
 ## Built-in security and supply chain guarantees
 
@@ -28,8 +28,8 @@ All Chainguard Containers are built with a consistent set of security and supply
 
 - Minimal design, with no unnecessary software bloat
 - Automated nightly builds to ensure container images are completely up-to-date and contain all available security patches
-- [High quality build-time SBOMs](/chainguard/containers/working-with-images/retrieve-image-sboms/) (software bill of materials) attesting the provenance of all artifacts within the container image
-- [Verifiable signatures](/chainguard/containers/working-with-images/retrieve-image-sboms/) provided by [Sigstore](/open-source/sigstore/cosign/an-introduction-to-cosign/)
+- [High quality build-time SBOMs](/chainguard/containers/security-and-compliance/retrieve-image-sboms/) (software bill of materials) attesting the provenance of all artifacts within the container image
+- [Verifiable signatures](/chainguard/containers/security-and-compliance/retrieve-image-sboms/) provided by [Sigstore](/open-source/sigstore/cosign/an-introduction-to-cosign/)
 - Reproducible builds with Cosign and apko ([read more about reproducibility](https://www.chainguard.dev/unchained/reproducing-chainguards-reproducible-image-builds))
 
 ## Chainguard Container customization and lifecycle features
@@ -73,9 +73,9 @@ The primary benefit of this layered approach is that when one package changes it
 
 Chainguard offers a collection of container images that are publicly available and don't require authentication, being free to use by anyone. We refer to these images as **Free images**, and they cover several use cases for different language ecosystems. Free images are limited to the latest build of a given image, tagged as `latest` and `latest-dev`.
 
-Production containers are enterprise-ready images that come with patch SLAs and features such as [Federal Information Processing Standard (FIPS) readiness](/chainguard/fips/fips-images/) and [unique time-stamped tags](/chainguard/containers/images-features/unique-tags/). Unlike Free containers, which are typically paired with only the latest version of an upstream package, Production containers offer specific major and minor versions of open source software. Chainguard offers two pricing options for Production containers: Per-Image Pricing and [Catalog pricing](/chainguard/containers/reference/pricing/).
+Production containers are enterprise-ready images that come with patch SLAs and features such as [Federal Information Processing Standard (FIPS) readiness](/platform/fips/fips-images/) and [unique time-stamped tags](/chainguard/containers/reference/unique-tags/). Unlike Free containers, which are typically paired with only the latest version of an upstream package, Production containers offer specific major and minor versions of open source software. Chainguard offers two pricing options for Production containers: Per-Image Pricing and [Catalog pricing](/chainguard/containers/reference/pricing/).
 
-You can access our container images directly from [Chainguard's registry](/chainguard/chainguard-registry/overview/). Chainguard's registry provides public access to all public Chainguard Containers, and provides customer access for Production Containers after logging in and authenticating.
+You can access our container images directly from [Chainguard's registry](/chainguard/containers/registry/overview/). Chainguard's registry provides public access to all public Chainguard Containers, and provides customer access for Production Containers after logging in and authenticating.
 
 For a complete list of Free Containers that are currently available, check our [Containers Directory](https://images.chainguard.dev/?category=developer). Registered users can also access all Free and Production container images in the [Chainguard Console](https://console.chainguard.dev/?utm=docs). After logging in you will be able to find all the current Free containers in the **Chainguard catalog** tab. If you've selected an appropriate Organization in the drop-down menu above the left hand navigation, you can find your organization's Production containers in the **Organization** tab.
 

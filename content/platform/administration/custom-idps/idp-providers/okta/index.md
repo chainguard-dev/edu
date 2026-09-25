@@ -9,7 +9,7 @@ lead: ""
 description: "Procedural tutorial on how to create an Okta app integration"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2026-06-16T15:22:20+01:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -24,7 +24,7 @@ This guide outlines how to create an Okta application and integrate it with Chai
 
 To complete this guide, you need the following.
 
-* `chainctl` installed on your system. Follow our guide on [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) if you don't already have this installed.
+* `chainctl` installed on your system. Follow our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) if you don't already have this installed.
 * An Okta account over which you have administrative access.
 
 ## Create an Okta app integration
@@ -72,7 +72,7 @@ First, log in to Chainguard with `chainctl`, using an OIDC provider like Google,
 chainctl auth login
 ```
 
-Note that you can use this bootstrap account as a [backup account](/chainguard/administration/custom-idps/custom-idps/#backup-accounts) — that is, an account you can use to log in if you ever lose access to your primary account. However, if you prefer to remove this role-binding after configuring the custom IdP, you can do so.
+Note that you can use this bootstrap account as a [backup account](/platform/administration/custom-idps/custom-idps/#backup-accounts) — that is, an account you can use to log in if you ever lose access to your primary account. However, if you prefer to remove this role-binding after configuring the custom IdP, you can do so.
 
 To configure the platform, make a note of the following settings from your Okta Application:
 
@@ -98,9 +98,9 @@ chainctl iam identity-provider create \
   --name=${NAME}
 ```
 
-Note the `--default-role` option. This defines the default role granted to users registering with this identity provider. This example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. If you don't include this option, you'll be prompted to specify the role interactively. For more information, refer to the [IAM and security section](/chainguard/administration/custom-idps/custom-idps/#iam-and-security) of our Introduction to Custom Identity Providers in Chainguard tutorial.
+Note the `--default-role` option. This defines the default role granted to users registering with this identity provider. This example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. If you don't include this option, you'll be prompted to specify the role interactively. For more information, refer to the [IAM and security section](/platform/administration/custom-idps/custom-idps/#iam-and-security) of our Introduction to Custom Identity Providers in Chainguard tutorial.
 
-You can refer to our [Generic integration guide](/chainguard/administration/custom-idps/custom-idps/#generic-integration-guide) in our Introduction to Custom Identity Providers article for more information about the `chainctl iam identity-provider create` command and its required options.
+You can refer to our [Generic integration guide](/platform/administration/custom-idps/custom-idps/#generic-integration-guide) in our Introduction to Custom Identity Providers article for more information about the `chainctl iam identity-provider create` command and its required options.
 
 ## Log in to Chainguard with the Okta identity provider
 

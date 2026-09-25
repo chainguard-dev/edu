@@ -5,7 +5,7 @@ lead: ""
 description: "How to map groups from a custom identity provider to Chainguard roles so access follows group membership."
 type: "article"
 date: 2026-07-01T08:48:45+00:00
-lastmod: 2026-09-10T18:12:46+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -22,7 +22,7 @@ To complete this guide, you need the following:
 
 - A custom identity provider (such as [Okta](/platform/administration/custom-idps/idp-providers/okta/) or [Microsoft Entra ID](/platform/administration/custom-idps/idp-providers/ms-entra-id/)) already configured for login to Chainguard. If you haven't set one up yet, refer to our guide [Using custom identity providers to authenticate to Chainguard](/platform/administration/custom-idps/custom-idps/).
 - An IAM role that can manage identity providers and role-bindings in your organization, such as the `owner` role.
-- [`chainctl` installed](/chainguard/chainctl-usage/how-to-install-chainctl/) on your local machine. You must also authenticate with `chainctl auth login`.
+- [`chainctl` installed](/platform/chainctl-usage/how-to-install-chainctl/) on your local machine. You must also authenticate with `chainctl auth login`.
 
 The rest of this guide refers to your organization and identity provider by their UIDPs, stored in the `ORGANIZATION` and `IDENTITY_PROVIDER` environment variables. Retrieve and set them with the following commands.
 
@@ -287,7 +287,7 @@ Identity providers cap how many groups a token can carry. Past that limit, the I
 - [How to integrate Okta SSO with Chainguard](/platform/administration/custom-idps/idp-providers/okta/)
 - [How to integrate Microsoft Entra ID SSO with Chainguard](/platform/administration/custom-idps/idp-providers/ms-entra-id/)
 - [Overview of the Chainguard IAM model](/platform/administration/iam-organizations/overview-of-chainguard-iam-model/)
-- [Manage identity and access with chainctl](/chainguard/chainctl-usage/chainctl-iam/)
+- [Manage identity and access with chainctl](/platform/chainctl-usage/chainctl-iam/)
 - [Subscribe to Chainguard Events](/platform/administration/cloudevents/events-example/)
 - [Chainguard API v2 tutorial](/platform/api/api-v2-tutorial/)
 - [ExternalGroupRoleMappingsService in the API v2 specification](/platform/api/spec-api-v2/#tag/externalgrouprolemappingsservice)

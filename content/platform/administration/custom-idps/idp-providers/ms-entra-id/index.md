@@ -10,7 +10,7 @@ lead: ""
 description: "Procedural tutorial on how to register a Microsoft Entra ID application and integrate it with the Chainguard platform."
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2026-08-27T10:00:00+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -29,7 +29,7 @@ If you plan to use SCIM provisioning, check out our guide on [how to provision u
 
 To complete this guide, you need the following:
 
-* `chainctl` installed on your system. Follow our guide on [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) if you don't already have this installed.
+* `chainctl` installed on your system. Follow our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) if you don't already have this installed.
 * Owner permissions on the Chainguard organization where you want to install the identity provider.
 * An Entra ID account with [Global Administrator](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#global-administrator) or [Application Administrator](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#application-administrator) permissions. Without one of these roles, you can't register applications or assign users to them.
 * A workforce Entra ID tenant. External ID (CIAM) tenants use a different application model, and this guide doesn't cover them.
@@ -70,7 +70,7 @@ First, log in to Chainguard with `chainctl`, using an OIDC provider like Google,
 chainctl auth login
 ```
 
-Note that you can use this bootstrap account as a [backup account](/chainguard/administration/custom-idps/custom-idps/#backup-accounts) — that is, an account you can use to log in if you ever lose access to your primary account. However, if you prefer to remove this role-binding after configuring the custom IdP, you can do so.
+Note that you can use this bootstrap account as a [backup account](/platform/administration/custom-idps/custom-idps/#backup-accounts) — that is, an account you can use to log in if you ever lose access to your primary account. However, if you prefer to remove this role-binding after configuring the custom IdP, you can do so.
 
 If you belong to more than one Chainguard organization, you also need the ID of the one where you want to install the identity provider. Your choice doesn't affect how your users authenticate, but it does determine who has permission to modify the SSO configuration.
 
@@ -116,9 +116,9 @@ Customers using Azure Government Cloud should set `ISSUER="https://login.microso
 
 Pass `--oidc-additional-scopes` once per scope; comma-separating the scopes doesn't work.
 
-The `--default-role` option defines the default role granted to users registering with this identity provider. This example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. If you don't include this option, `chainctl` prompts you to specify the role interactively. For more information, refer to the [IAM and security section](/chainguard/administration/custom-idps/custom-idps/#iam-and-security) of our Introduction to Custom Identity Providers in Chainguard tutorial.
+The `--default-role` option defines the default role granted to users registering with this identity provider. This example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. If you don't include this option, `chainctl` prompts you to specify the role interactively. For more information, refer to the [IAM and security section](/platform/administration/custom-idps/custom-idps/#iam-and-security) of our Introduction to Custom Identity Providers in Chainguard tutorial.
 
-You can refer to our [Generic integration guide](/chainguard/administration/custom-idps/custom-idps/#generic-integration-guide) in our Introduction to Custom Identity Providers doc for more information about the `chainctl iam identity-providers create` command and its required options.
+You can refer to our [Generic integration guide](/platform/administration/custom-idps/custom-idps/#generic-integration-guide) in our Introduction to Custom Identity Providers doc for more information about the `chainctl iam identity-providers create` command and its required options.
 
 ## Log in to Chainguard with the Entra ID identity provider
 

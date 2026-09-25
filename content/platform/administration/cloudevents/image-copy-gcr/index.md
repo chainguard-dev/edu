@@ -6,7 +6,7 @@ linktitle: "Mirror containers to Artifact Registry"
 type: "article"
 description: "Instructional guide outlining how one can set up an application that will listen for push events on a private  registry and mirror any new Chainguard Containers to a GCP Artifact Registry."
 date: 2024-05-24T15:22:20+01:00
-lastmod: 2025-03-07T15:22:20+01:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Console", "CloudEvents", "Procedural"]
 images: []
@@ -17,7 +17,7 @@ weight: 015
 toc: true
 ---
 
-Certain interactions with Chainguard resources will emit [CloudEvents](/chainguard/administration/cloudevents/events-reference/) that you or an application can subscribe to. This allows you to do things like receive alerts when a user downloads one or more of your organization's private container images or when a new image gets added to your organization's registry.
+Certain interactions with Chainguard resources will emit [CloudEvents](/platform/administration/cloudevents/events-reference/) that you or an application can subscribe to. This allows you to do things like receive alerts when a user downloads one or more of your organization's private container images or when a new image gets added to your organization's registry.
 
 This tutorial is meant to serve as a companion to the [Image Copy GCP](https://github.com/chainguard-dev/platform-examples/tree/main/image-copy-gcp) example application. It will guide you through setting up infrastructure to listen for `push` events on an organization's private registry and mirror any new Chainguard Containers in the registry to a repository in a GCP Artifact Registry repository.
 
@@ -25,8 +25,8 @@ This tutorial is meant to serve as a companion to the [Image Copy GCP](https://g
 
 To follow along with this guide, it is assumed that you have the following set up and ready to use.
 
-* A [verified Chainguard organization](/chainguard/administration/iam-organizations/verified-orgs/) with a private [Registry](/chainguard/chainguard-registry/overview/) and access to [Production containers](/chainguard/containers/overview/#production-and-free-containers).
-* `chainctl`, the Chainguard command-line interface. You can install this by following our guide on [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/).
+* A [verified Chainguard organization](/platform/administration/iam-organizations/verified-orgs/) with a private [Registry](/chainguard/containers/registry/overview/) and access to [Production containers](/chainguard/containers/overview/#production-and-free-containers).
+* `chainctl`, the Chainguard command-line interface. You can install this by following our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/).
 * [`terraform`](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) to configure a Google Cloud service account, IAM permissions, and deploy the Cloud Run service.
 * A Google Cloud account with a project running. The example application assumes that your project has the following APIs enabled:
     * [Artifact Registry API](https://cloud.google.com/artifact-registry/docs/reference/rest)
@@ -189,4 +189,4 @@ Following that, all of the example resources created in this guide will be remov
 
 ## Learn more
 
-Chainguard emits more CloudEvents than just the `registry:push` events highlighted in this guide. We encourage you to check out our overview of [Chainguard Events](/chainguard/administration/cloudevents/events-reference/) to learn the full breadth of event types that Chainguard generates. In addition, you may find it useful to explore the rest of our [Administration](/chainguard/administration/) resources to better understand how you can work with Chainguard's products.
+Chainguard emits more CloudEvents than just the `registry:push` events highlighted in this guide. We encourage you to check out our overview of [Chainguard Events](/platform/administration/cloudevents/events-reference/) to learn the full breadth of event types that Chainguard generates. In addition, you may find it useful to explore the rest of our [Administration](/platform/administration/) resources to better understand how you can work with Chainguard's products.

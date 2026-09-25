@@ -4,7 +4,7 @@ linktitle: "Java overview"
 description: "Learn about Chainguard Libraries for Java, providing enhanced security for Maven dependencies through automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-28T16:31:04+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java", "Overview"]
 menu:
@@ -20,7 +20,7 @@ Chainguard Libraries for Java provides access to all open source libraries
 commonly used. New releases of common libraries or artifacts requested by
 customers are added to the growing index by an automated system. The number of
 included libraries continues to grow. These artifacts are accessible through the
-[Chainguard Repository](https://edu.chainguard.dev/chainguard/libraries/chainguard-repository/),
+[Chainguard Repository](/chainguard/libraries/javascript/overview/),
 a single endpoint for package retrieval that supports configurable security
 policies for both Chainguard-built and upstream packages.
 

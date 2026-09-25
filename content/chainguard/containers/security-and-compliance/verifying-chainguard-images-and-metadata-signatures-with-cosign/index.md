@@ -13,7 +13,7 @@ aliases:
 type: "article"
 description: "Learn how to verify Chainguard Container signatures and attestations with Cosign for supply chain security, ensuring image authenticity and integrity"
 date: 2024-03-18T08:59:52-07:00
-lastmod: 2026-09-08T13:28:24+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -51,7 +51,7 @@ For private images, Chainguard signs all images in your private registry with on
 Older Chainguard organizations use `catalog_syncer` and `apko_builder` instead of these identities. Each pair is functionally identical, because each references the same account association: `image-syncer` and `catalog_syncer` both reference the `CATALOG_SYNCER` association, while `custom-image-builder` and `apko_builder` both reference the `APKO_BUILDER` association.
 {{< /note >}}
 
-These identities are created and added to every [verified Chainguard organization](/chainguard/administration/iam-organizations/verified-orgs/) automatically.
+These identities are created and added to every [verified Chainguard organization](/platform/administration/iam-organizations/verified-orgs/) automatically.
 
 To follow along with the **Private Registry** examples in this guide, you need the *unique identifier paths* (UIDPs) of these Chainguard identities. To this end, create a few environment variables, the first of which should point to the name of your Chainguard organization:
 

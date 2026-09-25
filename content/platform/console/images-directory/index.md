@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "A walkthrough of the Chainguard Console."
 date: 2024-02-23T11:07:52+02:00
-lastmod: 2026-09-11T12:38:00+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -181,4 +181,4 @@ Click a package name to reveal more details about the package. Use the **Archite
 
 ## Learn more
 
-The Chainguard Console is a useful tool for understanding what Chainguard container images are available and learn details about each. To better understand how to work with individual container images, you can see if we have a [getting started guide](/chainguard/containers/getting-started/) available. We also provide a guide on [how to view Security Advisories](/chainguard/containers/security-advisories/) through our [self-service public Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory).
+The Chainguard Console is a useful tool for understanding what Chainguard container images are available and learn details about each. To better understand how to work with individual container images, you can see if we have a [getting started guide](/chainguard/containers/getting-started/) available. We also provide a guide on [how to view Security Advisories](/chainguard/containers/security-and-compliance/security-advisories/how-to-use/) through our [self-service public Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory).

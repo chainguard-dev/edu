@@ -4,7 +4,7 @@ linktitle: "Manage with Chainguard's API"
 type: "article"
 description: "How to use the Chainguard API to manage Custom Assembly resources."
 date: 2025-05-01T11:07:52+02:00
-lastmod: 2026-08-07T13:38:58+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural", "Custom Assembly"]
 images: []
@@ -30,7 +30,7 @@ In order to follow along with this guide, you will need the following:
 
 * Access to a Custom Assembly container image. If your organization doesn't yet have access to Custom Assembly, reach out to your account team to start the process.
 * The demo application used in this guide is written in Go, so you will need Go installed on your local machine. Refer to the [official Go documentation](https://go.dev/doc/install) for instructions on downloading and installing Go.
-* You will also need [`chainctl` installed](/chainguard/chainctl-usage/how-to-install-chainctl/) on your local machine to create a Chainguard token and authenticate to the Chainguard API.
+* You will also need [`chainctl` installed](/platform/chainctl-usage/how-to-install-chainctl/) on your local machine to create a Chainguard token and authenticate to the Chainguard API.
 
 ## Downloading the demo application
 
@@ -166,7 +166,7 @@ To accomplish all this, the application's functions perform the following API ca
 * [UpdateRepo](/platform/api/spec/#tag/registry/PUT/registry/v1/repos/{id})
 * [Groups_List](/platform/api/spec/#tag/groups/GET/iam/v1/groups)
 
-For a deeper understanding of what each function does and how the application works overall, we encourage you to closely review the `main.go` file before running it. You may also benefit from reviewing our [OpenAPI specification reference document](/chainguard/api/spec/).
+For a deeper understanding of what each function does and how the application works overall, we encourage you to closely review the `main.go` file before running it. You may also benefit from reviewing our [OpenAPI specification reference document](/platform/api/spec/).
 
 Once you feel you have a grasp on how the demo application works, move on to the next section which outlines how to run it.
 

@@ -4,7 +4,7 @@ linktitle: "Actions overview"
 description: "Learn how Chainguard Actions provides hardened drop-in replacements for popular GitHub Actions to protect your CI/CD pipelines from supply chain attacks."
 type: "article"
 date: 2026-06-18T00:00:00+00:00
-lastmod: 2026-09-25T13:52:02+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Actions", "Overview"]
 menu:
@@ -33,7 +33,7 @@ This page provides enough to get you started. Refer to the [Chainguard Actions R
 
 To follow this guide, you need:
 
-- `chainctl` **v0.2.261** or later, installed and authenticated. Refer to [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) if you don't have it yet.
+- `chainctl` **v0.2.261** or later, installed and authenticated. Refer to [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) if you don't have it yet.
 - An active Chainguard organization.
 - Owner access on the organization.
 

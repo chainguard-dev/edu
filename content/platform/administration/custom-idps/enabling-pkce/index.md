@@ -5,7 +5,7 @@ lead: ""
 description: "How to add PKCE to your custom identity provider's OAuth token exchange with Chainguard, either alongside a client secret or as a secret-free public client."
 type: "article"
 date: 2026-07-30T08:48:45+00:00
-lastmod: 2026-07-30T08:48:45+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -27,7 +27,7 @@ To follow this guide, you need:
 
 - A custom identity provider (such as [Okta](/platform/administration/custom-idps/idp-providers/okta/), [Microsoft Entra ID](/platform/administration/custom-idps/idp-providers/ms-entra-id/), or [Ping Identity](/platform/administration/custom-idps/idp-providers/ping-id/)) already configured for login to Chainguard. If you haven't set one up yet, refer to our guide [Using custom identity providers to authenticate to Chainguard](/platform/administration/custom-idps/custom-idps/).
 - An IAM role that can manage identity providers in your Chainguard organization, such as the `owner` role.
-- [`chainctl` installed](/chainguard/chainctl-usage/how-to-install-chainctl/) on your local machine. You must also authenticate with `chainctl auth login`.
+- [`chainctl` installed](/platform/chainctl-usage/how-to-install-chainctl/) on your local machine. You must also authenticate with `chainctl auth login`.
 
 The rest of this guide refers to your identity provider by its UIDP, stored in the `IDENTITY_PROVIDER` environment variable. Retrieve and set it with the following command:
 

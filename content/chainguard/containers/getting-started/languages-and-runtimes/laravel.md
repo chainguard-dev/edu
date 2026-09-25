@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Laravel"
 description: "Learn how to use Chainguard's Laravel container image for secure PHP web applications, featuring built-in Laravel tooling and minimal vulnerabilities"
 date: 2024-05-17T11:07:52+02:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -266,7 +266,7 @@ You can use the same method to execute other Artisan commands while the environm
 
 ## 3. Creating a distroless Laravel runtime for the application
 
-So far, we have been using the `laravel:latest-dev` builder image to run the application in a development setting. For production workloads, the recommended approach for additional security is to create a [distroless](/chainguard/containers/getting-started-distroless/) runtime for the application that will contain only what's absolutely necessary for running the app on production. This is done by combining a **build** phase in a **multi-stage** Dockerfile.
+So far, we have been using the `laravel:latest-dev` builder image to run the application in a development setting. For production workloads, the recommended approach for additional security is to create a [distroless](/chainguard/containers/concepts/getting-started-distroless/) runtime for the application that will contain only what's absolutely necessary for running the app on production. This is done by combining a **build** phase in a **multi-stage** Dockerfile.
 
 To demonstrate this approach, we'll now build a distroless container image and test it using the Docker Compose setup exemplified in the previous section.
 

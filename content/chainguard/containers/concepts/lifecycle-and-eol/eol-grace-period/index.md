@@ -4,7 +4,7 @@ linktitle: "EOL grace period"
 type: "article"
 description: "Understanding Chainguard's end-of-life (EOL) grace period."
 date: 2025-05-14T08:49:31+00:00
-lastmod: 2026-09-11T13:15:07+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -169,7 +169,7 @@ This example output is derived from an API call made on a `node` image repositor
     * any container images that will never enter a grace period will show `GRACE_NOT_ELIGIBLE`
 * `gracePeriodExpiryDate`: the date on which the image's grace period will end
 
-Of course, you won't use `curl` to interact with the Chainguard API in most scenarios. Instead, you'll likely have some kind of application that can ingest and process this EOL data. For example, your organization could create a Slackbot that fetches data from the Chainguard EOL grace period API and posts messages about EOL tags approaching their grace period expiration to a specified Slack channel. Chainguard's [API documentation](/chainguard/api/spec/) includes request samples for many languages and platforms, including Go, Python, and Java.
+Of course, you won't use `curl` to interact with the Chainguard API in most scenarios. Instead, you'll likely have some kind of application that can ingest and process this EOL data. For example, your organization could create a Slackbot that fetches data from the Chainguard EOL grace period API and posts messages about EOL tags approaching their grace period expiration to a specified Slack channel. Chainguard's [API documentation](/platform/api/spec/) includes request samples for many languages and platforms, including Go, Python, and Java.
 
 ## Learn more
 

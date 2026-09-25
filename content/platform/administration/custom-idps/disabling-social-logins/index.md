@@ -5,14 +5,14 @@ lead: ""
 description: "How to stop users from authenticating to Chainguard with social logins by blocking the Chainguard app in your identity provider, using Google Workspace as an example"
 type: "article"
 date: 2026-07-02T08:48:45+00:00
-lastmod: 2026-09-11T14:07:20+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
 weight: 015
 ---
 
-By default, users can authenticate to the Chainguard platform with a built-in social login provider: GitHub, GitLab, or Google. After you [configure a custom identity provider](/chainguard/administration/custom-idps/custom-idps/#setup-and-administration) for single sign-on (SSO), you may want to require that everyone in your organization authenticate through that provider instead.
+By default, users can authenticate to the Chainguard platform with a built-in social login provider: GitHub, GitLab, or Google. After you [configure a custom identity provider](/platform/administration/custom-idps/custom-idps/#setup-and-administration) for single sign-on (SSO), you may want to require that everyone in your organization authenticate through that provider instead.
 
 A common problem for SSO customers is that users click **Login with Google** (or another social provider) out of habit. Because a personal or non-federated Google account isn't tied to your organization, this creates an account *outside* it that an owner then has to clean up and re-provision. Preventing social logins keeps account lifecycle, group membership, and security policies (such as multi-factor authentication) enforced centrally through your identity provider.
 
@@ -38,7 +38,7 @@ We recommend confirming both of the following before proceeding:
     chainctl auth login --identity-provider <IDP_ID>
     ```
 
-* You have a [backup account](/chainguard/administration/custom-idps/custom-idps/#backup-accounts) that does not rely on Google login (for example, an [assumable identity](/chainguard/administration/iam-organizations/assumable-ids/)), so you retain a recovery path.
+* You have a [backup account](/platform/administration/custom-idps/custom-idps/#backup-accounts) that does not rely on Google login (for example, an [assumable identity](/platform/administration/assumable-ids/assumable-ids/)), so you retain a recovery path.
 
 You also need administrator access to your organization's [Google Workspace Admin console](https://admin.google.com).
 
@@ -70,7 +70,7 @@ After you activate the policy, attempts to log in to the Chainguard Console usin
 
 ## After blocking social logins
 
-Direct your users to authenticate with your custom identity provider. If your organization is [verified](/chainguard/administration/iam-organizations/verified-orgs/), users can log in with your organization name:
+Direct your users to authenticate with your custom identity provider. If your organization is [verified](/platform/administration/iam-organizations/verified-orgs/), users can log in with your organization name:
 
 ```sh
 chainctl auth login --org-name example.com
@@ -82,7 +82,7 @@ Otherwise, users authenticate by passing the identity provider's ID:
 chainctl auth login --identity-provider <IDP_ID>
 ```
 
-To avoid specifying this on every login, users can set a default identity provider or organization name in their `chainctl` configuration, as described in the [custom identity providers guide](/chainguard/administration/custom-idps/custom-idps/#setting-a-default-identity-provider). In the Chainguard Console, users in a verified organization can enter their organization name or email address to be routed to your identity provider.
+To avoid specifying this on every login, users can set a default identity provider or organization name in their `chainctl` configuration, as described in the [custom identity providers guide](/platform/administration/custom-idps/custom-idps/#setting-a-default-identity-provider). In the Chainguard Console, users in a verified organization can enter their organization name or email address to be routed to your identity provider.
 
 If you need to restore Google login (for example, during a recovery scenario), follow the same steps to locate the Chainguard app, but instead of blocking it, change the access policy for the relevant organizational units to grant access. Select at least **Limited** access so that Google permits the login scopes.
 

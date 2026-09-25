@@ -4,7 +4,7 @@ linktitle: "Catalog Starter"
 type: "article"
 description: "Learn about Chainguard Catalog Starter, an offering allowing teams to try out five Chainguard container images for free."
 date: 2026-03-09T07:52:00+02:00
-lastmod: 2026-09-01T16:09:44+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -91,7 +91,7 @@ chainctl starter request-access
 
 ### Add images with `chainctl`
 
-You can see which images are available [using the Chainguard Directory](/chainguard/chainguard-images/how-to-use/chainguard-directory/). To add one or more images, run [`chainctl starter add-images`](/platform/chainctl/chainctl-docs/chainctl_starter_add-images/), substituting the desired image names for the variables:
+You can see which images are available [using the Chainguard Directory](/chainguard/containers/registry/chainguard-directory/). To add one or more images, run [`chainctl starter add-images`](/platform/chainctl/chainctl-docs/chainctl_starter_add-images/), substituting the desired image names for the variables:
 
 ```shell
 chainctl starter add-images $IMAGE1 [$IMAGE2] ... [$IMAGE4]
@@ -117,7 +117,7 @@ Catalog Starter allows users to try out Chainguard Containers, but it comes with
 
 * You can select up to five non-FIPS images. Once chosen, these images cannot be swapped or replaced during the lifetime of the free plan.
 * The following types of Chainguard Containers are not included in the Catalog Starter plan:
-    * [FIPS-validated images](/chainguard/fips/fips-images/)
+    * [FIPS-validated images](/platform/fips/fips-images/)
     * Images that fall under the [EOL grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/#understanding-chainguards-eol-grace-period)
     * Images whose software is part of [Chainguard EmeritOSS](https://github.com/chainguard-forks/)
 * Teams using Chainguard Catalog Starter will not have access to the support services available to paying customers: they will not be added to Chainguard's support platform, be able to create support tickets, or have access to root cause analysis (RCA).

@@ -5,7 +5,7 @@ type: "article"
 lead: "Practical shell and CI/CD snippets for using chainctl beyond the interactive command line."
 description: "Learn how to use chainctl in scripts and pipelines with a set of example snippets"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["chainctl"]
 images: []
@@ -28,8 +28,8 @@ The `jq` field names used in these examples reflect the expected JSON output str
 
 Before running any of these snippets, you need:
 
-- `chainctl` [installed](/chainguard/chainctl-usage/how-to-install-chainctl/)
-- An active [Chainguard account](/chainguard/chainguard-registry/authenticating/)
+- `chainctl` [installed](/platform/chainctl-usage/how-to-install-chainctl/)
+- An active [Chainguard account](/chainguard/containers/registry/authenticating/)
 - `jq` installed (`brew install jq` or `apt install jq`)
 - For CI/CD use, a [Chainguard assumable identity](/platform/chainctl/chainctl-docs/chainctl_iam_identities_create/) configured for your pipeline
 
@@ -72,9 +72,9 @@ Many CI platforms can provide a short-lived OIDC token that `chainctl` uses to a
 
 Tested examples are available for the following platforms:
 
-- [Authenticating with GitHub Actions](/chainguard/chainguard-registry/authenticating/#authenticating-with-github-actions)
-- [Authenticating with CircleCI OIDC token](/chainguard/chainguard-registry/authenticating/#authenticating-with-circleci-oidc-token)
-- [Authenticating with Microsoft Entra ID OIDC token](/chainguard/chainguard-registry/authenticating/#authenticating-with-microsoft-entra-id-oidc-token)
+- [Authenticating with GitHub Actions](/chainguard/containers/registry/authenticating/#authenticating-with-github-actions)
+- [Authenticating with CircleCI OIDC token](/chainguard/containers/registry/authenticating/#authenticating-with-circleci-oidc-token)
+- [Authenticating with Microsoft Entra ID OIDC token](/chainguard/containers/registry/authenticating/#authenticating-with-microsoft-entra-id-oidc-token)
 
 ## Pin an image by its digest
 

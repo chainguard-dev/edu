@@ -6,7 +6,7 @@ linktitle: "Understanding FIPS"
 type: "article"
 description: "Learn about FIPS standards, who needs FIPS validation, and the cryptographic module validation process"
 date: 2025-10-16T08:00:00+00:00
-lastmod: 2025-10-16T08:00:00+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["FIPS", "Compliance", "Security"]
 images: []
@@ -176,7 +176,7 @@ FIPS compliance is not set-and-forget:
 
 Now that you understand FIPS fundamentals, explore:
 
-- [Kernel-independent FIPS architecture](/chainguard/fips/kernel-independent-architecture/) - Learn how Chainguard's approach simplifies FIPS deployment
-- [Chainguard FIPS containers](/chainguard/fips/fips-images/) - Overview of available FIPS images
+- [Kernel-independent FIPS architecture](/platform/fips/kernel-independent-architecture/) - Learn how Chainguard's approach simplifies FIPS deployment
+- [Chainguard FIPS containers](/platform/fips/fips-images/) - Overview of available FIPS images
 - [FIPS Commitment](https://www.chainguard.dev/legal/fips-commitment) - Chainguard's warranties and certifications
 - [NIST CMVP](https://csrc.nist.gov/projects/cryptographic-module-validation-program) - Official validation program information

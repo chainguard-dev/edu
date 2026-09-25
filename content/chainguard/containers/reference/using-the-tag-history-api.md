@@ -11,7 +11,7 @@ aliases:
 type: "article"
 description: "Learn how to use the Chainguard Containers Tag History API to fetch the tag history of image variants."
 date: 2023-05-26T08:49:31+00:00
-lastmod: 2026-08-18T17:14:56+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -30,11 +30,11 @@ A container image digest is a unique identifier that is generated for each and e
 
 If you have a container environment that was working fine but suddenly breaks with a new build, using a previous container image build version by declaring an image digest instead of a tag is a way to keep things up and running until you're able to assert that a new version of a container environment works as expected with your application.
 
-> NOTE: If you are looking for a quick way to learn the tag history of a container image, you may want to consider using the `chainctl images history` command instead of the API. Refer to **[Examine the history of container images](/chainguard/chainctl-usage/chainctl-images/#examine-the-history-of-container-images)** for more information.
+> NOTE: If you are looking for a quick way to learn the tag history of a container image, you may want to consider using the `chainctl images history` command instead of the API. Refer to **[Examine the history of container images](/platform/chainctl-usage/chainctl-images/#examine-the-history-of-container-images)** for more information.
 
 ## Obtaining a registry token
 
-Before making API calls, you'll need to generate a token within [Chainguard's registry](/chainguard/chainguard-registry/overview/).
+Before making API calls, you'll need to generate a token within [Chainguard's registry](/chainguard/containers/registry/overview/).
 
 ### Public containers
 
@@ -65,7 +65,7 @@ auth_header="Authorization: Bearer $(chainctl auth token --audience cgr.dev)"
 
 The `--audience cgr.dev` flag is required. Without it, `chainctl auth token` issues a token for a different audience and the Tag History API rejects it with a `403` response.
 
-If you have already set up Docker authentication with [`chainctl auth configure-docker`](https://edu.chainguard.dev/chainguard/chainguard-registry/authenticating/), you can instead read the token from the Docker credential helper:
+If you have already set up Docker authentication with [`chainctl auth configure-docker`](/chainguard/containers/registry/authenticating/), you can instead read the token from the Docker credential helper:
 
 ```shell
 auth_header="Authorization: Bearer $(echo 'cgr.dev' | docker-credential-cgr get | jq -r .Secret)"

@@ -4,7 +4,7 @@ linktitle: "Harbor"
 type: "article"
 description: "Tutorial outlining how to sync images from Chainguard's registry to Harbor."
 date: 2025-08-19T12:00:00-00:00
-lastmod: 2026-09-04T16:13:45+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -30,7 +30,7 @@ This tutorial outlines how to sync images from Chainguard's registry to a Harbor
 You need the following in order to complete this tutorial:
 
 * Administrative privileges over a Harbor instance. Refer to the [official Harbor documentation](https://goharbor.io/docs/2.13.0/) to learn how to set this up.
-* `chainctl` — Chainguard's command-line interface — installed on your local machine. If you don't have `chainctl` installed, refer to our [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) guide to set this up.
+* `chainctl` — Chainguard's command-line interface — installed on your local machine. If you don't have `chainctl` installed, refer to our [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) guide to set this up.
 * Access to an account with permissions to pull Chainguard container images from your organization's repository within the Chainguard registry. This is necessary, as you will create a pull token for Harbor to use to access the registry, and you cannot generate a pull token that grants broader access than your own.
 
 ## Create a registry endpoint
@@ -136,6 +136,6 @@ Again, be sure to replace this command's placeholder values as necessary.
 
 ## Learn more
 
-If you haven't already done so, you may find it useful to review our [Registry overview](/chainguard/chainguard-registry/overview/) to learn more about Chainguard's registry. You can also learn more about Chainguard Containers by checking out our [Containers documentation](/chainguard/containers/overview/).
+If you haven't already done so, you may find it useful to review our [Registry overview](/chainguard/containers/registry/overview/) to learn more about Chainguard's registry. You can also learn more about Chainguard Containers by checking out our [Containers documentation](/chainguard/containers/overview/).
 
 Additionally, if you'd like to learn more about Harbor, we encourage you to refer to the [official Harbor documentation](https://goharbor.io/docs).

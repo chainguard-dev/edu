@@ -7,14 +7,14 @@ lead: ""
 description: "Tutorial outlining how to create a Chainguard identity that can be assumed by an AWS user or role using outbound identity federation."
 type: "article"
 date: 2026-01-05T09:00:00+00:00
-lastmod: 2026-01-05T09:00:00+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
 weight: 011
 ---
 
-Chainguard's [*assumable identities*](/chainguard/administration/assumable-ids/assumable-ids/) are identities that can be assumed by external applications or workflows in order to access Chainguard resources or perform certain actions.
+Chainguard's [*assumable identities*](/platform/administration/assumable-ids/assumable-ids/) are identities that can be assumed by external applications or workflows in order to access Chainguard resources or perform certain actions.
 
 This tutorial outlines how to create a Chainguard identity that can be assumed by an AWS IAM user or IAM role using [AWS IAM outbound identity federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_outbound.html).
 
@@ -26,7 +26,7 @@ You will also need the following tools.
 
 * The AWS CLI. Review the official documentation for information on [how to install or update to the latest version of the tool](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 * To create the assumable identity, you will need one of the following tools:
-    * [`chainctl`](/get-started/getting-started-with-chainctl/) — the Chainguard command line interface tool. Follow our guide on [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up.
+    * [`chainctl`](/get-started/getting-started-with-chainctl/) — the Chainguard command line interface tool. Follow our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) to set this up.
     * [`terraform`](https://developer.hashicorp.com/terraform) — an Infrastructure as Code tool developed by Hashicorp. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
 
 ## Retrieve token issuer URL
@@ -74,7 +74,7 @@ Then, run this command which uses `chainctl` to create a Chainguard identity and
 chainctl iam id create <identity-name> --identity-issuer=<issuer-url> --subject=<aws-arn> --role=registry.pull
 ```
 
-This command should return the identity's [UIDP (unique identity path)](/chainguard/administration/cloudevents/events-reference/#uidp-identifiers). Note this value down, as you'll need it to assume the identity later.
+This command should return the identity's [UIDP (unique identity path)](/platform/administration/cloudevents/events-reference/#uidp-identifiers). Note this value down, as you'll need it to assume the identity later.
 
 If you need to retrieve the UIDP later on, you can always run the following `chainctl` command to list the identity.
 
@@ -199,7 +199,7 @@ output "my_identity_name_id" {
 }
 ```
 
-The `my_identity_name_id` output provides the identity’s [UIDP (unique identity path)](/chainguard/administration/cloudevents/events-reference/#uidp-identifiers). You’ll need this value to assume the identity later.
+The `my_identity_name_id` output provides the identity’s [UIDP (unique identity path)](/platform/administration/cloudevents/events-reference/#uidp-identifiers). You’ll need this value to assume the identity later.
 
 ## Assume the identity
 
@@ -225,4 +225,4 @@ chainctl image repo list
 
 ## Learn more
 
-By following this guide, you will have created a Chainguard identity that you can use to authenticate to Chainguard from AWS. For more information about how assumable identities work in Chainguard, check out our [conceptual overview of assumable identities](/chainguard/administration/assumable-ids/assumable-ids/). Additionally, we encourage you to read through the rest of our documentation on [Administering Chainguard resources](/chainguard/administration/).
+By following this guide, you will have created a Chainguard identity that you can use to authenticate to Chainguard from AWS. For more information about how assumable identities work in Chainguard, check out our [conceptual overview of assumable identities](/platform/administration/assumable-ids/assumable-ids/). Additionally, we encourage you to read through the rest of our documentation on [Administering Chainguard resources](/platform/administration/).

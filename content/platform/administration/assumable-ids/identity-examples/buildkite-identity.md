@@ -10,14 +10,14 @@ lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by a Buildkite workflow."
 type: "article"
 date: 2023-05-17T08:48:45+00:00
-lastmod: 2025-12-11T08:48:45+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
 weight: 015
 ---
 
-Chainguard's [*assumable identities*](/chainguard/administration/iam-organizations/assumable-ids/) are identities that can be assumed by external applications or workflows in order to perform certain tasks that would otherwise have to be done by a human.
+Chainguard's [*assumable identities*](/platform/administration/assumable-ids/assumable-ids/) are identities that can be assumed by external applications or workflows in order to perform certain tasks that would otherwise have to be done by a human.
 
 This tutorial outlines how to create an identity using Terraform, and then how to update a Buildkite pipeline so that it can assume the identity and interact with Chainguard resources.
 
@@ -26,7 +26,7 @@ This tutorial outlines how to create an identity using Terraform, and then how t
 To complete this guide, you must have the following in place:
 
 * `terraform` installed on your local machine. Terraform is an open-source Infrastructure as Code tool which this guide uses to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
-* `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up.
+* `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) to set this up.
 * A Buildkite agent and pipeline you can use to test out the identity you'll create. We recommend following Buildkite's [Getting Started guide](https://buildkite.com/docs/tutorials/getting-started) to set these up.
 
 ## Creating Terraform files
@@ -191,7 +191,7 @@ Outputs:
 buildkite-identity = "<your-buildkite-identity>"
 ```
 
-This is the identity's [UIDP (unique identity path)](/chainguard/administration/cloudevents/events-reference/#uidp-identifiers), which you configured the `buildkite.tf` file to emit in the previous section. Note this value down, as you'll need it when you test this identity using a Buildkite workflow. If you need to retrieve this UIDP later on, though, you can always run the following `chainctl` command to obtain a list of the UIDPs of all your existing identities:
+This is the identity's [UIDP (unique identity path)](/platform/administration/cloudevents/events-reference/#uidp-identifiers), which you configured the `buildkite.tf` file to emit in the previous section. Note this value down, as you'll need it when you test this identity using a Buildkite workflow. If you need to retrieve this UIDP later on, though, you can always run the following `chainctl` command to obtain a list of the UIDPs of all your existing identities:
 
 ```sh
 chainctl iam identities ls
@@ -349,4 +349,4 @@ This removes the Terraform configuration files you used to create the example Bu
 
 ## Learn more
 
-For more information about how assumable identities work in Chainguard, check out our [conceptual overview of assumable identities](/chainguard/administration/iam-organizations/assumable-ids/). Additionally, the Terraform documentation includes a section on [recommended best practices](https://developer.hashicorp.com/terraform/cloud-docs/recommended-practices) which you can refer to if you'd like to build on this Terraform configuration for a production environment. Likewise, for more information on using Buildkite, we encourage you to check out the [official project documentation](https://buildkite.com/docs), particularly their [documentation on Buildkite OIDC](https://buildkite.com/docs/agent/v3/cli-oidc).
+For more information about how assumable identities work in Chainguard, check out our [conceptual overview of assumable identities](/platform/administration/assumable-ids/assumable-ids/). Additionally, the Terraform documentation includes a section on [recommended best practices](https://developer.hashicorp.com/terraform/cloud-docs/recommended-practices) which you can refer to if you'd like to build on this Terraform configuration for a production environment. Likewise, for more information on using Buildkite, we encourage you to check out the [official project documentation](https://buildkite.com/docs), particularly their [documentation on Buildkite OIDC](https://buildkite.com/docs/agent/v3/cli-oidc).

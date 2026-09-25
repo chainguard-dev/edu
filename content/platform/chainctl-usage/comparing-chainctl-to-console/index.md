@@ -6,7 +6,7 @@ linktitle: "chainctl vs Console"
 type: "article"
 description: "Learn when to use chainctl CLI versus Chainguard Console for managing container security, with practical examples and use case recommendations"
 date: 2025-06-02T11:07:52+02:00
-lastmod: 2026-09-11T13:15:07+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["chainctl", "Chainguard Console"]
 images: []
@@ -23,13 +23,13 @@ Chainguard provides two powerful interfaces for managing container security reso
 
 To access the [Chainguard Console](/platform/console/images-directory/) you need to [create an account and sign in](https://console.chainguard.dev/auth/login). The Console is accessible to everyone, including users who aren't Chainguard customers.
 
-To use `chainctl`, start by [installing chainctl](/chainguard/chainctl-usage/how-to-install-chainctl/). Refer to [Get started with chainctl](/get-started/getting-started-with-chainctl/) to help you begin using it; the examples on this page assume you have `chainctl` installed and are authenticated.
+To use `chainctl`, start by [installing chainctl](/platform/chainctl-usage/how-to-install-chainctl/). Refer to [Get started with chainctl](/get-started/getting-started-with-chainctl/) to help you begin using it; the examples on this page assume you have `chainctl` installed and are authenticated.
 
 ## High-level comparison
 
 The Console is especially useful for one-off information searches, such as when you don't know precisely what you want to know. The Console provides detailed information, but may require a few clicks to hone in on precisely what you are looking for. You can perform useful container-related query tasks from within the Console, as this page will demonstrate with some examples.
 
-If you know specifically what you are looking for or what you want to accomplish, `chainctl` is a powerful way to do so. It can perform some additional tasks that are not yet available in the Console, such as [comparing images with a diff](/chainguard/chainctl-usage/comparing-images/).
+If you know specifically what you are looking for or what you want to accomplish, `chainctl` is a powerful way to do so. It can perform some additional tasks that are not yet available in the Console, such as [comparing images with a diff](/platform/chainctl-usage/comparing-images/).
 
 This guide will take the reader through a few use cases to illustrate.
 
@@ -131,13 +131,13 @@ This will return a reverse-chronological history of when a specific tag was upda
 
 ```
 
-The details that are returned here and the details found in the Console vary in focus, but where the same details are provided they should match. Refer to [Examine the history of container images](/chainguard/chainctl-usage/chainctl-images/#examine-the-history-of-container-images) for more information about this command.
+The details that are returned here and the details found in the Console vary in focus, but where the same details are provided they should match. Refer to [Examine the history of container images](/platform/chainctl-usage/chainctl-images/#examine-the-history-of-container-images) for more information about this command.
 
 ## Learn more
 
 To learn more about `chainctl`, see:
 
-* [chainctl usage](/chainguard/chainctl-usage/)
+* [chainctl usage](/platform/chainctl-usage/)
 * [chainctl reference](/platform/chainctl/)
 
 To learn more about the Chainguard Console, see:
@@ -150,4 +150,4 @@ This is a feature unique to the Console and is described in detail in [Using CVE
 
 ### Compare two Chainguard Containers with chainctl
 
-This is a feature unique to `chainctl` and is described in detail in [How to compare Chainguard Containers with chainctl](/chainguard/chainctl-usage/comparing-images/).
+This is a feature unique to `chainctl` and is described in detail in [How to compare Chainguard Containers with chainctl](/platform/chainctl-usage/comparing-images/).

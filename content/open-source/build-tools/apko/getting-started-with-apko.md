@@ -6,7 +6,7 @@ type: "article"
 lead: "Minimalist OCI image builder based on APK"
 description: "Quickstart to get apko up and running"
 date: 2022-07-06T08:49:31+00:00
-lastmod: 2024-05-02T16:49:31+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["apko", "Procedural",]
 images: []
@@ -162,11 +162,11 @@ Now you can run the image with:
 docker run -it wolfi-base:test-amd64
 ```
 
-This will get you into a container running the apko-built image `wolfi-base:test-amd64`. It's a regular shell that you can explore to see what's included - just keep in mind that this is a minimalist image with only the base Wolfi system. To include additional software packages, check the [Wolfi repository](https://github.com/wolfi-dev/os) to find the packages you'll need for your specific use case, or check out [melange](/open-source/melange/), apko's companion project that allows users to build their own APK packages from source.
+This will get you into a container running the apko-built image `wolfi-base:test-amd64`. It's a regular shell that you can explore to see what's included - just keep in mind that this is a minimalist image with only the base Wolfi system. To include additional software packages, check the [Wolfi repository](https://github.com/wolfi-dev/os) to find the packages you'll need for your specific use case, or check out [melange](/open-source/build-tools/melange/), apko's companion project that allows users to build their own APK packages from source.
 
 ## Conclusion
 
 In this guide, you learned what apko is and what makes it a powerful resource in your cloud-native tooling.
 
-If you need help debugging your build, check our [Troubleshooting apko](/open-source/apko/troubleshooting/) page for more information.
+If you need help debugging your build, check our [Troubleshooting apko](/open-source/build-tools/apko/troubleshooting/) page for more information.
 Check the [official apko repository](https://github.com/chainguard-dev/apko/) if you want to report an issue or suggest new features.

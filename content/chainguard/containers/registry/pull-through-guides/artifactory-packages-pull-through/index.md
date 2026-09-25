@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "Tutorial for setting up remote Artifactory repositories as pull-through caches for apk packages from Chainguard's package repositories."
 date: 2024-11-14T15:56:52-07:00
-lastmod: 2026-09-04T16:13:45+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -27,8 +27,8 @@ This tutorial details how to set up remote Alpine package (apk) repositories wit
 In order to complete this tutorial, you need the following:
 
 * Administrative privileges over an Artifactory instance.
-* [`chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/)
-* Administrative privileges within your Chainguard organization to create role-bindings (`role_bindings.create`); this capability is available to users with [the `owner` role](/chainguard/administration/iam-organizations/roles-role-bindings/capabilities-reference/#chainguard-role-capabilities).
+* [`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/)
+* Administrative privileges within your Chainguard organization to create role-bindings (`role_bindings.create`); this capability is available to users with [the `owner` role](/platform/administration/iam-organizations/roles-role-bindings/capabilities-reference/#chainguard-role-capabilities).
 
 ## Creating a Chainguard pull token for remote repository authentication
 
@@ -260,4 +260,4 @@ If you run into issues when trying to pull from Chainguard's package repositorie
 
 ## Learn more
 
-If you haven't already done so, you may find it useful to review our [Registry overview](/chainguard/chainguard-registry/overview/) to learn more about Chainguard's registry. You can also learn more about Chainguard Containers by referring to our [documentation](/chainguard/containers/overview/), and learn more about working with the Chainguard platform by reviewing our [Administration documentation](/chainguard/administration/). If you'd like to learn more about JFrog Artifactory, we encourage you to refer to the [official Artifactory documentation](https://jfrog.com/help/r/jfrog-artifactory-documentation).
+If you haven't already done so, you may find it useful to review our [Registry overview](/chainguard/containers/registry/overview/) to learn more about Chainguard's registry. You can also learn more about Chainguard Containers by referring to our [documentation](/chainguard/containers/overview/), and learn more about working with the Chainguard platform by reviewing our [Administration documentation](/platform/administration/). If you'd like to learn more about JFrog Artifactory, we encourage you to refer to the [official Artifactory documentation](https://jfrog.com/help/r/jfrog-artifactory-documentation).

@@ -4,7 +4,7 @@ linktitle: "Manage with GitOps"
 type: "article"
 description: "How to use GitOps to manage Custom Assembly resources."
 date: 2026-01-29T11:07:52+02:00
-lastmod: 2026-09-09T18:05:27+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural", "Custom Assembly"]
 images: []
@@ -33,7 +33,7 @@ Before getting started, you need the following:
     * Custom Assembly builds need no GitHub credentials beyond the token `actions/checkout` uses by default, so the example workflow in this guide does not authenticate to the GitHub API.
 * A Git repository to host your apko configuration files
 * A configured assumable identity for your CI workload
-    * If you have not yet set up CI identities, refer to [Chainguard's tutorials for creating and assuming identities](/chainguard/administration/assumable-ids/identity-examples/).
+    * If you have not yet set up CI identities, refer to [Chainguard's tutorials for creating and assuming identities](/platform/administration/assumable-ids/identity-examples/).
 * The full IDs for your [image-syncer and custom-image-builder identities](/chainguard/containers/security-and-compliance/verifying-chainguard-images-and-metadata-signatures-with-cosign/#chainguards-signing-identities), named `catalog_syncer` and `apko_builder` in older organizations
 
 ### Understanding apko overlay files
@@ -322,6 +322,6 @@ To test your GitHub Action:
 
 * [Custom Assembly overview](/chainguard/containers/custom-assembly/overview/)
 * [apko overview](/open-source/build-tools/apko/overview/)
-* [Assumable identity documentation](/chainguard/administration/assumable-ids/assumable-ids/)
+* [Assumable identity documentation](/platform/administration/assumable-ids/assumable-ids/)
 * [Demo Repository: custom-assembly-as-code](https://github.com/chainguard-demo/custom-assembly-as-code)
 * [Get support](/get-started/get-support/)

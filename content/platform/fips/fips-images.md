@@ -14,7 +14,7 @@ aliases:
 type: "article"
 description: "Learn about Chainguard's FIPS-validated container images for federal compliance, featuring kernel-independent design and simplified deployment for FedRAMP and government requirements"
 date: 2024-02-08T15:56:52-07:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers", "FIPS"]
 images: []
@@ -56,7 +56,7 @@ All Chainguard FIPS Containers include [STIG hardening](/chainguard/containers/s
 ## Additional resources
 
 - [FIPS Commitment](https://www.chainguard.dev/legal/fips-commitment) - Warranties and certifications
-- [Frequently asked questions](/chainguard/fips/faqs/) - Common FIPS questions
+- [Frequently asked questions](/platform/fips/faqs/) - Common FIPS questions
 - [OpenSSL FIPS module documentation](https://www.openssl.org/docs/manmaster/man7/fips_module.html)
 - [Bouncy Castle FIPS Crypto package](https://www.bouncycastle.org/about/bouncy-castle-fips-faq/)
 

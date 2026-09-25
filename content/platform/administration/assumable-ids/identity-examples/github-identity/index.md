@@ -10,14 +10,14 @@ lead: ""
 description: "Tutorial outlining how to create a Chainguard identity that can be assumed by a GitHub Actions workflow."
 type: "article"
 date: 2023-05-04T08:48:45+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-25T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
 weight: 005
 ---
 
-Chainguard's [*assumable identities*](/chainguard/administration/iam-organizations/assumable-ids/)
+Chainguard's [*assumable identities*](/platform/administration/assumable-ids/assumable-ids/)
 are identities that can be assumed by external applications or workflows in
 order to perform certain tasks that would otherwise have to be done by a human.
 For instance, an assumable identity can be used to allow a GitHub Actions
@@ -30,7 +30,7 @@ This tutorial outlines how to create an identity, and then create a GitHub Actio
 To complete this guide, you will need the following.
 
 * One of:
-    * `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to install `chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up.
+    * `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) to set this up.
     * `terraform` installed on your local machine. Terraform is an Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
 * A GitHub repository you can use for testing out GitHub identity federation. To complete this guide, you must have permissions to create GitHub Actions on this testing repo.
 
@@ -92,7 +92,7 @@ chainctl iam identities create github my-identity-name \
 ```
 
 This will return the identity's
-[UIDP (unique identity path)](/chainguard/administration/cloudevents/events-reference/#uidp-identifiers).
+[UIDP (unique identity path)](/platform/administration/cloudevents/events-reference/#uidp-identifiers).
 Note this value down, as you'll need it to set up the GitHub Actions workflow.
 
 If you need to retrieve the UIDP later on, you can always run the following
@@ -151,7 +151,7 @@ The `chainguard_rolebinding.my_identity_name_registry_pull` resource binds the
 `registry.pull` role to the identity.
 
 The `my_identity_name_id` output provides the identity's [UIDP (unique identity
-path)](/chainguard/administration/cloudevents/events-reference/#uidp-identifiers).
+path)](/platform/administration/cloudevents/events-reference/#uidp-identifiers).
 You'll need this value to set up the GitHub Actions workflow.
 
 ## Creating and testing a GitHub Actions workflow
@@ -198,4 +198,4 @@ selecting `Run workflow`.
 
 ## Learn more
 
-For more information about how assumable identities work in Chainguard, check out our [conceptual overview of assumable identities](/chainguard/administration/iam-organizations/assumable-ids/). Additionally, the Terraform documentation includes a section on [recommended best practices](https://developer.hashicorp.com/terraform/cloud-docs/recommended-practices) which you can refer to if you'd like to build on the provided Terraform configuration for a production environment. Likewise, for more information on using GitHub Actions, we encourage you to check out the [official documentation on the subject](https://docs.github.com/en/actions).
+For more information about how assumable identities work in Chainguard, check out our [conceptual overview of assumable identities](/platform/administration/assumable-ids/assumable-ids/). Additionally, the Terraform documentation includes a section on [recommended best practices](https://developer.hashicorp.com/terraform/cloud-docs/recommended-practices) which you can refer to if you'd like to build on the provided Terraform configuration for a production environment. Likewise, for more information on using GitHub Actions, we encourage you to check out the [official documentation on the subject](https://docs.github.com/en/actions).
