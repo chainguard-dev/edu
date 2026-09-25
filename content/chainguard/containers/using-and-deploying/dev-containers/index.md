@@ -9,7 +9,7 @@ aliases:
 - /chainguard/containers/how-to-use/dev-containers/
 description: "Guide outlining how you can use Chainguard Containers as Dev Containers for secure development."
 date: 2025-03-10T11:07:52+02:00
-lastmod: 2026-08-20T15:25:39+00:00
+lastmod: 2026-09-25T13:44:25+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -32,7 +32,7 @@ With a few changes, the images based on Wolfi and maintained by Chainguard provi
 {{< blurb/wolfi >}}
 {{< /details >}}
 
-{{< details "Chainguard Images" >}}
+{{< details "Chainguard Containers" >}}
 {{< blurb/images >}}
 {{< /details >}}
 

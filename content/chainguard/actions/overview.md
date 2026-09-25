@@ -4,7 +4,7 @@ linktitle: "Actions overview"
 description: "Learn how Chainguard Actions provides hardened drop-in replacements for popular GitHub Actions to protect your CI/CD pipelines from supply chain attacks."
 type: "article"
 date: 2026-06-18T00:00:00+00:00
-lastmod: 2026-09-01T13:45:43+00:00
+lastmod: 2026-09-25T13:52:02+00:00
 draft: false
 tags: ["Chainguard Actions", "Overview"]
 menu:
@@ -27,7 +27,7 @@ Each hardened action:
 
 Chainguard Actions protect against common threats including tag hijacking, dependency confusion, `pull_request_target` abuse, and secret exfiltration.
 
-This page provides enough to get you started. Refer to the [Chainguard Actions README](https://github.com/chainguard-actions) in GitHub for deeper technical details and some example migrations. You can also [use Chainguard Guardener to enable Chainguard Actions](/chainguard/guardener/github/actions-security/).
+This page provides enough to get you started. Refer to the [Chainguard Actions README](https://github.com/chainguard-actions) in GitHub for deeper technical details and some example migrations. You can also [use Guardener to enable Chainguard Actions](/chainguard/guardener/github/actions-security/).
 
 ## Prerequisites
 
@@ -158,7 +158,7 @@ If your GitHub organization or repository restricts which actions can run (**Set
 
 The action's inputs, outputs, and behavior are almost always identical to the upstream version, so no other workflow changes are typically needed.
 
-However, read the `HARDENING.md` file for each Chainguard Action before migrating. In rare cases, the hardening process requires a change to inputs, outputs, or behavior — those changes are documented in this file.
+However, read the `HARDENING.md` file for each hardened action before migrating. In rare cases, the hardening process requires a change to inputs, outputs, or behavior — those changes are documented in this file.
 
 If something breaks, [file an issue](https://github.com/chainguard-actions/.github/issues/new?template=action-issue.yml) with a reproducer.
 

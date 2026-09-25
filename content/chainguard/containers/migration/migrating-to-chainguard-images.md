@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "Learn how to migrate existing Dockerfiles to Chainguard Containers for improved security, including package compatibility, multi-stage builds, and distro-specific considerations"
 date: 2024-03-25T15:56:52-07:00
-lastmod: 2025-07-23T16:52:56+00:00
+lastmod: 2026-09-25T13:44:25+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -159,4 +159,4 @@ Our [Getting started guides](/chainguard/containers/getting-started/) have detai
 
 If you can't find an image that is a good match for your use case, or if your build has dependencies that cannot be met with the regular catalog, [get in touch with us](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) for alternative options.
 
-To automate the process of migrating your Dockerfiles, check out [The Guardener](/chainguard/guardener/dockerfile-migration/), an AI-powered agent that iteratively converts, builds, and validates your Dockerfiles for use with Chainguard Containers.
+To automate the process of migrating your Dockerfiles, check out [Guardener](/chainguard/guardener/dockerfile-migration/), an AI-powered agent that iteratively converts, builds, and validates your Dockerfiles for use with Chainguard Containers.

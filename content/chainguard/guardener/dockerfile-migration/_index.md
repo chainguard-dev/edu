@@ -1,13 +1,13 @@
 ---
-title: "Chainguard Guardener Dockerfile migration"
+title: "Guardener Dockerfile migration"
 linktitle: "Dockerfile migration"
-description: "Use Chainguard Guardener to migrate, optimize, upgrade, and validate your Dockerfiles against Chainguard Containers with AI-driven, iterative conversion."
+description: "Use Guardener to migrate, optimize, upgrade, and validate your Dockerfiles against Chainguard Containers with AI-driven, iterative conversion."
 aliases:
 - /chainguard/migration/the-guardener/
 - /get-started/migration/the-guardener/
 type: "article"
 date: 2026-07-13T00:00:00+00:00
-lastmod: 2026-08-11T00:00:00+00:00
+lastmod: 2026-09-25T13:44:25+00:00
 draft: false
 tags: ["GitHub", "AI", "Chainguard Containers"]
 images: []
@@ -20,13 +20,13 @@ toc: true
 
 The Dockerfile migration feature converts your Dockerfiles to use Chainguard Containers. It uses AI to iteratively translate instructions, build images, compare results, and fix issues until the migrated Dockerfile works as expected.
 
-Unlike the Guardener's [Hardened Actions](/chainguard/guardener/github/actions-security/) and [Commit Verification](/chainguard/guardener/github/commit-verification/) features, Dockerfile migration does not run through the GitHub App or the `.chainguard/` configuration directory. Instead, you drive it locally through `chainctl agent dockerfile` commands. The AI runs server-side and scans your workspace to perform its analysis, while Docker builds and file access remain local to your machine.
+Unlike Guardener's [Hardened Actions](/chainguard/guardener/github/actions-security/) and [Commit Verification](/chainguard/guardener/github/commit-verification/) features, Dockerfile migration does not run through the GitHub App or the `.chainguard/` configuration directory. Instead, you drive it locally through `chainctl agent dockerfile` commands. The AI runs server-side and scans your workspace to perform its analysis, while Docker builds and file access remain local to your machine.
 
-{{< beta feature="The Guardener" >}}
+{{< beta feature="Guardener" >}}
 
 ## Prerequisites
 
-While Dockerfile migration is in beta, your organization needs to join the waitlist. Chainguard will notify you once registration becomes available. You can sign up on [The Guardener landing page](https://www.chainguard.dev/guardener).
+While Dockerfile migration is in beta, your organization needs to join the waitlist. Chainguard will notify you once registration becomes available. You can sign up on [the Guardener landing page](https://www.chainguard.dev/guardener).
 
 You also need the following:
 
