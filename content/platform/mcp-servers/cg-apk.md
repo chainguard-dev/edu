@@ -218,7 +218,7 @@ What upstream commit was the jq package built from?
 
 | Symptom | What it means | What to do |
 | ----- | ----- | ----- |
-| A search returns nothing | The substring matched no package name. Names in Wolfi often differ from their Debian or Fedora equivalents. | Try a shorter substring, or look up the mapping with the [AI Docs MCP server](/mcp-server-ai-docs/)'s `find_package_equivalent` tool, or the [package comparison tool](https://images.chainguard.dev/). |
+| A search returns nothing | The substring matched no package name. Names in Wolfi often differ from their Debian or Fedora equivalents. | Try a shorter substring, or look up the mapping with the [AI Docs MCP server](/platform/mcp-servers/ai-docs/)'s `find_package_equivalent` tool, or the [package comparison tool](https://images.chainguard.dev/). |
 | A search is slow | A bare `name` runs a wildcard scan of the whole index. | Pass `exact=true` when you know the name. |
 | The same package appears several times | One match per repository scope your token can read. | Use whichever `scope` you intend to pull from; if you only consume the public index, any of them resolves to the same content. |
 | `get_sbom` or `get_melange_config` returns HTTP 401 or 403 | The `scope` you passed names a repository your token cannot read. | Re-run `search_packages` and use a `scope` from its results rather than one carried over from another session or account. |

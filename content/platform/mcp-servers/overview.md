@@ -16,7 +16,7 @@ toc: true
 weight: 010
 ---
 
-Chainguard runs four MCP servers that give an AI tool direct access to live product data: the container images in `cgr.dev`, the Wolfi package index, upstream version and end-of-life history, and the Chainguard platform API. An MCP client connected to them can answer questions such as what a given image's SBOM contains, which Wolfi package replaces a Debian one, or whether an upstream release is still supported, using data from the product itself rather than from a model's training data.
+Four of Chainguard's MCP servers give an AI tool direct access to live product data: the container images in `cgr.dev`, the Wolfi package index, upstream version and end-of-life history, and the Chainguard platform API. An MCP client connected to them can answer questions such as what a given image's SBOM contains, which Wolfi package replaces a Debian one, or whether an upstream release is still supported, using data from the product itself rather than from a model's training data.
 
 These servers back the [Chainguard Power for Kiro](/platform/integrations/kiro/) and the [Chainguard plugin for Cursor](/platform/integrations/cursor/), but you don't need either one. Any MCP-compatible client can connect to them directly.
 
@@ -24,7 +24,11 @@ These servers back the [Chainguard Power for Kiro](/platform/integrations/kiro/)
 
 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is an open protocol that standardizes how AI applications access external data and tools. An MCP server exposes structured data and tools that AI clients can call to ground their responses in real information.
 
-## The four servers
+## Chainguard's MCP servers
+
+Chainguard's MCP servers fall into two groups. Four return live product data, and two serve specific content: documentation and agent skills.
+
+### Product data servers
 
 | Server | Endpoint | What it gives you |
 | ----- | ----- | ----- |
@@ -33,15 +37,19 @@ These servers back the [Chainguard Power for Kiro](/platform/integrations/kiro/)
 | [`cg-versions`](/platform/mcp-servers/cg-versions/) | `https://versions.cgr.dev/mcp` | Upstream release and end-of-life history for tracked projects, and upgrade paths between versions |
 | [`cg-api`](/platform/mcp-servers/cg-api/) | `https://console-api.enforce.dev/mcp` | The Chainguard platform API: organizations, IAM, policies, registry metadata, and attestation verification |
 
-All four use the Streamable HTTP transport and authenticate with OAuth 2.0 against the Chainguard issuer.
+These servers return live product data, such as an image tag's manifest and SBOM as it exists in the registry right now, rather than documentation about it. All four use the Streamable HTTP transport and authenticate with OAuth 2.0 against the Chainguard issuer.
 
-## How these differ from the other Chainguard MCP servers
+### AI Docs MCP server
 
-Chainguard also runs the [AI Docs MCP server](/mcp-server-ai-docs/), which serves documentation, and the [Public Skills MCP server](/chainguard/agent-skills/public-skills-mcp/), which serves agent skills. The four servers in this section are separate: they return live product data, such as an image tag's manifest and SBOM as it exists in the registry right now, rather than documentation about it.
+The [AI Docs MCP server](/platform/mcp-servers/ai-docs/), at `https://mcp.edu.chainguard.dev/mcp`, searches Chainguard documentation: image READMEs, security guides, and the Wolfi, apko, melange, and chainctl references. It also maps Debian and Fedora packages to their Wolfi equivalents. It needs no sign-in, and you can also run it locally from a container image. It needs no sign-in and doesn't paginate its results, so the Authentication and Pagination sections that follow don't apply to it.
+
+### Public Skills MCP server
+
+The [Public Skills MCP server](/chainguard/agent-skills/public-skills-mcp/), at `https://skills.cgr.dev/mcp`, serves Chainguard's hardened agent skills. An AI tool can search the catalog, inspect a skill, and load one to run without installing it first. Signing in requires a Chainguard account, but no entitlement or organization membership. Like the product data servers, it authenticates with OAuth 2.0 against the Chainguard issuer and needs its own sign-in, including through `chainctl` with the audience `https://skills.cgr.dev/mcp`. Its `search_skills` and `list_skills` tools return results one page at a time. For connection steps, refer to its own page.
 
 ## Authentication
 
-Each server authenticates separately with OAuth 2.0 against the Chainguard issuer. On first use, your client opens a browser window for sign-in.
+Each product data server authenticates separately with OAuth 2.0 against the Chainguard issuer. On first use, your client opens a browser window for sign-in.
 
 {{< alert context="warning" >}}
 **Each server requires its own login.** Connecting all four means completing the browser sign-in four times, once per endpoint. As of this writing, there is no unified sign-in across the four servers.
@@ -63,6 +71,8 @@ chainctl auth login \
   --audience=https://versions.cgr.dev/mcp \
   --audience=https://console-api.enforce.dev/mcp
 ```
+
+The Public Skills MCP server accepts the same method. Add `--audience=https://skills.cgr.dev/mcp` to log in to it too.
 
 Once an audience is logged in, `chainctl auth token --audience=<url>` returns from cache without prompting, and `chainctl` refreshes the underlying token as it nears expiry.
 
@@ -154,7 +164,7 @@ Because this form is keyed by absolute path, a second clone or `git worktree` of
 
 ## Pagination
 
-Every `list_*` and `search_*` tool across the four servers returns one page at a time and caps the page size. The parameter names differ by server:
+Every `list_*` and `search_*` tool across the product data servers and the Public Skills server returns one page at a time and caps the page size. The parameter names differ by server:
 
 | Server | Page size | Request the next page with | Response field to pass back |
 | ----- | ----- | ----- | ----- |
@@ -162,6 +172,7 @@ Every `list_*` and `search_*` tool across the four servers returns one page at a
 | `cg-apk` | 50 default, 200 max | `cursor` | `next_cursor` |
 | `cg-versions` | 25 default, 200 max | `page_token` | `next_page_token` |
 | `cg-api` | 50 default, 200 max | `page_token` | `nextPageToken` |
+| Public Skills | 50 default, 200 max | `page_token` | `next_page_token` |
 
 ## Next steps
 
