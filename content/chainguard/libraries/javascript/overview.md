@@ -6,7 +6,7 @@ aliases:
 description: "JavaScript libraries for your application development"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-08-28T16:31:04+00:00
+lastmod: 2026-09-25T00:00:00+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript", "Overview"]
 menu:
@@ -100,6 +100,13 @@ For a step-by-step walkthrough of moving an existing project to Chainguard Libra
 If you install through a repository manager, refer to [Global configuration](/chainguard/libraries/javascript/global-configuration/#updating-lockfile-hashes/).
 
 When the upstream fallback is enabled, [build pinning](/chainguard/libraries/policies-and-security/build-pinning/) keeps a version you pulled from upstream stable after Chainguard publishes its own build, so you don't have to update these hashes again unexpectedly.
+
+## CVE remediation
+
+Some JavaScript packages have a CVE-remediated `-cgr.N` version. Package
+managers won't select it from a normal version range. See [Remediate JavaScript
+CVEs with chainctl](/chainguard/libraries/javascript/cve-remediation/) to find
+available fixes and pin them in your project.
 
 ## Provenance and attestations
 
