@@ -40,7 +40,8 @@
   "overrides": {
     "adm-zip": "^0.6.1",
     "@ai-sdk/provider-utils": ">=4.0.33 <4.0.41",
-    "smol-toml": "^1.7.1"
+    "smol-toml": "^1.7.1",
+    "undici": "~7.29.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
