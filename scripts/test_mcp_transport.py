@@ -47,8 +47,12 @@ def test_http_transport_runs_stateless():
         flag = next(
             (kw.value for kw in call.keywords if kw.arg == "stateless_http"), None
         )
-        assert isinstance(flag, ast.Constant) and flag.value is True, (
-            "streamable-http transport must run with stateless_http=True "
+        assert flag is not None, (
+            "stateless_http kwarg missing from the streamable-http run() call "
             "(CUS-1340): stateful sessions break across unaffinitized Cloud "
             "Run instances"
+        )
+        assert isinstance(flag, ast.Constant) and flag.value is True, (
+            "stateless_http must be the literal True, not a falsy or non-True "
+            "value (CUS-1340)"
         )
