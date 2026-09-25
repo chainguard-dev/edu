@@ -4,7 +4,7 @@ linktitle: "Authenticate"
 type: "article"
 description: "A guide on authenticating to Chainguard's registry to get container images"
 date: 2023-03-21T15:10:16+00:00
-lastmod: 2026-09-23T15:37:29+00:00
+lastmod: 2026-09-25T16:45:02+00:00
 tags: ["Chainguard Containers", "Registry"]
 draft: false
 images: []
@@ -150,6 +150,8 @@ To revoke a token, delete the associated identity.
 chainctl iam identity delete <identity UUID>
 ```
 
+**Note**: On [Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/), delete the token's role binding instead. The `limited_owner` role assigned to Catalog Starter users can delete role bindings but not identities, so this command fails. Run `chainctl iam role-bindings list` to find the binding, then `chainctl iam role-bindings delete <role-binding-id>`.
+
 ### Managing pull tokens in the Chainguard Console
 
 You can also create and view pull tokens in the [Chainguard Console](https://console.chainguard.dev/).
@@ -167,6 +169,8 @@ If the Console won't let you create a pull token, your role is missing a capabil
 ## Authenticating with GitHub Actions
 
 You can configure authentication with OIDC-aware CI platforms like GitHub Actions.
+
+**Note**: This approach requires an assumable identity, which [Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/) organizations can't create. On Catalog Starter, authenticate your pipelines with a pull token instead. Refer to [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token).
 
 First create an identity using `chainctl`, which can be limited to only allow OIDC federation from certain GitHub workflow runs:
 

@@ -4,7 +4,7 @@ linktitle: "Catalog Starter"
 type: "article"
 description: "Learn about Chainguard Catalog Starter, an offering allowing teams to try out five Chainguard container images for free."
 date: 2026-03-09T07:52:00+02:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-25T16:45:02+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -48,6 +48,44 @@ Once you've added all five images, a prompt directs you to contact Chainguard if
 ### 2. Integrate with your registry and pipelines
 
 After you complete signup, you're free to use the five images you selected however you like. For example, you can pull them into your CI/CD pipelines and runtime environments, or pull them through a third-party registry like [JFrog Artifactory](/chainguard/containers/registry/pull-through-guides/artifactory-containers-pull-through/). These container images are the same as those provided to Chainguard's paying customers, and are covered by Chainguard’s standard hardening, rebuild, and CVE-remediation processes, although they are not covered by [Chainguard's CVE SLA](https://www.chainguard.dev/legal/cve-policy).
+
+#### Authenticate CI pipelines with a pull token
+
+Because Catalog Starter organizations can't create assumable identities, CI pipelines authenticate with a pull token. Create one with `chainctl`:
+
+```shell
+chainctl auth pull-token create --output=env
+```
+
+This sets `CHAINGUARD_IDENTITY_ID` to the username and `CHAINGUARD_TOKEN` to the password. Store both as secrets in your CI platform, then log in to `cgr.dev` with them. For example, in a GitHub Actions workflow:
+
+```yaml
+name: Pull a Chainguard container
+
+on:
+  push:
+    branches: ['main']
+
+permissions:
+  contents: read
+
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log in to cgr.dev
+        env:
+          CHAINGUARD_IDENTITY_ID: ${{ secrets.CHAINGUARD_IDENTITY_ID }}
+          CHAINGUARD_TOKEN: ${{ secrets.CHAINGUARD_TOKEN }}
+        run: |
+          echo "$CHAINGUARD_TOKEN" | docker login cgr.dev \
+            --username "$CHAINGUARD_IDENTITY_ID" --password-stdin
+      - run: docker pull cgr.dev/$ORGANIZATION/python:latest
+```
+
+This workflow doesn't need the `id-token: write` permission, because it federates no OIDC token.
+
+Pull tokens expire. The default lifetime is 30 days and the maximum is one year (`--ttl=8760h`), so rotate the secret before it expires. Refer to [Authenticate to Chainguard's Registry](/chainguard/containers/registry/authenticating/#authenticating-with-a-pull-token) for the rest of the pull token options.
 
 ### 3. Upgrade when you’re ready
 
@@ -125,6 +163,9 @@ Catalog Starter allows users to try out Chainguard Containers, but it comes with
 * [Chainguard's CVE SLA](https://www.chainguard.dev/legal/cve-policy) does not apply to container images obtained through Catalog Starter.
 * The free plan does not support user management or role-based access control (RBAC). If a colleague from the same company signs up for Catalog Starter, your organization's administrator receives an email with instructions for adding them. You cannot add users directly. Any additional users in your organization have access to the five images selected by the first user and cannot change them.
 * Users in a Catalog Starter organization are assigned the `limited_owner` role, which allows them to browse the Console, pull images, and create pull tokens, but does not include permission to invite other users to the organization or access features like [Custom Assembly](/chainguard/containers/custom-assembly/).
+* You can create pull tokens, but not [assumable identities](/platform/administration/assumable-ids/assumable-ids/). A pull token is the only credential a Catalog Starter organization can issue for automation. If you try to create any other identity, the request fails with `starter organizations are not allowed to create identities`.
+* The [`setup-chainctl`](https://github.com/chainguard-dev/setup-chainctl) GitHub Action doesn't work with Catalog Starter. It authenticates by assuming a Chainguard identity with the OIDC token GitHub issues to the workflow, and it has no pull token mode. The same applies to the OIDC federation examples for GitLab, CircleCI, Buildkite, Jenkins, and Kubernetes. Authenticate your pipelines with a pull token instead, as described in [Authenticate CI pipelines with a pull token](#authenticate-ci-pipelines-with-a-pull-token).
+* To revoke a pull token, delete its role binding rather than its identity. The `limited_owner` role can delete role bindings but not identities, so `chainctl iam identity delete` fails. Run `chainctl iam role-bindings list` to find the binding, then `chainctl iam role-bindings delete <role-binding-id>`.
 * Neither Custom Assembly nor Commercial Builds, Chainguard's bespoke paid build services, are included in the Catalog Starter plan.
 * Catalog Starter cannot be combined with an existing Chainguard Containers license. Existing customers remain on their current paid plans; this free offering can’t be used to subsidize or partially offset paid image counts.
 
@@ -141,6 +182,10 @@ If you anticipate needing different images over time, we recommend talking to ou
 No. FIPS images and Chainguard Commercial Builds are not included in the Catalog Starter plan.
 
 If you require FIPS-validated images or dedicated commercial build work, you’ll need a paid plan that includes those capabilities.
+
+### Can I use Chainguard's GitHub Action with Catalog Starter?
+
+No. The [`setup-chainctl`](https://github.com/chainguard-dev/setup-chainctl) action federates a GitHub OIDC token into a Chainguard assumable identity, and Catalog Starter organizations can't create assumable identities. Log in to `cgr.dev` with a pull token instead, as described in [Authenticate CI pipelines with a pull token](#authenticate-ci-pipelines-with-a-pull-token).
 
 ### Can my colleagues and I use the same Catalog Starter images?
 

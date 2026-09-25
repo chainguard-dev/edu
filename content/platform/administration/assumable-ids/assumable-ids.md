@@ -10,7 +10,7 @@ lead: ""
 description: "An overview of what assumable identities are and how they can be used with Chainguard assets."
 type: "article"
 date: 2023-05-04T08:48:45+00:00
-lastmod: 2024-05-09T08:48:45+00:00
+lastmod: 2026-09-25T16:45:02+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -22,6 +22,10 @@ Both [`chainctl`](/platform/chainctl/) and the [Chainguard Console](https://cons
 In such cases, you can create a Chainguard identity for these systems to assume, allowing them to perform certain tasks within a specific scope. You can restrict access to an identity so that only workflows that present tokens matching a specific issuer and subject can assume it. Likewise, assumable identities can be tied to certain roles — like `viewer`, `owner`, or `editor` — letting you place strict limits on what a given identity is allowed to do.
 
 This guide provides a general overview of assumable identities in Chainguard, outlining how they work and how to create them.
+
+{{< note >}}
+[Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/) organizations can't create assumable identities. A pull token is the only credential they can issue for automation. Refer to [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token).
+{{< /note >}}
 
 ## About assumable identities
 
