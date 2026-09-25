@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for .NET in your organization"
 type: "article"
 date: 2026-09-23T00:00:00+00:00
-lastmod: 2026-09-24T15:12:33+00:00
+lastmod: 2026-09-25T15:25:28+00:00
 draft: false
 tags: ["Chainguard Libraries", ".NET"]
 images: []
@@ -103,4 +103,6 @@ Validate the Artifactory remote before configuring developer workstations or CI/
 
 After validation, configure each workstation and build server that restores .NET dependencies, including CI/CD infrastructure, to use the Artifactory virtual repository.
 
-In Artifactory, select the dotnet-all virtual repository and use Set Me Up or Generate Settings to obtain the URL and authentication instructions for your Artifactory version. The URL commonly has the following form: `https://<artifactory-host>/artifactory/api/nuget/dotnet-all`
+In Artifactory, select the `dotnet-all` virtual repository and use **Set Me Up** or **Generate Settings** to obtain the URL and authentication instructions for your Artifactory version. The URL commonly has the following form: `https://<artifactory-host>/artifactory/api/nuget/dotnet-all`
+
+See [Configuring your build tool](/chainguard/libraries/dotnet/build-configuration/#repository-manager) for more information.

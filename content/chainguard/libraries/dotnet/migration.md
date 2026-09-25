@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing .NET project to pull dependencies from Chainguard Libraries"
 date: 2026-09-23T00:00:00+00:00
-lastmod: 2026-09-24T15:12:33+00:00
+lastmod: 2026-09-25T15:25:28+00:00
 tags: ["Chainguard Libraries", ".NET"]
 menu:
   docs:
@@ -65,13 +65,19 @@ The command returns a username and password. Use these values to authenticate Nu
 
 ## Step 1: Configure authentication and registry
 
+Choose the setup that matches your organization. With direct access, your build tool connects to libraries.cgr.dev. With a repository manager, your build tool connects to a proxy that you configure to fetch from Chainguard Libraries.
+
+{{< tabs label="Access method for configuring authentication and registry" >}}
+
+{{% tab title="Direct access" %}}
+
 From the project directory, create a NuGet configuration file:
 
 ```bash
 dotnet new nugetconfig
 ```
 
-Replace its contents with the following configuration, making sure to replace the value of the username and key with the values of your pull token:
+Replace its contents with the following configuration, substituting the username and password with the values of your pull token:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -82,8 +88,8 @@ Replace its contents with the following configuration, making sure to replace th
   </packageSources>
   <packageSourceCredentials>
     <chainguard>
-      <add key="Username" value="&lt;REPLACE WITH USERNAME FROM pull-token&gt;" />
-      <add key="ClearTextPassword" value="&lt;REPLACE WITH PASSWORD FROM pull-token&gt;" />
+      <add key="Username" value="REPLACE WITH USERNAME FROM pull-token" />
+      <add key="ClearTextPassword" value="REPLACE WITH PASSWORD FROM pull-token" />
     </chainguard>
   </packageSourceCredentials>
 </configuration>
@@ -105,6 +111,58 @@ Registered Sources:
       https://libraries.cgr.dev/dotnet/v3/index.json
 ```
 
+{{% /tab %}}
+
+{{% tab title="Repository manager" %}}
+
+Before you configure your project, set up your repository manager to proxy Chainguard Libraries for .NET. Follow the [global configuration guide](/chainguard/libraries/dotnet/global-configuration/) to add Chainguard Libraries as an upstream source. Once the repository manager is configured, point your project at its URL instead of libraries.cgr.dev.
+
+From the project directory, create a NuGet configuration file:
+
+```bash
+dotnet new nugetconfig
+```
+
+Replace its contents with the following configuration, substituting your repository manager URL and credentials:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <packageSources>
+    <clear />
+    <add key="organization" value="https://repo.example.com/nuget/dotnet" />
+  </packageSources>
+  <packageSourceCredentials>
+    <organization>
+      <add key="Username" value="REPLACE WITH REPOSITORY MANAGER USERNAME" />
+      <add key="ClearTextPassword" value="REPLACE WITH REPOSITORY MANAGER PASSWORD" />
+    </organization>
+  </packageSourceCredentials>
+</configuration>
+```
+
+Authenticate with your repository manager credentials, not your Chainguard pull token. The pull token authenticates the repository manager to Chainguard; it does not authenticate individual build tools to the repository manager.
+
+The `<clear />` element removes previously configured package sources, including `nuget.org`. This prevents NuGet from silently falling back to `nuget.org`.
+
+Confirm the active sources:
+
+```bash
+dotnet nuget list source
+```
+
+The expected output shows your repository manager as enabled:
+
+```output
+Registered Sources:
+  1.  organization [Enabled]
+      https://repo.example.com/nuget/dotnet
+```
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
 ## Step 2: Clear caches, restore, and build
 
 Because packages have previously been served from upstream, you must clear the NuGet HTTP cache and restore:
@@ -114,7 +172,7 @@ dotnet nuget locals http-cache --clear
 dotnet restore --force --no-cache --verbosity normal
 ```
 
-The output should include requests to the Chainguard endpoint. If the URL or credentials are incorrect, `restore` fails instead of using a cached package. Common errors include `NU1301`, `NU1101`, and `HTTP 401` responses.
+The output should include requests to the Chainguard endpoint. If you configured access through a repository manager, the output shows your repository manager URL instead. If the URL or credentials are incorrect, `restore` fails instead of using a cached package. Common errors include `NU1301`, `NU1101`, and `HTTP 401` responses.
 
 After restoring, build your project:
 
@@ -136,3 +194,5 @@ The expected output includes the Chainguard endpoint:
       "sources": {
         "https://libraries.cgr.dev/dotnet/v3/index.json": {}
 ```
+
+If you configured access through a repository manager, the `sources` entry shows your repository manager URL instead of `libraries.cgr.dev`, and must not contain `nuget.org`.
