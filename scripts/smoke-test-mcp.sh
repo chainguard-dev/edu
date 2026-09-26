@@ -37,6 +37,7 @@ fail() {
 }
 
 # Poll until the server answers on /mcp, or give up after TIMEOUT seconds.
+ready=""
 i=0
 while [ "$i" -lt "$TIMEOUT" ]; do
     # curl exits 0 as soon as it gets any HTTP response (a redirect counts);
@@ -45,10 +46,29 @@ while [ "$i" -lt "$TIMEOUT" ]; do
         [ "$(docker inspect -f '{{.State.Running}}' "$CID")" = "true" ] \
             || fail "server responded but the container is no longer running"
         echo "  OK: server responded on /mcp"
-        exit 0
+        ready=1
+        break
     fi
     i=$((i + 1))
     sleep 1
 done
 
-fail "server did not serve on :$CONTAINER_PORT within ${TIMEOUT}s"
+[ -n "$ready" ] || fail "server did not serve on :$CONTAINER_PORT within ${TIMEOUT}s"
+
+# --- Check 3: the transport runs stateless (CUS-1340) -----------------------
+# A stateful transport mints an Mcp-Session-Id on initialize; behind the
+# affinity-free Cloud Run load balancer that fronts this service, that is what
+# caused the cross-instance 404s this image fixes. The unit test guards the
+# source kwarg, but only this check proves the running server is actually
+# stateless: if a future SDK silently ignores stateless_http, the source stays
+# green while behavior regresses here.
+echo "Check 3: transport is stateless (no Mcp-Session-Id minted)"
+init='{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"smoke","version":"0"}}}'
+headers=$(curl -s -D - -o /dev/null -X POST \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json, text/event-stream" \
+    -d "$init" "http://127.0.0.1:$HOST_PORT/mcp") || fail "initialize request failed"
+if printf '%s' "$headers" | grep -qi '^mcp-session-id:'; then
+    fail "stateless mode expected but server minted an Mcp-Session-Id (CUS-1340)"
+fi
+echo "  OK: no Mcp-Session-Id"

@@ -1001,6 +1001,7 @@ if __name__ == "__main__":
         # follow-up request (e.g. notifications/initialized) lands on another
         # (CUS-1340). The docs tools are read-only with no server-initiated
         # notifications, so holding no shared session state has no downside.
+        logger.info("Starting HTTP transport with stateless_http=True (CUS-1340)")
         server.run(
             transport="streamable-http",
             host=args.host,
