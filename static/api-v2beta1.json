@@ -2871,8 +2871,20 @@
             "readOnly": true,
             "type": "integer"
           },
+          "pending": {
+            "description": "Items with no answer yet, because their coverage check has not run or has\nnot finished. Every other field counts an answer; this one counts their\nabsence, so a group whose check has not started reports pending equal to\ntotal and zero everywhere else.\n\nWithout it a group still being checked and a group whose check found\nnothing to report are the same message.",
+            "format": "int32",
+            "readOnly": true,
+            "type": "integer"
+          },
           "removed": {
             "description": "Items the customer removed from the draft.",
+            "format": "int32",
+            "readOnly": true,
+            "type": "integer"
+          },
+          "total": {
+            "description": "Every item in the group, including removed and pending ones.\n\nIt is not the sum of the fields above, and it exists because that sum is\nwrong: blocking_submit deliberately re-counts not_found_upstream,\nwont_build, invalid_requirement and held, so adding the fields together\ncounts every blocking item twice. A field added here later would change\nwhat a summing client computed, as well.\n\nProgress is total - pending, which stays right however the buckets change.",
             "format": "int32",
             "readOnly": true,
             "type": "integer"
@@ -9560,7 +9572,6 @@
             "name": "uid",
             "required": true,
             "schema": {
-              "pattern": ".+",
               "type": "string"
             }
           },
@@ -9611,7 +9622,6 @@
             "name": "uid",
             "required": true,
             "schema": {
-              "pattern": ".+",
               "type": "string"
             }
           },
@@ -9662,7 +9672,6 @@
             "name": "uid",
             "required": true,
             "schema": {
-              "pattern": ".+",
               "type": "string"
             }
           },
@@ -9891,7 +9900,6 @@
             "name": "uid",
             "required": true,
             "schema": {
-              "pattern": ".+",
               "type": "string"
             }
           },
@@ -10034,7 +10042,6 @@
             "name": "uid",
             "required": true,
             "schema": {
-              "pattern": ".+",
               "type": "string"
             }
           },
@@ -10087,7 +10094,6 @@
             "name": "uid",
             "required": true,
             "schema": {
-              "pattern": ".+",
               "type": "string"
             }
           }
@@ -10142,7 +10148,6 @@
             "name": "uid",
             "required": true,
             "schema": {
-              "pattern": ".+",
               "type": "string"
             }
           }
@@ -10197,7 +10202,6 @@
             "name": "uid",
             "required": true,
             "schema": {
-              "pattern": ".+",
               "type": "string"
             }
           }
@@ -10241,7 +10245,7 @@
         ]
       }
     },
-    "/libraries/v2beta1/requestGroups/{uid}:submit": {
+    "/libraries/v2beta1/requestGroups/{uid}:submitRequestGroup": {
       "post": {
         "description": "Its own RPC rather than a field mask on UpdateRequestGroup, because it is the\npoint where a preview becomes committed work and it carries the group-level\nCVE-remediation decision. That lets it hold a distinct, Owner-only\ncapability, which a mask on update could not express.\n\nItems in the cannot-be-requested set must be removed first.",
         "operationId": "RequestGroupsService_SubmitRequestGroup",
@@ -10252,7 +10256,6 @@
             "name": "uid",
             "required": true,
             "schema": {
-              "pattern": ".+",
               "type": "string"
             }
           }

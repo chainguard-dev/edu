@@ -1,5 +1,5 @@
 ---
-date: 2026-09-24T09:03:37Z
+date: 2026-09-25T09:27:27Z
 title: "chainctl images helm refs"
 slug: chainctl_images_helm_refs
 url: /platform/chainctl/chainctl-docs/chainctl_images_helm_refs/
@@ -18,17 +18,21 @@ List image references pinned in a Chainguard Helm chart
 List every distinct image reference pinned in a Chainguard Helm
 chart's chart-lock attestation, including images from subcharts.
 
+Charts without a chart-lock attestation (e.g. iamguarded charts) fall back
+to the helm.sh/images annotation carried on the chart artifact's OCI
+config. All entries surfaced through that fallback are treated as required.
+
 By default each ref is printed on its own line as
 {registry}/{repoName}:{tag}@{digest}, with the {registry}/{org} prefix derived
-from the chart-lock's chart reference. Use --repository to override that
-prefix when emitting refs for a relocated copy of the chart's images.
+from the chart's own reference. Use --repository to override that prefix when
+emitting refs for a relocated copy of the chart's images.
 
 Use --requirement to narrow the output to refs the chart-lock template
 marks "required" or "optional"; the default empty value emits every ref.
 
 With -o json, each ref is emitted as a JSON object containing the repoName,
-tag and digest fields recorded in the chart-lock; the repository override
-does not affect the JSON output.
+tag and digest fields; the repository override does not affect the JSON
+output.
 
 If the chart reference has no tag or digest, the highest semver tag in the
 repository is selected, matching Helm's behaviour.

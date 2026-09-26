@@ -1,5 +1,5 @@
 ---
-date: 2026-09-24T09:03:37Z
+date: 2026-09-25T09:27:27Z
 title: "chainctl skills list"
 slug: chainctl_skills_list
 url: /platform/chainctl/chainctl-docs/chainctl_skills_list/
@@ -13,6 +13,12 @@ toc: true
 
 List skills published by an org.
 
+### Synopsis
+
+List skills and their tags, including skills without a latest tag.
+
+By default, list the immediate skills and folders in the skills registry. Use --recursive to include skills in nested folders, or --source uploads to list uploads. Referrer tags are hidden by default; use --show-referrers to include them.
+
 ```
 chainctl skills list [flags]
 ```
@@ -20,9 +26,10 @@ chainctl skills list [flags]
 ### Options
 
 ```
-  -g, --group string    Org or folder to list, e.g. "chainguard" or "chainguard/github" (default: current context).
-  -r, --recursive       Recurse into nested folders and list every skill by its full path.
-      --source string   Which namespace to list: "skills" (hardened, skills.cgr.dev), "uploads" (user uploads, uploads.cgr.dev), or "all". (default "skills")
+  -g, --group string     Org or folder to list, e.g. "chainguard" or "chainguard/github" (default: current context).
+  -r, --recursive        Recurse into nested folders and list every skill by its full path.
+      --show-referrers   Whether to show referrer tags of the form sha256-deadbeef.{sig,sbom,att}.
+      --source string    Which namespace to list: "skills" (hardened, skills.cgr.dev), "uploads" (user uploads, uploads.cgr.dev), or "all". (default "skills")
 ```
 
 ### Options inherited from parent commands
