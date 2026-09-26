@@ -4,7 +4,7 @@ linktitle: "Agent Skills overview"
 description: "Learn what Chainguard Agent Skills are, the supply chain risk they address, and how Chainguard hardens skills before you install them."
 type: "article"
 date: 2026-06-05T08:48:45+00:00
-lastmod: 2026-09-01T13:45:43+00:00
+lastmod: 2026-09-17T00:00:00+00:00
 draft: false
 tags: ["Agent Skills", "Overview"]
 images: []
@@ -45,13 +45,13 @@ The security work happens upstream, before you or your agent ever touches the sk
 
 ## Public catalog and private registries
 
-Chainguard Agent Skills involves two registries, both served from `skills.cgr.dev`:
+Chainguard Agent Skills involves two registries, each served from its own host:
 
-- **The public catalog**, maintained by Chainguard at `skills.cgr.dev/public`. This is the hardened catalog described above. Anyone can pull from it, and the skills in it are reviewed and re-hardened on an ongoing basis. Public skills are namespaced by their upstream source (`public/<host>/<owner>/<repo>/<name>`).
-- **Your organization's private registry**, available to customers with access, at `skills.cgr.dev/<your-org>/<skill>`. You can use it to publish, manage, and distribute your own skills scoped to your organization, and you control who can push and install them.
+- **The public catalog**, maintained by Chainguard at `skills.cgr.dev/public`. This is the hardened catalog described above. Anyone can pull from it, and the skills in it are reviewed and re-hardened on an ongoing basis. Public skills are namespaced by their upstream source (`public/<host>/<owner>/<repo>/<name>`). This registry is pull-only.
+- **Your organization's private registry**, available to customers with access, at `uploads.cgr.dev/<your-org>/<skill>`. You can use it to publish, manage, and distribute your own skills scoped to your organization, and you control who can push and install them.
 
 To interact with either of these registries, use the [`chainctl skills` commands](/platform/chainctl/chainctl-docs/chainctl_skills/).
 
 ## Next steps
 
-To install and run a skill hardened by Chainguard, check out our guide on [Getting started with the Chainguard Agent Skills public catalog](/chainguard/agent-skills/public-catalog/). Alternatively, to publish, push, and run skills in your organization's private registry, refer to our guide on [Getting started with the Chainguard Skills Registry](/chainguard/agent-skills/skills-registry/).
+To install and run a skill hardened by Chainguard, check out our guide on [Getting started with the Chainguard Agent Skills public registry](/chainguard/agent-skills/public-registry/). Alternatively, to publish, push, and run skills in your organization's private registry, refer to our guide on [Getting started with the Chainguard Skills Registry](/chainguard/agent-skills/skills-registry/).
