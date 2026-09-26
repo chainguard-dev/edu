@@ -8,7 +8,7 @@ type: "article"
 description: "A primer on how to use Chainguard-produced iamguarded Helm charts to deploy Chainguard container images"
 lead: "A primer on how to use Chainguard-produced iamguarded Helm charts to deploy Chainguard container images"
 date: 2025-07-11T08:49:31+00:00
-lastmod: 2026-09-09T15:50:32+00:00
+lastmod: 2026-09-23T15:37:29+00:00
 draft: false
 tags: ["Chainguard Containers", "Helm charts", "iamguarded", "Product"]
 images: []
@@ -138,7 +138,7 @@ kubectl create secret docker-registry chainguard-pull-secret \
   -n <your-namespace>
 ```
 
-Log in to the `cgr.dev` Helm registry.
+Log in to the `cgr.dev` Helm registry. The secret you just created covers the image pulls your pods make, but it has no effect on the Helm client, which authenticates on its own to fetch the chart.
 
 ```sh
 helm registry login cgr.dev \

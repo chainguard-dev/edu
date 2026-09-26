@@ -1,5 +1,5 @@
 ---
-date: 2026-09-15T20:06:33Z
+date: 2026-09-23T09:48:16Z
 title: "chainctl auth"
 slug: chainctl_auth
 url: /platform/chainctl/chainctl-docs/chainctl_auth/
@@ -31,6 +31,7 @@ Auth related commands for the Chainguard platform.
 ### SEE ALSO
 
 * [chainctl](/platform/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
+* [chainctl auth configure](/platform/chainctl/chainctl-docs/chainctl_auth_configure/)	 - Configure a local tool to authenticate to Chainguard.
 * [chainctl auth configure-docker](/platform/chainctl/chainctl-docs/chainctl_auth_configure-docker/)	 - Configure a Docker credential helper
 * [chainctl auth configure-npm](/platform/chainctl/chainctl-docs/chainctl_auth_configure-npm/)	 - Configure npm credentials for Chainguard Libraries for JavaScript
 * [chainctl auth delete-account](/platform/chainctl/chainctl-docs/chainctl_auth_delete-account/)	 - Permanently delete your user account.

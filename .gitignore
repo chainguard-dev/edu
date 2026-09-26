@@ -9,6 +9,7 @@ assets/jsconfig.json
 
 # AI Tools
 .claude/
+.agents/
 
 # Editor / IDE config
 .idea

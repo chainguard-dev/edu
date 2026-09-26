@@ -35,8 +35,10 @@ These verification steps help you:
 
 Container images include packages with `NIST-` prefix indicating applicable certification. These also provide URLs to the certificates in the APK database and the SPDX SBOM. The following prefixes are in use:
 
-- `NIST-CMVP-5132` indicates a cryptoprographic module with the certificate [#5132](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/5132)
-- `NIST-ESV-191` indicates an entropy source with the certificate [#E191](https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/191)
+- `NIST-CMVP-5132` indicates a validated cryptoprographic module with the certificate [#5132](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/5132)
+- `NIST-ESV-191` indicates a validated entropy source with the certificate [#E191](https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/191)
+- `NIST-CMVP-5523-optin` indicates a validated optional cryptographic module with the certificate [#5523](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/5132) that can be opted into at runtime.
+- `NIST-CMVP-4743-UPDATE` indicates a non-validated module that is expected to be submitted to NIST for an update. See [FedRAMP](https://www.fedramp.gov/2026/reference/cryptographic-module-use/) documentation for more information.
 - `NIST-MIP-module-name` indicates a non-validated submitted module only available in fips-mip images showcasing [Modules in process](https://csrc.nist.gov/projects/cryptographic-module-validation-program/modules-in-process/modules-in-process-list) containing future FIPS module development
 
 ## OpenSSL
@@ -56,74 +58,194 @@ docker run -it --entrypoint openssl-fips-test cgr.dev/$ORGANIZATION/python-fips
 ```output
 Checking OpenSSL lifecycle assurance.
 
- ✓ Self-test KAT_Integrity HMAC ... passed.
- ✓ Self-test Module_Integrity HMAC ... passed.
- ✓ Self-test KAT_Digest SHA1 ... passed.
- ✓ Self-test KAT_Digest SHA2 ... passed.
- ✓ Self-test KAT_Digest SHA3 ... passed.
- ✓ Self-test KAT_Cipher AES_GCM ... passed.
- ✓ Self-test KAT_Cipher AES_ECB_Decrypt ... passed.
- ✓ Self-test Continuous_RNG_Test RNG ... passed.
- ✓ Self-test KAT_Signature RSA ... passed.
- ✓ Self-test KAT_Signature ECDSA ... passed.
- ✓ Self-test KAT_Signature DSA ... passed.
- ✓ Self-test KAT_KDF TLS13_KDF_EXTRACT ... passed.
- ✓ Self-test KAT_KDF TLS13_KDF_EXPAND ... passed.
- ✓ Self-test KAT_KDF TLS12_PRF ... passed.
- ✓ Self-test KAT_KDF PBKDF2 ... passed.
- ✓ Self-test KAT_KDF SSHKDF ... passed.
- ✓ Self-test KAT_KDF KBKDF ... passed.
- ✓ Self-test KAT_KDF HKDF ... passed.
- ✓ Self-test KAT_KDF SSKDF ... passed.
- ✓ Self-test KAT_KDF X963KDF ... passed.
- ✓ Self-test KAT_KDF X942KDF ... passed.
- ✓ Self-test DRBG HASH ... passed.
- ✓ Self-test DRBG CTR ... passed.
- ✓ Self-test DRBG HMAC ... passed.
- ✓ Self-test KAT_KA DH ... passed.
- ✓ Self-test KAT_KA ECDH ... passed.
- ✓ Self-test KAT_AsymmetricCipher RSA_Encrypt ... passed.
- ✓ Self-test KAT_AsymmetricCipher RSA_Decrypt ... passed.
- ✓ Self-test KAT_AsymmetricCipher RSA_Decrypt ... passed.
+    ✓ Self-test KAT_Integrity HMAC ... passed.
+    ✓ Self-test Module_Integrity HMAC ... passed.
+    ✓ Self-test KAT_Digest SHA2 ... passed.
+    ✓ Self-test KAT_Digest SHA3 ... passed.
+    ✓ Self-test KAT_Cipher AES_GCM ... passed.
+    ✓ Self-test KAT_Cipher AES_ECB_Decrypt ... passed.
+    ✓ Self-test KAT_Signature RSA ... passed.
+    ✓ Self-test KAT_Signature ECDSA ... passed.
+    ✓ Self-test KAT_Signature DetECDSA ... passed.
+    ✓ Self-test KAT_Signature EDDSA ... passed.
+    ✓ Self-test KAT_Signature EDDSA ... passed.
+    ✓ Self-test KAT_Signature ML-DSA ... passed.
+    ✓ Self-test KAT_Signature SLH-DSA ... passed.
+    ✓ Self-test KAT_Signature SLH-DSA ... passed.
+    ✓ Self-test KAT_KDF TLS13_KDF_EXTRACT ... passed.
+    ✓ Self-test KAT_KDF TLS13_KDF_EXPAND ... passed.
+    ✓ Self-test KAT_KDF TLS12_PRF ... passed.
+    ✓ Self-test KAT_KDF PBKDF2 ... passed.
+    ✓ Self-test KAT_KDF KBKDF ... passed.
+    ✓ Self-test KAT_KDF KBKDF_KMAC ... passed.
+    ✓ Self-test KAT_KDF HKDF ... passed.
+    ✓ Self-test KAT_KDF SSKDF ... passed.
+    ✓ Self-test KAT_KDF X963KDF ... passed.
+    ✓ Self-test KAT_KDF X942KDF ... passed.
+    ✓ Self-test DRBG HASH ... passed.
+    ✓ Self-test DRBG CTR ... passed.
+    ✓ Self-test DRBG HMAC ... passed.
+    ✓ Self-test KAT_KA DH ... passed.
+    ✓ Self-test KAT_KA ECDH ... passed.
+    ✓ Self-test KAT_AsymmetricKeyGeneration ML-KEM ... passed.
+    ✓ Self-test KAT_AsymmetricKeyGeneration ML-DSA ... passed.
+    ✓ Self-test KAT_AsymmetricKeyGeneration SLH-DSA ... passed.
+    ✓ Self-test KAT_KEM KEM_Encap ... passed.
+    ✓ Self-test KAT_KEM KEM_Decap ... passed.
+    ✓ Self-test KAT_KEM KEM_Decap_Reject ... passed.
 
- ✓ 29 out of 29 self-tests passed.
- ✓ Check FIPS cryptographic module is available... passed.
- ✓ Check FIPS approved only mode (EVP_default_properties_is_fips_enabled)... passed.
- ✓ Check non-approved algorithm blocked (HMAC-MD5)... passed.
+    ✓ 35 out of 35 self-tests passed.
+    ✓ Check FIPS cryptographic module is available... passed.
+    ✓ Check FIPS approved only mode (EVP_default_properties_is_fips_enabled)... passed.
+    ✓ Check non-approved algorithm blocked (HMAC-MD5)... passed.
 
 Digests available for non-security use as per FIPS 140-3 I.G. 2.4.A (fips=no):
- ✓  MD5
- ✓  SHA1
+    ✓ MD5
+    ✓ SHA1
 
-Available approved algorithms for security purposes (fips=yes):
- ✗ MD5
- ✓ SHA-1
- ✓ SHA-2
- ✓ SHA-3
- ✓ DSA
- ✓ RSA
- ✓ ECDSA
- ✗ Ed25519
- ✗ DetECDSA
- ✗ ML-DSA
- ✗ SLH-DSA
- ✗ ML-KEM
- ✗ X25519MLKEM768
- ✗ SecP256r1MLKEM768
+Available approved algorithms for security purposes (provider=fips,fips=yes):
+    ✗ MD5
+    ✗ SHA-1
+    ✓ SHA-2
+    ✓ SHA-3
+    ✗ DSA
+    ✓ RSA
+    ✓ ECDSA
+    ✓ Ed25519
+    ✓ DetECDSA
+    ✓ ML-DSA
+    ✓ SLH-DSA
+    ✓ ML-KEM
+    ✓ X25519MLKEM768
+    ✓ SecP256r1MLKEM768
+    ✓ SecP384r1MLKEM1024
 
 Public OpenSSL API (libssl.so & libcrypto.so):
- name:      OpenSSL 3.6.0 1 Oct 2025
- version:   3.6.0
+    name:       OpenSSL 3.6.4 25 Aug 2026
+    version:    3.6.4
 
 FIPS cryptographic module provider details (fips.so):
- name:      OpenSSL FIPS Provider
- version:   3.1.2
- build:     3.1.2
+    name:       Chainguard FIPS Provider for OpenSSL
+    version:    3.6.0
+    build:      3.6.0-r4
 
-Locate applicable CMVP certificate(s) at: CMVP #4985
+Locate applicable certificate(s) at: CMVP #5523 (with entropy #E191)
+
+Lifecycle assurance satisfied.
 ```
 
 This output confirms that OpenSSL in the `python-fips` image is properly configured to use its FIPS module.
+
+### OpenSSL FIPS 140-3 enforcement quick checks
+
+[NIST SP 800-131A](https://csrc.nist.gov/pubs/sp/800/131/a/r2/final) requires HMAC to use approved digest and keys of at least 112 bits long (14 characters) for security purposes.
+
+Success scenario is HMAC with a 14 characters long key and a SHA256 digest:
+
+```sh
+openssl mac -macopt key:14charslongkey -macopt digest:sha256 -in /dev/null HMAC
+```
+
+```output
+0DB994567D50545AC5A44823F82AAE06B1A21B99F8DD0A42B3D572B1AF62F182
+```
+
+Negative test is HMAC with a short key, and a SHA256 digest:
+
+```sh
+# openssl mac -macopt key:shortkey -macopt digest:sha256 -in /dev/null HMAC
+MAC parameter error
+801B86DD147F0000:error:1C800069:Provider routines:hmac_setkey:invalid key length:providers/implementations/macs/hmac_prov.c:173:
+```
+
+Cryptographically insecure digests are also rejected:
+
+```sh
+# openssl mac -macopt key:14charslongkey -macopt digest:md5 -in /dev/null HMAC
+MAC parameter error
+808B8049E17F0000:error:0308010C:digital envelope routines:inner_evp_generic_fetch:unsupported:crypto/evp/evp_fetch.c:355:FIPS internal library context, Algorithm (md5 : 0), Properties (<null>)
+```
+
+The above checks can also be performed in other programming languages for images that systems that use OpenSSL to power FIPS cryptography, for example python, node, php, perl and similar.
+
+In non-fips images, all of the above commands are successful.
+
+### OpenSSL FIPS 140-3 tamper test
+
+Cryptographic modules are required to perform startup self-tests, and
+must enter error state and stop all cryptoraphic services upon
+failure. One of the startup self-tests is intergity check of the
+cryptographic module itself. To observe this one can tamper with the
+fips.so module itself, or tamper with the expected module HMAC value.
+
+```sh
+echo 'module-mac = 00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00' >> /etc/ssl/fipsmodule.cnf
+```
+
+After tampering with the module integrity mac:
+
+```output
+# openssl-fips-test
+Checking OpenSSL lifecycle assurance.
+
+    ✓ Self-test KAT_Integrity HMAC ... passed.
+    ✗ Self-test Module_Integrity HMAC ... FAILED.
+    ✗ Check FIPS cryptographic module is available... FAILED.
+    ✓ Check FIPS approved only mode (EVP_default_properties_is_fips_enabled)... passed.
+    ✓ Check non-approved algorithm blocked (HMAC-MD5)... passed.
+
+Failed to retrieve cryptographic module version information
+```
+
+And previously approved and successful operations now fail, for example HMAC with a long key and SHA2 fails, when the fips module integrity check has been tampered with:
+
+```
+# openssl mac -macopt key:14charslongkey -macopt digest:sha256 -in /dev/null HMAC
+Invalid MAC name HMAC
+mac: Use -help for summary.
+80DB6818FB7F0000:error:0308010C:digital envelope routines:inner_evp_generic_fetch:unsupported:crypto/evp/evp_fetch.c:376:Global default library context, Algorithm (HMAC : 0), Properties (<null>)
+```
+
+If application continues to operate, even when the fips module has been tampered with or removed, this indicates that the given application and algorithms have stopped using the FIPS module, are not using OpenSSL, or have fallbacks. For example, applications might preffer OpenSSL when it is operation, but have fallbacks to other libraries or have statically compiled alternative implementations of algorithms.
+
+### Opt in to different FIPS provider versions
+
+Images that contain `NIST-CMVP-5523-optin` or `NIST-CMVP-5132-optin`
+SBOM indicator packages offer ability to switch between different
+versions of validated CMVP modules at runtime.
+
+- `NIST-CMVP-5523-optin` enables opt-into Chainguard v3.6 module with `OPENSSL_CONF_INCLUDE=/etc/ssl-3.6.0` environment variable
+- `NIST-CMVP-5132-optin` enables opt-into Chainguard v3.4 module with `OPENSSL_CONF_INCLUDE=/etc/ssl-3.4.0` environment variable
+
+For example:
+
+```sh
+export OPENSSL_CONF_INCLUDE=/etc/ssl-3.6.0
+```
+
+```output
+export OPENSSL_CONF_INCLUDE=/etc/ssl-3.6.0
+openssl-fips-test
+...
+FIPS cryptographic module provider details (fips.so):
+    name:       Chainguard FIPS Provider for OpenSSL
+    version:    3.6.0
+    build:      3.6.0-r4
+```
+
+```sh
+export OPENSSL_CONF_INCLUDE=/etc/ssl-3.4.0
+```
+
+```output
+export OPENSSL_CONF_INCLUDE=/etc/ssl-3.4.0
+openssl-fips-test
+...
+FIPS cryptographic module provider details (fips.so):
+    name:       Chainguard FIPS Provider for OpenSSL
+    version:    3.4.0
+    build:      3.4.0-r5
+```
 
 ## Bouncy Castle FIPS Java API
 

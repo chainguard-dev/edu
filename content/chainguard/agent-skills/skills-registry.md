@@ -1,10 +1,10 @@
 ---
 title: "Getting started with the Chainguard Skills Registry"
 linktitle: "Skills Registry"
-description: "Enable the Chainguard Skills Registry, then push, install, and run an agent skill scoped to your organization."
+description: "Enable the Chainguard Skills Registry, then upload, harden, install, and run an agent skill scoped to your organization."
 type: "article"
 date: 2026-06-05T08:48:45+00:00
-lastmod: 2026-09-17T00:00:00+00:00
+lastmod: 2026-09-23T16:38:42+00:00
 draft: false
 tags: ["Agent Skills", "Overview"]
 images: []
@@ -15,16 +15,9 @@ toc: true
 weight: 002
 ---
 
-The Chainguard Skills Registry lets you publish, manage, and distribute skills scoped to your organization. `chainctl` publishes the skills you push as OCI artifacts at `uploads.cgr.dev/<your-org>/<skill-name>:<tag>`.
+The Chainguard Skills Registry lets you publish, manage, and distribute skills scoped to your organization. Use `chainctl` to upload original skills to `uploads.cgr.dev`, submit them for hardening, and install the hardened results from `skills.cgr.dev`.
 
-A skills entitlement provisions two namespaces under your organization, and `chainctl` serves each from its own registry host:
-
-* `uploads.cgr.dev/<your-org>` holds the skills your organization pushes.
-* `skills.cgr.dev` serves skills hardened by Chainguard, including the public catalog. You can pull from this namespace, but not push to it.
-
-The commands in this guide reference `uploads.cgr.dev`, because that's where your own skills live. To pull hardened skills instead, refer to [Getting started with the Chainguard Agent Skills public registry](/chainguard/agent-skills/public-registry/).
-
-This guide walks through the full workflow, including how to enable the registry for your org, then push, install, and run a skill.
+This guide walks through enabling the registry for your organization, then uploading, hardening, installing, and running a skill. For job tracking, digest-based submissions, and browsing user folders, see [Getting started with skill hardening](/chainguard/agent-skills/skill-hardening/).
 
 {{< beta feature="Chainguard Skills Registry" >}}
 
@@ -32,15 +25,11 @@ This guide walks through the full workflow, including how to enable the registry
 
 To follow this guide, you need:
 
-* `chainctl` **v0.2.353** or later, installed and authenticated. Refer to [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) if you don't have it yet.
+* An installed and authenticated `chainctl` that includes `skills harden` and `skills status`. Check with `chainctl skills harden --help` and `chainctl skills status --help`. Refer to [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) if you don't have it yet.
 * An active Chainguard organization.
 * Owner access on the organization.
 
-The examples in this guide use an `$ORG` environment variable to refer to your organization. Set it to the name of your organization before you begin:
-
-```shell
-export ORG=<your-organization>
-```
+In the commands below, replace `your-organization` with your organization's name or UIDP (its unique identifier).
 
 ## Enabling the skills entitlement
 
@@ -49,19 +38,17 @@ Before your org can push or install skills, create a skills entitlement.
 > **Note**: You must have the `owner` role in your organization to create a skills entitlement and accept the Skills Registry terms of service.
 
 ```shell
-chainctl skills entitlements create --parent $ORG
+chainctl skills entitlements create --parent your-organization
 ```
 
 ```output
 Created skills entitlement for org example.dev (717b474ac6972745c5706a898aa6e67ffba97dad)
 ```
 
-The `entitlements` subcommands scope to an org with `--parent`, unlike the other `skills` subcommands, which use `--group`. Omit `--parent` to pick the org from an interactive list.
-
 Next, accept the Skills Registry terms of service for your org:
 
 ```shell
-chainctl skills accept-terms --group $ORG
+chainctl skills accept-terms --group your-organization
 ```
 
 This opens an interactive prompt:
@@ -76,8 +63,6 @@ This opens an interactive prompt:
 ```
 
 Press <kbd>SPACE</kbd> to accept the terms of service and <kbd>ENTER</kbd> to confirm.
-
-In CI, where no interactive terminal is available, pass `--yes` instead. That flag confirms you have read and agreed to the documents referenced in the [Agent Skills disclosure](https://www.chainguard.dev/legal/agent-skills-disclosure).
 
 ## Creating an example skill
 
@@ -103,14 +88,14 @@ If the user provides their name, greet them by name instead:
 EOF
 ```
 
-After running this command, your directory has the following structure:
+After running this command, your directory will have the following structure:
 
 ```
 hello-world/
 └── SKILL.md
 ```
 
-The directory name (`hello-world/`) must match the `name` field in the frontmatter (`name: hello-world`). If they don't match, both `validate` and `push` fail.
+The directory name (`hello-world/`) must match the `name` field in the frontmatter (`name: hello-world`). If they don't match, the skill will fail to push.
 
 ## Manage skills with `chainctl`
 
@@ -161,133 +146,123 @@ Validation passed.
 
 Here, `--strict` warns that the skill omits the recommended `license` field. Warnings don't cause validation to fail, but addressing them produces a more complete skill.
 
-### Push the skill to your organization's registry
+### Push the skill to your organization's uploads registry
 
-From the parent directory of `hello-world/`, push the skill to your org's registry and tag it:
+From the parent directory of `hello-world/`, push the skill to your organization's uploads registry with a version tag:
 
 ```shell
-chainctl skills push hello-world --group $ORG --tag v1.0.0
+chainctl skills push hello-world --group your-organization --tag v1.0.0
 ```
 
 ```output
-                    REFERENCE                   |     DIGEST
-------------------------------------------------|----------------
- uploads.cgr.dev/example.dev/hello-world:v1.0.0 | sha256:393c...
+            REFERENCE             |        DIGEST
+----------------------------------|------------------------
+ uploads.cgr.dev/example.dev/hello-world:v1.0.0 | sha256:3196...
 ```
 
-`--tag` is repeatable, so you can publish one artifact under several tags at once, such as `--tag v1.0.0 --tag latest`. Omit it and `chainctl` publishes as `latest` and warns that you didn't pin a version. To build and validate the artifact without publishing it, add `--dry-run`.
+Keep the versioned reference for the hardening submission below.
 
-### List your skills
+### List your uploads
 
-Confirm the skill was published with the `list` subcommand. `list` reads the hardened catalog by default, so pass `--source uploads` to list the skills your organization pushed:
+Confirm the upload with the `list` subcommand and `--source uploads`:
 
 ```shell
-chainctl skills list --group $ORG --source uploads
+chainctl skills list --group your-organization --source uploads
 ```
 
 ```output
-     SOURCE      | TYPE  |    NAME     | LATEST TAG | UPDATED
------------------|-------|-------------|------------|----------
- uploads.cgr.dev | skill | hello-world | v1.0.0     | just now
+     SOURCE      | TYPE  |    NAME     |  TAGS  | UPDATED
+-----------------|-------|-------------|--------|----------
+ uploads.cgr.dev | skill | hello-world | v1.0.0 | just now
 ```
 
-The `SOURCE` column names the registry host to pull each skill from. Pass `--source all` to list both namespaces in one table, or `--recursive` to list every skill in nested folders by its full path.
+Without `--source uploads`, `list` shows the hardened registry. A successful push does not mean a hardened result is available there. Submit the upload for hardening in the next step.
 
-To view a skill's reference, digest, tags, and metadata, use the `describe` subcommand:
+The `TAGS` column shows all tags for each skill. A `latest` tag is not required. If your output has a `LATEST TAG` column or omits the upload, see [Find a skill that is missing from the listing](/chainguard/agent-skills/skill-hardening/#find-a-skill-that-is-missing-from-the-listing).
+
+### Harden the skill
+
+Submit the uploaded artifact and wait for the result:
 
 ```shell
-chainctl skills describe uploads.cgr.dev/$ORG/hello-world:v1.0.0
+chainctl skills harden uploads.cgr.dev/your-organization/hello-world:v1.0.0 \
+  --group your-organization --wait --timeout 30m
 ```
 
-```output
-    FIELD    |                                              VALUE
--------------|--------------------------------------------------------------------------------------------------
- Name        | hello-world
- Description | A simple hello world skill. Use this to verify your skills registry setup is working end to end.
- Tag         | v1.0.0
- Digest      | sha256:393c0a2556c626010dfacaa402508122cbb4218be786882b7c74d9d61b38d19e
- Size        | 709 B
- Published   | just now
+The command prints a job ID, waits for hardening, and downloads the result to `./hardened/hello-world/`. Review the instructions and `HARDENING.md` report, including any findings that remain open.
+
+Save the exact hardened reference returned by the command. It includes a user namespace and digest, in the form `skills.cgr.dev/<org-uidp>/users/<user-namespace>/hello-world@sha256:<digest>`:
+
+```shell
+export HARDENED_REF='<full-hardened-reference-returned-by-the-command>'
+chainctl skills describe "$HARDENED_REF"
 ```
+
+For submissions directly from a local directory, checking a job later, and resuming after a timeout, see [Getting started with skill hardening](/chainguard/agent-skills/skill-hardening/).
+
+### List hardened skills
+
+Hardened results are nested under `users/<user-namespace>/`. Add `--recursive` to browse skills inside those folders:
+
+```shell
+chainctl skills list --group your-organization --source skills --recursive
+```
+
+Without `--recursive`, the organization-level listing may show only a `users` row with `TYPE` set to `folder`. Expand the folder with `--recursive`, or browse it with `chainctl skills list --group your-organization/users`. See [Browse results in user folders](/chainguard/agent-skills/skill-hardening/#browse-results-in-user-folders) for the folder layout and how to show uploads alongside hardened results.
+
+The listing includes skills with generated version tags and skills without tags. Use the exact `$HARDENED_REF` returned by the job to inspect and install the result you reviewed.
 
 ### Install the skill
 
 Download and install the skill to make it available to agents on your machine:
 
 ```shell
-chainctl skills install uploads.cgr.dev/$ORG/hello-world:v1.0.0
+chainctl skills install "$HARDENED_REF"
 ```
 
-Qualify the reference with the `uploads.cgr.dev` host to install one of your organization's own skills. A bare `<org>/<name>` reference resolves to the hardened catalog on `skills.cgr.dev` instead.
+This command automatically detects agents on your machine and reports where it placed the skill. The install name includes the registry namespace to distinguish skills with the same name. Copy the **Install Name** from `chainctl skills describe "$HARDENED_REF"` for use in the following steps:
 
-This command automatically detects any agents on your machine and places the skill into their relevant directories. The following example output shows the results on a machine where Claude Code is present:
-
-```output
-Installing hello-world
-    AGENT    |          LOCATION          |                    MODE
--------------|----------------------------|--------------------------------------------
- Claude Code | .claude/skills/hello-world | symlink → ../../.agents/skills/hello-world
+```shell
+export INSTALLED_SKILL='<install-name-from-describe>'
 ```
-
-By default, `install` writes one canonical copy to `.agents/skills/` and symlinks each agent's directory to it, so every agent reads the same files. Add `--copy` to give each agent an independent copy, `--global` to install under your home directory instead of the current project, and `--agent` to target specific agents rather than every one detected.
 
 ### Run the skill from an agent
 
-`install` places the skill where your agents already read skills from, so no further configuration is required. Start a session in the directory you installed into and invoke the skill. In Claude Code, run:
-
-```Agent
-/hello-world
-```
-
-The agent responds:
-
-```output
-Hello from Chainguard Agent Skills! Your skill installed and loaded successfully.
-```
-
-This confirms the skill was published, installed, and loaded correctly end to end.
+Load the skill from the location reported by `install`. In Claude Code, invoke it with `/<installed-skill-name>`, replacing `<installed-skill-name>` with the value you saved in `$INSTALLED_SKILL`. Ask the agent to greet you, and check that its response follows the instructions you reviewed in the hardened `SKILL.md`.
 
 ### Uninstall the skill
 
-To remove a skill from your machine, pass its name to the `uninstall` subcommand. You only need the name, not the full registry reference:
+To remove a skill from your machine, pass its install name to the `uninstall` subcommand:
 
 ```shell
-chainctl skills uninstall hello-world
+chainctl skills uninstall "$INSTALLED_SKILL"
 ```
 
-The command prompts for confirmation before removing any files:
+The command prompts for confirmation before removing any files.
 
-```output
-This will remove skill "hello-world" from local agent directories.
-Proceed?
-Do you want to continue? [y,N]:
-Uninstalled skill "hello-world".
-```
-
-By default, `uninstall` removes the project-local copy from every agent directory where it's installed. If a global copy also exists, `uninstall` leaves it in place and prints a warning; re-run with `--global` to remove that copy too. Use the `--agent` flag to remove the skill from specific agents only, and the `-y` flag to skip the confirmation prompt.
+By default, `uninstall` removes the skill from every agent directory where it's installed. Use the `--agent` flag to remove it from specific agents only, or the `--global` flag to remove it from global directories instead of the current project. Add the `-y` flag to skip the confirmation prompt.
 
 `uninstall` operates only on the local files on your machine. It doesn't modify your organization's registry. To remove a published skill from the registry, use [`chainctl skills delete`](/platform/chainctl/chainctl-docs/chainctl_skills_delete/) instead.
 
 ### Delete a skill from the registry
 
-To remove a published version of a skill from your organization's registry, pass its full reference to the `delete` subcommand. The reference must include an explicit tag:
+To remove a published version of a skill from your organization's hardened registry, first list its tags. Use the repository portion of the hardened reference, preserving its user namespace:
 
 ```shell
-chainctl skills delete uploads.cgr.dev/$ORG/hello-world:v1.0.0
+HARDENED_REPO="${HARDENED_REF%@*}"
+chainctl skills versions "$HARDENED_REPO"
 ```
 
-The command prompts for confirmation before removing the version:
+Select a tag from that output and pass the full tagged reference to `delete`. The upload's `v1.0.0` tag is not a substitute for a tag from the hardened repository. Digest references are not accepted by `delete`:
 
-```output
-Delete uploads.cgr.dev/example.dev/hello-world:v1.0.0?
-Do you want to continue? [y,N]:
+```shell
+export HARDENED_TAG='<tag-from-the-versions-output>'
+chainctl skills delete "$HARDENED_REPO:$HARDENED_TAG"
 ```
 
-Press <kbd>y</kbd> and <kbd>ENTER</kbd> to confirm. Add the `-y` flag to skip the prompt and delete the version non-interactively.
+The command prompts for confirmation before removing the version. Press <kbd>y</kbd> and <kbd>ENTER</kbd> to confirm. Add the `-y` flag to skip the prompt and delete the version non-interactively.
 
 The command requires a tag so you don't delete the `latest` tag by accident. Deleting `latest` is still possible, but it prompts for an additional confirmation.
-
-When you delete a skill's last remaining version, `chainctl` removes the now-empty skill entry as well, so it doesn't linger in `list` output with nothing to pull. A tagless reference such as `uploads.cgr.dev/$ORG/hello-world` is valid only for a skill that already has no versions left; a skill that still has versions requires an explicit tag.
 
 Unlike `uninstall`, `delete` removes the skill from the registry for your whole organization. It doesn't remove copies already installed on anyone's machine.
 
@@ -295,14 +270,15 @@ Unlike `uninstall`, `delete` removes the skill from the registry for your whole 
 
 | Action | Command |
 | ----- | ----- |
-| Enable the entitlement | `chainctl skills entitlements create --parent $ORG` |
-| Accept the registry terms | `chainctl skills accept-terms --group $ORG` |
+| Enable the entitlement | `chainctl skills entitlements create --parent your-organization` |
+| Accept the registry terms | `chainctl skills accept-terms --group your-organization` |
 | Validate a skill | `chainctl skills validate <name>` |
-| Push a skill | `chainctl skills push <name> --group $ORG --tag <version>` |
-| List your org's skills | `chainctl skills list --group $ORG --source uploads` |
-| List a skill's versions | `chainctl skills versions uploads.cgr.dev/$ORG/<name>` |
-| Describe a skill | `chainctl skills describe uploads.cgr.dev/$ORG/<name>:<version>` |
-| Pull a skill to a directory | `chainctl skills pull uploads.cgr.dev/$ORG/<name>:<version> <dir>` |
-| Install a skill | `chainctl skills install uploads.cgr.dev/$ORG/<name>:<version>` |
-| Uninstall a skill | `chainctl skills uninstall <name>` |
-| Delete a published skill | `chainctl skills delete uploads.cgr.dev/$ORG/<name>:<version>` |
+| Upload a skill | `chainctl skills push <name> --group your-organization --tag <version>` |
+| List uploads | `chainctl skills list --group your-organization --source uploads` |
+| Harden a local skill | `chainctl skills harden ./<name> --group your-organization --wait` |
+| Check a hardening job | `chainctl skills status --group your-organization --id "$JOB_ID"` |
+| List hardened skills in all folders | `chainctl skills list --group your-organization --recursive` |
+| Describe a hardened skill | `chainctl skills describe "$HARDENED_REF"` |
+| Install a hardened skill | `chainctl skills install "$HARDENED_REF"` |
+| Uninstall a skill | `chainctl skills uninstall "$INSTALLED_SKILL"` |
+| Delete a published version | `chainctl skills delete "$HARDENED_REPO:$HARDENED_TAG"` |

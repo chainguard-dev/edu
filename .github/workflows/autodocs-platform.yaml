@@ -32,7 +32,7 @@ jobs:
         persist-credentials: false
 
     - name: 'Setup gitsign'
-      uses: chainguard-dev/actions/setup-gitsign@142d22e4cec7c824db396585b9bc86f76f7c1732 # v1.6.35
+      uses: chainguard-dev/actions/setup-gitsign@0bacfe710021b5ad6d8886a53a34c40072f2fc90 # v1.6.36
 
     - name: Authenticate to Google Cloud
       id: auth

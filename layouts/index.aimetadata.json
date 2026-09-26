@@ -107,7 +107,7 @@
       "commercial_use": true
     },
     "trademarks": {
-      "policy_url": "{{ .Site.BaseURL }}software-security/trademark/",
+      "policy_url": "https://www.chainguard.dev/legal/chainguard-trademark-use-policy",
       "permission_required": true
     }
   },

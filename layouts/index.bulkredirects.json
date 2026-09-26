@@ -1,0 +1,43 @@
+{{- /*
+Builds the file Vercel reads through "bulkRedirectsPath" in vercel.json. It is
+the Vercel counterpart of layouts/index.redirects (the Netlify _redirects file)
+and layouts/index.aliases (the nginx map production uses). All three come from
+the same page aliases, so they cannot drift apart.
+
+Bulk redirects match an exact path and support no wildcards, so this file
+reproduces the Netlify preview's exact-path behavior rather than production's
+subtree matching.
+
+Each alias is emitted twice, with and without a trailing slash. Vercel
+normalizes trailing slashes itself, and emitting both forms makes the redirect
+land whichever rule the CDN evaluates first.
+
+An alias that differs from its target only by a trailing slash is skipped: it
+would redirect to itself.
+
+Two pages can claim the same alias, which is a content error but one the other
+two pipelines tolerate -- Netlify and nginx both take the first rule and ignore
+the rest. The first source wins here for the same reason, so a duplicate does
+not reach Vercel and change which page the alias resolves to.
+*/ -}}
+{{- $redirects := slice -}}
+{{- $seen := slice -}}
+{{- range $p := .Site.Pages -}}
+{{- $target := $p.RelPermalink -}}
+{{- range .Aliases -}}
+{{- $alias := strings.TrimSuffix "/" . -}}
+{{- if and $alias (ne $alias (strings.TrimSuffix "/" $target)) -}}
+{{- range $source := slice $alias (printf "%s/" $alias) -}}
+{{- if not (in $seen $source) -}}
+{{- $seen = $seen | append $source -}}
+{{- $redirects = $redirects | append (dict
+  "source" $source
+  "destination" $target
+  "statusCode" 301
+  "preserveQueryParams" true) -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+{{- $redirects | jsonify (dict "indent" "  ") -}}

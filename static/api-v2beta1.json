@@ -1730,7 +1730,7 @@
             "type": "string"
           },
           "defaultRole": {
-            "description": "The UIDP of the default role to grant users of this identity provider\non initial authentication. Users who already have an identity on this platform\nare unaffected.",
+            "description": "The UIDP of the default role to grant users of this identity provider on\ninitial authentication. Users who already have an identity on this platform\nare unaffected. Required when SCIM provisioning is not enabled for the\nprovider (enforced server-side, gated on the live SCIM state); cleared when\nSCIM is enabled, since a SCIM provider grants access only to provisioned\nusers. May be set again while SCIM is enabled, as an explicit opt-in.",
             "type": "string"
           },
           "description": {
@@ -1771,8 +1771,7 @@
           }
         },
         "required": [
-          "name",
-          "defaultRole"
+          "name"
         ],
         "type": "object"
       },
@@ -2800,7 +2799,7 @@
       },
       "chainguard.platform.libraries.v2beta1.Availability": {
         "default": "AVAILABILITY_UNSPECIFIED",
-        "description": "Availability is the normalized build status of one requested version.\n\nIt never depends on whether the organization has upstream fallback enabled.\n\"Can Chainguard build this?\" is a different question from \"am I pulling\nupstream in the meantime?\", so an org that turned upstream off sees identical\nvalues and the identical requestable set. The toggle is reported separately on\nRequestGroup.org_upstream_enabled, for phrasing only.\n\n - AVAILABILITY_UNSPECIFIED: Unspecified availability.\n - AVAILABILITY_BUILT: Chainguard has built this exact version.\n - AVAILABILITY_CAN_BE_REQUESTED: Not built, and requestable. The upgrade field may name a newer built version.\n - AVAILABILITY_BLOCKED: On the malware block list. Still requestable, but the build is held until the\nblock is withdrawn — a false positive must not silently discard a legitimate\nrequest, and the daily refresh picks the item up once it clears.\n - AVAILABILITY_NOT_FOUND_UPSTREAM: The version does not exist on the upstream registry, so there is nothing to\nbuild. The only true dead end.\n - AVAILABILITY_WONT_BUILD: Chainguard will not build this version for policy reasons, such as licence or\nend-of-life.\n - AVAILABILITY_INVALID_REQUIREMENT: The requirement is not a parseable pinned package and version. Terminal and\nnot retried; the customer must fix or remove the line.\n - AVAILABILITY_BUILDING: A build has been triggered and is running.\n - AVAILABILITY_BUILD_FAILED: A build ran and failed. Retried automatically.",
+        "description": "Availability is the normalized build status of one requested version.\n\nIt never depends on whether the organization has upstream fallback enabled.\n\"Can Chainguard build this?\" is a different question from \"am I pulling\nupstream in the meantime?\", so an org that turned upstream off sees identical\nvalues and the identical requestable set. The toggle is reported separately on\nRequestGroup.org_upstream_enabled, for phrasing only.\n\n - AVAILABILITY_UNSPECIFIED: Unspecified availability.\n - AVAILABILITY_BUILT: Chainguard has built this exact version.\n - AVAILABILITY_CAN_BE_REQUESTED: Not built, and requestable. The upgrade field may name a newer built version.\n - AVAILABILITY_BLOCKED: On the malware block list. Still requestable, but the build is held until the\nblock is withdrawn — a false positive must not silently discard a legitimate\nrequest, and the daily refresh picks the item up once it clears.\n - AVAILABILITY_NOT_FOUND_UPSTREAM: The version does not exist on the upstream registry, so there is nothing to\nbuild. The only true dead end.\n - AVAILABILITY_WONT_BUILD: Chainguard will not build this version for policy reasons, such as licence or\nend-of-life.\n - AVAILABILITY_INVALID_REQUIREMENT: The requirement is not a parseable pinned package and version. Terminal and\nnot retried; the customer must fix or remove the line.\n - AVAILABILITY_BUILDING: A build has been triggered and is running.\n - AVAILABILITY_BUILD_FAILED: A build ran and failed. Retried automatically.\n - AVAILABILITY_HELD: The build was declined and is being held, and no retry will change that on\nits own — a later publish of the version is what releases it.\n\nDeliberately not folded into AVAILABILITY_BLOCKED. That value is specific to\nthe malware block list and is documented as still requestable; reusing it\nhere would give a customer the same answer for \"this may be malware\" and\n\"the build is held\", which are different situations with different\nresolutions. Unlike a blocked item, a held one is not requestable.",
         "enum": [
           "AVAILABILITY_UNSPECIFIED",
           "AVAILABILITY_BUILT",
@@ -2810,7 +2809,8 @@
           "AVAILABILITY_WONT_BUILD",
           "AVAILABILITY_INVALID_REQUIREMENT",
           "AVAILABILITY_BUILDING",
-          "AVAILABILITY_BUILD_FAILED"
+          "AVAILABILITY_BUILD_FAILED",
+          "AVAILABILITY_HELD"
         ],
         "type": "string"
       },
@@ -2824,7 +2824,7 @@
             "type": "integer"
           },
           "blockingSubmit": {
-            "description": "Items the customer must resolve before the group can be submitted: the sum\nof not_found_upstream, wont_build and invalid_requirement. Blocked items are\ndeliberately NOT counted here — they stay requestable with the build held.",
+            "description": "Items the customer must resolve before the group can be submitted: the sum\nof not_found_upstream, wont_build, invalid_requirement and held. Blocked\nitems are deliberately NOT counted here — they stay requestable with the\nbuild held.",
             "format": "int32",
             "readOnly": true,
             "type": "integer"
@@ -2849,6 +2849,12 @@
           },
           "canBeRequested": {
             "description": "Versions that are not built and can be requested.",
+            "format": "int32",
+            "readOnly": true,
+            "type": "integer"
+          },
+          "held": {
+            "description": "Versions whose build was declined and is being held. Counted in\nblocking_submit: unlike a blocked item, a held one is not requestable, so\nthe customer has to take it out of the group to submit.",
             "format": "int32",
             "readOnly": true,
             "type": "integer"
@@ -3708,7 +3714,7 @@
       },
       "chainguard.platform.libraries.v2beta1.RequestedLibraryBuildStatus": {
         "default": "REQUESTED_LIBRARY_BUILD_STATUS_UNSPECIFIED",
-        "description": "RequestedLibraryBuildStatus is the build ladder across a library's requested versions.\n\nA version counts as buildable unless it is WONT_BUILD or NOT_FOUND_UPSTREAM,\nso versions Chainguard will never build do not hold a library short of\nCOMPLETE.\n\n - REQUESTED_LIBRARY_BUILD_STATUS_UNSPECIFIED: Unspecified build status.\n - REQUESTED_LIBRARY_BUILD_STATUS_REVIEWING: Submitted, but no build activity on any version yet.\n - REQUESTED_LIBRARY_BUILD_STATUS_IN_PROGRESS: Build activity has started on at least one version and at least one buildable\nversion is not built yet. A version that is already built, or that failed and\nwill be retried, counts as activity.\n - REQUESTED_LIBRARY_BUILD_STATUS_COMPLETE: Every buildable requested version is built, with at least one built and\nnothing still building or failed.\n - REQUESTED_LIBRARY_BUILD_STATUS_WONT_BUILD: No requested version is buildable.",
+        "description": "RequestedLibraryBuildStatus is the build ladder across a library's requested versions.\n\nA version counts as buildable unless it is WONT_BUILD or NOT_FOUND_UPSTREAM,\nso versions Chainguard will never build do not hold a library short of\nCOMPLETE.\n\n - REQUESTED_LIBRARY_BUILD_STATUS_UNSPECIFIED: Unspecified build status.\n - REQUESTED_LIBRARY_BUILD_STATUS_REVIEWING: Submitted, but no build activity on any version yet.\n - REQUESTED_LIBRARY_BUILD_STATUS_IN_PROGRESS: Build activity has started on at least one version and at least one buildable\nversion is not built yet. A version that is already built, or that failed and\nwill be retried, counts as activity.\n - REQUESTED_LIBRARY_BUILD_STATUS_COMPLETE: Every buildable requested version is built, with at least one built.\n\nThe rung is over versions, not over requests. A version counts as built\nonce any request for it resolved to an artifact, so a second request for\nthe same version -- whose own status may still say building, because a\nrequest's status is a snapshot from its own check -- does not reopen the\nlibrary. Reporting IN_PROGRESS there would tell the customer to wait for\nsomething they can already pull.\n - REQUESTED_LIBRARY_BUILD_STATUS_WONT_BUILD: No requested version is buildable.",
         "enum": [
           "REQUESTED_LIBRARY_BUILD_STATUS_UNSPECIFIED",
           "REQUESTED_LIBRARY_BUILD_STATUS_REVIEWING",
@@ -4234,7 +4240,7 @@
         "type": "object"
       },
       "chainguard.platform.registry.v2beta1.Overlay": {
-        "description": "Overlay is a named, reusable, org-scoped content fragment that\nbindings bind to repos.\n\nThe config is the same CustomOverlay shape as Repo.custom_overlay, so\nrelaxing the packages-only restriction later is a validation change,\nnot a wire change. The server accepts only contents.packages:\ncertificates, accounts, and the rest of the image content model stay\nout of the reusable object until they have had security review, and\nany other populated field is rejected with InvalidArgument. Reads\nrender only package content even if the stored configuration carries\nmore.",
+        "description": "Overlay is a named, reusable, org-scoped content fragment that\nbindings bind to repos.\n\nThe config is the same CustomOverlay shape as Repo.custom_overlay and\nis validated with the same field rules: reserved annotation\n(dev.chainguard., org.opencontainers.) and environment (CHAINGUARD_)\nprefixes are rejected, contents.runtime_repositories and\ncontents.runtime_keyring are gated on the custom-repos feature, and\ncertificate and keyring content must be valid PEM. Fields of the\ninternal image content model with no CustomOverlay counterpart stay\nunsettable. Reads render the stored config in full.",
         "properties": {
           "config": {
             "allOf": [
@@ -4242,14 +4248,14 @@
                 "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay"
               }
             ],
-            "description": "The overlay content, the same shape as Repo.custom_overlay. Only\ncontents.packages may be set this milestone: at least one package is\nrequired on create, and any other populated field is rejected."
+            "description": "The overlay content, the same shape as Repo.custom_overlay,\nvalidated with the same field rules. At least one customization\nfield must be set."
           },
           "name": {
             "description": "The name of the Overlay, unique among the group's overlays.",
             "type": "string"
           },
           "uid": {
-            "description": "The unique identifier of this Overlay, a UIDP under the owning group.",
+            "description": "The unique identifier of this Overlay, a UIDP under the owning group.\nCarries iam_scope so requests that embed the resource (UpdateOverlay)\nresolve their authorization scope from it.",
             "readOnly": true,
             "type": "string"
           }
@@ -4269,7 +4275,7 @@
                 "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.Overlay"
               }
             ],
-            "description": "The referenced Overlay expanded inline (uid, name, and its config\nrendered packages-only) so list responses are audit-complete without\na follow-up call.",
+            "description": "The referenced Overlay expanded inline (uid, name, and its config\nrendered in full) so list responses are audit-complete without\na follow-up call.",
             "readOnly": true
           },
           "repo": {
@@ -4286,7 +4292,7 @@
             "description": "The selector picking which tags on the repo this binding applies to.\nSee TagSelector for the supported kinds and precedence rules."
           },
           "uid": {
-            "description": "The unique identifier of this OverlayBinding, a UIDP under the repo\nit attaches to.",
+            "description": "The unique identifier of this OverlayBinding, a UIDP under the repo\nit attaches to. Carries iam_scope so requests that embed the resource\n(UpdateOverlayBinding) resolve their authorization scope from it.",
             "readOnly": true,
             "type": "string"
           }
@@ -4749,6 +4755,11 @@
               }
             ],
             "description": "A fix is pending on the upstream repository."
+          },
+          "reviewNote": {
+            "description": "The reviewer's explanation, set when transitioning an event to\nREQUEST_CHANGES or REJECTED. Read-only via this API version (v2beta1 has\nno event-update RPC); set through v1's UpdateAdvisoryEvent.",
+            "readOnly": true,
+            "type": "string"
           },
           "reviewState": {
             "allOf": [
@@ -8102,7 +8113,7 @@
                     "type": "string"
                   },
                   "defaultRole": {
-                    "description": "The UIDP of the default role to grant users of this identity provider\non initial authentication. Users who already have an identity on this platform\nare unaffected.",
+                    "description": "The UIDP of the default role to grant users of this identity provider on\ninitial authentication. Users who already have an identity on this platform\nare unaffected. Required when SCIM provisioning is not enabled for the\nprovider (enforced server-side, gated on the live SCIM state); cleared when\nSCIM is enabled, since a SCIM provider grants access only to provisioned\nusers. May be set again while SCIM is enabled, as an explicit opt-in.",
                     "type": "string"
                   },
                   "description": {
@@ -8138,8 +8149,7 @@
                   }
                 },
                 "required": [
-                  "name",
-                  "defaultRole"
+                  "name"
                 ],
                 "title": "The identity provider to update.",
                 "type": "object"
@@ -9541,7 +9551,7 @@
     },
     "/libraries/v2beta1/requestGroups/{uid}": {
       "delete": {
-        "description": "A customer may delete their own drafts. Deleting a submitted group requires\nthe admin deleteSubmitted capability, since builds may already have run.",
+        "description": "Draft-only. A submitted group is refused, because the organization has\ncommitted to the builds it names and a member's ordinary delete capability\nmust not reach them. Deleting one is DeleteSubmittedRequestGroup below, whose\ncapability no customer role can hold.",
         "operationId": "RequestGroupsService_DeleteRequestGroup",
         "parameters": [
           {
@@ -9886,7 +9896,7 @@
             }
           },
           {
-            "description": "Filter by build availability.\n\n - AVAILABILITY_UNSPECIFIED: Unspecified availability.\n - AVAILABILITY_BUILT: Chainguard has built this exact version.\n - AVAILABILITY_CAN_BE_REQUESTED: Not built, and requestable. The upgrade field may name a newer built version.\n - AVAILABILITY_BLOCKED: On the malware block list. Still requestable, but the build is held until the\nblock is withdrawn — a false positive must not silently discard a legitimate\nrequest, and the daily refresh picks the item up once it clears.\n - AVAILABILITY_NOT_FOUND_UPSTREAM: The version does not exist on the upstream registry, so there is nothing to\nbuild. The only true dead end.\n - AVAILABILITY_WONT_BUILD: Chainguard will not build this version for policy reasons, such as licence or\nend-of-life.\n - AVAILABILITY_INVALID_REQUIREMENT: The requirement is not a parseable pinned package and version. Terminal and\nnot retried; the customer must fix or remove the line.\n - AVAILABILITY_BUILDING: A build has been triggered and is running.\n - AVAILABILITY_BUILD_FAILED: A build ran and failed. Retried automatically.",
+            "description": "Filter by build availability.\n\n - AVAILABILITY_UNSPECIFIED: Unspecified availability.\n - AVAILABILITY_BUILT: Chainguard has built this exact version.\n - AVAILABILITY_CAN_BE_REQUESTED: Not built, and requestable. The upgrade field may name a newer built version.\n - AVAILABILITY_BLOCKED: On the malware block list. Still requestable, but the build is held until the\nblock is withdrawn — a false positive must not silently discard a legitimate\nrequest, and the daily refresh picks the item up once it clears.\n - AVAILABILITY_NOT_FOUND_UPSTREAM: The version does not exist on the upstream registry, so there is nothing to\nbuild. The only true dead end.\n - AVAILABILITY_WONT_BUILD: Chainguard will not build this version for policy reasons, such as licence or\nend-of-life.\n - AVAILABILITY_INVALID_REQUIREMENT: The requirement is not a parseable pinned package and version. Terminal and\nnot retried; the customer must fix or remove the line.\n - AVAILABILITY_BUILDING: A build has been triggered and is running.\n - AVAILABILITY_BUILD_FAILED: A build ran and failed. Retried automatically.\n - AVAILABILITY_HELD: The build was declined and is being held, and no retry will change that on\nits own — a later publish of the version is what releases it.\n\nDeliberately not folded into AVAILABILITY_BLOCKED. That value is specific to\nthe malware block list and is documented as still requestable; reusing it\nhere would give a customer the same answer for \"this may be malware\" and\n\"the build is held\", which are different situations with different\nresolutions. Unlike a blocked item, a held one is not requestable.",
             "in": "query",
             "name": "availability",
             "schema": {
@@ -9900,7 +9910,8 @@
                 "AVAILABILITY_WONT_BUILD",
                 "AVAILABILITY_INVALID_REQUIREMENT",
                 "AVAILABILITY_BUILDING",
-                "AVAILABILITY_BUILD_FAILED"
+                "AVAILABILITY_BUILD_FAILED",
+                "AVAILABILITY_HELD"
               ],
               "type": "string"
             }
@@ -10007,6 +10018,59 @@
           }
         },
         "summary": "List Request Group Items",
+        "tags": [
+          "RequestGroupsService"
+        ]
+      }
+    },
+    "/libraries/v2beta1/requestGroups/{uid}:deleteSubmittedRequestGroup": {
+      "delete": {
+        "description": "Chainguard-internal only, and a distinct method rather than a branch inside\nDeleteRequestGroup: which capability a caller needs would otherwise depend on\nthe group's lifecycle state, so no annotation could describe it and the rule\nwould have to be re-derived from a state read behind this surface. Two\nmethods let the interceptor decide from the annotation alone, which is how\nevery other RPC here is authorized.\n\nThe deletion itself is the same two-phase operation either way -- cancel,\ndrop the item rows, keep the tombstone -- so the two methods differ in who\nmay ask, not in what happens.",
+        "operationId": "RequestGroupsService_DeleteSubmittedRequestGroup",
+        "parameters": [
+          {
+            "description": "The group to delete.\n\nA flat UUID, not a Chainguard ID, as on GetRequestGroupRequest.uid. The IAM\nscope travels on parent below.",
+            "in": "path",
+            "name": "uid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          },
+          {
+            "description": "The organization that owns the group.\n\nCarries the IAM scope for this request, as on RefreshCoverageRequest.parent.\nRequired even though only Chainguard staff can call this: the capability is\nstill checked against an organization, and a staff-facing call is not an\nunscoped one.",
+            "in": "query",
+            "name": "parent",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Delete Submitted Request Group",
         "tags": [
           "RequestGroupsService"
         ]
@@ -10270,7 +10334,7 @@
             }
           },
           {
-            "description": "Filter by computed build status.\n\n - REQUESTED_LIBRARY_BUILD_STATUS_UNSPECIFIED: Unspecified build status.\n - REQUESTED_LIBRARY_BUILD_STATUS_REVIEWING: Submitted, but no build activity on any version yet.\n - REQUESTED_LIBRARY_BUILD_STATUS_IN_PROGRESS: Build activity has started on at least one version and at least one buildable\nversion is not built yet. A version that is already built, or that failed and\nwill be retried, counts as activity.\n - REQUESTED_LIBRARY_BUILD_STATUS_COMPLETE: Every buildable requested version is built, with at least one built and\nnothing still building or failed.\n - REQUESTED_LIBRARY_BUILD_STATUS_WONT_BUILD: No requested version is buildable.",
+            "description": "Filter by computed build status.\n\n - REQUESTED_LIBRARY_BUILD_STATUS_UNSPECIFIED: Unspecified build status.\n - REQUESTED_LIBRARY_BUILD_STATUS_REVIEWING: Submitted, but no build activity on any version yet.\n - REQUESTED_LIBRARY_BUILD_STATUS_IN_PROGRESS: Build activity has started on at least one version and at least one buildable\nversion is not built yet. A version that is already built, or that failed and\nwill be retried, counts as activity.\n - REQUESTED_LIBRARY_BUILD_STATUS_COMPLETE: Every buildable requested version is built, with at least one built.\n\nThe rung is over versions, not over requests. A version counts as built\nonce any request for it resolved to an artifact, so a second request for\nthe same version -- whose own status may still say building, because a\nrequest's status is a snapshot from its own check -- does not reopen the\nlibrary. Reporting IN_PROGRESS there would tell the customer to wait for\nsomething they can already pull.\n - REQUESTED_LIBRARY_BUILD_STATUS_WONT_BUILD: No requested version is buildable.",
             "in": "query",
             "name": "buildStatus",
             "schema": {
@@ -10365,7 +10429,7 @@
         ]
       }
     },
-    "/libraries/v2beta1/requestedLibraries:versions": {
+    "/libraries/v2beta1/requestedLibraries:listRequestedLibraryVersions": {
       "get": {
         "description": "A requested library is a computed aggregate identified by name and ecosystem\nrather than a stored resource with a uid, so this reads as a custom method on\nthe collection instead of a sub-resource of an addressable parent.",
         "operationId": "RequestGroupsService_ListRequestedLibraryVersions",
@@ -10405,7 +10469,7 @@
             }
           },
           {
-            "description": "Filter by build availability.\n\n - AVAILABILITY_UNSPECIFIED: Unspecified availability.\n - AVAILABILITY_BUILT: Chainguard has built this exact version.\n - AVAILABILITY_CAN_BE_REQUESTED: Not built, and requestable. The upgrade field may name a newer built version.\n - AVAILABILITY_BLOCKED: On the malware block list. Still requestable, but the build is held until the\nblock is withdrawn — a false positive must not silently discard a legitimate\nrequest, and the daily refresh picks the item up once it clears.\n - AVAILABILITY_NOT_FOUND_UPSTREAM: The version does not exist on the upstream registry, so there is nothing to\nbuild. The only true dead end.\n - AVAILABILITY_WONT_BUILD: Chainguard will not build this version for policy reasons, such as licence or\nend-of-life.\n - AVAILABILITY_INVALID_REQUIREMENT: The requirement is not a parseable pinned package and version. Terminal and\nnot retried; the customer must fix or remove the line.\n - AVAILABILITY_BUILDING: A build has been triggered and is running.\n - AVAILABILITY_BUILD_FAILED: A build ran and failed. Retried automatically.",
+            "description": "Filter by build availability.\n\n - AVAILABILITY_UNSPECIFIED: Unspecified availability.\n - AVAILABILITY_BUILT: Chainguard has built this exact version.\n - AVAILABILITY_CAN_BE_REQUESTED: Not built, and requestable. The upgrade field may name a newer built version.\n - AVAILABILITY_BLOCKED: On the malware block list. Still requestable, but the build is held until the\nblock is withdrawn — a false positive must not silently discard a legitimate\nrequest, and the daily refresh picks the item up once it clears.\n - AVAILABILITY_NOT_FOUND_UPSTREAM: The version does not exist on the upstream registry, so there is nothing to\nbuild. The only true dead end.\n - AVAILABILITY_WONT_BUILD: Chainguard will not build this version for policy reasons, such as licence or\nend-of-life.\n - AVAILABILITY_INVALID_REQUIREMENT: The requirement is not a parseable pinned package and version. Terminal and\nnot retried; the customer must fix or remove the line.\n - AVAILABILITY_BUILDING: A build has been triggered and is running.\n - AVAILABILITY_BUILD_FAILED: A build ran and failed. Retried automatically.\n - AVAILABILITY_HELD: The build was declined and is being held, and no retry will change that on\nits own — a later publish of the version is what releases it.\n\nDeliberately not folded into AVAILABILITY_BLOCKED. That value is specific to\nthe malware block list and is documented as still requestable; reusing it\nhere would give a customer the same answer for \"this may be malware\" and\n\"the build is held\", which are different situations with different\nresolutions. Unlike a blocked item, a held one is not requestable.",
             "in": "query",
             "name": "availability",
             "schema": {
@@ -10419,7 +10483,8 @@
                 "AVAILABILITY_WONT_BUILD",
                 "AVAILABILITY_INVALID_REQUIREMENT",
                 "AVAILABILITY_BUILDING",
-                "AVAILABILITY_BUILD_FAILED"
+                "AVAILABILITY_BUILD_FAILED",
+                "AVAILABILITY_HELD"
               ],
               "type": "string"
             }
@@ -10746,7 +10811,7 @@
         "operationId": "OverlayBindingsService_UpdateOverlayBinding",
         "parameters": [
           {
-            "description": "The unique identifier of this OverlayBinding, a UIDP under the repo\nit attaches to.",
+            "description": "The unique identifier of this OverlayBinding, a UIDP under the repo\nit attaches to. Carries iam_scope so requests that embed the resource\n(UpdateOverlayBinding) resolve their authorization scope from it.",
             "in": "path",
             "name": "uid",
             "required": true,
@@ -10767,7 +10832,7 @@
                         "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.Overlay"
                       }
                     ],
-                    "description": "The referenced Overlay expanded inline (uid, name, and its config\nrendered packages-only) so list responses are audit-complete without\na follow-up call.",
+                    "description": "The referenced Overlay expanded inline (uid, name, and its config\nrendered in full) so list responses are audit-complete without\na follow-up call.",
                     "readOnly": true
                   },
                   "repo": {
@@ -11082,11 +11147,11 @@
         ]
       },
       "patch": {
-        "description": "UpdateOverlay updates an overlay's mutable fields: its name and its\nconfig. Only config.contents.packages may be populated; any other\nconfig field fails with InvalidArgument.",
+        "description": "UpdateOverlay updates an overlay's mutable fields: its name and its\nconfig. A submitted config is validated like create and replaces the\nstored config wholesale.",
         "operationId": "OverlaysService_UpdateOverlay",
         "parameters": [
           {
-            "description": "The unique identifier of this Overlay, a UIDP under the owning group.",
+            "description": "The unique identifier of this Overlay, a UIDP under the owning group.\nCarries iam_scope so requests that embed the resource (UpdateOverlay)\nresolve their authorization scope from it.",
             "in": "path",
             "name": "uid",
             "required": true,
@@ -11107,7 +11172,7 @@
                         "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay"
                       }
                     ],
-                    "description": "The overlay content, the same shape as Repo.custom_overlay. Only\ncontents.packages may be set this milestone: at least one package is\nrequired on create, and any other populated field is rejected."
+                    "description": "The overlay content, the same shape as Repo.custom_overlay,\nvalidated with the same field rules. At least one customization\nfield must be set."
                   },
                   "name": {
                     "description": "The name of the Overlay, unique among the group's overlays.",
@@ -11155,7 +11220,7 @@
         ]
       },
       "post": {
-        "description": "CreateOverlay creates a named overlay under a group. Only\nconfig.contents.packages may be populated; any other config field\nfails with InvalidArgument.",
+        "description": "CreateOverlay creates a named overlay under a group. The config may\npopulate any customer-settable CustomOverlay field and must populate\nat least one; it is validated with the same field rules as\nRepo.custom_overlay.",
         "operationId": "OverlaysService_CreateOverlay",
         "parameters": [
           {
@@ -11907,6 +11972,14 @@
             "name": "digest",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "description": "Include tags carrying an apk VCS snapshot suffix (_cvs, _svn, _git, _hg),\ne.g. \"3.14.7_git20260914\".",
+            "in": "query",
+            "name": "includeVcsSnapshots",
+            "schema": {
+              "type": "boolean"
             }
           },
           {

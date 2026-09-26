@@ -1,5 +1,5 @@
 ---
-date: 2026-09-15T20:06:33Z
+date: 2026-09-23T09:48:16Z
 title: "chainctl images repos list"
 slug: chainctl_images_repos_list
 url: /platform/chainctl/chainctl-docs/chainctl_images_repos_list/
@@ -14,7 +14,7 @@ toc: true
 List image repositories.
 
 ```
-chainctl images repos list [--repo=REPO_NAME] [--public | --parent=PARENT_NAME|PARENT_ID] [--updated-within=DURATION] [--show-dates] [--show-epochs] [--show-referrers] [--active-only]
+chainctl images repos list [--repo=REPO_NAME] [--public | --parent=PARENT_NAME|PARENT_ID] [--updated-within=DURATION] [--show-dates] [--show-epochs] [--show-referrers] [--show-vcs-snapshots] [--active-only]
 ```
 
 ### Options

@@ -8,7 +8,7 @@ aliases:
 - /chainguard/containers/staying-secure/updating-images/renovate/
 - /chainguard/containers/staying-secure/updating-containers/renovate/
 type: "article"
-description: "How to use Renovate to automatically keep Chainguard Containers updated"
+description: "How to use Renovate to automatically keep Chainguard Containers, Helm charts and packages updated"
 date: 2023-09-05T11:07:52+02:00
 lastmod: 2026-09-04T16:13:45+00:00
 draft: false
@@ -18,9 +18,7 @@ weight: 030
 toc: true
 ---
 
-[Renovate](https://github.com/renovatebot/renovate) can be used to alert on updates to Chainguard Containers. This can be an effective way to keep your images up-to-date and free of CVEs. This article explains how to configure Renovate to support Chainguard Containers.
-
-> **NOTE**: This article describes using Renovate to alert on new versions of Chainguard Containers. It is not about alerts for Wolfi packages (which is unsupported at the time of writing).
+[Renovate](https://github.com/renovatebot/renovate) can be used to alert on updates to Chainguard Containers, Helm charts and APK packages. This can be an effective way to keep your images up-to-date and free of CVEs. This article explains how to configure Renovate for each.
 
 ## Prerequisites
 
@@ -180,6 +178,117 @@ Here is an example Renovate configuration that does this:
 This configures Renovate to update the digest for a reference but not the tag.
 
 The benefit of this approach is that it lets you define your update strategy for each image reference through a mutable tag, rather than having separate rules for different images in your Renovate configuration, similar to Chainguard's [Digestabot](https://github.com/chainguard-dev/digestabot) GitHub Action.
+
+## Update packages in Dockerfiles
+
+> **Note**: **Pin APK packages and images together.** Newer images introduced by mutable tags may include newer packages that conflict with your older pinned package versions. If you are pinning package versions then you should also pin the base image to a digest and use Renovate to keep both up to date. This ensures a higher degree of reproducibility and avoids unexpected build failures.
+
+<!-- markdownlint-disable-next-line MD028 -->
+> **Note**: **Renovate only supports exact package names.** It doesn't resolve `provides` aliases, so pin the fully-qualified name (e.g `argo-cd-2.14`, not `argo-cd`).
+
+Pinned package versions accumulate CVEs over time and may become unavailable as Chainguard [removes older versions from its repositories](/chainguard/containers/building-and-modifying/packages/package-model/#package-retention-in-public-repositories). Renovate's [APK datasource](https://docs.renovatebot.com/modules/datasource/apk/) (introduced in version 44.97.1) can update `apk add pkg=version` pins in Dockerfiles, keeping them current as new package versions are released.
+
+For example, the following Dockerfile pins two APK packages that Renovate can bump:
+
+```dockerfile
+FROM cgr.dev/<org-name>/chainguard-base@sha256:aaaa...
+
+RUN apk add --no-cache \
+    curl=8.12.1-r0 \
+    jq=1.8.1-r3
+```
+
+### Default repositories
+
+Chainguard Containers ship with their `/etc/apk/repositories` file already populated with two public, org-scoped mirrors served from `virtualapk.cgr.dev`. Neither requires authentication:
+
+* **`virtualapk.cgr.dev/<org-id>/chainguard`** — open-source packages used in Chainguard's Free container images.
+* **`virtualapk.cgr.dev/<org-id>/extra-packages`** — additional packages that aren't fully open source but can still be redistributed by Chainguard.
+
+If you aren't modifying `/etc/apk/repositories` in your build then you should add a `packageRules` entry to your `renovate.json` that matches the `apk` datasource and lists both of the default URLs.
+
+```json
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": ["apk"],
+      "registryUrls": [
+        "https://virtualapk.cgr.dev/<org-id>/chainguard?arch=x86_64",
+        "https://virtualapk.cgr.dev/<org-id>/extra-packages?arch=x86_64"
+      ]
+    }
+  ]
+}
+```
+
+Replace `<org-id>` with your organization's ID, which you can find by running `chainctl iam org list -o table`.
+
+Set `arch=aarch64` if you are building exclusively for that architecture.
+
+In practice, Chainguard publish almost every package with the same versions for each architecture. However, there are some exceptions, so if you are building on both, you may consider having duplicate URLs for each architecture, or having specific `packageRules` for different Dockerfiles depending on target architecture.
+
+### Private repository
+
+Your organization-scoped [private repository](/chainguard/containers/building-and-modifying/packages/private-apk-repos/) (**`apk.cgr.dev/<org-name>`**) serves the packages your organization is entitled to and provides packages that are not available from the public mirrors. To get access to the largest range of packages and versions, you should use it in addition to the default, public repositories.
+
+If you are modifying the `/etc/apk/repositories` file in your builds to include it, then you should also include it in your Renovate configuration. Since the private repository requires authentication, add a `hostRules` entry alongside `packageRules`. The `username` and `password` are sourced from [Renovate secrets](https://docs.renovatebot.com/self-hosted-configuration/#secrets) so the credentials themselves stay out of source control:
+
+```json
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "hostRules": [
+    {
+      "matchHost": "apk.cgr.dev",
+      "username": "{{ secrets.PULL_TOKEN_USERNAME }}",
+      "password": "{{ secrets.PULL_TOKEN_PASSWORD }}"
+    }
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": ["apk"],
+      "registryUrls": [
+        "https://virtualapk.cgr.dev/<org-id>/chainguard?arch=x86_64",
+        "https://virtualapk.cgr.dev/<org-id>/extra-packages?arch=x86_64",
+        "https://apk.cgr.dev/<org-name>?arch=x86_64"
+      ]
+    }
+  ]
+}
+```
+
+Replace `<org-name>` with your organization's name and `<org-id>` with your organization's ID, which you can find by running `chainctl iam org list -o table`.
+
+If your build is exclusively using the private repository then you should remove the public `virtualapk.cgr.dev` URLs from the list.
+
+For the username and password, you can generate a pull token for long-lived static credentials:
+
+```shell
+chainctl auth pull-token create --repository=apk --ttl=259200m
+```
+
+Or for short-lived credentials, either locally or when using [assumable identities](/platform/administration/assumable-ids/assumable-ids/), generate an access token that is valid for an hour and use it with the username `_token`:
+
+```shell
+chainctl auth token --audience=apk.cgr.dev
+```
+
+Either way, inject the credentials into the `PULL_TOKEN_USERNAME` and `PULL_TOKEN_PASSWORD` secrets at runtime via the `RENOVATE_SECRETS` environment variable:
+
+```shell
+export RENOVATE_SECRETS="{\"PULL_TOKEN_USERNAME\": \"<username>\", \"PULL_TOKEN_PASSWORD\": \"<password>\"}"
+```
+
+Alternatively, you can supply the credentials to Renovate in one of two other ways:
+
+* **Environment variables** — set `RENOVATE_DETECT_HOST_RULES_FROM_ENV=true` and expose the credentials as `RENOVATE_APK_APK_CGR_DEV_USERNAME` and `RENOVATE_APK_APK_CGR_DEV_PASSWORD`. Renovate assembles a `hostRules` entry from these at runtime, so you can drop the `hostRules` block from `renovate.json`. The [Run Renovate in GitHub Actions](#run-renovate-in-github-actions) and [Run Renovate with Docker](#run-renovate-with-docker) sections below use this pattern.
+* **`hostRules` in a self-hosted [`config.js`](https://docs.renovatebot.com/self-hosted-configuration/)** — put the `hostRules` block in the self-hosted config file, reading credentials from `process.env`. The [Set up credentials for Renovate](#set-up-credentials-for-renovate) section above uses this pattern for `cgr.dev`.
 
 ## Update Chainguard Helm charts in Helmfiles
 
@@ -385,7 +494,7 @@ Next, create an assumable identity for your GitHub repository. The `--github-rep
 chainctl iam identities create github <identity-name> \
   --github-repo=<github-org>@<owner-id>/<github-repo-name>@<repo-id> \
   --github-ref=refs/heads/main \
-  --role=registry.pull
+  --role=registry.pull,apk.pull
 ```
 
 Create a workflow file named `.github/workflows/renovate.yaml` with the following content. Replace `<identity-id>` with the ID returned by the previous command.
@@ -423,6 +532,10 @@ jobs:
         echo "::add-mask::$RENOVATE_DOCKER_CGR_DEV_PASSWORD"
         echo "RENOVATE_DOCKER_CGR_DEV_PASSWORD=$RENOVATE_DOCKER_CGR_DEV_PASSWORD" >> $GITHUB_ENV
 
+        RENOVATE_APK_APK_CGR_DEV_PASSWORD=$(chainctl auth token --audience=apk.cgr.dev)
+        echo "::add-mask::$RENOVATE_APK_APK_CGR_DEV_PASSWORD"
+        echo "RENOVATE_APK_APK_CGR_DEV_PASSWORD=$RENOVATE_APK_APK_CGR_DEV_PASSWORD" >> $GITHUB_ENV
+
     - name: Run Renovate
       uses: renovatebot/github-action@6927a58a017ee9ac468a34a5b0d2a9a9bd45cac3 # v43.0.11
       env:
@@ -430,13 +543,14 @@ jobs:
         RENOVATE_REPOSITORIES: ${{ github.repository }}
         RENOVATE_DETECT_HOST_RULES_FROM_ENV: "true"
         RENOVATE_DOCKER_CGR_DEV_USERNAME: "_token"
+        RENOVATE_APK_APK_CGR_DEV_USERNAME: "_token"
 ```
 
 This workflow performs the following steps:
 
 * Installs chainctl and logs in as the assumable identity you created.
-* Exports a short-lived token for cgr.dev as `RENOVATE_DOCKER_CGR_DEV_PASSWORD`.
-* Runs Renovate with `RENOVATE_DETECT_HOST_RULES_FROM_ENV=true` so that it uses the password exported by the previous step.
+* Exports short-lived tokens for cgr.dev and apk.cgr.dev as `RENOVATE_DOCKER_CGR_DEV_PASSWORD` and `RENOVATE_APK_APK_CGR_DEV_PASSWORD`.
+* Runs Renovate with `RENOVATE_DETECT_HOST_RULES_FROM_ENV=true` so that it uses the passwords exported by the previous step.
 
 Push this file to your repository's `main` branch.
 
@@ -484,11 +598,13 @@ docker run \
   -e RENOVATE_DETECT_HOST_RULES_FROM_ENV=true \
   -e RENOVATE_DOCKER_CGR_DEV_USERNAME=_token \
   -e RENOVATE_DOCKER_CGR_DEV_PASSWORD=$(chainctl auth token --audience cgr.dev) \
+  -e RENOVATE_APK_APK_CGR_DEV_USERNAME=_token \
+  -e RENOVATE_APK_APK_CGR_DEV_PASSWORD=$(chainctl auth token --audience apk.cgr.dev) \
   cgr.dev/<org-name>/renovate \
   <github-org>/<github-repo-name>
 ```
 
-This example passes a short-lived token for `cgr.dev` using the `RENOVATE_DOCKER_CGR_DEV_PASSWORD` environment variable.
+This example passes short-lived tokens for `cgr.dev` and `apk.cgr.dev` using the `RENOVATE_DOCKER_CGR_DEV_PASSWORD` and `RENOVATE_APK_APK_CGR_DEV_PASSWORD` environment variables.
 
 ## Troubleshooting
 
@@ -554,3 +670,4 @@ These can be safely ignored. They are caused by Renovate using the `org.opencont
 * [Strategies and tooling for updating containers](/chainguard/containers/security-and-compliance/updating-containers/strategies-tools-updating-images/) compares the wider range of update tools.
 * [Considerations for keeping containers up to date](/chainguard/containers/security-and-compliance/updating-containers/considerations-for-image-updates/) covers the tradeoffs behind an update policy.
 * [Authenticating to the Chainguard registry](/chainguard/containers/registry/authenticating/) documents pull tokens and the other authentication options in full.
+* [Renovate's APK datasource documentation](https://docs.renovatebot.com/modules/datasource/apk/) covers every `registryUrl` query parameter Renovate supports.

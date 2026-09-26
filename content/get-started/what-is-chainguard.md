@@ -5,14 +5,14 @@ lead: "A high-level introduction to Chainguard: the problem it solves, the produ
 description: "An overview of Chainguard: its mission to be the secure source for open source, its products (Containers, Libraries, and OS), and the Factory that builds them."
 type: "article"
 date: 2026-07-23T00:00:00+00:00
-lastmod: 2026-08-28T16:31:04+00:00
+lastmod: 2026-09-24T16:28:41+00:00
 draft: false
 tags: ["Getting Started"]
 images: []
 weight: 001
 ---
 
-Nearly every modern application is built on open source software. That software is powerful, but it arrives with problems: vulnerabilities (including publicly disclosed [CVEs](https://edu.chainguard.dev/software-security/glossary/#cve)), unpatched dependencies, unclear provenance, and the constant work of keeping it all up to date. Tracking and fixing these issues across a large codebase consumes engineering time that could go toward building products.
+Nearly every modern application is built on open source software. That software is powerful, but it arrives with problems: vulnerabilities (including publicly disclosed CVEs), unpatched dependencies, unclear provenance, and the constant work of keeping it all up to date. Tracking and fixing these issues across a large codebase consumes engineering time that could go toward building products.
 
 Chainguard's mission is to be the secure source for open source. Rather than leaving you to patch and harden open source software yourself, Chainguard rebuilds it from source in a hardened build environment, keeps it continuously updated, and distributes it with the metadata you need to verify what you're running. The result is software that carries low-to-no known CVEs and requires far less remediation work from your team.
 
