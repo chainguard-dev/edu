@@ -5,10 +5,10 @@ description: "The three practices behind the low CVE counts in Chainguard Contai
 type: "article"
 tags: ["Video", "Chainguard Containers"]
 date: 2024-05-31T12:21:01+00:00
-lastmod: 2026-09-09T00:00:00+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 images: []
-weight: 070
+weight: 70
 toc: true
 aliases:
 - /chainguard/chainguard-images/videos/zerocve/

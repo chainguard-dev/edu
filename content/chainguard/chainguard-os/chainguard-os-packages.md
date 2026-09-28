@@ -4,9 +4,9 @@ lead: ""
 description: "Chainguard OS Packages"
 type: "article"
 date: 2026-04-01T00:48:23+00:00
-lastmod: 2026-04-01T00:48:23+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
-weight: 020
+weight: 20
 ---
 
 {{< beta feature="Chainguard OS Packages" enroll="true" >}}

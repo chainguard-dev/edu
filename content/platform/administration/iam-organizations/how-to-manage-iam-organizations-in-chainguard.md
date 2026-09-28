@@ -9,14 +9,14 @@ aliases:
 type: "article"
 description: "Using identity and access management in Chainguard"
 date: 2022-07-15T15:22:20+01:00
-lastmod: 2024-04-03T15:22:20+01:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Console", "Procedural"]
 images: []
 menu:
   docs:
     parent: "iam-organizations"
-weight: 010
+weight: 20
 toc: true
 ---
 

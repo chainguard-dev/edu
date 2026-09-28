@@ -4,7 +4,7 @@ linktitle: "Install"
 type: "article"
 description: "An overview of how to instal rekor-cli to query the Sigstore transparency log"
 date: 2022-08-20T08:49:31+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Rekor", "Procedural"]
 images: []
@@ -12,7 +12,7 @@ menu:
   docs:
     parent: "rekor"
     identifier: "Rekor CLI Install"
-weight: 002
+weight: 20
 toc: true
 ---
 

@@ -5,14 +5,14 @@ description: "Using vexctl to manage vulnerability communications"
 lead: "A guide to SBOM quality"
 type: "article"
 date: 2023-01-30T15:21:01+02:00
-lastmod: 2026-07-27T17:03:50+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["SBOM", "VEX", "Procedural"]
 images: []
 menu:
   docs:
     parent: "sbom"
-weight: 10
+weight: 20
 toc: true
 ---
 

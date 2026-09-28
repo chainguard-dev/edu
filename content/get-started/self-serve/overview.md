@@ -6,9 +6,9 @@ lead: ""
 description: "Overview of the self-serve options for provisioning Chainguard products, including Catalog Starter and self-serve Helm charts"
 type: "article"
 date: 2026-05-12T01:00:01+00:00
-lastmod: 2026-09-02T13:31:42+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
-weight: 010
+weight: 10
 ---
 
 **Self-serve** refers to the ways you can provision Chainguard products,

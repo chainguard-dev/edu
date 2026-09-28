@@ -10,7 +10,7 @@ aliases:
 type: "article"
 description: "How to use Chainguard's Custom Assembly tool"
 date: 2025-02-19T11:07:52+02:00
-lastmod: 2026-09-09T18:05:27+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly"]
 images: []
@@ -18,7 +18,7 @@ menu:
   docs:
     parent: "features"
     identifier: "Custom Assembly Introduction"
-weight: 010
+weight: 10
 toc: true
 ---
 

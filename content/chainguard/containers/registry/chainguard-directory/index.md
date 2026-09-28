@@ -9,11 +9,11 @@ aliases:
 type: "article"
 description: "A walkthrough of the Chainguard Directory."
 date: 2024-02-23T11:07:52+02:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
-weight: 040
+weight: 40
 toc: true
 ---
 

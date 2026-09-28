@@ -7,14 +7,14 @@ type: "article"
 description: "Use Cosign to verify non-container software artifacts"
 lead: "Cosign can verify software artifacts beyond containers"
 date: 2022-12-21T15:22:20+01:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Cosign", "Procedural"]
 images: []
 menu:
   docs:
     parent: "cosign"
-weight: 006
+weight: 60
 toc: true
 ---
 

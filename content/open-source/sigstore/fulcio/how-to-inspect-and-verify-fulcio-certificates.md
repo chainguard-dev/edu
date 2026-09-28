@@ -4,14 +4,14 @@ linktitle: "Inspect and verify certificates"
 type: "article"
 description: "Confirming the authenticity of a Fulcio certificate for a more secure software supply chain"
 date: 2022-08-19T08:49:31+00:00
-lastmod: 2022-08-19T08:49:31+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Fulcio", "Procedural"]
 images: []
 menu:
   docs:
     parent: "fulcio"
-weight: 630
+weight: 20
 toc: true
 ---
 

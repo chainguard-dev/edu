@@ -5,14 +5,14 @@ type: "article"
 description: "Signing software bills of materials with Cosign"
 lead: "Use Cosign to sign software bills of materials (SBOMs)"
 date: 2022-07-13T15:22:20+01:00
-lastmod: 2025-12-26T15:16:50+01:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Cosign", "Procedural", "SBOM"]
 images: []
 menu:
   docs:
     parent: "cosign"
-weight: 005
+weight: 50
 toc: true
 ---
 

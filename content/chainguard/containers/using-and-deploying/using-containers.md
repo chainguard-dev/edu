@@ -11,11 +11,11 @@ type: "article"
 description: "Learn how to use Chainguard Containers in your applications, including pulling images, extending base images, and migrating from traditional container images"
 lead: "Chainguard Containers provide more secure, minimal base images that work with standard container tools like Docker and Kubernetes, making migration straightforward while improving security posture."
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
-weight: 010
+weight: 10
 toc: true
 ---
 

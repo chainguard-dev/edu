@@ -6,11 +6,11 @@ linktitle: "Getting started"
 type: "article"
 description: "Deploy and verify your first Chainguard FIPS container"
 date: 2025-10-16T08:00:00+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["FIPS", "Tutorial", "Getting Started"]
 images: []
-weight: 030
+weight: 30
 toc: true
 ---
 

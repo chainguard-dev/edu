@@ -8,11 +8,11 @@ type: "article"
 description: "A primer on how to use Chainguard-produced iamguarded Helm charts to deploy Chainguard container images"
 lead: "A primer on how to use Chainguard-produced iamguarded Helm charts to deploy Chainguard container images"
 date: 2025-07-11T08:49:31+00:00
-lastmod: 2026-09-25T13:46:15+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Helm charts", "iamguarded", "Product"]
 images: []
-weight: 020
+weight: 20
 toc: true
 ---
 

@@ -4,11 +4,11 @@ linktitle: "Inspecting containers"
 description: "How to identify exactly which container build you have with a digest, and how to read the software versions inside it from the container's SBOM"
 type: "article"
 date: 2023-07-07T15:21:01+00:00
-lastmod: 2026-09-08T00:00:00+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
-weight: 020
+weight: 30
 toc: true
 aliases:
 - /chainguard/chainguard-images/videos/container-image-digests/

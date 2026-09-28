@@ -7,8 +7,8 @@ aliases:
 description: "Guides outlining the differences between Chainguard Containers and third-party images."
 type: "article"
 date: 2025-01-16T18:42:57+00:00
-lastmod: 2025-01-16T18:42:57+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 images: []
-weight: 070
+weight: 70
 ---

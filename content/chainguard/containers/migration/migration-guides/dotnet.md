@@ -8,11 +8,11 @@ linktitle: ".NET"
 type: "article"
 description: "Learn how to migrate .NET applications from images provided by Microsoft to Chainguard's security-hardened .NET container images."
 date: 2025-11-05T00:00:00+00:00
-lastmod: 2026-09-25T13:44:25+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Migration"]
 images: []
-weight: 010
+weight: 10
 toc: true
 ---
 

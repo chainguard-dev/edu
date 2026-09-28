@@ -4,10 +4,10 @@ lead: "Security and transparency for AI-ready documentation"
 description: "Learn about the security measures and compilation process for Chainguard's AI documentation bundles"
 type: "article"
 date: 2025-07-30T10:00:00+00:00
-lastmod: 2026-09-04T13:19:55+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 images: []
-weight: 60
+weight: 20
 seo:
   robots: "noindex, follow"
 menu:

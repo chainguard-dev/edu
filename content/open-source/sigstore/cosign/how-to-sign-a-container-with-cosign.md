@@ -5,14 +5,14 @@ type: "article"
 lead: "Container signing using Cosign"
 description: "Signing containers with Cosign"
 date: 2022-07-13T13:26:54+01:00
-lastmod: 2025-12-26T15:16:50+01:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Cosign", "Procedural"]
 images: []
 menu:
   docs:
     parent: "cosign"
-weight: 003
+weight: 30
 toc: true
 ---
 

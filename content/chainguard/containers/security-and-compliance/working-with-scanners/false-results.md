@@ -14,7 +14,7 @@ description: "An overview of the formation of false positive and false negative 
 lead: "An overview of the formation of false positive and false negative vulnerability results in container image scanners"
 type: "article"
 date: 2023-09-14T16:59:04+00:00
-lastmod: 2026-09-11T17:42:16+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 contributors: ["Michelle McAveety"]
 draft: false
 tags: ["CVE", "Overview", "Conceptual"]
@@ -22,7 +22,7 @@ images: []
 menu:
   docs:
     parent: "scanners"
-weight: 010
+weight: 10
 toc: true
 ---
 

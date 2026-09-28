@@ -10,11 +10,11 @@ aliases:
 type: "article"
 description: "How to use Renovate to automatically keep Chainguard Containers, Helm charts and packages updated"
 date: 2023-09-05T11:07:52+02:00
-lastmod: 2026-09-04T16:13:45+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
-weight: 030
+weight: 30
 toc: true
 ---
 

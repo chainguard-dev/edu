@@ -4,14 +4,14 @@ linktitle: "Generate Fulcio certificate"
 type: "article"
 description: "Tutorial on how to generate a certificate with Fulcio for software security"
 date: 2022-08-19T08:49:31+00:00
-lastmod: 2022-08-19T08:49:31+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Fulcio", "Procedural"]
 images: []
 menu:
   docs:
     parent: "fulcio"
-weight: 630
+weight: 20
 toc: true
 ---
 

@@ -7,14 +7,14 @@ lead: "An apk builder tool"
 type: "article"
 description: "melange is a declarative apk builder"
 date: 2022-07-21T15:21:01+02:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["melange", "Procedural"]
 images: []
 menu:
   docs:
     parent: "melange-tutorials"
-weight: 100
+weight: 20
 toc: true
 ---
 

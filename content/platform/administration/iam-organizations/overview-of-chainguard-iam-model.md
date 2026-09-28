@@ -9,14 +9,14 @@ type: "article"
 description: "Learn how Chainguard's identity and access management (IAM) model works with organizations, folders, and role-based access control for more secure resource management"
 lead: "Chainguard's identity and access management (IAM) provides enterprise-grade access control for container registries and security resources through organizations, folders, and fine-grained permissions."
 date: 2022-07-15T15:22:20+01:00
-lastmod: 2026-08-21T16:30:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Console", "Reference"]
 images: []
 menu:
   docs:
     parent: "iam-organizations"
-weight: 005
+weight: 10
 toc: true
 ---
 

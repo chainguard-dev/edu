@@ -4,14 +4,14 @@ type: "article"
 linktitle: "WordPress"
 description: "Learn how to deploy WordPress using Chainguard's security-hardened container image with reduced vulnerabilities and distroless runtime options"
 date: 2024-07-19T11:07:52+02:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
 menu:
   docs:
     parent: "getting-started"
-weight: 050
+weight: 50
 toc: true
 aliases:
 - /chainguard/chainguard-images/getting-started/wordpress/

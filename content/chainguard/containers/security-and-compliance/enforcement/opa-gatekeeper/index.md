@@ -4,11 +4,11 @@ linktitle: "OPA Gatekeeper"
 type: "article"
 description: "How to enforce best practices and ensure compliance with OPA Gatekeeper."
 date: 2025-09-02T10:00:00-00:00
-lastmod: 2025-09-02T10:00:00-00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Overview", "Policy"]
 images: []
-weight: 020
+weight: 20
 toc: true
 aliases:
 - /chainguard/chainguard-images/staying-secure/enforcement/opa-gatekeeper/

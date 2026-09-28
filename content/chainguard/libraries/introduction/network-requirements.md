@@ -4,13 +4,13 @@ linktitle: "Network requirements"
 description: "Learn the network requirements for accessing Chainguard Libraries, including domains needed for authentication, package downloads, and verification tools"
 type: "article"
 date: 2025-06-04T09:30:00+00:00
-lastmod: 2026-08-25T13:24:30+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Libraries", "Reference"]
 menu:
   docs:
     parent: "introduction"
-weight: 014
+weight: 40
 toc: true
 aliases:
   - /chainguard/libraries/network-requirements/

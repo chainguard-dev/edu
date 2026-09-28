@@ -9,14 +9,14 @@ aliases:
 type: "article"
 description: "Learn how to use Chainguard's Ruby container images for secure Ruby applications, including multi-stage builds for Rubygems and minimal runtime images"
 date: 2023-05-10T11:07:52+02:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
 menu:
   docs:
     parent: "getting-started"
-weight: 070
+weight: 70
 toc: true
 ---
 

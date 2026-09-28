@@ -6,11 +6,11 @@ lead: "Chainguard's chainctl events commands enable CloudEvents-based monitoring
 description: "Learn how to use chainctl events commands to create, view, and manage CloudEvents subscriptions for monitoring Chainguard security events and container activities"
 type: "article"
 date: 2025-05-06T08:49:15+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["chainctl"]
 images: []
-weight: 050
+weight: 70
 ---
 
 Chainguard's `chainctl events` commands provide programmatic access to security event streams using the [CloudEvents](https://cloudevents.io/) specification. These commands enable you to monitor container activities, security alerts, and supply chain events across your organization for enhanced observability and compliance.

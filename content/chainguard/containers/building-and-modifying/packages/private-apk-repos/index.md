@@ -9,11 +9,11 @@ aliases:
 type: "article"
 description: "An overview of how to work with Chainguard's private APK repositories."
 date: 2025-02-21T11:07:52+02:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
-weight: 020
+weight: 20
 toc: true
 ---
 

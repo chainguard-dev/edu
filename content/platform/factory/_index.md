@@ -6,9 +6,9 @@ linktitle: "Chainguard Factory"
 type: "section"
 description: "Learn about the Chainguard Factory, the automation system that builds secure software artifacts from source"
 date: 2025-07-31T16:00:00+00:00
-lastmod: 2025-08-05T18:57:13+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
-weight: 060
+weight: 60
 ---
 
 The Chainguard Factory is our automated build system that continuously monitors, builds, tests, and publishes secure software artifacts from thousands of open source projects.

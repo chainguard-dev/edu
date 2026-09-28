@@ -4,14 +4,14 @@ type: "article"
 linktitle: "MinIO"
 description: "Learn how to deploy MinIO object storage with Chainguard's secure, minimal container images for S3-compatible storage solutions with reduced vulnerabilities"
 date: 2025-10-27T11:07:52+02:00
-lastmod: 2025-10-27T11:07:52+02:00
+lastmod: 2026-09-28T14:00:04+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
 menu:
   docs:
     parent: "getting-started"
-weight: 020
+weight: 20
 toc: true
 aliases:
 - /chainguard/chainguard-images/getting-started/minio/

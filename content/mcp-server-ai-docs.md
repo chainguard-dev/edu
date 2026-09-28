@@ -5,10 +5,10 @@ lead: "Model Context Protocol server for Chainguard documentation"
 description: "Access Chainguard documentation through MCP for AI assistants and automation"
 type: "article"
 date: 2026-01-02T21:00:00+00:00
-lastmod: 2026-09-04T15:07:32+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 images: []
-weight: 600
+weight: 30
 aliases:
   - /chainguard/mcp-server-ai-docs/
 ---

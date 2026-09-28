@@ -10,11 +10,11 @@ lead: ""
 description: "Tutorial outlining how to create a Chainguard identity that can be assumed by a GitHub Actions workflow."
 type: "article"
 date: 2023-05-04T08:48:45+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
-weight: 005
+weight: 10
 ---
 
 Chainguard's [*assumable identities*](/platform/administration/assumable-ids/assumable-ids/)

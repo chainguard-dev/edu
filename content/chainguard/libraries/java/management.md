@@ -4,7 +4,7 @@ linktitle: "Dependency maintenance"
 description: "Manage Chainguard Libraries for Java dependencies after setup, including verification, cache refreshes, and checksum changes."
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java"]
 images: []
@@ -12,7 +12,7 @@ menu:
   docs:
     parent: "java"
     identifier: "Java Management"
-weight: 053
+weight: 30
 toc: true
 ---
 

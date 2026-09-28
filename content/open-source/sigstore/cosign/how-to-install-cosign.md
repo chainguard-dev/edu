@@ -5,14 +5,14 @@ type: "article"
 lead: "Details for installing Cosign across operating systems to sign software artifacts"
 description: "Details for installing Cosign across operating systems"
 date: 2022-07-13T08:49:31+00:00
-lastmod: 2026-09-14T00:00:00+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Cosign", "Procedural"]
 images: []
 menu:
   docs:
     parent: "cosign"
-weight: 002
+weight: 20
 toc: true
 ---
 

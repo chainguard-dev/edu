@@ -5,7 +5,7 @@ type: "article"
 lead: "The Rekor transparency log"
 description: "Understanding Rekor, the transparency log of Rekor"
 date: 2022-08-20T08:49:31+00:00
-lastmod: 2022-08-20T08:49:31+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Rekor", "Overview"]
 images: []
@@ -13,7 +13,7 @@ menu:
   docs:
     parent: "rekor"
     identifier: "Rekor Introduction"
-weight: 001
+weight: 10
 toc: true
 ---
 

@@ -11,14 +11,14 @@ aliases:
 type: "article"
 description: "Learn how to use the Chainguard Containers Tag History API to fetch the tag history of image variants."
 date: 2023-05-26T08:49:31+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:
     parent: "images-features"
-weight: 040
+weight: 40
 toc: true
 ---
 

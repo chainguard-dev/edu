@@ -8,14 +8,14 @@ aliases:
 type: "article"
 description: "Differences between Chainguard Containers and Red Hat UBI third-party images"
 date: 2024-02-23T15:56:52-07:00
-lastmod: 2024-03-08T15:56:52-07:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Reference"]
 images: []
 menu:
   docs:
     parent: "compatibility"
-weight: 030
+weight: 30
 toc: true
 ---
 

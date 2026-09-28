@@ -4,7 +4,7 @@ linktitle: "Dependency maintenance"
 description: "Manage Chainguard Libraries for Python dependencies after setup, including package updates, verification, and monitoring security improvements"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 images: []
@@ -12,7 +12,7 @@ menu:
   docs:
     parent: "python"
     identifier: "Python Management"
-weight: 053
+weight: 30
 toc: true
 ---
 

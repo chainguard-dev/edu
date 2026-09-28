@@ -7,9 +7,9 @@ lead: "Using Chainguard container images and libraries in AI-assisted developmen
 description: "Install the Chainguard Power for Kiro and use it to migrate projects to Chainguard container images and libraries."
 type: "article"
 date: 2026-06-18T00:00:00-04:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
-weight: 020
+weight: 20
 ---
 
 [Kiro](https://kiro.dev/) helps developers move quickly, but speed alone does not reduce supply chain risk.

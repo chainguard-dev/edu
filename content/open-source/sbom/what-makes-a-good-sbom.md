@@ -4,7 +4,7 @@ description: "An explanation of what makes a good SBOM"
 lead: "A guide to SBOM quality"
 type: "article"
 date: 2022-08-04T15:21:01+02:00
-lastmod: 2026-09-24T16:28:41+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 contributors: ["John Speed Meyers"]
 draft: false
 tags: ["SBOM", "Conceptual"]
@@ -12,7 +12,7 @@ images: []
 menu:
   docs:
     parent: "sbom"
-weight: 10
+weight: 20
 toc: true
 ---
 

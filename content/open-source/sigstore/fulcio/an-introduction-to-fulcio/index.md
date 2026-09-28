@@ -5,7 +5,7 @@ type: "article"
 lead: "A primer to the Fulcio certificate authority"
 description: "Understanding Fulcio, a new kind of root certificate authority for code signing under Sigstore"
 date: 2022-08-19T08:49:31+00:00
-lastmod: 2022-08-19T08:49:31+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Fulcio", "Overview"]
 images: []
@@ -13,7 +13,7 @@ menu:
   docs:
     parent: "fulcio"
     identifier: "Fulcio Introduction"
-weight: 230
+weight: 10
 toc: true
 ---
 

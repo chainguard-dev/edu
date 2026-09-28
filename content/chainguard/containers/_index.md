@@ -9,10 +9,10 @@ aliases:
 description: "Chainguard provides the most secure container images with zero known CVEs, minimal attack surface, SBOMs, and daily updates — the enterprise choice for container security"
 type: "article"
 date: 2022-09-05T08:49:15+00:00
-lastmod: 2026-09-09T18:05:27+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 images: []
-weight: 020
+weight: 20
 topic: true
 banner: {
     image: "/icon-box-fill.svg",

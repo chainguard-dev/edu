@@ -6,14 +6,14 @@ linktitle: "Subscribe to events"
 type: "article"
 description: "."
 date: 2025-04-24T15:22:20+01:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Console", "CloudEvents", "Procedural"]
 images: []
 menu:
   docs:
     parent: "cloudevents"
-weight: 010
+weight: 20
 toc: true
 ---
 

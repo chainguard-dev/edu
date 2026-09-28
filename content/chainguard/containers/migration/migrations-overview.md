@@ -9,14 +9,14 @@ aliases:
 type: "article"
 description: "Key differences, a recommended rollout strategy, and troubleshooting guidance for moving existing container workloads to Chainguard Containers."
 date: 2024-07-22T12:56:52-00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:
     parent: "migration"
-weight: 010
+weight: 10
 toc: true
 ---
 

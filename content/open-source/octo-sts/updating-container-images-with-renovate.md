@@ -5,14 +5,14 @@ type: "article"
 lead: "Learn how to use Renovate with Octo STS to update container images without personal access tokens"
 description: "Video tutorial showing how to set up Renovate as a GitHub Action with Octo STS to eliminate the need for personal access tokens"
 date: 2025-12-23T09:30:00+01:00
-lastmod: 2025-12-23T09:30:00+01:00
+lastmod: 2026-09-28T14:00:04+00:00
 tags: ["octo-sts", "Renovate", "Video", "Tutorial", "GitHub Actions"]
 draft: false
 images: []
 menu:
   docs:
     parent: "open-source"
-weight: 105
+weight: 30
 toc: true
 ---
 

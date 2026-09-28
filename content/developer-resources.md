@@ -4,10 +4,10 @@ lead: "AI-ready documentation bundle for development"
 description: "Compiled Chainguard documentation optimized for use with AI coding assistants"
 type: "article"
 date: 2025-07-29T10:00:00+00:00
-lastmod: 2026-09-04T15:07:32+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 images: []
-weight: 50
+weight: 10
 toc: false
 ---
 

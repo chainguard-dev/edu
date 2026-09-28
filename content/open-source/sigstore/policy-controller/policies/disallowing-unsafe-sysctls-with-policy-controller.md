@@ -5,14 +5,14 @@ aliases:
 type: "article"
 description: "Use Policy Controller to limit pods to safe sysctls"
 date: 2023-03-01T13:11:29+08:29
-lastmod: 2024-05-10T13:11:29+08:29
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["policy-controller", "Procedural", "Policy"]
 images: []
 menu:
   docs:
     parent: "policy-controller"
-weight: 006
+weight: 10
 toc: true
 ---
 

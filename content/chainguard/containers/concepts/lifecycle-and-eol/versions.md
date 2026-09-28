@@ -11,14 +11,14 @@ aliases:
 type: "article"
 description: "Understanding Chainguard's approach to container image versions."
 date: 2024-01-08T08:49:31+00:00
-lastmod: 2026-09-09T17:33:40+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:
     parent: "about"
-weight: 010
+weight: 10
 toc: true
 ---
 

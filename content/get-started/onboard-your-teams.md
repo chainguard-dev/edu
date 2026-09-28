@@ -5,11 +5,11 @@ lead: "Your organization has adopted Chainguard. This guide helps administrators
 description: "Onboard your teams to Chainguard Containers and Chainguard Libraries: what your organization can pull, how subscriptions differ, and how to retrieve SBOMs and provenance."
 type: "article"
 date: 2026-08-26T00:00:00+00:00
-lastmod: 2026-09-25T13:44:25+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Getting Started"]
 images: []
-weight: 010
+weight: 30
 toc: true
 ---
 

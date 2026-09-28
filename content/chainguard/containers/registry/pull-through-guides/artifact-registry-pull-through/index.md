@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "Tutorial outlining how to set up a Google Artifact Registry repository to pull containers through from Chainguard's registry."
 date: 2024-07-08T15:56:52-07:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Registry"]
 images: []
@@ -16,7 +16,7 @@ menu:
   docs:
     parent: "pull-through-guides"
 toc: true
-weight: 050
+weight: 50
 ---
 
 Organizations can use Chainguard Containers along with third-party software repositories in order to integrate with current workflows as the single source of truth for software artifacts. In this situation, you can set up a proxy repository to function as a mirror of [Chainguard's registry](/chainguard/containers/registry/overview/). This mirror can then serve as a pull through cache for your Chainguard Containers.

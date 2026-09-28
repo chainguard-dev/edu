@@ -4,14 +4,14 @@ linktitle: "Custom certificates"
 type: "article"
 description: "How to add custom certificates to customized images with Custom Assembly."
 date: 2026-03-12T11:07:52+02:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural", "Custom Assembly"]
 images: []
 menu:
   docs:
     parent: "features"
-weight: 060
+weight: 60
 toc: true
 aliases:
 - /chainguard/chainguard-images/features/ca-docs/custom-assembly-certs/

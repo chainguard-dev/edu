@@ -8,7 +8,7 @@ linktitle: "Dockerfile Converter"
 type: "article"
 description: "User guide for Chainguard's Dockerfile Converter (dfc)"
 date: 2025-03-18T15:22:20+01:00
-lastmod: 2026-09-25T13:44:25+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Open Source"]
 images: []
@@ -16,7 +16,7 @@ menu:
   docs:
     parent: "migration"
     identifier: "Migration Dockerfile Converter"
-weight: 010
+weight: 10
 toc: true
 ---
 

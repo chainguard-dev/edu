@@ -6,14 +6,14 @@ linktitle: "EKS add-ons"
 description: "Learn about Chainguard EKS add-ons, which provide zero-CVE and FIPS-validated container images for core Amazon EKS cluster components through AWS Marketplace."
 type: "article"
 date: 2026-04-10T00:00:00+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["FIPS", "Chainguard Containers"]
 images: []
 menu:
   docs:
     parent: "fips"
-weight: 035
+weight: 50
 toc: true
 ---
 

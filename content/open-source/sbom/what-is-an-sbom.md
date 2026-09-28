@@ -5,7 +5,7 @@ description: "Learn what software bill of materials (SBOM) are, why they're esse
 lead: "Software bill of materials (SBOMs) provide comprehensive visibility into software components, enabling organizations to identify vulnerabilities and manage supply chain security - a core feature of Chainguard's security approach."
 type: "article"
 date: 2022-08-04T15:21:01+02:00
-lastmod: 2026-07-27T15:39:06+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 contributors:
 draft: false
 tags: ["SBOM", "Conceptual"]
@@ -13,7 +13,7 @@ images: []
 menu:
   docs:
     parent: "sbom"
-weight: 5
+weight: 10
 toc: true
 ---
 

@@ -4,14 +4,14 @@ linktitle: "Configuration"
 description: "Understand Guardener's .chainguard/ configuration model and how to enable features per repository."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-09-25T13:44:25+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["GitHub", "Configuration"]
 images: []
 menu:
   docs:
     parent: "guardener-github"
-weight: 020
+weight: 30
 toc: true
 ---
 

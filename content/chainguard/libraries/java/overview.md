@@ -4,13 +4,13 @@ linktitle: "Java overview"
 description: "Learn about Chainguard Libraries for Java, providing enhanced security for Maven dependencies through automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java", "Overview"]
 menu:
   docs:
     parent: "java"
-weight: 051
+weight: 10
 toc: true
 ---
 

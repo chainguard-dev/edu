@@ -9,14 +9,14 @@ aliases:
 - /chainguard/containers/how-to-use/dev-containers/
 description: "Guide outlining how you can use Chainguard Containers as Dev Containers for secure development."
 date: 2025-03-10T11:07:52+02:00
-lastmod: 2026-09-25T13:44:25+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
 menu:
   docs:
     parent: "how-to-use"
-weight: 020
+weight: 20
 toc: true
 ---
 

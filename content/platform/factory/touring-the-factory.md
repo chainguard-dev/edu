@@ -6,14 +6,14 @@ linktitle: "Factory tour"
 type: "article"
 description: "Take a guided tour through the Chainguard Factory with Dustin Kirkland to see how secure software is built"
 date: 2025-08-02T16:00:00+00:00
-lastmod: 2025-08-02T16:00:00+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Factory", "Video", "Overview"]
 images: []
 menu:
   docs:
     parent: "chainguard-factory"
-weight: 030
+weight: 50
 toc: true
 ---
 

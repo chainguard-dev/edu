@@ -8,14 +8,14 @@ aliases:
 - /chainguard/containers/getting-started/istio/
 description: "Learn how to deploy Istio service mesh using Chainguard's security-hardened Istio images with reduced vulnerabilities and minimal attack surface"
 date: 2023-12-14T00:00:00+00:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
 menu:
   docs:
     parent: "getting-started"
-weight: 030
+weight: 30
 toc: true
 ---
 

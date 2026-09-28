@@ -6,7 +6,7 @@ linktitle: "Terraform provider"
 type: "article"
 description: "An introduction to working with the Chainguard Terraform provider"
 date: 2024-01-28T15:56:52-07:00
-lastmod: 2024-05-09T08:48:45+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Console", "Overview"]
 images: []
@@ -14,7 +14,7 @@ menu:
   docs:
     parent: "administration"
 toc: true
-weight: 008
+weight: 50
 ---
 
 [Terraform](https://www.terraform.io/) is an infrastructure as code tool that allows users to declaratively configure resources in cloud providers like AWS and GCP, SaaS platforms, and many other API-driven environments. [Terraform providers](https://developer.hashicorp.com/terraform/language/providers) are written by third-party developers to allow Terraform to manage resources in their environment.

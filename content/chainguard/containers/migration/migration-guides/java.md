@@ -11,11 +11,11 @@ aliases:
 description: "Learn how to port a Java Dockerfile to Chainguard's Maven, Gradle, JDK, and JRE containers, including a worked Spring Boot example and the differences from the Java images on Docker Hub"
 type: "article"
 date: 2024-04-02T15:21:01+00:00
-lastmod: 2026-09-09T00:00:00+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Migration"]
 images: []
-weight: 020
+weight: 20
 toc: true
 ---
 

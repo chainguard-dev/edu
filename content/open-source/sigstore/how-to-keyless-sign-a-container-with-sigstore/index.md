@@ -5,14 +5,14 @@ type: "article"
 lead: "Using GitHub Actions with Cosign"
 description: "Use Cosign and GitHub Actions to keyless sign a Django container image"
 date: 2022-08-24T08:49:31+00:00
-lastmod: 2022-08-24T08:49:31+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Cosign", "Sigstore", "Procedural"]
 images: []
 menu:
   docs:
     parent: "sigstore"
-weight: 630
+weight: 10
 toc: true
 ---
 

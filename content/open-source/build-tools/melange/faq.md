@@ -6,14 +6,14 @@ type: "article"
 lead: "Frequently asked questions about melange"
 description: "Frequently asked questions about melange"
 date: 2022-10-17T11:07:52+02:00
-lastmod: 2024-08-01T11:07:52+02:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["melange", "FAQ"]
 images: []
 menu:
   docs:
     parent: "melange"
-weight: 900
+weight: 40
 toc: true
 ---
 

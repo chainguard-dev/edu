@@ -20,14 +20,14 @@ aliases:
 type: "article"
 description: "An overview comparing various Chainguard Containers for compiled programs"
 date: 2024-07-12T17:55:01+00:00
-lastmod: 2025-04-07T18:42:57+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Cheatsheet"]
 images: []
 menu:
   docs:
     parent: "about"
-weight: 050
+weight: 50
 toc: true
 ---
 

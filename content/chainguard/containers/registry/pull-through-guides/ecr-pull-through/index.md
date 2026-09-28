@@ -4,7 +4,7 @@ linktitle: "Amazon ECR"
 type: "article"
 description: "Tutorial outlining how to set up an Amazon ECR pull through cache rule for pulling containers from Chainguard's registry."
 date: 2026-03-31T00:00:00+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Registry"]
 images: []
@@ -12,7 +12,7 @@ menu:
   docs:
     parent: "pull-through-guides"
 toc: true
-weight: 010
+weight: 10
 aliases:
 - /chainguard/chainguard-images/chainguard-registry/pull-through-guides/ecr-pull-through/
 - /chainguard/containers/chainguard-registry/pull-through-guides/ecr-pull-through/

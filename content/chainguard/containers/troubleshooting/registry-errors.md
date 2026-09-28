@@ -4,11 +4,11 @@ linktitle: "Registry errors"
 description: "Map the errors cgr.dev returns during login and pull to their causes, including why the same HTTP status code means different things at the token endpoint and the registry API."
 type: "article"
 date: 2026-09-09T00:00:00+00:00
-lastmod: 2026-09-09T17:21:21+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Registry"]
 images: []
-weight: 015
+weight: 20
 toc: true
 ---
 

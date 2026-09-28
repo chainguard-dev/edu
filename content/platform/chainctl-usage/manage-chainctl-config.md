@@ -7,7 +7,7 @@ aliases:
 - /chainguard/administration/manage-chainctl-config
 type: "article"
 date: 2023-07-07T05:56:52-07:00
-lastmod: 2026-09-09T15:53:21+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["chainctl"]
 images: []
@@ -15,7 +15,7 @@ menu:
   docs:
     parent: "administration"
 toc: true
-weight: 030
+weight: 40
 ---
 
 Chainguard's `chainctl` keeps a local configuration file that controls how the CLI behaves: which Chainguard environment it talks to, how it logs you in, the defaults it applies when you omit an argument, and how it formats output. This page explains the commands that manage that file, where it lives, and every setting you can configure.

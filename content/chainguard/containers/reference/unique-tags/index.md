@@ -13,11 +13,11 @@ aliases:
 type: "article"
 description: "Learn about Chainguard's unique tags feature for production container images, enabling precise version tracking and automated deployment workflows with timestamped tags"
 date: 2024-02-29T08:49:31+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
-weight: 050
+weight: 50
 toc: true
 ---
 

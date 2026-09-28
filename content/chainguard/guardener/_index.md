@@ -4,10 +4,10 @@ linktitle: "Guardener"
 description: "Guardener is a tool for managing and hardening your source code, with a growing suite of capabilities you opt into independently."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-09-25T13:44:25+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 images: []
-weight: 025
+weight: 30
 ---
 
 Guardener is a tool for managing and hardening your source code. Rather than adding a separate integration for every task, Guardener provides a growing suite of capabilities that you opt into independently. Some capabilities run through a hardened GitHub App and are configured per repository through files committed to your codebase; others, such as Dockerfile migration, run locally through `chainctl`.

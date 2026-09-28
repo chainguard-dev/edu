@@ -11,14 +11,14 @@ aliases:
 - /chainguard/containers/getting-started/pytorch/
 description: "Learn how to use Chainguard's PyTorch container image for deep learning with enhanced security, minimal CVEs, and GPU acceleration support"
 date: 2024-04-25T08:00:00+02:00
-lastmod: 2026-09-08T17:57:46+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 tags: ["Chainguard Containers", "AI"]
 draft: false
 images: []
 menu:
   docs:
     parent: "getting-started"
-weight: 020
+weight: 20
 toc: true
 ---
 

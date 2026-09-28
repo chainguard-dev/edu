@@ -5,8 +5,8 @@ lead: ""
 description: "Chainguard OS documentation"
 type: "article"
 date: 2025-07-03T08:48:23+00:00
-lastmod: 2025-07-03T08:48:23+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
-weight: 040
+weight: 50
 landingpage: "/chainguard/chainguard-os/overview/"
 ---

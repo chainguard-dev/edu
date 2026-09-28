@@ -4,7 +4,7 @@ linktitle: "Harbor"
 type: "article"
 description: "Tutorial outlining how to sync images from Chainguard's registry to Harbor."
 date: 2025-08-19T12:00:00-00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -12,7 +12,7 @@ menu:
   docs:
     parent: "pull-through-guides"
 toc: true
-weight: 060
+weight: 60
 aliases:
 - /chainguard/chainguard-images/chainguard-registry/pull-through-guides/harbor/
 - /chainguard/containers/chainguard-registry/pull-through-guides/harbor/

@@ -6,11 +6,11 @@ linktitle: "Jenkins with chainctl"
 description: "How to use chainctl to create a Chainguard identity that can be assumed by a Jenkins pipeline."
 type: "article"
 date: 2025-09-07T08:48:45+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
-weight: 025
+weight: 70
 ---
 
 [Jenkins](https://www.jenkins.io/) is an open source automation server that supports building, deploying, and automating projects.

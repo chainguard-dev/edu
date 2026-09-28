@@ -4,7 +4,7 @@ description: "A conceptual overview of SLSA"
 lead: "A conceptual overview of SLSA"
 type: "article"
 date: 2023-02-14T08:49:15+00:00
-lastmod: 2026-09-24T16:28:41+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 contributors:  
 draft: false
 aliases:
@@ -14,7 +14,7 @@ images: []
 menu:
   docs:
     parent: "slsa"
-weight: 010
+weight: 10
 toc: true
 ---
 

@@ -6,11 +6,11 @@ lead: "Chainguard's chainctl CLI enables more secure management of container ima
 description: "Get started with chainctl basics including authentication, organization management, and essential commands for Chainguard's container security platform"
 type: "article"
 date: 2025-03-03T08:49:15+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["chainctl", "Getting Started"]
 images: []
-weight: 030
+weight: 80
 ---
 
 Chainguard's `chainctl` provides command-line access to manage container images, identity resources, and security configurations across your organization. This guide covers essential commands to begin using `chainctl` effectively in your security and DevOps workflows. For comprehensive command documentation, refer to the [chainctl reference](/platform/chainctl/).

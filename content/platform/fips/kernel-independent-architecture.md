@@ -6,11 +6,11 @@ linktitle: "Kernel-independent FIPS"
 type: "article"
 description: "Technical deep-dive into Chainguard's kernel-independent FIPS implementation using userspace entropy sources"
 date: 2025-10-16T08:00:00+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["FIPS", "Architecture", "Entropy"]
 images: []
-weight: 050
+weight: 80
 toc: true
 ---
 

@@ -7,11 +7,11 @@ aliases:
 description: "Procedural tutorial outlining how to use Terraform to create Chainguard role-bindings for members of a GitHub team."
 type: "article"
 date: 2023-06-10T08:48:45+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Console", "Procedural"]
 images: []
-weight: 010
+weight: 20
 ---
 
 There may be cases where an organization will want multiple users to have access to the same Chainguard organization. Chainguard allows you to grant other users access to Chainguard by [generating an invite link or code](/platform/administration/iam-organizations/how-to-manage-iam-organizations-in-chainguard/#inviting-others-to-an-organization).

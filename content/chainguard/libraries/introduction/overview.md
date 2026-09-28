@@ -6,13 +6,13 @@ description: "Learn about Chainguard Libraries, providing enhanced security for
     comprehensive supply chain protection."
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-09-09T15:53:21+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 menu:
   docs:
     parent: "introduction"
-weight: 011
+weight: 10
 toc: true
 aliases:
   - /chainguard/libraries/overview/

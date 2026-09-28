@@ -9,14 +9,14 @@ aliases:
 - /chainguard/containers/getting-started/postgres/
 description: "Learn how to deploy PostgreSQL databases using Chainguard's security-hardened container image with minimal vulnerabilities and distroless design"
 date: 2023-08-10T11:07:52+02:00
-lastmod: 2026-09-08T17:57:46+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
 menu:
   docs:
     parent: "getting-started"
-weight: 040
+weight: 40
 toc: true
 ---
 

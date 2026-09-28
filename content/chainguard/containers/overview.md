@@ -5,11 +5,11 @@ type: "article"
 description: "Learn about Chainguard Containers, distroless images, and how they provide enhanced security through minimal attack surface and comprehensive supply chain features."
 lead: "Chainguard Containers are security-hardened container images built with a distroless approach, containing only essential application components and runtime dependencies."
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
-weight: 010
+weight: 10
 toc: true
 aliases:
 - /chainguard/chainguard-images/overview/

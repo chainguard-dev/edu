@@ -5,14 +5,14 @@ type: "article"
 description: "Use Cosign to sign non-container software artifacts"
 lead: "Cosign can sign software artifacts beyond containers"
 date: 2022-07-13T15:22:20+01:00
-lastmod: 2025-12-26T15:16:50+01:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Cosign", "Procedural"]
 images: []
 menu:
   docs:
     parent: "cosign"
-weight: 004
+weight: 40
 toc: true
 ---
 

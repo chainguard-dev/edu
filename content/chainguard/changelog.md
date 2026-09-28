@@ -4,11 +4,11 @@ linktitle: "Changelog"
 type: "article"
 description: "Weekly changelog of Chainguard product updates — product announcements, breaking changes, container images reaching end-of-life or leaving the catalog, and images newly added to it."
 date: 2026-07-28T00:00:00+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Changelog"]
 images: []
-weight: 070
+weight: 80
 toc: true
 tocEndLevel: 2
 ---

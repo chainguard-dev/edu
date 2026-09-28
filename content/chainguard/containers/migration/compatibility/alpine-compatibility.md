@@ -8,14 +8,14 @@ aliases:
 type: "article"
 description: "Differences between Chainguard Containers and Alpine third-party images"
 date: 2024-02-23T15:56:52-07:00
-lastmod: 2025-07-23T16:52:56+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Reference"]
 images: []
 menu:
   docs:
     parent: "compatibility"
-weight: 010
+weight: 10
 toc: true
 ---
 

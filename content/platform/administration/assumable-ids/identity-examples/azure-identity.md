@@ -7,11 +7,11 @@ lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by an Azure workload using a managed identity."
 type: "article"
 date: 2026-05-15T00:00:00+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
-weight: 011
+weight: 30
 ---
 
 > **Note:** If you're authenticating from a workload running in Azure

@@ -15,11 +15,11 @@ aliases:
 type: "article"
 description: "Article outlining how one can explore and use the Security Advisories found on the Chainguard Container Directory."
 date: 2023-12-27T11:07:52+02:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "CVE"]
 images: []
-weight: 020
+weight: 20
 toc: true
 ---
 

@@ -11,9 +11,9 @@ linktitle: "Image Matcher"
 description: "Learn how the Chainguard Image Matcher uses SBOMs to recommend the closest Chainguard image equivalent for your existing container images."
 type: "article"
 date: 2026-05-26T00:00:00+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
-weight: 020
+weight: 20
 tags: ["Chainguard Images", "Migration", "SBOM", "API"]
 ---
 

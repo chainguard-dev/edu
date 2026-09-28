@@ -5,14 +5,14 @@ lead: ""
 description: "Example showing how to use an init container to configure Chainguard's minimal nginx container image."
 type: "article"
 date: 2025-08-04T15:21:01+00:00
-lastmod: 2025-08-04T15:21:01+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Overview", "Procedural"]
 images: []
 menu:
   docs:
     parent: "how-to-use"
-weight: 030
+weight: 30
 toc: true
 aliases:
 - /chainguard/chainguard-images/how-to-use/init-containers/

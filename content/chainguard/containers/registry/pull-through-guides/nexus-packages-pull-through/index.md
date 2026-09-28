@@ -4,7 +4,7 @@ linktitle: "Nexus — packages"
 type: "article"
 description: "Tutorial for setting up Sonatype Nexus raw repositories as pull-through caches for apk packages from Chainguard's package repositories."
 date: 2026-09-17T00:00:00+00:00
-lastmod: 2026-09-17T00:00:00+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -12,7 +12,7 @@ menu:
   docs:
     parent: "pull-through-guides"
 toc: true
-weight: 080
+weight: 80
 ---
 
 {{< note >}}

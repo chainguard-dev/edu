@@ -5,7 +5,7 @@ type: "article"
 description: "Learn about Chainguard OS, the security-focused operating system that powers Chainguard containers with continuous updates, minimal attack surface, and enterprise-grade security features"
 lead: "Chainguard OS is a purpose-built operating system designed for container security, featuring continuous updates, minimal packages, and hardened configurations that power all Chainguard container images."
 date: 2025-07-03T08:49:31+00:00
-lastmod: 2026-09-01T13:45:43+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard OS"]
 images: []
@@ -13,7 +13,7 @@ menu:
   docs:
     parent: "chainguard-os"
     identifier: "Chainguard OS Overview"
-weight: 010
+weight: 10
 toc: true
 ---
 

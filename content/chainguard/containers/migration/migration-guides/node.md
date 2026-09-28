@@ -16,11 +16,11 @@ aliases:
 type: "article"
 description: "Learn how to migrate Node.js applications to Chainguard Containers for reduced vulnerabilities, smaller image sizes, and automated security patching"
 date: 2024-05-09T15:56:52-07:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Migration"]
 images: []
-weight: 030
+weight: 30
 toc: true
 ---
 
