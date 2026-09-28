@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
 """Content checks for Hugo markdown, run as pre-commit hooks.
 
-Two modes, selected with --mode:
+Three modes, selected with --mode:
 
-  tags   Validate frontmatter tags against the approved taxonomy. Advisory:
-         it warns (unapproved tag, too many tags, non-acronym all-caps) but
-         never blocks. Runs locally and in CI.
+  tags    Validate frontmatter tags against the approved taxonomy. Advisory:
+          it warns (unapproved tag, too many tags, non-acronym all-caps) but
+          never blocks. Runs locally and in CI.
 
-  spell  Spell-check prose with aspell, skipping code blocks, shortcodes and
-         URLs. Advisory only: it reports misspellings but never fails. Runs
-         locally; the CI job skips it via SKIP=content-spellcheck.
+  spell   Spell-check prose with aspell, skipping code blocks, shortcodes and
+          URLs. Advisory only: it reports misspellings but never fails. Runs
+          locally; the CI job skips it via SKIP=content-spellcheck.
+
+  weights Reject a page weight written with a leading zero. This one blocks,
+          because the value the author wrote is not the value Hugo sorts on
+          and the fix is always the same.
 
 Filenames are provided by pre-commit; only content/*.md paths are considered.
 Date/lastmod stamping is intentionally NOT here -- that stays in the
@@ -230,6 +234,9 @@ TECH_TERMS = {
 }
 
 
+WEIGHT_LINE = re.compile(r"^weight:\s*(\S+)\s*$")
+
+
 def content_markdown(paths):
     """Filter args down to existing content/*.md files."""
     return [
@@ -341,16 +348,55 @@ def check_spelling(paths):
     return 0
 
 
+def frontmatter_lines(filepath):
+    """Yield (line number, text) for the YAML frontmatter block only."""
+    lines = Path(filepath).read_text(encoding="utf-8").splitlines()
+    if not lines or lines[0].strip() != "---":
+        return
+    for number, line in enumerate(lines[1:], start=2):
+        if line.strip() == "---":
+            return
+        yield number, line
+
+
+def check_weights(paths):
+    """Reject leading-zero page weights. Returns 1 if any are found.
+
+    YAML reads a leading-zero integer as octal, so `weight: 010` sorts as 8.
+    A leading-zero weight containing an 8 or a 9 is not valid octal at all:
+    YAML reads it as a string, Hugo treats the page as unweighted, and the
+    page sorts to the end of its section.
+    """
+    failures = []
+    for filepath in content_markdown(paths):
+        for number, line in frontmatter_lines(filepath):
+            match = WEIGHT_LINE.match(line)
+            if match and match.group(1).startswith("0") and match.group(1) != "0":
+                failures.append((filepath, number, match.group(1)))
+
+    for filepath, number, written in failures:
+        plain = written.lstrip("0")
+        print(f"❌ {filepath}:{number}: weight: {written} — write weight: {plain}")
+    if failures:
+        print(
+            "\nYAML reads a leading-zero weight as octal, so 010 sorts as 8. One "
+            "containing an 8 or a 9 is not octal at all: YAML reads it as a string "
+            "and Hugo sorts the page last. Use plain decimals."
+        )
+    return 1 if failures else 0
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--mode", required=True, choices=["tags", "spell"])
+    parser.add_argument("--mode", required=True, choices=["tags", "spell", "weights"])
     parser.add_argument("files", nargs="*")
     args = parser.parse_args()
 
     paths = content_markdown(args.files)
     if not paths:
         return 0
-    return validate_tags(paths) if args.mode == "tags" else check_spelling(paths)
+    checks = {"tags": validate_tags, "spell": check_spelling, "weights": check_weights}
+    return checks[args.mode](paths)
 
 
 if __name__ == "__main__":

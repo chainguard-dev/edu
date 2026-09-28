@@ -47,6 +47,18 @@ If you spot a major change, please file an [issue](https://github.com/chainguard
 
 In each post's header, the date format should follow year-month-day as `YYYY-MM-DD`.
 
+### Page Weights
+
+A page's `weight` sets its position in the sidebar, lowest first. Write it as a plain decimal, never with a leading zero:
+
+```
+weight: 30
+```
+
+YAML reads a leading-zero integer as octal, so `weight: 010` sorts as 8 rather than 10. Worse, a leading-zero weight containing an 8 or a 9 is not valid octal at all: YAML reads it as a string, Hugo treats the page as unweighted, and the page drops to the bottom of its section. A pre-commit check rejects leading zeros for this reason.
+
+Weights across the site step by tens, which leaves room to insert a page between two neighbors. To place a new page, read the weights of its siblings and pick a value between them. Two pages may share a weight, in which case the newer one sorts first.
+
 ### Adding Graphic Images
 
 Reduce an image's file size before adding it to the project to keep page loads fast. You can use a tool such as [TinyPNG](https://tinypng.com/).
