@@ -4,7 +4,7 @@ linktitle: "Skills Registry"
 description: "Enable the Chainguard Skills Registry, then upload, harden, install, and run an agent skill scoped to your organization."
 type: "article"
 date: 2026-06-05T08:48:45+00:00
-lastmod: 2026-09-28T00:00:00+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Agent Skills", "Overview"]
 images: []
@@ -12,7 +12,7 @@ menu:
   docs:
     parent: "agent-skills"
 toc: true
-weight: 002
+weight: 20
 ---
 
 The Chainguard Skills Registry lets you publish, manage, and distribute skills scoped to your organization. Use `chainctl` to upload original skills to `uploads.cgr.dev`, submit them for hardening, and install the hardened results from `skills.cgr.dev`.

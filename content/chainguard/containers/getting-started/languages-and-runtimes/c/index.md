@@ -11,14 +11,14 @@ aliases:
 - /chainguard/containers/getting-started/c/
 description: "Learn how to compile and run C/C++ applications using Chainguard's security-hardened containers with minimal CVEs and optimized runtime environments"
 date: 2024-07-30T15:54:33+00:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
 menu:
   docs:
     parent: "getting-started"
-weight: 010
+weight: 10
 toc: true
 ---
 

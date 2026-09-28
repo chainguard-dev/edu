@@ -8,11 +8,11 @@ type: "article"
 description: "Use Artifactory to proxy and cache Chainguard iamguarded Helm charts"
 lead: "Use Artifactory to proxy and cache Chainguard iamguarded Helm charts"
 date: 2025-07-14T08:10:31+00:00
-lastmod: 2026-09-04T16:00:38+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Helm charts", "Artifactory", "iamguarded", "Product"]
 images: []
-weight: 030
+weight: 30
 toc: true
 ---
 

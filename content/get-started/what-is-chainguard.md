@@ -5,11 +5,11 @@ lead: "A high-level introduction to Chainguard: the problem it solves, the produ
 description: "An overview of Chainguard: its mission to be the secure source for open source, its products (Containers, Libraries, and OS), and the Factory that builds them."
 type: "article"
 date: 2026-07-23T00:00:00+00:00
-lastmod: 2026-09-24T16:28:41+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Getting Started"]
 images: []
-weight: 001
+weight: 10
 ---
 
 Nearly every modern application is built on open source software. That software is powerful, but it arrives with problems: vulnerabilities (including publicly disclosed CVEs), unpatched dependencies, unclear provenance, and the constant work of keeping it all up to date. Tracking and fixing these issues across a large codebase consumes engineering time that could go toward building products.
@@ -30,7 +30,7 @@ Containers and Libraries are where most teams start, but Chainguard secures more
 - **[Chainguard OS](/chainguard/chainguard-os/overview/)**, the hardened Linux foundation the other products build on.
 - **[Chainguard VMs](/chainguard/vms/overview/)**, minimal virtual machine images for cloud and hypervisor workloads.
 - **[Chainguard Actions](/chainguard/actions/overview/)**, hardened replacements for popular GitHub Actions.
-- **[Chainguard Guardener](/chainguard/guardener/)**, tooling to harden your own source code.
+- **[Guardener](/chainguard/guardener/)**, tooling to harden your own source code.
 - **[Chainguard Agent Skills](/chainguard/agent-skills/overview/)**, security-reviewed skills for AI agents.
 
 ## The Chainguard Factory

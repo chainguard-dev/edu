@@ -7,11 +7,11 @@ linktitle: "Migration checklist"
 type: "article"
 description: "Recommended practices when migrating to Chainguard Containers"
 date: 2025-02-03T10:42:57+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
-weight: 020
+weight: 20
 toc: true
 ---
 

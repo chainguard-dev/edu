@@ -6,7 +6,7 @@ type: "article"
 lead: "How apk-tools is different from other package managers"
 description: "How apk-tools is different from other package managers"
 date: 2022-07-06T08:49:31+00:00
-lastmod: 2026-09-11T15:52:58+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 contributors: ["Ariadne Conill"]
 draft: false
 tags: ["apko", "Conceptual",]
@@ -14,7 +14,7 @@ images: []
 menu:
   docs:
     parent: "apko"
-weight: 400
+weight: 30
 toc: true
 ---
 

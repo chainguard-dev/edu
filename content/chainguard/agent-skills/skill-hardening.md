@@ -4,7 +4,7 @@ linktitle: "Skill hardening"
 description: "Upload an agent skill for hardening, track the job, browse results in user folders, and review the report before installing the skill."
 type: "article"
 date: 2026-09-22
-lastmod: 2026-09-23T16:38:42+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Agent Skills", "Getting Started", "chainctl"]
 images: []
@@ -12,7 +12,7 @@ menu:
   docs:
     parent: "agent-skills"
 toc: true
-weight: 005
+weight: 50
 ---
 
 Use `chainctl skills harden` to upload an agent skill, submit it for server-side hardening, and download the result with a report of the changes and scanner findings. You can submit a local directory or harden an artifact you have already pushed to your organization's uploads registry.

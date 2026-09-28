@@ -6,14 +6,14 @@ linktitle: "What the Factory builds"
 type: "article"
 description: "Interview with Dustin Kirkland about the products and artifacts created by the Chainguard Factory"
 date: 2025-08-02T16:00:00+00:00
-lastmod: 2025-08-02T16:00:00+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Factory", "Chainguard Containers", "Video", "Overview"]
 images: []
 menu:
   docs:
     parent: "chainguard-factory"
-weight: 020
+weight: 40
 toc: true
 ---
 

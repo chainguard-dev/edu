@@ -4,14 +4,14 @@ linktitle: "Container categories"
 type: "article"
 description: "Reference guide outlining how Chainguard Containers are categorized."
 date: 2025-04-03T11:07:52+02:00
-lastmod: 2025-04-03T11:07:52+02:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:
     parent: "about"
-weight: 020
+weight: 20
 toc: true
 aliases:
 - /chainguard/chainguard-images/about/images-categories/

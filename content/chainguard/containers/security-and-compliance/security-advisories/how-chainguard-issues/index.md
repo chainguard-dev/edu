@@ -9,14 +9,14 @@ aliases:
 type: "article"
 description: "The life cycle of Chainguard-issued Security Advisories"
 date: 2024-07-26T18:09:12+00:00
-lastmod: 2026-08-21T12:27:26+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "CVE"]
 images: []
 menu:
   docs:
     parent: "security-advisories"
-weight: 010
+weight: 10
 toc: true
 ---
 

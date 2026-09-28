@@ -11,14 +11,14 @@ aliases:
 - /chainguard/containers/staying-secure/working-with-scanners/trivy-tutorial/
 description: "Learn to use Trivy to analyze container images and other software artifacts for a variety of issues"
 date: 2024-07-03T20:00:00+02:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 tags: ["Conceptual", "CVE"]
 draft: false
 images: []
 menu:
   docs:
     parent: "scanners"
-weight: 030
+weight: 30
 toc: true
 ---
 

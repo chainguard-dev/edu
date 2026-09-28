@@ -4,7 +4,7 @@ linktitle: "SLSA at Chainguard"
 description: "A brief overview of SLSA and Chainguard's compliance efforts."
 type: "article"
 date: 2025-07-23T01:24:23+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 contributors: []
 draft: false
 aliases:
@@ -14,7 +14,7 @@ images: []
 menu:
   docs:
     parent: "slsa"
-weight: 020
+weight: 20
 toc: true
 ---
 

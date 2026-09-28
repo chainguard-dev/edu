@@ -3,14 +3,14 @@ title: "What are OCI artifacts?"
 type: "article"
 description: "OCI artifacts are a way of using OCI registries, or container registries that are compliant with specifications set by the Open Container Initiative, to store arbitrary files."
 date: 2022-06-09T15:22:20+01:00
-lastmod: 2022-06-09T15:22:20+01:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["OCI", "Conceptual"]
 images: []
 menu:
   docs:
     parent: "oci"
-weight: 150
+weight: 20
 toc: true
 ---
 

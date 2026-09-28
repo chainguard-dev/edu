@@ -5,14 +5,14 @@ type: "article"
 lead: "A primer to signing software artifacts with Cosign"
 description: "Understanding Cosign, a project under Sigstore"
 date: 2022-07-19T08:49:31+00:00
-lastmod: 2025-12-26T15:16:50+01:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Cosign", "Overview"]
 images: []
 menu:
   docs:
     parent: "cosign"
-weight: 001
+weight: 10
 toc: true
 ---
 

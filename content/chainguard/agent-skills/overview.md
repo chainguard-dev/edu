@@ -4,7 +4,7 @@ linktitle: "Agent Skills overview"
 description: "Learn what Chainguard Agent Skills are, the supply chain risk they address, and how Chainguard hardens skills before you install them."
 type: "article"
 date: 2026-06-05T08:48:45+00:00
-lastmod: 2026-09-22
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Agent Skills", "Overview"]
 images: []
@@ -13,7 +13,7 @@ menu:
     parent: "agent-skills"
     identifier: "Agent Skills Overview"
 toc: true
-weight: 001
+weight: 10
 ---
 
 Chainguard Agent Skills is a catalog of hardened AI agent skills that Chainguard reviews, scopes, and publishes with a full audit trail. It lets teams extend their AI agents without extending their attack surface.
@@ -54,6 +54,6 @@ To interact with either of these registries, use the [`chainctl skills` commands
 
 ## Next steps
 
-To install and run a skill hardened by Chainguard, check out our guide on [Getting started with the Chainguard Agent Skills public catalog](/chainguard/agent-skills/public-catalog/). Alternatively, to publish, push, and run skills in your organization's private registry, refer to our guide on [Getting started with the Chainguard Skills Registry](/chainguard/agent-skills/skills-registry/).
+To install and run a skill hardened by Chainguard, check out our guide on [Getting started with the Chainguard Agent Skills public catalog](/chainguard/agent-skills/public-registry/). Alternatively, to publish, push, and run skills in your organization's private registry, refer to our guide on [Getting started with the Chainguard Skills Registry](/chainguard/agent-skills/skills-registry/).
 
 To harden your own skills, track jobs, and review their reports before installing, follow [Getting started with skill hardening](/chainguard/agent-skills/skill-hardening/).

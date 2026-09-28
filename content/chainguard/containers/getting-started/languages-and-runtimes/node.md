@@ -9,14 +9,14 @@ aliases:
 - /chainguard/containers/getting-started/node/
 description: "Learn how to use Chainguard's Node.js container images for secure JavaScript applications with minimal vulnerabilities, distroless design, and built-in npm support"
 date: 2023-02-01T11:07:52+02:00
-lastmod: 2026-09-08T17:57:46+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
 menu:
   docs:
     parent: "getting-started"
-weight: 040
+weight: 40
 toc: true
 ---
 

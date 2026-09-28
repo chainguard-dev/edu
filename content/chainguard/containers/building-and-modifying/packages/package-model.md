@@ -5,11 +5,11 @@ lead: "Overview of Chainguard's package repositories, highlighting the different
 description: "Overview of Chainguard's package repositories, highlighting the different repositories and how to access them."
 type: "article"
 date: 2025-10-09T00:00:00Z
-lastmod: 2026-09-09T18:05:27+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Overview", "Product"]
 images: []
-weight: 010
+weight: 10
 aliases:
 - /chainguard/chainguard-images/features/packages/package-model/
 - /chainguard/containers/features/packages/package-model/
@@ -91,7 +91,7 @@ As mentioned previously, both the Wolfi and Extra Packages repositories are publ
 * Wolfi: `https://virtualapk.cgr.dev/$ORGANIZATION_ID/chainguard`
 * Extra: `https://virtualapk.cgr.dev/$ORGANIZATION_ID/extra-packages`
 
-You must replace `$ORGANIZATION_ID` with your organization's unique identifier (UID). You can find this with `chainctl` if [you've installed it](/chainguard/chainctl-usage/how-to-install-chainctl/):
+You must replace `$ORGANIZATION_ID` with your organization's unique identifier (UID). You can find this with `chainctl` if [you've installed it](/platform/chainctl-usage/how-to-install-chainctl/):
 
 ```shell
 chainctl iam orgs ls -o table

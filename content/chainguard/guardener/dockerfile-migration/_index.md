@@ -1,36 +1,36 @@
 ---
-title: "Chainguard Guardener Dockerfile migration"
+title: "Guardener Dockerfile migration"
 linktitle: "Dockerfile migration"
-description: "Use Chainguard Guardener to migrate, optimize, upgrade, and validate your Dockerfiles against Chainguard Containers with AI-driven, iterative conversion."
+description: "Use Guardener to migrate, optimize, upgrade, and validate your Dockerfiles against Chainguard Containers with AI-driven, iterative conversion."
 aliases:
 - /chainguard/migration/the-guardener/
 - /get-started/migration/the-guardener/
 type: "article"
 date: 2026-07-13T00:00:00+00:00
-lastmod: 2026-08-11T00:00:00+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["GitHub", "AI", "Chainguard Containers"]
 images: []
 menu:
   docs:
     parent: "guardener"
-weight: 050
+weight: 20
 toc: true
 ---
 
 The Dockerfile migration feature converts your Dockerfiles to use Chainguard Containers. It uses AI to iteratively translate instructions, build images, compare results, and fix issues until the migrated Dockerfile works as expected.
 
-Unlike the Guardener's [Hardened Actions](/chainguard/guardener/github/actions-security/) and [Commit Verification](/chainguard/guardener/github/commit-verification/) features, Dockerfile migration does not run through the GitHub App or the `.chainguard/` configuration directory. Instead, you drive it locally through `chainctl agent dockerfile` commands. The AI runs server-side and scans your workspace to perform its analysis, while Docker builds and file access remain local to your machine.
+Unlike Guardener's [Hardened Actions](/chainguard/guardener/github/actions-security/) and [Commit Verification](/chainguard/guardener/github/commit-verification/) features, Dockerfile migration does not run through the GitHub App or the `.chainguard/` configuration directory. Instead, you drive it locally through `chainctl agent dockerfile` commands. The AI runs server-side and scans your workspace to perform its analysis, while Docker builds and file access remain local to your machine.
 
-{{< beta feature="The Guardener" >}}
+{{< beta feature="Guardener" >}}
 
 ## Prerequisites
 
-While Dockerfile migration is in beta, your organization needs to join the waitlist. Chainguard will notify you once registration becomes available. You can sign up on [The Guardener landing page](https://www.chainguard.dev/guardener).
+While Dockerfile migration is in beta, your organization needs to join the waitlist. Chainguard will notify you once registration becomes available. You can sign up on [the Guardener landing page](https://www.chainguard.dev/guardener).
 
 You also need the following:
 
-- `chainctl` installed on your local machine. Refer to our [installation guide](/chainguard/chainctl-usage/how-to-install-chainctl/) to set this up if you haven't already done so.
+- `chainctl` installed on your local machine. Refer to our [installation guide](/platform/chainctl-usage/how-to-install-chainctl/) to set this up if you haven't already done so.
 - [Docker installed](https://docs.docker.com/engine/install/) and running locally.
 - Your Dockerfile and build context (source code and other inputs) present on the same machine where you run the migration.
 - A user with permission to accept the Guardener legal terms must accept them for your organization before anyone can run a session. Refer to [IAM access](#iam-access) below for the roles involved.
@@ -92,7 +92,7 @@ Access to Dockerfile migration is governed by Chainguard IAM roles:
 | Accepting the Guardener legal terms for your organization (required once before anyone can run sessions) | `guardener.admin` or `owner` |
 | Running Dockerfile migration sessions                                                                    | `guardener.user`             |
 
-Refer to the [Built-in roles and capabilities reference](/chainguard/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for details.
+Refer to the [Built-in roles and capabilities reference](/platform/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for details.
 
 ## Commands
 

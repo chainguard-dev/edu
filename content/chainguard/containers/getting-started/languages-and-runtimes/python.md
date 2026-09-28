@@ -9,14 +9,14 @@ aliases:
 - /chainguard/containers/getting-started/python/
 description: "Learn how to use Chainguard's Python container images for secure Python applications with minimal CVEs, distroless design, and comprehensive supply chain security features"
 date: 2023-02-28T11:07:52+02:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
 menu:
   docs:
     parent: "getting-started"
-weight: 060
+weight: 60
 toc: true
 ---
 

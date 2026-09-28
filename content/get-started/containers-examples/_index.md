@@ -5,10 +5,10 @@ lead: ""
 description: "Build your first image with a Chainguard Container: a quickstart plus short, language- and service-specific getting-started guides for nginx, PostgreSQL, Python, and Go."
 type: "article"
 date: 2026-06-17T08:48:23+00:00
-lastmod: 2026-08-03T19:00:00+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 images: []
-weight: 020
+weight: 60
 crosslinks:
 - title: "Quickstart"
   url: "/chainguard/containers/quickstart/"

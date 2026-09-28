@@ -9,14 +9,14 @@ aliases:
 - /chainguard/containers/staying-secure/working-with-scanners/grype-tutorial/
 description: "Learn to use Grype to detect CVEs in images"
 date: 2024-06-06T20:00:00+02:00
-lastmod: 2024-06-06T20:00:00+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 tags: ["CVE", "Chainguard Containers"]
 draft: false
 images: []
 menu:
   docs:
     parent: "scanners"
-weight: 020
+weight: 20
 toc: true
 ---
 

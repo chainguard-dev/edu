@@ -7,9 +7,9 @@ lead: "Using Chainguard container images and libraries in AI-assisted developmen
 description: "Install the Chainguard Power for Kiro and use it to migrate projects to Chainguard container images and libraries."
 type: "article"
 date: 2026-06-18T00:00:00-04:00
-lastmod: 2026-08-28T16:31:04+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
-weight: 020
+weight: 20
 ---
 
 [Kiro](https://kiro.dev/) helps developers move quickly, but speed alone does not reduce supply chain risk.
@@ -27,7 +27,7 @@ Before you begin, you'll need:
 
 * A [Kiro](https://kiro.dev/) account, with [Kiro IDE](https://kiro.dev/downloads/) downloaded.
 * A [Chainguard account](https://console.chainguard.dev/) and organization in domain format (for example, `acme-corp.com`).
-* [`chainctl`](/chainguard/chainctl-usage/how-to-install-chainctl/) installed and authenticated
+* [`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) installed and authenticated
 * Access to the Chainguard products you plan to use
     * [Chainguard Containers](/chainguard/containers/overview/) for container image migration
     * [Chainguard Libraries](/chainguard/libraries/introduction/overview/) for Java, JavaScript, or Python dependency migration. Learn how to create an entitlement in the [Libraries access docs](/chainguard/libraries/introduction/access/#manage-library-entitlements).
@@ -105,7 +105,7 @@ CMD ["python", "app.py"]
 Prompt Kiro with a request such as:
 
 ```Prompt
-Can you help me migrate this Dockerfile to use Chainguard Images?
+Can you help me migrate this Dockerfile to use Chainguard Containers?
 ```
 
 Kiro can then look up a Chainguard replacement image, translate system package installation to the appropriate Wolfi packages, rewrite the Dockerfile, and explain any important tradeoffs.

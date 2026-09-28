@@ -10,11 +10,11 @@ aliases:
 type: "article"
 description: "A conceptual article outlining different strategies and tools for keeping images up to date and avoiding the use of end-of-life software."
 date: 2024-12-02T11:07:52+02:00
-lastmod: 2026-09-03T15:35:10+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
-weight: 020
+weight: 20
 toc: true
 ---
 

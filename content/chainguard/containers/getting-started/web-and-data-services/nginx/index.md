@@ -7,14 +7,14 @@ aliases:
 - /chainguard/containers/getting-started/nginx
 description: "Learn how to deploy nginx web server using Chainguard's security-hardened container image with minimal vulnerabilities and distroless runtime"
 date: 2023-01-09T11:07:52+02:00
-lastmod: 2026-09-08T17:57:46+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
 menu:
   docs:
     parent: "getting-started"
-weight: 030
+weight: 30
 toc: true
 ---
 

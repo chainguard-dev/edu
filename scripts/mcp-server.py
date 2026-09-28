@@ -993,6 +993,31 @@ if __name__ == "__main__":
         # host must be passed explicitly: the SDK runner defaults to 127.0.0.1,
         # but Cloud Run requires binding 0.0.0.0. streamable_http_path defaults
         # to "/mcp" (matches the 1.x mount) and max_request_body_size to 4 MiB.
-        server.run(transport="streamable-http", host=args.host, port=args.port)
+        #
+        # stateless_http holds no per-session state in instance memory. The
+        # service runs multiple Cloud Run instances behind a global load
+        # balancer with no session affinity, so a session minted by initialize
+        # on one instance is rejected with 404 "Session not found" when a
+        # follow-up request (e.g. notifications/initialized) lands on another
+        # (CUS-1340). The docs tools are read-only with no server-initiated
+        # notifications, so holding no shared session state has no downside.
+        # Statelessness also retires the SDK's per-session ceilings
+        # (max_sessions, session_idle_timeout); throughput is now bounded by
+        # Cloud Run per-instance concurrency instead.
+        #
+        # json_response returns each POST reply as a single application/json
+        # body instead of a one-shot text/event-stream. These tools are
+        # read-only and single-response, so nothing needs SSE framing, and plain
+        # JSON is friendlier to the fronting load balancer and buffering proxies.
+        logger.info(
+            "Starting HTTP transport with stateless_http=True, json_response=True (CUS-1340)"
+        )
+        server.run(
+            transport="streamable-http",
+            host=args.host,
+            port=args.port,
+            stateless_http=True,
+            json_response=True,
+        )
     else:
         server.run()  # stdio

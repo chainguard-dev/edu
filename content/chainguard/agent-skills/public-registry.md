@@ -6,7 +6,7 @@ aliases:
 description: "Browse, inspect, install, and run hardened agent skills from Chainguard's public registry with chainctl."
 type: "article"
 date: 2026-06-08T08:48:45+00:00
-lastmod: 2026-09-28T00:00:00+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Agent Skills", "Overview"]
 images: []
@@ -14,7 +14,7 @@ menu:
   docs:
     parent: "agent-skills"
 toc: true
-weight: 003
+weight: 30
 ---
 
 Chainguard publishes a curated set of hardened agent skills in a public registry at `skills.cgr.dev/public`. Anyone with `chainctl` can browse and install them — no entitlement and no legal terms required. The Chainguard Agent Skills public registry is pull-only: you can install skills from the registry, but you can't push your own skills to it.

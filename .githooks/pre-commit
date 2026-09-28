@@ -36,6 +36,21 @@ def _is_content_md(path):
     return path.startswith('content/') and path.endswith('.md') and Path(path).exists()
 
 
+def _stamp_lastmod(frontmatter, now):
+    """Set lastmod to now, adding the key after date when it is missing.
+
+    The patterns must not use \\s*, which matches newlines: against a key with
+    an empty value (`lastmod:` with nothing after it) it runs on into the next
+    line, and the substitution then replaces that line too. A `.` never matches
+    a newline, so `.*` alone stays on its own line.
+    """
+    if re.search(r'^lastmod:', frontmatter, re.MULTILINE):
+        return re.sub(r'^lastmod:.*$', f'lastmod: {now}',
+                      frontmatter, flags=re.MULTILINE)
+    return re.sub(r'^(date:.*)$', f'\\1\nlastmod: {now}',
+                  frontmatter, flags=re.MULTILINE)
+
+
 def update_dates():
     """Add date/lastmod to new content files and refresh lastmod on modified ones."""
     now = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%S+00:00')
@@ -51,11 +66,20 @@ def update_dates():
         if end == -1:
             continue
         frontmatter, body = content[:end + 5], content[end + 5:]
-        if re.search(r'^date:', frontmatter, re.MULTILINE):
+        # A page can carry a date key with no value -- copied from a template,
+        # say. Treat that as undated and fill the key in place. Skipping any
+        # page that merely has the key is what let one page keep empty date and
+        # lastmod values from April to September.
+        date_line = re.search(r'^date:(.*)$', frontmatter, re.MULTILINE)
+        if date_line and date_line.group(1).strip():
             continue
-        if re.search(r'^title:', frontmatter, re.MULTILINE):
+        if date_line:
+            frontmatter = re.sub(r'^date:.*$', f'date: {now}', frontmatter,
+                                 count=1, flags=re.MULTILINE)
+            frontmatter = _stamp_lastmod(frontmatter, now)
+        elif re.search(r'^title:', frontmatter, re.MULTILINE):
             frontmatter = re.sub(
-                r'^(title:\s*.*)$', f'\\1\ndate: {now}\nlastmod: {now}',
+                r'^(title:.*)$', f'\\1\ndate: {now}\nlastmod: {now}',
                 frontmatter, flags=re.MULTILINE,
             )
         else:
@@ -74,12 +98,7 @@ def update_dates():
         if end == -1:
             continue
         frontmatter, body = content[:end + 5], content[end + 5:]
-        if re.search(r'^lastmod:', frontmatter, re.MULTILINE):
-            frontmatter = re.sub(r'^lastmod:\s*.*$', f'lastmod: {now}',
-                                 frontmatter, flags=re.MULTILINE)
-        else:
-            frontmatter = re.sub(r'^(date:\s*.*)$', f'\\1\nlastmod: {now}',
-                                 frontmatter, flags=re.MULTILINE)
+        frontmatter = _stamp_lastmod(frontmatter, now)
         Path(file).write_text(frontmatter + body, encoding='utf-8')
         subprocess.run(['git', 'add', file])
         updated.append(file)

@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "Frequently asked questions about Chainguard FIPS container images"
 date: 2025-01-10T15:56:52-07:00
-lastmod: 2025-04-08T05:56:52-07:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "FIPS"]
 images: []
@@ -16,7 +16,7 @@ menu:
   docs:
     parent: "features"
     identifier: "FIPS FAQ"
-weight: 060
+weight: 90
 toc: true
 ---
 

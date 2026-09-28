@@ -6,14 +6,14 @@ linktitle: "What is the Factory"
 type: "article"
 description: "Dustin Kirkland explains the concept and purpose of the Chainguard Factory"
 date: 2025-08-02T16:00:00+00:00
-lastmod: 2025-08-02T16:00:00+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Factory", "Overview", "Video", "Security"]
 images: []
 menu:
   docs:
     parent: "chainguard-factory"
-weight: 001
+weight: 10
 toc: true
 ---
 

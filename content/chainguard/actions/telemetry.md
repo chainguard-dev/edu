@@ -4,13 +4,13 @@ linktitle: "Telemetry and privacy"
 description: "Learn what telemetry Chainguard hardened actions send, why we collect it, and how to control it."
 type: "article"
 date: 2026-07-16T00:00:00+00:00
-lastmod: 2026-09-01T00:00:00+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Actions", "Telemetry", "Privacy"]
 menu:
   docs:
     parent: "actions"
-weight: 002
+weight: 20
 toc: true
 ---
 

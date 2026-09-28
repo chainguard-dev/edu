@@ -7,10 +7,10 @@ aliases:
 description: "Start using Chainguard Containers designed for minimal CVEs and reduced attack surface — comprehensive guides for migrating to hardened, enterprise-grade container images"
 type: "article"
 date: 2023-09-10T08:49:15+00:00
-lastmod: 2025-03-24T08:49:15+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 images: []
-weight: 040
+weight: 40
 topic: true
 banner: {
     image: "/icon-education.svg",

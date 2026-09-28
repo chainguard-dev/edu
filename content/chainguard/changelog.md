@@ -4,11 +4,11 @@ linktitle: "Changelog"
 type: "article"
 description: "Weekly changelog of Chainguard product updates — product announcements, breaking changes, container images reaching end-of-life or leaving the catalog, and images newly added to it."
 date: 2026-07-28T00:00:00+00:00
-lastmod: 2026-09-21T18:05:42+00:00
+lastmod: 2026-09-28T18:02:06+00:00
 draft: false
 tags: ["Chainguard Containers", "Changelog"]
 images: []
-weight: 070
+weight: 80
 toc: true
 tocEndLevel: 2
 ---
@@ -16,6 +16,63 @@ tocEndLevel: 2
 This page logs Chainguard product updates week by week, newest first: product announcements, breaking changes, container images that reached end-of-life or are no longer available, and images newly added to the catalog. Each event is listed once, in the week it first appeared.
 
 Breaking changes and product announcements cover the entire Chainguard portfolio, while end-of-life, availability, and new-image entries relate specifically to Chainguard Containers. This page summarizes the changes most likely to affect your work rather than every change Chainguard ships. Routine updates, such as new tags for existing images, are not listed individually. For the current tags and versions of any container image, refer to its entry in the [Chainguard Directory](https://images.chainguard.dev/directory).
+
+## Week of 2026-09-28
+
+{{< changelog-label "Product Announcements" >}}
+
+### FIPS 140-3 validation with post-quantum key exchange
+
+_Launched September 24, 2026._
+
+NIST has validated the Chainguard FIPS Provider for OpenSSL v3.6 under FIPS 140-3 ([Certificate #5523](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/5523)). The module includes:
+
+- Hybrid post-quantum key exchange for TLS, which pairs a classical key exchange with ML-KEM, as an approved FIPS service.
+- The standardized post-quantum algorithms ML-KEM, ML-DSA, and SLH-DSA, alongside classical FIPS algorithms such as AES, SHA-2, SHA-3, ECDSA, and RSA.
+- Fixes for known CVEs inside the validated module boundary.
+
+Chainguard FIPS container images can [opt in to the v3.6 module](/platform/fips/verify-fips/#opt-in-to-different-fips-provider-versions) starting October 1, 2026. SHA-1 is not an approved algorithm in v3.6, so check [how your workloads use non-approved algorithms](/platform/fips/non-approved-algorithms/) before you switch. For more on the validation and CNSA 2.0, read the [announcement](https://www.chainguard.dev/unchained/announcing-chainguards-industry-first-validated-fips-140-3-module-delivering-post-quantum-readiness).
+
+### Chainguard Libraries for Go and .NET (invite-only beta)
+
+_Launched September 28, 2026._
+
+Chainguard Libraries now covers the Go and .NET ecosystems through an invite-only beta. Organizations accepted into the beta can pull Go and .NET packages from Chainguard Libraries and evaluate them in their existing development workflows.
+
+{{< changelog-label "EOL" >}}
+
+Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images that have reached end-of-life
+
+The following container images reached end-of-life and entered their grace period:
+
+| Image | End-of-life | Grace period ends |
+| --- | --- | --- |
+| `longhorn-ui:1.10` | 2026-09-25 | 2027-03-25 |
+
+{{< changelog-label "New Images" >}}
+
+Chainguard built 19 new container images this week, including both standard and FIPS variants.
+
+<table class="cl-images">
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td><a href="https://images.chainguard.dev/directory/image/chainguard-server-hypervisor-gcp/versions"><code>chainguard-server-hypervisor-gcp</code></a></td><td>base</td><td>2026-09-23</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kured/versions"><code>kured</code></a></td><td>application +fips</td><td>2026-09-23</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/conftest/versions"><code>conftest</code></a></td><td>application +fips</td><td>2026-09-24</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/foundry/versions"><code>foundry</code></a></td><td>application</td><td>2026-09-24</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/keepalived/versions"><code>keepalived</code></a></td><td>application +fips</td><td>2026-09-24</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/mcp-grafana-fips/versions"><code>mcp-grafana-fips</code></a></td><td>fips</td><td>2026-09-24</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/nix/versions"><code>nix</code></a></td><td>application</td><td>2026-09-24</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/ray/versions"><code>ray</code></a></td><td>application</td><td>2026-09-24</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/vault-secrets-webhook/versions"><code>vault-secrets-webhook</code></a></td><td>application +fips</td><td>2026-09-24</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/argocd-agent/versions"><code>argocd-agent</code></a></td><td>application</td><td>2026-09-25</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kates/versions"><code>kates</code></a></td><td>application +fips</td><td>2026-09-25</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kubernetes-pause-fips/versions"><code>kubernetes-pause-fips</code></a></td><td>fips</td><td>2026-09-25</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/victoriatraces/versions"><code>victoriatraces</code></a></td><td>application +fips</td><td>2026-09-25</td></tr>
+</tbody>
+</table>
 
 ## Week of 2026-09-21
 
@@ -31,7 +88,7 @@ During the beta, authentication and build pipelines continue to run on US infras
 
 {{< changelog-label "EOL" >}}
 
-Chainguard offers [a grace period](/chainguard/containers/features/eol-gp-overview/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
 ### Images that have reached end-of-life
 
@@ -78,7 +135,7 @@ Chainguard's `sonar-scanner-cli` image changes its default user from `root` (UID
 
 {{< changelog-label "EOL" >}}
 
-Chainguard offers [a grace period](/chainguard/containers/features/eol-gp-overview/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
 ### Images that have reached end-of-life
 
@@ -129,7 +186,7 @@ Choosing a FIPS module for Go previously meant choosing a toolchain at compile t
 
 Go 1.26 and earlier behave as before and remain supported until end-of-life, so you can migrate on your own schedule.
 
-For more information, refer to [Getting started with the Go Chainguard Container](/chainguard/containers/getting-started/go/).
+For more information, refer to [Getting started with the Go Chainguard Container](/chainguard/containers/getting-started/languages-and-runtimes/go/).
 
 ### Chainguard Libraries in JFrog
 
@@ -383,9 +440,9 @@ For more information, refer to [Error messages](/chainguard/libraries/troublesho
 
 _Launched August 12, 2026._
 
-Chainguard Guardener, the automated migration tool, now covers GitHub Actions as well as container images. The GitHub App inventories the Actions in use across your organization's repositories, maps them to hardened Chainguard equivalents, and opens pull requests to swap them in, pinned to a specific SHA rather than a mutable tag. It runs in two modes: an upfront pass that surfaces existing Actions usage and opens migration pull requests, and ongoing standardization that watches workflow files and suggests Chainguard equivalents as new upstream Actions appear.
+Guardener, the automated migration tool, now covers GitHub Actions as well as container images. The GitHub App inventories the Actions in use across your organization's repositories, maps them to hardened Chainguard equivalents, and opens pull requests to swap them in, pinned to a specific SHA rather than a mutable tag. It runs in two modes: an upfront pass that surfaces existing Actions usage and opens migration pull requests, and ongoing standardization that watches workflow files and suggests Chainguard equivalents as new upstream Actions appear.
 
-For more information, refer to [Getting started with Chainguard Guardener](/chainguard/guardener/github/getting-started/).
+For more information, refer to [Getting started with Guardener](/chainguard/guardener/github/getting-started/).
 
 {{< changelog-label "Breaking Changes" >}}
 

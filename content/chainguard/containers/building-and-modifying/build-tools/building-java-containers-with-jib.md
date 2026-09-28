@@ -4,11 +4,11 @@ linktitle: "Jib"
 type: "article"
 description: "In this tutorial, you'll learn how to build minimal Java containers using Jib and Chainguard base images"
 date: 2025-09-23T00:49:31+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
-weight: 010
+weight: 10
 toc: true
 aliases:
 - /chainguard/chainguard-images/tooling/building-java-containers-with-jib/

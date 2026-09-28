@@ -7,14 +7,14 @@ aliases:
 - /chainguard/containers/getting-started/nemo
 description: "Learn how to use Chainguard's NeMo container image for conversational AI with enhanced security, minimal CVEs, and GPU acceleration support"
 date: 2024-05-16T08:00:00+02:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
 menu:
   docs:
     parent: "getting-started"
-weight: 010
+weight: 10
 toc: true
 ---
 

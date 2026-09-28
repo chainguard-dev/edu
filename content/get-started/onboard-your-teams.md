@@ -5,11 +5,11 @@ lead: "Your organization has adopted Chainguard. This guide helps administrators
 description: "Onboard your teams to Chainguard Containers and Chainguard Libraries: what your organization can pull, how subscriptions differ, and how to retrieve SBOMs and provenance."
 type: "article"
 date: 2026-08-26T00:00:00+00:00
-lastmod: 2026-09-02T13:31:42+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Getting Started"]
 images: []
-weight: 010
+weight: 30
 toc: true
 ---
 
@@ -102,7 +102,7 @@ Chainguard's platform reaches beyond containers and libraries. Your organization
 
 - **[Chainguard Agent Skills](/chainguard/agent-skills/overview/)** — hardened AI agent skills that Chainguard reviews, scopes, and publishes with a full audit trail, so your teams can install them without inheriting unknown risk.
 - **[Chainguard Actions](/chainguard/actions/overview/)** — hardened, drop-in replacements for popular GitHub Actions that protect your CI/CD pipelines from supply chain attacks.
-- **[Chainguard Guardener](/chainguard/guardener/)** — a tool for managing and hardening your source code through a suite of capabilities you opt into independently.
+- **[Guardener](/chainguard/guardener/)** — a tool for managing and hardening your source code through a suite of capabilities you opt into independently.
 
 ## Next steps
 
@@ -110,3 +110,4 @@ Chainguard's platform reaches beyond containers and libraries. Your organization
 - Ready to pull your first container image? Work through a [language- or service-specific example](/get-started/containers-examples/).
 - Adopting Chainguard Libraries? Follow the [libraries on-ramp](/get-started/libraries-examples/).
 - Managing resources from the command line? See [Get started with chainctl](/get-started/getting-started-with-chainctl/).
+- Wiring Chainguard into a build pipeline? See [Chainguard in your CI/CD pipeline](/get-started/cicd-pipeline/).

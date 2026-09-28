@@ -9,14 +9,14 @@ aliases:
 - /chainguard/containers/getting-started/cilium/
 description: "Learn how to deploy Cilium CNI using Chainguard's security-hardened container images for enhanced Kubernetes network security with eBPF"
 date: 2023-12-14T00:00:00+00:00
-lastmod: 2026-08-21T12:32:28+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
 menu:
   docs:
     parent: "getting-started"
-weight: 010
+weight: 10
 toc: true
 ---
 

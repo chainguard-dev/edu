@@ -5,14 +5,14 @@ aliases:
 type: "article"
 description: "Policy recipes"
 date: 2022-07-15T15:22:20+01:00
-lastmod: 2024-08-19T15:56:52-07:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Policy Controller", "Procedural", "Policy", "policy-controller", "Reference", "SBOM"]
 images: []
 menu:
   docs:
     parent: "policies"
-weight: 075
+weight: 30
 toc: true
 ---
 

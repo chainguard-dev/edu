@@ -4,10 +4,10 @@ linktitle: "Building and modifying"
 description: "Adding packages to a Chainguard Container, working with Chainguard's package repositories, and building containers without a Dockerfile."
 type: "article"
 date: 2026-09-04T00:00:00+00:00
-lastmod: 2026-09-09T18:05:27+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 images: []
-weight: 060
+weight: 60
 topic: true
 banner: {
     image: "/icon-code-slash.svg",

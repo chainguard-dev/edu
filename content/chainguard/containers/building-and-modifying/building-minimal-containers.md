@@ -4,11 +4,11 @@ linktitle: "Building minimal containers"
 description: "How to build minimal container images with multi-stage builds: the Chainguard static base for compiled binaries, and runtime images for languages like Java that need one"
 type: "article"
 date: 2023-08-30T15:21:01+00:00
-lastmod: 2026-09-08T00:00:00+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
-weight: 020
+weight: 30
 toc: true
 aliases:
 - /chainguard/chainguard-images/videos/static-base-image/

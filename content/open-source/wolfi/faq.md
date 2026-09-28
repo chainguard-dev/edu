@@ -3,14 +3,14 @@ title: "Wolfi FAQs"
 type: "article"
 description: "Frequently asked questions about Wolfi, a Linux undistro"
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Wolfi", "FAQ"]
 images: []
 menu:
   docs:
     parent: "wolfi"
-weight: 300
+weight: 20
 toc: true
 ---
 ## What is Wolfi and how does it compare to Alpine?

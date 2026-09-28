@@ -4,9 +4,9 @@ linktitle: "Self-serve Helm charts"
 description: "Provision Chainguard Helm charts and their required images from the Chainguard Console as a Catalog customer"
 type: "article"
 date: 2026-08-06T00:00:01+00:00
-lastmod: 2026-09-02T13:33:15+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
-weight: 020
+weight: 20
 toc: true
 ---
 
@@ -62,4 +62,4 @@ If your organization uses per-image pricing, or a chart requires images outside 
 
 ## Use your charts
 
-After provisioning completes, authenticate and deploy your charts by following [How to Use Chainguard Helm Charts](/chainguard/chainguard-images/how-to-use/use-chainguard-helm-charts/).
+After provisioning completes, authenticate and deploy your charts by following [How to Use Chainguard Helm Charts](/chainguard/containers/using-and-deploying/helm-charts/use-chainguard-helm-charts/).

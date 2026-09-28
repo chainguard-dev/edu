@@ -7,7 +7,7 @@ type: "article"
 description: "Learn about Chainguard Factory, the automated build system that continuously updates thousands of containers, libraries, and VMs with the latest security patches"
 lead: "An introduction to Chainguard’s Factory; the powerhouse of engineering and automation that continuously transforms the chaos of open source into secure, up-to-date containers, libraries, and VMs at massive scale."
 date: 2025-07-15T08:49:31+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Chainguard VMs"]
 images: []
@@ -15,7 +15,7 @@ menu:
   docs:
     parent: "chainguard-factory"
     identifier: "Chainguard Factory Overview"
-weight: 005
+weight: 20
 toc: true
 ---
 

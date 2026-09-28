@@ -5,10 +5,10 @@ lead: ""
 description: "Swap in your first secure dependency with Chainguard Libraries: a quickstart plus ecosystem overviews for Java, JavaScript, and Python."
 type: "article"
 date: 2026-06-26T00:00:00+00:00
-lastmod: 2026-08-28T16:31:04+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 images: []
-weight: 025
+weight: 70
 crosslinks:
 - title: "Quickstart: swap in a library"
   url: "/chainguard/libraries/introduction/quickstart/"

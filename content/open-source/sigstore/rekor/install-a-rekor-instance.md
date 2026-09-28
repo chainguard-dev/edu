@@ -5,14 +5,14 @@ type: "article"
 lead: "Make your own transparency log instance"
 description: "Create your own instance of the Rekor transparency log"
 date: 2022-08-20T08:49:31+00:00
-lastmod: 2022-08-20T08:49:31+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Rekor", "Procedural"]
 images: []
 menu:
   docs:
     parent: "rekor"
-weight: 005
+weight: 50
 toc: true
 ---
 

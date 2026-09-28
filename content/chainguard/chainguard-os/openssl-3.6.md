@@ -4,9 +4,9 @@ lead: ""
 description: "OpenSSL 3.6 Configuration"
 type: "article"
 date: 2026-09-10T00:48:23+00:00
-lastmod: 2026-09-11T00:00:00+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
-weight: 040
+weight: 40
 menu:
   docs:
     parent: "chainguard-os"

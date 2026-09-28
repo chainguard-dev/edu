@@ -10,14 +10,14 @@ aliases:
 - /get-started/migration/compatibility/debian-compatibility/
 description: "Differences between Chainguard Containers and Debian third-party images"
 date: 2024-02-08T15:56:52-07:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Reference"]
 images: []
 menu:
   docs:
     parent: "compatibility"
-weight: 020
+weight: 20
 toc: true
 ---
 
