@@ -565,18 +565,18 @@ In order to install Python libraries from multiple repositories with Chainguard
 Libraries for Python as the priority, `uv` supports [searching across multiple
 indexes](https://docs.astral.sh/uv/concepts/indexes/#searching-across-multiple-indexes).
 
-You can use this to configure Chainguard Libraries for Python as the first
-choice for any library access, with a fallback to the PyPI public index. In
-addition, if you are consuming from our remediated Python libraries index, we
-recommend setting the [index-strategy
+You can use this to configure the remediated Chainguard Libraries for Python
+index as the first choice for any library access, with a fallback to the
+Chainguard Libraries for Python index. In addition, if you are consuming from
+our remediated Python libraries index, we recommend setting the [index-strategy
 setting](https://docs.astral.sh/uv/reference/settings/#index-strategy) to
 `unsafe-best-match`. This ensures that index resolution continues to work when
 remediated libraries have dependencies on non-remediated libraries.
 
 Example `pyproject.toml` index setup for direct access to remediated and default
-packages with netrc-based authentication and lowest priority fallback to PyPI.
-Note that the order of the entries in the configuration file is significant and
-determines the order for resolving dependencies:
+packages with netrc-based authentication. Note that the order of the entries in
+the configuration file is significant and determines the order for resolving
+dependencies:
 
 ```toml
 [[tool.uv.index]]
@@ -588,15 +588,19 @@ authenticate = "always"
 name = "cgr-p"
 url = "https://libraries.cgr.dev/python/simple"
 authenticate = "always"
-
-[[tool.uv.index]]
-name = "pypi"
-url = "https://pypi.org/simple/"
-default = true # important to treat it as lowest priority
+default = true # replaces PyPI as the lowest priority index
 ```
 
+Setting `default = true` on the Chainguard index is important. Without it, uv
+appends PyPI as an implicit lowest-priority index, and with `unsafe-best-match`
+it can resolve packages from PyPI even when Chainguard serves them. This
+bypasses Chainguard malware blocking and cooldown. If you need packages that
+Chainguard has not built, use the [built-in upstream
+fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls)
+instead of adding PyPI to your configuration.
+
 Set the index strategy to allow fallback from the remediated package index to
-the Chainguard index and even PyPI as final fallback in `pyproject.toml`:
+the Chainguard index in `pyproject.toml`:
 
 ```toml
 [tool.uv]
@@ -702,6 +706,7 @@ authenticate = "always"
 name = "cgr-p"
 url = "https://libraries.cgr.dev/python/simple"
 authenticate = "always"
+default = true
 ```
 
 **4. Build the project**
