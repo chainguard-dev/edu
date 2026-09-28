@@ -1,6 +1,6 @@
 ---
 title: "Managing tag-based Custom Assembly with chainctl"
-linktitle: "Tag-based customization with chainctl"
+linktitle: "Customize tags with chainctl"
 type: "article"
 description: "How to use chainctl to create overlays and bind them to specific tags of a Custom Assembly repository."
 date: 2026-09-28T16:33:22+00:00
@@ -17,7 +17,7 @@ toc: true
 
 {{< beta feature="Tag-based Custom Assembly" enroll="true" >}}
 
-This guide shows how to use `chainctl` to apply Custom Assembly customizations to a subset of a repository's tags. You create an overlay that holds the customizations, then bind it to a repository with a tag selector.
+This guide shows how to use `chainctl` to apply Custom Assembly customizations to some of a repository's tags. You create an overlay that holds the customizations, then bind it to a repository with a tag selector.
 
 For an explanation of overlays, bindings, and tag selectors, see [Customizing specific tags with Custom Assembly](/chainguard/containers/custom-assembly/tag-based-custom-assembly/).
 
@@ -28,7 +28,7 @@ Before you start, you need the following:
 * Tag-based Custom Assembly enabled for your organization. Contact your Chainguard account team to enable it.
 * A recent version of [`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/). Run `chainctl update` to update it.
 * A role with the `registry.overlays.edit` capability, such as the built-in `editor` or `owner` role.
-* A repository in your organization with no standard Custom Assembly customization. A repository can't use both. To convert one, see [Moving a repository from standard Custom Assembly](#moving-a-repository-from-standard-custom-assembly).
+* A repository in your organization with no standard Custom Assembly customization. A repository can't use both. To convert one, see [Move a repository from standard Custom Assembly](#move-a-repository-from-standard-custom-assembly).
 
 The examples in this guide use the following environment variables. Set them to match your organization and repository:
 
@@ -36,6 +36,8 @@ The examples in this guide use the following environment variables. Set them to 
 export ORGANIZATION=example.com
 export REPO=python
 ```
+
+The examples add Python packages to the `python` repository, but the same commands work for any repository.
 
 ## Add a package to specific tags
 
@@ -67,13 +69,13 @@ This example adds `py3.13-typer` to the Python 3.13 tags only, so the other Pyth
     attached overlay "typer" to repo 45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/7c3e5a1b2d4f6e80 (binding 45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/7c3e5a1b2d4f6e80/9b8a7c6d5e4f3a21, selector EXACT [3.13 3.13-dev])
     ```
 
-Chainguard starts rebuilding `3.13` and `3.13-dev` with the overlay applied. Only the tags you list are customized, even if other tags such as `3.13.7` or `latest` point to the same image. To keep those tags identical, list them too.
+Chainguard starts rebuilding `3.13` and `3.13-dev` with the overlay applied. It customizes only the tags you list, even if other tags such as `3.13.7` or `latest` point to the same image. To keep those tags identical, list them too.
 
 To check on the builds, see [Check the results](#check-the-results).
 
-## Add a package to every `-dev` tag
+## Add packages to every `-dev` tag
 
-To bind an overlay to every tag ending in `-dev`, including `-dev` tags published later, use `--variant dev` instead of `--tag`:
+To bind an overlay to every tag ending in `-dev`, use `--variant dev` instead of `--tag`. The following commands create an overlay with two debugging tools and bind it to the repository's `-dev` tags:
 
 ```shell
 chainctl images overlays create debug-tools --parent $ORGANIZATION --package strace,gdb
@@ -85,9 +87,11 @@ chainctl images overlays attach \
   --variant dev
 ```
 
+The binding also applies to `-dev` tags published after you create it, so new versions get `strace` and `gdb` without any further changes.
+
 ## Add a package to every tag
 
-To bind an overlay to every tag in a repository, use `--all`. Combined with the `{{major}}` and `{{minor}}` placeholders, one overlay can add the right version of a package to each tag:
+To bind an overlay to every tag in a repository, use `--all`. Combined with the `{{major}}` and `{{minor}}` placeholders, one overlay can add the right version of a package to each tag. The following commands add the `cryptography` package for each tag's Python version:
 
 ```shell
 chainctl images overlays create cryptography --parent $ORGANIZATION \
@@ -104,7 +108,9 @@ The `3.12` tags receive `py3.12-cryptography`, the `3.14` tags receive `py3.14-c
 
 ## Add other customizations
 
-The `--package` flag only sets packages. To set environment variables, annotations, certificates, user accounts, or runtime repositories, write the overlay as a YAML file and pass it with `-f`. The file uses the same format as [`chainctl images repos build apply`](/chainguard/containers/custom-assembly/custom-assembly-chainctl/#applying-packages-non-interactively):
+The `--package` flag sets only packages. To set environment variables, annotations, certificates, user accounts, or runtime repositories, write the overlay as a YAML file and pass it with `-f`. The file uses the same format as [`chainctl images repos build apply`](/chainguard/containers/custom-assembly/custom-assembly-chainctl/#applying-packages-non-interactively).
+
+The following commands write an overlay that adds an internal certificate authority and an environment variable, then create the overlay from the file:
 
 ```shell
 cat > internal-ca.yaml <<EOF
@@ -122,15 +128,17 @@ EOF
 chainctl images overlays create internal-ca --parent $ORGANIZATION -f internal-ca.yaml
 ```
 
-When you pass both `-f` and `--package`, `chainctl` uses the file and ignores `--package`.
+If you pass both `-f` and `--package`, `chainctl` uses the file and ignores `--package`.
 
-An overlay belongs to your organization, so you can bind the same overlay to many repositories. Run `attach` once for each repository:
+An overlay belongs to your organization, so you can bind it to many repositories. The following loop binds `internal-ca` to every tag of three repositories:
 
 ```shell
 for repo in python node go; do
   chainctl images overlays attach --overlay internal-ca --repo $repo --parent $ORGANIZATION --all
 done
 ```
+
+Each repository gets its own binding, and each binding starts a rebuild of that repository.
 
 You can bind several overlays to one repository with the same kind of selector, as long as they don't set the same field to different values. For example, you can bind both `internal-ca` and `cryptography` to the `python` repository with `--all`. If two overlays conflict, `attach` fails and the error names the conflicting binding and field.
 
@@ -157,7 +165,7 @@ overlay: typer (id: 45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/1f4fcff90a5f0a02)
       id:   45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/7c3e5a1b2d4f6e80/9b8a7c6d5e4f3a21
 ```
 
-The `id` under each binding is the binding ID, which you need to change or remove the binding. For output you can process with tools such as `jq`, add `-o json`.
+Each binding's `id` is its binding ID. You need it to change or remove the binding. To get output you can process with tools such as `jq`, add `-o json`.
 
 ## Change an overlay
 
@@ -165,6 +173,10 @@ To change an overlay's customizations, run `update` with the overlay's name or I
 
 ```shell
 chainctl images overlays update typer --package py3.13-typer,py3.13-rich
+```
+
+```output
+updated overlay: typer (45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/1f4fcff90a5f0a02)
 ```
 
 To change other customizations, pass a YAML file with `-f`:
@@ -183,15 +195,25 @@ Chainguard rebuilds the matching tags in every repository the overlay is bound t
 
 ## Change which tags a binding applies to
 
-To change a binding's tag selector, run `update-binding` with the binding ID from `chainctl images overlays list`. The new selector replaces the old one:
+To change a binding's tag selector, run `update-binding` with the binding's ID. Set `BINDING_ID` to the `id` shown for the binding in `chainctl images overlays list`:
+
+```shell
+export BINDING_ID=45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/7c3e5a1b2d4f6e80/9b8a7c6d5e4f3a21
+```
+
+The following command replaces the binding's selector, adding `latest` to the tags it applies to:
 
 ```shell
 chainctl images overlays update-binding $BINDING_ID --tag 3.13 --tag 3.13-dev --tag latest
 ```
 
+```output
+updated overlay binding 45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/7c3e5a1b2d4f6e80/9b8a7c6d5e4f3a21 (selector EXACT [3.13 3.13-dev latest])
+```
+
 Chainguard rebuilds newly matched tags with the overlay. Tags the binding no longer matches return to their uncustomized image.
 
-You can only change a binding's selector. To bind a different overlay, or to move a binding to a different repository, remove the binding and create a new one.
+The selector is the only part of a binding you can change. To bind a different overlay, or to move a binding to another repository, remove the binding and create a new one.
 
 ## Remove a customization
 
@@ -201,15 +223,23 @@ To remove an overlay from a repository, run `detach` with the binding ID:
 chainctl images overlays detach $BINDING_ID
 ```
 
+```output
+detached overlay binding 45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/7c3e5a1b2d4f6e80/9b8a7c6d5e4f3a21
+```
+
 Chainguard rebuilds the tags the binding matched, and they return to their uncustomized image.
 
-To delete an overlay, first detach all of its bindings, then run `delete` with the overlay ID:
+To delete an overlay, detach all of its bindings first. Then set `OVERLAY_ID` to the overlay's ID, shown next to its name in `chainctl images overlays list`, and run `delete`. The `delete` command doesn't accept an overlay name:
 
 ```shell
 chainctl images overlays delete $OVERLAY_ID
 ```
 
-If the overlay is still bound to a repository, `delete` fails and lists the bindings to detach. `delete` accepts only the overlay ID, not its name.
+```output
+deleted overlay 45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/1f4fcff90a5f0a02
+```
+
+If the overlay is still bound to a repository, `delete` fails and lists the bindings to detach.
 
 ## Check the results
 
@@ -219,17 +249,17 @@ Bindings and overlay updates start builds automatically. To see the builds for a
 chainctl images repos build list --repo $REPO
 ```
 
-To see a build's logs, including the configuration it was built with, run the following command and select a build:
+The following command shows a build's logs, including the configuration Chainguard built it with. Select a build when prompted:
 
 ```shell
 chainctl images repos build logs --repo $REPO
 ```
 
-If a package can't be installed on a tag, that tag's build fails and the logs name the package. The other tags aren't affected. For more on these commands, see [Retrieving information about Custom Assembly containers](/chainguard/containers/custom-assembly/custom-assembly-chainctl/#retrieving-information-about-custom-assembly-containers).
+If a package can't be installed on a tag, that tag's build fails and the logs name the package. The failure doesn't affect other tags. For more on these commands, see [Retrieving information about Custom Assembly containers](/chainguard/containers/custom-assembly/custom-assembly-chainctl/#retrieving-information-about-custom-assembly-containers).
 
-## Moving a repository from standard Custom Assembly
+## Move a repository from standard Custom Assembly
 
-A repository can't use standard and tag-based Custom Assembly at the same time. If you try to bind an overlay to a repository that has a standard customization, `attach` fails with this error:
+A repository can't use standard and tag-based Custom Assembly at the same time. If you bind an overlay to a repository that has a standard customization, `attach` fails with this error:
 
 ```output
 repository custom overlay and overlay binding not allowed
@@ -237,7 +267,7 @@ repository custom overlay and overlay binding not allowed
 
 To move a repository to tag-based Custom Assembly without changing what its tags contain, follow these steps:
 
-1. Save the repository's current customization to a file. Run `chainctl images repos build edit --repo $REPO`, copy the configuration from the editor into a file named `current.yaml`, and then close the editor without saving.
+1. Save the repository's current customization to a file. Run `chainctl images repos build edit --repo $REPO`, copy the configuration from the editor into a file named `current.yaml`, then close the editor without saving.
 1. Create an overlay from the file:
 
     ```shell
@@ -251,7 +281,7 @@ To move a repository to tag-based Custom Assembly without changing what its tags
     chainctl images overlays attach --overlay $REPO-customization --repo $REPO --parent $ORGANIZATION --all
     ```
 
-Between steps 3 and 4, Chainguard might rebuild the repository without its customization. To keep that window short, run step 4 right after step 3.
+Between steps 3 and 4, Chainguard might rebuild the repository without its customization. To keep that gap short, run step 4 immediately after step 3.
 
 If `attach` still fails after you remove the standard customization, contact your Chainguard account team.
 

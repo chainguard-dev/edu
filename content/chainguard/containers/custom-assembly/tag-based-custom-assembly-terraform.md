@@ -1,6 +1,6 @@
 ---
 title: "Managing tag-based Custom Assembly with Terraform"
-linktitle: "Tag-based customization with Terraform"
+linktitle: "Customize tags with Terraform"
 type: "article"
 description: "How to use the Chainguard Terraform provider to create overlays and bind them to specific tags of a Custom Assembly repository."
 date: 2026-09-28T16:33:22+00:00
@@ -32,7 +32,7 @@ Before you start, you need the following:
 
 ## Look up your organization and repository
 
-Overlays belong to your organization, and bindings belong to a repository. Use data sources to look up their IDs:
+Overlays belong to your organization, and bindings belong to a repository, so you need the IDs of both. The following configuration requires the Chainguard provider and uses data sources to look up the `example.com` organization and its `python` repository:
 
 ```hcl
 terraform {
@@ -58,6 +58,8 @@ locals {
 }
 ```
 
+The `chainguard_image_repo` data source returns a list of matching repositories. The `python_repo_id` local value holds the ID of the first match, which the binding examples later in this guide use.
+
 ## Create overlays
 
 Each `chainguard_image_overlay` resource defines a named set of packages. The following example defines two overlays:
@@ -78,7 +80,7 @@ resource "chainguard_image_overlay" "debug_tools" {
 
 Package names can use the `{{major}}` and `{{minor}}` placeholders, as in `py{{major}}.{{minor}}-cryptography`. For details, see [Version templates in package names](/chainguard/containers/custom-assembly/tag-based-custom-assembly/#version-templates-in-package-names).
 
-The `chainguard_image_overlay` resource supports packages only. To create an overlay with other customizations, such as certificates or environment variables, use [`chainctl`](/chainguard/containers/custom-assembly/tag-based-custom-assembly-chainctl/#add-other-customizations).
+The `chainguard_image_overlay` resource supports only packages. To create an overlay with other customizations, such as certificates or environment variables, use [`chainctl`](/chainguard/containers/custom-assembly/tag-based-custom-assembly-chainctl/#add-other-customizations).
 
 ## Bind overlays to tags
 
@@ -122,11 +124,17 @@ tag_selector {
 
 You can bind a given overlay to a repository only once. To apply an overlay to more tags, change its binding's selector instead of adding a second binding.
 
-Run `terraform apply` to create the resources. Chainguard then rebuilds the matching tags. To check on the builds, run `chainctl images repos build list --repo python`.
+To create the overlays and bindings, apply the configuration:
+
+```shell
+terraform apply
+```
+
+After Terraform creates the bindings, Chainguard rebuilds the matching tags. To check on the builds, run `chainctl images repos build list --repo python`.
 
 ## Change or remove customizations
 
-The overlay and binding resources don't support in-place updates. When you change an overlay's name or packages, or a binding's selector, Terraform deletes the resource and creates a new one. Replacing an overlay also replaces its bindings.
+The overlay and binding resources don't support in-place updates. When you change an overlay's name or packages, or a binding's selector, Terraform deletes the resource and creates a new one. Replacing an overlay gives it a new ID, so Terraform also replaces the bindings that refer to it.
 
 Each replacement removes the customization before adding it back, so Chainguard might rebuild the affected tags twice: once without the customization and once with it. Review the plan before you apply changes to repositories that serve production traffic.
 
