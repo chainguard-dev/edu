@@ -26,7 +26,7 @@ For an explanation of overlays, bindings, and tag selectors, see [Customizing sp
 Before you start, you need the following:
 
 * Tag-based Custom Assembly enabled for your organization. Contact your Chainguard account team to enable it.
-* Terraform and the Chainguard Terraform provider, version 0.4.6 or later. To configure the provider, see [Introduction to the Chainguard Terraform provider](/platform/administration/terraform-provider/).
+* Terraform and the Chainguard Terraform provider, version 0.5.0 or later. To configure the provider, see [Introduction to the Chainguard Terraform provider](/platform/administration/terraform-provider/).
 * An identity with the `registry.overlays.edit` capability, such as one bound to the built-in `editor` or `owner` role.
 * A repository in your organization with no standard Custom Assembly customization. A repository can't use both.
 
@@ -39,7 +39,7 @@ terraform {
   required_providers {
     chainguard = {
       source  = "chainguard-dev/chainguard"
-      version = ">= 0.4.6"
+      version = ">= 0.5.0"
     }
   }
 }
@@ -62,7 +62,7 @@ The `chainguard_image_repo` data source returns a list of matching repositories.
 
 ## Create overlays
 
-Each `chainguard_image_overlay` resource defines a named set of packages. The following example defines two overlays:
+Each `chainguard_image_overlay` resource defines a named set of customizations. For an overlay that only adds packages, set the `packages` attribute. The following example defines two overlays that add packages:
 
 ```hcl
 resource "chainguard_image_overlay" "typer" {
@@ -80,7 +80,30 @@ resource "chainguard_image_overlay" "debug_tools" {
 
 Package names can use the `{{major}}` and `{{minor}}` placeholders, as in `py{{major}}.{{minor}}-cryptography`. For details, see [Version templates in package names](/chainguard/containers/custom-assembly/tag-based-custom-assembly/#version-templates-in-package-names).
 
-The `chainguard_image_overlay` resource supports only packages. To create an overlay with other customizations, such as certificates or environment variables, use [`chainctl`](/chainguard/containers/custom-assembly/tag-based-custom-assembly-chainctl/#add-other-customizations).
+To add other customizations, such as certificates, environment variables, or annotations, set the `config` attribute instead of `packages`. An overlay can set one of the two, but not both. The `config` attribute takes a JSON-encoded configuration with the same fields as a [`chainctl` overlay file](/chainguard/containers/custom-assembly/tag-based-custom-assembly-chainctl/#add-other-customizations). The following example uses `jsonencode` to build an overlay that adds an internal certificate authority, an environment variable, and a package:
+
+```hcl
+resource "chainguard_image_overlay" "internal_ca" {
+  parent_id = data.chainguard_group.org.id
+  name      = "internal-ca"
+  config = jsonencode({
+    contents = {
+      packages = ["curl"]
+    }
+    environment = {
+      REQUESTS_CA_BUNDLE = "/etc/ssl/certs/ca-certificates.crt"
+    }
+    certificates = {
+      additional = [{
+        name    = "internal-ca"
+        content = file("internal-ca.pem")
+      }]
+    }
+  })
+}
+```
+
+The `file` function reads the certificate from `internal-ca.pem` in your Terraform directory, so the certificate doesn't need to appear in your configuration. For the full list of supported fields, see [Supported customizations](/chainguard/containers/custom-assembly/tag-based-custom-assembly/#supported-customizations).
 
 ## Bind overlays to tags
 
@@ -134,7 +157,7 @@ After Terraform creates the bindings, Chainguard rebuilds the matching tags. To 
 
 ## Change or remove customizations
 
-The overlay and binding resources don't support in-place updates. When you change an overlay's name or packages, or a binding's selector, Terraform deletes the resource and creates a new one. Replacing an overlay gives it a new ID, so Terraform also replaces the bindings that refer to it.
+The overlay and binding resources don't support in-place updates. When you change an overlay's name, packages, or configuration, or a binding's selector, Terraform deletes the resource and creates a new one. Replacing an overlay gives it a new ID, so Terraform also replaces the bindings that refer to it.
 
 Each replacement removes the customization before adding it back, so Chainguard might rebuild the affected tags twice: once without the customization and once with it. Review the plan before you apply changes to repositories that serve production traffic.
 

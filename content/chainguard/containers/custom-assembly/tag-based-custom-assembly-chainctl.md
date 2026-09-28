@@ -229,17 +229,17 @@ detached overlay binding 45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/7c3e5a1b2d4f6e
 
 Chainguard rebuilds the tags the binding matched, and they return to their uncustomized image.
 
-To delete an overlay, detach all of its bindings first. Then set `OVERLAY_ID` to the overlay's ID, shown next to its name in `chainctl images overlays list`, and run `delete`. The `delete` command doesn't accept an overlay name:
+To delete an overlay, detach all of its bindings first. Then run `delete` with the overlay's name or ID:
 
 ```shell
-chainctl images overlays delete $OVERLAY_ID
+chainctl images overlays delete typer
 ```
 
 ```output
 deleted overlay 45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/1f4fcff90a5f0a02
 ```
 
-If the overlay is still bound to a repository, `delete` fails and lists the bindings to detach.
+If the overlay is still bound to a repository, `delete` fails and lists the bindings to detach. If more than one overlay you can access has the same name, pass the overlay's ID instead, shown next to its name in `chainctl images overlays list`.
 
 ## Check the results
 
