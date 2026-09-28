@@ -17,11 +17,11 @@ aliases:
 type: "article"
 description: "How to configure Digestabot to keep digest-pinned references to Chainguard Containers current, including authenticating to a private cgr.dev registry"
 date: 2024-02-07T15:21:01+00:00
-lastmod: 2026-09-03T00:00:00+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
-weight: 040
+weight: 40
 toc: true
 ---
 

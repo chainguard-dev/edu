@@ -6,12 +6,12 @@ linktitle: "API v1 to v2 Migration"
 type: "article"
 description: "How to migrate a direct integration with the Chainguard API from v1 to the GA API v2."
 date: 2026-07-20T00:00:00+00:00
-lastmod: 2026-09-01T16:56:22+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Console", "Procedural"]
 images: []
 toc: true
-weight: 040
+weight: 30
 ---
 
 Chainguard's API v2 is now Generally Available (GA) across every product domain: Customer Platform (IAM), Containers, Ecosystems, and Integrations. At GA, the "beta" designation is dropped: endpoints move from `/v2beta1/` to `/v2/`. This guide covers what changed from v1, and the steps to migrate an existing direct integration.

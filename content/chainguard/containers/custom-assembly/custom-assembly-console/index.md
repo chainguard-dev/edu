@@ -4,14 +4,14 @@ linktitle: "Manage in the Console"
 type: "article"
 description: "How to use Chainguard's Custom Assembly tool in the Chainguard console."
 date: 2025-07-09T11:07:52+02:00
-lastmod: 2026-09-09T18:05:27+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly"]
 images: []
 menu:
   docs:
     parent: "features"
-weight: 020
+weight: 20
 toc: true
 aliases:
 - /chainguard/chainguard-images/features/ca-docs/custom-assembly-console/

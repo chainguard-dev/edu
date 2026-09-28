@@ -13,7 +13,7 @@ menu:
     parent: "mcp-servers"
     identifier: "cg-api"
 toc: true
-weight: 020
+weight: 20
 ---
 
 `cg-api` exposes the Chainguard platform API — the same API behind `chainctl` and the Chainguard Console — to an MCP client. Through it, a client can resolve which organizations and folders you belong to, list the image repositories and tags your account holds, inspect roles and role bindings, read security advisories, and manage identity providers and cloud account associations. It is the broadest of Chainguard's four product-data MCP servers, and the only one that reaches organization and IAM data.

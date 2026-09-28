@@ -3,14 +3,14 @@ title: "Hello Wolfi workshop"
 type: "article"
 description: "Community workshop about Wolfi for beginners"
 date: 2022-12-19T08:49:31+00:00
-lastmod: 2024-11-22T08:49:31+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Wolfi", "Workshop"]
 images: []
 menu:
   docs:
     parent: "wolfi"
-weight: 500
+weight: 40
 toc: true
 ---
 

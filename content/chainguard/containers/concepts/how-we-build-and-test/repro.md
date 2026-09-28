@@ -4,11 +4,11 @@ linktitle: "Reproducibility"
 description: "What makes a build reproducible, and how to rebuild any Chainguard Container from its signed apko configuration and confirm the result matches bit for bit"
 type: "article"
 date: 2024-05-20T12:21:01+00:00
-lastmod: 2026-09-09T00:00:00+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
-weight: 030
+weight: 30
 toc: true
 aliases:
 - /chainguard/chainguard-images/videos/repro/

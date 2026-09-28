@@ -7,12 +7,12 @@ lead: ""
 type: "article"
 description: "FIPS TLS requirements for clients and servers to establish connectivity"
 date: 2025-11-15T08:49:31+00:00
-lastmod: 2025-11-15T15:22:20+01:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["FIPS", "TLS", "Product"]
 images: []
 toc: true
-weight: 031
+weight: 40
 ---
 
 This document provides an overview of FIPS TLS connectivity requirements for using Chainguard FIPS products. These FIPS products have **higher** minimum TLS requirements, which complicates connecting them to insecure EOL non-FIPS systems, as well as FIPS systems with lapsed (historical) certification.

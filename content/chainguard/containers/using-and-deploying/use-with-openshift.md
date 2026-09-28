@@ -4,11 +4,11 @@ linktitle: "Using with OpenShift"
 type: "article"
 description: "Learn how to deploy Chainguard Containers on Red Hat OpenShift, including security context adjustments and permission configurations for enhanced security"
 date: 2025-06-17T08:49:31+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "OpenShift"]
 images: []
-weight: 040
+weight: 40
 toc: true
 aliases:
 - /chainguard/chainguard-images/how-to-use/use-with-openshift/

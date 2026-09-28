@@ -7,7 +7,7 @@ type: "article"
 description: "Install the Sigstore Policy Controller into a Kubernetes cluster"
 lead: "Installing Sigstore Policy Controller"
 date: 2023-02-21T13:11:29+08:29
-lastmod: 2024-05-10T13:11:29+08:29
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["policy-controller", "Procedural"]
 images: []
@@ -15,7 +15,7 @@ menu:
   docs:
     identifier: "Install Policy Controller"
     parent: "policy-controller"
-weight: 001
+weight: 10
 toc: true
 ---
 

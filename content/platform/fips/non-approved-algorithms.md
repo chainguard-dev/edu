@@ -6,11 +6,11 @@ linktitle: "FIPS and non-approved algorithms"
 type: "article"
 description: "Technical deep-dive into Chainguard FIPS images access to non-approved algorithms such as MD5 and SHA1"
 date: 2025-10-28T08:00:00+00:00
-lastmod: 2026-09-01T16:56:22+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["FIPS", "MD5"]
 images: []
-weight: 040
+weight: 60
 toc: true
 ---
 

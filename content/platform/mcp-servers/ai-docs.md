@@ -12,7 +12,7 @@ menu:
   docs:
     parent: "mcp-servers"
     identifier: "ai-docs"
-weight: 060
+weight: 60
 aliases:
   - /mcp-server-ai-docs/
   - /chainguard/mcp-server-ai-docs/

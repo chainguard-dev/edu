@@ -13,7 +13,7 @@ menu:
     parent: "mcp-servers"
     identifier: "cg-versions"
 toc: true
-weight: 050
+weight: 50
 ---
 
 `cg-versions` gives an AI tool a read-only catalog of the upstream projects Chainguard tracks version information for. Through it, a client can find a tracked project, list its version streams with their end-of-life dates, and read the full release history of one stream with attribution back to the upstream tag and commit each release came from. It answers questions about what upstream projects have published and what is still supported: whether Python 3.9 is past end of life, which streams of a project are still receiving releases, and which upstream commit a given version corresponds to.

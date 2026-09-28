@@ -5,7 +5,7 @@ type: "article"
 description: "Frequently asked questions about Chainguard OS, the secure operating system powering production Chainguard containers with enterprise features and continuous updates"
 lead: "Chainguard OS powers production container images with enhanced security, continuous updates, and enterprise-grade features - find answers to common questions about this purpose-built container operating system."
 date: 2025-07-03T08:49:31+00:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard OS"]
 images: []
@@ -13,7 +13,7 @@ menu:
   docs:
     parent: "chainguard-os"
     identifier: "Chainguard OS FAQ"
-weight: 030
+weight: 30
 toc: true
 ---
 

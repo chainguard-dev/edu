@@ -3,14 +3,14 @@ title: "Registry overview"
 type: "article"
 description: "Learn about Chainguard's container registry, including public access to free images, authenticated access for production images, and network requirements"
 date: 2023-03-21T16:36:47+00:00
-lastmod: 2026-09-09T15:50:32+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 images: []
 tags: ["Chainguard Containers", "Registry"]
 menu:
   docs:
     parent: "registry"
-weight: 010
+weight: 10
 toc: true
 aliases:
 - /chainguard/chainguard-registry/overview/

@@ -4,10 +4,10 @@ linktitle: "Chainguard Libraries"
 description: "Chainguard Libraries provide enhanced security for Java and Python dependencies with automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-08-28T16:31:04+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 images: []
-weight: 030
+weight: 40
 topic: true
 banner: {
     image: "/icon-stack.svg",

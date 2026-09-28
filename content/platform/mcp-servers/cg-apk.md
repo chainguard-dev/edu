@@ -13,7 +13,7 @@ menu:
     parent: "mcp-servers"
     identifier: "cg-apk"
 toc: true
-weight: 030
+weight: 30
 ---
 
 `cg-apk` gives an AI tool read-only access to the Chainguard APK registry — the Wolfi package index that Chainguard container images are built from. This lets a client look up a package by name to find its current version, license, and origin, then read the SPDX SBOM and the melange build recipe embedded in the APK itself. That combination answers questions the package index alone cannot: not just which version of `openssl` ships today, but which upstream commit it was built from and what build definition produced it.

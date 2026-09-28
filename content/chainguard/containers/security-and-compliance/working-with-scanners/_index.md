@@ -9,8 +9,8 @@ aliases:
 description: "Guides on how to use container image scanners"
 type: "article"
 date: 2024-06-17T08:49:15+00:00
-lastmod: 2024-06-17T08:49:15+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 images: []
-weight: 070
+weight: 70
 ---

@@ -7,14 +7,14 @@ type: "article"
 lead: "Build secure, minimal Wolfi-based container images using Bazel"
 description: "Build secure, minimal Wolfi-based container images using Bazel"
 date: 2023-10-23T08:49:31+00:00
-lastmod: 2026-09-09T15:53:21+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["apko", "Procedural",]
 images: []
 menu:
   docs:
     parent: "apko"
-weight: 900
+weight: 50
 toc: true
 ---
 

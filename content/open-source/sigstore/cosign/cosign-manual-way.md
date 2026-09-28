@@ -4,7 +4,7 @@ type: "article"
 lead: "Getting started with Cosign"
 description: ""
 date: 2023-03-29T08:49:31+00:00
-lastmod: 2026-09-04T16:00:38+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 contributors: ["Eddie Zaneski"]
 draft: false
 tags: ["Cosign", "Overview"]
@@ -12,7 +12,7 @@ images: []
 menu:
   docs:
     parent: "cosign"
-weight: 007
+weight: 70
 toc: true
 ---
 

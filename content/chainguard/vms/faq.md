@@ -4,14 +4,14 @@ linktitle: "FAQ"
 description: "Frequently asked questions about Chainguard VMs, including availability, supported ecosystems, compliance, and more"
 type: "article"
 date: 2025-10-21T08:04:00+00:00
-lastmod: 2025-10-21T15:09:59+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard VMs", "FAQ"]
 menu:
   docs:
     parent: "vms"
     identifier: "VMs FAQ"
-weight: 010
+weight: 30
 toc: true
 ---
 

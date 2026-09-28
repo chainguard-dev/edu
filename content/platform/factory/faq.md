@@ -7,7 +7,7 @@ type: "article"
 description: "Frequently asked questions about Chainguard Factory, the automated build system that monitors and updates thousands of open source projects for enhanced security"
 lead: "Chainguard Factory is the automated infrastructure that continuously transforms thousands of open source projects into containers, libraries, and VMs with enhanced security posture and the latest patches."
 date: 2025-07-17T08:49:31+00:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Chainguard VMs"]
 images: []
@@ -15,7 +15,7 @@ menu:
   docs:
     parent: "chainguard-factory"
     identifier: "Chainguard Factory FAQ"
-weight: 010
+weight: 30
 toc: true
 ---
 

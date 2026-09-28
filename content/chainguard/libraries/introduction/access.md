@@ -4,13 +4,13 @@ linktitle: "Access"
 description: "Learn how to access Chainguard Libraries for enhanced security in Java and Python dependencies, including authentication and organization setup"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-09-09T17:33:40+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
   docs:
     parent: "introduction"
-weight: 013
+weight: 30
 toc: true
 aliases:
   - /chainguard/libraries/access/

@@ -7,7 +7,7 @@ type: "article"
 lead: "Debugging and common errors"
 description: "Debugging and common errors with melange build"
 date: 2022-08-10T11:07:52+02:00
-lastmod: 2022-08-10T11:07:52+02:00
+lastmod: 2026-09-28T14:00:04+00:00
 contributors: ["Erika Heidi"]
 draft: false
 tags: ["melange", "Troubleshooting"]
@@ -15,7 +15,7 @@ images: []
 menu:
 docs:
   parent: "melange"
-weight: 200
+weight: 30
 toc: true
 ---
 

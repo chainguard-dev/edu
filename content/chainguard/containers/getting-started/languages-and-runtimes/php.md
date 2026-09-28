@@ -9,14 +9,14 @@ aliases:
 - /chainguard/containers/getting-started/php/
 description: "Learn how to use Chainguard's PHP container images for secure web applications, featuring FPM and CLI variants with minimal vulnerabilities and reduced attack surface"
 date: 2023-01-09T11:07:52+02:00
-lastmod: 2025-07-23T15:09:59+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
 menu:
   docs:
     parent: "getting-started"
-weight: 050
+weight: 50
 toc: true
 ---
 

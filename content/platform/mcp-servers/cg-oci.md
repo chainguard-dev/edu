@@ -13,7 +13,7 @@ menu:
     parent: "mcp-servers"
     identifier: "cg-oci"
 toc: true
-weight: 040
+weight: 40
 ---
 
 `cg-oci` gives an AI tool read-only access to the Chainguard container registry at `cgr.dev`. Through it, a client can list the repositories and tags your account can reach, fetch a manifest or image config by tag or digest, and read the signed attestations attached to an image — its SPDX SBOM, its apko build configuration, and its SLSA build provenance. Every response comes from the registry as it exists at the moment of the call, so an AI tool can answer what a specific image actually contains rather than what its documentation says it contains.

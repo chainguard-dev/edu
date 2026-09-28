@@ -1,23 +1,23 @@
 ---
-title: "Chainguard Guardener GitHub App"
+title: "Guardener GitHub App"
 linktitle: "GitHub App"
-description: "The Chainguard Guardener GitHub App secures and maintains your repositories through capabilities you enable per repository with .chainguard/ configuration files."
+description: "The Guardener GitHub App secures and maintains your repositories through capabilities you enable per repository with .chainguard/ configuration files."
 type: "article"
 date: 2026-07-13T00:00:00+00:00
-lastmod: 2026-08-10T00:00:00+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["GitHub"]
 images: []
 menu:
   docs:
     parent: "guardener"
-weight: 030
+weight: 10
 toc: true
 ---
 
-The Chainguard Guardener GitHub App is a single, hardened bot that runs against your repositories. Its capabilities are opt-in per repository through configuration files committed to a `.chainguard/` directory, so installing the app has no effect on a repository until you enable a capability.
+The Guardener GitHub App is a single, hardened bot that runs against your repositories. Its capabilities are opt-in per repository through configuration files committed to a `.chainguard/` directory, so installing the app has no effect on a repository until you enable a capability.
 
-{{< beta feature="Chainguard Guardener" access="organizations that have installed and linked the Chainguard Guardener GitHub App" >}}
+{{< beta feature="Guardener" access="organizations that have installed and linked the Guardener GitHub App" >}}
 
 ## Getting set up
 

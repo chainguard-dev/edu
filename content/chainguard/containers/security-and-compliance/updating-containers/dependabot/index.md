@@ -7,11 +7,11 @@ aliases:
 type: "article"
 description: "How to configure Dependabot to authenticate to your private cgr.dev registry and open pull requests that update Chainguard Containers"
 date: 2026-09-03T00:00:00+00:00
-lastmod: 2026-09-04T16:13:45+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
-weight: 050
+weight: 50
 toc: true
 ---
 

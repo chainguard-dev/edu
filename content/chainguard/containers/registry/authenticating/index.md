@@ -4,14 +4,14 @@ linktitle: "Authenticate"
 type: "article"
 description: "A guide on authenticating to Chainguard's registry to get container images"
 date: 2023-03-21T15:10:16+00:00
-lastmod: 2026-09-23T15:37:29+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 tags: ["Chainguard Containers", "Registry"]
 draft: false
 images: []
 menu:
   docs:
     parent: "registry"
-weight: 020
+weight: 20
 toc: true
 aliases:
 - /chainguard/chainguard-registry/authenticating/

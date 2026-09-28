@@ -13,7 +13,7 @@ menu:
     parent: "mcp-servers"
     identifier: "MCP Servers Overview"
 toc: true
-weight: 010
+weight: 10
 ---
 
 Four of Chainguard's MCP servers give an AI tool direct access to live product data: the container images in `cgr.dev`, the Wolfi package index, upstream version and end-of-life history, and the Chainguard platform API. An MCP client connected to them can answer questions such as what a given image's SBOM contains, which Wolfi package replaces a Debian one, or whether an upstream release is still supported, using data from the product itself rather than from a model's training data.

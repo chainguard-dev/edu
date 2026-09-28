@@ -15,14 +15,14 @@ aliases:
 - /chainguard/containers/migration/migration-guides/migrating_go/
 description: "Learn how to build more secure Go applications with Chainguard's Go container images, featuring minimal attack surface and multi-stage build patterns for optimized runtime"
 date: 2023-02-28T11:07:52+02:00
-lastmod: 2026-09-08T17:57:46+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
 menu:
   docs:
     parent: "getting-started"
-weight: 020
+weight: 20
 toc: true
 ---
 

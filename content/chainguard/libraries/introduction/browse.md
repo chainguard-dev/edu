@@ -4,13 +4,13 @@ linktitle: "Browsing"
 description: "Searching, browsing, and inspecting Chainguard Libraries in the console"
 type: "article"
 date: 2025-07-03T14:00:00+00:00
-lastmod: 2026-07-30T14:25:45+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
   docs:
     parent: "introduction"
-weight: 015
+weight: 50
 toc: true
 aliases:
   - /chainguard/libraries/browse/

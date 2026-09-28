@@ -2,14 +2,14 @@
 title: "Minimum attestation references"
 type: "wide"
 date: 2023-05-10T15:21:01+02:00
-lastmod: 2023-05-10T15:21:01+02:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Reference"]
 images: []
 menu:
   docs:
     parent: "secure-software-development"
-weight: 20
+weight: 30
 toc: true
 ---
 The minimum requirements within the Secure Software Attestation Form address requirements

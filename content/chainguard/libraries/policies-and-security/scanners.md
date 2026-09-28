@@ -4,13 +4,13 @@ linktitle: "Vulnerability scanners"
 description: "Details for using vulnerability scanners with Chainguard Libraries."
 type: "article"
 date: 2025-10-04T12:00:00+00:00
-lastmod: 2025-10-04T12:00:00+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
   docs:
     parent: "policies-and-security"
-weight: 073
+weight: 40
 toc: true
 aliases:
   - /chainguard/libraries/scanners/

@@ -4,13 +4,13 @@ linktitle: "Quickstart"
 description: "Learn how to get started with Chainguard Libraries"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-09-18T19:22:26+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
   docs:
     parent: "introduction"
-weight: 012
+weight: 20
 toc: true
 aliases:
   - /chainguard/libraries/quickstart/

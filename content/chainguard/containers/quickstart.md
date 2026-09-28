@@ -5,11 +5,11 @@ lead: "Pull a free Chainguard Container, build an application on top of it, and 
 description: "An end-to-end walkthrough of Chainguard Containers: pull a free container, run a small Node.js application on it, and verify the image's signature and SBOM."
 type: "article"
 date: 2026-08-05T00:00:00+00:00
-lastmod: 2026-08-05T00:00:00+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Getting Started"]
 images: []
-weight: 020
+weight: 20
 toc: true
 aliases:
 - /chainguard/chainguard-images/quickstart/

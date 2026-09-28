@@ -5,14 +5,14 @@ description: "What a build horizon is and why enforcing maximum artifact age is 
 lead: "A guide to build horizons and enforcing artifact freshness"
 type: "article"
 date: 2026-03-16T00:00:00+00:00
-lastmod: 2026-03-16T00:00:00+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Conceptual"]
 images: []
 menu:
   docs:
     parent: "software-security"
-weight: 15
+weight: 20
 toc: true
 ---
 

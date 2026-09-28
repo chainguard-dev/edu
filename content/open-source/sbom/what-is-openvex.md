@@ -4,7 +4,7 @@ description: "A conceptual overview of OpenVex"
 lead: "A conceptual overview of OpenVex"
 type: "article"
 date: 2023-01-31T15:21:01+02:00
-lastmod: 2026-07-27T15:48:10+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 contributors:
 draft: false
 tags: ["SBOM", "VEX", "Conceptual"]
@@ -12,7 +12,7 @@ images: []
 menu:
   docs:
     parent: "sbom"
-weight: 15
+weight: 30
 toc: true
 ---
 

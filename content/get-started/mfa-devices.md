@@ -5,11 +5,11 @@ lead: "Moving your authenticator to a new phone, switching authenticator apps, o
 description: "Change or reset the multi-factor authentication device you use with the Chainguard Console, whether your MFA is managed by your identity provider or by Chainguard."
 type: "article"
 date: 2026-09-11T00:00:00+00:00
-lastmod: 2026-09-11T00:00:00+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Getting Started"]
 images: []
-weight: 020
+weight: 60
 toc: true
 ---
 

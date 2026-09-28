@@ -3,13 +3,13 @@ title: "Package version selection"
 type: "article"
 draft: false
 date: 2023-11-06T08:49:31+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 tags: ["Chainguard Containers", "Wolfi", "apk", "melange"]
 images: []
 menu:
   docs:
     parent: "wolfi"
-weight: 750
+weight: 50
 toc: true
 ---
 

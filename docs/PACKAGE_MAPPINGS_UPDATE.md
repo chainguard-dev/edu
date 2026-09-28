@@ -1,6 +1,6 @@
 # Package Mappings Update Guide
 
-This document explains how the package and image mappings are automatically maintained on the [Package Name Mappings](/chainguard/containers/about/package-name-mappings/) documentation page.
+This document explains how the package and image mappings are automatically maintained on the [Package Name Mappings](/chainguard/containers/reference/package-name-mappings/) documentation page.
 
 ## Overview
 

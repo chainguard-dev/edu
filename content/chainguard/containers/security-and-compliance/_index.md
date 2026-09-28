@@ -9,10 +9,10 @@ aliases:
 description: "Scanning, SBOMs, verification, security advisories, policy enforcement, and the compliance evidence Chainguard Containers carry."
 type: "article"
 date: 2024-12-19T08:49:15+00:00
-lastmod: 2026-08-03T12:43:21+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 images: []
-weight: 090
+weight: 90
 crosslinks:
 - title: "Container pull policies"
   url: "/chainguard/chainguard-repository/container-policies/"

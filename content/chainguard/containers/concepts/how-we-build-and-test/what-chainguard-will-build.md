@@ -4,14 +4,14 @@ linktitle: "Build criteria"
 type: "article"
 description: "An overview of what Chainguard will build"
 date: 2025-01-13T11:07:52+02:00
-lastmod: 2025-03-21T11:07:52+02:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:
     parent: "about"
-weight: 010
+weight: 10
 toc: true
 aliases:
 - /chainguard/chainguard-images/about/what-chainguard-will-build/

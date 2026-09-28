@@ -4,14 +4,14 @@ type: "article"
 linktitle: "Spark FIPS"
 description: "Learn how to run Apache Spark workloads with FIPS 140-3 cryptography using Chainguard's Spark FIPS container, including BCFKS keystore setup and Kubernetes cluster-mode deployment with the Spark Operator"
 date: 2026-06-04T00:00:00+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 tags: ["Chainguard Containers", "FIPS"]
 draft: false
 images: []
 menu:
   docs:
     parent: "getting-started"
-weight: 030
+weight: 30
 toc: true
 aliases:
 - /chainguard/chainguard-images/getting-started/spark-fips/

@@ -6,13 +6,13 @@ description:
   Libraries using the chainctl tool for enhanced supply chain security"
 type: "article"
 date: 2025-07-03T12:00:00+00:00
-lastmod: 2026-09-09T17:33:40+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
   docs:
     parent: "policies-and-security"
-weight: 071
+weight: 20
 toc: true
 aliases:
   - /chainguard/libraries/verification/

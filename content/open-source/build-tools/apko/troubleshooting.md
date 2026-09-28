@@ -6,7 +6,7 @@ type: "article"
 lead: "Debugging and common errors"
 description: "Debugging and common errors in apko"
 date: 2022-08-10T11:07:52+02:00
-lastmod: 2022-08-10T11:07:52+02:00
+lastmod: 2026-09-28T14:00:04+00:00
 contributors: ["Erika Heidi"]
 draft: false
 tags: ["apko", "Troubleshooting",]
@@ -14,7 +14,7 @@ images: []
 menu:
   docs:
     parent: "apko"
-weight: 300
+weight: 40
 toc: true
 ---
 

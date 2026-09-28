@@ -7,9 +7,9 @@ lead: "Using Chainguard container images and libraries in AI-generated code with
 description: "Using Chainguard container images and libraries in AI-generated code with Cursor"
 type: "article"
 date: 2026-04-20T14:00:00-04:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
-weight: 010
+weight: 10
 ---
 
 AI coding agents write code and install dependencies faster than any security team can review them manually. Every `pip install`, `npm install`, or `docker pull` an agent kicks off is a trust decision being made on your behalf against public registries.

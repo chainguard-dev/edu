@@ -4,11 +4,11 @@ linktitle: "Changelog"
 type: "article"
 description: "Weekly changelog of Chainguard product updates — product announcements, breaking changes, container images reaching end-of-life or leaving the catalog, and images newly added to it."
 date: 2026-07-28T00:00:00+00:00
-lastmod: 2026-09-21T18:05:42+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Changelog"]
 images: []
-weight: 070
+weight: 80
 toc: true
 tocEndLevel: 2
 ---
@@ -31,7 +31,7 @@ During the beta, authentication and build pipelines continue to run on US infras
 
 {{< changelog-label "EOL" >}}
 
-Chainguard offers [a grace period](/chainguard/containers/features/eol-gp-overview/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
 ### Images that have reached end-of-life
 
@@ -78,7 +78,7 @@ Chainguard's `sonar-scanner-cli` image changes its default user from `root` (UID
 
 {{< changelog-label "EOL" >}}
 
-Chainguard offers [a grace period](/chainguard/containers/features/eol-gp-overview/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
 ### Images that have reached end-of-life
 
@@ -129,7 +129,7 @@ Choosing a FIPS module for Go previously meant choosing a toolchain at compile t
 
 Go 1.26 and earlier behave as before and remain supported until end-of-life, so you can migrate on your own schedule.
 
-For more information, refer to [Getting started with the Go Chainguard Container](/chainguard/containers/getting-started/go/).
+For more information, refer to [Getting started with the Go Chainguard Container](/chainguard/containers/getting-started/languages-and-runtimes/go/).
 
 ### Chainguard Libraries in JFrog
 
@@ -383,9 +383,9 @@ For more information, refer to [Error messages](/chainguard/libraries/troublesho
 
 _Launched August 12, 2026._
 
-Chainguard Guardener, the automated migration tool, now covers GitHub Actions as well as container images. The GitHub App inventories the Actions in use across your organization's repositories, maps them to hardened Chainguard equivalents, and opens pull requests to swap them in, pinned to a specific SHA rather than a mutable tag. It runs in two modes: an upfront pass that surfaces existing Actions usage and opens migration pull requests, and ongoing standardization that watches workflow files and suggests Chainguard equivalents as new upstream Actions appear.
+Guardener, the automated migration tool, now covers GitHub Actions as well as container images. The GitHub App inventories the Actions in use across your organization's repositories, maps them to hardened Chainguard equivalents, and opens pull requests to swap them in, pinned to a specific SHA rather than a mutable tag. It runs in two modes: an upfront pass that surfaces existing Actions usage and opens migration pull requests, and ongoing standardization that watches workflow files and suggests Chainguard equivalents as new upstream Actions appear.
 
-For more information, refer to [Getting started with Chainguard Guardener](/chainguard/guardener/github/getting-started/).
+For more information, refer to [Getting started with Guardener](/chainguard/guardener/github/getting-started/).
 
 {{< changelog-label "Breaking Changes" >}}
 

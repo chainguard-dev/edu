@@ -4,14 +4,14 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for Java on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-09-09T15:46:42+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java"]
 menu:
   docs:
     parent: "java"
     identifier: "Java Build Configuration"
-weight: 053
+weight: 30
 toc: true
 ---
 

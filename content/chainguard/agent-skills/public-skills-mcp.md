@@ -4,7 +4,7 @@ linktitle: "Public Skills MCP"
 description: "Connect an agent to Chainguard's Public Skills MCP server and use its five tools to search, inspect, and run hardened agent skills over the Model Context Protocol."
 type: "article"
 date: 2026-08-04T00:00:00+00:00
-lastmod: 2026-08-04T00:00:00+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Agent Skills", "Overview"]
 images: []
@@ -12,7 +12,7 @@ menu:
   docs:
     parent: "agent-skills"
 toc: true
-weight: 004
+weight: 40
 ---
 
 Chainguard serves its curated set of hardened agent skills to agents directly over the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) through the **Public Skills MCP server**. Where the [public registry](/chainguard/agent-skills/public-registry/) is the `chainctl` way of browsing and installing public skills onto your machine, the Public Skills MCP server is the way an *agent* discovers and loads those same skills live — searching the catalog, inspecting a skill, and loading one in full to run, without a separate install step.

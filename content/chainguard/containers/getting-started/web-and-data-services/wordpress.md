@@ -4,21 +4,21 @@ type: "article"
 linktitle: "WordPress"
 description: "Learn how to deploy WordPress using Chainguard's security-hardened container image with reduced vulnerabilities and distroless runtime options"
 date: 2024-07-19T11:07:52+02:00
-lastmod: 2026-09-08T17:57:46+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
 menu:
   docs:
     parent: "getting-started"
-weight: 050
+weight: 50
 toc: true
 aliases:
 - /chainguard/chainguard-images/getting-started/wordpress/
 - /chainguard/containers/getting-started/wordpress/
 ---
 
-Chainguard's [WordPress container image](https://images.chainguard.dev/directory/image/wordpress/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-wordpress) is a drop-in replacement for the official [WordPress FPM-Alpine image](https://hub.docker.com/_/wordpress). It includes a [distroless](/chainguard/containers/getting-started-distroless/) variant for production use that removes shells, package managers, and other unnecessary components. The image ships with the latest PHP and WordPress versions and all required PHP extensions.
+Chainguard's [WordPress container image](https://images.chainguard.dev/directory/image/wordpress/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-wordpress) is a drop-in replacement for the official [WordPress FPM-Alpine image](https://hub.docker.com/_/wordpress). It includes a [distroless](/chainguard/containers/concepts/getting-started-distroless/) variant for production use that removes shells, package managers, and other unnecessary components. The image ships with the latest PHP and WordPress versions and all required PHP extensions.
 
 This guide covers three ways to use the WordPress Chainguard Container to build and run WordPress projects.
 
