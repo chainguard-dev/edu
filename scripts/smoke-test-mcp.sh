@@ -14,7 +14,8 @@ set -eu
 IMAGE="${1:?usage: smoke-test-mcp.sh <image-ref>}"
 HOST_PORT="${HOST_PORT:-18080}"   # host side; the container always listens on 8080
 CONTAINER_PORT=8080
-TIMEOUT="${TIMEOUT:-30}"          # seconds to wait for the server to respond
+TIMEOUT="${TIMEOUT:-30}"          # max readiness-poll attempts (each failed
+                                  # attempt costs up to ~6s: --max-time 5 + 1s sleep)
 
 # --- Check 1: the module imports and registers its tools --------------------
 # `--help` forces mcp-server.py to import, which runs the tool-registration
@@ -51,9 +52,11 @@ post_init() {  # extra curl args in "$@"
         -X POST -d "$INIT_BODY" "$@" "http://127.0.0.1:$HOST_PORT/mcp"
 }
 
-# Poll until initialize returns 2xx, or give up after TIMEOUT seconds. A
-# connection error (the server has not bound the port yet) keeps the loop
-# waiting; -f treats an HTTP error as not-ready-yet too.
+# Poll until initialize returns 2xx, or give up after TIMEOUT attempts. Each
+# failed attempt costs up to ~6s (curl --max-time 5 + the 1s sleep below), so
+# the default 30 attempts is ~180s worst case, not 30s. A connection error (the
+# server has not bound the port yet) keeps the loop waiting; -f treats an HTTP
+# error as not-ready-yet too.
 ready=""
 i=0
 while [ "$i" -lt "$TIMEOUT" ]; do
@@ -68,19 +71,27 @@ while [ "$i" -lt "$TIMEOUT" ]; do
     sleep 1
 done
 
-[ -n "$ready" ] || fail "server did not serve a 2xx initialize on :$CONTAINER_PORT within ${TIMEOUT}s"
+[ -n "$ready" ] || fail "server did not serve a 2xx initialize on :$CONTAINER_PORT within ${TIMEOUT} attempts"
 
 # --- Check 3: the transport runs stateless (CUS-1340) -----------------------
 # A stateful transport mints an Mcp-Session-Id on initialize; behind the
 # affinity-free Cloud Run load balancer that fronts this service, that is what
 # caused the cross-instance 404s this image fixes. The unit test guards the
 # source kwarg, but only this check proves the running server is actually
-# stateless. -f makes a non-2xx initialize fail loudly rather than pass
-# vacuously — an error response carries no Mcp-Session-Id either.
+# stateless.
+#
+# -f rejects an HTTP-level error (4xx/5xx), but a JSON-RPC error (e.g. a
+# rejected protocolVersion) comes back as HTTP 200 with an {"error":...} body
+# and no Mcp-Session-Id — which would pass the header check vacuously. So assert
+# the response actually carries a "result" before trusting the absent session
+# id. -D - dumps the response headers ahead of the body, so one capture covers
+# both assertions.
 echo "Check 3: transport is stateless (no Mcp-Session-Id minted)"
-headers=$(post_init -f -D - -o /dev/null) \
+response=$(post_init -f -D -) \
     || fail "initialize did not return 2xx (check protocol version and container logs)"
-if printf '%s' "$headers" | grep -qi '^mcp-session-id:'; then
+printf '%s' "$response" | grep -q '"result"' \
+    || fail "initialize returned 200 but no JSON-RPC result (check protocol version and container logs)"
+if printf '%s' "$response" | grep -qi '^mcp-session-id:'; then
     fail "stateless mode expected but server minted an Mcp-Session-Id (CUS-1340)"
 fi
-echo "  OK: no Mcp-Session-Id"
+echo "  OK: initialize succeeded, no Mcp-Session-Id"

@@ -52,6 +52,8 @@ def test_http_transport_runs_stateless():
             "(CUS-1340): stateful sessions break across unaffinitized Cloud "
             "Run instances"
         )
+        # `is True` is deliberate: it rejects truthy-but-not-True literals such
+        # as stateless_http=1, which the SDK would not treat as the boolean flag.
         assert isinstance(flag, ast.Constant) and flag.value is True, (
             "stateless_http must be the literal True, not a falsy or non-True "
             "value (CUS-1340)"
