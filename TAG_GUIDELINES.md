@@ -30,6 +30,7 @@ This document defines the approved tag taxonomy and usage guidelines for the Hug
 - **Custom Assembly** — Custom Assembly
 - **dfc** — Dockerfile Converter
 - **Console** - Chainguard's console
+- **Agent Skills** - Chainguard Agent Skills and the Skills Registry
 
 ### Action-Oriented Tags
 

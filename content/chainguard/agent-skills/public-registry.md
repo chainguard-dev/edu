@@ -25,7 +25,7 @@ This guide walks through the full workflow: listing the available skills, inspec
 
 ## Prerequisites
 
-To follow this guide, you need `chainctl` **v0.2.282** or later, installed. Refer to our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) if you don't have it yet.
+To follow this guide, you need `chainctl` **v0.2.364** or later, installed. Refer to our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) if you don't have it yet.
 
 Unlike a [private Chainguard skills registry](/chainguard/agent-skills/skills-registry/), the public registry requires no entitlement, terms acceptance, or organization membership. You do need a Chainguard account to list and pull skills, but you don't need to be a customer.
 
@@ -39,11 +39,11 @@ chainctl skills list --group public --recursive
 ```
 
 ```output
-                          NAME                           | LATEST TAG |  UPDATED
----------------------------------------------------------|------------|------------
- github.com/github/awesome-copilot/agent-supply-chain    | latest     | 5 days ago
- github.com/github/awesome-copilot/game-engine           | latest     | 5 days ago
- github.com/github/awesome-copilot/mcp-security-audit    | latest     | 5 days ago
+     SOURCE     |                         NAME                         |                       TAGS                       |   UPDATED
+----------------|------------------------------------------------------|--------------------------------------------------|--------------
+ skills.cgr.dev | github.com/github/awesome-copilot/agent-supply-chain | 2201a49dd6f972ac4f685d03361d58c9c9206690, latest | 2 months ago
+ skills.cgr.dev | github.com/github/awesome-copilot/game-engine        | cf4347e88c2e40a9aabe5801748ec6bf924c09be, latest | 2 months ago
+ skills.cgr.dev | github.com/github/awesome-copilot/mcp-security-audit | 2201a49dd6f972ac4f685d03361d58c9c9206690, latest | 2 months ago
 
  . . .
 ```
@@ -55,19 +55,21 @@ chainctl skills list --group public/github.com/github/awesome-copilot
 ```
 
 ```output
- TYPE  |          NAME           | LATEST TAG |  UPDATED
--------|-------------------------|------------|------------
- skill | acreadiness-policy      | latest     | 5 days ago
- skill | agent-supply-chain      | latest     | 5 days ago
- skill | chrome-devtools         | latest     | 5 days ago
- skill | codeql                  | latest     | 5 days ago
- skill | game-engine             | latest     | 5 days ago
- skill | mcp-security-audit      | latest     | 5 days ago
- skill | multi-stage-dockerfile  | latest     | 5 days ago
- skill | postgresql-optimization | latest     | 5 days ago
+     SOURCE     | TYPE  |               NAME                |                       TAGS                       |   UPDATED
+----------------|-------|-----------------------------------|--------------------------------------------------|--------------
+ skills.cgr.dev | skill | acreadiness-generate-instructions | --                                               | --
+ skills.cgr.dev | skill | acreadiness-policy                | 2201a49dd6f972ac4f685d03361d58c9c9206690, latest | 2 months ago
+ skills.cgr.dev | skill | add-educational-comments          | --                                               | --
+ skills.cgr.dev | skill | adobe-illustrator-scripting       | --                                               | --
+ skills.cgr.dev | skill | agent-owasp-compliance            | 2201a49dd6f972ac4f685d03361d58c9c9206690, latest | 3 weeks ago
+ skills.cgr.dev | skill | agent-supply-chain                | 2201a49dd6f972ac4f685d03361d58c9c9206690, latest | 2 months ago
+ skills.cgr.dev | skill | agentic-eval                      | --                                               | --
+ skills.cgr.dev | skill | ai-team-orchestration             | --                                               | --
 
  . . .
 ```
+
+Each hardened skill is tagged with the upstream commit Chainguard hardened it from, and most also carry `latest`. A skill with `--` in the `TAGS` column has no tags, so you can't pull or install it by tag.
 
 ## Describe a skill
 
