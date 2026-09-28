@@ -53,7 +53,7 @@ jobs:
       run: pip install -r scripts/mcp-requirements.txt pytest
 
     - name: Run tests
-      run: pytest scripts/test_mcp_server.py -v
+      run: pytest scripts/test_mcp_server.py scripts/test_mcp_transport.py -v
 
   smoke-test:
     if: github.repository == 'chainguard-dev/edu'
