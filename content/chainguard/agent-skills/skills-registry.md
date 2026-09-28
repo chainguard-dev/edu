@@ -4,7 +4,7 @@ linktitle: "Skills Registry"
 description: "Enable the Chainguard Skills Registry, then upload, harden, install, and run an agent skill scoped to your organization."
 type: "article"
 date: 2026-06-05T08:48:45+00:00
-lastmod: 2026-09-23T16:38:42+00:00
+lastmod: 2026-09-28T00:00:00+00:00
 draft: false
 tags: ["Agent Skills", "Overview"]
 images: []
@@ -25,7 +25,7 @@ This guide walks through enabling the registry for your organization, then uploa
 
 To follow this guide, you need:
 
-* An installed and authenticated `chainctl` that includes `skills harden` and `skills status`. Check with `chainctl skills harden --help` and `chainctl skills status --help`. Refer to [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) if you don't have it yet.
+* `chainctl` **v0.2.364** or later, installed and authenticated. Check your version with `chainctl version`. Refer to [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) if you don't have it yet.
 * An active Chainguard organization.
 * Owner access on the organization.
 
@@ -45,6 +45,8 @@ chainctl skills entitlements create --parent your-organization
 Created skills entitlement for org example.dev (717b474ac6972745c5706a898aa6e67ffba97dad)
 ```
 
+The `entitlements` subcommands take the organization with `--parent`, while the other `skills` subcommands use `--group`. Omit `--parent` to pick the organization from an interactive list.
+
 Next, accept the Skills Registry terms of service for your org:
 
 ```shell
@@ -56,13 +58,18 @@ This opens an interactive prompt:
 ```output
    Chainguard Legal Agreements
    To continue, please review and accept the following:
-   ▶ [] I agree to the Skills Registry Terms of Service
-         https://www.chainguard.dev/legal/agent-skills-disclosure
+   ▶ [ ] I agree to the Agent Skills Terms of Service
+         https://www.chainguard.dev/legal/agent-skills
+
+     [ ] I agree to the Data Privacy Agreement
+         https://www.chainguard.dev/legal/supplemental-dpa
 
    ↑/↓ navigate  •  space toggle  •  enter confirm  •  q cancel
 ```
 
-Press <kbd>SPACE</kbd> to accept the terms of service and <kbd>ENTER</kbd> to confirm.
+Press <kbd>SPACE</kbd> to check each agreement, using the arrow keys to move between them, then press <kbd>ENTER</kbd> to confirm. The prompt doesn't continue until you accept both.
+
+In CI, where no interactive terminal is available, pass `--yes` instead. By using `--yes`, you confirm that you have read and agreed to the [Agent Skills Terms of Service](https://www.chainguard.dev/legal/agent-skills) and the [Data Privacy Agreement](https://www.chainguard.dev/legal/supplemental-dpa).
 
 ## Creating an example skill
 
@@ -88,14 +95,14 @@ If the user provides their name, greet them by name instead:
 EOF
 ```
 
-After running this command, your directory will have the following structure:
+After running this command, your directory has the following structure:
 
 ```
 hello-world/
 └── SKILL.md
 ```
 
-The directory name (`hello-world/`) must match the `name` field in the frontmatter (`name: hello-world`). If they don't match, the skill will fail to push.
+The directory name (`hello-world/`) must match the `name` field in the frontmatter (`name: hello-world`). If they don't match, both `validate` and `push` fail.
 
 ## Manage skills with `chainctl`
 
@@ -123,7 +130,7 @@ chainctl skills validate hello-world
 Validation passed.
 ```
 
-`validate` confirms that the directory contains a `SKILL.md`, that its frontmatter is valid, that the `name` field matches the directory name, and that the skill is within the size limit. It also lists the files that `push` will publish.
+`validate` confirms that the directory contains a `SKILL.md`, that its frontmatter is valid, that the `name` field matches the directory name, and that the skill is within the size limit. It also lists the files that `push` publishes.
 
 To also flag optional fields that Chainguard recommends, add the `--strict` flag:
 
@@ -155,10 +162,12 @@ chainctl skills push hello-world --group your-organization --tag v1.0.0
 ```
 
 ```output
-            REFERENCE             |        DIGEST
-----------------------------------|------------------------
+                    REFERENCE                   |     DIGEST
+------------------------------------------------|----------------
  uploads.cgr.dev/example.dev/hello-world:v1.0.0 | sha256:3196...
 ```
+
+You can repeat `--tag` to publish one artifact under several tags, such as `--tag v1.0.0 --tag latest`. If you omit `--tag`, `chainctl` publishes the skill as `latest` and warns that you didn't pin a version. To build and validate the artifact without publishing it, add `--dry-run`.
 
 Keep the versioned reference for the hardening submission below.
 
@@ -226,6 +235,8 @@ This command automatically detects agents on your machine and reports where it p
 export INSTALLED_SKILL='<install-name-from-describe>'
 ```
 
+By default, `install` writes one shared copy to `.agents/skills/` and symlinks each agent's skills directory to it, so every agent reads the same files. Add `--copy` to give each agent its own copy, `--global` to install under your home directory instead of the current project, or `--agent` to target specific agents instead of every detected one.
+
 ### Run the skill from an agent
 
 Load the skill from the location reported by `install`. In Claude Code, invoke it with `/<installed-skill-name>`, replacing `<installed-skill-name>` with the value you saved in `$INSTALLED_SKILL`. Ask the agent to greet you, and check that its response follows the instructions you reviewed in the hardened `SKILL.md`.
@@ -240,7 +251,7 @@ chainctl skills uninstall "$INSTALLED_SKILL"
 
 The command prompts for confirmation before removing any files.
 
-By default, `uninstall` removes the skill from every agent directory where it's installed. Use the `--agent` flag to remove it from specific agents only, or the `--global` flag to remove it from global directories instead of the current project. Add the `-y` flag to skip the confirmation prompt.
+By default, `uninstall` removes the project-local copy from every agent directory where it's installed. If a global copy also exists, `uninstall` leaves it in place and prints a warning. Re-run the command with `--global` to remove that copy. Use the `--agent` flag to remove the skill from specific agents only, and the `-y` flag to skip the confirmation prompt.
 
 `uninstall` operates only on the local files on your machine. It doesn't modify your organization's registry. To remove a published skill from the registry, use [`chainctl skills delete`](/platform/chainctl/chainctl-docs/chainctl_skills_delete/) instead.
 
@@ -263,6 +274,8 @@ chainctl skills delete "$HARDENED_REPO:$HARDENED_TAG"
 The command prompts for confirmation before removing the version. Press <kbd>y</kbd> and <kbd>ENTER</kbd> to confirm. Add the `-y` flag to skip the prompt and delete the version non-interactively.
 
 The command requires a tag so you don't delete the `latest` tag by accident. Deleting `latest` is still possible, but it prompts for an additional confirmation.
+
+When you delete a skill's last remaining version, `chainctl` also removes the empty skill entry, so it doesn't linger in `list` output with nothing to pull. `delete` accepts a reference without a tag, such as `"$HARDENED_REPO"`, only for a skill with no versions left. A skill that still has versions requires an explicit tag.
 
 Unlike `uninstall`, `delete` removes the skill from the registry for your whole organization. It doesn't remove copies already installed on anyone's machine.
 

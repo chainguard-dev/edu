@@ -30,6 +30,7 @@ APPROVED_TAGS = {
     "chainctl",
     "Enforce",
     "Chainguard OS",
+    "Agent Skills",
     # Action-Oriented Tags
     "Migration",
     "Integration",
