@@ -1004,12 +1004,20 @@ if __name__ == "__main__":
         # Statelessness also retires the SDK's per-session ceilings
         # (max_sessions, session_idle_timeout); throughput is now bounded by
         # Cloud Run per-instance concurrency instead.
-        logger.info("Starting HTTP transport with stateless_http=True (CUS-1340)")
+        #
+        # json_response returns each POST reply as a single application/json
+        # body instead of a one-shot text/event-stream. These tools are
+        # read-only and single-response, so nothing needs SSE framing, and plain
+        # JSON is friendlier to the fronting load balancer and buffering proxies.
+        logger.info(
+            "Starting HTTP transport with stateless_http=True, json_response=True (CUS-1340)"
+        )
         server.run(
             transport="streamable-http",
             host=args.host,
             port=args.port,
             stateless_http=True,
+            json_response=True,
         )
     else:
         server.run()  # stdio

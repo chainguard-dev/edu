@@ -95,3 +95,15 @@ if printf '%s' "$response" | grep -qi '^mcp-session-id:'; then
     fail "stateless mode expected but server minted an Mcp-Session-Id (CUS-1340)"
 fi
 echo "  OK: initialize succeeded, no Mcp-Session-Id"
+
+# --- Check 4: POST replies are single JSON, not SSE (json_response) ----------
+# json_response=True returns each POST reply as one application/json body rather
+# than a one-shot text/event-stream. Reuse the captured initialize response (its
+# headers are in $response via -D -) so a regression of that kwarg is caught
+# alongside the stateless one.
+echo "Check 4: POST transport returns application/json (json_response)"
+if printf '%s' "$response" | grep -qi '^content-type:[[:space:]]*application/json'; then
+    echo "  OK: Content-Type is application/json"
+else
+    fail "expected an application/json POST reply but the Content-Type differs (json_response regressed?)"
+fi
