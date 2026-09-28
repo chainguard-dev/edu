@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "Tutorial outlining how to set up a Cloudsmith repository to pull containers through from Chainguard's registry."
 date: 2024-07-16T15:56:52-07:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -16,7 +16,7 @@ menu:
   docs:
     parent: "pull-through-guides"
 toc: true
-weight: 040
+weight: 40
 ---
 
 Organizations often have their own internal software repositories and registries integrated into their systems. This guide explains how to set up the Cloudsmith artifact repository to ingest [Chainguard Containers](/chainguard/containers/overview/) by acting as a pull-through cache.

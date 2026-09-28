@@ -6,14 +6,14 @@ linktitle: "Mirror containers to Artifact Registry"
 type: "article"
 description: "Instructional guide outlining how one can set up an application that will listen for push events on a private  registry and mirror any new Chainguard Containers to a GCP Artifact Registry."
 date: 2024-05-24T15:22:20+01:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Console", "CloudEvents", "Procedural"]
 images: []
 menu:
    docs:
     parent: "cloudevents"
-weight: 015
+weight: 30
 toc: true
 ---
 

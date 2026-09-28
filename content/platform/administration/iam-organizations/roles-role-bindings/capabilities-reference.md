@@ -7,11 +7,11 @@ lead: "Reference for Chainguard's built-in roles and their specific capabilities
 description: "A resource documenting the capabilities and permissions of Chainguard's built-in IAM roles."
 type: "article"
 date: 2025-08-14T00:00:00Z
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["IAM", "Reference", "Product"]
 images: []
-weight: 010
+weight: 20
 ---
 
 Chainguard provides customers with a set of built-in roles as part of its Identity and Access Management (IAM) system. These roles have different permissions and capabilities that allow them to serve specialized purposes, from general administrative access to access for specific resources like registries, APK packages, and programming language libraries.

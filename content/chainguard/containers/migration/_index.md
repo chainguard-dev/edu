@@ -5,10 +5,10 @@ lead: ""
 description: "Tutorials, compatibility charts, and tooling for moving existing container workloads to Chainguard Containers."
 type: "article"
 date: 2024-02-26T08:48:45+00:00
-lastmod: 2026-08-27T00:00:00+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 images: []
-weight: 080
+weight: 80
 topic: true
 banner: {
     image: "/icon-arrows_blurple.png",

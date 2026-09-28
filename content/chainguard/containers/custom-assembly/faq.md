@@ -5,7 +5,7 @@ identifier: "Custom Assembly FAQs"
 type: "article"
 description: "Answers to your questions about Chainguard's Custom Assembly tool"
 date: 2025-02-19T11:07:52+02:00
-lastmod: 2025-03-21T11:07:52+02:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly"]
 images: []
@@ -13,7 +13,7 @@ menu:
   docs:
     parent: "features"
     identifier: "Custom Assembly FAQs"
-weight: 080
+weight: 80
 toc: true
 aliases:
 - /chainguard/chainguard-images/features/ca-docs/faq/

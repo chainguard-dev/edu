@@ -4,14 +4,14 @@ linktitle: "GitHub App"
 description: "The Guardener GitHub App secures and maintains your repositories through capabilities you enable per repository with .chainguard/ configuration files."
 type: "article"
 date: 2026-07-13T00:00:00+00:00
-lastmod: 2026-09-25T13:44:25+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["GitHub"]
 images: []
 menu:
   docs:
     parent: "guardener"
-weight: 030
+weight: 10
 toc: true
 ---
 

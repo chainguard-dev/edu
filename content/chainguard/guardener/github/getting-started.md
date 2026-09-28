@@ -4,14 +4,14 @@ linktitle: "Getting started"
 description: "Install the Guardener GitHub App and link your Chainguard organization to your GitHub organization to start using Guardener."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-09-25T13:44:25+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["GitHub", "Getting Started"]
 images: []
 menu:
   docs:
     parent: "guardener-github"
-weight: 010
+weight: 10
 toc: true
 ---
 

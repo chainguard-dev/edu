@@ -9,14 +9,14 @@ aliases:
 type: "article"
 description: "Guide on how to use the wolfictl tool to create, update, and manage security advisories"
 date: 2024-08-05T20:23:51+00:00
-lastmod: 2026-07-27T16:03:25+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "CVE"]
 images: []
 menu:
   docs:
     parent: "security-advisories"
-weight: 030
+weight: 30
 toc: true
 ---
 

@@ -7,12 +7,12 @@ aliases:
 type: "article"
 description: "Tutorial with examples showing how you can authenticate with the Chainguard SDK's auth and auth/ggcr packages."
 date: 2025-06-04T08:49:31+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Console", "Procedural"]
 images: []
 toc: true
-weight: 065
+weight: 40
 ---
 
 There are several ways for users to interact with the Chainguard platform, with [`chainctl`](/platform/chainctl/) (Chainguard's command-line tool) and the [Chainguard Console](https://console.chainguard.dev/overview) (Chainguard's web interface) being the two most commonly-used methods. However, both of these require a human user to authenticate, and aren't useful for working with Chainguard resources programmatically.

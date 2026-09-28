@@ -4,14 +4,14 @@ linktitle: "EOL grace period"
 type: "article"
 description: "Understanding Chainguard's end-of-life (EOL) grace period."
 date: 2025-05-14T08:49:31+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:
     parent: "about"
-weight: 020
+weight: 20
 toc: true
 aliases:
 - /chainguard/chainguard-images/features/eol-gp-overview/

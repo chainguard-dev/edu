@@ -4,14 +4,14 @@ linktitle: "FedRAMP considerations"
 type: "article"
 description: "A conceptual overview of Chainguard FIPS containers."
 date: 2025-01-29T15:56:52-07:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "FIPS"]
 images: []
 menu:
   docs:
     parent: "features"
-weight: 050
+weight: 50
 toc: true
 aliases:
 - /chainguard/chainguard-images/staying-secure/fedramp-considerations/

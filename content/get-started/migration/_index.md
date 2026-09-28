@@ -5,10 +5,10 @@ lead: ""
 description: "Move existing workloads to Chainguard: container migration guides, library migration guides for Java, Python, and JavaScript, and tooling that automates the conversion."
 type: "article"
 date: 2024-02-26T08:48:45+00:00
-lastmod: 2026-09-25T13:44:25+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 images: []
-weight: 045
+weight: 90
 crosslinks:
 - title: "Containers overview"
   url: "/chainguard/containers/migration/migrations-overview/"

@@ -10,11 +10,11 @@ aliases:
 type: "article"
 description: "Learn how to migrate PHP applications to Chainguard Containers for enhanced security, reduced CVEs, and support for both FPM and CLI workloads"
 date: 2024-04-04T15:56:52-07:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Migration"]
 images: []
-weight: 040
+weight: 40
 toc: true
 ---
 

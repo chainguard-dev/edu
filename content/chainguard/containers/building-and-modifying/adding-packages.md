@@ -4,11 +4,11 @@ linktitle: "Add a package"
 description: "Choose how to add a package to a Chainguard Container, find the package name, apply the change, and confirm the package reached the finished image."
 type: "article"
 date: 2026-09-09T00:00:00+00:00
-lastmod: 2026-09-10T12:23:46+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Procedural"]
 images: []
-weight: 005
+weight: 10
 toc: true
 ---
 

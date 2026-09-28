@@ -9,14 +9,14 @@ aliases:
 type: "article"
 description: "A conceptual article outlining testing requirements for Chainguard Containers."
 date: 2024-03-21T11:07:52+02:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Overview", "Chainguard Containers"]
 images: []
 menu:
   docs:
     parent: "about"
-weight: 020
+weight: 20
 toc: true
 ---
 

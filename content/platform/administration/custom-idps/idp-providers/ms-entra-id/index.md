@@ -10,11 +10,11 @@ lead: ""
 description: "Procedural tutorial on how to register a Microsoft Entra ID application and integrate it with the Chainguard platform."
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
-weight: 020
+weight: 30
 ---
 
 The Chainguard platform supports single sign-on (SSO) authentication for users. By default, users can log in with GitHub, GitLab, and Google, but SSO support lets users bring their own identity provider for authentication.

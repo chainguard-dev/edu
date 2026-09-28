@@ -4,14 +4,14 @@ linktitle: "Catalog Starter"
 type: "article"
 description: "Learn about Chainguard Catalog Starter, an offering allowing teams to try out five Chainguard container images for free."
 date: 2026-03-09T07:52:00+02:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:
     parent: "about"
-weight: 010
+weight: 10
 toc: true
 aliases:
 - /chainguard/chainguard-images/about/catalog-starter/

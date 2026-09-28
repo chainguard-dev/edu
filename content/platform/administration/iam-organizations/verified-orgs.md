@@ -6,14 +6,14 @@ lead: ""
 description: "An overview of how to verify your organization and the implications"
 type: "article"
 date: 2023-08-15T14:22:23-07:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Console", "Conceptual"]
 images: []
 menu:
   docs:
     parent: "iam-organizations"
-weight: 015
+weight: 30
 toc: true
 ---
 

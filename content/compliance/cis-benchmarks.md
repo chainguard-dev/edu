@@ -4,7 +4,7 @@ linktitle: "CIS Benchmarks"
 description: "A brief overview of CIS Benchmarks and how they can be used."
 type: "article"
 date: 2024-09-18T14:05:09+00:00
-lastmod: 2024-09-18T14:05:09+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 contributors: []
 draft: false
 aliases:
@@ -14,7 +14,7 @@ images: []
 menu:
   docs:
     parent: "compliance"
-weight: 025
+weight: 40
 toc: true
 ---
 

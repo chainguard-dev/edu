@@ -6,14 +6,14 @@ linktitle: "Future of the Factory"
 type: "article"
 description: "Dustin Kirkland shares his vision for the future of the Chainguard Factory"
 date: 2025-08-02T16:00:00+00:00
-lastmod: 2025-08-02T16:00:00+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Factory", "Video", "Conceptual"]
 images: []
 menu:
   docs:
     parent: "chainguard-factory"
-weight: 060
+weight: 60
 toc: true
 ---
 

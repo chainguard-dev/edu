@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "Learn how to install chainctl, Chainguard's command-line interface for managing container images, IAM resources, and security configurations across platforms"
 date: 2022-09-22T15:56:52-07:00
-lastmod: 2026-09-09T17:33:40+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["chainctl"]
 images: []
@@ -16,7 +16,7 @@ menu:
   docs:
     parent: "administration"
 toc: true
-weight: 010
+weight: 10
 ---
 
 Chainguard's `chainctl` command-line interface provides essential tools for managing your container security infrastructure, including image management, identity and access control, and resource monitoring. This CLI enables automation of Chainguard operations and integration with CI/CD pipelines.

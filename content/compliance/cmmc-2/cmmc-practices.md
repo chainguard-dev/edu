@@ -4,7 +4,7 @@ description: "Learn about the 14 different domains of practices required for CMM
 lead: "Learn about the 14 different domains of practices required for CMMC 2.0"
 type: "article"
 date: 2024-08-09T19:10:09+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 contributors: []
 draft: false
 aliases:
@@ -14,7 +14,7 @@ images: []
 menu:
   docs:
     parent: "cmmc-2"
-weight: 003
+weight: 30
 toc: true
 ---
 

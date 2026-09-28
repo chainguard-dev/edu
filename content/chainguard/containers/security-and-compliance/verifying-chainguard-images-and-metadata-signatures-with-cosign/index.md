@@ -13,11 +13,11 @@ aliases:
 type: "article"
 description: "Learn how to verify Chainguard Container signatures and attestations with Cosign for supply chain security, ensuring image authenticity and integrity"
 date: 2024-03-18T08:59:52-07:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
-weight: 030
+weight: 30
 toc: true
 ---
 

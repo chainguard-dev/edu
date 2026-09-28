@@ -9,14 +9,14 @@ aliases:
 type: "article"
 description: "Reference guide outlining Chainguard's shared responsibility model: a framework that clarifies security obligations for hardened container images."
 date: 2024-10-17T11:07:52+02:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Conceptual", "Chainguard Containers"]
 images: []
 menu:
   docs:
     parent: "about"
-weight: 010
+weight: 10
 toc: true
 ---
 

@@ -8,8 +8,8 @@ linktitle: "Find a matching image"
 description: "How to call the Chainguard Image Matcher API with an existing SBOM to find the closest Chainguard image equivalent."
 type: "article"
 date: 2026-05-26T00:00:00+00:00
-lastmod: 2026-09-25T14:39:07+00:00
-weight: 030
+lastmod: 2026-09-28T14:00:04+00:00
+weight: 30
 draft: false
 tags: ["Chainguard Images", "Migration", "SBOM", "API"]
 ---

@@ -10,11 +10,11 @@ aliases:
 type: "article"
 description: "Learn how to migrate Python applications to Chainguard Containers for enhanced security posture, reduced CVEs, and streamlined dependency management"
 date: 2024-05-02T15:06:00-07:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Migration"]
 images: []
-weight: 050
+weight: 50
 toc: true
 ---
 

@@ -10,14 +10,14 @@ aliases:
 type: "article"
 description: "Learn about Chainguard's development container images and how they differ from our standard images."
 date: 2024-11-01T07:52:00+02:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:
     parent: "about"
-weight: 030
+weight: 30
 toc: true
 ---
 

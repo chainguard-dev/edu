@@ -4,14 +4,14 @@ linktitle: "Requesting resources"
 type: "article"
 description: "How to submit requests for Chainguard to build new resources in the Console."
 date: 2026-02-26T11:07:52+02:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Chainguard Console"]
 images: []
 menu:
   docs:
     parent: "features"
-weight: 060
+weight: 60
 toc: true
 aliases:
 - /chainguard/chainguard-images/features/request-resources/

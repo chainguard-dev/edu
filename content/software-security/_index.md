@@ -13,8 +13,8 @@ title : "Education"
 lead: "Software supply chain security"
 type: "article"
 date: 2022-08-01T08:47:36+00:00
-lastmod: 2026-09-24T16:27:18+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 images: []
-weight: 6
+weight: 60
 ---

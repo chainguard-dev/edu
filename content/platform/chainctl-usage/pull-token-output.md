@@ -7,7 +7,7 @@ type: "article"
 description: "A reference for the output formats chainctl auth pull-token create supports and the names each format gives to the identity ID and token."
 lead: "Every pull token is a pair of values — an identity ID and a token — and each output format labels that pair differently. This page maps the labels to each other."
 date: 2026-09-03T00:00:00+00:00
-lastmod: 2026-09-04T16:13:45+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["chainctl", "Reference"]
 images: []
@@ -15,7 +15,7 @@ menu:
   docs:
     parent: "chainctl-usage"
 toc: true
-weight: 025
+weight: 30
 ---
 
 `chainctl auth pull-token create` returns two values:

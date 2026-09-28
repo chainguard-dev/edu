@@ -4,14 +4,14 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for JavaScript on your workstation"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
   docs:
     parent: "javascript"
     identifier: "JavaScript Build Configuration"
-weight: 053
+weight: 30
 toc: true
 ---
 

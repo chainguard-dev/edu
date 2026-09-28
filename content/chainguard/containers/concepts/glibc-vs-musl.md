@@ -10,14 +10,14 @@ aliases:
 type: "article"
 description: "An overview of the differences between glibc and musl."
 date: 2024-08-26T18:42:57+00:00
-lastmod: 2025-07-23T16:52:56+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "cheatsheet"]
 images: []
 menu:
   docs:
     parent: "about"
-weight: 060
+weight: 60
 toc: true
 ---
 

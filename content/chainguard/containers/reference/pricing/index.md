@@ -4,11 +4,11 @@ linktitle: "Catalog pricing"
 type: "article"
 description: "Overview of Chainguard's container catalog pricing model and how to add container images to your organization through the self-serve catalog experience."
 date: 2025-08-19T08:49:31+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
-weight: 020
+weight: 20
 toc: true
 aliases:
 - /chainguard/chainguard-images/about/pricing/

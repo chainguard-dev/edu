@@ -13,11 +13,11 @@ aliases:
 type: "article"
 description: "How to get SBOM for container images: Chainguard provides Software Bill of Materials for every image - retrieve with Cosign for complete supply chain transparency"
 date: 2023-11-17T11:07:52+02:00
-lastmod: 2026-08-21T12:27:26+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "SBOM"]
 images: []
-weight: 020
+weight: 20
 toc: true
 ---
 

@@ -4,7 +4,7 @@ description: "How to prepare your organization to meet the requirements of PCI D
 lead: "How to prepare your organization to meet the requirements of PCI DSS 4.0"
 type: "article"
 date: 2024-08-21T14:05:09+00:00
-lastmod: 2024-08-21T14:05:09+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 contributors: []
 draft: false
 aliases:
@@ -14,7 +14,7 @@ images: []
 menu:
   docs:
     parent: "pci-dss-4"
-weight: 001
+weight: 10
 toc: true
 ---
 

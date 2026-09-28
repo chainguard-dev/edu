@@ -4,14 +4,14 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for Python on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-09-09T15:53:21+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
     parent: "python"
     identifier: "Python Build Configuration"
-weight: 053
+weight: 30
 toc: true
 ---
 

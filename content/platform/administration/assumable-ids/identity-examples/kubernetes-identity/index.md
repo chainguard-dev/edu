@@ -7,11 +7,11 @@ lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by a Kubernetes pod."
 type: "article"
 date: 2025-08-07T13:00:00+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
-weight: 012
+weight: 40
 ---
 
 Chainguard's [*assumable identities*](/platform/administration/assumable-ids/assumable-ids/)

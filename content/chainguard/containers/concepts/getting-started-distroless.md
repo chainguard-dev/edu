@@ -9,14 +9,14 @@ aliases:
 type: "article"
 description: "Why distroless containers are more secure: Chainguard's approach removes shells, package managers, and unnecessary components to minimize attack surface while maintaining compatibility"
 date: 2024-03-21T08:49:31+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Overview"]
 images: []
 menu:
   docs:
     parent: "about"
-weight: 040
+weight: 40
 toc: true
 ---
 

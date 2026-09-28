@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for JavaScript in your organization"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-09-09T17:33:40+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 images: []
@@ -12,7 +12,7 @@ menu:
   docs:
     parent: "javascript"
     identifier: "JavaScript Global Configuration"
-weight: 052
+weight: 20
 toc: true
 ---
 

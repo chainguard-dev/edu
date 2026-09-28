@@ -10,11 +10,11 @@ aliases:
 type: "article"
 description: "A conceptual article outlining the risk involved with using EOL software and how EOL images accrue vulnerabilities."
 date: 2024-12-04T11:07:52+02:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "CVE"]
 images: []
-weight: 030
+weight: 30
 toc: true
 ---
 

@@ -7,11 +7,11 @@ lead: ""
 description: "Tutorial outlining how to create a Chainguard identity that can be assumed by an AWS user or role."
 type: "article"
 date: 2025-11-28T16:00:00+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
-weight: 011
+weight: 30
 ---
 
 > **Note:** This page describes a custom implementation of assumable identities for AWS that was

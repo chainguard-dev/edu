@@ -6,14 +6,14 @@ aliases:
 type: "article"
 description: "When a container or version isn't available to you: how to identify which situation you're in, what to do about each, and when to open a support request."
 date: 2026-09-02T00:00:00+00:00
-lastmod: 2026-09-11T13:20:58+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:
     parent: "about"
-weight: 010
+weight: 10
 toc: true
 ---
 

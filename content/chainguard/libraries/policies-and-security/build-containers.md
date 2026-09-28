@@ -4,13 +4,13 @@ linktitle: "Container builds"
 description: "Authenticate to Chainguard Libraries during a container build without baking credentials into the final image."
 type: "article"
 date: 2026-09-09T00:00:00+00:00
-lastmod: 2026-09-09T00:00:00+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Libraries", "Integration"]
 menu:
   docs:
     parent: "policies-and-security"
-weight: 075
+weight: 60
 toc: true
 aliases:
   - /chainguard/libraries/build-containers/

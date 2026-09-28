@@ -10,14 +10,14 @@ aliases:
 type: "article"
 description: "A conceptual overview of Security Technical Implementation Guides, which are available for Chainguard Containers."
 date: 2024-06-13T15:56:52-07:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:
     parent: "concepts"
-weight: 040
+weight: 40
 toc: true
 ---
 

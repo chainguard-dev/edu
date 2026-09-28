@@ -4,13 +4,13 @@ type: "article"
 linktitle: "Build pinning"
 description: "Use build pinning to keep library artifacts stable across rebuilds."
 date: 2026-08-19T08:04:00+00:00
-lastmod: 2026-09-10T12:58:57+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Libraries", "Build pinning"]
 menu:
   docs:
     parent: policies-and-security
-weight: 074
+weight: 50
 toc: true
 aliases:
   - /chainguard/libraries/build-pinning/

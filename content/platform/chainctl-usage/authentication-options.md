@@ -7,7 +7,7 @@ type: "article"
 description: "Learn the login flows chainctl supports, including interactive browser login, headless device-code login, social login providers, and assumable identities."
 lead: "chainctl supports several ways to authenticate to the Chainguard platform, so you can log in from a laptop, a browserless server, or a CI/CD pipeline."
 date: 2026-08-21T00:00:00+00:00
-lastmod: 2026-09-11T14:07:20+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["chainctl"]
 images: []
@@ -15,7 +15,7 @@ menu:
   docs:
     parent: "chainctl-usage"
 toc: true
-weight: 020
+weight: 20
 ---
 
 There are several ways to authenticate to the Chainguard platform with `chainctl`, each suited to a different environment:

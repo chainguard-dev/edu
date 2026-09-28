@@ -4,14 +4,14 @@ linktitle: "App connections"
 description: "Set up, inspect, and remove the connections between your Chainguard organization and your GitHub organizations for Guardener."
 type: "article"
 date: 2026-08-03T00:00:00+00:00
-lastmod: 2026-09-25T13:44:25+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["GitHub", "Configuration"]
 images: []
 menu:
   docs:
     parent: "guardener-github"
-weight: 015
+weight: 20
 toc: true
 ---
 

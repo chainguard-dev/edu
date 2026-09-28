@@ -4,14 +4,14 @@ linktitle: "Manage with Chainguard's API"
 type: "article"
 description: "How to use the Chainguard API to manage Custom Assembly resources."
 date: 2025-05-01T11:07:52+02:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural", "Custom Assembly"]
 images: []
 menu:
   docs:
     parent: "features"
-weight: 050
+weight: 50
 toc: true
 aliases:
 - /chainguard/chainguard-images/features/ca-docs/custom-assembly-api-demo/

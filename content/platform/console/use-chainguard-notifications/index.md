@@ -8,14 +8,14 @@ type: "article"
 description: "A primer on how to configure Chainguard Notifications"
 lead: "A primer on how to configure Chainguard Notifications in the Chainguard Console"
 date: 2025-07-11T08:49:31+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:
     parent: "console"
-weight: 030
+weight: 20
 toc: true
 ---
 

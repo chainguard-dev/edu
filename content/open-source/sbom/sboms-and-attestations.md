@@ -8,14 +8,14 @@ aliases:
 type: "article"
 description: "An overview of the differences between attestations and SBOMs"
 date: 2023-03-19T15:56:52-07:00
-lastmod: 2026-07-27T15:39:06+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Cosign", "SBOM", "Conceptual"]
 images: []
 menu:
   docs:
     parent: "sbom"
-weight: 030
+weight: 40
 toc: true
 ---
 

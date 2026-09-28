@@ -5,14 +5,14 @@ type: "article"
 lead: "Use Rekor CLI to make an entry to the Sigstore transparency log"
 description: "Use the Rekor CLI to sign and upload metadata to the Sigstore transparency log"
 date: 2022-08-20T08:49:31+00:00
-lastmod: 2022-08-20T08:49:31+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Rekor", "Procedural"]
 images: []
 menu:
   docs:
     parent: "rekor"
-weight: 004
+weight: 40
 toc: true
 ---
 

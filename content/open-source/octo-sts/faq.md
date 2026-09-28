@@ -5,7 +5,7 @@ type: "article"
 lead: "Frequently asked questions about Octo STS, including troubleshooting, security considerations, and common use cases"
 description: "Learn about Octo STS for GitHub token federation, including setup issues, security best practices, and integration patterns"
 date: 2025-12-22T15:04:05+01:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 tags: ["octo-sts", "FAQ"]
 draft: false
 images: []
@@ -13,7 +13,7 @@ menu:
   docs:
     parent: "octo-sts"
     identifier: "Octo STS FAQ"
-weight: 60
+weight: 20
 toc: true
 ---
 

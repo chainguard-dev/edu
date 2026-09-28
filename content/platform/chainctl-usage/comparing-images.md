@@ -18,14 +18,14 @@ aliases:
 type: "article"
 description: "Learn how to use chainctl images diff to compare Chainguard container versions, analyze security improvements, and track package changes between builds"
 date: 2023-08-30T11:07:52+02:00
-lastmod: 2026-09-09T17:33:40+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:
     parent: "chainguard-images"
-weight: 045
+weight: 60
 toc: true
 ---
 

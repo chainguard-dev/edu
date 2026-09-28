@@ -3,14 +3,14 @@ title: "Building a Wolfi package"
 type: "article"
 description: "A deep-dive into the process of getting a new package into Wolfi OS"
 date: 2023-08-21T08:49:31+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Wolfi", "Procedural"]
 images: []
 menu:
   docs:
     parent: "wolfi"
-weight: 300
+weight: 20
 toc: true
 ---
 

@@ -8,11 +8,11 @@ type: "article"
 description: "A primer on how to use Chainguard-provided upstream Helm charts to deploy Chainguard container images"
 lead: "A primer on how to use Chainguard-provided upstream Helm charts to deploy Chainguard container images"
 date: 2025-07-11T08:49:31+00:00
-lastmod: 2026-09-23T15:37:29+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Helm charts", "Product"]
 images: []
-weight: 010
+weight: 10
 toc: true
 ---
 

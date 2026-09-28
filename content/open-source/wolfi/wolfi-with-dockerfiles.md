@@ -4,14 +4,14 @@ linktitle: "Wolfi images with Dockerfiles"
 type: "article"
 description: "This tutorial demonstrates how to build a Wolfi Python image from scratch, using a Dockerfile workflow."
 date: 2022-12-19T08:49:31+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Wolfi", "Procedural"]
 images: []
 menu:
   docs:
     parent: "wolfi"
-weight: 500
+weight: 40
 toc: true
 ---
 

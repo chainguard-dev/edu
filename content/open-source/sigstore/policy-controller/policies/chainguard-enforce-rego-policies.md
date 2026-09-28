@@ -5,13 +5,13 @@ aliases:
 type: "article"
 description: "Writing Rego-based policies for Sigstore Policy Controller"
 date: 2023-01-12T15:56:52-07:00
-lastmod: 2024-05-10T15:56:52-07:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Policy Controller", "Procedural", "Policy", "Reference", "SBOM"]
 menu:
   docs:
     parent: "policies"
-weight: 010
+weight: 20
 toc: true
 ---
 

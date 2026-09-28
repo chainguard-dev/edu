@@ -4,13 +4,13 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing JavaScript project to pull dependencies from Chainguard Libraries"
 date: 2026-06-01T00:00:00+00:00
-lastmod: 2026-09-10T12:58:57+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
   docs:
     parent: javascript
     identifier: JavaScript Migration
-weight: 056
+weight: 40
 toc: true
 ---
 

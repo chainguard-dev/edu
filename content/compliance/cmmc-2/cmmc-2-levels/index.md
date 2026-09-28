@@ -4,7 +4,7 @@ description: "Learn about the differences between CMMC 2.0's maturity levels"
 lead: "Learn about the differences between CMMC 2.0's maturity levels"
 type: "article"
 date: 2024-08-09T19:10:09+00:00
-lastmod: 2024-08-15T19:10:09+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 contributors: []
 draft: false
 aliases:
@@ -14,7 +14,7 @@ images: []
 menu:
   docs:
     parent: "cmmc-2"
-weight: 002
+weight: 20
 toc: true
 ---
 

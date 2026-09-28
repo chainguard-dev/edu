@@ -6,14 +6,14 @@ linktitle: "Inside the Chainguard Factory"
 type: "article"
 description: "Inside the Chainguard Factory as presented by Dustin Kirkland at the Assemble conference in 2025."
 date: 2025-07-31T16:00:00+00:00
-lastmod: 2025-08-02T05:01:45+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Factory", "Video", "Overview"]
 images: []
 menu:
   docs:
     parent: "chainguard-factory"
-weight: 100
+weight: 70
 toc: true
 ---
 

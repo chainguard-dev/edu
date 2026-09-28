@@ -17,11 +17,11 @@ aliases:
 type: "article"
 description: "In this article, we'll discuss a few different strategies to debug distroless images, considering these images typically don't include a shell or package managers."
 date: 2023-05-18T08:49:31+00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
-weight: 040
+weight: 40
 toc: true
 ---
 

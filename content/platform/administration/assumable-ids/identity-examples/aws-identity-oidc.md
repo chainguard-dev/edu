@@ -7,11 +7,11 @@ lead: ""
 description: "Tutorial outlining how to create a Chainguard identity that can be assumed by an AWS user or role using outbound identity federation."
 type: "article"
 date: 2026-01-05T09:00:00+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
-weight: 011
+weight: 30
 ---
 
 Chainguard's [*assumable identities*](/platform/administration/assumable-ids/assumable-ids/) are identities that can be assumed by external applications or workflows in order to access Chainguard resources or perform certain actions.

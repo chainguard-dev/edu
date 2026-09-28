@@ -11,7 +11,7 @@ aliases:
 type: "article"
 description: "Tutorial outlining how to set up a remote Artifactory repository to pull images through Chainguard's container registry."
 date: 2024-02-13T15:56:52-07:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -19,7 +19,7 @@ menu:
   docs:
     parent: "artifactory"
 toc: true
-weight: 020
+weight: 20
 ---
 
 Organizations can route container image pulls through Artifactory to centralize artifact management, enforce policy, and integrate Chainguard Containers into existing CI/CD workflows. You can configure Artifactory as a pull-through cache by setting up a remote repository pointed at [Chainguard's container registry](/chainguard/containers/registry/overview/).

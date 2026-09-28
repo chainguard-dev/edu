@@ -7,14 +7,14 @@ aliases:
 - /get-started/migration/the-guardener/
 type: "article"
 date: 2026-07-13T00:00:00+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["GitHub", "AI", "Chainguard Containers"]
 images: []
 menu:
   docs:
     parent: "guardener"
-weight: 050
+weight: 20
 toc: true
 ---
 

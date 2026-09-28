@@ -4,7 +4,7 @@ linktitle: "FAQ"
 description: "Frequently asked questions about Chainguard Libraries, including security benefits, supported ecosystems, and how automated patching protects against supply chain attacks"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-09-10T14:55:52+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 aliases:
@@ -15,7 +15,7 @@ menu:
   docs:
     parent: "troubleshooting"
     identifier: "Libraries FAQ"
-weight: 081
+weight: 10
 toc: true
 ---
 

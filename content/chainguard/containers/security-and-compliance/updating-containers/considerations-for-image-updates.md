@@ -12,11 +12,11 @@ aliases:
 type: "article"
 description: "Learn best practices for updating container images, including Chainguard's approach to daily rebuilds, semantic versioning, and balancing security with stability"
 date: 2023-10-05T11:07:52+02:00
-lastmod: 2026-09-03T15:35:10+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
-weight: 010
+weight: 10
 toc: true
 ---
 

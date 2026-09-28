@@ -4,11 +4,11 @@ linktitle: "Install APKs in distroless"
 description: "Learn how to install APK packages into Chainguard's distroless container images that do not include package managers"
 type: "article"
 date: 2026-04-21T00:00:01+00:00
-lastmod: 2026-09-24T19:33:22+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
-weight: 010
+weight: 20
 toc: true
 aliases:
 - /chainguard/chainguard-images/how-to-use/install-apks-in-distroless-variants/

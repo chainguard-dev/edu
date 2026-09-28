@@ -7,14 +7,14 @@ linktitle: "Migration tips"
 type: "article"
 description: "This guide outlines a number of tips and strategies to keep in mind for when your organization begins migrating to Chainguard Containers."
 date: 2025-05-29T12:56:52-00:00
-lastmod: 2026-08-03T18:16:45+00:00
+lastmod: 2026-09-28T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
 menu:
   docs:
     parent: "migration"
-weight: 040
+weight: 40
 toc: true
 ---
 
