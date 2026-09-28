@@ -221,9 +221,12 @@ authenticate = "always"
 name = "cgr-p"
 url = "https://libraries.cgr.dev/python/simple"
 authenticate = "always"
+default = true
 ```
 
 When using the remediated index, set `index-strategy = "unsafe-best-match"` so uv can resolve dependencies that fall back from remediated to non-remediated packages.
+
+Setting `default = true` on the Chainguard index replaces PyPI as uv's default index. Without it, uv appends PyPI as an implicit lowest-priority index, and with `unsafe-best-match` it can resolve packages from PyPI even when Chainguard serves them. This bypasses Chainguard malware blocking and cooldown. If you need packages that Chainguard has not built, use the [built-in upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) instead of adding PyPI to your configuration.
 
 If you are using the Python keyring, enable support for it in `pyproject.toml`:
 
@@ -280,6 +283,7 @@ For a per-project configuration, configure the `pyproject.toml`:
 [[tool.uv.index]]
 name = "python-all"
 url = "https://repo.example.com/repository/python-all/simple/"
+default = true
 ```
 
 {{% /tab %}}
