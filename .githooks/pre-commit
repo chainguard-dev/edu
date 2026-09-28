@@ -55,7 +55,7 @@ def update_dates():
             continue
         if re.search(r'^title:', frontmatter, re.MULTILINE):
             frontmatter = re.sub(
-                r'^(title:\s*.*)$', f'\\1\ndate: {now}\nlastmod: {now}',
+                r'^(title:.*)$', f'\\1\ndate: {now}\nlastmod: {now}',
                 frontmatter, flags=re.MULTILINE,
             )
         else:
@@ -74,11 +74,15 @@ def update_dates():
         if end == -1:
             continue
         frontmatter, body = content[:end + 5], content[end + 5:]
+        # These patterns must not use \s*, which matches newlines: against a
+        # key with an empty value (`lastmod:` with nothing after it) it runs on
+        # into the next line, and the substitution then replaces that line too.
+        # A `.` never matches a newline, so `.*` alone stays on its own line.
         if re.search(r'^lastmod:', frontmatter, re.MULTILINE):
-            frontmatter = re.sub(r'^lastmod:\s*.*$', f'lastmod: {now}',
+            frontmatter = re.sub(r'^lastmod:.*$', f'lastmod: {now}',
                                  frontmatter, flags=re.MULTILINE)
         else:
-            frontmatter = re.sub(r'^(date:\s*.*)$', f'\\1\nlastmod: {now}',
+            frontmatter = re.sub(r'^(date:.*)$', f'\\1\nlastmod: {now}',
                                  frontmatter, flags=re.MULTILINE)
         Path(file).write_text(frontmatter + body, encoding='utf-8')
         subprocess.run(['git', 'add', file])
