@@ -3,10 +3,16 @@ title: "Learning Labs"
 description: "Education and training videos on demand"
 type: "article"
 date: 2025-06-18T21:00:00+00:00
-lastmod: 2026-07-23T20:03:45+00:00
+lastmod: 2026-09-28T15:41:41+00:00
 draft: false
 images: []
 tags: ["Learning Labs", "Overview"]
+# This weight places the Learning Labs section within Software security. The
+# labs themselves are numbered from the oldest down, so the newest lab sorts
+# first: to add one, take the current lowest weight in this directory and
+# subtract 10. Never reach 0 -- Hugo reads a weight of 0 as unweighted and
+# sorts the page last.
+weight: 30
 toc: true
 hidepageslist: true
 ---
