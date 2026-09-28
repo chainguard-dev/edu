@@ -6,7 +6,7 @@ aliases:
 description: "JavaScript libraries for your application development"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-09-28T18:48:06+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript", "Overview"]
 menu:
@@ -116,6 +116,14 @@ You can verify a package tarball in a single command using `chainctl`:
 ```bash
 chainctl libraries verify PACKAGE-VERSION.tgz
 ```
+
+You can also verify a lockfile directly, without installing dependencies:
+
+```bash
+chainctl libraries verify package-lock.json
+```
+
+Supported lockfiles are `package-lock.json`, `npm-shrinkwrap.json`, `pnpm-lock.yaml`, `yarn.lock`, and `bun.lock`.
 
 Refer to [Verification](/chainguard/libraries/policies-and-security/verification/) for setup and usage details.
 
