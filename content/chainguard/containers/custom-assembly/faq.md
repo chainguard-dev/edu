@@ -119,6 +119,14 @@ For a Custom Assembly image, the semantic tag (for example, `vX.Y.Z`) always ref
 
 When an added package is updated and available, your Custom Assembly image is rebuilt automatically and the new build that includes the updated package becomes the `latest` image. The semantic tag remains tied to the same base image digest until the base image itself is updated and a new semantic tag is created.
 
+## Can I customize only some of a repository's tags?
+
+Yes. With [tag-based Custom Assembly](/chainguard/containers/custom-assembly/tag-based-custom-assembly/), you create an overlay that holds your customizations and bind it to specific tags, to every `-dev` tag, or to every tag. This is useful when a package only works with some of an image's versions, such as a Python package built for one Python version.
+
+## Can I use standard and tag-based Custom Assembly on the same repository?
+
+No. A repository uses one or the other. If a repository has overlay bindings, adding a standard customization fails, including from the Chainguard Console. To make changes, update the repository's overlays with `chainctl` or Terraform. To move a repository from standard to tag-based Custom Assembly, see [Moving a repository from standard Custom Assembly](/chainguard/containers/custom-assembly/tag-based-custom-assembly-chainctl/#moving-a-repository-from-standard-custom-assembly).
+
 ## Custom Assembly troubleshooting
 
 Build failures can occur for a number of reasons, including the following:
