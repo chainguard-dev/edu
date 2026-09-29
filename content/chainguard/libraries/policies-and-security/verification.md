@@ -6,7 +6,7 @@ description:
   Libraries using the chainctl tool for enhanced supply chain security"
 type: "article"
 date: 2025-07-03T12:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-09-28T18:48:06+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -350,6 +350,20 @@ chainctl libraries verify ./node_modules
 ```
 
 If `.package-lock.json` is not present, the directory is not recognized as an npm tree and verification will not run.
+
+#### Verify JavaScript lockfiles without installing dependencies
+
+> **Note**: This command requires `chainctl` v0.2.354 or later.
+
+Verify a JavaScript lockfile directly, without running an install and without requiring `node_modules` or a persistent package manager cache:
+
+```sh
+chainctl libraries verify package-lock.json
+```
+
+Supported lockfiles include `package-lock.json`, `npm-shrinkwrap.json`, `pnpm-lock.yaml`, `yarn.lock`, and `bun.lock`.
+
+This command verifies what the lockfile claims will be installed. It does not verify the package bytes present on disk.
 
 #### Verify a container image
 
