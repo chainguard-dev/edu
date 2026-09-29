@@ -100,6 +100,7 @@
           "CAP_LIBRARIES_DOTNET_CREATE",
           "CAP_LIBRARIES_GO_LIST",
           "CAP_LIBRARIES_GO_CREATE",
+          "CAP_LIBRARIES_RUBY_LIST",
           "CAP_LIBRARIES_CACHE_INVALIDATE",
           "CAP_LIBRARIES_CACHE_LIST",
           "CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE",
@@ -4584,6 +4585,293 @@
         ],
         "type": "string"
       },
+      "chainguard.platform.versions.v2beta1.Archive": {
+        "description": "Archive is a downloadable archive for one platform.",
+        "properties": {
+          "relativePath": {
+            "description": "relative_path is the archive's download path relative to the NVIDIA\nredistribution base URL.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "sha256": {
+            "description": "sha256 is the hex-encoded SHA-256 digest of the archive.",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.versions.v2beta1.EndOfLife": {
+        "description": "EndOfLife is an end-of-life status.",
+        "properties": {
+          "eolTime": {
+            "description": "eol_time is when end of life is or was reached. It is unset when no date\nis known.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "origin": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.versions.v2beta1.EndOfLife.Origin"
+              }
+            ],
+            "description": "origin is where this end-of-life information came from. It is unset on a\nSource's eol, where the Source's type already says where it came from.",
+            "readOnly": true
+          },
+          "reached": {
+            "description": "reached reports whether end of life has been reached as of the request.\nWhen eol_time is set, reached is true exactly when eol_time is at or\nbefore the request time.",
+            "readOnly": true,
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.versions.v2beta1.EndOfLife.Origin": {
+        "default": "ORIGIN_UNSPECIFIED",
+        "description": "Origin is where end-of-life information came from.\n\n - ORIGIN_UNSPECIFIED: The origin is not known.\n - ORIGIN_ENDOFLIFE_DATE: Read from endoflife.date.\n - ORIGIN_AGENTIC: Inferred by the version-reconciler from a support-policy page, release\nheuristics, or a value with no recorded origin.\n - ORIGIN_MANUAL: Set by hand.\n - ORIGIN_GIT: Derived from git tags.\n - ORIGIN_GITHUB_RELEASE: Derived from GitHub releases.\n - ORIGIN_RELEASE_MONITOR: Derived from release-monitoring.org.\n - ORIGIN_NVIDIA_REDIST: Derived from an NVIDIA redistributable manifest.\n - ORIGIN_OCI_TAGS: Derived from OCI image tags.\n - ORIGIN_RELEASE_BRANCH: Derived from git release branches.",
+        "enum": [
+          "ORIGIN_UNSPECIFIED",
+          "ORIGIN_ENDOFLIFE_DATE",
+          "ORIGIN_AGENTIC",
+          "ORIGIN_MANUAL",
+          "ORIGIN_GIT",
+          "ORIGIN_GITHUB_RELEASE",
+          "ORIGIN_RELEASE_MONITOR",
+          "ORIGIN_NVIDIA_REDIST",
+          "ORIGIN_OCI_TAGS",
+          "ORIGIN_RELEASE_BRANCH"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.versions.v2beta1.Git": {
+        "description": "Git holds details reported by a git-hosted source.",
+        "properties": {
+          "commit": {
+            "description": "commit is the commit SHA the tag or release points to, when known.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "tagUri": {
+            "description": "tag_uri links to the upstream tag or release, or to the repository for\nrelease branches.",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.versions.v2beta1.ListProjectsResponse": {
+        "description": "ListProjectsResponse is one page of projects.",
+        "properties": {
+          "nextPageToken": {
+            "description": "next_page_token fetches the next page. It is empty on the last page.",
+            "type": "string"
+          },
+          "projects": {
+            "description": "projects are this page's projects, in order_by order.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.versions.v2beta1.Project"
+            },
+            "type": "array"
+          },
+          "skipped": {
+            "description": "Number of results that were skipped.\nAccumulates across paginated requests.",
+            "format": "int32",
+            "type": "integer"
+          },
+          "totalCount": {
+            "description": "Total number of projects matching the filter.\nOptional, provided for UI pagination.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.versions.v2beta1.LongTermSupport": {
+        "description": "LongTermSupport is a stream's long-term-support designation.",
+        "properties": {
+          "designated": {
+            "description": "designated reports whether the stream is, or is scheduled to become, a\nlong-term-support stream.",
+            "readOnly": true,
+            "type": "boolean"
+          },
+          "startTime": {
+            "description": "start_time is when the stream became, or will become, a long-term-support\nstream. It is unset when no date is known or designated is false.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.versions.v2beta1.NvidiaRedist": {
+        "description": "NvidiaRedist holds details reported by an NVIDIA redistributable manifest.",
+        "properties": {
+          "archives": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/chainguard.platform.versions.v2beta1.Archive"
+            },
+            "description": "archives maps a platform, e.g. \"linux-x86_64\" or \"linux-sbsa\", to its\ndownloadable archive.",
+            "readOnly": true,
+            "type": "object"
+          },
+          "componentVersion": {
+            "description": "component_version is the component's own version within the toolkit\nrelease.",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.versions.v2beta1.Project": {
+        "description": "Project is one upstream piece of software whose releases Chainguard tracks,\nsuch as a language runtime, a library, a CLI, or a GitHub Action.",
+        "properties": {
+          "name": {
+            "description": "name is the project name, e.g. \"nginx\".",
+            "readOnly": true,
+            "type": "string"
+          },
+          "streams": {
+            "description": "streams are the project's version streams.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.versions.v2beta1.Stream"
+            },
+            "readOnly": true,
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.versions.v2beta1.Source": {
+        "description": "Source is one upstream place a version was discovered.",
+        "properties": {
+          "eol": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.versions.v2beta1.EndOfLife"
+              }
+            ],
+            "description": "eol is the end-of-life status this source reported for the version, when\nit reported one.",
+            "readOnly": true
+          },
+          "git": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.versions.v2beta1.Git"
+              }
+            ],
+            "description": "git holds details only git-hosted sources report: git tags, GitHub\nreleases, and release branches.",
+            "readOnly": true
+          },
+          "nvidiaRedist": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.versions.v2beta1.NvidiaRedist"
+              }
+            ],
+            "description": "nvidia_redist holds details only NVIDIA redistributable sources report.",
+            "readOnly": true
+          },
+          "publishTime": {
+            "description": "publish_time is when this source published the version, when known.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "tag": {
+            "description": "tag is the name the source gives this version, e.g. the git tag\n\"v1.27.3\". For NVIDIA redistributable sources it is the toolkit version.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.versions.v2beta1.Source.Type"
+              }
+            ],
+            "description": "type is the kind of source.",
+            "readOnly": true
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.versions.v2beta1.Source.Type": {
+        "default": "TYPE_UNSPECIFIED",
+        "description": "Type is the kind of upstream source.\n\n - TYPE_UNSPECIFIED: The type is not known to this API version.\n - TYPE_GIT: A git tag.\n - TYPE_GITHUB_RELEASE: A GitHub release.\n - TYPE_RELEASE_MONITOR: A release-monitoring.org project.\n - TYPE_ENDOFLIFE_DATE: An endoflife.date product.\n - TYPE_NVIDIA_REDIST: An NVIDIA redistributable manifest.\n - TYPE_OCI_TAGS: An OCI image tag.\n - TYPE_RELEASE_BRANCH: A git release branch.\n - TYPE_MANUAL: Added by hand.",
+        "enum": [
+          "TYPE_UNSPECIFIED",
+          "TYPE_GIT",
+          "TYPE_GITHUB_RELEASE",
+          "TYPE_RELEASE_MONITOR",
+          "TYPE_ENDOFLIFE_DATE",
+          "TYPE_NVIDIA_REDIST",
+          "TYPE_OCI_TAGS",
+          "TYPE_RELEASE_BRANCH",
+          "TYPE_MANUAL"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.versions.v2beta1.Stream": {
+        "description": "Stream is a line of releases within a project, e.g. \"1.27\".",
+        "properties": {
+          "eol": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.versions.v2beta1.EndOfLife"
+              }
+            ],
+            "description": "eol is the stream's end-of-life status. It is unset when we have\nno end-of-life information for the stream.",
+            "readOnly": true
+          },
+          "lts": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.versions.v2beta1.LongTermSupport"
+              }
+            ],
+            "description": "lts is the stream's long-term-support designation. It is\nunset when the designation is unknown.",
+            "readOnly": true
+          },
+          "stream": {
+            "description": "stream identifies the stream within its project, e.g. \"1.27\".",
+            "readOnly": true,
+            "type": "string"
+          },
+          "versions": {
+            "description": "versions are the releases observed in this stream.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.versions.v2beta1.Version"
+            },
+            "readOnly": true,
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.versions.v2beta1.Version": {
+        "description": "Version is one release within a stream, e.g. \"1.27.3\".",
+        "properties": {
+          "license": {
+            "description": "license is the SPDX license expression evaluated from the upstream source\nat this version's tag: an SPDX identifier such as \"Apache-2.0\", or a\nLicenseRef-\u003chash\u003e reference to a non-standard license. It is empty when\nthe license has not been evaluated.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "sources": {
+            "description": "sources are the upstream places this version was discovered. The same\nversion is often seen by more than one source.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.versions.v2beta1.Source"
+            },
+            "readOnly": true,
+            "type": "array"
+          },
+          "version": {
+            "description": "version is the version string, e.g. \"1.27.3\".",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.vulnerabilities.v2beta1.Advisory": {
         "description": "Advisory is a security advisory the defines the relationship between a vulnerability and artifact.",
         "properties": {
@@ -4691,7 +4979,8 @@
                 "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.AnalysisNotPlanned"
               }
             ],
-            "description": "Analysis of the vulnerability is not planned."
+            "description": "Analysis of the vulnerability is not planned.",
+            "readOnly": true
           },
           "author": {
             "description": "The person or service account who created this event.",
@@ -4703,7 +4992,8 @@
                 "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.ComponentLocationChanged"
               }
             ],
-            "description": "The vulnerable component moved to a different location in the artifact."
+            "description": "The vulnerable component moved to a different location in the artifact.",
+            "readOnly": true
           },
           "createTime": {
             "description": "The creation time of the event.",
@@ -4717,7 +5007,8 @@
                 "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.Detection"
               }
             ],
-            "description": "Vulnerability detected by a scanner."
+            "description": "Vulnerability detected by a scanner.",
+            "readOnly": true
           },
           "falsePositiveDetermination": {
             "allOf": [
@@ -4725,7 +5016,8 @@
                 "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.FalsePositiveDetermination"
               }
             ],
-            "description": "The vulnerability is determined not to affect the artifact."
+            "description": "The vulnerability is determined not to affect the artifact.",
+            "readOnly": true
           },
           "findings": {
             "description": "The JSON-encoded struct containing vulnerability findings from a scanner.",
@@ -4738,7 +5030,8 @@
                 "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.FixNotPlanned"
               }
             ],
-            "description": "No fix is planned for this vulnerability."
+            "description": "No fix is planned for this vulnerability.",
+            "readOnly": true
           },
           "fixed": {
             "allOf": [
@@ -4746,7 +5039,8 @@
                 "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.Fixed"
               }
             ],
-            "description": "The version at which a vulnerability is fixed."
+            "description": "The version at which a vulnerability is fixed.",
+            "readOnly": true
           },
           "issue": {
             "title": "The original CVE Dashboard issue",
@@ -4758,7 +5052,8 @@
                 "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.Patched"
               }
             ],
-            "description": "A patch has been applied to the given versions to address the vulnerability."
+            "description": "A patch has been applied to the given versions to address the vulnerability.",
+            "readOnly": true
           },
           "pendingUpstreamFix": {
             "allOf": [
@@ -4766,7 +5061,8 @@
                 "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.PendingUpstreamFix"
               }
             ],
-            "description": "A fix is pending on the upstream repository."
+            "description": "A fix is pending on the upstream repository.",
+            "readOnly": true
           },
           "reviewNote": {
             "description": "The reviewer's explanation, set when transitioning an event to\nREQUEST_CHANGES or REJECTED. Read-only via this API version (v2beta1 has\nno event-update RPC); set through v1's UpdateAdvisoryEvent.",
@@ -4791,7 +5087,8 @@
                 "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2beta1.AdvisoryEvent.TruePositiveDetermination"
               }
             ],
-            "description": "The vulnerability has been determined to actively affect the artifact."
+            "description": "The vulnerability has been determined to actively affect the artifact.",
+            "readOnly": true
           },
           "uid": {
             "description": "The unique identity (UIDP) of this event, a child of the advisory UIDP it belongs to.",
@@ -5081,6 +5378,7 @@
         "properties": {
           "score": {
             "description": "The score string (CVSS vector string or numeric value depending on type).",
+            "readOnly": true,
             "type": "string"
           },
           "type": {
@@ -5089,7 +5387,8 @@
                 "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v2beta1.Severity.Type"
               }
             ],
-            "description": "The type of severity scoring method used."
+            "description": "The type of severity scoring method used.",
+            "readOnly": true
           }
         },
         "type": "object"
@@ -6396,7 +6695,7 @@
             }
           },
           {
-            "description": "Order results by field. Format: \"field [asc|desc]\"\nDefault: \"created_at desc\"\nNote: Changing order_by between pages invalidates the page token.",
+            "description": "Order results by field. Format: \"field [asc|desc]\"\nDefault: \"create_time desc\"\nNote: Changing order_by between pages invalidates the page token.",
             "in": "query",
             "name": "orderBy",
             "schema": {
@@ -8493,6 +8792,7 @@
           "content": {
             "*/*": {
               "schema": {
+                "description": "The role binding to update. Must include uid.\nSet identity_uid and/or role_uid to update those fields.",
                 "properties": {
                   "createTime": {
                     "description": "When the role binding was created.",
@@ -8550,7 +8850,6 @@
                     "type": "string"
                   }
                 },
-                "title": "The role binding to update. Must include uid.\nSet identity_uid and/or role_uid to update those fields.",
                 "type": "object"
               }
             }
@@ -10828,6 +11127,7 @@
           "content": {
             "*/*": {
               "schema": {
+                "description": "The binding to update. The uid identifies the binding; tag_selector\nis its only mutable field. The repo and overlay reference are\nimmutable (OUTPUT_ONLY): moving a binding is delete on the old repo\nplus create on the new one.",
                 "properties": {
                   "overlay": {
                     "allOf": [
@@ -10855,7 +11155,6 @@
                 "required": [
                   "tagSelector"
                 ],
-                "title": "The binding to update. The uid identifies the binding; tag_selector\nis its only mutable field. The repo and overlay reference are\nimmutable (OUTPUT_ONLY): moving a binding is delete on the old repo\nplus create on the new one.",
                 "type": "object"
               }
             }
@@ -12475,6 +12774,128 @@
         ]
       }
     },
+    "/versions/v2beta1/projects": {
+      "get": {
+        "description": "ListProjects returns the version data for many projects, one page at a\ntime.",
+        "operationId": "VersionsService_ListProjects",
+        "parameters": [
+          {
+            "description": "names limits results to projects with these exact names. When empty,\nevery project is returned.",
+            "in": "query",
+            "name": "names",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          {
+            "description": "page_size is the maximum number of projects to return. The server picks a\ndefault when it is zero and may cap large values.",
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "page_token is the next_page_token from a previous ListProjects call with\nthe same names. Omit it to fetch the first page.",
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Order results by field. Format: \"field [asc|desc]\"\nDefault: \"name asc\"\nNote: Changing order_by between pages invalidates the page token.",
+            "in": "query",
+            "name": "orderBy",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Number of results to skip before returning.\nUsed for random-access pagination (jumping to arbitrary pages).\nCan be combined with page_token to skip from cursor position.\nMust be non-negative.",
+            "in": "query",
+            "name": "skip",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.versions.v2beta1.ListProjectsResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Projects",
+        "tags": [
+          "VersionsService"
+        ]
+      }
+    },
+    "/versions/v2beta1/projects/{name}": {
+      "get": {
+        "description": "GetProject returns the version data for one project.",
+        "operationId": "VersionsService_GetProject",
+        "parameters": [
+          {
+            "description": "name is the project name, e.g. \"nginx\".",
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.versions.v2beta1.Project"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Project",
+        "tags": [
+          "VersionsService"
+        ]
+      }
+    },
     "/vulnerabilities/v2beta1/advisories": {
       "get": {
         "description": "ListAdvisories returns advisories based on filter criteria with pagination support.",
@@ -12848,66 +13269,91 @@
   ],
   "tags": [
     {
+      "description": "SecurityAdvisoryService provides access to Chainguard security advisory data.",
       "name": "SecurityAdvisoryService"
     },
     {
+      "description": "SubscriptionsService manages event subscriptions (webhooks).",
       "name": "SubscriptionsService"
     },
     {
+      "description": "AccountAssociationsService manages cloud provider account associations for groups.",
       "name": "AccountAssociationsService"
     },
     {
+      "description": "ExternalGroupRoleMappingsService manages external identity provider group-to-role mappings.\nThese mappings grant Chainguard roles to members of external IdP groups during SSO federation.\nMappings are immutable by design — to change a mapping, delete and recreate it.",
       "name": "ExternalGroupRoleMappingsService"
     },
     {
+      "description": "GroupInvitesService manages group invite codes that register identities with Chainguard.",
       "name": "GroupInvitesService"
     },
     {
+      "description": "GroupsService manages IAM groups (organizations and folders).",
       "name": "GroupsService"
     },
     {
+      "description": "IdentitiesService manages IAM identities.",
       "name": "IdentitiesService"
     },
     {
+      "description": "IdentityProvidersService manages external identity provider configurations for authentication.",
       "name": "IdentityProvidersService"
     },
     {
+      "description": "RoleBindingsService manages IAM role bindings.\nRole bindings associate an identity with a role within a group scope.",
       "name": "RoleBindingsService"
     },
     {
+      "description": "RolesService manages IAM roles.",
       "name": "RolesService"
     },
     {
+      "description": "TermsService manages legal document acceptance for organizations.",
       "name": "TermsService"
     },
     {
+      "description": "ScimUsersService reads the SCIM-provisioned users of an identity provider.",
       "name": "ScimUsersService"
     },
     {
+      "description": "ArtifactsService provides access to Chainguard Libraries artifact metadata.",
       "name": "ArtifactsService"
     },
     {
+      "description": "RequestGroupsService manages an organization's requests for Chainguard-built\nlibrary versions.\n\nA request group starts as a DRAFT: the customer supplies a pinned input — a\nPython lockfile or a Java GAV list — and the service reports, per version, what\nChainguard already has, what can be requested, and what cannot. Nothing is\nbuilt from a draft. SubmitRequestGroup is the commitment point, and it is\nseparately capability-gated for that reason.",
       "name": "RequestGroupsService"
     },
     {
+      "description": "PingService provides a health check endpoint.",
       "name": "PingService"
     },
     {
+      "description": "ImagesService provides read-only operations on container image manifests.",
       "name": "ImagesService"
     },
     {
+      "description": "ReposService manages Registry repositories.",
       "name": "ReposService"
     },
     {
+      "description": "TagsService manages image tags.",
       "name": "TagsService"
     },
     {
+      "description": "OverlayBindingsService manages the bindings that bind overlays to\nrepos under tag selectors for tag-scoped Custom Assembly.\n\nBindings have no name. A binding carries no inline content — content\nalways comes from the referenced overlay.\n\nThe collection segment is camelCase /overlayBindings/ per the\nRoleBinding → /roleBindings/ precedent, distinct from the /overlays/\nprefix, so these literal routes never collide with the OverlaysService\n{uid=**}/{parent=**} wildcards. Dispatch is pinned by\nTest_Conformance_GatewayRouteOrder.",
       "name": "OverlayBindingsService"
     },
     {
+      "description": "OverlaysService manages reusable overlays for tag-scoped Custom\nAssembly. An overlay's config is the full custom-overlay shape,\nvalidated with the same field rules as Repo.custom_overlay. Overlays\nare attached to repos by OverlayBindingsService.\n\nOverlayBindingsService routes live under the distinct\n/registry/v2beta1/overlayBindings/... prefix, so this service's\n{uid=**}/{parent=**} wildcards never swallow them. Dispatch is pinned\nby Test_Conformance_GatewayRouteOrder.",
       "name": "OverlaysService"
     },
     {
+      "description": "VersionsService is a read-only view of the upstream software versions\nChainguard tracks in its version_data catalog: which projects we monitor,\neach version stream's end-of-life and LTS status, and the versions in each\nstream with where upstream published them.\n\nThe version-reconciler owns all writes, so this service has no mutating\nRPCs. Both RPCs require the version.list capability, which every role\ngrants, but do not scope results to a group: every authorized caller sees\nthe same catalog.",
+      "name": "VersionsService"
+    },
+    {
+      "description": "AdvisoriesService manages security advisories.",
       "name": "AdvisoriesService"
     },
     {

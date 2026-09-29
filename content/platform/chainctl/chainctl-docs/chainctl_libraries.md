@@ -1,5 +1,5 @@
 ---
-date: 2026-09-25T09:27:27Z
+date: 2026-09-28T19:38:53Z
 title: "chainctl libraries"
 slug: chainctl_libraries
 url: /platform/chainctl/chainctl-docs/chainctl_libraries/
@@ -33,6 +33,7 @@ Ecosystem library related commands.
 * [chainctl](/platform/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
 * [chainctl libraries cache](/platform/chainctl/chainctl-docs/chainctl_libraries_cache/)	 - Manage the Libraries resolution cache.
 * [chainctl libraries entitlements](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements/)	 - Manage entitlements to language ecosystem libraries.
+* [chainctl libraries go](/platform/chainctl/chainctl-docs/chainctl_libraries_go/)	 - Go module registry commands.
 * [chainctl libraries packages](/platform/chainctl/chainctl-docs/chainctl_libraries_packages/)	 - Inspect Libraries packages.
 * [chainctl libraries policy](/platform/chainctl/chainctl-docs/chainctl_libraries_policy/)	 - Manage Libraries policies.
 * [chainctl libraries remediate](/platform/chainctl/chainctl-docs/chainctl_libraries_remediate/)	 - Discover and apply Chainguard -cgr.N CVE remediations for a JavaScript project

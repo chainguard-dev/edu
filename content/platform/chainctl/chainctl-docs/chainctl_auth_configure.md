@@ -1,5 +1,5 @@
 ---
-date: 2026-09-25T09:27:27Z
+date: 2026-09-28T19:38:53Z
 title: "chainctl auth configure"
 slug: chainctl_auth_configure
 url: /platform/chainctl/chainctl-docs/chainctl_auth_configure/
@@ -18,9 +18,9 @@ Configure a local tool to authenticate to Chainguard.
 Configure a local tool to authenticate to Chainguard.
 
 Each subcommand writes credentials where its tool looks for them, using
-your current Chainguard session. With --pull-token it writes a
-longer-lived credential instead, for environments that cannot run an
-interactive login (CI systems, build servers, etc.).
+your current Chainguard session where supported. With --pull-token it writes
+a longer-lived credential for environments that cannot run an interactive
+login (CI systems, build servers, etc.). Bundler always uses a pull token.
 
 ### Options inherited from parent commands
 

@@ -1,5 +1,5 @@
 ---
-date: 2026-09-25T09:27:27Z
+date: 2026-09-28T19:38:53Z
 title: "chainctl skills harden"
 slug: chainctl_skills_harden
 url: /platform/chainctl/chainctl-docs/chainctl_skills_harden/
@@ -30,7 +30,9 @@ server-side job running.
 
 Submitting unchanged content to the same organization as the same user returns
 the same job ID. Use skills status to check a saved job ID or resume waiting
-without uploading again.
+without uploading again. To rerun a failed job with the same input, pass
+--retry-of JOB_ID. Repeating that retry returns the same new attempt; to retry
+again, pass the failed attempt's new job ID.
 
 ```
 chainctl skills harden [<path|uploads-ref>] --group <org> [flags]
@@ -53,6 +55,7 @@ chainctl skills harden [<path|uploads-ref>] --group <org> [flags]
       --folder string      Local skill directory containing SKILL.md.
   -g, --group string       Target organization name or UIDP (required).
       --name string        Uploaded skill name (required with --digest).
+      --retry-of string    Failed job ID to retry with this same skill content.
       --timeout duration   Maximum command duration with --wait (0 means no timeout).
       --wait               Wait for hardening to finish.
 ```

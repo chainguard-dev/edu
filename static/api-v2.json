@@ -100,6 +100,7 @@
           "CAP_LIBRARIES_DOTNET_CREATE",
           "CAP_LIBRARIES_GO_LIST",
           "CAP_LIBRARIES_GO_CREATE",
+          "CAP_LIBRARIES_RUBY_LIST",
           "CAP_LIBRARIES_CACHE_INVALIDATE",
           "CAP_LIBRARIES_CACHE_LIST",
           "CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE",
@@ -7543,6 +7544,7 @@
           "content": {
             "*/*": {
               "schema": {
+                "description": "The role binding to update. Must include uid.\nSet identity_uid and/or role_uid to update those fields.",
                 "properties": {
                   "createTime": {
                     "description": "When the role binding was created.",
@@ -7600,7 +7602,6 @@
                     "type": "string"
                   }
                 },
-                "title": "The role binding to update. Must include uid.\nSet identity_uid and/or role_uid to update those fields.",
                 "type": "object"
               }
             }
@@ -10295,60 +10296,79 @@
   ],
   "tags": [
     {
+      "description": "SecurityAdvisoryService provides access to Chainguard security advisory data.",
       "name": "SecurityAdvisoryService"
     },
     {
+      "description": "SubscriptionsService manages event subscriptions (webhooks).",
       "name": "SubscriptionsService"
     },
     {
+      "description": "AccountAssociationsService manages cloud provider account associations for groups.",
       "name": "AccountAssociationsService"
     },
     {
+      "description": "ExternalGroupRoleMappingsService manages external identity provider group-to-role mappings.\nThese mappings grant Chainguard roles to members of external IdP groups during SSO federation.\nMappings are immutable by design — to change a mapping, delete and recreate it.",
       "name": "ExternalGroupRoleMappingsService"
     },
     {
+      "description": "GroupInvitesService manages group invite codes that register identities with Chainguard.",
       "name": "GroupInvitesService"
     },
     {
+      "description": "GroupsService manages IAM groups (organizations and folders).",
       "name": "GroupsService"
     },
     {
+      "description": "IdentitiesService manages IAM identities.",
       "name": "IdentitiesService"
     },
     {
+      "description": "IdentityProvidersService manages external identity provider configurations for authentication.",
       "name": "IdentityProvidersService"
     },
     {
+      "description": "RoleBindingsService manages IAM role bindings.\nRole bindings associate an identity with a role within a group scope.",
       "name": "RoleBindingsService"
     },
     {
+      "description": "RolesService manages IAM roles.",
       "name": "RolesService"
     },
     {
+      "description": "TermsService manages legal document acceptance for organizations.",
       "name": "TermsService"
     },
     {
+      "description": "ArtifactsService provides access to Chainguard Libraries artifact metadata.",
       "name": "ArtifactsService"
     },
     {
+      "description": "PingService provides a health check endpoint.",
       "name": "PingService"
     },
     {
+      "description": "ImagesService provides read-only operations on container image manifests.",
       "name": "ImagesService"
     },
     {
+      "description": "ReposService manages Registry repositories.",
       "name": "ReposService"
     },
     {
+      "description": "StigReportsService provides read-only access to per-image STIG reports.",
       "name": "StigReportsService"
     },
     {
+      "description": "TagsService manages image tags.",
       "name": "TagsService"
     },
     {
+      "description": "AdvisoriesService manages security advisories.",
       "name": "AdvisoriesService"
     },
     {
+      "description": "VulnReportsService serves historical vulnerability count reports.",
       "name": "VulnReportsService"
     },
     {
