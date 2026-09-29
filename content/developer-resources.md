@@ -29,7 +29,7 @@ This page describes a compiled bundle of Chainguard documentation that you can f
 <div style="background-color: var(--blockquote-background); border-left: 4px solid var(--link-color, #2196F3); padding: 20px; border-radius: 4px; margin: 20px 0;">
   <h3 style="margin-top: 0; color: var(--body-color);">MCP server support</h3>
   <p style="color: var(--body-color);">Run the container as an <strong>MCP (Model Context Protocol) server</strong> for searchable, on-demand access to Chainguard documentation in AI assistants and IDEs.</p>
-  <p><a href="/mcp-server-ai-docs/" style="font-weight: bold; text-decoration: none; color: var(--link-color, #2196F3);">→ Full MCP server documentation</a></p>
+  <p><a href="/platform/mcp-servers/ai-docs/" style="font-weight: bold; text-decoration: none; color: var(--link-color, #2196F3);">→ Full MCP server documentation</a></p>
 </div>
 
 Two distribution methods are available:
@@ -112,9 +112,9 @@ Add this block to `claude_desktop_config.json`:
 }
 ```
 
-To use the hosted server instead of running a container locally, refer to the [hosted server instructions](/mcp-server-ai-docs/#hosted-server-recommended) — Claude Desktop reaches it through the [`mcp-remote`](https://github.com/geelen/mcp-remote) bridge. A [standalone Python script](/mcp-server-ai-docs/#standalone-installation-without-docker) is also available for setups without Docker.
+To use the hosted server instead of running a container locally, refer to the [hosted server instructions](/platform/mcp-servers/ai-docs/#hosted-server-recommended) — Claude Desktop reaches it through the [`mcp-remote`](https://github.com/geelen/mcp-remote) bridge. A [standalone Python script](/platform/mcp-servers/ai-docs/#standalone-installation-without-docker) is also available for setups without Docker.
 
-[**Full MCP server documentation →**](/mcp-server-ai-docs/)
+[**Full MCP server documentation →**](/platform/mcp-servers/ai-docs/)
 
 ### Quick start
 
