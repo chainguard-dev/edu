@@ -156,7 +156,13 @@ done
 
 Each repository gets its own binding, and each binding starts a rebuild of that repository.
 
-You can bind several overlays to one repository with the same kind of selector, as long as they don't set the same field to different values. For example, you can bind both `internal-ca` and `cryptography` to the `python` repository with `--all`. If two overlays conflict, `attach` fails and the error names the conflicting binding and field.
+You can bind several overlays to one repository with the same kind of selector, as long as they don't set the same field to different values. For example, you can bind both `internal-ca` and `cryptography` to the `python` repository with `--all`. If two overlays conflict, `attach` fails. For example, binding a second overlay that sets `REQUESTS_CA_BUNDLE` to a different value returns an error that names the existing binding and the conflicting field:
+
+```output
+Error: attaching overlay: rpc error: code = FailedPrecondition desc = Precondition failed: overlay config does not merge commutatively with co-matching binding(s): binding "45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/7c3e5a1b2d4f6e80/b7d24dbd7193c219" (overlay "internal-ca", selector ALL) on fields [environment["REQUESTS_CA_BUNDLE"]]
+```
+
+To resolve the conflict, change one of the overlays so that they agree, or bind them with selectors that don't match the same tags.
 
 ## List overlays and bindings
 
@@ -208,8 +214,10 @@ chainctl images overlays update internal-ca -f internal-ca.yaml
 To rename an overlay, pass `--name`:
 
 ```shell
-chainctl images overlays update typer --name python-cli-tools
+chainctl images overlays update debug-tools --name dev-debug-tools
 ```
+
+Bindings refer to overlays by ID, so renaming an overlay doesn't affect its bindings.
 
 Chainguard rebuilds the matching tags in every repository the overlay is bound to.
 
