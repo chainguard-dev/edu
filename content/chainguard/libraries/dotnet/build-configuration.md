@@ -4,14 +4,14 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for .NET on your workstation"
 type: "article"
 date: 2026-09-23T00:00:00+00:00
-lastmod: 2026-09-29T16:22:04+00:00
+lastmod: 2026-09-29T16:31:26+00:00
 draft: false
 tags: ["Chainguard Libraries", ".NET"]
 menu:
   docs:
     parent: "dotnet"
     identifier: ".NET Build Configuration"
-weight: 053
+weight: 53
 toc: true
 ---
 
@@ -173,8 +173,9 @@ dotnet nuget list source
 The output should include the Chainguard endpoint:
 
 ```output
-      "sources": {
-        "https://libraries.cgr.dev/dotnet/v3/index.json": {}
+Registered Sources:
+  1.  chainguard [Enabled]
+      https://libraries.cgr.dev/dotnet/v3/index.json
 ```
 
 If the project uses a repository manager, the assets file should instead show the repository manager URL.

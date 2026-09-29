@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for .NET in your organization"
 type: "article"
 date: 2026-09-23T00:00:00+00:00
-lastmod: 2026-09-25T15:25:28+00:00
+lastmod: 2026-09-29T16:31:26+00:00
 draft: false
 tags: ["Chainguard Libraries", ".NET"]
 images: []
@@ -12,7 +12,7 @@ menu:
   docs:
     parent: "dotnet"
     identifier: ".NET Global Configuration"
-weight: 052
+weight: 52
 toc: true
 ---
 

@@ -4,13 +4,13 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing .NET project to pull dependencies from Chainguard Libraries"
 date: 2026-09-23T00:00:00+00:00
-lastmod: 2026-09-29T16:22:04+00:00
+lastmod: 2026-09-29T16:31:26+00:00
 tags: ["Chainguard Libraries", ".NET"]
 menu:
   docs:
     parent: dotnet
     identifier: .NET Migration
-weight: 056
+weight: 56
 toc: true
 ---
 
