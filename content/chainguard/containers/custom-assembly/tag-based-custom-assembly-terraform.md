@@ -19,7 +19,7 @@ toc: true
 
 This guide shows how to manage tag-based Custom Assembly with the [Chainguard Terraform provider](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest). You define overlays with the `chainguard_image_overlay` resource and bind them to repositories with the `chainguard_image_overlay_binding` resource.
 
-For an explanation of overlays, bindings, and tag selectors, see [Customizing specific tags with Custom Assembly](/chainguard/containers/custom-assembly/tag-based-custom-assembly/).
+For an explanation of overlays, bindings, and tag selectors, see [Overview of tag-based Custom Assembly](/chainguard/containers/custom-assembly/tag-based-custom-assembly/).
 
 ## Prerequisites
 
@@ -80,7 +80,9 @@ resource "chainguard_image_overlay" "debug_tools" {
 
 Package names can use the `{{major}}` and `{{minor}}` placeholders, as in `py{{major}}.{{minor}}-cryptography`. For details, see [Version templates in package names](/chainguard/containers/custom-assembly/tag-based-custom-assembly/#version-templates-in-package-names).
 
-To add other customizations, such as certificates, environment variables, or annotations, set the `config` attribute instead of `packages`. An overlay can set one of the two, but not both. The `config` attribute takes a JSON-encoded configuration with the same fields as a [`chainctl` overlay file](/chainguard/containers/custom-assembly/tag-based-custom-assembly-chainctl/#add-other-customizations). The following example uses `jsonencode` to build an overlay that adds an internal certificate authority, an environment variable, and a package:
+To add other customizations, such as certificates, environment variables, or annotations, set the `config` attribute instead of `packages`. An overlay can set one of the two, but not both. The `config` attribute takes a JSON-encoded configuration. Its field names follow the Chainguard API, not the YAML file that `chainctl` accepts, and some names differ. For example, the user an image runs as is `accounts.run_as` in `config` but `accounts.run-as` in a `chainctl` file. For the field names, see the [`chainguard_image_overlay` schema](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/resources/image_overlay).
+
+The following example uses `jsonencode` to build an overlay that adds an internal certificate authority, an environment variable, and a package:
 
 ```hcl
 resource "chainguard_image_overlay" "internal_ca" {
@@ -153,7 +155,7 @@ To create the overlays and bindings, apply the configuration:
 terraform apply
 ```
 
-After Terraform creates the bindings, Chainguard rebuilds the matching tags. To check on the builds, run `chainctl images repos build list --repo python`.
+After Terraform creates the bindings, Chainguard rebuilds the matching tags. To check on the builds, run `chainctl images repos build list --repo python --parent example.com`.
 
 ## Change or remove customizations
 
@@ -165,7 +167,7 @@ To remove a customization, delete the binding resource from your configuration a
 
 ## Learn more
 
-* [Customizing specific tags with Custom Assembly](/chainguard/containers/custom-assembly/tag-based-custom-assembly/)
+* [Overview of tag-based Custom Assembly](/chainguard/containers/custom-assembly/tag-based-custom-assembly/)
 * [Managing tag-based Custom Assembly with chainctl](/chainguard/containers/custom-assembly/tag-based-custom-assembly-chainctl/)
 * [`chainguard_image_overlay` in the Terraform Registry](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/resources/image_overlay)
 * [`chainguard_image_overlay_binding` in the Terraform Registry](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/resources/image_overlay_binding)

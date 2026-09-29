@@ -125,7 +125,7 @@ Yes. With [tag-based Custom Assembly](/chainguard/containers/custom-assembly/tag
 
 ## Can I use standard and tag-based Custom Assembly on the same repository?
 
-No. A repository uses one or the other. If a repository has overlay bindings, adding a standard customization fails, including from the Chainguard Console. To change that repository's customizations, update its overlays and bindings with `chainctl` or Terraform. To move a repository from standard to tag-based Custom Assembly, see [Move a repository from standard Custom Assembly](/chainguard/containers/custom-assembly/tag-based-custom-assembly-chainctl/#move-a-repository-from-standard-custom-assembly).
+No. A repository uses one or the other. If a repository has overlay bindings, adding a standard customization fails, including from the Chainguard Console. To change that repository's customizations, update its overlays and bindings with `chainctl` or Terraform. To move a repository from standard to tag-based Custom Assembly, contact your Chainguard account team.
 
 ## Custom Assembly troubleshooting
 

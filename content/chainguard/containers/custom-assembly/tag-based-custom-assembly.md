@@ -1,6 +1,6 @@
 ---
-title: "Customizing specific tags with Custom Assembly"
-linktitle: "Tag-based customization"
+title: "Overview of tag-based Custom Assembly"
+linktitle: "Tag-based Custom Assembly"
 type: "article"
 description: "How tag-based Custom Assembly uses overlays and bindings to apply customizations to a subset of a repository's tags."
 date: 2026-09-28T16:33:22+00:00
@@ -55,7 +55,7 @@ Variant and all selectors also match tags published after you create the binding
 
 ### Exact tags and shared digests
 
-Several tags often point to the same image. For example, `3.13`, `3.13.7`, and `latest` might share one digest. An exact selector customizes only the tags you list, even when other tags share their digest. If you bind an overlay to `3.13` alone, `3.13` gets a customized image, and `3.13.7` and `latest` keep the original. To keep several tags identical, list all of them.
+Several tags often point to the same image. For example, `3.13`, `3.13.7`, and `3.13.7-r0` might share one digest. An exact selector customizes only the tags you list, even when other tags share their digest. If you bind an overlay to `3.13` alone, `3.13` gets a customized image, and `3.13.7` and `3.13.7-r0` keep the original. To keep several tags identical, list all of them.
 
 Chainguard doesn't check that an exact tag exists when you create the binding. A mistyped tag name matches nothing, so no build runs for it.
 
@@ -67,7 +67,7 @@ A tag can match more than one binding. For example, `latest-dev` matches an all 
 1. Variant bindings.
 1. Exact bindings.
 
-Packages and runtime repositories accumulate across layers. When two layers set the same environment variable, annotation, or other single value, the later layer wins.
+Packages and runtime repositories accumulate across layers. When two layers set the same environment variable, annotation, or other single value, the more specific layer wins: exact over variant, and variant over all.
 
 For example, suppose a repository has the following bindings:
 
@@ -94,7 +94,7 @@ Bindings of the same kind have no precedence order, so their overlays must not c
 * A named certificate, runtime key, user, or group
 * Another single value, such as the user the image runs as
 
-Packages and runtime repositories never conflict, because Chainguard combines them. Chainguard also runs this check when you update an overlay, against every repository the overlay is bound to.
+Packages and runtime repositories never cause a binding conflict, because Chainguard combines them. Combined packages can still fail a build if the packages themselves are incompatible, for example if two of them install the same file. Chainguard also runs the conflict check when you update an overlay, against every repository the overlay is bound to.
 
 You can bind a given overlay to a repository only once.
 
@@ -143,9 +143,8 @@ Overlays don't support Chainguard-managed certificate bundles (`certificates.pro
 
 Tag-based Custom Assembly has the following limitations:
 
-* **One model per repository.** A repository can use standard or tag-based Custom Assembly, but not both. If a repository has one kind of customization, adding the other kind fails with the error `repository custom overlay and overlay binding not allowed`. To switch a repository, see [Move a repository from standard Custom Assembly](/chainguard/containers/custom-assembly/tag-based-custom-assembly-chainctl/#move-a-repository-from-standard-custom-assembly).
+* **One model per repository.** A repository can use standard or tag-based Custom Assembly, but not both. If a repository has one kind of customization, adding the other kind fails with the error `repository custom overlay and overlay binding not allowed`. To move a repository from standard to tag-based Custom Assembly, contact your Chainguard account team.
 * **No Chainguard Console support.** Manage overlays and bindings with `chainctl`, Terraform, or the Chainguard API. The Console's Custom Assembly editor manages standard Custom Assembly only.
-* **Only the `dev` variant.** Variant selectors match `-dev` tags only.
 * **A missing package fails the build.** If a package in an overlay can't be installed on a tag, that tag's build fails. Chainguard doesn't skip the package. The build logs name the package that failed.
 * **No removing base packages.** As with standard Custom Assembly, an overlay can add to an image but can't remove packages from the source image.
 
