@@ -183,4 +183,4 @@ Every `list_*` and `search_*` tool across the product data servers and the Publi
 - [`cg-oci`](/platform/mcp-servers/cg-oci/) — look up manifests, configs, SBOMs, and provenance for a container image
 - [`cg-apk`](/platform/mcp-servers/cg-apk/) — find Wolfi packages and read their SBOMs and build configs
 - [`cg-versions`](/platform/mcp-servers/cg-versions/) — check upstream releases and end-of-life dates
-- [`cg-api`](/platform/mcp-servers/cg-api/) — query organizations, IAM, policies, and attestations through the platform API
+- [`cg-api`](/platform/mcp-servers/cg-api/) — query organizations, IAM, registry metadata, and security advisories through the platform API
