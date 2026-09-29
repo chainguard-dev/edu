@@ -23,6 +23,10 @@ In such cases, you can create a Chainguard identity for these systems to assume,
 
 This guide provides a general overview of assumable identities in Chainguard, outlining how they work and how to create them.
 
+{{< note >}}
+[Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/) organizations can't create assumable identities. A pull token is the only credential they can issue for automation. Refer to [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token).
+{{< /note >}}
+
 ## About assumable identities
 
 Chainguard's *assumable identities* are identities that can be assumed by workflows in order to complete tasks without manual authorization. In many ways, these are similar to AWS roles or Google Service accounts, as Chainguard identities allow you to delegate access to your Chainguard resources to external applications or services.
