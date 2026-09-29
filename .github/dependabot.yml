@@ -1,20 +1,6 @@
 version: 2
 updates:
   - package-ecosystem: gomod
-    directory: "./tools/rumble"
-    schedule:
-      interval: "weekly"
-    cooldown:
-      default-days: 3
-    open-pull-requests-limit: 10
-    assignees:
-      - "matthewhelmke"
-    groups:
-      gomod:
-        update-types:
-          - "patch"
-
-  - package-ecosystem: gomod
     directory: "./tools/chainlink"
     schedule:
       interval: "weekly"
