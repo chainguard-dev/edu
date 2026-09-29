@@ -413,6 +413,10 @@ You can use `chainctl images repos build apply` to do things like:
 
 For more information, refer to [chainctl images repos build apply](/platform/chainctl/chainctl-docs/chainctl_images_repos_build_apply/).
 
+## Customizing specific tags
+
+The `chainctl images repos build` commands apply a customization to every tag in a repository. To apply a customization to some tags only, use the `chainctl images overlays` commands. For details, see [Managing tag-based Custom Assembly with chainctl](/chainguard/containers/custom-assembly/tag-based-custom-assembly/chainctl/).
+
 ## Learn more
 
 You can also use `chainctl` to add custom certificates to your Custom Assembly images. Refer to our guide on [Adding custom certificates with Custom Assembly](/chainguard/containers/custom-assembly/custom-assembly-certs/#using-chainctl-to-add-custom-certificates-using-custom-assembly) for more information.
