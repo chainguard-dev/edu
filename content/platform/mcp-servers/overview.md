@@ -4,7 +4,7 @@ linktitle: "Overview"
 description: "The four Chainguard MCP servers that expose live product data — images, packages, version history, and platform APIs — to any MCP-compatible client."
 type: "article"
 date: 2026-09-16T00:00:00+00:00
-lastmod: 2026-09-16T00:00:00+00:00
+lastmod: 2026-09-28T00:00:00+00:00
 draft: false
 tags: ["MCP", "Overview"]
 images: []
@@ -34,14 +34,14 @@ Chainguard's MCP servers fall into two groups. Four return live product data, an
 | ----- | ----- | ----- |
 | [`cg-oci`](/platform/mcp-servers/cg-oci/) | `https://cgr.dev/mcp` | Manifests, image configs, SBOMs, apko configs, and provenance for a specific image reference |
 | [`cg-apk`](/platform/mcp-servers/cg-apk/) | `https://apk.cgr.dev/mcp` | Wolfi package lookup by name, plus package SBOMs and melange build configs |
-| [`cg-versions`](/platform/mcp-servers/cg-versions/) | `https://versions.cgr.dev/mcp` | Upstream release and end-of-life history for tracked projects, and upgrade paths between versions |
-| [`cg-api`](/platform/mcp-servers/cg-api/) | `https://console-api.enforce.dev/mcp` | The Chainguard platform API: organizations, IAM, policies, registry metadata, and attestation verification |
+| [`cg-versions`](/platform/mcp-servers/cg-versions/) | `https://versions.cgr.dev/mcp` | Upstream release and end-of-life history for tracked projects |
+| [`cg-api`](/platform/mcp-servers/cg-api/) | `https://console-api.enforce.dev/mcp` | The Chainguard platform API, read-only: organizations, IAM, registry metadata, and security advisories |
 
 These servers return live product data, such as an image tag's manifest and SBOM as it exists in the registry right now, rather than documentation about it. All four use the Streamable HTTP transport and authenticate with OAuth 2.0 against the Chainguard issuer.
 
 ### AI Docs MCP server
 
-The [AI Docs MCP server](/platform/mcp-servers/ai-docs/), at `https://mcp.edu.chainguard.dev/mcp`, searches Chainguard documentation: image READMEs, security guides, and the Wolfi, apko, melange, and chainctl references. It also maps Debian and Fedora packages to their Wolfi equivalents. It needs no sign-in, and you can also run it locally from a container image. It needs no sign-in and doesn't paginate its results, so the Authentication and Pagination sections that follow don't apply to it.
+The [AI Docs MCP server](/platform/mcp-servers/ai-docs/), at `https://mcp.edu.chainguard.dev/mcp`, searches Chainguard documentation: image READMEs, security guides, and the Wolfi, apko, melange, and chainctl references. It also maps Debian and Fedora packages to their Wolfi equivalents. You can also run it locally from a container image. It needs no sign-in and doesn't paginate its results, so the Authentication and Pagination sections that follow don't apply to it.
 
 ### Public Skills MCP server
 
@@ -86,7 +86,8 @@ cat > ~/bin/cg-mcp-headers <<'EOF'
 #!/bin/sh
 set -e
 aud=${CLAUDE_CODE_MCP_SERVER_URL:?CLAUDE_CODE_MCP_SERVER_URL not set}
-tok=$(timeout -s KILL 8 chainctl auth token --audience="$aud") || {
+t=$(command -v timeout || command -v gtimeout || true)
+tok=$(${t:+"$t" -s KILL 8} chainctl auth token --audience="$aud") || {
     echo "no chainctl token for audience $aud; run: chainctl auth login --audience=$aud" >&2
     exit 1
 }
@@ -95,11 +96,13 @@ EOF
 chmod +x ~/bin/cg-mcp-headers
 ```
 
-The heredoc delimiter is quoted (`<<'EOF'`) so that the shell writes `$aud`, `$tok`, and `${CLAUDE_CODE_MCP_SERVER_URL}` into the file literally. With an unquoted delimiter, the shell replaces all three with empty strings, and the resulting script sends no credentials.
+The heredoc delimiter is quoted (`<<'EOF'`) so that the shell writes `$aud`, `$tok`, and `${CLAUDE_CODE_MCP_SERVER_URL}` into the file literally. With an unquoted delimiter, the shell expands them as it writes the file. `CLAUDE_CODE_MCP_SERVER_URL` isn't set in your shell, so the `:?` check aborts the write and leaves an empty file.
 
 The file must be executable because Claude Code runs its path as a command through `sh -c`.
 
-The `timeout` keeps the helper from stalling. If you haven't logged in to an audience, `chainctl auth token` starts an interactive login, which runs past Claude Code's time limit for the helper. With the timeout, the helper exits quickly and prints the command that fixes the problem.
+The `timeout` keeps the helper from stalling. If you haven't logged in to an audience, `chainctl auth token` can start an interactive login, which runs past Claude Code's time limit for the helper. With the timeout, the helper exits quickly and prints the command that fixes the problem.
+
+macOS doesn't include `timeout`. The script falls back to `gtimeout`, which `brew install coreutils` provides, and without either it runs `chainctl` with no time limit.
 
 Now reference the script from each server entry. The `headersHelper` value must be an absolute path, so write the file from the repository root and let the shell expand `$HOME` for you:
 
@@ -170,7 +173,8 @@ Every `list_*` and `search_*` tool across the product data servers and the Publi
 | ----- | ----- | ----- | ----- |
 | `cg-oci` | 50 default, 200 max | `cursor` | `next_cursor` (or the last item's name, for `list_repos`) |
 | `cg-apk` | 50 default, 200 max | `cursor` | `next_cursor` |
-| `cg-versions` | 25 default, 200 max | `page_token` | `next_page_token` |
+| `cg-versions` (`search_projects`) | 25 default, 200 max | `page_token` | `next_page_token` |
+| `cg-versions` (`list_stream_versions`) | 50 default, 200 max | `cursor` | `next_cursor` |
 | `cg-api` | 50 default, 200 max | `page_token` | `nextPageToken` |
 | Public Skills | 50 default, 200 max | `page_token` | `next_page_token` |
 
@@ -178,5 +182,5 @@ Every `list_*` and `search_*` tool across the product data servers and the Publi
 
 - [`cg-oci`](/platform/mcp-servers/cg-oci/) — look up manifests, configs, SBOMs, and provenance for a container image
 - [`cg-apk`](/platform/mcp-servers/cg-apk/) — find Wolfi packages and read their SBOMs and build configs
-- [`cg-versions`](/platform/mcp-servers/cg-versions/) — check upstream releases, end-of-life dates, and upgrade paths
+- [`cg-versions`](/platform/mcp-servers/cg-versions/) — check upstream releases and end-of-life dates
 - [`cg-api`](/platform/mcp-servers/cg-api/) — query organizations, IAM, policies, and attestations through the platform API

@@ -4,7 +4,7 @@ linktitle: "cg-apk"
 description: "Connect an MCP client to cg-apk to look up Wolfi APK packages and read the SPDX SBOM and melange build recipe embedded in each one."
 type: "article"
 date: 2026-09-16T00:00:00+00:00
-lastmod: 2026-09-16T00:00:00+00:00
+lastmod: 2026-09-28T00:00:00+00:00
 draft: false
 tags: ["MCP", "Wolfi"]
 images: []
@@ -162,6 +162,8 @@ Fetches the SPDX SBOM document embedded in an APK's filesystem, at `var/lib/db/s
 
 All four values come from `search_packages`, so this chains directly off a search. The document records the upstream source the package was generated from — for `jq` 1.8.2-r2, a `GENERATED_FROM` relationship pointing at the exact `github.com/jqlang/jq` commit — alongside the melange definition that built it and the APK's own metadata.
 
+The SBOM is the last file in the package, so the server downloads the whole APK to read it. It refuses a package larger than 64 MB before downloading, and a response over 512 KB rather than truncating it. For an oversized package, run `apk fetch` locally and read the file under `var/lib/db/sbom/`.
+
 ### get_melange_config
 
 Fetches the `.melange.yaml` build recipe embedded in an APK's control section. The response is `{melange_configuration}`, the raw YAML as a string.
@@ -173,7 +175,7 @@ Fetches the `.melange.yaml` build recipe embedded in an APK's control section. T
 | `architecture` | string | yes | A single architecture, such as `x86_64` |
 | `scope` | string | yes | The repository UIDP, matching `scope` from a search result |
 
-APKs built before melange configs were embedded return an error rather than an empty result. Some recipes are very large — `openssl`'s runs past 60,000 characters — so expect a client to truncate or summarize rather than print one in full.
+APKs built before melange configs were embedded return an error rather than an empty result. The same size limits apply as for `get_sbom`: 64 MB for the package and 512 KB for the response. Some recipes are still large — `openssl`'s runs past 60,000 characters — so expect a client to truncate or summarize rather than print one in full.
 
 ## Example usage
 
@@ -222,6 +224,7 @@ What upstream commit was the jq package built from?
 | A search is slow | A bare `name` runs a wildcard scan of the whole index. | Pass `exact=true` when you know the name. |
 | The same package appears several times | One match per repository scope your token can read. | Use whichever `scope` you intend to pull from; if you only consume the public index, any of them resolves to the same content. |
 | `get_sbom` or `get_melange_config` returns HTTP 401 or 403 | The `scope` you passed names a repository your token cannot read. | Re-run `search_packages` and use a `scope` from its results rather than one carried over from another session or account. |
+| `get_sbom` or `get_melange_config` is refused for size | The package exceeds 64 MB, or the response exceeds 512 KB. Responses are never truncated. | Run `apk fetch` locally and read the SBOM under `var/lib/db/sbom/`, or the `.melange.yaml` in the package's control section. |
 | `get_melange_config` returns an error for a package that exists | The APK predates embedded melange configs. | Call `get_sbom` instead. The SBOM still records the upstream source the package was built from. |
 | Server shows as not connected in `claude mcp list` | OAuth was never completed, or the token expired. Claude Code's tokens against the Chainguard issuer last about an hour and carry no refresh token. | Run `/mcp`, select **cg-apk**, and authenticate again, or switch to the [`chainctl` helper](/platform/mcp-servers/overview/#authenticate-with-chainctl-instead-of-a-browser). |
 | `401 invalid token` when using the `chainctl` helper | The audience was registered as a bare hostname. MCP audiences must include the `/mcp` path. | Run `chainctl auth login --audience=https://apk.cgr.dev/mcp` and try again. |

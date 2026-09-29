@@ -4,7 +4,7 @@ linktitle: "cg-oci"
 description: "Connect an MCP client to cg-oci and read manifests, image configs, SBOMs, apko configs, and SLSA provenance directly from the Chainguard container registry."
 type: "article"
 date: 2026-09-16T00:00:00+00:00
-lastmod: 2026-09-16T00:00:00+00:00
+lastmod: 2026-09-28T00:00:00+00:00
 draft: false
 tags: ["MCP", "Containers"]
 images: []
@@ -204,7 +204,7 @@ Fetches the signed SPDX SBOM attestation (`predicateType` `https://spdx.dev/Docu
 | `reference` | string | yes | Tag or manifest digest |
 | `architecture` | string | no | Descend into this architecture's child manifest. Omit to read the attestation attached to the reference itself — the index, for a multi-arch tag. |
 
-The server refuses a document larger than 8192 KB outright rather than truncating it; the error names the size and the `cosign` command that fetches the file directly. Use `list_sbom_packages` when you only need the package list. An image with no SBOM attestation returns an empty `attestations` list rather than an error.
+The server refuses a document larger than 512 KB outright rather than truncating it; the error names the size and the `cosign` command that fetches the file directly. Use `list_sbom_packages` when you only need the package list. An image with no SBOM attestation returns an empty `attestations` list rather than an error.
 
 ### list_sbom_packages
 
@@ -302,7 +302,7 @@ What OS packages are in the amd64 build of chainguard/python:latest?
 | Server shows as not connected in `claude mcp list` | OAuth was never completed, or the token expired. Claude Code's tokens against the Chainguard issuer last about an hour and carry no refresh token. | Run `/mcp`, select **cg-oci**, and authenticate again. To stop re-authenticating, switch to the [`chainctl` helper](/platform/mcp-servers/overview/#authenticate-with-chainctl-instead-of-a-browser). |
 | `401 invalid token` when using the `chainctl` helper | The audience was registered as a bare hostname. MCP audiences must include the `/mcp` path. | Run `chainctl auth login --audience=https://cgr.dev/mcp` and try again. |
 | `no chainctl token for audience ...` | The helper script ran but that audience was never logged in. | Run the `chainctl auth login` command the error prints. |
-| An SBOM request is refused for size | The SPDX document exceeds the server's 8192 KB ceiling. Documents are never truncated. | Use `list_sbom_packages` instead, or fetch the file with the `cosign` command named in the error. |
+| An SBOM request is refused for size | The SPDX document exceeds the server's 512 KB ceiling. Documents are never truncated. | Use `list_sbom_packages` instead, or fetch the file with the `cosign` command named in the error. |
 | `list_sbom_packages` returns only two or three entries | The call read the index-level SBOM rather than a per-architecture one. | Pass `architecture=amd64` (or `arm64`). |
 | The AI tool can't find an image you know exists | It may be searching `list_repos`, which reflects your token rather than the public catalog, and offers no server-side name filter. | Name the repository explicitly, as `chainguard/<name>`, or look it up in the [Containers directory](https://images.chainguard.dev/). |
 

@@ -4,7 +4,7 @@ linktitle: "cg-versions"
 description: "Connect an MCP client to cg-versions to look up upstream release history, version streams, and end-of-life dates for the projects Chainguard tracks."
 type: "article"
 date: 2026-09-16T00:00:00+00:00
-lastmod: 2026-09-16T00:00:00+00:00
+lastmod: 2026-09-28T00:00:00+00:00
 draft: false
 tags: ["MCP", "Containers"]
 images: []
@@ -16,7 +16,7 @@ toc: true
 weight: 50
 ---
 
-`cg-versions` gives an AI tool a read-only catalog of the upstream projects Chainguard tracks version information for. Through it, a client can find a tracked project, list its version streams with their end-of-life dates, and read the full release history of one stream with attribution back to the upstream tag and commit each release came from. It answers questions about what upstream projects have published and what is still supported: whether Python 3.9 is past end of life, which streams of a project are still receiving releases, and which upstream commit a given version corresponds to.
+`cg-versions` gives an AI tool a read-only catalog of the upstream projects Chainguard tracks version information for. Through it, a client can find a tracked project, list its version streams with their end-of-life dates, and read the release history of one stream, whole or a page at a time, with attribution back to the upstream tag and commit each release came from. It answers questions about what upstream projects have published and what is still supported: whether Python 3.9 is past end of life, which streams of a project are still receiving releases, and which upstream commit a given version corresponds to.
 
 The server uses the Streamable HTTP transport, at this endpoint:
 
@@ -144,8 +144,9 @@ The catalog has three levels, and each tool works at one of them:
 | Tool | Parameters | Returns | Example prompt |
 | ----- | ----- | ----- | ----- |
 | `search_projects` | `name_pattern`, `page_size`, `page_token` | `{projects, next_page_token}` — names only | "Is there a tracked project for Node?" |
-| `get_project` | `project` | `{project: {name, streams}}` with per-stream EOL status | "Which Python versions are still supported upstream?" |
-| `get_stream` | `project`, `stream` | `{stream: {project, stream, eol_date, is_eol, versions}}` | "List every Python 3.9 release with its upstream commit" |
+| `get_project` | `project` | `{project: {name, streams}, size_bytes}` with per-stream EOL status | "Which Python versions are still supported upstream?" |
+| `get_stream` | `project`, `stream` | `{stream: {project, stream, eol_date, is_eol, versions}, size_bytes}` | "List every Python 3.9 release with its upstream commit" |
+| `list_stream_versions` | `project`, `stream`, `page_size`, `cursor` | `{page: {project, stream, eol_date, is_eol, versions, count, total_versions, has_more, next_cursor}}` | "What are the three most recent Python 3.12 releases?" |
 
 ### search_projects
 
@@ -199,7 +200,22 @@ Both parameters are required, so the call is always scoped to a single release l
 
 A single version usually carries all three, which is what makes this tool useful for provenance questions: Python 3.9.25 resolves to tag `v3.9.25` at commit `0bbaf5de` in `python/cpython`, published 2025-10-31.
 
-There is no `page_size` or cursor on this tool. Streams usually hold only a few releases (Python 3.9 has five), but the response has no size limit.
+This tool has no `page_size` or cursor. Streams usually hold only a few releases (Python 3.9 has five). The server refuses a response over 512 KB rather than truncating it, and `get_project` has the same limit. To read a long history a page at a time, use `list_stream_versions`.
+
+### list_stream_versions
+
+Returns one stream's release history a page at a time, newest first, with the same source attribution as `get_stream`.
+
+| Parameter | Type | Required | Description |
+| ----- | ----- | ----- | ----- |
+| `project` | string | yes | Project name, such as `python` |
+| `stream` | string | yes | Stream name within the project, such as `3.12` |
+| `page_size` | integer | no | Versions per page (default 50, max 200) |
+| `cursor` | string | no | The `next_cursor` from a previous call. Omit it on the first request. |
+
+The response repeats the stream's `eol_date` and `is_eol`, and adds `count` for the versions on this page and `total_versions` for the whole stream. When `has_more` is true, pass `next_cursor` as the next call's `cursor`. For `python` stream `3.12`, a `page_size` of 2 returns 3.12.14 and 3.12.13 out of 11 versions.
+
+Use this tool instead of `get_stream` when you only need the most recent releases, or when `get_stream` refuses a stream for size.
 
 ## Example usage
 
@@ -258,6 +274,7 @@ Show me every Python 3.9 release and where it came from.
 | A project lookup finds nothing | The name doesn't match the catalog's. Names follow upstream convention, not Chainguard image names. | Search with an unanchored pattern first, such as `node`, and use the name the search returns. |
 | A search returns far more than you expected | `name_pattern` is a regular expression, so an unanchored pattern matches as a substring anywhere in the name. | Anchor it: `^go$` for the Go project alone, rather than `go`. |
 | A stream you expected is missing | The catalog tracks streams the upstream project publishes as distinct release lines. Some projects don't maintain parallel streams. | Call `get_project` to see the streams that exist before asking for one by name. |
+| `get_stream` or `get_project` is refused for size | The response exceeds the server's 512 KB limit. Responses are never truncated. | Use `list_stream_versions` to read the stream a page at a time. |
 | A stream shows `version_count: 0` | The catalog knows the stream's support dates but holds no individual releases for it. | Use `get_project` for the support status; there is no release history to fetch. |
 | The AI tool says a version is unavailable from Chainguard | It may be reasoning from upstream end-of-life data, which says nothing about Chainguard's builds. | Ask it to check [`cg-apk`](/platform/mcp-servers/cg-apk/) or [`cg-oci`](/platform/mcp-servers/cg-oci/) instead, and refer to the [product release lifecycle](/chainguard/containers/concepts/lifecycle-and-eol/versions/). |
 | Server shows as not connected in `claude mcp list` | OAuth was never completed, or the token expired. Claude Code's tokens against the Chainguard issuer last about an hour and carry no refresh token. | Run `/mcp`, select **cg-versions**, and authenticate again, or switch to the [`chainctl` helper](/platform/mcp-servers/overview/#authenticate-with-chainctl-instead-of-a-browser). |
