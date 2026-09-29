@@ -4,7 +4,7 @@ linktitle: "Customize tags with chainctl"
 type: "article"
 description: "How to use chainctl to create overlays and bind them to specific tags of a Custom Assembly repository."
 date: 2026-09-28T16:33:22+00:00
-lastmod: 2026-09-28T16:33:22+00:00
+lastmod: 2026-09-29T14:47:57+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural", "Custom Assembly", "chainctl"]
 images: []
@@ -239,7 +239,7 @@ chainctl images overlays update-binding $BINDING_ID --tag 3.13 --tag 3.13-dev --
 updated overlay binding 45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/7c3e5a1b2d4f6e80/9b8a7c6d5e4f3a21 (selector EXACT [3.13 3.13-dev 3.13.7])
 ```
 
-Chainguard rebuilds newly matched tags with the overlay. Tags the binding no longer matches return to their uncustomized image.
+Chainguard rebuilds the affected tags. Newly matched tags receive the overlay, and tags that no longer match are rebuilt without it. Any other matching overlays still apply.
 
 The selector is the only part of a binding you can change. To bind a different overlay, or to move a binding to another repository, remove the binding and create a new one.
 
@@ -255,7 +255,7 @@ chainctl images overlays detach $BINDING_ID
 detached overlay binding 45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/7c3e5a1b2d4f6e80/9b8a7c6d5e4f3a21
 ```
 
-Chainguard rebuilds the tags the binding matched, and they return to their uncustomized image.
+Chainguard rebuilds the tags that the binding matched without the detached overlay. Any other matching overlays still apply.
 
 To delete an overlay, detach all of its bindings first. Then run `delete` with the overlay's name or ID:
 

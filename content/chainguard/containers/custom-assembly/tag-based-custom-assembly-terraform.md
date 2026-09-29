@@ -4,7 +4,7 @@ linktitle: "Customize tags with Terraform"
 type: "article"
 description: "How to use the Chainguard Terraform provider to create overlays and bind them to specific tags of a Custom Assembly repository."
 date: 2026-09-28T16:33:22+00:00
-lastmod: 2026-09-28T16:33:22+00:00
+lastmod: 2026-09-29T14:47:57+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural", "Custom Assembly", "Automation"]
 images: []
@@ -163,7 +163,7 @@ The overlay and binding resources don't support in-place updates. When you chang
 
 Each replacement removes the customization before adding it back, so Chainguard might rebuild the affected tags twice: once without the customization and once with it. Review the plan before you apply changes to repositories that serve production traffic.
 
-To remove a customization, delete the binding resource from your configuration and apply. Chainguard rebuilds the tags the binding matched, and they return to their uncustomized image. You can't delete an overlay while a binding still refers to it. Terraform removes the binding first when you delete both in one change.
+To remove a customization, delete the binding resource from your configuration and apply. Chainguard rebuilds the tags that the binding matched without the removed overlay. Any other matching overlays still apply. You can't delete an overlay while a binding still refers to it. Terraform removes the binding first when you delete both in one change.
 
 ## Learn more
 
