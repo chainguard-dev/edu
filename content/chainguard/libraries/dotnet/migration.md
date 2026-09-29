@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing .NET project to pull dependencies from Chainguard Libraries"
 date: 2026-09-23T00:00:00+00:00
-lastmod: 2026-09-25T15:25:28+00:00
+lastmod: 2026-09-29T16:22:04+00:00
 tags: ["Chainguard Libraries", ".NET"]
 menu:
   docs:
@@ -71,13 +71,13 @@ Choose the setup that matches your organization. With direct access, your build 
 
 {{% tab title="Direct access" %}}
 
-From the project directory, create a NuGet configuration file:
+NuGet reads package sources from `nuget.config` files at the project, solution, user, and machine levels. Before changing the configuration, list the sources currently in use:
 
 ```bash
-dotnet new nugetconfig
+dotnet nuget list source
 ```
 
-Replace its contents with the following configuration, substituting the username and password with the values of your pull token:
+Edit or create a file named `nuget.config` in the project directory, alongside the `.csproj` file. Replace its contents with the following configuration, substituting the username and password with the values of your pull token:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -185,7 +185,7 @@ dotnet build
 Inspect the project assets file to confirm that your project is using Chainguard Libraries:
 
 ```bash
-grep -A1 '"sources"' obj/project.assets.json
+dotnet nuget list source
 ```
 
 The expected output includes the Chainguard endpoint:

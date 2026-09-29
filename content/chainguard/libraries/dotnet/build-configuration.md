@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for .NET on your workstation"
 type: "article"
 date: 2026-09-23T00:00:00+00:00
-lastmod: 2026-09-24T15:12:33+00:00
+lastmod: 2026-09-29T16:22:04+00:00
 draft: false
 tags: ["Chainguard Libraries", ".NET"]
 menu:
@@ -120,7 +120,7 @@ An existing project does not require changes to `Program.cs`, dependency declara
 Verify that Chainguard was used:
 
 ```bash
-grep -A1 '"sources"' obj/project.assets.json
+dotnet nuget list source
 ```
 
 The output should return a Chainguard source.
@@ -167,7 +167,7 @@ dotnet run
 Inspect the project assets file to confirm that the restore used Chainguard Libraries:
 
 ```bash
-grep -A1 '"sources"' obj/project.assets.json
+dotnet nuget list source
 ```
 
 The output should include the Chainguard endpoint:
