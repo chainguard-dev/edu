@@ -4,7 +4,7 @@ linktitle: "Catalog Starter"
 type: "article"
 description: "Learn about Chainguard Catalog Starter, an offering allowing teams to try out five Chainguard container images for free."
 date: 2026-03-09T07:52:00+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-09-29T16:13:27+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -165,7 +165,7 @@ Catalog Starter allows users to try out Chainguard Containers, but it comes with
 * Users in a Catalog Starter organization are assigned the `limited_owner` role, which allows them to browse the Console, pull images, and create pull tokens, but does not include permission to invite other users to the organization or access features like [Custom Assembly](/chainguard/containers/custom-assembly/).
 * You can create pull tokens, but not [assumable identities](/platform/administration/assumable-ids/assumable-ids/). A pull token is the only credential a Catalog Starter organization can issue for automation. If you try to create any other identity, the request fails with `starter organizations are not allowed to create identities`.
 * The [`setup-chainctl`](https://github.com/chainguard-dev/setup-chainctl) GitHub Action doesn't work with Catalog Starter. It authenticates by assuming a Chainguard identity with the OIDC token GitHub issues to the workflow, and it has no pull token mode. The same applies to the OIDC federation examples for GitLab, CircleCI, Buildkite, Jenkins, and Kubernetes. Authenticate your pipelines with a pull token instead, as described in [Authenticate CI pipelines with a pull token](#authenticate-ci-pipelines-with-a-pull-token).
-* To revoke a pull token, delete its role binding rather than its identity. The `limited_owner` role can delete role bindings but not identities, so `chainctl iam identity delete` fails. Run `chainctl iam role-bindings list` to find the binding, then `chainctl iam role-bindings delete <role-binding-id>`.
+* Revoking a pull token takes a different path. On the Console's **Pull tokens** page, the **Delete** and **Edit** actions are unavailable, and `chainctl iam identity delete` fails, because the `limited_owner` role can't delete identities. To revoke a token, delete its role binding instead: run `chainctl iam role-bindings list` to find the binding, then `chainctl iam role-bindings delete <role-binding-id>`. This removes the token's access, although the identity itself remains in the list.
 * Neither Custom Assembly nor Commercial Builds, Chainguard's bespoke paid build services, are included in the Catalog Starter plan.
 * Catalog Starter cannot be combined with an existing Chainguard Containers license. Existing customers remain on their current paid plans; this free offering can’t be used to subsidize or partially offset paid image counts.
 

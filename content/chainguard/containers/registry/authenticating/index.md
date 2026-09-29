@@ -4,7 +4,7 @@ linktitle: "Authenticate"
 type: "article"
 description: "A guide on authenticating to Chainguard's registry to get container images"
 date: 2023-03-21T15:10:16+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-09-29T16:13:27+00:00
 tags: ["Chainguard Containers", "Registry"]
 draft: false
 images: []
@@ -150,7 +150,7 @@ To revoke a token, delete the associated identity.
 chainctl iam identity delete <identity UUID>
 ```
 
-**Note**: On [Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/), delete the token's role binding instead. The `limited_owner` role assigned to Catalog Starter users can delete role bindings but not identities, so this command fails. Run `chainctl iam role-bindings list` to find the binding, then `chainctl iam role-bindings delete <role-binding-id>`.
+**Note**: On [Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/), this command fails, and the **Delete** action on the Console's **Pull tokens** page is unavailable. The `limited_owner` role assigned to Catalog Starter users can't delete identities. Delete the token's role binding instead: run `chainctl iam role-bindings list` to find the binding, then `chainctl iam role-bindings delete <role-binding-id>`. This removes the token's access, although the identity itself remains in the list.
 
 ### Managing pull tokens in the Chainguard Console
 
