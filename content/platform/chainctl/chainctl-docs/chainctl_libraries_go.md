@@ -1,31 +1,17 @@
 ---
 date: 2026-09-28T19:38:53Z
-title: "chainctl iam account-associations set azure"
-slug: chainctl_iam_account-associations_set_azure
-url: /platform/chainctl/chainctl-docs/chainctl_iam_account-associations_set_azure/
+title: "chainctl libraries go"
+slug: chainctl_libraries_go
+url: /platform/chainctl/chainctl-docs/chainctl_libraries_go/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl iam account-associations set azure
+## chainctl libraries go
 
-Set AZURE account association for a location.
-
-```
-chainctl iam account-associations set azure ORGANIZATION_NAME|ORGANIZATION_ID|FOLDER_NAME|FOLDER_ID --tenant-id=TENANT_ID --client-ids=COMPONENT_NAME=CLIENT_ID [--name=NAME] [--description=DESCRIPTION] [--yes] [--output=id|json|table] [flags]
-```
-
-### Options
-
-```
-      --client-ids stringToString   A chainguard component_name to azure client_id map (default [])
-  -d, --description string          The description of the resource.
-  -n, --name string                 Given name of the resource.
-      --tenant-id string            The Azure Tenant ID.
-  -y, --yes                         Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
-```
+Go module registry commands.
 
 ### Options inherited from parent commands
 
@@ -44,5 +30,6 @@ chainctl iam account-associations set azure ORGANIZATION_NAME|ORGANIZATION_ID|FO
 
 ### SEE ALSO
 
-* [chainctl iam account-associations set](/platform/chainctl/chainctl-docs/chainctl_iam_account-associations_set/)	 - Set cloud provider account associations for a location.
+* [chainctl libraries](/platform/chainctl/chainctl-docs/chainctl_libraries/)	 - Ecosystem library related commands.
+* [chainctl libraries go upload](/platform/chainctl/chainctl-docs/chainctl_libraries_go_upload/)	 - Upload a Go module version from a source directory.
 

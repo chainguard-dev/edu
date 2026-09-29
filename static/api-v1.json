@@ -3403,7 +3403,7 @@
       },
       "chainguard.platform.libraries.Ecosystem": {
         "default": "UNKNOWN",
-        "description": "Ecosystem represents the language libraries an org can be entitled to.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.",
+        "description": "Ecosystem represents the language libraries an org can be entitled to.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.",
         "enum": [
           "UNKNOWN",
           "JAVA",
@@ -3415,7 +3415,9 @@
           "DOTNET",
           "DOTNET_ATHENA",
           "GO",
-          "GO_ATHENA"
+          "GO_ATHENA",
+          "RUBY",
+          "RUBY_ATHENA"
         ],
         "type": "string"
       },
@@ -13110,7 +13112,7 @@
         "operationId": "Artifacts_List",
         "parameters": [
           {
-            "description": "The language ecosystems to return artifacts for.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.",
+            "description": "The language ecosystems to return artifacts for.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.",
             "in": "query",
             "name": "ecosystems",
             "schema": {
@@ -13126,7 +13128,9 @@
                   "DOTNET",
                   "DOTNET_ATHENA",
                   "GO",
-                  "GO_ATHENA"
+                  "GO_ATHENA",
+                  "RUBY",
+                  "RUBY_ATHENA"
                 ],
                 "type": "string"
               },
@@ -13242,7 +13246,7 @@
         "operationId": "Artifacts_GetArtifactCount",
         "parameters": [
           {
-            "description": "The language ecosystems to request the artifact counts for.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.",
+            "description": "The language ecosystems to request the artifact counts for.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.",
             "in": "query",
             "name": "ecosystems",
             "schema": {
@@ -13258,7 +13262,9 @@
                   "DOTNET",
                   "DOTNET_ATHENA",
                   "GO",
-                  "GO_ATHENA"
+                  "GO_ATHENA",
+                  "RUBY",
+                  "RUBY_ATHENA"
                 ],
                 "type": "string"
               },
@@ -13694,7 +13700,7 @@
             }
           },
           {
-            "description": "Only events for this ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.",
+            "description": "Only events for this ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.",
             "in": "query",
             "name": "ecosystem",
             "schema": {
@@ -13710,7 +13716,9 @@
                 "DOTNET",
                 "DOTNET_ATHENA",
                 "GO",
-                "GO_ATHENA"
+                "GO_ATHENA",
+                "RUBY",
+                "RUBY_ATHENA"
               ],
               "type": "string"
             }
@@ -13803,7 +13811,7 @@
             }
           },
           {
-            "description": "ecosystems are the language ecosystems to list entitlements for. If empty, all entitlements for the group will be listed.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.",
+            "description": "ecosystems are the language ecosystems to list entitlements for. If empty, all entitlements for the group will be listed.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.",
             "in": "query",
             "name": "ecosystems",
             "schema": {
@@ -13819,7 +13827,9 @@
                   "DOTNET",
                   "DOTNET_ATHENA",
                   "GO",
-                  "GO_ATHENA"
+                  "GO_ATHENA",
+                  "RUBY",
+                  "RUBY_ATHENA"
                 ],
                 "type": "string"
               },
@@ -14542,7 +14552,7 @@
             }
           },
           {
-            "description": "Only return bindings for this ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.",
+            "description": "Only return bindings for this ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.",
             "in": "query",
             "name": "ecosystem",
             "schema": {
@@ -14558,7 +14568,9 @@
                 "DOTNET",
                 "DOTNET_ATHENA",
                 "GO",
-                "GO_ATHENA"
+                "GO_ATHENA",
+                "RUBY",
+                "RUBY_ATHENA"
               ],
               "type": "string"
             }
@@ -14783,7 +14795,7 @@
             }
           },
           {
-            "description": "ecosystem lists entries for one ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.",
+            "description": "ecosystem lists entries for one ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.",
             "in": "query",
             "name": "ecosystem",
             "schema": {
@@ -14799,7 +14811,9 @@
                 "DOTNET",
                 "DOTNET_ATHENA",
                 "GO",
-                "GO_ATHENA"
+                "GO_ATHENA",
+                "RUBY",
+                "RUBY_ATHENA"
               ],
               "type": "string"
             }
@@ -19911,6 +19925,42 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "description": "event_created_since_time filters to advisories that have at least one event\ncreated after the given time. Only the matching events are returned.",
+            "in": "query",
+            "name": "eventCreatedSinceTime",
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "description": "event_created_before_time filters to advisories that have at least one event\ncreated before the given time. Only the matching events are returned.",
+            "in": "query",
+            "name": "eventCreatedBeforeTime",
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "description": "created_since_time filters to advisories created after the given time.",
+            "in": "query",
+            "name": "createdSinceTime",
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "description": "created_before_time filters to advisories created before the given time.",
+            "in": "query",
+            "name": "createdBeforeTime",
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -20172,6 +20222,47 @@
       }
     },
     "/vulnerabilities/v1/advisory_events/{id}": {
+      "delete": {
+        "operationId": "Advisories_DeleteAdvisoryEvent",
+        "parameters": [
+          {
+            "description": "id is the exact UIDP of the advisory event to delete.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Delete Advisory Event",
+        "tags": [
+          "Advisories"
+        ]
+      },
       "put": {
         "operationId": "Advisories_UpdateAdvisoryEvent",
         "parameters": [
@@ -20233,12 +20324,15 @@
   ],
   "tags": [
     {
+      "description": "Actions exposes management RPCs for the \"actions\" entitlement, which\ngates a group's access to the Chainguard platform actions feature.",
       "name": "Actions"
     },
     {
+      "description": "PingService provides a health check endpoint.",
       "name": "PingService"
     },
     {
+      "description": "ActionsAuthorization issues authorization decisions for callers\nrunning inside GitHub Actions workflows.\n\nTwo attestation mechanisms are provided:\n\n 1. AuthorizeWithOIDC verifies a GitHub Actions OIDC ID token\n    directly. This is the preferred path; trust derives from\n    GitHub's OIDC signing key.\n\n 2. IssueChallenge / VerifyChallenge implement an artifact-based\n    attestation, intended for workflows that *cannot* mint an OIDC\n    token at all. The most common case is a workflow run triggered\n    by a pull request from a fork: such runs do not get the\n    `id-token: write` permission elevated to a real token, so\n    AuthorizeWithOIDC is unavailable to them. The challenge flow\n    side-steps OIDC entirely and instead uses the run's own\n    artifact storage as the trust channel.\n\n    The server mints a short-lived X.509 leaf cert bound to the\n    run; the workflow uploads the cert as an artifact named with a\n    well-known prefix; verification fetches that artifact, validates\n    the cert against the trusted KMS public keys, and confirms its\n    URI SAN matches the requested run identity. Trust derives from\n    two facts: the cert is signed by our KMS key, and the\n    artifact's presence in the named run proves it was uploaded\n    from inside that run's runner (artifact upload requires\n    ACTIONS_RUNTIME_TOKEN, a per-runner credential GitHub never\n    exposes to workflow code). The mid-run logs API does not expose\n    new content until the run completes, so logs are not used.\n\nA successful AuthorizationResponse confirms the identity is real\nand that the caller is entitled to use this service. It is not a\ndownstream permission grant — services that consume the returned\n`claims` (typically repository_owner_id and repository_visibility)\napply their own authorization on top. Failure is signaled by a\nnon-OK gRPC status (typically codes.PermissionDenied with no detail;\nsee the README for the privacy rationale).",
       "name": "ActionsAuthorization"
     },
     {
@@ -20251,12 +20345,15 @@
       "name": "ArgosDocuments"
     },
     {
+      "description": "ArgosOSV is the customer-facing OSV-spec query surface for the Private OSV\nshared corpus. All members holding CAP_ARGOS_OSV_READ see the same record\nset; there is no per-organisation filtering. Records are customer-blind.",
       "name": "ArgosOSV"
     },
     {
+      "description": "ArgosVEX is the customer-facing surface for the OpenVEX feed derived from\nthe Private OSV shared corpus. Documents are customer-blind: all members\nholding CAP_ARGOS_OSV_READ see the same document set; the feed is a\nre-encoding of data that capability already grants. All RPCs here are\nunscoped: the server implementation MUST reject callers with zero\nauthorized scopes as its first action (see api-impl argos core).",
       "name": "ArgosVEX"
     },
     {
+      "description": "ArgosVulns is the Chainguard-specific (non-OSV-spec) vulnerability query\nsurface for the Console. Unlike ArgosOSV (the unscoped, OSV-spec shared\ncorpus), these RPCs are ORG-SCOPED: a caller sees only their own org's CGP\nrecords (the org\u003c-\u003eCGP association is customer-attributable). Gated by\nCAP_ARGOS_DOCUMENTS_LIST at the parent org.",
       "name": "ArgosVulns"
     },
     {
@@ -20273,6 +20370,7 @@
       "name": "GroupAccountAssociations"
     },
     {
+      "description": "ExternalGroupRoleMappings manages mappings from IdP groups to Chainguard\nroles. There is intentionally no Update RPC: every field is immutable, so a\nchange is expressed as a Delete of the old mapping and a Create of the new\none.",
       "name": "ExternalGroupRoleMappings"
     },
     {
@@ -20295,6 +20393,7 @@
       "name": "RoleBindings"
     },
     {
+      "description": "ScimUsers reads the SCIM-provisioned users of an identity provider. The\nrecords are written by the IdP's SCIM connector, so this surface is\nread-only. Name and email attributes are deliberately not exposed here (data\nminimization); use the SCIM protocol endpoint for the full user resource.",
       "name": "ScimUsers"
     },
     {
@@ -20312,18 +20411,22 @@
       "name": "LibrariesEntitlements"
     },
     {
+      "description": "Malware exposes the read-only Chainguard Libraries malware block list:\nthe set of package versions and whole packages flagged as malicious across\nall supported ecosystems. Writes are owned by the malware reconciler and are\nintentionally not part of this public surface.",
       "name": "Malware"
     },
     {
       "name": "NpmPackages"
     },
     {
+      "description": "LibraryPolicies manages customer-facing Libraries policies that configure the\nautomatic gates (cooldown, malware) applied to upstream package pulls.",
       "name": "LibraryPolicies"
     },
     {
+      "description": "LibraryPolicyBindings activates a LibraryPolicy for an (org, ecosystem) pair\nin a given mode (ENFORCED or LOG).",
       "name": "LibraryPolicyBindings"
     },
     {
+      "description": "LibraryPolicyBlockEvents lists per-package block events recorded when a pull\nis withheld. Writes are performed internally by the serve layer and are not\nexposed in the public API.",
       "name": "LibraryPolicyBlockEvents"
     },
     {
@@ -20331,6 +20434,7 @@
       "name": "LibrariesResolutionCache"
     },
     {
+      "description": "ImageMatcher (code name Crystal Ball) recommends chainguard images equivalent to popular images",
       "name": "ImageMatcher"
     },
     {
