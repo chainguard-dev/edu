@@ -4,14 +4,14 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Go project to pull dependencies from Chainguard Libraries"
 date: 2026-09-25T00:00:00+00:00
-lastmod: 2026-09-25T00:00:00+00:00
+lastmod: 2026-09-29T19:14:43+00:00
 draft: false
 tags: ["Chainguard Libraries", "Go"]
 menu:
   docs:
     parent: go
     identifier: Go Migration
-weight: 056
+weight: 56
 toc: true
 ---
 

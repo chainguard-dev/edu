@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for Go in your organization"
 type: "article"
 date: 2026-09-25T00:00:00+00:00
-lastmod: 2026-09-25T20:37:28+00:00
+lastmod: 2026-09-29T19:14:43+00:00
 draft: false
 tags: ["Chainguard Libraries", "Go"]
 images: []
@@ -12,7 +12,7 @@ menu:
   docs:
     parent: "go"
     identifier: "Go Global Configuration"
-weight: 052
+weight: 52
 toc: true
 ---
 

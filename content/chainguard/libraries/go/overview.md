@@ -4,13 +4,13 @@ linktitle: "Go overview"
 description: "Go modules for your application development"
 type: "article"
 date: 2026-09-25T00:00:00+00:00
-lastmod: 2026-09-25T00:00:00+00:00
+lastmod: 2026-09-29T19:14:43+00:00
 draft: false
 tags: ["Chainguard Libraries", "Go", "Overview"]
 menu:
   docs:
     parent: "go"
-weight: 051
+weight: 51
 toc: true
 ---
 

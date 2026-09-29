@@ -4,14 +4,14 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for Go on your workstation"
 type: "article"
 date: 2026-09-25T00:00:00+00:00
-lastmod: 2026-09-28T19:59:14+00:00
+lastmod: 2026-09-29T19:14:43+00:00
 draft: false
 tags: ["Chainguard Libraries", "Go"]
 menu:
   docs:
     parent: "go"
     identifier: "Go Build Configuration"
-weight: 053
+weight: 53
 toc: true
 ---
 
