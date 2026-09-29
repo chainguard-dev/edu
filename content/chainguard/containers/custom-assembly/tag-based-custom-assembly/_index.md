@@ -11,6 +11,7 @@ images: []
 menu:
   docs:
     parent: "features"
+    identifier: "tag-based-custom-assembly"
 weight: 33
 toc: true
 ---
@@ -28,7 +29,7 @@ Tag-based Custom Assembly lets you choose which tags receive a customization. Fo
 * Add a package to every tag, with the package name matched to each tag's Python version.
 * Reuse one customization, such as your organization's internal certificates, across many repositories.
 
-This page explains the concepts. To create and manage customizations, see [Managing tag-based Custom Assembly with chainctl](/chainguard/containers/custom-assembly/tag-based-custom-assembly-chainctl/) or [Managing tag-based Custom Assembly with Terraform](/chainguard/containers/custom-assembly/tag-based-custom-assembly-terraform/).
+This page explains the concepts. To create and manage customizations, see [Managing tag-based Custom Assembly with chainctl](/chainguard/containers/custom-assembly/tag-based-custom-assembly/chainctl/) or [Managing tag-based Custom Assembly with Terraform](/chainguard/containers/custom-assembly/tag-based-custom-assembly/terraform/).
 
 ## Overlays and bindings
 
@@ -161,7 +162,7 @@ To create a custom role with these capabilities, see [Overview of roles and role
 
 ## Learn more
 
-* [Managing tag-based Custom Assembly with chainctl](/chainguard/containers/custom-assembly/tag-based-custom-assembly-chainctl/)
-* [Managing tag-based Custom Assembly with Terraform](/chainguard/containers/custom-assembly/tag-based-custom-assembly-terraform/)
+* [Managing tag-based Custom Assembly with chainctl](/chainguard/containers/custom-assembly/tag-based-custom-assembly/chainctl/)
+* [Managing tag-based Custom Assembly with Terraform](/chainguard/containers/custom-assembly/tag-based-custom-assembly/terraform/)
 * [Overview of Chainguard Custom Assembly](/chainguard/containers/custom-assembly/overview/)
 * [Custom Assembly FAQs](/chainguard/containers/custom-assembly/faq/)

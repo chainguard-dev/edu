@@ -8,10 +8,11 @@ lastmod: 2026-09-28T16:33:22+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural", "Custom Assembly", "chainctl"]
 images: []
+aliases: ["/chainguard/containers/custom-assembly/tag-based-custom-assembly-chainctl/"]
 menu:
   docs:
-    parent: "features"
-weight: 35
+    parent: "tag-based-custom-assembly"
+weight: 10
 toc: true
 ---
 
@@ -26,7 +27,7 @@ For an explanation of overlays, bindings, and tag selectors, see [Overview of ta
 Before you start, you need the following:
 
 * Tag-based Custom Assembly enabled for your organization. Contact your Chainguard account team to enable it.
-* A recent version of [`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/). Run `chainctl update` to update it.
+* [`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) version 0.2.367 or later. Run `chainctl update` to update it.
 * A role with the `registry.overlays.edit` capability, such as the built-in `editor` or `owner` role.
 * A repository in your organization with no standard Custom Assembly customization. A repository can't use both. To move a repository from standard Custom Assembly, contact your Chainguard account team.
 
@@ -288,5 +289,5 @@ If a package can't be installed on a tag, that tag's build fails and the logs na
 ## Learn more
 
 * [Overview of tag-based Custom Assembly](/chainguard/containers/custom-assembly/tag-based-custom-assembly/)
-* [Managing tag-based Custom Assembly with Terraform](/chainguard/containers/custom-assembly/tag-based-custom-assembly-terraform/)
+* [Managing tag-based Custom Assembly with Terraform](/chainguard/containers/custom-assembly/tag-based-custom-assembly/terraform/)
 * [Using chainctl to manage Custom Assembly resources](/chainguard/containers/custom-assembly/custom-assembly-chainctl/)

@@ -8,10 +8,11 @@ lastmod: 2026-09-28T16:33:22+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural", "Custom Assembly", "Automation"]
 images: []
+aliases: ["/chainguard/containers/custom-assembly/tag-based-custom-assembly-terraform/"]
 menu:
   docs:
-    parent: "features"
-weight: 37
+    parent: "tag-based-custom-assembly"
+weight: 20
 toc: true
 ---
 
@@ -168,6 +169,6 @@ To remove a customization, delete the binding resource from your configuration a
 ## Learn more
 
 * [Overview of tag-based Custom Assembly](/chainguard/containers/custom-assembly/tag-based-custom-assembly/)
-* [Managing tag-based Custom Assembly with chainctl](/chainguard/containers/custom-assembly/tag-based-custom-assembly-chainctl/)
+* [Managing tag-based Custom Assembly with chainctl](/chainguard/containers/custom-assembly/tag-based-custom-assembly/chainctl/)
 * [`chainguard_image_overlay` in the Terraform Registry](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/resources/image_overlay)
 * [`chainguard_image_overlay_binding` in the Terraform Registry](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/resources/image_overlay_binding)
