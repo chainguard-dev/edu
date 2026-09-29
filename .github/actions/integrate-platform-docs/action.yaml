@@ -72,6 +72,17 @@ runs:
             f.writelines(final)
         PYEOF
 
+    - name: set the cloudevents page weight
+      shell: bash
+      # The upstream events.md hard-codes `weight: 005`. YAML reads a
+      # leading-zero weight as octal, so the page-weights pre-commit check
+      # rejects it. Sidebar order is ours to set, so pin the value the rest
+      # of the section expects. The `2,/^---$/` range limits the edit to the
+      # frontmatter block.
+      run: |
+        sed -i '2,/^---$/ s/^weight: .*$/weight: 10/' \
+          content/platform/administration/cloudevents/events-reference.md
+
     - name: download chainctl docs from cloud storage
       shell: bash
       env:
