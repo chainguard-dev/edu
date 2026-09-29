@@ -57,6 +57,8 @@ Variant and all selectors also match tags published after you create the binding
 
 Several tags often point to the same image. For example, `3.13`, `3.13.7`, and `3.13.7-r0` might share one digest. An exact selector customizes only the tags you list, even when other tags share their digest. If you bind an overlay to `3.13` alone, `3.13` gets a customized image, and `3.13.7` and `3.13.7-r0` keep the original. To keep several tags identical, list all of them.
 
+An exact selector matches tag names, not images. When `3.13` moves to a new release, the binding follows it, so the new `3.13` image is customized too.
+
 Chainguard doesn't check that an exact tag exists when you create the binding. A mistyped tag name matches nothing, so no build runs for it.
 
 ## How overlapping bindings combine

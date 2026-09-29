@@ -98,14 +98,14 @@ resource "chainguard_image_overlay" "internal_ca" {
     certificates = {
       additional = [{
         name    = "internal-ca"
-        content = file("internal-ca.pem")
+        content = file("${path.module}/internal-ca.pem")
       }]
     }
   })
 }
 ```
 
-The `file` function reads the certificate from `internal-ca.pem` in your Terraform directory, so the certificate doesn't need to appear in your configuration. For the full list of supported fields, see [Supported customizations](/chainguard/containers/custom-assembly/tag-based-custom-assembly/#supported-customizations).
+The `file` function reads the certificate from `internal-ca.pem` in the same directory as your configuration, so the certificate text doesn't need to appear in the configuration itself. For the full list of supported fields, see [Supported customizations](/chainguard/containers/custom-assembly/tag-based-custom-assembly/#supported-customizations).
 
 ## Bind overlays to tags
 
