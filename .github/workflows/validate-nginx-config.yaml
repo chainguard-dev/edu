@@ -39,3 +39,20 @@ jobs:
       - name: Run Nginx validation
         run: |
           docker run --rm -v "$(pwd)"/nginx.conf:/etc/nginx/nginx.conf -v "$(pwd)"/public/_aliases:/etc/nginx/aliases -v "$(pwd)"/public:/usr/share/nginx/html/ cgr.dev/chainguard/nginx:latest-dev -t
+
+      # Run the image Cloud Run deploys and follow every redirect chain, so a
+      # redirect loop (DOCS-186) or a duplicated query string (DOCS-187) fails
+      # the PR that introduces it instead of reaching readers.
+      - name: Start the production image
+        run: |
+          docker build -t edu-nginx .
+          docker run -d --name edu-nginx -p 8080:8080 edu-nginx
+          for _ in $(seq 1 30); do
+            curl -sf -o /dev/null http://localhost:8080/ && exit 0
+            sleep 1
+          done
+          docker logs edu-nginx
+          exit 1
+
+      - name: Check redirect chains
+        run: python3 scripts/check_redirect_chains.py http://localhost:8080
