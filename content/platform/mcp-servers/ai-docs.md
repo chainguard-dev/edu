@@ -5,7 +5,7 @@ lead: "Chainguard documentation for AI tools, through an MCP server or a downloa
 description: "Search Chainguard documentation from an AI tool or other MCP client, or download the compiled documentation bundle"
 type: "article"
 date: 2026-01-02T21:00:00+00:00
-lastmod: 2026-09-30T13:19:11+00:00
+lastmod: 2026-09-30T14:05:59+00:00
 draft: false
 images: []
 menu:
@@ -21,14 +21,14 @@ aliases:
 
 AI Docs gives AI tools access to Chainguard's documentation: the guides, security references, and tool references published on this site, plus the package and image mappings that the Dockerfile Converter (dfc) uses. You can connect to it as an MCP server, which returns only the sections that match each query, or download the whole documentation bundle and give it to an AI tool directly.
 
-AI Docs has no container image data. For live image data, such as an image's tags, SBOM, and build date, use the `cg-oci` MCP server. Refer to [Container image data](#container-image-data).
+AI Docs has no live container image data. It can tell you which Chainguard image replaces an upstream image, but for an image's tags, SBOM, or build date, use the `cg-oci` MCP server. Refer to [Container image data](#container-image-data).
 
 For background on MCP and the other Chainguard MCP servers, refer to the [MCP servers overview](/platform/mcp-servers/overview/).
 
 ## Why use the MCP server?
 
 - **Lower context cost.** Clients fetch only the sections they need instead of loading the entire multi-megabyte bundle into every prompt.
-- **Structured queries.** Search for a guide, read the security documentation, or find a package equivalent without writing custom scrapers.
+- **Structured queries.** Search for a guide, read the security documentation, or find a package or image equivalent without writing custom scrapers.
 - **IDE integration.** Works with Claude Code, Claude Desktop, Cursor, and other MCP-compatible clients, so engineers can reference Chainguard docs while they write code.
 
 ## Connect to the server
@@ -127,7 +127,7 @@ Restart the client after saving the file.
 
 ## Available tools
 
-The server exposes four tools for searching documentation and mapping packages.
+The server exposes five tools for searching documentation and mapping packages and images.
 
 ### `search_docs`
 
@@ -183,9 +183,22 @@ Find the Wolfi package that replaces a Debian, Fedora, or Alpine package. Use th
 - "Find the Chainguard package for libssl-dev"
 - "I need to replace python3-pip in my Dockerfile"
 
+### `find_image_equivalent`
+
+Find the Chainguard image that replaces an upstream container image, using the Dockerfile Converter mappings. Use this when migrating a Dockerfile's `FROM` line. The tool matches names the way the Dockerfile Converter does: it ignores tags and digests, accepts Docker Hub names with or without a `docker.io/` host, and falls back to the last part of the name. It returns the Chainguard image name and a pull reference.
+
+*Parameters:*
+
+- `image` (string, required): Upstream image reference as it appears in a `FROM` line (for example, "bitnami/pgpool", "docker.io/library/node:20", "gcr.io/kaniko-project/executor")
+
+*Example prompts:*
+
+- "What Chainguard image replaces bitnami/pgpool?"
+- "I'm migrating a Dockerfile that starts with FROM quay.io/prometheus/snmp-exporter. What's the Chainguard equivalent?"
+
 ## Container image data
 
-AI Docs doesn't carry container image data. Chainguard's product MCP servers read it from the registry and package index at the moment you ask, so their answers describe the images as they are now. These servers require a Chainguard account. For connection and authentication steps, refer to the [MCP servers overview](/platform/mcp-servers/overview/).
+AI Docs doesn't carry live container image data. Chainguard's product MCP servers read it from the registry and package index at the moment you ask, so their answers describe the images as they are now. These servers require a Chainguard account. For connection and authentication steps, refer to the [MCP servers overview](/platform/mcp-servers/overview/).
 
 This table shows where to go for each image task, and which AI Docs tool used to cover it:
 
@@ -195,6 +208,7 @@ This table shows where to go for each image task, and which AI Docs tool used to
 | List images | `list_images` | The `list_repos` tool on [`cg-oci`](/platform/mcp-servers/cg-oci/), which lists the repositories your account can pull. To browse the public catalog, use the Chainguard Containers Directory. |
 | Check an image's tags and build date | `check_image_freshness` | The `list_tags` tool on [`cg-oci`](/platform/mcp-servers/cg-oci/) for tags, and `get_manifest` for the build date. The `registry_tags_list` tool on [`cg-api`](/platform/mcp-servers/cg-api/) also filters tags by update time. |
 | Map a Debian or Fedora package to Wolfi | `find_package_equivalent` | AI Docs, unchanged. For the Wolfi package's versions, SBOM, and build configuration, use the `search_packages` tool on [`cg-apk`](/platform/mcp-servers/cg-apk/). |
+| Find the Chainguard image that replaces an upstream image | None | The `find_image_equivalent` tool in AI Docs. |
 
 {{< note >}}
 AI Docs removed its three image tools at the end of September 2026. Their data came from a snapshot of image documentation that had stopped updating.
@@ -202,9 +216,13 @@ AI Docs removed its three image tools at the end of September 2026. Their data c
 
 The AI Docs server also sends these pointers to each client when it connects, so an AI tool asked about an image can direct you to the right server.
 
+### Image references
+
+Write a Chainguard image reference as `cgr.dev/<your-organization>/<image>`, replacing `<your-organization>` with your Chainguard organization's name. Most Chainguard images are available only to organizations entitled to them, in the organization's own namespace. The public `cgr.dev/chainguard` namespace serves a free subset with `latest`-style tags only, so an image reference that works for one organization may not work in `cgr.dev/chainguard`. To check which images your organization can pull, use the `list_repos` tool on [`cg-oci`](/platform/mcp-servers/cg-oci/).
+
 ## Package catalog
 
-The `find_package_equivalent` tool draws from a package catalog that ships with the server. The catalog maps Debian and Fedora packages to their Wolfi equivalents, using the mappings that the Dockerfile Converter maintains, and has no Alpine mappings. Each documentation build regenerates it.
+The `find_package_equivalent` and `find_image_equivalent` tools draw from a package catalog that ships with the server. The catalog holds the Dockerfile Converter's mappings: Debian and Fedora packages to their Wolfi equivalents, with no Alpine mappings, and upstream images to the Chainguard images that replace them. Each documentation build regenerates it.
 
 The catalog file is `package-mappings.json`. The container image and the extracted files also include an identical copy named `image-catalog.json`, the file's earlier name, so configurations that point at that name continue to work.
 
@@ -245,8 +263,9 @@ Which Chainguard image replaces bitnami/pgpool?
 ```output
   Called chainguard-docs (ctrl+o to expand)
 
-● The Dockerfile Converter's image mappings map bitnami/pgpool to
-  Chainguard's pgpool2 image.
+● bitnami/pgpool maps to Chainguard's pgpool2 image. Pull it as
+  cgr.dev/<your-organization>/pgpool2, replacing <your-organization>
+  with your Chainguard organization's name.
 ```
 
 ## Standalone installation (without Docker)
@@ -415,7 +434,7 @@ The container prints startup messages and then waits for stdio input.
 
 ### An AI tool can't find image details
 
-AI Docs has no container image data. Connect [`cg-oci`](/platform/mcp-servers/cg-oci/) for live registry data, or look up the image in the [Chainguard Containers Directory](https://images.chainguard.dev/). Refer to [Container image data](#container-image-data).
+AI Docs has no live container image data. Connect [`cg-oci`](/platform/mcp-servers/cg-oci/) for live registry data, or look up the image in the [Chainguard Containers Directory](https://images.chainguard.dev/). Refer to [Container image data](#container-image-data).
 
 ### Documentation out of date
 
