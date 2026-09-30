@@ -4,7 +4,7 @@ lead: "Security and transparency for AI-ready documentation"
 description: "Learn about the security measures and compilation process for Chainguard's AI documentation bundles"
 type: "article"
 date: 2025-07-30T10:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-09-30T13:19:11+00:00
 draft: false
 images: []
 weight: 20
@@ -55,14 +55,10 @@ We ensure content hasn't been tampered with:
 
 ### Source Repositories
 
-Documentation is compiled from these official repositories:
+Documentation is compiled from the **chainguard-dev/edu** repository:
 
-1. **chainguard-dev/edu**: Main documentation site
-2. **chainguard-dev/courses**: Learning materials
-3. **chainguard-images/images-private**: Image documentation
-4. **chainguard-dev/dfc**: Package and image mappings from the Dockerfile Converter
-
-> **Note:** The Dockerfile Converter mappings do not currently reach the compiled bundle. We're tracking a fix.
+1. **Documentation pages**: every page published on this site
+2. **Dockerfile Converter mappings**: the package and image mappings from **chainguard-dev/dfc**, which a nightly job copies into the edu repository
 
 ### Build Environment
 
@@ -103,7 +99,7 @@ cosign verify ghcr.io/chainguard-dev/ai-docs:latest \
 ## Build Frequency
 
 - **Scheduled Builds**: Nightly at 2 AM UTC
-- **On-Demand**: Triggered by documentation changes or cross-repo updates via `repository_dispatch`
+- **On-Demand**: Triggered by documentation changes and by changes to the compilation scripts
 - **Container Distribution**: Updated container pushed to GHCR on each build
 
 ## Security Reporting
@@ -132,6 +128,8 @@ git clone https://github.com/chainguard-dev/edu
 cd edu
 python3 scripts/compile_docs.py
 ```
+
+The compiler reads only the edu repository, so a clone is all it needs. It writes the bundle to `static/downloads/chainguard-complete-docs.md`.
 
 ### How do I verify the build logs?
 
