@@ -201,113 +201,10 @@ def process_edu_content(edu_path):
     return docs
 
 
-def process_courses(courses_path):
-    """Process course content from the courses repository"""
-    courses = []
-
-    # Skip internal-only courses
-    skip_courses = ["Build-Your-First-Chainguard-Container"]
-
-    for course_dir in courses_path.iterdir():
-        if (
-            course_dir.is_dir()
-            and not course_dir.name.startswith(".")
-            and course_dir.name not in skip_courses
-        ):
-            # Read course details
-            details_file = course_dir / "details.json"
-            if details_file.exists():
-                with open(details_file, "r") as f:
-                    details = json.load(f)
-                    course_name = details.get("title", course_dir.name)
-            else:
-                course_name = course_dir.name.replace("-", " ")
-
-            # Process lessons
-            lessons_dir = course_dir / "lessons"
-            if lessons_dir.exists():
-                lessons = []
-                for lesson_dir in sorted(lessons_dir.iterdir()):
-                    if lesson_dir.is_dir():
-                        # Find HTML content file
-                        for html_file in lesson_dir.glob("content-*.html"):
-                            with open(html_file, "r", encoding="utf-8") as f:
-                                html_content = f.read()
-
-                            # Convert HTML to Markdown
-                            markdown_content = convert_html_to_markdown(html_content)
-
-                            # Extract lesson name from directory
-                            lesson_name = lesson_dir.name.split("-", 1)[1].replace(
-                                "-", " "
-                            )
-
-                            lessons.append(
-                                {"name": lesson_name, "content": markdown_content}
-                            )
-
-                if lessons:
-                    courses.append({"name": course_name, "lessons": lessons})
-
-    return courses
-
-
-def process_images_readmes(images_path):
-    """Process README files from images-private repository"""
-    readmes = []
-    images_dir = images_path / "images"
-
-    if images_dir.exists():
-        for image_dir in images_dir.iterdir():
-            if image_dir.is_dir() and not image_dir.name.startswith("."):
-                readme_file = image_dir / "README.md"
-                if readme_file.exists():
-                    doc = read_markdown_file(readme_file)
-                    if doc and doc["content"]:
-                        readmes.append(
-                            {"name": image_dir.name, "content": doc["content"]}
-                        )
-
-    return readmes
-
-
-def process_dfc_mappings(dfc_path):
-    """Process the DFC builtin-mappings.yaml file for image/package conversion data"""
-    mappings_file = dfc_path / "pkg" / "dfc" / "builtin-mappings.yaml"
-
-    if mappings_file.exists():
-        with open(mappings_file, "r", encoding="utf-8") as f:
-            content = f.read()
-        return content
-    return None
-
-
 def compile_documentation(output_path=None):
     """Main function to compile all documentation"""
-    # Define paths - support both local and CI environments
-    if os.environ.get("GITHUB_ACTIONS"):
-        # GitHub Actions environment - use resolve() to get absolute paths
-        edu_path = Path(".").resolve()
-        parent_path = edu_path.parent
-        courses_path = parent_path / "courses"
-        images_path = parent_path / "images-private"
-        dfc_path = parent_path / "dfc"
-    else:
-        # Local development environment
-        current_dir = Path(__file__).parent.parent
-        if current_dir.name == "edu":
-            edu_path = current_dir
-            base_path = edu_path.parent
-            courses_path = base_path / "courses"
-            images_path = base_path / "images-private"
-            dfc_path = base_path / "dfc"
-        else:
-            # Fallback to absolute path
-            base_path = Path("/Users/ltagliaferri/Documents/GitHub")
-            edu_path = base_path / "edu"
-            courses_path = base_path / "courses"
-            images_path = base_path / "images-private"
-            dfc_path = base_path / "dfc"
+    # This script lives in <edu>/scripts/, locally and in CI alike.
+    edu_path = Path(__file__).resolve().parent.parent
 
     # Initialize the compiled documentation
     compiled_md = []
@@ -326,7 +223,10 @@ def compile_documentation(output_path=None):
     if quick_start_file.exists():
         with open(quick_start_file, "r", encoding="utf-8") as f:
             quick_start_content = f.read()
-        compiled_md.append(quick_start_content)
+        # Cleaned like every page, which strips the file's markdownlint
+        # directive. The guide sits under the bundle's own H1, so it starts at
+        # '##' and its lint config has to exempt it from first-line-h1.
+        compiled_md.append(clean_markdown_content(quick_start_content))
     else:
         # Fallback if template file is missing
         compiled_md.append("## Usage Guide\n")
@@ -351,52 +251,6 @@ def compile_documentation(output_path=None):
         compiled_md.append(f"_Path: {doc['path']}_\n")
         compiled_md.append(doc["content"])
         compiled_md.append("\n---\n")
-
-    # Process courses
-    if courses_path.exists():
-        print("Processing additional content...")
-        courses = process_courses(courses_path)
-        for course in courses:
-            compiled_md.append(f"### {course['name']}\n")
-            for i, lesson in enumerate(course["lessons"], 1):
-                compiled_md.append(f"#### {lesson['name']}\n")
-                compiled_md.append(lesson["content"])
-                compiled_md.append("\n")
-
-    # Process image READMEs
-    if images_path.exists():
-        print("Processing additional documentation...")
-        image_readmes = process_images_readmes(images_path)
-        print(f"Found {len(image_readmes)} image READMEs to process")
-
-        # Add a clear section header for container images
-        if image_readmes:
-            compiled_md.append("\n---\n")
-            compiled_md.append("## Container Images\n")
-            compiled_md.append(
-                "_This section contains documentation for Chainguard container images._\n"
-            )
-
-        for readme in image_readmes:
-            compiled_md.append(f"### {readme['name']}\n")
-            compiled_md.append(readme["content"])
-            # Use a unique separator that won't appear in the content
-            compiled_md.append("\n<!-- IMAGE_SEPARATOR -->\n")
-
-    # Process DFC mappings
-    if dfc_path.exists():
-        print("Processing DFC mappings...")
-        dfc_mappings = process_dfc_mappings(dfc_path)
-        if dfc_mappings:
-            compiled_md.append("\n---\n")
-            compiled_md.append("## DFC Image and Package Mappings\n")
-            compiled_md.append(
-                "_This section contains mappings from upstream images and packages to their Chainguard equivalents, used by the DFC (Dockerfile Converter) tool._\n"
-            )
-            compiled_md.append("```yaml")
-            compiled_md.append(dfc_mappings)
-            compiled_md.append("```\n")
-            print("DFC mappings added")
 
     # Save the compiled documentation
     if output_path:

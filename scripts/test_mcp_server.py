@@ -26,6 +26,7 @@ Run with:
     pytest scripts/test_mcp_server.py -v
 """
 
+import asyncio
 import importlib.util
 import os
 from pathlib import Path
@@ -48,6 +49,14 @@ PYTHON_GUIDE_TITLE = "Migrating to Python Chainguard Containers"
 PYTHON_GUIDE_PATH = (
     "chainguard/containers/migration/migration-guides/migrating-python.md"
 )
+
+# The tools the server exposes since the image tools were removed (DOCS-138).
+EXPECTED_TOOLS = {
+    "search_docs",
+    "get_security_docs",
+    "get_tool_docs",
+    "find_package_equivalent",
+}
 
 
 def load_server_module():
@@ -118,15 +127,6 @@ SYNTHETIC_BUNDLE = (
         "chainguard/containers/getting-started.md",
         ["## Prerequisites", "", "You need a cgr.dev account."],
     )
-    + "\n---\n\n"
-    "## Container Images\n\n"
-    "_This section contains documentation for Chainguard container images._\n\n"
-    "### python\n"
-    "A minimal Python container image.\n"
-    "\n<!-- IMAGE_SEPARATOR -->\n"
-    "### nginx\n"
-    "A minimal nginx container image.\n"
-    "\n<!-- IMAGE_SEPARATOR -->\n"
 )
 
 
@@ -174,11 +174,10 @@ def test_page_content_is_not_truncated(index):
     assert "Use the -dev variant at build time" in page
 
 
-def test_image_sections_still_parse(index):
-    """Images keep their existing 'image:' keys; this path already worked."""
-    assert "image:python" in index.sections
-    assert "image:nginx" in index.sections
-    assert index.images == ["nginx", "python"]
+def test_the_usage_guide_is_indexed_without_a_url(index):
+    """The preamble is the bundle's own front matter, not a published page."""
+    assert "Bundle Usage Guide" in index.sections
+    assert "Bundle Usage Guide" not in index.page_paths
 
 
 def test_no_content_is_dropped(index):
@@ -234,13 +233,6 @@ def test_results_carry_the_page_url(index):
         "https://edu.chainguard.dev/chainguard/containers/migration"
         "/migration-guides/migrating-python/"
     )
-
-
-def test_image_results_have_no_url(index):
-    """Image READMEs are not published pages, so there is nothing to link to."""
-    for result in index.search("nginx container image"):
-        if result["section"].startswith("image:"):
-            assert result["url"] == ""
 
 
 @pytest.mark.parametrize(
@@ -319,8 +311,7 @@ def pages_declared_in(bundle_text):
     This deliberately plain line scan is a second implementation of that rule,
     independent of ChaguardDocsIndex.
     """
-    docs_region = bundle_text.split("\n## Container Images\n")[0]
-    lines = docs_region.split("\n")
+    lines = bundle_text.split("\n")
     return [
         lines[i - 1].removeprefix("### ").strip()
         for i, line in enumerate(lines)
@@ -403,4 +394,20 @@ def test_real_bundle_results_are_never_empty(real_index):
 
 
 def index_page_keys(idx):
-    return [name for name in idx.sections if not name.startswith("image:")]
+    return list(idx.sections)
+
+
+# --- The tool surface ------------------------------------------------------
+
+
+def test_server_exposes_only_the_documentation_tools():
+    """The image tools stay removed; a returning one would serve stale data."""
+    tools = asyncio.run(mcp_server.server.list_tools())
+    assert {tool.name for tool in tools} == EXPECTED_TOOLS
+
+
+def test_instructions_point_to_the_image_servers():
+    """A client asking this server about images learns where that data lives."""
+    instructions = mcp_server.server.instructions
+    assert "https://cgr.dev/mcp" in instructions
+    assert "https://apk.cgr.dev/mcp" in instructions

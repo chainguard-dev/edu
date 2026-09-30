@@ -88,6 +88,7 @@ jobs:
         # docs content, so stub those artifacts to let the image build.
         cd scripts
         echo "# placeholder for PR smoke test" > chainguard-ai-docs.md
+        echo '{}' > package-mappings.json
         echo '{}' > image-catalog.json
         echo "placeholder" > checksums.txt
         cd ..
