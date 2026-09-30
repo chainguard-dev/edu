@@ -1,13 +1,14 @@
 ---
 aliases:
 - /chainguard/administration/assumable-ids/identity-examples/aws-identity/
+- /chainguard/administration/iam-groups/identity-examples/enforce-aws-identity/
 title : "Create an assumable identity to authenticate from AWS (legacy)"
 linktitle: "AWS (legacy)"
 lead: ""
 description: "Tutorial outlining how to create a Chainguard identity that can be assumed by an AWS user or role."
 type: "article"
 date: 2025-11-28T16:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-09-30T18:41:26+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []

@@ -33,3 +33,12 @@ else
 fi
 
 hugo --gc --minify --buildFuture -b "https://$host"
+
+# Publish through Vercel's Build Output API, whose config.json carries the
+# routing table Hugo generated from the same redirect rules production nginx
+# uses (layouts/index.vercelconfig.json). When .vercel/output exists after the
+# build, Vercel serves it and ignores the project's Output Directory setting.
+rm -rf .vercel/output
+mkdir -p .vercel/output
+mv public .vercel/output/static
+mv .vercel/output/static/vercel-config.json .vercel/output/config.json

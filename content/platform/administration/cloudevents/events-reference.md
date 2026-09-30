@@ -3,10 +3,11 @@ title : "Chainguard Events"
 lead: ""
 aliases:
 - /chainguard/administration/cloudevents/events-reference/
+- /chainguard/administration/cloudevents/events/
 description: "Chainguard Events"
 type: "article"
 date: 2022-11-15T12:05:04
-lastmod: 2026-09-29T17:51:13
+lastmod: 2026-09-30T18:41:26+00:00
 draft: false
 tags: ["Platform", "Reference", "Product"]
 images: []

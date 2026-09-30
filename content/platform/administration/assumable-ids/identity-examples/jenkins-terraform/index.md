@@ -7,11 +7,13 @@ aliases:
 - /chainguard/chainguard-enforce/iam-groups/enforce-jenkins-identity/
 - /chainguard/administration/iam-organizations/identity-examples/jenkins-identity/
 - /chainguard/administration/assumable-ids/identity-examples/jenkins-identity/
+- /chainguard/administration/iam-groups/identity-examples/jenkins-identity/
+- /chainguard/administration/iam-groups/identity-examples/enforce-jenkins-identity/
 lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity with Terraform that can be assumed by a Jenkins pipeline."
 type: "article"
 date: 2025-09-07T08:48:45+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-09-30T18:41:26+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []

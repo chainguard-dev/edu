@@ -4,10 +4,13 @@ linktitle: "GitHub team role-binding"
 aliases:
 - /chainguard/administration/iam-organizations/rolebinding-terraform-gh/
 - /chainguard/administration/iam-organizations/roles-role-bindings/rolebinding-terraform-gh/
+- /chainguard/administration/iam-groups/rolebinding-terraform-gh/
+- /chainguard/administration/iam-groups/rolebinding-with-terraform/
+- /chainguard/administration/iam-groups/rolebinding-with-terraform/rolebinding-terraform-gh/
 description: "Procedural tutorial outlining how to use Terraform to create Chainguard role-bindings for members of a GitHub team."
 type: "article"
 date: 2023-06-10T08:48:45+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-09-30T18:41:26+00:00
 draft: false
 tags: ["Chainguard Console", "Procedural"]
 images: []

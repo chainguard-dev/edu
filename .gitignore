@@ -47,3 +47,6 @@ scripts/manual-upload-*.sh
 # Keep secure versions and examples
 !scripts/*-secure.sh
 !.env.example
+
+# Vercel Build Output API directory, written by scripts/build-vercel.sh
+.vercel/

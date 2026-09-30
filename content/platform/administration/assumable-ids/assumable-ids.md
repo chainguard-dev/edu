@@ -6,11 +6,12 @@ aliases:
 - /chainguard/chainguard-enforce/iam-groups/assumable-ids/
 - /chainguard/administration/iam-organizations/assumable-ids/
 - /chainguard/administration/assumable-ids/assumable-ids/
+- /chainguard/administration/iam-groups/assumable-ids/
 lead: ""
 description: "An overview of what assumable identities are and how they can be used with Chainguard assets."
 type: "article"
 date: 2023-05-04T08:48:45+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-09-30T18:41:26+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
