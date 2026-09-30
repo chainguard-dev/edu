@@ -5,9 +5,10 @@ aliases:
 - /chainguard/chainguard-enforce/authentication/identity-examples/
 - /chainguard/administration/iam-organizations/identity-examples/
 - /chainguard/administration/assumable-ids/identity-examples/
+- /chainguard/administration/iam-groups/identity-examples/
 type: "article"
 date: 2023-04-13T08:49:15+00:00
-lastmod: 2023-12-07T08:48:45+00:00
+lastmod: 2026-09-30T18:41:26+00:00
 draft: false
 images: []
 weight: 20

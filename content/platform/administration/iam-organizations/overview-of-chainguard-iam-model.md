@@ -5,11 +5,12 @@ aliases:
 - /chainguard/administration/iam-organizations/overview-of-chainguard-iam-model/
 - /chainguard/chainguard-enforce/chainguard-enforce-kubernetes/overview-of-enforce-iam-model/
 - /chainguard/administration/iam-organizations/overview-of-enforce-iam-model/
+- /chainguard/administration/iam-groups/overview-of-enforce-iam-model/
 type: "article"
 description: "Learn how Chainguard's identity and access management (IAM) model works with organizations, folders, and role-based access control for more secure resource management"
 lead: "Chainguard's identity and access management (IAM) provides enterprise-grade access control for container registries and security resources through organizations, folders, and fine-grained permissions."
 date: 2022-07-15T15:22:20+01:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-09-30T18:41:26+00:00
 draft: false
 tags: ["Console", "Reference"]
 images: []

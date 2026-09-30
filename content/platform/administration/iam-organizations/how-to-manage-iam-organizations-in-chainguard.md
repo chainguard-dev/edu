@@ -6,10 +6,12 @@ aliases:
 - /chainguard/chainguard-enforce/chainguard-enforce-kubernetes/how-to-manage-iam-groups-in-chainguard-enforce/
 - /chainguard/administration/iam-organizations/how-to-manage-iam-groups-in-chainguard-enforce/
 - /chainguard/administration/iam-organizations/how-to-manage-iam-groups-in-chainguard/
+- /chainguard/administration/iam-groups/how-to-manage-iam-groups-in-chainguard/
+- /chainguard/administration/iam-groups/how-to-manage-iam-groups-in-chainguard-enforce/
 type: "article"
 description: "Using identity and access management in Chainguard"
 date: 2022-07-15T15:22:20+01:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-09-30T18:41:26+00:00
 draft: false
 tags: ["Chainguard Console", "Procedural"]
 images: []

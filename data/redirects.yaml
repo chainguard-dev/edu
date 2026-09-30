@@ -100,12 +100,6 @@ rules:
     to: '/chainguard/administration/custom-idps/custom-idps/'
   - regex: '^/chainguard/chainguard-enforce/reference/events/(.+)?$'
     to: '/chainguard/administration/cloudevents/events-reference/'
-  - regex: '^/chainguard/administration/cloudevents/create-github-issues/(.+)?$'
-    to: '/chainguard/administration/cloudevents/'
-  - regex: '^/chainguard/administration/cloudevents/create-jira-issues/(.+)?$'
-    to: '/chainguard/administration/cloudevents/'
-  - regex: '^/chainguard/administration/cloudevents/create-slack-alerts/(.+)?$'
-    to: '/chainguard/administration/cloudevents/'
   - regex: '^/chainguard/chainguard-images/getting-started/istio(.+)?$'
     to: 'https://images.chainguard.dev/directory/image/istio-pilot/overview/'
   - regex: '^/chainguard/network-requirements/(.+)?$'
@@ -122,8 +116,6 @@ rules:
     to: '/chainguard/administration/iam-groups/$1'
   - regex: '^/chainguard/chainguard-enforce/cloudevents/(.+)?$'
     to: '/chainguard/administration/cloudevents/$1'
-  - regex: '^/chainguard/chainguard-enforce/iam-groups/identity-examples/(.+)?$'
-    to: '/chainguard/chainguard-enforce/authentication/$1'
   - regex: '^/chainguard/chainguard-enforce/authentication/identity-examples/(.+)?$'
     to: '/chainguard/administration/iam-groups/identity-examples/'
   # This pointed at a vulnerability comparison page, which was removed
@@ -131,8 +123,6 @@ rules:
   # Send it to Containers, matching the vuln-comparison rules above.
   - regex: '^/chainguard/chainguard-images/vulnerability-comparisons(/.*)?$'
     to: '/chainguard/containers/'
-  - regex: '^/chainguard/administration/iam-groups/(.+)?$'
-    to: '/chainguard/administration/iam-organizations/$1'
 
   # enforce docs turndown
   - regex: '^/chainguard/chainguard-enforce/(.+)?$'
