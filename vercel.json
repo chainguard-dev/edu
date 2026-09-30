@@ -4,15 +4,6 @@
   "installCommand": "npm ci",
   "buildCommand": "npm run build:vercel",
   "outputDirectory": "public",
-  "trailingSlash": true,
-  "bulkRedirectsPath": "public/redirects.json",
-  "redirects": [
-    {
-      "source": "/chainguard/chainctl/:path*",
-      "destination": "/platform/chainctl/:path*",
-      "permanent": true
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
