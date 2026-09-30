@@ -19,6 +19,11 @@ longest alias first. An alias that is a prefix of another one would otherwise
 claim the subtree below it and hide the more specific rule, which is what
 sent /pull-through-guides/artifactory/artifactory-packages-pull-through to
 the wrong page.
+
+Each alias is a literal path, so its regex metacharacters are escaped. An
+unescaped alias is read as a pattern: "getting-started-c++" matched
+"getting-started-cccc" and never matched itself. Rules are sorted by the
+length of the unescaped alias.
 */ -}}
 {{- $rules := slice -}}
 {{- range $p := .Site.Pages -}}
@@ -26,10 +31,11 @@ the wrong page.
 {{- range .Aliases -}}
 {{- $alias := strings.TrimSuffix "/" . -}}
 {{- if ne $alias $target -}}
-{{- $rules = $rules | append (dict "alias" $alias "target" $target "length" (len $alias)) -}}
+{{- $pattern := replaceRE `([.+*?()|\[\]{}^$\\])` `\$1` $alias -}}
+{{- $rules = $rules | append (dict "pattern" $pattern "target" $target "length" (len $alias)) -}}
 {{- end -}}
 {{- end -}}
 {{- end -}}
 {{- range sort $rules "length" "desc" -}}
-"~^{{ .alias }}(/.*)?$" {{ .target }}$1;
+"~^{{ .pattern }}(/.*)?$" {{ .target }}$1;
 {{ end -}}
