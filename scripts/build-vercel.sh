@@ -33,3 +33,11 @@ else
 fi
 
 hugo --gc --minify --buildFuture -b "https://$host"
+
+# DOCS-209 probe, temporary: publish through the Build Output API with a
+# hand-written routing table, to learn how Vercel treats it. public/ stays in
+# place so the build still succeeds if Vercel ignores .vercel/output.
+rm -rf .vercel/output
+mkdir -p .vercel/output
+cp -al public .vercel/output/static
+cp scripts/vercel-probe-config.json .vercel/output/config.json
