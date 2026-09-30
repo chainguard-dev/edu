@@ -86,6 +86,6 @@ For best results when searching this document:
 
 ### Document Structure
 
-This bundle contains publicly available documentation from Chainguard Academy, including conceptual guides, tutorials, and best practices.
+This bundle contains publicly available documentation from Chainguard Academy, including conceptual guides, tutorials, and best practices. Its final section holds the Dockerfile Converter (dfc) package and image mappings.
 
 ---

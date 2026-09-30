@@ -201,6 +201,28 @@ def process_edu_content(edu_path):
     return docs
 
 
+# The dfc mapping data renders as tables on this page of the site, so its bundle
+# section links there. The title differs from the page's own ("Package and image
+# name mappings"), which the bundle also carries, so neither section overwrites
+# the other in the MCP server's index.
+DFC_SECTION_TITLE = "DFC package and image mapping data"
+DFC_SECTION_PATH = "chainguard/containers/reference/package-name-mappings.md"
+
+
+def read_dfc_mappings(edu_path):
+    """Return dfc's builtin-mappings.yaml as committed in edu, or None if missing.
+
+    The nightly autodocs-platform workflow copies the file from chainguard-dev/dfc
+    into data/package-mappings.yaml, so the bundle and the MCP server's package
+    catalog read the same copy (DOCS-174).
+    """
+    mappings_file = edu_path / "data" / "package-mappings.yaml"
+    if not mappings_file.exists():
+        return None
+    with open(mappings_file, "r", encoding="utf-8") as f:
+        return f.read()
+
+
 def compile_documentation(output_path=None):
     """Main function to compile all documentation"""
     # This script lives in <edu>/scripts/, locally and in CI alike.
@@ -251,6 +273,27 @@ def compile_documentation(output_path=None):
         compiled_md.append(f"_Path: {doc['path']}_\n")
         compiled_md.append(doc["content"])
         compiled_md.append("\n---\n")
+
+    # Add the dfc mappings as one more page, in the same '### <title>' plus
+    # '_Path:' form, so the MCP server indexes and links it like any other.
+    dfc_mappings = read_dfc_mappings(edu_path)
+    if dfc_mappings:
+        compiled_md.append(f"### {DFC_SECTION_TITLE}")
+        compiled_md.append(f"_Path: {DFC_SECTION_PATH}_\n")
+        compiled_md.append(
+            "Mappings from upstream images and packages to their Chainguard "
+            "equivalents, used by the Dockerfile Converter (dfc).\n"
+        )
+        compiled_md.append("```yaml")
+        compiled_md.append(dfc_mappings)
+        compiled_md.append("```\n")
+        print("DFC mappings added")
+    else:
+        # A missing source should not look like a healthy one (DOCS-174).
+        print(
+            "WARNING: data/package-mappings.yaml not found; "
+            "the bundle has no DFC mappings"
+        )
 
     # Save the compiled documentation
     if output_path:
