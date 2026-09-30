@@ -57,6 +57,7 @@ EXPECTED_TOOLS = {
     "get_security_docs",
     "get_tool_docs",
     "find_package_equivalent",
+    "find_image_equivalent",
 }
 
 
@@ -449,3 +450,105 @@ def test_instructions_offer_the_dfc_image_mappings():
 def test_instructions_give_the_pullable_reference_form():
     """Most images are not served from the public cgr.dev/chainguard namespace."""
     assert "cgr.dev/<your-organization>/<image>" in mcp_server.server.instructions
+
+
+# --- Image mappings --------------------------------------------------------
+#
+# Ground truth is data/package-mappings.yaml, parsed here with PyYAML. The
+# lookup reads the JSON that generate_package_catalog.py builds from the same
+# file, so a generator bug or a lookup bug both show up as a mismatch.
+
+MAPPINGS_FILE = REPO_ROOT / "data" / "package-mappings.yaml"
+
+
+@pytest.fixture(scope="module")
+def dfc_images():
+    import yaml
+
+    return yaml.safe_load(MAPPINGS_FILE.read_text(encoding="utf-8"))["images"]
+
+
+@pytest.fixture(scope="module")
+def package_catalog(tmp_path_factory, dfc_images):
+    import json
+    import sys
+
+    import yaml
+
+    sys.path.insert(0, str(Path(__file__).parent))
+    import generate_package_catalog
+
+    mappings = yaml.safe_load(MAPPINGS_FILE.read_text(encoding="utf-8"))
+    path = tmp_path_factory.mktemp("catalog") / "package-mappings.json"
+    path.write_text(json.dumps(generate_package_catalog.build_catalog(mappings)))
+    return mcp_server.PackageCatalog(str(path))
+
+
+def image_name(target):
+    """dfc writes a pinned tag into some targets, as in chainguard-base:latest."""
+    return target.split(":")[0]
+
+
+def test_every_dfc_image_mapping_resolves(package_catalog, dfc_images):
+    exact_keys = [key for key in dfc_images if not key.endswith("*")]
+    assert len(exact_keys) > 300, "the ground truth itself looks truncated"
+    wrong = {
+        key: package_catalog.find_image_equivalent(key)
+        for key in exact_keys
+        if (package_catalog.find_image_equivalent(key) or {}).get("image")
+        != image_name(dfc_images[key])
+    }
+    assert not wrong, f"{len(wrong)} mappings resolved wrongly: {list(wrong)[:5]}"
+
+
+@pytest.mark.parametrize(
+    "suffix",
+    [
+        ":4.5",
+        # A digest with no tag is the case the '@' split exists for: with a
+        # tag in front, the tag split drops the digest along with it.
+        "@sha256:0123abcd",
+        ":4.5@sha256:0123abcd",
+    ],
+)
+def test_tag_and_digest_are_ignored(package_catalog, dfc_images, suffix):
+    key = "bitnami/pgpool"
+    match = package_catalog.find_image_equivalent(key + suffix)
+    assert match["image"] == image_name(dfc_images[key])
+
+
+def test_docker_hub_hosts_are_removed(package_catalog, dfc_images):
+    key = "bitnami/pgpool"
+    for host in ("docker.io/", "index.docker.io/", "registry-1.docker.io/"):
+        match = package_catalog.find_image_equivalent(host + key)
+        assert match["image"] == image_name(dfc_images[key]), host
+
+
+def test_a_prefix_pattern_matches_the_last_segment(package_catalog, dfc_images):
+    match = package_catalog.find_image_equivalent("nodejs20-debian12")
+    assert match["matched"] == "nodejs*"
+    assert match["image"] == image_name(dfc_images["nodejs*"])
+
+
+def test_a_pinned_tag_is_kept(package_catalog, dfc_images):
+    match = package_catalog.find_image_equivalent("ubuntu:22.04")
+    assert (match["image"], match["tag"]) == tuple(dfc_images["ubuntu"].split(":"))
+
+
+def test_an_unmapped_image_returns_none(package_catalog):
+    assert package_catalog.find_image_equivalent("example.com/team/no-such-app") is None
+
+
+def test_a_registry_port_is_not_a_tag():
+    assert mcp_server.split_image_reference("localhost:5000/team/app:1.2") == (
+        "localhost:5000/team/app",
+        "1.2",
+    )
+
+
+def test_image_tool_gives_an_organization_reference(monkeypatch, package_catalog):
+    """The tool must not present cgr.dev/chainguard/<image> as pullable."""
+    monkeypatch.setattr(mcp_server, "catalog", package_catalog)
+    output = mcp_server.find_image_equivalent("bitnami/pgpool")
+    assert "cgr.dev/<your-organization>/pgpool2" in output
+    assert "cgr.dev/chainguard/pgpool2" not in output

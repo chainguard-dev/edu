@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
 Generate the package catalog JSON that backs the MCP server's
-find_package_equivalent tool.
+find_package_equivalent and find_image_equivalent tools.
 
-Reads the Debian, Fedora, and Alpine to Wolfi package mappings from
-data/package-mappings.yaml, which the autodocs-platform workflow copies nightly
-from chainguard-dev/dfc.
+Reads data/package-mappings.yaml, which the autodocs-platform workflow copies
+nightly from chainguard-dev/dfc: the Debian, Fedora, and Alpine to Wolfi
+package mappings, and the upstream image to Chainguard image mappings.
 
 This script was generate_image_catalog.py and also listed container images. The
 image list came from a README snapshot that had stopped updating, so it was
@@ -44,7 +44,7 @@ def build_catalog(
     mappings: Dict[str, Any],
     commit: Optional[str] = None,
 ) -> Dict[str, Any]:
-    """Build the catalog from the package mappings."""
+    """Build the catalog from dfc's package and image mappings."""
     packages_map = mappings.get("packages", {})
 
     # Build packages index (Debian/Fedora/Alpine -> Wolfi)
@@ -60,13 +60,21 @@ def build_catalog(
 
     total_packages = sum(len(pkg_map) for pkg_map in packages.values() if pkg_map)
 
+    # Upstream image -> Chainguard image, kept exactly as dfc writes it: a key
+    # may end in '*' (a prefix pattern) and a value may pin a tag. The key is
+    # image_mappings, not images, so it cannot be mistaken for the image list
+    # the catalog carried before DOCS-138.
+    image_mappings = dict(mappings.get("images") or {})
+
     catalog = {
         "metadata": {
             "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "source_commit": commit or "unknown",
             "total_packages_mapped": total_packages,
+            "total_image_mappings": len(image_mappings),
         },
         "packages": packages,
+        "image_mappings": image_mappings,
     }
 
     return catalog
@@ -104,7 +112,11 @@ def main():
         # stop the build rather than ship an empty catalog.
         print(f"Error: no package mappings found in {args.mappings}", file=sys.stderr)
         sys.exit(1)
-    print(f"Catalog built: {total} package mappings", file=sys.stderr)
+    print(
+        f"Catalog built: {total} package mappings, "
+        f"{catalog['metadata']['total_image_mappings']} image mappings",
+        file=sys.stderr,
+    )
 
     os.makedirs(os.path.dirname(os.path.abspath(args.output)), exist_ok=True)
     with open(args.output, "w") as f:
