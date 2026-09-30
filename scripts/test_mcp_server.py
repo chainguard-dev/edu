@@ -49,6 +49,7 @@ PYTHON_GUIDE_TITLE = "Migrating to Python Chainguard Containers"
 PYTHON_GUIDE_PATH = (
     "chainguard/containers/migration/migration-guides/migrating-python.md"
 )
+NGINX_GUIDE_TITLE = "Getting started with the nginx Chainguard Container"
 
 # The tools the server exposes since the image tools were removed (DOCS-138).
 EXPECTED_TOOLS = {
@@ -126,6 +127,23 @@ SYNTHETIC_BUNDLE = (
         "Getting Started with Chainguard Containers",
         "chainguard/containers/getting-started.md",
         ["## Prerequisites", "", "You need a cgr.dev account."],
+    )
+    # A pair for the image/container title synonym. The guide's title says
+    # "Container", as the image guides' titles do since the Containers rename;
+    # the other page has "image" in its title and only mentions nginx in
+    # passing. Without the synonym, the passing mention wins "nginx image".
+    + build_page(
+        NGINX_GUIDE_TITLE,
+        "chainguard/containers/getting-started/nginx.md",
+        ["Run nginx from a minimal image."],
+    )
+    + build_page(
+        "Signing overview for every image",
+        "chainguard/containers/signing.md",
+        [
+            "Verify an image signature. Every image is signed, whether it is",
+            "nginx or another image.",
+        ],
     )
 )
 
@@ -233,6 +251,16 @@ def test_results_carry_the_page_url(index):
         "https://edu.chainguard.dev/chainguard/containers/migration"
         "/migration-guides/migrating-python/"
     )
+
+
+def test_image_in_a_query_matches_container_in_a_title(index):
+    """'nginx image' should find the guide titled '... nginx Chainguard Container'.
+
+    Callers say "image"; since the Containers rename the guides' titles say
+    "Container". Remove TITLE_SYNONYMS and the signing page ranks first.
+    """
+    sections = [r["section"] for r in index.search("nginx image")]
+    assert sections[0] == NGINX_GUIDE_TITLE, f"got {sections}"
 
 
 @pytest.mark.parametrize(

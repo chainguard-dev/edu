@@ -119,6 +119,12 @@ STEM_SUFFIXES = (
 MIN_STEM_LEN = 4
 
 TITLE_TERM_WEIGHT = 40  # a term in the page title
+
+# Callers say "image", but the Containers rename (edu#3926) titled the image
+# guides "Getting started with the Python Chainguard Container". Let a query
+# stem earn the title weight through its synonym too, so "python image" finds
+# that page. Title only: body matching stays literal.
+TITLE_SYNONYMS = {"image": "container"}
 TERM_COVERAGE_WEIGHT = 10  # each distinct query term the section matches
 EXACT_PHRASE_BONUS = 60  # the whole query, verbatim
 BODY_HIT_CAP = 20  # ceiling on raw frequency, so long pages cannot dominate
@@ -269,7 +275,8 @@ class ChaguardDocsIndex:
             if hits:
                 matched += 1
                 score += min(hits, BODY_HIT_CAP)
-            if stem in title_lower:
+            synonym = TITLE_SYNONYMS.get(stem)
+            if stem in title_lower or (synonym and synonym in title_lower):
                 score += TITLE_TERM_WEIGHT
 
         if not matched:
