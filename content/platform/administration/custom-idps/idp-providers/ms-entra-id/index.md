@@ -122,6 +122,10 @@ The `--default-role` option defines the default role granted to users registerin
 
 You can refer to our [Generic integration guide](/platform/administration/custom-idps/custom-idps/#generic-integration-guide) in our Introduction to Custom Identity Providers doc for more information about the `chainctl iam identity-providers create` command and its required options.
 
+### Send a usable email claim
+
+Chainguard reads the standard `email` claim from the token Entra ID issues. Entra populates `email` from the user's `mail` attribute and omits the claim when that attribute is unset — common in tenants where users have no mailbox. Because `email` is one of Microsoft's [restricted claims](https://learn.microsoft.com/en-us/entra/identity-platform/reference-claims-customization#json-web-token-jwt-restricted-claim-set), you can't re-point it to another attribute such as `userPrincipalName` with a claims-mapping policy; the value has to come from `mail`. Set a `mail` attribute on the affected users so Entra includes the claim. Note that `mail` is a shared directory attribute other systems read, so prefer a real mailbox where one exists; a placeholder set only for this is stored by Chainguard as unverified, which is harmless here because the address is used only for display and the support-portal lookup. See [Required token claims](/platform/administration/custom-idps/custom-idps/#required-token-claims) for the full requirement.
+
 ## Log in to Chainguard with the Entra ID identity provider
 
 To log in to the Chainguard Console with the new identity provider you just created, navigate to [console.chainguard.dev/auth/login](https://console.chainguard.dev/auth/login), enter your Chainguard organization's name into the **Email or organization** box, and click **Continue**. This opens a new window with the Microsoft Entra ID login flow, where you can complete the login process.
