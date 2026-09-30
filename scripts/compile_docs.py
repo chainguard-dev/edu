@@ -282,7 +282,11 @@ def compile_documentation(output_path=None):
         compiled_md.append(f"_Path: {DFC_SECTION_PATH}_\n")
         compiled_md.append(
             "Mappings from upstream images and packages to their Chainguard "
-            "equivalents, used by the Dockerfile Converter (dfc).\n"
+            "equivalents, used by the Dockerfile Converter (dfc). An image "
+            "mapping gives a Chainguard image name: pull it as "
+            "cgr.dev/<your-organization>/<image>. Most Chainguard images are "
+            "available only to entitled organizations; the public "
+            "cgr.dev/chainguard namespace serves a free subset.\n"
         )
         compiled_md.append("```yaml")
         compiled_md.append(dfc_mappings)

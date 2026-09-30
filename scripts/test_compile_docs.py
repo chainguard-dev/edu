@@ -70,6 +70,12 @@ def test_dfc_section_is_indexed_and_links_to_the_mappings_page(bundle_text):
     ]
 
 
+def test_server_instructions_name_the_dfc_section():
+    """The instructions send clients to this section by its exact title."""
+    server = load_server_module()
+    assert compile_docs.DFC_SECTION_TITLE in server.server.instructions
+
+
 def test_bundle_has_no_image_or_course_sections(bundle_text):
     """Both sources were frozen snapshots, removed in DOCS-138."""
     assert "\n## Container Images\n" not in bundle_text

@@ -439,3 +439,13 @@ def test_instructions_point_to_the_image_servers():
     instructions = mcp_server.server.instructions
     assert "https://cgr.dev/mcp" in instructions
     assert "https://apk.cgr.dev/mcp" in instructions
+
+
+def test_instructions_offer_the_dfc_image_mappings():
+    """Saying only 'no image data' made a real client skip the mappings."""
+    assert "no container image data" not in mcp_server.server.instructions
+
+
+def test_instructions_give_the_pullable_reference_form():
+    """Most images are not served from the public cgr.dev/chainguard namespace."""
+    assert "cgr.dev/<your-organization>/<image>" in mcp_server.server.instructions

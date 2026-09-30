@@ -49,10 +49,24 @@ DOCS_PATH = os.getenv("DOCS_PATH", "/docs/chainguard-ai-docs.md")
 CATALOG_PATH = os.getenv("CATALOG_PATH", "/docs/package-mappings.json")
 
 # Sent to every client at initialize, so an AI tool that asks this server about
-# an image learns where that data lives now.
+# an image learns where that data lives now. The first paragraph must not read
+# as "no image data at all": a headless Claude Code test found that wording
+# made the model skip this server's dfc image mappings and guess instead. The
+# second exists because the same test found most answers printing
+# cgr.dev/chainguard/<image> for images that namespace does not serve.
 SERVER_INSTRUCTIONS = """\
 This server searches Chainguard documentation and maps Debian and Fedora
-packages to their Wolfi equivalents. It has no container image data.
+packages to their Wolfi equivalents. Its documentation includes the Dockerfile
+Converter (dfc) mappings from upstream container images, such as
+bitnami/pgpool, to the Chainguard images that replace them: search_docs finds
+them in the section titled "DFC package and image mapping data". It has no
+live image data, such as tags, digests, or SBOMs.
+
+Write a Chainguard image reference as cgr.dev/<your-organization>/<image>.
+Most Chainguard images are available only to organizations entitled to them,
+in the organization's own namespace. The public cgr.dev/chainguard namespace
+serves a free subset, with latest-style tags only, so do not present
+cgr.dev/chainguard/<image> as pullable unless you have confirmed it.
 
 For live image and package facts, use Chainguard's product MCP servers, which
 require a Chainguard account:
