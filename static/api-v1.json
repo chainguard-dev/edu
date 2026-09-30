@@ -6041,6 +6041,10 @@
               "type": "string"
             },
             "type": "object"
+          },
+          "guardedEntrypoint": {
+            "description": "Wraps the image entrypoint with /usr/bin/guarded-entrypoint on rebuild.",
+            "type": "boolean"
           }
         },
         "type": "object"

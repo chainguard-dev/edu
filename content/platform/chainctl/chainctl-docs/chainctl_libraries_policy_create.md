@@ -1,5 +1,5 @@
 ---
-date: 2026-09-28T19:38:53Z
+date: 2026-09-29T17:51:01Z
 title: "chainctl libraries policy create"
 slug: chainctl_libraries_policy_create
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_policy_create/
@@ -24,9 +24,10 @@ the system default), --block to always deny a package, and --allow to let a
 package override the cooldown and/or malware gates.
 
 Packages are identified by their package URL (purl). The purl namespace
-selects the ecosystem, so the same --block and --allow flags work for Go, Java, JavaScript, and Python:
+selects the ecosystem, so the same --block and --allow flags work for .NET, Go, Java, JavaScript, and Python:
 
 ```
+.NET (NuGet)       pkg:nuget/<name>
 Go (modules)       pkg:golang/<module-path>
 Java (Maven)       pkg:maven/<group>/<artifact>
 JavaScript (npm)   pkg:npm/<name>
@@ -76,7 +77,7 @@ chainctl libraries policy create --name NAME [--parent ORGANIZATION_NAME | ORGAN
 
 ```
       --allow stringArray     A package permitted to override gates, as comma-separated key=value pairs: purl=<package-url>[,override-cooldown=true][,override-malware=true][,justification="..."]. justification is required with override-malware. Repeatable.
-      --block stringArray     A package to always deny, as purl=<package-url>. The purl namespace selects the ecosystem (pkg:golang/<module-path>, pkg:maven/<group>/<artifact>, pkg:npm/<name>, pkg:pypi/<name>); append @<version> to block a single version. Repeatable.
+      --block stringArray     A package to always deny, as purl=<package-url>. The purl namespace selects the ecosystem (pkg:nuget/<name>, pkg:golang/<module-path>, pkg:maven/<group>/<artifact>, pkg:npm/<name>, pkg:pypi/<name>); append @<version> to block a single version. Repeatable.
       --cooldown-days int32   The cooldown window in days (0 disables, 1-30 explicit, omit to inherit the default). (default -1)
       --description string    The description of the policy.
       --name string           The name of the policy.

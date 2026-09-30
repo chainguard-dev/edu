@@ -1,5 +1,5 @@
 ---
-date: 2026-09-28T19:38:53Z
+date: 2026-09-29T17:51:01Z
 title: "chainctl auth configure"
 slug: chainctl_auth_configure
 url: /platform/chainctl/chainctl-docs/chainctl_auth_configure/
@@ -42,4 +42,5 @@ login (CI systems, build servers, etc.). Bundler always uses a pull token.
 * [chainctl auth](/platform/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
 * [chainctl auth configure docker](/platform/chainctl/chainctl-docs/chainctl_auth_configure_docker/)	 - Configure a Docker credential helper
 * [chainctl auth configure npm](/platform/chainctl/chainctl-docs/chainctl_auth_configure_npm/)	 - Configure npm credentials for Chainguard Libraries for JavaScript
+* [chainctl auth configure nuget](/platform/chainctl/chainctl-docs/chainctl_auth_configure_nuget/)	 - Configure NuGet credentials for Chainguard Libraries for .NET
 

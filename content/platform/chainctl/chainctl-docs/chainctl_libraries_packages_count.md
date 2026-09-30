@@ -1,5 +1,5 @@
 ---
-date: 2026-09-28T19:38:53Z
+date: 2026-09-29T17:51:01Z
 title: "chainctl libraries packages count"
 slug: chainctl_libraries_packages_count
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_packages_count/
@@ -24,7 +24,7 @@ chainctl libraries packages count [--output=json|table] [flags]
 ### Options
 
 ```
-      --ecosystem string   The ecosystem to count packages for (GO, JAVA, JAVASCRIPT, PYTHON).
+      --ecosystem string   The ecosystem to count packages for (DOTNET, GO, JAVA, JAVASCRIPT, PYTHON).
 ```
 
 ### Options inherited from parent commands
