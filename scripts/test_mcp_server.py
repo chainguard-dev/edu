@@ -26,6 +26,7 @@ Run with:
     pytest scripts/test_mcp_server.py -v
 """
 
+import asyncio
 import importlib.util
 import os
 from pathlib import Path
@@ -48,6 +49,16 @@ PYTHON_GUIDE_TITLE = "Migrating to Python Chainguard Containers"
 PYTHON_GUIDE_PATH = (
     "chainguard/containers/migration/migration-guides/migrating-python.md"
 )
+NGINX_GUIDE_TITLE = "Getting started with the nginx Chainguard Container"
+
+# The tools the server exposes since the image tools were removed (DOCS-138).
+EXPECTED_TOOLS = {
+    "search_docs",
+    "get_security_docs",
+    "get_tool_docs",
+    "find_package_equivalent",
+    "find_image_equivalent",
+}
 
 
 def load_server_module():
@@ -118,15 +129,23 @@ SYNTHETIC_BUNDLE = (
         "chainguard/containers/getting-started.md",
         ["## Prerequisites", "", "You need a cgr.dev account."],
     )
-    + "\n---\n\n"
-    "## Container Images\n\n"
-    "_This section contains documentation for Chainguard container images._\n\n"
-    "### python\n"
-    "A minimal Python container image.\n"
-    "\n<!-- IMAGE_SEPARATOR -->\n"
-    "### nginx\n"
-    "A minimal nginx container image.\n"
-    "\n<!-- IMAGE_SEPARATOR -->\n"
+    # A pair for the image/container title synonym. The guide's title says
+    # "Container", as the image guides' titles do since the Containers rename;
+    # the other page has "image" in its title and only mentions nginx in
+    # passing. Without the synonym, the passing mention wins "nginx image".
+    + build_page(
+        NGINX_GUIDE_TITLE,
+        "chainguard/containers/getting-started/nginx.md",
+        ["Run nginx from a minimal image."],
+    )
+    + build_page(
+        "Signing overview for every image",
+        "chainguard/containers/signing.md",
+        [
+            "Verify an image signature. Every image is signed, whether it is",
+            "nginx or another image.",
+        ],
+    )
 )
 
 
@@ -174,11 +193,10 @@ def test_page_content_is_not_truncated(index):
     assert "Use the -dev variant at build time" in page
 
 
-def test_image_sections_still_parse(index):
-    """Images keep their existing 'image:' keys; this path already worked."""
-    assert "image:python" in index.sections
-    assert "image:nginx" in index.sections
-    assert index.images == ["nginx", "python"]
+def test_the_usage_guide_is_indexed_without_a_url(index):
+    """The preamble is the bundle's own front matter, not a published page."""
+    assert "Bundle Usage Guide" in index.sections
+    assert "Bundle Usage Guide" not in index.page_paths
 
 
 def test_no_content_is_dropped(index):
@@ -236,11 +254,14 @@ def test_results_carry_the_page_url(index):
     )
 
 
-def test_image_results_have_no_url(index):
-    """Image READMEs are not published pages, so there is nothing to link to."""
-    for result in index.search("nginx container image"):
-        if result["section"].startswith("image:"):
-            assert result["url"] == ""
+def test_image_in_a_query_matches_container_in_a_title(index):
+    """'nginx image' should find the guide titled '... nginx Chainguard Container'.
+
+    Callers say "image"; since the Containers rename the guides' titles say
+    "Container". Remove TITLE_SYNONYMS and the signing page ranks first.
+    """
+    sections = [r["section"] for r in index.search("nginx image")]
+    assert sections[0] == NGINX_GUIDE_TITLE, f"got {sections}"
 
 
 @pytest.mark.parametrize(
@@ -319,8 +340,7 @@ def pages_declared_in(bundle_text):
     This deliberately plain line scan is a second implementation of that rule,
     independent of ChaguardDocsIndex.
     """
-    docs_region = bundle_text.split("\n## Container Images\n")[0]
-    lines = docs_region.split("\n")
+    lines = bundle_text.split("\n")
     return [
         lines[i - 1].removeprefix("### ").strip()
         for i, line in enumerate(lines)
@@ -403,4 +423,132 @@ def test_real_bundle_results_are_never_empty(real_index):
 
 
 def index_page_keys(idx):
-    return [name for name in idx.sections if not name.startswith("image:")]
+    return list(idx.sections)
+
+
+# --- The tool surface ------------------------------------------------------
+
+
+def test_server_exposes_only_the_documentation_tools():
+    """The image tools stay removed; a returning one would serve stale data."""
+    tools = asyncio.run(mcp_server.server.list_tools())
+    assert {tool.name for tool in tools} == EXPECTED_TOOLS
+
+
+def test_instructions_point_to_the_image_servers():
+    """A client asking this server about images learns where that data lives."""
+    instructions = mcp_server.server.instructions
+    assert "https://cgr.dev/mcp" in instructions
+    assert "https://apk.cgr.dev/mcp" in instructions
+
+
+def test_instructions_offer_the_dfc_image_mappings():
+    """Saying only 'no image data' made a real client skip the mappings."""
+    assert "no container image data" not in mcp_server.server.instructions
+
+
+def test_instructions_give_the_pullable_reference_form():
+    """Most images are not served from the public cgr.dev/chainguard namespace."""
+    assert "cgr.dev/<your-organization>/<image>" in mcp_server.server.instructions
+
+
+# --- Image mappings --------------------------------------------------------
+#
+# Ground truth is data/package-mappings.yaml, parsed here with PyYAML. The
+# lookup reads the JSON that generate_package_catalog.py builds from the same
+# file, so a generator bug or a lookup bug both show up as a mismatch.
+
+MAPPINGS_FILE = REPO_ROOT / "data" / "package-mappings.yaml"
+
+
+@pytest.fixture(scope="module")
+def dfc_images():
+    import yaml
+
+    return yaml.safe_load(MAPPINGS_FILE.read_text(encoding="utf-8"))["images"]
+
+
+@pytest.fixture(scope="module")
+def package_catalog(tmp_path_factory, dfc_images):
+    import json
+    import sys
+
+    import yaml
+
+    sys.path.insert(0, str(Path(__file__).parent))
+    import generate_package_catalog
+
+    mappings = yaml.safe_load(MAPPINGS_FILE.read_text(encoding="utf-8"))
+    path = tmp_path_factory.mktemp("catalog") / "package-mappings.json"
+    path.write_text(json.dumps(generate_package_catalog.build_catalog(mappings)))
+    return mcp_server.PackageCatalog(str(path))
+
+
+def image_name(target):
+    """dfc writes a pinned tag into some targets, as in chainguard-base:latest."""
+    return target.split(":")[0]
+
+
+def test_every_dfc_image_mapping_resolves(package_catalog, dfc_images):
+    exact_keys = [key for key in dfc_images if not key.endswith("*")]
+    assert len(exact_keys) > 300, "the ground truth itself looks truncated"
+    wrong = {
+        key: package_catalog.find_image_equivalent(key)
+        for key in exact_keys
+        if (package_catalog.find_image_equivalent(key) or {}).get("image")
+        != image_name(dfc_images[key])
+    }
+    assert not wrong, f"{len(wrong)} mappings resolved wrongly: {list(wrong)[:5]}"
+
+
+@pytest.mark.parametrize(
+    "suffix",
+    [
+        ":4.5",
+        # A digest with no tag is the case the '@' split exists for: with a
+        # tag in front, the tag split drops the digest along with it.
+        "@sha256:0123abcd",
+        ":4.5@sha256:0123abcd",
+    ],
+)
+def test_tag_and_digest_are_ignored(package_catalog, dfc_images, suffix):
+    key = "bitnami/pgpool"
+    match = package_catalog.find_image_equivalent(key + suffix)
+    assert match["image"] == image_name(dfc_images[key])
+
+
+def test_docker_hub_hosts_are_removed(package_catalog, dfc_images):
+    key = "bitnami/pgpool"
+    for host in ("docker.io/", "index.docker.io/", "registry-1.docker.io/"):
+        match = package_catalog.find_image_equivalent(host + key)
+        assert match["image"] == image_name(dfc_images[key]), host
+
+
+def test_a_prefix_pattern_matches_the_last_segment(package_catalog, dfc_images):
+    match = package_catalog.find_image_equivalent("nodejs20-debian12")
+    assert match["matched"] == "nodejs*"
+    assert match["image"] == image_name(dfc_images["nodejs*"])
+
+
+def test_a_pinned_tag_is_kept(package_catalog, dfc_images):
+    match = package_catalog.find_image_equivalent("ubuntu:22.04")
+    assert (match["image"], match["tag"]) == tuple(dfc_images["ubuntu"].split(":"))
+
+
+def test_an_unmapped_image_returns_none(package_catalog):
+    assert package_catalog.find_image_equivalent("example.com/team/no-such-app") is None
+
+
+def test_a_registry_port_is_not_a_tag():
+    assert mcp_server.split_image_reference("localhost:5000/team/app:1.2") == (
+        "localhost:5000/team/app",
+        "1.2",
+    )
+
+
+def test_image_tool_gives_an_organization_reference(monkeypatch, package_catalog):
+    """The tool must not present cgr.dev/chainguard/<image> as pullable."""
+    monkeypatch.setattr(mcp_server, "catalog", package_catalog)
+    output = mcp_server.find_image_equivalent("bitnami/pgpool")
+    assert "cgr.dev/<your-organization>/pgpool2" in output
+    assert "cgr.dev/chainguard/pgpool2" not in output

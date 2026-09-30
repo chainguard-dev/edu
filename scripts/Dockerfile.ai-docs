@@ -27,6 +27,8 @@ USER nonroot
 # Copy documentation and verification files
 # These will be added during the build process
 COPY chainguard-ai-docs.md /docs/
+COPY package-mappings.json /docs/
+# The same file under its earlier name, for CATALOG_PATH settings that use it
 COPY image-catalog.json /docs/
 COPY checksums.txt /docs/
 COPY verification.sh /docs/

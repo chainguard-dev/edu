@@ -100,87 +100,6 @@ jobs:
           pip install pyyaml
         fi
 
-    - name: Download documentation from GCS
-      run: |
-        echo "Downloading documentation bundles from GCS..."
-
-        # Create directories for extracted content
-        mkdir -p ../images-private
-        mkdir -p ../courses
-        mkdir -p ../dfc
-
-        # Validate tar archive has no path traversal before extracting
-        validate_tar() {
-          local archive="$1"
-          if tar -tzf "$archive" | grep -qE '(^\./?\.\.|^/|\.\.)'; then
-            echo "ERROR: Archive $archive contains path traversal entries"
-            exit 1
-          fi
-        }
-
-        # Download and extract edu docs (from GCS, not local)
-        if gcloud storage cp gs://academy-all-docs/edu/docs-export.tar.gz /tmp/edu.tar.gz \
-           --project=chainguard-academy 2>/dev/null; then
-          echo "Extracting edu documentation..."
-          validate_tar /tmp/edu.tar.gz
-          # For edu, we'll extract to a temp location and copy selectively
-          mkdir -p /tmp/edu-docs
-          tar -xzf /tmp/edu.tar.gz -C /tmp/edu-docs --strip-components=1
-          # Copy content but avoid duplicating what's already in the local edu repo
-          if [ -d "/tmp/edu-docs/content" ]; then
-            echo "✓ edu docs downloaded from GCS ($(find /tmp/edu-docs -name "*.md" | wc -l) files)"
-          fi
-        else
-          echo "⚠ edu docs not found in GCS (will use local content)"
-        fi
-
-        # Download and extract images-private docs
-        if gcloud storage cp gs://academy-all-docs/images-private/docs-export.tar.gz /tmp/images-private.tar.gz \
-           --project=chainguard-academy 2>/dev/null; then
-          echo "Extracting images-private documentation..."
-          validate_tar /tmp/images-private.tar.gz
-          tar -xzf /tmp/images-private.tar.gz -C ../images-private
-          echo "✓ images-private docs downloaded"
-        else
-          echo "⚠ images-private docs not found in GCS (will use placeholder)"
-          echo "# Images Private Documentation" > ../images-private/README.md
-          echo "Documentation not yet available" >> ../images-private/README.md
-        fi
-
-        # Download and extract courses docs
-        if gcloud storage cp gs://academy-all-docs/courses/docs-export.tar.gz /tmp/courses.tar.gz \
-           --project=chainguard-academy 2>/dev/null; then
-          echo "Extracting courses documentation..."
-          validate_tar /tmp/courses.tar.gz
-          tar -xzf /tmp/courses.tar.gz -C ../courses --strip-components=1
-          echo "✓ courses docs downloaded"
-        else
-          echo "⚠ courses docs not found in GCS (will use placeholder)"
-          echo "# Courses Documentation" > ../courses/README.md
-          echo "Documentation not yet available" >> ../courses/README.md
-        fi
-
-        # Download and extract dfc docs (Dockerfile Converter mappings)
-        if gcloud storage cp gs://academy-all-docs/dfc/docs-export.tar.gz /tmp/dfc.tar.gz \
-           --project=chainguard-academy 2>/dev/null; then
-          echo "Extracting dfc documentation..."
-          validate_tar /tmp/dfc.tar.gz
-          tar -xzf /tmp/dfc.tar.gz -C ../dfc
-          echo "✓ dfc docs downloaded"
-        else
-          echo "⚠ dfc docs not found in GCS (will skip dfc mappings)"
-        fi
-
-        # Download metadata files for logging
-        echo ""
-        echo "Metadata information:"
-        for repo in edu images-private courses; do
-          if gcloud storage cp gs://academy-all-docs/${repo}/metadata.json /tmp/${repo}-metadata.json \
-             --project=chainguard-academy 2>/dev/null; then
-            echo "${repo}: $(cat /tmp/${repo}-metadata.json | jq -r '.export_time // "unknown"')"
-          fi
-        done
-
     - name: Compile documentation
       run: |
         echo "Compiling documentation bundle..."
@@ -219,15 +138,17 @@ jobs:
 
         echo "No credential patterns found"
 
-    - name: Generate image catalog
+    - name: Generate package catalog
       env:
         COMMIT_SHA: ${{ github.sha }}
       run: |
-        python3 scripts/generate_image_catalog.py \
-          --docs static/downloads/chainguard-complete-docs.md \
+        python3 scripts/generate_package_catalog.py \
           --mappings data/package-mappings.yaml \
-          --output scripts/image-catalog.json \
+          --output scripts/package-mappings.json \
           --commit "$COMMIT_SHA"
+        # Also ship the file under its earlier name, so existing CATALOG_PATH
+        # settings that point at image-catalog.json keep working.
+        cp scripts/package-mappings.json scripts/image-catalog.json
 
     - name: Create AI-specific bundle
       run: |
@@ -236,16 +157,16 @@ jobs:
         # Rename for clarity
         cp chainguard-complete-docs.md chainguard-ai-docs.md
 
-        # Copy image catalog into downloads
-        cp ../../scripts/image-catalog.json .
+        # Copy the package catalog, under both names, into downloads
+        cp ../../scripts/package-mappings.json ../../scripts/image-catalog.json .
 
         # Create compressed versions (include catalog in bundles)
-        tar -czf chainguard-ai-docs.tar.gz chainguard-ai-docs.md image-catalog.json
+        tar -czf chainguard-ai-docs.tar.gz chainguard-ai-docs.md package-mappings.json image-catalog.json
         gzip -k chainguard-ai-docs.md
-        zip chainguard-ai-docs.zip chainguard-ai-docs.md image-catalog.json
+        zip chainguard-ai-docs.zip chainguard-ai-docs.md package-mappings.json image-catalog.json
 
         # Generate checksums
-        sha256sum chainguard-ai-docs.md image-catalog.json > checksums.txt
+        sha256sum chainguard-ai-docs.md package-mappings.json image-catalog.json > checksums.txt
 
         echo "AI documentation bundle created:"
         ls -lh chainguard-ai-docs.*
@@ -271,11 +192,12 @@ jobs:
         # Copy files for container build
         cp static/downloads/chainguard-ai-docs.md scripts/
 
-        # image-catalog.json is already in scripts/ from the generate step
+        # package-mappings.json and image-catalog.json are already in scripts/
+        # from the generate step
 
         # Create container-specific checksums (only for files included in container)
         cd scripts
-        sha256sum chainguard-ai-docs.md image-catalog.json > checksums.txt
+        sha256sum chainguard-ai-docs.md package-mappings.json image-catalog.json > checksums.txt
         cd ..
 
         # Build container with GitHub Container Registry
