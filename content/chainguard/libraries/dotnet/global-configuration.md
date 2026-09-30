@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for .NET in your organization"
 type: "article"
 date: 2026-09-23T00:00:00+00:00
-lastmod: 2026-09-29T16:31:26+00:00
+lastmod: 2026-09-30T18:36:45+00:00
 draft: false
 tags: ["Chainguard Libraries", ".NET"]
 images: []
@@ -18,7 +18,7 @@ toc: true
 
 .NET package consumption in a large organization is typically managed by a repository manager. The repository manager acts as a single point of access for developers and development tools to retrieve NuGet packages.
 
-This page describes how to configure JFrog Artifactory to proxy Chainguard Libraries for .NET. The instructions use Chainguard Repository's built-in upstream fallback, which is the recommended configuration.
+This page describes how to configure [JFrog Artifactory](https://jfrog.com/artifactory/) and [Sonatype Nexus Repository](https://www.sonatype.com/products/sonatype-nexus-repository) to proxy Chainguard Libraries for .NET. The instructions use Chainguard Repository's built-in upstream fallback, which is the recommended configuration.
 
 With upstream fallback enabled, configure Artifactory with a single remote repository that points to the Chainguard NuGet v3 service index: `https://libraries.cgr.dev/dotnet/v3/index.json`.
 
@@ -106,3 +106,71 @@ After validation, configure each workstation and build server that restores .NET
 In Artifactory, select the `dotnet-all` virtual repository and use **Set Me Up** or **Generate Settings** to obtain the URL and authentication instructions for your Artifactory version. The URL commonly has the following form: `https://<artifactory-host>/artifactory/api/nuget/dotnet-all`
 
 See [Configuring your build tool](/chainguard/libraries/dotnet/build-configuration/#repository-manager) for more information.
+
+<a id="nexus"></a>
+
+## Sonatype Nexus Repository
+
+[Sonatype Nexus
+Repository](https://www.sonatype.com/products/sonatype-nexus-repository) allows
+for merging multiple remote repositories as a repository group. The following
+instructions are based on the [Nexus documentation for
+NuGet](https://help.sonatype.com/en/nuget-repositories.html).
+
+The recommended approach is to rely on Chainguard Repository's [upstream
+fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls),
+configuring a single proxy repository pointed at the Chainguard NuGet v3 service
+index rather than adding a separate nuget.org proxy. A proxy that points
+directly to nuget.org can bypass Chainguard Repository protections.
+
+### Initial configuration
+
+The following steps create a proxy repository for Chainguard Libraries for .NET
+and a repository group that exposes it to your build tools.
+
+First, log in to Sonatype Nexus as a user with administrator privileges and
+access the **Server administration** and configuration section with the gear
+icon in the top navigation bar.
+
+Next, configure a proxy repository for the Chainguard Libraries for .NET
+repository:
+
+1. Select **Repository - Repositories** in the left hand navigation.
+1. Click **Create repository**.
+1. Select the **nuget (proxy)** recipe.
+1. Configure the following:
+    - **Name**: `dotnet-chainguard`
+    - **Protocol Version**: `NuGet V3`
+    - **Proxy - Remote storage**: Add the URL
+   `https://libraries.cgr.dev/dotnet/v3/index.json`.
+    - **HTTP - Authentication**: Select `Username` as the Authentication type,
+   and provide the [username and password values as retrieved with
+   chainctl](/chainguard/libraries/introduction/access/).
+1. Click **Create repository**.
+
+Create a repository group, or add to an existing repository group:
+
+1. Select **Repository - Repositories** in the left hand navigation.
+1. Click **Create repository**.
+1. Select the **nuget (group)** recipe.
+1. Configure the following:
+    - **Name**: `dotnet-all`
+    - Under **Group - Member repositories**, move the new repository
+   `dotnet-chainguard` to the right to include it in the group. Position
+   `dotnet-chainguard` at the top of the list using the arrow controls.
+
+In a typical configuration, the Chainguard repository is placed first so that
+packages are retrieved through Chainguard when available. If you are manually
+managing fallback, you can configure an additional nuget.org proxy repository
+and add it to the group after `dotnet-chainguard`.
+
+### Build tool access
+
+NuGet v3 clients access a Nexus group through its service index, which commonly
+has the form `https://repo.example.com/repository/dotnet-all/index.json` (with
+`repo.example.com` replaced with the hostname of your repository manager).
+
+See [Configuring your build
+tool](/chainguard/libraries/dotnet/build-configuration/#repository-manager) for
+information on setting the package source and authenticating to your repository
+manager.
