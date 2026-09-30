@@ -1,6 +1,6 @@
 # Chainguard Documentation Bundle
 
-_Compiled on: 2026-09-29 02:23:46_
+_Compiled on: 2026-09-30 02:27:07_
 
 This document contains Chainguard documentation compiled from multiple sources.
 
@@ -91,416 +91,6 @@ This bundle contains publicly available documentation from Chainguard Academy, i
 ---
 
 ## Documentation Content
-
-### MCP Server for AI Documentation
-_Path: mcp-server-ai-docs.md_
-
-## Overview
-
-The Chainguard AI Documentation MCP server gives AI assistants and automation tools searchable access to Chainguard's container image docs, security guides, and tool references. The server returns only the sections that match each query, so clients avoid loading the full documentation bundle into context.
-
-## What is MCP?
-
-[Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is an open protocol that standardizes how AI applications access external data and tools. An MCP server exposes structured data and tools that AI clients can call to ground their responses in real information.
-
-## Why use the MCP server?
-
-- **Lower context cost.** Clients fetch only the sections they need instead of loading the entire multi-megabyte bundle into every prompt.
-- **Structured queries.** Look up a specific image, search for a CVE, or find a package equivalent without writing custom scrapers.
-- **IDE integration.** Works with Claude Code, Claude Desktop, Cursor, and other MCP-compatible clients, so developers can reference Chainguard docs while they write code.
-
-## Getting started
-
-### Prerequisites
-
-- An MCP-compatible client such as Claude Code, Claude Desktop, or Cursor
-
-### Hosted server (recommended)
-
-Chainguard hosts a public MCP server at `https://mcp.edu.chainguard.dev/mcp`. This is the fastest way to get started — no Docker or local setup required.
-
-How you register the server depends on your MCP client. Clients that support HTTP transport natively can connect to the URL directly. Clients that only spawn local processes (including Claude Desktop) need a small bridge such as [`mcp-remote`](https://github.com/geelen/mcp-remote).
-
-#### Claude Code
-
-Run this command:
-
-```bash
-claude mcp add --transport http chainguard-docs https://mcp.edu.chainguard.dev/mcp
-```
-
-The server is available immediately. Verify it with `claude mcp list`.
-
-> **Note:** The command sets up the docs MCP for use in the current directory. To scope use of the MCP server's availability to any directory that your user account uses, adjust the command by adding `--scope user` to the end.
-
-#### Claude Desktop
-
-Claude Desktop reads MCP servers from a JSON file but does not yet support HTTP transport directly. Use `mcp-remote` to bridge to the hosted server:
-
-```json
-{
-  "mcpServers": {
-    "chainguard-docs": {
-      "command": "npx",
-      "args": [
-        "mcp-remote",
-        "https://mcp.edu.chainguard.dev/mcp"
-      ]
-    }
-  }
-}
-```
-
-The configuration file lives at:
-
-- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
-
-`npx` downloads and runs `mcp-remote` on demand, so Node.js must be installed on the host. Restart Claude Desktop after saving the file.
-
-#### Cursor and other clients with native HTTP transport
-
-Add the server URL to your client's MCP configuration:
-
-```json
-{
-  "mcpServers": {
-    "chainguard-docs": {
-      "url": "https://mcp.edu.chainguard.dev/mcp"
-    }
-  }
-}
-```
-
-Consult your client's documentation for the configuration file location, then restart the client. The Chainguard documentation tools appear in the next conversation.
-
-### Local Docker setup
-
-To run the MCP server locally, pull the container image:
-
-```bash
-docker pull ghcr.io/chainguard-dev/ai-docs:latest
-```
-
-The image's `serve-mcp` entrypoint speaks stdio, which works with any MCP client that launches local processes. For Claude Desktop, add this block to `claude_desktop_config.json`:
-
-```json
-{
-  "mcpServers": {
-    "chainguard-docs": {
-      "command": "docker",
-      "args": [
-        "run",
-        "--rm",
-        "-i",
-        "ghcr.io/chainguard-dev/ai-docs:latest",
-        "serve-mcp"
-      ]
-    }
-  }
-}
-```
-
-Restart the client after saving the file.
-
-## Available tools
-
-The server exposes seven tools for querying documentation, mapping packages, and checking image availability.
-
-### `search_docs`
-
-Search across all Chainguard documentation for relevant content.
-
-**Parameters:**
-
-- `query` (string, required): Search query
-- `max_results` (integer, optional): Maximum results to return (default: 5)
-
-**Example prompts:**
-
-- "Search Chainguard docs for python CVE management"
-- "Find information about FIPS compliance"
-- "Search for nginx configuration examples"
-
-### `get_image_docs`
-
-Get documentation for a specific Chainguard container image.
-
-**Parameters:**
-
-- `image_name` (string, required): Image name (e.g., "python", "node", "nginx")
-
-**Example prompts:**
-
-- "Show me the Python image documentation"
-- "Get docs for the nginx image"
-- "What's in the node image?"
-
-### `list_images`
-
-List Chainguard container images with optional filtering. When the image catalog is available, each result includes the image's registry reference and whether documentation is available.
-
-**Parameters:**
-
-- `filter` (string, optional): Filter images by name (for example, "python", "nginx", "apache")
-
-**Example prompts:**
-
-- "List all Chainguard images"
-- "Show me images related to Python"
-
-### `get_security_docs`
-
-Get security-related documentation including CVE management, SBOMs, and signing.
-
-**Example prompts:**
-
-- "How does Chainguard handle CVEs?"
-- "Show me security documentation"
-- "Explain SBOM generation"
-
-### `get_tool_docs`
-
-Get documentation for Chainguard tools and ecosystem components.
-
-**Parameters:**
-
-- `tool_name` (string, required): Tool name: `wolfi`, `apko`, `melange`, or `chainctl`
-
-**Example prompts:**
-
-- "Show me wolfi documentation"
-- "How do I use apko?"
-- "Explain melange"
-
-### `find_package_equivalent`
-
-Find the Wolfi package that replaces a Debian, Fedora, or Alpine package. Use this when migrating a Dockerfile to a Chainguard image and translating package names for `apk add`.
-
-**Parameters:**
-
-- `package` (string, required): Upstream OS package name (e.g., "build-essential", "libssl-dev", "python3-pip")
-- `distro` (string, optional): Source distribution to search: `debian`, `fedora`, or `alpine`. Searches all distributions if omitted.
-
-**Example prompts:**
-
-- "What's the Wolfi equivalent of Debian's build-essential?"
-- "Find the Chainguard package for libssl-dev"
-- "I need to replace python3-pip in my Alpine Dockerfile"
-
-### `check_image_freshness`
-
-Query `cgr.dev` for how current an image is. Returns the digest and build date of the image's `latest` tag, along with the repository's tags. Falls back to catalog data if the registry is unreachable.
-
-Tag lists omit the `sha256-` attachment tags that carry each image's signature, attestation, and SBOM, because they outnumber the image's real tags by several hundred to one.
-
-**Parameters:**
-
-- `image_name` (string, required): Chainguard image name (such as "python", "node", "nginx")
-
-**Example prompts:**
-
-- "When was the Python image last built?"
-- "What tags are available for the Python image?"
-- "Show me the available tags for the nginx image"
-- "Is the golang image available on cgr.dev?"
-
-## Image catalog
-
-The `list_images` and `find_package_equivalent` tools draw from a pre-built catalog that ships with the server. The `check_image_freshness` tool queries the registry directly, and uses the catalog only to report whether an image has documentation. The catalog includes:
-
-- Every Chainguard container image with its registry reference, sourced from the image documentation
-- Package mappings from Debian, Fedora, and Alpine to their Wolfi equivalents
-
-Each documentation build regenerates the catalog.
-
-## Example usage
-
-Sample exchanges from a Claude Desktop session with the server connected:
-
-```
-You: Search for python image security best practices
-
-Claude: [Uses search_docs tool]
-Based on the Chainguard documentation, here are Python image security best practices:
-...
-```
-
-```
-You: Show me the nginx image documentation
-
-Claude: [Uses get_image_docs tool]
-Here's the complete documentation for the Chainguard nginx image:
-...
-```
-
-```
-You: What's the Wolfi equivalent of Debian's build-essential?
-
-Claude: [Uses find_package_equivalent tool]
-The Wolfi equivalent of Debian's build-essential is build-base. You can install it with:
-apk add build-base
-...
-```
-
-```
-You: Is the python image up to date?
-
-Claude: [Uses check_image_freshness tool]
-The Chainguard Python image (cgr.dev/chainguard/python) was built today. The
-current digest of latest is sha256:ecf07c37..., and the repository's tags are
-latest and latest-dev.
-```
-
-## Standalone installation (without Docker)
-
-The server script and its dependencies live in the [edu repository](https://github.com/chainguard-dev/edu). The documentation files ship inside the container image, which you can extract once and reuse.
-
-```bash
-# Download the MCP server script and requirements
-curl -LO https://raw.githubusercontent.com/chainguard-dev/edu/main/scripts/mcp-server.py
-curl -LO https://raw.githubusercontent.com/chainguard-dev/edu/main/scripts/mcp-requirements.txt
-
-# Extract the documentation bundle from the container image
-docker run --rm --user "$(id -u):$(id -g)" \
-  -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract /output
-# Writes chainguard-ai-docs.md, image-catalog.json, checksums.txt, and
-# verification.sh into a chainguard-ai-docs/ subdirectory
-
-# Install dependencies
-pip install -r mcp-requirements.txt
-
-# Run the server
-DOCS_PATH=chainguard-ai-docs/chainguard-ai-docs.md \
-CATALOG_PATH=chainguard-ai-docs/image-catalog.json \
-python3 mcp-server.py
-```
-
-The container runs as a non-root user, so pass `--user` to let it write to the mounted directory and to leave the extracted files owned by you.
-
-To run this script under Claude Desktop, point the configuration at the local files:
-
-```json
-{
-  "mcpServers": {
-    "chainguard-docs": {
-      "command": "python3",
-      "args": ["/path/to/mcp-server.py"],
-      "env": {
-        "DOCS_PATH": "/path/to/chainguard-ai-docs.md",
-        "CATALOG_PATH": "/path/to/image-catalog.json"
-      }
-    }
-  }
-}
-```
-
-## Self-hosting with HTTP transport
-
-Run your own HTTP instance when you need to expose the server inside a firewall or with custom configuration.
-
-### From the standalone script
-
-```bash
-python3 mcp-server.py --transport http --port 8080
-```
-
-The server binds to `http://0.0.0.0:8080` with the MCP endpoint at `/mcp`.
-
-Environment variables work too:
-
-```bash
-MCP_TRANSPORT=http MCP_PORT=8080 python3 mcp-server.py
-```
-
-### From Docker
-
-```bash
-docker run --rm -p 8080:8080 ghcr.io/chainguard-dev/ai-docs:latest serve-mcp-http
-```
-
-Point your MCP client at `http://localhost:8080/mcp/`.
-
-### CLI flags
-
-| Flag | Env var | Default | Description |
-| --- | --- | --- | --- |
-| `--transport` | `MCP_TRANSPORT` | `stdio` | Transport mode: `stdio` or `http` |
-| `--host` | `MCP_HOST` | `0.0.0.0` | HTTP server bind address |
-| `--port` | `MCP_PORT` | `8080` | HTTP server port |
-
-## Alternative: static documentation
-
-If you don't need the server at all, extract the documentation file from the container:
-
-```bash
-docker run --rm --user "$(id -u):$(id -g)" -v $(pwd):/output \
-  ghcr.io/chainguard-dev/ai-docs:latest extract /output
-```
-
-The bundle lands at `chainguard-ai-docs/chainguard-ai-docs.md`. Refer to the [Developer Resources](/developer-resources/) page for more on static extraction.
-
-## Security features
-
-The container image follows the standard Chainguard pattern:
-
-- Built on `cgr.dev/chainguard/wolfi-base`
-- Runs as a non-root user
-- Signed with Cosign, with SBOM and provenance attached
-- Rebuilt regularly so known CVEs do not accumulate
-
-## Troubleshooting
-
-### Server does not appear in Claude Desktop
-
-1. Confirm that the configuration file path is correct for your platform.
-2. Restart Claude Desktop after editing the file.
-3. Check Claude Desktop's logs for parse or connection errors.
-4. For the local Docker block, confirm Docker is running.
-
-### Connection issues
-
-Test the hosted server with `curl`:
-
-```bash
-curl -X POST https://mcp.edu.chainguard.dev/mcp \
-  -H "Content-Type: application/json" \
-  -H "Accept: application/json, text/event-stream" \
-  -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"test","version":"1.0"}}}'
-```
-
-A JSON response listing the server's capabilities confirms the connection.
-
-To test a local Docker server:
-
-```bash
-docker run --rm -i ghcr.io/chainguard-dev/ai-docs:latest serve-mcp
-```
-
-The container prints startup messages and then waits for stdio input.
-
-### Documentation out of date
-
-The hosted server updates automatically. For the local Docker setup, pull a fresh image:
-
-```bash
-docker pull ghcr.io/chainguard-dev/ai-docs:latest
-```
-
-## Resources
-
-- [Model Context Protocol documentation](https://modelcontextprotocol.io/)
-- [Chainguard MCP blog post](https://www.chainguard.dev/unchained/meet-chainguard-mcps-bringing-supply-chain-security-to-the-ai-era)
-- [Developer Resources](/developer-resources/)
-- [Chainguard Images Directory](https://images.chainguard.dev/)
-
-## Need help?
-
-- [Get support](/get-started/get-support/)
-- [Community Slack](https://join.slack.com/t/chainguardcommunity/shared_invite/zt-3nttdr807-V9BJHayWvsB0KbHsfZO5Rw)
-- [GitHub Issues](https://github.com/chainguard-dev/edu/issues)
-
----
 
 ### AI Documentation Security
 _Path: ai-docs-security.md_
@@ -707,7 +297,7 @@ This page describes a compiled bundle of Chainguard documentation that you can f
 <div style="background-color: var(--blockquote-background); border-left: 4px solid var(--link-color, #2196F3); padding: 20px; border-radius: 4px; margin: 20px 0;">
   <h3 style="margin-top: 0; color: var(--body-color);">MCP server support</h3>
   <p style="color: var(--body-color);">Run the container as an <strong>MCP (Model Context Protocol) server</strong> for searchable, on-demand access to Chainguard documentation in AI assistants and IDEs.</p>
-  <p><a href="/mcp-server-ai-docs/" style="font-weight: bold; text-decoration: none; color: var(--link-color, #2196F3);">→ Full MCP server documentation</a></p>
+  <p><a href="/platform/mcp-servers/ai-docs/" style="font-weight: bold; text-decoration: none; color: var(--link-color, #2196F3);">→ Full MCP server documentation</a></p>
 </div>
 
 Two distribution methods are available:
@@ -790,9 +380,9 @@ Add this block to `claude_desktop_config.json`:
 }
 ```
 
-To use the hosted server instead of running a container locally, refer to the [hosted server instructions](/mcp-server-ai-docs/#hosted-server-recommended) — Claude Desktop reaches it through the [`mcp-remote`](https://github.com/geelen/mcp-remote) bridge. A [standalone Python script](/mcp-server-ai-docs/#standalone-installation-without-docker) is also available for setups without Docker.
+To use the hosted server instead of running a container locally, refer to the [hosted server instructions](/platform/mcp-servers/ai-docs/#hosted-server-recommended) — Claude Desktop reaches it through the [`mcp-remote`](https://github.com/geelen/mcp-remote) bridge. A [standalone Python script](/platform/mcp-servers/ai-docs/#standalone-installation-without-docker) is also available for setups without Docker.
 
-[**Full MCP server documentation →**](/mcp-server-ai-docs/)
+[**Full MCP server documentation →**](/platform/mcp-servers/ai-docs/)
 
 ### Quick start
 
@@ -4562,6 +4152,8 @@ Chainguard by scanning your local package manager cache or `node_modules`
 directory. `chainctl libraries verify` auto-detects npm and pnpm caches by
 their directory structure.
 
+You can also verify your lockfile directly, without reinstalling. Run `chainctl libraries verify` against a lockfile (`package-lock.json`, `npm-shrinkwrap.json`, `pnpm-lock.yaml`, `yarn.lock`, or `bun.lock`) to check which of its entries resolve to Chainguard-built packages. This reports what the lockfile claims will be installed, not the package bytes on disk. See [Verify JavaScript lockfiles without installing dependencies](/chainguard/libraries/policies-and-security/verification/#verify-javascript-lockfiles-without-installing-dependencies).
+
 When upstream fallback is enabled, [packages that aren't built by Chainguard](#packages-not-available-in-chainguard-libraries) are subject to Chainguard's security controls.
 
 {{< tabs label="Package manager for verifying libraries" >}}
@@ -4813,6 +4405,14 @@ You can verify a package tarball in a single command using `chainctl`:
 ```bash
 chainctl libraries verify PACKAGE-VERSION.tgz
 ```
+
+You can also verify a lockfile directly, without installing dependencies:
+
+```bash
+chainctl libraries verify package-lock.json
+```
+
+Supported lockfiles are `package-lock.json`, `npm-shrinkwrap.json`, `pnpm-lock.yaml`, `yarn.lock`, and `bun.lock`.
 
 Refer to [Verification](/chainguard/libraries/policies-and-security/verification/) for setup and usage details.
 
@@ -6733,6 +6333,20 @@ chainctl libraries verify ./node_modules
 
 If `.package-lock.json` is not present, the directory is not recognized as an npm tree and verification will not run.
 
+#### Verify JavaScript lockfiles without installing dependencies
+
+> **Note**: This command requires `chainctl` v0.2.354 or later.
+
+Verify a JavaScript lockfile directly, without running an install and without requiring `node_modules` or a persistent package manager cache:
+
+```sh
+chainctl libraries verify package-lock.json
+```
+
+Supported lockfiles include `package-lock.json`, `npm-shrinkwrap.json`, `pnpm-lock.yaml`, `yarn.lock`, and `bun.lock`.
+
+This command verifies what the lockfile claims will be installed. It does not verify the package bytes present on disk.
+
 #### Verify a container image
 
 Verify JavaScript packages inside a container image:
@@ -7821,6 +7435,8 @@ chainctl libraries verify /path/to/artifact
 ```
 
 > **Note**: Running `chainctl libraries verify` requires one of the `libraries.java.pull`, `libraries.javascript.pull`, or `libraries.python.pull` permissions, or the Owner role.
+
+For JavaScript projects, you can also verify a lockfile directly, without installing dependencies. For example: `chainctl libraries verify package-lock.json`.
 
 Learn more in [Chainguard Libraries verification](/chainguard/libraries/policies-and-security/verification/).
 
@@ -23531,6 +23147,8 @@ To revoke a token, delete the associated identity.
 chainctl iam identity delete <identity UUID>
 ```
 
+**Note**: On [Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/), this command fails, and the **Delete** action on the Console's **Pull tokens** page is unavailable. The `limited_owner` role assigned to Catalog Starter users can't delete identities. Delete the token's role binding instead: run `chainctl iam role-bindings list` to find the binding, then `chainctl iam role-bindings delete <role-binding-id>`. This removes the token's access, although the identity itself remains in the list.
+
 ### Managing pull tokens in the Chainguard Console
 
 You can also create and view pull tokens in the [Chainguard Console](https://console.chainguard.dev/).
@@ -23548,6 +23166,8 @@ If the Console won't let you create a pull token, your role is missing a capabil
 ## Authenticating with GitHub Actions
 
 You can configure authentication with OIDC-aware CI platforms like GitHub Actions.
+
+**Note**: This approach requires an assumable identity, which [Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/) organizations can't create. On Catalog Starter, authenticate your pipelines with a pull token instead. Refer to [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token).
 
 First create an identity using `chainctl`, which can be limited to only allow OIDC federation from certain GitHub workflow runs:
 
@@ -24811,6 +24431,44 @@ Once you've added all five images, a prompt directs you to contact Chainguard if
 
 After you complete signup, you're free to use the five images you selected however you like. For example, you can pull them into your CI/CD pipelines and runtime environments, or pull them through a third-party registry like [JFrog Artifactory](/chainguard/containers/registry/pull-through-guides/artifactory-containers-pull-through/). These container images are the same as those provided to Chainguard's paying customers, and are covered by Chainguard’s standard hardening, rebuild, and CVE-remediation processes, although they are not covered by [Chainguard's CVE SLA](https://www.chainguard.dev/legal/cve-policy).
 
+#### Authenticate CI pipelines with a pull token
+
+Because Catalog Starter organizations can't create assumable identities, CI pipelines authenticate with a pull token. Create one with `chainctl`:
+
+```shell
+chainctl auth pull-token create --output=env
+```
+
+This sets `CHAINGUARD_IDENTITY_ID` to the username and `CHAINGUARD_TOKEN` to the password. Store both as secrets in your CI platform, then log in to `cgr.dev` with them. For example, in a GitHub Actions workflow:
+
+```yaml
+name: Pull a Chainguard container
+
+on:
+  push:
+    branches: ['main']
+
+permissions:
+  contents: read
+
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log in to cgr.dev
+        env:
+          CHAINGUARD_IDENTITY_ID: ${{ secrets.CHAINGUARD_IDENTITY_ID }}
+          CHAINGUARD_TOKEN: ${{ secrets.CHAINGUARD_TOKEN }}
+        run: |
+          echo "$CHAINGUARD_TOKEN" | docker login cgr.dev \
+            --username "$CHAINGUARD_IDENTITY_ID" --password-stdin
+      - run: docker pull cgr.dev/$ORGANIZATION/python:latest
+```
+
+This workflow doesn't need the `id-token: write` permission, because it federates no OIDC token.
+
+Pull tokens expire. The default lifetime is 30 days and the maximum is one year (`--ttl=8760h`), so rotate the secret before it expires. Refer to [Authenticate to Chainguard's Registry](/chainguard/containers/registry/authenticating/#authenticating-with-a-pull-token) for the rest of the pull token options.
+
 ### 3. Upgrade when you’re ready
 
 After trying out Chainguard Containers with Catalog Starter, you can reach out to our sales team to upgrade to one of Chainguard's paid plans:
@@ -24887,6 +24545,9 @@ Catalog Starter allows users to try out Chainguard Containers, but it comes with
 * [Chainguard's CVE SLA](https://www.chainguard.dev/legal/cve-policy) does not apply to container images obtained through Catalog Starter.
 * The free plan does not support user management or role-based access control (RBAC). If a colleague from the same company signs up for Catalog Starter, your organization's administrator receives an email with instructions for adding them. You cannot add users directly. Any additional users in your organization have access to the five images selected by the first user and cannot change them.
 * Users in a Catalog Starter organization are assigned the `limited_owner` role, which allows them to browse the Console, pull images, and create pull tokens, but does not include permission to invite other users to the organization or access features like [Custom Assembly](/chainguard/containers/custom-assembly/).
+* You can create pull tokens, but not [assumable identities](/platform/administration/assumable-ids/assumable-ids/). A pull token is the only credential a Catalog Starter organization can issue for automation. If you try to create any other identity, the request fails with `starter organizations are not allowed to create identities`.
+* The [`setup-chainctl`](https://github.com/chainguard-dev/setup-chainctl) GitHub Action doesn't work with Catalog Starter. It authenticates by assuming a Chainguard identity with the OIDC token GitHub issues to the workflow, and it has no pull token mode. The same applies to the OIDC federation examples for GitLab, CircleCI, Buildkite, Jenkins, and Kubernetes. Authenticate your pipelines with a pull token instead, as described in [Authenticate CI pipelines with a pull token](#authenticate-ci-pipelines-with-a-pull-token).
+* Revoking a pull token takes a different path. On the Console's **Pull tokens** page, the **Delete** and **Edit** actions are unavailable, and `chainctl iam identity delete` fails, because the `limited_owner` role can't delete identities. To revoke a token, delete its role binding instead: run `chainctl iam role-bindings list` to find the binding, then `chainctl iam role-bindings delete <role-binding-id>`. This removes the token's access, although the identity itself remains in the list.
 * Neither Custom Assembly nor Commercial Builds, Chainguard's bespoke paid build services, are included in the Catalog Starter plan.
 * Catalog Starter cannot be combined with an existing Chainguard Containers license. Existing customers remain on their current paid plans; this free offering can’t be used to subsidize or partially offset paid image counts.
 
@@ -24903,6 +24564,10 @@ If you anticipate needing different images over time, we recommend talking to ou
 No. FIPS images and Chainguard Commercial Builds are not included in the Catalog Starter plan.
 
 If you require FIPS-validated images or dedicated commercial build work, you’ll need a paid plan that includes those capabilities.
+
+### Can I use Chainguard's GitHub Action with Catalog Starter?
+
+No. The [`setup-chainctl`](https://github.com/chainguard-dev/setup-chainctl) action federates a GitHub OIDC token into a Chainguard assumable identity, and Catalog Starter organizations can't create assumable identities. Log in to `cgr.dev` with a pull token instead, as described in [Authenticate CI pipelines with a pull token](#authenticate-ci-pipelines-with-a-pull-token).
 
 ### Can my colleagues and I use the same Catalog Starter images?
 
@@ -38116,6 +37781,8 @@ Custom Assembly only allows you to add packages into a given container image; yo
 
 The packages you can add to a container image are those that your organization already has access to, based on the Chainguard Containers that your organization is entitled to. Additionally, you can only add supported versions of packages to a customized image.
 
+By default, a Custom Assembly customization applies to every tag in the repository. To apply a customization to some tags only, for example to add a package that only works with one Python version, use [tag-based Custom Assembly](/chainguard/containers/custom-assembly/tag-based-custom-assembly/).
+
 The changes you make to your customized container image may affect its functional behavior when deployed. Chainguard doesn’t test your final customized image and therefore doesn't guarantee its functional behavior. Please test your customized images extensively to ensure they meet your requirements.
 
 ## Why use Custom Assembly for adding packages
@@ -38685,6 +38352,10 @@ You can use `chainctl images repos build apply` to do things like:
 * Combine with `--dry-run` to see which repos would change (drift detection) without actually updating anything.
 
 For more information, refer to [chainctl images repos build apply](/platform/chainctl/chainctl-docs/chainctl_images_repos_build_apply/).
+
+## Customizing specific tags
+
+The `chainctl images repos build` commands apply a customization to every tag in a repository. To apply a customization to some tags only, use the `chainctl images overlays` commands. For details, see [Managing tag-based Custom Assembly with chainctl](/chainguard/containers/custom-assembly/tag-based-custom-assembly/chainctl/).
 
 ## Learn more
 
@@ -39599,6 +39270,14 @@ For a Custom Assembly image, the semantic tag (for example, `vX.Y.Z`) always ref
 
 When an added package is updated and available, your Custom Assembly image is rebuilt automatically and the new build that includes the updated package becomes the `latest` image. The semantic tag remains tied to the same base image digest until the base image itself is updated and a new semantic tag is created.
 
+## Can I customize only some of a repository's tags?
+
+Yes. With [tag-based Custom Assembly](/chainguard/containers/custom-assembly/tag-based-custom-assembly/), you create an overlay that holds your customizations and bind it to specific tags, to every `-dev` tag, or to every tag. This is useful when a package only works with some of an image's versions, such as a Python package built for one Python version.
+
+## Can I use standard and tag-based Custom Assembly on the same repository?
+
+No. A repository uses one or the other. If a repository has overlay bindings, adding a standard customization fails, including from the Chainguard Console. To change that repository's customizations, update its overlays and bindings with `chainctl` or Terraform. To move a repository from standard to tag-based Custom Assembly, contact your Chainguard account team.
+
 ## Custom Assembly troubleshooting
 
 Build failures can occur for a number of reasons, including the following:
@@ -39686,6 +39365,605 @@ You can also delete new container images that you've created with Custom Assembl
 You can also use the Chainguard Console to add Chainguard-managed certificates to Custom Assembly images. Refer to our guide on [Adding custom certificates with Custom Assembly](/chainguard/containers/custom-assembly/custom-assembly-certs/#chainguard-managed-certificate-bundles) for more information.
 
 For more advanced workflows or automation, consider exploring the [`chainctl` CLI tool](/chainguard/containers/custom-assembly/custom-assembly-chainctl/) or the [Chainguard API](/chainguard/containers/custom-assembly/custom-assembly-api-demo/) for programmatic access to Custom Assembly features.
+
+---
+
+### Managing tag-based Custom Assembly with chainctl
+_Path: chainguard/containers/custom-assembly/tag-based-custom-assembly/chainctl.md_
+
+{{< beta feature="Tag-based Custom Assembly" enroll="true" >}}
+
+This guide shows how to use `chainctl` to apply Custom Assembly customizations to some of a repository's tags. You create an overlay that holds the customizations, then bind it to a repository with a tag selector.
+
+For an explanation of overlays, bindings, and tag selectors, see [Overview of tag-based Custom Assembly](/chainguard/containers/custom-assembly/tag-based-custom-assembly/).
+
+## Prerequisites
+
+Before you start, you need the following:
+
+* Tag-based Custom Assembly enabled for your organization. Contact your Chainguard account team to enable it.
+* [`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) version 0.2.367 or later. Run `chainctl update` to update it.
+* A role with the `registry.overlays.edit` capability, such as the built-in `editor` or `owner` role.
+* A repository in your organization with no standard Custom Assembly customization. A repository can't use both. To move a repository from standard Custom Assembly, contact your Chainguard account team.
+
+The examples in this guide use the following environment variables. Set them to match your organization and repository:
+
+```shell
+export ORGANIZATION=example.com
+export REPO=python
+```
+
+The examples add Python packages to the `python` repository, but the same commands work for any repository.
+
+## Add a package to specific tags
+
+This example adds `py3.13-typer` to the Python 3.13 tags only, so the other Python versions keep building.
+
+1. Create an overlay that adds the package:
+
+    ```shell
+    chainctl images overlays create typer --parent $ORGANIZATION --package py3.13-typer
+    ```
+
+    ```output
+    created overlay: typer (45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/1f4fcff90a5f0a02)
+    ```
+
+    To add more than one package, repeat `--package` or separate the names with commas.
+
+1. Bind the overlay to the tags that should receive it. Pass `--tag` once for each tag:
+
+    ```shell
+    chainctl images overlays attach \
+      --overlay typer \
+      --repo $REPO \
+      --parent $ORGANIZATION \
+      --tag 3.13 --tag 3.13-dev
+    ```
+
+    ```output
+    attached overlay "typer" to repo 45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/7c3e5a1b2d4f6e80 (binding 45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/7c3e5a1b2d4f6e80/9b8a7c6d5e4f3a21, selector EXACT [3.13 3.13-dev])
+    ```
+
+Chainguard starts rebuilding `3.13` and `3.13-dev` with the overlay applied. It customizes only the tags you list, even if other tags such as `3.13.7` or `3.13.7-r0` point to the same image. To keep those tags identical, list them too.
+
+To check on the builds, see [Check the results](#check-the-results).
+
+## Add packages to every `-dev` tag
+
+To bind an overlay to every tag ending in `-dev`, use `--variant dev` instead of `--tag`. The following commands create an overlay with two debugging tools and bind it to the repository's `-dev` tags:
+
+```shell
+chainctl images overlays create debug-tools --parent $ORGANIZATION --package strace,gdb
+
+chainctl images overlays attach \
+  --overlay debug-tools \
+  --repo $REPO \
+  --parent $ORGANIZATION \
+  --variant dev
+```
+
+The binding also applies to `-dev` tags published after you create it, so new versions get `strace` and `gdb` without any further changes.
+
+## Add a package to every tag
+
+To bind an overlay to every tag in a repository, use `--all`. The following commands create an overlay that adds `curl` and bind it to every tag:
+
+```shell
+chainctl images overlays create curl --parent $ORGANIZATION --package curl
+
+chainctl images overlays attach \
+  --overlay curl \
+  --repo $REPO \
+  --parent $ORGANIZATION \
+  --all
+```
+
+As with a variant binding, an all binding also applies to tags published after you create it.
+
+## Add the matching package version to every tag
+
+Some packages include a language version in their name, so no single package name works on every tag. The `{{major}}` and `{{minor}}` placeholders solve this: Chainguard replaces them with each tag's version when it builds the tag. The following commands add the `cryptography` package that matches each tag's Python version:
+
+```shell
+chainctl images overlays create cryptography --parent $ORGANIZATION \
+  --package 'py{{major}}.{{minor}}-cryptography'
+
+chainctl images overlays attach \
+  --overlay cryptography \
+  --repo $REPO \
+  --parent $ORGANIZATION \
+  --all
+```
+
+The `3.12` tags receive `py3.12-cryptography`, the `3.14` tags receive `py3.14-cryptography`, and so on. Quote the package name so that your shell doesn't interpret the braces. For details on how Chainguard fills in the placeholders, see [Version templates in package names](/chainguard/containers/custom-assembly/tag-based-custom-assembly/#version-templates-in-package-names).
+
+## Add other customizations
+
+The `--package` flag sets only packages. To set environment variables, annotations, certificates, user accounts, or runtime repositories, write the overlay as a YAML file and pass it with `-f`. The file uses the same format as [`chainctl images repos build apply`](/chainguard/containers/custom-assembly/custom-assembly-chainctl/#applying-packages-non-interactively).
+
+The following commands write an overlay that adds an internal certificate authority and an environment variable, then create the overlay from the file:
+
+```shell
+cat > internal-ca.yaml <<EOF
+certificates:
+  additional:
+    - name: internal-ca
+      content: |
+        -----BEGIN CERTIFICATE-----
+        <certificate contents>
+        -----END CERTIFICATE-----
+environment:
+  REQUESTS_CA_BUNDLE: /etc/ssl/certs/ca-certificates.crt
+EOF
+
+chainctl images overlays create internal-ca --parent $ORGANIZATION -f internal-ca.yaml
+```
+
+If you pass both `-f` and `--package`, `chainctl` uses the file and ignores `--package`.
+
+An overlay belongs to your organization, so you can bind it to many repositories. The following loop binds `internal-ca` to every tag of three repositories:
+
+```shell
+for repo in python node go; do
+  chainctl images overlays attach --overlay internal-ca --repo $repo --parent $ORGANIZATION --all
+done
+```
+
+Each repository gets its own binding, and each binding starts a rebuild of that repository.
+
+You can bind several overlays to one repository with the same kind of selector, as long as they don't set the same field to different values. For example, you can bind both `internal-ca` and `cryptography` to the `python` repository with `--all`. If two overlays conflict, `attach` fails. For example, binding a second overlay that sets `REQUESTS_CA_BUNDLE` to a different value returns an error that names the existing binding and the conflicting field:
+
+```output
+Error: attaching overlay: rpc error: code = FailedPrecondition desc = Precondition failed: overlay config does not merge commutatively with co-matching binding(s): binding "45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/7c3e5a1b2d4f6e80/b7d24dbd7193c219" (overlay "internal-ca", selector ALL) on fields [environment["REQUESTS_CA_BUNDLE"]]
+```
+
+To resolve the conflict, change one of the overlays so that they agree, or bind them with selectors that don't match the same tags.
+
+## List overlays and bindings
+
+To list your organization's overlays, their customizations, and the bindings for each overlay, run the following command:
+
+```shell
+chainctl images overlays list --parent $ORGANIZATION
+```
+
+```output
+overlay: debug-tools (id: 45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/2a3b4c5d6e7f8091)
+  packages: strace, gdb
+  bindings:
+    - repo: python (id: 45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/7c3e5a1b2d4f6e80)
+      selector: VARIANT(DEV)
+      id:   45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/7c3e5a1b2d4f6e80/4d5e6f708192a3b4
+overlay: typer (id: 45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/1f4fcff90a5f0a02)
+  packages: py3.13-typer
+  bindings:
+    - repo: python (id: 45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/7c3e5a1b2d4f6e80)
+      selector: EXACT [3.13 3.13-dev]
+      id:   45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/7c3e5a1b2d4f6e80/9b8a7c6d5e4f3a21
+```
+
+Each binding's `id` is its binding ID. You need it to change or remove the binding. To get output you can process with tools such as `jq`, add `-o json`.
+
+## Change an overlay
+
+To change an overlay's customizations, run `update` with the overlay's name or ID. The packages or file you pass replace the overlay's existing customizations completely, so include everything the overlay should contain.
+
+> **Note**: `--package` replaces the whole overlay, not only its packages. If you created the overlay from a file, for example with certificates or environment variables, running `update` with `--package` removes those customizations. To keep them, update the file and pass it with `-f`.
+
+The following command replaces the packages in the `typer` overlay:
+
+```shell
+chainctl images overlays update typer --package py3.13-typer,py3.13-rich
+```
+
+```output
+updated overlay: typer (45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/1f4fcff90a5f0a02)
+```
+
+To change other customizations, pass a YAML file with `-f`:
+
+```shell
+chainctl images overlays update internal-ca -f internal-ca.yaml
+```
+
+To rename an overlay, pass `--name`:
+
+```shell
+chainctl images overlays update debug-tools --name dev-debug-tools
+```
+
+Bindings refer to overlays by ID, so renaming an overlay doesn't affect its bindings.
+
+Chainguard rebuilds the matching tags in every repository the overlay is bound to.
+
+## Change which tags a binding applies to
+
+To change a binding's tag selector, run `update-binding` with the binding's ID. Set `BINDING_ID` to the `id` shown for the binding in `chainctl images overlays list`:
+
+```shell
+export BINDING_ID=45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/7c3e5a1b2d4f6e80/9b8a7c6d5e4f3a21
+```
+
+The following command replaces the binding's selector, adding `3.13.7` to the tags it applies to:
+
+```shell
+chainctl images overlays update-binding $BINDING_ID --tag 3.13 --tag 3.13-dev --tag 3.13.7
+```
+
+```output
+updated overlay binding 45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/7c3e5a1b2d4f6e80/9b8a7c6d5e4f3a21 (selector EXACT [3.13 3.13-dev 3.13.7])
+```
+
+Chainguard rebuilds the affected tags. Newly matched tags receive the overlay, and tags that no longer match are rebuilt without it. Any other matching overlays still apply.
+
+The selector is the only part of a binding you can change. To bind a different overlay, or to move a binding to another repository, remove the binding and create a new one.
+
+## Remove a customization
+
+To remove an overlay from a repository, run `detach` with the binding ID:
+
+```shell
+chainctl images overlays detach $BINDING_ID
+```
+
+```output
+detached overlay binding 45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/7c3e5a1b2d4f6e80/9b8a7c6d5e4f3a21
+```
+
+Chainguard rebuilds the tags that the binding matched without the detached overlay. Any other matching overlays still apply.
+
+To delete an overlay, detach all of its bindings first. Then run `delete` with the overlay's name or ID:
+
+```shell
+chainctl images overlays delete typer
+```
+
+```output
+deleted overlay 45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/1f4fcff90a5f0a02
+```
+
+If the overlay is still bound to a repository, `delete` fails and lists the bindings to detach. If more than one overlay you can access has the same name, pass the overlay's ID instead, shown next to its name in `chainctl images overlays list`.
+
+## Check the results
+
+Bindings and overlay updates start builds automatically. To see the builds for a repository and the tags each build produced, run the following command:
+
+```shell
+chainctl images repos build list --repo $REPO --parent $ORGANIZATION
+```
+
+The following command shows a build's logs, including the configuration Chainguard built it with. Select a build when prompted:
+
+```shell
+chainctl images repos build logs --repo $REPO --parent $ORGANIZATION
+```
+
+If a package can't be installed on a tag, that tag's build fails and the logs name the package. The failure doesn't affect other tags. For more on these commands, see [Retrieving information about Custom Assembly containers](/chainguard/containers/custom-assembly/custom-assembly-chainctl/#retrieving-information-about-custom-assembly-containers).
+
+## Learn more
+
+* [Overview of tag-based Custom Assembly](/chainguard/containers/custom-assembly/tag-based-custom-assembly/)
+* [Managing tag-based Custom Assembly with Terraform](/chainguard/containers/custom-assembly/tag-based-custom-assembly/terraform/)
+* [Using chainctl to manage Custom Assembly resources](/chainguard/containers/custom-assembly/custom-assembly-chainctl/)
+
+---
+
+### Overview of tag-based Custom Assembly
+_Path: chainguard/containers/custom-assembly/tag-based-custom-assembly/_index.md_
+
+{{< beta feature="Tag-based Custom Assembly" enroll="true" >}}
+
+Standard [Custom Assembly](/chainguard/containers/custom-assembly/overview/) applies one customization to every tag in a repository. This fails for images that ship several language or runtime versions side by side, because a package built for one version can't install on the others.
+
+For example, the `python` image publishes tags for Python 3.11, 3.12, 3.13, and 3.14. The `py3.13-typer` package depends on Python 3.13. If you add it with standard Custom Assembly, every tag tries to install it, and the 3.11, 3.12, and 3.14 builds fail.
+
+Tag-based Custom Assembly lets you choose which tags receive a customization. For example, you can do the following:
+
+* Add a package to specific tags, such as `3.13` and `3.13-dev`.
+* Add debugging tools to every `-dev` tag and keep the other tags minimal.
+* Add a package to every tag, with the package name matched to each tag's Python version.
+* Reuse one customization, such as your organization's internal certificates, across many repositories.
+
+This page explains the concepts. To create and manage customizations, see [Managing tag-based Custom Assembly with chainctl](/chainguard/containers/custom-assembly/tag-based-custom-assembly/chainctl/) or [Managing tag-based Custom Assembly with Terraform](/chainguard/containers/custom-assembly/tag-based-custom-assembly/terraform/).
+
+## Overlays and bindings
+
+Tag-based Custom Assembly splits a customization into two resources:
+
+* An **overlay** is a named, reusable set of customizations, such as packages, environment variables, annotations, user accounts, certificates, and runtime repositories. An overlay belongs to your organization, not to a repository, and on its own it changes nothing.
+* A **binding** attaches one overlay to one repository and selects which of that repository's tags the overlay applies to.
+
+To apply an overlay to several repositories, create one binding for each repository.
+
+When you create, update, or delete a binding, or update an overlay, Chainguard rebuilds the affected tags without waiting for a new upstream release. An overlay update rebuilds the matching tags in every repository the overlay is bound to. As with standard Custom Assembly, a build normally takes less than 20 minutes, and Chainguard rebuilds the customized tags whenever their packages are updated.
+
+## Tag selectors
+
+Each binding has a tag selector, which chooses the tags the overlay applies to. A selector is one of three kinds:
+
+| Selector | Matches | Example use |
+| --- | --- | --- |
+| **Exact** | The tags you list by name, such as `3.13` and `3.13-dev`. | Add a package that only works with one version. |
+| **Variant** | Every tag of a variant. Only the `dev` variant is available, which matches every tag ending in `-dev`. | Add debugging tools to development images only. |
+| **All** | Every tag in the repository. | Add certificates or packages that work with every tag. |
+
+Variant and all selectors also match tags published after you create the binding. An exact selector matches only the tag names you list. Tags that no binding matches keep their uncustomized image.
+
+### Exact tags and shared digests
+
+Several tags often point to the same image. For example, `3.13`, `3.13.7`, and `3.13.7-r0` might share one digest. An exact selector customizes only the tags you list, even when other tags share their digest. If you bind an overlay to `3.13` alone, `3.13` gets a customized image, and `3.13.7` and `3.13.7-r0` keep the original. To keep several tags identical, list all of them.
+
+An exact selector matches tag names, not images. When `3.13` moves to a new release, the binding follows it, so the new `3.13` image is customized too.
+
+Chainguard doesn't check that an exact tag exists when you create the binding. A mistyped tag name matches nothing, so no build runs for it.
+
+## How overlapping bindings combine
+
+A tag can match more than one binding. For example, `latest-dev` matches an all binding, a dev variant binding, and an exact binding that lists `latest-dev`. When a tag matches several bindings, Chainguard layers them in this order:
+
+1. All bindings.
+1. Variant bindings.
+1. Exact bindings.
+
+Packages and runtime repositories accumulate across layers. When two layers set the same environment variable, annotation, or other single value, the more specific layer wins: exact over variant, and variant over all.
+
+For example, suppose a repository has the following bindings:
+
+* An all binding whose overlay adds `curl`.
+* A dev variant binding whose overlay adds `strace`.
+* An exact binding on `latest-dev` whose overlay adds `gdb`.
+
+Chainguard adds these packages to each tag:
+
+| Tag | Packages added |
+| --- | --- |
+| `latest-dev` | `curl`, `strace`, `gdb` |
+| Other `-dev` tags | `curl`, `strace` |
+| All other tags | `curl` |
+
+### Several bindings of the same kind
+
+You can bind several overlays to one repository with the same kind of selector. For example, you can bind a certificates overlay and a packages overlay to a repository, both with an all selector.
+
+Bindings of the same kind have no precedence order, so their overlays must not contradict each other. Chainguard rejects a binding if it matches a tag that another binding of the same kind also matches, and the two overlays set any of the following to different values:
+
+* An environment variable
+* An annotation
+* A named certificate, runtime key, user, or group
+* Another single value, such as the user the image runs as
+
+Packages and runtime repositories never cause a binding conflict, because Chainguard combines them. Combined packages can still fail a build if the packages themselves are incompatible, for example if two of them install the same file. Chainguard also runs the conflict check when you update an overlay, against every repository the overlay is bound to.
+
+You can bind a given overlay to a repository only once.
+
+## Version templates in package names
+
+Many packages include a language version in their name, such as `py3.12-cryptography` and `py3.14-cryptography`. To add the right package to every tag with one overlay, use the `{{major}}` and `{{minor}}` placeholders in the package name:
+
+```yaml
+contents:
+  packages:
+    - py{{major}}.{{minor}}-cryptography
+```
+
+When Chainguard builds each tag, it replaces the placeholders with the major and minor version of the image's main package. The `3.12` tags of the `python` image receive `py3.12-cryptography`, and the `3.14` tags receive `py3.14-cryptography`. When a tag moves to a new version, the package follows it.
+
+Chainguard reads each image's main package from its `dev.chainguard.package.main` label. To check the label, run the following [crane](https://github.com/google/go-containerregistry/tree/main/cmd/crane) command:
+
+```shell
+crane config cgr.dev/$ORGANIZATION/python:3.12 | jq -r '.config.Labels["dev.chainguard.package.main"]'
+```
+
+```output
+python-3.12
+```
+
+In this example, the main package is Python 3.12, so `{{major}}` becomes `3` and `{{minor}}` becomes `12`.
+
+`{{major}}` and `{{minor}}` are the only supported placeholders. If you create or update an overlay with any other `{{...}}` placeholder, Chainguard rejects it.
+
+If an image has no main package, or its version has no major and minor components, Chainguard can't fill in the placeholders. That tag's build fails, and the build logs name the package.
+
+## Supported customizations
+
+An overlay supports the same customizations as standard Custom Assembly, with the same validation rules:
+
+* Packages (`contents.packages`)
+* [Custom runtime repositories](/chainguard/containers/custom-assembly/overview/#custom-runtime-repositories) (`contents.runtime_repositories`)
+* [Custom runtime keys](/chainguard/containers/custom-assembly/overview/#custom-runtime-keys) (`contents.runtime_keyring`)
+* [Environment variables and annotations](/chainguard/containers/custom-assembly/custom-assembly-chainctl/#adding-custom-annotations-and-environment-variables) (`environment` and `annotations`)
+* [User accounts and groups](/platform/chainctl/chainctl-docs/chainctl_images_repos_build_apply/) (`accounts`)
+* [Custom certificates](/chainguard/containers/custom-assembly/custom-assembly-certs/) (`certificates.additional`)
+
+Overlays don't support Chainguard-managed certificate bundles (`certificates.providers`). If an overlay contains a field that overlays don't support, Chainguard rejects the whole overlay instead of ignoring the field.
+
+## Limitations
+
+Tag-based Custom Assembly has the following limitations:
+
+* **One model per repository.** A repository can use standard or tag-based Custom Assembly, but not both. If a repository has one kind of customization, adding the other kind fails with the error `repository custom overlay and overlay binding not allowed`. To move a repository from standard to tag-based Custom Assembly, contact your Chainguard account team.
+* **No Chainguard Console support.** Manage overlays and bindings with `chainctl`, Terraform, or the Chainguard API. The Console's Custom Assembly editor manages standard Custom Assembly only.
+* **A missing package fails the build.** If a package in an overlay can't be installed on a tag, that tag's build fails. Chainguard doesn't skip the package. The build logs name the package that failed.
+* **No removing base packages.** As with standard Custom Assembly, an overlay can add to an image but can't remove packages from the source image.
+
+## Permissions
+
+Overlays and bindings use their own capabilities:
+
+* `registry.overlays.list` lets you view overlays and bindings. The built-in `viewer`, `editor`, and `owner` roles include it.
+* `registry.overlays.edit` lets you create, update, and delete overlays and bindings. The built-in `editor` and `owner` roles include it.
+
+To create a custom role with these capabilities, see [Overview of roles and role-bindings in Chainguard](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
+
+## Learn more
+
+* [Managing tag-based Custom Assembly with chainctl](/chainguard/containers/custom-assembly/tag-based-custom-assembly/chainctl/)
+* [Managing tag-based Custom Assembly with Terraform](/chainguard/containers/custom-assembly/tag-based-custom-assembly/terraform/)
+* [Overview of Chainguard Custom Assembly](/chainguard/containers/custom-assembly/overview/)
+* [Custom Assembly FAQs](/chainguard/containers/custom-assembly/faq/)
+
+---
+
+### Managing tag-based Custom Assembly with Terraform
+_Path: chainguard/containers/custom-assembly/tag-based-custom-assembly/terraform.md_
+
+{{< beta feature="Tag-based Custom Assembly" enroll="true" >}}
+
+This guide shows how to manage tag-based Custom Assembly with the [Chainguard Terraform provider](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest). You define overlays with the `chainguard_image_overlay` resource and bind them to repositories with the `chainguard_image_overlay_binding` resource.
+
+For an explanation of overlays, bindings, and tag selectors, see [Overview of tag-based Custom Assembly](/chainguard/containers/custom-assembly/tag-based-custom-assembly/).
+
+## Prerequisites
+
+Before you start, you need the following:
+
+* Tag-based Custom Assembly enabled for your organization. Contact your Chainguard account team to enable it.
+* Terraform and the Chainguard Terraform provider, version 0.5.0 or later. To configure the provider, see [Introduction to the Chainguard Terraform provider](/platform/administration/terraform-provider/).
+* An identity with the `registry.overlays.edit` capability, such as one bound to the built-in `editor` or `owner` role.
+* A repository in your organization with no standard Custom Assembly customization. A repository can't use both.
+
+## Look up your organization and repository
+
+Overlays belong to your organization, and bindings belong to a repository, so you need the IDs of both. The following configuration requires the Chainguard provider and uses data sources to look up the `example.com` organization and its `python` repository:
+
+```hcl
+terraform {
+  required_providers {
+    chainguard = {
+      source  = "chainguard-dev/chainguard"
+      version = ">= 0.5.0"
+    }
+  }
+}
+
+data "chainguard_group" "org" {
+  name = "example.com"
+}
+
+data "chainguard_image_repo" "python" {
+  parent_id = data.chainguard_group.org.id
+  name      = "python"
+}
+
+locals {
+  python_repo_id = data.chainguard_image_repo.python.items[0].id
+}
+```
+
+The `chainguard_image_repo` data source returns a list of matching repositories. The `python_repo_id` local value holds the ID of the first match, which the binding examples later in this guide use.
+
+## Create overlays
+
+Each `chainguard_image_overlay` resource defines a named set of customizations. For an overlay that only adds packages, set the `packages` attribute. The following example defines two overlays that add packages:
+
+```hcl
+resource "chainguard_image_overlay" "typer" {
+  parent_id = data.chainguard_group.org.id
+  name      = "typer"
+  packages  = ["py3.13-typer"]
+}
+
+resource "chainguard_image_overlay" "debug_tools" {
+  parent_id = data.chainguard_group.org.id
+  name      = "debug-tools"
+  packages  = ["strace", "gdb"]
+}
+```
+
+Package names can use the `{{major}}` and `{{minor}}` placeholders, as in `py{{major}}.{{minor}}-cryptography`. For details, see [Version templates in package names](/chainguard/containers/custom-assembly/tag-based-custom-assembly/#version-templates-in-package-names).
+
+To add other customizations, such as certificates, environment variables, or annotations, set the `config` attribute instead of `packages`. An overlay can set one of the two, but not both. The `config` attribute takes a JSON-encoded configuration. Its field names follow the Chainguard API, not the YAML file that `chainctl` accepts, and some names differ. For example, the user an image runs as is `accounts.run_as` in `config` but `accounts.run-as` in a `chainctl` file. For the field names, see the [`chainguard_image_overlay` schema](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/resources/image_overlay).
+
+The following example uses `jsonencode` to build an overlay that adds an internal certificate authority, an environment variable, and a package:
+
+```hcl
+resource "chainguard_image_overlay" "internal_ca" {
+  parent_id = data.chainguard_group.org.id
+  name      = "internal-ca"
+  config = jsonencode({
+    contents = {
+      packages = ["curl"]
+    }
+    environment = {
+      REQUESTS_CA_BUNDLE = "/etc/ssl/certs/ca-certificates.crt"
+    }
+    certificates = {
+      additional = [{
+        name    = "internal-ca"
+        content = file("${path.module}/internal-ca.pem")
+      }]
+    }
+  })
+}
+```
+
+The `file` function reads the certificate from `internal-ca.pem` in the same directory as your configuration, so the certificate text doesn't need to appear in the configuration itself. For the full list of supported fields, see [Supported customizations](/chainguard/containers/custom-assembly/tag-based-custom-assembly/#supported-customizations).
+
+## Bind overlays to tags
+
+Each `chainguard_image_overlay_binding` resource attaches one overlay to one repository. The `tag_selector` block chooses which tags the overlay applies to.
+
+To apply an overlay to specific tags, set `kind` to `EXACT` and list the tags:
+
+```hcl
+resource "chainguard_image_overlay_binding" "typer" {
+  repo_id    = local.python_repo_id
+  overlay_id = chainguard_image_overlay.typer.id
+
+  tag_selector {
+    kind = "EXACT"
+    tags = ["3.13", "3.13-dev"]
+  }
+}
+```
+
+To apply an overlay to every `-dev` tag, set `kind` to `VARIANT` and `variant_type` to `DEV`:
+
+```hcl
+resource "chainguard_image_overlay_binding" "debug_tools" {
+  repo_id    = local.python_repo_id
+  overlay_id = chainguard_image_overlay.debug_tools.id
+
+  tag_selector {
+    kind         = "VARIANT"
+    variant_type = "DEV"
+  }
+}
+```
+
+To apply an overlay to every tag, set `kind` to `ALL`:
+
+```hcl
+tag_selector {
+  kind = "ALL"
+}
+```
+
+You can bind a given overlay to a repository only once. To apply an overlay to more tags, change its binding's selector instead of adding a second binding.
+
+To create the overlays and bindings, apply the configuration:
+
+```shell
+terraform apply
+```
+
+After Terraform creates the bindings, Chainguard rebuilds the matching tags. To check on the builds, run `chainctl images repos build list --repo python --parent example.com`.
+
+## Change or remove customizations
+
+The overlay and binding resources don't support in-place updates. When you change an overlay's name, packages, or configuration, or a binding's selector, Terraform deletes the resource and creates a new one. Replacing an overlay gives it a new ID, so Terraform also replaces the bindings that refer to it.
+
+Each replacement removes the customization before adding it back, so Chainguard might rebuild the affected tags twice: once without the customization and once with it. Review the plan before you apply changes to repositories that serve production traffic.
+
+To remove a customization, delete the binding resource from your configuration and apply. Chainguard rebuilds the tags that the binding matched without the removed overlay. Any other matching overlays still apply. You can't delete an overlay while a binding still refers to it. Terraform removes the binding first when you delete both in one change.
+
+## Learn more
+
+* [Overview of tag-based Custom Assembly](/chainguard/containers/custom-assembly/tag-based-custom-assembly/)
+* [Managing tag-based Custom Assembly with chainctl](/chainguard/containers/custom-assembly/tag-based-custom-assembly/chainctl/)
+* [`chainguard_image_overlay` in the Terraform Registry](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/resources/image_overlay)
+* [`chainguard_image_overlay_binding` in the Terraform Registry](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/resources/image_overlay_binding)
 
 ---
 
@@ -49064,6 +49342,8 @@ chainctl auth login \
 
 [Automating with chainctl](/platform/chainctl-usage/automating-chainctl/) covers non-interactive use, and the [identity examples](/platform/administration/assumable-ids/identity-examples/) include worked setups for GitHub, GitLab, and several cloud providers.
 
+**On Catalog Starter.** [Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/) organizations can't create assumable identities, so neither approach in this stage works. Authenticate with a pull token instead, as described in [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token).
+
 **Why it matters.** There's no long-lived credential to leak, rotate, or track. A token that shows up in a build log has already expired by the time anyone reads it.
 
 ## 3. Replace workflow steps
@@ -52721,6 +53001,10 @@ In such cases, you can create a Chainguard identity for these systems to assume,
 
 This guide provides a general overview of assumable identities in Chainguard, outlining how they work and how to create them.
 
+{{< note >}}
+[Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/) organizations can't create assumable identities. A pull token is the only credential they can issue for automation. Refer to [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token).
+{{< /note >}}
+
 ## About assumable identities
 
 Chainguard's *assumable identities* are identities that can be assumed by workflows in order to complete tasks without manual authorization. In many ways, these are similar to AWS roles or Google Service accounts, as Chainguard identities allow you to delegate access to your Chainguard resources to external applications or services.
@@ -55614,6 +55898,7 @@ To complete this guide, you will need the following.
     * `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) to set this up.
     * `terraform` installed on your local machine. Terraform is an Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
 * A GitHub repository you can use for testing out GitHub identity federation. To complete this guide, you must have permissions to create GitHub Actions on this testing repo.
+* A Chainguard organization that can create assumable identities. [Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/) organizations can't, so authenticate those pipelines with a pull token instead. Refer to [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token).
 
 ## Creating an identity
 
@@ -56075,7 +56360,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: cgr.dev
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository being pulled from
-Ce-Time: 2026-09-25T09:27:36.052392597Z
+Ce-Time: 2026-09-28T19:39:07.282730588Z
 Ce-Type: dev.chainguard.registry.pull.v1
 Content-Length: 777
 Content-Type: application/json
@@ -56105,7 +56390,7 @@ User-Agent: Chainguard Enforce
     "tag": "The tag of the image being pulled",
     "type": "Type determines whether the object being pulled is a manifest or blob",
     "user_agent": "The user-agent of the client who pulled",
-    "when": "2026-09-25T09:27:36.051512"
+    "when": "2026-09-28T19:39:07.280339"
   }
 }
 
@@ -56128,7 +56413,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: cgr.dev
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository being pushed to
-Ce-Time: 2026-09-25T09:27:36.05171656Z
+Ce-Time: 2026-09-28T19:39:07.280643819Z
 Ce-Type: dev.chainguard.registry.push.v1
 Content-Length: 707
 Content-Type: application/json
@@ -56157,7 +56442,7 @@ User-Agent: Chainguard Enforce
     "tag": "The tag of the image being pushed",
     "type": "Type determines whether the object being pushed is a manifest or blob",
     "user_agent": "The user-agent of the client who pushed",
-    "when": "2026-09-25T09:27:36.051488"
+    "when": "2026-09-28T19:39:07.280314"
   }
 }
 
@@ -56180,7 +56465,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/auth/v1/register
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP
-Ce-Time: 2026-09-25T09:27:36.052764Z
+Ce-Time: 2026-09-28T19:39:07.297762402Z
 Ce-Type: dev.chainguard.api.auth.registered.v1
 Content-Length: 154
 Content-Type: application/json
@@ -56220,7 +56505,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier of the subscription
-Ce-Time: 2026-09-25T09:27:36.066491012Z
+Ce-Time: 2026-09-28T19:39:07.292841301Z
 Ce-Type: dev.chainguard.api.events.subscription.created.v1
 Content-Length: 152
 Content-Type: application/json
@@ -56258,7 +56543,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier of the subscription to delete
-Ce-Time: 2026-09-25T09:27:36.066595152Z
+Ce-Time: 2026-09-28T19:39:07.2930532Z
 Ce-Type: dev.chainguard.api.events.subscription.deleted.v1
 Content-Length: 119
 Content-Type: application/json
@@ -56297,7 +56582,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-09-25T09:27:36.070407015Z
+Ce-Time: 2026-09-28T19:39:07.290906507Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -56338,7 +56623,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-09-25T09:27:36.070531514Z
+Ce-Time: 2026-09-28T19:39:07.291187457Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -56375,7 +56660,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-25T09:27:36.070621109Z
+Ce-Time: 2026-09-28T19:39:07.29137967Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -56423,7 +56708,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-09-25T09:27:36.065752757Z
+Ce-Time: 2026-09-28T19:39:07.290212389Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -56469,7 +56754,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-09-25T09:27:36.065862097Z
+Ce-Time: 2026-09-28T19:39:07.290494452Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -56515,7 +56800,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-09-25T09:27:36.066008717Z
+Ce-Time: 2026-09-28T19:39:07.290699927Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -56554,7 +56839,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-09-25T09:27:36.066722404Z
+Ce-Time: 2026-09-28T19:39:07.296116718Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -56594,7 +56879,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-09-25T09:27:36.066833703Z
+Ce-Time: 2026-09-28T19:39:07.296372078Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -56633,7 +56918,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-09-25T09:27:36.068839814Z
+Ce-Time: 2026-09-28T19:39:07.293245764Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -56672,7 +56957,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-09-25T09:27:36.069007211Z
+Ce-Time: 2026-09-28T19:39:07.293394979Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -56711,7 +56996,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-09-25T09:27:36.069143999Z
+Ce-Time: 2026-09-28T19:39:07.293555777Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -56750,7 +57035,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-09-25T09:27:36.067644256Z
+Ce-Time: 2026-09-28T19:39:07.284111128Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -56793,7 +57078,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-09-25T09:27:36.067817462Z
+Ce-Time: 2026-09-28T19:39:07.284303596Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -56833,7 +57118,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-09-25T09:27:36.067982611Z
+Ce-Time: 2026-09-28T19:39:07.284697276Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -56872,7 +57157,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-09-25T09:27:36.060605869Z
+Ce-Time: 2026-09-28T19:39:07.28835523Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -56915,7 +57200,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-09-25T09:27:36.060793003Z
+Ce-Time: 2026-09-28T19:39:07.288669267Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -56955,7 +57240,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-09-25T09:27:36.060977984Z
+Ce-Time: 2026-09-28T19:39:07.288958145Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -56992,7 +57277,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-25T09:27:36.061119837Z
+Ce-Time: 2026-09-28T19:39:07.289191779Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -57032,7 +57317,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-25T09:27:36.061255329Z
+Ce-Time: 2026-09-28T19:39:07.289389551Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -57076,7 +57361,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-25T09:27:36.061386837Z
+Ce-Time: 2026-09-28T19:39:07.289686013Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -57115,7 +57400,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-25T09:27:36.061502177Z
+Ce-Time: 2026-09-28T19:39:07.289911375Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -57156,7 +57441,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-09-25T09:27:36.069667039Z
+Ce-Time: 2026-09-28T19:39:07.286448282Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -57198,7 +57483,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings/batch
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-09-25T09:27:36.069811492Z
+Ce-Time: 2026-09-28T19:39:07.286705018Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -57241,7 +57526,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-09-25T09:27:36.069941072Z
+Ce-Time: 2026-09-28T19:39:07.286945803Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -57280,7 +57565,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-09-25T09:27:36.070047227Z
+Ce-Time: 2026-09-28T19:39:07.287151167Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -57319,7 +57604,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-09-25T09:27:36.058126984Z
+Ce-Time: 2026-09-28T19:39:07.301710121Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -57358,7 +57643,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-09-25T09:27:36.058247467Z
+Ce-Time: 2026-09-28T19:39:07.301860128Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -57397,7 +57682,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-09-25T09:27:36.058334854Z
+Ce-Time: 2026-09-28T19:39:07.301959842Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -57436,7 +57721,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-09-25T09:27:36.055682459Z
+Ce-Time: 2026-09-28T19:39:07.293789819Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -57479,7 +57764,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the destination organization
-Ce-Time: 2026-09-25T09:27:36.058450722Z
+Ce-Time: 2026-09-28T19:39:07.298107405Z
 Ce-Type: dev.chainguard.api.platform.registry.chart.added.v1
 Content-Length: 208
 Content-Type: application/json
@@ -57524,7 +57809,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-25T09:27:36.054573609Z
+Ce-Time: 2026-09-28T19:39:07.305340621Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.created.v1
 Content-Length: 243
 Content-Type: application/json
@@ -57566,7 +57851,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-25T09:27:36.054798216Z
+Ce-Time: 2026-09-28T19:39:07.305551608Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -57608,7 +57893,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-25T09:27:36.054972277Z
+Ce-Time: 2026-09-28T19:39:07.305764363Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.deleted.v1
 Content-Length: 116
 Content-Type: application/json
@@ -57645,7 +57930,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-09-25T09:27:36.055128402Z
+Ce-Time: 2026-09-28T19:39:07.305950351Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.created.v1
 Content-Length: 197
 Content-Type: application/json
@@ -57684,7 +57969,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-09-25T09:27:36.055296103Z
+Ce-Time: 2026-09-28T19:39:07.306094311Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.updated.v1
 Content-Length: 197
 Content-Type: application/json
@@ -57723,7 +58008,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-09-25T09:27:36.055427715Z
+Ce-Time: 2026-09-28T19:39:07.30620232Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.deleted.v1
 Content-Length: 109
 Content-Type: application/json
@@ -57762,7 +58047,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-09-25T09:27:36.053665068Z
+Ce-Time: 2026-09-28T19:39:07.302598107Z
 Ce-Type: dev.chainguard.api.policies.bindings.created.v1
 Content-Length: 245
 Content-Type: application/json
@@ -57806,7 +58091,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-09-25T09:27:36.053801553Z
+Ce-Time: 2026-09-28T19:39:07.302833413Z
 Ce-Type: dev.chainguard.api.policies.bindings.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -57850,7 +58135,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-09-25T09:27:36.053902932Z
+Ce-Time: 2026-09-28T19:39:07.303018426Z
 Ce-Type: dev.chainguard.api.policies.bindings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -57889,7 +58174,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/overrides
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the override
-Ce-Time: 2026-09-25T09:27:36.05411489Z
+Ce-Time: 2026-09-28T19:39:07.303186696Z
 Ce-Type: dev.chainguard.api.policies.overrides.created.v1
 Content-Length: 303
 Content-Type: application/json
@@ -57931,7 +58216,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/overrides
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the override
-Ce-Time: 2026-09-25T09:27:36.054302096Z
+Ce-Time: 2026-09-28T19:39:07.303399611Z
 Ce-Type: dev.chainguard.api.policies.overrides.deleted.v1
 Content-Length: 94
 Content-Type: application/json
@@ -57970,7 +58255,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-09-25T09:27:36.053204454Z
+Ce-Time: 2026-09-28T19:39:07.302163854Z
 Ce-Type: dev.chainguard.api.policies.policies.created.v1
 Content-Length: 337
 Content-Type: application/json
@@ -58014,7 +58299,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-09-25T09:27:36.05339906Z
+Ce-Time: 2026-09-28T19:39:07.302344627Z
 Ce-Type: dev.chainguard.api.policies.policies.updated.v1
 Content-Length: 337
 Content-Type: application/json
@@ -58058,7 +58343,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-09-25T09:27:36.05352184Z
+Ce-Time: 2026-09-28T19:39:07.302449876Z
 Ce-Type: dev.chainguard.api.policies.policies.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -58097,7 +58382,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-09-25T09:27:36.065329064Z
+Ce-Time: 2026-09-28T19:39:07.283243901Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -58143,7 +58428,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-09-25T09:27:36.065493997Z
+Ce-Time: 2026-09-28T19:39:07.283539219Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -58180,7 +58465,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-09-25T09:27:36.065612769Z
+Ce-Time: 2026-09-28T19:39:07.283706856Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -58228,7 +58513,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-09-25T09:27:36.062739647Z
+Ce-Time: 2026-09-28T19:39:07.303726607Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -58269,7 +58554,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-09-25T09:27:36.064965821Z
+Ce-Time: 2026-09-28T19:39:07.30394525Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -58306,7 +58591,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-25T09:27:36.065110137Z
+Ce-Time: 2026-09-28T19:39:07.304109528Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -58354,7 +58639,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-09-25T09:27:36.057817014Z
+Ce-Time: 2026-09-28T19:39:07.292383241Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -58394,7 +58679,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-09-25T09:27:36.057981643Z
+Ce-Time: 2026-09-28T19:39:07.292614115Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -58433,7 +58718,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-09-25T09:27:36.059149671Z
+Ce-Time: 2026-09-28T19:39:07.287450589Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -58470,7 +58755,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-09-25T09:27:36.060149503Z
+Ce-Time: 2026-09-28T19:39:07.287738419Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -58509,7 +58794,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-09-25T09:27:36.060359405Z
+Ce-Time: 2026-09-28T19:39:07.288018042Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -58550,7 +58835,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-09-25T09:27:36.056018606Z
+Ce-Time: 2026-09-28T19:39:07.304360368Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -58593,7 +58878,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-09-25T09:27:36.056262501Z
+Ce-Time: 2026-09-28T19:39:07.304574515Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -58630,7 +58915,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-09-25T09:27:36.056437483Z
+Ce-Time: 2026-09-28T19:39:07.304736121Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -58670,7 +58955,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities:updateIdentityMetadata
 Ce-Specversion: 1.0
 Ce-Subject: The caller's identity UID
-Ce-Time: 2026-09-25T09:27:36.056573975Z
+Ce-Time: 2026-09-28T19:39:07.30491827Z
 Ce-Type: dev.chainguard.api.iam.identity.metadata.updated.v1
 Content-Length: 135
 Content-Type: application/json
@@ -58710,7 +58995,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-09-25T09:27:36.05686052Z
+Ce-Time: 2026-09-28T19:39:07.294025029Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -58753,7 +59038,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-09-25T09:27:36.05705463Z
+Ce-Time: 2026-09-28T19:39:07.29422944Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -58793,7 +59078,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-09-25T09:27:36.057156673Z
+Ce-Time: 2026-09-28T19:39:07.29440279Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -58830,7 +59115,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-25T09:27:36.0572583Z
+Ce-Time: 2026-09-28T19:39:07.294576539Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -58870,7 +59155,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-25T09:27:36.05738372Z
+Ce-Time: 2026-09-28T19:39:07.294744585Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -58914,7 +59199,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-25T09:27:36.057515572Z
+Ce-Time: 2026-09-28T19:39:07.295114267Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -58953,7 +59238,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-25T09:27:36.05763076Z
+Ce-Time: 2026-09-28T19:39:07.295707718Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -58994,7 +59279,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay binding
-Ce-Time: 2026-09-25T09:27:36.067034997Z
+Ce-Time: 2026-09-28T19:39:07.300170079Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.created.v1
 Content-Length: 449
 Content-Type: application/json
@@ -59049,7 +59334,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay binding
-Ce-Time: 2026-09-25T09:27:36.067264197Z
+Ce-Time: 2026-09-28T19:39:07.300507363Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.updated.v1
 Content-Length: 449
 Content-Type: application/json
@@ -59104,7 +59389,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the deleted overlay binding
-Ce-Time: 2026-09-25T09:27:36.06742389Z
+Ce-Time: 2026-09-28T19:39:07.300782346Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.deleted.v1
 Content-Length: 120
 Content-Type: application/json
@@ -59143,7 +59428,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay
-Ce-Time: 2026-09-25T09:27:36.061699063Z
+Ce-Time: 2026-09-28T19:39:07.301280588Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.created.v1
 Content-Length: 224
 Content-Type: application/json
@@ -59188,7 +59473,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay
-Ce-Time: 2026-09-25T09:27:36.062143013Z
+Ce-Time: 2026-09-28T19:39:07.301416251Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.updated.v1
 Content-Length: 224
 Content-Type: application/json
@@ -59233,7 +59518,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the deleted overlay
-Ce-Time: 2026-09-25T09:27:36.062334659Z
+Ce-Time: 2026-09-28T19:39:07.301529052Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.deleted.v1
 Content-Length: 112
 Content-Type: application/json
@@ -59272,7 +59557,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-25T09:27:36.068197554Z
+Ce-Time: 2026-09-28T19:39:07.29848571Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.created.v1
 Content-Length: 243
 Content-Type: application/json
@@ -59314,7 +59599,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-25T09:27:36.068372991Z
+Ce-Time: 2026-09-28T19:39:07.298856367Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -59356,7 +59641,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-25T09:27:36.068510651Z
+Ce-Time: 2026-09-28T19:39:07.299730562Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.deleted.v1
 Content-Length: 116
 Content-Type: application/json
@@ -59393,7 +59678,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-25T09:27:36.068667976Z
+Ce-Time: 2026-09-28T19:39:07.299938317Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -59437,7 +59722,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-09-25T09:27:36.07076985Z
+Ce-Time: 2026-09-28T19:39:07.28502416Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -59479,7 +59764,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-09-25T09:27:36.070872101Z
+Ce-Time: 2026-09-28T19:39:07.28526637Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -59516,7 +59801,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings:batchCreate
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-09-25T09:27:36.071018842Z
+Ce-Time: 2026-09-28T19:39:07.285463318Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -59559,7 +59844,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-09-25T09:27:36.071191143Z
+Ce-Time: 2026-09-28T19:39:07.285769779Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -59600,7 +59885,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-09-25T09:27:36.066196235Z
+Ce-Time: 2026-09-28T19:39:07.291694083Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -59639,7 +59924,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-09-25T09:27:36.066304255Z
+Ce-Time: 2026-09-28T19:39:07.291917301Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -59678,7 +59963,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-09-25T09:27:36.066387609Z
+Ce-Time: 2026-09-28T19:39:07.292101226Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -59717,7 +60002,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-09-25T09:27:36.070189448Z
+Ce-Time: 2026-09-28T19:39:07.300963519Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.created.v1
 Content-Length: 197
 Content-Type: application/json
@@ -59756,7 +60041,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-09-25T09:27:36.070294275Z
+Ce-Time: 2026-09-28T19:39:07.301115958Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.deleted.v1
 Content-Length: 109
 Content-Type: application/json
@@ -59795,7 +60080,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-09-25T09:27:36.069462785Z
+Ce-Time: 2026-09-28T19:39:07.28608696Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -60298,10 +60583,12 @@ Kiro can use Chainguard context to help with tasks such as:
 
 The power includes the following MCP servers:
 
-* `cg-api` for Chainguard platform and organization workflows
-* `cg-apk` for Wolfi package discovery
-* `cg-oci` for container image discovery and tag lookup
-* `cg-versions` for version and upgrade-path lookup
+* [`cg-api`](/platform/mcp-servers/cg-api/) for Chainguard platform and organization workflows
+* [`cg-apk`](/platform/mcp-servers/cg-apk/) for Wolfi package discovery
+* [`cg-oci`](/platform/mcp-servers/cg-oci/) for container image discovery and tag lookup
+* [`cg-versions`](/platform/mcp-servers/cg-versions/) for version and upgrade-path lookup
+
+You can also connect these servers to any MCP-compatible client without installing the Kiro power. Refer to the [Chainguard MCP servers overview](/platform/mcp-servers/overview/) for each server's endpoint, tools, and authentication options.
 
 ### Migrate a project to use Chainguard
 
@@ -61032,7 +61319,7 @@ chainctl libraries packages malware list [--ecosystem ECOSYSTEM] [--package NAME
 
 ```
       --before string      Only show entries blocked strictly before this RFC3339 time. Combine with --since to query a bounded range.
-      --ecosystem string   Only show blocklist entries for this ecosystem (JAVA, JAVASCRIPT, PYTHON). If empty, all ecosystems are returned.
+      --ecosystem string   Only show blocklist entries for this ecosystem (GO, JAVA, JAVASCRIPT, PYTHON). If empty, all ecosystems are returned.
       --exit-code          Exit with a non-zero status if any entries match, so the command can be used as a CI gate.
       --limit int32        The maximum number of entries to return; results are paginated automatically up to this limit. (default 50)
       --package string     Only show entries whose package name matches (exact).
@@ -62902,9 +63189,10 @@ expression: |
 Each parameter accepts: name, type (a PARAMETER_TYPE_* value), description,
 default, minimum, maximum, allowed_values, required, deprecated.
 
---resource-type accepts a shorthand (Repo, Java, Javascript, Python) or a
+--resource-type accepts a shorthand (Repo, Go, Java, Javascript, Python) or a
 full type:
   - Repo       -> registry.chainguard.dev/Repo@v1
+  - Go         -> libraries.chainguard.dev/GoPackage@v1
   - Java       -> libraries.chainguard.dev/JavaPackage@v1
   - Javascript -> libraries.chainguard.dev/NPMPackage@v1
   - Python     -> libraries.chainguard.dev/PythonPackage@v1
@@ -64179,7 +64467,9 @@ server-side job running.
 
 Submitting unchanged content to the same organization as the same user returns
 the same job ID. Use skills status to check a saved job ID or resume waiting
-without uploading again.
+without uploading again. To rerun a failed job with the same input, pass
+--retry-of JOB_ID. Repeating that retry returns the same new attempt; to retry
+again, pass the failed attempt's new job ID.
 
 ```
 chainctl skills harden [<path|uploads-ref>] --group <org> [flags]
@@ -64202,6 +64492,7 @@ chainctl skills harden [<path|uploads-ref>] --group <org> [flags]
       --folder string      Local skill directory containing SKILL.md.
   -g, --group string       Target organization name or UIDP (required).
       --name string        Uploaded skill name (required with --digest).
+      --retry-of string    Failed job ID to retry with this same skill content.
       --timeout duration   Maximum command duration with --wait (0 means no timeout).
       --wait               Wait for hardening to finish.
 ```
@@ -64663,7 +64954,7 @@ chainctl libraries packages count [--output=json|table] [flags]
 ### Options
 
 ```
-      --ecosystem string   The ecosystem to count packages for (JAVA, JAVASCRIPT, PYTHON).
+      --ecosystem string   The ecosystem to count packages for (GO, JAVA, JAVASCRIPT, PYTHON).
 ```
 
 ### Options inherited from parent commands
@@ -65376,7 +65667,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_pull-token_create.md_
 Create a pull token.
 
 ```
-chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|javascript|python_athena|javascript_athena|dotnet|dotnet_athena|java_athena|go|go_athena|java|python}] [flags]
+chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|python|ruby|ruby_athena|javascript|java_athena|python_athena|javascript_athena|dotnet|dotnet_athena|go|go_athena|java}] [flags]
 ```
 
 ### Examples
@@ -65404,7 +65695,7 @@ chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, javascript, python_athena, javascript_athena, dotnet, dotnet_athena, java_athena, go, go_athena, java, python. (default "oci")
+      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, python, ruby, ruby_athena, javascript, java_athena, python_athena, javascript_athena, dotnet, dotnet_athena, go, go_athena, java. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
 ```
@@ -65634,6 +65925,106 @@ chainctl policy describe --policy=cooldown --parent=example.com -o json
 ### SEE ALSO
 
 * [chainctl policy](/platform/chainctl/chainctl-docs/chainctl_policy/)	 - Manage policies.
+
+---
+
+### chainctl libraries go upload
+_Path: platform/chainctl/chainctl-docs/chainctl_libraries_go_upload.md_
+
+## chainctl libraries go upload
+
+Upload a Go module version from a source directory.
+
+### Synopsis
+
+Upload a Go module to Chainguard Libraries for Go.
+
+The command packages the module at --source into a GOPROXY module zip
+(the same layout 'go mod download' produces), validates it locally, and
+uploads it to <ecosystems-url>/go/<module>/@v/<version>.zip. The version
+lands in your organization's own registry, which only your organization
+can resolve, alongside the shared catalog. The registry derives the .mod
+and .info files from the zip. The source directory must contain a go.mod
+whose module directive matches --module-path; VCS metadata (.git and
+friends), nested modules, and irregular files are excluded automatically.
+
+Uploads are immutable: once a (module, version) exists it cannot be
+replaced, so publish a new version instead. --version must be a canonical
+semantic version such as v1.2.3, and its major version must agree with
+the module path (a /v2 module publishes v2.x.y). Versions with a -cgr.N
+suffix are reserved for Chainguard's remediation pipeline and are refused.
+
+Authentication requires a token minted for the registry host that carries
+the Go push capability (CAP_LIBRARIES_GO_CREATE). Within an organization
+that is the built-in "owner" role or the dedicated "libraries.go.push"
+role. Credentials are resolved in this order:
+  1. --token
+  2. $CHAINCTL_AUTH_TOKEN, if its audience includes the registry host
+  3. the chainctl session for the registry host, as created by
+     'chainctl auth login --audience <host>' (a browser login is opened
+     when no usable session exists)
+
+If a token was minted before the push capability was granted it still
+carries the old capability set; refresh it with
+'chainctl auth login --audience <host> --refresh'.
+
+Consumers resolve uploaded versions with GOPROXY=<ecosystems-url>/go.
+Versions published this way never appear in sum.golang.org, so consumers
+must exclude the module from checksum-database lookups (GONOSUMDB or
+GOPRIVATE).
+
+```
+chainctl libraries go upload [flags]
+```
+
+### Examples
+
+```
+  # Publish v1.4.0 of a module from its checkout
+  chainctl libraries go upload \
+      --module-path example.com/team/lib \
+      --version v1.4.0 \
+      --source ./lib
+
+  # Build and validate the module zip without uploading
+  chainctl libraries go upload --module-path example.com/team/lib --version v1.4.0 --source ./lib --dry-run
+
+  # Publish to a non-production registry with an explicit token
+  chainctl libraries go upload \
+      --ecosystems-url https://libraries.chainops.dev \
+      --token "$(chainctl auth token --audience libraries.chainops.dev)" \
+      --module-path example.com/team/lib --version v1.4.0 --source ./lib
+```
+
+### Options
+
+```
+      --dry-run                 Build and validate the module zip and report its size and go.sum hash without uploading.
+      --ecosystems-url string   URL of the Chainguard Libraries registry (defaults to https://libraries.cgr.dev). The /go registry path is appended automatically.
+      --module-path string      Module path to publish (the go.mod module directive), e.g. example.com/team/lib. Required.
+      --source string           Directory containing the module source, including its go.mod. Required.
+      --token string            Bearer token for the registry host. Overrides $CHAINCTL_AUTH_TOKEN and the chainctl session. Prefer passing it via the environment to keep it out of shell history.
+      --version string          Canonical semantic version to publish, e.g. v1.4.0. Required.
+```
+
+### Options inherited from parent commands
+
+```
+      --api string         The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
+      --audience string    The Chainguard token audience to request. (default "https://console-api.enforce.dev")
+      --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
+      --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
+      --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
+      --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
+      --log-level string   Set the log level (debug, info) (default "ERROR")
+  -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
+  -v, --v int              Set the log verbosity level.
+```
+
+### SEE ALSO
+
+* [chainctl libraries go](/platform/chainctl/chainctl-docs/chainctl_libraries_go/)	 - Go module registry commands.
 
 ---
 
@@ -66192,6 +66583,7 @@ Ecosystem library related commands.
 * [chainctl](/platform/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
 * [chainctl libraries cache](/platform/chainctl/chainctl-docs/chainctl_libraries_cache/)	 - Manage the Libraries resolution cache.
 * [chainctl libraries entitlements](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements/)	 - Manage entitlements to language ecosystem libraries.
+* [chainctl libraries go](/platform/chainctl/chainctl-docs/chainctl_libraries_go/)	 - Go module registry commands.
 * [chainctl libraries packages](/platform/chainctl/chainctl-docs/chainctl_libraries_packages/)	 - Inspect Libraries packages.
 * [chainctl libraries policy](/platform/chainctl/chainctl-docs/chainctl_libraries_policy/)	 - Manage Libraries policies.
 * [chainctl libraries remediate](/platform/chainctl/chainctl-docs/chainctl_libraries_remediate/)	 - Discover and apply Chainguard -cgr.N CVE remediations for a JavaScript project
@@ -67200,7 +67592,7 @@ chainctl libraries policy enable [POLICY] [--parent ORG] [--ecosystem ECOSYSTEM]
 ### Options
 
 ```
-      --ecosystem string   The ecosystem the binding applies to (JAVA, JAVASCRIPT, PYTHON).
+      --ecosystem string   The ecosystem the binding applies to (GO, JAVA, JAVASCRIPT, PYTHON).
       --mode string        The binding mode (ENFORCE or PREVIEW).
       --parent string      The name or id of the organization to scope the binding to.
       --policy string      The name or UIDP of the policy. Provide this or the positional argument, not both.
@@ -67336,7 +67728,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_pull-token_list.md_
 List all pull-tokens
 
 ```
-chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|javascript|python_athena|javascript_athena|dotnet|dotnet_athena|java_athena|go|go_athena|java|python}] [flags]
+chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|python|ruby|ruby_athena|javascript|java_athena|python_athena|javascript_athena|dotnet|dotnet_athena|go|go_athena|java}] [flags]
 ```
 
 ### Examples
@@ -67363,7 +67755,7 @@ chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--reposi
 ```
       --expired             If true return only expired pull tokens.
       --parent string       The IAM organization or folder with which the pull-token identity is associated.
-      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, javascript, python_athena, javascript_athena, dotnet, dotnet_athena, java_athena, go, go_athena, java, python
+      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, python, ruby, ruby_athena, javascript, java_athena, python_athena, javascript_athena, dotnet, dotnet_athena, go, go_athena, java
 ```
 
 ### Options inherited from parent commands
@@ -67734,7 +68126,7 @@ chainctl libraries packages blocked [--parent ORGANIZATION_NAME | ORGANIZATION_I
 ### Options
 
 ```
-      --ecosystem string   Only show events for this ecosystem (JAVA, JAVASCRIPT, PYTHON).
+      --ecosystem string   Only show events for this ecosystem (GO, JAVA, JAVASCRIPT, PYTHON).
       --limit int32        The number of blocked packages per page in an interactive terminal; otherwise the maximum number to return. (default 50)
       --mode string        Only show events in this mode (ENFORCE or PREVIEW). Defaults to ENFORCE.
       --package string     Only show events whose package name matches (exact, case-insensitive).
@@ -68367,6 +68759,35 @@ chainctl starter init [flags]
 
 ---
 
+### chainctl libraries go
+_Path: platform/chainctl/chainctl-docs/chainctl_libraries_go.md_
+
+## chainctl libraries go
+
+Go module registry commands.
+
+### Options inherited from parent commands
+
+```
+      --api string         The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
+      --audience string    The Chainguard token audience to request. (default "https://console-api.enforce.dev")
+      --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
+      --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
+      --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
+      --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
+      --log-level string   Set the log level (debug, info) (default "ERROR")
+  -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
+  -v, --v int              Set the log verbosity level.
+```
+
+### SEE ALSO
+
+* [chainctl libraries](/platform/chainctl/chainctl-docs/chainctl_libraries/)	 - Ecosystem library related commands.
+* [chainctl libraries go upload](/platform/chainctl/chainctl-docs/chainctl_libraries_go_upload/)	 - Upload a Go module version from a source directory.
+
+---
+
 ### chainctl policy check
 _Path: platform/chainctl/chainctl-docs/chainctl_policy_check.md_
 
@@ -68785,7 +69206,7 @@ chainctl libraries packages list --ecosystem ECOSYSTEM [--query QUERY] [--output
 ### Options
 
 ```
-      --ecosystem string   The ecosystem to list packages for (JAVA, JAVASCRIPT, PYTHON).
+      --ecosystem string   The ecosystem to list packages for (GO, JAVA, JAVASCRIPT, PYTHON).
       --limit int32        The maximum number of packages to return; results are paginated automatically up to this limit. (default 50)
       --query string       A search string to filter packages by name. If empty, all packages in the ecosystem are returned.
       --remediated         Only return remediated packages.
@@ -69315,9 +69736,9 @@ Configure a local tool to authenticate to Chainguard.
 Configure a local tool to authenticate to Chainguard.
 
 Each subcommand writes credentials where its tool looks for them, using
-your current Chainguard session. With --pull-token it writes a
-longer-lived credential instead, for environments that cannot run an
-interactive login (CI systems, build servers, etc.).
+your current Chainguard session where supported. With --pull-token it writes
+a longer-lived credential for environments that cannot run an interactive
+login (CI systems, build servers, etc.). Bundler always uses a pull token.
 
 ### Options inherited from parent commands
 
@@ -69625,7 +70046,7 @@ chainctl libraries policy binding create --policy POLICY [--parent ORGANIZATION_
 ### Options
 
 ```
-      --ecosystem string   The ecosystem the binding applies to (JAVA, JAVASCRIPT, PYTHON).
+      --ecosystem string   The ecosystem the binding applies to (GO, JAVA, JAVASCRIPT, PYTHON).
       --mode string        The binding mode (ENFORCE or PREVIEW). Defaults to ENFORCE.
       --parent string      The name or id of the organization to scope the binding to.
       --policy string      The name or UIDP of the policy to bind.
@@ -70733,7 +71154,7 @@ chainctl libraries policy disable [POLICY] [--parent ORG] [--ecosystem ECOSYSTEM
 ### Options
 
 ```
-      --ecosystem string   The ecosystem the binding applies to (JAVA, JAVASCRIPT, PYTHON).
+      --ecosystem string   The ecosystem the binding applies to (GO, JAVA, JAVASCRIPT, PYTHON).
       --mode string        The binding mode (ENFORCE or PREVIEW).
       --parent string      The name or id of the organization to scope the binding to.
       --policy string      The name or UIDP of the policy. Provide this or the positional argument, not both.
@@ -71342,7 +71763,7 @@ chainctl auth pull-token [flags]
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, javascript, python_athena, javascript_athena, dotnet, dotnet_athena, java_athena, go, go_athena, java, python. (default "oci")
+      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, python, ruby, ruby_athena, javascript, java_athena, python_athena, javascript_athena, dotnet, dotnet_athena, go, go_athena, java. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
 ```
@@ -71805,9 +72226,10 @@ the system default), --block to always deny a package, and --allow to let a
 package override the cooldown and/or malware gates.
 
 Packages are identified by their package URL (purl). The purl namespace
-selects the ecosystem, so the same --block and --allow flags work for Java, JavaScript, and Python:
+selects the ecosystem, so the same --block and --allow flags work for Go, Java, JavaScript, and Python:
 
 ```
+Go (modules)       pkg:golang/<module-path>
 Java (Maven)       pkg:maven/<group>/<artifact>
 JavaScript (npm)   pkg:npm/<name>
                    pkg:npm/%40<scope>/<name>   (scoped packages)
@@ -71856,7 +72278,7 @@ chainctl libraries policy create --name NAME [--parent ORGANIZATION_NAME | ORGAN
 
 ```
       --allow stringArray     A package permitted to override gates, as comma-separated key=value pairs: purl=<package-url>[,override-cooldown=true][,override-malware=true][,justification="..."]. justification is required with override-malware. Repeatable.
-      --block stringArray     A package to always deny, as purl=<package-url>. The purl namespace selects the ecosystem (pkg:maven/<group>/<artifact>, pkg:npm/<name>, pkg:pypi/<name>); append @<version> to block a single version. Repeatable.
+      --block stringArray     A package to always deny, as purl=<package-url>. The purl namespace selects the ecosystem (pkg:golang/<module-path>, pkg:maven/<group>/<artifact>, pkg:npm/<name>, pkg:pypi/<name>); append @<version> to block a single version. Repeatable.
       --cooldown-days int32   The cooldown window in days (0 disables, 1-30 explicit, omit to inherit the default). (default -1)
       --description string    The description of the policy.
       --name string           The name of the policy.
@@ -74395,6 +74817,1792 @@ This is a feature unique to the Console and is described in detail in [Using CVE
 ### Compare two Chainguard Containers with chainctl
 
 This is a feature unique to `chainctl` and is described in detail in [How to compare Chainguard Containers with chainctl](/platform/chainctl-usage/comparing-images/).
+
+---
+
+### cg-api: the Chainguard platform API MCP server
+_Path: platform/mcp-servers/cg-api.md_
+
+`cg-api` exposes the Chainguard platform API — the same API behind `chainctl` and the Chainguard Console — to an MCP client. Through it, a client can resolve which organizations and folders you belong to, list the image repositories and tags your account holds, inspect roles, role bindings, identity providers, and cloud account associations, and read security advisories. It is the broadest of Chainguard's four product-data MCP servers, and the only one that reaches organization and IAM data.
+
+The server uses the Streamable HTTP transport, at this endpoint:
+
+```
+https://console-api.enforce.dev/mcp
+```
+
+Like the other three servers, `cg-api` is read-only. It exposes none of the platform API's create, update, or delete operations, so use `chainctl` or the Console to change platform resources.
+
+## Prerequisites
+
+- An MCP-compatible client such as Claude Code, Claude Desktop, or Cursor
+- A [Chainguard account](https://console.chainguard.dev/) and an organization
+- [`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) installed, if you plan to narrow your token's scope or use the headless authentication path
+
+## Connect to the server
+
+### Claude Code
+
+Add the server with `claude mcp add`, using the HTTP transport:
+
+```shell
+claude mcp add --transport http cg-api https://console-api.enforce.dev/mcp
+```
+
+Pick the scope that fits how you want to use it: `local` (the default — only you, in the current directory), `project` (writes a shared `.mcp.json` at the repository root, checked in for teammates), or `user` (only you, across every project).
+
+The server is added unauthenticated. To complete OAuth, start a session and run the `/mcp` command:
+
+```Prompt
+/mcp
+```
+
+Select **cg-api**, choose **Authenticate**, and approve the connection in the browser window that opens. Check the status any time with:
+
+```shell
+claude mcp list
+```
+
+```output
+cg-api: https://console-api.enforce.dev/mcp (HTTP) - ✓ Connected
+```
+
+### Cursor
+
+Cursor supports HTTP transport natively. Add the server to your MCP configuration:
+
+```json
+{
+  "mcpServers": {
+    "cg-api": {
+      "url": "https://console-api.enforce.dev/mcp"
+    }
+  }
+}
+```
+
+Restart Cursor, then connect the server from **Tools & MCPs** in settings and complete the browser sign-in.
+
+### Claude Desktop
+
+Claude Desktop reads MCP servers from a JSON file but does not yet support HTTP transport directly. Use [`mcp-remote`](https://github.com/geelen/mcp-remote) to bridge to the hosted server:
+
+```json
+{
+  "mcpServers": {
+    "cg-api": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://console-api.enforce.dev/mcp"
+      ]
+    }
+  }
+}
+```
+
+The configuration file lives at:
+
+- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
+`npx` downloads and runs `mcp-remote` on demand, so you need Node.js installed on the host. Restart Claude Desktop after saving the file.
+
+### Other MCP clients
+
+Any client that supports a remote Streamable HTTP MCP server with OAuth can connect to the same endpoint. Point it at `https://console-api.enforce.dev/mcp` and complete the browser sign-in when prompted.
+
+## Authentication
+
+Authentication is OAuth 2.0 against the Chainguard issuer, and every call runs with your own platform permissions. The server grants no access beyond what your role already allows.
+
+{{< alert context="warning" >}}
+**Each Chainguard MCP server requires its own login.** Authenticating to `cg-api` does not authenticate you to `cg-oci`, `cg-apk`, or `cg-versions`. Connecting all four means completing the browser sign-in four times. As of this writing, there is no unified sign-in across the four servers.
+{{< /alert >}}
+
+On a remote or headless workstation, you can supply a token from `chainctl` instead of completing the browser flow. Refer to [Authenticate with chainctl instead of a browser](/platform/mcp-servers/overview/#authenticate-with-chainctl-instead-of-a-browser) for the full recipe; `cg-api`'s audience is `https://console-api.enforce.dev/mcp`.
+
+### The tool list depends on your token
+
+`cg-api` filters its advertised tools against the capabilities of the token you connected with. Two people connected to the same endpoint can see different tool lists, and a missing tool means your token can't call it, not that the server doesn't offer it. Run `/mcp` in Claude Code to see what your own token receives.
+
+### Narrow what an AI tool can do
+
+`chainctl auth token` accepts two flags that reduce a token's reach:
+
+- `--capabilities` requests a token narrowed to the capabilities you name. List the ones a token currently carries with `chainctl auth token capabilities`.
+- `--scope` reduces a token's scope to the groups you name, which confines it to one organization or folder.
+
+The browser OAuth flow offers no equivalent, so narrowing means authenticating through `chainctl`. Add the flags to the `chainctl auth token` call inside the headers helper described in the [overview](/platform/mcp-servers/overview/#authenticate-with-chainctl-instead-of-a-browser), and every connection that helper opens inherits the narrowed token. A helper that scopes its token to one organization produces a `cg-api` session that can't read data from your other organizations.
+
+## Common parameters
+
+Most tools share the following conventions.
+
+### UIDPs
+
+Platform resources are addressed by **UIDP**, a slash-delimited path that encodes the resource's position in the group hierarchy. A root organization has a bare UIDP such as `0ac7ff905850c35723a7f376e10d007c958c45c8`; a folder beneath it appends a segment, as in `0ac7ff905850c35723a7f376e10d007c958c45c8/014da1131bcc7f51`. Every `*_get` tool takes a `uid` of this shape, and you normally obtain it from a `*_list` call rather than constructing it.
+
+### The uidp filter
+
+`list` tools accept a `uidp` object that scopes results to part of the hierarchy:
+
+| Field | Type | Description |
+| ----- | ----- | ----- |
+| `ids` | array of strings | Restrict to these exact UIDPs |
+| `children_of` | string | Direct children of this UIDP |
+| `descendants_of` | string | Every descendant of this UIDP, at any depth |
+| `ancestors_of` | string | The chain of groups above this UIDP |
+| `in_root` | boolean | Restrict to root-level groups |
+
+### Pagination
+
+Every `list` tool returns at most 200 results per page and 50 by default; a larger `page_size` is reduced rather than rejected. Continue by passing the response's `nextPageToken` as the next call's `page_token`. Note the casing difference: the parameter is snake_case, and the response field is camelCase. Responses also carry `totalCount`, so an MCP client can report a total without paging through the results.
+
+Most `list` tools additionally accept `order_by` and `skip`.
+
+## Tool reference
+
+The server advertises 30 tools across 15 services, grouped by the service they belong to.
+
+Run `api_list` to enumerate the services your own token reaches, and `api_read` to see an individual RPC's metadata.
+
+### API discovery
+
+| Tool | Parameters | Returns |
+| ----- | ----- | ----- |
+| `api_list` | `path` | Services at the root, or the RPCs under a service such as `iam.v2beta1.GroupsService` |
+| `api_read` | `path` | The metadata payload for one RPC, such as `iam.v2beta1.GroupsService/ListGroups` |
+| `api_callers` | `type` | The RPCs you can call that use a given proto message type |
+
+*Example prompt:* "What parts of the Chainguard API can I reach?"
+
+### Organizations and folders
+
+| Tool | Parameters | Returns |
+| ----- | ----- | ----- |
+| `iam_groups_list` | `name`, `uidp`, `order_by`, `page_size`, `page_token`, `skip` | Groups you can access |
+| `iam_groups_get` | `uid` | One group |
+
+*Example prompt:* "What Chainguard organizations am I a member of?"
+
+### Roles and role bindings
+
+| Tool | Parameters | Returns |
+| ----- | ----- | ----- |
+| `iam_roles_list` | `name`, `uidp`, `order_by`, `page_size`, `page_token`, `skip` | Roles available to you |
+| `iam_roles_get` | `uid` | One role |
+| `iam_role_bindings_get` | `uid` | One role binding |
+
+*Example prompt:* "What roles exist in my organization?"
+
+### Identities and identity providers
+
+| Tool | Parameters | Returns |
+| ----- | ----- | ----- |
+| `iam_identities_get` | `uid` | One identity |
+| `iam_identity_providers_list` | `name`, `uidp`, pagination | Configured identity providers |
+| `iam_identity_providers_get` | `uid` | One identity provider |
+| `iam_external_group_role_mappings_list` | `uidp`, pagination | Mappings from IdP groups to Chainguard roles |
+| `iam_external_group_role_mappings_get` | `uid` | One mapping |
+
+*Example prompt:* "Which identity providers are configured for my org?"
+
+### Invitations
+
+| Tool | Parameters | Returns |
+| ----- | ----- | ----- |
+| `iam_group_invites_get` | `uid` | One invitation |
+
+### Cloud account associations
+
+| Tool | Parameters | Returns |
+| ----- | ----- | ----- |
+| `iam_account_associations_list` | `uidp`, pagination | Configured cloud account associations |
+| `iam_account_associations_get` | `uid` | One association |
+| `iam_account_associations_check` | `uid`, `provider_type` | Verifies an association by performing a live credential exchange against Google, Amazon, or Azure |
+
+*Example prompt:* "Is my AWS account association working?"
+
+### Event subscriptions
+
+| Tool | Parameters | Returns |
+| ----- | ----- | ----- |
+| `iam_subscriptions_list` | `uidp`, pagination | Event subscriptions you can access |
+| `iam_subscriptions_get` | `uid` | One subscription |
+
+Despite the `iam_` prefix, these tools address the events service rather than IAM. Refer to the [events reference](/platform/administration/cloudevents/events-reference/) for the event types available.
+
+### Registry metadata
+
+| Tool | Parameters | Returns |
+| ----- | ----- | ----- |
+| `registry_repos_list` | `name`, `uidp`, `order_by`, `page_size`, `page_token`, `skip` | Repositories you can access |
+| `registry_repos_get` | `uid` | One repository |
+| `registry_tags_list` | `name`, `digest`, `updated_since`, `include_dates`, `include_epochs`, `include_referrers`, `include_vcs_snapshots`, `uidp`, pagination | Tags you can access |
+| `registry_tags_get` | `uid` | One tag |
+| `registry_images_get_architectures` | image identifier | The architectures an image provides |
+| `registry_images_get_size` | image identifier | An image's size |
+| `registry_overlays_list` / `registry_overlays_get` | `uidp`, pagination, `uid` | Custom Assembly overlays |
+| `registry_overlay_bindings_list` / `registry_overlay_bindings_get` | `uidp`, pagination, `uid` | Which overlays are bound to which repositories |
+
+*Example prompt:* "Which repositories in my org have been updated this week?"
+
+### Security advisories
+
+| Tool | Parameters | Returns |
+| ----- | ----- | ----- |
+| `vulnerabilities_advisories_get` | `uid` | One security advisory |
+
+### Tools that are deliberately withheld
+
+The server exposes no write tools. Every create, update, and delete operation in the platform API, and `iam_terms_accept`, is absent from the MCP tool list.
+
+Six collection-listing tools are also withheld, because enumerating them wholesale would pull sensitive organization data into a model's context. Four of the six have a per-resource `*_get` form, so you can still read a specific record when you have its UIDP:
+
+| Withheld tool | Read one instead with |
+| ----- | ----- |
+| `iam_scim_users_list` | — |
+| `iam_identities_list` | `iam_identities_get` |
+| `iam_group_invites_list` | `iam_group_invites_get` |
+| `iam_role_bindings_list` | `iam_role_bindings_get` |
+| `iam_terms_list_terms_acceptances` | — |
+| `vulnerabilities_advisories_list` | `vulnerabilities_advisories_get` |
+
+To enumerate any of these, or to change platform resources, use `chainctl` or the Console rather than an MCP client.
+
+## Core tools in detail
+
+### iam_groups_list
+
+Lists the groups — organizations and folders — that the caller can access. An AI tool usually calls this first, because it returns the UIDPs that almost every other call needs.
+
+| Parameter | Type | Required | Description |
+| ----- | ----- | ----- | ----- |
+| `name` | string | no | Filter by group name |
+| `uidp` | object | no | Scope to part of the hierarchy |
+| `order_by` | string | no | Sort order |
+| `page_size` | integer | no | Results per page (default 50, max 200) |
+| `page_token` | string | no | The `nextPageToken` from a previous call |
+| `skip` | integer | no | Skip this many results |
+
+Each group returns `name`, `uid`, `description`, `createTime`, `updateTime`, and `verified`. The response carries `totalCount` and, when more pages remain, `nextPageToken`.
+
+*Example prompt:* "What Chainguard organizations and folders can I see?"
+
+### registry_repos_list
+
+Lists the container image repositories the caller can access, with the same filtering and pagination conventions. The response key is `repos`.
+
+Each repository carries its full `activeTags` list, so pages get large quickly. A page of 50 repositories can exceed an MCP client's result limit; use a smaller `page_size` when listing a large organization.
+
+*Example prompt:* "List the repositories in my organization."
+
+This overlaps with `cg-oci`'s `list_repos` but answers a different question. `registry_repos_list` returns the platform's record of a repository — its UIDP, its parent group, its configuration. `cg-oci`'s `list_repos` returns what the registry serves you over the OCI protocol. Use this one for organization and configuration questions, and `cg-oci` for pulling content.
+
+### registry_tags_list
+
+Lists tags. It has more filters than any other tool on this server.
+
+| Parameter | Type | Required | Description |
+| ----- | ----- | ----- | ----- |
+| `name` | string | no | Filter by tag name |
+| `digest` | string | no | Find the tags pointing at a digest |
+| `updated_since` | date-time | no | Only tags updated after this timestamp |
+| `include_dates` | boolean | no | Include tag timestamps |
+| `include_epochs` | boolean | no | Include epoch information |
+| `include_referrers` | boolean | no | Include referring artifacts |
+| `include_vcs_snapshots` | boolean | no | Include version control snapshot information |
+| `uidp` | object | no | Scope to part of the hierarchy |
+
+`include_dates` combined with `updated_since` is how you answer freshness questions across a whole organization, rather than one image at a time.
+
+*Example prompt:* "Which tags in my org have been rebuilt since Monday?"
+
+### api_list, api_read, and api_callers
+
+These three describe the API rather than query it, which makes them the reliable way to find out what your token can do.
+
+`api_list` with an empty `path` returns the services available to you. On a broadly capable token that is 15 services, all at `v2beta1`: the `iam`, `registry`, `vulnerabilities`, and `events` families.
+
+Pass a fully qualified service name to list that service's RPCs. Use the name exactly as the root listing returns it — `iam.v2beta1.GroupsService`, not `iam.Groups`:
+
+```
+api_list(path: "iam.v2beta1.GroupsService")
+  → GetGroup, ListGroups
+```
+
+A path that doesn't resolve returns an empty `entries` list rather than an error, so an empty result usually means the name was abbreviated rather than that you lack access.
+
+`api_read` takes a single RPC in `Service/Rpc` form and returns its metadata:
+
+```
+api_read(path: "iam.v2beta1.GroupsService/ListGroups")
+  → capabilities: ["groups.list"]
+    method: GET
+    path: /iam/v2beta1/groups
+    request:  chainguard.platform.iam.v2beta1.ListGroupsRequest
+    response: chainguard.platform.iam.v2beta1.ListGroupsResponse
+```
+
+The `capabilities` field names the exact capability an RPC requires, which is what you need when [narrowing a token](#narrow-what-an-ai-tool-can-do) to the smallest useful set.
+
+`api_callers` works backwards from a proto message type, such as `chainguard.platform.iam.Group`, to the RPCs that use it.
+
+*Example prompt:* "What RPCs can I call on the Groups service, and what capability does each need?"
+
+## Example usage
+
+Sample exchanges from a Claude Code session with `cg-api` connected.
+
+```Prompt
+What Chainguard organizations can I see?
+```
+
+```output
+  Called cg-api (ctrl+o to expand)
+
+● Your token reaches 24 groups in total. The root organization is
+  acme-corp.com, which holds folders including platform, data-services,
+  and a sandbox per team. Want me to page through the rest?
+```
+
+```Prompt
+Which repositories in my org were updated in the last week?
+```
+
+```output
+  Called cg-api (ctrl+o to expand)
+
+● 132 of the 142 repositories in your organization have at least one tag
+  that moved in the last seven days, including gitlab-base, keycloak,
+  python, and most of your Helm charts. The 10 that didn't change are
+  mostly untagged test repositories, plus one expired entitlement
+  (rabbitmq).
+```
+
+```Prompt
+What parts of the API can I actually reach?
+```
+
+```output
+  Called cg-api (ctrl+o to expand)
+
+● Your token reaches 15 services, all at v2beta1: eight under iam (Groups,
+  Roles, RoleBindings, Identities, IdentityProviders, GroupInvites,
+  AccountAssociations, ExternalGroupRoleMappings), five under registry
+  (Repos, Tags, Images, Overlays, OverlayBindings), plus
+  vulnerabilities.Advisories and events.Subscriptions.
+```
+
+## Troubleshooting
+
+| Symptom | What it means | What to do |
+| ----- | ----- | ----- |
+| A tool you expected isn't listed | `cg-api` filters its tool list by your token's capabilities, and it withholds every write tool and six collection-listing tools from everyone. | Run `/mcp` to see your session's tools, and `api_list` to see the services your token reaches. For a write operation or a withheld list tool, use `chainctl` or the Console. |
+| `PERMISSION_DENIED` on a call | Your role does not carry the capability that RPC requires. The server enforces your existing permissions and adds nothing. | Run `api_read` on the RPC to see the capability it requires, then check your role bindings with `chainctl iam role-bindings list` or ask an organization administrator. |
+| A `*_get` call fails on a UIDP you typed by hand | UIDPs are slash-delimited hierarchy paths, not names, and a folder's UIDP includes its parent's. | Get the UIDP from the matching `*_list` call rather than composing it. |
+| A list call returns fewer results than `totalCount` | The response is one page. The default page size is 50 and the maximum is 200. | Pass the response's `nextPageToken` as `page_token` to continue. |
+| Results look like another team's data | The API returns everything your token reaches across every organization you belong to, not just your current one. | Scope the call with the `uidp` filter — `children_of` or `descendants_of` your own organization's UIDP. |
+| Server shows as not connected in `claude mcp list` | OAuth was never completed, or the token expired. Claude Code's tokens against the Chainguard issuer last about an hour and carry no refresh token. | Run `/mcp`, select **cg-api**, and authenticate again, or switch to the [`chainctl` helper](/platform/mcp-servers/overview/#authenticate-with-chainctl-instead-of-a-browser). |
+| `401 invalid token` when using the `chainctl` helper | The audience was registered as a bare hostname. MCP audiences must include the `/mcp` path. | Run `chainctl auth login --audience=https://console-api.enforce.dev/mcp` and try again. |
+
+## Next steps
+
+- [`cg-oci`](/platform/mcp-servers/cg-oci/) — read manifests, SBOMs, and provenance from the registry itself
+- [`cg-apk`](/platform/mcp-servers/cg-apk/) — search the Wolfi package index
+- [`cg-versions`](/platform/mcp-servers/cg-versions/) — check upstream releases and end-of-life dates
+- [Chainguard MCP servers overview](/platform/mcp-servers/overview/) — the full set, and the `chainctl` authentication recipe
+- [Chainguard API documentation](/platform/api/) — the same API over plain HTTP
+
+---
+
+### AI Docs: the Chainguard documentation MCP server
+_Path: platform/mcp-servers/ai-docs.md_
+
+The Chainguard AI Documentation MCP server gives AI tools and other MCP clients searchable access to Chainguard's container image docs, security guides, and tool references. The server returns only the sections that match each query, so clients avoid loading the full documentation bundle into context.
+
+For background on MCP and the other Chainguard MCP servers, refer to the [MCP servers overview](/platform/mcp-servers/overview/).
+
+## Why use the MCP server?
+
+- **Lower context cost.** Clients fetch only the sections they need instead of loading the entire multi-megabyte bundle into every prompt.
+- **Structured queries.** Look up a specific image, search for a CVE, or find a package equivalent without writing custom scrapers.
+- **IDE integration.** Works with Claude Code, Claude Desktop, Cursor, and other MCP-compatible clients, so developers can reference Chainguard docs while they write code.
+
+## Connect to the server
+
+### Prerequisites
+
+- An MCP-compatible client such as Claude Code, Claude Desktop, or Cursor
+
+### Hosted server (recommended)
+
+Chainguard hosts a public MCP server at `https://mcp.edu.chainguard.dev/mcp`. This is the fastest way to get started — no Docker or local setup required.
+
+How you register the server depends on your MCP client. Clients that support HTTP transport natively can connect to the URL directly. Clients that only spawn local processes (including Claude Desktop) need a small bridge such as [`mcp-remote`](https://github.com/geelen/mcp-remote).
+
+#### Claude Code
+
+Run this command:
+
+```bash
+claude mcp add --transport http chainguard-docs https://mcp.edu.chainguard.dev/mcp
+```
+
+The server is available immediately. Verify it with `claude mcp list`.
+
+By default, the command registers the server for the current directory only. To make it available in every directory, add `--scope user`.
+
+#### Claude Desktop
+
+Claude Desktop reads MCP servers from a JSON file but does not yet support HTTP transport directly. Use `mcp-remote` to bridge to the hosted server:
+
+```json
+{
+  "mcpServers": {
+    "chainguard-docs": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://mcp.edu.chainguard.dev/mcp"
+      ]
+    }
+  }
+}
+```
+
+The configuration file lives at:
+
+- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
+`npx` downloads and runs `mcp-remote` on demand, so you need Node.js installed on the host. Restart Claude Desktop after saving the file.
+
+#### Cursor and other clients with native HTTP transport
+
+Add the server URL to your client's MCP configuration:
+
+```json
+{
+  "mcpServers": {
+    "chainguard-docs": {
+      "url": "https://mcp.edu.chainguard.dev/mcp"
+    }
+  }
+}
+```
+
+Consult your client's documentation for the configuration file location, then restart the client. The Chainguard documentation tools appear in the next conversation.
+
+### Local Docker setup
+
+To run the MCP server locally, pull the container image:
+
+```bash
+docker pull ghcr.io/chainguard-dev/ai-docs:latest
+```
+
+The image's `serve-mcp` entrypoint uses the stdio transport, which works with any MCP client that launches local processes. For Claude Desktop, add this block to `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "chainguard-docs": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "ghcr.io/chainguard-dev/ai-docs:latest",
+        "serve-mcp"
+      ]
+    }
+  }
+}
+```
+
+Restart the client after saving the file.
+
+## Available tools
+
+The server exposes seven tools for querying documentation, mapping packages, and checking image availability.
+
+### `search_docs`
+
+Search across all Chainguard documentation for relevant content.
+
+*Parameters:*
+
+- `query` (string, required): Search query
+- `max_results` (integer, optional): Maximum results to return (default: 5)
+
+*Example prompts:*
+
+- "Search Chainguard docs for python CVE management"
+- "Find information about FIPS compliance"
+- "Search for nginx configuration examples"
+
+### `get_image_docs`
+
+Get documentation for a specific Chainguard container image.
+
+*Parameters:*
+
+- `image_name` (string, required): Image name (for example, "python", "node", "nginx")
+
+*Example prompts:*
+
+- "Show me the Python image documentation"
+- "Get docs for the nginx image"
+- "What's in the node image?"
+
+### `list_images`
+
+List Chainguard container images with optional filtering. When the image catalog is available, each result includes the image's registry reference and whether documentation is available.
+
+*Parameters:*
+
+- `filter` (string, optional): Filter images by name (for example, "python", "nginx", "apache")
+
+*Example prompts:*
+
+- "List all Chainguard images"
+- "Show me images related to Python"
+
+### `get_security_docs`
+
+Get security-related documentation including CVE management, SBOMs, and signing.
+
+*Example prompts:*
+
+- "How does Chainguard handle CVEs?"
+- "Show me security documentation"
+- "Explain SBOM generation"
+
+### `get_tool_docs`
+
+Get documentation for Chainguard tools and ecosystem components.
+
+*Parameters:*
+
+- `tool_name` (string, required): Tool name: `wolfi`, `apko`, `melange`, or `chainctl`
+
+*Example prompts:*
+
+- "Show me wolfi documentation"
+- "How do I use apko?"
+- "Explain melange"
+
+### `find_package_equivalent`
+
+Find the Wolfi package that replaces a Debian, Fedora, or Alpine package. Use this when migrating a Dockerfile to a Chainguard image and translating package names for `apk add`.
+
+*Parameters:*
+
+- `package` (string, required): Upstream OS package name (for example, "build-essential", "libssl-dev", "python3-pip")
+- `distro` (string, optional): Source distribution to search: `debian`, `fedora`, or `alpine`. Searches all distributions if omitted. The catalog has no Alpine mappings yet, so an Alpine lookup returns no match.
+
+*Example prompts:*
+
+- "What's the Wolfi equivalent of Debian's build-essential?"
+- "Find the Chainguard package for libssl-dev"
+- "I need to replace python3-pip in my Alpine Dockerfile"
+
+### `check_image_freshness`
+
+Query `cgr.dev` for how current an image is. Returns the digest and build date of the image's `latest` tag, along with the repository's tags. Falls back to catalog data if the registry is unreachable.
+
+Tag lists omit the `sha256-` attachment tags that carry each image's signature, attestation, and SBOM, because they outnumber the image's real tags by several hundred to one.
+
+*Parameters:*
+
+- `image_name` (string, required): Chainguard image name (such as "python", "node", "nginx")
+
+*Example prompts:*
+
+- "When was the Python image last built?"
+- "What tags are available for the Python image?"
+- "Show me the available tags for the nginx image"
+- "Is the golang image available on cgr.dev?"
+
+## Image catalog
+
+The `list_images` and `find_package_equivalent` tools draw from a pre-built catalog that ships with the server. The `check_image_freshness` tool queries the registry directly, and uses the catalog only to report whether an image has documentation. The catalog includes:
+
+- Chainguard container images that have documentation in the bundle, with their registry references. This doesn't cover every image in the registry.
+- Package mappings from Debian and Fedora to their Wolfi equivalents
+
+Each documentation build regenerates the catalog.
+
+## Example usage
+
+Sample exchanges from a Claude Code session with `chainguard-docs` connected. The documentation and images change often, so your answers will differ.
+
+```Prompt
+How do I use a multi-stage build with the Chainguard Python image?
+```
+
+```output
+  Called chainguard-docs (ctrl+o to expand)
+
+● Use the -dev variant as the build stage and the minimal image as the
+  runtime stage. The -dev image includes pip and a shell, so install your
+  dependencies there, then copy them into the minimal image, which has
+  only Python and its standard library. The Getting started with the
+  Python Chainguard Container guide walks through a full example.
+```
+
+```Prompt
+What's the Wolfi equivalent of Debian's build-essential?
+```
+
+```output
+  Called chainguard-docs (ctrl+o to expand)
+
+● Debian's build-essential maps to build-base in Wolfi. Install it with:
+
+  apk add build-base
+```
+
+```Prompt
+When was the Python image last built, and what tags does it have?
+```
+
+```output
+  Called chainguard-docs (ctrl+o to expand)
+
+● The latest tag of cgr.dev/chainguard/python was built today. The public
+  repository carries two tags, latest and latest-dev. Version tags such as
+  3.13 aren't in the free catalog.
+```
+
+## Standalone installation (without Docker)
+
+The server script and its dependencies live in the [edu repository](https://github.com/chainguard-dev/edu). The documentation files ship inside the container image, which you can extract once and reuse.
+
+```bash
+# Download the MCP server script and requirements
+curl -LO https://raw.githubusercontent.com/chainguard-dev/edu/main/scripts/mcp-server.py
+curl -LO https://raw.githubusercontent.com/chainguard-dev/edu/main/scripts/mcp-requirements.txt
+
+# Extract the documentation bundle from the container image
+docker run --rm --user "$(id -u):$(id -g)" \
+  -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract /output
+# Writes chainguard-ai-docs.md, image-catalog.json, checksums.txt, and
+# verification.sh into a chainguard-ai-docs/ subdirectory
+
+# Install dependencies into a virtual environment
+python3 -m venv .venv
+.venv/bin/pip install -r mcp-requirements.txt
+
+# Run the server
+DOCS_PATH=chainguard-ai-docs/chainguard-ai-docs.md \
+CATALOG_PATH=chainguard-ai-docs/image-catalog.json \
+.venv/bin/python mcp-server.py
+```
+
+The container runs as a non-root user, so pass `--user` to let it write to the mounted directory and to leave the extracted files owned by you.
+
+To run this script under Claude Desktop, point the configuration at the local files:
+
+```json
+{
+  "mcpServers": {
+    "chainguard-docs": {
+      "command": "/path/to/.venv/bin/python",
+      "args": ["/path/to/mcp-server.py"],
+      "env": {
+        "DOCS_PATH": "/path/to/chainguard-ai-docs.md",
+        "CATALOG_PATH": "/path/to/image-catalog.json"
+      }
+    }
+  }
+}
+```
+
+## Self-host with HTTP transport
+
+Run your own HTTP instance when you need to expose the server inside a firewall or with custom configuration.
+
+### From the standalone script
+
+```bash
+.venv/bin/python mcp-server.py --transport http --port 8080
+```
+
+The server binds to `http://0.0.0.0:8080` with the MCP endpoint at `/mcp`.
+
+Environment variables work too:
+
+```bash
+MCP_TRANSPORT=http MCP_PORT=8080 .venv/bin/python mcp-server.py
+```
+
+### From Docker
+
+```bash
+docker run --rm -p 8080:8080 ghcr.io/chainguard-dev/ai-docs:latest serve-mcp-http
+```
+
+Point your MCP client at `http://localhost:8080/mcp`.
+
+### CLI flags
+
+| Flag | Env var | Default | Description |
+| --- | --- | --- | --- |
+| `--transport` | `MCP_TRANSPORT` | `stdio` | Transport mode: `stdio` or `http` |
+| `--host` | `MCP_HOST` | `0.0.0.0` | HTTP server bind address |
+| `--port` | `MCP_PORT` | `8080` | HTTP server port |
+
+## Alternative: static documentation
+
+If you don't need the server at all, extract the documentation file from the container:
+
+```bash
+docker run --rm --user "$(id -u):$(id -g)" -v $(pwd):/output \
+  ghcr.io/chainguard-dev/ai-docs:latest extract /output
+```
+
+The bundle lands at `chainguard-ai-docs/chainguard-ai-docs.md`. Refer to the [Developer Resources](/developer-resources/) page for more on static extraction.
+
+## Security features
+
+The container image follows the standard Chainguard pattern:
+
+- Built on `cgr.dev/chainguard/wolfi-base`
+- Runs as a non-root user
+- Signed with Cosign
+- Rebuilt whenever the documentation changes, so known CVEs don't accumulate
+
+## Troubleshooting
+
+### Server does not appear in Claude Desktop
+
+1. Confirm that the configuration file path is correct for your platform.
+2. Restart Claude Desktop after editing the file.
+3. Check Claude Desktop's logs for parse or connection errors.
+4. For the local Docker block, confirm Docker is running.
+
+### Connection issues
+
+Test the hosted server with `curl`:
+
+```bash
+curl -X POST https://mcp.edu.chainguard.dev/mcp \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"test","version":"1.0"}}}'
+```
+
+A JSON response listing the server's capabilities confirms the connection.
+
+To test a local Docker server:
+
+```bash
+docker run --rm -i ghcr.io/chainguard-dev/ai-docs:latest serve-mcp
+```
+
+The container prints startup messages and then waits for stdio input.
+
+### Documentation out of date
+
+The hosted server updates automatically. For the local Docker setup, pull a fresh image:
+
+```bash
+docker pull ghcr.io/chainguard-dev/ai-docs:latest
+```
+
+## Resources
+
+- [Chainguard MCP servers overview](/platform/mcp-servers/overview/)
+- [Model Context Protocol documentation](https://modelcontextprotocol.io/)
+- [Chainguard MCP blog post](https://www.chainguard.dev/unchained/meet-chainguard-mcps-bringing-supply-chain-security-to-the-ai-era)
+- [Developer Resources](/developer-resources/)
+- [Chainguard Images Directory](https://images.chainguard.dev/)
+
+## Need help?
+
+- [Get support](/get-started/get-support/)
+- [Community Slack](https://join.slack.com/t/chainguardcommunity/shared_invite/zt-3nttdr807-V9BJHayWvsB0KbHsfZO5Rw)
+- [GitHub Issues](https://github.com/chainguard-dev/edu/issues)
+
+---
+
+### cg-oci: the Chainguard container registry MCP server
+_Path: platform/mcp-servers/cg-oci.md_
+
+`cg-oci` gives an AI tool read-only access to the Chainguard container registry at `cgr.dev`. Through it, a client can list the repositories and tags your account can reach, fetch a manifest or image config by tag or digest, and read the signed attestations attached to an image — its SPDX SBOM, its apko build configuration, and its SLSA build provenance. Every response comes from the registry as it exists at the moment of the call, so an AI tool can answer what a specific image actually contains rather than what its documentation says it contains.
+
+The server uses the Streamable HTTP transport, at this endpoint:
+
+```
+https://cgr.dev/mcp
+```
+
+## Prerequisites
+
+- An MCP-compatible client such as Claude Code, Claude Desktop, or Cursor
+- A [Chainguard account](https://console.chainguard.dev/)
+
+## Connect to the server
+
+### Claude Code
+
+Add the server with `claude mcp add`, using the HTTP transport:
+
+```shell
+claude mcp add --transport http cg-oci https://cgr.dev/mcp
+```
+
+Pick the scope that fits how you want to use it: `local` (the default — only you, in the current directory), `project` (writes a shared `.mcp.json` at the repository root, checked in for teammates), or `user` (only you, across every project). A registry lookup is useful almost everywhere, so `--scope user` is usually the right choice:
+
+```shell
+claude mcp add --transport http --scope user cg-oci https://cgr.dev/mcp
+```
+
+The server is added unauthenticated. To complete OAuth, start a session and run the `/mcp` command:
+
+```Prompt
+/mcp
+```
+
+Select **cg-oci**, choose **Authenticate**, and approve the connection in the browser window that opens. Check the status any time with:
+
+```shell
+claude mcp list
+```
+
+```output
+cg-oci: https://cgr.dev/mcp (HTTP) - ✓ Connected
+```
+
+### Cursor
+
+Cursor supports HTTP transport natively. Add the server to your MCP configuration:
+
+```json
+{
+  "mcpServers": {
+    "cg-oci": {
+      "url": "https://cgr.dev/mcp"
+    }
+  }
+}
+```
+
+Restart Cursor, then connect the server from **Tools & MCPs** in settings and complete the browser sign-in.
+
+### Claude Desktop
+
+Claude Desktop reads MCP servers from a JSON file but does not yet support HTTP transport directly. Use [`mcp-remote`](https://github.com/geelen/mcp-remote) to bridge to the hosted server:
+
+```json
+{
+  "mcpServers": {
+    "cg-oci": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://cgr.dev/mcp"
+      ]
+    }
+  }
+}
+```
+
+The configuration file lives at:
+
+- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
+`npx` downloads and runs `mcp-remote` on demand, so you need Node.js installed on the host. Restart Claude Desktop after saving the file.
+
+### Other MCP clients
+
+Any client that supports a remote Streamable HTTP MCP server with OAuth can connect to the same endpoint. Point it at `https://cgr.dev/mcp` and complete the browser sign-in when prompted. Consult your client's documentation for where its MCP configuration lives.
+
+## Authentication
+
+Authentication is OAuth 2.0 against the Chainguard issuer. You can read an image through `cg-oci` only if your account can pull it from the registry.
+
+{{< alert context="warning" >}}
+**Each Chainguard MCP server requires its own login.** Authenticating to `cg-oci` does not authenticate you to `cg-apk`, `cg-versions`, or `cg-api`. Connecting all four means completing the browser sign-in four times. As of this writing, there is no unified sign-in across the four servers.
+{{< /alert >}}
+
+On a remote or headless workstation, you can supply a token from `chainctl` instead of completing the browser flow. Refer to [Authenticate with chainctl instead of a browser](/platform/mcp-servers/overview/#authenticate-with-chainctl-instead-of-a-browser) for the full recipe; `cg-oci`'s audience is `https://cgr.dev/mcp`.
+
+### Access scope
+
+Results are scoped to your account, which has two effects:
+
+- **`list_repos` does not list the public Chainguard catalog.** It lists every repository your token can reach, across every organization you belong to, in `_catalog` order. If your organization mirrors images into its own namespace, those repositories appear alongside the public ones.
+- **Public `chainguard/*` repositories expose only `latest` and `latest-dev`.** Version tags such as `3.12` live in your organization's own namespace and require an entitlement. `chainguard/python:3.12` is not a valid reference for an unentitled caller, even though 3.12 builds of the Python image exist.
+
+To browse the public catalog and its documented tags, use the [Chainguard Containers directory](https://images.chainguard.dev/) instead.
+
+## Tool reference
+
+The tools fall into two groups. The `list_*` tools return one bounded page at a time — 50 items by default, 200 at most — and you continue by passing a cursor back. The `get_*` tools return a single object exactly as the registry stores it.
+
+Every tool identifies an image with two separate parameters rather than one fully qualified reference:
+
+- `repo` — the repository name without the registry host, for example `chainguard/python`
+- `reference` — a tag such as `latest`, or a digest such as `sha256:5a673f...`
+
+Passing `cgr.dev/chainguard/python:3.12` as a single string does not work.
+
+| Tool | Parameters | Returns | Example prompt |
+| ----- | ----- | ----- | ----- |
+| `list_repos` | `page_size`, `cursor` | `{repos, count, has_more}` | "What Chainguard repositories can I access?" |
+| `list_tags` | `repo`, `page_size`, `cursor`, `include_digest_tags` | `{tags, count, has_more, next_cursor}` | "What tags exist for chainguard/python?" |
+| `get_manifest` | `repo`, `reference` | `{digest, manifest, media_type, size}` | "Get the manifest for chainguard/python:latest" |
+| `get_config` | `repo`, `reference`, `architecture` | `{digest, config}` | "What's the entrypoint of the chainguard/python image?" |
+| `get_sbom` | `repo`, `reference`, `architecture` | `{subject_digest, size_bytes, attestations}` | "Show me the SBOM for chainguard/python:latest" |
+| `list_sbom_packages` | `repo`, `reference`, `architecture`, `page_size`, `cursor` | `{subject_digest, documents, packages, count, total_packages, has_more, next_cursor}` | "What packages are in the amd64 chainguard/python image?" |
+| `get_apko_config` | `repo`, `reference`, `architecture` | `{subject_digest, attestations}` | "What apko config built chainguard/python:latest?" |
+| `get_provenance` | `repo`, `reference`, `architecture` | `{subject_digest, attestations}` | "Show me the build provenance for chainguard/python:latest" |
+
+Depending on your organization's entitlements, the server may advertise additional tools — a vulnerability listing, for instance, where that feature is enabled. Run `/mcp` in Claude Code to see the tool list your own token receives.
+
+### list_repos
+
+Lists the repositories your token can reach, through the registry's `/v2/_catalog` endpoint. The registry offers no server-side name filtering, so to find a specific repository, an MCP client must page through the whole list and filter the results itself.
+
+| Parameter | Type | Required | Description |
+| ----- | ----- | ----- | ----- |
+| `page_size` | integer | no | Repositories per page (default 50, max 200) |
+| `cursor` | string | no | The last repository name from the previous page; omit to start at the first page |
+
+The cursor here is a repository name rather than an opaque token, unlike the other `list_*` tools on this server.
+
+### list_tags
+
+Lists the tags in one repository. Each call requests a single page from the registry, so a repository with thousands of tags responds as quickly as a small one.
+
+| Parameter | Type | Required | Description |
+| ----- | ----- | ----- | ----- |
+| `repo` | string | yes | Repository name without the registry host, for example `chainguard/python` |
+| `page_size` | integer | no | Tags per page (default 50, max 200) |
+| `cursor` | string | no | The `next_cursor` from the previous page |
+| `include_digest_tags` | boolean | no | Include the `sha256-` prefixed tags that Cosign uses for signatures, attestations, and SBOMs (default `false`) |
+
+Digest tags are omitted by default because they outnumber an image's real tags by a wide margin. Set `include_digest_tags=true` only when you are looking for the attachment tags themselves.
+
+### get_manifest
+
+Fetches an OCI manifest by tag or digest. The server returns the manifest body as a raw JSON string, which preserves the exact bytes the registry computed the digest over.
+
+| Parameter | Type | Required | Description |
+| ----- | ----- | ----- | ----- |
+| `repo` | string | yes | Repository name without the registry host |
+| `reference` | string | yes | A tag such as `latest`, or a digest such as `sha256:...`. Prefer digests for content-addressable lookups. |
+
+For a multi-architecture tag this returns the image *index*, whose `manifests` array names the per-architecture children. The index's `annotations` carry useful metadata, including `org.opencontainers.image.created` — which is how you find out when an image was built.
+
+### get_config
+
+Fetches the OCI image config: the build-time description of the image's entrypoint, environment, working directory, and user.
+
+| Parameter | Type | Required | Description |
+| ----- | ----- | ----- | ----- |
+| `repo` | string | yes | Repository name without the registry host |
+| `reference` | string | yes | Tag or manifest digest |
+| `architecture` | string | no | Which child manifest to descend into when the reference resolves to a multi-arch index (default `amd64`) |
+
+### get_sbom
+
+Fetches the signed SPDX SBOM attestation (`predicateType` `https://spdx.dev/Document`). Each `predicate` in the response is the raw SPDX document exactly as it was signed.
+
+| Parameter | Type | Required | Description |
+| ----- | ----- | ----- | ----- |
+| `repo` | string | yes | Repository name without the registry host |
+| `reference` | string | yes | Tag or manifest digest |
+| `architecture` | string | no | Descend into this architecture's child manifest. Omit to read the attestation attached to the reference itself — the index, for a multi-arch tag. |
+
+The server refuses a document larger than 512 KB outright rather than truncating it; the error names the size and the `cosign` command that fetches the file directly. Use `list_sbom_packages` when you only need the package list. An image with no SBOM attestation returns an empty `attestations` list rather than an error.
+
+### list_sbom_packages
+
+Pages through the packages in an image's SPDX SBOM, returning package names, versions, PURLs, licenses, and SPDX purposes without pulling the whole document into context.
+
+| Parameter | Type | Required | Description |
+| ----- | ----- | ----- | ----- |
+| `repo` | string | yes | Repository name without the registry host |
+| `reference` | string | yes | Tag or manifest digest |
+| `architecture` | string | no | Descend into this architecture's child manifest |
+| `page_size` | integer | no | Packages per page (default 50, max 200) |
+| `cursor` | string | no | The `next_cursor` from the previous page |
+
+{{< alert context="warning" >}}
+**Pass `architecture` to get real packages.** Omitting it on a multi-architecture tag reads the *index*-level SBOM, which describes the index and its child manifests rather than the software inside the image — for `chainguard/python:latest` that is three entries. Passing `architecture=amd64` reads the per-architecture SBOM instead, which for the same image holds 134.
+{{< /alert >}}
+
+The package list mixes several kinds of entry, distinguishable by their `purpose` and `purl`:
+
+- `CONTAINER` — the image and its layer descriptors, with `pkg:oci/...` PURLs
+- `OPERATING_SYSTEM` and `APPLICATION` — the Wolfi base and its APK packages, with `pkg:apk/wolfi/...` PURLs
+- `INSTALL` — the melange build definitions that produced those packages
+- `SOURCE` — the upstream source a package was built from, such as a CPython commit
+- `FILE` — individual files the SBOM records
+
+The `OPERATING_SYSTEM` and `APPLICATION` entries are the OS packages most readers are looking for. The OCI descriptors sort first, so the APK packages start after about a dozen `CONTAINER` rows on the first page.
+
+### get_apko_config
+
+Fetches the apko image-configuration attestation (`predicateType` `https://apko.dev/image-configuration`) — the declarative build-time description of the image's contents, accounts, entrypoint, and environment.
+
+| Parameter | Type | Required | Description |
+| ----- | ----- | ----- | ----- |
+| `repo` | string | yes | Repository name without the registry host |
+| `reference` | string | yes | Tag or manifest digest |
+| `architecture` | string | no | Descend into this architecture's child manifest |
+
+### get_provenance
+
+Fetches the SLSA build provenance attestation (`predicateType` `https://slsa.dev/provenance/v1`), describing the build that produced the image.
+
+| Parameter | Type | Required | Description |
+| ----- | ----- | ----- | ----- |
+| `repo` | string | yes | Repository name without the registry host |
+| `reference` | string | yes | Tag or manifest digest |
+| `architecture` | string | no | Descend into this architecture's child manifest |
+
+The predicate's `buildDefinition.internalParameters` pins every package version that went into the image, and `runDetails.builder` names the builder and its version. This makes `get_provenance` a fast way to read exact package versions without paging through an SBOM.
+
+## Example usage
+
+Sample exchanges from a Claude Code session with `cg-oci` connected. You don't call the tools yourself — you describe what you want, and the AI tool decides which calls to make. Images are rebuilt often, so your answers will differ.
+
+```Prompt
+What tags are available for chainguard/python?
+```
+
+```output
+  Called cg-oci (ctrl+o to expand)
+
+● The chainguard/python repository exposes two tags: latest and
+  latest-dev. Version-specific tags such as 3.12 live in an entitled
+  namespace rather than the public chainguard/ one.
+```
+
+```Prompt
+When was chainguard/python:latest built, and what Python version is in it?
+```
+
+```output
+  Called cg-oci (ctrl+o to expand)
+
+● chainguard/python:latest was built on 2026-09-20. Its build provenance
+  pins the python-3.14 package, so latest is currently Python 3.14.
+```
+
+```Prompt
+What OS packages are in the amd64 build of chainguard/python:latest?
+```
+
+```output
+  Called cg-oci (ctrl+o to expand)
+
+● The amd64 image's SBOM lists 134 entries. The APK packages include
+  wolfi-baselayout, glibc, openssl's libcrypto3 and libssl3, sqlite-libs,
+  and python-3.14 itself.
+```
+
+## Troubleshooting
+
+| Symptom | What it means | What to do |
+| ----- | ----- | ----- |
+| `MANIFEST_UNKNOWN: Unknown manifest` | The repository is readable but that tag or digest is not. Most often the tag genuinely doesn't exist in the namespace you're reading — for example `chainguard/python:3.12`, where public `chainguard/*` repositories carry only `latest` and `latest-dev`. | Call `list_tags` on the repository to see the tags your token can actually read, then use one of those. |
+| `FORBIDDEN: Forbidden` | Your token cannot read the repository at all. The registry returns this for a repository that doesn't exist and for one you aren't entitled to, without distinguishing them. | Confirm the repository name with `list_repos`, and check your organization's entitlement for it. |
+| Server shows as not connected in `claude mcp list` | OAuth was never completed, or the token expired. Claude Code's tokens against the Chainguard issuer last about an hour and carry no refresh token. | Run `/mcp`, select **cg-oci**, and authenticate again. To stop re-authenticating, switch to the [`chainctl` helper](/platform/mcp-servers/overview/#authenticate-with-chainctl-instead-of-a-browser). |
+| `401 invalid token` when using the `chainctl` helper | The audience was registered as a bare hostname. MCP audiences must include the `/mcp` path. | Run `chainctl auth login --audience=https://cgr.dev/mcp` and try again. |
+| `no chainctl token for audience ...` | The helper script ran but that audience was never logged in. | Run the `chainctl auth login` command the error prints. |
+| An SBOM request is refused for size | The SPDX document exceeds the server's 512 KB ceiling. Documents are never truncated. | Use `list_sbom_packages` instead, or fetch the file with the `cosign` command named in the error. |
+| `list_sbom_packages` returns only two or three entries | The call read the index-level SBOM rather than a per-architecture one. | Pass `architecture=amd64` (or `arm64`). |
+| The AI tool can't find an image you know exists | It may be searching `list_repos`, which reflects your token rather than the public catalog, and offers no server-side name filter. | Name the repository explicitly, as `chainguard/<name>`, or look it up in the [Containers directory](https://images.chainguard.dev/). |
+
+## Next steps
+
+- [`cg-apk`](/platform/mcp-servers/cg-apk/) — search the Wolfi package index and read package SBOMs and build recipes
+- [`cg-versions`](/platform/mcp-servers/cg-versions/) — check upstream releases and end-of-life dates
+- [`cg-api`](/platform/mcp-servers/cg-api/) — query organizations, IAM, and registry metadata through the platform API
+- [Chainguard MCP servers overview](/platform/mcp-servers/overview/) — the full set, and the `chainctl` authentication recipe
+
+---
+
+### Chainguard MCP servers overview
+_Path: platform/mcp-servers/overview.md_
+
+Four of Chainguard's MCP servers give an AI tool direct access to live product data: the container images in `cgr.dev`, the Wolfi package index, upstream version and end-of-life history, and the Chainguard platform API. An MCP client connected to them can answer questions such as what a given image's SBOM contains, which Wolfi package replaces a Debian one, or whether an upstream release is still supported, using data from the product itself rather than from a model's training data.
+
+These servers back the [Chainguard Power for Kiro](/platform/integrations/kiro/) and the [Chainguard plugin for Cursor](/platform/integrations/cursor/), but you don't need either one. Any MCP-compatible client can connect to them directly.
+
+## What is MCP?
+
+[Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is an open protocol that standardizes how AI applications access external data and tools. An MCP server exposes structured data and tools that AI clients can call to ground their responses in real information.
+
+## Chainguard's MCP servers
+
+Chainguard's MCP servers fall into two groups. Four return live product data, and two serve specific content: documentation and agent skills.
+
+### Product data servers
+
+| Server | Endpoint | What it gives you |
+| ----- | ----- | ----- |
+| [`cg-oci`](/platform/mcp-servers/cg-oci/) | `https://cgr.dev/mcp` | Manifests, image configs, SBOMs, apko configs, and provenance for a specific image reference |
+| [`cg-apk`](/platform/mcp-servers/cg-apk/) | `https://apk.cgr.dev/mcp` | Wolfi package lookup by name, plus package SBOMs and melange build configs |
+| [`cg-versions`](/platform/mcp-servers/cg-versions/) | `https://versions.cgr.dev/mcp` | Upstream release and end-of-life history for tracked projects |
+| [`cg-api`](/platform/mcp-servers/cg-api/) | `https://console-api.enforce.dev/mcp` | The Chainguard platform API, read-only: organizations, IAM, registry metadata, and security advisories |
+
+These servers return live product data, such as an image tag's manifest and SBOM as it exists in the registry right now, rather than documentation about it. All four use the Streamable HTTP transport and authenticate with OAuth 2.0 against the Chainguard issuer.
+
+### AI Docs MCP server
+
+The [AI Docs MCP server](/platform/mcp-servers/ai-docs/), at `https://mcp.edu.chainguard.dev/mcp`, searches Chainguard documentation: image READMEs, security guides, and the Wolfi, apko, melange, and chainctl references. It also maps Debian and Fedora packages to their Wolfi equivalents. You can also run it locally from a container image. It needs no sign-in and doesn't paginate its results, so the Authentication and Pagination sections that follow don't apply to it.
+
+### Public Skills MCP server
+
+The [Public Skills MCP server](/chainguard/agent-skills/public-skills-mcp/), at `https://skills.cgr.dev/mcp`, serves Chainguard's hardened agent skills. An AI tool can search the catalog, inspect a skill, and load one to run without installing it first. Signing in requires a Chainguard account, but no entitlement or organization membership. Like the product data servers, it authenticates with OAuth 2.0 against the Chainguard issuer and needs its own sign-in, including through `chainctl` with the audience `https://skills.cgr.dev/mcp`. Its `search_skills` and `list_skills` tools return results one page at a time. For connection steps, refer to its own page.
+
+## Authentication
+
+Each product data server authenticates separately with OAuth 2.0 against the Chainguard issuer. On first use, your client opens a browser window for sign-in.
+
+{{< alert context="warning" >}}
+**Each server requires its own login.** Connecting all four means completing the browser sign-in four times, once per endpoint. As of this writing, there is no unified sign-in across the four servers.
+{{< /alert >}}
+
+Every tool call is scoped to the token it runs under. The servers return what your Chainguard account can already read and nothing more, so two people connected to the same endpoint can see different repositories, packages, and organizations. `cg-api` goes further and varies its *tool list* by token: tools your capabilities don't cover never appear in the client.
+
+### Authenticate with chainctl instead of a browser
+
+On a remote or headless workstation, the browser redirect can't complete. Claude Code's OAuth path against `issuer.enforce.dev` also issues access tokens that last about an hour and carry no refresh token, so the browser flow repeats often. To avoid both problems, reuse your existing `chainctl` session.
+
+First, register an audience for each MCP server you plan to use. An OAuth audience names the resource a token is valid for, and for MCP servers it must be the full URL including the `/mcp` path — a bare hostname is rejected with `401 invalid token`. Repeat `--audience` to request several tokens at once, and add `--headless` to log in with a device code rather than a browser redirect:
+
+```sh
+chainctl auth login \
+  --headless \
+  --audience=https://cgr.dev/mcp \
+  --audience=https://apk.cgr.dev/mcp \
+  --audience=https://versions.cgr.dev/mcp \
+  --audience=https://console-api.enforce.dev/mcp
+```
+
+The Public Skills MCP server accepts the same method. Add `--audience=https://skills.cgr.dev/mcp` to log in to it too.
+
+Once an audience is logged in, `chainctl auth token --audience=<url>` returns from cache without prompting, and `chainctl` refreshes the underlying token as it nears expiry.
+
+Next, point your client at `chainctl` rather than at OAuth. Claude Code's MCP configuration accepts a `headersHelper` field naming a script that Claude Code runs (through `sh -c`, with a roughly 10-second budget) each time it opens a connection. The script reads `CLAUDE_CODE_MCP_SERVER_URL` from its environment and prints a JSON object of HTTP headers on stdout, which Claude Code merges into the connection in place of the OAuth flow.
+
+Save this helper as its own file and make it executable. It works for any Chainguard MCP server, so you need only one copy no matter how many you connect:
+
+```shell
+mkdir -p ~/bin
+cat > ~/bin/cg-mcp-headers <<'EOF'
+#!/bin/sh
+set -e
+aud=${CLAUDE_CODE_MCP_SERVER_URL:?CLAUDE_CODE_MCP_SERVER_URL not set}
+t=$(command -v timeout || command -v gtimeout || true)
+tok=$(${t:+"$t" -s KILL 8} chainctl auth token --audience="$aud") || {
+    echo "no chainctl token for audience $aud; run: chainctl auth login --audience=$aud" >&2
+    exit 1
+}
+printf '{"Authorization":"Bearer %s"}\n' "$tok"
+EOF
+chmod +x ~/bin/cg-mcp-headers
+```
+
+The heredoc delimiter is quoted (`<<'EOF'`) so that the shell writes `$aud`, `$tok`, and `${CLAUDE_CODE_MCP_SERVER_URL}` into the file literally. With an unquoted delimiter, the shell expands them as it writes the file. `CLAUDE_CODE_MCP_SERVER_URL` isn't set in your shell, so the `:?` check aborts the write and leaves an empty file.
+
+The file must be executable because Claude Code runs its path as a command through `sh -c`.
+
+The `timeout` keeps the helper from stalling. If you haven't logged in to an audience, `chainctl auth token` can start an interactive login, which runs past Claude Code's time limit for the helper. With the timeout, the helper exits quickly and prints the command that fixes the problem.
+
+macOS doesn't include `timeout`. The script falls back to `gtimeout`, which `brew install coreutils` provides, and without either it runs `chainctl` with no time limit.
+
+Now reference the script from each server entry. The `headersHelper` value must be an absolute path, so write the file from the repository root and let the shell expand `$HOME` for you:
+
+```shell
+cat > .mcp.json <<EOF
+{
+  "mcpServers": {
+    "cg-oci": {
+      "type": "http",
+      "url": "https://cgr.dev/mcp",
+      "headersHelper": "$HOME/bin/cg-mcp-headers"
+    },
+    "cg-apk": {
+      "type": "http",
+      "url": "https://apk.cgr.dev/mcp",
+      "headersHelper": "$HOME/bin/cg-mcp-headers"
+    },
+    "cg-versions": {
+      "type": "http",
+      "url": "https://versions.cgr.dev/mcp",
+      "headersHelper": "$HOME/bin/cg-mcp-headers"
+    },
+    "cg-api": {
+      "type": "http",
+      "url": "https://console-api.enforce.dev/mcp",
+      "headersHelper": "$HOME/bin/cg-mcp-headers"
+    }
+  }
+}
+EOF
+```
+
+This delimiter is deliberately unquoted, unlike the one in the helper script. There are no other shell variables in the JSON, so `$HOME` resolves to your real home directory as the file is written and you avoid hand-editing four paths.
+
+That command replaces any existing `.mcp.json`. If the repository already has one, merge the `mcpServers` entries into it by hand instead.
+
+### Keep your path out of a shared file
+
+A committed `.mcp.json` carries your home directory to everyone who clones the repository, and their username won't match yours. To keep the tracked file generic, leave the plain `type` and `url` entries in `.mcp.json` and put the `headersHelper` override in your own `~/.claude.json`, under the repository's absolute path:
+
+```json
+{
+  "projects": {
+    "/absolute/path/to/repo": {
+      "mcpServers": {
+        "cg-oci": {
+          "type": "http",
+          "url": "https://cgr.dev/mcp",
+          "headersHelper": "/home/your-user/bin/cg-mcp-headers"
+        }
+      }
+    }
+  }
+}
+```
+
+{{< alert context="danger" >}}
+Edit `~/.claude.json` rather than overwriting it. It holds all of your Claude Code configuration, so redirecting a heredoc over it discards everything else you have set up. Open it in an editor and add the `projects` entry alongside what's already there.
+{{< /alert >}}
+
+Because this form is keyed by absolute path, a second clone or `git worktree` of the same repository needs its own entry.
+
+## Pagination
+
+Every `list_*` and `search_*` tool across the product data servers and the Public Skills server returns one page at a time and caps the page size. The parameter names differ by server:
+
+| Server | Page size | Request the next page with | Response field to pass back |
+| ----- | ----- | ----- | ----- |
+| `cg-oci` | 50 default, 200 max | `cursor` | `next_cursor` (or the last item's name, for `list_repos`) |
+| `cg-apk` | 50 default, 200 max | `cursor` | `next_cursor` |
+| `cg-versions` (`search_projects`) | 25 default, 200 max | `page_token` | `next_page_token` |
+| `cg-versions` (`list_stream_versions`) | 50 default, 200 max | `cursor` | `next_cursor` |
+| `cg-api` | 50 default, 200 max | `page_token` | `nextPageToken` |
+| Public Skills | 50 default, 200 max | `page_token` | `next_page_token` |
+
+## Next steps
+
+- [`cg-oci`](/platform/mcp-servers/cg-oci/) — look up manifests, configs, SBOMs, and provenance for a container image
+- [`cg-apk`](/platform/mcp-servers/cg-apk/) — find Wolfi packages and read their SBOMs and build configs
+- [`cg-versions`](/platform/mcp-servers/cg-versions/) — check upstream releases and end-of-life dates
+- [`cg-api`](/platform/mcp-servers/cg-api/) — query organizations, IAM, registry metadata, and security advisories through the platform API
+
+---
+
+### cg-versions: the upstream version history MCP server
+_Path: platform/mcp-servers/cg-versions.md_
+
+`cg-versions` gives an AI tool a read-only catalog of the upstream projects Chainguard tracks version information for. Through it, a client can find a tracked project, list its version streams with their end-of-life dates, and read the release history of one stream, whole or a page at a time, with attribution back to the upstream tag and commit each release came from. It answers questions about what upstream projects have published and what is still supported: whether Python 3.9 is past end of life, which streams of a project are still receiving releases, and which upstream commit a given version corresponds to.
+
+The server uses the Streamable HTTP transport, at this endpoint:
+
+```
+https://versions.cgr.dev/mcp
+```
+
+## What this server does not tell you
+
+`cg-versions` tracks upstream releases, not what Chainguard builds. A version listed here means the upstream project published it. It doesn't mean Chainguard has built a package or image for that version. A stream that has reached end of life upstream may also still be one Chainguard supports for customers.
+
+To find out what Chainguard actually builds, use a different server:
+
+- [`cg-apk`](/platform/mcp-servers/cg-apk/) reads the APK index, so it shows whether a package exists at a given version.
+- [`cg-oci`](/platform/mcp-servers/cg-oci/) reads the registry, so it shows whether an image tag exists at a given version.
+
+If you ask an AI tool "Can I get Python 3.9 from Chainguard?", it may answer from this server's upstream end-of-life data, which can't answer that question. The [Chainguard Containers product release lifecycle](/chainguard/containers/concepts/lifecycle-and-eol/versions/) covers Chainguard's support for versions that upstream has dropped.
+
+### Not to be confused with Chainguard Libraries versions
+
+"Versions" also names an unrelated concept in [Chainguard Libraries](/chainguard/libraries/introduction/overview/): the `+cgr.N` and `-0.cgr.N` suffixes that mark a remediated build of a library package. Those suffixes are Chainguard's own rebuild counters for Java, JavaScript, and Python artifacts, and they have nothing to do with this server. `cg-versions` serves upstream version history for the projects behind Chainguard's images and packages. It does not serve library remediation versions, and no tool here returns a `cgr.N` suffix.
+
+## Prerequisites
+
+- An MCP-compatible client such as Claude Code, Claude Desktop, or Cursor
+- A [Chainguard account](https://console.chainguard.dev/)
+
+## Connect to the server
+
+### Claude Code
+
+Add the server with `claude mcp add`, using the HTTP transport:
+
+```shell
+claude mcp add --transport http cg-versions https://versions.cgr.dev/mcp
+```
+
+Pick the scope that fits how you want to use it: `local` (the default — only you, in the current directory), `project` (writes a shared `.mcp.json` at the repository root, checked in for teammates), or `user` (only you, across every project):
+
+```shell
+claude mcp add --transport http --scope user cg-versions https://versions.cgr.dev/mcp
+```
+
+The server is added unauthenticated. To complete OAuth, start a session and run the `/mcp` command:
+
+```Prompt
+/mcp
+```
+
+Select **cg-versions**, choose **Authenticate**, and approve the connection in the browser window that opens. Check the status any time with:
+
+```shell
+claude mcp list
+```
+
+```output
+cg-versions: https://versions.cgr.dev/mcp (HTTP) - ✓ Connected
+```
+
+### Cursor
+
+Cursor supports HTTP transport natively. Add the server to your MCP configuration:
+
+```json
+{
+  "mcpServers": {
+    "cg-versions": {
+      "url": "https://versions.cgr.dev/mcp"
+    }
+  }
+}
+```
+
+Restart Cursor, then connect the server from **Tools & MCPs** in settings and complete the browser sign-in.
+
+### Claude Desktop
+
+Claude Desktop reads MCP servers from a JSON file but does not yet support HTTP transport directly. Use [`mcp-remote`](https://github.com/geelen/mcp-remote) to bridge to the hosted server:
+
+```json
+{
+  "mcpServers": {
+    "cg-versions": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://versions.cgr.dev/mcp"
+      ]
+    }
+  }
+}
+```
+
+The configuration file lives at:
+
+- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
+`npx` downloads and runs `mcp-remote` on demand, so you need Node.js installed on the host. Restart Claude Desktop after saving the file.
+
+### Other MCP clients
+
+Any client that supports a remote Streamable HTTP MCP server with OAuth can connect to the same endpoint. Point it at `https://versions.cgr.dev/mcp` and complete the browser sign-in when prompted.
+
+## Authentication
+
+Authentication is OAuth 2.0 against the Chainguard issuer.
+
+{{< alert context="warning" >}}
+**Each Chainguard MCP server requires its own login.** Authenticating to `cg-versions` does not authenticate you to `cg-oci`, `cg-apk`, or `cg-api`. Connecting all four means completing the browser sign-in four times. As of this writing, there is no unified sign-in across the four servers.
+{{< /alert >}}
+
+On a remote or headless workstation, you can supply a token from `chainctl` instead of completing the browser flow. Refer to [Authenticate with chainctl instead of a browser](/platform/mcp-servers/overview/#authenticate-with-chainctl-instead-of-a-browser) for the full recipe; `cg-versions`'s audience is `https://versions.cgr.dev/mcp`.
+
+## Concepts
+
+The catalog has three levels, and each tool works at one of them:
+
+- A **project** is a tracked upstream piece of software, named as the catalog names it. Names follow upstream convention rather than Chainguard image names, so Node.js is `nodejs`, not `node`.
+- A **stream** is a release line within a project, such as Python's `3.12`. Each stream carries its own end-of-life date and support status.
+- A **version** is a single release within a stream, such as `3.9.25`, with attribution to the upstream tag and commit it was cut from.
+
+## Tool reference
+
+| Tool | Parameters | Returns | Example prompt |
+| ----- | ----- | ----- | ----- |
+| `search_projects` | `name_pattern`, `page_size`, `page_token` | `{projects, next_page_token}` — names only | "Is there a tracked project for Node?" |
+| `get_project` | `project` | `{project: {name, streams}, size_bytes}` with per-stream EOL status | "Which Python versions are still supported upstream?" |
+| `get_stream` | `project`, `stream` | `{stream: {project, stream, eol_date, is_eol, versions}, size_bytes}` | "List every Python 3.9 release with its upstream commit" |
+| `list_stream_versions` | `project`, `stream`, `page_size`, `cursor` | `{page: {project, stream, eol_date, is_eol, versions, count, total_versions, has_more, next_cursor}}` | "What are the three most recent Python 3.12 releases?" |
+
+### search_projects
+
+Finds tracked projects by name. Results are paginated alphabetically.
+
+| Parameter | Type | Required | Description |
+| ----- | ----- | ----- | ----- |
+| `name_pattern` | string | yes | A Go regular expression applied to project names, such as `kube.*`, `^go$`, or `.*` to match everything |
+| `page_size` | integer | no | Entries per page (default 25, max 200) |
+| `page_token` | string | no | The `next_page_token` from a previous call. Reuse the same `name_pattern` when continuing. |
+
+This takes a regular expression rather than a literal string. `^node` returns `node-feature-discovery`, `node-problem-detector`, and `nodejs`, so a partial name usually finds the catalog's name for the project. Anchor the pattern with `^` and `$` when you want one project and nothing else.
+
+Matches come back as names only, with no version data attached. Chain to `get_project` for anything more.
+
+### get_project
+
+Returns a project's identity together with a support-status summary for each of its version streams.
+
+| Parameter | Type | Required | Description |
+| ----- | ----- | ----- | ----- |
+| `project` | string | yes | Project name as `search_projects` returns it, such as `python` |
+
+Each stream in the response carries:
+
+| Field | Description |
+| ----- | ----- |
+| `stream` | The release line, such as `3.12` |
+| `eol_date` | The upstream end-of-life date, where known |
+| `is_eol` | Whether the stream is past that date |
+| `version_count` | How many releases the catalog holds for the stream |
+
+Use this tool to find which streams are still supported. For `python` it returns streams `3.8` through `3.14`, with `3.9` and `3.8` marked `is_eol: true` and `3.14` carrying an `eol_date` of 2030-10-31. A `version_count` of zero means the catalog tracks the stream's support dates but holds no individual releases for it, which is common for streams that reached end of life some time ago.
+
+### get_stream
+
+Returns the release history for one stream of a project, with upstream source attribution for each version.
+
+| Parameter | Type | Required | Description |
+| ----- | ----- | ----- | ----- |
+| `project` | string | yes | Project name, such as `python` |
+| `stream` | string | yes | Stream name within the project, such as `3.9` |
+
+Both parameters are required, so the call is always scoped to a single release line; there is no way to pull a project's entire history in one request. The response repeats the stream's `eol_date` and `is_eol`, then lists its versions newest first. Each version carries a `sources` array, where each source has a `type` and whatever attribution that source provides:
+
+| Source type | What it contributes |
+| ----- | ----- |
+| `git` | The upstream tag, a URL for it, the commit hash, and the tag's publication timestamp |
+| `endoflife.date` | When the release was recorded in endoflife.date |
+| `release_monitor` | The tag as release-monitoring.org saw it |
+
+A single version usually carries all three, which is what makes this tool useful for provenance questions: Python 3.9.25 resolves to tag `v3.9.25` at commit `0bbaf5de` in `python/cpython`, published 2025-10-31.
+
+This tool has no `page_size` or cursor. Streams usually hold only a few releases (Python 3.9 has five). The server refuses a response over 512 KB rather than truncating it, and `get_project` has the same limit. To read a long history a page at a time, use `list_stream_versions`.
+
+### list_stream_versions
+
+Returns one stream's release history a page at a time, newest first, with the same source attribution as `get_stream`.
+
+| Parameter | Type | Required | Description |
+| ----- | ----- | ----- | ----- |
+| `project` | string | yes | Project name, such as `python` |
+| `stream` | string | yes | Stream name within the project, such as `3.12` |
+| `page_size` | integer | no | Versions per page (default 50, max 200) |
+| `cursor` | string | no | The `next_cursor` from a previous call. Omit it on the first request. |
+
+The response repeats the stream's `eol_date` and `is_eol`, and adds `count` for the versions on this page and `total_versions` for the whole stream. When `has_more` is true, pass `next_cursor` as the next call's `cursor`. For `python` stream `3.12`, a `page_size` of 2 returns 3.12.14 and 3.12.13 out of 11 versions.
+
+Use this tool instead of `get_stream` when you only need the most recent releases, or when `get_stream` refuses a stream for size.
+
+## Example usage
+
+Sample exchanges from a Claude Code session with `cg-versions` connected.
+
+```Prompt
+Which Python versions are still supported upstream?
+```
+
+```output
+  Called cg-versions (ctrl+o to expand)
+
+● Upstream Python currently supports 3.10 through 3.14. End-of-life dates
+  run from 2026-10-31 for 3.10 out to 2030-10-31 for 3.14. Python 3.9 went
+  end of life on 2025-10-31 and 3.8 on 2024-10-07.
+
+  This is upstream support only. It doesn't tell you what Chainguard
+  builds; cg-apk or cg-oci can answer that.
+```
+
+```Prompt
+Is there a tracked project for Node?
+```
+
+```output
+  Called cg-versions (ctrl+o to expand)
+
+● Three projects match: nodejs, node-feature-discovery, and
+  node-problem-detector. The Node.js runtime is tracked as "nodejs".
+```
+
+```Prompt
+Show me every Python 3.9 release and where it came from.
+```
+
+```output
+  Called cg-versions (ctrl+o to expand)
+
+● The catalog doesn't have every Python 3.9 release. Its history starts in
+  December 2024 and holds five releases, newest first:
+
+  3.9.25 — tag v3.9.25, commit 0bbaf5de, published 2025-10-31
+  3.9.24 — tag v3.9.24, commit 91bdb00d, published 2025-10-09
+  3.9.23 — tag v3.9.23, commit 86527026, published 2025-06-03
+  3.9.22 — tag v3.9.22, commit 05c55492, published 2025-04-08
+  3.9.21 — tag v3.9.21, commit f3994ade, published 2024-12-03
+
+  All five are tagged in python/cpython. Python 3.9 reached end of life
+  upstream on 2025-10-31.
+```
+
+## Troubleshooting
+
+| Symptom | What it means | What to do |
+| ----- | ----- | ----- |
+| A project lookup finds nothing | The name doesn't match the catalog's. Names follow upstream convention, not Chainguard image names. | Search with an unanchored pattern first, such as `node`, and use the name the search returns. |
+| A search returns far more than you expected | `name_pattern` is a regular expression, so an unanchored pattern matches as a substring anywhere in the name. | Anchor it: `^go$` for the Go project alone, rather than `go`. |
+| A stream you expected is missing | The catalog tracks streams the upstream project publishes as distinct release lines. Some projects don't maintain parallel streams. | Call `get_project` to see the streams that exist before asking for one by name. |
+| `get_stream` or `get_project` is refused for size | The response exceeds the server's 512 KB limit. Responses are never truncated. | Use `list_stream_versions` to read the stream a page at a time. |
+| A stream shows `version_count: 0` | The catalog knows the stream's support dates but holds no individual releases for it. | Use `get_project` for the support status; there is no release history to fetch. |
+| The AI tool says a version is unavailable from Chainguard | It may be reasoning from upstream end-of-life data, which says nothing about Chainguard's builds. | Ask it to check [`cg-apk`](/platform/mcp-servers/cg-apk/) or [`cg-oci`](/platform/mcp-servers/cg-oci/) instead, and refer to the [product release lifecycle](/chainguard/containers/concepts/lifecycle-and-eol/versions/). |
+| Server shows as not connected in `claude mcp list` | OAuth was never completed, or the token expired. Claude Code's tokens against the Chainguard issuer last about an hour and carry no refresh token. | Run `/mcp`, select **cg-versions**, and authenticate again, or switch to the [`chainctl` helper](/platform/mcp-servers/overview/#authenticate-with-chainctl-instead-of-a-browser). |
+| `401 invalid token` when using the `chainctl` helper | The audience was registered as a bare hostname. MCP audiences must include the `/mcp` path. | Run `chainctl auth login --audience=https://versions.cgr.dev/mcp` and try again. |
+
+## Next steps
+
+- [`cg-apk`](/platform/mcp-servers/cg-apk/) — check whether a package is actually built at a given version
+- [`cg-oci`](/platform/mcp-servers/cg-oci/) — check whether an image tag exists at a given version
+- [`cg-api`](/platform/mcp-servers/cg-api/) — query organizations, IAM, and registry metadata through the platform API
+- [Chainguard MCP servers overview](/platform/mcp-servers/overview/) — the full set, and the `chainctl` authentication recipe
+
+---
+
+### cg-apk: the Chainguard APK registry MCP server
+_Path: platform/mcp-servers/cg-apk.md_
+
+`cg-apk` gives an AI tool read-only access to the Chainguard APK registry — the Wolfi package index that Chainguard container images are built from. This lets a client look up a package by name to find its current version, license, and origin, then read the SPDX SBOM and the melange build recipe embedded in the APK itself. That combination answers questions the package index alone cannot: not just which version of `openssl` ships today, but which upstream commit it was built from and what build definition produced it.
+
+The server uses the Streamable HTTP transport, at this endpoint:
+
+```
+https://apk.cgr.dev/mcp
+```
+
+## Prerequisites
+
+- An MCP-compatible client such as Claude Code, Claude Desktop, or Cursor
+- A [Chainguard account](https://console.chainguard.dev/)
+
+## Connect to the server
+
+### Claude Code
+
+Add the server with `claude mcp add`, using the HTTP transport:
+
+```shell
+claude mcp add --transport http cg-apk https://apk.cgr.dev/mcp
+```
+
+Pick the scope that fits how you want to use it: `local` (the default — only you, in the current directory), `project` (writes a shared `.mcp.json` at the repository root, checked in for teammates), or `user` (only you, across every project). Package lookups are useful in any repository, so `--scope user` is usually the right choice:
+
+```shell
+claude mcp add --transport http --scope user cg-apk https://apk.cgr.dev/mcp
+```
+
+The server is added unauthenticated. To complete OAuth, start a session and run the `/mcp` command:
+
+```Prompt
+/mcp
+```
+
+Select **cg-apk**, choose **Authenticate**, and approve the connection in the browser window that opens. Check the status any time with:
+
+```shell
+claude mcp list
+```
+
+```output
+cg-apk: https://apk.cgr.dev/mcp (HTTP) - ✓ Connected
+```
+
+### Cursor
+
+Cursor supports HTTP transport natively. Add the server to your MCP configuration:
+
+```json
+{
+  "mcpServers": {
+    "cg-apk": {
+      "url": "https://apk.cgr.dev/mcp"
+    }
+  }
+}
+```
+
+Restart Cursor, then connect the server from **Tools & MCPs** in settings and complete the browser sign-in.
+
+### Claude Desktop
+
+Claude Desktop reads MCP servers from a JSON file but does not yet support HTTP transport directly. Use [`mcp-remote`](https://github.com/geelen/mcp-remote) to bridge to the hosted server:
+
+```json
+{
+  "mcpServers": {
+    "cg-apk": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://apk.cgr.dev/mcp"
+      ]
+    }
+  }
+}
+```
+
+The configuration file lives at:
+
+- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
+`npx` downloads and runs `mcp-remote` on demand, so you need Node.js installed on the host. Restart Claude Desktop after saving the file.
+
+### Other MCP clients
+
+Any client that supports a remote Streamable HTTP MCP server with OAuth can connect to the same endpoint. Point it at `https://apk.cgr.dev/mcp` and complete the browser sign-in when prompted.
+
+## Authentication
+
+Authentication is OAuth 2.0 against the Chainguard issuer. Results are scoped to the APK repositories your account can read.
+
+{{< alert context="warning" >}}
+**Each Chainguard MCP server requires its own login.** Authenticating to `cg-apk` does not authenticate you to `cg-oci`, `cg-versions`, or `cg-api`. Connecting all four means completing the browser sign-in four times. As of this writing, there is no unified sign-in across the four servers.
+{{< /alert >}}
+
+On a remote or headless workstation, you can supply a token from `chainctl` instead of completing the browser flow. Refer to [Authenticate with chainctl instead of a browser](/platform/mcp-servers/overview/#authenticate-with-chainctl-instead-of-a-browser) for the full recipe; `cg-apk`'s audience is `https://apk.cgr.dev/mcp`.
+
+## Tool reference
+
+The server exposes three tools. `search_packages` is the entry point, and its results include the four values the other two tools require, so a session normally starts with a search.
+
+| Tool | Parameters | Returns | Example prompt |
+| ----- | ----- | ----- | ----- |
+| `search_packages` | `name`, `exact`, `origin`, `all_versions`, `arch`, `page_size`, `cursor` | `{name, count, matches, page_size, next_cursor}` | "What version of openssl is in Wolfi?" |
+| `get_sbom` | `package_name`, `version`, `architecture`, `scope` | `{sbom}` — raw SPDX JSON | "What upstream source was the jq package built from?" |
+| `get_melange_config` | `package_name`, `version`, `architecture`, `scope` | `{melange_configuration}` — raw YAML | "Show me the melange build recipe for jq" |
+
+### search_packages
+
+Looks up APK packages by name, one bounded page at a time.
+
+| Parameter | Type | Required | Description |
+| ----- | ----- | ----- | ----- |
+| `name` | string | yes | Package name to search for. A case-insensitive substring match by default. |
+| `exact` | boolean | no | Require an exact name match (`-e`/`--exact`). Uses an indexed lookup; prefer it whenever you know the name. |
+| `origin` | boolean | no | Treat `name` as an origin (`-o`/`--origin`), returning the main package and all its subpackages |
+| `all_versions` | boolean | no | Return every version rather than only the latest (`-a`/`--all`) |
+| `arch` | string | no | Filter by architecture, such as `x86_64` or `aarch64` (default `x86_64`) |
+| `page_size` | integer | no | Results per page (default 50, max 200) |
+| `cursor` | string | no | The `next_cursor` from a previous call |
+
+Each match returns `package_name`, `version`, `architectures`, `description`, `license`, `origin`, and `scope`.
+
+Keep the following in mind when you search:
+
+- **Substring matching is the default, and it is the expensive path.** A search with only `name` set scans the whole index, like `apk search`. When you already know the package name, pass `exact=true` for an indexed lookup instead. Searching `libxml` returns every package whose name contains that string; searching `libxml2` with `exact=true` returns only that package.
+- **In exact and substring searches, the same package appears once per repository scope you can read.** `scope` is the UIDP of the APK repository a given copy lives in, and a package built into several repositories returns one match per repository. An exact search for `openssl` can return several identical rows that differ only in `scope`. This is not duplication in the index; it reflects the repositories your token reaches.
+
+`origin` is the most useful flag for migration work. Given `origin=true` and the name of a source package, it returns the main package and every subpackage built from it, such as `-dev`, `-doc`, and `-static`, which helps when you replace a Debian development package such as `libssl-dev` with its Wolfi equivalent. An `origin=true` search also collapses the per-scope duplicates, returning one row per package with a combined architecture list.
+
+### get_sbom
+
+Fetches the SPDX SBOM document embedded in an APK's filesystem, at `var/lib/db/sbom/<pkg>-<ver>.spdx.json`. The response is `{sbom}`, the raw SPDX JSON as a string.
+
+| Parameter | Type | Required | Description |
+| ----- | ----- | ----- | ----- |
+| `package_name` | string | yes | The APK package name, matching `package_name` from a search result |
+| `version` | string | yes | The package version, matching `version` from a search result |
+| `architecture` | string | yes | A single architecture, such as `x86_64`. Search results return `architectures` as a comma-joined list; pick one. |
+| `scope` | string | yes | The repository UIDP, matching `scope` from a search result |
+
+All four values come from `search_packages`, so this chains directly off a search. The document records the upstream source the package was generated from — for `jq` 1.8.2-r2, a `GENERATED_FROM` relationship pointing at the exact `github.com/jqlang/jq` commit — alongside the melange definition that built it and the APK's own metadata.
+
+The SBOM is the last file in the package, so the server downloads the whole APK to read it. It refuses a package larger than 64 MB before downloading, and a response over 512 KB rather than truncating it. For an oversized package, run `apk fetch` locally and read the file under `var/lib/db/sbom/`.
+
+### get_melange_config
+
+Fetches the `.melange.yaml` build recipe embedded in an APK's control section. The response is `{melange_configuration}`, the raw YAML as a string.
+
+| Parameter | Type | Required | Description |
+| ----- | ----- | ----- | ----- |
+| `package_name` | string | yes | The APK package name, matching `package_name` from a search result |
+| `version` | string | yes | The package version, matching `version` from a search result |
+| `architecture` | string | yes | A single architecture, such as `x86_64` |
+| `scope` | string | yes | The repository UIDP, matching `scope` from a search result |
+
+APKs built before melange configs were embedded return an error rather than an empty result. The same size limits apply as for `get_sbom`: 64 MB for the package and 512 KB for the response. Some recipes are still large — `openssl`'s runs past 60,000 characters — so expect a client to truncate or summarize rather than print one in full.
+
+## Example usage
+
+Sample exchanges from a Claude Code session with `cg-apk` connected. Package versions change often, so your answers will differ.
+
+```Prompt
+What version of openssl is in Wolfi right now?
+```
+
+```output
+  Called cg-apk (ctrl+o to expand)
+
+● Wolfi currently ships openssl 3.6.4 for x86_64, licensed Apache-2.0. It
+  appears in five repository scopes your account can read, all at the
+  same version.
+```
+
+```Prompt
+I need the Wolfi equivalents of libxml2-dev. What's available?
+```
+
+```output
+  Called cg-apk (ctrl+o to expand)
+
+● The libxml2 origin builds seven packages for aarch64 and x86_64:
+  libxml2, libxml2-16, libxml2-dev, libxml2-doc, libxml2-py3,
+  libxml2-static, and libxml2-utils. libxml2-dev is the direct equivalent.
+```
+
+```Prompt
+What upstream commit was the jq package built from?
+```
+
+```output
+  Called cg-apk (ctrl+o to expand)
+
+● jq 1.8.2 was generated from jqlang/jq at commit 34f7186b, fetched as the
+  jq-1.8.2 archive. The package is licensed MIT.
+```
+
+## Troubleshooting
+
+| Symptom | What it means | What to do |
+| ----- | ----- | ----- |
+| A search returns nothing | The substring matched no package name. Names in Wolfi often differ from their Debian or Fedora equivalents. | Try a shorter substring, or look up the mapping with the [AI Docs MCP server](/platform/mcp-servers/ai-docs/)'s `find_package_equivalent` tool, or the [package comparison tool](https://images.chainguard.dev/). |
+| A search is slow | A bare `name` runs a wildcard scan of the whole index. | Pass `exact=true` when you know the name. |
+| The same package appears several times | One match per repository scope your token can read. | Use whichever `scope` you intend to pull from; if you only consume the public index, any of them resolves to the same content. |
+| `get_sbom` or `get_melange_config` returns HTTP 401 or 403 | The `scope` you passed names a repository your token cannot read. | Re-run `search_packages` and use a `scope` from its results rather than one carried over from another session or account. |
+| `get_sbom` or `get_melange_config` is refused for size | The package exceeds 64 MB, or the response exceeds 512 KB. Responses are never truncated. | Run `apk fetch` locally and read the SBOM under `var/lib/db/sbom/`, or the `.melange.yaml` in the package's control section. |
+| `get_melange_config` returns an error for a package that exists | The APK predates embedded melange configs. | Call `get_sbom` instead. The SBOM still records the upstream source the package was built from. |
+| Server shows as not connected in `claude mcp list` | OAuth was never completed, or the token expired. Claude Code's tokens against the Chainguard issuer last about an hour and carry no refresh token. | Run `/mcp`, select **cg-apk**, and authenticate again, or switch to the [`chainctl` helper](/platform/mcp-servers/overview/#authenticate-with-chainctl-instead-of-a-browser). |
+| `401 invalid token` when using the `chainctl` helper | The audience was registered as a bare hostname. MCP audiences must include the `/mcp` path. | Run `chainctl auth login --audience=https://apk.cgr.dev/mcp` and try again. |
+
+## Next steps
+
+- [`cg-oci`](/platform/mcp-servers/cg-oci/) — read manifests, SBOMs, and provenance for container images
+- [`cg-versions`](/platform/mcp-servers/cg-versions/) — check upstream releases and end-of-life dates
+- [`cg-api`](/platform/mcp-servers/cg-api/) — query organizations, IAM, and registry metadata through the platform API
+- [Chainguard MCP servers overview](/platform/mcp-servers/overview/) — the full set, and the `chainctl` authentication recipe
 
 ---
 
