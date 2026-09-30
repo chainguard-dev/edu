@@ -1,11 +1,11 @@
 ---
-title: "AI Docs: the Chainguard documentation MCP server"
+title: "AI Docs: Chainguard documentation for AI tools"
 linktitle: "AI Docs"
-lead: "Model Context Protocol server for Chainguard documentation"
-description: "Search Chainguard documentation from an AI tool or other MCP client"
+lead: "Chainguard documentation for AI tools, through an MCP server or a downloadable bundle"
+description: "Search Chainguard documentation from an AI tool or other MCP client, or download the compiled documentation bundle"
 type: "article"
 date: 2026-01-02T21:00:00+00:00
-lastmod: 2026-09-25T19:01:09+00:00
+lastmod: 2026-09-30T14:05:59+00:00
 draft: false
 images: []
 menu:
@@ -16,17 +16,20 @@ weight: 60
 aliases:
   - /mcp-server-ai-docs/
   - /chainguard/mcp-server-ai-docs/
+  - /developer-resources/
 ---
 
-The Chainguard AI Documentation MCP server gives AI tools and other MCP clients searchable access to Chainguard's container image docs, security guides, and tool references. The server returns only the sections that match each query, so clients avoid loading the full documentation bundle into context.
+AI Docs gives AI tools access to Chainguard's documentation: the guides, security references, and tool references published on this site, plus the package and image mappings that the Dockerfile Converter (dfc) uses. You can connect to it as an MCP server, which returns only the sections that match each query, or download the whole documentation bundle and give it to an AI tool directly.
+
+AI Docs has no live container image data. It can tell you which Chainguard image replaces an upstream image, but for an image's tags, SBOM, or build date, use the `cg-oci` MCP server. Refer to [Container image data](#container-image-data).
 
 For background on MCP and the other Chainguard MCP servers, refer to the [MCP servers overview](/platform/mcp-servers/overview/).
 
 ## Why use the MCP server?
 
 - **Lower context cost.** Clients fetch only the sections they need instead of loading the entire multi-megabyte bundle into every prompt.
-- **Structured queries.** Look up a specific image, search for a CVE, or find a package equivalent without writing custom scrapers.
-- **IDE integration.** Works with Claude Code, Claude Desktop, Cursor, and other MCP-compatible clients, so developers can reference Chainguard docs while they write code.
+- **Structured queries.** Search for a guide, read the security documentation, or find a package or image equivalent without writing custom scrapers.
+- **IDE integration.** Works with Claude Code, Claude Desktop, Cursor, and other MCP-compatible clients, so engineers can reference Chainguard docs while they write code.
 
 ## Connect to the server
 
@@ -36,7 +39,7 @@ For background on MCP and the other Chainguard MCP servers, refer to the [MCP se
 
 ### Hosted server (recommended)
 
-Chainguard hosts a public MCP server at `https://mcp.edu.chainguard.dev/mcp`. This is the fastest way to get started — no Docker or local setup required.
+Chainguard hosts a public MCP server at `https://mcp.edu.chainguard.dev/mcp`. This is the fastest way to get started — no Docker or local setup required, and no sign-in.
 
 How you register the server depends on your MCP client. Clients that support HTTP transport natively can connect to the URL directly. Clients that only spawn local processes (including Claude Desktop) need a small bridge such as [`mcp-remote`](https://github.com/geelen/mcp-remote).
 
@@ -124,7 +127,7 @@ Restart the client after saving the file.
 
 ## Available tools
 
-The server exposes seven tools for querying documentation, mapping packages, and checking image availability.
+The server exposes five tools for searching documentation and mapping packages and images.
 
 ### `search_docs`
 
@@ -140,33 +143,6 @@ Search across all Chainguard documentation for relevant content.
 - "Search Chainguard docs for python CVE management"
 - "Find information about FIPS compliance"
 - "Search for nginx configuration examples"
-
-### `get_image_docs`
-
-Get documentation for a specific Chainguard container image.
-
-*Parameters:*
-
-- `image_name` (string, required): Image name (for example, "python", "node", "nginx")
-
-*Example prompts:*
-
-- "Show me the Python image documentation"
-- "Get docs for the nginx image"
-- "What's in the node image?"
-
-### `list_images`
-
-List Chainguard container images with optional filtering. When the image catalog is available, each result includes the image's registry reference and whether documentation is available.
-
-*Parameters:*
-
-- `filter` (string, optional): Filter images by name (for example, "python", "nginx", "apache")
-
-*Example prompts:*
-
-- "List all Chainguard images"
-- "Show me images related to Python"
 
 ### `get_security_docs`
 
@@ -205,37 +181,54 @@ Find the Wolfi package that replaces a Debian, Fedora, or Alpine package. Use th
 
 - "What's the Wolfi equivalent of Debian's build-essential?"
 - "Find the Chainguard package for libssl-dev"
-- "I need to replace python3-pip in my Alpine Dockerfile"
+- "I need to replace python3-pip in my Dockerfile"
 
-### `check_image_freshness`
+### `find_image_equivalent`
 
-Query `cgr.dev` for how current an image is. Returns the digest and build date of the image's `latest` tag, along with the repository's tags. Falls back to catalog data if the registry is unreachable.
-
-Tag lists omit the `sha256-` attachment tags that carry each image's signature, attestation, and SBOM, because they outnumber the image's real tags by several hundred to one.
+Find the Chainguard image that replaces an upstream container image, using the Dockerfile Converter mappings. Use this when migrating a Dockerfile's `FROM` line. The tool matches names the way the Dockerfile Converter does: it ignores tags and digests, accepts Docker Hub names with or without a `docker.io/` host, and falls back to the last part of the name. It returns the Chainguard image name and a pull reference.
 
 *Parameters:*
 
-- `image_name` (string, required): Chainguard image name (such as "python", "node", "nginx")
+- `image` (string, required): Upstream image reference as it appears in a `FROM` line (for example, "bitnami/pgpool", "docker.io/library/node:20", "gcr.io/kaniko-project/executor")
 
 *Example prompts:*
 
-- "When was the Python image last built?"
-- "What tags are available for the Python image?"
-- "Show me the available tags for the nginx image"
-- "Is the golang image available on cgr.dev?"
+- "What Chainguard image replaces bitnami/pgpool?"
+- "I'm migrating a Dockerfile that starts with FROM quay.io/prometheus/snmp-exporter. What's the Chainguard equivalent?"
 
-## Image catalog
+## Container image data
 
-The `list_images` and `find_package_equivalent` tools draw from a pre-built catalog that ships with the server. The `check_image_freshness` tool queries the registry directly, and uses the catalog only to report whether an image has documentation. The catalog includes:
+AI Docs doesn't carry live container image data. Chainguard's product MCP servers read it from the registry and package index at the moment you ask, so their answers describe the images as they are now. These servers require a Chainguard account. For connection and authentication steps, refer to the [MCP servers overview](/platform/mcp-servers/overview/).
 
-- Chainguard container images that have documentation in the bundle, with their registry references. This doesn't cover every image in the registry.
-- Package mappings from Debian and Fedora to their Wolfi equivalents
+This table shows where to go for each image task, and which AI Docs tool used to cover it:
 
-Each documentation build regenerates the catalog.
+| Task | Former AI Docs tool | Use now |
+| --- | --- | --- |
+| Read an image's documentation | `get_image_docs` | The image's page in the [Chainguard Containers Directory](https://images.chainguard.dev/). For how the image was built, the `get_config` and `get_apko_config` tools on [`cg-oci`](/platform/mcp-servers/cg-oci/). |
+| List images | `list_images` | The `list_repos` tool on [`cg-oci`](/platform/mcp-servers/cg-oci/), which lists the repositories your account can pull. To browse the public catalog, use the Chainguard Containers Directory. |
+| Check an image's tags and build date | `check_image_freshness` | The `list_tags` tool on [`cg-oci`](/platform/mcp-servers/cg-oci/) for tags, and `get_manifest` for the build date. The `registry_tags_list` tool on [`cg-api`](/platform/mcp-servers/cg-api/) also filters tags by update time. |
+| Map a Debian or Fedora package to Wolfi | `find_package_equivalent` | AI Docs, unchanged. For the Wolfi package's versions, SBOM, and build configuration, use the `search_packages` tool on [`cg-apk`](/platform/mcp-servers/cg-apk/). |
+| Find the Chainguard image that replaces an upstream image | None | The `find_image_equivalent` tool in AI Docs. |
+
+{{< note >}}
+AI Docs removed its three image tools at the end of September 2026. Their data came from a snapshot of image documentation that had stopped updating.
+{{< /note >}}
+
+The AI Docs server also sends these pointers to each client when it connects, so an AI tool asked about an image can direct you to the right server.
+
+### Image references
+
+Write a Chainguard image reference as `cgr.dev/<your-organization>/<image>`, replacing `<your-organization>` with your Chainguard organization's name. Most Chainguard images are available only to organizations entitled to them, in the organization's own namespace. The public `cgr.dev/chainguard` namespace serves a free subset with `latest`-style tags only, so an image reference that works for one organization may not work in `cgr.dev/chainguard`. To check which images your organization can pull, use the `list_repos` tool on [`cg-oci`](/platform/mcp-servers/cg-oci/).
+
+## Package catalog
+
+The `find_package_equivalent` and `find_image_equivalent` tools draw from a package catalog that ships with the server. The catalog holds the Dockerfile Converter's mappings: Debian and Fedora packages to their Wolfi equivalents, with no Alpine mappings, and upstream images to the Chainguard images that replace them. Each documentation build regenerates it.
+
+The catalog file is `package-mappings.json`. The container image and the extracted files also include an identical copy named `image-catalog.json`, the file's earlier name, so configurations that point at that name continue to work.
 
 ## Example usage
 
-Sample exchanges from a Claude Code session with `chainguard-docs` connected. The documentation and images change often, so your answers will differ.
+Sample exchanges from a Claude Code session with `chainguard-docs` connected. The documentation changes often, so your answers will differ.
 
 ```Prompt
 How do I use a multi-stage build with the Chainguard Python image?
@@ -264,15 +257,15 @@ What's the Wolfi equivalent of Debian's build-essential?
 ```
 
 ```Prompt
-When was the Python image last built, and what tags does it have?
+Which Chainguard image replaces bitnami/pgpool?
 ```
 
 ```output
   Called chainguard-docs (ctrl+o to expand)
 
-● The latest tag of cgr.dev/chainguard/python was built today. The public
-  repository carries two tags, latest and latest-dev. Version tags such as
-  3.13 aren't in the free catalog.
+● bitnami/pgpool maps to Chainguard's pgpool2 image. Pull it as
+  cgr.dev/<your-organization>/pgpool2, replacing <your-organization>
+  with your Chainguard organization's name.
 ```
 
 ## Standalone installation (without Docker)
@@ -287,8 +280,8 @@ curl -LO https://raw.githubusercontent.com/chainguard-dev/edu/main/scripts/mcp-r
 # Extract the documentation bundle from the container image
 docker run --rm --user "$(id -u):$(id -g)" \
   -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract /output
-# Writes chainguard-ai-docs.md, image-catalog.json, checksums.txt, and
-# verification.sh into a chainguard-ai-docs/ subdirectory
+# Writes chainguard-ai-docs.md, package-mappings.json, image-catalog.json,
+# checksums.txt, and verification.sh into a chainguard-ai-docs/ subdirectory
 
 # Install dependencies into a virtual environment
 python3 -m venv .venv
@@ -296,7 +289,7 @@ python3 -m venv .venv
 
 # Run the server
 DOCS_PATH=chainguard-ai-docs/chainguard-ai-docs.md \
-CATALOG_PATH=chainguard-ai-docs/image-catalog.json \
+CATALOG_PATH=chainguard-ai-docs/package-mappings.json \
 .venv/bin/python mcp-server.py
 ```
 
@@ -312,7 +305,7 @@ To run this script under Claude Desktop, point the configuration at the local fi
       "args": ["/path/to/mcp-server.py"],
       "env": {
         "DOCS_PATH": "/path/to/chainguard-ai-docs.md",
-        "CATALOG_PATH": "/path/to/image-catalog.json"
+        "CATALOG_PATH": "/path/to/package-mappings.json"
       }
     }
   }
@@ -353,16 +346,50 @@ Point your MCP client at `http://localhost:8080/mcp`.
 | `--host` | `MCP_HOST` | `0.0.0.0` | HTTP server bind address |
 | `--port` | `MCP_PORT` | `8080` | HTTP server port |
 
-## Alternative: static documentation
+## Use the documentation without a server
 
-If you don't need the server at all, extract the documentation file from the container:
+The documentation bundle is one Markdown file holding every page on this site, plus the Dockerfile Converter mappings. It carries its compilation date at the top of the file.
+
+### Download the bundle
+
+Download the bundle directly. It refreshes nightly.
 
 ```bash
-docker run --rm --user "$(id -u):$(id -g)" -v $(pwd):/output \
-  ghcr.io/chainguard-dev/ai-docs:latest extract /output
+curl -LO https://edu.chainguard.dev/downloads/chainguard-complete-docs.md
 ```
 
-The bundle lands at `chainguard-ai-docs/chainguard-ai-docs.md`. Refer to the [Developer Resources](/developer-resources/) page for more on static extraction.
+### Extract the bundle from the container image
+
+The container image carries the same bundle, with checksums and a verification script, and rebuilds whenever the documentation changes. Run the image with no command to print its available commands. To verify the bundle and extract it:
+
+```bash
+docker pull ghcr.io/chainguard-dev/ai-docs:latest
+
+docker run --rm ghcr.io/chainguard-dev/ai-docs:latest verify
+
+docker run --rm --user "$(id -u):$(id -g)" \
+  -v $(pwd):/output ghcr.io/chainguard-dev/ai-docs:latest extract /output
+```
+
+The extracted bundle is `chainguard-ai-docs/chainguard-ai-docs.md`.
+
+To verify the container image's signature before you use it:
+
+```bash
+cosign verify ghcr.io/chainguard-dev/ai-docs:latest \
+  --certificate-identity-regexp ".*github.com/chainguard-dev/edu.*" \
+  --certificate-oidc-issuer https://token.actions.githubusercontent.com
+```
+
+### Give the bundle to an AI tool
+
+The bundle is larger than most AI tools can hold in a single conversation. Tools that index attached files, such as a project knowledge base, handle it better than a chat that reads the whole file at once. For most questions, the MCP server is the better fit, because it returns only the sections that match.
+
+To use the bundle:
+
+1. Download or extract the bundle.
+2. Add the file to your AI tool's project knowledge, or attach it to a conversation.
+3. Ask your question. The AI tool answers from Chainguard's documentation rather than from its training data alone.
 
 ## Security features
 
@@ -372,6 +399,8 @@ The container image follows the standard Chainguard pattern:
 - Runs as a non-root user
 - Signed with Cosign
 - Rebuilt whenever the documentation changes, so known CVEs don't accumulate
+
+Each build also scans the bundle for credential patterns before publishing it. For the compilation process and verification steps, refer to [AI documentation security](/ai-docs-security/). The [build logs](https://github.com/chainguard-dev/edu/actions/workflows/compile-ai-docs-from-gcs.yaml) and the [compilation scripts](https://github.com/chainguard-dev/edu/tree/main/scripts) are public.
 
 ## Troubleshooting
 
@@ -403,6 +432,10 @@ docker run --rm -i ghcr.io/chainguard-dev/ai-docs:latest serve-mcp
 
 The container prints startup messages and then waits for stdio input.
 
+### An AI tool can't find image details
+
+AI Docs has no live container image data. Connect [`cg-oci`](/platform/mcp-servers/cg-oci/) for live registry data, or look up the image in the [Chainguard Containers Directory](https://images.chainguard.dev/). Refer to [Container image data](#container-image-data).
+
 ### Documentation out of date
 
 The hosted server updates automatically. For the local Docker setup, pull a fresh image:
@@ -414,10 +447,11 @@ docker pull ghcr.io/chainguard-dev/ai-docs:latest
 ## Resources
 
 - [Chainguard MCP servers overview](/platform/mcp-servers/overview/)
+- [`cg-oci`: the Chainguard container registry MCP server](/platform/mcp-servers/cg-oci/)
 - [Model Context Protocol documentation](https://modelcontextprotocol.io/)
 - [Chainguard MCP blog post](https://www.chainguard.dev/unchained/meet-chainguard-mcps-bringing-supply-chain-security-to-the-ai-era)
-- [Developer Resources](/developer-resources/)
-- [Chainguard Images Directory](https://images.chainguard.dev/)
+- [AI documentation security](/ai-docs-security/)
+- [Chainguard Containers Directory](https://images.chainguard.dev/)
 
 ## Need help?
 
