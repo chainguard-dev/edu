@@ -4,7 +4,7 @@ linktitle: "Go overview"
 description: "Go modules for your application development"
 type: "article"
 date: 2026-09-25T00:00:00+00:00
-lastmod: 2026-09-30T13:14:39+00:00
+lastmod: 2026-09-30T18:13:00+00:00
 draft: false
 tags: ["Chainguard Libraries", "Go", "Overview"]
 menu:
@@ -32,7 +32,6 @@ The URL for the repository is: `https://libraries.cgr.dev/go/`.
 
 When a Go command requests a module, Chainguard resolves the request through the sources enabled for your organization:
 
-- Your organization’s private Go modules, when private module uploads are enabled
 - Chainguard-remediated module versions
 - Eligible versions from the upstream Go module proxy, when upstream fallback is enabled
 
@@ -74,12 +73,6 @@ go get example.com/module@v1.2.6-cgr1
 go mod tidy
 go mod verify
 ```
-
-## Private Go modules
-
-Organizations with private module upload enabled can publish tagged module versions to an organization-scoped Go registry. Uploaded modules are resolved before remediated and upstream versions for that organization, while still subject to Chainguard security controls and organization policies.
-
-Private uploads must use a canonical semantic version. The `-cgr.N` namespace is reserved for Chainguard-remediated versions and cannot be used for customer-uploaded versions.
 
 ## Go checksum verification
 
