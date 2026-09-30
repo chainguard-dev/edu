@@ -3,4 +3,3 @@
 # (see DOCS-89 for the decision, DOCS-90 for the port). Cap below 3.0 to guard
 # against the next major-version break.
 mcp>=2.2.0,<3
-httpx>=0.28.1
