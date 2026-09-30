@@ -34,10 +34,11 @@ fi
 
 hugo --gc --minify --buildFuture -b "https://$host"
 
-# DOCS-209 probe, temporary: publish through the Build Output API with a
-# hand-written routing table, to learn how Vercel treats it. public/ stays in
-# place so the build still succeeds if Vercel ignores .vercel/output.
+# Publish through Vercel's Build Output API, whose config.json carries the
+# routing table Hugo generated from the same redirect rules production nginx
+# uses (layouts/index.vercelconfig.json). When .vercel/output exists after the
+# build, Vercel serves it and ignores the project's Output Directory setting.
 rm -rf .vercel/output
 mkdir -p .vercel/output
-cp -al public .vercel/output/static
-cp scripts/vercel-probe-config.json .vercel/output/config.json
+mv public .vercel/output/static
+mv .vercel/output/static/vercel-config.json .vercel/output/config.json

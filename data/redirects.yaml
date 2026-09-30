@@ -1,0 +1,182 @@
+# Hand-written redirects: moves that no page's "aliases:" can express, such
+# as removed sections, subtrees sent to another host, and section roots that
+# must match only themselves.
+#
+# layouts/partials/redirect-rules.html turns these into both the production
+# nginx map (public/_aliases, included by nginx.conf) and the Vercel preview's
+# routing table (public/vercel-config.json), so the two cannot drift apart.
+#
+# Every generated alias rule is matched before any rule here, so a rule here
+# only wins where no alias matches the same URL. To send one page of a moved
+# section somewhere else, add an "aliases:" entry on the destination page
+# instead: alias rules are sorted longest first and will outrank the section.
+#
+# Each rule has "to", the target, and one of:
+#   regex  a PCRE pattern matched case-sensitively against the request path
+#          with the query string removed; "$1" in "to" is its first group
+#   path   an exact path, matched case-insensitively (nginx map semantics)
+#
+# Rules are tried in order and the first match wins. The query string is
+# carried over to the target.
+
+rules:
+
+  # individual URL redirects here
+  - regex: '^/chainguard/chainguard-enforce/chainctl-docs/how-to-install-chainctl(.+)?$'
+    to: '/chainguard/chainguard-enforce/how-to-install-chainctl$1'
+  - regex: '^/chainguard/chainguard-enforce/chainctl-docs(.+)?$'
+    to: '/chainguard/chainctl$1'
+  - regex: '^/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-events(.+)?$'
+    to: '/chainguard/administration/cloudevents/events-reference$1'
+  - regex: '^/chainguard/chainguard-enforce/chainguard-enforce-events(.+)?$'
+    to: '/chainguard/administration/cloudevents/events-reference$1'
+  # chainctl reference docs moved from /chainguard/chainctl/ to /platform/chainctl/.
+  # The "(/.*)?" bound matches the chainctl subtree only, so this does NOT also
+  # swallow /chainguard/chainctl-usage/... (which has its own aliases above).
+  - regex: '^/chainguard/chainctl(/.*)?$'
+    to: '/platform/chainctl$1'
+  # The chainctl-docs/ subdir has no index page, so send its bare listing URL
+  # (at the new path) to the chainctl landing page.
+  - regex: '^/platform/chainctl/chainctl-docs/?(index\.html|index\.xml)?$'
+    to: '/platform/chainctl/'
+  - regex: '^/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-policy-examples(.+)?$'
+    to: '/open-source/sigstore/policy-controller/policies$1'
+  - regex: '^/open-source/melange/getting-started-with-melange(.+)?$'
+    to: '/open-source/build-tools/melange/getting-started-with-melange/'
+  - regex: '^/open-source/melange/tutorials/getting-started-with-melange/(.+)?$'
+    to: '/open-source/build-tools/melange/getting-started-with-melange/'
+  - regex: '^/chainguard/chainguard-enforce/sboms/sboms-and-attestations/(.+)?$'
+    to: '/open-source/sbom/sboms-and-attestations/'
+  # Chainguard Images -> Chainguard Containers. Every page under the old
+  # section carries its own Hugo alias, but the bare section root cannot:
+  # an alias generates "~^<path>(.+)?$" with $1 appended, so an alias on
+  # the section index would swallow the whole subtree and shadow the
+  # rules below it. Anchoring with /?$ matches only the root itself.
+  - regex: '^/chainguard/chainguard-images/?$'
+    to: '/chainguard/containers/'
+  # Same reasoning for the getting-started index: an alias there would
+  # shadow the istio rule below, which sends istio to the image directory.
+  - regex: '^/chainguard/chainguard-images/getting-started/?$'
+    to: '/chainguard/containers/getting-started/'
+  # The vulnerability comparison section was removed. Send it, and the
+  # older paths that used to redirect into it, to the Containers section.
+  - regex: '^/chainguard/containers/vuln-comparison(/.*)?$'
+    to: '/chainguard/containers/'
+  - regex: '^/chainguard/chainguard-images/vuln-comparison(/.*)?$'
+    to: '/chainguard/containers/'
+  - regex: '^/chainguard/chainguard-images/images-compared/(.+)?$'
+    to: '/chainguard/containers/'
+  # The per-CVE vulnerability information page was removed. Send every
+  # path under /vulnerabilities/, including the CVE deep links that other
+  # tools may still point at, to the Containers section.
+  - regex: '^/vulnerabilities(/.*)?$'
+    to: '/chainguard/containers/'
+  # Container migration docs moved to /chainguard/containers/migration/.
+  # Each page carries its own Hugo alias, but the two section roots cannot:
+  # a greedy "~^/chainguard/migration(.+)?$" rule would misroute the flat
+  # legacy URLs (/chainguard/migration/alpine-compatibility/ now lives under
+  # compatibility/, /chainguard/migration/migrating-python/ under
+  # migration-guides/) and would also swallow /chainguard/migration-guides/.
+  # Anchoring with /?$ matches only the roots themselves.
+  - regex: '^/chainguard/migration/?$'
+    to: '/chainguard/containers/migration/'
+  # The pull-through guides were flattened: the artifactory/ subsection is
+  # gone and its two guides now sit beside it as artifactory-containers-
+  # pull-through/ and artifactory-packages-pull-through/. Each guide keeps
+  # its own Hugo alias, but the section root has to be anchored here. As an
+  # alias it would be a prefix of the containers guide it points at, and the
+  # rule would match its own target and redirect forever (DOCS-186).
+  # The older /chainguard-registry/ and /chainguard-images/ spellings of
+  # this path need no rule: the section aliases above normalize them to
+  # /chainguard/containers/registry/ first, and they land here on the
+  # second hop.
+  - regex: '^/chainguard/containers/registry/pull-through-guides/artifactory/?$'
+    to: '/chainguard/containers/registry/pull-through-guides/artifactory-containers-pull-through/'
+  - regex: '^/software-security/secure-software-development/considerations-for-image-updates/(.+)?$'
+    to: '/chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/'
+  - regex: '^/chainguard/chainguard-images/considerations-for-image-updates/(.+)?$'
+    to: '/chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/'
+  - regex: '^/chainguard/chainguard-enforce/authentication/custom-idps/(.+)?$'
+    to: '/chainguard/administration/custom-idps/custom-idps/'
+  - regex: '^/chainguard/chainguard-enforce/reference/events/(.+)?$'
+    to: '/chainguard/administration/cloudevents/events-reference/'
+  - regex: '^/chainguard/administration/cloudevents/create-github-issues/(.+)?$'
+    to: '/chainguard/administration/cloudevents/'
+  - regex: '^/chainguard/administration/cloudevents/create-jira-issues/(.+)?$'
+    to: '/chainguard/administration/cloudevents/'
+  - regex: '^/chainguard/administration/cloudevents/create-slack-alerts/(.+)?$'
+    to: '/chainguard/administration/cloudevents/'
+  - regex: '^/chainguard/chainguard-images/getting-started/istio(.+)?$'
+    to: 'https://images.chainguard.dev/directory/image/istio-pilot/overview/'
+  - regex: '^/chainguard/network-requirements/(.+)?$'
+    to: '/chainguard/administration/network-requirements/'
+
+  # complete content directory redirects here
+  - regex: '^/chainguard/chainguard-enforce/events/(.+)$'
+    to: '/chainguard/administration/cloudevents/$1'
+  - regex: '^/chainguard/chainguard-enforce/cloudevents/(.+)$'
+    to: '/chainguard/administration/cloudevents/$1'
+  - regex: '^/chainguard/chainguard-images/registry/(.+)?$'
+    to: '/chainguard/chainguard-registry/'
+  - regex: '^/chainguard/chainguard-enforce/iam-groups/(.+)?$'
+    to: '/chainguard/administration/iam-groups/$1'
+  - regex: '^/chainguard/chainguard-enforce/cloudevents/(.+)?$'
+    to: '/chainguard/administration/cloudevents/$1'
+  - regex: '^/chainguard/chainguard-enforce/iam-groups/identity-examples/(.+)?$'
+    to: '/chainguard/chainguard-enforce/authentication/$1'
+  - regex: '^/chainguard/chainguard-enforce/authentication/identity-examples/(.+)?$'
+    to: '/chainguard/administration/iam-groups/identity-examples/'
+  # This pointed at a vulnerability comparison page, which was removed
+  # along with the rest of that section, so it redirected to a 404.
+  # Send it to Containers, matching the vuln-comparison rules above.
+  - regex: '^/chainguard/chainguard-images/vulnerability-comparisons(/.*)?$'
+    to: '/chainguard/containers/'
+  - regex: '^/chainguard/administration/iam-groups/(.+)?$'
+    to: '/chainguard/administration/iam-organizations/$1'
+
+  # enforce docs turndown
+  - regex: '^/chainguard/chainguard-enforce/(.+)?$'
+    to: '/'
+
+  # getting-started docs redirects
+  - regex: '^/chainguard/chainguard-images/reference/go/getting-started-go/(.+)?$'
+    to: '/chainguard/containers/getting-started/go/'
+  - regex: '^/chainguard/chainguard-images/reference/mariadb/getting-started-mariadb/(.+)?$'
+    to: '/chainguard/containers/getting-started/mariadb/'
+  - regex: '^/chainguard/chainguard-images/reference/node/getting-started-node/(.+)?$'
+    to: '/chainguard/containers/getting-started/node/'
+  - regex: '^/chainguard/chainguard-images/reference/php/getting-started-php/(.+)?$'
+    to: '/chainguard/containers/getting-started/php/'
+  - regex: '^/chainguard/chainguard-images/reference/postgres/getting-started-postgres/(.+)?$'
+    to: '/chainguard/containers/getting-started/postgres/'
+  - regex: '^/chainguard/chainguard-images/reference/python/getting-started-python/(.+)?$'
+    to: '/chainguard/containers/getting-started/python/'
+  - regex: '^/chainguard/chainguard-images/reference/ruby/getting-started-ruby/(.+)?$'
+    to: '/chainguard/containers/getting-started/ruby/'
+  # reference docs redirects - images
+  - regex: '^/chainguard/chainguard-images/reference/(.+)/image_specs/?$'
+    to: 'https://images.chainguard.dev/directory/image/$1/specifications'
+  - regex: '^/chainguard/chainguard-images/reference/(.+)/tags_history/?$'
+    to: 'https://images.chainguard.dev/directory/image/$1/versions'
+  - regex: '^/chainguard/chainguard-images/reference/(.+)/provenance_info/?$'
+    to: 'https://images.chainguard.dev/directory/image/$1/provenance'
+  - regex: '^/chainguard/chainguard-images/reference/(.+)/overview/?$'
+    to: 'https://images.chainguard.dev/directory/image/$1/overview'
+  - regex: '^/chainguard/chainguard-images/reference/(.+)/$'
+    to: 'https://images.chainguard.dev/directory/image/$1/overview'
+  - regex: '^/chainguard/chainguard-images/reference/(.+)$'
+    to: 'https://images.chainguard.dev/directory/image/$1/overview'
+  - regex: '^/chainguard/chainguard-images/reference/?$'
+    to: 'https://images.chainguard.dev/directory'
+  # OpenAPI spec redirect
+  - path: '/chainguard/api/openapi.json'
+    to: '/api.json'
+
+  # apko reference redirect
+  - regex: '^/open-source/build-tools/apko/reference/?$'
+    to: 'https://github.com/chainguard-dev/apko/blob/main/docs/apko_file.md'
+  # melange reference redirect
+  - regex: '^/open-source/build-tools/melange/reference/?$'
+    to: 'https://github.com/chainguard-dev/melange/blob/main/docs/md/melange.md'
+  - regex: '^/open-source/build-tools/melange/melange-pipelines/?$'
+    to: 'https://github.com/chainguard-dev/melange/blob/main/docs/PIPELINES.md'

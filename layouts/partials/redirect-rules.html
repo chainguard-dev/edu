@@ -1,0 +1,89 @@
+{{- /*
+Returns every redirect rule, in the order production nginx tries them. Two
+templates render this one list: layouts/index.aliases builds the nginx map
+production uses, and layouts/index.vercelconfig.json builds the Vercel
+preview's routing table. Because both come from here, a preview answers a
+URL the way production does.
+
+Each rule is a dict:
+  regex          an anchored PCRE pattern for the request path, query removed
+  caseSensitive  false only for exact paths, which nginx matches ignoring case
+  path           the literal path for an exact rule, otherwise ""
+  target         where to redirect; "$1" is the pattern's first group
+
+The order:
+
+1. Exact paths from data/redirects.yaml. nginx checks exact strings before
+   any regex wherever they sit in the map, so putting them first changes
+   nothing there, and gives Vercel, which tries routes strictly in order, the
+   same precedence.
+
+2. One rule per page alias, longest alias first. nginx takes the first regex
+   that matches, and an alias that is a prefix of another would otherwise
+   claim the subtree below it and hide the more specific rule. That is what
+   sent /pull-through-guides/artifactory/artifactory-packages-pull-through to
+   the wrong page.
+
+   The (/.*)? bound matches the alias itself or anything in its subtree, but
+   not a longer path segment that merely starts with the alias. An
+   open-ended bound lets a rule feed itself: an alias of
+   /pull-through-guides/artifactory on a page that now lives at
+   /pull-through-guides/artifactory-containers-pull-through matches its own
+   target and appends the suffix on every hop, so the URL never resolves
+   (DOCS-186).
+
+   The bound needs no "?" because nginx.conf matches the map against a key
+   with the query string already stripped (DOCS-187), and Vercel matches
+   routes against the path alone.
+
+   Each alias is a literal path, so its regex metacharacters are escaped. An
+   unescaped alias is read as a pattern: "getting-started-c++" matched
+   "getting-started-cccc" and never matched itself. Rules are sorted by the
+   length of the unescaped alias.
+
+3. Regex rules from data/redirects.yaml, in file order.
+*/ -}}
+{{- $escapeRegex := `([.+*?()|\[\]{}^$\\])` -}}
+{{- $handWritten := hugo.Data.redirects.rules -}}
+{{- $rules := slice -}}
+
+{{- range $rule := $handWritten -}}
+{{- if $rule.path -}}
+{{- $rules = $rules | append (dict
+  "regex" (printf "^%s$" (replaceRE $escapeRegex `\$1` $rule.path))
+  "caseSensitive" false
+  "path" $rule.path
+  "target" $rule.to) -}}
+{{- end -}}
+{{- end -}}
+
+{{- $aliasRules := slice -}}
+{{- range $p := site.Pages -}}
+{{- $target := strings.TrimSuffix "/" $p.RelPermalink -}}
+{{- range $p.Aliases -}}
+{{- $alias := strings.TrimSuffix "/" . -}}
+{{- if ne $alias $target -}}
+{{- $aliasRules = $aliasRules | append (dict
+  "regex" (printf "^%s(/.*)?$" (replaceRE $escapeRegex `\$1` $alias))
+  "caseSensitive" true
+  "path" ""
+  "target" (printf "%s$1" $target)
+  "length" (len $alias)) -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+{{- range sort $aliasRules "length" "desc" -}}
+{{- $rules = $rules | append . -}}
+{{- end -}}
+
+{{- range $rule := $handWritten -}}
+{{- if $rule.regex -}}
+{{- $rules = $rules | append (dict
+  "regex" $rule.regex
+  "caseSensitive" true
+  "path" ""
+  "target" $rule.to) -}}
+{{- end -}}
+{{- end -}}
+
+{{- return $rules -}}

@@ -3,7 +3,6 @@
   "framework": null,
   "installCommand": "npm ci",
   "buildCommand": "npm run build:vercel",
-  "outputDirectory": "public",
   "headers": [
     {
       "source": "/(.*)",
