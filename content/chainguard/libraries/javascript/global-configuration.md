@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for JavaScript in your organization"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-09-30T16:33:25+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 images: []
@@ -32,6 +32,14 @@ Chainguard also retrieves packages from the public npm Registry on your
 behalf when upstream fallback is enabled. This includes protections such as
 malware detection and a cooldown period for newly published
 packages.
+
+The same `https://libraries.cgr.dev/javascript/` upstream also serves remediated
+`-cgr.N` artifacts, so you do not configure a separate remediated repository in
+your repository manager. Selecting remediated versions happens in the project
+with `chainctl libraries remediate`, not through your repository manager
+configuration. Refer to [CVE
+remediation](/chainguard/libraries/policies-and-security/cve-remediation/) for
+details.
 
 At a high level, adopting the use of Chainguard Libraries consists of the following steps:
 

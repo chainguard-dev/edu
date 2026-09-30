@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for JavaScript on your workstation"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-09-30T16:33:25+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
@@ -30,6 +30,13 @@ default, it serves only Chainguard-built artifacts. When [upstream
 fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) is
 enabled for your organization, the same endpoint can also serve requested
 versions from upstream, under Chainguard security controls.
+
+The same endpoint also serves remediated `-cgr.N` artifacts, so there is no
+separate remediated repository to configure. The registry configuration on this
+page does not select remediated versions on its own; to select them, run
+`chainctl libraries remediate` in your project. Refer to [CVE
+remediation](/chainguard/libraries/policies-and-security/cve-remediation/) for
+details.
 
 This guide outlines how to configure your build tool. If you are looking for something else, refer to the following guides depending on your goals:
 
