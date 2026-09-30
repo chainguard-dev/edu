@@ -4,7 +4,7 @@ linktitle: "Go overview"
 description: "Go modules for your application development"
 type: "article"
 date: 2026-09-25T00:00:00+00:00
-lastmod: 2026-09-29T19:14:43+00:00
+lastmod: 2026-09-30T13:14:39+00:00
 draft: false
 tags: ["Chainguard Libraries", "Go", "Overview"]
 menu:
@@ -42,17 +42,38 @@ Go builds from source on the customer side. Unlike ecosystems that distribute pr
 ## CVE remediation
 
 Chainguard Libraries for Go can provide backported fixes for high and critical CVEs in older module versions when upgrading to a newer upstream release is not practical.
-Remediated Go versions use the `-cgr.N` prerelease suffix. For example: `v1.2.5-cgr.1`.
 
-The suffix identifies a Chainguard-remediated source archive. Because `-cgr.N` versions are prereleases, Go’s minimal version selection and `@latest` do not select them automatically. Adopt a remediated version explicitly in `go.mod` or with a version-specific command such as:
+Remediated Go versions use the `-cgr.N` prerelease suffix. For example, a remediated build of upstream `v1.2.5` is `v1.2.5-cgr.1`.
+
+The incremented patch number ensures that vulnerability scanners recognize the remediated version as newer than upstream `v1.2.5`, while the `-cgr1` suffix identifies it as  a Chainguard prerelease. A remediated version is a distinct module source archive; it does not replace the upsream bytes for another version.
+
+The suffix identifies a Chainguard-remediated source archive. Because `-cgr.N` versions are prereleases, Go’s minimal version selection and `@latest` do not select them automatically. Use a [`replace` directive](https://go.dev/ref/mod#go-mod-file-replace) in `go.mod` to pin a dependency to its remediated version:
 
 ```bash
-go get example.com/module@v1.2.5-cgr.1
+require example.com/module v1.2.5
+replace example.com/module v1.2.5 => example.com/module v1.2.6-cgr1
+```
+
+This version-specific form replaces upstream v1.2.5 wherever it is selected, including as a transitive dependency. To force the remediated version regardless of the selected upstream version, omit the old version from the directive:
+
+```bash
+replace example.com/module => example.com/module v1.2.6-cgr1
+```
+
+Replace the module path and versions with the remediated version available for your dependency. After adding or updating a replace directive, run:
+
+```bash
 go mod tidy
 go mod verify
 ```
 
-Replace the module path and version with the remediated version available for your dependency.
+You can also select the remediated version directly with `go get`, but use `replace` when you need a stable project-level pin:
+
+```bash
+go get example.com/module@v1.2.6-cgr1
+go mod tidy
+go mod verify
+```
 
 ## Private Go modules
 
