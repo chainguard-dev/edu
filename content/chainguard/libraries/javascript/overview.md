@@ -6,7 +6,7 @@ aliases:
 description: "JavaScript libraries for your application development"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-09-28T18:48:06+00:00
+lastmod: 2026-09-30T16:27:12+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript", "Overview"]
 menu:
@@ -100,6 +100,17 @@ For a step-by-step walkthrough of moving an existing project to Chainguard Libra
 If you install through a repository manager, refer to [Global configuration](/chainguard/libraries/javascript/global-configuration/#updating-lockfile-hashes/).
 
 When the upstream fallback is enabled, [build pinning](/chainguard/libraries/policies-and-security/build-pinning/) keeps a version you pulled from upstream stable after Chainguard publishes its own build, so you don't have to update these hashes again unexpectedly.
+
+## CVE remediation
+
+Chainguard Libraries for JavaScript includes the [CVE
+Remediation](/chainguard/libraries/policies-and-security/cve-remediation/) feature. Remediated packages carry an appended prerelease identifier of `-cgr.N`. For example, a remediated build of `example-package` version `4.17.21` is published as `example-package@4.17.21-cgr.1`.
+
+Unlike Python and Java, JavaScript remediation does not rely on version precedence. Because `-cgr.N` is an npm prerelease identifier, npm semver resolution does not treat it as newer than the base version, so a normal range such as `^4.17.21` never matches it. Instead, remediation operates on the resolved dependency tree in your lockfile.
+
+Run `chainctl libraries remediate` after you install or update dependencies. The command walks the lockfile and, for each eligible package, adds an npm override in `package.json` that pins the dependency to the corresponding `-cgr.N` version. This selects the remediated artifact while preserving the dependency version your application requested. Re-run the command after every install or dependency update so that newly resolved entries are evaluated.
+
+Remediated artifacts are served through the standard JavaScript endpoint at `https://libraries.cgr.dev/javascript/`. For how remediation handles transitive dependencies and repeated package occurrences, see [CVE remediation](/chainguard/libraries/policies-and-security/cve-remediation/).
 
 ## Provenance and attestations
 

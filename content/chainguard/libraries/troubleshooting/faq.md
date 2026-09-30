@@ -4,7 +4,7 @@ linktitle: "FAQ"
 description: "Frequently asked questions about Chainguard Libraries, including security benefits, supported ecosystems, and how automated patching protects against supply chain attacks"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-09-30T16:27:12+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 aliases:
@@ -201,15 +201,23 @@ to pulling directly from public registries like Maven Central, npm, and PyPI.
 feature where Chainguard backports High and Critical vulnerability fixes from
 newer upstream releases to older versions that customers are still using,
 particularly when upstream maintainers no longer ship patches for those older
-versions. Remediated versions are:
+versions. Each ecosystem uses a version suffix so you can distinguish remediated
+builds from non‑remediated upstream versions, but how you select them differs:
 
-* Published in a separate repository:
-  `https://libraries.cgr.dev/python-remediated/simple/` for Python and
-  `https://libraries.cgr.dev/java-remediated/` for Java.
-* Given a local version suffix -- like `+cgr.N` for Python (for example,
-  2.0.0+cgr.1) and `-0.cgr.N` for Java -- so dependency resolvers can
-  distinguish them from non‑remediated upstream versions while still preferring
-  the remediated build during resolution.
+* **Python**: A `+cgr.N` local version suffix (for example, `2.0.0+cgr.1`),
+  published in a separate index at
+  `https://libraries.cgr.dev/python-remediated/simple/`. Python package managers
+  treat it as a higher‑precedence version and can select it automatically during
+  resolution.
+* **Java**: A `-0.cgr.N` suffix (for example, `3.18.0-0.cgr.1`), published in a
+  separate repository at `https://libraries.cgr.dev/java-remediated/`. Maven and
+  Gradle sort it higher than the base version, so dependency management rules can
+  resolve to it when the overlay repository is available.
+* **JavaScript**: A `-cgr.N` prerelease suffix (for example, `4.17.21-cgr.1`),
+  served through the standard endpoint at `https://libraries.cgr.dev/javascript/`.
+  Because npm treats `-cgr.N` as a prerelease rather than a newer release, you
+  select remediated versions by running `chainctl libraries remediate`, which
+  pins them through npm overrides rather than through version precedence.
 
 ## Why might I still see errors with the upstream fallback enabled through the Chainguard Repository?
 
