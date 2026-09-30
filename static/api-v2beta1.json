@@ -3973,6 +3973,10 @@
             },
             "description": "Environment variables to set in the image.\nKeys with the reserved prefix \"CHAINGUARD_\" are rejected.",
             "type": "object"
+          },
+          "guardedEntrypoint": {
+            "description": "Wraps the image entrypoint with /usr/bin/guarded-entrypoint on rebuild.",
+            "type": "boolean"
           }
         },
         "type": "object"
@@ -3981,7 +3985,7 @@
         "description": "Accounts specifies user/group configuration.",
         "properties": {
           "groups": {
-            "description": "Group entries to add.",
+            "description": "Group entries to add. In an overlay's config\n(CreateOverlay/UpdateOverlay), group names must be unique within\nthe list (InvalidArgument otherwise), like users.",
             "items": {
               "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay.Accounts.Group"
             },
@@ -3992,7 +3996,7 @@
             "type": "string"
           },
           "users": {
-            "description": "User entries to add.",
+            "description": "User entries to add. In an overlay's config\n(CreateOverlay/UpdateOverlay), usernames must be unique within the\nlist (InvalidArgument otherwise): each is one passwd row, and\noverlay composition keys on the name.",
             "items": {
               "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay.Accounts.User"
             },
@@ -4065,7 +4069,7 @@
         "description": "Certificates specifies additional certificate configuration.",
         "properties": {
           "additional": {
-            "description": "Additional certificates to include.",
+            "description": "Additional certificates to include. In an overlay's config\n(CreateOverlay/UpdateOverlay), entry names must be unique within\nthe list (InvalidArgument otherwise): each name is one file on\ndisk, and overlay composition keys on it.",
             "items": {
               "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay.Certificates.AdditionalEntry"
             },
@@ -4110,7 +4114,7 @@
             "type": "array"
           },
           "runtimeKeyring": {
-            "description": "Customer-supplied APK signing public keys to write to /etc/apk/keys.\nMirrors apko's contents.runtime_keyring (same name, shape, and\nplacement), which carries these keys into the build.",
+            "description": "Customer-supplied APK signing public keys to write to /etc/apk/keys.\nMirrors apko's contents.runtime_keyring (same name, shape, and\nplacement), which carries these keys into the build. In an overlay's\nconfig (CreateOverlay/UpdateOverlay), entry names must be unique\nwithin the list (InvalidArgument otherwise): each name is one file\non disk, and overlay composition keys on it.",
             "items": {
               "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay.ImageContents.RuntimeKeyringEntry"
             },
@@ -4328,7 +4332,7 @@
                 "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.TagSelector"
               }
             ],
-            "description": "The selector picking which tags on the parent repo this binding\napplies to. See TagSelector for the supported kinds and their\nper-kind validation rules. Uniqueness rules (at most one ALL per\nrepo; at most one VARIANT per (repo, variant_type); EXACT bindings\nmust not share any tag with another EXACT binding on the same repo)\nare enforced at create time and surface as AlreadyExists. Bindings\nare rejected on repos whose legacy custom_overlay is set\n(FailedPrecondition) — the two customization paths are mutually\nexclusive until the legacy value is migrated to an ALL binding."
+            "description": "The selector picking which tags on the parent repo this binding\napplies to. See TagSelector for the supported kinds and their\nper-kind validation rules. Per-repo rules are enforced at create\ntime: at most one binding per (repo, overlay) pair, surfacing as\nAlreadyExists; beyond that, any number of bindings per selector\nkind, provided every co-matching pair — two ALL; two VARIANT of one\nvariant type; two EXACT sharing a tag — references overlays whose\nconfigs merge commutatively (list fields union; map keys, named\nentries, and scalars must not be set to different values). A content\nconflict surfaces as FailedPrecondition whose PreconditionFailure\ndetail carries violation type OVERLAY_BINDING_CONFLICT, naming the\nconflicting binding id(s) and field paths in the message; earlier\nreleases rejected same-kind overlap as AlreadyExists, so clients\nbranching on that code should branch on the violation type instead.\nCross-kind overlap is precedence-layered at rebuild time and never a\nconflict. Bindings are also rejected on repos whose legacy\ncustom_overlay is set — FailedPrecondition too, but without the\nOVERLAY_BINDING_CONFLICT violation type — the two customization\npaths are mutually exclusive until the legacy value is migrated to\nan ALL binding."
           }
         },
         "required": [
@@ -4533,7 +4537,7 @@
         "type": "object"
       },
       "chainguard.platform.registry.v2beta1.TagSelector": {
-        "description": "1. KIND_ALL binding on the repo (at most one).\n  2. KIND_VARIANT binding whose variant_type matches the tag (at most\n     one per (repo, variant_type); today only VARIANT_TYPE_DEV,\n     matching the \"-dev\" tag suffix).\n  3. KIND_EXACT binding whose `tags` include the tag.\n\nLayers merge later-wins for scalar fields; packages accumulate. All\nthree can stack on a single tag (e.g. `latest-dev`).",
+        "description": "1. The repo's KIND_ALL bindings.\n  2. KIND_VARIANT bindings whose variant_type matches the tag (today\n     only VARIANT_TYPE_DEV, matching the \"-dev\" tag suffix).\n  3. KIND_EXACT bindings whose `tags` include the tag.\n\nLayers merge later-wins for scalar fields; packages accumulate. All\nthree can stack on a single tag (e.g. `latest-dev`). Within one layer,\nco-matching bindings merge commutatively: the bind-time compatibility\ncheck (see CreateOverlayBindingRequest.tag_selector) guarantees their\noverlays' configs never set the same field to different values.",
         "properties": {
           "kind": {
             "allOf": [
@@ -4567,7 +4571,7 @@
       },
       "chainguard.platform.registry.v2beta1.TagSelector.Kind": {
         "default": "KIND_UNSPECIFIED",
-        "description": "Kind is the matching mode. See per-kind field expectations below.\n\n - KIND_UNSPECIFIED: Unspecified is invalid; callers must set a kind explicitly.\n - KIND_EXACT: KIND_EXACT matches tags whose name appears verbatim in `tags`.\n`tags` must be non-empty; `variant_type` must be unset.\n - KIND_ALL: KIND_ALL matches every tag on the parent repo. `tags` and\n`variant_type` must be unset. A repo can hold at most one\nKIND_ALL binding — this is the way to customize a whole repo\nand the migration target for legacy repo.custom_overlay values.\n - KIND_VARIANT: KIND_VARIANT matches every tag on the parent repo that belongs\nto the variant named by `variant_type`. `tags` must be unset and\n`variant_type` must not be VARIANT_TYPE_UNSPECIFIED. A repo can\nhold at most one KIND_VARIANT binding per (repo, variant_type).",
+        "description": "Kind is the matching mode. See per-kind field expectations below.\n\n - KIND_UNSPECIFIED: Unspecified is invalid; callers must set a kind explicitly.\n - KIND_EXACT: KIND_EXACT matches tags whose name appears verbatim in `tags`.\n`tags` must be non-empty; `variant_type` must be unset.\n - KIND_ALL: KIND_ALL matches every tag on the parent repo. `tags` and\n`variant_type` must be unset. This is the way to customize a\nwhole repo and the migration target for legacy\nrepo.custom_overlay values.\n - KIND_VARIANT: KIND_VARIANT matches every tag on the parent repo that belongs\nto the variant named by `variant_type`. `tags` must be unset and\n`variant_type` must not be VARIANT_TYPE_UNSPECIFIED.",
         "enum": [
           "KIND_UNSPECIFIED",
           "KIND_EXACT",
@@ -11449,7 +11453,7 @@
         ]
       },
       "patch": {
-        "description": "UpdateOverlay updates an overlay's mutable fields: its name and its\nconfig. A submitted config is validated like create and replaces the\nstored config wholesale.",
+        "description": "UpdateOverlay updates an overlay's mutable fields: its name and its\nconfig. A submitted config is validated like create, replaces the\nstored config wholesale, and is re-checked for binding compatibility\neverywhere the overlay is bound — a conflict with a co-matching\nbinding's overlay on any repo fails with FailedPrecondition\n(violation type OVERLAY_BINDING_CONFLICT); see\nUpdateOverlayRequest.update_mask.",
         "operationId": "OverlaysService_UpdateOverlay",
         "parameters": [
           {

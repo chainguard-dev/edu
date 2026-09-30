@@ -1,5 +1,5 @@
 ---
-date: 2026-09-28T19:38:53Z
+date: 2026-09-29T17:51:01Z
 title: "chainctl policy custom create"
 slug: chainctl_policy_custom_create
 url: /platform/chainctl/chainctl-docs/chainctl_policy_custom_create/
@@ -62,9 +62,10 @@ expression: |
 Each parameter accepts: name, type (a PARAMETER_TYPE_* value), description,
 default, minimum, maximum, allowed_values, required, deprecated.
 
---resource-type accepts a shorthand (Repo, Go, Java, Javascript, Python) or a
+--resource-type accepts a shorthand (Repo, DotNet, Go, Java, Javascript, Python) or a
 full type:
   - Repo       -> registry.chainguard.dev/Repo@v1
+  - DotNet     -> libraries.chainguard.dev/DotNetPackage@v1
   - Go         -> libraries.chainguard.dev/GoPackage@v1
   - Java       -> libraries.chainguard.dev/JavaPackage@v1
   - Javascript -> libraries.chainguard.dev/NPMPackage@v1

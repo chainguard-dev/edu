@@ -1,5 +1,5 @@
 ---
-date: 2026-09-28T19:38:53Z
+date: 2026-09-29T17:51:01Z
 title: "chainctl images"
 slug: chainctl_images
 url: /platform/chainctl/chainctl-docs/chainctl_images/
@@ -40,6 +40,7 @@ Images related commands for the Chainguard platform.
 * [chainctl images helm](/platform/chainctl/chainctl-docs/chainctl_images_helm/)	 - Helm chart related commands
 * [chainctl images history](/platform/chainctl/chainctl-docs/chainctl_images_history/)	 - Show history for a specific image tag.
 * [chainctl images list](/platform/chainctl/chainctl-docs/chainctl_images_list/)	 - List tagged images from Chainguard registries.
+* [chainctl images overlays](/platform/chainctl/chainctl-docs/chainctl_images_overlays/)	 - Manage Custom Assembly overlays and the repos they are attached to.
 * [chainctl images repos](/platform/chainctl/chainctl-docs/chainctl_images_repos/)	 - Image repo related commands for the Chainguard platform.
 * [chainctl images tags](/platform/chainctl/chainctl-docs/chainctl_images_tags/)	 - Tags related commands for images.
 

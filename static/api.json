@@ -8843,6 +8843,10 @@
               "type": "string"
             },
             "type": "object"
+          },
+          "guardedEntrypoint": {
+            "description": "Wraps the image entrypoint with /usr/bin/guarded-entrypoint on rebuild.",
+            "type": "boolean"
           }
         },
         "type": "object"
@@ -10613,6 +10617,10 @@
             },
             "description": "Environment variables to set in the image.\nKeys with the reserved prefix \"CHAINGUARD_\" are rejected.",
             "type": "object"
+          },
+          "guardedEntrypoint": {
+            "description": "Wraps the image entrypoint with /usr/bin/guarded-entrypoint on rebuild.",
+            "type": "boolean"
           }
         },
         "type": "object"

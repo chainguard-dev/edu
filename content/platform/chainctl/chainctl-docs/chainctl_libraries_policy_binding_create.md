@@ -1,5 +1,5 @@
 ---
-date: 2026-09-28T19:38:53Z
+date: 2026-09-29T17:51:01Z
 title: "chainctl libraries policy binding create"
 slug: chainctl_libraries_policy_binding_create
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_policy_binding_create/
@@ -24,7 +24,7 @@ chainctl libraries policy binding create --policy POLICY [--parent ORGANIZATION_
 ### Options
 
 ```
-      --ecosystem string   The ecosystem the binding applies to (GO, JAVA, JAVASCRIPT, PYTHON).
+      --ecosystem string   The ecosystem the binding applies to (DOTNET, GO, JAVA, JAVASCRIPT, PYTHON).
       --mode string        The binding mode (ENFORCE or PREVIEW). Defaults to ENFORCE.
       --parent string      The name or id of the organization to scope the binding to.
       --policy string      The name or UIDP of the policy to bind.
