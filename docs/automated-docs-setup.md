@@ -5,18 +5,23 @@ and refreshed.
 
 ## Overview
 
-The bundle combines documentation from four sources:
+The bundle combines two sources, both from this repository:
 
-- edu content, from `content/` in this repository
-- Container image READMEs, from the images-private repository
-- Course content, from the courses repository
-- Dockerfile Converter package mappings, from the dfc repository
+- edu content, from `content/`
+- Dockerfile Converter (dfc) package and image mappings, from
+  `data/package-mappings.yaml`
 
-Each source repository exports a tarball to the `academy-all-docs` bucket in
-the `chainguard-academy` GCP project, then sends an `ai-docs-source-updated`
-repository dispatch event to this repository. The
-`.github/workflows/compile-ai-docs-from-gcs.yaml` workflow compiles the
-sources into a single markdown file and publishes it.
+The `.github/workflows/compile-ai-docs-from-gcs.yaml` workflow compiles them
+into a single Markdown file and publishes it. `scripts/compile_docs.py` writes
+the bundle, and `scripts/generate_package_catalog.py` writes
+`package-mappings.json`, the catalog behind the MCP server's
+`find_package_equivalent` and `find_image_equivalent` tools. The build also
+ships the catalog as `image-catalog.json`, its earlier name.
+
+The nightly `autodocs-platform.yaml` workflow keeps
+`data/package-mappings.yaml` current: it downloads dfc's `builtin-mappings.yaml`
+and includes any change in its pull request. To change a mapping, change it in
+[chainguard-dev/dfc](https://github.com/chainguard-dev/dfc), not here.
 
 ## Publishing targets
 
@@ -45,29 +50,20 @@ nobody merged.
 
 The workflow runs on:
 
-- An `ai-docs-source-updated` repository dispatch event from any source
-  repository
+- An `ai-docs-source-updated` repository dispatch event, which
+  `export-edu-docs-to-gcs.yaml` sends after a push to `main` that changes
+  content
+- A push to `main` that changes `scripts/` or the workflow itself, so a server
+  fix deploys without waiting for the nightly run
 - The nightly schedule, at 02:00 UTC
 - A manual run from the **Actions** tab
 
 Only the scheduled and manual runs open a pull request.
 
-## Export workflows
-
-Each source repository needs an export workflow. Use the templates in
-`.github/workflows/templates/`:
-
-- `export-docs-to-gcs.yaml`
-- `export-images-docs-to-gcs.yaml`
-- `export-courses-docs-to-gcs.yaml`
-
-The templates authenticate with workload identity federation against the
-`chainguard-academy` pool. They don't use personal access tokens.
-
 ## Authentication
 
-The compile job federates a GCP token through workload identity to read from
-and write to the bucket. The publish job federates a separate GitHub token
+The compile job federates a GCP token through workload identity to write to
+the bucket and to deploy. The publish job federates a separate GitHub token
 through octo-sts, using the trust policy in
 `.github/chainguard/ai-docs.sts.yaml`, which grants only `contents: write` and
 `pull_requests: write`.
@@ -77,17 +73,24 @@ images never holds a git-write credential.
 
 ## Test the compilation locally
 
-The compile script reads the three external sources from sibling directories.
-To compile edu content alone, create empty placeholders:
+Compile the bundle and the catalog from a checkout of this repository:
 
 ```bash
-mkdir -p ../courses ../images-private ../dfc
 python3 scripts/compile_docs.py
+python3 scripts/generate_package_catalog.py \
+  --mappings data/package-mappings.yaml \
+  --output /tmp/package-mappings.json
 ```
 
-The result lands in `static/downloads/chainguard-complete-docs.md`. Expect a
-much smaller file than the published bundle, because it contains no image
-READMEs. Don't commit that file.
+The bundle lands in `static/downloads/chainguard-complete-docs.md`. Don't
+commit that file; the nightly pull request owns it.
+
+To run the MCP server's unit tests:
+
+```bash
+pip install -r scripts/mcp-requirements.txt pytest pyyaml
+pytest scripts/test_mcp_server.py scripts/test_mcp_transport.py scripts/test_compile_docs.py
+```
 
 ## Troubleshoot
 
@@ -95,13 +98,12 @@ READMEs. Don't commit that file.
 documentation bundle` pull request. If none exists, check whether the nightly
 run succeeded.
 
-**The bundle is missing image documentation.** The images-private export is
-failing, so the compile job is rebuilding from an old tarball. Read the
-`Metadata information:` block in the `Download documentation from GCS` step,
-which prints the `export_time` for each source.
+**The bundle has no DFC mappings page.** The compile log shows `WARNING:
+data/package-mappings.yaml not found` instead of `DFC mappings added`. Confirm
+the file exists on `main`.
 
 **The compile job fails on size.** The bundle has a 50 MB ceiling. Something
-in a source export has grown unexpectedly.
+in `content/` has grown unexpectedly.
 
 **The compile job fails on the credential scan.** The bundle carries a pattern
 that looks like a real key. Find it in the workflow log, then fix the source
