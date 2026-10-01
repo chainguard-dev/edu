@@ -1472,6 +1472,10 @@
             "readOnly": true,
             "type": "string"
           },
+          "delegationOnly": {
+            "description": "When true, the identity may only be assumed through the delegated token\nexchange (ExchangeRequest.delegated), in which its capabilities are a\nrequested subset of the presented delegation grant's and its role\nbindings are never consulted. A plain assume is refused, so the identity\nnever holds standing authority. The delegated exchange is refused for\nevery identity without it. Only valid on a claim_match identity.",
+            "type": "boolean"
+          },
           "description": {
             "description": "Optional description of the identity.",
             "type": "string"
@@ -2899,6 +2903,14 @@
             ],
             "description": "Custom certificates to include in the image."
           },
+          "commandOverride": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.v2.CustomOverlay.CommandOverride"
+              }
+            ],
+            "description": "NOTE: Part of Guarded Entrypoint, which is IN DEVELOPMENT and not yet\navailable; setting this field is rejected for every organization.\n\nCommand override for the guarded_entrypoint wrapper. Requires\nguarded_entrypoint."
+          },
           "contents": {
             "allOf": [
               {
@@ -2914,9 +2926,24 @@
             "description": "Environment variables to set in the image.\nKeys with the reserved prefix \"CHAINGUARD_\" are rejected.",
             "type": "object"
           },
+          "failMode": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.v2.CustomOverlay.FailMode"
+              }
+            ],
+            "description": "NOTE: Part of Guarded Entrypoint, which is IN DEVELOPMENT and not yet\navailable; setting this field is rejected for every organization.\n\nHow the wrapper handles secret-resolution failures. Requires\nguarded_entrypoint. Default is FAIL_MODE_CLOSED. Baked into the\nimage by the syncer as GUARDED_FAIL_MODE=closed|open, emitted only\nwhen FAIL_MODE_OPEN; a closed repo's image is unchanged."
+          },
           "guardedEntrypoint": {
-            "description": "Wraps the image entrypoint with /usr/bin/guarded-entrypoint on rebuild.",
+            "description": "NOTE: Guarded Entrypoint is IN DEVELOPMENT and not yet available;\nsetting this field is rejected for every organization.\n\nWraps the image entrypoint with /usr/bin/guarded-entrypoint on rebuild.",
             "type": "boolean"
+          },
+          "preflight": {
+            "description": "NOTE: Part of Guarded Entrypoint, which is IN DEVELOPMENT and not yet\navailable; setting this field is rejected for every organization.\n\nReadiness checks to run before starting the app. Requires\nguarded_entrypoint. Up to 32 entries.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.v2.CustomOverlay.Preflight"
+            },
+            "type": "array"
           }
         },
         "type": "object"
@@ -3043,6 +3070,48 @@
         ],
         "type": "object"
       },
+      "chainguard.platform.registry.v2.CustomOverlay.CommandOverride": {
+        "description": "CommandOverride decides what the wrapper execs after preparing\nthe environment: in MODE_DEFAULT the wrapper execs its own argv\n(the image's original ENTRYPOINT followed by CMD) unchanged; in\nMODE_PREPEND it execs command followed by that argv; in\nMODE_OVERRIDE it execs command alone. The image's ENTRYPOINT\n(wrapper-prefixed) and CMD are unchanged in every mode. The\nsyncer bakes this into the image as two environment variables:\nGUARDED_COMMAND_MODE=default|prepend|override and\nGUARDED_COMMAND=\u003cJSON array\u003e, e.g.\nGUARDED_COMMAND=[\"redis-server\",\"--requirepass\",\"hunter2\"].",
+        "properties": {
+          "command": {
+            "description": "Argument list that combines with the container's runtime\narguments per mode. When empty, no override applies.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "mode": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.v2.CustomOverlay.CommandOverride.Mode"
+              }
+            ],
+            "description": "How command combines with the container's runtime arguments.\nDefault is MODE_DEFAULT. Non-empty command is required when mode\nis MODE_PREPEND or MODE_OVERRIDE."
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.v2.CustomOverlay.CommandOverride.Mode": {
+        "default": "MODE_UNSPECIFIED",
+        "description": "Mode decides how command combines with the container's runtime\narguments.\n\n - MODE_UNSPECIFIED: Treated as MODE_DEFAULT.\n - MODE_DEFAULT: Use command only when the container passes no arguments.\n - MODE_PREPEND: command first, then the container's arguments.\n - MODE_OVERRIDE: command always; container arguments are dropped.",
+        "enum": [
+          "MODE_UNSPECIFIED",
+          "MODE_DEFAULT",
+          "MODE_PREPEND",
+          "MODE_OVERRIDE"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.registry.v2.CustomOverlay.FailMode": {
+        "default": "FAIL_MODE_UNSPECIFIED",
+        "description": "FailMode decides what the wrapper does when secret resolution fails\n(see the wrapper's fail-mode setting): fail-closed (the default)\nrefuses to start the app; fail-open logs and starts anyway.\n\n - FAIL_MODE_UNSPECIFIED: Treated as FAIL_MODE_CLOSED.\n - FAIL_MODE_CLOSED: Wrapper refuses to start the app when secret resolution fails.\n - FAIL_MODE_OPEN: Wrapper starts the app and logs the failure.",
+        "enum": [
+          "FAIL_MODE_UNSPECIFIED",
+          "FAIL_MODE_CLOSED",
+          "FAIL_MODE_OPEN"
+        ],
+        "type": "string"
+      },
       "chainguard.platform.registry.v2.CustomOverlay.ImageContents": {
         "description": "ImageContents specifies additional image content.",
         "properties": {
@@ -3087,6 +3156,46 @@
           "content"
         ],
         "type": "object"
+      },
+      "chainguard.platform.registry.v2.CustomOverlay.Preflight": {
+        "description": "Preflight is one readiness check to run before the app starts.",
+        "properties": {
+          "interval": {
+            "description": "Polling interval between attempts, as a Go duration string.\nNon-negative. Default 500ms.",
+            "type": "string"
+          },
+          "onFailure": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.v2.CustomOverlay.Preflight.OnFailure"
+              }
+            ],
+            "description": "What happens when the check fails. Default FAIL."
+          },
+          "path": {
+            "description": "Filesystem path that must exist. Set exactly one of tcp or path.\nSupports ${VAR} expansion from the resolved environment. Must\nnot contain \",\" or \"=\".",
+            "type": "string"
+          },
+          "tcp": {
+            "description": "TCP endpoint to dial (host:port). Set exactly one of tcp or path.\nSupports ${VAR} expansion from the resolved environment. Must\nnot contain \",\" or \"=\".",
+            "type": "string"
+          },
+          "timeout": {
+            "description": "Time budget for the check, as a Go duration string like \"30s\".\nNon-negative. Default 30s.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.v2.CustomOverlay.Preflight.OnFailure": {
+        "default": "ON_FAILURE_UNSPECIFIED",
+        "description": "OnFailure decides what happens when a preflight check fails.\n\n - ON_FAILURE_UNSPECIFIED: Treated as FAIL.\n - ON_FAILURE_FAIL: Stops the container from starting.\n - ON_FAILURE_CONTINUE: Startup proceeds; the failure is logged.",
+        "enum": [
+          "ON_FAILURE_UNSPECIFIED",
+          "ON_FAILURE_FAIL",
+          "ON_FAILURE_CONTINUE"
+        ],
+        "type": "string"
       },
       "chainguard.platform.registry.v2.ListReposResponse": {
         "description": "ListReposResponse is the response message for ListRepos.",
@@ -6492,6 +6601,10 @@
                     "readOnly": true,
                     "type": "string"
                   },
+                  "delegationOnly": {
+                    "description": "When true, the identity may only be assumed through the delegated token\nexchange (ExchangeRequest.delegated), in which its capabilities are a\nrequested subset of the presented delegation grant's and its role\nbindings are never consulted. A plain assume is refused, so the identity\nnever holds standing authority. The delegated exchange is refused for\nevery identity without it. Only valid on a claim_match identity.",
+                    "type": "boolean"
+                  },
                   "description": {
                     "description": "Optional description of the identity.",
                     "type": "string"
@@ -9654,6 +9767,22 @@
               },
               "type": "array"
             }
+          },
+          {
+            "description": "delegated requests the delegated exchange mode when assuming `identity`.\nThe assumed identity's own role bindings are not consulted; instead the\nreturned token's capabilities are a per-scope subset of the presented\ncredential's capabilities, selected by `scopes` and `cap` (both\nrequired), and its expiry never exceeds the presented credential's. A\nrequest for any capability or scope the presented credential does not\nhold is rejected, never trimmed. The presented credential must be a\ndelegation grant: a token minted by this issuer whose only audience is\n\"\u003cissuer\u003e/delegation/\u003cname\u003e\", pinned by the identity's claim_match, and\nthe identity must be marked delegation_only. A token minted by a\ndelegated exchange is never accepted as a grant. No refresh token is\nissued. The returned token's subject is the assumed identity, its `act`\nclaim is the presented credential's verified claims, and its\n`act_chain` records the transfer.",
+            "in": "query",
+            "name": "delegated",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "task is an optional opaque identifier for the work the delegated token\nis minted for (e.g. a session id), recorded as the token's `task` claim\nfor attribution. It is never used for authorization. At most 128 bytes\nof letters, digits, and `. _ : / @ -`. Only honored with `delegated`.",
+            "in": "query",
+            "name": "task",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -9739,6 +9868,22 @@
                 "type": "string"
               },
               "type": "array"
+            }
+          },
+          {
+            "description": "delegated requests the delegated exchange mode when assuming `identity`.\nThe assumed identity's own role bindings are not consulted; instead the\nreturned token's capabilities are a per-scope subset of the presented\ncredential's capabilities, selected by `scopes` and `cap` (both\nrequired), and its expiry never exceeds the presented credential's. A\nrequest for any capability or scope the presented credential does not\nhold is rejected, never trimmed. The presented credential must be a\ndelegation grant: a token minted by this issuer whose only audience is\n\"\u003cissuer\u003e/delegation/\u003cname\u003e\", pinned by the identity's claim_match, and\nthe identity must be marked delegation_only. A token minted by a\ndelegated exchange is never accepted as a grant. No refresh token is\nissued. The returned token's subject is the assumed identity, its `act`\nclaim is the presented credential's verified claims, and its\n`act_chain` records the transfer.",
+            "in": "query",
+            "name": "delegated",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "task is an optional opaque identifier for the work the delegated token\nis minted for (e.g. a session id), recorded as the token's `task` claim\nfor attribution. It is never used for authorization. At most 128 bytes\nof letters, digits, and `. _ : / @ -`. Only honored with `delegated`.",
+            "in": "query",
+            "name": "task",
+            "schema": {
+              "type": "string"
             }
           }
         ],
