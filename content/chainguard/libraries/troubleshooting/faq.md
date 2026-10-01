@@ -4,7 +4,7 @@ linktitle: "FAQ"
 description: "Frequently asked questions about Chainguard Libraries, including security benefits, supported ecosystems, and how automated patching protects against supply chain attacks"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-09-30T16:27:12+00:00
+lastmod: 2026-10-01T15:11:12+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 aliases:
@@ -216,7 +216,7 @@ builds from non‑remediated upstream versions, but how you select them differs:
 * **JavaScript**: A `-cgr.N` prerelease suffix (for example, `4.17.21-cgr.1`),
   served through the standard endpoint at `https://libraries.cgr.dev/javascript/`.
   Because npm treats `-cgr.N` as a prerelease rather than a newer release, you
-  select remediated versions by running `chainctl libraries remediate`, which
+  select remediated versions by running `chainctl libraries remediate --apply`, which
   pins them through npm overrides rather than through version precedence.
 
 ## Why might I still see errors with the upstream fallback enabled through the Chainguard Repository?

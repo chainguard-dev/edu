@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for JavaScript in your organization"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-09-30T16:33:25+00:00
+lastmod: 2026-10-01T15:11:12+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 images: []
@@ -36,7 +36,7 @@ packages.
 The same `https://libraries.cgr.dev/javascript/` upstream also serves remediated
 `-cgr.N` artifacts, so you do not configure a separate remediated repository in
 your repository manager. Selecting remediated versions happens in the project
-with `chainctl libraries remediate`, not through your repository manager
+with `chainctl libraries remediate --apply`, not through your repository manager
 configuration. Refer to [CVE
 remediation](/chainguard/libraries/policies-and-security/cve-remediation/) for
 details.

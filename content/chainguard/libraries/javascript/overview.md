@@ -6,7 +6,7 @@ aliases:
 description: "JavaScript libraries for your application development"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-09-30T16:27:12+00:00
+lastmod: 2026-10-01T15:11:12+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript", "Overview"]
 menu:
@@ -93,7 +93,7 @@ Configure this endpoint [globally through a repository manager](/chainguard/libr
 
 ## Updating lockfile hashes
 
-Existing JavaScript lockfiles usually contain upstream integrity hashes. Because Chainguard rebuilds packages from verified source, those hashes must be updated before reinstalling. Use `chainctl libraries update-hashes` to update them in place. Learn more in [Build configuration](/chainguard/libraries/javascript/build-configuration/#updating-lockfile-hashes/).
+Existing JavaScript lockfiles usually contain upstream integrity hashes. Because Chainguard rebuilds packages from verified source, those hashes must be updated before reinstalling. Use `chainctl libraries update-hashes` to update them in place. Learn more in [Build configuration](/chainguard/libraries/javascript/build-configuration/#updating-lockfile-hashes).
 
 For a step-by-step walkthrough of moving an existing project to Chainguard Libraries, check out the [JavaScript migration guide](/chainguard/libraries/javascript/migration/).
 
@@ -108,7 +108,7 @@ Remediation](/chainguard/libraries/policies-and-security/cve-remediation/) featu
 
 Unlike Python and Java, JavaScript remediation does not rely on version precedence. Because `-cgr.N` is an npm prerelease identifier, npm semver resolution does not treat it as newer than the base version, so a normal range such as `^4.17.21` never matches it. Instead, remediation operates on the resolved dependency tree in your lockfile.
 
-Run `chainctl libraries remediate` after you install or update dependencies. The command walks the lockfile and, for each eligible package, adds an npm override in `package.json` that pins the dependency to the corresponding `-cgr.N` version. This selects the remediated artifact while preserving the dependency version your application requested. Re-run the command after every install or dependency update so that newly resolved entries are evaluated.
+Preview available remediations by running `chainctl libraries remediate`, then adopt them by running the same command with `--apply`. When applied, the command walks the lockfile and, for each eligible package, adds an npm override in `package.json` that pins the dependency to the corresponding `-cgr.N` version. This selects the remediated artifact while preserving the dependency version your application requested. Re-run the command after every install or dependency update so that newly resolved entries are evaluated.
 
 Remediated artifacts are served through the standard JavaScript endpoint at `https://libraries.cgr.dev/javascript/`. For how remediation handles transitive dependencies and repeated package occurrences, see [CVE remediation](/chainguard/libraries/policies-and-security/cve-remediation/).
 
