@@ -82,7 +82,7 @@ Otherwise, users authenticate by passing the identity provider's ID:
 chainctl auth login --identity-provider <IDP_ID>
 ```
 
-To avoid specifying this on every login, users can set a default identity provider or organization name in their `chainctl` configuration, as described in the [custom identity providers guide](/platform/administration/custom-idps/custom-idps/#setting-a-default-identity-provider). In the Chainguard Console, users in a verified organization can enter their organization name or email address to be routed to your identity provider.
+To avoid specifying this on every login, users can set a default identity provider or organization name in their `chainctl` configuration, as described in the [custom identity providers guide](/platform/administration/custom-idps/custom-idps/#set-a-default-identity-provider). In the Chainguard Console, users in a verified organization can enter their organization name or email address to be routed to your identity provider.
 
 If you need to restore Google login (for example, during a recovery scenario), follow the same steps to locate the Chainguard app, but instead of blocking it, change the access policy for the relevant organizational units to grant access. Select at least **Limited** access so that Google permits the login scopes.
 
