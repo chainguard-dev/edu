@@ -130,7 +130,11 @@ resource "google_cloud_run_v2_service" "mcp-server" {
 
     scaling {
       min_instance_count = 0
-      max_instance_count = 3
+      // 3 -> 10: long-lived SSE streams count as in-flight requests for their
+      // whole life, and enough of them were saturating the 3-instance
+      // concurrency ceiling and 429ing ordinary calls alongside them. See PR
+      // description.
+      max_instance_count = 10
     }
   }
 
