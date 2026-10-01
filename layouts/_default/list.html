@@ -18,11 +18,12 @@
     <div class="center-content list-html">
       <main class="docs-content">
       <div class="back-button">
-        {{ $parentTitle := .Parent.Title }}
-        {{ $parentLink := .Parent.Permalink }}
+        {{ $parent := partial "i18n/parent.html" . }}
+        {{ $parentTitle := $parent.Title }}
+        {{ $parentLink := $parent.Permalink }}
         {{ if or (eq $parentTitle "Product Docs") (eq $parentTitle "Open Source") (eq $parentTitle "Education") }}
-          {{ $parentTitle = "Home" }}
-          {{ $parentLink = "/" }}
+          {{ $parentTitle = T "home" }}
+          {{ $parentLink = site.Home.RelPermalink }}
         {{ end }}
 
         <a class="pills-link" href="{{ $parentLink }}">
@@ -38,7 +39,7 @@
       </div>
       <div class="mt-4">
         <article>
-          <h1 class="landing-title text-capitalize">{{ if eq .CurrentSection .FirstSection }}{{ .Section | humanize }}{{ else }}{{ .Title }}{{ end }}</h1>
+          <h1 class="landing-title text-capitalize">{{ if and (eq .CurrentSection .FirstSection) (eq .Language.Lang hugo.Sites.Default.Language.Lang) }}{{ .Section | humanize }}{{ else }}{{ .Title }}{{ end }}</h1>
           <p>{{ .Description }}</p>
           <div class="install-container">
             <a href="{{ .Params.banner.link }}" class="card-background install-card col-lg">
@@ -72,7 +73,7 @@
           <div class="list-container card-list">
             <div class="d-flex justify-content-start gap-4 row">
               <div class="d-flex flex-column w-100 col-md">
-                <h4 class="list-title">Recent Tutorials</h4>
+                <h4 class="list-title">{{ T "recent_tutorials" }}</h4>
                 <hr class="tutorial-divider">
                 <div class="tutorial-link-container">
                   {{ $currentSection := .CurrentSection }}
@@ -90,7 +91,7 @@
               </div>
 
               <div class="d-flex flex-column w-100 col-md">
-                <h4 class="list-title">Featured Tutorials</h4>
+                <h4 class="list-title">{{ T "featured_tutorials" }}</h4>
                 <hr class="tutorial-divider">
                 <div class="tutorial-link-container">
                 <!-- Will be updated in the future -->
@@ -128,7 +129,8 @@
     <div class="row justify-content-center topic-container flex-shrink-1">
       <div class="col-md-12 col-lg-10 col-xl-8">
         <article>
-          <h1 class="text-center">{{ if eq .CurrentSection .FirstSection }}{{ .Section | humanize }}{{ else }}{{ .Title }}{{ end }}</h1>
+          <h1 class="text-center">{{ if and (eq .CurrentSection .FirstSection) (eq .Language.Lang hugo.Sites.Default.Language.Lang) }}{{ .Section | humanize }}{{ else }}{{ .Title }}{{ end }}</h1>
+          {{ partial "i18n/translation-notice.html" . }}
           <div>{{ .Content }}</div>
           {{ if not .Params.hidepageslist }}
           <div class="docs-navigation docs-navigation-summary">
@@ -149,7 +151,21 @@
                     {{ end }}
                 {{ end }}
             {{ else }}
-                {{ range .Paginator.Pages }}
+                {{/* A translated section lists every page in the default-language
+                     section, linking to translations where they exist, so it
+                     never shows fewer entries than the English page. */}}
+                {{ $default := hugo.Sites.Default.Language.Lang }}
+                {{ $source := partial "i18n/translation-of.html" (dict "page" . "lang" $default) }}
+                {{ $translated := and (ne .Language.Lang $default) (eq $source.Language.Lang $default) }}
+                {{ $items := slice }}
+                {{ if $translated }}
+                    {{ range $source.Pages }}
+                        {{ $items = $items | append (partial "i18n/translation-of.html" (dict "page" . "lang" $.Language.Lang)) }}
+                    {{ end }}
+                {{ else }}
+                    {{ $items = .Paginator.Pages }}
+                {{ end }}
+                {{ range $items }}
                     <a class="docs-navigation-button docs-navigation-button-next" href="{{ .RelPermalink }}">
                         <span class="next-title">{{ .Title }}</span>
                         <div class="chevron-rotator">
@@ -162,7 +178,9 @@
                         <div class="button-description">{{ .Description }}</div>
                     {{ end }}
                 {{ end }}
-                {{ template "_internal/pagination.html" . }}
+                {{ if not $translated }}
+                    {{ template "_internal/pagination.html" . }}
+                {{ end }}
             {{ end }}
           </div>
           {{ end }}

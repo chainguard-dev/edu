@@ -14,12 +14,17 @@
 
   The collapse id is keyed on RelPermalink (unique per page) rather than the
   link title, so two subsections that share a title no longer toggle together.
+
+  On a translated page, `page` is a default-language page and the item links
+  to its translation ($link) where one exists. Children always come from
+  `page`, so the full default-language tree is shown.
 */}}
 {{ $page := .page }}
 {{ $currentPage := .currentPage }}
 {{ $top := .top }}
-{{ $active := in $currentPage.RelPermalink $page.RelPermalink }}
-{{ $selected := eq $currentPage.RelPermalink $page.RelPermalink }}
+{{ $link := partial "i18n/translation-of.html" (dict "page" $page "lang" $currentPage.Language.Lang) }}
+{{ $active := in $currentPage.RelPermalink $link.RelPermalink }}
+{{ $selected := eq $currentPage.RelPermalink $link.RelPermalink }}
 
 {{ if $page.IsNode }}
 {{/* "Videos" nodes are hidden, but only at the top level (matches prior behavior). */}}
@@ -28,8 +33,8 @@
 <li class="{{ if $top }}my-0 {{ end }}sidebar-item-list-item {{ if $selected }} sidebar-item-list-item-selected {{ end }}">
   <div class="{{ if $top }}sidebar-item-top {{ end }}d-flex gap-1 justify-content-between align-items-center sidebar-item {{ if $active }} sidebar-item-active {{ end }}">
     <button class="{{ if $active }} sidebar-item-active {{ end }} {{ if $top }}mx-0 {{ end }}border-0 bg-transparent d-flex align-items-center justify-content-between rounded sidebar-subcategory w-100 {{ if not $top }}sidebar-item {{ end }}{{ if not $active }} collapsed {{ end }}" data-bs-toggle="collapse" data-bs-target="#section-{{ md5 $page.RelPermalink }}" aria-expanded="{{ if $active }}true{{ else }}false{{ end }}">
-      <a href="{{ if $selected }}#{{ else }}{{ $page.Permalink }}{{ end }}" class="{{ if $top }}sidebar-item-top {{ end }}sidebar-item mx-0 p-0">
-        <span>{{ $page.LinkTitle }}</span>
+      <a href="{{ if $selected }}#{{ else }}{{ $link.Permalink }}{{ end }}" class="{{ if $top }}sidebar-item-top {{ end }}sidebar-item mx-0 p-0">
+        <span>{{ $link.LinkTitle }}</span>
       </a>
       <div class="chevron-rotator">
         <i class="bi bi-chevron-right {{ if $active }} sidebar-icon-active {{ end }}"></i>
@@ -55,10 +60,10 @@
 {{ end }}
 {{ else }}
 {{ if $top }}
-<li><a class="mx-0 sidebar-subcategory docs-link rounded {{ if $active }} sidebar-item-active active {{ end }} sidebar-item sidebar-item-top" href="{{ $page.Permalink }}">{{ $page.LinkTitle }}</a></li>
+<li><a class="mx-0 sidebar-subcategory docs-link rounded {{ if $active }} sidebar-item-active active {{ end }} sidebar-item sidebar-item-top" href="{{ $link.Permalink }}">{{ $link.LinkTitle }}</a></li>
 {{ else }}
 <li class="sidebar-item-list-item {{ if $active }} sidebar-item-list-item-selected {{ end }}">
-  <a class="sidebar-subcategory docs-link rounded {{ if $active }} sidebar-item-active active {{ end }} sidebar-item" href="{{ $page.Permalink }}">{{ $page.LinkTitle }}</a>
+  <a class="sidebar-subcategory docs-link rounded {{ if $active }} sidebar-item-active active {{ end }} sidebar-item" href="{{ $link.Permalink }}">{{ $link.LinkTitle }}</a>
 </li>
 {{ end }}
 {{ end }}

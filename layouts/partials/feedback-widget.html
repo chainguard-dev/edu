@@ -1,23 +1,23 @@
 <!-- Feedback Widget -->
 <div class="feedback-widget mt-5 pt-4 border-top">
   <div class="feedback-prompt">
-    <h4 class="feedback-title">Was this helpful?</h4>
+    <h4 class="feedback-title">{{ T "feedback_title" }}</h4>
     <div class="feedback-buttons">
       <button 
         type="button" 
         class="feedback-btn feedback-btn-yes" 
         data-feedback="yes"
-        aria-label="Yes, this was helpful"
+        aria-label="{{ T "feedback_yes_label" }}"
       >
-        <span class="feedback-btn-text">Yes</span>
+        <span class="feedback-btn-text">{{ T "feedback_yes" }}</span>
       </button>
       <button 
         type="button" 
         class="feedback-btn feedback-btn-no" 
         data-feedback="no"
-        aria-label="No, this was not helpful"
+        aria-label="{{ T "feedback_no_label" }}"
       >
-        <span class="feedback-btn-text">No</span>
+        <span class="feedback-btn-text">{{ T "feedback_no" }}</span>
       </button>
     </div>
   </div>
@@ -25,29 +25,29 @@
   <!-- Thank you message for positive feedback -->
   <div class="feedback-thanks" style="display: none;">
     <div class="feedback-message mt-4">
-      <span class="feedback-text">Thanks for the feedback!</span>
+      <span class="feedback-text">{{ T "feedback_thanks" }}</span>
     </div>
   </div>
 
   <!-- Negative feedback form -->
   <div class="feedback-form" style="display: none;">
     <div class="feedback-message mt-4">
-      <span class="feedback-text">Tell us what could be improved:</span>
+      <span class="feedback-text">{{ T "feedback_improve" }}</span>
     </div>
     <div class="feedback-input-container mt-3">
       <textarea 
         class="feedback-textarea" 
-        placeholder="Your feedback (max 1000 characters)..."
+        placeholder="{{ T "feedback_placeholder" }}"
         maxlength="1000"
         rows="4"
-        aria-label="Feedback textarea"
+        aria-label="{{ T "feedback_textarea_label" }}"
       ></textarea>
       <div class="feedback-char-counter">
         <span class="char-count">0</span>/1000
       </div>
       <div class="feedback-form-buttons mt-3">
-        <button type="button" class="feedback-submit-btn">Submit</button>
-        <button type="button" class="feedback-cancel-btn">Cancel</button>
+        <button type="button" class="feedback-submit-btn">{{ T "feedback_submit" }}</button>
+        <button type="button" class="feedback-cancel-btn">{{ T "feedback_cancel" }}</button>
       </div>
     </div>
   </div>
@@ -60,6 +60,12 @@
 {
   "pageTitle": {{ .Title | jsonify }},
   "pageUrl": {{ .Permalink | jsonify }},
-  "appsScriptUrl": "{{ .Site.Params.feedbackAppsScriptUrl | default "" }}"
+  "appsScriptUrl": "{{ .Site.Params.feedbackAppsScriptUrl | default "" }}",
+  "strings": {
+    "yes": {{ T "feedback_yes" }},
+    "no": {{ T "feedback_no" }},
+    "submit": {{ T "feedback_submit" }},
+    "submitting": {{ T "feedback_submitting" }}
+  }
 }
 </script>

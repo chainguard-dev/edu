@@ -40,6 +40,17 @@
   <link rel="canonical" href="{{ .Permalink }}">
 {{ end -}}
 
+{{/* Alternate-language versions, for pages that have been translated. */}}
+{{ with and (ne .Kind "404") .Translations -}}
+  <link rel="alternate" hreflang="{{ $.Language.Locale }}" href="{{ $.Permalink }}">
+  {{ range . -}}
+  <link rel="alternate" hreflang="{{ .Language.Locale }}" href="{{ .Permalink }}">
+  {{ end -}}
+  {{ range where (slice $ | append .) "Language.Lang" hugo.Sites.Default.Language.Lang -}}
+  <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+  {{ end -}}
+{{ end -}}
+
 {{ partial "head/opengraph.html" . }}
 {{ partial "head/twitter_cards.html" . }}
 

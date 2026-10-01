@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
       const textElement = copyButton.querySelector(".copy-btn-text");
       const originalText = textElement ? textElement.textContent : "";
       if (textElement) {
-        textElement.textContent = "Copied to clipboard!";
+        textElement.textContent = copyButton.dataset.copiedText || "Copied to clipboard!";
       }
 
       // Reset after 2 seconds

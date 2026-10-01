@@ -1,0 +1,52 @@
+{{- /*
+  Remembers the reader's language and keeps them in it.
+
+  - Choosing a language in the sidebar menu, or opening any page that isn't in
+    the default language, saves that language in localStorage.
+  - On a default-language page, a reader who prefers another language is sent
+    to this page's translation when one exists. This runs in <head>, before
+    the page renders, so the English page doesn't flash first.
+  - When no translation exists, the page stays in the default language and
+    the sidebar menu shows a note in the preferred language.
+
+  With no saved preference, nothing happens: the default language is English.
+*/ -}}
+{{- $translations := dict -}}
+{{- range .Translations -}}
+  {{- $translations = merge $translations (dict .Language.Lang .RelPermalink) -}}
+{{- end -}}
+<script>
+  (function () {
+    var key = "academy-language";
+    var pageLang = {{ .Language.Lang }};
+    var defaultLang = {{ hugo.Sites.Default.Language.Lang }};
+    var translations = {{ $translations }};
+    var preferred;
+    try {
+      if (pageLang !== defaultLang) {
+        localStorage.setItem(key, pageLang);
+      }
+      preferred = localStorage.getItem(key);
+    } catch (e) {
+      return;
+    }
+    if (pageLang === defaultLang && preferred && preferred !== defaultLang && translations[preferred]) {
+      window.location.replace(translations[preferred] + window.location.search + window.location.hash);
+      return;
+    }
+    document.addEventListener("click", function (event) {
+      var link = event.target.closest && event.target.closest("[data-set-lang]");
+      if (!link) return;
+      try {
+        localStorage.setItem(key, link.getAttribute("data-set-lang"));
+      } catch (e) {}
+    });
+    if (preferred && preferred !== pageLang) {
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll('[data-fallback-lang="' + preferred + '"]').forEach(function (note) {
+          note.hidden = false;
+        });
+      });
+    }
+  })();
+</script>

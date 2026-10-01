@@ -4,3 +4,28 @@
   weight = 10
   [en.params]
     languageISO = "EN"
+
+# Pilot translation. Pages exist only where a translation does; every other
+# link from a Portuguese page falls back to the English page at the site root.
+# See docs/translations.md.
+[pt-br]
+  label = "Português (Brasil)"
+  locale = "pt-BR"
+  contentDir = "content-pt-br"
+  weight = 20
+  # Tag pages would list only the few translated pages, so link to the English ones.
+  disableKinds = ["taxonomy", "term"]
+  [pt-br.params]
+    languageISO = "PT"
+    titleAddition = "Base de conhecimento sobre segurança da cadeia de suprimentos de software"
+    description = "Aprenda a tornar sua cadeia de suprimentos de software segura por padrão"
+    ogLocale = "pt_BR"
+    schemaLocale = "pt-BR"
+    # Language code for the Ask AI widget's built-in text (Kapa's data-language).
+    # English pages omit it, so the widget uses its default, "en".
+    kapaLanguage = "pt"
+    # "Pergunte à IA" doesn't fit the floating Ask AI button's default 4.5rem width.
+    kapaButtonWidth = "7rem"
+    # Shown in the sidebar language menu when a page has no Portuguese translation.
+    untranslatedHint = "(não traduzida)"
+    untranslatedNotice = "Esta página ainda não foi traduzida para o português, então você está vendo a versão em inglês."
