@@ -1,5 +1,5 @@
 ---
-date: 2026-09-29T17:51:01Z
+date: 2026-09-30T19:15:34Z
 title: "chainctl auth token capabilities"
 slug: chainctl_auth_token_capabilities
 url: /platform/chainctl/chainctl-docs/chainctl_auth_token_capabilities/
@@ -13,8 +13,29 @@ toc: true
 
 Print the capabilities of the local Chainguard Token.
 
+### Synopsis
+
+Print the capabilities of the local Chainguard Token.
+
+With --token -, decode the token read from standard input instead. This
+shows what a grant minted with "chainctl auth token --delegate" carries:
+
+  chainctl auth token --delegate=my-delegate --role=viewer --scope=my-org | chainctl auth token capabilities --token -
+
+Prefer "--token -" to passing a token as the flag's value: a token on the
+command line is visible to other local users in the process list and is kept
+in shell history.
+
+The token is decoded, not verified.
+
 ```
-chainctl auth token capabilities [flags]
+chainctl auth token capabilities [--token=TOKEN|-] [flags]
+```
+
+### Options
+
+```
+      --token string   Decode another token instead of the local one. Use "-" to read it from standard input; a token given as the value is visible in the process list and shell history.
 ```
 
 ### Options inherited from parent commands

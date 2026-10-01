@@ -1,5 +1,5 @@
 ---
-date: 2026-09-29T17:51:01Z
+date: 2026-09-30T19:15:34Z
 title: "chainctl policy binding create"
 slug: chainctl_policy_binding_create
 url: /platform/chainctl/chainctl-docs/chainctl_policy_binding_create/
