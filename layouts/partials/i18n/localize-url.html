@@ -1,0 +1,26 @@
+{{- /*
+  Returns the current language's URL for an internal path, so links from a
+  translated page stay in that language where they can.
+
+  Context: a dict with
+    url  - a link destination, such as "/get-started/get-support/#open-a-ticket"
+    page - the page the link appears on
+
+  Returns the destination unchanged when the page is in the default language,
+  when the destination isn't a site-relative path, or when the target page
+  hasn't been translated. Untranslated targets therefore fall back to the
+  English page at the site root.
+*/ -}}
+{{- $url := .url -}}
+{{- $page := .page -}}
+{{- if and (ne $page.Language.Lang hugo.Sites.Default.Language.Lang) (hasPrefix $url "/") (not (hasPrefix $url "//")) -}}
+  {{- $u := urls.Parse $url -}}
+  {{- $path := strings.TrimSuffix "/" $u.Path | default "/" -}}
+  {{- with $page.Site.GetPage $path -}}
+    {{- $url = .RelPermalink -}}
+    {{- with $u.Fragment -}}
+      {{- $url = printf "%s#%s" $url . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $url -}}

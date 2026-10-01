@@ -43,9 +43,9 @@
     id="siteSearchTrigger"
     type="button"
     class="search form-control search-box d-none d-lg-block"
-    aria-label="Search"
+    aria-label="{{ T "search" }}"
   >
-    Search
+    {{ T "search" }}
   </button>
 
   <!-- Mobile trigger -->
@@ -53,15 +53,15 @@
     id="siteSearchTriggerMobile"
     type="button"
     class="search form-control search-box d-lg-none is-search"
-    aria-label="Search"
+    aria-label="{{ T "search" }}"
   >
-    Search
+    {{ T "search" }}
   </button>
 </div>
 
 <button type="button" class="btn ask-ai-header ask-ai-trigger order-1 d-lg-none">
   <i class="bi bi-stars" aria-hidden="true"></i>
-  Ask AI
+  {{ T "ask_ai" }}
 </button>
 
     {{ if $showFlexSearch -}}
