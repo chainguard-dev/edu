@@ -1,0 +1,18 @@
+{{- /*
+  Returns the page a back button should point to.
+
+  In the default language, that's the page's parent. A translated page's
+  parent in its own language is often a top-level section, because the
+  intermediate sections haven't been translated. So for a translated page,
+  this returns the default-language page's parent, swapped for its
+  translation when one exists.
+*/ -}}
+{{- $result := .Parent -}}
+{{- $default := hugo.Sites.Default.Language.Lang -}}
+{{- if ne .Language.Lang $default -}}
+  {{- $source := partial "i18n/translation-of.html" (dict "page" . "lang" $default) -}}
+  {{- if and (eq $source.Language.Lang $default) $source.Parent -}}
+    {{- $result = partial "i18n/translation-of.html" (dict "page" $source.Parent "lang" .Language.Lang) -}}
+  {{- end -}}
+{{- end -}}
+{{- return $result -}}

@@ -1,0 +1,42 @@
+{{- /*
+  Tells readers of a translated page that it's a translation, and links to the
+  English original.
+
+  A translated page records which version of the English page it was made
+  from, in front matter:
+
+    translation:
+      sourceLastmod: 2026-09-28T14:00:04+00:00  # the English page's lastmod
+      reviewed: false                           # true once a native speaker has reviewed it
+
+  When the English page's lastmod is later than sourceLastmod, or the
+  translation doesn't record one, the notice warns that the translation may be
+  out of date and the build logs a warning naming both files.
+*/ -}}
+{{- $page := . -}}
+{{- $default := hugo.Sites.Default.Language.Lang -}}
+{{- /* Only content pages carry translation front matter; taxonomy pages are skipped. */ -}}
+{{- if and $page.File (ne $page.Language.Lang $default) -}}
+  {{- range first 1 (where $page.Translations "Language.Lang" $default) -}}
+    {{- $source := . -}}
+    {{- $t := $page.Params.translation | default dict -}}
+    {{- $outdated := true -}}
+    {{- with $t.sourceLastmod -}}
+      {{- $outdated = $source.Lastmod.After (time.AsTime .) -}}
+    {{- end -}}
+    {{- if $outdated -}}
+      {{- $recorded := "not set" -}}
+      {{- with $t.sourceLastmod }}{{ $recorded = (time.AsTime .).Format "2006-01-02T15:04:05Z07:00" }}{{ end -}}
+      {{- warnf "translation out of date: [%s] %s was translated from [%s] %s at lastmod %s, and the source lastmod is now %s" $page.Language.Lang $page.File.Path $source.Language.Lang $source.File.Path $recorded ($source.Lastmod.Format "2006-01-02T15:04:05Z07:00") -}}
+    {{- end }}
+<div class="alert alert-{{ if $outdated }}warning{{ else }}info{{ end }} d-flex translation-notice" role="note">
+  <div class="flex-shrink-0">
+    <i class="bi {{ if $outdated }}bi-exclamation-triangle{{ else }}bi-translate{{ end }}" aria-hidden="true"></i>
+  </div>
+  <div class="flex-grow-1 ms-2">
+    {{ if $outdated }}{{ T "translation_outdated" }}{{ else if $t.reviewed }}{{ T "translation_notice_reviewed" }}{{ else }}{{ T "translation_notice" }}{{ end }}
+    <a href="{{ $source.RelPermalink }}" hreflang="{{ $source.Language.Locale }}" lang="{{ $source.Language.Locale }}">{{ T "translation_read_original" }}</a>
+  </div>
+</div>
+  {{- end -}}
+{{- end -}}

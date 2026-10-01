@@ -1,6 +1,6 @@
 {{ if and (ne .Params.toc false) (ne .TableOfContents "<nav id=\"TableOfContents\"></nav>") -}}
   <div class="page-links">
-    <h3 class="righthand-title">On this page</h3>
+    <h3 class="righthand-title">{{ T "on_this_page" }}</h3>
     <div class="tocLinks">
       {{ if .Params.tocEndLevel -}}
         {{/* Per-page cap on "On this page" depth (e.g. the changelog, which uses h3

@@ -13,11 +13,12 @@
   <div class="center-content single-html">
     <main class="docs-content">
        <div class="back-button">
-        {{ $parentTitle := .Parent.Title }}
-        {{ $parentLink := .Parent.Permalink }}
+        {{ $parent := partial "i18n/parent.html" . }}
+        {{ $parentTitle := $parent.Title }}
+        {{ $parentLink := $parent.Permalink }}
         {{ if or (eq $parentTitle "Product Docs") (eq $parentTitle "Open Source") (eq $parentTitle "Education") }}
-          {{ $parentTitle = "Home" }}
-          {{ $parentLink = "/" }}
+          {{ $parentTitle = T "home" }}
+          {{ $parentLink = site.Home.RelPermalink }}
         {{ end }}
 
         <a class="pills-link" href="{{ $parentLink }}">
@@ -83,6 +84,7 @@
       </nav>
       {{ end -}} -->
       {{ partial "notice.html" . }}
+      {{ partial "i18n/translation-notice.html" . }}
       <div class="mb-5"></div>
       {{ .Content }}
 

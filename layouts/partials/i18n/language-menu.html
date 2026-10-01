@@ -1,0 +1,45 @@
+{{- /*
+  Language dropdown for the sidebar, on every page.
+
+  Each option links to this page in that language. When the page hasn't been
+  translated, the option links to the current page and says so; choosing it
+  still saves the reader's preference (see i18n/language-preference.html), so
+  later pages open in that language wherever a translation exists.
+*/ -}}
+{{- $page := . -}}
+{{- $default := hugo.Sites.Default.Language.Lang -}}
+<div class="dropdown language-menu">
+  <button class="btn w-100 text-left dropdown-toggle language-menu-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="{{ T "language" }}: {{ $page.Language.Label }}">
+    <i class="bi bi-translate" aria-hidden="true"></i> {{ $page.Language.Label }}
+  </button>
+  <ul class="dropdown-menu w-100">
+    {{- range hugo.Sites }}
+    {{- $lang := .Language.Lang }}
+    {{- $current := eq $lang $page.Language.Lang }}
+    {{- $target := partial "i18n/translation-of.html" (dict "page" $page "lang" $lang) }}
+    {{- $exists := eq $target.Language.Lang $lang }}
+    {{- if and (not $exists) (eq $lang $default) }}
+      {{- /* A page that exists only in translation: offer the English home page. */}}
+      {{- $target = .Home }}
+      {{- $exists = true }}
+    {{- end }}
+    <li>
+      <a class="dropdown-item{{ if $current }} active{{ end }}" href="{{ $target.RelPermalink }}" hreflang="{{ .Language.Locale }}" lang="{{ .Language.Locale }}" data-set-lang="{{ $lang }}"{{ if $current }} aria-current="true"{{ end }}>
+        {{ .Language.Label }}
+        {{- if not $exists }}
+        <span class="language-menu-hint">{{ .Params.untranslatedHint }}</span>
+        {{- end }}
+        {{- if $current }}
+        <i class="bi bi-check2" aria-hidden="true"></i>
+        {{- end }}
+      </a>
+    </li>
+    {{- end }}
+  </ul>
+  {{- /* Shown by i18n/language-preference.html when the reader prefers a language this page isn't available in. */}}
+  {{- range hugo.Sites }}
+  {{- if and (ne .Language.Lang $page.Language.Lang) (eq (partial "i18n/translation-of.html" (dict "page" $page "lang" .Language.Lang)).Language.Lang $page.Language.Lang) }}
+  <p class="language-fallback-note" data-fallback-lang="{{ .Language.Lang }}" lang="{{ .Language.Locale }}" hidden>{{ .Params.untranslatedNotice }}</p>
+  {{- end }}
+  {{- end }}
+</div>

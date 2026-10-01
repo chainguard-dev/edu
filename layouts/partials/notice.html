@@ -2,7 +2,7 @@
 
 {{ $notices := hugo.Data.notices }}
 
-{{ $previewmessage := "This is a preview of an unreleased feature. This documentation is subject to change." }}
+{{ $previewmessage := T "preview_notice" }}
 
 
 {{if $page.Params.preview }}
