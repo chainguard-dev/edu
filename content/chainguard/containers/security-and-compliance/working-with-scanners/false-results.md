@@ -14,7 +14,7 @@ description: "An overview of the formation of false positive and false negative 
 lead: "An overview of the formation of false positive and false negative vulnerability results in container image scanners"
 type: "article"
 date: 2023-09-14T16:59:04+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-01T15:08:56+00:00
 contributors: ["Michelle McAveety"]
 draft: false
 tags: ["CVE", "Overview", "Conceptual"]
@@ -34,7 +34,7 @@ The presence of false positive and negative vulnerabilities can add a tricky lay
 
 This article aims to explain the formation of false positive and false negative vulnerabilities, allowing you to better understand what they mean, how they impact you, and how you can use tools to fine-tune your scanner to improve the accuracy of your scan results.
 
-> To learn more about why scan results may differ between your scanner and the Chainguard Console, refer to [the support article "Understanding Vulnerability Scanner Discrepancies with Chainguard Images."](https://support.chainguard.dev/hc/en-us/articles/49564106705819-Understanding-Vulnerability-Scanner-Discrepancies-with-Chainguard-Images)
+> If a Chainguard advisory or the Chainguard Console says a CVE is fixed but your scanner still reports it, see [Resolve a scanner finding for a CVE Chainguard has fixed](/chainguard/containers/security-and-compliance/vulnerability-management/scanner-flags-fixed-cve/). For more about why scan results can differ between your scanner and the Chainguard Console, refer to [the support article "Understanding Vulnerability Scanner Discrepancies with Chainguard Images."](https://support.chainguard.dev/hc/en-us/articles/49564106705819-Understanding-Vulnerability-Scanner-Discrepancies-with-Chainguard-Images)
 
 ## How false positives and false negatives occur
 
@@ -83,13 +83,17 @@ When a scanner cannot map `(devel)` to a concrete module version, it may be unab
 #### How to investigate a `(devel)` result
 
 1. Confirm the component name, module path, and component type in the scanner or SBOM output.
-2. Confirm that the finding is a Go module or binary component, not an APK package with a similar name.
-3. Inspect the binary’s embedded Go build metadata, or the build configuration that produced it, to determine whether a release or commit version is available.
-4. Compare the scanner’s affected and fixed-version ranges with the source revision or release used to build the binary.
-5. Rebuild with version metadata when possible, then regenerate the SBOM and rescan.
-6. If the scanner still reports the CVEs, provide the image digest, binary or module name, reported `(devel)` version, scanner and database versions, and the relevant scan output when requesting support.
+2. Find the file where the scanner found the binary, and check whether a Chainguard package owns it, as described in [When the finding is a Go module or Java dependency](/chainguard/containers/security-and-compliance/vulnerability-management/cve-status/#when-the-finding-is-a-go-module-or-java-dependency).
 
-Do not use `chainctl images advisories list` to validate this finding; that command checks APK packages only. For a Go-module finding, use the scanner’s language-package evidence and the dependency’s upstream advisory data.
+If a Chainguard package ships the binary, Chainguard records the binary's vulnerabilities against that package. For example, the Go toolchain binaries in the earlier output belong to a Go package such as `go-1.27`. Check that package's advisories with `chainctl images advisories list`, and compare its installed version with the fixed version, as described in [Components that a Chainguard package ships](/chainguard/containers/security-and-compliance/vulnerability-management/cve-status/#components-that-a-chainguard-package-ships).
+
+If your own build added the binary, Chainguard's advisories don't cover it. Investigate its version metadata instead:
+
+1. Inspect the binary’s embedded Go build metadata, or the build configuration that produced it, to determine whether a release or commit version is available.
+2. Compare the scanner’s affected and fixed-version ranges with the source revision or release used to build the binary.
+3. Rebuild with version metadata when possible, then regenerate the SBOM and rescan.
+
+If the scanner still reports the CVEs, provide the image digest, binary or module name, reported `(devel)` version, scanner and database versions, and the relevant scan output when requesting support.
 
 ### SCA vs SAST tools
 
