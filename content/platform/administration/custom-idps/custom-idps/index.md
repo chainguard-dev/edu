@@ -8,7 +8,7 @@ lead: "Chainguard custom IdPs"
 description: "An introduction to and overview of Chainguard's custom IdP support features"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-01T17:08:58+00:00
 draft: false
 tags: ["Chainguard Containers", "Overview"]
 images: []
@@ -41,12 +41,6 @@ chainctl auth login --headless --identity-provider=$IDP_ID
 ```
 
 Then you can use the URL in this command's output to complete the login flow from another device's browser.
-
-> **Note**: As of this writing (September 2024), using the headless login flow with a custom IdP is still an experimental feature. Please reach out to us through your customer success manager or the support portal to report any feedback. Also, until this feature becomes enabled by default, you must enable it yourself with the following command:
-
-```sh
-chainctl config set auth.device-flow chainguard
-```
 
 ### Set a default identity provider
 

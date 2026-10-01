@@ -7,7 +7,7 @@ aliases:
 - /chainguard/administration/manage-chainctl-config
 type: "article"
 date: 2023-07-07T05:56:52-07:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-01T17:08:58+00:00
 draft: false
 tags: ["chainctl"]
 images: []
@@ -174,7 +174,7 @@ The `auth` key controls the login flow.
 
 | Property | Default | Description |
 |---|---|---|
-| `auth.mode` | `browser` | Login flow. One of `browser` (opens a browser) or `headless` (for environments without one). |
+| `auth.mode` | `browser` | Login flow. One of `browser` (opens a browser) or `headless` (for environments without one). `chainctl auth login --headless` sets this to `headless`; see [Headless mode persists after you use it](/platform/chainctl-usage/authentication-options/#headless-mode-persists-after-you-use-it). |
 
 ### Defaults
 
