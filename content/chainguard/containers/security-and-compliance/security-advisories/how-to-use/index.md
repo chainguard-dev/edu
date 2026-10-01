@@ -15,7 +15,7 @@ aliases:
 type: "article"
 description: "Article outlining how one can explore and use the Security Advisories found on the Chainguard Container Directory."
 date: 2023-12-27T11:07:52+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-01T14:31:17+00:00
 draft: false
 tags: ["Chainguard Containers", "CVE"]
 images: []
@@ -151,4 +151,4 @@ The Security Advisories page serves as a helpful resource for anyone who wants t
 
 Additionally, we encourage you to explore the [Chainguard Containers Directory](https://images.chainguard.dev/), the parent site of the Security Advisories page. The Directory allows users to explore the complete inventory of Chainguard Containers. Finally, we encourage you to learn more about [noisy scan results](/chainguard/containers/security-and-compliance/working-with-scanners/false-results/) when scanning Chainguard Containers.
 
-To learn more about why scan results may differ between your scanner and the Chainguard Console, refer to [the support article "Understanding Vulnerability Scanner Discrepancies with Chainguard Images."](https://support.chainguard.dev/hc/en-us/articles/49564106705819-Understanding-Vulnerability-Scanner-Discrepancies-with-Chainguard-Images)
+If a Chainguard advisory or the Chainguard Console says a CVE is fixed but your scanner still reports it, see [Resolve a scanner finding for a CVE Chainguard has fixed](/chainguard/containers/security-and-compliance/vulnerability-management/scanner-flags-fixed-cve/). For more about why scan results can differ between your scanner and the Chainguard Console, refer to [the support article "Understanding Vulnerability Scanner Discrepancies with Chainguard Images."](https://support.chainguard.dev/hc/en-us/articles/49564106705819-Understanding-Vulnerability-Scanner-Discrepancies-with-Chainguard-Images)

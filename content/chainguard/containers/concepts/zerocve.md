@@ -5,7 +5,7 @@ description: "The three practices behind the low CVE counts in Chainguard Contai
 type: "article"
 tags: ["Video", "Chainguard Containers"]
 date: 2024-05-31T12:21:01+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-01T14:31:17+00:00
 draft: false
 images: []
 weight: 70
@@ -79,7 +79,7 @@ Advisories are published in several places:
 
 - The [Security Advisories page](https://images.chainguard.dev/security/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-containers-concepts-zerocve) in the Containers directory, for browsing by CVE or container.
 - [`wolfi-dev/advisories`](https://github.com/wolfi-dev/advisories) on GitHub, where each package's advisories live as YAML.
-- Alpine-style `secdb` JSON feeds, for scanners and automation.
+- An [OSV](https://ossf.github.io/osv-schema/) feed, for scanners and automation.
 
 [How to use Chainguard Security Advisories](/chainguard/containers/security-and-compliance/security-advisories/how-to-use/) covers reading and consuming them, and [How Chainguard issues Security Advisories](/chainguard/containers/security-and-compliance/security-advisories/how-chainguard-issues/) walks through an advisory's life from disclosure to remediation, including the feed URLs.
 
