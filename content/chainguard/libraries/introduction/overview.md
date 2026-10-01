@@ -203,9 +203,7 @@ as malicious (including packages associated with OSV malware IDs) and packages
 that Chainguard determines are unsafe through its own malware source code
 scanning, even when no public malware advisory exists yet.
 
-Malware detection is continuous. If a version that was previously cached is
-later identified as malicious, it is added to the block list and will be blocked
-on subsequent requests.
+Chainguard continuously scans new package versions within minutes of their upstream release, across all supported language ecosystems. New versions are not made available until scanning has completed.
 
 Chainguard's scanning evaluates multiple signal types, including:
 
