@@ -10,7 +10,7 @@ lead: ""
 description: "Procedural tutorial on how to register a Microsoft Entra ID application and integrate it with the Chainguard platform."
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-02T14:38:42+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -59,6 +59,8 @@ By default, any user in your tenant can authenticate through this application. T
 3. Under **Users and groups**, assign the users or groups you want to have access.
 
 Users can't log in to Chainguard unless they have access to the application, so grant access before directing them to log in.
+
+If you plan to [grant Chainguard roles from Entra ID groups](/platform/administration/custom-idps/grant-roles-from-groups/) and limit the groups claim to groups assigned to the application, the groups you assign here also control which groups appear in users' tokens. For details, refer to [Microsoft Entra ID](/platform/administration/custom-idps/grant-roles-from-groups/#microsoft-entra-id) in that guide.
 
 ## Configure Chainguard to use Microsoft Entra ID
 
