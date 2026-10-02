@@ -5,7 +5,7 @@ lead: ""
 description: "How to map groups from a custom identity provider to Chainguard roles so access follows group membership."
 type: "article"
 date: 2026-07-01T08:48:45+00:00
-lastmod: 2026-10-02T14:46:32+00:00
+lastmod: 2026-10-02T16:25:31+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -118,8 +118,16 @@ Each command creates one mapping. To map many groups at once, see [Automate mapp
 
 ## Step 4: Verify the mapping
 
-1. Have a user who belongs to the mapped group log in to Chainguard through your IdP. Use a real login; a token from your IdP's test tools doesn't confirm what Chainguard receives.
-2. Confirm that the user can perform actions the granted role allows. This access doesn't appear in `chainctl iam role-bindings list`, because it's session-scoped.
+1. Have a user who belongs to the mapped group log in to Chainguard through your IdP. Use a real login; a token from your IdP's test tools doesn't confirm what Chainguard receives. If the user is already logged in, have them log out first. Chainguard applies group-derived roles at login, so refreshing an existing session doesn't pick up a new mapping.
+2. Confirm that the user received the granted role. This access doesn't appear in `chainctl iam role-bindings list`, because it's session-scoped. Instead, have the user log in with `chainctl` and inspect their session:
+
+    ```sh
+    chainctl auth logout
+    chainctl auth login --org-name <organization-name>
+    chainctl auth status
+    ```
+
+    The **Capabilities** row lists each organization and role in the session, such as `example.com: owner`. In the Console, the user can confirm the role by performing an action it allows.
 3. Have a user who doesn't belong to a mapped group log in and confirm that they receive no additional access.
 
 If the user logs in but doesn't receive the mapped role, check that their token carries the group value you mapped in Step 3. For Entra ID, start with the application settings in [Microsoft Entra ID](#microsoft-entra-id).
