@@ -104,12 +104,21 @@ Chainguard SSO supports OpenID Connect (OIDC) compatible identity providers. In 
 
 - The `authorization code` grant type (sometimes called the `authorization code` *flow*).
 - The standard `openid`, `email`, and `profile` scopes. The Chainguard platform [partially functions](https://openid.net/specs/openid-connect-basic-1_0.html#Scopes) with only the `openid` scope, but full functionality requires the `email` and `profile` scopes as well.
+- A token that carries a populated, standard `email` claim, not only the requested scope. See [Required token claims](#required-token-claims).
 
 Customer-managed identity providers must also have a public, unauthenticated OIDC discovery endpoint.
 
 Typically, identity providers enable you to set up SSO by creating a specific resource on the provider's platform. For example, Ping Identity requires you to [add an application](https://docs.pingidentity.com/pingone/applications/p1_applications_add_applications.html), while Okta has you create [an app integration](https://help.okta.com/en-us/content/topics/apps/apps_apps.htm).
 
 To set up SSO for your identity provider, you must configure one of these resources to use OIDC so that the Chainguard platform can interact with the provider. Following that, you have to configure the Chainguard platform to use that application.
+
+### Required token claims
+
+Chainguard reads the standard OIDC `email` claim to populate each user's email address. That address is used for display across the Console and for the [support portal](/get-started/get-support/) handoff; it is not used to authenticate users, grant access, or correlate identities. Even so, several things break without it, so the token your identity provider issues must carry a populated `email` claim — requesting the `email` scope alone isn't enough. Some identity providers store a user's email under a directory attribute, such as the LDAP `mail` attribute, that isn't mapped to the standard `email` claim by default. When that mapping is missing, sign-in still completes, but the identity is created without an email: the user appears in the Console by an internal ID rather than a name, and opening a support request fails.
+
+If your users' email lives in a non-standard attribute, configure your identity provider so the token carries it as the standard `email` claim. What that takes depends on the provider: some let you map any attribute to the claim, while others — notably Microsoft Entra ID — populate `email` only from a specific source attribute and don't let you re-point it. See the [Okta](/platform/administration/custom-idps/idp-providers/okta/#send-a-usable-email-claim) and [Microsoft Entra ID](/platform/administration/custom-idps/idp-providers/ms-entra-id/#send-a-usable-email-claim) guides for the specifics.
+
+Chainguard currently reads email from the standard `email` claim. Where your provider supports it, also send the `email_verified` companion claim: when it is absent or `false`, Chainguard stores the address as unverified and re-evaluates it on each sign-in. Set `email_verified` to `true` only when the address has actually been verified.
 
 ### Confidential and public applications
 
@@ -255,3 +264,11 @@ In the case of an outage or misconfiguration of your identity provider, it can b
 As an OIDC login account needs to be set up to bootstrap the SSO identity provider initially, it’s possible to keep this account as a backup account in case you need it for recovery. However, the nature of these OIDC provider accounts is such that it is difficult to share them as a backup resource since they’re often tied to a single user.
 
 Instead of relying on an account with an OIDC login provider, you can alternatively set up an assumable identity to use as a backup account. Refer to our [conceptual guide on assumable identities](/platform/administration/assumable-ids/assumable-ids/) to learn more.
+
+## Troubleshooting
+
+### SSO users have no email, or the support portal redirect fails
+
+If SSO users sign in successfully but appear in the Console by an internal ID instead of a name or email — or see an error such as "There was an issue redirecting you to our support platform" when opening a support request — their token is most likely reaching Chainguard without an `email` claim. Sign-in itself still works; only the email-dependent parts break.
+
+Confirm it by decoding a user's ID token — with your identity provider's token preview, or [jwt.ms](https://jwt.ms) for Entra ID — and checking for a non-empty `email` claim. If it's missing, configure the provider to emit one as described in [Required token claims](#required-token-claims) and your [provider guide](/platform/administration/custom-idps/). This affects every user on the identity provider, so one corrected configuration fixes the whole organization. Existing identities pick up the email on the user's next sign-in, so have an affected user sign out and back in to confirm.
