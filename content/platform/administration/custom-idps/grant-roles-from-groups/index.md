@@ -5,7 +5,7 @@ lead: ""
 description: "How to map groups from a custom identity provider to Chainguard roles so access follows group membership."
 type: "article"
 date: 2026-07-01T08:48:45+00:00
-lastmod: 2026-10-02T16:25:31+00:00
+lastmod: 2026-10-02T17:29:17+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -70,11 +70,11 @@ Configure your identity provider to include the user's group memberships in the 
 
 Entra ID shows the application you registered for Chainguard in two places: under **App registrations**, and under **Enterprise applications**, where you assign users and groups to it. Chainguard reads groups only from tokens that Entra ID issues for that application. Check the following:
 
-- **Configure the groups claim on the application your users sign in through.** That's the application whose **Application (client) ID** you passed to `--oidc-client-id`. If your tenant has more than one Chainguard application, a groups claim configured on any other one doesn't reach Chainguard. To check, compare the client ID on the application you configured with the one in your Chainguard identity provider.
-- **Assign each mapped group to the application.** If you limit the claim to groups assigned to the application, Entra ID includes a group only when it's assigned under **Enterprise applications** > *your application* > **Users and groups**. Membership in an unassigned group doesn't put that group in the token. Limiting the claim this way is required to emit cloud-group display names instead of GUIDs, and it's the recommended way to stay under the [group limit](#limits).
+- **Configure the groups claim on the application your users sign in through.** That's the application whose **Application (client) ID** you passed to `--oidc-client-id`. In **App registrations**, open that application, select **Token configuration**, and click **Add groups claim**. If your tenant has more than one Chainguard application, a groups claim configured on any other one doesn't reach Chainguard. To check, compare the client ID on the application you configured with the one in your Chainguard identity provider.
+- **Emit only groups assigned to the application, and assign each mapped group to it.** When you add the groups claim, select **Groups assigned to the application**. Then assign each mapped group under **Enterprise applications** > *your application* > **Users and groups**. With this option, a group appears in the token only when it's assigned to the application and the user is a direct member of it. Membership in an unassigned group, or through a nested group, doesn't put the group in the token. This option is required to emit cloud-group display names instead of GUIDs, and it's the recommended way to stay under the [group limit](#limits).
 - **If you provision users with SCIM, assign groups to the SSO application as well.** The [Entra ID SCIM guide](/platform/administration/custom-idps/scim-provisioning/ms-entra-id-scim/) creates a separate enterprise application for provisioning. Assigning a group to the SCIM application provisions its members but doesn't add the group to their login tokens.
 
-Verify the claim with a real login to Chainguard, as described in [Step 4](#step-4-verify-the-mapping). A token preview in the Azure portal uses a test flow rather than a real sign-in, so it can show a groups claim that real logins don't carry.
+Verify the claim with a real login to Chainguard, as described in [Step 4](#step-4-verify-the-mapping). A token you request outside a Chainguard login, such as one from a portal test tool or a test sign-in through jwt.ms, can show a groups claim that real logins don't carry.
 
 ## Step 2: Point Chainguard at the groups claim
 
