@@ -14,7 +14,9 @@ weight: 20
 toc: true
 ---
 
-Every Chainguard hardened action runs a best-effort "phone-home" pre-hook that records a usage event to `https://actions.enforce.dev/actions/v1/record`. The hook is fire-and-forget, with a 2 second timeout that fails open, so it cannot break your build.
+Most Chainguard hardened actions run a best-effort "phone-home" hook that records a usage event to `https://actions.enforce.dev/actions/v1/record`. JavaScript actions run it as a `pre` script, and composite actions run it as their first step. Docker actions don't include the hook, and some JavaScript and composite actions don't either. The hook is fire-and-forget, with a 2 second timeout that fails open, so it cannot break your build.
+
+If your runners use an egress allowlist, add `actions.enforce.dev` so the hook doesn't wait out its timeout on every step that uses a hardened action.
 
 ## Why we collect this data
 

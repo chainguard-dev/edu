@@ -136,7 +136,7 @@ chainctl actions entitlements list
 
 The entitlement records your organization's access to Chainguard Actions. It does not gate consumption of the actions themselves, and it can't: the hardened action repositories are public, and GitHub provides no mechanism to require authentication to consume a public action.
 
-Each hardened action runs a `runs.pre` hook that records a usage event to `https://actions.enforce.dev/actions/v1/record`. The hook returns no authorization decision, so there is nothing for the action to act on. It times out after 2 seconds and discards every error, which means Chainguard being slow or unreachable cannot fail your workflow. If your runners use an egress allowlist, add that host so the hook doesn't spend its timeout on every step.
+Most hardened actions run a hook that records a usage event to `https://actions.enforce.dev/actions/v1/record`: a `pre` script in JavaScript actions, or the first step in composite actions. Docker actions don't include it. The hook returns no authorization decision, so there is nothing for the action to act on. It times out after 2 seconds and discards every error, which means Chainguard being slow or unreachable cannot fail your workflow. If your runners use an egress allowlist, add that host so the hook doesn't spend its timeout on every step.
 
 Refer to [Chainguard Actions telemetry and privacy](/chainguard/actions/telemetry/) for what the hook records and how to limit it.
 
