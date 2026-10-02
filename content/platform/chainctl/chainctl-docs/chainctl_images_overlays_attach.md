@@ -1,5 +1,5 @@
 ---
-date: 2026-09-30T19:15:34Z
+date: 2026-10-01T22:22:49Z
 title: "chainctl images overlays attach"
 slug: chainctl_images_overlays_attach
 url: /platform/chainctl/chainctl-docs/chainctl_images_overlays_attach/
@@ -11,13 +11,14 @@ toc: true
 ---
 ## chainctl images overlays attach
 
-Attach a Custom Assembly overlay to a repo.
+Attach Custom Assembly overlays to a repo.
 
 ### Synopsis
 
-Attach a Custom Assembly overlay to a repo by creating a binding.
+Attach one or more Custom Assembly overlays to a repo by creating a
+binding per overlay.
 
-The binding selects which of the repo's tags the overlay applies to.
+Every binding selects which of the repo's tags its overlay applies to.
 Pass exactly one of:
 
 - --all: every tag.
@@ -27,10 +28,12 @@ Pass exactly one of:
 A repo can hold several bindings of the same kind only when their
 overlays do not conflict; a conflicting binding is rejected, and the
 error names the conflicting binding and fields. An overlay can be
-attached to a repo only once.
+attached to a repo only once. Multiple overlays attach in the order
+given, one binding each; on a failure, the bindings already created are
+kept and the error names the overlay that failed.
 
-The command prints the binding UID. Use it with "update-binding" and
-"detach", or look it up later with "chainctl images overlays list".
+The command prints each binding UID. Use them with "update-binding" and
+"detach", or look them up later with "chainctl images overlays list".
 
 ```
 chainctl images overlays attach [flags]
@@ -42,6 +45,9 @@ chainctl images overlays attach [flags]
   # Apply an overlay to every tag of a repo
   chainctl images overlays attach --overlay my-overlay --repo python --parent my-org --all
 
+  # Apply two overlays to every tag of a repo
+  chainctl images overlays attach --overlay my-certs,my-packages --repo python --parent my-org --all
+
   # Apply an overlay to -dev tags only
   chainctl images overlays attach --overlay my-overlay --repo python --parent my-org --variant dev
 
@@ -52,12 +58,12 @@ chainctl images overlays attach [flags]
 ### Options
 
 ```
-      --all              Bind to every tag on the repo; multiple --all bindings may coexist when their overlays do not conflict. Mutually exclusive with --tag and --variant.
-      --overlay string   Overlay to attach: UIDP or name (resolved within the repo's org).
-      --parent string    Org name or UIDP for resolving --repo by name; unused when --repo is a UIDP. If unset, auto-selects when the caller belongs to a single org, otherwise prompts.
-      --repo string      Target repo: UIDP, or name resolved within --parent.
-      --tag strings      Exact tag names to bind to (repeatable). Mutually exclusive with --all and --variant.
-      --variant string   Bind to a tag variant: currently only "dev" (matches tags ending in -dev). Mutually exclusive with --tag and --all.
+      --all               Bind to every tag on the repo; multiple --all bindings may coexist when their overlays do not conflict. Mutually exclusive with --tag and --variant.
+      --overlay strings   Overlay to attach: UIDP or name (resolved within the repo's org). Comma separated and repeatable; each overlay gets its own binding with the same tag selector.
+      --parent string     Org name or UIDP for resolving --repo by name; unused when --repo is a UIDP. If unset, auto-selects when the caller belongs to a single org, otherwise prompts. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
+      --repo string       Target repo: UIDP, or name resolved within --parent.
+      --tag strings       Exact tag names to bind to (repeatable). Mutually exclusive with --all and --variant. "all" and "dev" are not tags: use --all or --variant=dev.
+      --variant string    Bind to a tag variant: currently only "dev" (matches tags ending in -dev). Mutually exclusive with --tag and --all.
 ```
 
 ### Options inherited from parent commands

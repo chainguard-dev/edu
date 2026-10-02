@@ -1,5 +1,5 @@
 ---
-date: 2026-09-30T19:15:34Z
+date: 2026-10-01T22:22:49Z
 title: "chainctl images overlays update"
 slug: chainctl_images_overlays_update
 url: /platform/chainctl/chainctl-docs/chainctl_images_overlays_update/
@@ -18,9 +18,12 @@ Update a Custom Assembly overlay's name or configuration.
 Update a Custom Assembly overlay's name, configuration, or both.
 
 --package and --file replace the stored configuration wholesale; they do
-not merge with it. Repos the overlay is attached to are rebuilt with the
-new configuration. An update that would conflict with another overlay
-attached to the same tags is rejected.
+not merge with it. The --with-* flags merge into that replacement when
+--package or --file is also given; passed alone, they merge into the
+stored configuration instead, as "chainctl images repos build edit"
+merges them into a repo's current build config. Repos the overlay is
+attached to are rebuilt with the new configuration. An update that would
+conflict with another overlay attached to the same tags is rejected.
 
 ```
 chainctl images overlays update <UID|NAME> [flags]
@@ -34,14 +37,20 @@ chainctl images overlays update <UID|NAME> [flags]
 
   # Replace an overlay's configuration from a file
   chainctl images overlays update my-overlay -f overlay.yaml
+
+  # Add custom CA certificates to an overlay's stored configuration
+  chainctl images overlays update my-overlay --with-certificates ca-bundle.pem
 ```
 
 ### Options
 
 ```
-  -f, --file chainctl images repos build   The name of the YAML file containing the overlay configuration, the same shape chainctl images repos build accepts. Replaces the stored config wholesale and takes precedence over --package.
-      --name string                        New overlay name.
-      --package strings                    Package to include (repeatable). Declares the FULL replacement set; the stored config is replaced wholesale.
+  -f, --file chainctl images repos build    The name of the YAML file containing the overlay configuration, the same shape chainctl images repos build accepts. Replaces the stored config wholesale and takes precedence over --package.
+      --name string                         New overlay name.
+      --package strings                     Package to include (repeatable). Declares the FULL replacement set; the stored config is replaced wholesale.
+      --with-certificates strings           Comma separated list of files to read the custom certificates from.
+      --with-runtime-keys strings           Comma separated list of files to read customer APK signing public keys from. Each file becomes a key in /etc/apk/keys named after the file's basename, which must match the filename referenced by the repository's APKINDEX signature (.SIGN.RSA256.<name>).
+      --with-runtime-repositories strings   Comma separated list of runtime APK repository URLs to write to /etc/apk/repositories in the image.
 ```
 
 ### Options inherited from parent commands

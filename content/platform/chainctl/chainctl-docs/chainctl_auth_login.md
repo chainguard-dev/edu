@@ -1,5 +1,5 @@
 ---
-date: 2026-09-30T19:15:34Z
+date: 2026-10-01T22:22:49Z
 title: "chainctl auth login"
 slug: chainctl_auth_login
 url: /platform/chainctl/chainctl-docs/chainctl_auth_login/
@@ -36,7 +36,7 @@ chainctl auth login [--invite-code=INVITE_CODE] [--identity-token=PATH_TO_TOKEN]
 ### Options
 
 ```
-      --audience stringArray         The Chainguard token audience to request. Can be specified multiple times. An interactive login for a platform audience (API, registry, apk, libraries, skills, uploads) mints one refresh token covering all of them, so a single login serves every platform audience; any other audience is minted on its own. Defaults to the comma-separated list in $CHAINCTL_AUDIENCES when set.
+      --audience stringArray         The Chainguard token audience to request. Can be specified multiple times. An interactive login for a platform audience (API, registry, apk, images, libraries, skills, uploads, and the hosted sandbox sessions and workflow runs) mints one refresh token covering all of them, so a single login serves every platform audience; any other audience is minted on its own. Defaults to the comma-separated list in $CHAINCTL_AUDIENCES when set.
       --headless                     Skip browser authentication and use device flow.
       --identity string              The unique ID of the identity to assume when logging in.
       --identity-provider string     The unique ID of the customer managed identity provider to authenticate with. Mutually exclusive with --org-name.
