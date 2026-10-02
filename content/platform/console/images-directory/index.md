@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "A walkthrough of the Chainguard Console."
 date: 2024-02-23T11:07:52+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-02T12:53:50+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -100,7 +100,7 @@ The **Comparisons** tab includes useful data that shows how a given Chainguard C
 
 ### Provenance
 
-All Chainguard Containers contain verifiable signatures and high-quality [software bills of materials](/open-source/sbom/what-is-an-sbom/) (SBOMs). These features allow you to confirm the origin of each image and provide you with a detailed list of everything included in the container image.
+All Chainguard Containers contain verifiable signatures and high-quality [software bills of materials](https://www.chainguard.dev/supply-chain-security-101/what-is-an-sbom) (SBOMs). These features allow you to confirm the origin of each image and provide you with a detailed list of everything included in the container image.
 
 The **Provenance** tab outlines how you can verify container signatures and download and verify container image attestations, all with examples using [`cosign`](/open-source/sigstore/cosign/an-introduction-to-cosign/).
 

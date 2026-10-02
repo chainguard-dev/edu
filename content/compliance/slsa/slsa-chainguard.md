@@ -4,7 +4,7 @@ linktitle: "SLSA at Chainguard"
 description: "A brief overview of SLSA and Chainguard's compliance efforts."
 type: "article"
 date: 2025-07-23T01:24:23+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-02T12:53:50+00:00
 contributors: []
 draft: false
 aliases:
@@ -18,7 +18,7 @@ weight: 20
 toc: true
 ---
 
-SLSA (pronounced "salsa"), or Supply chain Levels for Software Artifacts, is a security framework consisting of standards and controls that prevent tampering, improve integrity, and secure packages and infrastructure. It is described in depth in [What is SLSA?](/compliance/slsa/what-is-slsa/).
+SLSA (pronounced "salsa"), or Supply chain Levels for Software Artifacts, is a security framework consisting of standards and controls that prevent tampering, improve integrity, and secure packages and infrastructure. It is described in depth in [What is SLSA?](https://www.chainguard.dev/supply-chain-security-101/what-is-slsa).
 
 All Chainguard products — including Chainguard Containers, Guarded VMs, and Chainguard Libraries — are SLSA Level 3 compliant to provide confidence in the security of these products.
 

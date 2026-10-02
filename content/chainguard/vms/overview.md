@@ -4,7 +4,7 @@ linktitle: "VMs overview"
 description: "Chainguard VMs are designed for minimalism, security, and operational clarity."
 type: "article"
 date: 2025-10-21T08:04:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-02T12:53:50+00:00
 draft: false
 tags: ["Chainguard VMs", "Overview"]
 menu:
@@ -63,7 +63,7 @@ Offering broad compatibility, Chainguard VMs allow for deployment in any environ
 
 ## Compliance and SLAs
 
-Chainguard VMs (running Chainguard OS) are intentionally designed to minimize risk, maximize transparency, and satisfy security standards such as [CIS Benchmarks](https://edu.chainguard.dev/compliance/cis-benchmarks/), [FedRAMP](https://edu.chainguard.dev/chainguard/containers/security-and-compliance/fedramp-considerations/), SOC 2, and others.
+Chainguard VMs (running Chainguard OS) are intentionally designed to minimize risk, maximize transparency, and satisfy security standards such as [CIS Benchmarks](https://www.chainguard.dev/supply-chain-security-101/what-are-cis-benchmarks), [FedRAMP](https://edu.chainguard.dev/chainguard/containers/security-and-compliance/fedramp-considerations/), SOC 2, and others.
 
 * CVE remediation backed by an [industry-leading SLA](https://www.chainguard.dev/legal/cve-policy): 7 days for critical, 14 days for all others
 * Consistent, reproducible builds

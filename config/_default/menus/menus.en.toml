@@ -109,12 +109,6 @@
   weight = 30
 
 [[main]]
-  name = "Open Containers"
-  url = "/open-source/oci/"
-  parent = "menu-oss"
-  weight = 35
-
-[[main]]
   name = "SBOMs"
   url = "/open-source/sbom/"
   parent = "menu-oss"
@@ -148,12 +142,6 @@
   url = "/software-security/what-is-software-supply-chain-security/"
   parent = "menu-security"
   weight = 20
-
-[[main]]
-  name = "How to select a secure base image"
-  url = "/software-security/selecting-a-base-image/"
-  parent = "menu-security"
-  weight = 25
 
 
 [[social]]

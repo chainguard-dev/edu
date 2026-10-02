@@ -11,7 +11,7 @@ aliases:
 - /chainguard/containers/staying-secure/working-with-scanners/trivy-tutorial/
 description: "Learn to use Trivy to analyze container images and other software artifacts for a variety of issues"
 date: 2024-07-03T20:00:00+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-02T12:53:50+00:00
 tags: ["Conceptual", "CVE"]
 draft: false
 images: []
@@ -173,7 +173,7 @@ trivy sbom results.cdx.json
 
 By default, the `sbom` subcommand scans only for vulnerabilities. License scanning can be enabled using the `--scanners license` flag.
 
-Some image providers, such as Chainguard, associate images with an [SBOM attestation](https://edu.chainguard.dev/open-source/sbom/sboms-and-attestations/) verifying that the image has not been tampered with since the time of creation. Trivy provides functionality to query attestations registered in the [Rekor transparency log](https://github.com/sigstore/rekor). To retrieve an SBOM attestation from a Rekor transparency log, set the `--sbom-sources` flag to `rekor` and provide the `--rekor-url` flag to the instance of the transparency log you wish to query against. The following will perform a scan using the SBOM attestation for Chainguard's `nginx` image as registered on the [Rekor public server](https://rekor.sigstore.dev/):
+Some image providers, such as Chainguard, associate images with an [SBOM attestation](https://www.chainguard.dev/supply-chain-security-101/sboms-vs-attestations) verifying that the image has not been tampered with since the time of creation. Trivy provides functionality to query attestations registered in the [Rekor transparency log](https://github.com/sigstore/rekor). To retrieve an SBOM attestation from a Rekor transparency log, set the `--sbom-sources` flag to `rekor` and provide the `--rekor-url` flag to the instance of the transparency log you wish to query against. The following will perform a scan using the SBOM attestation for Chainguard's `nginx` image as registered on the [Rekor public server](https://rekor.sigstore.dev/):
 
 ```shell
 trivy image --sbom-sources rekor --rekor-url https://rekor.sigstore.dev/ cgr.dev/chainguard/nginx

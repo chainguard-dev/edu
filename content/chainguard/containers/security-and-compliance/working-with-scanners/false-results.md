@@ -14,7 +14,7 @@ description: "An overview of the formation of false positive and false negative 
 lead: "An overview of the formation of false positive and false negative vulnerability results in container image scanners"
 type: "article"
 date: 2023-09-14T16:59:04+00:00
-lastmod: 2026-10-01T15:08:56+00:00
+lastmod: 2026-10-02T12:53:50+00:00
 contributors: ["Michelle McAveety"]
 draft: false
 tags: ["CVE", "Overview", "Conceptual"]
@@ -26,7 +26,7 @@ weight: 10
 toc: true
 ---
 
-A *vulnerability scanner* is a tool that analyzes your software components and reports any [CVEs](/software-security/cves/cve-intro/) it finds. Using a vulnerability scanner to find CVEs that impact your system is a critical step in [software vulnerability remediation](/software-security/cves/cve-remediation/), but as you begin to triage scanner-reported vulnerabilities, you may find that your scanner's results are not perfectly accurate.
+A *vulnerability scanner* is a tool that analyzes your software components and reports any [CVEs](https://www.chainguard.dev/supply-chain-security-101/what-is-a-cve) it finds. Using a vulnerability scanner to find CVEs that impact your system is a critical step in [software vulnerability remediation](https://www.chainguard.dev/supply-chain-security-101/cve-remediation-explained), but as you begin to triage scanner-reported vulnerabilities, you may find that your scanner's results are not perfectly accurate.
 
 The goal of a vulnerability scanner is to identify the vulnerabilities that impact your container images, which can be considered *true positive vulnerabilities*. Sometimes, a scanner surfaces CVEs which are not actually impacting your images, which are called *false positive vulnerabilities*. Your scanner may even miss some vulnerabilities that are impacting you, termed *false negative vulnerabilities*.
 
@@ -118,7 +118,7 @@ Unfortunately, there is no single way to stop false positives and false negative
 
 ### SBOMs, purls, and VEX
 
-An SBOM, or [Software bill of materials](/open-source/sbom/what-is-an-sbom/), is a helpful document that catalogs the packages and components of your software in a machine-readable format. Using an SBOM can improve your vulnerability scans as package information is stored in one place, so scanners don't have to hunt down and risk missing component information throughout your software. There are [different ways to generate an SBOM](/open-source/sbom/what-makes-a-good-sbom/) in order to improve their comprehensiveness and utility.
+An SBOM, or [Software bill of materials](https://www.chainguard.dev/supply-chain-security-101/what-is-an-sbom), is a helpful document that catalogs the packages and components of your software in a machine-readable format. Using an SBOM can improve your vulnerability scans as package information is stored in one place, so scanners don't have to hunt down and risk missing component information throughout your software. There are [different ways to generate an SBOM](https://www.chainguard.dev/supply-chain-security-101/what-is-an-sbom) in order to improve their comprehensiveness and utility.
 
 To address the inconsistencies caused by software vendors using proprietary version naming schemes, adopting the [purl specification](https://github.com/package-url/purl-spec) can help. A purl, or package URL, aims to standardize versioning by outlining a convention that incorporates pertinent package information in every identifier. Using purls can [reduce the number of false positives which surface](https://www.chainguard.dev/unchained/a-purl-of-wisdom-on-sboms-and-vulnerabilities?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) by making it easier for scanners to align version information between data sources.
 
@@ -142,4 +142,4 @@ With false results mixed into your scans, triaging and addressing true positive 
 
 In this article, you learned how false results from your vulnerability scanners can occur, and how they can impact your development workflow. Additionally, you explored various ways you can improve the accuracy of your scanner through the application of tools like VEX, rebuilding your images, and choosing a base image suitable for your applications.
 
-To learn more about reducing false positives and negatives in your images, you can check out our [collection of articles on SBOMs and VEX](/open-source/sbom/), read about [selecting a base image](/software-security/selecting-a-base-image/) for your applications, or discover how Chainguard Containers can help you [reach zero CVEs in your containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
+To learn more about reducing false positives and negatives in your images, you can check out our [collection of articles on SBOMs and VEX](/open-source/sbom/), read about [selecting a base image](https://www.chainguard.dev/supply-chain-security-101/selecting-a-base-container-image) for your applications, or discover how Chainguard Containers can help you [reach zero CVEs in your containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).

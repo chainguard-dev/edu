@@ -4,7 +4,7 @@ description: "An overview of a few of the most critical, widespread, and impactf
 lead: "An overview of a few of the most critical, widespread, and impactful known software vulnerabilities"
 type: "article"
 date: 2023-07-21T19:16:39+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-02T12:53:50+00:00
 contributors: ["Michelle McAveety"]
 draft: false
 tags: ["CVE", "Overview"]
@@ -16,7 +16,7 @@ weight: 30
 toc: true
 ---
 
-[Software vulnerabilities](/software-security/cves/cve-intro/) vary in their severity – some are difficult to exploit and have minimal implications, while others can be exploited easily, giving an attacker significant leverage over a computer system. In cases where widely-implemented software contains high-severity vulnerabilities, the damage caused by their exploitation can affect millions of developers and services worldwide.
+[Software vulnerabilities](https://www.chainguard.dev/supply-chain-security-101/what-is-a-cve) vary in their severity – some are difficult to exploit and have minimal implications, while others can be exploited easily, giving an attacker significant leverage over a computer system. In cases where widely-implemented software contains high-severity vulnerabilities, the damage caused by their exploitation can affect millions of developers and services worldwide.
 
 In this article, you will learn how the KEV Catalog tracks known exploited software vulnerabilities, and how it serves as a tool for developers and federal agencies. In addition, you will explore Log4Shell, Heartbleed, and Shellshock, three infamous software vulnerabilities which have had major impacts on software security worldwide.
 

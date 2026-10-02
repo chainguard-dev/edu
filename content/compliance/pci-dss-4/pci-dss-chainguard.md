@@ -4,7 +4,7 @@ description: "Chainguard Containers reduce the time and effort for establishing 
 lead: "Chainguard Containers reduce the time and effort for establishing PCI DSS 4.0 compliance"
 type: "article"
 date: 2024-08-21T14:05:09+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-02T12:53:50+00:00
 contributors: []
 draft: false
 aliases:
@@ -48,10 +48,8 @@ Chainguard Containers are carefully engineered to contain low-to-no CVEs. Organi
 - **Less ongoing human overhead**: Every new Chainguard Container version is carefully scanned and any addressable CVEs are fixed. ‍
 - **Trust in our industry-leading CVE SLA**: We are committed to supplying secure software and commit to fixing CVEs [quickly](https://www.chainguard.dev/cve-sla) so you don’t have to.
 
-## Browse all CMMC 2.0 articles
+## Learn more about PCI DSS 4.0
 
-- [Introduction to PCI DSS 4.0](/compliance/pci-dss-4/intro-pci-dss-4/)
-- [Overview of PCI DSS 4.0 practices/requirements](/compliance/pci-dss-4/pci-dss-practices/)
-- (Current article) How Chainguard Can Help With PCI DSS 4.0
+- [What is PCI DSS 4.0? Requirements and who must comply](https://www.chainguard.dev/supply-chain-security-101/what-is-pci-dss-4-0)
 
 **[Get started with FIPS Chainguard Containers today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**

@@ -45,8 +45,10 @@ rules:
     to: '/open-source/build-tools/melange/getting-started-with-melange/'
   - regex: '^/open-source/melange/tutorials/getting-started-with-melange/(.+)?$'
     to: '/open-source/build-tools/melange/getting-started-with-melange/'
-  - regex: '^/chainguard/chainguard-enforce/sboms/sboms-and-attestations/(.+)?$'
-    to: '/open-source/sbom/sboms-and-attestations/'
+  # Old aliases of a page that moved to chainguard.dev (DOCS-228). These must
+  # stay above the "^/chainguard/chainguard-enforce/(.+)?$" catch-all below.
+  - regex: '^/chainguard/chainguard-enforce/(chainguard-enforce-kubernetes|concepts|sboms)/sboms-and-attestations(/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/sboms-vs-attestations'
   # Chainguard Images -> Chainguard Containers. Every page under the old
   # section carries its own Hugo alias, but the bare section root cannot:
   # an alias generates "~^<path>(.+)?$" with $1 appended, so an alias on
@@ -170,3 +172,64 @@ rules:
     to: 'https://github.com/chainguard-dev/melange/blob/main/docs/md/melange.md'
   - regex: '^/open-source/build-tools/melange/melange-pipelines/?$'
     to: 'https://github.com/chainguard-dev/melange/blob/main/docs/PIPELINES.md'
+
+  # Explainer and compliance pages that moved to the Supply Chain Security 101
+  # section of chainguard.dev (DOCS-228). "(\.md|/.*)?" also matches each
+  # page's Markdown copy, which llms.txt and the AI docs bundle link to.
+  - regex: '^/open-source/oci/what-are-oci-artifacts(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/what-are-oci-artifacts'
+  - regex: '^/open-source/sbom/sboms-and-attestations(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/sboms-vs-attestations'
+  - regex: '^/compliance/slsa/what-is-slsa(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/what-is-slsa'
+  - regex: '^/software-security/secure-software-development/ssdf(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/what-is-the-secure-software-development-framework-ssdf'
+  - regex: '^/compliance/cis-benchmarks(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/what-are-cis-benchmarks'
+  - regex: '^/compliance/cmmc-2/cmmc-practices(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/cmmc-2-0-practices'
+  - regex: '^/open-source/sbom/what-is-an-sbom(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/what-is-an-sbom'
+  - regex: '^/software-security/cves/cve-remediation(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/cve-remediation-explained'
+  - regex: '^/software-security/selecting-a-base-image(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/selecting-a-base-container-image'
+  - regex: '^/open-source/sbom/what-makes-a-good-sbom(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/what-is-an-sbom'
+  - regex: '^/compliance/cmmc-2/intro-cmmc-2(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/what-is-cmmc-2-0'
+  - regex: '^/software-security/secure-software-development/ssd-attestation-form(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/cisa-secure-software-development-attestation-form'
+  - regex: '^/software-security/build-horizon(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/what-is-a-build-horizon'
+  - regex: '^/software-security/secure-software-development/minimum-attestation-references(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/cisa-secure-software-development-attestation-form'
+  - regex: '^/compliance/cmmc-2/cmmc-2-levels(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/what-is-cmmc-2-0'
+  - regex: '^/compliance/pci-dss-4/intro-pci-dss-4(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/what-is-pci-dss-4-0'
+  - regex: '^/open-source/oci/what-is-the-oci(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/what-is-the-open-container-initiative-oci'
+  - regex: '^/open-source/sbom/what-is-openvex(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/what-is-openvex'
+  - regex: '^/software-security/cves/cve-intro(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/what-is-a-cve'
+  - regex: '^/compliance/pci-dss-4/pci-dss-practices(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/what-is-pci-dss-4-0'
+  - regex: '^/software-security/what-are-containers(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/what-are-containers'
+  - regex: '^/software-security/cves/cve-why-care(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/what-is-a-cve'
+  # Old paths that were aliases on the removed pages. Aliases under
+  # /software-security/compliance/ need no rule here: the compliance section
+  # aliases still send them to /compliance/, and the rules above take over.
+  # The chainguard-enforce aliases sit near the top of this file instead,
+  # above the catch-all for that section.
+  - regex: '^/open-source/slsa/what-is-slsa(/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/what-is-slsa'
+  # Sections left with no pages. The roots are anchored so they match only
+  # themselves and their index files.
+  - regex: '^/open-source/oci/?(index\.html|index\.xml)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/what-is-the-open-container-initiative-oci'
+  - regex: '^/software-security/secure-software-development/?(index\.html|index\.xml)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/what-is-the-secure-software-development-framework-ssdf'
