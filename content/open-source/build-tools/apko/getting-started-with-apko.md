@@ -6,7 +6,7 @@ type: "article"
 lead: "Minimalist OCI image builder based on APK"
 description: "Quickstart to get apko up and running"
 date: 2022-07-06T08:49:31+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-02T13:51:55+00:00
 draft: false
 tags: ["apko", "Procedural",]
 images: []
@@ -25,7 +25,7 @@ Container images are typically assembled in multiple steps. A tool like Docker, 
 
 Instead of building your application together with your components and system dependencies, you can build your application once and compose it into different architectures and distributions, using a tool such as [melange](https://github.com/chainguard-dev/melange) in combination with apko. For more information on how melange and apko work together, you can check this blog post: [Secure your Software Factory with melange and apko](https://www.chainguard.dev/unchained/secure-your-software-factory-with-melange-and-apko).
 
-In this guide, we'll learn how to use apko to build a base [Wolfi](/open-source/wolfi/overview/) image.
+In this guide, we'll learn how to use apko to build a base [Wolfi](/open-source/wolfi/) image.
 
 ## Requirements
 
@@ -163,6 +163,14 @@ docker run -it wolfi-base:test-amd64
 ```
 
 This will get you into a container running the apko-built image `wolfi-base:test-amd64`. It's a regular shell that you can explore to see what's included - just keep in mind that this is a minimalist image with only the base Wolfi system. To include additional software packages, check the [Wolfi repository](https://github.com/wolfi-dev/os) to find the packages you'll need for your specific use case, or check out [melange](/open-source/build-tools/melange/), apko's companion project that allows users to build their own APK packages from source.
+
+## Limits of apko builds
+
+Keep these limits in mind as you build your own images:
+
+- **No arbitrary commands.** apko can't run commands at build time the way a `RUN` step does in a Dockerfile. It provides directives for creating users and setting up directories and permissions. Any other build step, such as installing software or running a shell command, belongs in an apk package that you list as a dependency. This keeps builds reproducible and their SBOMs accurate.
+- **One package ecosystem per build.** You can't mix Wolfi and Alpine packages in the same apko build.
+- **Standard OCI output.** apko images are OCI compliant, so they run with Docker or any other runtime that supports the OCI image format.
 
 ## Conclusion
 

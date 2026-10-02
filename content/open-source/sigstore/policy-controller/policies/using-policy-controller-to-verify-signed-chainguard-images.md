@@ -6,7 +6,7 @@ type: "article"
 description: "Using Policy Controller to verify signed Chainguard Containers"
 lead: "Verify Chainguard Containers with Policy Controller"
 date: 2023-02-22T13:11:29+08:29
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-02T13:51:55+00:00
 draft: false
 tags: ["policy-controller", "Procedural", "Policy", "Chainguard Containers"]
 images: []
@@ -108,7 +108,7 @@ The `- keyless` options instruct the Policy Controller what to check for when it
 * `url`: this setting tells the Policy Controller where to find the Certificate Authority (CA) that issued an image signature.
 * `issuer`: the [issuer field](https://github.com/sigstore/fulcio/blob/main/docs/oid-info.md#1361415726411--issuer) contains the URI of the OpenID Connect (OIDC) Identity Provider that digitally signed the identity token.
 * `subject`: the [subject field](https://github.com/sigstore/fulcio/blob/main/docs/certificate-specification.md#issued-certificate) must contain a URI or an email address that identifies where the signed image originated.
-* `ctlog`: this setting tells the Policy Controller which [Certificate Transparency log](/open-source/sigstore/rekor/an-introduction-to-rekor/#transparency-log) to query when it is validating a signature.
+* `ctlog`: this setting tells the Policy Controller which [Certificate Transparency log](https://www.chainguard.dev/supply-chain-security-101/what-is-sigstore-rekor) to query when it is validating a signature.
 
 Save the file and then apply the policy:
 

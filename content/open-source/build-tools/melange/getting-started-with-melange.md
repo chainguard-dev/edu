@@ -7,7 +7,7 @@ lead: "An apk builder tool"
 type: "article"
 description: "melange is a declarative apk builder"
 date: 2022-07-21T15:21:01+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-02T13:51:55+00:00
 draft: false
 tags: ["melange", "Procedural"]
 images: []
@@ -189,6 +189,10 @@ docker run --rm -v "${PWD}":/work cgr.dev/chainguard/melange keygen
 
 This will generate a `melange.rsa` and `melange.rsa.pub` files in the current directory.
 
+{{< note >}}
+melange doesn't require you to sign packages, but signing is recommended: it lets people and automated systems verify who built a package and that it hasn't been tampered with. Some tools refuse unsigned packages. By default, apko fails any build that references an unsigned package.
+{{< /note >}}
+
 ```
 2024/08/01 16:55:31 INFO generating keypair with a 4096 bit prime, please wait...
 2024/08/01 16:55:33 INFO wrote private key to melange.rsa
@@ -298,6 +302,12 @@ Only those who attempt the impossible can achieve the absurd.
 ```
 
 You have successfully built a minimalist container image with your apk package installed on it. This image is fully [OCI](https://opencontainers.org/) compatible and can be signed with [Cosign](/open-source/sigstore/cosign/how-to-sign-a-container-with-cosign/) for provenance attestation.
+
+## Package sources and pipelines
+
+melange works with apk-based systems, including Alpine, but you can't mix Alpine and Wolfi packages in the same build environment.
+
+A pipeline step can reuse another pipeline with `uses:`. melange ships built-in pipelines, such as `fetch` and `autoconf/make`, in the [`pkg/build/pipelines`](https://github.com/chainguard-dev/melange/tree/main/pkg/build/pipelines) directory of its repository. To use pipelines of your own, put them in a directory and pass it to `melange build` with the `--pipeline-dir` flag.
 
 ## Conclusion
 

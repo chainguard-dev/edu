@@ -5,7 +5,7 @@ lead: "Overview of Chainguard's package repositories, highlighting the different
 description: "Overview of Chainguard's package repositories, highlighting the different repositories and how to access them."
 type: "article"
 date: 2025-10-09T00:00:00Z
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-02T13:51:55+00:00
 draft: false
 tags: ["Chainguard Containers", "Overview", "Product"]
 images: []
@@ -50,7 +50,7 @@ Chainguard has two public package repositories: the Wolfi and Extra Packages rep
 
 ### Wolfi
 
-The [Wolfi packages repository](https://github.com/wolfi-dev/os) is the public package source for [Wolfi, Chainguard's open-source Linux "undistro."](/open-source/wolfi/overview/) It contains all the open-source packages used in Chainguard's Free container images. As a public repository, the Wolfi APK repo doesn't require authentication.
+The [Wolfi packages repository](https://github.com/wolfi-dev/os) is the public package source for [Wolfi, Chainguard's open-source Linux "undistro."](https://www.chainguard.dev/supply-chain-security-101/wolfi-overview) It contains all the open-source packages used in Chainguard's Free container images. As a public repository, the Wolfi APK repo doesn't require authentication.
 
 By default, Chainguard's Free container images use a generic address for this repository (`https://apk.cgr.dev/chainguard`) in their `/etc/apk/repositories` files:
 

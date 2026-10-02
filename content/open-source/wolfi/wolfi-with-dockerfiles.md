@@ -4,7 +4,7 @@ linktitle: "Wolfi images with Dockerfiles"
 type: "article"
 description: "This tutorial demonstrates how to build a Wolfi Python image from scratch, using a Dockerfile workflow."
 date: 2022-12-19T08:49:31+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-02T13:51:55+00:00
 draft: false
 tags: ["Wolfi", "Procedural"]
 images: []
@@ -17,7 +17,7 @@ toc: true
 
 ## Introduction
 
-[Wolfi](/open-source/wolfi/overview/) is a minimal open source Linux distribution created specifically for cloud workloads, with an emphasis on software supply chain security. Using [apk](https://wiki.alpinelinux.org/wiki/Package_management) for package management, Wolfi differs from Alpine in a few important aspects, most notably the use of glibc instead of musl and the fact that Wolfi doesn't have a kernel as it is intended to be used with a container runtime. This minimal footprint makes Wolfi an ideal base for both _distroless_ images and fully-featured builder images.
+[Wolfi](https://www.chainguard.dev/supply-chain-security-101/wolfi-overview) is a minimal open source Linux distribution created specifically for cloud workloads, with an emphasis on software supply chain security. Using [apk](https://wiki.alpinelinux.org/wiki/Package_management) for package management, Wolfi differs from Alpine in a few important aspects, most notably the use of glibc instead of musl and the fact that Wolfi doesn't have a kernel as it is intended to be used with a container runtime. This minimal footprint makes Wolfi an ideal base for both _distroless_ images and fully-featured builder images.
 
 A distroless image is a minimal container image that typically doesn't include a shell or package manager. The extra tightness improves security in several aspects, but it requires a more sophisticated strategy for image composition since you can't install packages so easily. Wolfi-based builder images are still a better and more secure option to use as base images in your Dockerfile than using a full-fledged Linux distribution, as they are smaller and have fewer CVEs. You can learn more about distroless in our [Going distroless](/chainguard/containers/concepts/getting-started-distroless/) guide.
 

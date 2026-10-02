@@ -5,7 +5,7 @@ type: "article"
 description: "Signing software bills of materials with Cosign"
 lead: "Use Cosign to sign software bills of materials (SBOMs)"
 date: 2022-07-13T15:22:20+01:00
-lastmod: 2026-10-02T12:53:50+00:00
+lastmod: 2026-10-02T13:51:55+00:00
 draft: false
 tags: ["Cosign", "Procedural", "SBOM"]
 images: []
@@ -36,7 +36,7 @@ In the following, we'll generate an SBOM and associate it with a specific OCI co
 
 ## Creating a demonstration image
 
-Since we'll be attaching an SBOM to a container image, we'll first need to create an example image. We'll base this image on Chainguard's [`wolfi-base`](/open-source/wolfi/overview/), and add a single additional package, the venerable `cowsay` utility that prints a message along with some ASCII art. We then set the entrypoint so that, when the image is run, a message will be displayed.
+Since we'll be attaching an SBOM to a container image, we'll first need to create an example image. We'll base this image on Chainguard's [`wolfi-base`](https://images.chainguard.dev/directory/image/wolfi-base/overview), and add a single additional package, the venerable `cowsay` utility that prints a message along with some ASCII art. We then set the entrypoint so that, when the image is run, a message will be displayed.
 
 Create a new folder for our Dockerfile build and change your working directory to that folder:
 

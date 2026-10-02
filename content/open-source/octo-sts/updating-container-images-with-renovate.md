@@ -5,7 +5,7 @@ type: "article"
 lead: "Learn how to use Renovate with Octo STS to update container images without personal access tokens"
 description: "Video tutorial showing how to set up Renovate as a GitHub Action with Octo STS to eliminate the need for personal access tokens"
 date: 2025-12-23T09:30:00+01:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-02T13:51:55+00:00
 tags: ["octo-sts", "Renovate", "Video", "Tutorial", "GitHub Actions"]
 draft: false
 images: []
@@ -134,6 +134,6 @@ Yeah, it looked like that works. It successfully updated our version of Go here.
 
 ## Related resources
 
-- [FAQ](/open-source/octo-sts/faq/)
+- [Set up and use Octo STS](/open-source/octo-sts/set-up-octo-sts/)
 - [Octo STS GitHub Repository](https://github.com/octo-sts/app)
 - [Renovate Documentation](https://docs.renovatebot.com/)

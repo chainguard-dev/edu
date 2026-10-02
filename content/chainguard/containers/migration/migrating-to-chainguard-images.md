@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "Learn how to migrate existing Dockerfiles to Chainguard Containers for improved security, including package compatibility, multi-stage builds, and distro-specific considerations"
 date: 2024-03-25T15:56:52-07:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-02T13:51:55+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -16,7 +16,7 @@ weight: 30
 toc: true
 ---
 
-Chainguard Containers provide enhanced security through minimal design and built-in provenance attestation, requiring some adjustments when migrating from traditional base images. Built on the [Wolfi](/open-source/wolfi/overview/) Linux distribution, these images offer compatibility with most applications while significantly reducing attack surface and vulnerabilities.
+Chainguard Containers provide enhanced security through minimal design and built-in provenance attestation, requiring some adjustments when migrating from traditional base images. Built on the [Wolfi](https://www.chainguard.dev/supply-chain-security-101/wolfi-overview) Linux distribution, these images offer compatibility with most applications while significantly reducing attack surface and vulnerabilities.
 
 A general migration process would involve the following steps:
 
