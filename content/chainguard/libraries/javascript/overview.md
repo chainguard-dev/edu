@@ -6,7 +6,7 @@ aliases:
 description: "JavaScript libraries for your application development"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-10-01T15:11:12+00:00
+lastmod: 2026-10-02T16:25:03+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript", "Overview"]
 menu:
@@ -108,7 +108,7 @@ Remediation](/chainguard/libraries/policies-and-security/cve-remediation/) featu
 
 Unlike Python and Java, JavaScript remediation does not rely on version precedence. Because `-cgr.N` is an npm prerelease identifier, npm semver resolution does not treat it as newer than the base version, so a normal range such as `^4.17.21` never matches it. Instead, remediation operates on the resolved dependency tree in your lockfile.
 
-Preview available remediations by running `chainctl libraries remediate`, then adopt them by running the same command with `--apply`. When applied, the command walks the lockfile and, for each eligible package, adds an npm override in `package.json` that pins the dependency to the corresponding `-cgr.N` version. This selects the remediated artifact while preserving the dependency version your application requested. Re-run the command after every install or dependency update so that newly resolved entries are evaluated.
+Preview available remediations by running `chainctl libraries remediate`, then adopt them by running the same command with `--apply`. When applied, the command walks the lockfile and updates each eligible package to the corresponding `-cgr.N` version. The change depends on where the package sits in your dependency tree: for a direct dependency, the command sets the exact `-cgr.N` version in `package.json`; for a transitive dependency, it adds an override or resolution rule that your package manager supports. In both cases, it also updates the lockfile. Re-run the command after every install or dependency update so that newly resolved entries are evaluated.
 
 Remediated artifacts are served through the standard JavaScript endpoint at `https://libraries.cgr.dev/javascript/`. For how remediation handles transitive dependencies and repeated package occurrences, see [CVE remediation](/chainguard/libraries/policies-and-security/cve-remediation/).
 

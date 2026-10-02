@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for JavaScript on your workstation"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-10-01T15:11:12+00:00
+lastmod: 2026-10-02T16:25:03+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
@@ -157,24 +157,46 @@ First, preview the available remediations:
 chainctl libraries remediate
 ```
 
+The `--apply` step reads credentials from a `.npmrc` file in your project
+directory. Some registry setup options on this page store those settings
+elsewhere, such as your user-level `.npmrc` or your package manager's own
+configuration, so you can finish registry setup without a project `.npmrc`. If
+you don't have one, create it by running `chainctl auth configure-npm` from the
+project directory:
+
+```bash
+chainctl auth configure-npm
+```
+
+This writes a project-level `.npmrc` with the registry URL and credentials. Do
+not commit these credentials to version control; supply them through environment
+variables or CI secrets at build time. Yarn and pnpm authenticate differently;
+see [Yarn](#yarn) and [pnpm](#pnpm) for their setup steps.
+
 Then adopt them:
 
 ```bash
 chainctl libraries remediate --apply
 ```
 
-With `--apply`, the command walks your lockfile and overrides each eligible
-package occurrence with the corresponding Chainguard remediated version. For npm
-projects, each override is recorded in the `overrides` field of `package.json`.
-Only packages with a `-cgr.N` build for the exact version resolved in your
-lockfile are overridden; every other dependency stays unchanged.
+With `--apply`, the command walks your lockfile and updates each eligible
+package to the corresponding Chainguard remediated version. How it records the
+change depends on where the package sits in your dependency tree: for a direct
+dependency, it sets the exact `-cgr.N` version in `package.json`; for a
+transitive dependency, it adds an override or resolution rule your package
+manager supports (for example, the `overrides` field for npm or `resolutions`
+for Yarn). The command also updates the lockfile. Only packages with a `-cgr.N`
+build for the exact version resolved in your lockfile are changed; every other
+dependency stays unchanged.
 
-Changing your remediation configuration, like changing your registry, requires
-you to regenerate or update the lockfile so your package manager resolves the
-remediated versions. Re-run your build tool's install command, then update the
-lockfile hashes with [`chainctl libraries
-update-hashes`](#updating-lockfile-hashes). For the per-tool steps, see the
-**Apply registry changes** section for [npm](#npm-apply), [pnpm](#pnpm-apply),
+Because `--apply` updates the lockfile and verifies the result before it changes
+your project, adoption is complete once the command succeeds. You don't need to
+regenerate the lockfile or rewrite hashes afterward. To confirm the change,
+review the modified files (`package.json` and your lockfile), run an install
+that preserves the lockfile, and run your application's tests.
+
+If you also changed your registry configuration, see the per-tool **Apply
+registry changes** sections for [npm](#npm-apply), [pnpm](#pnpm-apply),
 [Yarn](#yarn-apply), or [Bun](#bun-apply).
 
 Re-run `chainctl libraries remediate` after every install or dependency update
