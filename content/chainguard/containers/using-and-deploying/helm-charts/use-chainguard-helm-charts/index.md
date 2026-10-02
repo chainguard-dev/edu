@@ -8,7 +8,7 @@ type: "article"
 description: "A primer on how to use Chainguard-provided upstream Helm charts to deploy Chainguard container images"
 lead: "A primer on how to use Chainguard-provided upstream Helm charts to deploy Chainguard container images"
 date: 2025-07-11T08:49:31+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-02T12:53:50+00:00
 draft: false
 tags: ["Chainguard Containers", "Helm charts", "Product"]
 images: []
@@ -27,7 +27,7 @@ The community charts have been tested by Chainguard to confirm they produce expe
 - Version streaming: Chainguard commits to supporting chart and image versions that match the latest upstream project chart. Within that latest chart we will support the associated image versions.
 - Testing policy: We test the latest charts with the supported version streams and functionally validate by deploying the Helm chart in its representative environment and exercising the various functionality of the chart(s). We’ll also continue publishing end-of-life (EOL) version streams as long as they continue to pass our functional validation.
 
-Chainguard makes the provenance of these charts clear. Helm charts are packaged as [OCI artifacts](/open-source/oci/what-are-oci-artifacts/) using the upstream version adding an appended revision suffix for updates that include material changes to the chart; otherwise, tags will float based as their dependent images update. The OCI artifacts are signed and generate provenance attestations that link to the exact image digests used to ensure that all artifacts are cryptographically verifiable end-to-end for integrity and origin.
+Chainguard makes the provenance of these charts clear. Helm charts are packaged as [OCI artifacts](https://www.chainguard.dev/supply-chain-security-101/what-are-oci-artifacts) using the upstream version adding an appended revision suffix for updates that include material changes to the chart; otherwise, tags will float based as their dependent images update. The OCI artifacts are signed and generate provenance attestations that link to the exact image digests used to ensure that all artifacts are cryptographically verifiable end-to-end for integrity and origin.
 
 You can find Helm charts in the [Chainguard Console](/platform/console/images-directory/#find-helm-charts-in-the-chainguard-console) and in the [Chainguard Directory](/chainguard/containers/registry/chainguard-directory/#find-helm-charts-in-the-chainguard-directory).
 

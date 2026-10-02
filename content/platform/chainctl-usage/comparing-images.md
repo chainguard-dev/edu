@@ -18,7 +18,7 @@ aliases:
 type: "article"
 description: "Learn how to use chainctl images diff to compare Chainguard container versions, analyze security improvements, and track package changes between builds"
 date: 2023-08-30T11:07:52+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-02T12:53:50+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -98,7 +98,7 @@ Fetching vulnerabilities for cgr.dev/chainguard/go@sha256:e62ce9fe5e62296186066e
 }
 ```
 
-This command first uses Grype to scan each container image's vulnerability data and then retrieves both images' [SBOMs](/open-source/sbom/what-is-an-sbom/). It then outputs the differences that it finds between the two. This sample output indicates that compared to the `go:latest` container image, the `go:latest-dev` image has three packages added, three removed, and no unique vulnerabilities.
+This command first uses Grype to scan each container image's vulnerability data and then retrieves both images' [SBOMs](https://www.chainguard.dev/supply-chain-security-101/what-is-an-sbom). It then outputs the differences that it finds between the two. This sample output indicates that compared to the `go:latest` container image, the `go:latest-dev` image has three packages added, three removed, and no unique vulnerabilities.
 
 `chainctl`compares the images like this because of the order they appear in the command. If you reversed the order of the images in the example command, the packages shown as `added` and `removed` would also be flipped:
 

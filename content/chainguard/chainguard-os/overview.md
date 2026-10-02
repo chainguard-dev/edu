@@ -5,7 +5,7 @@ type: "article"
 description: "Learn about Chainguard OS, the security-focused operating system that powers Chainguard containers with continuous updates, minimal attack surface, and enterprise-grade security features"
 lead: "Chainguard OS is a purpose-built operating system designed for container security, featuring continuous updates, minimal packages, and hardened configurations that power all Chainguard container images."
 date: 2025-07-03T08:49:31+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-02T12:53:50+00:00
 draft: false
 tags: ["Chainguard OS"]
 images: []
@@ -76,7 +76,7 @@ The system architecture and toolchain used in Chainguard OS support the automati
 
 ### Software supply chain security
 
-All software components in Chainguard OS are built from source in the [Chainguard Factory](https://www.youtube.com/watch?v=iU9hmW6hrGs) — a hardened build environment that conforms to [SLSA](https://slsa.dev/) standards. This process mitigates risks of tampering in the build and delivery pipeline. The system also generates cryptographically verifiable artifacts, including signed Software Bills of Materials ([SBOMs](/open-source/sbom/what-is-an-sbom/)) and provenance metadata.
+All software components in Chainguard OS are built from source in the [Chainguard Factory](https://www.youtube.com/watch?v=iU9hmW6hrGs) — a hardened build environment that conforms to [SLSA](https://slsa.dev/) standards. This process mitigates risks of tampering in the build and delivery pipeline. The system also generates cryptographically verifiable artifacts, including signed Software Bills of Materials ([SBOMs](https://www.chainguard.dev/supply-chain-security-101/what-is-an-sbom)) and provenance metadata.
 
 ### Operational efficiency
 

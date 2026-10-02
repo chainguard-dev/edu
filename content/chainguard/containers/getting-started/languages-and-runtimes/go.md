@@ -15,7 +15,7 @@ aliases:
 - /chainguard/containers/migration/migration-guides/migrating_go/
 description: "Learn how to build more secure Go applications with Chainguard's Go container images, featuring minimal attack surface and multi-stage build patterns for optimized runtime"
 date: 2023-02-28T11:07:52+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-02T12:53:50+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -196,7 +196,7 @@ The application will also share version information at [http://0.0.0.0:8080/vers
 
 ## Example 3: Minimal Go Chainguard Container built with ko
 
-In this example, we'll build a distroless Go Chainguard Container with [ko](https://ko.build/). ko offers fast container image builds for Go applications without requiring a Dockerfile. Additionally, ko produces [SBOMs](/open-source/sbom/what-is-an-sbom/) by default, supporting a holistic approach to software security.
+In this example, we'll build a distroless Go Chainguard Container with [ko](https://ko.build/). ko offers fast container image builds for Go applications without requiring a Dockerfile. Additionally, ko produces [SBOMs](https://www.chainguard.dev/supply-chain-security-101/what-is-an-sbom) by default, supporting a holistic approach to software security.
 
 Start by accessing the `go-digester` folder in the Go demos repository:
 

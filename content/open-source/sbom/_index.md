@@ -4,7 +4,7 @@ lead: "Software bill of materials"
 description: "Software bill of materials"
 type: "article"
 date: 2023-01-26T08:49:15+00:00
-lastmod: 2023-01-26T08:49:15+00:00
+lastmod: 2026-10-02T12:53:50+00:00
 tags: ["SBOM"]
 draft: false
 menu:
@@ -12,7 +12,7 @@ menu:
     parent: "sbom"
 images: []
 toc: true
-landingpage: "/open-source/sbom/what-is-an-sbom/"
+landingpage: "/open-source/sbom/getting-started-openvex-vexctl/"
 ---
 
 A software bill of materials, or an SBOM (pronounced s-bomb), is a key resource for enabling visibility into the different software components of a codebase.

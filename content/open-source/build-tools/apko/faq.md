@@ -6,7 +6,7 @@ type: "article"
 lead: "Frequently asked questions about apko"
 description: "Frequently asked questions about apko"
 date: 2022-10-10T11:07:52+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-02T12:53:50+00:00
 draft: false
 tags: ["apko", "FAQ",]
 images: []
@@ -27,7 +27,7 @@ apko images are defined declaratively using a YAML file. It was designed this wa
 
 ## Does apko provide SBOMs?
 
-Yes, apko builds include high-quality [SBOMs](/open-source/sbom/what-is-an-sbom/) (software bills of materials) for all builds. This is a key feature of the tooling that Chainguard has developed to ensure that users can trust the software they are running.
+Yes, apko builds include high-quality [SBOMs](https://www.chainguard.dev/supply-chain-security-101/what-is-an-sbom) (software bills of materials) for all builds. This is a key feature of the tooling that Chainguard has developed to ensure that users can trust the software they are running.
 
 ## Can I use apko images with Docker?
 

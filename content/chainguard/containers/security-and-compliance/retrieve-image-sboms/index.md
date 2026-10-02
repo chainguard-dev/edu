@@ -13,7 +13,7 @@ aliases:
 type: "article"
 description: "How to get SBOM for container images: Chainguard provides Software Bill of Materials for every image - retrieve with Cosign for complete supply chain transparency"
 date: 2023-11-17T11:07:52+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-02T12:53:50+00:00
 draft: false
 tags: ["Chainguard Containers", "SBOM"]
 images: []
@@ -31,7 +31,7 @@ Even though they contain the minimum number of packages, there may come a time w
 You can retrieve a container image's attestation in two ways:
 
 - [Using Cosign](#retrieve-a-container-image-attestation-using-cosign)
-    - [Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/) — a part of the Sigstore project — supports software artifact signing, verification, and storage in an [OCI (Open Container Initiative)](/open-source/oci/what-is-the-oci/) registry, as well as the retrieval of said artifacts.
+    - [Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/) — a part of the Sigstore project — supports software artifact signing, verification, and storage in an [OCI (Open Container Initiative)](https://www.chainguard.dev/supply-chain-security-101/what-is-the-open-container-initiative-oci) registry, as well as the retrieval of said artifacts.
 - [In the Chainguard Console](#retrieve-a-container-image-attestation-in-the-chainguard-console)
 
 ### Prerequisites

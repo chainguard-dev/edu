@@ -5,7 +5,7 @@ type: "article"
 description: "Signing software bills of materials with Cosign"
 lead: "Use Cosign to sign software bills of materials (SBOMs)"
 date: 2022-07-13T15:22:20+01:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-02T12:53:50+00:00
 draft: false
 tags: ["Cosign", "Procedural", "SBOM"]
 images: []
@@ -24,7 +24,7 @@ _An earlier version of this material was published in the [Cosign chapter](https
 {{< blurb/attestation >}}
 {{< /details >}}
 
-One common use case for attestations is associating a software artifact, such as an OCI container image, with a [software bill of materials (SBOM)](/open-source/sbom/what-is-an-sbom/), an inventory of the components that make up a given software artifact. Increasingly, SBOMs are considered an essential component in maintaining a secure software supply chain.
+One common use case for attestations is associating a software artifact, such as an OCI container image, with a [software bill of materials (SBOM)](https://www.chainguard.dev/supply-chain-security-101/what-is-an-sbom), an inventory of the components that make up a given software artifact. Increasingly, SBOMs are considered an essential component in maintaining a secure software supply chain.
 
 {{< details "What is a Software Bill of Materials (SBOM?" >}}
 {{< blurb/sbom >}}

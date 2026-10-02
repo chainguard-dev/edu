@@ -4,11 +4,11 @@ linkTitle: "CMMC 2.0"
 description: "How to prepare for CMMC 2.0 compliance."
 type: "article"
 date: 2024-08-09T15:24:23+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-02T12:53:50+00:00
 draft: false
 aliases:
 - /software-security/compliance/cmmc-2/
 images: []
 weight: 20
-landingpage: "/compliance/cmmc-2/intro-cmmc-2/"
+landingpage: "/compliance/cmmc-2/cmmc-chainguard/"
 ---
