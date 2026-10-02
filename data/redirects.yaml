@@ -233,3 +233,31 @@ rules:
     to: 'https://www.chainguard.dev/supply-chain-security-101/what-is-the-open-container-initiative-oci'
   - regex: '^/software-security/secure-software-development/?(index\.html|index\.xml)?$'
     to: 'https://www.chainguard.dev/supply-chain-security-101/what-is-the-secure-software-development-framework-ssdf'
+
+  # Open source project overviews, FAQs, and introductions that moved to
+  # Supply Chain Security 101 (DOCS-228). Each section's index page now
+  # introduces the project and links there. Old aliases of these pages need
+  # no rule: the section aliases (/open-source/apko, /open-source/melange,
+  # /chainguard/fips) still send them here.
+  - regex: '^/open-source/wolfi/overview(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/wolfi-overview'
+  - regex: '^/open-source/wolfi/faq(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/wolfi-overview'
+  - regex: '^/open-source/build-tools/apko/overview(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/apko-overview'
+  - regex: '^/open-source/build-tools/apko/faq(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/apko-overview'
+  - regex: '^/open-source/build-tools/melange/overview(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/melange-overview'
+  - regex: '^/open-source/build-tools/melange/faq(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/melange-overview'
+  - regex: '^/open-source/octo-sts/overview(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/octo-sts-overview'
+  - regex: '^/open-source/octo-sts/faq(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/octo-sts-overview'
+  - regex: '^/open-source/sigstore/fulcio/an-introduction-to-fulcio(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/what-is-sigstore-fulcio'
+  - regex: '^/open-source/sigstore/rekor/an-introduction-to-rekor(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/what-is-sigstore-rekor'
+  - regex: '^/platform/fips/understanding-fips(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/understanding-fips'

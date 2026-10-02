@@ -4,7 +4,7 @@ linktitle: "Manage with GitOps"
 type: "article"
 description: "How to use GitOps to manage Custom Assembly resources."
 date: 2026-01-29T11:07:52+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-02T13:51:55+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural", "Custom Assembly"]
 images: []
@@ -291,7 +291,7 @@ Rather than storing a long-lived Personal Access Token, add an [Octo STS](https:
           identity: build
 ```
 
-Pass the result to whichever step needs it as `${{ steps.octo-sts.outputs.token }}`. Using Octo STS also requires installing its GitHub App on your organization and committing a trust policy to `.github/chainguard/build.sts.yaml`, where `build` matches the `identity` input. Refer to the [Octo STS overview](/open-source/octo-sts/overview/) for more information.
+Pass the result to whichever step needs it as `${{ steps.octo-sts.outputs.token }}`. Using Octo STS also requires installing its GitHub App on your organization and committing a trust policy to `.github/chainguard/build.sts.yaml`, where `build` matches the `identity` input. For installation and trust policy details, refer to [Set up and use Octo STS](/open-source/octo-sts/set-up-octo-sts/).
 
 ## Testing your workflow
 
@@ -321,7 +321,7 @@ To test your GitHub Action:
 ## Additional resources
 
 * [Custom Assembly overview](/chainguard/containers/custom-assembly/overview/)
-* [apko overview](/open-source/build-tools/apko/overview/)
+* [apko documentation](/open-source/build-tools/apko/)
 * [Assumable identity documentation](/platform/administration/assumable-ids/assumable-ids/)
 * [Demo Repository: custom-assembly-as-code](https://github.com/chainguard-demo/custom-assembly-as-code)
 * [Get support](/get-started/get-support/)

@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "An overview of how to work with Chainguard's private APK repositories."
 date: 2025-02-21T11:07:52+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-02T13:51:55+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -218,7 +218,7 @@ As this output shows, the `wget` apk package is installed in the container.
 
 ## Using private APK repositories with apko builds
 
-You can also use your private APK repository with [apko](/open-source/build-tools/apko/overview/) builds. One of the advantages of this method is that you can build distroless images that include only the apk packages you need in the final image.
+You can also use your private APK repository with [apko](/open-source/build-tools/apko/) builds. One of the advantages of this method is that you can build distroless images that include only the apk packages you need in the final image.
 
 As with the previous examples, you'll need to provide the `HTTP_AUTH` environment variable containing your Chainguard token to the apko runtime building the image.
 

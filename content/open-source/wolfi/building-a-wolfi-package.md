@@ -3,7 +3,7 @@ title: "Building a Wolfi package"
 type: "article"
 description: "A deep-dive into the process of getting a new package into Wolfi OS"
 date: 2023-08-21T08:49:31+00:00
-lastmod: 2026-10-02T12:53:50+00:00
+lastmod: 2026-10-02T13:51:55+00:00
 draft: false
 tags: ["Wolfi", "Procedural"]
 images: []
@@ -473,4 +473,4 @@ The [Wolfi Contributing Guide](https://github.com/wolfi-dev/os/blob/main/CONTRIB
 
 If you haven't yet, check the [Wolfi PHP package source file](https://github.com/wolfi-dev/os/blob/main/php-8.2.yaml) for a more comprehensive view of the melange YAML structure and how that looks in a more complex build.
 
-If you'd like to learn more about Wolfi, check the [documentation](https://edu.chainguard.dev/open-source/wolfi/overview/) and [FAQ](https://edu.chainguard.dev/open-source/wolfi/faq/) for more details about the ecosystem surrounding it.
+To learn more about Wolfi and the ecosystem around it, read [What is Wolfi?](https://www.chainguard.dev/supply-chain-security-101/wolfi-overview) and the rest of the [Wolfi documentation](/open-source/wolfi/).

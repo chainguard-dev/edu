@@ -98,13 +98,13 @@
 
 [[main]]
   name = "apko"
-  url = "/open-source/apko/"
+  url = "/open-source/build-tools/apko/"
   parent = "menu-oss"
   weight = 20
 
 [[main]]
   name = "melange"
-  url = "/open-source/melange/"
+  url = "/open-source/build-tools/melange/"
   parent = "menu-oss"
   weight = 30
 
