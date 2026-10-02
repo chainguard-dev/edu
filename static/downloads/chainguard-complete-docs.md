@@ -1,6 +1,6 @@
 # Chainguard Documentation Bundle
 
-_Compiled on: 2026-10-01 02:32:18_
+_Compiled on: 2026-10-02 02:24:57_
 
 This document contains Chainguard documentation compiled from multiple sources.
 
@@ -15112,7 +15112,7 @@ Advisories are published in several places:
 
 - The [Security Advisories page](https://images.chainguard.dev/security/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-containers-concepts-zerocve) in the Containers directory, for browsing by CVE or container.
 - [`wolfi-dev/advisories`](https://github.com/wolfi-dev/advisories) on GitHub, where each package's advisories live as YAML.
-- Alpine-style `secdb` JSON feeds, for scanners and automation.
+- An [OSV](https://ossf.github.io/osv-schema/) feed, for scanners and automation.
 
 [How to use Chainguard Security Advisories](/chainguard/containers/security-and-compliance/security-advisories/how-to-use/) covers reading and consuming them, and [How Chainguard issues Security Advisories](/chainguard/containers/security-and-compliance/security-advisories/how-chainguard-issues/) walks through an advisory's life from disclosure to remediation, including the feed URLs.
 
@@ -21392,6 +21392,7 @@ This table lists the DNS hostnames, associated ports, and protocols that will ne
 | packages.cgr.dev        | 443  | HTTPS    | v4      | Package repository (Extra packages)   |
 | packages.wolfi.dev      | 443  | HTTPS    | v4 & v6 | Package repository (Free containers)  |
 | tarballs.cgr.dev        | 443  | HTTPS    | v4      | Upstream source archives referenced by SBOM `downloadLocation` fields |
+| auth.chainguard.dev     | 443  | HTTPS    | v4      | Social login, reached by the browser that completes the login |
 
 Most of these hosts are needed to pull containers and packages. `tarballs.cgr.dev` is the
 exception: it is only needed if you resolve the source archives that Chainguard SBOMs point
@@ -21399,6 +21400,11 @@ at. Where an upstream project has no stable, downloadable source archive, Chaing
 a source tarball and records that URL as the package's SPDX `downloadLocation`. Tooling that
 follows those URLs (source-provenance checks, license and compliance scanners, air-gapped
 source mirroring) needs egress to this host. Container and package pulls do not.
+
+The two social login hosts, `auth.chainguard.dev` and `chainguard.us.auth0.com`, are reached by
+the browser that completes a `chainctl` login. With `--headless`, that browser can run on a
+different device from `chainctl`. If a proxy inspects TLS traffic, exempt the login hosts from
+inspection, as described in [Troubleshoot chainctl login](/platform/chainctl-usage/authentication-options/#troubleshoot-chainctl-login).
 
 > If you experience networking issues while trying to use Chainguard Containers, please ensure that your firewall allows traffic to and from these hosts, and that it doesn't have any rules to block `.dev` domains.
 
@@ -21411,6 +21417,7 @@ This table lists the third-party DNS hostnames, associated ports, and protocols 
 | 9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com | 443  | HTTPS    | v4 & v6 | Blob storage for *.cgr.dev                               |
 | support.chainguard.dev                                    | 443  | HTTPS    | v4      | Support access for customers                             |
 | tuf-repo-cdn.sigstore.dev                                 | 443  | HTTPS    | v4      | Sigstore trust root for `chainctl` signature verification |
+| chainguard.us.auth0.com                                   | 443  | HTTPS    | v4      | Social login, reached by the browser that completes the login |
 
 > Note that the `9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com` host is used to serve both image data and packages via `*.cgr.dev`.
 
@@ -25708,11 +25715,11 @@ This guide outlines how you can use Chainguard's Security Advisories to learn mo
 
 ## Advisory database scope
 
-Chainguard Security Advisories cover vulnerabilities in APK packages. The advisory lookup does not determine whether a finding affects a Go module, Java dependency, or another non-APK component.
+Chainguard Security Advisories cover vulnerabilities in the APK packages that Chainguard ships, including the Go modules, Java archives, and other language components inside those packages. Chainguard records a vulnerability in one of those components against the APK package that contains it. The advisories don't cover software that your own build adds to an image.
 
 For an APK finding in a Chainguard image, use [Check whether a reported CVE affects your container](/chainguard/containers/security-and-compliance/vulnerability-management/cve-status/) to compare the scanner result with the advisories for the packages in the image. Use the image digest and the platform that the scanner analyzed.
 
-For a Go-module or Java-dependency finding, the absence of an APK advisory does not make it a false positive. Validate these findings against the scanner's language-package evidence and the dependency's upstream advisory data, as described in [When the finding is a Go module or Java dependency](/chainguard/containers/security-and-compliance/vulnerability-management/cve-status/#when-the-finding-is-a-go-module-or-java-dependency).
+For a Go-module or Java-dependency finding, first find out whether a Chainguard package ships the component or your build added it. For a component that a Chainguard package ships, check the advisories for that package. For a dependency that your build added, the absence of a Chainguard advisory doesn't make the finding a false positive; validate it against the scanner's language-package evidence and the dependency's upstream advisory data. Both cases are described in [When the finding is a Go module or Java dependency](/chainguard/containers/security-and-compliance/vulnerability-management/cve-status/#when-the-finding-is-a-go-module-or-java-dependency).
 
 ## Prerequisites
 
@@ -25824,7 +25831,7 @@ The Security Advisories page serves as a helpful resource for anyone who wants t
 
 Additionally, we encourage you to explore the [Chainguard Containers Directory](https://images.chainguard.dev/), the parent site of the Security Advisories page. The Directory allows users to explore the complete inventory of Chainguard Containers. Finally, we encourage you to learn more about [noisy scan results](/chainguard/containers/security-and-compliance/working-with-scanners/false-results/) when scanning Chainguard Containers.
 
-To learn more about why scan results may differ between your scanner and the Chainguard Console, refer to [the support article "Understanding Vulnerability Scanner Discrepancies with Chainguard Images."](https://support.chainguard.dev/hc/en-us/articles/49564106705819-Understanding-Vulnerability-Scanner-Discrepancies-with-Chainguard-Images)
+If a Chainguard advisory or the Chainguard Console says a CVE is fixed but your scanner still reports it, see [Resolve a scanner finding for a CVE Chainguard has fixed](/chainguard/containers/security-and-compliance/vulnerability-management/scanner-flags-fixed-cve/). For more about why scan results can differ between your scanner and the Chainguard Console, refer to [the support article "Understanding Vulnerability Scanner Discrepancies with Chainguard Images."](https://support.chainguard.dev/hc/en-us/articles/49564106705819-Understanding-Vulnerability-Scanner-Discrepancies-with-Chainguard-Images)
 
 ---
 
@@ -25849,12 +25856,21 @@ Chainguard publishes its security advisories to a dedicated [Security Advisories
 
 ### Programmatic access
 
-For automated vulnerability monitoring and integration with CI/CD pipelines, Chainguard provides [Alpine-style `secdb`](https://deepwiki.com/aquasecurity/trivy-db/4.2.6-alpine-security-database) security advisory feeds in JSON format:
+For automated vulnerability monitoring and integration with CI/CD pipelines, Chainguard publishes its security advisories as a feed in the [OSV format](https://ossf.github.io/osv-schema/). The OSV feed covers packages from both the Wolfi and Chainguard package repositories, and it includes every advisory status, from detections to fixes. Vulnerability scanners, security tools, and your own automation can read it.
 
-- [Wolfi OS](https://github.com/wolfi-dev/os) feed: [packages.wolfi.dev/os/security.json](https://packages.wolfi.dev/os/security.json)
-- Chainguard Enterprise feed: [packages.cgr.dev/chainguard/security.json](https://packages.cgr.dev/chainguard/security.json)
+The feed is available in two current versions, which contain the same data:
 
-These machine-readable feeds can be consumed programmatically by vulnerability scanners, security tools, and custom automation scripts. You can find more information regarding these security feeds at our [foundational concepts overview page](https://github.com/chainguard-dev/vulnerability-scanner-support/blob/main/docs/foundational_concepts.md) in our [vulnerability scanner support](https://github.com/chainguard-dev/vulnerability-scanner-support/tree/main) GitHub repository.
+- **v2:** [advisories.cgr.dev/chainguard/v2/osv/all.json](https://advisories.cgr.dev/chainguard/v2/osv/all.json). Each record collects all of Chainguard's advisories for one upstream vulnerability, such as a CVE.
+- **v3:** [advisories.cgr.dev/chainguard/v3/osv/all.json](https://advisories.cgr.dev/chainguard/v3/osv/all.json). Each record holds a single advisory.
+
+Each `all.json` file is an index. The advisory details, including each affected package's fixed version in `affected[].ranges[].events[].fixed`, are in the individual record files, such as `https://advisories.cgr.dev/chainguard/v2/osv/<advisory-id>.json`. Chainguard publishes updates several times a day. An integration should poll the index at least hourly and re-fetch any record whose `modified` timestamp has changed. For an example lookup, see [Look up the fixed version in the advisory feed](/chainguard/containers/security-and-compliance/vulnerability-management/scanner-flags-fixed-cve/#look-up-the-fixed-version-in-the-advisory-feed).
+
+Older feeds remain available, but they're deprecated for new integrations:
+
+- The original OSV feed at `packages.cgr.dev/chainguard/osv/all.json`, which includes only resolved advisories.
+- The [Alpine-style `secdb`](https://deepwiki.com/aquasecurity/trivy-db/4.2.6-alpine-security-database) feeds at `packages.wolfi.dev/os/security.json` and `packages.cgr.dev/chainguard/security.json`.
+
+For the feed specifications, see [Foundational concepts](https://github.com/chainguard-dev/vulnerability-scanner-support/blob/main/docs/foundational_concepts.md) in Chainguard's [vulnerability scanner support](https://github.com/chainguard-dev/vulnerability-scanner-support/tree/main) GitHub repository.
 
 ## Stages of a security advisory
 
@@ -26018,12 +26034,152 @@ If you'd like to learn more about CVEs, and strategies for remediating them, we 
 
 ---
 
+### Resolve a scanner finding for a CVE Chainguard has fixed
+_Path: chainguard/containers/security-and-compliance/vulnerability-management/scanner-flags-fixed-cve.md_
+
+Sometimes the Chainguard Console or a Chainguard security advisory reports a CVE as fixed, but your vulnerability scanner still reports it in the same image. When this blocks a CI security gate, the cause is usually a mismatch between the image you scanned, the data your scanner uses, and Chainguard's advisory data. Work through the checks on this page in order; they're arranged so that the most common causes come first.
+
+This page covers findings in packages that Chainguard ships. That includes Go modules, Java archives, and other language components inside a Chainguard APK package, because Chainguard records advisories against the APK package that contains them. For a dependency that your own build adds to the image, see [Dependencies that your build adds](/chainguard/containers/security-and-compliance/vulnerability-management/cve-status/#dependencies-that-your-build-adds).
+
+## Work through the causes in order
+
+Each of the following checks rules out one cause. After each one, scan again; stop when the finding clears.
+
+### Confirm that you scanned the current image
+
+A tag such as `latest` moves to a new digest each time Chainguard rebuilds the image. If your pipeline cached an older image or pinned an older digest, the scanner reports CVEs that later builds fixed.
+
+Scanning by tag can also pick up an old copy of the image. Some scanners, including Grype, scan an image from the local Docker daemon when one with that tag exists, rather than pulling the current image from the registry.
+
+1. Get the digest that the tag points to now:
+
+   ```shell
+   crane digest cgr.dev/<organization>/<image>:<tag>
+   ```
+
+   The `crane` command uses the same registry credentials as `docker`. If it can't authenticate, run `chainctl auth configure-docker` first.
+
+2. Compare that digest with the image's repository digest in your scanner's output. Without the `--platform` flag, `crane digest` returns the digest of the multi-architecture image, which is the value that Docker and most scanners report as the repository digest. A digest for a single architecture, such as the one that `crane digest --platform` returns, is a different value even for the same image.
+
+3. If the digests differ, scan the current image from the registry by digest, and specify the platform that you deploy:
+
+   ```shell
+   grype registry:cgr.dev/<organization>/<image>@sha256:<digest> --platform linux/amd64
+   ```
+
+### Compare the installed package with Chainguard's fixed version
+
+A Chainguard advisory records the version of each package that contains the fix. Chainguard records this separately for each package, including each subpackage built from the same source, and separately for each architecture. A parent package and its subpackages can have different statuses for the same CVE. For example, in one advisory the x86_64 `bind-libs` subpackage is fixed, while the parent `bind` package waits on an upstream fix.
+
+1. In your scanner's output, find the exact name of the flagged package, its installed version, and the architecture of the image that you scanned.
+
+2. Find Chainguard's fixed version for that package and architecture, in any of the following places:
+
+   - The advisory on the [Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-containers-security-and-compliance-vulnerability-management-scanner-flags-fixed-cve) of the Chainguard Containers Directory.
+   - The advisory record in the OSV feed, as described in [Look up the fixed version in the advisory feed](#look-up-the-fixed-version-in-the-advisory-feed).
+   - The output of `chainctl images advisories list`, as described in [Check whether a reported CVE affects your container](/chainguard/containers/security-and-compliance/vulnerability-management/cve-status/).
+
+   If no fixed version is recorded for that package and architecture, Chainguard hasn't fixed the CVE in that package, and the finding is valid.
+
+3. Compare the two versions using APK version ordering, which doesn't always match the order you might expect. For example, a version with a pre-release suffix, such as `1.3.2.1_rc20260601-r0`, sorts before `1.3.2.1-r0`. To compare two versions, run `apk version -t` in a Wolfi container:
+
+   ```shell
+   docker run --rm cgr.dev/chainguard/wolfi-base apk version -t <installed-version> <fixed-version>
+   ```
+
+   The command prints `<` if the installed version is earlier than the fixed version, `=` if they're the same, and `>` if the installed version is later.
+
+If the installed version is earlier than the fixed version, the finding is valid for that image. Update to an image build that contains the fixed version.
+
+If the installed version is the fixed version or later, that package is fixed for this CVE. Before you treat the finding as resolved, confirm that the scanner isn't also reporting the CVE against another package or architecture in the image. The remaining checks explain why a scanner can still report a fixed package.
+
+### Confirm that your scanner reads Chainguard's advisory data
+
+A scanner can apply Chainguard's fixed versions and "not affected" determinations only if it reads Chainguard's advisory data. A scanner that doesn't read it relies on upstream or third-party vulnerability data, which describes upstream release versions rather than Chainguard's package builds. Such a scanner keeps reporting CVEs that Chainguard has fixed, and updating its database or waiting doesn't change the result.
+
+Check whether your scanner appears in the list of [scanners that support Chainguard](https://www.chainguard.dev/scanners?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-containers-security-and-compliance-vulnerability-management-scanner-flags-fixed-cve), and whether your scanner's documentation requires any configuration to scan Wolfi or Chainguard packages. If your scanner doesn't support Chainguard, ask your scanner vendor to add support.
+
+How the scanner analyzes the image also matters. A scanner identifies the packages in a Chainguard image by reading the APK database at `/usr/lib/apk/db/installed`, which only the complete image filesystem contains. A scanner that analyzes image layers individually, or a custom image that removes the APK database, leaves the scanner to identify software by other means, such as file signatures or CPE matching. Chainguard's advisories can't correct those matches.
+
+### Update your scanner's vulnerability database
+
+Scanners match packages against a local copy of a vulnerability database. A copy that predates the advisory doesn't contain the fix. Check when your database was built, and update it if it's out of date. For example, with Grype:
+
+```shell
+grype db status
+grype db update
+```
+
+The `Built` field in the output of `grype db status` shows when the database was built. For other scanners, see the scanner's documentation for how to update its database. In CI, also confirm that the pipeline doesn't restore an old database from a cache.
+
+### Allow time for new advisory data to reach your scanner
+
+Chainguard publishes advisory feed updates several times a day. Your scanner's vendor then ingests that data and publishes its own database update on its own schedule. A fix that Chainguard published recently can take some time to appear in your scanner's results, even when your database is up to date. If the advisory is recent, scan again later.
+
+## If the scanner's fixed version doesn't exist in Chainguard repositories
+
+A scanner can report a "fixed in" version that you can't find in any Chainguard package repository. This happens when the scanner takes its fixed version from somewhere other than Chainguard's advisory, such as an upstream release range, another distribution's packaging, or its own inference about the next release.
+
+Chainguard's fixed version doesn't have to match an upstream release. When an upstream project fixes a vulnerability without publishing a release, Chainguard can ship the fix as a backported patch or as a build of an unreleased upstream revision. The version string of that build reflects how Chainguard packaged it, not the next upstream release number.
+
+The fixed version in Chainguard's advisory is the one that applies to Chainguard packages. Compare your installed version with that value, as described in [Compare the installed package with Chainguard's fixed version](#compare-the-installed-package-with-chainguards-fixed-version). If your scanner reads Chainguard's data and still reports a fixed version that Chainguard's advisory doesn't contain, contact support.
+
+## Look up the fixed version in the advisory feed
+
+Chainguard publishes its security advisories in the [OSV format](https://ossf.github.io/osv-schema/). Scanners read this feed, so you can use it to see exactly what Chainguard has recorded for a CVE. For more information about the available feeds, see [Programmatic access](/chainguard/containers/security-and-compliance/security-advisories/how-chainguard-issues/#programmatic-access).
+
+The following steps use `curl` and [`jq`](https://jqlang.org/).
+
+1. Find the Chainguard advisory IDs for the CVE. The feed index lists each advisory's ID along with the upstream identifiers, such as CVE and GHSA IDs, that it covers:
+
+   ```shell
+   curl -s https://advisories.cgr.dev/chainguard/v2/osv/all.json \
+     | jq -r --arg cve "CVE-<year>-<number>" '.[] | select(.upstream | index($cve)) | .id'
+   ```
+
+   The command prints one or more advisory IDs that start with `CGA-`. If it prints more than one, check each record in the next step.
+
+   If the command prints nothing, Chainguard has no advisory for that ID. That doesn't mean the package is unaffected. Check that the ID is in uppercase, try the vulnerability's GHSA ID instead, or contact support.
+
+   If you already have output from `chainctl images advisories list`, note that its `ADVISORY` column shows a per-package advisory ID that this feed version doesn't use. The ID that works in the next step is the `CGA-` ID in the `ALIASES` column.
+
+2. Retrieve the advisory record, and show the fixed version and status of the package that your scanner flagged. Use an advisory ID from the previous step:
+
+   ```shell
+   curl -s https://advisories.cgr.dev/chainguard/v2/osv/<advisory-id>.json \
+     | jq -r --arg pkg "<package-name>" '.affected[]
+         | select(.package.name == $pkg)
+         | [ .package.purl,
+             ([.ranges[].events[].fixed // empty] | first // "none"),
+             ([.ecosystem_specific.components[].latest_event_status] | unique | join(",")) ]
+         | @tsv' \
+     | sort -u
+   ```
+
+   Each line shows the package URL, the fixed version, and the advisory status. The `arch` value in the package URL shows the architecture. Wolfi packages appear twice for each architecture, once with `wolfi` and once with `chainguard` in the package URL, with the same fixed version. The fixed version is one of the following:
+
+   - A version string: the package is fixed in that version.
+   - `0`: Chainguard determined that the package isn't affected.
+   - `none`: the package is still affected. The status shows why, such as `detection` while the advisory is under investigation, or `pending_upstream_fix` while Chainguard waits for an upstream fix.
+
+## Contact support
+
+If the finding remains after you work through these checks, [contact support](/get-started/get-support/). Include the following information:
+
+- The image reference with its digest, and the platform that you scanned.
+- The scanner's name and version, and when its database was built.
+- The CVE ID and the Chainguard advisory ID.
+- The flagged package's name and installed version, and the fixed version that the scanner reports.
+- The scanner output for the finding.
+
+---
+
 ### Check whether a reported CVE affects your container
 _Path: chainguard/containers/security-and-compliance/vulnerability-management/cve-status.md_
 
 Use `chainctl images advisories list` to compare the advisories for the APK packages in an image with the CVEs reported by your scanner.
 
-> **Note:** This command checks **APK packages only**. It does not determine whether a CVE affects a Go module, Java dependency, or another non-APK component in the image.
+> **Note:** This command looks up advisories by APK package. Chainguard records a vulnerability in a Go module, Java archive, or other language component against the APK package that ships it, so the results cover those components too. They don't cover dependencies that your own build adds to the image. For details, see [When the finding is a Go module or Java dependency](#when-the-finding-is-a-go-module-or-java-dependency).
 
 ## FIPS variants
 
@@ -26056,7 +26212,7 @@ chainctl images advisories list \
   -o wide
 ```
 
-The output includes the APK package, package version, advisory ID, CVE aliases, status, and advisory type. Compare the package name and version—not only the CVE alias—with the scanner's finding.
+The output includes the APK package, package version, advisory ID, CVE aliases, status, and advisory type. Compare the package name and version—not only the CVE alias—with the scanner's finding. The `TYPE` column shows `apk` on every row, including advisories for a Go module or other component inside the package.
 
 If the image has no SBOM attestation, or the requested platform does not have one, the command cannot use that image to perform the lookup. If no matching advisory is shown, do not treat that alone as proof that the scanner finding is a false positive; first verify the image digest, platform, package ecosystem, package version, and scanner database.
 
@@ -26085,7 +26241,7 @@ To inspect one CVE from the table output, filter the displayed aliases after ret
 chainctl images advisories list "$IMAGE" -o wide | grep 'CVE-2026-42151'
 ```
 
-The command filters advisories by their current status. It does not accept a CVE as the primary lookup key, and it does not replace the scanner's analysis of non-APK components.
+The command filters advisories by their current status. It does not accept a CVE as the primary lookup key, and it does not replace the scanner's analysis of components that no Chainguard package ships.
 
 ## Status values
 
@@ -26107,7 +26263,7 @@ The command reports the status derived from the advisory's most recent event:
 
 A missing result can have several explanations:
 
-- The reported component is not an APK package.
+- No Chainguard package ships the reported component, as with a dependency that your build added.
 - The image reference, digest, or platform differs from the image that was scanned.
 - The image does not have an SBOM attestation available to the command.
 - The advisory database does not contain a matching advisory for that package and version.
@@ -26117,20 +26273,60 @@ A missing result is therefore a prompt to reconcile the two data sources, not a 
 
 ## When the finding is a Go module or Java dependency
 
-`chainctl images advisories list` is not the right validation tool for language-level dependencies. Use the scanner's language-package evidence and the relevant upstream vulnerability data instead.
+Scanners report Go modules, Java archives, and other language components separately from APK packages. How you validate one of these findings depends on where the component came from: a Chainguard package that ships it, or your own build. If your build didn't add the file where the scanner found the component, a Chainguard package ships it.
 
-### Go modules
+To confirm, look up the APK package that owns the file:
+
+1. In the scanner output, find the file path for the component, such as `/usr/bin/crane` for a Go binary or `/usr/share/java/maven/boot/plexus-classworlds-2.11.0.jar` for a Java archive.
+
+2. Run the following command against the image and platform that your scanner analyzed, replacing `<file-path>` with that path. The command exports the image, reads its APK database, and prints the name and version of the package that owns the file:
+
+   ```bash
+   crane export --platform linux/amd64 \
+       cgr.dev/<organization>/<image>@sha256:<digest> - \
+     | tar -xO usr/lib/apk/db/installed \
+     | awk -v path="<file-path>" '
+         BEGIN { sub(/^\//, "", path) }
+         /^P:/ { package = substr($0, 3) }
+         /^V:/ { version = substr($0, 3) }
+         /^F:/ { directory = substr($0, 3) }
+         /^R:/ && directory "/" substr($0, 3) == path { print package, version }
+       '
+   ```
+
+   For `/usr/bin/crane` in the `crane` image, the command prints `crane 0.22.1-r0`. If it prints nothing, no APK package owns the file. The `crane` command uses the same registry credentials as `docker`. If it can't authenticate, run `chainctl auth configure-docker` first.
+
+If an APK package owns the file, follow [Components that a Chainguard package ships](#components-that-a-chainguard-package-ships). Otherwise, follow [Dependencies that your build adds](#dependencies-that-your-build-adds).
+
+### Components that a Chainguard package ships
+
+Chainguard records a vulnerability in a bundled component against the APK package that ships it. For example, Chainguard records CVE-2026-39836, a vulnerability in the Go standard library that is compiled into `/usr/bin/crane`, as an advisory for the `crane` package. Validate the finding the same way as an APK finding:
+
+1. List the advisories for the image that your scanner analyzed, and filter for the CVE:
+
+   ```bash
+   chainctl images advisories list "$IMAGE" -o wide | grep 'CVE-2026-39836'
+   ```
+
+2. In the row for the package that owns the file, read the status. A fixed version is a version of that package, such as `0.21.5-r1`, not a version of the component. Scanners report the component's own version, such as `go1.25.9` for the Go standard library, so don't compare the fixed version with that value.
+
+3. Compare the owning package's installed version with the fixed version, as described in [Compare the installed package with Chainguard's fixed version](/chainguard/containers/security-and-compliance/vulnerability-management/scanner-flags-fixed-cve/#compare-the-installed-package-with-chainguards-fixed-version). If the installed version is the fixed version or later, Chainguard has fixed the CVE in that package. If your scanner still reports it, work through the rest of [Resolve a scanner finding for a CVE Chainguard has fixed](/chainguard/containers/security-and-compliance/vulnerability-management/scanner-flags-fixed-cve/).
+
+If no advisory for the owning package lists the CVE, Chainguard hasn't recorded the CVE for that package, and the finding stands. To ask about it, [contact support](#further-troubleshooting).
+
+### Dependencies that your build adds
+
+Chainguard's advisories don't cover software that you add to an image, such as a Go binary that you compile in a later build stage or a JAR that your application copies in. The absence of a Chainguard advisory for one of these dependencies doesn't make the finding a false positive. Use the scanner's language-package evidence and the dependency's upstream vulnerability data instead.
+
+#### Go modules
 
 For a Go-module finding:
 
-1. Confirm the module path and version in the image's SBOM and, where available, in `go.mod` or `go.sum`.
-2. Confirm that the scanner identified a Go module rather than an APK package with a similar name.
-3. Check the module's upstream advisory and the scanner's reachability or affected-symbol evidence.
-4. Rebuild with a non-vulnerable module version when one is available, then rescan the resulting image.
+1. Confirm the module path and version in your build's SBOM and, where available, in `go.mod` or `go.sum`.
+2. Check the module's upstream advisory and the scanner's reachability or affected-symbol evidence.
+3. Rebuild with a non-vulnerable module version when one is available, then rescan the resulting image.
 
-Do not use an APK advisory result—or the absence of one—to declare a Go-module CVE a false positive.
-
-### Java dependencies
+#### Java dependencies
 
 For a Java finding:
 
@@ -26139,9 +26335,9 @@ For a Java finding:
 3. Consult the dependency's upstream advisory and the scanner's evidence for the affected class or code path.
 4. Upgrade, replace, or otherwise mitigate the dependency, then rebuild and rescan.
 
-A Java dependency finding is distinct from an APK finding in the base image. Use `chainctl images advisories list` only for the APK portion of the image.
-
 ## Further troubleshooting
+
+If an advisory reports a CVE as fixed or not affected but your scanner still reports it, see [Resolve a scanner finding for a CVE Chainguard has fixed](/chainguard/containers/security-and-compliance/vulnerability-management/scanner-flags-fixed-cve/).
 
 If a result is still unclear, you can [contact support](/get-started/get-support/). When contacting support, include:
 
@@ -28080,7 +28276,7 @@ The presence of false positive and negative vulnerabilities can add a tricky lay
 
 This article aims to explain the formation of false positive and false negative vulnerabilities, allowing you to better understand what they mean, how they impact you, and how you can use tools to fine-tune your scanner to improve the accuracy of your scan results.
 
-> To learn more about why scan results may differ between your scanner and the Chainguard Console, refer to [the support article "Understanding Vulnerability Scanner Discrepancies with Chainguard Images."](https://support.chainguard.dev/hc/en-us/articles/49564106705819-Understanding-Vulnerability-Scanner-Discrepancies-with-Chainguard-Images)
+> If a Chainguard advisory or the Chainguard Console says a CVE is fixed but your scanner still reports it, see [Resolve a scanner finding for a CVE Chainguard has fixed](/chainguard/containers/security-and-compliance/vulnerability-management/scanner-flags-fixed-cve/). For more about why scan results can differ between your scanner and the Chainguard Console, refer to [the support article "Understanding Vulnerability Scanner Discrepancies with Chainguard Images."](https://support.chainguard.dev/hc/en-us/articles/49564106705819-Understanding-Vulnerability-Scanner-Discrepancies-with-Chainguard-Images)
 
 ## How false positives and false negatives occur
 
@@ -28129,13 +28325,17 @@ When a scanner cannot map `(devel)` to a concrete module version, it may be unab
 #### How to investigate a `(devel)` result
 
 1. Confirm the component name, module path, and component type in the scanner or SBOM output.
-2. Confirm that the finding is a Go module or binary component, not an APK package with a similar name.
-3. Inspect the binary’s embedded Go build metadata, or the build configuration that produced it, to determine whether a release or commit version is available.
-4. Compare the scanner’s affected and fixed-version ranges with the source revision or release used to build the binary.
-5. Rebuild with version metadata when possible, then regenerate the SBOM and rescan.
-6. If the scanner still reports the CVEs, provide the image digest, binary or module name, reported `(devel)` version, scanner and database versions, and the relevant scan output when requesting support.
+2. Find the file where the scanner found the binary, and check whether a Chainguard package owns it, as described in [When the finding is a Go module or Java dependency](/chainguard/containers/security-and-compliance/vulnerability-management/cve-status/#when-the-finding-is-a-go-module-or-java-dependency).
 
-Do not use `chainctl images advisories list` to validate this finding; that command checks APK packages only. For a Go-module finding, use the scanner’s language-package evidence and the dependency’s upstream advisory data.
+If a Chainguard package ships the binary, Chainguard records the binary's vulnerabilities against that package. For example, the Go toolchain binaries in the earlier output belong to a Go package such as `go-1.27`. Check that package's advisories with `chainctl images advisories list`, and compare its installed version with the fixed version, as described in [Components that a Chainguard package ships](/chainguard/containers/security-and-compliance/vulnerability-management/cve-status/#components-that-a-chainguard-package-ships).
+
+If your own build added the binary, Chainguard's advisories don't cover it. Investigate its version metadata instead:
+
+1. Inspect the binary’s embedded Go build metadata, or the build configuration that produced it, to determine whether a release or commit version is available.
+2. Compare the scanner’s affected and fixed-version ranges with the source revision or release used to build the binary.
+3. Rebuild with version metadata when possible, then regenerate the SBOM and rescan.
+
+If the scanner still reports the CVEs, provide the image digest, binary or module name, reported `(devel)` version, scanner and database versions, and the relevant scan output when requesting support.
 
 ### SCA vs SAST tools
 
@@ -50466,52 +50666,60 @@ Tutorials on IAM and Organizations
 ### Verified organizations
 _Path: platform/administration/iam-organizations/verified-orgs.md_
 
-Resources on the Chainguard platform are organized in a hierarchical structure called [IAM organizations](/platform/administration/iam-organizations/overview-of-chainguard-iam-model/). Single customers or organizations typically use a single root-level _Organization_ to manage their
-Chainguard resources.
+The Chainguard platform organizes resources in a hierarchical structure called [IAM organizations](/platform/administration/iam-organizations/overview-of-chainguard-iam-model/). A customer typically uses one root-level _organization_ to manage its Chainguard resources.
 
-Organizations can optionally be verified. Verification modifies some aspects of the Chainguard platform user experience to help large organizations guide their user base to the correct resources.
+## About verified organizations
 
-## Verifying your organization
+A verified organization is a root-level organization whose name Chainguard has confirmed and reserved for you. Only one organization on the Chainguard platform can hold a given verified name. Because of that, you can use the name anywhere you would otherwise use the organization's unique ID.
 
-Verification is currently a manual process. To verify your organization, please contact your customer support contact. You can check if your organization is verified using [`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/).
+Verifying your organization lets you:
+
+- Pull container images from a readable path, such as `cgr.dev/example.com/python`, instead of `cgr.dev/<org_id>/python`.
+- Log in through your [custom identity provider](/platform/administration/custom-idps/custom-idps/) by entering your organization name. This works in `chainctl`, the Chainguard Console, and the [Terraform provider](/platform/administration/terraform-provider/), so users don't need your identity provider's ID.
+- [Request new container images](/chainguard/containers/reference/request-resources/) in the Chainguard Console.
+
+Currently, Chainguard verifies customer organizations manually, typically while setting up your organization during onboarding. If you want to try Chainguard Containers before becoming a customer, refer to [Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/).
+
+## Check whether your organization is verified
+
+You can check whether your organization is verified using [`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/). The following command uses [`jq`](https://jqlang.org/) to filter the JSON output down to each organization's name and verification status.
 
 ```sh
-chainctl iam organization ls -o json | jq
+chainctl iam organization ls -o json | jq '.items[] | {name, verified}'
 ```
 
-Verified organizations will have a field `verified: true` set.
+A verified organization has the field `"verified": true`. The output for an unverified organization doesn't include the `verified` field, so `jq` prints `null`.
 
 ```json
-[
-  {
- "id": "f5a2c73d75a8d7fe666ecb623c79a2b771d78765",
- "name": "example.com",
- "resourceLimits": {
-     "clusters": 3,
-     "idps": 1
- },
- "verified": true
-  }
-]
+{
+  "name": "example.com",
+  "verified": true
+}
+{
+  "name": "example-unverified-org",
+  "verified": null
+}
 ```
 
-## Verified organizations and custom identity providers
+If your organization isn't verified, ask your Chainguard account team or support to verify it.
 
-If you've configured a [custom identity provider](/platform/administration/custom-idps/custom-idps/) and your organization is verified, you can select your identity provider by providing the name of your organization when authenticating.
+## Log in with your organization name
 
-When authenticating with `chainctl`, the `--org-name` flag can be passed. Here, the command uses the example organization name `example.com`.
+If you've configured a [custom identity provider](/platform/administration/custom-idps/custom-idps/) and your organization is verified, you can select your identity provider by entering your organization name when you log in.
+
+When authenticating with `chainctl`, pass the `--org-name` flag. This example uses the organization name `example.com`.
 
 ```sh
 chainctl auth login --org-name example.com
 ```
 
-As an alternative, you can set the organization name by editing the `chainctl` configuration file. You can do so with the following command.
+As an alternative, you can set the organization name by editing the `chainctl` configuration file with the following command.
 
 ```sh
 chainctl config edit
 ```
 
-This will open a text editor (nano, by default) where you can edit the local `chainctl` config. Add the following lines to this file.
+This command opens your system's default text editor, where you can edit the local `chainctl` configuration. Add the following lines to this file.
 
 ```yaml
 default:
@@ -50524,17 +50732,17 @@ You can also set this with a single command using the `chainctl config set` subc
 chainctl config set default.org-name example.com
 ```
 
-Once set, the configured identity provider will be used automatically any time you run `chainctl auth login`.
+After you set the organization name, `chainctl auth login` uses the configured identity provider automatically.
 
-When authenticating via the Chainguard Console, your organization name is detected from your email address in most cases. If your organization name does not match your email domain, it can be input manually to select your custom identity provider.
+When you log in to the Chainguard Console, the Console detects your organization name from your email address in most cases. If your organization name doesn't match your email domain, enter it manually to select your custom identity provider.
 
-## Verified organizations and Chainguard Containers
+## Pull images by organization name
 
-If your organization has access to Chainguard Containers, your container images are available in a private repository within the Chainguard registry. Your Chainguard container images are available to pull from `cgr.dev/<org_id>/<image_name>`, where `<org_id>` is the unique identifier for your organization. Once your organization is verified, you can use the name of your organization instead of your organization identifier. For example, if your organization is named `example.com` and is verified, you can pull private images with a command like `docker pull cgr.dev/example.com/<image_name>`.
+If your organization has access to Chainguard Containers, its container images are in a private repository within the Chainguard registry. You can pull them from `cgr.dev/<org_id>/<image_name>`, where `<org_id>` is your organization's unique ID. After Chainguard verifies your organization, you can use its name in place of the ID. For example, if your verified organization is named `example.com`, you can pull private images with a command like `docker pull cgr.dev/example.com/<image_name>`.
 
 ## Restrictions for verified organizations
 
-Once an organization is verified, its name can be used interchangeably with the organization's unique ID. Changes to the name can break image pulls from your organization's repository within the Chainguard registry and break authentication for users that have configured custom identity providers. For that reason, modifying the name of a verified organization is not currently possible. If you need to modify the name of your verified organization, please contact support.
+A verified organization's name works interchangeably with its unique ID. Changing the name can break image pulls from your organization's repository within the Chainguard registry, and it can break authentication for users who log in to your custom identity provider by organization name. For that reason, you can't rename a verified organization yourself. To rename it, contact support.
 
 ---
 
@@ -51319,7 +51527,7 @@ chainctl auth login --identity-provider=$IDP_ID
 
 You can retrieve all your identity provider's unique IDs by running `chainctl iam identity-providers list`.
 
-Note that you can also use the [`--headless` option](/platform/chainctl-usage/authentication-options/#headless-device-code-login) to log in with a custom IdP in an environment that doesn't have a browser installed, such as a container or a remote server. By including this option, `chainctl` will output a special URL. You can then navigate to the URL in another device's browser to log in with your custom IdP.
+Note that you can also use the [`--headless` option](/platform/chainctl-usage/authentication-options/#headless-device-code-login) to log in with a custom IdP in an environment that doesn't have a browser installed, such as a container or a remote server. With this option, `chainctl` outputs a special URL. You can then navigate to the URL in another device's browser to log in with your custom IdP.
 
 To log in with a custom IdP using the `--headless` option, you would run a command like the following:
 
@@ -51329,13 +51537,7 @@ chainctl auth login --headless --identity-provider=$IDP_ID
 
 Then you can use the URL in this command's output to complete the login flow from another device's browser.
 
-> **Note**: As of this writing (September 2024), using the headless login flow with a custom IdP is still an experimental feature. Please reach out to us through your customer success manager or the support portal to report any feedback. Also, until this feature becomes enabled by default, you must enable it yourself with the following command:
-
-```sh
-chainctl config set auth.device-flow chainguard
-```
-
-### Setting a default identity provider
+### Set a default identity provider
 
 As an alternative to remembering identity provider IDs, you can set the default identity provider by editing the `chainctl` configuration file. You can do so with the following command.
 
@@ -51343,7 +51545,7 @@ As an alternative to remembering identity provider IDs, you can set the default 
 chainctl config edit
 ```
 
-This will open your system's default text editor where you can edit the local `chainctl` config. Add the following lines to this file.
+This command opens your system's default text editor, where you can edit the local `chainctl` config. Add the following lines to this file.
 
 ```yaml
 default:
@@ -51358,7 +51560,7 @@ You can also set this with a single command using the `chainctl config set` subc
 chainctl config set default.identity-provider <idp_id>
 ```
 
-Once set, the configured identity provider will be used automatically any time you run `chainctl auth login`.
+After you set it, `chainctl auth login` uses the configured identity provider automatically.
 
 ### Authenticate with `chainctl` using a verified organization
 
@@ -51371,7 +51573,7 @@ chainctl auth login --org-name example.com
 You can add your organization's name to your `chainctl` config to make this a default setting.
 
 ```yaml
-defaults:
+default:
   org-name: example.com
 ```
 
@@ -51387,7 +51589,7 @@ To authenticate with the Chainguard Console, [open the login screen](https://con
 
 <center><img src="/platform/administration/custom-idps/custom-idps/cg-all-signin-24.png" alt="Screenshot showing an example Chainguard login box, with all described options shown." style="width:600px;"></center>
 
-In each of these cases, you will be redirected to an external identity provider to authenticate and then returned to the Chainguard Console. If you are using your email and a password, authentication is handled by and credentials are stored with [Auth0](https://auth0.com/).
+In each of these cases, the Chainguard Console redirects you to an external identity provider to authenticate and then returns you to the Console. If you use your email and a password, [Auth0](https://auth0.com/) handles authentication and stores your credentials.
 
 Multi-factor authentication follows the same split. Your own identity provider manages it for users who sign in through your SSO integration, while Chainguard manages it for users who sign in with an email address and a password. See [Change or reset your MFA device](/get-started/mfa-devices/) for what each group should do to move MFA to a new device.
 
@@ -51396,7 +51598,7 @@ Multi-factor authentication follows the same split. Your own identity provider m
 Chainguard SSO supports OpenID Connect (OIDC) compatible identity providers. In addition, identity providers must support the following:
 
 - The `authorization code` grant type (sometimes called the `authorization code` *flow*).
-- The standard `openid`, `email`, and `profile` scopes. Note that the Chainguard platform [will partially function](https://openid.net/specs/openid-connect-basic-1_0.html#Scopes) with only the `openid` scope, but full functionality requires the `email` and `profile` scopes as well.
+- The standard `openid`, `email`, and `profile` scopes. The Chainguard platform [partially functions](https://openid.net/specs/openid-connect-basic-1_0.html#Scopes) with only the `openid` scope, but full functionality requires the `email` and `profile` scopes as well.
 
 Customer-managed identity providers must also have a public, unauthenticated OIDC discovery endpoint.
 
@@ -51432,7 +51634,7 @@ For a generic OIDC-compatible identity provider, start by creating an OIDC appli
 - Our terms of service can be found at [chainguard.dev/terms-of-service](https://www.chainguard.dev/terms-of-service)
 - Our terms of use can be found at [chainguard.dev/terms-of-use](https://www.chainguard.dev/terms-of-use)
 - Our privacy policy is located at [chainguard.dev/privacy-notice](https://www.chainguard.dev/privacy-notice)
-- You can also add a Chainguard logo icon here to help your users visually identify this integration. The icon from the [Chainguard Console](https://console.chainguard.dev/logo512.png) will be suitable for most platforms
+- You can also add a Chainguard logo icon here to help your users visually identify this integration. The icon from the [Chainguard Console](https://console.chainguard.dev/logo512.png) suits most platforms
 
 Next, configure your OIDC application as follows:
 
@@ -51476,7 +51678,7 @@ chainctl iam identity-provider create \
 
 `chainctl` installs the provider in your organization automatically when you belong to only one. If you have access to more than one, add `--parent=<organization_id>` to choose where it is installed.
 
-The `oidc-issuer`, `oidc-client-id`, and `oidc-issuer-secret` values are required when setting up an OIDC configuration with `chainctl`. You must also include a unique name for each custom IdP account.
+The `oidc-issuer`, `oidc-client-id`, and `oidc-client-secret` values are required when setting up an OIDC configuration with `chainctl`. You must also include a unique name for each custom IdP account.
 
 If you omit the `--default-role` option, `chainctl` prompts you to select a value interactively. This option defines the default role granted to users registering with this identity provider. The previous example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. For more information, refer to the [IAM and Security section](#iam-and-security).
 
@@ -51493,7 +51695,7 @@ chainctl iam organizations ls -o table
   . . .                                              | . . .      |
 ```
 
-Your organization selection won’t affect how your users authenticate but will have implications on who has permission to modify the SSO configuration.
+The organization you choose doesn't affect how your users authenticate, but it determines who has permission to modify the SSO configuration.
 
 ## Managing existing identity providers
 
@@ -51502,7 +51704,7 @@ Identity providers can be managed via `chainctl` using the `chainctl iam identit
 To create new providers, you can use the `create` subcommand.
 
 ```sh
-chainct iam identity-provider create
+chainctl iam identity-provider create
 ```
 
 To list out every configured identity provider, run the `list` subcommand.
@@ -51511,7 +51713,7 @@ To list out every configured identity provider, run the `list` subcommand.
 chainctl iam identity-provider list
 ```
 
-This will return a list of details for each of your identity providers, including their names and unique IDs.
+This command returns details for each of your identity providers, including their names and unique IDs.
 
 To modify an existing identity provider, use the `update` subcommand.
 
@@ -51531,7 +51733,7 @@ For more details, check out the [`chainctl` documentation for these commands](/p
 
 ## IAM and security
 
-Once an identity provider has been created on the Chainguard platform, any user that can authenticate with that identity provider will be able to use it to access the Chainguard platform. It’s important to note that users can do so even if they have no IAM capabilities with the IAM organization at which the identity provider is defined. Identity providers give access to the Chainguard platform, but not the specific IAM organization where the identity provider is defined.
+After you create an identity provider on the Chainguard platform, any user who can authenticate with that identity provider can use it to access the Chainguard platform. It’s important to note that users can do so even if they have no IAM capabilities with the IAM organization at which the identity provider is defined. Identity providers give access to the Chainguard platform, but not the specific IAM organization where the identity provider is defined.
 
 The IAM capabilities `identity_providers.create`, `identity_providers.update`, `identity_providers.list` and `identity_providers.delete` control which users can read and manipulate identity providers. The built-in roles `viewer`, `editor` and `owner` have the following capabilities related to identity providers.
 
@@ -52302,7 +52504,7 @@ Otherwise, users authenticate by passing the identity provider's ID:
 chainctl auth login --identity-provider <IDP_ID>
 ```
 
-To avoid specifying this on every login, users can set a default identity provider or organization name in their `chainctl` configuration, as described in the [custom identity providers guide](/platform/administration/custom-idps/custom-idps/#setting-a-default-identity-provider). In the Chainguard Console, users in a verified organization can enter their organization name or email address to be routed to your identity provider.
+To avoid specifying this on every login, users can set a default identity provider or organization name in their `chainctl` configuration, as described in the [custom identity providers guide](/platform/administration/custom-idps/custom-idps/#set-a-default-identity-provider). In the Chainguard Console, users in a verified organization can enter their organization name or email address to be routed to your identity provider.
 
 If you need to restore Google login (for example, during a recovery scenario), follow the same steps to locate the Chainguard app, but instead of blocking it, change the access policy for the relevant organizational units to grant access. Select at least **Limited** access so that Google permits the login scopes.
 
@@ -56134,7 +56336,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: cgr.dev
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository being pulled from
-Ce-Time: 2026-09-29T17:51:13.393270789Z
+Ce-Time: 2026-09-30T19:15:46.695848338Z
 Ce-Type: dev.chainguard.registry.pull.v1
 Content-Length: 777
 Content-Type: application/json
@@ -56164,7 +56366,7 @@ User-Agent: Chainguard Enforce
     "tag": "The tag of the image being pulled",
     "type": "Type determines whether the object being pulled is a manifest or blob",
     "user_agent": "The user-agent of the client who pulled",
-    "when": "2026-09-29T17:51:13.391889"
+    "when": "2026-09-30T19:15:46.694796"
   }
 }
 
@@ -56187,7 +56389,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: cgr.dev
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository being pushed to
-Ce-Time: 2026-09-29T17:51:13.392555904Z
+Ce-Time: 2026-09-30T19:15:46.69502447Z
 Ce-Type: dev.chainguard.registry.push.v1
 Content-Length: 707
 Content-Type: application/json
@@ -56216,7 +56418,7 @@ User-Agent: Chainguard Enforce
     "tag": "The tag of the image being pushed",
     "type": "Type determines whether the object being pushed is a manifest or blob",
     "user_agent": "The user-agent of the client who pushed",
-    "when": "2026-09-29T17:51:13.391856"
+    "when": "2026-09-30T19:15:46.694752"
   }
 }
 
@@ -56239,7 +56441,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/auth/v1/register
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP
-Ce-Time: 2026-09-29T17:51:13.406287418Z
+Ce-Time: 2026-09-30T19:15:46.705555127Z
 Ce-Type: dev.chainguard.api.auth.registered.v1
 Content-Length: 154
 Content-Type: application/json
@@ -56279,7 +56481,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier of the subscription
-Ce-Time: 2026-09-29T17:51:13.406540835Z
+Ce-Time: 2026-09-30T19:15:46.711118153Z
 Ce-Type: dev.chainguard.api.events.subscription.created.v1
 Content-Length: 152
 Content-Type: application/json
@@ -56317,7 +56519,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier of the subscription to delete
-Ce-Time: 2026-09-29T17:51:13.40672464Z
+Ce-Time: 2026-09-30T19:15:46.71131716Z
 Ce-Type: dev.chainguard.api.events.subscription.deleted.v1
 Content-Length: 119
 Content-Type: application/json
@@ -56356,7 +56558,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-09-29T17:51:13.410139901Z
+Ce-Time: 2026-09-30T19:15:46.711543087Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -56397,7 +56599,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-09-29T17:51:13.41026799Z
+Ce-Time: 2026-09-30T19:15:46.711761423Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -56434,7 +56636,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-29T17:51:13.410385983Z
+Ce-Time: 2026-09-30T19:15:46.711960821Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -56482,7 +56684,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-09-29T17:51:13.406952306Z
+Ce-Time: 2026-09-30T19:15:46.698555164Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -56528,7 +56730,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-09-29T17:51:13.407207763Z
+Ce-Time: 2026-09-30T19:15:46.698740603Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -56574,7 +56776,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-09-29T17:51:13.407370338Z
+Ce-Time: 2026-09-30T19:15:46.698981211Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -56613,7 +56815,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-09-29T17:51:13.410560805Z
+Ce-Time: 2026-09-30T19:15:46.699821111Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -56653,7 +56855,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-09-29T17:51:13.410698044Z
+Ce-Time: 2026-09-30T19:15:46.6999813Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -56692,7 +56894,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-09-29T17:51:13.397631643Z
+Ce-Time: 2026-09-30T19:15:46.699194594Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -56731,7 +56933,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-09-29T17:51:13.397879316Z
+Ce-Time: 2026-09-30T19:15:46.699423546Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -56770,7 +56972,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-09-29T17:51:13.398063265Z
+Ce-Time: 2026-09-30T19:15:46.699607064Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -56809,7 +57011,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-09-29T17:51:13.398836643Z
+Ce-Time: 2026-09-30T19:15:46.715693138Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -56852,7 +57054,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-09-29T17:51:13.399101244Z
+Ce-Time: 2026-09-30T19:15:46.715860128Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -56892,7 +57094,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-09-29T17:51:13.399340757Z
+Ce-Time: 2026-09-30T19:15:46.716021981Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -56931,7 +57133,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-09-29T17:51:13.395690214Z
+Ce-Time: 2026-09-30T19:15:46.700628266Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -56974,7 +57176,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-09-29T17:51:13.395990316Z
+Ce-Time: 2026-09-30T19:15:46.700828616Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -57014,7 +57216,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-09-29T17:51:13.396224286Z
+Ce-Time: 2026-09-30T19:15:46.700953005Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -57051,7 +57253,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-29T17:51:13.396460112Z
+Ce-Time: 2026-09-30T19:15:46.701062672Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -57091,7 +57293,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-29T17:51:13.396759326Z
+Ce-Time: 2026-09-30T19:15:46.701176508Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -57135,7 +57337,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-29T17:51:13.397070948Z
+Ce-Time: 2026-09-30T19:15:46.701320281Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -57174,7 +57376,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-29T17:51:13.397325197Z
+Ce-Time: 2026-09-30T19:15:46.701441493Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -57215,7 +57417,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-09-29T17:51:13.413805492Z
+Ce-Time: 2026-09-30T19:15:46.700124049Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -57257,7 +57459,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings/batch
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-09-29T17:51:13.414022183Z
+Ce-Time: 2026-09-30T19:15:46.700240525Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -57300,7 +57502,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-09-29T17:51:13.414180118Z
+Ce-Time: 2026-09-30T19:15:46.700338472Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -57339,7 +57541,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-09-29T17:51:13.414339221Z
+Ce-Time: 2026-09-30T19:15:46.700431691Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -57378,7 +57580,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-09-29T17:51:13.39841226Z
+Ce-Time: 2026-09-30T19:15:46.709933569Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -57417,7 +57619,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-09-29T17:51:13.398574259Z
+Ce-Time: 2026-09-30T19:15:46.710150889Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -57456,7 +57658,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-09-29T17:51:13.398686044Z
+Ce-Time: 2026-09-30T19:15:46.710334951Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -57495,7 +57697,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-09-29T17:51:13.41454924Z
+Ce-Time: 2026-09-30T19:15:46.705898962Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -57538,7 +57740,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the destination organization
-Ce-Time: 2026-09-29T17:51:13.409606773Z
+Ce-Time: 2026-09-30T19:15:46.712180645Z
 Ce-Type: dev.chainguard.api.platform.registry.chart.added.v1
 Content-Length: 208
 Content-Type: application/json
@@ -57583,7 +57785,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-29T17:51:13.41489018Z
+Ce-Time: 2026-09-30T19:15:46.70631132Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.created.v1
 Content-Length: 243
 Content-Type: application/json
@@ -57625,7 +57827,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-29T17:51:13.415121534Z
+Ce-Time: 2026-09-30T19:15:46.70648847Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -57667,7 +57869,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-29T17:51:13.415260286Z
+Ce-Time: 2026-09-30T19:15:46.706640371Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.deleted.v1
 Content-Length: 116
 Content-Type: application/json
@@ -57704,7 +57906,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-09-29T17:51:13.415423188Z
+Ce-Time: 2026-09-30T19:15:46.706828689Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.created.v1
 Content-Length: 197
 Content-Type: application/json
@@ -57743,7 +57945,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-09-29T17:51:13.415591058Z
+Ce-Time: 2026-09-30T19:15:46.707049601Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.updated.v1
 Content-Length: 197
 Content-Type: application/json
@@ -57782,7 +57984,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-09-29T17:51:13.415732426Z
+Ce-Time: 2026-09-30T19:15:46.707181933Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.deleted.v1
 Content-Length: 109
 Content-Type: application/json
@@ -57821,7 +58023,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-09-29T17:51:13.401932004Z
+Ce-Time: 2026-09-30T19:15:46.702276921Z
 Ce-Type: dev.chainguard.api.policies.bindings.created.v1
 Content-Length: 245
 Content-Type: application/json
@@ -57865,7 +58067,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-09-29T17:51:13.402181653Z
+Ce-Time: 2026-09-30T19:15:46.702498408Z
 Ce-Type: dev.chainguard.api.policies.bindings.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -57909,7 +58111,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-09-29T17:51:13.402386761Z
+Ce-Time: 2026-09-30T19:15:46.702673646Z
 Ce-Type: dev.chainguard.api.policies.bindings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -57948,7 +58150,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/overrides
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the override
-Ce-Time: 2026-09-29T17:51:13.402572046Z
+Ce-Time: 2026-09-30T19:15:46.702890054Z
 Ce-Type: dev.chainguard.api.policies.overrides.created.v1
 Content-Length: 303
 Content-Type: application/json
@@ -57990,7 +58192,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/overrides
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the override
-Ce-Time: 2026-09-29T17:51:13.402778914Z
+Ce-Time: 2026-09-30T19:15:46.703110053Z
 Ce-Type: dev.chainguard.api.policies.overrides.deleted.v1
 Content-Length: 94
 Content-Type: application/json
@@ -58029,7 +58231,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-09-29T17:51:13.401186704Z
+Ce-Time: 2026-09-30T19:15:46.701634811Z
 Ce-Type: dev.chainguard.api.policies.policies.created.v1
 Content-Length: 337
 Content-Type: application/json
@@ -58073,7 +58275,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-09-29T17:51:13.401464416Z
+Ce-Time: 2026-09-30T19:15:46.701850003Z
 Ce-Type: dev.chainguard.api.policies.policies.updated.v1
 Content-Length: 337
 Content-Type: application/json
@@ -58117,7 +58319,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-09-29T17:51:13.40170205Z
+Ce-Time: 2026-09-30T19:15:46.702090851Z
 Ce-Type: dev.chainguard.api.policies.policies.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -58156,7 +58358,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-09-29T17:51:13.407668464Z
+Ce-Time: 2026-09-30T19:15:46.710555054Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -58202,7 +58404,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-09-29T17:51:13.407835278Z
+Ce-Time: 2026-09-30T19:15:46.710740076Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -58239,7 +58441,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-09-29T17:51:13.408121541Z
+Ce-Time: 2026-09-30T19:15:46.710923971Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -58287,7 +58489,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-09-29T17:51:13.404253018Z
+Ce-Time: 2026-09-30T19:15:46.714277067Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -58328,7 +58530,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-09-29T17:51:13.405759369Z
+Ce-Time: 2026-09-30T19:15:46.714437272Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -58365,7 +58567,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-29T17:51:13.405963493Z
+Ce-Time: 2026-09-30T19:15:46.714607342Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -58413,7 +58615,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-09-29T17:51:13.408612616Z
+Ce-Time: 2026-09-30T19:15:46.71247183Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -58453,7 +58655,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-09-29T17:51:13.408895999Z
+Ce-Time: 2026-09-30T19:15:46.712651532Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -58492,7 +58694,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-09-29T17:51:13.409200677Z
+Ce-Time: 2026-09-30T19:15:46.712883396Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -58529,7 +58731,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-09-29T17:51:13.409334061Z
+Ce-Time: 2026-09-30T19:15:46.713065002Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -58568,7 +58770,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-09-29T17:51:13.409439567Z
+Ce-Time: 2026-09-30T19:15:46.713203447Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -58609,7 +58811,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-09-29T17:51:13.411277794Z
+Ce-Time: 2026-09-30T19:15:46.713426374Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -58652,7 +58854,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-09-29T17:51:13.411526795Z
+Ce-Time: 2026-09-30T19:15:46.713658414Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -58689,7 +58891,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-09-29T17:51:13.411714056Z
+Ce-Time: 2026-09-30T19:15:46.71383278Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -58729,7 +58931,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities:updateIdentityMetadata
 Ce-Specversion: 1.0
 Ce-Subject: The caller's identity UID
-Ce-Time: 2026-09-29T17:51:13.411888846Z
+Ce-Time: 2026-09-30T19:15:46.714012826Z
 Ce-Type: dev.chainguard.api.iam.identity.metadata.updated.v1
 Content-Length: 135
 Content-Type: application/json
@@ -58769,7 +58971,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-09-29T17:51:13.412202619Z
+Ce-Time: 2026-09-30T19:15:46.707697175Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -58812,7 +59014,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-09-29T17:51:13.412428358Z
+Ce-Time: 2026-09-30T19:15:46.708208376Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -58852,7 +59054,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-09-29T17:51:13.412577405Z
+Ce-Time: 2026-09-30T19:15:46.708392454Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -58889,7 +59091,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-29T17:51:13.412730396Z
+Ce-Time: 2026-09-30T19:15:46.708540347Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -58929,7 +59131,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-29T17:51:13.412894626Z
+Ce-Time: 2026-09-30T19:15:46.708686416Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -58973,7 +59175,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-29T17:51:13.413085151Z
+Ce-Time: 2026-09-30T19:15:46.708883486Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -59012,7 +59214,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-29T17:51:13.413193441Z
+Ce-Time: 2026-09-30T19:15:46.709028627Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -59053,7 +59255,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay binding
-Ce-Time: 2026-09-29T17:51:13.403010772Z
+Ce-Time: 2026-09-30T19:15:46.703747058Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.created.v1
 Content-Length: 449
 Content-Type: application/json
@@ -59108,7 +59310,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay binding
-Ce-Time: 2026-09-29T17:51:13.403309706Z
+Ce-Time: 2026-09-30T19:15:46.705126152Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.updated.v1
 Content-Length: 449
 Content-Type: application/json
@@ -59163,7 +59365,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the deleted overlay binding
-Ce-Time: 2026-09-29T17:51:13.403536709Z
+Ce-Time: 2026-09-30T19:15:46.705317007Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.deleted.v1
 Content-Length: 120
 Content-Type: application/json
@@ -59202,7 +59404,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay
-Ce-Time: 2026-09-29T17:51:13.413329257Z
+Ce-Time: 2026-09-30T19:15:46.709265531Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.created.v1
 Content-Length: 224
 Content-Type: application/json
@@ -59247,7 +59449,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay
-Ce-Time: 2026-09-29T17:51:13.413453961Z
+Ce-Time: 2026-09-30T19:15:46.70946365Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.updated.v1
 Content-Length: 224
 Content-Type: application/json
@@ -59292,7 +59494,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the deleted overlay
-Ce-Time: 2026-09-29T17:51:13.413556123Z
+Ce-Time: 2026-09-30T19:15:46.709630359Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.deleted.v1
 Content-Length: 112
 Content-Type: application/json
@@ -59331,7 +59533,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-29T17:51:13.393757992Z
+Ce-Time: 2026-09-30T19:15:46.697299282Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.created.v1
 Content-Length: 243
 Content-Type: application/json
@@ -59373,7 +59575,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-29T17:51:13.394149385Z
+Ce-Time: 2026-09-30T19:15:46.697550923Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -59415,7 +59617,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-29T17:51:13.394402906Z
+Ce-Time: 2026-09-30T19:15:46.697709184Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.deleted.v1
 Content-Length: 116
 Content-Type: application/json
@@ -59452,7 +59654,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-29T17:51:13.395287902Z
+Ce-Time: 2026-09-30T19:15:46.697925119Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -59496,7 +59698,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-09-29T17:51:13.399576064Z
+Ce-Time: 2026-09-30T19:15:46.696332154Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -59538,7 +59740,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-09-29T17:51:13.399776164Z
+Ce-Time: 2026-09-30T19:15:46.696573274Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -59575,7 +59777,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings:batchCreate
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-09-29T17:51:13.399990487Z
+Ce-Time: 2026-09-30T19:15:46.696835083Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -59618,7 +59820,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-09-29T17:51:13.400251567Z
+Ce-Time: 2026-09-30T19:15:46.697055234Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -59659,7 +59861,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-09-29T17:51:13.400499705Z
+Ce-Time: 2026-09-30T19:15:46.714825941Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -59698,7 +59900,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-09-29T17:51:13.400695733Z
+Ce-Time: 2026-09-30T19:15:46.715000499Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -59737,7 +59939,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-09-29T17:51:13.400887114Z
+Ce-Time: 2026-09-30T19:15:46.715151472Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -59776,7 +59978,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-09-29T17:51:13.409824032Z
+Ce-Time: 2026-09-30T19:15:46.715330734Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.created.v1
 Content-Length: 197
 Content-Type: application/json
@@ -59815,7 +60017,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-09-29T17:51:13.41000031Z
+Ce-Time: 2026-09-30T19:15:46.715499692Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.deleted.v1
 Content-Length: 109
 Content-Type: application/json
@@ -59854,7 +60056,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-09-29T17:51:13.403766303Z
+Ce-Time: 2026-09-30T19:15:46.698292644Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -61026,6 +61228,14 @@ _Path: platform/chainctl/chainctl-docs/chainctl_iam_identities_delete.md_
 ## chainctl iam identities delete
 
 Delete one or more identities.
+
+### Synopsis
+
+Delete one or more identities.
+
+Deleting a delegate stops every future exchange of its grants. Grants are
+stateless, so ones already minted for it are not revoked; they expire within
+60 minutes.
 
 ```
 chainctl iam identities delete {IDENTITY_NAME | IDENTITY_ID | --expired [--parent=PARENT]} [--yes]
@@ -62843,16 +63053,53 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_token.md_
 
 Print the local Chainguard Token.
 
+### Synopsis
+
+Print the local Chainguard Token.
+
+With --capabilities and/or --scope, print a token narrowed to that access
+instead of the cached one.
+
+With --delegate, mint a grant for a delegate (see "chainctl iam identities
+create delegate"): a token whose only audience is the delegation audience the
+delegate pins, narrowed to --scope (required) and to the capabilities of
+--role plus any --capabilities. The delegate exchanges the grant for tokens
+carrying a subset of that access and expiring no later than the grant, which
+lives at most 60 minutes. No API accepts the grant itself.
+
+A grant cannot carry more than you hold; chainctl warns before minting one
+that asks for more. Grants are stateless, so there is no per-grant list or
+revoke: deleting the delegate stops every future exchange, and grants already
+minted expire within 60 minutes.
+
+The grant is minted from the cached refresh token when there is one,
+otherwise from ambient credentials or a fresh login, and it is never cached.
+
+The global --audience flag keeps its meaning here: it selects the API
+audience of the cached token, and is unrelated to the grant's audience.
+
 ```
 chainctl auth token [flags]
+```
+
+### Examples
+
+```
+  # Mint a grant for a delegate carrying the viewer role's capabilities in an organization.
+  chainctl auth token --delegate=my-delegate --role=viewer --scope=ORGANIZATION_ID
+  
+  # Inspect what a grant carries.
+  chainctl auth token --delegate=my-delegate --capabilities=repo.list --scope=ORGANIZATION_ID | chainctl auth token capabilities --token -
 ```
 
 ### Options
 
 ```
-      --capabilities strings   Request a token narrowed to the given capabilities.
+      --capabilities strings   Request a token narrowed to the given capabilities. With --delegate, capabilities the grant carries in addition to --role's.
+      --delegate string        Mint a grant for this delegate (name or ID). Requires --scope and --role or --capabilities.
       --interactive            Allow browser or device login when needed, even when stderr is redirected.
-      --scope strings          Request a token with scope reduced to the given groups.
+      --role strings           With a grant (--delegate), the roles whose capabilities the grant carries.
+      --scope strings          Request a token with scope reduced to the given groups (names or IDs).
 ```
 
 ### Options inherited from parent commands
@@ -65758,7 +66005,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_pull-token_create.md_
 Create a pull token.
 
 ```
-chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|java|python|java_athena|python_athena|ruby|javascript|javascript_athena|dotnet|dotnet_athena|go|go_athena|ruby_athena}] [flags]
+chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|go_athena|ruby_athena|java|python_athena|go|ruby|python|javascript|java_athena|javascript_athena|dotnet|dotnet_athena}] [flags]
 ```
 
 ### Examples
@@ -65786,7 +66033,7 @@ chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, java, python, java_athena, python_athena, ruby, javascript, javascript_athena, dotnet, dotnet_athena, go, go_athena, ruby_athena. (default "oci")
+      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, go_athena, ruby_athena, java, python_athena, go, ruby, python, javascript, java_athena, javascript_athena, dotnet, dotnet_athena. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
 ```
@@ -68070,7 +68317,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_pull-token_list.md_
 List all pull-tokens
 
 ```
-chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|java|python|java_athena|python_athena|ruby|javascript|javascript_athena|dotnet|dotnet_athena|go|go_athena|ruby_athena}] [flags]
+chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|go_athena|ruby_athena|java|python_athena|go|ruby|python|javascript|java_athena|javascript_athena|dotnet|dotnet_athena}] [flags]
 ```
 
 ### Examples
@@ -68097,7 +68344,7 @@ chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--reposi
 ```
       --expired             If true return only expired pull tokens.
       --parent string       The IAM organization or folder with which the pull-token identity is associated.
-      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, java, python, java_athena, python_athena, ruby, javascript, javascript_athena, dotnet, dotnet_athena, go, go_athena, ruby_athena
+      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, go_athena, ruby_athena, java, python_athena, go, ruby, python, javascript, java_athena, javascript_athena, dotnet, dotnet_athena
 ```
 
 ### Options inherited from parent commands
@@ -68261,6 +68508,77 @@ chainctl skills push [<path>] [flags]
 ### SEE ALSO
 
 * [chainctl skills](/platform/chainctl/chainctl-docs/chainctl_skills/)	 - Skills registry related commands.
+
+---
+
+### chainctl iam identities create delegate
+_Path: platform/chainctl/chainctl-docs/chainctl_iam_identities_create_delegate.md_
+
+## chainctl iam identities create delegate
+
+Create a delegate: an identity that acts only on grants you mint for it.
+
+### Synopsis
+
+Create a delegate: an identity that acts only on grants you mint for it.
+
+A delegate holds no role bindings and cannot be assumed directly. Its only
+use is the delegated exchange of a grant minted by its subject with
+"chainctl auth token --delegate=NAME". The exchanged token's subject is the
+delegate, it records you as the actor, and it carries at most the grant's
+capabilities within the delegate's organization.
+
+The delegate pins your identity as its subject (or --subject, which requires
+permission to create identities), this environment's issuer, and a randomly
+generated delegation audience that grants for it are minted for.
+
+Grants are stateless, so there is no per-grant list or revoke. Deleting the
+delegate stops every future exchange; grants already minted for it expire
+within 60 minutes.
+
+```
+chainctl iam identities create delegate NAME [--parent=PARENT] [--description=DESC] [--subject=IDENTITY_ID] [--yes] [--output=id|json|table]
+```
+
+### Examples
+
+```
+  # Create a delegate in an organization and mint a grant for it.
+  chainctl iam identities create delegate my-delegate --parent=my-org
+  chainctl auth token --delegate=my-delegate --role=viewer --scope=ORGANIZATION_ID
+  
+  # As an administrator, create a delegate for another user.
+  chainctl iam identities create delegate their-delegate --parent=my-org --subject=IDENTITY_ID
+```
+
+### Options
+
+```
+  -d, --description string   The description of the resource.
+  -n, --name string          Given name of the resource.
+      --parent string        The name or id of the parent location to create this identity under. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
+      --subject string       The Chainguard identity ID allowed to mint grants for this delegate (default: your own).
+  -y, --yes                  Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+```
+
+### Options inherited from parent commands
+
+```
+      --api string         The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
+      --audience string    The Chainguard token audience to request. (default "https://console-api.enforce.dev")
+      --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
+      --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
+      --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
+      --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
+      --log-level string   Set the log level (debug, info) (default "ERROR")
+  -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
+  -v, --v int              Set the log verbosity level.
+```
+
+### SEE ALSO
+
+* [chainctl iam identities create](/platform/chainctl/chainctl-docs/chainctl_iam_identities_create/)	 - Create a new identity.
 
 ---
 
@@ -70814,6 +71132,7 @@ chainctl iam identities create NAME {--filename FILE | {--identity-issuer=ISS | 
 
 * [chainctl iam identities](/platform/chainctl/chainctl-docs/chainctl_iam_identities/)	 - Identity management.
 * [chainctl iam identities create aws](/platform/chainctl/chainctl-docs/chainctl_iam_identities_create_aws/)	 - Create a new identity for an AWS IAM resource.
+* [chainctl iam identities create delegate](/platform/chainctl/chainctl-docs/chainctl_iam_identities_create_delegate/)	 - Create a delegate: an identity that acts only on grants you mint for it.
 * [chainctl iam identities create github](/platform/chainctl/chainctl-docs/chainctl_iam_identities_create_github/)	 - 
 * [chainctl iam identities create gitlab](/platform/chainctl/chainctl-docs/chainctl_iam_identities_create_gitlab/)	 -
 
@@ -71030,8 +71349,29 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_token_capabilities.md_
 
 Print the capabilities of the local Chainguard Token.
 
+### Synopsis
+
+Print the capabilities of the local Chainguard Token.
+
+With --token -, decode the token read from standard input instead. This
+shows what a grant minted with "chainctl auth token --delegate" carries:
+
+  chainctl auth token --delegate=my-delegate --role=viewer --scope=my-org | chainctl auth token capabilities --token -
+
+Prefer "--token -" to passing a token as the flag's value: a token on the
+command line is visible to other local users in the process list and is kept
+in shell history.
+
+The token is decoded, not verified.
+
 ```
-chainctl auth token capabilities [flags]
+chainctl auth token capabilities [--token=TOKEN|-] [flags]
+```
+
+### Options
+
+```
+      --token string   Decode another token instead of the local one. Use "-" to read it from standard input; a token given as the value is visible in the process list and shell history.
 ```
 
 ### Options inherited from parent commands
@@ -71127,6 +71467,7 @@ chainctl auth configure docker [flags]
       --identity string            The unique ID of the identity to assume when logging in.
       --identity-provider string   The unique ID of the customer managed identity provider to authenticate with. Mutually exclusive with --org-name.
       --identity-token string      Use an explicit passed identity token or token path.
+      --images                     Also configure the experimental customer images registry
       --name string                Optional name for the pull token (default "pull-token")
       --org-name string            Organization to use for authentication. If configured the organization's custom identity provider will be used. Mutually exclusive with --identity-provider.
       --parent string              The IAM organization or folder with which the pull-token identity is associated.
@@ -71434,7 +71775,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_iam_identities_list.md_
 List identities.
 
 ```
-chainctl iam identities list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--name=NAME] [--relationship={aws|claim_match|pull_token|service_principal|static}] [--expired] [--recursive] [--output=id|json|table]
+chainctl iam identities list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--name=NAME] [--relationship={aws|claim_match|delegate|pull_token|service_principal|static}] [--expired] [--recursive] [--output=id|json|table]
 ```
 
 ### Examples
@@ -71463,7 +71804,7 @@ chainctl iam identities list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOL
       --name string     Filter identities by name.
       --parent string   The name or id of the parent location to list identities from. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --recursive       List identities from the parent location and all nested locations. Set to false to list only the parent location. (default true)
-      --type string     Filter identities by type (one of aws, claim_match, pull_token, service_principal, static).
+      --type string     Filter identities by type (one of aws, claim_match, delegate, pull_token, service_principal, static).
 ```
 
 ### Options inherited from parent commands
@@ -72248,7 +72589,7 @@ chainctl auth pull-token [flags]
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, java, python, java_athena, python_athena, ruby, javascript, javascript_athena, dotnet, dotnet_athena, go, go_athena, ruby_athena. (default "oci")
+      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, go_athena, ruby_athena, java, python_athena, go, ruby, python, javascript, java_athena, javascript_athena, dotnet, dotnet_athena. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
 ```
@@ -72540,6 +72881,7 @@ chainctl auth configure-docker [flags]
       --identity string            The unique ID of the identity to assume when logging in.
       --identity-provider string   The unique ID of the customer managed identity provider to authenticate with. Mutually exclusive with --org-name.
       --identity-token string      Use an explicit passed identity token or token path.
+      --images                     Also configure the experimental customer images registry
       --name string                Optional name for the pull token (default "pull-token")
       --org-name string            Organization to use for authentication. If configured the organization's custom identity provider will be used. Mutually exclusive with --identity-provider.
       --parent string              The IAM organization or folder with which the pull-token identity is associated.
@@ -74404,7 +74746,7 @@ The `auth` key controls the login flow.
 
 | Property | Default | Description |
 |---|---|---|
-| `auth.mode` | `browser` | Login flow. One of `browser` (opens a browser) or `headless` (for environments without one). |
+| `auth.mode` | `browser` | Login flow. One of `browser` (opens a browser) or `headless` (for environments without one). `chainctl auth login --headless` sets this to `headless`; see [Headless mode persists after you use it](/platform/chainctl-usage/authentication-options/#headless-mode-persists-after-you-use-it). |
 
 ### Defaults
 
@@ -74524,9 +74866,31 @@ If the shell can't launch a browser—for example, on a container or a remote se
 chainctl auth login --headless
 ```
 
-`chainctl` outputs an eight-character code and a URL, [`https://auth.chainguard.dev/activate`](https://auth.chainguard.dev/activate). Open the URL in a browser on any device, enter the code, and complete the login. You can then use Chainguard from the headless device.
+`chainctl` prints a single URL with a one-time code embedded in it:
 
-The `--headless` code is valid for 900 seconds.
+```output
+Visit this URL on any device with a browser to authenticate: https://issuer.enforce.dev/oauth?headless_code=<code>
+```
+
+Open the URL in a browser on any device and complete the login. You don't type the code anywhere. If you also pass `--social-login`, the URL includes a `connection` parameter that names the provider.
+
+`chainctl` waits about 10 minutes for the browser login to finish, and then you can use Chainguard from the headless device. If time runs out, `chainctl` exits with a `timed out waiting` error. Run the command again to get a new URL.
+
+### Headless mode persists after you use it
+
+When you pass `--headless`, `chainctl` saves headless as your default login mode and tells you so:
+
+```output
+Saving "headless" as default auth mode to chainctl configuration. To disable: chainctl config unset auth.mode
+```
+
+From then on, `chainctl auth login` uses the device flow even without `--headless`, and so does any command that logs you in again after your token expires. Instead of opening a browser, the command prints a URL and waits for you to complete the login. If you miss the URL, the command can look like it has stopped responding.
+
+To return to browser login, remove the setting:
+
+```sh
+chainctl config unset auth.mode
+```
 
 ## Select an identity provider with --social-login
 
@@ -74551,6 +74915,53 @@ Assumable identities let automation tools like GitHub Actions or AWS Lambda conn
 Pull tokens are ideal for pulling images and libraries and can be long-lived. You can create them in the Chainguard Console or with `chainctl`. See [authenticating to the Chainguard registry](/chainguard/containers/registry/authenticating/#authenticating-with-a-pull-token).
 
 A pull token is a pair of values that most tools consume as a username and a password. `chainctl` labels that pair differently in each output format, so refer to [pull token output formats and credential names](/platform/chainctl-usage/pull-token-output/) to map the labels to each other.
+
+## Troubleshoot chainctl login
+
+The following sections cover the most common reasons `chainctl auth login` fails or stalls. After you apply a fix, confirm that you're logged in:
+
+```sh
+chainctl auth status
+```
+
+### Login prints a URL instead of opening a browser
+
+If `chainctl auth login` prints a URL and waits, your configuration is probably set to headless mode. Check the `auth` section of your configuration:
+
+```sh
+chainctl config view
+```
+
+If it shows `mode: headless`, either complete the login at the printed URL or [return to browser login](#headless-mode-persists-after-you-use-it).
+
+### Login hangs or fails behind a TLS-inspecting proxy
+
+Corporate proxies that decrypt and inspect TLS traffic, such as Netskope or Zscaler, can break `chainctl` login. The login might wait indefinitely, or fail with an error such as `context deadline exceeded`, `missing selected ALPN property`, or `timed out validating the new token`. Run the command with `--log-level=debug` to see which request fails.
+
+Ask your network administrator to exempt these hosts from TLS inspection:
+
+* `issuer.enforce.dev` and `console-api.enforce.dev`, which every login needs
+* `auth.chainguard.dev` and `chainguard.us.auth0.com`, which social login also needs
+
+For the full list of hosts that Chainguard tools use, see [Network requirements](/chainguard/containers/registry/network-requirements/).
+
+If the proxy mishandles HTTP/2, downgrade the login's STS requests to HTTP/1.x:
+
+```sh
+chainctl auth login --sts-http1-downgrade
+```
+
+This flag affects only STS requests. Other `chainctl` commands still need encrypted HTTP/2 through the proxy, so treat the flag as a workaround until your network administrator adds the exemption.
+
+### Organization not found or not verified
+
+If login fails with an error that the organization is "not found, is not verified, or does not have an IDP configured," `chainctl` couldn't match the organization name you entered. Enter your organization's verified domain, such as `example.com`, rather than its display name. To skip the prompt, pass the domain with `--org-name`:
+
+```sh
+chainctl auth login --org-name=example.com
+```
+
+If your organization uses a custom identity provider, you can pass its ID with `--identity-provider` instead. See [custom identity providers](/platform/administration/custom-idps/custom-idps/).
 
 ---
 
@@ -76508,6 +76919,8 @@ chainctl auth login \
   --audience=https://versions.cgr.dev/mcp \
   --audience=https://console-api.enforce.dev/mcp
 ```
+
+`--headless` also makes headless your default login mode, so later `chainctl` logins print a URL instead of opening a browser. To return to browser login, run `chainctl config unset auth.mode`. See [Headless mode persists after you use it](/platform/chainctl-usage/authentication-options/#headless-mode-persists-after-you-use-it).
 
 The Public Skills MCP server accepts the same method. Add `--audience=https://skills.cgr.dev/mcp` to log in to it too.
 
