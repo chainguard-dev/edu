@@ -6,7 +6,7 @@ aliases:
 description: "JavaScript libraries for your application development"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-09-28T18:48:06+00:00
+lastmod: 2026-10-02T16:25:03+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript", "Overview"]
 menu:
@@ -93,13 +93,24 @@ Configure this endpoint [globally through a repository manager](/chainguard/libr
 
 ## Updating lockfile hashes
 
-Existing JavaScript lockfiles usually contain upstream integrity hashes. Because Chainguard rebuilds packages from verified source, those hashes must be updated before reinstalling. Use `chainctl libraries update-hashes` to update them in place. Learn more in [Build configuration](/chainguard/libraries/javascript/build-configuration/#updating-lockfile-hashes/).
+Existing JavaScript lockfiles usually contain upstream integrity hashes. Because Chainguard rebuilds packages from verified source, those hashes must be updated before reinstalling. Use `chainctl libraries update-hashes` to update them in place. Learn more in [Build configuration](/chainguard/libraries/javascript/build-configuration/#updating-lockfile-hashes).
 
 For a step-by-step walkthrough of moving an existing project to Chainguard Libraries, check out the [JavaScript migration guide](/chainguard/libraries/javascript/migration/).
 
 If you install through a repository manager, refer to [Global configuration](/chainguard/libraries/javascript/global-configuration/#updating-lockfile-hashes/).
 
 When the upstream fallback is enabled, [build pinning](/chainguard/libraries/policies-and-security/build-pinning/) keeps a version you pulled from upstream stable after Chainguard publishes its own build, so you don't have to update these hashes again unexpectedly.
+
+## CVE remediation
+
+Chainguard Libraries for JavaScript includes the [CVE
+Remediation](/chainguard/libraries/policies-and-security/cve-remediation/) feature. Remediated packages carry an appended prerelease identifier of `-cgr.N`. For example, a remediated build of `example-package` version `4.17.21` is published as `example-package@4.17.21-cgr.1`.
+
+Unlike Python and Java, JavaScript remediation does not rely on version precedence. Because `-cgr.N` is an npm prerelease identifier, npm semver resolution does not treat it as newer than the base version, so a normal range such as `^4.17.21` never matches it. Instead, remediation operates on the resolved dependency tree in your lockfile.
+
+Preview available remediations by running `chainctl libraries remediate`, then adopt them by running the same command with `--apply`. When applied, the command walks the lockfile and updates each eligible package to the corresponding `-cgr.N` version. The change depends on where the package sits in your dependency tree: for a direct dependency, the command sets the exact `-cgr.N` version in `package.json`; for a transitive dependency, it adds an override or resolution rule that your package manager supports. In both cases, it also updates the lockfile. Re-run the command after every install or dependency update so that newly resolved entries are evaluated.
+
+Remediated artifacts are served through the standard JavaScript endpoint at `https://libraries.cgr.dev/javascript/`. For how remediation handles transitive dependencies and repeated package occurrences, see [CVE remediation](/chainguard/libraries/policies-and-security/cve-remediation/).
 
 ## Provenance and attestations
 

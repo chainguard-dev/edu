@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for JavaScript on your workstation"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-02T16:25:03+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
@@ -31,6 +31,13 @@ fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-con
 enabled for your organization, the same endpoint can also serve requested
 versions from upstream, under Chainguard security controls.
 
+The same endpoint also serves remediated `-cgr.N` artifacts, so there is no
+separate remediated repository to configure. The registry configuration on this
+page does not select remediated versions on its own; to select them, run
+`chainctl libraries remediate` in your project. Refer to [CVE
+remediation](/chainguard/libraries/policies-and-security/cve-remediation/) for
+details.
+
 This guide outlines how to configure your build tool. If you are looking for something else, refer to the following guides depending on your goals:
 
 | If you want to... | Use this page |
@@ -43,7 +50,9 @@ This guide outlines how to configure your build tool. If you are looking for som
 
 If a package or version is blocked by a policy or malware scan, your build tool returns an error. Refer to the [Error messages documentation](/chainguard/libraries/troubleshooting/errors/) for more details.
 
-## JFrog Artifactory
+## Access approaches
+
+### Repository manager: JFrog Artifactory
 
 Build configuration to retrieve artifacts from Artifactory typically requires
 you to authenticate and use the identity token in the configuration of your
@@ -53,7 +62,7 @@ Follow the steps from the [global
 configuration](/chainguard/libraries/javascript/global-configuration/#jfrog-artifactory)
 to determine URL and authentication details.
 
-## Sonatype Nexus Repository
+### Repository manager: Sonatype Nexus Repository
 
 Build configuration to retrieve artifacts from Nexus may require authentication.
 Use your username and password for Nexus in your build tool configuration.
@@ -64,7 +73,7 @@ to determine URL and authentication details.
 
 <a id="direct-access"></a>
 
-## Direct access
+### Direct access
 
 Build configuration to retrieve artifacts **directly** from the Chainguard
 Libraries for JavaScript repository at `https://libraries.cgr.dev/javascript/`
@@ -130,6 +139,72 @@ When you target a repository manager with `--registry-url`, authenticate with **
 entry. Chainguard-scoped tokens are never sent to third-party hosts.
 
 Learn more about using a repository manager in the [global configuration documentation](/chainguard/libraries/javascript/global-configuration/).
+
+## Adopting remediated JavaScript artifacts
+
+Pointing your build tool at the Chainguard registry does not select remediated
+`-cgr.N` artifacts on its own. JavaScript remediation operates on the resolved
+dependency tree in your lockfile, so you adopt it with `chainctl libraries
+remediate` after your project is configured to use the Chainguard registry and a
+lockfile exists.
+
+> **Note**: Running `chainctl libraries remediate` requires the
+> `libraries.javascript.pull` permission or the Owner role.
+
+First, preview the available remediations:
+
+```bash
+chainctl libraries remediate
+```
+
+The `--apply` step reads credentials from a `.npmrc` file in your project
+directory. Some registry setup options on this page store those settings
+elsewhere, such as your user-level `.npmrc` or your package manager's own
+configuration, so you can finish registry setup without a project `.npmrc`. If
+you don't have one, create it by running `chainctl auth configure-npm` from the
+project directory:
+
+```bash
+chainctl auth configure-npm
+```
+
+This writes a project-level `.npmrc` with the registry URL and credentials. Do
+not commit these credentials to version control; supply them through environment
+variables or CI secrets at build time. Yarn and pnpm authenticate differently;
+see [Yarn](#yarn) and [pnpm](#pnpm) for their setup steps.
+
+Then adopt them:
+
+```bash
+chainctl libraries remediate --apply
+```
+
+With `--apply`, the command walks your lockfile and updates each eligible
+package to the corresponding Chainguard remediated version. How it records the
+change depends on where the package sits in your dependency tree: for a direct
+dependency, it sets the exact `-cgr.N` version in `package.json`; for a
+transitive dependency, it adds an override or resolution rule your package
+manager supports (for example, the `overrides` field for npm or `resolutions`
+for Yarn). The command also updates the lockfile. Only packages with a `-cgr.N`
+build for the exact version resolved in your lockfile are changed; every other
+dependency stays unchanged.
+
+Because `--apply` updates the lockfile and verifies the result before it changes
+your project, adoption is complete once the command succeeds. You don't need to
+regenerate the lockfile or rewrite hashes afterward. To confirm the change,
+review the modified files (`package.json` and your lockfile), run an install
+that preserves the lockfile, and run your application's tests.
+
+If you also changed your registry configuration, see the per-tool **Apply
+registry changes** sections for [npm](#npm-apply), [pnpm](#pnpm-apply),
+[Yarn](#yarn-apply), or [Bun](#bun-apply).
+
+Re-run `chainctl libraries remediate` after every install or dependency update
+so that newly resolved entries are evaluated.
+
+For remediated version naming and how remediation propagates through transitive
+dependencies, see [CVE remediation for Chainguard
+Libraries](/chainguard/libraries/policies-and-security/cve-remediation/).
 
 <a id="npm"></a>
 
@@ -217,9 +292,11 @@ Example URLs:
 - Sonatype Nexus: `https://repo.example.com:8443/repository/javascript-all/`
 - Direct access: `https://libraries.cgr.dev/javascript/`
 
+<a id="npm-apply"></a>
+
 ### Apply registry changes
 
-To apply the registry changes, remove the `node_modules` directory, [update the artifact hashes](#update-lockfile-hashes), then run the `npm install` command again. This re-fetches all
+To apply the registry changes, remove the `node_modules` directory, [update the artifact hashes](#updating-lockfile-hashes), then run the `npm install` command again. This re-fetches all
 packages from Chainguard and updates the lockfile in place with updated hashes:
 
 ```bash
@@ -504,9 +581,11 @@ Example URLs:
 - Sonatype Nexus: `https://repo.example.com:8443/repository/javascript-all/`
 - Direct access: `https://libraries.cgr.dev/javascript/`
 
+<a id="pnpm-apply"></a>
+
 ### Apply registry changes
 
-To apply the registry changes, remove the `node_modules` directory, [update the artifact hashes](#update-lockfile-hashes), then run the `pnpm install` command again. This re-fetches all
+To apply the registry changes, remove the `node_modules` directory, [update the artifact hashes](#updating-lockfile-hashes), then run the `pnpm install` command again. This re-fetches all
 packages from Chainguard and updates the lockfile in place with updated hashes:
 
 ```bash
@@ -721,6 +800,8 @@ Example URLs:
 - JFrog Artifactory: `https://example.jfrog.io/artifactory/javascript-all`
 - Sonatype Nexus: `https://repo.example.com:8443/repository/javascript-all`
 - Direct access: `https://libraries.cgr.dev/javascript`
+
+<a id="yarn-apply"></a>
 
 ### Apply registry changes
 
@@ -953,7 +1034,7 @@ Refer to the [`.yarnrc`
 documentation](https://classic.yarnpkg.com/lang/en/docs/yarnrc/) for more
 details.
 
-To apply the registry changes, remove the `node_modules` directory, [update the artifact hashes](#update-lockfile-hashes), then run the `yarn install` command again. This re-fetches all
+To apply the registry changes, remove the `node_modules` directory, [update the artifact hashes](#updating-lockfile-hashes), then run the `yarn install` command again. This re-fetches all
 packages from Chainguard and updates the lockfile in place with updated hashes:
 
 ```bash
@@ -1101,9 +1182,11 @@ Example registry URLs:
 - Sonatype Nexus: https://repo.example.com:8443/repository/javascript-all/
 - Direct access: https://libraries.cgr.dev/javascript/
 
+<a id="bun-apply"></a>
+
 ### Apply registry changes
 
-To apply the registry changes, remove the `node_modules` directory, [update the artifact hashes](#update-lockfile-hashes), then run the `bun install` command again. This re-fetches all
+To apply the registry changes, remove the `node_modules` directory, [update the artifact hashes](#updating-lockfile-hashes), then run the `bun install` command again. This re-fetches all
 packages from Chainguard and updates the lockfile in place with updated hashes:
 
 ```bash
