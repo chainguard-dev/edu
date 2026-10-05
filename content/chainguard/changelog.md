@@ -4,7 +4,7 @@ linktitle: "Changelog"
 type: "article"
 description: "Weekly changelog of Chainguard product updates — product announcements, breaking changes, container images reaching end-of-life or leaving the catalog, and images newly added to it."
 date: 2026-07-28T00:00:00+00:00
-lastmod: 2026-10-05T18:03:27+00:00
+lastmod: 2026-10-05T19:28:18+00:00
 draft: false
 tags: ["Chainguard Containers", "Changelog"]
 images: []
@@ -18,6 +18,24 @@ This page logs Chainguard product updates week by week, newest first: product an
 Breaking changes and product announcements cover the entire Chainguard portfolio, while end-of-life, availability, and new-image entries relate specifically to Chainguard Containers. This page summarizes the changes most likely to affect your work rather than every change Chainguard ships. Routine updates, such as new tags for existing images, are not listed individually. For the current tags and versions of any container image, refer to its entry in the [Chainguard Directory](https://images.chainguard.dev/directory).
 
 ## Week of 2026-10-05
+
+{{< changelog-label "Product Announcements" >}}
+
+### First Athena vulnerability disclosures
+
+_Launched September 28, 2026._
+
+[Athena](https://www.chainguard.dev/athena), the industry coalition for coordinated defense of open source software, published its first 14 vulnerability disclosures. All 14 are silent vulnerabilities in Java projects: bugs that a later upstream release fixed but that never received a CVE, so vulnerability scanners couldn't flag the affected versions. The batch includes one critical, one high, eight medium, and four low-severity vulnerabilities.
+
+For each disclosure, Chainguard publishes:
+
+- Patch files for every affected version, in the public [Athena repository](https://github.com/chainguard-dev/athena) under each project's original license.
+- An advisory in the [Chainguard Libraries VEX feed](/chainguard/libraries/policies-and-security/cve-remediation/#vex), so [scanners that integrate with Chainguard Libraries](/chainguard/libraries/policies-and-security/scanners/) now report these vulnerabilities.
+- A remediated version of each affected artifact in Chainguard Repository, for Chainguard Libraries customers.
+
+To adopt a fix, replace the affected version in your lockfile with the remediated version and rebuild. The remediated version keeps the same package coordinates and adds a `-0.cgr.N` suffix, as described in [CVE remediation for Chainguard Libraries](/chainguard/libraries/policies-and-security/cve-remediation/).
+
+Ten new mitigation and detection partners also joined the coalition. For the full partner list and a walkthrough of four of the disclosed vulnerabilities, read the [announcement](https://www.chainguard.dev/unchained/athenas-disclosures-begin).
 
 {{< changelog-label "EOL" >}}
 
