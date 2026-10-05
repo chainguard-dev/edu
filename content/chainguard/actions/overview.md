@@ -4,7 +4,7 @@ linktitle: "Actions overview"
 description: "Learn how Chainguard Actions provides hardened drop-in replacements for popular GitHub Actions to protect your CI/CD pipelines from supply chain attacks."
 type: "article"
 date: 2026-06-18T00:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-05T11:19:18+00:00
 draft: false
 tags: ["Chainguard Actions", "Overview"]
 menu:
@@ -62,29 +62,26 @@ Findings are fixed in place and the pipeline re-evaluates its own work, so a sin
 
 ## Transitive dependencies
 
-Actions rarely run alone. A composite action can call other actions, and an action can fetch container images, language packages, or binaries while it runs. Chainguard hardens the references it can see in the action's source:
+Hardening the top-level action is only part of the problem. Actions pull in other actions and container images behind the scenes, and those transitive dependencies are a common path into a pipeline. Chainguard hardens the references it can see in the action definition:
 
-- **Nested action and image references are pinned.** Every `uses:` reference and container image reference inside a hardened action resolves to an immutable commit SHA or image digest, with the original tag preserved as a comment. A moved upstream tag can't change what a hardened action runs.
+- **Container images are pinned to digests.** When an action runs a registry image (`runs.using: docker` with a `docker://` image), the pipeline resolves the tag to its digest and rewrites the reference as `image:tag@sha256:<digest>`. A retagged image can't change what the action pulls.
+- **Nested actions are pinned, and swapped for hardened copies where they exist.** Every nested `uses:` reference is pinned to an immutable commit SHA, with the original tag kept as a comment. In composite actions, when Chainguard has hardened the nested action, the reference points at the hardened copy instead of upstream. For example, the hardened `actions/upload-pages-artifact` calls `chainguard-actions/actions-upload-artifact`, not `actions/upload-artifact`.
 - **The action's own workflows are reviewed too.** Both stages of the review cover the workflows under `.github/workflows/` in the action's repository, not only the action definition.
 - **Missing dependencies can be onboarded.** When a hardened action depends on an action that isn't in the catalog yet, [request that action](https://github.com/chainguard-actions/.github/issues/new?template=new-action.yml) and Chainguard hardens and publishes it.
 
-### Rewriting nested references to hardened equivalents
+### How nested actions are swapped for hardened copies
 
-Pinning a nested reference to an upstream commit SHA freezes what runs, but the code it freezes is still the upstream project's. Chainguard is rolling out a dependency graph that replaces those references with the Chainguard hardened counterpart instead, also pinned by commit SHA. When a dependency is hardened and published, every action that depends on it returns to the hardening queue so its `uses:` reference can be rewritten.
-
-The graph is enabled in production and rewriting is rolling out across the catalog, so a given action may not have been rewritten yet. Three limits apply where it does:
+When Chainguard hardens and publishes an action, every hardened action that depends on it goes back through hardening so its `uses:` reference can point at the hardened copy. Three limits apply:
 
 - It covers composite actions only. Node and Docker actions have no `uses:` steps to rewrite.
-- It fires only when a hardened counterpart exists for that exact upstream commit.
-- It never rewrites a reference when the correct counterpart is ambiguous.
+- It applies only when a hardened copy exists for that exact upstream commit.
+- It never rewrites a reference when the correct copy is ambiguous.
 
-To see what a particular action references today, read its `action.yml` on the version branch you plan to use.
+Coverage grows as more of the catalog is hardened, so read the `action.yml` on the version branch you plan to use to see what it references today.
 
-### Dependencies an action installs when it runs
+### What hardening doesn't change
 
-Dependency vulnerability management is not part of hardening today. When Chainguard rebuilds a JavaScript action's bundle, the builder installs exactly what the upstream lockfile pins, so the hardened action ships the same dependency versions the upstream release shipped. The rebuild reproduces the bundle rather than refreshing it: if an upstream release bundled a vulnerable package, so does the hardened release. Language packages and binaries that an action downloads while it runs are likewise outside what the review inspects.
-
-Dependency handling is an area Chainguard is actively building out, and the nested-reference rewriting described earlier is the first piece of it.
+Hardening doesn't change the packages an action bundles or installs. A JavaScript action ships the same `dist/` bundle as its upstream release, and an action built from a Dockerfile uses the same base image as upstream. Packages and binaries an action downloads while it runs are outside what the review inspects.
 
 To see the full dependency graph for your own repository, including actions reached through other actions, use the `--recursive` flag described in [View the actions you are currently using](#view-the-actions-you-are-currently-using-in-a-repository).
 
@@ -108,7 +105,7 @@ Authenticate using `chainctl`:
 chainctl auth login
 ```
 
-Create the Chainguard Actions entitlement to enable access to the hardened actions hosted at `github.com/chainguard-actions`:
+Create the Chainguard Actions entitlement for your organization:
 
 ```shell
 chainctl actions entitlements create
@@ -132,17 +129,9 @@ chainctl actions entitlements list
  $ENTITLEMENT_ID                          | 2026-06-18 17:33:24 UTC
 ```
 
-#### What the entitlement controls
+### Step 2: Install the Chainguard App
 
-The entitlement records your organization's access to Chainguard Actions. It does not gate consumption of the actions themselves, and it can't: the hardened action repositories are public, and GitHub provides no mechanism to require authentication to consume a public action.
-
-Most hardened actions run a hook that records a usage event to `https://actions.enforce.dev/actions/v1/record`: a `pre` script in JavaScript actions, or the first step in composite actions. Docker actions don't include it. The hook returns no authorization decision, so there is nothing for the action to act on. It times out after 2 seconds and discards every error, which means Chainguard being slow or unreachable cannot fail your workflow. If your runners use an egress allowlist, add that host so the hook doesn't spend its timeout on every step.
-
-Refer to [Chainguard Actions telemetry and privacy](/chainguard/actions/telemetry/) for what the hook records and how to limit it.
-
-### Step 2: Install the Guardener GitHub App
-
-The [Guardener](/chainguard/guardener/github/getting-started/) GitHub App is the recommended way to adopt Chainguard Actions across more than a repository or two. Once you install it and link it to your Chainguard organization, Guardener:
+The [Chainguard App](/chainguard/guardener/github/getting-started/) is the recommended way to adopt Chainguard Actions across more than a repository or two. Once you install it and link it to your Chainguard organization, Guardener:
 
 - Inventories the actions your workflows use across every repository it can access
 - Comments on pull requests that introduce unhardened actions, so your workflows don't drift back
@@ -150,11 +139,11 @@ The [Guardener](/chainguard/guardener/github/getting-started/) GitHub App is the
 
 To set it up:
 
-1. Install the [Guardener GitHub App](https://github.com/apps/chainguard-guardener) on your GitHub organization.
+1. Install the [Chainguard App](https://github.com/apps/chainguard-guardener) on your GitHub organization.
 2. Link your Chainguard organization to your GitHub organization with `chainctl guardener github link`.
-3. Add a `.chainguard/actions.yaml` file to the root of each repository you want Guardener to work on.
+3. Add a `.chainguard/actions.yaml` file to each repository you want Guardener to work on, or once to your organization's `.github` repository to apply it to every repository.
 
-Both of the last two steps matter. Installing the app changes no repository on its own, and the Actions feature stays inert until `.chainguard/actions.yaml` exists in the repository. Once it does, pull request recommendations are on by default, but automated migration pull requests need `migrate.enabled: true` set explicitly:
+Both of the last two steps matter. Installing the app changes no repository on its own, and the Actions feature stays inert until a `.chainguard/actions.yaml` applies to the repository, either in the repository itself or through the [org-level `.github` configuration](/chainguard/guardener/github/configuration/#organization-level-configuration-with-the-github-repository). Once it does, pull request recommendations are on by default, but automated migration pull requests need `migrate.enabled: true` set explicitly:
 
 ```yaml
 enabled: true
@@ -166,7 +155,7 @@ If installing an app in your organization needs an administrator's approval, the
 
 Refer to [Getting started with Guardener](/chainguard/guardener/github/getting-started/) for the installation and linking steps, and to [Hardened Actions](/chainguard/guardener/github/actions-security/) for the configuration reference, the migration options, and the on-demand migration command.
 
-The Guardener GitHub App is in beta. It runs in production and is supported, but its features and configuration may still change.
+The Chainguard App is in beta. It runs in production and is supported, but its features and configuration may still change.
 
 If you'd rather not install a GitHub App, you can migrate with the [cg-actions](https://github.com/chainguard-dev/cg-skills/tree/main/skills/cg-actions) skill or by hand. Both approaches are covered in [Configure your workflows to use Chainguard Actions](#configure-your-workflows-to-use-chainguard-actions).
 
@@ -175,7 +164,7 @@ If you'd rather not install a GitHub App, you can migrate with the [cg-actions](
 To use a Chainguard hardened action, edit your workflow's YAML configuration file and change the `uses:` line to match the location in `chainguard-actions`:
 
 ```yaml
-- uses: chainguard-actions/<action-name>@<version-tag>
+- uses: chainguard-actions/<action-name>@<commit-sha> # <version-tag>
 ```
 
 Repository names are prefixed with the upstream organization, so `tj-actions/changed-files` becomes `tj-actions-changed-files`. This keeps two different sources of a `changed-files` action from clashing in the Chainguard Actions organization.
@@ -184,7 +173,7 @@ Search the Chainguard Actions repository, find the action you want to use, and t
 
 > **Note:** Don't reference a hardened action with `@main`. The main branch of each repository holds only metadata (`README.md`, `LICENSE_CHAINGUARD`, and `source.json`). The hardened action itself lives on the version branches, so a reference to `@main` fails to resolve.
 
-This example uses a version tag to show the mechanic, which is all that changes in your workflow. For any workflow you intend to keep, pin to a commit SHA instead, as described in [Choose how to reference an action](#choose-how-to-reference-an-action).
+Pin to the commit SHA that a version tag resolves to, and keep the tag as a comment. [Choose how to reference an action](#choose-how-to-reference-an-action) explains why, and [Replace the `uses:` line in each workflow](#replace-the-uses-line-in-each-workflow) shows how to look up the SHA.
 
 ## Choose how to reference an action
 
@@ -226,7 +215,7 @@ If the action isn't in the catalog, [open an issue](https://github.com/chainguar
 
 ### Replace the `uses:` line in each workflow.
 
-Change the `uses:` line to match the location in `chainguard-actions`. To pin by SHA digest, preserve the original tag as a comment so Dependabot, Renovate, and human reviewers can track upgrades:
+Change the `uses:` line to match the location in `chainguard-actions`. Pin to the commit SHA and preserve the original tag as a comment so Dependabot, Renovate, and human reviewers can track upgrades:
 
 ```yaml
 # Before
