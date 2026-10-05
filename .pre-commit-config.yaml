@@ -86,7 +86,7 @@ repos:
         files: ^scripts/.*\.py$
 
   - repo: https://github.com/psf/black
-    rev: 87928e6d6761a4a6d22250e1fee5601b3998086e  # frozen: 26.5.1
+    rev: 4f1883b1f15305a0e83a7c87991f46292bf09f85  # frozen: 26.10.0
     hooks:
       - id: black
         language_version: python3
@@ -147,7 +147,7 @@ repos:
   # `npm run lint` rejects. `pre-commit autoupdate` bumps rev only and never
   # touches additional_dependencies, so nothing keeps these in step for us.
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: 809d037d62978decc620b5a55e8ee5b8b54d8d65  # frozen: v10.11.0
+    rev: 10e29bbf6681d33cb90d555ea2f7ea71e162d259  # frozen: v10.12.0
     hooks:
       - id: eslint
         files: ^(assets/js|config)/.*\.js$
