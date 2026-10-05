@@ -9,7 +9,7 @@ lead: ""
 description: "Procedural tutorial on how to create an Okta app integration"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-09-30T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -101,6 +101,10 @@ chainctl iam identity-provider create \
 Note the `--default-role` option. This defines the default role granted to users registering with this identity provider. This example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. If you don't include this option, you'll be prompted to specify the role interactively. For more information, refer to the [IAM and security section](/platform/administration/custom-idps/custom-idps/#iam-and-security) of our Introduction to Custom Identity Providers in Chainguard tutorial.
 
 You can refer to our [Generic integration guide](/platform/administration/custom-idps/custom-idps/#generic-integration-guide) in our Introduction to Custom Identity Providers article for more information about the `chainctl iam identity-provider create` command and its required options.
+
+### Send a usable email claim
+
+Chainguard reads the standard `email` claim from the token Okta issues, which Okta populates from the user's Okta profile email once the `email` scope is requested. If your users' email is sourced from a directory attribute (for example an AD or LDAP `mail` attribute) that isn't mapped into that profile field, the token carries an empty address and the user has no email in Chainguard. Fix it in Okta's [profile attribute mappings](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-about-attribute-mappings.htm) — map the source attribute to the Okta user profile's `email` — rather than by adding a custom token claim, which the org authorization server this integration uses does not support. See [Required token claims](/platform/administration/custom-idps/custom-idps/#required-token-claims) for the full requirement.
 
 ## Log in to Chainguard with the Okta identity provider
 
