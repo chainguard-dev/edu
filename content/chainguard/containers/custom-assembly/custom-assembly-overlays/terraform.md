@@ -14,7 +14,7 @@ aliases:
 menu:
   docs:
     parent: "custom-assembly-overlays"
-weight: 30
+weight: 20
 toc: true
 ---
 
@@ -22,7 +22,7 @@ toc: true
 
 This guide shows how to manage Custom Assembly Overlays with the [Chainguard Terraform provider](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest). You define overlays with the `chainguard_image_overlay` resource and bind them to repositories with the `chainguard_image_overlay_binding` resource.
 
-For an explanation of overlays and bindings, see [Overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/custom-assembly-overlays/). For how tag selectors match tags, see [Tag-based Custom Assembly](/chainguard/containers/custom-assembly/custom-assembly-overlays/tag-based-custom-assembly/).
+For an explanation of overlays, bindings, and tag selectors, see [Overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/custom-assembly-overlays/).
 
 ## Prerequisites
 
@@ -171,7 +171,6 @@ To remove a customization, delete the binding resource from your configuration a
 ## Learn more
 
 * [Overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/custom-assembly-overlays/)
-* [Tag-based Custom Assembly](/chainguard/containers/custom-assembly/custom-assembly-overlays/tag-based-custom-assembly/)
 * [Managing Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/custom-assembly-overlays/chainctl/)
 * [`chainguard_image_overlay` in the Terraform Registry](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/resources/image_overlay)
 * [`chainguard_image_overlay_binding` in the Terraform Registry](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/resources/image_overlay_binding)

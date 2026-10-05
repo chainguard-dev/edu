@@ -121,7 +121,7 @@ When an added package is updated and available, your Custom Assembly image is re
 
 ## Can I customize only some of a repository's tags?
 
-Yes. With [tag-based Custom Assembly](/chainguard/containers/custom-assembly/custom-assembly-overlays/tag-based-custom-assembly/), you create a [Custom Assembly overlay](/chainguard/containers/custom-assembly/custom-assembly-overlays/) that holds your customizations and bind it to specific tags, to every `-dev` tag, or to every tag. This is useful when a package only works with some of an image's versions, such as a Python package built for one Python version.
+Yes. With [tag-based Custom Assembly](/chainguard/containers/custom-assembly/custom-assembly-overlays/#tag-based-custom-assembly), you create a [Custom Assembly overlay](/chainguard/containers/custom-assembly/custom-assembly-overlays/) that holds your customizations and bind it to specific tags, to every `-dev` tag, or to every tag. This is useful when a package only works with some of an image's versions, such as a Python package built for one Python version.
 
 ## Can I use standard and tag-based Custom Assembly on the same repository?
 

@@ -14,7 +14,7 @@ aliases:
 menu:
   docs:
     parent: "custom-assembly-overlays"
-weight: 20
+weight: 10
 toc: true
 ---
 
@@ -22,7 +22,7 @@ toc: true
 
 This guide shows how to use `chainctl` to apply Custom Assembly customizations to some of a repository's tags. You create an overlay that holds the customizations, then bind it to a repository with a tag selector.
 
-For an explanation of overlays and bindings, see [Overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/custom-assembly-overlays/). For how tag selectors match tags, see [Tag-based Custom Assembly](/chainguard/containers/custom-assembly/custom-assembly-overlays/tag-based-custom-assembly/).
+For an explanation of overlays, bindings, and tag selectors, see [Overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/custom-assembly-overlays/).
 
 ## Prerequisites
 
@@ -291,6 +291,5 @@ If a package can't be installed on a tag, that tag's build fails and the logs na
 ## Learn more
 
 * [Overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/custom-assembly-overlays/)
-* [Tag-based Custom Assembly](/chainguard/containers/custom-assembly/custom-assembly-overlays/tag-based-custom-assembly/)
 * [Managing Custom Assembly Overlays with Terraform](/chainguard/containers/custom-assembly/custom-assembly-overlays/terraform/)
 * [Using chainctl to manage Custom Assembly resources](/chainguard/containers/custom-assembly/custom-assembly-chainctl/)
