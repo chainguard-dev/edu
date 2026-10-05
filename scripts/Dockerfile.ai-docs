@@ -18,9 +18,13 @@ WORKDIR /docs
 # Copy MCP requirements first (for layer caching)
 COPY mcp-requirements.txt /tmp/
 
-# Install Python and MCP dependencies
+# Install Python and MCP dependencies.
+# openssl-4.0-libcrypto 4.0.3-r1 dropped the SHA-224 digests, and Wolfi's
+# Python no longer bundles its own fallback, so pip fails with
+# "module 'hashlib' has no attribute 'sha224'". r2 restores them, but apk
+# still resolves to r1, so require r2 until the resolver picks it unaided.
 USER root
-RUN apk add --no-cache python3 py3-pip && \
+RUN apk add --no-cache python3 py3-pip "openssl-4.0-libcrypto>=4.0.3-r2" && \
     pip3 install --no-cache-dir --break-system-packages -r /tmp/mcp-requirements.txt
 USER nonroot
 
