@@ -4,7 +4,7 @@ linktitle: "Changelog"
 type: "article"
 description: "Weekly changelog of Chainguard product updates — product announcements, breaking changes, container images reaching end-of-life or leaving the catalog, and images newly added to it."
 date: 2026-07-28T00:00:00+00:00
-lastmod: 2026-09-28T18:02:06+00:00
+lastmod: 2026-10-05T18:03:27+00:00
 draft: false
 tags: ["Chainguard Containers", "Changelog"]
 images: []
@@ -16,6 +16,85 @@ tocEndLevel: 2
 This page logs Chainguard product updates week by week, newest first: product announcements, breaking changes, container images that reached end-of-life or are no longer available, and images newly added to the catalog. Each event is listed once, in the week it first appeared.
 
 Breaking changes and product announcements cover the entire Chainguard portfolio, while end-of-life, availability, and new-image entries relate specifically to Chainguard Containers. This page summarizes the changes most likely to affect your work rather than every change Chainguard ships. Routine updates, such as new tags for existing images, are not listed individually. For the current tags and versions of any container image, refer to its entry in the [Chainguard Directory](https://images.chainguard.dev/directory).
+
+## Week of 2026-10-05
+
+{{< changelog-label "EOL" >}}
+
+Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images that have reached end-of-life
+
+The following container images reached end-of-life and entered their grace period:
+
+| Image | End-of-life | Grace period ends |
+| --- | --- | --- |
+| `nextcloud-server:32` | 2026-09-30 | 2027-03-30 |
+| `zabbix:7.4` | 2026-09-30 | 2027-03-30 |
+| `zabbix-agent2:7.4` | 2026-09-30 | 2027-03-30 |
+| `tekton-pipelines:1.4` | 2026-10-04 | 2027-04-04 |
+| `tekton-pipelines:1.5` | 2026-10-04 | 2027-04-04 |
+
+{{< changelog-label "New Images" >}}
+
+Chainguard built 37 new container images this week, including both standard and FIPS variants.
+
+<table class="cl-images">
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td colspan="3">
+<details>
+<summary><strong><code>crossplane-*</code></strong> — 8 images (with FIPS variants)</summary>
+<table>
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-azure-compute/versions"><code>crossplane-azure-compute</code></a></td><td>application</td><td>2026-09-28</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-azure-containerservice/versions"><code>crossplane-azure-containerservice</code></a></td><td>application</td><td>2026-09-28</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-azure-eventhub/versions"><code>crossplane-azure-eventhub</code></a></td><td>application</td><td>2026-09-28</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-azure-network/versions"><code>crossplane-azure-network</code></a></td><td>application</td><td>2026-09-28</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-azure-operationalinsights/versions"><code>crossplane-azure-operationalinsights</code></a></td><td>application</td><td>2026-09-28</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-aws-s3vectors/versions"><code>crossplane-aws-s3vectors</code></a></td><td>application +fips</td><td>2026-09-29</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-azure-cognitiveservices/versions"><code>crossplane-azure-cognitiveservices</code></a></td><td>application</td><td>2026-09-29</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-function-extra-resources/versions"><code>crossplane-function-extra-resources</code></a></td><td>application +fips</td><td>2026-09-30</td></tr>
+</tbody>
+</table>
+</details>
+</td></tr>
+<tr><td colspan="3">
+<details>
+<summary><strong><code>openstack-*</code></strong> — 10 images</summary>
+<table>
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-ceph-config-helper/versions"><code>openstack-ceph-config-helper</code></a></td><td>application</td><td>2026-10-01</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-cinder-oshelm/versions"><code>openstack-cinder-oshelm</code></a></td><td>application</td><td>2026-10-01</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-client-oshelm/versions"><code>openstack-client-oshelm</code></a></td><td>application</td><td>2026-10-01</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-glance-oshelm/versions"><code>openstack-glance-oshelm</code></a></td><td>application</td><td>2026-10-01</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-keystone-oshelm/versions"><code>openstack-keystone-oshelm</code></a></td><td>application</td><td>2026-10-01</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-neutron-oshelm/versions"><code>openstack-neutron-oshelm</code></a></td><td>application</td><td>2026-10-01</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-nova-oshelm/versions"><code>openstack-nova-oshelm</code></a></td><td>application</td><td>2026-10-01</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-octavia-oshelm/versions"><code>openstack-octavia-oshelm</code></a></td><td>application</td><td>2026-10-01</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-placement-oshelm/versions"><code>openstack-placement-oshelm</code></a></td><td>application</td><td>2026-10-01</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-libvirt-oshelm/versions"><code>openstack-libvirt-oshelm</code></a></td><td>application</td><td>2026-10-02</td></tr>
+</tbody>
+</table>
+</details>
+</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/longhorn-engine-fips/versions"><code>longhorn-engine-fips</code></a></td><td>fips</td><td>2026-09-28</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/nemo-rl/versions"><code>nemo-rl</code></a></td><td>ai</td><td>2026-09-28</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/pmm-server/versions"><code>pmm-server</code></a></td><td>application</td><td>2026-09-28</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/ray-fips/versions"><code>ray-fips</code></a></td><td>fips</td><td>2026-09-28</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/datadog-serverless-init/versions"><code>datadog-serverless-init</code></a></td><td>application +fips</td><td>2026-09-29</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/elasticsearch-iamguarded-fips/versions"><code>elasticsearch-iamguarded-fips</code></a></td><td>fips</td><td>2026-09-29</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/commercial-kyverno-cli/versions"><code>commercial-kyverno-cli</code></a></td><td>commercial</td><td>2026-09-30</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/commercial-kyverno-readiness-checker/versions"><code>commercial-kyverno-readiness-checker</code></a></td><td>commercial</td><td>2026-09-30</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kserve-llmisvc-controller/versions"><code>kserve-llmisvc-controller</code></a></td><td>ai +fips</td><td>2026-10-01</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/playwright-chromium/versions"><code>playwright-chromium</code></a></td><td>application</td><td>2026-10-01</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/aws-lambda-provided/versions"><code>aws-lambda-provided</code></a></td><td>application +fips</td><td>2026-10-02</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/floci/versions"><code>floci</code></a></td><td>application</td><td>2026-10-02</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/livekit-sip/versions"><code>livekit-sip</code></a></td><td>application +fips</td><td>2026-10-02</td></tr>
+</tbody>
+</table>
 
 ## Week of 2026-09-28
 
