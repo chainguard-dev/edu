@@ -1,18 +1,20 @@
 ---
-title: "Managing tag-based Custom Assembly with chainctl"
-linktitle: "Customize tags with chainctl"
+title: "Managing Custom Assembly Overlays with chainctl"
+linktitle: "Manage overlays with chainctl"
 type: "article"
-description: "How to use chainctl to create overlays and bind them to specific tags of a Custom Assembly repository."
+description: "How to use chainctl to create Custom Assembly overlays and bind them to repositories and tags."
 date: 2026-09-28T16:33:22+00:00
-lastmod: 2026-09-29T14:47:57+00:00
+lastmod: 2026-10-05T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural", "Custom Assembly", "chainctl"]
 images: []
-aliases: ["/chainguard/containers/custom-assembly/tag-based-custom-assembly-chainctl/"]
+aliases:
+- /chainguard/containers/custom-assembly/tag-based-custom-assembly-chainctl/
+- /chainguard/containers/custom-assembly/tag-based-custom-assembly/chainctl/
 menu:
   docs:
-    parent: "tag-based-custom-assembly"
-weight: 10
+    parent: "custom-assembly-overlays"
+weight: 20
 toc: true
 ---
 
@@ -20,7 +22,7 @@ toc: true
 
 This guide shows how to use `chainctl` to apply Custom Assembly customizations to some of a repository's tags. You create an overlay that holds the customizations, then bind it to a repository with a tag selector.
 
-For an explanation of overlays, bindings, and tag selectors, see [Overview of tag-based Custom Assembly](/chainguard/containers/custom-assembly/tag-based-custom-assembly/).
+For an explanation of overlays and bindings, see [Overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/custom-assembly-overlays/). For how tag selectors match tags, see [Tag-based Custom Assembly](/chainguard/containers/custom-assembly/custom-assembly-overlays/tag-based-custom-assembly/).
 
 ## Prerequisites
 
@@ -121,7 +123,7 @@ chainctl images overlays attach \
   --all
 ```
 
-The `3.12` tags receive `py3.12-cryptography`, the `3.14` tags receive `py3.14-cryptography`, and so on. Quote the package name so that your shell doesn't interpret the braces. For details on how Chainguard fills in the placeholders, see [Version templates in package names](/chainguard/containers/custom-assembly/tag-based-custom-assembly/#version-templates-in-package-names).
+The `3.12` tags receive `py3.12-cryptography`, the `3.14` tags receive `py3.14-cryptography`, and so on. Quote the package name so that your shell doesn't interpret the braces. For details on how Chainguard fills in the placeholders, see [Version templates in package names](/chainguard/containers/custom-assembly/custom-assembly-overlays/#version-templates-in-package-names).
 
 ## Add other customizations
 
@@ -288,6 +290,7 @@ If a package can't be installed on a tag, that tag's build fails and the logs na
 
 ## Learn more
 
-* [Overview of tag-based Custom Assembly](/chainguard/containers/custom-assembly/tag-based-custom-assembly/)
-* [Managing tag-based Custom Assembly with Terraform](/chainguard/containers/custom-assembly/tag-based-custom-assembly/terraform/)
+* [Overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/custom-assembly-overlays/)
+* [Tag-based Custom Assembly](/chainguard/containers/custom-assembly/custom-assembly-overlays/tag-based-custom-assembly/)
+* [Managing Custom Assembly Overlays with Terraform](/chainguard/containers/custom-assembly/custom-assembly-overlays/terraform/)
 * [Using chainctl to manage Custom Assembly resources](/chainguard/containers/custom-assembly/custom-assembly-chainctl/)

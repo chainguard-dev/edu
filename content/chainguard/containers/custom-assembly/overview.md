@@ -69,7 +69,7 @@ Custom Assembly only allows you to add packages into a given container image; yo
 
 The packages you can add to a container image are those that your organization already has access to, based on the Chainguard Containers that your organization is entitled to. Additionally, you can only add supported versions of packages to a customized image.
 
-By default, a Custom Assembly customization applies to every tag in the repository. To apply a customization to some tags only, for example to add a package that only works with one Python version, use [tag-based Custom Assembly](/chainguard/containers/custom-assembly/tag-based-custom-assembly/).
+By default, a Custom Assembly customization applies to every tag in the repository. To reuse one customization across repositories, or to apply it to some tags only, for example to add a package that only works with one Python version, use [Custom Assembly Overlays](/chainguard/containers/custom-assembly/custom-assembly-overlays/).
 
 The changes you make to your customized container image may affect its functional behavior when deployed. Chainguard doesn’t test your final customized image and therefore doesn't guarantee its functional behavior. Please test your customized images extensively to ensure they meet your requirements.
 

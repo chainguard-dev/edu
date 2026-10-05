@@ -415,7 +415,7 @@ For more information, refer to [chainctl images repos build apply](/platform/cha
 
 ## Customizing specific tags
 
-The `chainctl images repos build` commands apply a customization to every tag in a repository. To apply a customization to some tags only, use the `chainctl images overlays` commands. For details, see [Managing tag-based Custom Assembly with chainctl](/chainguard/containers/custom-assembly/tag-based-custom-assembly/chainctl/).
+The `chainctl images repos build` commands apply a customization to every tag in a repository. To apply a customization to some tags only, use the `chainctl images overlays` commands. For details, see [Managing Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/custom-assembly-overlays/chainctl/).
 
 ## Learn more
 
