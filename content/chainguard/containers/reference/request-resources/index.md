@@ -4,7 +4,7 @@ linktitle: "Requesting resources"
 type: "article"
 description: "How to submit requests for Chainguard to build new resources in the Console."
 date: 2026-02-26T11:07:52+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-05T02:44:11+00:00
 draft: false
 tags: ["Chainguard Containers", "Chainguard Console"]
 images: []
@@ -74,6 +74,22 @@ Although these fields aren't required, filling them in provides Chainguard with 
 After filling out the form, click **Request image** to submit your request. Your request will then appear in both the **My requests** and **Community requests** tabs, and other customers will be able to upvote it.
 
 The Chainguard team will then review the request and prioritize it based on demand, as determined by the number of upvotes the request has received from users.
+
+## Notifications when a requested artifact is ready
+
+{{< beta feature="The request notifications feature" >}}
+
+If your organization submitted or upvoted a request, Chainguard notifies your organization in the Console when the requested artifact is ready — that is, when Chainguard has finished building it and the request is marked **Delivered**.
+
+These notifications work as follows:
+
+* They appear in the **Activity Center** on the Overview page of the Chainguard Console.
+* They are delivered to the organization, not to individual users. Every member of a requesting or upvoting organization sees the same notification.
+* Your organization will not be notified about an artifact that is already in its catalog.
+
+A notification means the requested artifact is now available in the Chainguard catalog. It does not automatically add the artifact to your organization's catalog; as with any newly built resource, you can add it yourself if your organization has [Catalog pricing](/chainguard/containers/reference/pricing/) enabled, or reach out to our sales team to add it to your organization.
+
+Request notifications are rolling out gradually and may not yet be enabled for your organization.
 
 ## Limitations
 
