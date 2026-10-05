@@ -18,7 +18,7 @@ weight: 33
 toc: true
 ---
 
-{{< beta feature="Tag-based Custom Assembly" enroll="true" >}}
+{{< beta feature="Custom Assembly Overlays" enroll="true" >}}
 
 Standard [Custom Assembly](/chainguard/containers/custom-assembly/overview/) stores one customization on one repository and applies it to every tag. Custom Assembly Overlays separate the customization from where it applies. You define the customization once, as an overlay, and attach it to repositories with bindings. This lets you do the following:
 

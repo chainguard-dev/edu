@@ -18,7 +18,7 @@ weight: 30
 toc: true
 ---
 
-{{< beta feature="Tag-based Custom Assembly" enroll="true" >}}
+{{< beta feature="Custom Assembly Overlays" enroll="true" >}}
 
 This guide shows how to manage Custom Assembly Overlays with the [Chainguard Terraform provider](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest). You define overlays with the `chainguard_image_overlay` resource and bind them to repositories with the `chainguard_image_overlay_binding` resource.
 

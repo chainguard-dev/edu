@@ -16,7 +16,7 @@ weight: 10
 toc: true
 ---
 
-{{< beta feature="Tag-based Custom Assembly" enroll="true" >}}
+{{< beta feature="Custom Assembly Overlays" enroll="true" >}}
 
 Standard [Custom Assembly](/chainguard/containers/custom-assembly/overview/) applies one customization to every tag in a repository. This fails for images that ship several language or runtime versions side by side, because a package built for one version can't install on the others.
 

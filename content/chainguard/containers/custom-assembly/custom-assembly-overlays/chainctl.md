@@ -18,7 +18,7 @@ weight: 20
 toc: true
 ---
 
-{{< beta feature="Tag-based Custom Assembly" enroll="true" >}}
+{{< beta feature="Custom Assembly Overlays" enroll="true" >}}
 
 This guide shows how to use `chainctl` to apply Custom Assembly customizations to some of a repository's tags. You create an overlay that holds the customizations, then bind it to a repository with a tag selector.
 
