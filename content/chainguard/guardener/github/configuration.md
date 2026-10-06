@@ -24,6 +24,7 @@ Guardener reads its configuration from the `.chainguard/` directory at the root 
 ```text
 .chainguard/
 ├── actions.yaml   # Hardened Actions
+├── images.yaml    # Container Image Suggestions
 └── source.yaml    # Commit Verification
 ```
 
@@ -44,6 +45,7 @@ A repository with no `.chainguard/` files is unaffected by Guardener even when t
 | Feature                                                           | Config file                | What it does                                                                |
 | ----------------------------------------------------------------- | -------------------------- | --------------------------------------------------------------------------- |
 | [Hardened Actions](/chainguard/guardener/github/actions-security/)       | `.chainguard/actions.yaml` | Recommends and migrates GitHub Actions to hardened, SHA-pinned equivalents. |
+| [Container Image Suggestions](/chainguard/guardener/github/image-suggestions/) | `.chainguard/images.yaml` | Recommends Chainguard container images for the images a pull request adds or changes. |
 | [Commit Verification](/chainguard/guardener/github/commit-verification/) | `.chainguard/source.yaml`  | Verifies that commits in a pull request are signed by an authorized signer. |
 
 Additional features will be added over time, each with its own `.chainguard/` file and opt-in configuration.
@@ -58,6 +60,7 @@ The `.github` repository is a special repository that GitHub already uses for or
 .github/                # your organization's .github repository
 └── .chainguard/
     ├── actions.yaml     # org-wide default for Hardened Actions
+    ├── images.yaml      # org-wide default for Container Image Suggestions
     └── source.yaml      # org-wide default for Commit Verification
 ```
 
@@ -94,4 +97,5 @@ To add or update the Guardener configuration:
 ## Next steps
 
 - **[Hardened Actions](/chainguard/guardener/github/actions-security/)** — Configure `.chainguard/actions.yaml`.
+- **[Container Image Suggestions](/chainguard/guardener/github/image-suggestions/)** — Configure `.chainguard/images.yaml`.
 - **[Commit Verification](/chainguard/guardener/github/commit-verification/)** — Configure `.chainguard/source.yaml`.
