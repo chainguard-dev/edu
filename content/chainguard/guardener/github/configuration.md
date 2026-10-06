@@ -31,7 +31,7 @@ Because these files live in your repository, your configuration is reviewed thro
 
 ## Features are opt-in per repository
 
-Installing the Guardener GitHub App does not change any repository on its own. Each feature stays disabled until you add its configuration file and enable it. This means you can:
+Installing the Chainguard App does not change any repository on its own. Each feature stays disabled until you add its configuration file and enable it. This means you can:
 
 - Roll a feature out to one repository at a time.
 - Try a feature in report-only or non-blocking mode before enforcing it.
@@ -64,7 +64,7 @@ The `.github` repository is a special repository that GitHub already uses for or
 To use org-level configuration:
 
 1. Create a repository named `.github` in your organization if you don't already have one.
-2. Add the Guardener GitHub App to the `.github` repository (or install it on **All repositories**).
+2. Add the Chainguard App to the `.github` repository (or install it on **All repositories**).
 3. Commit your `.chainguard/` configuration files to the default branch of the `.github` repository.
 
 Once in place, every repository Guardener can access inherits this configuration without needing its own `.chainguard/` files.

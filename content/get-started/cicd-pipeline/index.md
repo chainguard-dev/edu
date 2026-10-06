@@ -37,7 +37,7 @@ The [Chainguard Console](/platform/console/) covers the same ground in a browser
 
 Recent supply chain attacks have targeted the workflow file, not the artifact it produces. [Guardener](/chainguard/guardener/) hardens the repository itself through a suite of capabilities you turn on one at a time.
 
-Two of them run through the [Guardener GitHub App](/chainguard/guardener/github/), enabled per repository by a file you commit to `.chainguard/`:
+Two of them run through the [Chainguard App](/chainguard/guardener/github/), enabled per repository by a file you commit to `.chainguard/`:
 
 - [Hardened Actions](/chainguard/guardener/github/actions-security/) recommends and migrates your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents, either as non-blocking review comments or as a migration pull request.
 - [Commit Verification](/chainguard/guardener/github/commit-verification/) enforces cryptographically signed commits against a policy you control, covering both keyless Sigstore signatures and static keys such as GPG.
@@ -101,7 +101,7 @@ Repository names in `chainguard-actions` carry the upstream organization as a pr
 
 You don't have to make these edits by hand. Two tools do the migration for you, and which one fits depends on how much you're moving at once:
 
-- [Hardened Actions](/chainguard/guardener/github/actions-security/), through the Guardener GitHub App described in stage 1, inventories the actions in use across your organization and opens migration pull requests on a schedule. You can also trigger a run [on demand](/chainguard/guardener/github/actions-security/#run-an-on-demand-migration) with `chainctl guardener github migrate create`. Use this for a centralized, organization-wide rollout.
+- [Hardened Actions](/chainguard/guardener/github/actions-security/), through the Chainguard App described in stage 1, inventories the actions in use across your organization and opens migration pull requests on a schedule. You can also trigger a run [on demand](/chainguard/guardener/github/actions-security/#run-an-on-demand-migration) with `chainctl guardener github migrate create`. Use this for a centralized, organization-wide rollout.
 - [cg-actions](https://github.com/chainguard-dev/cg-skills/tree/main/skills/cg-actions), a Claude Code skill, audits one repository's Actions usage and opens a pull request swapping in the hardened equivalents. Use this for a pilot, or where installing an app across the organization isn't an option.
 
 Separately, if agents run anywhere in your pipeline, [Chainguard Agent Skills](/chainguard/agent-skills/overview/) applies the same hardening idea to the skills those agents load.

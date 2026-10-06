@@ -55,7 +55,7 @@ An on-demand run performs exactly the same migration as the scheduled flow: it o
 
 Before you start, make sure that:
 
-- The Guardener GitHub App is installed and your Chainguard organization is linked to your GitHub organization, as described in [Getting started](/chainguard/guardener/github/getting-started/). The migration must be requested through the Chainguard organization that owns the GitHub App installation.
+- The Chainguard App is installed and your Chainguard organization is linked to your GitHub organization, as described in [Getting started](/chainguard/guardener/github/getting-started/). The migration must be requested through the Chainguard organization that owns the Chainguard App installation.
 - You hold the `guardener.actions.migrate` capability on that Chainguard organization. Organization owners have it, and it is included in the built-in `guardener.user` and `guardener.admin` roles. Refer to the [Built-in roles and capabilities reference](/platform/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for more information on roles.
 
 Run `chainctl guardener github migrate create` with the repository to migrate:
@@ -64,7 +64,7 @@ Run `chainctl guardener github migrate create` with the repository to migrate:
 chainctl guardener github migrate create <owner>/<repo>
 ```
 
-The repository can be given as `owner/repo` shorthand or as a full URL (`https://github.com/owner/repo`); only github.com repositories are supported today. The migration runs under the Chainguard organization that owns the GitHub App installation. `chainctl` selects that organization automatically when only one is available and prompts you when there are several; pass `--parent <group-name>` to name it explicitly.
+The repository can be given as `owner/repo` shorthand or as a full URL (`https://github.com/owner/repo`); only github.com repositories are supported today. The migration runs under the Chainguard organization that owns the Chainguard App installation. `chainctl` selects that organization automatically when only one is available and prompts you when there are several; pass `--parent <group-name>` to name it explicitly.
 
 By default the command waits for the migration to finish (up to 10 minutes, adjustable with `--timeout`) and prints the result:
 
@@ -77,7 +77,7 @@ Pull request: https://github.com/<owner>/<repo>/pull/42
 
 When there is nothing to migrate — every action is already on a Chainguard equivalent, the ignore rules exclude everything, or the repository has not enabled migration — the run reports `Status: completed (no changes needed)` instead of a pull request.
 
-If the migration fails because the GitHub App installation does not cover the repository (for example, the app was installed on **selected repositories** and this one isn't included), the error says so; grant the app access to the repository in your GitHub organization settings and trigger the migration again.
+If the migration fails because the Chainguard App installation does not cover the repository (for example, the app was installed on **selected repositories** and this one isn't included), the error says so; grant the app access to the repository in your GitHub organization settings and trigger the migration again.
 
 ## Check a migration operation
 
