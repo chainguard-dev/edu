@@ -4,7 +4,7 @@ linktitle: "Tag-based Custom Assembly"
 type: "article"
 description: "How tag-based Custom Assembly uses overlays and bindings to apply customizations to a subset of a repository's tags."
 date: 2026-09-28T16:33:22+00:00
-lastmod: 2026-09-28T16:33:22+00:00
+lastmod: 2026-10-06T18:11:18+00:00
 draft: false
 tags: ["Chainguard Containers", "Conceptual", "Custom Assembly"]
 images: []
@@ -139,6 +139,7 @@ An overlay supports the same customizations as standard Custom Assembly, with th
 * [Environment variables and annotations](/chainguard/containers/custom-assembly/custom-assembly-chainctl/#adding-custom-annotations-and-environment-variables) (`environment` and `annotations`)
 * [User accounts and groups](/platform/chainctl/chainctl-docs/chainctl_images_repos_build_apply/) (`accounts`)
 * [Custom certificates](/chainguard/containers/custom-assembly/custom-assembly-certs/) (`certificates.additional`)
+* [Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/) (`guarded_entrypoint`, `fail_mode`, `preflight`, and `command_override`). To see how these fields combine when several bindings match one tag, see [How the fields combine across bindings](/chainguard/containers/custom-assembly/guarded-entrypoint/#how-the-fields-combine-across-bindings).
 
 Overlays don't support Chainguard-managed certificate bundles (`certificates.providers`). If an overlay contains a field that overlays don't support, Chainguard rejects the whole overlay instead of ignoring the field.
 
