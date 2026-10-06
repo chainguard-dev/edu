@@ -1,5 +1,5 @@
 ---
-date: 2026-10-01T22:22:49Z
+date: 2026-10-06T09:26:34Z
 title: "chainctl iam identities create aws user"
 slug: chainctl_iam_identities_create_aws_user
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identities_create_aws_user/

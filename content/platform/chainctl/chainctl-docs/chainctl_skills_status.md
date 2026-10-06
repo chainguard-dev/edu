@@ -1,5 +1,5 @@
 ---
-date: 2026-10-01T22:22:49Z
+date: 2026-10-06T09:26:34Z
 title: "chainctl skills status"
 slug: chainctl_skills_status
 url: /platform/chainctl/chainctl-docs/chainctl_skills_status/
@@ -16,9 +16,13 @@ Check a harden job or wait for it to finish.
 ### Synopsis
 
 Check the job ID printed by skills harden without uploading or submitting
-the skill again. --wait tracks the job to completion and downloads the hardened
-skill and report to ./hardened/NAME. A timeout or interrupt leaves the job running.
-Failures exit nonzero with the pipeline's failure reason.
+the skill again. Progress names the pipeline stage once the job is running.
+--wait tracks the job to completion and downloads the hardened skill and report
+to ./hardened/NAME, with .hardened-artifact.json recording the published
+reference and digest. A timeout or interrupt leaves the job running. A skill the
+post-hardening scan rejected downloads unmodified to ./unhardened/NAME and exits
+nonzero, naming the scanner and rule that rejected it. Other failures exit
+nonzero and name the stage the job failed in.
 
 ```
 chainctl skills status --group <org> --id <job-id> [flags]

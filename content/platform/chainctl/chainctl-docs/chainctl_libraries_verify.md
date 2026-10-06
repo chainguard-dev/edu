@@ -1,5 +1,5 @@
 ---
-date: 2026-10-01T22:22:49Z
+date: 2026-10-06T09:26:34Z
 title: "chainctl libraries verify"
 slug: chainctl_libraries_verify
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_verify/
@@ -69,6 +69,10 @@ Remediated (CVE-patched) Java artifacts, whose versions carry a "-0.cgr.<rev>" s
 (e.g. 3.5.0-0.cgr.2), are resolved from the java-remediated repository; other Java
 artifacts are resolved from the java repository.
 
+Downloading SBOMs and attestations with --output-attestations is supported for
+Java artifacts only. The flag has no effect for other ecosystems, and nothing is
+written for them.
+
 ```
 chainctl libraries verify [path...] [flags]
 ```
@@ -87,6 +91,9 @@ chainctl libraries verify [path...] [flags]
 
   # Analyze with JSON output
   chainctl libraries verify -o json build/libs/*.jar
+
+  # Download the SBOM and SLSA attestation alongside verification (Java artifacts only)
+  chainctl libraries verify commons-lang3-3.17.0.jar --output-attestations --output-dir ./attestations
 
   # Analyze container images
   chainctl libraries verify cgr.dev/chainguard/maven:latest
@@ -121,6 +128,8 @@ chainctl libraries verify [path...] [flags]
       --ecosystems-url string   URL for the Ecosystems Proxy (defaults to https://libraries.cgr.dev)
       --no-color                Disable colored output
   -o, --output string           Output format (text, json, yaml) (default "text")
+      --output-attestations     Download the SBOM, SLSA attestation, and CycloneDX SBOMs into --output-dir. Java artifacts only; ignored for all other ecosystems
+      --output-dir string       Base directory for files downloaded by --output-attestations, laid out under each Java artifact's Maven repository path. No effect without --output-attestations (default ".")
       --parent string           Parent organization for authentication
       --verbose                 Enable verbose output
 ```

@@ -3,7 +3,7 @@
 
 # Use wolfi-base which includes a shell but is still minimal and secure.
 # Pinned by digest for reproducible builds; digestabot keeps it current.
-FROM cgr.dev/chainguard/wolfi-base:latest@sha256:fd536778d12e19bff29cfcf73265a14f585152a49d7f7cd6739ebe48dff01e26 AS final
+FROM cgr.dev/chainguard/wolfi-base:latest@sha256:00fd4e9cdd9c5576c336d979fa663f9976f160c456b6ae9fe87e19c4e9c759a2 AS final
 
 # Add metadata labels
 LABEL org.opencontainers.image.source="https://github.com/chainguard-dev/edu"
@@ -18,9 +18,13 @@ WORKDIR /docs
 # Copy MCP requirements first (for layer caching)
 COPY mcp-requirements.txt /tmp/
 
-# Install Python and MCP dependencies
+# Install Python and MCP dependencies.
+# openssl-4.0-libcrypto 4.0.3-r1 dropped the SHA-224 digests, and Wolfi's
+# Python no longer bundles its own fallback, so pip fails with
+# "module 'hashlib' has no attribute 'sha224'". r2 restores them, but apk
+# still resolves to r1, so require r2 until the resolver picks it unaided.
 USER root
-RUN apk add --no-cache python3 py3-pip && \
+RUN apk add --no-cache python3 py3-pip "openssl-4.0-libcrypto>=4.0.3-r2" && \
     pip3 install --no-cache-dir --break-system-packages -r /tmp/mcp-requirements.txt
 USER nonroot
 

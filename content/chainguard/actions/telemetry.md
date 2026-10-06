@@ -14,7 +14,9 @@ weight: 20
 toc: true
 ---
 
-Every Chainguard hardened action runs a best-effort "phone-home" pre-hook that records a usage event to `https://actions.enforce.dev/actions/v1/record`. The hook is fire-and-forget, with a 2 second timeout that fails open, so it cannot break your build.
+Most Chainguard hardened actions run a best-effort "phone-home" hook that records a usage event to `https://actions.enforce.dev/actions/v1/record`. JavaScript actions run it as a `pre` script, and composite actions run it as their first step. Docker actions don't include the hook, and some JavaScript and composite actions don't either. The hook is fire-and-forget, with a 2 second timeout that fails open, so it cannot break your build.
+
+If your runners use an egress allowlist, add `actions.enforce.dev` so the hook doesn't wait out its timeout on every step that uses a hardened action.
 
 ## Why we collect this data
 
@@ -28,7 +30,9 @@ We collect this data for two reasons:
 What we collect depends on whether your workflow grants `id-token: write`:
 
 - **Without `id-token: write`**: we record your repository name, a timestamp, and an "unverified" flag.
-- **With `id-token: write`**: the hook mints a GitHub OIDC token scoped to the `actions.chainguard.dev` audience and sends it so we can verify the record. From that token we store metadata: repository, actor, ref, sha, workflow path, repository visibility, and run identifiers.
+- **With `id-token: write`**: the hook mints a GitHub OIDC token scoped to the `actions.chainguard.dev` audience and sends it so we can verify the record. From that token we store metadata: repository, ref, sha, workflow path, repository visibility, and run identifiers.
+
+We do not store who triggered the run. The OIDC token identifies the account that started the workflow, and our service discards that claim where it assembles the usage event, so the actor never reaches any of our storage.
 
 The hook never grants itself `id-token: write`. It only uses the permission if your workflow already grants it. If you would rather we receive only your repository name, do not grant `id-token: write` to that job.
 
