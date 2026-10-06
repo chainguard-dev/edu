@@ -1,0 +1,123 @@
+---
+title: "Troubleshoot a wrapped container"
+linktitle: "Troubleshooting"
+type: "article"
+description: "How to recover a container that fails to start under Guarded Entrypoint, what the wrapper's exit codes mean, and how a refused entrypoint appears in chainctl."
+date: 2026-10-06T17:41:00+00:00
+lastmod: 2026-10-06T17:41:00+00:00
+draft: false
+tags: ["Chainguard Containers", "Custom Assembly", "Troubleshooting", "Debugging"]
+images: []
+menu:
+  docs:
+    parent: "guarded-entrypoint"
+weight: 30
+toc: true
+---
+
+{{< beta feature="Guarded Entrypoint" access="every organization that has Custom Assembly" feedback="true" >}}
+
+This page covers two kinds of problems. A container that is built with [Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/) can fail to start. A build can also fail because the wrapper refuses an image's entrypoint.
+
+## First move: set GUARDED_DISABLE
+
+When a wrapped container fails to start, set the `GUARDED_DISABLE` environment variable on the container and redeploy. The wrapper then starts the image's original entrypoint and arguments without doing anything else. You don't need to rebuild the image.
+
+With Kubernetes, set the variable on the deployment:
+
+```shell
+kubectl set env deployment/$DEPLOYMENT GUARDED_DISABLE=1
+```
+
+With Docker, pass it to `docker run`:
+
+```shell
+docker run -e GUARDED_DISABLE=1 cgr.dev/$ORGANIZATION/$REPO:latest
+```
+
+Use a non-empty value such as `1`. The wrapper checks `GUARDED_DISABLE` before it reads any other setting. This means that a malformed setting in the image doesn't stop it from working.
+
+When `GUARDED_DISABLE` is set, the wrapper does the following:
+
+* It doesn't resolve secret references. Your application sees the literal `cg+...` values.
+* It doesn't run preflight checks.
+* It doesn't apply `command_override`. The image's original ENTRYPOINT and CMD run.
+* It makes no network connections.
+
+If the container then starts, the wrapper or its settings caused the failure. Remove the variable after you fix the configuration and Chainguard rebuilds the image. If the container still fails, the failure comes from the application or the deployment.
+
+Anyone who can set environment variables on a container can set `GUARDED_DISABLE`. This is true for a repo with `fail_mode: closed` too. See [Guarded Entrypoint trust boundary](/chainguard/containers/custom-assembly/guarded-entrypoint/trust-boundary/).
+
+## Find out why the container stopped
+
+Start with the container's exit code. For a Kubernetes pod, `kubectl describe pod` shows it under `Last State`. For Docker, run the following command:
+
+```shell
+docker inspect --format '{{.State.ExitCode}}' $CONTAINER
+```
+
+Then read the container's logs. The wrapper writes JSON messages to standard error, one object per line, and each message names the setting or variable that failed. It never logs a secret value:
+
+```shell
+kubectl logs $POD
+```
+
+To see more detail, set `GUARDED_ENTRYPOINT_LOG` on the container to `debug`. The levels are `debug`, `info`, `warn`, and `quiet`.
+
+### Exit codes before the application starts
+
+The wrapper uses the following exit codes when it stops the container before your application runs. Once the application starts, the container exits with the application's exit code.
+
+| Code | Meaning | What to check |
+| --- | --- | --- |
+| `120` | A Guarded Entrypoint setting is invalid. | Check the setting that the log message names. |
+| `121` | Secret resolution failed. This includes a `${VAR}` in the command that names a variable that isn't set. | Check the backend address, credentials, and reference. Check that each `${VAR}` has a value. |
+| `122` | A preflight check failed. | Check that the target is reachable from the container, and consider a longer `timeout`. |
+| `123` | There is no command to run. | Check that the image has an entrypoint or CMD, or that `command_override` sets a command. |
+| `124` | `GUARDED_DISABLE` is set and there is no command to run. | Pass a command, or check that the image has an entrypoint or CMD. |
+| `125` | The wrapper itself failed, for example when it couldn't fork a process. | Check the container's resource limits. |
+| `126` | The command exists but can't be run. | Check the execute permission, and that the command is not a directory. |
+| `127` | The command wasn't found. | Check that the first element of `command` is on the container's `PATH`, or use an absolute path. |
+
+A code of `126` or `127` can also come from your own application. Read the wrapper's log messages to tell the two apart.
+
+With `fail_mode: open`, only the configuration errors described in [Fail mode](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#fail-mode) stop the container with exit code `121`.
+
+## Entrypoints the wrapper refuses
+
+When an image's entrypoint is one that the wrapper can't preserve, the rebuild of that image fails. Chainguard doesn't ship a broken image. Instead, the build records a failure and its reason.
+
+To see the failure, list the repo's builds:
+
+```shell
+chainctl images repos build list --repo $REPO
+```
+
+The `Result` column shows the failure, and the `Reason` column shows why. The failed build has no tags in the `Tags` column. For the full text, run `chainctl images repos build logs --repo $REPO` and select the failed build. The output has this form:
+
+```output
+guarded entrypoint refused for tags [latest] (digest sha256:...): the entrypoint is a shell fragment; the tags are not rebuilt and are dropped from the repo's active tag list until the refusal is resolved
+```
+
+An optional second line, `detail: ...`, gives more information. If the repo sets `command_override`, the detail also says that `command_override` is not applied.
+
+The text after the digest is the reason. It is one of the following:
+
+| Reason | Meaning |
+| --- | --- |
+| `the entrypoint is a shell fragment` | The image's entrypoint is a shell fragment, which runs through `/bin/sh`. The wrapper would not run before it. |
+| `the entrypoint is a service-bundle` | The image's entrypoint is a service bundle. A supervisor runs the services, so the wrapper would not run before the application. |
+| `the environment sets GUARDED_DISABLE` | The image's environment sets `GUARDED_DISABLE`. The detail says where it is set. |
+
+The tags named in the message aren't rebuilt until you resolve the refusal. To resolve it, do one of the following:
+
+* Turn off Guarded Entrypoint for the repo. See [Turn off Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/#turn-off-guarded-entrypoint).
+* With tag-based Custom Assembly, bind the overlay that sets `guarded_entrypoint` only to the tags that the wrapper can wrap.
+
+To check ahead of time whether an image is supported, see the [lists of supported and refused entrypoints](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#supported-and-refused-entrypoints).
+
+## Learn more
+
+* [How Guarded Entrypoint works](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/)
+* [Guarded Entrypoint examples](/chainguard/containers/custom-assembly/guarded-entrypoint/examples/)
+* [Guarded Entrypoint trust boundary](/chainguard/containers/custom-assembly/guarded-entrypoint/trust-boundary/)
