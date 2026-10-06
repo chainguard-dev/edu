@@ -1,6 +1,6 @@
 # Chainguard Documentation Bundle
 
-_Compiled on: 2026-10-02 02:24:57_
+_Compiled on: 2026-10-06 02:25:44_
 
 This document contains Chainguard documentation compiled from multiple sources.
 
@@ -291,6 +291,103 @@ _Path: chainguard/changelog.md_
 This page logs Chainguard product updates week by week, newest first: product announcements, breaking changes, container images that reached end-of-life or are no longer available, and images newly added to the catalog. Each event is listed once, in the week it first appeared.
 
 Breaking changes and product announcements cover the entire Chainguard portfolio, while end-of-life, availability, and new-image entries relate specifically to Chainguard Containers. This page summarizes the changes most likely to affect your work rather than every change Chainguard ships. Routine updates, such as new tags for existing images, are not listed individually. For the current tags and versions of any container image, refer to its entry in the [Chainguard Directory](https://images.chainguard.dev/directory).
+
+## Week of 2026-10-05
+
+{{< changelog-label "Product Announcements" >}}
+
+### First Athena vulnerability disclosures
+
+_Launched September 28, 2026._
+
+[Athena](https://www.chainguard.dev/athena), the industry coalition for coordinated defense of open source software, published its first 14 vulnerability disclosures. All 14 are silent vulnerabilities in Java projects: bugs that a later upstream release fixed but that never received a CVE, so vulnerability scanners couldn't flag the affected versions. The batch includes one critical, one high, eight medium, and four low-severity vulnerabilities.
+
+For each disclosure, Chainguard publishes:
+
+- Patch files for every affected version, in the public [Athena repository](https://github.com/chainguard-dev/athena) under each project's original license.
+- An advisory in the [Chainguard Libraries VEX feed](/chainguard/libraries/policies-and-security/cve-remediation/#vex), so [scanners that integrate with Chainguard Libraries](/chainguard/libraries/policies-and-security/scanners/) now report these vulnerabilities.
+- A remediated version of each affected artifact in Chainguard Repository, for Chainguard Libraries customers.
+
+To adopt a fix, replace the affected version in your lockfile with the remediated version and rebuild. The remediated version keeps the same package coordinates and adds a `-0.cgr.N` suffix, as described in [CVE remediation for Chainguard Libraries](/chainguard/libraries/policies-and-security/cve-remediation/).
+
+Ten new mitigation and detection partners also joined the coalition. For the full partner list and a walkthrough of four of the disclosed vulnerabilities, read the [announcement](https://www.chainguard.dev/unchained/athenas-disclosures-begin).
+
+{{< changelog-label "EOL" >}}
+
+Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images that have reached end-of-life
+
+The following container images reached end-of-life and entered their grace period:
+
+| Image | End-of-life | Grace period ends |
+| --- | --- | --- |
+| `nextcloud-server:32` | 2026-09-30 | 2027-03-30 |
+| `zabbix:7.4` | 2026-09-30 | 2027-03-30 |
+| `zabbix-agent2:7.4` | 2026-09-30 | 2027-03-30 |
+| `tekton-pipelines:1.4` | 2026-10-04 | 2027-04-04 |
+| `tekton-pipelines:1.5` | 2026-10-04 | 2027-04-04 |
+
+{{< changelog-label "New Images" >}}
+
+Chainguard built 37 new container images this week, including both standard and FIPS variants.
+
+<table class="cl-images">
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td colspan="3">
+<details>
+<summary><strong><code>crossplane-*</code></strong> — 8 images (with FIPS variants)</summary>
+<table>
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-azure-compute/versions"><code>crossplane-azure-compute</code></a></td><td>application</td><td>2026-09-28</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-azure-containerservice/versions"><code>crossplane-azure-containerservice</code></a></td><td>application</td><td>2026-09-28</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-azure-eventhub/versions"><code>crossplane-azure-eventhub</code></a></td><td>application</td><td>2026-09-28</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-azure-network/versions"><code>crossplane-azure-network</code></a></td><td>application</td><td>2026-09-28</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-azure-operationalinsights/versions"><code>crossplane-azure-operationalinsights</code></a></td><td>application</td><td>2026-09-28</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-aws-s3vectors/versions"><code>crossplane-aws-s3vectors</code></a></td><td>application +fips</td><td>2026-09-29</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-azure-cognitiveservices/versions"><code>crossplane-azure-cognitiveservices</code></a></td><td>application</td><td>2026-09-29</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-function-extra-resources/versions"><code>crossplane-function-extra-resources</code></a></td><td>application +fips</td><td>2026-09-30</td></tr>
+</tbody>
+</table>
+</details>
+</td></tr>
+<tr><td colspan="3">
+<details>
+<summary><strong><code>openstack-*</code></strong> — 10 images</summary>
+<table>
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-ceph-config-helper/versions"><code>openstack-ceph-config-helper</code></a></td><td>application</td><td>2026-10-01</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-cinder-oshelm/versions"><code>openstack-cinder-oshelm</code></a></td><td>application</td><td>2026-10-01</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-client-oshelm/versions"><code>openstack-client-oshelm</code></a></td><td>application</td><td>2026-10-01</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-glance-oshelm/versions"><code>openstack-glance-oshelm</code></a></td><td>application</td><td>2026-10-01</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-keystone-oshelm/versions"><code>openstack-keystone-oshelm</code></a></td><td>application</td><td>2026-10-01</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-neutron-oshelm/versions"><code>openstack-neutron-oshelm</code></a></td><td>application</td><td>2026-10-01</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-nova-oshelm/versions"><code>openstack-nova-oshelm</code></a></td><td>application</td><td>2026-10-01</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-octavia-oshelm/versions"><code>openstack-octavia-oshelm</code></a></td><td>application</td><td>2026-10-01</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-placement-oshelm/versions"><code>openstack-placement-oshelm</code></a></td><td>application</td><td>2026-10-01</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-libvirt-oshelm/versions"><code>openstack-libvirt-oshelm</code></a></td><td>application</td><td>2026-10-02</td></tr>
+</tbody>
+</table>
+</details>
+</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/longhorn-engine-fips/versions"><code>longhorn-engine-fips</code></a></td><td>fips</td><td>2026-09-28</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/nemo-rl/versions"><code>nemo-rl</code></a></td><td>ai</td><td>2026-09-28</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/pmm-server/versions"><code>pmm-server</code></a></td><td>application</td><td>2026-09-28</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/ray-fips/versions"><code>ray-fips</code></a></td><td>fips</td><td>2026-09-28</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/datadog-serverless-init/versions"><code>datadog-serverless-init</code></a></td><td>application +fips</td><td>2026-09-29</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/elasticsearch-iamguarded-fips/versions"><code>elasticsearch-iamguarded-fips</code></a></td><td>fips</td><td>2026-09-29</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/commercial-kyverno-cli/versions"><code>commercial-kyverno-cli</code></a></td><td>commercial</td><td>2026-09-30</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/commercial-kyverno-readiness-checker/versions"><code>commercial-kyverno-readiness-checker</code></a></td><td>commercial</td><td>2026-09-30</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kserve-llmisvc-controller/versions"><code>kserve-llmisvc-controller</code></a></td><td>ai +fips</td><td>2026-10-01</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/playwright-chromium/versions"><code>playwright-chromium</code></a></td><td>application</td><td>2026-10-01</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/aws-lambda-provided/versions"><code>aws-lambda-provided</code></a></td><td>application +fips</td><td>2026-10-02</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/floci/versions"><code>floci</code></a></td><td>application</td><td>2026-10-02</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/livekit-sip/versions"><code>livekit-sip</code></a></td><td>application +fips</td><td>2026-10-02</td></tr>
+</tbody>
+</table>
 
 ## Week of 2026-09-28
 
@@ -1104,7 +1201,7 @@ Offering broad compatibility, Chainguard VMs allow for deployment in any environ
 
 ## Compliance and SLAs
 
-Chainguard VMs (running Chainguard OS) are intentionally designed to minimize risk, maximize transparency, and satisfy security standards such as [CIS Benchmarks](https://edu.chainguard.dev/compliance/cis-benchmarks/), [FedRAMP](https://edu.chainguard.dev/chainguard/containers/security-and-compliance/fedramp-considerations/), SOC 2, and others.
+Chainguard VMs (running Chainguard OS) are intentionally designed to minimize risk, maximize transparency, and satisfy security standards such as [CIS Benchmarks](https://www.chainguard.dev/supply-chain-security-101/what-are-cis-benchmarks), [FedRAMP](https://edu.chainguard.dev/chainguard/containers/security-and-compliance/fedramp-considerations/), SOC 2, and others.
 
 * CVE remediation backed by an [industry-leading SLA](https://www.chainguard.dev/legal/cve-policy): 7 days for critical, 14 days for all others
 * Consistent, reproducible builds
@@ -2397,7 +2494,9 @@ Prior to `chainctl` v0.2.313, when enabling a policy, you needed to include the 
 ### Chainguard Actions telemetry and privacy
 _Path: chainguard/actions/telemetry.md_
 
-Every Chainguard hardened action runs a best-effort "phone-home" pre-hook that records a usage event to `https://actions.enforce.dev/actions/v1/record`. The hook is fire-and-forget, with a 2 second timeout that fails open, so it cannot break your build.
+Most Chainguard hardened actions run a best-effort "phone-home" hook that records a usage event to `https://actions.enforce.dev/actions/v1/record`. JavaScript actions run it as a `pre` script, and composite actions run it as their first step. Docker actions don't include the hook, and some JavaScript and composite actions don't either. The hook is fire-and-forget, with a 2 second timeout that fails open, so it cannot break your build.
+
+If your runners use an egress allowlist, add `actions.enforce.dev` so the hook doesn't wait out its timeout on every step that uses a hardened action.
 
 ## Why we collect this data
 
@@ -2411,7 +2510,9 @@ We collect this data for two reasons:
 What we collect depends on whether your workflow grants `id-token: write`:
 
 - **Without `id-token: write`**: we record your repository name, a timestamp, and an "unverified" flag.
-- **With `id-token: write`**: the hook mints a GitHub OIDC token scoped to the `actions.chainguard.dev` audience and sends it so we can verify the record. From that token we store metadata: repository, actor, ref, sha, workflow path, repository visibility, and run identifiers.
+- **With `id-token: write`**: the hook mints a GitHub OIDC token scoped to the `actions.chainguard.dev` audience and sends it so we can verify the record. From that token we store metadata: repository, ref, sha, workflow path, repository visibility, and run identifiers.
+
+We do not store who triggered the run. The OIDC token identifies the account that started the workflow, and our service discards that claim where it assembles the usage event, so the actor never reaches any of our storage.
 
 The hook never grants itself `id-token: write`. It only uses the permission if your workflow already grants it. If you would rather we receive only your repository name, do not grant `id-token: write` to that job.
 
@@ -2431,18 +2532,74 @@ _Path: chainguard/actions/overview.md_
 
 Chainguard Actions are a set of hardened drop-in replacements for popular GitHub Actions. Each action preserves the same inputs and outputs as the upstream version, but has been examined and revised to better protect your CI/CD pipelines from supply chain attacks. The only change in your workflow configuration is the name of the action in the `uses:` line.
 
-Coverage spans GitHub first-party (`actions/*`), cloud-provider (`aws-actions/*`, `azure/*`, `google-github-actions/*`), Docker, HashiCorp, and security tools actions (Trivy, Grype, CodeQL, Semgrep), as well as a growing catalog of community actions.
+The catalog holds more than 1,000 hardened actions. Coverage spans GitHub first-party (`actions/*`), cloud-provider (`aws-actions/*`, `azure/*`, `google-github-actions/*`), Docker, HashiCorp, and security tools actions (Trivy, Grype, CodeQL, Semgrep), as well as a growing catalog of community actions.
 
 Each hardened action:
 
-- Is built from source and evaluated through a rule-based and AI-powered hardening pipeline
+- Is pulled from the upstream source at a pinned commit, then reviewed by a static ruleset and an AI-powered analysis pass
 - Has every internal `uses:` and container image reference pinned to an immutable SHA digest
 - Ships with a `HARDENING.md` report documenting exactly what was checked and fixed
+- Ships with a signed SLSA provenance attestation recording the upstream source and the ruleset version applied (releases published before signing began don't carry one)
 - Is re-reviewed and re-hardened whenever upstream publishes a new version or Chainguard adds a new rule
 
 Chainguard Actions protect against common threats including tag hijacking, dependency confusion, `pull_request_target` abuse, and secret exfiltration.
 
-This page provides enough to get you started. Refer to the [Chainguard Actions README](https://github.com/chainguard-actions) in GitHub for deeper technical details and some example migrations. You can also [use Guardener to enable Chainguard Actions](/chainguard/guardener/github/actions-security/).
+This page provides enough to get you started. Browse the [Chainguard Actions organization](https://github.com/chainguard-actions) to find a specific action and read its hardening report.
+
+## What hardening checks and fixes
+
+Every action in the catalog goes through the same two-stage review. A deterministic static pre-pass runs first and catches patterns mechanically. An AI-powered analysis pass then evaluates the action against the policy ruleset. Findings from either stage carry an ID that appears in the action's `HARDENING.md` report, so you can trace any change back to the check that produced it.
+
+### Policy checks
+
+| Check | Finding IDs | Severity | What it catches |
+| ----- | ----------- | -------- | --------------- |
+| Unpinned uses | `unpinned-uses` | High | A `uses:` reference or a `runs.image:` container reference pointing at a mutable tag or branch instead of an immutable commit SHA or image digest. The `docker://` prefix is optional, so `image: ghcr.io/example/tool:latest` is a finding too. |
+| Script injection | `script-injection` | High | Expressions such as `${{ inputs.name }}` interpolated directly into a `run:` block, where the shell can parse attacker-controlled text as commands. |
+| Unsafe shell | `unsafe-shell` | High | Remote content piped straight into an interpreter, such as `curl ... \| bash`. |
+| Hardcoded credentials | `hardcoded-credentials` | High | Literal secrets assigned to names containing `password`, `secret`, `token`, `api_key`, or `aws_secret`. |
+| GitHub environment injection | `github-env-injection` | High | Untrusted values written to `$GITHUB_ENV`, `$GITHUB_PATH`, or `$GITHUB_OUTPUT` without newline sanitization, which lets an attacker inject variables into later steps. |
+| Suspicious run content | `suspicious-run-content` | High | Malicious patterns in `run:` blocks, including obfuscated execution, process memory access, dynamic evaluation, credential file access, outbound exfiltration, reverse shells, persistence, and environment secret scraping. |
+| Permissions | `permissions`, `missing-permissions`, `broad-permissions` | Medium | Workflows that leave `GITHUB_TOKEN` at its default permissions, or that set `read-all` or `write-all` instead of specific scopes. |
+
+### Static pre-pass checks
+
+The static pre-pass complements the analysis pass by catching patterns the analysis may miss. It reports one finding per occurrence, so a report can list the same ID many times, each with its own location. `static-inline-injection` is the most common finding in the catalog for that reason.
+
+| Finding ID | Severity | What it catches |
+| ---------- | -------- | --------------- |
+| `static-inline-injection` | High | A single expression interpolated directly into a `run:` block. The finding names the expression and the step it appears in, and the fix moves the value into an `env:` map. |
+| `static-unsanitized-env-write` | Medium | An unsanitized write to a GitHub environment file. |
+| `invalid-yaml` | High | An action or workflow file that could not be parsed. |
+
+Both stages read the action definition (`action.yml` or `action.yaml`) and every workflow under `.github/workflows/` in the action's own repository. Neither inspects built or vendored output: `dist/`, `vendor/`, and `node_modules/` are out of scope, as are the action's test fixtures.
+
+Findings are fixed in place and the pipeline re-evaluates its own work, so a single hardening run can take several iterations before an action passes. Both the findings and the per-iteration notes are recorded in `HARDENING.md`.
+
+## Transitive dependencies
+
+Hardening the top-level action is only part of the problem. Actions pull in other actions and container images behind the scenes, and those transitive dependencies are a common path into a pipeline. Chainguard hardens the references it can see in the action definition:
+
+- **Container images are pinned to digests.** When an action runs a registry image (`runs.using: docker` with a `docker://` image), the pipeline resolves the tag to its digest and rewrites the reference as `image:tag@sha256:<digest>`. A retagged image can't change what the action pulls.
+- **Nested actions are pinned, and swapped for hardened copies where they exist.** Every nested `uses:` reference is pinned to an immutable commit SHA, with the original tag kept as a comment. In composite actions, when Chainguard has hardened the nested action, the reference points at the hardened copy instead of upstream. For example, the hardened `actions/upload-pages-artifact` calls `chainguard-actions/actions-upload-artifact`, not `actions/upload-artifact`.
+- **The action's own workflows are reviewed too.** Both stages of the review cover the workflows under `.github/workflows/` in the action's repository, not only the action definition.
+- **Missing dependencies can be onboarded.** When a hardened action depends on an action that isn't in the catalog yet, [request that action](https://github.com/chainguard-actions/.github/issues/new?template=new-action.yml) and Chainguard hardens and publishes it.
+
+### How nested actions are swapped for hardened copies
+
+When Chainguard hardens and publishes an action, every hardened action that depends on it goes back through hardening so its `uses:` reference can point at the hardened copy. Three limits apply:
+
+- It covers composite actions only. Node and Docker actions have no `uses:` steps to rewrite.
+- It applies only when a hardened copy exists for that exact upstream commit.
+- It never rewrites a reference when the correct copy is ambiguous.
+
+Coverage grows as more of the catalog is hardened, so read the `action.yml` on the version branch you plan to use to see what it references today.
+
+### What hardening doesn't change
+
+Hardening doesn't change the packages an action bundles or installs. A JavaScript action ships the same `dist/` bundle as its upstream release, and an action built from a Dockerfile uses the same base image as upstream. Packages and binaries an action downloads while it runs are outside what the review inspects.
+
+To see the full dependency graph for your own repository, including actions reached through other actions, use the `--recursive` flag described in [View the actions you are currently using](#view-the-actions-you-are-currently-using-in-a-repository).
 
 ## Prerequisites
 
@@ -2452,9 +2609,11 @@ To follow this guide, you need:
 - An active Chainguard organization.
 - Owner access on the organization.
 
-## Preliminary steps
+## Set up Chainguard Actions
 
-Before using Chainguard Actions, log in to Chainguard and enable the Chainguard Actions entitlement for your organization.
+Setting up has two parts: entitle your organization, then choose how you migrate your workflows.
+
+### Step 1: Create the Actions entitlement
 
 Authenticate using `chainctl`:
 
@@ -2462,7 +2621,7 @@ Authenticate using `chainctl`:
 chainctl auth login
 ```
 
-Create the Chainguard Actions entitlement to enable access to the hardened actions hosted at `github.com/chainguard-actions`:
+Create the Chainguard Actions entitlement for your organization:
 
 ```shell
 chainctl actions entitlements create
@@ -2486,21 +2645,67 @@ chainctl actions entitlements list
  $ENTITLEMENT_ID                          | 2026-06-18 17:33:24 UTC
 ```
 
+### Step 2: Install the Chainguard App
+
+The [Chainguard App](/chainguard/guardener/github/getting-started/) is the recommended way to adopt Chainguard Actions across more than a repository or two. Once you install it and link it to your Chainguard organization, Guardener:
+
+- Inventories the actions your workflows use across every repository it can access
+- Comments on pull requests that introduce unhardened actions, so your workflows don't drift back
+- Opens and maintains a pull request that swaps in Chainguard hardened equivalents, once you enable migration
+
+To set it up:
+
+1. Install the [Chainguard App](https://github.com/apps/chainguard-guardener) on your GitHub organization.
+2. Link your Chainguard organization to your GitHub organization with `chainctl guardener github link`.
+3. Add a `.chainguard/actions.yaml` file to each repository you want Guardener to work on, or once to your organization's `.github` repository to apply it to every repository.
+
+Both of the last two steps matter. Installing the app changes no repository on its own, and the Actions feature stays inert until a `.chainguard/actions.yaml` applies to the repository, either in the repository itself or through the [org-level `.github` configuration](/chainguard/guardener/github/configuration/#organization-level-configuration-with-the-github-repository). Once it does, pull request recommendations are on by default, but automated migration pull requests need `migrate.enabled: true` set explicitly:
+
+```yaml
+enabled: true
+migrate:
+  enabled: true
+```
+
+If installing an app in your organization needs an administrator's approval, they will be asked to approve a specific set of GitHub permissions. [Permissions Guardener requests](/chainguard/guardener/github/getting-started/#permissions-guardener-requests) lists each one and why it's needed, so you can take that to them before you start.
+
+Refer to [Getting started with Guardener](/chainguard/guardener/github/getting-started/) for the installation and linking steps, and to [Hardened Actions](/chainguard/guardener/github/actions-security/) for the configuration reference, the migration options, and the on-demand migration command.
+
+The Chainguard App is in beta. It runs in production and is supported, but its features and configuration may still change.
+
+If you'd rather not install a GitHub App, you can migrate with the [cg-actions](https://github.com/chainguard-dev/cg-skills/tree/main/skills/cg-actions) skill or by hand. Both approaches are covered in [Configure your workflows to use Chainguard Actions](#configure-your-workflows-to-use-chainguard-actions).
+
 ## Basic usage (quick start)
 
 To use a Chainguard hardened action, edit your workflow's YAML configuration file and change the `uses:` line to match the location in `chainguard-actions`:
 
 ```yaml
-- uses: chainguard-actions/<action-name>@main
+- uses: chainguard-actions/<action-name>@<commit-sha> # <version-tag>
 ```
 
-Action names often have the upstream organization appended to the action name for clarity, for example, `tj-actions/changed-actions` becomes `tj-actions-changed-actions`. This prevents two different sources of a `changed-actions` action from clashing in the Chainguard Actions repository.
+Repository names are prefixed with the upstream organization, so `tj-actions/changed-files` becomes `tj-actions-changed-files`. This keeps two different sources of a `changed-files` action from clashing in the Chainguard Actions organization.
 
 Search the Chainguard Actions repository, find the action you want to use, and then use the name you find there.
 
-> **Note:** This example uses `@main`, a mutable reference, to illustrate the mechanics of switching organizations. For production workflows, pin to an immutable SHA digest instead. The [Configure your workflows](#configure-your-workflows-to-use-chainguard-actions) section covers the full migration.
+> **Note:** Don't reference a hardened action with `@main`. The main branch of each repository holds only metadata (`README.md`, `LICENSE_CHAINGUARD`, and `source.json`). The hardened action itself lives on the version branches, so a reference to `@main` fails to resolve.
 
-The rest of this page goes a bit deeper into how to use Chainguard Actions.
+Pin to the commit SHA that a version tag resolves to, and keep the tag as a comment. [Choose how to reference an action](#choose-how-to-reference-an-action) explains why, and [Replace the `uses:` line in each workflow](#replace-the-uses-line-in-each-workflow) shows how to look up the SHA.
+
+## Choose how to reference an action
+
+Pin to a commit SHA, and pair the pin with Dependabot or Renovate:
+
+```yaml
+- uses: chainguard-actions/actions-checkout@<sha> # v4
+```
+
+A commit SHA is the only immutable reference in the catalog. Tags are mutable by design, and not just the floating major version. Chainguard re-hardens published versions in place and moves the tag when it does, including fully qualified patch tags, so a single upstream release can be re-hardened several times with the same tag pointing somewhere new each time. Both `@v4` and `@v4.3.1` resolve to whatever was published most recently.
+
+Pinning on its own isn't enough, though. A pin with no tooling behind it is the one configuration that strands you: you stay on that build, and stop receiving re-hardening, until someone updates the SHA by hand. Dependabot and Renovate both track a pinned SHA against its tag and open a pull request when the tag moves, so you receive every re-hardening as a change your own CI validates before it reaches a live workflow. That gives you more control than a mutable tag does, and costs you nothing in freshness.
+
+Pinning is also the standard Chainguard applies to the actions it hardens. The `unpinned-uses` check fails any `uses:` reference on a tag, so if you run an actions linter against your own repository, referencing a hardened action by tag will register a finding.
+
+Use the canonical repository name in the reference. Some catalog repositories answer to an older name through a GitHub rename redirect — `chainguard-actions/checkout` reaches `chainguard-actions/actions-checkout`, for example — but a redirect isn't something to depend on in a pinned workflow.
 
 ## Configure your workflows to use Chainguard Actions
 
@@ -2516,6 +2721,8 @@ Run this from the root of your repository to get a deduplicated list of every `u
 grep -rhE "uses:\s*[^@]+@" .github/workflows/ | sort -u
 ```
 
+For a more thorough inventory that also follows composite actions, use [`chainctl actions discover`](#view-the-actions-you-are-currently-using-in-a-repository).
+
 ### Check the Chainguard Actions catalog for each action.
 
 Browse [the Chainguard Actions repository](https://github.com/chainguard-actions) or use the GitHub search UI. Match by organization and action name — for example, if you use `tj-actions/changed-files`, search for `org:chainguard-actions tj-actions-changed-files`.
@@ -2524,7 +2731,7 @@ If the action isn't in the catalog, [open an issue](https://github.com/chainguar
 
 ### Replace the `uses:` line in each workflow.
 
-Change the `uses:` line to match the location in `chainguard-actions`. Find and pin to the commit SHA digest and preserve the original tag as a comment so Dependabot, Renovate, and human reviewers can track upgrades:
+Change the `uses:` line to match the location in `chainguard-actions`. Pin to the commit SHA and preserve the original tag as a comment so Dependabot, Renovate, and human reviewers can track upgrades:
 
 ```yaml
 # Before
@@ -2544,7 +2751,7 @@ gh api repos/chainguard-actions/tj-actions-changed-files/commits/v47 --jq '.sha'
 ```
 
 ```output
-25a1eb5aa40568ec6f8c0e58f2e809ef4270ebfa
+4b4bd2ed96c7629e1c911f97f2390b91e1362735
 ```
 
 For the short SHA digest:
@@ -2554,14 +2761,16 @@ gh api repos/chainguard-actions/tj-actions-changed-files/commits/v47 --jq '.sha[
 ```
 
 ```output
-25a1eb5
+4b4bd2e
 ```
 
 The resulting `uses:` line with the full SHA digest:
 
 ```yaml
-- uses: chainguard-actions/changed-files@25a1eb5aa40568ec6f8c0e58f2e809ef4270ebfa # v47
+- uses: chainguard-actions/tj-actions-changed-files@4b4bd2ed96c7629e1c911f97f2390b91e1362735 # v47
 ```
+
+Run the command rather than copying the digest shown here. Because Chainguard re-hardens a published version in place and moves its tag, the SHA a version tag resolves to changes each time that version is re-hardened.
 
 ### Update your allowed-actions list.
 
@@ -2579,7 +2788,7 @@ If something breaks, [file an issue](https://github.com/chainguard-actions/.gith
 
 ## View the actions you are currently using in a repository
 
-Use `chainctl` to scan every workflow and composite action in a repository and list all dependencies transitively:
+Use `chainctl` to scan every workflow and composite action in a repository and list the actions and container images they reference:
 
 ```shell
 chainctl actions discover $GIT_ORGANIZATION/$REPO
@@ -2595,6 +2804,16 @@ chainctl actions discover $GIT_ORGANIZATION/$REPO
     2 actions, 0 container images
 
 ```
+
+The command needs a GitHub token, which it reads from `$GITHUB_TOKEN` or from `gh auth token`. The target can be a local directory (the current directory by default), an `owner/repo` pair, or a single action reference such as `actions/checkout@v4`.
+
+By default, `discover` lists only the actions your workflows reference directly. Add `--recursive` to follow each referenced action into its own definition and resolve the full transitive dependency graph:
+
+```shell
+chainctl actions discover $GIT_ORGANIZATION/$REPO --recursive
+```
+
+A recursive scan makes many GitHub API calls, so it caches responses and stops after `--timeout` (five minutes by default). Refer to [`chainctl actions discover`](/platform/chainctl/chainctl-docs/chainctl_actions_discover/) for the full set of flags.
 
 ## View the actions currently available
 
@@ -2612,37 +2831,56 @@ chainctl actions catalog list --upstream-owner=tj-actions
 
 This example returns a list of all actions in the Chainguard Actions repository that originate from the `tj-actions` upstream source.
 
-## Hardened action repository contents
+To list the catalog entries available to a specific organization rather than the whole public catalog, use [`chainctl actions list`](/platform/chainctl/chainctl-docs/chainctl_actions_list/):
 
-The main branch of each hardened action repository contains:
+```shell
+chainctl actions list --parent $ORGANIZATION
+```
 
-- `HARDENING.md` — the authoritative, per-action record of what was checked, what was fixed, and how
-- `action.yml` or `action.yaml` — the hardened action definition, preserving upstream inputs and outputs with fixes applied
+## What ships in each hardened action
+
+Each hardened action's repository has a main branch and one branch per hardened version. The hardened action lives on the version branches; the main branch holds only metadata.
+
+The main branch of each repository contains:
+
+- `README.md` — a pointer to the action and its upstream source
 - `LICENSE_CHAINGUARD` — the Chainguard license for the hardened variant
-- `source.json` and `published.json` — manifests pointing at the upstream source and the upstream version being tracked (not yet present in all repos; some older repos don't include them)
-- Some actions also include documentation from upstream that you can adapt to use with the Chainguard hardened version
+- `source.json` — a manifest naming the upstream owner, repository, version, and commit, along with the policy SHAs applied
 
-Then, the version branches in the hardened action repos contain the hardened actions.
+Each version branch contains:
+
+- `HARDENING.md` — the authoritative, per-action record of what was checked, what was fixed, and how, including the policy SHA that pins the exact ruleset applied
+- `action.yml` or `action.yaml` — the hardened action definition, preserving upstream inputs and outputs with fixes applied
+- `attestations/provenance.intoto.jsonl` — a signed [SLSA provenance](https://slsa.dev/provenance/v1) attestation naming the upstream repository and commit, the ruleset version, the build times, and a SHA-256 digest for every file in the hardened action
+- `LICENSE_CHAINGUARD` — the Chainguard license for the hardened variant
+- The upstream action's own files, including its license and any documentation you can adapt for the hardened version
+
+Because `HARDENING.md` and the attestation are per-version, read them on the version branch you plan to use rather than on the main branch.
+
+Nearly every version branch in the catalog carries an attestation. A small number of older releases were published before Chainguard began signing them, so if a version branch has no `attestations/` directory, treat that release as unverifiable rather than as verified.
+
+Chainguard doesn't publish a customer-facing verification procedure yet. Verification requires the signing key's fingerprint, which isn't published, so there is no complete recipe to follow today. Tooling for this is planned. In the meantime the attestation is still useful as a record: it names the upstream commit the release was built from and the ruleset version that was applied.
 
 ## The continuous re-hardening process
 
 Chainguard Actions are continuously re-hardened:
 
 - When upstream publishes a new version, the pipeline re-runs and publishes a new hardened version
-- When the hardening ruleset is updated, affected actions are re-reviewed against the new rules
+- When the hardening ruleset is updated, every action in the catalog is re-evaluated against the new ruleset and re-hardened as needed
 - The `HARDENING.md` report is regenerated on every hardening run, with its own policy SHA pinning the exact set of rules that were applied
+
+Because the policy SHA is computed over the ruleset itself, any change to a rule produces a new SHA, which is what triggers the catalog-wide re-evaluation.
 
 ## Request a new action or report an issue
 
-To request a new action, [open an issue](https://github.com/chainguard-actions/.github/issues/new?template=new-action.yml).
+To request an action that isn't in the catalog, [open a new action issue](https://github.com/chainguard-actions/.github/issues/new?template=new-action.yml).
 
-## Report an issue
-
-If an action isn't working as expected, [open an issue](https://github.com/chainguard-actions/.github/issues/new?template=action-issue.yml) with the action reference, a description of the problem, and steps to reproduce.
+If an action isn't working as expected, [open an action issue](https://github.com/chainguard-actions/.github/issues/new?template=action-issue.yml) with the action reference, a description of the problem, and steps to reproduce.
 
 ## Learn more
 
 - [Chainguard Actions telemetry and privacy](/chainguard/actions/telemetry/)
+- [Hardened Actions with Guardener](/chainguard/guardener/github/actions-security/)
 - [Chainguard Actions product page](https://www.chainguard.dev/actions)
 - For other questions, [contact Chainguard](https://www.chainguard.dev/contact?utm=docs).
 
@@ -13215,7 +13453,7 @@ The system architecture and toolchain used in Chainguard OS support the automati
 
 ### Software supply chain security
 
-All software components in Chainguard OS are built from source in the [Chainguard Factory](https://www.youtube.com/watch?v=iU9hmW6hrGs) — a hardened build environment that conforms to [SLSA](https://slsa.dev/) standards. This process mitigates risks of tampering in the build and delivery pipeline. The system also generates cryptographically verifiable artifacts, including signed Software Bills of Materials ([SBOMs](/open-source/sbom/what-is-an-sbom/)) and provenance metadata.
+All software components in Chainguard OS are built from source in the [Chainguard Factory](https://www.youtube.com/watch?v=iU9hmW6hrGs) — a hardened build environment that conforms to [SLSA](https://slsa.dev/) standards. This process mitigates risks of tampering in the build and delivery pipeline. The system also generates cryptographically verifiable artifacts, including signed Software Bills of Materials ([SBOMs](https://www.chainguard.dev/supply-chain-security-101/what-is-an-sbom)) and provenance metadata.
 
 ### Operational efficiency
 
@@ -15253,7 +15491,7 @@ _Path: chainguard/containers/concepts/glibc-vs-musl.md_
 
 Over the years, various implementations of the [C standard library](https://en.wikipedia.org/wiki/C_standard_library) — such as the [GNU C library](https://www.gnu.org/software/libc/), [musl](https://musl.libc.org/about.html), [uClibc-ng](https://www.uclibc-ng.org/), and many others — have emerged with different goals and characteristics. These various implementations exist because the C standard library defines the required functionality for operating system services (such as file input/output and memory management) but does not specify implementation details. Among these implementations, the GNU C Library ([glibc](https://www.gnu.org/software/libc/)) and [musl](https://musl.libc.org/about.html) are among the most popular.
 
-When developing [Wolfi](/open-source/wolfi/overview/), the "undistro" on which all Chainguard Containers are built, Chainguard elected to have it use glibc instead of another implementation like musl. This conceptual article aims to highlight the differences between these two implementations within the context of Chainguard's choice of using glibc over musl as the default implementation for the Wolfi undistro.
+When developing [Wolfi](https://www.chainguard.dev/supply-chain-security-101/wolfi-overview), the "undistro" on which all Chainguard Containers are built, Chainguard elected to have it use glibc instead of another implementation like musl. This conceptual article aims to highlight the differences between these two implementations within the context of Chainguard's choice of using glibc over musl as the default implementation for the Wolfi undistro.
 
 > **Note**: Several sections of this guide present data about the differences between glibc and musl across various categories. You can recreate some of these examples used to find this data with the Dockerfiles and C program files hosted in the `glibc-vs-musl` directory of the [Chainguard Academy Containers Demos repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/glibc-vs-musl).
 
@@ -17064,7 +17302,7 @@ For detailed migration guidance, please refer to our [Migration docs](https://ed
 ### Migrating Dockerfiles to Chainguard Containers
 _Path: chainguard/containers/migration/migrating-to-chainguard-images.md_
 
-Chainguard Containers provide enhanced security through minimal design and built-in provenance attestation, requiring some adjustments when migrating from traditional base images. Built on the [Wolfi](/open-source/wolfi/overview/) Linux distribution, these images offer compatibility with most applications while significantly reducing attack surface and vulnerabilities.
+Chainguard Containers provide enhanced security through minimal design and built-in provenance attestation, requiring some adjustments when migrating from traditional base images. Built on the [Wolfi](https://www.chainguard.dev/supply-chain-security-101/wolfi-overview) Linux distribution, these images offer compatibility with most applications while significantly reducing attack surface and vulnerabilities.
 
 A general migration process would involve the following steps:
 
@@ -25962,7 +26200,7 @@ If you are using Chainguard Containers at your organization or want to learn mor
 ### Strategies for minimizing your CVE risk
 _Path: chainguard/containers/security-and-compliance/vulnerability-management/cve-risk.md_
 
-[Common vulnerabilities and exposures](/software-security/cves/cve-intro/#what-is-a-cve) (CVEs) are an increasing concern for developers and organizations, which is why Chainguard developed its minimal container images that reduce the attack surface. A new CVE in a widely-used application or a vulnerability scan with numerous positive results can significantly impact security posture, compliance requirements, and development timelines.
+[Common vulnerabilities and exposures](https://www.chainguard.dev/supply-chain-security-101/what-is-a-cve#what-is-a-cve) (CVEs) are an increasing concern for developers and organizations, which is why Chainguard developed its minimal container images that reduce the attack surface. A new CVE in a widely-used application or a vulnerability scan with numerous positive results can significantly impact security posture, compliance requirements, and development timelines.
 
 Chances are, your software has already been impacted by a CVE. It's likely there are active CVEs in software you are using. After all, there are software vulnerabilities currently in existence that haven't even been discovered (known as zero-day vulnerabilities). With that said, this conceptual article aims to highlight a few practices and strategies you and your team can use to reduce the risk of CVEs on your software. It also includes a section on [tools recommended by Chainguard](#recommended-tools) that can help to reduce your attack surface area and minimize your risk of CVEs.
 
@@ -26028,7 +26266,7 @@ As mentioned in the introduction, there's no way to guarantee that no CVEs will 
 
 If you'd like to learn more about CVEs, and strategies for remediating them, we encourage you to check out the following resources:
 
-* [What are software vulnerabilities and CVEs?](/software-security/cves/cve-intro/#what-is-a-cve)
+* [What are software vulnerabilities and CVEs?](https://www.chainguard.dev/supply-chain-security-101/what-is-a-cve#what-is-a-cve)
 * [False positives and false negatives with container scanners](/chainguard/containers/security-and-compliance/working-with-scanners/false-results/)
 * [Considerations for keeping containers up to date](/chainguard/containers/security-and-compliance/updating-containers/considerations-for-image-updates/)
 
@@ -26409,7 +26647,7 @@ Some container images do not currently have a comparative alternative. In these 
 
 The CVE data used in these reports is from the [Grype vulnerability scanner](/chainguard/containers/security-and-compliance/working-with-scanners/grype-tutorial/). Vulnerability data is constantly evolving, so we scan container images each day and store the results. The results shown are the vulnerabilities found on the day in question; scanning the container images again with a newer database will show different results.
 
-For more information on CVEs refer to [What are software vulnerabilities and CVEs](/software-security/cves/cve-intro/). You may also find our guide on [Using the Chainguard Directory and Console](/platform/console/images-directory/) to be of interest.
+For more information on CVEs refer to [What are software vulnerabilities and CVEs](https://www.chainguard.dev/supply-chain-security-101/what-is-a-cve). You may also find our guide on [Using the Chainguard Directory and Console](/platform/console/images-directory/) to be of interest.
 
 ---
 
@@ -26425,7 +26663,7 @@ Even though they contain the minimum number of packages, there may come a time w
 You can retrieve a container image's attestation in two ways:
 
 - [Using Cosign](#retrieve-a-container-image-attestation-using-cosign)
-    - [Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/) — a part of the Sigstore project — supports software artifact signing, verification, and storage in an [OCI (Open Container Initiative)](/open-source/oci/what-is-the-oci/) registry, as well as the retrieval of said artifacts.
+    - [Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/) — a part of the Sigstore project — supports software artifact signing, verification, and storage in an [OCI (Open Container Initiative)](https://www.chainguard.dev/supply-chain-security-101/what-is-the-open-container-initiative-oci) registry, as well as the retrieval of said artifacts.
 - [In the Chainguard Console](#retrieve-a-container-image-attestation-in-the-chainguard-console)
 
 ### Prerequisites
@@ -28268,7 +28506,7 @@ So please try it out and let me know if you have any questions.
 ### False positives and false negatives with container image scanners
 _Path: chainguard/containers/security-and-compliance/working-with-scanners/false-results.md_
 
-A *vulnerability scanner* is a tool that analyzes your software components and reports any [CVEs](/software-security/cves/cve-intro/) it finds. Using a vulnerability scanner to find CVEs that impact your system is a critical step in [software vulnerability remediation](/software-security/cves/cve-remediation/), but as you begin to triage scanner-reported vulnerabilities, you may find that your scanner's results are not perfectly accurate.
+A *vulnerability scanner* is a tool that analyzes your software components and reports any [CVEs](https://www.chainguard.dev/supply-chain-security-101/what-is-a-cve) it finds. Using a vulnerability scanner to find CVEs that impact your system is a critical step in [software vulnerability remediation](https://www.chainguard.dev/supply-chain-security-101/cve-remediation-explained), but as you begin to triage scanner-reported vulnerabilities, you may find that your scanner's results are not perfectly accurate.
 
 The goal of a vulnerability scanner is to identify the vulnerabilities that impact your container images, which can be considered *true positive vulnerabilities*. Sometimes, a scanner surfaces CVEs which are not actually impacting your images, which are called *false positive vulnerabilities*. Your scanner may even miss some vulnerabilities that are impacting you, termed *false negative vulnerabilities*.
 
@@ -28360,7 +28598,7 @@ Unfortunately, there is no single way to stop false positives and false negative
 
 ### SBOMs, purls, and VEX
 
-An SBOM, or [Software bill of materials](/open-source/sbom/what-is-an-sbom/), is a helpful document that catalogs the packages and components of your software in a machine-readable format. Using an SBOM can improve your vulnerability scans as package information is stored in one place, so scanners don't have to hunt down and risk missing component information throughout your software. There are [different ways to generate an SBOM](/open-source/sbom/what-makes-a-good-sbom/) in order to improve their comprehensiveness and utility.
+An SBOM, or [Software bill of materials](https://www.chainguard.dev/supply-chain-security-101/what-is-an-sbom), is a helpful document that catalogs the packages and components of your software in a machine-readable format. Using an SBOM can improve your vulnerability scans as package information is stored in one place, so scanners don't have to hunt down and risk missing component information throughout your software. There are [different ways to generate an SBOM](https://www.chainguard.dev/supply-chain-security-101/what-is-an-sbom) in order to improve their comprehensiveness and utility.
 
 To address the inconsistencies caused by software vendors using proprietary version naming schemes, adopting the [purl specification](https://github.com/package-url/purl-spec) can help. A purl, or package URL, aims to standardize versioning by outlining a convention that incorporates pertinent package information in every identifier. Using purls can [reduce the number of false positives which surface](https://www.chainguard.dev/unchained/a-purl-of-wisdom-on-sboms-and-vulnerabilities?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) by making it easier for scanners to align version information between data sources.
 
@@ -28384,7 +28622,7 @@ With false results mixed into your scans, triaging and addressing true positive 
 
 In this article, you learned how false results from your vulnerability scanners can occur, and how they can impact your development workflow. Additionally, you explored various ways you can improve the accuracy of your scanner through the application of tools like VEX, rebuilding your images, and choosing a base image suitable for your applications.
 
-To learn more about reducing false positives and negatives in your images, you can check out our [collection of articles on SBOMs and VEX](/open-source/sbom/), read about [selecting a base image](/software-security/selecting-a-base-image/) for your applications, or discover how Chainguard Containers can help you [reach zero CVEs in your containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
+To learn more about reducing false positives and negatives in your images, you can check out our [collection of articles on SBOMs and VEX](/open-source/sbom/), read about [selecting a base image](https://www.chainguard.dev/supply-chain-security-101/selecting-a-base-container-image) for your applications, or discover how Chainguard Containers can help you [reach zero CVEs in your containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
 
 ---
 
@@ -28821,7 +29059,7 @@ trivy sbom results.cdx.json
 
 By default, the `sbom` subcommand scans only for vulnerabilities. License scanning can be enabled using the `--scanners license` flag.
 
-Some image providers, such as Chainguard, associate images with an [SBOM attestation](https://edu.chainguard.dev/open-source/sbom/sboms-and-attestations/) verifying that the image has not been tampered with since the time of creation. Trivy provides functionality to query attestations registered in the [Rekor transparency log](https://github.com/sigstore/rekor). To retrieve an SBOM attestation from a Rekor transparency log, set the `--sbom-sources` flag to `rekor` and provide the `--rekor-url` flag to the instance of the transparency log you wish to query against. The following will perform a scan using the SBOM attestation for Chainguard's `nginx` image as registered on the [Rekor public server](https://rekor.sigstore.dev/):
+Some image providers, such as Chainguard, associate images with an [SBOM attestation](https://www.chainguard.dev/supply-chain-security-101/sboms-vs-attestations) verifying that the image has not been tampered with since the time of creation. Trivy provides functionality to query attestations registered in the [Rekor transparency log](https://github.com/sigstore/rekor). To retrieve an SBOM attestation from a Rekor transparency log, set the `--sbom-sources` flag to `rekor` and provide the `--rekor-url` flag to the instance of the transparency log you wish to query against. The following will perform a scan using the SBOM attestation for Chainguard's `nginx` image as registered on the [Rekor public server](https://rekor.sigstore.dev/):
 
 ```shell
 trivy image --sbom-sources rekor --rekor-url https://rekor.sigstore.dev/ cgr.dev/chainguard/nginx
@@ -32714,7 +32952,7 @@ The application will also share version information at [http://0.0.0.0:8080/vers
 
 ## Example 3: Minimal Go Chainguard Container built with ko
 
-In this example, we'll build a distroless Go Chainguard Container with [ko](https://ko.build/). ko offers fast container image builds for Go applications without requiring a Dockerfile. Additionally, ko produces [SBOMs](/open-source/sbom/what-is-an-sbom/) by default, supporting a holistic approach to software security.
+In this example, we'll build a distroless Go Chainguard Container with [ko](https://ko.build/). ko offers fast container image builds for Go applications without requiring a Dockerfile. Additionally, ko produces [SBOMs](https://www.chainguard.dev/supply-chain-security-101/what-is-an-sbom) by default, supporting a holistic approach to software security.
 
 Start by accessing the `go-digester` folder in the Go demos repository:
 
@@ -34594,7 +34832,7 @@ These iamguarded charts have been tested by Chainguard to confirm they produce e
 
 - We only build the latest/mainline versions of iamguarded images and test them against the latest version of the corresponding iamguarded Helm charts.
 
-Chainguard makes the provenance of these charts clear. Helm charts are packaged as [OCI artifacts](/open-source/oci/what-are-oci-artifacts/) using the upstream version adding an appended revision suffix for updates that include material changes to the chart; otherwise, tags will float based as their dependent images update. The OCI artifacts are signed and generate provenance attestations that link to the exact image digests used to ensure that all artifacts are cryptographically verifiable end-to-end for integrity and origin.
+Chainguard makes the provenance of these charts clear. Helm charts are packaged as [OCI artifacts](https://www.chainguard.dev/supply-chain-security-101/what-are-oci-artifacts) using the upstream version adding an appended revision suffix for updates that include material changes to the chart; otherwise, tags will float based as their dependent images update. The OCI artifacts are signed and generate provenance attestations that link to the exact image digests used to ensure that all artifacts are cryptographically verifiable end-to-end for integrity and origin.
 
 You can find iamguarded Helm charts in the [Chainguard Console](/platform/console/images-directory/#find-helm-charts-in-the-chainguard-console) and in the [Chainguard Directory](/chainguard/containers/registry/chainguard-directory/#find-helm-charts-in-the-chainguard-directory).
 
@@ -34874,7 +35112,7 @@ The community charts have been tested by Chainguard to confirm they produce expe
 - Version streaming: Chainguard commits to supporting chart and image versions that match the latest upstream project chart. Within that latest chart we will support the associated image versions.
 - Testing policy: We test the latest charts with the supported version streams and functionally validate by deploying the Helm chart in its representative environment and exercising the various functionality of the chart(s). We’ll also continue publishing end-of-life (EOL) version streams as long as they continue to pass our functional validation.
 
-Chainguard makes the provenance of these charts clear. Helm charts are packaged as [OCI artifacts](/open-source/oci/what-are-oci-artifacts/) using the upstream version adding an appended revision suffix for updates that include material changes to the chart; otherwise, tags will float based as their dependent images update. The OCI artifacts are signed and generate provenance attestations that link to the exact image digests used to ensure that all artifacts are cryptographically verifiable end-to-end for integrity and origin.
+Chainguard makes the provenance of these charts clear. Helm charts are packaged as [OCI artifacts](https://www.chainguard.dev/supply-chain-security-101/what-are-oci-artifacts) using the upstream version adding an appended revision suffix for updates that include material changes to the chart; otherwise, tags will float based as their dependent images update. The OCI artifacts are signed and generate provenance attestations that link to the exact image digests used to ensure that all artifacts are cryptographically verifiable end-to-end for integrity and origin.
 
 You can find Helm charts in the [Chainguard Console](/platform/console/images-directory/#find-helm-charts-in-the-chainguard-console) and in the [Chainguard Directory](/chainguard/containers/registry/chainguard-directory/#find-helm-charts-in-the-chainguard-directory).
 
@@ -36942,7 +37180,7 @@ Chainguard has two public package repositories: the Wolfi and Extra Packages rep
 
 ### Wolfi
 
-The [Wolfi packages repository](https://github.com/wolfi-dev/os) is the public package source for [Wolfi, Chainguard's open-source Linux "undistro."](/open-source/wolfi/overview/) It contains all the open-source packages used in Chainguard's Free container images. As a public repository, the Wolfi APK repo doesn't require authentication.
+The [Wolfi packages repository](https://github.com/wolfi-dev/os) is the public package source for [Wolfi, Chainguard's open-source Linux "undistro."](https://www.chainguard.dev/supply-chain-security-101/wolfi-overview) It contains all the open-source packages used in Chainguard's Free container images. As a public repository, the Wolfi APK repo doesn't require authentication.
 
 By default, Chainguard's Free container images use a generic address for this repository (`https://apk.cgr.dev/chainguard`) in their `/etc/apk/repositories` files:
 
@@ -37265,7 +37503,7 @@ As this output shows, the `wget` apk package is installed in the container.
 
 ## Using private APK repositories with apko builds
 
-You can also use your private APK repository with [apko](/open-source/build-tools/apko/overview/) builds. One of the advantages of this method is that you can build distroless images that include only the apk packages you need in the final image.
+You can also use your private APK repository with [apko](/open-source/build-tools/apko/) builds. One of the advantages of this method is that you can build distroless images that include only the apk packages you need in the final image.
 
 As with the previous examples, you'll need to provide the `HTTP_AUTH` environment variable containing your Chainguard token to the apko runtime building the image.
 
@@ -38615,7 +38853,7 @@ Rather than storing a long-lived Personal Access Token, add an [Octo STS](https:
           identity: build
 ```
 
-Pass the result to whichever step needs it as `${{ steps.octo-sts.outputs.token }}`. Using Octo STS also requires installing its GitHub App on your organization and committing a trust policy to `.github/chainguard/build.sts.yaml`, where `build` matches the `identity` input. Refer to the [Octo STS overview](/open-source/octo-sts/overview/) for more information.
+Pass the result to whichever step needs it as `${{ steps.octo-sts.outputs.token }}`. Using Octo STS also requires installing its GitHub App on your organization and committing a trust policy to `.github/chainguard/build.sts.yaml`, where `build` matches the `identity` input. For installation and trust policy details, refer to [Set up and use Octo STS](/open-source/octo-sts/set-up-octo-sts/).
 
 ## Testing your workflow
 
@@ -38645,7 +38883,7 @@ To test your GitHub Action:
 ## Additional resources
 
 * [Custom Assembly overview](/chainguard/containers/custom-assembly/overview/)
-* [apko overview](/open-source/build-tools/apko/overview/)
+* [apko documentation](/open-source/build-tools/apko/)
 * [Assumable identity documentation](/platform/administration/assumable-ids/assumable-ids/)
 * [Demo Repository: custom-assembly-as-code](https://github.com/chainguard-demo/custom-assembly-as-code)
 * [Get support](/get-started/get-support/)
@@ -40893,40 +41131,9 @@ For additional guidance, please refer to the [melange repository](https://github
 ### melange
 _Path: open-source/build-tools/melange/_index.md_
 
-melange is an apk builder tool that uses declarative pipelines to create apk packages.
+[melange](https://github.com/chainguard-dev/melange) builds apk packages from source using declarative pipelines defined in a YAML file. From a single file, it can build packages for several architectures, ready to use in [apko](/open-source/build-tools/apko/) builds. Chainguard uses melange to build the packages in [Wolfi](/open-source/wolfi/).
 
----
-
-### melange FAQs
-_Path: open-source/build-tools/melange/faq.md_
-
-## Do I need to understand melange to use Chainguard Containers?
-
-No. Chainguard built [melange](https://github.com/chainguard-dev/melange) as part of its open source tooling used for the [Wolfi](/open-source/wolfi/) operating system. While you can check out the [project on GitHub](https://github.com/chainguard-dev/melange) and learn more, it’s not a prerequisite for using or working with [Chainguard Containers](/chainguard/containers/).
-
-## How are melange packages defined?
-
-melange apks are defined declaratively using a YAML file.
-
-## Is melange compatible with Alpine?
-
-Yes, melange is built to be compatible with apk-based systems including Alpine.
-
-## Can I mix Alpine and Wolfi package repositories to create my melange build environment?
-
-No, it's not possible to mix Alpine apks with Wolfi apks.
-
-## Is it mandatory to sign packages with a melange key?
-
-Signing packages is not mandatory, but it is a recommended practice, because it allows users and automated systems to verify that the package they downloaded was built by the same person who signed it, and that it hasn't been tampered with.
-
-## What happens if I don't provide a key to sign my package(s)?
-
-Some systems may prevent installation of your apk if they can't attest the package provenance. This is the case with [apko](https://github.com/chainguard-dev/apko), which by default will fail any builds that reference unsigned packages.
-
-## Can I create custom pipelines and embed them into my main pipeline?
-
-Although melange supports inclusion of sub-pipelines, this feature currently only supports the built-in pipelines (such as `make`, `split` and others) that can be found at the [pkg/build/pipelines](https://github.com/chainguard-dev/melange/tree/main/pkg/build/pipelines) directory on the main project repository.
+To learn what melange is and how it fits with apko and Wolfi, read [What is melange?](https://www.chainguard.dev/supply-chain-security-101/melange-overview) in Supply Chain Security 101. The pages in this section show you how to use melange.
 
 ---
 
@@ -41104,6 +41311,10 @@ docker run --rm -v "${PWD}":/work cgr.dev/chainguard/melange keygen
 
 This will generate a `melange.rsa` and `melange.rsa.pub` files in the current directory.
 
+{{< note >}}
+melange doesn't require you to sign packages, but signing is recommended: it lets people and automated systems verify who built a package and that it hasn't been tampered with. Some tools refuse unsigned packages. By default, apko fails any build that references an unsigned package.
+{{< /note >}}
+
 ```
 2024/08/01 16:55:31 INFO generating keypair with a 4096 bit prime, please wait...
 2024/08/01 16:55:33 INFO wrote private key to melange.rsa
@@ -41214,26 +41425,17 @@ Only those who attempt the impossible can achieve the absurd.
 
 You have successfully built a minimalist container image with your apk package installed on it. This image is fully [OCI](https://opencontainers.org/) compatible and can be signed with [Cosign](/open-source/sigstore/cosign/how-to-sign-a-container-with-cosign/) for provenance attestation.
 
+## Package sources and pipelines
+
+melange works with apk-based systems, including Alpine, but you can't mix Alpine and Wolfi packages in the same build environment.
+
+A pipeline step can reuse another pipeline with `uses:`. melange ships built-in pipelines, such as `fetch` and `autoconf/make`, in the [`pkg/build/pipelines`](https://github.com/chainguard-dev/melange/tree/main/pkg/build/pipelines) directory of its repository. To use pipelines of your own, put them in a directory and pass it to `melange build` with the `--pipeline-dir` flag.
+
 ## Conclusion
 
 In this guide, we packaged a PHP command-line app with melange. We also built a container image to install and run our custom apk, using the apko tool. For more information about apko, check our [Getting started with apko](/open-source/build-tools/apko/getting-started-with-apko/) guide.
 
 The demo files are available at the [melange-php-demos](https://github.com/chainguard-dev/melange-php-demos) repository, in the `hello-minicli` subfolder. For additional information on how to debug your builds and other features, check the [melange](https://github.com/chainguard-dev/melange) and [apko](https://github.com/chainguard-dev/apko) repositories on GitHub.
-
----
-
-### melange overview
-_Path: open-source/build-tools/melange/overview/index.md_
-
-[melange](https://github.com/chainguard-dev/melange) is an [apk](https://wiki.alpinelinux.org/wiki/Package_management) builder tool that uses declarative pipelines to create apk packages. It is part of the open source tooling used for [Wolfi](/open-source/wolfi/), which is the operating system used to power [Chainguard Containers](/chainguard/containers/).
-
-From a single YAML file, users are able to generate multi-architecture apks that can be injected directly into [apko](https://github.com/chainguard-dev/apko) builds.
-
-The following diagram contains an overview of the apko and melange ecosystem and how they work together to compose apk-based images, using either Wolfi or Alpine as base system.
-
-![The diagram shows an overview of the apko and melange ecosystem and their relationships. melange apks can be used to compose both Wolfi-based and Alpine-based container images using apko.](apko_melange_ecosystem.png)
-
-For more information and up-to-date examples on how to use melange, please refer to the [melange repository on GitHub](http://github.com/chainguard-dev/melange).
 
 ---
 
@@ -41320,7 +41522,7 @@ Container images are typically assembled in multiple steps. A tool like Docker, 
 
 Instead of building your application together with your components and system dependencies, you can build your application once and compose it into different architectures and distributions, using a tool such as [melange](https://github.com/chainguard-dev/melange) in combination with apko. For more information on how melange and apko work together, you can check this blog post: [Secure your Software Factory with melange and apko](https://www.chainguard.dev/unchained/secure-your-software-factory-with-melange-and-apko).
 
-In this guide, we'll learn how to use apko to build a base [Wolfi](/open-source/wolfi/overview/) image.
+In this guide, we'll learn how to use apko to build a base [Wolfi](/open-source/wolfi/) image.
 
 ## Requirements
 
@@ -41458,6 +41660,14 @@ docker run -it wolfi-base:test-amd64
 ```
 
 This will get you into a container running the apko-built image `wolfi-base:test-amd64`. It's a regular shell that you can explore to see what's included - just keep in mind that this is a minimalist image with only the base Wolfi system. To include additional software packages, check the [Wolfi repository](https://github.com/wolfi-dev/os) to find the packages you'll need for your specific use case, or check out [melange](/open-source/build-tools/melange/), apko's companion project that allows users to build their own APK packages from source.
+
+## Limits of apko builds
+
+Keep these limits in mind as you build your own images:
+
+- **No arbitrary commands.** apko can't run commands at build time the way a `RUN` step does in a Dockerfile. It provides directives for creating users and setting up directories and permissions. Any other build step, such as installing software or running a shell command, belongs in an apk package that you list as a dependency. This keeps builds reproducible and their SBOMs accurate.
+- **One package ecosystem per build.** You can't mix Wolfi and Alpine packages in the same apko build.
+- **Standard OCI output.** apko images are OCI compliant, so they run with Docker or any other runtime that supports the OCI image format.
 
 ## Conclusion
 
@@ -41964,45 +42174,12 @@ Chainguard, including how to configure your organization and authenticate, see
 
 ---
 
-### apko FAQs
-_Path: open-source/build-tools/apko/faq.md_
+### apko
+_Path: open-source/build-tools/apko/_index.md_
 
-## Do I need to understand apko to use Chainguard Containers?
+[apko](https://github.com/chainguard-dev/apko) is a command-line tool that builds minimal, single-layer OCI images from apk packages, defined in a YAML file. Chainguard uses apko, together with [melange](/open-source/build-tools/melange/), to build Chainguard Containers.
 
-No. Chainguard built [apko](https://github.com/chainguard-dev/apko) as part of its open source tooling around the [Wolfi](/open-source/wolfi/) operating system. While you can check out the [project on GitHub](https://github.com/chainguard-dev/apko) and learn more, it's not a prerequisite for [using Chainguard Containers](/chainguard/containers/using-and-deploying/).
-
-## How are apko images defined?
-
-apko images are defined declaratively using a YAML file. It was designed this way to facilitate reproducible builds — run apko twice, and you'll get the same output.
-
-## Does apko provide SBOMs?
-
-Yes, apko builds include high-quality [SBOMs](/open-source/sbom/what-is-an-sbom/) (software bills of materials) for all builds. This is a key feature of the tooling that Chainguard has developed to ensure that users can trust the software they are running.
-
-## Can I use apko images with Docker?
-
-Yes, images built with apko are fully OCI compliant and can be used with any container runtime that supports the OCI image format.
-
-## Can I mix Wolfi and Alpine package repositories to create my apko build environment?
-
-No, it's not possible to mix Wolfi apks with Alpine apks.
-
-## Can I execute arbitrary commands in apko builds such as in RUN steps in Dockerfiles?
-
-No, you can't execute arbitrary commands in apko builds. apko provides directives for creating users and setting up directories and permissions, but any additional steps necessary at build time, such as the installation of packages and execution of shell commands, must be defined in apk packages that should be included in the list of build dependencies. This is an implementation feature to allow for reproducible builds and high-quality SBOMs.
-
----
-
-### apko overview
-_Path: open-source/build-tools/apko/overview/index.md_
-
-[apko](http://github.com/chainguard-dev/apko) is a command-line tool designed to create single-layer container images based on the [apk](https://wiki.alpinelinux.org/wiki/Package_management) package format. It was so named as it uses the apk package format and is inspired by the [ko](https://github.com/google/ko) build tool.
-
-apko is part of the open source toolkit developed by Chainguard to build [Chainguard Containers](/chainguard/containers/overview/). The following diagram contains an overview of the apko ecosystem and how it interacts with [melange](/open-source/build-tools/melange/overview/) for building apk-based images, using either [Wolfi](/open-source/wolfi/overview/) or Alpine as base system.
-
-![The following image contains an overview of the apko ecosystem and how it interacts with melange for building apk-based images, using either Alpine or Wolfi as base system.](apko_melange_ecosystem.png)
-
-For more information and up-to-date examples on how to use apko, please refer to the [apko repository on GitHub](http://github.com/chainguard-dev/apko).
+To learn what apko is and how it fits with melange and Wolfi, read [What is apko?](https://www.chainguard.dev/supply-chain-security-101/apko-overview) in Supply Chain Security 101. The pages in this section show you how to use apko.
 
 ---
 
@@ -42541,7 +42718,9 @@ Congratulations! You have signed a container with Cosign through GitHub Actions 
 ### Fulcio
 _Path: open-source/sigstore/fulcio/_index.md_
 
-A new kind of root certificate authority for code signing
+Fulcio is Sigstore's certificate authority for code signing. It issues short-lived certificates bound to an OpenID Connect (OIDC) identity, which is what lets Cosign sign software without long-lived keys.
+
+To learn how Fulcio issues certificates and how it fits into Sigstore, read [What is Fulcio?](https://www.chainguard.dev/supply-chain-security-101/what-is-sigstore-fulcio) in Supply Chain Security 101. The pages in this section show you how to generate and inspect Fulcio certificates.
 
 ---
 
@@ -42709,59 +42888,6 @@ You should receive a `Verified OK` message if the signature, certificate, and id
 
 ---
 
-### An introduction to Fulcio
-_Path: open-source/sigstore/fulcio/an-introduction-to-fulcio/index.md_
-
-_An earlier version of this material was published in the [Fulcio chapter](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/block-v1:LinuxFoundationX+LFS182x+2T2022+type@sequential+block@2fbe6328019c4b1fbf934bd3bfb7e308/block-v1:LinuxFoundationX+LFS182x+2T2022+type@vertical+block@1f71fcbe8219471fb82e25731b18be11) of the Linux Foundation [Sigstore course](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/home)._
-
-Fulcio is a certificate authority that binds public keys to identities such as email addresses (such as a Google account) using OpenID Connect, essentially notarizing a short-lived key pair against a particular login. A certificate authority issues digital certificates that certify that a particular public key is owned by a particular entity. The certificate authority therefore serves as a trusted third party, helping parties that need to attest and verify identities.
-
-By connecting their identity to a verified email or other unique identifier, Fulcio enables software developers to confirm certain credentials associated with themselves. Developers can attest that they truly did create their signed artifacts and later software consumers can then verify that the software artifacts they use really did come from the expected software developers.
-
-## Certificates
-
-A certificate is a signed document that associates a public key with an identity such as an email address. The term “document” refers to a file or any electronic representation of a paper document. That the document must be signed implies that some party uses a digital signature to certify the document. You could think of a certificate as the digital equivalent of a passport: a document from a trusted authority that links information to an identity.
-
-Fulcio issues [X.509 certificates](https://sectigo.com/resource-library/what-is-x509-certificate). X.509 certificates are an [International Telecommunication Union (ITU)](https://www.itu.int/en/about/Pages/default.aspx) standard that defines the format of public keys, and they are commonly used in many internet protocols, such as those that enable HTTPS. These certificates are what bind a given identity to a public key by using a digital signature.
-
-Below is an example of an X.509 certificate used to authenticate a secure website connection.
-
-![Example of X.509 Certificate](Example_of_X.509_Certificate.png)
-
-## Certificate authority
-
-You rely on certificate authorities every time you open a browser and make a connection to a website. These certificate authorities, such as Let’s Encrypt, sign certificates that link a particular domain with a particular public key, allowing users to use HTTPS securely, knowing that a malicious third party is not pretending to be the real website. When a user visits a website, the user’s browser checks that a certificate authority trusted by the browser vouches for that certificate.
-
-![Diagram of how a certificate authority issues certificates](fulcio-diagram.png)
-
-As a certificate authority, Fulcio operates analogously to the certificate authorities that are responsible for web encryption. Fulcio does not, however, tie website domains to public keys. Instead, Fulcio creates and signs certificates that bind together email addresses and public keys. Binding an email address and public key is critical to how Sigstore works. Software developers want to attest that they were indeed responsible for publishing a particular software artifact. Fulcio lets these developers issue claims associated with their public identity. As a result, software consumers can later check the end-to-end integrity of the software artifacts they consume and know that this artifact was indeed created by the party that claims to have produced that artifact.
-
-To return to the digital passport metaphor, each national government, the entities that issue passports, is equivalent to a certificate authority.
-
-## OpenID Connect (OIDC) tokens
-
-[OpenID Connect](https://auth0.com/docs/authenticate/protocols/openid-connect-protocol) (or OIDC) is a protocol that enables authentication without the service provider having to store and manage passwords. Authentication refers to establishing that the person operating an application or using a browser is who they claim to be. Allowing the service, like Sigstore, to rely on OIDC means that the service transfers responsibility of authenticating the subject to other OIDC providers like GitHub, Google, and Microsoft, solving the key management issues that many online service providers prefer to avoid.
-
-The use of the OIDC protocol by Sigstore means that a user can rely on workflows they are already familiar with, such as logging into Google, in order to prove their identity. The OIDC “provider” (Google in this example) then vouches on the user's behalf to Fulcio that the user is who they say they are.
-
-Returning again to the digital passport metaphor, the OIDC protocol is similar to how a passport can be used at an airport to prove your identity. The airport did not issue the passport (that is, the certificate) but it trusts the proof provided via the certificate.
-
-## How Fulcio issues certificates
-
-The user initiates a login to Fulcio using an OIDC provider such as GitHub, Google, or Microsoft. The user and an OIDC provider (for instance, GitHub) then engage in the OIDC protocol where the user logs in to GitHub to prove their identity. The OIDC provider, if the login is successful, returns an “access token,” which proves to Fulcio that the user controls the email address they claim to control. Fulcio then creates a certificate and timestamps it, returning the timestamp to the user and placing the certificate in the Rekor transparency log too.
-
-The process described above, in reality, can be decomposed into even more steps. For a full understanding with helpful diagrams, consult the [Fulcio documentation](https://github.com/sigstore/fulcio/blob/main/docs/how-certificate-issuing-works.md).
-
-## The purpose and contributions of Fulcio
-
-The main task of Fulcio is to link public keys to email addresses. The detailed explanation earlier simply elaborates on how Fulcio binds public keys to email addresses.
-
-Why bind public keys to email addresses? Because third parties want to verify that an artifact was signed by the person who claimed they signed the artifact. Fulcio acts as a trusted party that vouches on behalf of its users that a certain user proved their identity at a certain time.
-
-This timestamping is an essential part of the process. The timestamp proves that the signing happened at a particular time and it creates a short time window (about 20 minutes) for the user to sign the artifact that they are signing. A verifying party then needs to check that the artifact they are verifying was not only signed by the party that claims to have signed the artifact, but also that it was done within a valid time window.
-
----
-
 ### How to install Cosign
 _Path: open-source/sigstore/cosign/how-to-install-cosign.md_
 
@@ -42906,7 +43032,7 @@ You’ll need to ensure that you keep Cosign up to date if you install via binar
 ### How to verify file signatures with Cosign
 _Path: open-source/sigstore/cosign/how-to-verify-file-signatures-with-cosign.md_
 
-Cosign can be used to verify binary artifacts ("blobs") using provided signatures as long as they are published to an OCI registry. In this tutorial, we’ll verify a binary artifact — in this case, a release of [`apko`](/open-source/build-tools/apko/overview/), a command-line tool for building container images using a declarative language based on YAML. The methods in this tutorial apply to any blob file Cosign has signed with a keyless signature.
+Cosign can be used to verify binary artifacts ("blobs") using provided signatures as long as they are published to an OCI registry. In this tutorial, we’ll verify a binary artifact — in this case, a release of [`apko`](/open-source/build-tools/apko/), a command-line tool for building container images using a declarative language based on YAML. The methods in this tutorial apply to any blob file Cosign has signed with a keyless signature.
 
 This tutorial assumes you [have Cosign installed](/open-source/sigstore/cosign/how-to-install-cosign/).
 
@@ -43977,7 +44103,7 @@ _An earlier version of this material was published in the [Cosign chapter](https
 {{< blurb/attestation >}}
 {{< /details >}}
 
-One common use case for attestations is associating a software artifact, such as an OCI container image, with a [software bill of materials (SBOM)](/open-source/sbom/what-is-an-sbom/), an inventory of the components that make up a given software artifact. Increasingly, SBOMs are considered an essential component in maintaining a secure software supply chain.
+One common use case for attestations is associating a software artifact, such as an OCI container image, with a [software bill of materials (SBOM)](https://www.chainguard.dev/supply-chain-security-101/what-is-an-sbom), an inventory of the components that make up a given software artifact. Increasingly, SBOMs are considered an essential component in maintaining a secure software supply chain.
 
 {{< details "What is a Software Bill of Materials (SBOM?" >}}
 {{< blurb/sbom >}}
@@ -43989,7 +44115,7 @@ In the following, we'll generate an SBOM and associate it with a specific OCI co
 
 ## Creating a demonstration image
 
-Since we'll be attaching an SBOM to a container image, we'll first need to create an example image. We'll base this image on Chainguard's [`wolfi-base`](/open-source/wolfi/overview/), and add a single additional package, the venerable `cowsay` utility that prints a message along with some ASCII art. We then set the entrypoint so that, when the image is run, a message will be displayed.
+Since we'll be attaching an SBOM to a container image, we'll first need to create an example image. We'll base this image on Chainguard's [`wolfi-base`](https://images.chainguard.dev/directory/image/wolfi-base/overview), and add a single additional package, the venerable `cowsay` utility that prints a message along with some ASCII art. We then set the entrypoint so that, when the image is run, a message will be displayed.
 
 Create a new folder for our Dockerfile build and change your working directory to that folder:
 
@@ -44306,7 +44432,9 @@ Once you receive output formatted as a JSON with details on the signature, you w
 ### Rekor
 _Path: open-source/sigstore/rekor/_index.md_
 
-An immutable, tamper-resistant ledger of metadata generated within a software project’s supply chain
+Rekor is Sigstore's transparency log: a tamper-resistant, append-only ledger of signing metadata from software supply chains. You can query it with the `rekor-cli` command-line tool to verify that an artifact's signature was recorded.
+
+To learn how Rekor works and why a transparency log matters, read [What is Rekor?](https://www.chainguard.dev/supply-chain-security-101/what-is-sigstore-rekor) in Supply Chain Security 101. The pages in this section show you how to install Rekor, query it, upload signed metadata, and run your own Rekor instance.
 
 ---
 
@@ -44364,75 +44492,6 @@ curl -X GET "https://rekor.sigstore.dev/api/v1/log/entries/2343d145e62b1051b6a2a
 ```
 
 By appending the UUID value returned by the `rekor-cli` get command that we ran before, we can obtain detailed information about a specific artifact that has been previously registered within the Rekor public instance.
-
----
-
-### An introduction to Rekor
-_Path: open-source/sigstore/rekor/an-introduction-to-rekor.md_
-
-_An earlier version of this material was published in the [Rekor chapter](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/block-v1:LinuxFoundationX+LFS182x+2T2022+type@sequential+block@e785fae1be184e2c929db62dbe7444fa/block-v1:LinuxFoundationX+LFS182x+2T2022+type@vertical+block@a48c33126e2c4ee6ad3bfa6b7bc9c957) of the Linux Foundation [Sigstore course](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/home)._
-
-Rekor stores records of artifact metadata, providing transparency for signatures and therefore helping the open source software community monitor and detect any tampering of the software supply chain. On a technical level, it is an append-only (sometimes called “immutable”) data log that stores signed metadata about a software artifact, allowing software consumers to verify that a software artifact is what it claims to be. You could think of Rekor as a bulletin board where anyone can post and the posts cannot be removed, but it’s up to the viewer to make informed judgements about what to believe.
-
-## Transparency log
-
-Rekor’s role as a _transparency log_ is the source of its security benefits for the software supply chain. Because the Rekor log is tamper-evident — meaning that any tampering can be detected — malicious parties will be less likely to tamper with the software artifacts protected by sigstore.
-
-In order to detect tampering, we can use _monitors_ — software that examines the Rekor log and searches for anomalies — to verify that nothing has been manipulated outside of standard practices. Additionally, downstream users can search Rekor for signatures associated with signed artifact metadata, can verify the signature, and can make an informed judgment about what security guarantees to trust about a signed artifact.
-
-The Fulcio certificate authority enables a downstream user to trust that a public key associated with a particular artifact metadata entry from Rekor is associated with a particular identity, and Cosign performs this verification with a single convenient command.
-
-## Public instance of Rekor
-
-A public instance of Rekor is run as a non-profit, public good transparency service that the open source software community can use. The service lives at [https://rekor.sigstore.dev/](https://rekor.sigstore.dev/). Those who are interested in helping to operate or maintain the Rekor public instance, or those who would like to discuss a production use case of the public instance can reach out via the [mailing list](https://docs.sigstore.dev/about/contributing/#mailing-list).
-
-The latest Signed Tree hashes of Rekor are published on Google Cloud Storage. These are stored in both unverified raw and verified decoded formats; the signatures can be verified by users against Rekor’s public key. Entries include a short representation of the state of Rekor, which is posted to GCS, and can be verified by users against Rekor's public key. These representations can be used to check that a given entry was in the log at a given time.
-
-## Rekor usage
-
-Rekor provides a restful API based server for validation and a transparency log for storage, accessible via a command-line interface (CLI) application: `rekor-cli`. You can install `rekor-cli` with Go, which we will discuss in the lab section below. Alternatively, you can navigate to the [Rekor release page](https://github.com/sigstore/rekor/releases) to grab the most recent release, or you can build the [Rekor CLI manually](https://docs.sigstore.dev/logging/installation/#build-rekor-cli-manually).
-
-Through the CLI, you can make and verify entries, query the transparency log to prove the inclusion of an artifact, verify the integrity of the transparency log, or retrieve entries by either public key or artifact.
-
-To access the data stored in Rekor, the `rekor-cli` requires either the log index of an entry or the universally unique identifier (UUID) of an artifact.
-
-The log index of an entry identifies the order in which the entry was entered into the log. Someone who wants to collect all the log entries or perhaps a large subset of the entries might use the log index, and receive an object as below, in their standard output.
-
-```
-LogID: c0d23d6ad406973f9559f3ba2d1ca01f84147d8ffc5b8445c224f98b9591801d
-Index: 100
-IntegratedTime: 2021-01-19T19:38:52Z
-UUID: 2343d145e62b1051b6a2a54582b69a821b13f31054539660a020963bac0b33dc
-Body: {
-  "RekordObj": {
-    "data": {
-      "hash": {
-        "algorithm": "sha256",
-        "value": "bf9f7899c65cc4decf96658762c84015878e5e2e41171bdb39e6ac39b4d6b797"
-      }
-    },
-    "signature": {
-      "content": "LS0tL…S0=",
-      "format": "pgp",
-      "publicKey": {
-        "content": "LS…0tLS0="
-      }
-    }
-  }
-}
-```
-
-The `RekordObj` is indicated inside the body field, and is one of the standard formats used by Rekor to indicate a digital signature of an object. The signature in this entry was generated via PGP, a traditional method of creating digital signatures, sometimes also used to sign code artifacts. Many other digital signature types are accepted. The signature block contains content fields that are base64-encoded, a form of encoding that enables reliably sending binary data over networks.
-
-There are a number of different formats stored in the Rekor log, each associated with a particular type of artifact and use case.
-
-Users of Rekor also have an offline method for determining whether a particular entry exists in a Rekor log by leveraging inclusion proofs, which are enabled through Merkle trees. Merkle trees are a data structure that enable a party to use cryptographic hash functions — a way of mapping potentially large values to relatively short digests — to prove that a piece of data is contained within a much larger data structure. This proof is accomplished by providing a series of hashes to the user, hashes that if recombined prove to the user that an entry is indeed in the Rekor log. Sigstore users can “staple” such an inclusion proof to an artifact, attaching the inclusion proof next to an artifact in a repository, and therefore proving that the artifact is indeed included in Rekor. For a detailed description of Merkle trees and inclusion proofs, refer to the “helpful resources” section at the end of this chapter.
-
-## Setting up an internal Rekor instance
-
-Your organization can also set up its own instance of Rekor, or you can individually set up a Rekor server to more fully understand it. You can deploy the Rekor server through Project Sigstore’s [Docker Compose file](https://github.com/sigstore/rekor/blob/main/docker-compose.yml), through a [Kubernetes operator](https://github.com/sigstore/rekor-operator), with a [Helm chart](https://github.com/sigstore/helm-charts), or you can build a Rekor server yourself.
-
-In order to build a Rekor server, you will need Go, a MySQL-compatible database, and you will need to build Trillian, an append-only log. In the lab section, we will walk through how to set up a Rekor server locally.
 
 ---
 
@@ -45010,7 +45069,7 @@ The `- keyless` options instruct the Policy Controller what to check for when it
 * `url`: this setting tells the Policy Controller where to find the Certificate Authority (CA) that issued an image signature.
 * `issuer`: the [issuer field](https://github.com/sigstore/fulcio/blob/main/docs/oid-info.md#1361415726411--issuer) contains the URI of the OpenID Connect (OIDC) Identity Provider that digitally signed the identity token.
 * `subject`: the [subject field](https://github.com/sigstore/fulcio/blob/main/docs/certificate-specification.md#issued-certificate) must contain a URI or an email address that identifies where the signed image originated.
-* `ctlog`: this setting tells the Policy Controller which [Certificate Transparency log](/open-source/sigstore/rekor/an-introduction-to-rekor/#transparency-log) to query when it is validating a signature.
+* `ctlog`: this setting tells the Policy Controller which [Certificate Transparency log](https://www.chainguard.dev/supply-chain-security-101/what-is-sigstore-rekor) to query when it is validating a signature.
 
 Save the file and then apply the policy:
 
@@ -46655,7 +46714,7 @@ To learn more about how the Policy Controller uses Cosign to verify and admit im
 ### Getting started with OpenVEX and vexctl
 _Path: open-source/sbom/getting-started-openvex-vexctl.md_
 
-The `vexctl` CLI is a tool to make VEX work. As part of the open source [OpenVex](/open-source/sbom/what-is-openvex/) project, `vexctl` enables you to create, apply, and attest VEX (Vulnerability Exploitability eXchange) data in order to filter out false positive security alerts.
+The `vexctl` CLI is a tool to make VEX work. As part of the open source [OpenVex](https://www.chainguard.dev/supply-chain-security-101/what-is-openvex) project, `vexctl` enables you to create, apply, and attest VEX (Vulnerability Exploitability eXchange) data in order to filter out false positive security alerts.
 
 The `vexctl` tool was built to help with the creation and management of VEX documents, communicate transparently to users as time progresses, and enable the "turning off" of security scanner alerts of vulnerabilities known not to affect a given product. Using VEX, software authors can communicate to their users that an otherwise vulnerable component has no security implications for their product.
 
@@ -46911,7 +46970,7 @@ The `vexctl` tool is open source, you can review the [`vexctl` repository on Git
 
 The following blog posts have some background about VEX and OpenVEX:
 
-* [What is OpenVex](/open-source/sbom/what-is-openvex/)
+* [What is OpenVex](https://www.chainguard.dev/supply-chain-security-101/what-is-openvex)
 * [Putting VEX To Work](https://www.chainguard.dev/unchained/putting-vex-to-work)
 * [Reflections on Trusting VEX (or when humans can improve SBOMs)](https://www.chainguard.dev/unchained/reflections-on-trusting-vex-or-when-humans-can-improve-sboms)
 * [Understanding The Promise of VEX](https://www.chainguard.dev/unchained/understanding-the-promise-of-vex)
@@ -46920,486 +46979,10 @@ The [OpenVEX Specification](https://github.com/openvex/spec/blob/main/OPENVEX-SP
 
 ---
 
-### What makes a good SBOM?
-_Path: open-source/sbom/what-makes-a-good-sbom.md_
-
-A software bill of materials, or an SBOM (pronounced s-bomb), is a formal record of the components contained in a piece of software. It is analogous to an ingredients list for a recipe. And it has become recognized as one of the key building blocks of software supply chain security. Proponents rightfully point out that organizations can't secure their software if they don't know what's inside their software.
-
-As awareness and adoption of SBOM has grown, there has been a gradual acknowledgement that [not all SBOMs are created equal](https://www.chainguard.dev/unchained/not-all-sboms-are-created-equal), some are more or less useful, depending on the goals of the SBOM user and the contents of the SBOM. This guide exists to provide some guidance on evaluating the quality of an SBOM, suggesting common use cases and the data fields that support these use cases and open source SBOM quality tools.
-
-## Basic SBOM use cases and required SBOM data
-
-**Identifying Vulnerable Components**: SBOMs can help organizations and individuals know the unfixed vulnerabilities in their software. By providing an inventory of components, this allows a software maintainer to check whether the versions of their component are associated with any known vulnerabilities. The software maintainer can then update or patch any components with known vulnerabilities.
-
-To enable this use case, SBOMs must contain information, at a minimum, about the component name and version. Because there are many different open source software package ecosystems, it is also advantageous to include information about the package ecosystem from which a component originates. This reduces the chances of a false positive when identifying potential vulnerabilities. A [package URL](https://github.com/package-url/purl-spec) (or purl) provides this ecosystem information. Additionally, SBOMs ought to include all transitive dependencies, dependencies of dependencies.
-
-**Identifying Licenses**: SBOMs can also help organizations and individuals use open source software consistent with the licensing terms of all components. By identifying all components and associated licenses, software teams can understand the legal implications of any decision related to incorporating a particular component. Some organization also wish to track, often for legal or procurement purposes, the "supplier" of a particular component.
-
-To enable license analysis, an SBOM must contain information about the license or licenses associated with all components. Additionally, there is a supplier data field that can help organizations understand component suppliers.
-
-**Ensuring Software Integrity**: SBOMs can also help organizations and individuals ensure software integrity, discovering instances of tampering where a party has introduced malicious functionality.
-
-Providing checksums for packages or files within the SBOM enables machine-verification of software integrity.
-
-Note: There are [other SBOM use cases](https://www.atlanticcouncil.org/in-depth-research-reports/issue-brief/the-cases-for-using-sboms/), such as mapping broader ecosystem risks, but this guide currently focuses on the arguably three relatively well-established SBOM use cases.
-
-## Measuring SBOM quality
-
-The tools for measuring SBOM quality — like the overall concept of SBOM quality itself — are nascent. There are currently two tools that are worth watching to evaluate SBOMs.
-
-[SBOM Scorecard](https://github.com/eBay/sbom-scorecard) analyzes both major SBOM formats and returns a composite quality score indicating the extent to which an SBOM possesses key fields, including whether the components in the SBOM contain a purl and whether there are licenses associated with each component.
-
-[NTIA Conformance Checker](https://github.com/spdx/ntia-conformance-checker) analyzes whether [SPDX](https://spdx.dev/) SBOM documents possess the data fields associated with the so-called "NTIA minimum elements." [The U.S. National Telecommunications and Information Administration "minimum elements"](https://ntia.gov/sites/default/files/publications/sbom_minimum_elements_report_0.pdf) include the data fields deemed essential for basic SBOM use cases, including the identification of vulnerable components and the identification of component licenses.
-
-Stewardship of this guidance has since moved from the NTIA to the U.S. Cybersecurity and Infrastructure Security Agency (CISA), which published an updated [_Framing Software Component Transparency_](https://www.cisa.gov/sites/default/files/2024-10/SBOM%20Framing%20Software%20Component%20Transparency%202024.pdf) report in 2024 and released a draft update to the minimum elements in 2025. The core data fields remain consistent, so an SBOM that satisfies the NTIA minimum elements is a sound baseline today.
-
-## Learn more
-
-Check out Chainguard's blog post on ["Are SBOMs Any Good?"](https://www.chainguard.dev/unchained/are-sboms-any-good-preliminary-measurement-of-the-quality-of-open-source-project-sboms) to see an application of these SBOM quality tools to a dataset of open source project SBOMs. You can also learn about the complications for SBOM quality created by ["software dark matter."](https://www.chainguard.dev/unchained/software-dark-matter-is-the-enemy-of-software-transparency).
-
----
-
-### What is OpenVEX?
-_Path: open-source/sbom/what-is-openvex.md_
-
-[OpenVEX](https://github.com/openvex) is an open source specification, library, and suite of tools designed to enable software users to eliminate vulnerability noise and focus their security efforts on vulnerabilities that pose an immediate risk. [Released by Chainguard in January 2023](https://www.chainguard.dev/unchained/accelerate-vex-adoption-through-openvex), it’s the first set of open source tools to support the VEX specification championed by the [United States National Telecommunications and Information Administration (NTIA)](https://ntia.gov/) and the [Cybersecurity and Infrastructure Security Agency (CISA)](https://www.cisa.gov/).
-
-With OpenVEX, stakeholders from across the software supply chain can collaborate on identifying and remediating exploitable vulnerabilities and use automation to enable more precise and efficient methods of security management. In this guide, you will learn more about the emerging supply chain security standards that OpenVEX supports, as well as how OpenVEX tooling can help you leverage them in your security management processes.
-
-## SBOMs and VEX
-
-One of the most important ways you can protect your codebase from cyberattacks is to have timely and precise information about whether it contains known vulnerabilities. Unfortunately, many cyberattacks are able to broaden the scope of their damage *after* a vulnerability is publicly identified because individual software operators and end users are unaware that their codebase contains a known vulnerability and requires a patch. Many codebases are too complex and contain too many dependencies for their maintainers to have a comprehensive awareness of their contents.
-
-Incorporating [software bills of materials (SBOMs)](/open-source/sbom/what-is-an-sbom/) is a powerful way of improving visibility into your codebase so that vulnerabilities can be identified in a timely manner. When vulnerabilities are made known through security advisories, code owners and other users can refer to the tool's SBOM to see if they have dependencies associated with the specified vulnerability.
-
-In this way, SBOMs represent a significant step forward in security management by enabling software users to quickly identify vulnerabilities, which can otherwise require a significant amount of labor. For example, [one federal agency reportedly spent 33,000 hours responding to the Log4j vulnerability](https://federalnewsnetwork.com/commentary/2023/01/application-security-a-pillar-of-zero-trust/) at the expense of other priorities.
-
-Though the SBOM's improvement of visibility can greatly improve an organization's security posture, it can also be accompanied by an overproduction of false positives. In this context, [false positives](/chainguard/containers/security-and-compliance/working-with-scanners/false-results/) are vulnerabilities that are associated with an organization's codebase but have been determined to not be exploitable in specific circumstances.
-
-This increase in false positives can hinder an SBOM's security utility as organizations are tasked with investigating the broadened list of vulnerabilities to see which ones pose genuine threats to their codebase. In cases like this, organizations may once again struggle to efficiently identify and respond to vulnerabilities before it is too late.
-
-When publishing a VEX document for a known software vulnerability, the author assigns the product a status drawn from the following list:
-
-* NOT AFFECTED — No remediation is required regarding this vulnerability.
-* AFFECTED — Actions are recommended to remediate or address this vulnerability.
-* FIXED — These product versions contain a fix for the vulnerability.
-* UNDER INVESTIGATION — It is not yet known whether these product versions are affected by the vulnerability. An update will be provided in a later release.
-
-Once published, downstream software users (such as operators or developers) can use these VEX documents to determine whether they are impacted by a vulnerability and what steps they might need to take to address it.
-
-Though VEX documents do not need to be used with an SBOM, together they offer a powerful and efficient way to comprehensively scan your codebase for vulnerabilities that matter. An SBOM helps you know whether you have dependencies associated with a vulnerability, while a VEX document tells you which of those vulnerabilities you can ignore. A further benefit of VEX documents is that they are machine readable, enabling users to integrate them into automated workflows and broader tooling to support efficient security management.
-
-VEX has value for stakeholders across the supply chain, enabling collaboration across suppliers, operators, and end users that can save the community significant amounts of time investigating and mitigating vulnerabilities. Software suppliers can use VEX to let their users know when they’ve already investigated a vulnerability and whether that vulnerability affects the product or if further action needs to be taken by the user. And in the case that end users investigate potential vulnerabilities without a security advisory, they can encode their findings in a VEX document to share with the supplier or track for future or ongoing investigations.
-
-## How to leverage VEX and SBOMs with OpenVEX
-
-To help software suppliers and users leverage VEX, Chainguard developed OpenVEX, an open source specification, library, and suite of tools based on the VEX standard. Developed in collaboration with CISA’s VEX Working Group, OpenVEX is the first format to meet the VEX Minimum Requirements and is designed to be lightweight in order to help support community adoption.
-
-### A specification
-
-OpenVEX documents are JSON-LD files that capture the minimal requirements for VEX as defined by the VEX working group organized by CISA. You can think of the VEX minimal requirements as the “specification of specifications”, and the OpenVEX format as a lightweight, embeddable, integration-friendly spec that complies with the VEX specification.
-
-VEX documents are composed of metadata (such as the author and timestamp) and a series of statements that link together a software product (with an identifier that can be traced to an SBOM, such as a Package URL), a vulnerability (using a vuln identifier such as CVE or OSV) , and one of the four impact statuses defined by VEX (“not affected”, “affected”, “fixed”, and “under investigation”).
-
-For example, an OpenVEX document with one statement could be written like this:
-
-```json
-{
-  "@context": "https://openvex.dev/ns/v0.2.0",
-  "@id": "https://openvex.dev/docs/example/vex-9fb3463de1b57",
-  "author": "Wolfi J Inkinson",
-  "role": "Document Creator",
-  "timestamp": "2023-01-08T18:02:03.647787998-06:00",
-  "version": 1,
-  "statements": [
-    {
-      "vulnerability": {
-        "name": "CVE-2023-12345"
-      },
-      "products": [
-        {
-          "@id": "pkg:apk/wolfi/git@2.39.0-r1?arch=armv7"
-        },
-        {
-          "@id": "pkg:apk/wolfi/git@2.39.0-r1?arch=x86_64"
-        }
-      ],
-      "status": "fixed"
-    }
-  ]
-}
-```
-
-The OpenVEX specification details additional information you can include in an OpenVEX document. For example, certain statuses require additional statement information. A statement with a `not_affected` status must include a status justification or an `impact_statement` describing why the product is not affected. A statement with a `not_affected` status might be written like this:
-
-```json
-  {
-      "vulnerability": {
-        "name": "CVE-2023-12345"
-      },
-      "products": [
-        {
-          "@id": "pkg:apk/wolfi/product@1.23.0-r1?arch=armv7"
-        }
-      ],
-      "status": "not_affected",
-      "justification": "component_not_present",
-      "impact_statement": "The vulnerable code was removed with a custom patch"
-    }
-```
-
-These additional fields allow users to include valuable context and justification for VEX statements that can help users prioritize vulnerabilities and know what further action they need to take.
-
-You can learn more about the OpenVEX Specification in the [OpenVEX repo](https://github.com/openvex/spec/blob/main/OPENVEX-SPEC.md).
-
-### A Go library
-
-The project has a Go library (openvex/go-vex) that lets projects generate, transform and consume OpenVEX files. It enables the ingestion of VEX metadata expressed in other VEX implementations.
-
-You can learn more about `go-vex` in the [OpenVEX repo](https://github.com/openvex/go-vex).
-
-### A set of tools
-
-OpenVEX is also committed to building out tools that will allow software authors and consumers to work with VEX metadata. The first project in this initiative is `vexctl`, a CLI to create, merge and attest VEX documents. This tool can also be used to apply VEX documents to scanner results in order to filter out false positives.
-
-For example, you can create a VEX document using a `vexctl create` command like the following:
-
-```shell
-vexctl create --product="pkg:apk/wolfi/git@2.38.1-r0?arch=x86_64" \
-               --vuln="CVE-2014-123456" \
-               --status="not_affected" \
-               --justification="inline_mitigations_already_exist"
-```
-
-This code snippet will create the following OpenVEX document:
-
-```Output
-{
-  "@context": "https://openvex.dev/ns/v0.2.0",
-  "@id": "https://openvex.dev/docs/public/vex-783356508926ad84f48fa51480d2ed85476160dd3d4169eb0024c346edd1f10b",
-  "author": "Unknown Author",
-  "timestamp": "2024-11-21T15:52:42.58376093-08:00",
-  "version": 1,
-  "statements": [
- {
-   "vulnerability": {
-     "name": "CVE-2014-123456"
-   },
-   "timestamp": "2024-11-21T15:52:42.583761761-08:00",
-   "products": [
-     {
-       "@id": "pkg:apk/wolfi/git@2.38.1-r0?arch=x86_64"
-     }
-   ],
-   "status": "not_affected",
-   "justification": "inline_mitigations_already_exist"
- }
-  ]
-}
-```
-
-Or, to filter out vulnerabilities from security scanner results that are fixed or not exploitable, you can use the `vexctl filter` command.  In this example, `scan_results.sarif.json` is the file with the scanner results and `vex_data.csaf` contains the VEX information:
-
-```shell
-vexctl filter scan_results.sarif.json vex_data.csaf
-```
-
-This command will return output showing vulnerabilities from the scanner that are not resolved by the VEX document.
-
-To learn about other commands and capabilities of the `vexctl` tool, visit the [OpenVEX repo](https://github.com/openvex/vexctl).
-
-## Learn more
-
-OpenVEX is actively evolving to support VEX adoption across the community, and will continue building out tooling and adjusting its specification to meet community needs.
-
-To learn more about VEX, check out related resources on Chainguard’s blog:
-
-* [Reflections on Trusting VEX (or when humans can improve SBOMs)](https://www.chainguard.dev/unchained/reflections-on-trusting-vex-or-when-humans-can-improve-sboms)
-* [Putting VEX to work](https://www.chainguard.dev/unchained/putting-vex-to-work)
-* [Understanding the Promise of VEX](https://www.chainguard.dev/unchained/understanding-the-promise-of-vex)
-* [What is VEX and Why Should I Care?](https://www.endorlabs.com/blog/what-is-vex-and-why-should-i-care)
-
-You can also read more about VEX use cases in [this report published by the Cybersecurity and Infrastructure Security Agency](https://www.cisa.gov/sites/default/files/publications/VEX_Use_Cases_Aprill2022.pdf).
-
----
-
 ### SBOMs
 _Path: open-source/sbom/_index.md_
 
 A software bill of materials, or an SBOM (pronounced s-bomb), is a key resource for enabling visibility into the different software components of a codebase.
-
----
-
-### What is an SBOM (software bill of materials)?
-_Path: open-source/sbom/what-is-an-sbom.md_
-
-Modern software applications contain hundreds to thousands of open source and third-party components, creating significant security challenges that SBOMs help address - which is why Chainguard includes comprehensive SBOMs with every container image. Without structured visibility into these components, organizations struggle to identify and respond to vulnerabilities, even when patches are available. This lack of transparency leaves systems vulnerable to exploitation, making SBOMs essential for maintaining secure software supply chains.
-
-A software bill of materials, or an SBOM (pronounced s-bomb), is a key resource for enabling visibility into the different software components of a codebase. Often described as a list of software “ingredients,” an SBOM is a formally structured list of libraries, modules, licensing, and version information that make up any given piece of software. An SBOM’s purpose is to enable software operators (or any type of software user) to have a comprehensive view of their codebase so that they can quickly identify software components that have known vulnerabilities, or investigate other tracked features like patch status, supplier, license, or version.
-
-## SBOM use cases
-
-SBOMs are leveraged for a variety of purposes, which will likely continue to evolve as new use cases are identified. Some of the most prominent uses of SBOMs today are:
-
-* **Supply chain security**: One of the most common uses of SBOMs is enabling users to check for security vulnerabilities in their codebase’s dependencies or base images. If you learn of a vulnerability in one of the libraries your codebase depends on, you can inspect your SBOM to investigate whether your projects are affected. This security utility is further strengthened when used with [VEX](https://www.chainguard.dev/unchained/understanding-the-promise-of-vex), the Vulnerability Exploitability eXchange, which enables you to efficiently filter out security alerts that pose no threat to your codebase.
-* **Identify software suppliers**: SBOMs can be used to identify the _suppliers_ of software components, such as a software author or the individual or entity repackaging the software for redistribution. Supplier identity is often investigated for legal or procurement reasons and there is an evolving debate about which types of distributors should be formally considered as "suppliers".
-* **Licensing**: Software projects often pull from tens or hundreds of dependencies whose different licenses may have different restrictions on the use of the code. Being able to track the licenses of your dependencies allows you to stay informed about legal restrictions and licensing compatibility issues, and help you decide which dependencies work best for your project needs.
-* **Automate alerts**: The machine readable format of SBOMs enables you to create automated alerts to inform you of important events in your codebase, such as security vulnerabilities, missing components, or incompatible dependency licensing.
-* **Make open source funding decisions**: By understanding which open source software components are used and how frequently across an organization's codebases, an organization can make more informed decisions about providing funding to open source projects.
-* **Find abandoned dependencies**: Assuming that an SBOM's components contain sufficient information (such as [package URLs](https://github.com/package-url/purl-spec)) to link packages with external data, an SBOM consumer could discover if any of the components are open source projects that are abandoned or archived. The user could then take actions such as forking the abandoned project or removing that project as a dependency.
-
-## The evolution and growing importance of SBOMs
-
-For more than a decade, a variety of communities have worked on standards for generating and sharing SBOMs or SBOM-relevant resources, with institutional support from organizations and government agencies like the [Linux Foundation](https://www.linuxfoundation.org/) and the [Department of Commerce](https://ntia.gov/page/software-bill-materials). Discussion of SBOMs grew significantly after the White House signed a [cybersecurity executive order in May 2021](https://web.archive.org/web/20250119085114/https://www.whitehouse.gov/briefing-room/presidential-actions/2021/05/12/executive-order-on-improving-the-nations-cybersecurity/), which in turn led the National Institute of Standards and Technology (NIST) and Department of Commerce to recommend the requirement of SBOMs for all software used by the federal government. This recommendation was based on the logic that SBOMs, had they been in use, would have helped minimize damage of recent large scale software supply chain security incidents such as SolarWinds.  More recently, the Department of Homeland Security demonstrated the U.S. government’s sustained interest in SBOMs by supporting and funding the SBOM community’s research and development. The Cybersecurity and Infrastructure Security Agency (CISA), part of the Department of Homeland Security, now leads much of this work and published an updated [_Framing Software Component Transparency_](https://www.cisa.gov/sites/default/files/2024-10/SBOM%20Framing%20Software%20Component%20Transparency%202024.pdf) report in 2024.
-
-Even without requirements, [SBOMs are becoming increasingly popular in industry](https://www.linuxfoundation.org/press/press-release/the-linux-foundation-releases-the-state-of-software-bill-of-materials-sbom-and-cybersecurity-readiness-research) given their utility for managing security risks and licensing, and providing greater visibility into an organization’s codebase. SBOM tools and practices, however, are still maturing and have yet to realize their full potential as an industry practice. While there has been an uptick in the creation and use of SBOMs, many of these SBOMs fail to meet the minimum requirements set forth by the [Department of Commerce](https://ntia.gov/sites/default/files/publications/sbom_minimum_elements_report_0.pdf). For example, [in an analysis of 3,000 SBOMs](https://www.chainguard.dev/unchained/are-sboms-good-enough-for-government-work) taken from a list of popular Docker containers, Chainguard Labs found that only one percent of SBOMs conformed with the minimum required elements. Nonetheless, proponents of SBOMs (such as Chainguard) remain optimistic about their potential. As industry strengthens SBOM tooling and practices, SBOMs continue to hold great promise for helping secure software supply chains.
-
-## Open source SBOM tools
-
-### SBOM creation tools
-
-Currently, most SBOMs are generated after the build process using a variety of tools that can scan the software for packages, licensing info, and other information relevant to an SBOM. [Syft](https://github.com/anchore/syft) and [Trivy](https://github.com/aquasecurity/trivy) are two popular open source tools for generating SBOMs for containers after the build process, along with [bom](https://github.com/kubernetes-sigs/bom), an open source tool for creating, viewing, and transforming SBOMs for Kubernetes and other projects.
-
-One downside of generating SBOMs after the build process is that [scanners typically do not recognize components that are not registered with a package management system](https://www.chainguard.dev/unchained/not-all-sboms-are-created-equal). Thus, locally built software components can be missed by the scanner and result in the generation of an SBOM that is missing critical information about the software’s inventory.
-
-Ideally, SBOMs should be generated during the build process, which enables a higher level of accuracy given that the SBOM can be generated directly from the software inventory rather than from database records. Though build systems do not typically provide support for this approach, more build tools are beginning to integrate features for generating SBOMs, such as [apko](https://github.com/chainguard-dev/apko), a tool for building and publishing OCI container images.
-
-### SBOM formats
-
-When selecting an SBOM generation tool, it’s important to make sure it supports the format you wish to use. Though there are a variety of available SBOM formats, most SBOMs follow either CycloneDX or SPDX, both of which are approved by the National Telecommunications and Information Administration for fulfilling the executive order’s SBOM requirement.
-
-Your choice of format also affects which downstream tools can read the SBOM. Vulnerability scanners and software composition analysis (SCA) tools vary in how completely they parse each format, so confirm that the tools in your pipeline support the format you generate or consume.
-
-### Quality measurement tools
-
-An SBOM’s utility is dependent on the quality and comprehensiveness of the information it contains. As noted above, many SBOMs available today fail to meet the NTIA’s minimum requirements. The following tools are helpful for assessing the quality of SBOMs you use or create:
-
-* The open source [SBOM Scorecard](https://github.com/eBay/sbom-scorecard), created by eBay, analyzes SPDX and CycloneDX formats according to evolving key fields such as spec compliance, licensing information, and package data.
-* The open source [NTIA Conformance Checker](https://github.com/spdx/ntia-conformance-checker) analyzes whether an SPDX SBOM meets the NTIA’s minimum elements, such as supplier’s name, dependency relationship, and timestamp.
-
-### Signing SBOMs
-
-[Signing your SBOM](/open-source/sigstore/cosign/an-introduction-to-cosign/) is an important way of assuring end users that it has not been tampered with by a third party and that it comes from a trusted source (you). You can learn more about how to use [Cosign](https://github.com/sigstore/cosign), an open source tool for signing containers and other software artifacts, to sign your SBOM [in our tutorial](/open-source/sigstore/cosign/how-to-sign-an-sbom-with-cosign/).
-
-## Learn more
-
-In this guide, you have learned about the purpose of SBOMs and why proponents see them as a critical building block for software supply chain security. You have also learned about key tools and formats used in SBOM production and consumption, and how to measure the quality of the SBOMs you generate or consume.
-
-SBOM practices and tooling are actively evolving. To learn more about SBOMs, check out related research by Chainguard Labs, such as:
-
-* [What makes a good SBOM?](/open-source/sbom/what-makes-a-good-sbom/)
-* [Are SBOMs Any Good? Preliminary Measurement of the Quality of Open Source Project SBOMs](https://www.chainguard.dev/unchained/are-sboms-any-good-preliminary-measurement-of-the-quality-of-open-source-project-sboms)
-* [Are SBOMs Good Enough for Government Work?](https://www.chainguard.dev/unchained/are-sboms-good-enough-for-government-work)
-
----
-
-### The differences between SBOMs and attestations
-_Path: open-source/sbom/sboms-and-attestations.md_
-
-One of the first steps to improving your software supply chain security is to establish a process for creating quality *Software Bills of Materials* (SBOMs). An [SBOM](/open-source/sbom/) is a formal record that contains the details and supply chain relationships (such as dependencies) of the components used in building software.
-
-[Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/) — a part of the Sigstore project — supports software artifact signing, verification, and storage in an [OCI (Open Container Initiative)](/open-source/oci/) registry. The `cosign` command line tool offers two subcommands that you can use to associate an SBOM with a container image and then upload them to a registry: `cosign attach` and `cosign attest`.
-
-However, these commands don't work the same way. This guide outlines the differences between these two subcommands and provides guidance for when you might want to use one over the other.
-
-## SBOMs vs. attestations
-
-An SBOM is essentially an electronic packing slip: it's a list of all the components that went into making a given piece of software. But unless you have some indication of when the software was produced, who produced it, and how it was produced, then you can't say with any certainty that the components listed in the SBOM are actually part of the software you're running.
-
-An *attestation* allows the end users or consumers of a software artifact (in the context of this guide, an SBOM) to verify — independently of the producer — that the contents of the artifact haven't been changed since it was produced. It also requires software producers to provide verifiable proof of the quality of their software.
-
-Put differently, an attestation is a written assurance of a software artifact's *provenance*, or the verifiable information about the artifact describing where, when, and how it was produced. You can think of an attestation as a proclamation that "software artifact X" was produced by "person Y" at "time Z". Because of this extra provenance information, attestations are generally seen as being more trustworthy than SBOMs since you can identify who signed them and when.
-
-Both `cosign attest` and `cosign attach` associate an artifact with an image and upload it to a registry. However, `cosign attest` generates an [in-toto attestation](https://in-toto.io/) while `cosign attach` does not. `cosign attest` then attaches it to the provided image and uploads it to a registry as an OCI artifact with a `.att` extension.
-
-In the following example, `image.sbom` is an SBOM file that was previously created, `$IMAGE` is the image that will be attached to the SBOM, and `cosign.key` is the signer's private key.
-
-```sh
-cosign attest --key cosign.key --predicate image.sbom $IMAGE
-```
-
-Note that after creating an attestation, you can verify it with Cosign's `verify-attestation` subcommand.
-
-```sh
-cosign verify-attestation $IMAGE
-```
-
-`cosign attach`, on the other hand, only attaches an SBOM to an image and uploads it to a registry. In this case the SBOM isn't signed, meaning that there's no way to confidently verify its authenticity.
-
-```sh
-cosign attach sbom --sbom image.sbom $IMAGE
-```
-
-This will upload the SBOM to the registry as an OCI artifact with a `.sbom` extension.
-
-Be aware that there is also the `cosign sign` command. After running `cosign attach` to attach an SBOM and upload it to a registry, you can then run `cosign sign` to sign the SBOM, and upload the signature to the registry as a separate OCI artifact, this time with the `.sig` extension.
-
-If you'd like to learn more about working with SBOMs and Cosign, we encourage you to check out our tutorial on [How to sign an SBOM with Cosign](/open-source/sigstore/cosign/how-to-sign-an-sbom-with-cosign/).
-
-## A note on generating SBOMs
-
-There are many tools available today — both proprietary and open source — that allow you to generate SBOMs. However, these tools do not generate SBOMs in the same way or at the same point in the development process. As with signed versus unsigned SBOMs, an organization may find SBOMs generated by one tool as more trustworthy than those from others.
-
-For example, SBOMs generated from source code can be valuable. But ultimately, you have no way of knowing whether the image has been tampered with between the time the SBOM was generated and the time you actually run the image.
-
-[apko](/open-source/build-tools/apko/overview/) is a command-line tool that allows users to build container images using a declarative language based on YAML. When building a container image, apko will generate an SBOM outlining each of the apks it uses to build it. When combined with [melange](/open-source/build-tools/melange/overview/), an apk builder tool that uses declarative pipelines to create apk packages, these tools can serve as a good starting point for a secure container image factory. Checkout ["Secure Your Software Factory with melange and apko"](https://www.chainguard.dev/unchained/secure-your-software-factory-with-melange-and-apko) to learn more.
-
----
-
-### What are OCI artifacts?
-_Path: open-source/oci/what-are-oci-artifacts.md_
-
-OCI artifacts are a way of using OCI registries, or container registries that are compliant with specifications set by the [Open Container Initiative](/open-source/oci/what-is-the-oci/), to store arbitrary files. They are useful to understand given their growing importance for software supply chain security and their general utility for container engineering. However, community usage of OCI artifacts is still actively evolving and differing opinions and understandings of their purpose can lead to confusion. In this guide, you will learn the difference between OCI "artifacts" and "Artifacts," their utility for software supply chain security, and some important considerations when using them.
-
-## OCI "artifacts" versus "Artifacts"
-
-The term "OCI artifact" is a general purpose way of referring to any object stored within a container registry, but is most often used to refer to objects stored in registries that are not images. Container registries were originally designed to store and distribute images, but software engineers soon saw their utility for storing non-image objects such as Helm charts, Tekton bundles, and policy modules. By storing these objects in the same infrastructure as their containers, software engineers are able to consolidate their security and management efforts. Another benefit of using OCI registries for artifacts is that registries provide a [content-addressable API](/open-source/oci/what-is-the-oci/#image-manifest), or a way of referring to files (like images and artifacts) that assures their authenticity and integrity.
-
-OCI artifacts are sometimes misunderstood as a new OCI specification or format but they are in fact a way of using the [OCI Image Specification](https://github.com/opencontainers/image-spec) to store something other than an image in a container registry. Some software projects use OCI registries to store non-images without making any formal changes to the object's manifest. However, the OCI does provide guidance for formally specifying an object as an "OCI Artifact" (note the capital "A") by modifying its manifest in a particular way.
-
-According to the OCI Image Specification, an [image manifest](/open-source/oci/what-is-the-oci/#image-manifest) needs to include the  OCI `mediaTypes` values `application/vnd.oci.image.config.v1+json` and `application/vnd.oci.image.layer.v1.tar+gzip` in the `config` and `layers` fields. When creating a manifest for an OCI **A**rtifact, however, you switch out both of these values with custom `mediaTypes` values as in the example below.
-
-```json
-{
-  "schemaVersion": 2,
-  "config": {
-    "mediaType": "application/vnd.yourcustomartifact+json",
-    "size": 233,
-    "digest": "sha245:..."
-  },
-  "layers": [{
-    "mediaType": "application/vnd.yourcustomartifact.tar.gzip",
-    "size": 680,
-    "digest": "sha245:..."
-  }]
-}
-```
-
-In the example manifest above, the  `config` field contains the custom `mediaType` value `application/vnd.yourcustomartifact+json` and the `layers` fields contains the custom `mediaType` value `application/vnd.yourcustomartifact.tar.gzip`.
-
-Some container tools make use of the OCI Artifacts format guidelines (such as Helm and Tekton), but using these guidelines comes with a serious drawback. Not all registries support OCI Artifacts (or manifests with a custom `mediaType`), and the [OCI Image Specification](https://github.com/opencontainers/image-spec) recommends avoiding the use of Artifacts if you are concerned about portability. As you will read about in the section below, this lack of portability is a reason why some software projects choose to store artifacts in an OCI registry without adding a custom `mediaType` to the manifest.
-
-## OCI artifacts and software supply chain security
-
-For software supply chain security, OCI artifacts offer a useful way to store [SBOMs](/open-source/sbom/what-is-an-sbom/) and signatures inside a container registry.
-
-An **SBOM**, or software bill of materials, is a formally structured list of libraries, modules, licensing, and version information that make up any given piece of software. When a security advisory is issued, SBOMs enable software operators to quickly understand whether their codebase contains any components associated with the vulnerability described in the advisory. A [**signature**](/open-source/sigstore/cosign/an-introduction-to-cosign/) is a way of attesting to the fact that you are the author of your software, and enables the consumer to verify that the signature and software have not been tampered with by a third party.
-
-The open source tool [Cosign](https://github.com/sigstore/cosign), part of the [Sigstore](https://www.sigstore.dev/) project, enables software engineers to store their SBOMs and signatures as artifacts in the same container registry where they store their associated images. However, given the lack of support for OCI Artifacts across registries, Cosign ships all SBOM and signature artifacts as OCI Images and not as OCI Artifacts. In this way, software engineers can take advantage of Cosign regardless of whether their container registry supports the OCI Artifact manifest format or not.
-
-To learn more about storing signatures as artifacts, visit the [section on counter signing](
-https://github.com/sigstore/cosign#counter-signing) in the Cosign repo. To learn more about storing SBOMs as artifacts, visit the [Cosign SBOM Specification](https://github.com/sigstore/cosign/blob/b6aaddc05cbf04819221f9c7084399d4615b9d27/specs/SBOM_SPEC.md) page on Github or the [section on signing SBOMs](https://docs.sigstore.dev/cosign/signing/other_types/#sboms-software-bill-of-materials) in Sigstore’s documentation.
-
-## Considerations
-
-Community usage and guidance of OCI artifacts and Artifacts are actively evolving and there are a few considerations to keep in mind when you are planning on using them. As noted earlier, not all registries support OCI Artifacts, and the [OCI Image Specification](https://github.com/opencontainers/image-spec) recommends avoiding the use of them if you are concerned about portability. Recommended practices are still also under debate, giving rise to the [OCI Reference Types Working Group](https://github.com/opencontainers/wg-reference-types), which is considering different ways of describing and handling objects stored in an OCI registry. You can read more about the proposals the group is currently considering by visiting the [Intro to OCI Reference Types](https://www.chainguard.dev/unchained/intro-to-oci-reference-types) post on Chainguard’s blog.
-
----
-
-### Open Container Initiative
-_Path: open-source/oci/_index.md_
-
-The Open Container Initiative (OCI) is a Linux Foundation project dedicated to managing specifications and projects related to the storage, distribution, and execution of container images.
-
----
-
-### What is the Open Container Initiative?
-_Path: open-source/oci/what-is-the-oci.md_
-
-The [Open Container Initiative](https://opencontainers.org/) (OCI) is a Linux Foundation project dedicated to managing specifications and projects related to the storage, distribution, and execution of container images. The OCI was formed in 2015 when developers recognized that the quickly growing container industry needed standards to ensure the portability of containers across systems and platforms. As one of the most popular container developers, Docker was a key partner in the formation of the OCI and donated its specifications and associated code for OCI image formats and runtime specifications. Today, the OCI manages three specifications (the Image Specification, the Runtime Specification, and the Distribution Specification), which are evolving according to community participation and industry development.
-
-The OCI is committed to promoting common, minimal, and open standards and specifications with the aim of protecting interoperability without sacrificing developers’ ability to innovate. These standards and specifications play a critical role in enabling developers to trust that their containers will work regardless of the infrastructure, cloud provider, and DevOps tooling they choose to use. They also are vital in modern software supply chain security as they provide a strong foundation for developing security tooling and best practices related to container technology. Understanding the purpose and use of OCI specifications can help you understand the conditions of container interoperability and prepare you to learn emerging methods for securing and trusting container applications.
-
-## What are the OCI specifications?
-
-The OCI currently manages three specifications: the Runtime Specification, the Image Specification, and the Distribution Specification. These specifications work together to ensure that any OCI-compliant image can be run on any OCI-compliant runtime, and that OCI-compliant registries (such as Docker, Amazon Elastic Container Registry, or Google Container Registry) are able to distribute OCI images according to OCI guidelines.
-
-The OCI offers a testing and peer validation process for individuals and organizations to certify their images or runtime software as OCI compliant. You can find information about the certification process on the [OCI website](https://opencontainers.org/community/certified/).
-
-The three OCI specifications are outlined in the following sections.
-
-## OCI image format specification
-
-This specification defines an OCI Image as consisting of an image manifest, an optional image index, a set of filesystem layers, and a configuration.
-
-### Image manifest
-
-This document provides a configuration and set of layers for a single container image for a specific architecture and operating system. Note that the manifest specification has three goals:
-
-* Enabling _content-addressable_ images, which means an image can be referred to by a unique ID — or digital fingerprint — that is generated by hashing its contents. Hashing is generated using the SHA256 algorithm, which generates a unique 32-byte signature for an image based on the contents of the image. Changing even one byte on the original image would result in a different hash, enabling developers to know with certainty that an image has not been altered.  
-* Allowing _multi-architecture_ images, or container images that can be used with different architectures such as AMD64 and ARM. Multi-architecture images enable a flexible approach to developing a container-based application or setting up CI/CD workflows without needing to commit to a specific architecture.  
-* Ensuring that images are compatible with any OCI-compliant runtime.
-
-For an example manifest document and a list of properties, you can read the [OCI’s Image Manifest Specifications](https://github.com/opencontainers/image-spec/blob/main/manifest.md).
-
-### Image index (optional)
-
-This document is an optional higher-level manifest which allows developers to point to multiple image manifests to allow compatibility with a variety of architectures and operating systems. For an example image index and a list of properties, you can read the [OCI’s Image Index specifications](https://github.com/opencontainers/image-spec/blob/main/manifest.md).
-
-### A set of filesystem layers
-
-An image is composed of one or more _filesystem layers_, each of which represent a change to the file system such as the addition of another image or one or more commands. These layers are unpacked by the container engine to build the image and are referred to by their `digest`, a hash generated by applying the SHA 256 algorithm to their contents. Layers are described in the image manifest as follows:
-
-```json
- "layers": [
-    {
-      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
-      "size": 32654,
-      "digest": "sha256:9834876dcfb05cb167a5c24953eba58c4ac89b1adf57f28f2f9d09af107ee8f0"
-    },
- ]
-```
-
-For OCI guidance on filesystem layers, you can visit their [Image Layer Filesystem Changeset Documentation](https://github.com/opencontainers/image-spec/blob/main/layer.md).
-
-### Configuration  
-
-The configuration document includes basic information like the author and creation date and describes execution parameters for translating the image to a container runtime. The configuration file is named after its cryptographic hash and can be located in the manifest as follows:  
-
-```json
-{
-  "schemaVersion": 2,
-  "mediaType": "application/vnd.oci.image.manifest.v1+json",
-  "config": {
-    "mediaType": "application/vnd.oci.image.config.v1+json",
-    "size": 7023,
-    "digest": "sha256:b5b2b2c507a0944348e0303114d8d93aaaa081732b86451d9bce1f432a537bc7"
-  },
-```
-
-For more guidance on image configuration, visit the [official OCI documentation](https://github.com/opencontainers/image-spec/blob/main/config.md).
-
-## Runtime specification
-
-A container runtime is the software used to run and manage containers; essentially they create and run containers using specified images. The goal of the OCI Runtime Specification is to ensure consistency between different runtime environments and define common actions to manage a container’s lifecycle. An OCI-compliant image should run reliably on any OCI-compliant runtime.  More information about the Runtime Specification can be found in the [OCI documentation](https://github.com/opencontainers/runtime-spec/blob/main/spec.md).
-
-In addition to overseeing this specification, OCI develops the runtime `runc`, a command line client for creating, configuring, and managing containers. Originally developed by Docker, `runc` was donated to OCI as the reference for the specification and serves as the foundation for a variety of popular container tools such as containerd and Podman.
-
-## Distribution specification
-
-The OCI Distribution Specification aims to standardize the way container registries and runtime tools push and pull container images and other content types. It is based on the specification for the Docker Registry HTTP API V2 protocol apdx-1, and has been adopted by major registries such as Amazon Elastic Container Registry, Google Container Registry, Azure Container Registry, and Github Container Registry. Any registry that is OCI-compliant supports interactions outlined by this specification, such as pushing, pulling, or storing images.  More information about the Distribution Specification can be found in the OCI documentation [here](https://github.com/opencontainers/distribution-spec/blob/main/spec.md).
-
-## How to know if an image is OCI compliant
-
-Currently, most images encountered in the wild are either OCI or Docker images. You can determine whether an image is OCI compliant by inspecting the `mediatype` value located in the image’s manifest. If “oci” is included in the string set as the value of the `mediatype`, then it is an OCI image:
-
-```json
- "mediaType": "application/vnd.oci.image.manifest.v1+json",
-```
-
-Otherwise, the mediatype string will likely include “docker” as follows:
-
-```json
-"mediaType": "application/vnd.docker.distribution.manifest.v2+json"
-```
-
-There are a few interesting nuances about OCI images that are worth pointing out. First, because Docker donated its image specifications to OCI, Docker and OCI image specifications are the same in substance. In fact, most images on Docker are _Docker_ images and not OCI images, which you can confirm by inspecting the image manifests. This is largely due to the fact that Docker’s tools for publishing and building images create _Docker_ images — not _OCI_ images — by default, a convention set by historical practice. If you want to build and publish OCI images, you must use tools that support OCI, such as [apko](/open-source/build-tools/apko/overview/), an open source OCI image builder.  
-
-Relatedly, a final nuance to point out is that OCI-compliant registries are only required to _support_  OCI images, but may distribute other image types as well. Thus, you should not expect all images distributed on an OCI-compliant registry to be OCI compliant themselves, such as evidenced by Docker Hub in the example above.  
-
-## Wrap up
-
-You should now understand the purpose of OCI and the three container specifications it oversees. While the OCI’s core function is protecting interoperability across the complex container ecosystem, its protocols are being recognized as useful for _signing_ software, a method for authenticating that the software is from a trusted source and has not been tampered with by a third party. You can learn more about container signing and how to sign, verify, and store image artifacts in an OCI registry in our [introductory guide to Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/).
 
 ---
 
@@ -47451,7 +47034,7 @@ _Path: open-source/wolfi/building-a-wolfi-package.md_
 
 Wolfi is a Linux distro created specifically for building stripped-down container images that only include the essential packages needed to run applications in containers. This makes it more secure, as there are fewer potential attack vectors due to the reduced surface area.
 
-Thanks to a fine-tuned maintenance process combining top-notch automation and established best practices from maintainers, Wolfi packages are updated quickly. This ensures that Wolfi users get patches and latest versions of packages at a much faster pace than other distributions. Additionally, Wolfi includes a number of features that help to ensure the provenance and authenticity of packages. For example, all packages are built directly from source and signed with cryptographic signatures. This helps to prevent malicious code from being introduced into the system. Wolfi also provides a high-quality build-time [SBOM](https://edu.chainguard.dev/open-source/sbom/what-is-an-sbom/) as standard for all packages.
+Thanks to a fine-tuned maintenance process combining top-notch automation and established best practices from maintainers, Wolfi packages are updated quickly. This ensures that Wolfi users get patches and latest versions of packages at a much faster pace than other distributions. Additionally, Wolfi includes a number of features that help to ensure the provenance and authenticity of packages. For example, all packages are built directly from source and signed with cryptographic signatures. This helps to prevent malicious code from being introduced into the system. Wolfi also provides a high-quality build-time [SBOM](https://www.chainguard.dev/supply-chain-security-101/what-is-an-sbom) as standard for all packages.
 
 That being said, it's important to note that Wolfi is rather new; it just recently crossed the mark of 1,000 packages in the Wolfi OS repository. That means some packages that you would find in a more established distro won't be available yet in Wolfi. In this article, we'll cover the whole process involved in building a new Wolfi package, or how a Wolfi package comes to be.
 
@@ -47907,74 +47490,7 @@ The [Wolfi Contributing Guide](https://github.com/wolfi-dev/os/blob/main/CONTRIB
 
 If you haven't yet, check the [Wolfi PHP package source file](https://github.com/wolfi-dev/os/blob/main/php-8.2.yaml) for a more comprehensive view of the melange YAML structure and how that looks in a more complex build.
 
-If you'd like to learn more about Wolfi, check the [documentation](https://edu.chainguard.dev/open-source/wolfi/overview/) and [FAQ](https://edu.chainguard.dev/open-source/wolfi/faq/) for more details about the ecosystem surrounding it.
-
----
-
-### Wolfi overview
-_Path: open-source/wolfi/overview.md_
-
-[Wolfi](https://github.com/wolfi-dev) is a community Linux [undistro](#why-undistro) designed for the container and cloud-native era. Chainguard started the Wolfi project to build [Chainguard Containers](/chainguard/containers/overview/), our collection of curated [distroless](/chainguard/containers/concepts/getting-started-distroless/) images that meet the requirements of a secure software supply chain. This required a Linux distribution with components at the appropriate granularity and with support for [glibc](https://www.gnu.org/software/libc/).
-
-Building our own undistro also allows us to ensure packages have full provenance and metadata for supporting modern supply-chain security needs.
-
-## Why undistro
-
-We call Wolfi an undistro because unlike a [typical Linux distribution](https://en.wikipedia.org/wiki/Linux_distribution) designed to run on bare-metal, Wolfi is a stripped-down distro designed for the cloud-native era. It doesn't have a kernel of its own, instead relying on the environment (such as the container runtime) to provide one. This separation of concerns in Wolfi means it is adaptable to a range of environments.
-
-Wolfi is the base we use to build [Chainguard Containers](/chainguard/containers/overview/), our open source distroless images that are available free of charge.
-
-## Wolfi features
-
-Wolfi, whose name was inspired by the [world's smallest octopus](https://en.wikipedia.org/wiki/Octopus_wolfi), has some key features that differentiates it from other distributions that focus on container/cloud-native environments:
-
-- Provides a high-quality, build-time SBOM as standard for all packages
-- Packages are designed to be granular and independent, to support minimal images
-- Uses the proven and reliable apk package format
-- Fully declarative and reproducible build system
-- Designed to support glibc
-
-Wolfi enables Chainguard to solve the software supply chain security problem from the outside in. It gives developers the secure-by-default base they need to build software, it scales to support organizations running massive environments and provides the control needed to fix most modern supply chain threats. Wolfi builds all packages directly from source, allowing us to fix vulnerabilities or apply customizations that improve the supply chain security posture of everything from compilers to language package managers.
-
-## Quickstart
-
-This site's [Wolfi section](/open-source/wolfi/) contains full information on Wolfi and how to build Wolfi packages, but if you
-would like to quickly review how to work with Wolfi, try the [wolfi-base
-image](https://images.chainguard.dev/directory/image/wolfi-base/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-open-source-wolfi-overview). You can run it with:
-
-```sh
-docker run -it cgr.dev/chainguard/wolfi-base
-```
-
-This should start a Wolfi container where you can explore the file system and investigate which
-packages are available. This container is intentionally minimal - it includes the filesystem for
-Wolfi, a package manager (apk) and a shell, but not much else. You will need to use apk to install
-any tools you need. Here is an example session:
-
-```
-docker run -it cgr.dev/chainguard/wolfi-base
-ce557598406a:/# cat /etc/os-release
-ID=wolfi
-NAME="Wolfi"
-PRETTY_NAME="Wolfi"
-VERSION_ID="20230201"
-HOME_URL="https://wolfi.dev"
-ce557598406a:/# apk update
-fetch https://packages.wolfi.dev/os/aarch64/APKINDEX.tar.gz
- [https://packages.wolfi.dev/os]
-OK: 15046 distinct packages available
-ce557598406a:/# curl
-/bin/sh: curl: not found
-ce557598406a:/# apk add curl
-(1/5) Installing libbrotlicommon1 (1.0.9-r3)
-(2/5) Installing libbrotlidec1 (1.0.9-r3)
-(3/5) Installing libnghttp2-14 (1.55.1-r0)
-(4/5) Installing libcurl-openssl4 (8.2.1-r0)
-(5/5) Installing curl (8.2.1-r0)
-OK: 13 MiB in 19 packages
-ce557598406a:/# curl google.com
-...
-```
+To learn more about Wolfi and the ecosystem around it, read [What is Wolfi?](https://www.chainguard.dev/supply-chain-security-101/wolfi-overview) and the rest of the [Wolfi documentation](/open-source/wolfi/).
 
 ---
 
@@ -48085,7 +47601,29 @@ Because package updates or vulnerability fixes won't be picked up, this is not g
 ### Wolfi
 _Path: open-source/wolfi/_index.md_
 
-Wolfi is a Linux undistro designed to support the creation of container images that meet the requirements of a secure software supply chain.
+Wolfi is a Linux _undistro_ built for containers. It uses the apk package format, builds every package from source, and relies on the container runtime to provide the kernel. Chainguard Containers are built on Wolfi.
+
+To learn what Wolfi is and why Chainguard built it, read [What is Wolfi?](https://www.chainguard.dev/supply-chain-security-101/wolfi-overview) in Supply Chain Security 101. The pages in this section show you how to work with Wolfi.
+
+## Try Wolfi
+
+To explore Wolfi, run the [wolfi-base](https://images.chainguard.dev/directory/image/wolfi-base/overview) image. It's intentionally minimal: it contains the Wolfi filesystem, the apk package manager, and a shell.
+
+```sh
+docker run -it cgr.dev/chainguard/wolfi-base
+```
+
+Inside the container, install the tools you need with apk, for example `apk add curl`.
+
+## Find Wolfi packages
+
+To search for packages, run `apk search` inside a Wolfi container, as described in [Searching for packages](/chainguard/containers/migration/migrating-to-chainguard-images/#searching-for-packages). To search the Wolfi repositories from a browser, use [APK Explorer](https://apk.dag.dev/).
+
+You can't mix Alpine packages with Wolfi packages. If you need a package that's only available for Alpine, open an issue in the [wolfi-os](https://github.com/chainguard-dev/wolfi-os/) repository to request it, or [build your own package with melange](/open-source/wolfi/building-a-wolfi-package/).
+
+## Report security issues
+
+To report a security issue in Wolfi or consume its security data, follow [SECURITY.md](https://github.com/wolfi-dev/.github/blob/main/SECURITY.md).
 
 ---
 
@@ -48094,7 +47632,7 @@ _Path: open-source/wolfi/wolfi-with-dockerfiles.md_
 
 ## Introduction
 
-[Wolfi](/open-source/wolfi/overview/) is a minimal open source Linux distribution created specifically for cloud workloads, with an emphasis on software supply chain security. Using [apk](https://wiki.alpinelinux.org/wiki/Package_management) for package management, Wolfi differs from Alpine in a few important aspects, most notably the use of glibc instead of musl and the fact that Wolfi doesn't have a kernel as it is intended to be used with a container runtime. This minimal footprint makes Wolfi an ideal base for both _distroless_ images and fully-featured builder images.
+[Wolfi](https://www.chainguard.dev/supply-chain-security-101/wolfi-overview) is a minimal open source Linux distribution created specifically for cloud workloads, with an emphasis on software supply chain security. Using [apk](https://wiki.alpinelinux.org/wiki/Package_management) for package management, Wolfi differs from Alpine in a few important aspects, most notably the use of glibc instead of musl and the fact that Wolfi doesn't have a kernel as it is intended to be used with a container runtime. This minimal footprint makes Wolfi an ideal base for both _distroless_ images and fully-featured builder images.
 
 A distroless image is a minimal container image that typically doesn't include a shell or package manager. The extra tightness improves security in several aspects, but it requires a more sophisticated strategy for image composition since you can't install packages so easily. Wolfi-based builder images are still a better and more secure option to use as base images in your Dockerfile than using a full-fledged Linux distribution, as they are smaller and have fewer CVEs. You can learn more about distroless in our [Going distroless](/chainguard/containers/concepts/getting-started-distroless/) guide.
 
@@ -48295,53 +47833,6 @@ If you can't find an image that is a good match for your use case, or if your bu
 
 ---
 
-### Wolfi FAQs
-_Path: open-source/wolfi/faq.md_
-
-## What is Wolfi and how does it compare to Alpine?
-
-Wolfi is our Linux _undistro_  designed from the ground up to support newer computing paradigms such as containers. Although Wolfi has a few similar design principles as Alpine (such as using apk), it is a different distribution that is focused on supply chain security. Unlike Alpine, Wolfi does not currently build its own Linux kernel, instead relying on the host environment (e.g. a container runtime) to provide one.
-
-## Why build a new Linux distribution from scratch?
-
-Without building packages from source, you are at the mercy of an intermediary provider (such as Debian or Alpine) for obtaining the software you need, and none of those intermediaries offer our SLA around zero CVEs. Each intermediary also joins your supply chain’s root of trust. We built Wolfi to achieve an unmatched CVE SLA where Chainguard is the only intermediary you need to trust. The following resources have more details around why and how we built  Wolfi:
-
-1. [Building the first memory safe distro](https://www.chainguard.dev/unchained/building-the-first-memory-safe-distro)
-2. [Building Wolfi from the ground up](https://www.chainguard.dev/unchained/building-wolfi-from-the-ground-up-and-announcing-arm64-support)
-3. [Wolfi: a new paradigm in Linux for containers](https://www.chainguard.dev/unchained/wolfi-a-new-paradigm-in-linux-for-containers)
-4. [Fully bootstrapping Java from source in Wolfi](https://www.chainguard.dev/unchained/fully-bootstrapping-java-from-source-in-wolfi)
-5. [Fully bootstrapping Go from source in Wolfi](https://www.chainguard.dev/unchained/fully-bootstrapping-go-from-source-in-wolfi)
-
-## Is Wolfi free to use?
-
-Yes, Wolfi is free and will always be.
-
-## Can I mix packages from Alpine repositories into a Wolfi-based image?
-
-No, it's not possible to mix Alpine apks with Wolfi apks. If your image requires dependencies that are currently only available for Alpine, you might consider opening a new issue in the [wolfi-os](https://github.com/chainguard-dev/wolfi-os/) repository to suggest the new package addition, or use [melange](https://github.com/chainguard-dev/melange) to build a custom apk for your image.
-
-## How can I find which packages are available in Wolfi?
-
-You can search for available packages using the `apk search` command from within a Wolfi container, as explained in the [Searching for packages](https://edu.chainguard.dev/chainguard/containers/migration/migrating-to-chainguard-images/#searching-for-packages) section of our Migrating to Chainguard Containers guide. You can also use our [APK Explorer](https://apk.dag.dev/) tool for a web-based search on the Wolfi repositories.
-
-## Can I use Wolfi on the desktop?
-
-No. Wolfi is an un-distro, or distroless base to be used within the container / OCI ecosystem. Desktop distributions require additional software that is out of scope for Wolfi's roadmap.
-
-## Who maintains Wolfi?
-
-Wolfi was created and is currently maintained by [Chainguard](https://chainguard.dev).
-
-## What are the plans for long-term Wolfi governance?
-
-We intend for Wolfi to be a community-driven project, which means over time it will have multi-vendor governance and maintainers. For now we're focused on building the project and community, and will revisit this in several months when a community has formed.
-
-## Where can I get security feeds for Wolfi?
-
-Refer to [SECURITY.md](https://github.com/wolfi-dev/.github/blob/main/SECURITY.md) for information about reporting security incidents concerning and consuming security data about Wolfi.
-
----
-
 ### Hello Wolfi workshop
 _Path: open-source/wolfi/hello-wolfi.md_
 
@@ -48357,6 +47848,15 @@ This presentation was recorded on November 16, 2022. Although most of the conten
 {{< /note >}}
 
 {{< youtube 2pqhLXA6NaI >}}
+
+---
+
+### Octo STS
+_Path: open-source/octo-sts/_index.md_
+
+Octo STS is an open source GitHub App, developed by Chainguard, that acts as a security token service for the GitHub API. It exchanges OIDC tokens from your workloads for short-lived GitHub tokens, so your automation doesn't need long-lived personal access tokens (PATs).
+
+To learn why PATs are risky and how Octo STS replaces them, read [Octo STS: Short-lived GitHub tokens without PATs](https://www.chainguard.dev/supply-chain-security-101/octo-sts-overview) in Supply Chain Security 101. To install and configure it, follow [Set up and use Octo STS](/open-source/octo-sts/set-up-octo-sts/).
 
 ---
 
@@ -48481,138 +47981,101 @@ Yeah, it looked like that works. It successfully updated our version of Go here.
 
 ## Related resources
 
-- [FAQ](/open-source/octo-sts/faq/)
+- [Set up and use Octo STS](/open-source/octo-sts/set-up-octo-sts/)
 - [Octo STS GitHub Repository](https://github.com/octo-sts/app)
 - [Renovate Documentation](https://docs.renovatebot.com/)
 
 ---
 
-### Octo STS FAQ
-_Path: open-source/octo-sts/faq.md_
+### Set up and use Octo STS
+_Path: open-source/octo-sts/set-up-octo-sts/index.md_
 
-This page answers frequently asked questions about Octo STS, including setup, security, troubleshooting, and common use cases.
+Octo STS is a GitHub App that exchanges OIDC tokens from your workloads for short-lived GitHub tokens, so your automation doesn't need personal access tokens (PATs). This page shows you how to install Octo STS, write trust policies, exchange tokens, and fix failed exchanges. For background on why Octo STS exists, read [Octo STS: Short-lived GitHub tokens without PATs](https://www.chainguard.dev/supply-chain-security-101/octo-sts-overview) in Supply Chain Security 101.
 
-## General questions
+## How the token exchange works
 
-### What is Octo STS?
+Octo STS issues tokens according to trust policies that you keep in your repositories:
 
-Octo STS is a GitHub App developed by Chainguard that acts as a Security Token Service for GitHub. It allows workloads with OIDC tokens from various identity providers (GitHub Actions, cloud providers, Kubernetes, etc.) to exchange those tokens for short-lived GitHub access tokens. The primary goal is to eliminate the need for long-lived Personal Access Tokens (PATs).
+1. You install the Octo STS GitHub App on your organization or repositories.
+1. You write trust policies that say which identities can get a token and what permissions the token carries.
+1. Your workload presents an OIDC token to Octo STS.
+1. If the OIDC token matches a trust policy, Octo STS returns a short-lived GitHub token with the permissions that policy grants.
 
-### Why should I use Octo STS instead of personal access tokens?
+![Sequence diagram of the requests a workload, Octo STS, and GitHub exchange during a token exchange.](octo-arch.webp)
 
-Personal Access Tokens pose security risks as they provide persistent access to resources and are not tied to a given workload. Attackers regularly abuse leaked PATs to gain access to systems and resources.
+Tokens expire after one hour and can't be refreshed. When a token expires, exchange a new OIDC token for a new GitHub token.
 
-By comparison, Octo STS tokens are short-lived (1 hour) and typically tightly scoped to the workload in question. This vastly reduces the scope for abuse.
+## Install Octo STS
 
-### How does Octo STS compare to GitHub's built-in GITHUB\_TOKEN?
+1. Go to the [Octo STS app page](https://github.com/apps/octo-sts) and click **Install**.
+1. Select the organization or user account.
+1. Choose the repositories that Octo STS can access. Octo STS works with both public and private repositories.
+1. Approve the permissions.
 
-GitHub Actions provides a `GITHUB_TOKEN` automatically, but it has limitations:
+Octo STS requests a broad set of permissions so that it can support many use cases, but the tokens it issues carry only the permissions that your trust policies grant. The app itself needs `contents: read` so that it can read your trust policies. Until you create a trust policy, Octo STS can't issue any tokens.
 
-- Cannot update workflow files
-- Cannot trigger other workflows
-- Limited to a fixed set of permissions
+The hosted service at `octo-sts.dev` is free to use. Octo STS is open source, so you can also host it yourself; the [Octo STS repository](https://github.com/octo-sts/app) has deployment instructions.
 
-Octo STS tokens can:
+When Octo STS needs to add or remove GitHub permissions, the maintainers open an issue in the Octo STS repository that explains the change, and GitHub asks you to approve the updated permissions for your installation. These updates happen quarterly, except for critical changes.
 
-- Update workflow files (useful for Renovate)
-- Have any permissions defined in your trust policy
-- Work consistently across all automation platforms, not just GitHub Actions
+## Write a trust policy
 
-### Is Octo STS free to use?
-
-Yes, Octo STS is open source and the hosted service at octo-sts.dev is free to use. You can also self-host Octo STS if you prefer.
-
-### Can I self-host Octo STS?
-
-Yes, Octo STS is open source and can be self-hosted. Refer to the [Octo STS repository](https://github.com/octo-sts/app) for deployment instructions.
-
-## Setup and configuration
-
-### How do I install Octo STS?
-
-Install the GitHub App:
-
-1. Visit [https://github.com/apps/octo-sts](https://github.com/apps/octo-sts)
-2. Click **Install**
-3. Select the organization or user account
-4. Choose which repositories to grant access
-5. Approve the permissions
-
-Then create trust policies in your repositories at `.github/chainguard/{name}.sts.yaml`.
-
-### Why does Octo STS request so many permissions?
-
-Octo STS requests a superset of permissions to support a large range of use cases. However, it only creates tokens with the specific permissions defined in your trust policies. The app needs `contents: read` to read trust policy files, but all other permissions are only granted based on your policies.
-
-### What happens if I don't create any trust policies?
-
-If you install Octo STS but don't create trust policies, the app cannot issue any tokens. Trust policies are required to specify which identities are trusted and what permissions to grant them.
-
-### Can I use Octo STS with private repositories?
-
-Yes, Octo STS works with both public and private repositories. The app needs access to read the repository's trust policy files.
-
-### How do I update trust policy permissions?
-
-Edit the trust policy file in your repository, commit, and push the changes. The new permissions take effect immediately for subsequent token exchanges. Existing tokens retain their original permissions until they expire.
-
-### Can I have multiple trust policies in one repository?
-
-Yes, you can create multiple policy files with different names:
+Trust policies are YAML files at `.github/chainguard/{name}.sts.yaml` in your repository. Octo STS typically reads them from the default branch. A repository can have several policies, each with its own identity requirements and permissions:
 
 - `.github/chainguard/renovate.sts.yaml`
 - `.github/chainguard/deploy.sts.yaml`
 - `.github/chainguard/ci.sts.yaml`
 
-Each policy can have different identity requirements and permissions. Specify which policy to use via the `identity` parameter when exchanging tokens.
+When your workload exchanges a token, it names the policy to use with the `identity` parameter.
 
-## Security
+To change a policy's permissions, edit the file, then commit and push the change. New permissions apply to every exchange after that. Tokens that Octo STS already issued keep their original permissions until they expire.
 
-### Are Octo STS tokens safe?
+### Match subjects exactly
 
-Octo STS tokens are as safe as the trust policies you create. They're short-lived (1 hour), reducing the window of opportunity if compromised.
-
-### Can Octo STS tokens bypass branch protection?
-
-No. Branch protection rules are enforced by GitHub regardless of the token type. Even with `contents: write` permission, Octo STS tokens must follow branch protection requirements like pull request reviews and status checks.
-
-### Should I use pattern matching or exact subjects?
-
-Prefer exact subject matching when possible:
+Prefer exact subject matching:
 
 ```yaml
-# Better: Exact match
 subject: repo:org@<owner-id>/repo@<repo-id>:ref:refs/heads/main
 ```
 
-Use pattern matching only when you need flexibility:
+Use a pattern only when you need the flexibility:
 
 ```yaml
-# When necessary: Pattern match
 subject_pattern: "repo:org@<owner-id>/repo@<repo-id>:ref:refs/heads/.*"
 ```
 
-Exact matching is more secure because it's harder to accidentally grant broader access than intended.
+An exact match makes it harder to grant broader access than you intended.
 
 {{< note >}}
 These subjects use GitHub's immutable format, which embeds the numeric owner ID and repository ID in the `sub` claim (for example, `repo:org@123456/repo@654321:ref:refs/heads/main`). This format is the default for repositories created after July 15, 2026, and an opt-in for older repositories. Match the exact subject your repository's token carries. For how to find the IDs, refer to [Finding your repository's numeric identifiers](/platform/administration/assumable-ids/identity-examples/github-identity/#finding-your-repositorys-numeric-identifiers).
 {{< /note >}}
 
-## Integration
+### Grant access to several repositories
 
-### Can I use Octo STS from a CI/CD system other than GitHub Actions?
+To issue one token that works across several repositories, use an organization trust policy with a `repositories` field:
 
-Yes, Octo STS works with any system that can:
+```yaml
+issuer: https://token.actions.githubusercontent.com
+subject: repo:org@<owner-id>/automation-repo@<repo-id>:ref:refs/heads/main
 
-1. Obtain OIDC tokens (Jenkins, GitLab CI, CircleCI, etc.)
-2. Make HTTP requests to exchange tokens
-3. Use the resulting GitHub token
+permissions:
+  contents: read
 
-The key is having an OIDC identity provider that Octo STS can validate.
+repositories:
+  - org/repo-one
+  - org/repo-two
+  - org/repo-three
+```
 
-### How do I use Octo STS with Terraform?
+The resulting token can access every listed repository.
 
-Use Terraform's `external` data source to exchange tokens:
+Whatever a policy grants, GitHub still enforces branch protection. A token with `contents: write` must still meet requirements such as pull request reviews and status checks.
+
+## Exchange tokens outside GitHub Actions
+
+Octo STS works with any system that can obtain an OIDC token, such as Jenkins, GitLab CI, or CircleCI, and make an HTTP request to exchange it. The system needs an OIDC identity provider that Octo STS can validate.
+
+For example, Terraform can exchange a token through its `external` data source:
 
 ```hcl
 data "external" "github_token" {
@@ -48630,148 +48093,34 @@ provider "github" {
 }
 ```
 
-### Can I use Octo STS to access multiple repositories?
+## Migrate from personal access tokens
 
-Yes, use organization trust policies with a `repositories` field:
+You can use PATs and Octo STS side by side during a migration, which lets you move one workload at a time and roll back if you need to.
 
-```yaml
-issuer: https://token.actions.githubusercontent.com
-subject: repo:org@<owner-id>/automation-repo@<repo-id>:ref:refs/heads/main
+1. Find where your automation uses PATs.
+1. Check whether each of those systems can provide OIDC tokens.
+1. Write a trust policy for each use case.
+1. Update the automation to exchange OIDC tokens instead of using PATs.
+1. Test the changes in a non-production environment.
+1. Revoke the PATs once Octo STS is working.
 
-permissions:
-  contents: read
+## Troubleshoot a failed token exchange
 
-repositories:
-  - org/repo-one
-  - org/repo-two
-  - org/repo-three
-```
+If a token exchange fails, check these common causes:
 
-The resulting token can access all listed repositories.
+- **The trust policy doesn't exist.** Verify that the file exists at `.github/chainguard/{identity}.sts.yaml`.
+- **The OIDC token doesn't match the policy.** Check that the token's issuer and subject match the policy.
+- **The app isn't installed.** Make sure Octo STS is installed and has access to the repository.
+- **The policy is on the wrong branch.** Octo STS typically reads trust policies from the default branch.
+- **The permissions are invalid.** The policy requests permissions that don't exist or that the app can't grant.
 
-## Troubleshooting
+## Get help
 
-### Token exchange fails
+- To report a bug, open an issue in the [Octo STS repository](https://github.com/octo-sts/app/issues).
+- To ask a question, use GitHub Discussions in the [Octo STS repository](https://github.com/octo-sts/app/).
+- To contribute, follow the contribution guidelines in the [repository](https://github.com/octo-sts/app).
 
-Common causes:
-
-- **Trust policy doesn't exist**: Verify the file exists at `.github/chainguard/{identity}.sts.yaml`
-- **OIDC token doesn't match policy**: Check that issuer and subject match your OIDC token
-- **App not installed**: Ensure Octo STS is installed and has access to the repository
-- **Wrong branch**: Trust policies are typically read from the default branch (main/master)
-- **Invalid permissions**: The policy requests permissions that don't exist or can't be granted by the app
-
-## Operational questions
-
-### How long do Octo STS tokens last?
-
-By default, tokens expire after 1 hour.
-
-### Can I refresh Octo STS tokens?
-
-No, Octo STS tokens cannot be refreshed. When a token expires, exchange a new OIDC token with Octo STS to obtain a new GitHub token. This is intentional - short-lived tokens should be regularly renewed.
-
-### What happens when Octo STS permissions are updated?
-
-Octo STS periodically adds or removes GitHub permissions to support new use cases. When this happens:
-
-- An issue is created in the Octo STS repository explaining the changes
-- You'll receive a notification to approve the updated permissions in your GitHub App installation
-- Updates are applied quarterly, with exceptions for critical changes
-
-## Migration
-
-### How do I migrate from PATs to Octo STS?
-
-1. Identify where PATs are currently used
-2. Determine if those systems can provide OIDC tokens
-3. Create appropriate trust policies for each use case
-4. Update automation to exchange OIDC tokens instead of using PATs
-5. Test thoroughly in a non-production environment
-6. Revoke PATs once Octo STS is working
-
-### Can I use both PATs and Octo STS during migration?
-
-Yes, you can use both during a transition period. This allows gradual migration and rollback capability if issues arise.
-
-## Getting help
-
-### Where can I report bugs?
-
-Report bugs in the [Octo STS GitHub repository](https://github.com/octo-sts/app/issues).
-
-### Where can I ask questions?
-
-- GitHub Discussions in the [Octo STS repository](https://github.com/octo-sts/app/)
-- Open an issue for specific problems
-- Review existing FAQ and documentation
-
-### How can I contribute to Octo STS?
-
-Octo STS is open source. Contributions are welcome:
-
-- Report bugs and request features
-- Improve documentation
-- Submit pull requests for code changes
-- Share your use cases and integration patterns
-
-Refer to the [repository](https://github.com/octo-sts/app) for contribution guidelines.
-
----
-
-### Octo STS overview
-_Path: open-source/octo-sts/overview/index.md_
-
-Octo STS is a GitHub App developed by Chainguard that acts as a Security Token Service (STS) for the GitHub API. It enables workloads running anywhere that can produce OIDC tokens to federate with GitHub, exchanging those tokens for short-lived GitHub access tokens. The primary goal is to eliminate the need for GitHub Personal Access Tokens (PATs), which are long-lived credentials that pose significant security risks.
-
-## Why Octo STS matters
-
-Long-lived access tokens are a common target in security incidents. When attackers gain access to a PAT, they can exploit it to access repositories, make changes, and pivot to other resources. These tokens often have broad permissions and no expiration date, making them particularly dangerous if compromised.
-
-Octo STS addresses this problem by:
-
-- **Eliminating long-lived credentials**: No more PATs that sit around indefinitely
-- **Enabling OIDC federation**: Leverage existing identity providers to authenticate workloads
-- **Providing short-lived tokens**: Generated tokens expire automatically
-- **Implementing fine-grained access control**: Grant only the permissions needed for specific tasks
-- **Supporting multiple identity providers**: Works with GitHub Actions, cloud providers (AWS, GCP, Azure), Kubernetes, and any OIDC-compliant system
-
-## How Octo STS works
-
-Octo STS operates through a trust policy model. The steps to install and use Octo STS are:
-
-1. **Install the GitHub App**: Add the [octo-sts](https://github.com/apps/octo-sts) GitHub App to your organization or repositories
-2. **Define trust policies**: Create policy files (`.github/chainguard/{name}.sts.yaml`) that specify which identities can access which resources
-3. **Exchange tokens**: Workloads present OIDC tokens to Octo STS
-4. **Receive GitHub tokens**: If the identity matches the trust policy, Octo STS issues a short-lived GitHub token with specified permissions
-
-The Octo STS app needs to request a large number of permissions. This set of permissions is reviewed on a quarterly basis to ensure it meets common use cases without being overly broad.
-
-### The token exchange process
-
-This sequence diagram outlines the token exchange process in Octo STS:
-
-<center><img src="/open-source/octo-sts/overview/octo-arch.webp" alt="Octo STS sequence diagram showing order of network requests" style="width:950px;"></center>
-
-## Common use cases
-
-- Developing Actions that create Pull Requests (a PAT is required to trigger presubmit GitHub Actions)
-
-- Developing Actions that interact across repositories (unsupported by built-in permissions)
-
-- Developing Actions that interact with the GitHub organization level
-
-- Providing external services (e.g. clouds) with access to repositories
-
-## Learn more
-
-Refer to our [Octo STS FAQ](/open-source/octo-sts/faq/) for answers to frequently asked questions and troubleshooting recommendations.
-
-You may also find these resources to be useful:
-
-- [Octo STS GitHub Repository](https://github.com/octo-sts/app)
-- [Original Blog Post](https://www.chainguard.dev/unchained/the-end-of-github-pats-you-cant-leak-what-you-dont-have)
-- [Trust Policy JSON Schema](https://raw.githubusercontent.com/octo-sts/app/refs/heads/main/pkg/octosts/octosts.TrustPolicy.json)
+For a worked example, watch [Updating container images with Renovate (and no PATs!)](/open-source/octo-sts/updating-container-images-with-renovate/).
 
 ---
 
@@ -49571,166 +48920,6 @@ For hands-on testing, each ecosystem has a demo repository with example projects
 
 ---
 
-### Overview of CIS Benchmarks
-_Path: compliance/cis-benchmarks.md_
-
-The [Center for Internet Security](https://www.cisecurity.org/) (CIS) is a nonprofit organization dedicated to enhancing the cybersecurity posture of organizations worldwide. Founded in 2000, CIS aims to develop best practices and guidelines that help organizations protect themselves against cyber threats.
-
-CIS's mission is to foster collaboration among security professionals, policymakers, and industry leaders to safeguard both public and private organizations against cyber threats. One of the ways it does this is by publishing CIS Benchmarks: a set of recommendations that, when applied to a given tool, can help to harden it against threats.
-
-This conceptual article serves as a high-level overview of CIS Benchmarks.
-
-## What are CIS Benchmarks?
-
-As mentioned in the introduction, CIS Benchmarks are a set of best practices and configuration guidelines designed to improve the security of various systems, applications, and networks. These benchmarks are widely recognized as authoritative standards for securing IT systems, and are developed through a consensus-driven process involving industry experts.
-
-CIS benchmarks cover a wide range of platforms, including operating systems, cloud providers, web browsers, network devices, and application software. Each benchmark provides detailed recommendations and prescriptive guidance on how to configure systems securely. They focus on areas such as user access controls, password policies, and network security settings.
-
-By following CIS benchmarks, organizations can significantly reduce their vulnerability to cyber threats. Additionally, many regulatory frameworks and standards recognize CIS benchmarks, making them useful for achieving compliance.
-
-You can find the full list of available CIS Benchmarks on [the CIS website](https://www.cisecurity.org/cis-benchmarks).
-
-### Structure of CIS Benchmarks
-
-CIS Benchmarks are distributed as PDF documents from the CIS website at no cost. After completing the [CIS Benchmarks PDF download form](https://learn.cisecurity.org/benchmarks), you can access all the Benchmark documents.
-
-> **Note**: By signing up for a CIS SecureSuite Membership you can download Benchmarks in a variety of other formats, including Word or Excel documents.
-
-CIS Benchmarks start with a brief overview of what it covers and lay out any typographical conventions or definitions specific to the Benchmark. They also define configuration profiles which can help users understand what recommendations they actually need to implement.
-
-For example, the CIS Google Chrome Benchmark has two profiles: Level 1 is for general use in Corporate/Enterprise environments and Level 2 is for High Security or Sensitive Data environments that only need limited functionality. In this case, Level 2 is an extension of Level 1; any recommendations for organizations that fit the Level 1 profile should also be implemented for Level 2 organizations, but not vice versa.
-
-The Benchmark will then go into individual recommendations relating to the tool it covers. These recommendations typically have the following fields:
-
-* **Profile Applicability**: the configuration profile (mentioned above) which the recommendation applies to
-* **Description**: a brief description of the recommendation
-* **Rationale**: the reasoning for the recommendation, with details on how it can improve security
-* **Impact**: the effect that implementing the recommendation would have on the tool's default behavior
-* **Audit**: details on how you can check whether the recommendation has been implemented
-* **Remediation**: details on how to establish the recommended configuration
-* **Default Value**: the tool's default value, before the recommendation has been implemented
-* **References**: a list of resources which informed CIS's recommendation
-* **CIS Controls**: the relevant CIS Controls for the recommendation
-
-Regarding this last bullet, [CIS Controls](https://www.cisecurity.org/controls) are more high-level recommendations than Benchmarks. CIS Benchmarks are best practices for specific tools, while CIS Controls are more simplified general recommendations that can be applied to a variety of technologies.
-
-## Chainguard Containers and the CIS Docker Benchmark
-
-Section 4 of the CIS Docker Benchmark — **"Container Images and Build File Configuration"** — is the section most relevant to Chainguard Containers. Chainguard container images are generally conformant with Section 4, with a few caveats:
-
-* **Benchmark 4.5 (Content Trust)**: Chainguard does not use [Docker Content Trust](https://docs.docker.com/engine/security/trust/). Instead, all images are signed with [Cosign](https://docs.sigstore.dev/cosign/signing/overview/), which is more robust and accomplishes the same security objective. Because the benchmark prescribes Docker Content Trust specifically, whether Cosign satisfies this requirement in a formal audit is at the auditor's discretion.
-* **Benchmark 4.6 (HEALTHCHECK)**: Chainguard images do not include [Docker `HEALTHCHECK`](https://docs.docker.com/reference/dockerfile/#healthcheck) instructions. Docker health checks are not compatible with Kubernetes, where health checking is handled at the orchestration layer. Chainguard Containers do not meet this benchmark.
-* **Build-time recommendations (e.g., 4.9)**: Some benchmarks apply to how images are built rather than to the base image itself. Chainguard base images follow these recommendations internally, but compliance of any downstream image depends on the practices you follow when extending them.
-
-For all other Section 4 benchmarks, the security properties they describe (minimal footprint, non-root execution, trusted base images, and reduced attack surface) are core to what Chainguard Containers provide.
-
-If you have specific compliance questions or need documentation for an audit, [contact Chainguard](https://www.chainguard.dev/contact).
-
-## Learn more
-
-By implementing CIS benchmarks, organizations not only improve their security against evolving cyber threats but also align with regulatory standards, ensuring compliance and minimizing risks. To explore the full range of benchmarks and start implementing these best practices, visit the [CIS website](https://www.cisecurity.org/cis-benchmarks) today.
-
-Additionally, you may find our resources on other [compliance frameworks](/compliance/) to be of interest.
-
----
-
-### CMMC 2.0 practices
-_Path: compliance/cmmc-2/cmmc-practices.md_
-
-Cybersecurity Maturity Model Certification (CMMC) 2.0 requires a progressive set of practices. Level 1 has 17 practices. Level 2 includes Level 1 practices plus an additional 110 practices. Level 3 practices include Level 2 practices, plus additional practices that are still being determined. These practices are divided into 14 domains, each of which covers a different aspect of cybersecurity.
-
-Wait, you may be wondering. Are “practices” the same as “controls” or “requirements?” This can be a point of confusion, as CMMC 2.0 refers to its requirements as “practices”, yet the majority are taken from NIST SP 800-171 and NIST SP 800-172 standards or requirements.
-
-## Naming conventions for CMMC 2.0 practices/controls
-
-CMMC 2.0 practices are labeled using the format “DD.L#-REQ”, where:
-
-- DD is the two-letter domain abbreviation
-- L# is the level number
-- REQ is the NIST SP 800-171 Rev 2 or NIST SP 800-172 security requirement number
-
-## CMMC 2.0 practice/control domains
-
-Below is a table overview of the domains:
-
-| Domain | Description | Example Practice/Control |
-| --------------------------------- | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| **Access Control (AC)** | Manage and restrict access to information systems to ensure that only authorized users and processes can interact with the system, protecting sensitive data from unauthorized access. | AC.L1-3.1.22 - Control information posted or processed on publicly accessible information systems. |
-| **Awareness and Training (AT)** | Ensure that personnel are educated on cybersecurity practices and aware of their roles in maintaining security, improving overall organizational resilience against cyber threats. | AT.L2-3.2.3 - Provide security awareness training on recognizing and reporting potential indicators of insider threat. |
-| **Audit and Accountability (AU)** | Involve the logging and monitoring of system activities to track and review actions, ensuring accountability and providing a means to detect and respond to potential security incidents. | AU.L2-3.3.2 - Ensure that the actions of individual system users can be uniquely traced to those users so they can be held accountable for their actions. |
-| **Configuration Management (CM)** | Establish and maintain secure configurations for information systems to prevent vulnerabilities, ensuring that systems are set up and managed in a consistent and secure manner. | CM.L2-3.4.2 - Establish and enforce security configuration settings for information technology products employed in organizational systems. |
-| **Identification and Authentication (IA)** | Focus on verifying the identity of users and devices to ensure that only authorized individuals and systems can access or interact with the organization’s information assets. | IA.L2-3.5.5 - Prevent reuse of identifiers for a defined period. |
-| **Incident Response (IR)** | Prepare for and respond to cybersecurity incidents through structured plans and regular testing, ensuring that the organization can effectively manage and mitigate the impact of incidents. | IR.L2-3.6.2 - Track, document, and report incidents to designated officials and/or authorities both internal and external to the organization. |
-| **Maintenance (MA)** | Maintain and update systems, ensuring that maintenance activities are performed securely. | MA.L2-3.7.1 - Perform maintenance on organizational systems. |
-| **Media Protection (MP)** | Protect information stored on physical and digital media through encryption and other security measures to safeguard data from unauthorized access and exposure. | MP.L2-3.8.2 - Limit access to Controlled Unclassified Information (CUI) on system media to authorized users. |
-| **Personnel Security (PS)** | Manage security risks related to personnel by ensuring thorough background checks and security clearances, addressing potential vulnerabilities from insider threats. | PS.L2-3.9.1 - Screen individuals prior to authorizing access to organizational systems containing CUI. |
-| **Physical Protection (PE)** | Protect physical locations and systems through access controls, surveillance, and other security measures to prevent unauthorized physical access and potential tampering. | PE.L1-3.10.3 - Escort visitors and monitor visitor activity. |
-| **Risk Assessment (RA)** | Assess and remediate risks and vulnerabilities in organizational operations, assets, and systems. | RA.L2-3.11.2 - Scan for vulnerabilities in organizational systems and applications periodically |
-| **Security Assessment (CA)** | Evaluate the effectiveness of security controls through assessments and address any identified vulnerabilities to continuously improve the security posture. | CA.L2-3.12.1 - Periodically assess the security controls in organizational systems to determine if the controls are effective in their application. |
-| **System and Communications Protection (SC)** | Secure communications and data transmitted across networks to protect information from interception and unauthorized access. | SC.L2-3.13.3 - Separate user functionality from system management functionality. |
-| **System and Information Integrity (SI)** | Ensure the integrity of systems and information by monitoring for unauthorized changes, protecting against malicious code, and applying updates to maintain system security. | SI.L2-3.14.7 - Identify unauthorized use of organizational systems. |
-
-For a list of all required practices, refer to pages 9 to 18 in the [Cybersecurity Maturity Model Certification - Model Overview](https://dodcio.defense.gov/Portals/0/Documents/CMMC/ModelOverview_V2.0_FINAL2_20211202_508.pdf) published by Carnegie Mellon University and The Johns Hopkins University Applied
-Physics Laboratory LLC and funded by the Department of Defense (DoD).
-
-To learn more about requirements for tracking compliance, continue to the next article in our guide, [CMMC 2.0 documentation requirements](/compliance/cmmc-2/cmmc-chainguard/)
-
-## Browse all CMMC 2.0 articles
-
-- [Introduction to CMMC 2.0](/compliance/cmmc-2/intro-cmmc-2/)
-- [CMMC 2.0 maturity levels](/compliance/cmmc-2/cmmc-2-levels/)
-- (Current article) Overview of CMMC 2.0 Practice/Control Groups
-- [How Chainguard can help with CMMC 2.0](/compliance/cmmc-2/cmmc-chainguard/)
-
-**[Get started with Chainguard FIPS images today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**
-
----
-
-### Introduction to CMMC
-_Path: compliance/cmmc-2/intro-cmmc-2.md_
-
-CMMC 2.0, or Cybersecurity Maturity Model Certification, is a cybersecurity framework established by the U.S. Department of Defense (DoD). It aims to ensure that contractors and subcontractors within the Defense Industrial Base (DIB) comply with rigorous cybersecurity standards. CMMC 2.0 replaces the previous CMMC model with a streamlined and updated version that incorporates lessons learned and feedback from industry stakeholders.
-
-If you are a contractor, subcontractor, or supplier contracting with the DoD, you will need to meet the requirements of CMMC 2.0 regardless of the size of your organization or the type of product or service you are providing. This guide will provide a comprehensive overview of CMMC 2.0, detailing its practices, the importance of compliance, and practical guidance on meeting its requirements. At the end of this guide, you will learn how Chainguard Containers can be used to significantly reduce the toil and time needed to achieve CMMC 2.0 compliance.
-
-## Who is required to be compliant?
-
-CMMC 2.0 compliance is mandatory for all organizations involved in DoD contracts where Controlled Unclassified Information (CUI) and Federal Contract Information (FCI) is handled. This includes:
-
-- **Prime Contractors**: Organizations directly awarded contracts by the DoD that must meet specific CMMC certification levels based on contract requirements.
-- **Subcontractors**: Companies providing goods or services to prime contractors, especially if they handle or access CUI or FCI.
-- **Suppliers**: Entities within the supply chain that interact with sensitive information relevant to DoD projects.
-
-The DIB encompasses a wide variety of contractors and suppliers, including commercial firms, not-for-profit research centers and university laboratories, and government-owned industrial facilities. The products and services these entities provide are even more diverse, ranging from large sophisticated weapons platforms (e.g., missile defense systems) to highly specialized operational support (e.g., satellite communications) to general commercial products (e.g., medical equipment). Regardless of the type of organization or the product or service they provide, all contractors servicing the DIB must achieve compliance with CMMC 2.0. However, as we will discuss more below, the compliance requirements vary according to the specific CMMC maturity level required for the contract in question.
-
-## What are FCI and CUI?
-
-**FCI** refers to information provided by or generated for the government under a contract that is not intended for public release. It includes data related to the performance of government contracts but does not involve classified or highly sensitive information. For example, an office furniture supplier providing delivery schedules and product specifications to a government agency under a contract would be handling FCI.
-
-**CUI** is more sensitive and requires specific safeguarding and dissemination practices. CUI includes information that, while not classified, still requires protection under federal laws, regulations, or government-wide policies due to its potential impact on national security or other critical interests. A defense contractor managing blueprints for a new military vehicle that is not classified but still needs to be protected under export control laws would be handling CUI.
-
-## Impact of non-compliance
-
-Failure to comply with CMMC 2.0 can have several significant impacts:
-
-- **Contract Loss**: Organizations that do not meet the required CMMC level will be ineligible for DoD contracts, leading to a loss of business opportunities and revenue.
-- **Reputational Damage**: Non-compliance can damage an organization’s reputation, affecting relationships with clients and partners and potentially deterring future business opportunities.
-- **Legal and Financial Penalties**: Organizations may face legal actions and financial penalties, especially if a security breach occurs involving sensitive information.
-- **Increased Risk**: Non-compliance increases the risk of data breaches and cyberattacks, which can compromise organizational and client data.
-
-Achieving compliance with CMMC 2.0 is not just a regulatory requirement but a critical step in safeguarding national security and contracting with the DoD. To prepare your organization for CMMC 2.0, continue on to the next section of our guide, [CMMC 2.0 maturity levels](/compliance/cmmc-2/cmmc-2-levels/), or read about [how Chainguard Containers can help simplify fulfilling CMMC 2.0 requirements](/compliance/cmmc-2/cmmc-chainguard/).
-
-## Browse all CMMC 2.0 articles
-
-- (Current article) Introduction to CMMC 2.0
-- [CMMC 2.0 maturity levels](/compliance/cmmc-2/cmmc-2-levels/)
-- [Overview of CMMC 2.0 practice/control groups](/compliance/cmmc-2/cmmc-practices/)
-- [How Chainguard can help with CMMC 2.0](/compliance/cmmc-2/cmmc-chainguard/)
-
-**[Get started with FIPS Chainguard Containers today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**
-
----
-
 ### CMMC at Chainguard
 _Path: compliance/cmmc-2/cmmc-chainguard.md_
 
@@ -49755,162 +48944,19 @@ STIG-hardened FIPS images are highly beneficial for achieving CMMC 2.0 complianc
 
 By leveraging Chainguard’s resources, organizations can accelerate their path to CMMC 2.0 certification while effectively managing and reporting on critical security controls. Our integrated approach not only ensures that compliance requirements are met but also enhances overall security posture, allowing organizations to focus on their core operations with confidence.
 
-## Browse all CMMC 2.0 articles
+## Learn more about CMMC 2.0
 
-- [Introduction to CMMC 2.0](/compliance/cmmc-2/intro-cmmc-2/)
-- [CMMC 2.0 maturity levels](/compliance/cmmc-2/cmmc-2-levels/)
-- [Overview of CMMC 2.0 practice/control groups](/compliance/cmmc-2/cmmc-practices/)
-- (Current article) How Chainguard Can Help With CMMC 2.0
+- [What is CMMC 2.0? Maturity levels and who must comply](https://www.chainguard.dev/supply-chain-security-101/what-is-cmmc-2-0)
+- [CMMC 2.0 practices: All 14 domains and naming conventions](https://www.chainguard.dev/supply-chain-security-101/cmmc-2-0-practices)
 
 **[Get started with FIPS Chainguard Containers today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**
-
----
-
-### CMMC maturity levels
-_Path: compliance/cmmc-2/cmmc-2-levels/index.md_
-
-The  **Cybersecurity Maturity Model Certification (CMMC) 2.0** integrates various cybersecurity standards and best practices into a unified model that encompasses three maturity levels. Each level builds upon the previous one, with increasing rigor in cybersecurity practices and processes. In this article, we’ll provide an overview of the three levels of maturity and example practices that are representative of their requirements.
-
-![Overview of CMMC Model 2.0 showing three levels: Level 3 (Expert) with over 110 practices based on NIST SP 800-172 and triennial government-led assessments, Level 2 (Advanced) with 110 practices aligned with NIST SP 800-171 and a mix of triennial third-party assessments and annual self-assessments, and Level 1 (Foundational) with 17 practices and annual self-assessment.](CMMC-level.jpg)
-
-## Level 1: Foundational
-
-Contractors and subcontractors who handle only [Federal Contract Information](https://isoo.blogs.archives.gov/2020/06/19/%E2%80%8Bfci-and-cui-what-is-the-difference/) (FCI) typically need this level of certification. This is particularly relevant for small businesses that provide basic products or services without dealing with sensitive information. For example, a company supplying standard office supplies to a government agency would fall under this category. The focus at this level is on maintaining basic safeguards by implementing 17 fundamental cybersecurity practices. These practices are primarily derived from the Federal Acquisition Regulation (FAR) 52.204-21, a set of rules for government procurement in the United States. They are designed to protect FCI by ensuring that essential, straightforward protections are in place.
-
-### Documentation requirements
-
-At Level 1, the documentation requirements are minimal, focusing on basic cyber hygiene through the implementation of 17 foundational cybersecurity practices. The purpose is to establish essential protections without the need for extensive documentation.
-
-For example, organizations may maintain basic policies and procedures for access control, media protection, and physical security, along with records of security awareness training. The emphasis at this level is on demonstrating that these fundamental practices are in place, rather than producing detailed documentation, as required in higher levels.
-
-### Example level 1 practices
-
-- Limiting information system access to authorized users.
-- Conducting background checks on employees.
-- Implementing basic measures such as antivirus and firewalls.
-
-## Level 2: Advanced
-
-Contractors and subcontractors who handle [Controlled Unclassified Information](https://www.ftc.gov/policy-notices/controlled-unclassified-information) (CUI) but are not involved in critical defense programs typically need Level 2 certification. This is relevant for companies involved in more complex projects that deal with sensitive, though not highly classified, data. For instance, a contractor providing technical support for military communication systems, where sensitive but not classified information is exchanged, would require this level.
-
-Level two consists of implementing a subset of the security requirements specified in NIST SP 800-171, totaling 110 practices. This level is designed as a transitional step for organizations aiming to achieve Level 3, building upon the foundational practices established in Level 1.
-
-### Documentation requirements
-
-At Level 2, the documentation requirements are moderate, reflecting the need for intermediate cyber hygiene and addressing a subset of the NIST SP 800-171 requirements. Organizations must maintain a System Security Plan (SSP) that outlines security strategies and vulnerability assessment and remediation plans. They must also create a Plan of Action and Milestones (POA&M) addressing any aspects of the organization which are not yet implemented.
-
-Other Level 2 documentation requirements may include audit logs, incident response reports, inventory of the organization’s systems, location of [Controlled Unclassified Information](https://www.ftc.gov/policy-notices/controlled-unclassified-information) (CUI) in the organization’s environment, and other documents related to the implementation and management of cybersecurity practices.
-
-### Example level 2 practices
-
-- Implementing multifactor authentication.
-- Conducting regular vulnerability assessments.
-- Establishing and maintaining an operational incident-handling capability for organizational
-systems.
-
-## Level 3: Expert
-
-Contractors handling highly sensitive CUI and involved in critical defense programs typically require this level of certification. This applies to large defense contractors developing advanced military technologies, such as a company designing next-generation fighter jets for the DoD. The focus at this level is on advanced and proactive cyber hygiene, requiring organizations to implement all 110 practices from NIST SP 800-171, along with additional practices from a subset of NIST SP 800-172.
-
-This level demands advanced security measures to protect CUI against advanced persistent threats (APTs), such as cyber-espionage campaigns, zero-day exploits, and coordinated attacks targeting vulnerabilities in critical infrastructure. It requires three government-led assessments a year to maintain compliance.
-
-### Documentation requirements
-
-Level 3 requires the same documentation requirements as Level 2, including the [System Security Plan](https://csrc.nist.gov/glossary/term/system_security_plan) (SSP) and [Plan of Action and Milestones](https://csrc.nist.gov/glossary/term/poaandm) (POA&M). Further documentation requirements will be clear once the DoD determines which additional practices from NIST SP 800-172 will also be required.
-
-### Example level 3 practices
-
-At the time of publication, specific Level 3 practices are still being determined. However, the Department of Defense has indicated that they will be pulled from a subset of NIST SP 800-172, Enhanced Security Requirements for Protecting Controlled Unclassified Information.
-
-Each CMMC level builds upon the previous one, ensuring that as organizations progress through the levels, their cybersecurity posture becomes more robust and capable of addressing increasingly sophisticated threats. This tiered approach allows organizations of varying sizes and capabilities to incrementally improve their cybersecurity measures while meeting the specific requirements necessary to handle sensitive information.
-
-To learn more about the specific required practices of CMMC 2.0, continue to the [Overview of CMMC 2.0 practice/control groups](/compliance/cmmc-2/cmmc-practices/).
-
-## Browse all CMMC 2.0 articles
-
-- [Introduction to CMMC 2.0](/compliance/cmmc-2/intro-cmmc-2/)
-- (Current article) CMMC 2.0 Maturity Levels
-- [Overview of CMMC 2.0 practice/control groups](/compliance/cmmc-2/cmmc-practices/)
-- [How Chainguard can help with CMMC 2.0](/compliance/cmmc-2/cmmc-chainguard/)
-
-**[Get started with Chainguard FIPS images today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**
-
----
-
-### Introduction to SLSA
-_Path: compliance/slsa/what-is-slsa.md_
-
-SLSA (pronounced “salsa”), or Supply chain Levels for Software Artifacts, is a security framework consisting of standards and controls that prevent tampering, improve integrity, and secure packages and infrastructure. While cyberattacks like SolarWinds and [Codecov](https://www.reuters.com/technology/codecov-hackers-breached-hundreds-restricted-customer-sites-sources-2021-04-19/) have demonstrated the importance of protecting software from tampering and malicious compromise, the complexity of the software development lifecycle can leave many feeling unable to adequately understand or respond to these specific security issues.
-
-[Released by Google’s Open Source Security Team](https://security.googleblog.com/2021/06/introducing-slsa-end-to-end-framework.html) in 2021, SLSA was created as a framework to help software creators understand where and how they can harden their supply chain security practices, and help software consumers evaluate the integrity of a software product or component before they decide to use it. SLSA was also designed around the creation of verifiable metadata, so that software consumers can set automated policies to prevent the deployment of code that does not meet their preferred SLSA level.
-
-Today, SLSA is a vendor-neutral project supported by the [Open Source Security Foundation](https://openssf.org/) and is actively evolving its standards and supporting tools with industry input. In this guide, you will learn about SLSA tracks, levels, and security requirements, as well as emerging tools that can help you meet these requirements.
-
-## SLSA tracks and levels
-
-SLSA uses a track structure, dividing requirements for key pillars of supply chain security into separate categories. This permits organizations to focus on hardening one aspect of their security without being blocked by the status of a different track.
-
-SLSA levels are designed to function as a ladder so that developers and organizations can work incrementally towards achieving a security posture appropriate for their risk profile. Some software projects may take more time to advance up the ladder, so this framework offers a piecemeal approach that may be more realistic (and encouraging) than trying to meet all of the requirements at once.
-
-As of this writing, SLSA offers [a build track with three ascending levels of security](https://slsa.dev/spec/v1.2/#build-track), each containing a set of security requirements that expands on those of the prior level. The SLSA project has proposed adding additional tracks in a prospective version.
-
-Note that these tracks, levels, and/or their requirements may shift with the release of [future SLSA versions](https://slsa.dev/spec/v1.2/future-directions).
-
-### Build track
-
-Focusing on an artifact's _provenance_, the build track outlines three levels designed to provide verification that artifacts meet build expectations. Establishing provenance gives consumers information about who built an artifact, what inputs were used, and what process was used to build it. Comparing an artifact’s expected and actual provenance can help to stop supply chain threats in their tracks by ensuring artifacts are constructed from trustworthy materials, by credible sources. SLSA recommends its [SLSA Provenance format](https://slsa.dev/spec/v1.2/provenance) for meeting provenance expectations.
-
-### Build level 1
-
-_Provenance showing how the package was built_
-
-Level 1 sets a foundation for working towards subsequent build track levels. Software production methods must be consistent so standard expectations for future builds are set. In addition, artifact provenance containing information on the build must be automatically generated by the build platform. Software producers are responsible for distributing provenance metadata with package releases.
-
-While Level 1 does not prevent tampering, fulfilling its requirements represents an important first step in securing your software supply chain. Labeling your software with this level can also help consumers make informed decisions about whether it has been sufficiently secured and verified for their applications. For more information on getting started with reaching Level 1, visit [SLSA’s quick start guide](https://slsa.dev/get-started#slsa-1).
-
-### Build level 2
-
-_Signed provenance, generated by a hosted build platform_
-
-Adding to the requirements of Level 1, Level 2 requires the use of a hosted build service like GitHub Actions, Google Cloud Build, or Travis CI rather than a developer’s local environment. The hosted service must sign the provenance it generates through the use of _digital signatures_, a method of verifying the authenticity and integrity of the software artifact.
-
-The stricter requirements for Level 2 help provide more protection against software tampering and enable greater levels of trust that the provenance data is accurately represented. For more information, check out SLSA's guide on [reaching level 2](https://slsa.dev/get-started#slsa-2).
-
-### Build level 3
-
-_Hardened build platform_
-
-As the highest level of the build track, Level 3 aims to increase trust and harden infrastructure through a variety of requirements designed to meet specific threats. The requirements are as follows:
-
-* **[Isolated](https://slsa.dev/spec/v1.2/build-requirements#isolation-strength)**: The build steps must be run in an isolated environment without risk of influence from other build processes, such as a container or VM, that has been created specifically for the build. Environments must not be reused.
-* **[Unforgeable](https://slsa.dev/spec/v1.2/build-requirements#provenance-generation)**:  It must be impossible for the build service’s users to falsify provenance information. All provenance information must be generated by the build service in a trusted control plane, except for noted exceptions.
-
-Achieving Level 3 typically means the build system is resistant to most known supply-chain attacks — for example, it can prevent an attacker who has compromised one build from inserting code into another project’s build. It also often entails strong access controls, monitoring, and security policies on the pipeline. Level 3 provides a high level of assurance: even sophisticated adversaries would need to find novel vulnerabilities in the hardened build environment to compromise the software.
-
-Generating provenance compliant with Level 3 requirements can help end users verify the integrity of the software before implementing it. Recently, SLSA released the open source [SLSA 3 Container Generator for GitHub Actions](https://github.com/slsa-framework/slsa-github-generator) that helps ease the process by allowing you to build automated provenance generation into your container workflows. To learn more about how it works, visit the [General availability of SLSA 3 Container Generator for GitHub Actions](https://slsa.dev/blog/2023/02/slsa-github-workflows-container-ga) announcement blog post. You can also check out SLSA's guide on [reaching level 3](https://slsa.dev/get-started#slsa-3).
-
-## SLSA tools and practices
-
-The SLSA framework and its supporting tools and practices are still actively evolving. Some of the previously listed level requirements can be met using popular build and version control systems. More specific requirements may require additional tooling, and SLSA hosts some supporting tools in its [GitHub repositories](https://github.com/slsa-framework). As mentioned in the description of Level 3, [SLSA released a tool for automating provenance generation](https://slsa.dev/blog/2023/02/slsa-github-workflows-container-ga) with GitHub Actions in February 2023.  
-
-To verify the SLSA provenance of a piece of software, you can use the [`slsa-verifier` tool](https://github.com/slsa-framework/slsa-verifier), which can verify a provenance generated by the [`slsa-github-generator`](https://github.com/slsa-framework/slsa-github-generator) tool or Google Cloud Build. Other tools, like Sigstore’s open source [Policy Controller](https://docs.sigstore.dev/policy-controller/overview/) allow you to create policies around SLSA requirements in your Kubernetes cluster.
-
-Developers are also encouraged to include the corresponding SLSA level badge ([Level 1](https://slsa.dev/images/gh-badge-level1.svg), [Level 2](https://slsa.dev/images/gh-badge-level2.svg), [Level 3](https://slsa.dev/images/gh-badge-level3.svg)) in their README once their codebase meets the level’s requirements.  
-
-## Learn more
-
-In this guide, you learned about how SLSA helps secure the software supply chain, the requirements for its three build track security levels, and some of the tools used to implement or confirm these levels. This knowledge will help you work towards achieving SLSA levels for your software projects, assess external software based on its SLSA levels, and use admissions controllers to set SLSA-based policies in your codebase.
-
-While SLSA provides a strong framework for verifying the authenticity and integrity of software, it is important to note that it does not protect against every type of supply chain attack. For example, SLSA requirements cannot prevent attacks enabled through vulnerable code, vulnerable build platforms, or collusion between high level actors. Still, SLSA offers a powerful framework for defending against common supply chain threats, and will likely emerge as a standard component of modern software as tooling and community adoption evolves.
-
-To learn more about SLSA, you can visit the [SLSA website](https://slsa.dev/), read an [in-depth overview of SLSA requirements](https://slsa.dev/spec/v1.2/requirements), or explore the [SLSA repository on GitHub](https://github.com/slsa-framework).
 
 ---
 
 ### SLSA compliance at Chainguard
 _Path: compliance/slsa/slsa-chainguard.md_
 
-SLSA (pronounced "salsa"), or Supply chain Levels for Software Artifacts, is a security framework consisting of standards and controls that prevent tampering, improve integrity, and secure packages and infrastructure. It is described in depth in [What is SLSA?](/compliance/slsa/what-is-slsa/).
+SLSA (pronounced "salsa"), or Supply chain Levels for Software Artifacts, is a security framework consisting of standards and controls that prevent tampering, improve integrity, and secure packages and infrastructure. It is described in depth in [What is SLSA?](https://www.chainguard.dev/supply-chain-security-101/what-is-slsa).
 
 All Chainguard products — including Chainguard Containers, Guarded VMs, and Chainguard Libraries — are SLSA Level 3 compliant to provide confidence in the security of these products.
 
@@ -50070,78 +49116,6 @@ SLSA (pronounced “salsa”), or Supply chain Levels for Software Artifacts, is
 
 ---
 
-### Introduction to PCI DSS
-_Path: compliance/pci-dss-4/intro-pci-dss-4.md_
-
-PCI DSS 4.0, or Payment Card Industry Data Security Standard, is a global standard in the payments industry that includes a set of foundational technical and operational requirements surrounding the protection of payment data. Its goal is to ensure the security of information involved when payment cards are used and while those payments are processed. PCI DSS 4.0 replaces the earlier PCI DSS 3.2.1, which was retired in March 2024.
-
-Cashless transactions have become the norm around the world. This is a convenient way for buyers and sellers to transact business. It has also attracted the attention of criminals looking for easy money. Payment account information, and especially payment card and card-owner data, are especially targeted. All payment system stakeholders have a responsibility to secure this information. PCI DSS helps to alleviate vulnerabilities and protect payment account data.
-
-This guide will provide a comprehensive overview of PCI DSS 4.0, detailing its practices, the importance of compliance, and practical guidance on meeting its requirements. At the end of this guide, you will learn how Chainguard Containers can be used to significantly reduce the toil and time needed to achieve PCI DSS 4.0 compliance.
-
-## Who is required to be compliant?
-
-The PCI Security Standards Council (PCI SSC) is a global forum for the industry to come together to develop, enhance, disseminate, and assist with the understanding of security standards for payment account security.
-
-The standards developed are agreed upon by all members and provide a measure of mutual trust across the industry. The standards are not directly developed or required by governmental entities. The PCI DSS is not a law, but compliance is enforced by the PCI SSC using a yearly assessment.
-
-Participation and membership in the PCI SSC is open globally to those affiliated with the payments industry. Compliance is expected of all members and validated using the PCI DSS 4.0 and is assessed using a set of defined testing procedures to verify requirements are met.
-
-Membership in the PCI SSC includes:
-
-- **Merchants**
-- **Banks**
-- **Processors**
-- **Hardware and software developers**
-- **Point of sale vendors**
-- **Payment brands**, such as Visa, Mastercard, and American Express
-
-Participation in the PCI SCC is encouraged for all industry stakeholders and is required for any who wish to participate in reviewing proposed additions or modifications to the standards.
-
-Regardless of membership status, all entities that store, process, or transmit cardholder data and/or sensitive authentication data are expected to comply with PCI DSS requirements.
-
-## What is the importance of protecting payment account data?
-
-Lax security enables criminals to steal and use consumer financial information from payment transactions and processing systems for fraudulent purposes. Vulnerabilities may appear anywhere in the card-processing ecosystem, including but not limited to:
-
-- Point of sale devices
-- Cloud-based systems
-- Mobile devices, personal computers, and servers
-- Wireless hotspots
-- Web shopping applications
-- Paper-based storage systems
-- The transmission of cardholder data to service providers
-- Remote access connections
-
-These vulnerabilities may also extend to systems operated by service providers, such as the financial institutions that initiate and maintain the relationships with merchants that accept payment cards.
-
-Compliance with PCI DSS helps to alleviate these vulnerabilities and protect payment account data.
-
-## Impact of non-compliance
-
-PCI DSS is designed to protect both customers and entities that handle payment data. Beyond the following, a failure to comply leaves you and your customers vulnerable to data and financial losses, most of which are preventable.
-
-Further, any entity that handles covered data and does not comply with PCI DSS requirements can expect:
-
-- Fines and penalties from contracted partners, such as payment processors
-- Data breach compensation costs, beyond just the initial losses
-- Legal action
-- A damaged reputation
-
-These consequences may further result in cancelled contracts, additional revenue losses, and even closures.
-
-Achieving compliance with PCI DSS 4.0 is not just an industry self-regulatory requirement but a critical step in safeguarding payment information. To prepare your organization for PCI DSS 4.0, read about [how Chainguard Containers can help simplify fulfilling PCI DSS 4.0 requirements](/compliance/pci-dss-4/pci-dss-chainguard/).
-
-## Browse all PCI DSS 4.0 articles
-
-- (Current article) Introduction to PCI DSS 4.0
-- [Overview of PCI DSS 4.0 practices/requirements](/compliance/pci-dss-4/pci-dss-practices/)
-- [How Chainguard can help with PCI DSS 4.0](/compliance/pci-dss-4/pci-dss-chainguard/)
-
-**[Get started with FIPS Chainguard Containers today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**
-
----
-
 ### PCI DSS at Chainguard
 _Path: compliance/pci-dss-4/pci-dss-chainguard.md_
 
@@ -50175,57 +49149,11 @@ Chainguard Containers are carefully engineered to contain low-to-no CVEs. Organi
 - **Less ongoing human overhead**: Every new Chainguard Container version is carefully scanned and any addressable CVEs are fixed. ‍
 - **Trust in our industry-leading CVE SLA**: We are committed to supplying secure software and commit to fixing CVEs [quickly](https://www.chainguard.dev/cve-sla) so you don’t have to.
 
-## Browse all CMMC 2.0 articles
+## Learn more about PCI DSS 4.0
 
-- [Introduction to PCI DSS 4.0](/compliance/pci-dss-4/intro-pci-dss-4/)
-- [Overview of PCI DSS 4.0 practices/requirements](/compliance/pci-dss-4/pci-dss-practices/)
-- (Current article) How Chainguard Can Help With PCI DSS 4.0
+- [What is PCI DSS 4.0? Requirements and who must comply](https://www.chainguard.dev/supply-chain-security-101/what-is-pci-dss-4-0)
 
 **[Get started with FIPS Chainguard Containers today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**
-
----
-
-### PCI DSS practices
-_Path: compliance/pci-dss-4/pci-dss-practices.md_
-
-PCI DSS 4.0, or Payment Card Industry Data Security Standard is intended for all entities that store, process, or transmit cardholder data and/or authentication data that could impact the security of the cardholder data environment. This includes all entities interacting with information such as the following:
-
-| Cardholder Data |
-|------------------------|
-| Primary account number |
-| Cardholder name |
-| Expiration date |
-
-| Authentication Data |
-|-------------------------------------------------------|
-| Full track data, such as on a magnetic stripe or chip |
-| Card verification code (the number on the back) |
-| PINs |
-
-PCI DSS 4.0 requires compliance with a set of requirements, each related to an information security practice or goal. All of these are intended to protect cardholder data from theft and fraud.
-
-## PCI DSS 4.0 goals and requirements
-
-Below is a table overview with a high-level description of the goals and requirements, summarized from the PCI DSS v4.0 Quick Reference Guide from the PCI Security Standards Council, available from their [Document Library](https://east.pcisecuritystandards.org/document_library):
-
-| Goals | Requirements |
-|------------------------|-------------------------------------------------------|
-| **Build and maintain a secure network and systems** | Install and maintain network security controls and apply secure configurations to all system components |
-| **Protect account data** | Protect stored account data as well as during transmission over open, public networks |
-| **Maintain a vulnerability management program** | Protect all systems and networks from malicious software, develop and maintain secure systems and software |
-| **Implement strong access control measures** | Restrict access to system components and cardholder data by business need to know, identify users and authenticate access to system components, restrict physical access to cardholder data |
-| **Regularly monitor and test networks** | Log and monitor all access to system components and cardholder data, test security of all systems regularly |
-| **Maintain an information security policy** | Support information security with organizational policies and programs |
-
-For a list of all required practices, refer to the PCI DSS documentation available in the [PCI Security Standards Council's Document Library](https://east.pcisecuritystandards.org/document_library).
-
-## Browse all PCI DSS 4.0 articles
-
-- [Introduction to PCI DSS 4.0](/compliance/pci-dss-4/intro-pci-dss-4/)
-- (Current article) Overview of PCI DSS 4.0 Practices/Requirements
-- [How Chainguard can help with PCI DSS 4.0](/compliance/pci-dss-4/pci-dss-chainguard/)
-
-**[Get started with Chainguard FIPS images today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**
 
 ---
 
@@ -50445,7 +49373,7 @@ The **Comparisons** tab includes useful data that shows how a given Chainguard C
 
 ### Provenance
 
-All Chainguard Containers contain verifiable signatures and high-quality [software bills of materials](/open-source/sbom/what-is-an-sbom/) (SBOMs). These features allow you to confirm the origin of each image and provide you with a detailed list of everything included in the container image.
+All Chainguard Containers contain verifiable signatures and high-quality [software bills of materials](https://www.chainguard.dev/supply-chain-security-101/what-is-an-sbom) (SBOMs). These features allow you to confirm the origin of each image and provide you with a detailed list of everything included in the container image.
 
 The **Provenance** tab outlines how you can verify container signatures and download and verify container image attestations, all with examples using [`cosign`](/open-source/sigstore/cosign/an-introduction-to-cosign/).
 
@@ -51599,12 +50527,21 @@ Chainguard SSO supports OpenID Connect (OIDC) compatible identity providers. In 
 
 - The `authorization code` grant type (sometimes called the `authorization code` *flow*).
 - The standard `openid`, `email`, and `profile` scopes. The Chainguard platform [partially functions](https://openid.net/specs/openid-connect-basic-1_0.html#Scopes) with only the `openid` scope, but full functionality requires the `email` and `profile` scopes as well.
+- A token that carries a populated, standard `email` claim, not only the requested scope. See [Required token claims](#required-token-claims).
 
 Customer-managed identity providers must also have a public, unauthenticated OIDC discovery endpoint.
 
 Typically, identity providers enable you to set up SSO by creating a specific resource on the provider's platform. For example, Ping Identity requires you to [add an application](https://docs.pingidentity.com/pingone/applications/p1_applications_add_applications.html), while Okta has you create [an app integration](https://help.okta.com/en-us/content/topics/apps/apps_apps.htm).
 
 To set up SSO for your identity provider, you must configure one of these resources to use OIDC so that the Chainguard platform can interact with the provider. Following that, you have to configure the Chainguard platform to use that application.
+
+### Required token claims
+
+Chainguard reads the standard OIDC `email` claim to populate each user's email address. That address is used for display across the Console and for the [support portal](/get-started/get-support/) handoff; it is not used to authenticate users, grant access, or correlate identities. Even so, several things break without it, so the token your identity provider issues must carry a populated `email` claim — requesting the `email` scope alone isn't enough. Some identity providers store a user's email under a directory attribute, such as the LDAP `mail` attribute, that isn't mapped to the standard `email` claim by default. When that mapping is missing, sign-in still completes, but the identity is created without an email: the user appears in the Console by an internal ID rather than a name, and opening a support request fails.
+
+If your users' email lives in a non-standard attribute, configure your identity provider so the token carries it as the standard `email` claim. What that takes depends on the provider: some let you map any attribute to the claim, while others — notably Microsoft Entra ID — populate `email` only from a specific source attribute and don't let you re-point it. See the [Okta](/platform/administration/custom-idps/idp-providers/okta/#send-a-usable-email-claim) and [Microsoft Entra ID](/platform/administration/custom-idps/idp-providers/ms-entra-id/#send-a-usable-email-claim) guides for the specifics.
+
+Chainguard currently reads email from the standard `email` claim. Where your provider supports it, also send the `email_verified` companion claim: when it is absent or `false`, Chainguard stores the address as unverified and re-evaluates it on each sign-in. Set `email_verified` to `true` only when the address has actually been verified.
 
 ### Confidential and public applications
 
@@ -51751,6 +50688,14 @@ As an OIDC login account needs to be set up to bootstrap the SSO identity provid
 
 Instead of relying on an account with an OIDC login provider, you can alternatively set up an assumable identity to use as a backup account. Refer to our [conceptual guide on assumable identities](/platform/administration/assumable-ids/assumable-ids/) to learn more.
 
+## Troubleshooting
+
+### SSO users have no email, or the support portal redirect fails
+
+If SSO users sign in successfully but appear in the Console by an internal ID instead of a name or email — or see an error such as "There was an issue redirecting you to our support platform" when opening a support request — their token is most likely reaching Chainguard without an `email` claim. Sign-in itself still works; only the email-dependent parts break.
+
+Confirm it by decoding a user's ID token — with your identity provider's token preview, or [jwt.ms](https://jwt.ms) for Entra ID — and checking for a non-empty `email` claim. If it's missing, configure the provider to emit one as described in [Required token claims](#required-token-claims) and your [provider guide](/platform/administration/custom-idps/). This affects every user on the identity provider, so one corrected configuration fixes the whole organization. Existing identities pick up the email on the user's next sign-in, so have an affected user sign out and back in to confirm.
+
 ---
 
 ### Grant Chainguard roles from identity provider groups
@@ -51810,7 +50755,15 @@ Configure your identity provider to include the user's group memberships in the 
 | Microsoft Entra ID (Group Claim) | [Configure group claims](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-fed-group-claims) | Group Object IDs (GUIDs), by default |
 | Microsoft Entra ID (App Roles) | [Configure app roles](https://learn.microsoft.com/en-us/entra/identity-platform/howto-add-app-roles-in-apps) | App Role Value, by default |
 
-To use group display names in Entra ID instead of GUIDs, configure the claim to emit cloud-group display names. This requires restricting the claim to groups assigned to the application, which is also the recommended way to stay under the group limit.
+### Microsoft Entra ID
+
+Entra ID shows the application you registered for Chainguard in two places: under **App registrations**, and under **Enterprise applications**, where you assign users and groups to it. Chainguard reads groups only from tokens that Entra ID issues for that application. Check the following:
+
+- **Configure the groups claim on the application your users sign in through.** That's the application whose **Application (client) ID** you passed to `--oidc-client-id`. In **App registrations**, open that application, select **Token configuration**, and click **Add groups claim**. If your tenant has more than one Chainguard application, a groups claim configured on any other one doesn't reach Chainguard. To check, compare the client ID on the application you configured with the one in your Chainguard identity provider.
+- **Emit only groups assigned to the application, and assign each mapped group to it.** When you add the groups claim, select **Groups assigned to the application**. Then, in **Enterprise applications**, open the same application, select **Users and groups**, and assign each mapped group. With this option, a group appears in the token only when it's assigned to the application and the user is a direct member of it. Membership in an unassigned group, or through a nested group, doesn't put the group in the token. This option is required to emit cloud-group display names instead of GUIDs, and it's the recommended way to stay under the [group limit](#limits).
+- **If you provision users with SCIM, assign groups to the SSO application as well.** The [Entra ID SCIM guide](/platform/administration/custom-idps/scim-provisioning/ms-entra-id-scim/) creates a separate enterprise application for provisioning. Assigning a group to the SCIM application provisions its members but doesn't add the group to their login tokens.
+
+Verify the claim with a real login to Chainguard, as described in [Step 4](#step-4-verify-the-mapping). The **Test** button in **Token configuration** (under **App registrations**) uses a test flow rather than a real sign-in, so it can show a groups claim that real logins don't carry. The same is true of any token you request outside a Chainguard login, such as a test sign-in through jwt.ms.
 
 ## Step 2: Point Chainguard at the groups claim
 
@@ -51854,9 +50807,19 @@ Each command creates one mapping. To map many groups at once, see [Automate mapp
 
 ## Step 4: Verify the mapping
 
-1. Have a user who belongs to the mapped group log in to Chainguard through your IdP.
-2. Confirm that the user can perform actions the granted role allows. This access doesn't appear in `chainctl iam role-bindings list`, because it's session-scoped.
+1. Have a user who belongs to the mapped group log in to Chainguard through your IdP. Use a real login; a token from your IdP's test tools doesn't confirm what Chainguard receives. If the user is already logged in, have them log out first. Chainguard applies group-derived roles at login, so refreshing an existing session doesn't pick up a new mapping.
+2. Confirm that the user received the granted role. This access doesn't appear in `chainctl iam role-bindings list`, because it's session-scoped. Instead, have the user log in with `chainctl` and inspect their session:
+
+    ```sh
+    chainctl auth logout
+    chainctl auth login --org-name <organization-name>
+    chainctl auth status
+    ```
+
+    The **Capabilities** row lists each organization and role in the session, such as `example.com: owner`. In the Console, the user can confirm the role by performing an action it allows.
 3. Have a user who doesn't belong to a mapped group log in and confirm that they receive no additional access.
+
+If the user logs in but doesn't receive the mapped role, check that their token carries the group value you mapped in Step 3. For Entra ID, start with the application settings in [Microsoft Entra ID](#microsoft-entra-id).
 
 ## Manage access
 
@@ -52023,7 +50986,7 @@ Creating a mapping grants a role, so the API enforces an anti-escalation rule. T
 Identity providers cap how many groups a token can carry. Past that limit, the IdP stops sending the inline `groups` claim. This means Chainguard no longer receives the user's groups, and their mappings don't resolve. Keep the emitted set small by sending only the groups you map:
 
 - **Okta:** Filter the groups claim in Step 1 so the token carries only the groups you map rather than every group a user belongs to.
-- **Microsoft Entra ID:** Entra ID omits the `groups` claim once a user belongs to more than 200 groups (the JWT and OIDC limit; the SAML limit is 150). Past the limit, Entra ID emits an overage claim (`_claim_names` and `_claim_sources`) that points to Microsoft Graph instead of the inline list, and Chainguard doesn't follow it. Avoid the overage by emitting only groups assigned to the application, as described in Step 1, or by using fewer, coarser groups for access.
+- **Microsoft Entra ID:** Entra ID omits the `groups` claim once a user belongs to more than 200 groups (the JWT and OIDC limit; the SAML limit is 150). Past the limit, Entra ID emits an overage claim (`_claim_names` and `_claim_sources`) that points to Microsoft Graph instead of the inline list, and Chainguard doesn't follow it. Avoid the overage by emitting only groups assigned to the application, as described in [Microsoft Entra ID](#microsoft-entra-id), or by using fewer, coarser groups for access.
 
 ## Related resources
 
@@ -52291,6 +51254,8 @@ Then have that user log in at [console.chainguard.dev](https://console.chainguar
 ## Map Entra ID groups to Chainguard roles
 
 Chainguard's SCIM endpoint provisions users only. To grant Chainguard roles based on a user's Entra ID group membership, follow [Grant Chainguard roles from identity provider groups](/platform/administration/custom-idps/grant-roles-from-groups/).
+
+Group membership reaches Chainguard only in tokens issued for the SSO application you registered in [Register the Entra ID application for SSO](#register-the-entra-id-application-for-sso), not the SCIM enterprise application. Assigning a group to the SCIM application provisions its members but doesn't add the group to their login tokens. If you limit the groups claim to groups assigned to the application, assign each mapped group to the SSO application as well. For the full list of Entra ID settings, refer to [Microsoft Entra ID](/platform/administration/custom-idps/grant-roles-from-groups/#microsoft-entra-id) in the group mapping guide.
 
 Entra ID emits group Object IDs (GUIDs) rather than display names in the groups claim. As a result, a group-to-role mapping displays the group as a GUID, such as `aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee`, in both `chainctl` and the console's group-mapping tab. To find which group an Object ID refers to, look it up in the Entra admin center under **Groups**. To display readable names instead, configure the groups claim to emit cloud-group display names.
 
@@ -52601,6 +51566,10 @@ Note the `--default-role` option. This defines the default role granted to users
 
 You can refer to our [Generic integration guide](/platform/administration/custom-idps/custom-idps/#generic-integration-guide) in our Introduction to Custom Identity Providers article for more information about the `chainctl iam identity-provider create` command and its required options.
 
+### Send a usable email claim
+
+Chainguard reads the standard `email` claim from the token Okta issues, which Okta populates from the user's Okta profile email once the `email` scope is requested. If your users' email is sourced from a directory attribute (for example an AD or LDAP `mail` attribute) that isn't mapped into that profile field, the token carries an empty address and the user has no email in Chainguard. Fix it in Okta's [profile attribute mappings](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-about-attribute-mappings.htm) — map the source attribute to the Okta user profile's `email` — rather than by adding a custom token claim, which the org authorization server this integration uses does not support. See [Required token claims](/platform/administration/custom-idps/custom-idps/#required-token-claims) for the full requirement.
+
 ## Log in to Chainguard with the Okta identity provider
 
 To log in to the Chainguard Console with the new identity provider you just created, navigate to [console.chainguard.dev/auth/login](https://console.chainguard.dev/auth/login), enter your Chainguard organization's name into the **Email or organization** box, and click **Continue**. This opens a new window with the Okta login flow, where you can complete the login process.
@@ -52768,6 +51737,8 @@ By default, any user in your tenant can authenticate through this application. T
 
 Users can't log in to Chainguard unless they have access to the application, so grant access before directing them to log in.
 
+If you plan to [grant Chainguard roles from Entra ID groups](/platform/administration/custom-idps/grant-roles-from-groups/) and limit the groups claim to groups assigned to the application, the groups you assign here also control which groups appear in users' tokens. For details, refer to [Microsoft Entra ID](/platform/administration/custom-idps/grant-roles-from-groups/#microsoft-entra-id) in that guide.
+
 ## Configure Chainguard to use Microsoft Entra ID
 
 Now that your Microsoft Entra ID application is ready, you can create the custom identity provider.
@@ -52827,6 +51798,10 @@ Pass `--oidc-additional-scopes` once per scope; comma-separating the scopes does
 The `--default-role` option defines the default role granted to users registering with this identity provider. This example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. If you don't include this option, `chainctl` prompts you to specify the role interactively. For more information, refer to the [IAM and security section](/platform/administration/custom-idps/custom-idps/#iam-and-security) of our Introduction to Custom Identity Providers in Chainguard tutorial.
 
 You can refer to our [Generic integration guide](/platform/administration/custom-idps/custom-idps/#generic-integration-guide) in our Introduction to Custom Identity Providers doc for more information about the `chainctl iam identity-providers create` command and its required options.
+
+### Send a usable email claim
+
+Chainguard reads the standard `email` claim from the token Entra ID issues. Entra populates `email` from the user's `mail` attribute and omits the claim when that attribute is unset — common in tenants where users have no mailbox. Because `email` is one of Microsoft's [restricted claims](https://learn.microsoft.com/en-us/entra/identity-platform/reference-claims-customization#json-web-token-jwt-restricted-claim-set), you can't re-point it to another attribute such as `userPrincipalName` with a claims-mapping policy; the value has to come from `mail`. Set a `mail` attribute on the affected users so Entra includes the claim. Note that `mail` is a shared directory attribute other systems read, so prefer a real mailbox where one exists; a placeholder set only for this is stored by Chainguard as unverified, which is harmless here because the address is used only for display and the support-portal lookup. See [Required token claims](/platform/administration/custom-idps/custom-idps/#required-token-claims) for the full requirement.
 
 ## Log in to Chainguard with the Entra ID identity provider
 
@@ -56336,7 +55311,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: cgr.dev
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository being pulled from
-Ce-Time: 2026-09-30T19:15:46.695848338Z
+Ce-Time: 2026-10-02T21:08:47.631501481Z
 Ce-Type: dev.chainguard.registry.pull.v1
 Content-Length: 777
 Content-Type: application/json
@@ -56366,7 +55341,7 @@ User-Agent: Chainguard Enforce
     "tag": "The tag of the image being pulled",
     "type": "Type determines whether the object being pulled is a manifest or blob",
     "user_agent": "The user-agent of the client who pulled",
-    "when": "2026-09-30T19:15:46.694796"
+    "when": "2026-10-02T21:08:47.630453"
   }
 }
 
@@ -56389,7 +55364,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: cgr.dev
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository being pushed to
-Ce-Time: 2026-09-30T19:15:46.69502447Z
+Ce-Time: 2026-10-02T21:08:47.630730139Z
 Ce-Type: dev.chainguard.registry.push.v1
 Content-Length: 707
 Content-Type: application/json
@@ -56418,7 +55393,7 @@ User-Agent: Chainguard Enforce
     "tag": "The tag of the image being pushed",
     "type": "Type determines whether the object being pushed is a manifest or blob",
     "user_agent": "The user-agent of the client who pushed",
-    "when": "2026-09-30T19:15:46.694752"
+    "when": "2026-10-02T21:08:47.630430"
   }
 }
 
@@ -56441,7 +55416,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/auth/v1/register
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP
-Ce-Time: 2026-09-30T19:15:46.705555127Z
+Ce-Time: 2026-10-02T21:08:47.65299184Z
 Ce-Type: dev.chainguard.api.auth.registered.v1
 Content-Length: 154
 Content-Type: application/json
@@ -56481,7 +55456,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier of the subscription
-Ce-Time: 2026-09-30T19:15:46.711118153Z
+Ce-Time: 2026-10-02T21:08:47.648809463Z
 Ce-Type: dev.chainguard.api.events.subscription.created.v1
 Content-Length: 152
 Content-Type: application/json
@@ -56519,7 +55494,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier of the subscription to delete
-Ce-Time: 2026-09-30T19:15:46.71131716Z
+Ce-Time: 2026-10-02T21:08:47.648948702Z
 Ce-Type: dev.chainguard.api.events.subscription.deleted.v1
 Content-Length: 119
 Content-Type: application/json
@@ -56558,7 +55533,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-09-30T19:15:46.711543087Z
+Ce-Time: 2026-10-02T21:08:47.644844536Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -56599,7 +55574,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-09-30T19:15:46.711761423Z
+Ce-Time: 2026-10-02T21:08:47.645017533Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -56636,7 +55611,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-30T19:15:46.711960821Z
+Ce-Time: 2026-10-02T21:08:47.645172819Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -56684,7 +55659,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-09-30T19:15:46.698555164Z
+Ce-Time: 2026-10-02T21:08:47.633694083Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -56730,7 +55705,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-09-30T19:15:46.698740603Z
+Ce-Time: 2026-10-02T21:08:47.633898286Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -56776,7 +55751,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-09-30T19:15:46.698981211Z
+Ce-Time: 2026-10-02T21:08:47.634032621Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -56815,7 +55790,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-09-30T19:15:46.699821111Z
+Ce-Time: 2026-10-02T21:08:47.643804948Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -56855,7 +55830,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-09-30T19:15:46.6999813Z
+Ce-Time: 2026-10-02T21:08:47.64398392Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -56894,7 +55869,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-09-30T19:15:46.699194594Z
+Ce-Time: 2026-10-02T21:08:47.653242968Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -56933,7 +55908,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-09-30T19:15:46.699423546Z
+Ce-Time: 2026-10-02T21:08:47.653419156Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -56972,7 +55947,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-09-30T19:15:46.699607064Z
+Ce-Time: 2026-10-02T21:08:47.65357213Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -57011,7 +55986,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-09-30T19:15:46.715693138Z
+Ce-Time: 2026-10-02T21:08:47.65239879Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -57054,7 +56029,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-09-30T19:15:46.715860128Z
+Ce-Time: 2026-10-02T21:08:47.652606009Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -57094,7 +56069,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-09-30T19:15:46.716021981Z
+Ce-Time: 2026-10-02T21:08:47.652791517Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -57133,7 +56108,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-09-30T19:15:46.700628266Z
+Ce-Time: 2026-10-02T21:08:47.647548185Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -57176,7 +56151,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-09-30T19:15:46.700828616Z
+Ce-Time: 2026-10-02T21:08:47.647714454Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -57216,7 +56191,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-09-30T19:15:46.700953005Z
+Ce-Time: 2026-10-02T21:08:47.647887851Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -57253,7 +56228,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-30T19:15:46.701062672Z
+Ce-Time: 2026-10-02T21:08:47.648100765Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -57293,7 +56268,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-30T19:15:46.701176508Z
+Ce-Time: 2026-10-02T21:08:47.648262243Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -57337,7 +56312,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-30T19:15:46.701320281Z
+Ce-Time: 2026-10-02T21:08:47.648387354Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -57376,7 +56351,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-30T19:15:46.701441493Z
+Ce-Time: 2026-10-02T21:08:47.648483132Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -57417,7 +56392,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-09-30T19:15:46.700124049Z
+Ce-Time: 2026-10-02T21:08:47.637696144Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -57459,7 +56434,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings/batch
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-09-30T19:15:46.700240525Z
+Ce-Time: 2026-10-02T21:08:47.637940776Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -57502,7 +56477,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-09-30T19:15:46.700338472Z
+Ce-Time: 2026-10-02T21:08:47.638159826Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -57541,7 +56516,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-09-30T19:15:46.700431691Z
+Ce-Time: 2026-10-02T21:08:47.638350573Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -57580,7 +56555,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-09-30T19:15:46.709933569Z
+Ce-Time: 2026-10-02T21:08:47.65083434Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -57619,7 +56594,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-09-30T19:15:46.710150889Z
+Ce-Time: 2026-10-02T21:08:47.651019848Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -57658,7 +56633,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-09-30T19:15:46.710334951Z
+Ce-Time: 2026-10-02T21:08:47.651157895Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -57697,7 +56672,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-09-30T19:15:46.705898962Z
+Ce-Time: 2026-10-02T21:08:47.651391352Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -57740,7 +56715,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the destination organization
-Ce-Time: 2026-09-30T19:15:46.712180645Z
+Ce-Time: 2026-10-02T21:08:47.650521688Z
 Ce-Type: dev.chainguard.api.platform.registry.chart.added.v1
 Content-Length: 208
 Content-Type: application/json
@@ -57785,7 +56760,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-30T19:15:46.70631132Z
+Ce-Time: 2026-10-02T21:08:47.634300228Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.created.v1
 Content-Length: 243
 Content-Type: application/json
@@ -57827,7 +56802,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-30T19:15:46.70648847Z
+Ce-Time: 2026-10-02T21:08:47.634511462Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -57869,7 +56844,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-30T19:15:46.706640371Z
+Ce-Time: 2026-10-02T21:08:47.634772653Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.deleted.v1
 Content-Length: 116
 Content-Type: application/json
@@ -57906,7 +56881,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-09-30T19:15:46.706828689Z
+Ce-Time: 2026-10-02T21:08:47.634984423Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.created.v1
 Content-Length: 197
 Content-Type: application/json
@@ -57945,7 +56920,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-09-30T19:15:46.707049601Z
+Ce-Time: 2026-10-02T21:08:47.635192954Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.updated.v1
 Content-Length: 197
 Content-Type: application/json
@@ -57984,7 +56959,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-09-30T19:15:46.707181933Z
+Ce-Time: 2026-10-02T21:08:47.635413956Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.deleted.v1
 Content-Length: 109
 Content-Type: application/json
@@ -58023,7 +56998,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-09-30T19:15:46.702276921Z
+Ce-Time: 2026-10-02T21:08:47.649567542Z
 Ce-Type: dev.chainguard.api.policies.bindings.created.v1
 Content-Length: 245
 Content-Type: application/json
@@ -58067,7 +57042,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-09-30T19:15:46.702498408Z
+Ce-Time: 2026-10-02T21:08:47.649800127Z
 Ce-Type: dev.chainguard.api.policies.bindings.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -58111,7 +57086,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-09-30T19:15:46.702673646Z
+Ce-Time: 2026-10-02T21:08:47.649960876Z
 Ce-Type: dev.chainguard.api.policies.bindings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -58150,7 +57125,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/overrides
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the override
-Ce-Time: 2026-09-30T19:15:46.702890054Z
+Ce-Time: 2026-10-02T21:08:47.650132089Z
 Ce-Type: dev.chainguard.api.policies.overrides.created.v1
 Content-Length: 303
 Content-Type: application/json
@@ -58192,7 +57167,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/overrides
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the override
-Ce-Time: 2026-09-30T19:15:46.703110053Z
+Ce-Time: 2026-10-02T21:08:47.65030671Z
 Ce-Type: dev.chainguard.api.policies.overrides.deleted.v1
 Content-Length: 94
 Content-Type: application/json
@@ -58231,7 +57206,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-09-30T19:15:46.701634811Z
+Ce-Time: 2026-10-02T21:08:47.649130666Z
 Ce-Type: dev.chainguard.api.policies.policies.created.v1
 Content-Length: 337
 Content-Type: application/json
@@ -58275,7 +57250,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-09-30T19:15:46.701850003Z
+Ce-Time: 2026-10-02T21:08:47.64929196Z
 Ce-Type: dev.chainguard.api.policies.policies.updated.v1
 Content-Length: 337
 Content-Type: application/json
@@ -58319,7 +57294,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-09-30T19:15:46.702090851Z
+Ce-Time: 2026-10-02T21:08:47.649410592Z
 Ce-Type: dev.chainguard.api.policies.policies.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -58358,7 +57333,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-09-30T19:15:46.710555054Z
+Ce-Time: 2026-10-02T21:08:47.641936749Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -58404,7 +57379,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-09-30T19:15:46.710740076Z
+Ce-Time: 2026-10-02T21:08:47.642115393Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -58441,7 +57416,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-09-30T19:15:46.710923971Z
+Ce-Time: 2026-10-02T21:08:47.642248632Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -58489,7 +57464,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-09-30T19:15:46.714277067Z
+Ce-Time: 2026-10-02T21:08:47.642441452Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -58530,7 +57505,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-09-30T19:15:46.714437272Z
+Ce-Time: 2026-10-02T21:08:47.643325643Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -58567,7 +57542,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-30T19:15:46.714607342Z
+Ce-Time: 2026-10-02T21:08:47.643526678Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -58615,7 +57590,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-09-30T19:15:46.71247183Z
+Ce-Time: 2026-10-02T21:08:47.641459652Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -58655,7 +57630,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-09-30T19:15:46.712651532Z
+Ce-Time: 2026-10-02T21:08:47.641680837Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -58694,7 +57669,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-09-30T19:15:46.712883396Z
+Ce-Time: 2026-10-02T21:08:47.645463568Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -58731,7 +57706,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-09-30T19:15:46.713065002Z
+Ce-Time: 2026-10-02T21:08:47.645696601Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -58770,7 +57745,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-09-30T19:15:46.713203447Z
+Ce-Time: 2026-10-02T21:08:47.645918571Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -58811,7 +57786,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-09-30T19:15:46.713426374Z
+Ce-Time: 2026-10-02T21:08:47.640581453Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -58854,7 +57829,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-09-30T19:15:46.713658414Z
+Ce-Time: 2026-10-02T21:08:47.640839468Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -58891,7 +57866,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-09-30T19:15:46.71383278Z
+Ce-Time: 2026-10-02T21:08:47.641014824Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -58931,7 +57906,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities:updateIdentityMetadata
 Ce-Specversion: 1.0
 Ce-Subject: The caller's identity UID
-Ce-Time: 2026-09-30T19:15:46.714012826Z
+Ce-Time: 2026-10-02T21:08:47.641170542Z
 Ce-Type: dev.chainguard.api.iam.identity.metadata.updated.v1
 Content-Length: 135
 Content-Type: application/json
@@ -58971,7 +57946,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-09-30T19:15:46.707697175Z
+Ce-Time: 2026-10-02T21:08:47.635801658Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -59014,7 +57989,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-09-30T19:15:46.708208376Z
+Ce-Time: 2026-10-02T21:08:47.636084832Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -59054,7 +58029,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-09-30T19:15:46.708392454Z
+Ce-Time: 2026-10-02T21:08:47.636388276Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -59091,7 +58066,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-30T19:15:46.708540347Z
+Ce-Time: 2026-10-02T21:08:47.636625845Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -59131,7 +58106,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-30T19:15:46.708686416Z
+Ce-Time: 2026-10-02T21:08:47.636893404Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -59175,7 +58150,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-30T19:15:46.708883486Z
+Ce-Time: 2026-10-02T21:08:47.637155539Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -59214,7 +58189,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-09-30T19:15:46.709028627Z
+Ce-Time: 2026-10-02T21:08:47.637411602Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -59255,7 +58230,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay binding
-Ce-Time: 2026-09-30T19:15:46.703747058Z
+Ce-Time: 2026-10-02T21:08:47.646891044Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.created.v1
 Content-Length: 449
 Content-Type: application/json
@@ -59310,7 +58285,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay binding
-Ce-Time: 2026-09-30T19:15:46.705126152Z
+Ce-Time: 2026-10-02T21:08:47.647122637Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.updated.v1
 Content-Length: 449
 Content-Type: application/json
@@ -59365,7 +58340,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the deleted overlay binding
-Ce-Time: 2026-09-30T19:15:46.705317007Z
+Ce-Time: 2026-10-02T21:08:47.647307129Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.deleted.v1
 Content-Length: 120
 Content-Type: application/json
@@ -59404,7 +58379,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay
-Ce-Time: 2026-09-30T19:15:46.709265531Z
+Ce-Time: 2026-10-02T21:08:47.644199354Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.created.v1
 Content-Length: 224
 Content-Type: application/json
@@ -59449,7 +58424,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay
-Ce-Time: 2026-09-30T19:15:46.70946365Z
+Ce-Time: 2026-10-02T21:08:47.644448442Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.updated.v1
 Content-Length: 224
 Content-Type: application/json
@@ -59494,7 +58469,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the deleted overlay
-Ce-Time: 2026-09-30T19:15:46.709630359Z
+Ce-Time: 2026-10-02T21:08:47.64463451Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.deleted.v1
 Content-Length: 112
 Content-Type: application/json
@@ -59533,7 +58508,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-30T19:15:46.697299282Z
+Ce-Time: 2026-10-02T21:08:47.651674869Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.created.v1
 Content-Length: 243
 Content-Type: application/json
@@ -59575,7 +58550,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-30T19:15:46.697550923Z
+Ce-Time: 2026-10-02T21:08:47.651869809Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -59617,7 +58592,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-30T19:15:46.697709184Z
+Ce-Time: 2026-10-02T21:08:47.652032918Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.deleted.v1
 Content-Length: 116
 Content-Type: application/json
@@ -59654,7 +58629,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-09-30T19:15:46.697925119Z
+Ce-Time: 2026-10-02T21:08:47.652190884Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -59698,7 +58673,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-09-30T19:15:46.696332154Z
+Ce-Time: 2026-10-02T21:08:47.646142652Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -59740,7 +58715,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-09-30T19:15:46.696573274Z
+Ce-Time: 2026-10-02T21:08:47.646329664Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -59777,7 +58752,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings:batchCreate
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-09-30T19:15:46.696835083Z
+Ce-Time: 2026-10-02T21:08:47.646471543Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -59820,7 +58795,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-09-30T19:15:46.697055234Z
+Ce-Time: 2026-10-02T21:08:47.646675258Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -59861,7 +58836,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-09-30T19:15:46.714825941Z
+Ce-Time: 2026-10-02T21:08:47.638616668Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -59900,7 +58875,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-09-30T19:15:46.715000499Z
+Ce-Time: 2026-10-02T21:08:47.63882999Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -59939,7 +58914,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-09-30T19:15:46.715151472Z
+Ce-Time: 2026-10-02T21:08:47.639011378Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -59978,7 +58953,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-09-30T19:15:46.715330734Z
+Ce-Time: 2026-10-02T21:08:47.632007304Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.created.v1
 Content-Length: 197
 Content-Type: application/json
@@ -60017,7 +58992,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-09-30T19:15:46.715499692Z
+Ce-Time: 2026-10-02T21:08:47.633281254Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.deleted.v1
 Content-Length: 109
 Content-Type: application/json
@@ -60056,7 +59031,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-09-30T19:15:46.698292644Z
+Ce-Time: 2026-10-02T21:08:47.648640706Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -62321,7 +61296,7 @@ Custom Assembly. Contact your Chainguard account team to enroll.
 ### SEE ALSO
 
 * [chainctl images](/platform/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
-* [chainctl images overlays attach](/platform/chainctl/chainctl-docs/chainctl_images_overlays_attach/)	 - Attach a Custom Assembly overlay to a repo.
+* [chainctl images overlays attach](/platform/chainctl/chainctl-docs/chainctl_images_overlays_attach/)	 - Attach Custom Assembly overlays to a repo.
 * [chainctl images overlays create](/platform/chainctl/chainctl-docs/chainctl_images_overlays_create/)	 - Create a Custom Assembly overlay.
 * [chainctl images overlays delete](/platform/chainctl/chainctl-docs/chainctl_images_overlays_delete/)	 - Delete a Custom Assembly overlay.
 * [chainctl images overlays detach](/platform/chainctl/chainctl-docs/chainctl_images_overlays_detach/)	 - Detach a Custom Assembly overlay from a repo.
@@ -63596,7 +62571,7 @@ chainctl images overlays update-binding <BINDING_UID> [flags]
 
 ```
       --all              Bind to every tag on the repo; multiple --all bindings may coexist when their overlays do not conflict. Mutually exclusive with --tag and --variant.
-      --tag strings      Exact tag names to bind to (repeatable). Mutually exclusive with --all and --variant.
+      --tag strings      Exact tag names to bind to (repeatable). Mutually exclusive with --all and --variant. "all" and "dev" are not tags: use --all or --variant=dev.
       --variant string   Bind to a tag variant: currently only "dev" (matches tags ending in -dev). Mutually exclusive with --tag and --all.
 ```
 
@@ -65473,8 +64448,12 @@ Create a Custom Assembly overlay under an organization or folder.
 
 Pass the overlay configuration either as repeated --package flags, or as
 a YAML file with --file in the same shape that "chainctl images repos
-build apply" accepts. Creating an overlay does not change any image;
-attach it to a repo with "chainctl images overlays attach".
+build apply" accepts. Certificates, runtime APK repositories, and
+runtime APK signing keys can also be read from files with
+--with-certificates, --with-runtime-repositories, and
+--with-runtime-keys; they merge into the --package or --file
+configuration. Creating an overlay does not change any image; attach it
+to a repo with "chainctl images overlays attach".
 
 ```
 chainctl images overlays create <NAME> [flags]
@@ -65488,14 +64467,20 @@ chainctl images overlays create <NAME> [flags]
 
   # Create an overlay from a configuration file
   chainctl images overlays create my-overlay --parent my-org -f overlay.yaml
+
+  # Create an overlay carrying custom CA certificates from a PEM bundle
+  chainctl images overlays create my-overlay --parent my-org --with-certificates ca-bundle.pem
 ```
 
 ### Options
 
 ```
-  -f, --file chainctl images repos build   The name of the YAML file containing the overlay configuration, the same shape chainctl images repos build accepts. Takes precedence over --package.
-      --package strings                    Package to include (repeatable).
-      --parent string                      Parent group name or UIDP under which to create the overlay.
+  -f, --file chainctl images repos build    The name of the YAML file containing the overlay configuration, the same shape chainctl images repos build accepts. Takes precedence over --package.
+      --package strings                     Package to include (repeatable).
+      --parent string                       Parent group name or UIDP under which to create the overlay. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
+      --with-certificates strings           Comma separated list of files to read the custom certificates from.
+      --with-runtime-keys strings           Comma separated list of files to read customer APK signing public keys from. Each file becomes a key in /etc/apk/keys named after the file's basename, which must match the filename referenced by the repository's APKINDEX signature (.SIGN.RSA256.<name>).
+      --with-runtime-repositories strings   Comma separated list of runtime APK repository URLs to write to /etc/apk/repositories in the image.
 ```
 
 ### Options inherited from parent commands
@@ -66005,7 +64990,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_pull-token_create.md_
 Create a pull token.
 
 ```
-chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|go_athena|ruby_athena|java|python_athena|go|ruby|python|javascript|java_athena|javascript_athena|dotnet|dotnet_athena}] [flags]
+chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|python_athena|ruby|ruby_athena|javascript|java_athena|javascript_athena|dotnet|dotnet_athena|go|go_athena|java|python}] [flags]
 ```
 
 ### Examples
@@ -66033,7 +65018,7 @@ chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, go_athena, ruby_athena, java, python_athena, go, ruby, python, javascript, java_athena, javascript_athena, dotnet, dotnet_athena. (default "oci")
+      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, python_athena, ruby, ruby_athena, javascript, java_athena, javascript_athena, dotnet, dotnet_athena, go, go_athena, java, python. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
 ```
@@ -66127,13 +65112,14 @@ _Path: platform/chainctl/chainctl-docs/chainctl_images_overlays_attach.md_
 
 ## chainctl images overlays attach
 
-Attach a Custom Assembly overlay to a repo.
+Attach Custom Assembly overlays to a repo.
 
 ### Synopsis
 
-Attach a Custom Assembly overlay to a repo by creating a binding.
+Attach one or more Custom Assembly overlays to a repo by creating a
+binding per overlay.
 
-The binding selects which of the repo's tags the overlay applies to.
+Every binding selects which of the repo's tags its overlay applies to.
 Pass exactly one of:
 
 - --all: every tag.
@@ -66143,10 +65129,12 @@ Pass exactly one of:
 A repo can hold several bindings of the same kind only when their
 overlays do not conflict; a conflicting binding is rejected, and the
 error names the conflicting binding and fields. An overlay can be
-attached to a repo only once.
+attached to a repo only once. Multiple overlays attach in the order
+given, one binding each; on a failure, the bindings already created are
+kept and the error names the overlay that failed.
 
-The command prints the binding UID. Use it with "update-binding" and
-"detach", or look it up later with "chainctl images overlays list".
+The command prints each binding UID. Use them with "update-binding" and
+"detach", or look them up later with "chainctl images overlays list".
 
 ```
 chainctl images overlays attach [flags]
@@ -66158,6 +65146,9 @@ chainctl images overlays attach [flags]
   # Apply an overlay to every tag of a repo
   chainctl images overlays attach --overlay my-overlay --repo python --parent my-org --all
 
+  # Apply two overlays to every tag of a repo
+  chainctl images overlays attach --overlay my-certs,my-packages --repo python --parent my-org --all
+
   # Apply an overlay to -dev tags only
   chainctl images overlays attach --overlay my-overlay --repo python --parent my-org --variant dev
 
@@ -66168,12 +65159,12 @@ chainctl images overlays attach [flags]
 ### Options
 
 ```
-      --all              Bind to every tag on the repo; multiple --all bindings may coexist when their overlays do not conflict. Mutually exclusive with --tag and --variant.
-      --overlay string   Overlay to attach: UIDP or name (resolved within the repo's org).
-      --parent string    Org name or UIDP for resolving --repo by name; unused when --repo is a UIDP. If unset, auto-selects when the caller belongs to a single org, otherwise prompts.
-      --repo string      Target repo: UIDP, or name resolved within --parent.
-      --tag strings      Exact tag names to bind to (repeatable). Mutually exclusive with --all and --variant.
-      --variant string   Bind to a tag variant: currently only "dev" (matches tags ending in -dev). Mutually exclusive with --tag and --all.
+      --all               Bind to every tag on the repo; multiple --all bindings may coexist when their overlays do not conflict. Mutually exclusive with --tag and --variant.
+      --overlay strings   Overlay to attach: UIDP or name (resolved within the repo's org). Comma separated and repeatable; each overlay gets its own binding with the same tag selector.
+      --parent string     Org name or UIDP for resolving --repo by name; unused when --repo is a UIDP. If unset, auto-selects when the caller belongs to a single org, otherwise prompts. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
+      --repo string       Target repo: UIDP, or name resolved within --parent.
+      --tag strings       Exact tag names to bind to (repeatable). Mutually exclusive with --all and --variant. "all" and "dev" are not tags: use --all or --variant=dev.
+      --variant string    Bind to a tag variant: currently only "dev" (matches tags ending in -dev). Mutually exclusive with --tag and --all.
 ```
 
 ### Options inherited from parent commands
@@ -66613,7 +65604,7 @@ chainctl images overlays list [flags]
 
 ```
   -o, --output string   Output format: text or json. (default "text")
-      --parent string   Parent group name or UIDP to list overlays and bindings under.
+      --parent string   Parent group name or UIDP to list overlays and bindings under. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
 ```
 
 ### Options inherited from parent commands
@@ -66807,9 +65798,12 @@ Update a Custom Assembly overlay's name or configuration.
 Update a Custom Assembly overlay's name, configuration, or both.
 
 --package and --file replace the stored configuration wholesale; they do
-not merge with it. Repos the overlay is attached to are rebuilt with the
-new configuration. An update that would conflict with another overlay
-attached to the same tags is rejected.
+not merge with it. The --with-* flags merge into that replacement when
+--package or --file is also given; passed alone, they merge into the
+stored configuration instead, as "chainctl images repos build edit"
+merges them into a repo's current build config. Repos the overlay is
+attached to are rebuilt with the new configuration. An update that would
+conflict with another overlay attached to the same tags is rejected.
 
 ```
 chainctl images overlays update <UID|NAME> [flags]
@@ -66823,14 +65817,20 @@ chainctl images overlays update <UID|NAME> [flags]
 
   # Replace an overlay's configuration from a file
   chainctl images overlays update my-overlay -f overlay.yaml
+
+  # Add custom CA certificates to an overlay's stored configuration
+  chainctl images overlays update my-overlay --with-certificates ca-bundle.pem
 ```
 
 ### Options
 
 ```
-  -f, --file chainctl images repos build   The name of the YAML file containing the overlay configuration, the same shape chainctl images repos build accepts. Replaces the stored config wholesale and takes precedence over --package.
-      --name string                        New overlay name.
-      --package strings                    Package to include (repeatable). Declares the FULL replacement set; the stored config is replaced wholesale.
+  -f, --file chainctl images repos build    The name of the YAML file containing the overlay configuration, the same shape chainctl images repos build accepts. Replaces the stored config wholesale and takes precedence over --package.
+      --name string                         New overlay name.
+      --package strings                     Package to include (repeatable). Declares the FULL replacement set; the stored config is replaced wholesale.
+      --with-certificates strings           Comma separated list of files to read the custom certificates from.
+      --with-runtime-keys strings           Comma separated list of files to read customer APK signing public keys from. Each file becomes a key in /etc/apk/keys named after the file's basename, which must match the filename referenced by the repository's APKINDEX signature (.SIGN.RSA256.<name>).
+      --with-runtime-repositories strings   Comma separated list of runtime APK repository URLs to write to /etc/apk/repositories in the image.
 ```
 
 ### Options inherited from parent commands
@@ -68317,7 +67317,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_pull-token_list.md_
 List all pull-tokens
 
 ```
-chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|go_athena|ruby_athena|java|python_athena|go|ruby|python|javascript|java_athena|javascript_athena|dotnet|dotnet_athena}] [flags]
+chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|python_athena|ruby|ruby_athena|javascript|java_athena|javascript_athena|dotnet|dotnet_athena|go|go_athena|java|python}] [flags]
 ```
 
 ### Examples
@@ -68344,7 +67344,7 @@ chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--reposi
 ```
       --expired             If true return only expired pull tokens.
       --parent string       The IAM organization or folder with which the pull-token identity is associated.
-      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, go_athena, ruby_athena, java, python_athena, go, ruby, python, javascript, java_athena, javascript_athena, dotnet, dotnet_athena
+      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, python_athena, ruby, ruby_athena, javascript, java_athena, javascript_athena, dotnet, dotnet_athena, go, go_athena, java, python
 ```
 
 ### Options inherited from parent commands
@@ -72589,7 +71589,7 @@ chainctl auth pull-token [flags]
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, go_athena, ruby_athena, java, python_athena, go, ruby, python, javascript, java_athena, javascript_athena, dotnet, dotnet_athena. (default "oci")
+      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, python_athena, ruby, ruby_athena, javascript, java_athena, javascript_athena, dotnet, dotnet_athena, go, go_athena, java, python. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
 ```
@@ -72790,7 +71790,7 @@ chainctl auth login [--invite-code=INVITE_CODE] [--identity-token=PATH_TO_TOKEN]
 ### Options
 
 ```
-      --audience stringArray         The Chainguard token audience to request. Can be specified multiple times. An interactive login for a platform audience (API, registry, apk, libraries, skills, uploads) mints one refresh token covering all of them, so a single login serves every platform audience; any other audience is minted on its own. Defaults to the comma-separated list in $CHAINCTL_AUDIENCES when set.
+      --audience stringArray         The Chainguard token audience to request. Can be specified multiple times. An interactive login for a platform audience (API, registry, apk, images, libraries, skills, uploads, and the hosted sandbox sessions and workflow runs) mints one refresh token covering all of them, so a single login serves every platform audience; any other audience is minted on its own. Defaults to the comma-separated list in $CHAINCTL_AUDIENCES when set.
       --headless                     Skip browser authentication and use device flow.
       --identity string              The unique ID of the identity to assume when logging in.
       --identity-provider string     The unique ID of the customer managed identity provider to authenticate with. Mutually exclusive with --org-name.
@@ -74302,7 +73302,7 @@ Fetching vulnerabilities for cgr.dev/chainguard/go@sha256:e62ce9fe5e62296186066e
 }
 ```
 
-This command first uses Grype to scan each container image's vulnerability data and then retrieves both images' [SBOMs](/open-source/sbom/what-is-an-sbom/). It then outputs the differences that it finds between the two. This sample output indicates that compared to the `go:latest` container image, the `go:latest-dev` image has three packages added, three removed, and no unique vulnerabilities.
+This command first uses Grype to scan each container image's vulnerability data and then retrieves both images' [SBOMs](https://www.chainguard.dev/supply-chain-security-101/what-is-an-sbom). It then outputs the differences that it finds between the two. This sample output indicates that compared to the `go:latest` container image, the `go:latest-dev` image has three packages added, three removed, and no unique vulnerabilities.
 
 `chainctl`compares the images like this because of the order they appear in the command. If you reversed the order of the images in the example command, the packages shown as `added` and `removed` would also be flipped:
 
@@ -79656,6 +78656,17 @@ The `openssl-config-fipshardened` package implements these configurations. Appli
 
 ---
 
+### FIPS
+_Path: platform/fips/_index.md_
+
+Federal Information Processing Standards (FIPS) are U.S. government standards for cryptography. Chainguard's FIPS images use FIPS-validated cryptographic modules, so you can run them in environments that require FIPS validation, such as U.S. federal systems, organizations that work with U.S. agencies, and regulated industries.
+
+To learn what FIPS covers, who needs it, and how validation works, read [What is FIPS?](https://www.chainguard.dev/supply-chain-security-101/understanding-fips) in Supply Chain Security 101. To get started with Chainguard's FIPS images, read [Getting started with FIPS containers](/platform/fips/getting-started/). The pages in this section cover how Chainguard's FIPS images work and how to verify them.
+
+For Chainguard's warranties and certifications, see the [FIPS commitment](https://www.chainguard.dev/legal/fips-commitment).
+
+---
+
 ### Overview of Chainguard EKS add-ons
 _Path: platform/fips/eks-add-ons.md_
 
@@ -79874,178 +78885,6 @@ openssl s_client -cipher @SECLEVEL=2:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES
 
 ---
 
-### Understanding FIPS
-_Path: platform/fips/understanding-fips.md_
-
-## What is FIPS?
-
-Federal Information Processing Standards (FIPS) are publicly announced standards developed by the [National Institute of Standards and Technology](https://www.nist.gov/itl/publications-0/federal-information-processing-standards-fips) (NIST) in accordance with the Federal Information Security Management Act (FISMA) and approved by the U.S. Secretary of Commerce.
-
-FIPS is a **U.S. federal standard** that establishes requirements for cryptographic security in federal government systems. While FIPS originates from U.S. federal requirements, many organizations globally adopt FIPS validation as a recognized security benchmark, particularly when working with U.S. government agencies or operating in regulated industries.
-
-FIPS compliance ensures that cryptographic security services within applications meet strict security and integrity standards, and are implemented and configured correctly. According to NIST guidance, "Non-validated cryptography is viewed as providing no protection… the data would be considered unprotected plaintext."
-
-## Who needs FIPS validation?
-
-### U.S. federal and government requirements
-
-**U.S. Federal agencies** are required to use FIPS-validated cryptography for protecting sensitive information under FISMA.
-
-**U.S. Department of Defense (DoD)** systems at various Impact Levels (IL4, IL5, IL6) must use FIPS-validated cryptographic modules as part of their security authorization process.
-
-**FedRAMP-authorized cloud services** must meet Federal Risk and Authorization Management Program requirements for operating in U.S. federal environments. FedRAMP Rev 5 specifically states that "any data in transit, whether from one container to another or to a sidecar inside the same host virtual machine" requires FIPS-validated encryption controls (SC-8).
-
-**U.S. Government contractors** working with federal data often must demonstrate FIPS compliance as part of their contractual obligations.
-
-### Global organizations working with U.S. entities
-
-Organizations outside the United States may need FIPS validation when:
-
-- Providing cloud services to U.S. federal agencies or contractors
-- Participating in U.S. defense supply chains
-- Operating systems that handle U.S. federal data
-- Seeking to demonstrate cryptographic security using a recognized standard
-
-### Regulated industries
-
-Beyond government mandates, FIPS validation is recommended or required for:
-
-- **Financial services**: Banks and payment processors handling sensitive financial data
-- **Healthcare**: Organizations processing protected health information (PHI) under HIPAA
-- **Critical infrastructure**: Energy, telecommunications, and transportation sectors
-- **Defense contractors**: Companies in the defense industrial base
-
-### Why alternative approaches fall short
-
-Some organizations attempt to achieve compliance through alternative means, but these approaches have limitations:
-
-**Service meshes** (Istio, Linkerd) cannot encrypt traffic between main containers and sidecars, or container-to-container calls within the same pod. Auditors will flag these gaps as non-compliant.
-
-**VPN tunnels** only protect host-to-host traffic. They miss intra-host and intra-pod cryptographic operations that FedRAMP and DoD auditors require.
-
-**FIPS-enabled host OS alone** doesn't force userspace applications to use FIPS modules. Applications must be explicitly configured, and this approach restricts you to older kernel versions.
-
-## FIPS standards overview
-
-### FIPS 140: Cryptographic module validation
-
-FIPS 140 defines security requirements for cryptographic modules.
-
-**FIPS 140-2** was the standard from 2001 until recently. As of September 2026, all FIPS 140-2 certificates will become historical, making migration to FIPS 140-3 essential.
-
-**FIPS 140-3**, published in September 2019, delivers more robust security testing, clearer validation criteria, and updated standards that reflect advancements in cryptographic technology. Organizations adopting this version gain enhanced protection against emerging threats.
-
-The transition from 140-2 to 140-3 represents a significant upgrade in:
-
-- Security testing rigor
-- Documentation requirements
-- Conformance criteria clarity
-- Alignment with international standards (ISO/IEC 19790)
-
-### FIPS 186: Digital signature standard
-
-**FIPS 186-5**, published by NIST in 2023, approved the EdDSA (Edwards-curve Digital Signature Algorithm) for digital signatures using Ed25519 and Ed448 schemes.
-
-Ed25519 offers improved speed and smaller key sizes compared to RSA, making it attractive for modern cryptographic implementations. This standard enables more efficient digital signatures while maintaining security guarantees.
-
-### SP 800-90B: Entropy source validation
-
-SP 800-90B defines requirements for entropy sources used by random bit generators. Cryptographic operations require high-quality randomness that cannot be reasonably predicted.
-
-Entropy Source Validation (ESV) certifies that a random number generator produces sufficient entropy to meet cryptographic requirements. This validation is separate from but complementary to CMVP (Cryptographic Module Validation Program) certification.
-
-## The CMVP validation process
-
-### What is CMVP?
-
-The Cryptographic Module Validation Program (CMVP) is a joint effort between NIST and the Canadian Centre for Cyber Security to validate cryptographic modules according to FIPS 140 requirements.
-
-A validated module receives a certificate number that organizations can reference for compliance purposes. Chainguard's OpenSSL FIPS provider, for example, holds CMVP Certificate [#4282](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4282).
-
-### Validation timeline
-
-The CMVP process is lengthy and complex:
-
-1. **Development and internal testing**: Implement cryptographic module with FIPS requirements
-2. **Lab testing**: Submit to a NIST-approved testing lab for evaluation
-3. **Patching and fixes**: Address findings from lab testing
-4. **Formal submission**: Submit validated module to NIST
-5. **NIST review process**: Module moves through pending review, coordination, and finalization states
-6. **Certificate issuance**: If approved, NIST issues a validation certificate
-
-**Current average timeline**: 590 days from submission to certificate issuance.
-
-This extended timeline creates challenges for software vendors, as:
-
-- Security vulnerabilities (CVEs) may be discovered during the validation process
-- New features cannot be added without restarting validation
-- Projects with rapid release cycles struggle to maintain current certifications
-
-### Module in process (MIP)
-
-Modules awaiting validation appear on NIST's [Module in Process list](https://csrc.nist.gov/Projects/cryptographic-module-validation-program/modules-in-process/modules-in-process-list). This indicates formal submission but not yet completed validation.
-
-## Cryptographic boundaries
-
-A cryptographic boundary defines what is inside the validated module versus what is outside. Understanding boundaries is essential for compliance.
-
-**Inside the boundary**: The cryptographic algorithms, key management, and security functions that are validated.
-
-**Outside the boundary**: Operating system services, entropy sources (validated separately under SP 800-90B), and application code that uses the module.
-
-For example, Chainguard's kernel-independent FIPS design places:
-
-- **Inside**: OpenSSL FIPS provider with approved algorithms
-- **Outside**: Jitterentropy library (separately validated under SP 800-90B)
-- **Outside**: Application code calling OpenSSL APIs
-
-The entropy source validation satisfies the cryptographic module's entropy requirements without being part of the CMVP certificate itself.
-
-## Approved vs. non-approved algorithms
-
-FIPS distinguishes between approved and non-approved cryptographic algorithms.
-
-**Approved algorithms** have undergone NIST review and are permitted for protecting sensitive data. Examples include AES, SHA-2 and SHA-3 families, RSA (with constraints), and EdDSA.
-
-**Non-approved algorithms** either haven't been evaluated or are explicitly prohibited for protecting sensitive information. Examples include MD5 (except for non-security purposes like checksums), SHA-1 for signatures, and protocols like WireGuard that require unapproved primitives.
-
-**Approved-only mode** means the cryptographic module only permits approved algorithms. Chainguard FIPS images operate in approved-only mode and cannot be switched to allow non-approved algorithms. This design prevents accidental non-compliance.
-
-## Security policies
-
-Each validated cryptographic module includes a security policy document describing:
-
-- The module's cryptographic boundary
-- Approved and non-approved modes of operation
-- Required configuration for FIPS compliance
-- Roles and services provided
-- Physical and logical security mechanisms
-
-Security policies are publicly available on the NIST website for each validated module. Review these policies to understand module capabilities and limitations.
-
-## Maintaining compliance
-
-FIPS compliance is not set-and-forget:
-
-**Ongoing updates**: As vulnerabilities are discovered, modules must be patched while maintaining validation. Chainguard addresses this by committing to zero-to-minimal CVEs under SLA.
-
-**Certificate expiration**: Certificates must be renewed periodically. Organizations should track certificate status and plan for transitions.
-
-**Configuration management**: Systems must maintain FIPS configuration throughout their lifecycle. A validated module running in non-FIPS mode provides no compliance benefit.
-
-**Audit preparation**: Document which modules are in use, their certificate numbers, and configuration evidence for auditors.
-
-## Next steps
-
-Now that you understand FIPS fundamentals, explore:
-
-- [Kernel-independent FIPS architecture](/platform/fips/kernel-independent-architecture/) - Learn how Chainguard's approach simplifies FIPS deployment
-- [Chainguard FIPS containers](/platform/fips/fips-images/) - Overview of available FIPS images
-- [FIPS Commitment](https://www.chainguard.dev/legal/fips-commitment) - Chainguard's warranties and certifications
-- [NIST CMVP](https://csrc.nist.gov/projects/cryptographic-module-validation-program) - Official validation program information
-
----
-
 ### Chainguard FIPS container FAQs
 _Path: platform/fips/faqs/index.md_
 
@@ -80171,79 +79010,6 @@ Review the list for an explanation of each option.
 
 ---
 
-### What is a build horizon?
-_Path: software-security/build-horizon.md_
-
-A _build horizon_ is the maximum amount of time a build artifact — such as a compiled binary or container image — is permitted to remain in use before it must be rebuilt. Once an artifact exceeds its build horizon, it is considered stale and must be regenerated from up-to-date sources.
-
-The practice has been adopted broadly to maintain production hygiene, reduce technical debt, and limit exposure to vulnerabilities in aging dependencies.
-
-## Why build horizons matter
-
-Software artifacts do not exist in isolation. They encode the state of their dependencies — base images, libraries, language runtimes, and operating system packages — at the time they were built. As time passes, new vulnerabilities are discovered in those dependencies, fixes are released, and the artifact falls behind the current security baseline.
-
-Without a policy that enforces a maximum artifact age, old builds can quietly persist in production long after their dependencies have become insecure. This is especially common with infrastructure services and long-running background jobs, where the pressure to ship new features is lower and images are less likely to be rebuilt as a side effect of application changes.
-
-Build horizons address this by making staleness a first-class concern. Rather than relying on developers to proactively update artifacts, a build horizon policy makes freshness a default requirement.
-
-## What a build horizon applies to
-
-Build horizon practices apply across three broad categories of artifacts:
-
-**Internal software** — services and tools your organization builds and owns. A continuous delivery philosophy encourages frequent delivery of small changes, which naturally limits artifact age. A build horizon formalizes this expectation and makes it enforceable.
-
-**Off-the-shelf components** — third-party software such as Prometheus, Flux, the OpenTelemetry Collector, or Cilium that is deployed as-is inside your infrastructure. These components are often deployed and then forgotten, making them prime candidates for staleness.
-
-**Compiled dependencies, including base images** — the foundational layers on which your software is built. A container image inherits all of the packages in its base image, which means an outdated base image can silently introduce hundreds of known vulnerabilities into an otherwise current application.
-
-## The principle of ephemerality
-
-Build horizons are most effective when paired with [the _principle of ephemerality_](https://www.chainguard.dev/unchained/the-principle-of-ephemerality): the idea that build artifacts should be treated as temporary by design, expected to be regularly discarded and regenerated rather than maintained indefinitely.
-
-Under this principle, the goal is not to keep an artifact running as long as possible but to make the process of rebuilding it so reliable and automated that freshness becomes the default state. When rebuilding is routine, there is little cost to enforcing a short build horizon.
-
-## Automating dependency updates
-
-Enforcing a build horizon at scale requires automation. Manual processes are insufficient when an organization manages dozens or hundreds of services and dependencies. Common automation strategies include:
-
-- **Dependency update bots** such as Dependabot, Renovate, or similar tools that open pull requests to upgrade library dependencies as new versions are released.
-- **Base image update automation** — tools that monitor upstream base images and automatically trigger rebuilds or open pull requests when new image digests are published.
-- **Scheduled rebuilds** — CI/CD pipelines configured to rebuild images on a regular cadence (for example, nightly or weekly), regardless of whether application code has changed.
-
-These approaches reduce the manual burden of staying current and ensure that most artifacts are refreshed before they approach their horizon.
-
-## Enforcing the policy
-
-Automation reduces drift, but it does not eliminate it entirely. Misconfigurations, forgotten services, and exceptions that outlive their justification can all result in artifacts exceeding their build horizon. Policy enforcement provides a backstop.
-
-In Kubernetes environments, build horizon policies can be enforced using admission controllers. The [sigstore/policy-controller](https://docs.sigstore.dev/policy-controller/overview/) project, for example, exposes the `fetchConfigFile` function to inspect the `created` timestamp embedded in a container image's configuration. A policy written in [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/) can then validate that the image was built within the permitted window:
-
-```rego
-isCompliant {
-  created := time.parse_rfc3339_ns(input.config[_].created)
-  time.now_ns() < created + maximum_age
-}
-```
-
-This policy can be wrapped in a `ClusterImagePolicy` resource that scopes enforcement to specific namespaces or workload selectors. Policies can initially be configured in _warn_ mode, which surfaces violations as warnings without blocking deployments, giving teams time to remediate before strict enforcement is enabled.
-
-## A note on reproducible builds
-
-Build horizon policies that rely on the `created` timestamp in a container image can fail for images produced with [reproducible build](https://reproducible-builds.org/) tooling. Some reproducible build tools set the `created` timestamp to the Unix epoch — January 1, 1970 — as a way to ensure that builds are deterministic regardless of when they are run. An image with a 1970 timestamp will always appear to exceed any reasonable build horizon.
-
-The recommended solution is to use the `SOURCE_DATE_EPOCH` environment variable, which many reproducible build tools support. When set, this variable causes the build tool to derive timestamps from the date of the source commit rather than the current system clock. This preserves reproducibility while producing a meaningful, policy-compatible timestamp.
-
-## Learn more
-
-To learn more about related practices and tools, you can explore:
-
-- [What is software supply chain security](/software-security/what-is-software-supply-chain-security/) — for background on the broader threat landscape that build horizons help address.
-- [Selecting a base container image](/software-security/selecting-a-base-image/) — for guidance on choosing base images that are rebuilt frequently and carry few known vulnerabilities.
-- [Strategies and tooling for updating containers](/chainguard/containers/security-and-compliance/updating-containers/strategies-tools-updating-images/) — which outlines different strategies and tools for keeping images up to date and avoiding the use of end-of-life software.
-- [Reproducible builds](https://reproducible-builds.org/) — for information on the reproducible builds initiative and the `SOURCE_DATE_EPOCH` convention.
-
----
-
 ### What is software supply chain security
 _Path: software-security/what-is-software-supply-chain-security.md_
 
@@ -80260,87 +79026,6 @@ Malicious attacks, or what often amounts to code tampering, deserve special reco
 Fortunately, a number of promising counters to software supply chain attacks have emerged. For instance, projects like Sigstore offer a chance to restore integrity to the software supply chain and initiatives like the Open Source Security Foundation provide a forum for concerted action. Further information on software supply chain security compromises and counters can be found in [this reading list](https://github.com/chainguard-dev/ssc-reading-list).
 
 One further term merits a definition and explanation. Cloud-native software supply chain security refers to software supply chain security efforts that are related to container technology. The process of selecting, building, and operating containers has a number of important implications for software supply chain security. For instance, signing containers with a digital signature (via a tool like [Cosign](https://github.com/sigstore/cosign)) is one way to ensure that an attacker that tampers with a container is detected. Container technology both epitomizes the potential software supply chain security perils that modern organizations must confront while also enabling approaches that can make a software supply chain secure by default.
-
----
-
-### Selecting a base container image
-_Path: software-security/selecting-a-base-image.md_
-
-Software teams building and deploying container-based software applications often use a "base image," an initial set of software packages often associated with a Linux distribution. Software developers, security professionals, and infrastructure teams seeking to make an informed decision about what base image to use must consider a number of criteria when selecting a base image appropriate for their needs. Base images like those provided by Chainguard are designed to meet these security criteria while maintaining compatibility. To help these parties make a more informed decision when selecting a base image, this article describes a range of criteria:
-
-- Ensuring the image contains needed core functionality
-- The number of known vulnerabilities
-- The frequency at which the image is rebuilt
-- The number of packages
-- The update frequency and security hygiene of the underlying distribution
-- The amount of maintainer support associated with the base image
-- The size of the image in MB
-- Whether the image is signed
-- Whether the image has an SBOM
-
-After reading this section, software professionals will have a mental checklist that makes them better prepared to select a base image for container-based software applications.
-
-## Ensure the base image contains needed core functionality
-
-First and foremost, the base image needs to contain the necessary minimum functionality. For instance, for a team that is developing a Python application, this would include the Python runtime, the software that translates source code into machine code. Without the appropriate core functionality, the base image will be unable to serve the needs of the software developer and his or her application. More technical users might also be interested in aspects such as whether there is glibc or musl support.
-
-## Choose an image with few or no known vulnerabilities
-
-Another key factor is the number of known vulnerabilities associated with the packages inside the image. Popular open source scanners such as [`trivy`](https://github.com/aquasecurity/trivy) and [`grype`](https://github.com/anchore/grype) allow a user to scan container images to identify vulnerabilities. Known vulnerabilities, consistently ranked a [critical security threat](https://owasp.org/www-project-top-ten/) for web applications, allow attackers to exploit a piece of software without the work of discovering a previously unknown vulnerability. Recent empirical software security [research](https://decan.lexpage.net/files/EMSE-2021.pdf) indicates that many popular images have hundreds of known vulnerabilities.
-
-Software teams should select base images with as few known vulnerabilities as possible. This not only has security benefits but also reduces the toil of manually triaging vulnerabilities, i.e. determining whether the vulnerability is a true positive or false positive and whether the vulnerability is exploitable in the context of the deployed application.
-
-While some specialists point out that many reported vulnerabilities have never been known to be exploited [in the wild](https://www.cisa.gov/known-exploited-vulnerabilities), this observation should not be mistaken as an invitation to disregard vulnerability counts. Because many, perhaps most, compromises are never reported, any list of vulnerabilities known to have been exploited should be treated as imperfect knowledge. Other vulnerabilities might have been exploited in the wild and no defender knows yet. In short, maintaining a low known vulnerability count reduces security risk and staff toil, thereby enabling faster development.
-
-## Choose an image that is frequently rebuilt
-
-Of course, choosing an image that has a low vulnerability count today does not guarantee a low vulnerability count tomorrow. New vulnerabilities can arise, new non-security bugs are patched, and new features emerge for the many packages inside a base image. To enable a software team to take advantage of new fixes, security or otherwise, developers ought to prefer images that are rebuilt frequently. Rebuilding entails using the latest versions of all the constituent packages, which reduces the vulnerability count and enables downstream consumers of the base image to upgrade the version if desired.
-
-Some research suggests that over half of the container images found on Docker Hub, a repository for container images, haven’t been updated for four months or longer. Likewise, official Docker images can have similarly slow update cadences. When selecting a base image, a software team should examine the frequency of updating.
-
-## Choose an image with a minimal number of packages
-
-Choosing base images with a minimal number of packages is also a sensible principle. This reduces the "attack surface" and also reduces complexity. Fewer packages, all things equal, means fewer vulnerabilities (both known and unknown). Additionally, for teams that must use a pinned image and thus can’t take advantage of frequent rebuilds, fewer packages also means a slower vulnerability accumulation rate.
-
-Additionally, choosing "distroless" images, which strips out package managers, package manager dependencies, and other build-time dependencies, is another way to ensure that your team is choosing a secure-by-default base image.
-
-## Choose an image based on a software distribution that prioritizes package update frequency and security hygiene
-
-The packages inside a container are often sourced from a Linux distribution such as Debian, Ubuntu, or [Wolfi](/open-source/wolfi/overview/). The update frequency and hence the security of an image therefore also depends on the software development practices associated with that distribution. Software teams should therefore assess the distribution underlying the packages in their images. All things equal, software teams should prefer a distribution that prioritizes frequent updates so that vulnerabilities are quickly fixed.
-
-## Choose an image with maintainers that actively support it
-
-Not all container images are actively maintained. Like open source software packages in general, container images require one or more persons to ensure timely and frequent rebuilds, manage broader security concerns, and respond to bugs and issues. Unmaintained or lightly maintained images can pose a problem to software teams that want to prioritize development velocity and security. Without the ability to rapidly work with upstream image maintainers, software teams must either accept the risk of using old versions of the image that potentially have unpatched bugs, or consider creating and maintaining a fork with the overhead associated with that course of action.
-
-## Choose an image that is smaller
-
-Smaller images (fewer MB) means less storage costs and less transmission costs. When an image is pulled thousands of times a day, even a small difference in size can quickly add to the cost.
-
-## Choose an image that is signed
-
-Software signing ensures that attackers that tamper with a software artifact, such as a container image, can be detected. Software teams should choose to use container images that have been signed, with tools such as [Cosign](/open-source/sigstore/cosign/how-to-sign-a-container-with-cosign/), and verify the signatures to ensure that the images on which they depend are tamper-free.
-
-## Choose an image with an SBOM
-
-A [software bill of materials](/open-source/sbom/what-is-an-sbom/) (SBOM), a list of ingredients for a piece of software, provides visibility into the components of a piece of software, enabling transparency and informed decision-making. Choosing base images with SBOMs generated by the party responsible for building the artifact helps the image consumer make better-informed decisions related to the security and health of the code.
-
-## Self-assessment
-
-<details>
-  <summary>
-   [True or False] The frequency at which a container image is rebuilt does not affect the number of known software vulnerabilities associated with the container image.
-  </summary>
-False: Infrequently rebuilt images accumulate vulnerabilities as new vulnerabilities are discovered for the packages inside an image.
-</details>
-
-<details>
-  <summary>
-   [True or False] Choosing base images with few or no known vulnerabilities reduces security risk and reduces staff toil.
-  </summary>
-True: Fewer known vulnerabilities, all things equal, makes the attacker's job harder and reduces the vulnerability triage burden on security teams and developers.
-</details>
-
-For readers interested in an example of images that prioritize the criteria described above, [Chainguard Containers](https://github.com/chainguard-images) offers one option.
 
 ---
 
@@ -81417,7 +80102,7 @@ The demo showcases how Chainguard's hardened PyTorch image provides the same fun
 ### Infamous software vulnerabilities
 _Path: software-security/cves/infamous-cves.md_
 
-[Software vulnerabilities](/software-security/cves/cve-intro/) vary in their severity – some are difficult to exploit and have minimal implications, while others can be exploited easily, giving an attacker significant leverage over a computer system. In cases where widely-implemented software contains high-severity vulnerabilities, the damage caused by their exploitation can affect millions of developers and services worldwide.
+[Software vulnerabilities](https://www.chainguard.dev/supply-chain-security-101/what-is-a-cve) vary in their severity – some are difficult to exploit and have minimal implications, while others can be exploited easily, giving an attacker significant leverage over a computer system. In cases where widely-implemented software contains high-severity vulnerabilities, the damage caused by their exploitation can affect millions of developers and services worldwide.
 
 In this article, you will learn how the KEV Catalog tracks known exploited software vulnerabilities, and how it serves as a tool for developers and federal agencies. In addition, you will explore Log4Shell, Heartbleed, and Shellshock, three infamous software vulnerabilities which have had major impacts on software security worldwide.
 
@@ -81459,547 +80144,10 @@ To learn more about these vulnerabilities and other exploited vulnerabilities, d
 
 ---
 
-### What are software vulnerabilities and CVEs?
-_Path: software-security/cves/cve-intro.md_
-
-A _software vulnerability_ is a weakness in a program which, if left unaddressed, may be used by attackers to access, manipulate, or compromise a computer system. Vulnerabilities can be introduced at different stages of development and vary in their scope, criticality, and potential attack vector depending on their root cause. As a consequence, software developers spend time and resources triaging, remediating, and patching vulnerabilities to harden their software security and to prevent attackers from exploiting unintended program behavior.
-
-With software supply chain attacks [on the rise](https://www.gartner.com/en/articles/7-top-trends-in-cybersecurity-for-2022#:~:text=supply%20chains%2C%20a-,three%2Dfold%20increase,-from%202021.), it is essential that developers and other technology professionals become knowledgeable about software vulnerabilities. Staying on top of the latest threats helps protect against targeted cyber attacks, ensuring the safety of important information and computer systems.
-
-Understanding software vulnerabilities is the first step in mitigating them in order to improve the security of the software you consume, develop, and release. In this article, you will be introduced to software vulnerabilities, examples of their causes and impacts, and learn how known vulnerabilities are documented through the CVE Program.
-
-## What makes a vulnerability?
-
-Any party, process, or other input (like a dependency or package) involved in software production can introduce vulnerabilities into the final release. When third-party inputs used in development have software vulnerabilities, the resulting product may be impacted by them as well. Alternatively, developers writing their own code may unintentionally introduce vulnerabilities to a project through their programming, processes, or habits.
-
-If left unresolved, software weaknesses can advance to become vulnerabilities if hackers are able to exploit them via an attack. For example, not conducting input validation in a program could allow unfiltered or malicious input to affect the program, creating an [_improper input validation_](https://cwe.mitre.org/data/definitions/20.html) vulnerability. A notorious example of this is the [Log4Shell vulnerability](https://www.cisa.gov/news-events/cybersecurity-advisories/aa21-356a), which widely impacted many systems that used the Log4j logging utility.
-
-Attackers may target software vulnerabilities if they see an opportunity to compromise sensitive data or systems for their own benefit. They may choose to prioritize some vulnerabilities over others depending on how lucrative and accessible the opportunity is.
-
-Malicious actors can approach a vulnerability from different [attack vectors](https://www.cloudflare.com/learning/security/glossary/attack-vector/) depending on the weakness type being targeted. In some cases, attack vectors are easier to reach, meaning less leverage is required to expose and exploit the software’s weaknesses.
-
-## The CVE program
-
-Founded by the MITRE Corporation in 1999, the [CVE Program](https://www.cve.org/About/Overview) was established with the goal to collect and document information surrounding known vulnerabilities in software products. Standing for Common Vulnerabilities and Exposures, CVEs are records of publicly disclosed software vulnerabilities. Over time, the program catalog has expanded to include [over 200,000 software vulnerabilities](https://www.cve.org/About/Metrics), with more being added every day.
-
-The CVE Program is supported by the U.S. Department of Homeland Security [Cybersecurity and Infrastructure Security Agency](https://www.cisa.gov/) (CISA). In addition, the CVE Program feeds the [U.S. National Vulnerability Database](https://nvd.nist.gov/vuln) (NVD), which provides additional information for each CVE entry.
-
-## What is a CVE?
-
-A CVE entry represents a known weakness in a software product and contains information to help address any potential risks to the integrity of a system caused by the vulnerability. Each CVE is [assigned a unique CVE ID](https://www.cve.org/About/Process) and is recorded with a description of the vulnerability, a list of affected software releases, any relevant references, and other pertinent information.
-
-[CVE Numbering Authorities](https://www.cve.org/ProgramOrganization/CNAs) (CNAs) are the entities responsible for assigning CVE IDs. CNAs can be software vendors, research groups, open source sponsors, and similar organizations. When a new vulnerability is discovered and reported to a CNA, the CNA will request that a CVE ID is reserved for it. Once reserved, details are added to the CVE record and the entry is published to the database.
-
-## Related software vulnerability efforts
-
-While the CVE Program database functions stand-alone to communicate known vulnerabilities with developers, a variety of related efforts provide additional information and context to support the database.
-
-- The [Common Vulnerability Scoring System](https://www.first.org/cvss/), or CVSS, is a metric which helps assess the severity of any given vulnerability and serves as a tool for developers who are determining which CVEs to address first.
-
-- Similar to the CVE Program, MITRE also supports the [Common Weaknesses Enumeration](https://cwe.mitre.org/index.html), or CWE. The CWE catalogs product-unspecific types of software weaknesses which may produce vulnerabilities if present in a program.
-
-- The [U.S. National Vulnerability Database](https://nvd.nist.gov/vuln/search) (NVD) connects to the CVE database to provide further information regarding CVE entries. The NVD provides additional references and public advisories regarding each vulnerability. It also connects each CVE with a CVSS score, links a vulnerability’s associated CWE(s), and reports whether it is in the CISA’s [Known Exploited Vulnerabilities](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) (KEV) catalog.
-
-## Learn more
-
-In this article, you were introduced to software vulnerabilities, learned about their characteristics, and how they are tracked in the CVE Program catalog. This understanding will help you to start triaging and addressing vulnerabilities present in the software you produce or consume to limit the potential for attackers to successfully exploit your systems.
-
-To learn more about software vulnerabilities, you can visit the [CVE Program website](https://www.cve.org/About/Overview), [explore the NVD](https://nvd.nist.gov/vuln/search), or [take a look at the KEV Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog).
-
-You can also check out our other articles on [why you should care about vulnerabilities in your software](/software-security/cves/cve-why-care/), [infamous software vulnerabilities](/software-security/cves/infamous-cves/), and [our guide to addressing vulnerabilities in your software](/software-security/cves/cve-remediation/).
-
----
-
-### Software vulnerability remediation
-_Path: software-security/cves/cve-remediation.md_
-
-At worst, a software vulnerability can impose a critical security flaw that warrants attention. Developers [care about mitigating software vulnerabilities](/software-security/cves/cve-why-care/) because their presence may harm the integrity of their product, negatively affect downstream users, or slow down efforts toward meeting regulatory requirements. However, modern software development practices which incorporate third-party packages in addition to newly scripted code can complicate the vulnerability remediation process. Keeping track of how and where vulnerabilities are introduced, as well as what introduced them, is an arduous task when multitudes of dependencies are working together.
-
-In this article, you will explore some steps you can take to make vulnerability remediation easier from start to finish. You will begin by learning how various tools can help you catalog the components of your software. Next, you will move on to identifying, triaging, and remediating vulnerabilities, and learn how to address vulnerabilities present in container images.
-
-## Step 1: Knowing your software
-
-Vulnerability remediation can be difficult when your code incorporates a wide array of packages. On top of this, projects often rely on dependencies which have their own dependencies (called *transitive dependencies*), thus further adding to the layers which compose a piece of software. When working on large-scale projects with hundreds of files, dependencies, and collaborators, keeping track of everything can become overwhelming.
-
-To combat this, an [*SBOM*](/open-source/sbom/what-is-an-sbom/), or Software Bill of Materials, can be used. SBOMs are machine-readable documents that track the dependencies of a project. A [good SBOM](/open-source/sbom/what-makes-a-good-sbom/) includes dependency names and their version numbers, enabling accurate identification of every component. By using an SBOM to catalog project dependencies, you can gain insight into the many inputs comprising a piece of software.
-
-In addition to generating an SBOM for your project, you can take your software security one step further with the use of *attestations*, which guarantee the *provenance* of a software artifact. Establishing provenance of an artifact ensures that it has not been altered after generation, enabling trust and confidence in its composition.
-
-To learn more about using SBOMs and attestations to secure your software supply chain, check out [our article comparing the two options](/open-source/sbom/sboms-and-attestations/).
-
-## Step 2: Vulnerability scanning
-
-After taking steps to understand and catalog your software components, you can move on to scanning for vulnerabilities. A *vulnerability scanner* is a tool which ingests databases of known software vulnerabilities (most notably [the National Vulnerability Database](https://nvd.nist.gov/vuln)) and scans your software to determine if any reported vulnerabilities may be present. Having an SBOM generated for your software can streamline this process, as the SBOM itself can be scanned to determine if you’re running any packages affected by vulnerabilities.
-
-A couple examples of open source vulnerability scanners that you can use are as follows:
-
-* [**Trivy**](https://github.com/aquasecurity/trivy) is a jack-of-all-trades project that can scan a variety of targets including containers, filesystems, and remote Git repositories.
-
-* [**Grype**](https://github.com/anchore/grype) integrates with [Syft](https://github.com/anchore/syft), an SBOM generation tool, making it easier to generate and then scan an SBOM for your software.
-
-## Step 3: Triage
-
-After identifying what vulnerabilities may be present in your software, you can begin triaging them. Vulnerability *triage* is the process of sorting and prioritizing which vulnerabilities need to be addressed first. There are a few factors to be considered when triaging, including false positive vulnerabilities, vulnerability severity, and exploitability status.
-
-* **False positives** - Though vulnerability scanners may find and report a CVE for a given dependency, it may not be present in your software. If the vulnerability is outside of your program’s scope (for example, in a function that you are not calling) then the vulnerability may not truly impact your application, and you do not need to spend time addressing it.
-
-* **Vulnerability severity** – CVEs are assigned a Common Vulnerability Scoring System (CVSS) score to assess the severity of their impacts if exploited. A CVE with a CVSS score of critical may have serious consequences to the [confidentiality, integrity, and availability](https://www.cisecurity.org/insights/spotlight/ei-isac-cybersecurity-spotlight-cia-triad) of a system, making it a priority to remediate. In comparison, a CVE with a low severity score may be difficult to exploit or has minimal impact, so it can be remediated after higher priorities are addressed.
-
-* **Exploitability status** – Not all vulnerabilities have been observed to be exploited. Checking to see if a vulnerability is in the [Known Exploited Vulnerabilities (KEV) Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) can tell you if there is an active attacker threat "in the wild" for vulnerabilities present in your software. Note that a vulnerability’s absence from the KEV Catalog does not mean it won’t be exploitable, as unreported or unobserved attacks on a vulnerability may still exist (or may occur in the future).
-
-[Vulnerability Exploitability eXchange (VEX)](https://www.cisa.gov/sites/default/files/2023-01/VEX_Use_Cases_Aprill2022.pdf) documents can be helpful references when triaging vulnerabilities. VEX is a model which allows software developers to report the status of vulnerabilities in a software product to inform downstream users of what actions they should take to address them. If a scanner reports a vulnerability in a product, a VEX document can elaborate on how the vulnerability truly impacts it.
-
-To learn more about how you can use VEX, check out [OpenVEX](/open-source/sbom/what-is-openvex/), an open source implementation of VEX that you can leverage when generating or ingesting VEX documents.
-
-## Step 4: Remediation
-
-Once you have triaged the vulnerabilities found in your software, you can move on to remediating them. Vulnerability *remediation* is the act of correcting and removing CVEs from your software. Using a CVE ID, you can check sources such as the [National Vulnerability Database (NVD)](https://nvd.nist.gov/) for advisories regarding a vulnerability. Here, you can learn what steps should be taken to address the vulnerability. Oftentimes, this will include updating dependencies to patched versions. After you have followed guidance to fix the vulnerability, you should scan your software again to ensure that it was properly remediated.
-
-Note that not all true positive vulnerabilities may be remediable. In some cases, a patch is not yet made available to address the vulnerability, or updating the package version may introduce breaking changes to your program. In situations like these, focus on what you can remediate given your resources at the time.
-
-## Vulnerabilities in container images
-
-*Container images* are like little bundles of code containing the files and dependencies they each need to run. They are called containers because they operate as a discrete unit; each container has what it needs, and can run independently from other containers.
-
-Container images are helpful as they prevent inputs, permissions, and dependencies from clashing with one another. However, containers are prone to accumulating vulnerabilities if they are not properly maintained. As vulnerabilities are discovered and reported, containers should be *rebuilt* to use updated, secured versions, or else they will begin to collect vulnerabilities. Research from Chainguard Labs has shown that container images from Docker Hub, a popular container image registry, will [accumulate one vulnerability per day if not updated](https://www.chainguard.dev/unchained/enforce-against-vulnerability-sprawl-with-up-to-date-images).
-
-To combat the accumulation of vulnerabilities in containers, you should choose lightweight, minimal container images which are frequently rebuilt. Popular container images often come bundled with hundreds of packages, some of which may be unnecessary for your applications. These extra components contribute to vulnerability accumulation as they don’t necessarily add functionality, but add more vectors to attack.
-
-Using a distribution such as [Alpine Linux](https://alpinelinux.org/about/) or the [Wolfi *undistro*](/open-source/wolfi/overview/), both of which prioritize security and size, can reduce dead weight in your containers. In addition, frequently rebuilding your images ensures that packages are up-to-date and include security patches.
-
-[Chainguard Containers](https://www.chainguard.dev/chainguard-images) offer minimal, frequently rebuilt images to help you reduce vulnerabilities present in your containers. Built on top of [Wolfi](/open-source/wolfi/overview/), the goal of Chainguard Containers is to minimize total attack surface and update continuously in order to reduce your CVE count.
-
-Check out our article on [selecting a base image](/software-security/selecting-a-base-image/) to explore more factors that should impact your container image choice.
-
-## Next steps
-
-After identifying, triaging, and remediating vulnerabilities, you will be left with both a better understanding of your software and a more secure product. However, vulnerability remediation does not stop there. As your software is developed further, new vulnerabilities may be introduced or discovered. It is important to continue scanning your software frequently in order to address any new security concerns that may arise.
-
-## Learn more
-
-Vulnerability management can be daunting at first, especially when your scanners report high CVE counts across hundreds of project dependencies. By leveraging the tools and procedures fit for your needs, you can work towards securing your software, one vulnerability at a time.
-
-In this article, you learned four steps that you can take towards reducing vulnerabilities in your software. You learned how you can use resources such as SBOMs, VEX, and the KEV Catalog to aid you in vulnerability triage. In addition, you explored factors that impact triage and remediation, and how you can choose container images with less vulnerabilities.
-
-To learn more about software vulnerabilities, you can read our [other articles about CVEs](/software-security/cves/). For more information on getting started with Chainguard Containers, check out [our website](https://www.chainguard.dev/chainguard-images) and [documentation](/chainguard/containers/).
-
----
-
 ### CVEs
 _Path: software-security/cves/_index.md_
 
 CVEs, or Common Vulnerabilities and Exposures, are entries of publicly disclosed software vulnerabilities which, if not addressed, may be used by attackers to access, manipulate, or compromise a computer system.
-
----
-
-### Why care about software vulnerabilities?
-_Path: software-security/cves/cve-why-care.md_
-
-Software products are prone to [*vulnerabilities*](/software-security/cves/cve-intro/) which, if exploited by an attacker, may negatively impact the systems and consumers relying on them. Attacks against vulnerable software systems can result in the unintended exposure and misuse of sensitive data (like the theft of user account credentials). In other cases, these attacks could affect the provision of a service, or compromise critical infrastructure that relies on the software. Given the considerable threat that they can pose, it is important that developers spend time mitigating vulnerabilities to protect against hackers seeking to exploit them.
-
-Addressing the vulnerabilities present in your software helps secure the systems you support, use, and maintain. In this article, you will explore why you should care about vulnerabilities as a software developer, and learn about federal regulations that draw importance to CVE management.
-
-## As a developer
-
-Discovering and mitigating software vulnerabilities is a difficult – but necessary – task for developers to tackle. Development teams are ultimately the authorities who are able to remediate vulnerabilities at the source. Depending on the severity of a vulnerability, its exploitation could significantly impact the integrity of the software product. The trust, safety, and operations of the consumers who rely on the software may be affected as well.
-
-Vulnerability *triage* is an important step developers must take to work toward reducing risks posed by vulnerabilities in their software. Using [*vulnerability scanners*](https://owasp.org/www-community/Vulnerability_Scanning_Tools) can give developers information about the number, type, and severity of CVEs present in their work. With this data, developers can prioritize critical CVEs, therefore ensuring that major security concerns are addressed first.
-
-## Federal regulations
-
-With notable software supply chain security attacks occurring in recent years (such as the SolarWinds attack in 2020), the U.S. federal government has increased efforts to improve U.S. cybersecurity. These initiatives aim to strengthen software supply chain security by promoting safer development habits, such as frequent vulnerability scanning.
-
-### FedRAMP
-
-The [Federal Risk and Authorization Management Program](https://www.fedramp.gov/) (FedRAMP) is a security framework that must be adopted by cloud service providers (CSPs) before they service U.S. federal government agencies. The framework aims to promote the use of cloud services across agencies by standardizing security authorization practices. Based on the service being offered, FedRAMP sorts cloud services into low, moderate, and high impact levels, with increased security expectations for each level.
-
-In order to achieve FedRAMP authorization, certain requirements need to be met as follows:
-
-- Container images used by CSPs must be *hardened* according to benchmarks laid out in the [NIST SP 800-70](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-70r4.pdf). Our solution is Chainguard Containers, which offers [hardened, minimal base images](https://www.chainguard.dev/chainguard-images) designed to help you meet FedRAMP compliance requirements.
-
-- Vulnerability scanners are expected to report information about discovered vulnerabilities, such as its CVE ID and CVSSv3 score.
-
-Meeting FedRAMP container image and vulnerability scanning requirements allows your organization to expand and reinforce its offerings as a CSP. To learn how we can help you meet FedRAMP container image requirements, check out our blog post on how you can [Fortify, comply and conquer FedRAMP with Chainguard Containers](https://www.chainguard.dev/unchained/fortify-comply-and-conquer-fedramp-with-chainguard-images).
-
-### DHS software self attestation
-
-The Department of Homeland Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) released their [Secure Software Attestation Form](https://www.cisa.gov/sites/default/files/2023-04/secure-software-self-attestation_common-form_508.pdf) in response to [Executive Order 14028](https://web.archive.org/web/20250119085114/https://www.whitehouse.gov/briefing-room/presidential-actions/2021/05/12/executive-order-on-improving-the-nations-cybersecurity/). The attestation form identifies the secure software development practices that developers must verify to have met in order for their software to be utilized by federal agencies. Meeting the criteria laid out by the form is another critical step toward securing your software development processes.
-
-## Learn more
-
-In this article, we discussed reasons why you should care about software vulnerabilities from a development perspective. In addition, you were introduced to federal regulations that draw importance to vulnerability management and secure development practices. This knowledge will help you begin managing vulnerabilities present in the software you develop, improving your security profile and giving you a head start toward meeting regulations like FedRAMP.
-
-To learn more about the importance of software vulnerability management and meeting federal regulations, you can explore the process of [gaining FedRAMP authorization](https://www.fedramp.gov/rev5/agency-authorization/), or learn [how Chainguard Containers can help reduce CVEs in your container images](https://www.chainguard.dev/chainguard-images).
-
----
-
-### What are containers?
-_Path: software-security/what-are-containers/index.md_
-
-Maximizing the performance of computer hardware has been a critical undertaking for software engineers for decades. First developed in the 1960s, virtual machines (VMs) were an early answer to this challenge, allowing a single computer to host multiple, isolated operating systems. VMs enable different guest users or processes to share physical infrastructure while keeping their concurrent operations separated. However, as VMs are both slow to initialize and resource-intensive, a modern solution arrived in the early 2000s: containers.
-
-*Containers* share a common *kernel* with each other, whereas multiple VMs each require their own virtual kernel. The kernel resides at the core of an operating system and facilitates activities between hardware and software. By sharing a kernel, containers run concurrently using the same infrastructure, providing the isolation benefits of VMs without added resource overhead. Containers have become increasingly popular for their ease of use, reproducibility, and portability in deploying applications across systems at a low resource cost. The [Open Container Initiative (OCI)](/open-source/oci/what-is-the-oci/) defines the open standards for image formats, runtimes, and distribution that make this portability possible.
-
-This article explores the structure of *container images*, the foundational unit behind containers, including their key contents and how they're built. You'll learn how containers operate on top of a container engine and how to choose, build, and deploy container images for your applications.
-
-## Structure of a container image
-
-To build a container for your application, start with a *container image*. A container image is a static, immutable filesystem bundle that serves as a blueprint for building containers. Inside every container image is a curated collection of the files, dependencies, and code needed to run an application. At runtime, a container built from an image inherits all characteristics of that image.
-
-![A container built from an image inherits all characteristics of the image it is built from.](image_to_container.png)
-
-To create a container image, select a *base image*. A base image is a foundational image that you extend by adding image *layers*. Typically, base images include a Linux distribution, though minimal or distroless images omit the full userland to reduce size and attack surface. Each distribution differs in its size, dependencies, and functionality, making certain distributions better suited for certain images than others.
-
-After selecting a base image, you add layers containing your application-specific code and dependencies. Tools such as [Docker](https://www.docker.com/) and [Podman](https://podman.io/) ingest a [*Dockerfile*](https://docs.docker.com/reference/dockerfile/), a configuration file that specifies the instructions to assemble a multi-layer image. You can also use tools such as [apko](/open-source/build-tools/apko/overview/) and [ko](https://github.com/ko-build/ko), which produce images using a single-layer construction method.
-
-For example, say you want to build a container to run your Python application. You can start with a Python base image, such as a [Wolfi-based image](/open-source/wolfi/wolfi-with-dockerfiles/), then add your application and its dependencies through Dockerfile layers. The resulting image is ready to deploy with your application bundled inside.
-
-## Instantiating containers
-
-Once you have a container image, use it to start a running container. Doing so requires a *container engine*, software that hosts multiple containers on a shared machine. [Docker Engine](https://docs.docker.com/engine/), [Podman](https://podman.io/), and [containerd](https://containerd.io/) are common examples.
-
-A container engine communicates with the host operating system's kernel. Within a container engine, multiple containers run independently of each other, each carrying the code, dependencies, and configuration of its parent image. The following diagram shows this hierarchical relationship.
-
-![Containers run independently of each other on a container engine, the software that communicates with a host operating system kernel. Each container contains the application and dependencies it needs to run.](container_structure.png)
-
-## Getting started with containers
-
-Depending on your application, you may not need to build your own container images from scratch. Instead, you can pull a container image from a *container registry*, a centralized repository of images. [Docker Hub](https://hub.docker.com/) hosts hundreds of thousands of open source images. Other registries include the [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry), the [Google Artifact Registry](https://cloud.google.com/artifact-registry/docs), and the [Chainguard registry](/chainguard/containers/registry/overview/), which offers a free public catalog of secure, minimal base images.
-
-When choosing a container image, consider more than just core functionality. Your image must include the packages and components your application needs, but images with many unneeded packages increase your data egress and vulnerability counts. Prefer images that balance security and reliability with a minimal footprint.
-
-To learn more, refer to [Selecting a base image](/software-security/selecting-a-base-image/).
-
-## Learn more
-
-To get started, refer to [Chainguard Containers](/chainguard/containers/), hardened minimal images for secure containerized applications. To build your own images, refer to [Wolfi](/open-source/wolfi/), a Linux undistro designed as a base for lightweight containers. To understand the standards that govern container image formats, runtimes, and distribution, refer to [What is the Open Container Initiative?](/open-source/oci/what-is-the-oci/).
-
----
-
-### Secure Software Development Framework (SSDF) table, NIST SP 800-218
-_Path: software-security/secure-software-development/ssdf.md_
-
-## SSDF table
-
-<table>
-<thead>
-<tr>
-<th>Practices</th>
-<th>Tasks</th>
-<th>Notional Implementation Examples</th>
-<th>References</th>
-</tr>
-</thead><colgroup><col width="314"/><col width="348"/><col width="518"/><col width="586"/></colgroup>
-<tbody>
-<tr>
-<td colspan="1" rowspan="3"><div><span>Define Security Requirements for Software Development <a id="PO.1" href="#PO.1">(PO.1)</a></span><span>: Ensure that security requirements for software development are known at all times so that they can be taken into account throughout the SDLC and duplication of effort can be minimized because the requirements information can be collected once and shared. This includes requirements from internal sources (e.g., the organization’s policies, business objectives, and risk management strategy) and external sources (e.g., applicable laws and regulations).</span></div></td>
-<td><span><a id="PO.1.1" href="#PO.1.1">PO.1.1</span><span>:</a> Identify and document all security requirements for the organization’s software development infrastructures and processes, and maintain the requirements over time.</span></td>
-<td>Example 1: Define policies for securing software development infrastructures and their components, including development endpoints, throughout the SDLC and maintaining that security.<br/>Example 2: Define policies for securing software development processes throughout the SDLC and maintaining that security, including for open-source and other third-party software components utilized by software being developed.<br/>Example 3: Review and update security requirements at least annually, or sooner if there are new requirements from internal or external sources, or a major security incident targeting software development infrastructure has occurred.<br/>Example 4: Educate affected individuals on impending changes to requirements.</td>
-<td><span>BSAFSS</span><span>: SM.3, DE.1, IA.1, IA.2<br/></span><span>BSIMM</span><span>: CP1.1, CP1.3, SR1.1, SR2.2, SE1.2, SE2.6<br/></span><span>EO14028</span><span>: 4e(ix)<br/></span><span>IEC62443</span><span>: SM-7, SM-9<br/></span><span>NISTCSF</span><span>: ID.GV-3<br/></span><span>OWASPASVS</span><span>: 1.1.1<br/></span><span>OWASPMASVS</span><span>: 1.10<br/></span><span>OWASPSAMM</span><span>: PC1-A, PC1-B, PC2-A<br/></span><span>PCISSLC</span><span>: 2.1, 2.2<br/></span><span>SCFPSSD</span><span>: Planning the Implementation and Deployment of Secure Development Practices<br/></span><span>SP80053</span><span>: SA-1, SA-8, SA-15, SR-3<br/></span><span>SP800160</span><span>: 3.1.2, 3.2.1, 3.2.2, 3.3.1, 3.4.2, 3.4.3<br/></span><span>SP800161</span><span>: SA-1, SA-8, SA-15, SR-3<br/></span><span>SP800181</span><span>: T0414; K0003, K0039, K0044, K0157, K0168, K0177, K0211, K0260, K0261, K0262, K0524; S0010, S0357, S0368; A0033, A0123, A0151</span></td>
-</tr>
-<tr>
-<td><span><a id="PO.1.2" href="#PO.1.2">PO.1.2</span><span>:</a> Identify and document all security requirements for organization-developed software to meet, and maintain the requirements over time.</span></td>
-<td>Example 1: Define policies that specify risk-based software architecture and design requirements, such as making code modular to facilitate code reuse and updates; isolating security components from other components during execution; avoiding undocumented commands and settings; and providing features that will aid software acquirers with the secure deployment, operation, and maintenance of the software.<br/>Example 2: Define policies that specify the security requirements for the organization’s software, and verify compliance at key points in the SDLC (e.g., classes of software flaws verified by gates, responses to vulnerabilities discovered in released software).<br/>Example 3: Analyze the risk of applicable technology stacks (e.g., languages, environments, deployment models), and recommend or require the use of stacks that will reduce risk compared to others.<br/>Example 4: Define policies that specify what needs to be archived for each software release (e.g., code, package files, third-party libraries, documentation, data inventory) and how long it needs to be retained based on the SDLC model, software end-of-life, and other factors.<br/>Example 5: Ensure that policies cover the entire software life cycle, including notifying users of the impending end of software support and the date of software end-of-life.<br/>Example 6: Review all security requirements at least annually, or sooner if there are new requirements from internal or external sources, a major vulnerability is discovered in released software, or a major security incident targeting organization-developed software has occurred.<br/>Example 7: Establish and follow processes for handling requirement exception requests, including periodic reviews of all approved exceptions.</td>
-<td><span>BSAFSS</span><span>: SC.1-1, SC.2, PD.1-1, PD.1-2, PD.1-3, PD.2-2, SI, PA, CS, AA, LO, EE<br/></span><span>BSIMM</span><span>: SM1.1, SM1.4, SM2.2, CP1.1, CP1.2, CP1.3, CP2.1, CP2.3, AM1.2, SFD1.1, SFD2.1, SFD3.2, SR1.1, SR1.3, SR2.2, SR3.3, SR3.4<br/></span><span>EO14028</span><span>: 4e(ix)<br/></span><span>IEC62443</span><span>: SR-3, SR-4, SR-5, SD-4<br/></span><span>ISO27034</span><span>: 7.3.2<br/></span><span>MSSDL</span><span>: 2, 5<br/></span><span>NISTCSF</span><span>: ID.GV-3<br/></span><span>OWASPMASVS</span><span>: 1.12<br/></span><span>OWASPSAMM</span><span>: PC1-A, PC1-B, PC2-A, PC3-A, SR1-A, SR1-B, SR2-B, SA1-B, IR1-A<br/></span><span>PCISSLC</span><span>: 2.1, 2.2, 2.3, 3.3<br/></span><span>SCFPSSD</span><span>: Establish Coding Standards and Conventions<br/></span><span>SP80053</span><span>: SA-8, SA-8(3), SA-15, SR-3<br/></span><span>SP800160</span><span>: 3.1.2, 3.2.1, 3.3.1<br/></span><span>SP800161</span><span>: SA-8, SA-15, SR-3<br/></span><span>SP800181</span><span>: T0414; K0003, K0039, K0044, K0157, K0168, K0177, K0211, K0260, K0261, K0262, K0524; S0010, S0357, S0368; A0033, A0123, A0151</span></td>
-</tr>
-<tr>
-<td><span><a id="PO.1.3" href="#PO.1.3">PO.1.3</span><span>:</a> Communicate requirements to all third parties who will provide commercial software components to the organization for reuse by the organization’s own software. [Formerly PW.3.1]</span></td>
-<td>Example 1: Define a core set of security requirements for software components, and include it in acquisition documents, software contracts, and other agreements with third parties.<br/>Example 2: Define security-related criteria for selecting software; the criteria can include the third party’s vulnerability disclosure program and product security incident response capabilities or the third party’s adherence to organization-defined practices.<br/>Example 3: Require third parties to attest that their software complies with the organization’s security requirements.<br/>Example 4: Require third parties to provide provenance data and integrity verification mechanisms for all components of their software.<br/>Example 5: Establish and follow processes to address risk when there are security requirements that third-party software components to be acquired do not meet; this should include periodic reviews of all approved exceptions to requirements.</td>
-<td><span>BSAFSS</span><span>: SM.1, SM.2, SM.2-1, SM.2-4<br/></span><span>BSIMM</span><span>: CP2.4, CP3.2, SR2.5, SR3.2<br/></span><span>EO14028</span><span>: 4e(vi), 4e(ix)<br/></span><span>IDASOAR</span><span>: 19, 21<br/></span><span>IEC62443</span><span>: SM-9, SM-10<br/></span><span>MSSDL</span><span>: 7<br/></span><span>NISTCSF</span><span>: ID.SC-3<br/></span><span>OWASPSAMM</span><span>: SR3-A<br/></span><span>SCAGILE</span><span>: Tasks Requiring the Help of Security Experts 8<br/></span><span>SCFPSSD</span><span>: Manage Security Risk Inherent in the Use of Third-Party Components<br/></span><span>SCSIC</span><span>: Vendor Sourcing Integrity Controls<br/></span><span>SP80053</span><span>: SA-4, SA-9, SA-10, SA-10(1), SA-15, SR-3, SR-4, SR-5<br/></span><span>SP800160</span><span>: 3.1.1, 3.1.2<br/></span><span>SP800161</span><span>: SA-4, SA-9, SA-9(1), SA-9(3), SA-10, SA-10(1), SA-15, SR-3, SR-4, SR-5<br/></span><span>SP800181</span><span>: T0203, T0415; K0039; S0374; A0056, A0161</span></td>
-</tr>
-<tr>
-<td colspan="1" rowspan="3"><div><span>Implement Roles and Responsibilities <a id="PO.2" href="#PO.2">(PO.2)</a></span><span>: Ensure that everyone inside and outside of the organization involved in the SDLC is prepared to perform their SDLC-related roles and responsibilities throughout the SDLC.</span></div></td>
-<td><span><a id="PO.2.1" href="#PO.2.1">PO.2.1</span><span>:</a> Create new roles and alter responsibilities for existing roles as needed to encompass all parts of the SDLC. Periodically review and maintain the defined roles and responsibilities, updating them as needed.</span></td>
-<td>Example 1: Define SDLC-related roles and responsibilities for all members of the software development team.<br/>Example 2: Integrate the security roles into the software development team.<br/>Example 3: Define roles and responsibilities for cybersecurity staff, security champions, project managers and leads, senior management, software developers, software testers, software assurance leads and staff, product owners, operations and platform engineers, and others involved in the SDLC.<br/>Example 4: Conduct an annual review of all roles and responsibilities.<br/>Example 5: Educate affected individuals on impending changes to roles and responsibilities, and confirm that the individuals understand the changes and agree to follow them.<br/>Example 6: Implement and use tools and processes to promote communication and engagement among individuals with SDLC-related roles and responsibilities, such as creating messaging channels for team discussions.<br/>Example 7: Designate a group of individuals or a team as the code owner for each project.</td>
-<td><span>BSAFSS</span><span>: PD.2-1, PD.2-2<br/></span><span>BSIMM</span><span>: SM1.1, SM2.3, SM2.7, CR1.7<br/></span><span>EO14028</span><span>: 4e(ix)<br/></span><span>IEC62443</span><span>: SM-2, SM-13<br/></span><span>NISTCSF</span><span>: ID.AM-6, ID.GV-2<br/></span><span>PCISSLC</span><span>: 1.2<br/></span><span>SCSIC</span><span>: Vendor Software Development Integrity Controls<br/></span><span>SP80053</span><span>: SA-3<br/></span><span>SP800160</span><span>: 3.2.1, 3.2.4, 3.3.1<br/></span><span>SP800161</span><span>: SA-3<br/></span><span>SP800181</span><span>: K0233</span></td>
-</tr>
-<tr>
-<td><span><a id="PO.2.2" href="#PO.2.2">PO.2.2</span><span>:</a> Provide role-based training for all personnel with responsibilities that contribute to secure development. Periodically review personnel proficiency and role-based training, and update the training as needed.</span></td>
-<td>Example 1: Document the desired outcomes of training for each role.<br/>Example 2: Define the type of training or curriculum required to achieve the desired outcome for each role.<br/>Example 3: Create a training plan for each role.<br/>Example 4: Acquire or create training for each role; acquired training may need to be customized for the organization.<br/>Example 5: Measure outcome performance to identify areas where changes to training may be beneficial.</td>
-<td><span>BSAFSS</span><span>: PD.2-2<br/></span><span>BSIMM</span><span>: T1.1, T1.7, T1.8, T2.5, T2.8, T2.9, T3.1, T3.2, T3.4<br/></span><span>EO14028</span><span>: 4e(ix)<br/></span><span>IEC62443</span><span>: SM-4<br/></span><span>MSSDL</span><span>: 1<br/></span><span>NISTCSF</span><span>: PR.AT<br/></span><span>OWASPSAMM</span><span>: EG1-A, EG2-A<br/></span><span>PCISSLC</span><span>: 1.3<br/></span><span>SCAGILE</span><span>: Operational Security Tasks 14, 15; Tasks Requiring the Help of Security Experts 1<br/></span><span>SCFPSSD</span><span>: Planning the Implementation and Deployment of Secure Development Practices<br/></span><span>SCSIC</span><span>: Vendor Software Development Integrity Controls<br/></span><span>SP80053</span><span>: SA-8<br/></span><span>SP800160</span><span>: 3.2.4, 3.2.6<br/></span><span>SP800161</span><span>: SA-8<br/></span><span>SP800181</span><span>: OV-TEA-001, OV-TEA-002; T0030, T0073, T0320; K0204, K0208, K0220, K0226, K0243, K0245, K0252; S0100, S0101; A0004, A0057</span></td>
-</tr>
-<tr>
-<td><span><a id="PO.2.3" href="#PO.2.3">PO.2.3</span><span>:</a> Obtain upper management or authorizing official commitment to secure development, and convey that commitment to all with development-related roles and responsibilities.</span></td>
-<td>Example 1: Appoint a single leader or leadership team to be responsible for the entire secure software development process, including being accountable for releasing software to production and delegating responsibilities as appropriate.<br/>Example 2: Increase authorizing officials’ awareness of the risks of developing software without integrating security throughout the development life cycle and the risk mitigation provided by secure development practices.<br/>Example 3: Assist upper management in incorporating secure development support into their communications with personnel with development-related roles and responsibilities.<br/>Example 4: Educate all personnel with development-related roles and responsibilities on upper management’s commitment to secure development and the importance of secure development to the organization.</td>
-<td><span>BSIMM</span><span>: SM1.3, SM2.7, CP2.5<br/></span><span>EO14028</span><span>: 4e(ix)<br/></span><span>NISTCSF</span><span>: ID.RM-1, ID.SC-1<br/></span><span>OWASPSAMM</span><span>: SM1.A<br/></span><span>PCISSLC</span><span>: 1.1<br/></span><span>SP800181</span><span>: T0001, T0004</span></td>
-</tr>
-<tr>
-<td colspan="1" rowspan="3"><div><span>Implement Supporting Toolchains <a id="PO.3" href="#PO.3">(PO.3)</a></span><span>: Use automation to reduce human effort and improve the accuracy, reproducibility, usability, and comprehensiveness of security practices throughout the SDLC, as well as provide a way to document and demonstrate the use of these practices. Toolchains and tools may be used at different levels of the organization, such as organization-wide or project-specific, and may address a particular part of the SDLC, like a build pipeline.</span></div></td>
-<td><span><a id="PO.3.1" href="#PO.3.1">PO.3.1</span><span>:</a> Specify which tools or tool types must or should be included in each toolchain to mitigate identified risks, as well as how the toolchain components are to be integrated with each other.</span></td>
-<td>Example 1: Define categories of toolchains, and specify the mandatory tools or tool types to be used for each category.<br/>Example 2: Identify security tools to integrate into the developer toolchain.<br/>Example 3: Define what information is to be passed between tools and what data formats are to be used.<br/>Example 4: Evaluate tools’ signing capabilities to create immutable records/logs for auditability within the toolchain.<br/>Example 5: Use automated technology for toolchain management and orchestration.</td>
-<td><span>BSIMM</span><span>: CR1.4, ST1.4, ST2.5, SE2.7<br/></span><span>CNCFSSCP</span><span>: Securing Materials—Verification; Securing Build Pipelines—Verification, Automation, Secure Authentication/Access; Securing Artefacts—Verification; Securing Deployments—Verification<br/></span><span>EO14028</span><span>: 4e(iii), 4e(ix)<br/></span><span>MSSDL</span><span>: 8<br/></span><span>OWASPSAMM</span><span>: IR2-B, ST2-B<br/></span><span>SCAGILE</span><span>: Tasks Requiring the Help of Security Experts 9<br/></span><span>SCSIC</span><span>: Vendor Software Delivery Integrity Controls<br/></span><span>SP80053</span><span>: SA-15<br/></span><span>SP800161</span><span>: SA-15<br/></span><span>SP800181</span><span>: K0013, K0178</span></td>
-</tr>
-<tr>
-<td><span><a id="PO.3.2" href="#PO.3.2">PO.3.2</span><span>:</a> Follow recommended security practices to deploy, operate, and maintain tools and toolchains.</span></td>
-<td>Example 1: Evaluate, select, and acquire tools, and assess the security of each tool.<br/>Example 2: Integrate tools with other tools and existing software development processes and workflows.<br/>Example 3: Use code-based configuration for toolchains (e.g., pipelines-as-code, toolchains-as-code).<br/>Example 4: Implement the technologies and processes needed for reproducible builds.<br/>Example 5: Update, upgrade, or replace tools as needed to address tool vulnerabilities or add new tool capabilities.<br/>Example 6: Continuously monitor tools and tool logs for potential operational and security issues, including policy violations and anomalous behavior.<br/>Example 7: Regularly verify the integrity and check the provenance of each tool to identify potential problems.<br/>Example 8: See PW.6 regarding compiler, interpreter, and build tools.<br/>Example 9: See PO.5 regarding implementing and maintaining secure environments.</td>
-<td><span>BSAFSS</span><span>: DE.2<br/></span><span>BSIMM</span><span>: SR1.1, SR1.3, SR3.4<br/></span><span>CNCFSSCP</span><span>: Securing Build Pipelines—Verification, Automation, Controlled Environments, Secure Authentication/Access; Securing Artefacts—Verification, Automation, Controlled Environments, Encryption; Securing Deployments—Verification, Automation<br/></span><span>EO14028</span><span>: 4e(i)(F), 4e(ii), 4e(iii), 4e(v), 4e(vi), 4e(ix)<br/></span><span>IEC62443</span><span>: SM-7<br/></span><span>IR8397</span><span>: 2.2<br/></span><span>OWASPASVS</span><span>: 1.14.3, 1.14.4, 14.1, 14.2<br/></span><span>OWASPMASVS</span><span>: 7.9<br/></span><span>OWASPSCVS</span><span>: 3, 5<br/></span><span>SCAGILE</span><span>: Tasks Requiring the Help of Security Experts 9<br/></span><span>SCFPSSD</span><span>: Use Current Compiler and Toolchain Versions and Secure Compiler Options<br/></span><span>SCSIC</span><span>: Vendor Software Delivery Integrity Controls<br/></span><span>SP80053</span><span>: SA-15<br/></span><span>SP800161</span><span>: SA-15<br/></span><span>SP800181</span><span>: K0013, K0178</span></td>
-</tr>
-<tr>
-<td><span><a id="PO.3.3" href="#PO.3.3">PO.3.3</span><span>:</a> Configure tools to generate artifacts of their support of secure software development practices as defined by the organization.</span></td>
-<td>Example 1: Use existing tooling (e.g., workflow tracking, issue tracking, value stream mapping) to create an audit trail of the secure development-related actions that are performed for continuous improvement purposes.<br/>Example 2: Determine how often the collected information should be audited, and implement the necessary processes.<br/>Example 3: Establish and enforce security and retention policies for artifact data.<br/>Example 4: Assign responsibility for creating any needed artifacts that tools cannot generate.</td>
-<td><span>BSAFSS</span><span>: PD.1-5<br/></span><span>BSIMM</span><span>: SM1.4, SM3.4, SR1.3<br/></span><span>CNCFSSCP</span><span>: Securing Build Pipelines—Verification, Automation, Controlled Environments; Securing Artefacts—Verification<br/></span><span>EO14028</span><span>: 4e(i)(F), 4e(ii), 4e(v), 4e(ix)<br/></span><span>IEC62443</span><span>: SM-12, SI-2<br/></span><span>MSSDL</span><span>: 8<br/></span><span>OWASPSAMM</span><span>: PC3-B<br/></span><span>OWASPSCVS</span><span>: 3.13, 3.14<br/></span><span>PCISSLC</span><span>: 2.5<br/></span><span>SCAGILE</span><span>: Tasks Requiring the Help of Security Experts 9<br/></span><span>SCSIC</span><span>: Vendor Software Delivery Integrity Controls<br/></span><span>SP80053</span><span>: SA-15<br/></span><span>SP800161</span><span>: SA-15<br/></span><span>SP800181</span><span>: K0013; T0024</span></td>
-</tr>
-<tr>
-<td colspan="1" rowspan="2"><div><span>Define and Use Criteria for Software Security Checks <a id="PO.4" href="#PO.4">(PO.4)</a></span><span>: Help ensure that the software resulting from the SDLC meets the organization’s expectations by defining and using criteria for checking the software’s security during development.</span></div></td>
-<td><span><a id="PO.4.1" href="#PO.4.1">PO.4.1</span><span>:</a> Define criteria for software security checks and track throughout the SDLC.</span></td>
-<td>Example 1: Ensure that the criteria adequately indicate how effectively security risk is being managed.<br/>Example 2: Define key performance indicators (KPIs), key risk indicators (KRIs), vulnerability severity scores, and other measures for software security.<br/>Example 3: Add software security criteria to existing checks (e.g., the Definition of Done in agile SDLC methodologies).<br/>Example 4: Review the artifacts generated as part of the software development workflow system to determine if they meet the criteria.<br/>Example 5: Record security check approvals, rejections, and exception requests as part of the workflow and tracking system.<br/>Example 6: Analyze collected data in the context of the security successes and failures of each development project, and use the results to improve the SDLC.</td>
-<td><span>BSAFSS</span><span>: TV.2-1, TV.5-1<br/></span><span>BSIMM</span><span>: SM1.4, SM2.1, SM2.2, SM2.6, SM3.3, CP2.2<br/></span><span>EO14028</span><span>: 4e(iv), 4e(v), 4e(ix)<br/></span><span>IEC62443</span><span>: SI-1, SI-2, SVV-3<br/></span><span>ISO27034</span><span>: 7.3.5<br/></span><span>MSSDL</span><span>: 3<br/></span><span>OWASPSAMM</span><span>: PC3-A, DR3-B, IR3-B, ST3-B<br/></span><span>PCISSLC</span><span>: 3.3<br/></span><span>SP80053</span><span>: SA-15, SA-15(1)<br/></span><span>SP800160</span><span>: 3.2.1, 3.2.5, 3.3.1<br/></span><span>SP800161</span><span>: SA-15, SA-15(1)<br/></span><span>SP800181</span><span>: K0153, K0165</span></td>
-</tr>
-<tr>
-<td><span><a id="PO.4.2" href="#PO.4.2">PO.4.2</span><span>:</a> Implement processes, mechanisms, etc. to gather and safeguard the necessary information in support of the criteria.</span></td>
-<td>Example 1: Use the toolchain to automatically gather information that informs security decision-making.<br/>Example 2: Deploy additional tools if needed to support the generation and collection of information supporting the criteria.<br/>Example 3: Automate decision-making processes utilizing the criteria, and periodically review these processes.<br/>Example 4: Only allow authorized personnel to access the gathered information, and prevent any alteration or deletion of the information.</td>
-<td><span>BSAFSS</span><span>: PD.1-4, PD.1-5<br/></span><span>BSIMM</span><span>: SM1.4, SM2.1, SM2.2, SM3.4<br/></span><span>EO14028</span><span>: 4e(iv), 4e(v), 4e(ix)<br/></span><span>IEC62443</span><span>: SI-1, SVV-1, SVV-2, SVV-3, SVV-4<br/></span><span>OWASPSAMM</span><span>: PC3-B<br/></span><span>PCISSLC</span><span>: 2.5<br/></span><span>SCSIC</span><span>: Vendor Software Delivery Integrity Controls<br/></span><span>SP80053</span><span>: SA-15, SA-15(1), SA-15(11)<br/></span><span>SP800160</span><span>: 3.2.5, 3.3.7<br/></span><span>SP800161</span><span>: SA-15, SA-15(1), SA-15(11)<br/></span><span>SP800181</span><span>: T0349; K0153</span></td>
-</tr>
-<tr>
-<td colspan="1" rowspan="2"><div><span>Implement and Maintain Secure Environments for Software Development <a id="PO.5" href="#PO.5">(PO.5)</a></span><span>: Ensure that all components of the environments for software development are strongly protected from internal and external threats to prevent compromises of the environments or the software being developed or maintained within them. Examples of environments for software development include development, build, test, and distribution environments.</span></div></td>
-<td><span><a id="PO.5.1" href="#PO.5.1">PO.5.1</span><span>:</a> Separate and protect each environment involved in software development.</span></td>
-<td>Example 1: Use multi-factor, risk-based authentication and conditional access for each environment.<br/>Example 2: Use network segmentation and access controls to separate the environments from each other and from production environments, and to separate components from each other within each non-production environment, in order to reduce attack surfaces and attackers’ lateral movement and privilege/access escalation.<br/>Example 3: Enforce authentication and tightly restrict connections entering and exiting each software development environment, including minimizing access to the internet to only what is necessary.<br/>Example 4: Minimize direct human access to toolchain systems, such as build services. Continuously monitor and audit all access attempts and all use of privileged access.<br/>Example 5: Minimize the use of production-environment software and services from non-production environments.<br/>Example 6: Regularly log, monitor, and audit trust relationships for authorization and access between the environments and between the components within each environment.<br/>Example 7: Continuously log and monitor operations and alerts across all components of the development environment to detect, respond, and recover from attempted and actual cyber incidents.<br/>Example 8: Configure security controls and other tools involved in separating and protecting the environments to generate artifacts for their activities.<br/>Example 9: Continuously monitor all software deployed in each environment for new vulnerabilities, and respond to vulnerabilities appropriately following a risk-based approach.<br/>Example 10: Configure and implement measures to secure the environments’ hosting infrastructures following a zero trust architecture.</td>
-<td><span>BSAFSS</span><span>: DE.1, IA.1, IA.2<br/></span><span>CNCFSSCP</span><span>: Securing Build Pipelines—Controlled Environments<br/></span><span>EO14028</span><span>: 4e(i)(A), 4e(i)(B), 4e(i)(C), 4e(i)(D), 4e(i)(F), 4e(ii), 4e(iii), 4e(v), 4e(vi), 4e(ix)<br/></span><span>IEC62443</span><span>: SM-7<br/></span><span>NISTCSF</span><span>: PR.AC-5, PR.DS-7<br/></span><span>SCAGILE</span><span>: Tasks Requiring the Help of Security Experts 11<br/></span><span>SCSIC</span><span>: Vendor Software Delivery Integrity Controls<br/></span><span>SP80053</span><span>: SA-3(1), SA-8, SA-15<br/></span><span>SP800161</span><span>: SA-3, SA-8, SA-15<br/></span><span>SP800181</span><span>: OM-NET-001, SP-SYS-001; T0019, T0023, T0144, T0160, T0262, T0438, T0484, T0485, T0553; K0001, K0005, K0007, K0033, K0049, K0056, K0061, K0071, K0104, K0112, K0179, K0326, K0487; S0007, S0084, S0121; A0048</span></td>
-</tr>
-<tr>
-<td><span><a id="PO.5.2" href="#PO.5.2">PO.5.2</span><span>:</a> Secure and harden development endpoints (i.e., endpoints for software designers, developers, testers, builders, etc.) to perform development-related tasks using a risk-based approach.</span></td>
-<td>Example 1: Configure each development endpoint based on approved hardening guides, checklists, etc.; for example, enable FIPS-compliant encryption of all sensitive data at rest and in transit.<br/>Example 2: Configure each development endpoint and the development resources to provide the least functionality needed by users and services and to enforce the principle of least privilege.<br/>Example 3: Continuously monitor the security posture of all development endpoints, including monitoring and auditing all use of privileged access.<br/>Example 4: Configure security controls and other tools involved in securing and hardening development endpoints to generate artifacts for their activities.<br/>Example 5: Require multi-factor authentication for all access to development endpoints and development resources.<br/>Example 6: Provide dedicated development endpoints on non-production networks for performing all development-related tasks. Provide separate endpoints on production networks for all other tasks.<br/>Example 7: Configure each development endpoint following a zero trust architecture.</td>
-<td><span>BSAFSS</span><span>: DE.1-1, IA.1, IA.2<br/></span><span>EO14028</span><span>: 4e(i)(C), 4e(i)(E), 4e(i)(F), 4e(ii), 4e(iii), 4e(v), 4e(vi), 4e(ix)<br/></span><span>IEC62443</span><span>: SM-7<br/></span><span>NISTCSF</span><span>: PR.AC-4, PR.AC-7, PR.IP-1, PR.IP-3, PR.IP-12, PR.PT-1, PR.PT-3, DE.CM<br/></span><span>SCAGILE</span><span>: Tasks Requiring the Help of Security Experts 11<br/></span><span>SCSIC</span><span>: Vendor Software Delivery Integrity Controls<br/></span><span>SP80053</span><span>: SA-15<br/></span><span>SP800161</span><span>: SA-15<br/></span><span>SP800181</span><span>: OM-ADM-001, SP-SYS-001; T0484, T0485, T0489, T0553; K0005, K0007, K0077, K0088, K0130, K0167, K0205, K0275; S0076, S0097, S0121, S0158; A0155</span></td>
-</tr>
-<tr>
-<td><span>Protect All Forms of Code from Unauthorized Access and Tampering <a id="PS.1" href="#PS.1">(PS.1)</a></span><span>: Help prevent unauthorized changes to code, both inadvertent and intentional, which could circumvent or negate the intended security characteristics of the software. For code that is not intended to be publicly accessible, this helps prevent theft of the software and may make it more difficult or time-consuming for attackers to find vulnerabilities in the software.</span></td>
-<td><span><a id="PS.1.1" href="#PS.1.1">PS.1.1</span><span>:</a> Store all forms of code – including source code, executable code, and configuration-as-code – based on the principle of least privilege so that only authorized personnel, tools, services, etc. have access.</span></td>
-<td>Example 1: Store all source code and configuration-as-code in a code repository, and restrict access to it based on the nature of the code. For example, open-source code intended for public access may need its integrity and availability protected; other code may also need its confidentiality protected.<br/>Example 2: Use version control features of the repository to track all changes made to the code with accountability to the individual account.<br/>Example 3: Use commit signing for code repositories.<br/>Example 4: Have the code owner review and approve all changes made to the code by others.<br/>Example 5: Use code signing to help protect the integrity of executables.<br/>Example 6: Use cryptography (e.g., cryptographic hashes) to help protect file integrity.</td>
-<td><span>BSAFSS</span><span>: IA.1, IA.2, SM.4-1, DE.1-2<br/></span><span>BSIMM</span><span>: SE2.4<br/></span><span>CNCFSSCP</span><span>: Securing the Source Code—Verification, Automation, Controlled Environments, Secure Authentication; Securing Materials—Automation<br/></span><span>EO14028</span><span>: 4e(iii), 4e(iv), 4e(ix)<br/></span><span>IDASOAR</span><span>: Fact Sheet 25<br/></span><span>IEC62443</span><span>: SM-6, SM-7, SM-8<br/></span><span>NISTCSF</span><span>: PR.AC-4, PR.DS-6, PR.IP-3<br/></span><span>OWASPASVS</span><span>: 1.10, 10.3.2<br/></span><span>OWASPMASVS</span><span>: 7.1<br/></span><span>OWASPSAMM</span><span>: OE3-B<br/></span><span>PCISSLC</span><span>: 5.1, 6.1<br/></span><span>SCSIC</span><span>: Vendor Software Delivery Integrity Controls, Vendor Software Development Integrity Controls<br/></span><span>SP80053</span><span>: SA-10<br/></span><span>SP800161</span><span>: SA-8, SA-10</span></td>
-</tr>
-<tr>
-<td><span>Provide a Mechanism for Verifying Software Release Integrity <a id="PS.2" href="#PS.2">(PS.2)</a></span><span>: Help software acquirers ensure that the software they acquire is legitimate and has not been tampered with.</span></td>
-<td><span><a id="PS.2.1" href="#PS.2.1">PS.2.1</span><span>:</a> Make software integrity verification information available to software acquirers.</span></td>
-<td>Example 1: Post cryptographic hashes for release files on a well-secured website.<br/>Example 2: Use an established certificate authority for code signing so that consumers’ operating systems or other tools and services can confirm the validity of signatures before use.<br/>Example 3: Periodically review the code signing processes, including certificate renewal, rotation, revocation, and protection.</td>
-<td><span>BSAFSS</span><span>: SM.4, SM.5, SM.6<br/></span><span>BSIMM</span><span>: SE2.4<br/></span><span>CNCFSSCP</span><span>: Securing Deployments—Verification<br/></span><span>EO14028</span><span>: 4e(iii), 4e(ix), 4e(x)<br/></span><span>IEC62443</span><span>: SM-6, SM-8, SUM-4<br/></span><span>NISTCSF</span><span>: PR.DS-6<br/></span><span>NISTLABEL</span><span>: 2.2.2.4<br/></span><span>OWASPSAMM</span><span>: OE3-B<br/></span><span>OWASPSCVS</span><span>: 4<br/></span><span>PCISSLC</span><span>: 6.1, 6.2<br/></span><span>SCSIC</span><span>: Vendor Software Delivery Integrity Controls<br/></span><span>SP80053</span><span>: SA-8<br/></span><span>SP800161</span><span>: SA-8<br/></span><span>SP800181</span><span>: K0178</span></td>
-</tr>
-<tr>
-<td colspan="1" rowspan="2"><div><span>Archive and Protect Each Software Release <a id="PS.3" href="#PS.3">(PS.3)</a></span><span>: Preserve software releases in order to help identify, analyze, and eliminate vulnerabilities discovered in the software after release.</span></div></td>
-<td><span><a id="PS.3.1" href="#PS.3.1">PS.3.1</span><span>:</a> Securely archive the necessary files and supporting data (e.g., integrity verification information, provenance data) to be retained for each software release.</span></td>
-<td>Example 1: Store the release files, associated images, etc. in repositories following the organization’s established policy. Allow read-only access to them by necessary personnel and no access by anyone else.<br/>Example 2: Store and protect release integrity verification information and provenance data, such as by keeping it in a separate location from the release files or by signing the data.</td>
-<td><span>BSAFSS</span><span>: PD.1-5, DE.1-2, IA.2<br/></span><span>CNCFSSCP</span><span>: Securing Artefacts—Automation, Controlled Environments, Encryption; Securing Deployments—Verification<br/></span><span>EO14028</span><span>: 4e(iii), 4e(vi), 4e(ix), 4e(x)<br/></span><span>IDASOAR</span><span>: 25<br/></span><span>IEC62443</span><span>: SM-6, SM-7<br/></span><span>NISTCSF</span><span>: PR.IP-4<br/></span><span>OWASPSCVS</span><span>: 1, 3.18, 3.19, 6.3<br/></span><span>PCISSLC</span><span>: 5.2, 6.1, 6.2<br/></span><span>SCSIC</span><span>: Vendor Software Delivery Integrity Controls<br/></span><span>SP80053</span><span>: SA-10, SA-15, SA-15(11), SR-4<br/></span><span>SP800161</span><span>: SA-8, SA-10, SA-15(11), SR-4</span></td>
-</tr>
-<tr>
-<td><span><a id="PS.3.2" href="#PS.3.2">PS.3.2</span><span>:</a> Collect, safeguard, maintain, and share provenance data for all components of each software release (e.g., in a software bill of materials [SBOM]).</span></td>
-<td>Example 1: Make the provenance data available to software acquirers in accordance with the organization’s policies, preferably using standards-based formats.<br/>Example 2: Make the provenance data available to the organization’s operations and response teams to aid them in mitigating software vulnerabilities.<br/>Example 3: Protect the integrity of provenance data, and provide a way for recipients to verify provenance data integrity.<br/>Example 4: Update the provenance data every time any of the software’s components are updated.</td>
-<td><span>BSAFSS</span><span>: SM.2<br/></span><span>BSIMM</span><span>: SE3.6<br/></span><span>CNCFSSCP</span><span>: Securing Materials—Verification, Automation<br/></span><span>EO14028</span><span>: 4e(vi), 4e(vii), 4e(ix), 4e(x)<br/></span><span>NTIASBOM</span><span>: All<br/></span><span>OWASPSCVS</span><span>: 1.4, 2<br/></span><span>SCSIC</span><span>: Vendor Software Delivery Integrity Controls<br/></span><span>SCTPC</span><span>: MAINTAIN3<br/></span><span>SP80053</span><span>: SA-8, SR-3, SR-4<br/></span><span>SP800161</span><span>: SA-8, SR-3, SR-4</span></td>
-</tr>
-<tr>
-<td colspan="1" rowspan="3"><div><span>Design Software to Meet Security Requirements and Mitigate Security Risks <a id="PW.1" href="#PW.1">(PW.1)</a></span><span>: Identify and evaluate the security requirements for the software; determine what security risks the software is likely to face during operation and how the software’s design and architecture should mitigate those risks; and justify any cases where risk-based analysis indicates that security requirements should be relaxed or waived. Addressing security requirements and risks during software design (secure by design) is key for improving software security and also helps improve development efficiency.</span></div></td>
-<td><span><a id="PW.1.1" href="#PW.1.1">PW.1.1</span><span>:</a> Use forms of risk modeling – such as threat modeling, attack modeling, or attack surface mapping – to help assess the security risk for the software.</span></td>
-<td>Example 1: Train the development team (security champions, in particular) or collaborate with a risk modeling expert to create models and analyze how to use a risk-based approach to communicate the risks and determine how to address them, including implementing mitigations.<br/>Example 2: Perform more rigorous assessments for high-risk areas, such as protecting sensitive data and safeguarding identification, authentication, and access control, including credential management.<br/>Example 3: Review vulnerability reports and statistics for previous software to inform the security risk assessment.<br/>Example 4: Use data classification methods to identify and characterize each type of data that the software will interact with.</td>
-<td><span>BSAFSS</span><span>: SC.1<br/></span><span>BSIMM</span><span>: AM1.2, AM1.3, AM1.5, AM2.1, AM2.2, AM2.5, AM2.6, AM2.7, SFD2.2, AA1.1, AA1.2, AA1.3, AA2.1<br/></span><span>EO14028</span><span>: 4e(ix)<br/></span><span>IDASOAR</span><span>: 1<br/></span><span>IEC62443</span><span>: SM-4, SR-1, SR-2, SD-1<br/></span><span>IR8397</span><span>: 2.1<br/></span><span>ISO27034</span><span>: 7.3.3<br/></span><span>MSSDL</span><span>: 4<br/></span><span>NISTCSF</span><span>: ID.RA<br/></span><span>OWASPASVS</span><span>: 1.1.2, 1.2, 1.4, 1.6, 1.8, 1.9, 1.11, 2, 3, 4, 6, 8, 9, 11, 12, 13<br/></span><span>OWASPMASVS</span><span>: 1.6, 1.8, 2, 3, 4, 5, 6<br/></span><span>OWASPSAMM</span><span>: TA1-A, TA1-B, TA3-B, DR1-A<br/></span><span>PCISSLC</span><span>: 3.2, 3.3<br/></span><span>SCAGILE</span><span>: Tasks Requiring the Help of Security Experts 3<br/></span><span>SCFPSSD</span><span>: Threat Modeling<br/></span><span>SCTTM</span><span>: Entire guide<br/></span><span>SP80053</span><span>: SA-8, SA-11(2), SA-11(6), SA-15(5)<br/></span><span>SP800160</span><span>: 3.3.4, 3.4.5<br/></span><span>SP800161</span><span>: SA-8, SA-11(2), SA-11(6), SA-15(5)<br/></span><span>SP800181</span><span>: T0038, T0062; K0005, K0009, K0038, K0039, K0070, K0080, K0119, K0147, K0149, K0151, K0152, K0160, K0161, K0162, K0165, K0297, K0310, K0344, K0362, K0487, K0624; S0006, S0009, S0022, S0078, S0171, S0229, S0248; A0092, A0093, A0107</span></td>
-</tr>
-<tr>
-<td><span><a id="PW.1.2" href="#PW.1.2">PW.1.2</span><span>:</a> Track and maintain the software’s security requirements, risks, and design decisions.</span></td>
-<td>Example 1: Record the response to each risk, including how mitigations are to be achieved and what the rationales are for any approved exceptions to the security requirements. Add any mitigations to the software’s security requirements.<br/>Example 2: Maintain records of design decisions, risk responses, and approved exceptions that can be used for auditing and maintenance purposes throughout the rest of the software life cycle.<br/>Example 3: Periodically re-evaluate all approved exceptions to the security requirements, and implement changes as needed.</td>
-<td><span>BSAFSS</span><span>: SC.1-1, PD.1-1<br/></span><span>BSIMM</span><span>: SFD3.1, SFD3.3, AA2.2, AA3.2<br/></span><span>EO14028</span><span>: 4e(v), 4e(ix)<br/></span><span>IEC62443</span><span>: SD-1<br/></span><span>ISO27034</span><span>: 7.3.3<br/></span><span>MSSDL</span><span>: 4<br/></span><span>NISTLABEL</span><span>: 2.2.2.2<br/></span><span>OWASPASVS</span><span>: 1.1.3, 1.1.4<br/></span><span>OWASPMASVS</span><span>: 1.3, 1.6<br/></span><span>OWASPSAMM</span><span>: DR1-B<br/></span><span>PCISSLC</span><span>: 3.2, 3.3<br/></span><span>SP80053</span><span>: SA-8, SA-10, SA-17<br/></span><span>SP800161</span><span>: SA-8, SA-17<br/></span><span>SP800181</span><span>: T0256; K0005, K0038, K0039, K0147, K0149, K0160, K0161, K0162, K0165, K0344, K0362, K0487; S0006, S0009, S0078, S0171, S0229, S0248; A0092, A0107</span></td>
-</tr>
-<tr>
-<td><span><a id="PW.1.3" href="#PW.1.3">PW.1.3</span><span>:</a> Where appropriate, build in support for using standardized security features and services (e.g., enabling software to integrate with existing log management, identity management, access control, and vulnerability management systems) instead of creating proprietary implementations of security features and services. [Formerly PW.4.3]</span></td>
-<td>Example 1: Maintain one or more software repositories of modules for supporting standardized security features and services.<br/>Example 2: Determine secure configurations for modules for supporting standardized security features and services, and make these configurations available (e.g., as configuration-as-code) so developers can readily use them.<br/>Example 3: Define criteria for which security features and services must be supported by software to be developed.</td>
-<td><span>BSAFSS</span><span>: SI.2-1, SI.2-2, LO.1<br/></span><span>BSIMM</span><span>: SFD1.1, SFD2.1, SFD3.2, SR1.1, SR3.4<br/></span><span>EO14028</span><span>: 4e(ix)<br/></span><span>IEC62443</span><span>: SD-1, SD-4<br/></span><span>MSSDL</span><span>: 5<br/></span><span>OWASPASVS</span><span>: 1.1.6<br/></span><span>OWASPSAMM</span><span>: SA2-A<br/></span><span>SCFPSSD</span><span>: Standardize Identity and Access Management; Establish Log Requirements and Audit Practices</span></td>
-</tr>
-<tr>
-<td><span>Review the Software Design to Verify Compliance with Security Requirements and Risk Information <a id="PW.2" href="#PW.2">(PW.2)</a></span><span>: Help ensure that the software will meet the security requirements and satisfactorily address the identified risk information.</span></td>
-<td><span><a id="PW.2.1" href="#PW.2.1">PW.2.1</span><span>:</a> Have 1) a qualified person (or people) who were not involved with the design and/or 2) automated processes instantiated in the toolchain review the software design to confirm and enforce that it meets all of the security requirements and satisfactorily addresses the identified risk information.</span></td>
-<td>Example 1: Review the software design to confirm that it addresses applicable security requirements.<br/>Example 2: Review the risk models created during software design to determine if they appear to adequately identify the risks.<br/>Example 3: Review the software design to confirm that it satisfactorily addresses the risks identified by the risk models.<br/>Example 4: Have the software’s designer correct failures to meet the requirements.<br/>Example 5: Change the design and/or the risk response strategy if the security requirements cannot be met.<br/>Example 6: Record the findings of design reviews to serve as artifacts (e.g., in the software specification, in the issue tracking system, in the threat model).</td>
-<td><span>BSAFSS</span><span>: TV.3<br/></span><span>BSIMM</span><span>: AA1.1, AA1.2, AA1.3, AA2.1, AA3.1<br/></span><span>EO14028</span><span>: 4e(iv), 4e(v), 4e(ix)<br/></span><span>IEC62443</span><span>: SM-2, SR-2, SR-5, SD-3, SD-4, SI-2<br/></span><span>ISO27034</span><span>: 7.3.3<br/></span><span>OWASPASVS</span><span>: 1.1.5<br/></span><span>OWASPSAMM</span><span>: DR1-A, DR1-B<br/></span><span>PCISSLC</span><span>: 3.2<br/></span><span>SP800181</span><span>: T0328; K0038, K0039, K0070, K0080, K0119, K0152, K0153, K0161, K0165, K0172, K0297; S0006, S0009, S0022, S0036, S0141, S0171</span></td>
-</tr>
-<tr>
-<td colspan="1" rowspan="3"><div><span>Reuse Existing, Well-Secured Software When Feasible Instead of Duplicating Functionality <a id="PW.4" href="#PW.4">(PW.4)</a></span><span>: Lower the costs of software development, expedite software development, and decrease the likelihood of introducing additional security vulnerabilities into the software by reusing software modules and services that have already had their security posture checked. This is particularly important for software that implements security functionality, such as cryptographic modules and protocols.</span></div></td>
-<td><span><a id="PW.4.1" href="#PW.4.1">PW.4.1</span><span>:</a> Acquire and maintain well-secured software components (e.g., software libraries, modules, middleware, frameworks) from commercial, open-source, and other third-party developers for use by the organization’s software.</span></td>
-<td>Example 1: Review and evaluate third-party software components in the context of their expected use. If a component is to be used in a substantially different way in the future, perform the review and evaluation again with that new context in mind.<br/>Example 2: Determine secure configurations for software components, and make these available (e.g., as configuration-as-code) so developers can readily use the configurations.<br/>Example 3: Obtain provenance information (e.g., SBOM, source composition analysis, binary software composition analysis) for each software component, and analyze that information to better assess the risk that the component may introduce.<br/>Example 4: Establish one or more software repositories to host sanctioned and vetted open-source components.<br/>Example 5: Maintain a list of organization-approved commercial software components and component versions along with their provenance data.<br/>Example 6: Designate which components must be included in software to be developed.<br/>Example 7: Implement processes to update deployed software components to newer versions, and retain older versions of software components until all transitions from those versions have been completed successfully.<br/>Example 8: If the integrity or provenance of acquired binaries cannot be confirmed, build binaries from source code after verifying the source code’s integrity and provenance.</td>
-<td><span>BSAFSS</span><span>: SM.2<br/></span><span>BSIMM</span><span>: SFD2.1, SFD3.2, SR2.4, SR3.1, SE3.6<br/></span><span>CNCFSSCP</span><span>: Securing Materials—Verification<br/></span><span>EO14028</span><span>: 4e(iii), 4e(vi), 4e(ix), 4e(x)<br/></span><span>IDASOAR</span><span>: 19<br/></span><span>IEC62443</span><span>: SM-9, SM-10<br/></span><span>MSSDL</span><span>: 6<br/></span><span>NISTCSF</span><span>: ID.SC-2<br/></span><span>OWASPASVS</span><span>: 1.1.6<br/></span><span>OWASPSAMM</span><span>: SA1-A<br/></span><span>OWASPSCVS</span><span>: 4<br/></span><span>SCSIC</span><span>: Vendor Sourcing Integrity Controls<br/></span><span>SCTPC</span><span>: MAINTAIN<br/></span><span>SP80053</span><span>: SA-4, SA-5, SA-8(3), SA-10(6), SR-3, SR-4<br/></span><span>SP800161</span><span>: SA-4, SA-5, SA-8(3), SA-10(6), SR-3, SR-4<br/></span><span>SP800181</span><span>: K0039</span></td>
-</tr>
-<tr>
-<td><span><a id="PW.4.2" href="#PW.4.2">PW.4.2</span><span>:</a> Create and maintain well-secured software components in-house following SDLC processes to meet common internal software development needs that cannot be better met by third-party software components.</span></td>
-<td>Example 1: Follow organization-established security practices for secure software development when creating and maintaining the components.<br/>Example 2: Determine secure configurations for software components, and make these available (e.g., as configuration-as-code) so developers can readily use the configurations.<br/>Example 3: Maintain one or more software repositories for these components.<br/>Example 4: Designate which components must be included in software to be developed.<br/>Example 5: Implement processes to update deployed software components to newer versions, and maintain older versions of software components until all transitions from those versions have been completed successfully.</td>
-<td><span>BSIMM</span><span>: SFD1.1, SFD2.1, SFD3.2, SR1.1<br/></span><span>EO14028</span><span>: 4e(ix)<br/></span><span>IDASOAR</span><span>: 19<br/></span><span>OWASPASVS</span><span>: 1.1.6<br/></span><span>SCTPC</span><span>: MAINTAIN<br/></span><span>SP80053</span><span>: SA-8(3)<br/></span><span>SP800161</span><span>: SA-8(3)<br/></span><span>SP800181</span><span>: SP-DEV-001</span></td>
-</tr>
-<tr>
-<td><span><a id="PW.4.4" href="#PW.4.4">PW.4.4</span><span>:</a> Verify that acquired commercial, open-source, and all other third-party software components comply with the requirements, as defined by the organization, throughout their life cycles.</span></td>
-<td>Example 1: Regularly check whether there are publicly known vulnerabilities in the software modules and services that vendors have not yet fixed.<br/>Example 2: Build into the toolchain automatic detection of known vulnerabilities in software components.<br/>Example 3: Use existing results from commercial services for vetting the software modules and services.<br/>Example 4: Ensure that each software component is still actively maintained and has not reached end of life; this should include new vulnerabilities found in the software being remediated.<br/>Example 5: Determine a plan of action for each software component that is no longer being maintained or will not be available in the near future.<br/>Example 6: Confirm the integrity of software components through digital signatures or other mechanisms.<br/>Example 7: Review, analyze, and/or test code. See PW.7 and PW.8.</td>
-<td><span>BSAFSS</span><span>: SC.3-1, SM.2-1, SM.2-2, SM.2-3, TV.2, TV.3<br/></span><span>BSIMM</span><span>: CP3.2, SR2.4, SR3.1, SR3.2, SE2.4, SE3.6<br/></span><span>CNCFSSCP</span><span>: Securing Materials—Verification, Automation<br/></span><span>EO14028</span><span>: 4e(iii), 4e(iv), 4e(vi), 4e(ix), 4e(x)<br/></span><span>IDASOAR</span><span>: 21<br/></span><span>IEC62443</span><span>: SI-1, SM-9, SM-10, DM-1<br/></span><span>IR8397</span><span>: 2.11<br/></span><span>MSSDL</span><span>: 7<br/></span><span>NISTCSF</span><span>: ID.SC-4, PR.DS-6<br/></span><span>NISTLABEL</span><span>: 2.2.2.2<br/></span><span>OWASPASVS</span><span>: 10, 14.2<br/></span><span>OWASPMASVS</span><span>: 7.5<br/></span><span>OWASPSAMM</span><span>: TA3-A, SR3-B<br/></span><span>OWASPSCVS</span><span>: 4, 5, 6<br/></span><span>PCISSLC</span><span>: 3.2, 3.4, 4.1<br/></span><span>SCAGILE</span><span>: Tasks Requiring the Help of Security Experts 8<br/></span><span>SCFPSSD</span><span>: Manage Security Risk Inherent in the Use of Third-Party Components<br/></span><span>SCSIC</span><span>: Vendor Sourcing Integrity Controls, Peer Reviews and Security Testing<br/></span><span>SCTPC</span><span>: MAINTAIN, ASSESS<br/></span><span>SP80053</span><span>: SA-9, SR-3, SR-4, SR-4(3), SR-4(4)<br/></span><span>SP800160</span><span>: 3.1.2, 3.3.8<br/></span><span>SP800161</span><span>: SA-4, SA-8, SA-9, SA-9(3), SR-3, SR-4, SR-4(3), SR-4(4)<br/></span><span>SP800181</span><span>: SP-DEV-002; K0153, K0266; S0298</span></td>
-</tr>
-<tr>
-<td><span>Create Source Code by Adhering to Secure Coding Practices <a id="PW.5" href="#PW.5">(PW.5)</a></span><span>: Decrease the number of security vulnerabilities in the software, and reduce costs by minimizing vulnerabilities introduced during source code creation that meet or exceed organization-defined vulnerability severity criteria.</span></td>
-<td><span><a id="PW.5.1" href="#PW.5.1">PW.5.1</span><span>:</a> Follow all secure coding practices that are appropriate to the development languages and environment to meet the organization’s requirements.</span></td>
-<td>Example 1: Validate all inputs, and validate and properly encode all outputs.<br/>Example 2: Avoid using unsafe functions and calls.<br/>Example 3: Detect errors, and handle them gracefully.<br/>Example 4: Provide logging and tracing capabilities.<br/>Example 5: Use development environments with automated features that encourage or require the use of secure coding practices with just-in-time training-in-place.<br/>Example 6: Follow procedures for manually ensuring compliance with secure coding practices when automated methods are insufficient or unavailable.<br/>Example 7: Use tools (e.g., linters, formatters) to standardize the style and formatting of the source code.<br/>Example 8: Check for other vulnerabilities that are common to the development languages and environment.<br/>Example 9: Have the developer review their own human-readable code to complement (not replace) code review performed by other people or tools. See PW.7.</td>
-<td><span>BSAFSS</span><span>: SC.2, SC.3, LO.1, EE.1<br/></span><span>BSIMM</span><span>: SR3.3, CR1.4, CR3.5<br/></span><span>EO14028</span><span>: 4e(iv), 4e(ix)<br/></span><span>IDASOAR</span><span>: 2<br/></span><span>IEC62443</span><span>: SI-1, SI-2<br/></span><span>ISO27034</span><span>: 7.3.5<br/></span><span>MSSDL</span><span>: 9<br/></span><span>OWASPASVS</span><span>: 1.1.7, 1.5, 1.7, 5, 7<br/></span><span>OWASPMASVS</span><span>: 7.6<br/></span><span>SCFPSSD</span><span>: Establish Log Requirements and Audit Practices, Use Code Analysis Tools to Find Security Issues Early, Handle Data Safely, Handle Errors, Use Safe Functions Only<br/></span><span>SP800181</span><span>: SP-DEV-001; T0013, T0077, T0176; K0009, K0016, K0039, K0070, K0140, K0624; S0019, S0060, S0149, S0172, S0266; A0036, A0047</span></td>
-</tr>
-<tr>
-<td colspan="1" rowspan="2"><div><span>Configure the Compilation, Interpreter, and Build Processes to Improve Executable Security <a id="PW.6" href="#PW.6">(PW.6)</a></span><span>: Decrease the number of security vulnerabilities in the software and reduce costs by eliminating vulnerabilities before testing occurs.</span></div></td>
-<td><span><a id="PW.6.1" href="#PW.6.1">PW.6.1</span><span>:</a> Use compiler, interpreter, and build tools that offer features to improve executable security.</span></td>
-<td>Example 1: Use up-to-date versions of compiler, interpreter, and build tools.<br/>Example 2: Follow change management processes when deploying or updating compiler, interpreter, and build tools, and audit all unexpected changes to tools.<br/>Example 3: Regularly validate the authenticity and integrity of compiler, interpreter, and build tools. See PO.3.</td>
-<td><span>BSAFSS</span><span>: DE.2-1<br/></span><span>BSIMM</span><span>: SE2.4<br/></span><span>CNCFSSCP</span><span>: Securing Build Pipelines—Verification, Automation<br/></span><span>EO14028</span><span>: 4e(iv), 4e(ix)<br/></span><span>IEC62443</span><span>: SI-2<br/></span><span>MSSDL</span><span>: 8<br/></span><span>SCAGILE</span><span>: Operational Security Task 3<br/></span><span>SCFPSSD</span><span>: Use Current Compiler and Toolchain Versions and Secure Compiler Options<br/></span><span>SCSIC</span><span>: Vendor Software Development Integrity Controls<br/></span><span>SP80053</span><span>: SA-15<br/></span><span>SP800161</span><span>: SA-15</span></td>
-</tr>
-<tr>
-<td><span><a id="PW.6.2" href="#PW.6.2">PW.6.2</span><span>:</a> Determine which compiler, interpreter, and build tool features should be used and how each should be configured, then implement and use the approved configurations.</span></td>
-<td>Example 1: Enable compiler features that produce warnings for poorly secured code during the compilation process.<br/>Example 2: Implement the “clean build” concept, where all compiler warnings are treated as errors and eliminated except those determined to be false positives or irrelevant.<br/>Example 3: Perform all builds in a dedicated, highly controlled build environment.<br/>Example 4: Enable compiler features that randomize or obfuscate execution characteristics, such as memory location usage, that would otherwise be predictable and thus potentially exploitable.<br/>Example 5: Test to ensure that the features are working as expected and are not inadvertently causing any operational issues or other problems.<br/>Example 6: Continuously verify that the approved configurations are being used.<br/>Example 7: Make the approved tool configurations available as configuration-as-code so developers can readily use them.</td>
-<td><span>BSAFSS</span><span>: DE.2-3, DE.2-4, DE.2-5<br/></span><span>BSIMM</span><span>: SE2.4, SE3.2<br/></span><span>CNCFSSCP</span><span>: Securing Build Pipelines—Verification, Automation<br/></span><span>EO14028</span><span>: 4e(iv), 4e(ix)<br/></span><span>IEC62443</span><span>: SI-2<br/></span><span>IR8397</span><span>: 2.5<br/></span><span>MSSDL</span><span>: 8<br/></span><span>OWASPASVS</span><span>: 14.1, 14.2.1<br/></span><span>OWASPMASVS</span><span>: 7.2<br/></span><span>PCISSLC</span><span>: 3.2<br/></span><span>SCAGILE</span><span>: Operational Security Task 8<br/></span><span>SCFPSSD</span><span>: Use Current Compiler and Toolchain Versions and Secure Compiler Options<br/></span><span>SCSIC</span><span>: Vendor Software Development Integrity Controls<br/></span><span>SP80053</span><span>: SA-15, SR-9<br/></span><span>SP800161</span><span>: SA-15, SR-9<br/></span><span>SP800181</span><span>: K0039, K0070</span></td>
-</tr>
-<tr>
-<td colspan="1" rowspan="2"><div><span>Review and/or Analyze Human-Readable Code to Identify Vulnerabilities and Verify Compliance with Security Requirements <a id="PW.7" href="#PW.7">(PW.7)</a></span><span>: Help identify vulnerabilities so that they can be corrected before the software is released to prevent exploitation. Using automated methods lowers the effort and resources needed to detect vulnerabilities. Human-readable code includes source code, scripts, and any other form of code that an organization deems human-readable.</span></div></td>
-<td><span><a id="PW.7.1" href="#PW.7.1">PW.7.1</span><span>:</a> Determine whether code review (a person looks directly at the code to find issues) and/or code analysis (tools are used to find issues in code, either in a fully automated way or in conjunction with a person) should be used, as defined by the organization.</span></td>
-<td>Example 1: Follow the organization’s policies or guidelines for when code review should be performed and how it should be conducted. This may include third-party code and reusable code modules written in-house.<br/>Example 2: Follow the organization’s policies or guidelines for when code analysis should be performed and how it should be conducted.<br/>Example 3: Choose code review and/or analysis methods based on the stage of the software.</td>
-<td><span>BSIMM</span><span>: CR1.5<br/></span><span>EO14028</span><span>: 4e(iv), 4e(ix)<br/></span><span>IEC62443</span><span>: SM-5, SI-1, SVV-1<br/></span><span>NISTLABEL</span><span>: 2.2.2.2<br/></span><span>SCSIC</span><span>: Peer Reviews and Security Testing<br/></span><span>SP80053</span><span>: SA-11<br/></span><span>SP800161</span><span>: SA-11<br/></span><span>SP800181</span><span>: SP-DEV-002; K0013, K0039, K0070, K0153, K0165; S0174</span></td>
-</tr>
-<tr>
-<td><span><a id="PW.7.2" href="#PW.7.2">PW.7.2</span><span>:</a> Perform the code review and/or code analysis based on the organization’s secure coding standards, and record and triage all discovered issues and recommended remediations in the development team’s workflow or issue tracking system.</span></td>
-<td>Example 1: Perform peer review of code, and review any existing code review, analysis, or testing results as part of the peer review.<br/>Example 2: Use expert reviewers to check code for backdoors and other malicious content.<br/>Example 3: Use peer reviewing tools that facilitate the peer review process, and document all discussions and other feedback.<br/>Example 4: Use a static analysis tool to automatically check code for vulnerabilities and compliance with the organization’s secure coding standards with a human reviewing the issues reported by the tool and remediating them as necessary.<br/>Example 5: Use review checklists to verify that the code complies with the requirements.<br/>Example 6: Use automated tools to identify and remediate documented and verified unsafe software practices on a continuous basis as human-readable code is checked into the code repository.<br/>Example 7: Identify and document the root causes of discovered issues.<br/>Example 8: Document lessons learned from code review and analysis in a wiki that developers can access and search.</td>
-<td><span>BSAFSS</span><span>: TV.2, PD.1-4<br/></span><span>BSIMM</span><span>: CR1.2, CR1.4, CR1.6, CR2.6, CR2.7, CR3.4, CR3.5<br/></span><span>EO14028</span><span>: 4e(iv), 4e(v), 4e(ix)<br/></span><span>IDASOAR</span><span>: 3, 4, 5, 14, 15, 48<br/></span><span>IEC62443</span><span>: SI-1, SVV-1, SVV-2<br/></span><span>IR8397</span><span>: 2.3, 2.4<br/></span><span>ISO27034</span><span>: 7.3.6<br/></span><span>MSSDL</span><span>: 9, 10<br/></span><span>NISTLABEL</span><span>: 2.2.2.2<br/></span><span>OWASPASVS</span><span>: 1.1.7, 10<br/></span><span>OWASPMASVS</span><span>: 7.5<br/></span><span>OWASPSAMM</span><span>: IR1-B, IR2-A, IR2-B, IR3-A<br/></span><span>PCISSLC</span><span>: 3.2, 4.1<br/></span><span>SCAGILE</span><span>: Operational Security Tasks 4, 7; Tasks Requiring the Help of Security Experts 10<br/></span><span>SCFPSSD</span><span>: Use Code Analysis Tools to Find Security Issues Early, Use Static Analysis Security Testing Tools, Perform Manual Verification of Security Features/Mitigations<br/></span><span>SCSIC</span><span>: Peer Reviews and Security Testing<br/></span><span>SP80053</span><span>: SA-11, SA-11(1), SA-11(4), SA-15(7)<br/></span><span>SP800161</span><span>: SA-11, SA-11(1), SA-11(4), SA-15(7)<br/></span><span>SP800181</span><span>: SP-DEV-001, SP-DEV-002; T0013, T0111, T0176, T0267, T0516; K0009, K0039, K0070, K0140, K0624; S0019, S0060, S0078, S0137, S0149, S0167, S0174, S0242, S0266; A0007, A0015, A0036, A0044, A0047</span></td>
-</tr>
-<tr>
-<td colspan="1" rowspan="2"><div><span>Test Executable Code to Identify Vulnerabilities and Verify Compliance with Security Requirements <a id="PW.8" href="#PW.8">(PW.8)</a></span><span>: Help identify vulnerabilities so that they can be corrected before the software is released in order to prevent exploitation. Using automated methods lowers the effort and resources needed to detect vulnerabilities and improves traceability and repeatability. Executable code includes binaries, directly executed bytecode and source code, and any other form of code that an organization deems executable.</span></div></td>
-<td><span><a id="PW.8.1" href="#PW.8.1">PW.8.1</span><span>:</a> Determine whether executable code testing should be performed to find vulnerabilities not identified by previous reviews, analysis, or testing and, if so, which types of testing should be used.</span></td>
-<td>Example 1: Follow the organization’s policies or guidelines for when code testing should be performed and how it should be conducted (e.g., within a sandboxed environment). This may include third-party executable code and reusable executable code modules written in-house.<br/>Example 2: Choose testing methods based on the stage of the software.</td>
-<td><span>BSAFSS</span><span>: TV.3<br/></span><span>BSIMM</span><span>: PT2.3<br/></span><span>EO14028</span><span>: 4e(ix)<br/></span><span>IEC62443</span><span>: SVV-1, SVV-2, SVV-3, SVV-4, SVV-5<br/></span><span>NISTLABEL</span><span>: 2.2.2.2<br/></span><span>SCSIC</span><span>: Peer Reviews and Security Testing<br/></span><span>SP80053</span><span>: SA-11<br/></span><span>SP800161</span><span>: SA-11<br/></span><span>SP800181</span><span>: SP-DEV-001, SP-DEV-002; T0456; K0013, K0039, K0070, K0153, K0165, K0342, K0367, K0536, K0624; S0001, S0015, S0026, S0061, S0083, S0112, S0135</span></td>
-</tr>
-<tr>
-<td><span><a id="PW.8.2" href="#PW.8.2">PW.8.2</span><span>:</a> Scope the testing, design the tests, perform the testing, and document the results, including recording and triaging all discovered issues and recommended remediations in the development team’s workflow or issue tracking system.</span></td>
-<td>Example 1: Perform robust functional testing of security features.<br/>Example 2: Integrate dynamic vulnerability testing into the project’s automated test suite.<br/>Example 3: Incorporate tests for previously reported vulnerabilities into the project’s test suite to ensure that errors are not reintroduced.<br/>Example 4: Take into consideration the infrastructures and technology stacks that the software will be used with in production when developing test plans.<br/>Example 5: Use fuzz testing tools to find issues with input handling.<br/>Example 6: If resources are available, use penetration testing to simulate how an attacker might attempt to compromise the software in high-risk scenarios.<br/>Example 7: Identify and record the root causes of discovered issues.<br/>Example 8: Document lessons learned from code testing in a wiki that developers can access and search.<br/>Example 9: Use source code, design records, and other resources when developing test plans.</td>
-<td><span>BSAFSS</span><span>: TV.3, TV.5, PD.1-4<br/></span><span>BSIMM</span><span>: ST1.1, ST1.3, ST1.4, ST2.4, ST2.5, ST2.6, ST3.3, ST3.4, ST3.5, ST3.6, PT1.1, PT1.2, PT1.3, PT3.1<br/></span><span>EO14028</span><span>: 4e(iv), 4e(v), 4e(ix)<br/></span><span>IDASOAR</span><span>: 7, 8, 10, 11, 38, 39, 43, 44, 48, 55, 56, 57<br/></span><span>IEC62443</span><span>: SM-5, SM-13, SI-1, SVV-1, SVV-2, SVV-3, SVV-4, SVV-5<br/></span><span>IR8397</span><span>: 2.6, 2.7, 2.8, 2.9, 2.10, 2.11<br/></span><span>ISO27034</span><span>: 7.3.6<br/></span><span>MSSDL</span><span>: 10, 11<br/></span><span>NISTLABEL</span><span>: 2.2.2.2<br/></span><span>OWASPMASVS</span><span>: 7.5<br/></span><span>OWASPSAMM</span><span>: ST1-A, ST1-B, ST2-A, ST2-B, ST3-A<br/></span><span>PCISSLC</span><span>: 4.1<br/></span><span>SCAGILE</span><span>: Operational Security Tasks 10, 11; Tasks Requiring the Help of Security Experts 4, 5, 6, 7<br/></span><span>SCFPSSD</span><span>: Perform Dynamic Analysis Security Testing, Fuzz Parsers, Network Vulnerability Scanning, Perform Automated Functional Testing of Security Features/Mitigations, Perform Penetration Testing<br/></span><span>SCSIC</span><span>: Peer Reviews and Security Testing<br/></span><span>SP80053</span><span>: SA-11, SA-11(5), SA-11(8), SA-15(7)<br/></span><span>SP800161</span><span>: SA-11, SA-11(5), SA-11(8), SA-15(7)<br/></span><span>SP800181</span><span>: SP-DEV-001, SP-DEV-002; T0013, T0028, T0169, T0176, T0253, T0266, T0456, T0516; K0009, K0039, K0070, K0272, K0339, K0342, K0362, K0536, K0624; S0001, S0015, S0046, S0051, S0078, S0081, S0083, S0135, S0137, S0167, S0242; A0015</span></td>
-</tr>
-<tr>
-<td colspan="1" rowspan="2"><div><span>Configure Software to Have Secure Settings by Default <a id="PW.9" href="#PW.9">(PW.9)</a></span><span>: Help improve the security of the software at the time of installation to reduce the likelihood of the software being deployed with weak security settings, putting it at greater risk of compromise.</span></div></td>
-<td><span><a id="PW.9.1" href="#PW.9.1">PW.9.1</span><span>:</a> Define a secure baseline by determining how to configure each setting that has an effect on security or a security-related setting so that the default settings are secure and do not weaken the security functions provided by the platform, network infrastructure, or services.</span></td>
-<td>Example 1: Conduct testing to ensure that the settings, including the default settings, are working as expected and are not inadvertently causing any security weaknesses, operational issues, or other problems.</td>
-<td><span>BSAFSS</span><span>: CF.1<br/></span><span>BSIMM</span><span>: SE2.2<br/></span><span>EO14028</span><span>: 4e(iv), 4e(ix)<br/></span><span>IDASOAR</span><span>: 23<br/></span><span>IEC62443</span><span>: SD-4, SVV-1, SG-1<br/></span><span>ISO27034</span><span>: 7.3.5<br/></span><span>SCAGILE</span><span>: Tasks Requiring the Help of Security Experts 12<br/></span><span>SCSIC</span><span>: Vendor Software Delivery Integrity Controls, Vendor Software Development Integrity Controls<br/></span><span>SP800181</span><span>: SP-DEV-002; K0009, K0039, K0073, K0153, K0165, K0275, K0531; S0167</span></td>
-</tr>
-<tr>
-<td><span><a id="PW.9.2" href="#PW.9.2">PW.9.2</span><span>:</a> Implement the default settings (or groups of default settings, if applicable), and document each setting for software administrators.</span></td>
-<td>Example 1: Verify that the approved configuration is in place for the software.<br/>Example 2: Document each setting’s purpose, options, default value, security relevance, potential operational impact, and relationships with other settings.<br/>Example 3: Use authoritative programmatic technical mechanisms to record how each setting can be implemented and assessed by software administrators.<br/>Example 4: Store the default configuration in a usable format and follow change control practices for modifying it (e.g., configuration-as-code).</td>
-<td><span>BSAFSS</span><span>: CF.1<br/></span><span>BSIMM</span><span>: SE2.2<br/></span><span>EO14028</span><span>: 4e(iv), 4e(ix)<br/></span><span>IDASOAR</span><span>: 23<br/></span><span>IEC62443</span><span>: SG-3<br/></span><span>OWASPSAMM</span><span>: OE1-A<br/></span><span>PCISSLC</span><span>: 8.1, 8.2<br/></span><span>SCAGILE</span><span>: Tasks Requiring the Help of Security Experts 12<br/></span><span>SCFPSSD</span><span>: Verify Secure Configurations and Use of Platform Mitigation<br/></span><span>SCSIC</span><span>: Vendor Software Delivery Integrity Controls, Vendor Software Development Integrity Controls<br/></span><span>SP80053</span><span>: SA-5, SA-8(23)<br/></span><span>SP800161</span><span>: SA-5, SA-8(23)<br/></span><span>SP800181</span><span>: SP-DEV-001; K0009, K0039, K0073, K0153, K0165, K0275, K0531</span></td>
-</tr>
-<tr>
-<td colspan="1" rowspan="3"><div><span>Identify and Confirm Vulnerabilities on an Ongoing Basis <a id="RV.1" href="#RV.1">(RV.1)</a></span><span>: Help ensure that vulnerabilities are identified more quickly so that they can be remediated more quickly in accordance with risk, reducing the window of opportunity for attackers.</span></div></td>
-<td><span><a id="RV.1.1" href="#RV.1.1">RV.1.1</span><span>:</a> Gather information from software acquirers, users, and public sources on potential vulnerabilities in the software and third-party components that the software uses, and investigate all credible reports.</span></td>
-<td>Example 1: Monitor vulnerability databases , security mailing lists, and other sources of vulnerability reports through manual or automated means.<br/>Example 2: Use threat intelligence sources to better understand how vulnerabilities in general are being exploited.<br/>Example 3: Automatically review provenance and software composition data for all software components to identify any new vulnerabilities they have.</td>
-<td><span>BSAFSS</span><span>: VM.1-3, VM.3<br/></span><span>BSIMM</span><span>: AM1.5, CMVM1.2, CMVM2.1, CMVM3.4, CMVM3.7<br/></span><span>CNCFSSCP</span><span>: Securing Materials—Verification<br/></span><span>EO14028</span><span>: 4e(iv), 4e(vi), 4e(viii), 4e(ix)<br/></span><span>IEC62443</span><span>: DM-1, DM-2, DM-3<br/></span><span>ISO29147</span><span>: 6.2.1, 6.2.2, 6.2.4, 6.3, 6.5<br/></span><span>ISO30111</span><span>: 7.1.3<br/></span><span>OWASPSAMM</span><span>: IM1-A, IM2-B, EH1-B<br/></span><span>OWASPSCVS</span><span>: 4<br/></span><span>PCISSLC</span><span>: 3.4, 4.1, 9.1<br/></span><span>SCAGILE</span><span>: Operational Security Task 5<br/></span><span>SCFPSSD</span><span>: Vulnerability Response and Disclosure<br/></span><span>SCTPC</span><span>: MONITOR1<br/></span><span>SP80053</span><span>: SA-10, SR-3, SR-4<br/></span><span>SP800161</span><span>: SA-10, SR-3, SR-4<br/></span><span>SP800181</span><span>: K0009, K0038, K0040, K0070, K0161, K0362; S0078</span></td>
-</tr>
-<tr>
-<td><span><a id="RV.1.2" href="#RV.1.2">RV.1.2</span><span>:</a> Review, analyze, and/or test the software’s code to identify or confirm the presence of previously undetected vulnerabilities.</span></td>
-<td>Example 1: Configure the toolchain to perform automated code analysis and testing on a regular or continuous basis for all supported releases.<br/>Example 2: See PW.7 and PW.8.</td>
-<td><span>BSAFSS</span><span>: VM.1-2, VM.2-1<br/></span><span>BSIMM</span><span>: CMVM3.1<br/></span><span>EO14028</span><span>: 4e(iv), 4e(vi), 4e(viii), 4e(ix)<br/></span><span>IEC62443</span><span>: SI-1, SVV-2, SVV-3, SVV-4, DM-1, DM-2<br/></span><span>ISO27034</span><span>: 7.3.6<br/></span><span>ISO29147</span><span>: 6.4<br/></span><span>ISO30111</span><span>: 7.1.4<br/></span><span>PCISSLC</span><span>: 3.4, 4.1<br/></span><span>SCAGILE</span><span>: Operational Security Tasks 10, 11<br/></span><span>SP80053</span><span>: SA-11<br/></span><span>SP800161</span><span>: SA-11<br/></span><span>SP800181</span><span>: SP-DEV-002; K0009, K0039, K0153</span></td>
-</tr>
-<tr>
-<td><span><a id="RV.1.3" href="#RV.1.3">RV.1.3</span><span>:</a> Have a policy that addresses vulnerability disclosure and remediation, and implement the roles, responsibilities, and processes needed to support that policy.</span></td>
-<td>Example 1: Establish a vulnerability disclosure program, and make it easy for security researchers to learn about your program and report possible vulnerabilities.<br/>Example 2: Have a Product Security Incident Response Team (PSIRT) and processes in place to handle the responses to vulnerability reports and incidents, including communications plans for all stakeholders.<br/>Example 3: Have a security response playbook to handle a generic reported vulnerability, a report of zero-days, a vulnerability being exploited in the wild, and a major ongoing incident involving multiple parties and open-source software components.<br/>Example 4: Periodically conduct exercises of the product security incident response processes.</td>
-<td><span>BSAFSS</span><span>: VM.1-1, VM.2<br/></span><span>BSIMM</span><span>: CMVM1.1, CMVM2.1, CMVM3.3, CMVM3.7<br/></span><span>EO14028</span><span>: 4e(viii), 4e(ix)<br/></span><span>IEC62443</span><span>: DM-1, DM-2, DM-3, DM-4, DM-5<br/></span><span>ISO29147</span><span>: All<br/></span><span>ISO30111</span><span>: All<br/></span><span>MSSDL</span><span>: 12<br/></span><span>NISTLABEL</span><span>: 2.2.2.3<br/></span><span>OWASPMASVS</span><span>: 1.11<br/></span><span>OWASPSAMM</span><span>: IM1-A, IM1-B, IM2-A, IM2-B<br/></span><span>PCISSLC</span><span>: 9.2, 9.3<br/></span><span>SCFPSSD</span><span>: Vulnerability Response and Disclosure<br/></span><span>SP80053</span><span>: SA-15(10)<br/></span><span>SP800160</span><span>: 3.3.8<br/></span><span>SP800161</span><span>: SA-15(10)<br/></span><span>SP800181</span><span>: K0041, K0042, K0151, K0292, K0317; S0054; A0025<br/></span><span>SP800216</span><span>: All</span></td>
-</tr>
-<tr>
-<td colspan="1" rowspan="2"><div><span>Assess, Prioritize, and Remediate Vulnerabilities <a id="RV.2" href="#RV.2">(RV.2)</a></span><span>: Help ensure that vulnerabilities are remediated in accordance with risk to reduce the window of opportunity for attackers.</span></div></td>
-<td><span><a id="RV.2.1" href="#RV.2.1">RV.2.1</span><span>:</a> Analyze each vulnerability to gather sufficient information about risk to plan its remediation or other risk response.</span></td>
-<td>Example 1: Use existing issue tracking software to record each vulnerability.<br/>Example 2: Perform risk calculations for each vulnerability based on estimates of its exploitability, the potential impact if exploited, and any other relevant characteristics.</td>
-<td><span>BSAFSS</span><span>: VM.2<br/></span><span>BSIMM</span><span>: CMVM1.2, CMVM2.2<br/></span><span>EO14028</span><span>: 4e(iv), 4e(viii), 4e(ix)<br/></span><span>IEC62443</span><span>: DM-2, DM-3<br/></span><span>ISO30111</span><span>: 7.1.4<br/></span><span>NISTLABEL</span><span>: 2.2.2.2<br/></span><span>PCISSLC</span><span>: 3.4, 4.2<br/></span><span>SCAGILE</span><span>: Operational Security Task 1, Tasks Requiring the Help of Security Experts 10<br/></span><span>SP80053</span><span>: SA-10, SA-15(7)<br/></span><span>SP800160</span><span>: 3.3.8<br/></span><span>SP800161</span><span>: SA-15(7)<br/></span><span>SP800181</span><span>: K0009, K0039, K0070, K0161, K0165; S0078</span></td>
-</tr>
-<tr>
-<td><span><a id="RV.2.2" href="#RV.2.2">RV.2.2</span><span>:</a> Plan and implement risk responses for vulnerabilities.</span></td>
-<td>Example 1: Make a risk-based decision as to whether each vulnerability will be remediated or if the risk will be addressed through other means (e.g., risk acceptance, risk transference), and prioritize any actions to be taken.<br/>Example 2: If a permanent mitigation for a vulnerability is not yet available, determine how the vulnerability can be temporarily mitigated until the permanent solution is available, and add that temporary remediation to the plan.<br/>Example 3: Develop and release security advisories that provide the necessary information to software acquirers, including descriptions of what the vulnerabilities are, how to find instances of the vulnerable software, and how to address them (e.g., where to get patches and what the patches change in the software; what configuration settings may need to be changed; how temporary workarounds could be implemented).<br/>Example 4: Deliver remediations to acquirers via an automated and trusted delivery mechanism. A single remediation could address multiple vulnerabilities.<br/>Example 5: Update records of design decisions, risk responses, and approved exceptions as needed. See PW.1.2.</td>
-<td><span>BSAFSS</span><span>: VM.1-1, VM-2<br/></span><span>BSIMM</span><span>: CMVM2.1<br/></span><span>EO14028</span><span>: 4e(iv), 4e(vi), 4e(viii), 4e(ix)<br/></span><span>IEC62443</span><span>: DM-4<br/></span><span>ISO30111</span><span>: 7.1.4, 7.1.5<br/></span><span>NISTLABEL</span><span>: 2.2.2.2<br/></span><span>PCISSLC</span><span>: 4.1, 4.2, 10.1<br/></span><span>SCAGILE</span><span>: Operational Security Task 2<br/></span><span>SCFPSSD</span><span>: Fix the Vulnerability, Identify Mitigating Factors or Workarounds<br/></span><span>SCTPC</span><span>: MITIGATE<br/></span><span>SP80053</span><span>: SA-5, SA-10, SA-11, SA-15(7)<br/></span><span>SP800160</span><span>: 3.3.8<br/></span><span>SP800161</span><span>: SA-5, SA-8, SA-10, SA-11, SA-15(7)<br/></span><span>SP800181</span><span>: T0163, T0229, T0264; K0009, K0070</span></td>
-</tr>
-<tr>
-<td colspan="1" rowspan="4"><div><span>Analyze Vulnerabilities to Identify Their Root Causes <a id="RV.3" href="#RV.3">(RV.3)</a></span><span>: Help reduce the frequency of vulnerabilities in the future.</span></div></td>
-<td><span><a id="RV.3.1" href="#RV.3.1">RV.3.1</span><span>:</a> Analyze identified vulnerabilities to determine their root causes.</span></td>
-<td>Example 1: Record the root cause of discovered issues.<br/>Example 2: Record lessons learned through root cause analysis in a wiki that developers can access and search.</td>
-<td><span>BSAFSS</span><span>: VM.2-1<br/></span><span>BSIMM</span><span>: CMVM3.1, CMVM3.2<br/></span><span>EO14028</span><span>: 4e(ix)<br/></span><span>IEC62443</span><span>: DM-3<br/></span><span>ISO30111</span><span>: 7.1.4<br/></span><span>OWASPSAMM</span><span>: IM3-A<br/></span><span>PCISSLC</span><span>: 4.2<br/></span><span>SCFPSSD</span><span>: Secure Development Lifecycle Feedback<br/></span><span>SP800181</span><span>: T0047, K0009, K0039, K0070, K0343</span></td>
-</tr>
-<tr>
-<td><span><a id="RV.3.2" href="#RV.3.2">RV.3.2</span><span>:</a> Analyze the root causes over time to identify patterns, such as a particular secure coding practice not being followed consistently.</span></td>
-<td>Example 1: Record lessons learned through root cause analysis in a wiki that developers can access and search.<br/>Example 2: Add mechanisms to the toolchain to automatically detect future instances of the root cause.<br/>Example 3: Update manual processes to detect future instances of the root cause.</td>
-<td><span>BSAFSS</span><span>: VM.2-1, PD.1-3<br/></span><span>BSIMM</span><span>: CP3.3, CMVM3.2<br/></span><span>EO14028</span><span>: 4e(ix)<br/></span><span>IEC62443</span><span>: DM-4<br/></span><span>ISO30111</span><span>: 7.1.7<br/></span><span>OWASPSAMM</span><span>: IM3-B<br/></span><span>PCISSLC</span><span>: 2.6, 4.2<br/></span><span>SCFPSSD</span><span>: Secure Development Lifecycle Feedback<br/></span><span>SP800160</span><span>: 3.3.8<br/></span><span>SP800181</span><span>: T0111, K0009, K0039, K0070, K0343</span></td>
-</tr>
-<tr>
-<td><span><a id="RV.3.3" href="#RV.3.3">RV.3.3</span><span>:</a> Review the software for similar vulnerabilities to eradicate a class of vulnerabilities, and proactively fix them rather than waiting for external reports.</span></td>
-<td>Example 1: See PW.7 and PW.8.</td>
-<td><span>BSAFSS</span><span>: VM.2<br/></span><span>BSIMM</span><span>: CR3.3, CMVM3.1<br/></span><span>EO14028</span><span>: 4e(iv), 4e(viii), 4e(ix)<br/></span><span>IEC62443</span><span>: SI-1, DM-3, DM-4<br/></span><span>ISO30111</span><span>: 7.1.4<br/></span><span>PCISSLC</span><span>: 4.2<br/></span><span>SP80053</span><span>: SA-11<br/></span><span>SP800161</span><span>: SA-11<br/></span><span>SP800181</span><span>: SP-DEV-001, SP-DEV-002; K0009, K0039, K0070</span></td>
-</tr>
-<tr>
-<td><span><a id="RV.3.4" href="#RV.3.4">RV.3.4</span><span>:</a> Review the SDLC process, and update it if appropriate to prevent (or reduce the likelihood of) the root cause recurring in updates to the software or in new software that is created.</span></td>
-<td>Example 1: Record lessons learned through root cause analysis in a wiki that developers can access and search.<br/>Example 2: Plan and implement changes to the appropriate SDLC practices.</td>
-<td><span>BSAFSS</span><span>: PD.1-3<br/></span><span>BSIMM</span><span>: CP3.3, CMVM3.2<br/></span><span>EO14028</span><span>: 4e(ix)<br/></span><span>IEC62443</span><span>: DM-6<br/></span><span>ISO30111</span><span>: 7.1.7<br/></span><span>MSSDL</span><span>: 2<br/></span><span>PCISSLC</span><span>: 2.6, 4.2<br/></span><span>SCFPSSD</span><span>: Secure Development Lifecycle Feedback<br/></span><span>SP80053</span><span>: SA-15<br/></span><span>SP800161</span><span>: SA-15<br/></span><span>SP800181</span><span>: K0009, K0039, K0070</span></td>
-</tr>
-</tbody>
-</table>
-
-## References
-
-The SSDF Table was originally published at [NIST SP 800-218: Secure Software Development Framework (SSDF) Version 1.1: Recommendations for Mitigating the Risk of Software Vulnerabilities](https://csrc.nist.gov/publications/detail/sp/800-218/final).
-
-_Reprinted courtesy of the National Institute of Standards and Technology, U.S. Department of Commerce. Not copyrightable in the United States._
-
----
-
-### Minimum attestation references
-_Path: software-security/secure-software-development/minimum-attestation-references.md_
-
-The minimum requirements within the Secure Software Attestation Form address requirements
-put forth in EO 14028 subsection (4)(e) and specific SSDF practices and tasks. For reference,
-please review the chart below.
-
-| Attestation Requirements | Related EO 14028 Subsection | Related SSDF Practices and Tasks |
-| -- | -- | -- |
-| 1) The software was developed and built in secure environments. Those environments were secured by the following actions, at a minimum: | 4e(i) | [See rows below]|
-| a) Separating and protecting each environment involved in developing and building software; | 4e(i)(A) | [PO.5.1](/software-security/secure-software-development/ssdf/#PO.5.1) |
-| b) Regularly logging, monitoring, and auditing trust relationships used for authorization and access: i) to any software development and build environments; and ii) among components within each environment; | 4e(i)(B) | [PO.5.1](/software-security/secure-software-development/ssdf/#PO.5.1) |
-| c) Enforcing multi-factor authentication and conditional access across the environments relevant to developing and building software in a manner that minimizes security risk; | 4e(i)(C) | [PO.5.1](/software-security/secure-software-development/ssdf/#PO.5.1), [PO.5.2](/software-security/secure-software-development/ssdf/#PO.5.2) |
-| d) Taking consistent and reasonable steps to document, as well as minimize use or inclusion of software products that create undue risk, within the environments used to develop and build software; | 4e(i)(D) | [PO.5.1](/software-security/secure-software-development/ssdf/#PO.5.1) |
-| e) Encrypting sensitive data, such as credentials, to the extent practicable and based on risk; | 4e(i)(E) | [PO.5.2](/software-security/secure-software-development/ssdf/#PO.5.2)
-| f) Implementing defensive cyber security practices, including continuous monitoring of operations and alerts and, as necessary, responding to suspected and confirmed cyber incidents; | 4e(i)(F) | [PO.3.2](/software-security/secure-software-development/ssdf/#PO.3.2), [PO.3.3](/software-security/secure-software-development/ssdf/#PO.3.3), [PO.5.1](/software-security/secure-software-development/ssdf/#PO.5.1), [PO.5.2](/software-security/secure-software-development/ssdf/#PO.5.2)
-| 2) The software producer has made a good-faith effort to maintain trusted source code supply chains by: | | |
-| a) Employing automated tools or comparable processes; and b) Establishing a process that includes reasonable steps to address the security of third-party components and manage related vulnerabilities; | 4e(iii) | PO 1.1, [PO.3.1](/software-security/secure-software-development/ssdf/#PO.3.1), [PO.3.2](/software-security/secure-software-development/ssdf/#PO.3.2), [PO.5.1](/software-security/secure-software-development/ssdf/#PO.5.1), [PO.5.2](/software-security/secure-software-development/ssdf/#PO.5.2), [PS.1.1](/software-security/secure-software-development/ssdf/#PS.1.1), [PS.2.1](/software-security/secure-software-development/ssdf/#PS.2.1), [PS.3.1](/software-security/secure-software-development/ssdf/#PS.3.1), [PW.4.1](/software-security/secure-software-development/ssdf/#PW.4.1), [PW.4.4](/software-security/secure-software-development/ssdf/#PW.4.4), PW 7.1, PW 8.1, RV 1.1 |
-| 3) The software producer maintains provenance data for internal and third-party code incorporated into the software; | 4e(vi) | [PO.1.3](/software-security/secure-software-development/ssdf/#PO.1.3), [PO.3.2](/software-security/secure-software-development/ssdf/#PO.3.2), [PO.5.1](/software-security/secure-software-development/ssdf/#PO.5.1), [PO.5.2](/software-security/secure-software-development/ssdf/#PO.5.2), [PS.3.1](/software-security/secure-software-development/ssdf/#PS.3.1), [PS.3.2](/software-security/secure-software-development/ssdf/#PS.3.2), [PW.4.1](/software-security/secure-software-development/ssdf/#PW.4.1), [PW.4.4](/software-security/secure-software-development/ssdf/#PW.4.4), [RV.1.1](/software-security/secure-software-development/ssdf/#RV.1.1), [RV.1.2](/software-security/secure-software-development/ssdf/#RV.1.2) |
-| 4) The software producer employed automated tools or comparable processes that check for security vulnerabilities. In addition: a) The software producer ensured these processes operate on an ongoing basis and, at a minimum, prior to product, version, or update releases and b) The software producer has a policy or process to address discovered security vulnerabilities prior to product release; and c) The software producer operates a vulnerability disclosure program and accepts, reviews, and addresses disclosed software vulnerabilities in a timely fashion. | 4e(iv) | [PO.4.1](/software-security/secure-software-development/ssdf/#PO.4.1), [PO.4.2](/software-security/secure-software-development/ssdf/#PO.4.2), [PS.1.1](/software-security/secure-software-development/ssdf/#PS.1.1), [PW.2.1](/software-security/secure-software-development/ssdf/#PW.2.1), [PW.4.4](/software-security/secure-software-development/ssdf/#PW.4.4), [PW.5.1](/software-security/secure-software-development/ssdf/#PW.5.1), [PW.6.1](/software-security/secure-software-development/ssdf/#PW.6.1), [PW.6.2](/software-security/secure-software-development/ssdf/#PW.6.2), [PW.7.1](/software-security/secure-software-development/ssdf/#PW.7.1), [PW.7.2](/software-security/secure-software-development/ssdf/#PW.7.2), [PW.8.2](/software-security/secure-software-development/ssdf/#PW.8.2), [PW.9.1](/software-security/secure-software-development/ssdf/#PW.9.1), [PW.9.2](/software-security/secure-software-development/ssdf/#PW.9.2).
-
-## References
-
-Table of the references comes from the top of the [original RFC PDF](https://www.cisa.gov/secure-software-attestation-form).
-
-_Reprinted courtesy of the National Institute of Standards and Technology, U.S. Department of Commerce. Not copyrightable in the United States._
-
----
-
-### CISA Secure Software Development Attestation Form (Draft)
-_Path: software-security/secure-software-development/ssd-attestation-form.md_
-
-## Attestation and signature
-
-On behalf of the above-specified company, I attest that [software producer] presently makes consistent use of the following practices, drawn from the secure software development
-framework (SSDF), in developing the software identified in Section I:
-
-1. The software is developed and built in secure environments. Those environments are secured by the following actions, at a minimum:
-    1. Separating and protecting each environment involved in developing and building Software;
-    1. Regularly logging, monitoring, and auditing trust relationships used for authorization and access:
-        1. to any software development and build environments; and
-        1. among components within each environment;
-    1. Enforcing multi-factor authentication and conditional access across the environments relevant to developing and building software in a manner that minimizes security risk;
-    1. Taking consistent and reasonable steps to document as well as minimize use or inclusion of software products that create undue risk within the environments used to develop and build software;
-    1. Encrypting sensitive data, such as credentials, to the extent practicable and based on risk;
-    1. Implementing defensive cyber security practices, including continuous monitoring of operations and alerts and, as necessary, responding to suspected and confirmed cyber incidents;
-1. The software producer has made a good-faith effort to maintain trusted source code supply chains by:
-    1. Employing automated tools or comparable processes; and
-    1. Establishing a process that includes reasonable steps to address the security of third-party components and manage related vulnerabilities;
-1. The software producer employs automated tools or comparable processes in a good-faith effort to maintain trusted source code supply chains;
-1. The software producer maintains provenance data for internal and third-party code incorporated into the software;
-1. The software producer employs automated tools or comparable processes that check for security vulnerabilities. In addition:
-    1. The software producer ensures these processes operate on an ongoing basis and, at a minimum, prior to product, version, or update releases; and
-    1. The software producer has a policy or process to address discovered security vulnerabilities prior to product release; and
-    1. The software producer operates a vulnerability disclosure program and accepts, reviews, and addresses disclosed software vulnerabilities in a timely fashion.
-
-I attest that all requirements outlined above are consistently maintained and satisfied.
-I further attest the company will notify all impacted agencies if conformance to any element of this attestation is no longer valid.
-
-Please check the appropriate boxes below, if applicable:
-
-* [ ] There are addendums and/or artifacts attached to this self-attestation form, the title and contents of which are delineated below the signature line.
-* [ ] I attest that the referenced software has been verified by a certified FedRAMP Third Party Assessor Organization (3PAO) or other 3PAO approved by an appropriate agency official, and the Assessor used relevant NIST Guidance, which includes all elements outlined in this form, as the assessment baseline. Relevant documentation is attached.
-
-## References
-
-The [Draft of the Secure Software Development Self Attestation Form](https://www.cisa.gov/secure-software-attestation-form) available on cisa.gov, was released as part of a [Request For Comments](https://www.cisa.gov/secure-software-attestation-form) on April 27, 2023. Comments are due on June 26, 2023.
-
-_Reprinted courtesy of the National Institute of Standards and Technology, U.S. Department of Commerce. Not copyrightable in the United States._
 
 ---
 
