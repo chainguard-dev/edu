@@ -1,5 +1,5 @@
 ---
-date: 2026-10-02T21:08:35Z
+date: 2026-10-06T09:26:34Z
 title: "chainctl guardener github migrate create"
 slug: chainctl_guardener_github_migrate_create
 url: /platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate_create/
@@ -11,23 +11,29 @@ toc: true
 ---
 ## chainctl guardener github migrate create
 
-Enqueue a GitHub Actions migration for a repository.
+Enqueue the repository's configured Actions and image migrations.
 
 ### Synopsis
 
-Enqueue a GitHub Actions migration for a repository.
+Enqueue the repository's configured Actions and image migrations.
 
-The migration opens (or updates) a single pull request replacing upstream GitHub
-Actions with their Chainguard equivalents at version-equivalent tags. It returns
-a long-running operation; by default this command waits for it to complete and
-prints the resulting pull request. Pass --wait=false to return immediately with
+Each feature requires migrate.enabled: true in its effective configuration:
+.chainguard/actions.yaml for Actions and .chainguard/images.yaml for images.
+The enabled migrations open or update separate pull requests. The command returns
+one operation tracking both results; by default it waits and prints each result,
+including any failures. Pass --wait=false to return immediately with
 the operation name, which you can pass to "migrate get" later.
 
 REPOSITORY may be a full URL (https://github.com/owner/repo) or the "owner/repo"
 shorthand; only github.com is supported today.
 
-Requires the guardener.actions.migrate capability on the group, which must own
-the repository's GitHub App installation.
+Actions migration requires guardener.actions.migrate, and image migration
+requires guardener.images.migrate on the group, which must own the repository's
+GitHub App installation. Permissions are checked independently for each feature:
+an unauthorized feature reports a failure while authorized migrations continue.
+At least one migration permission is required to create or read an operation.
+A feature disabled in the deployment or repository configuration completes as
+a successful no-op without failing the operation.
 
 ```
 chainctl guardener github migrate create REPOSITORY [flags]
@@ -58,5 +64,5 @@ chainctl guardener github migrate create REPOSITORY [flags]
 
 ### SEE ALSO
 
-* [chainctl guardener github migrate](/platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate/)	 - Migrate a repository's GitHub Actions to their Chainguard equivalents.
+* [chainctl guardener github migrate](/platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate/)	 - Migrate the Actions and images enabled by a repository's configuration.
 

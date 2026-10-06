@@ -1,21 +1,28 @@
 ---
 date: 2026-10-06T09:26:34Z
-title: "chainctl images tags"
-slug: chainctl_images_tags
-url: /platform/chainctl/chainctl-docs/chainctl_images_tags/
+title: "chainctl libraries storage list"
+slug: chainctl_libraries_storage_list
+url: /platform/chainctl/chainctl-docs/chainctl_libraries_storage_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl images tags
+## chainctl libraries storage list
 
-Tags related commands for images.
+List storage usage per ecosystem.
 
-### Synopsis
+```
+chainctl libraries storage list [--ecosystem ECOSYSTEM] [--parent ORG] [--output=json|table] [flags]
+```
 
-Commands for listing and resolving image tags.
+### Options
+
+```
+      --ecosystem string   Only list storage usage for this ecosystem (GO). Omit for every ecosystem that reports usage.
+      --parent string      The name or id of the organization whose storage usage to list.
+```
 
 ### Options inherited from parent commands
 
@@ -34,7 +41,5 @@ Commands for listing and resolving image tags.
 
 ### SEE ALSO
 
-* [chainctl images](/platform/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
-* [chainctl images tags list](/platform/chainctl/chainctl-docs/chainctl_images_tags_list/)	 - List tags from repositories using --parent, --public, or --repo flags.
-* [chainctl images tags resolve](/platform/chainctl/chainctl-docs/chainctl_images_tags_resolve/)	 - Resolve tags for a specific image reference.
+* [chainctl libraries storage](/platform/chainctl/chainctl-docs/chainctl_libraries_storage/)	 - Show the storage your organization's uploads use in Libraries.
 
