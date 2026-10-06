@@ -6,7 +6,7 @@ linktitle: "chainctl vs Console"
 type: "article"
 description: "Learn when to use chainctl CLI versus Chainguard Console for managing container security, with practical examples and use case recommendations"
 date: 2025-06-02T11:07:52+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-05T00:00:00+00:00
 draft: false
 tags: ["chainctl", "Chainguard Console"]
 images: []
@@ -27,11 +27,11 @@ To use `chainctl`, start by [installing chainctl](/platform/chainctl-usage/how-t
 
 ## High-level comparison
 
-The Console is especially useful for one-off information searches, such as when you don't know precisely what you want to know. The Console provides detailed information, but may require a few clicks to hone in on precisely what you are looking for. You can perform useful container-related query tasks from within the Console, as this page will demonstrate with some examples.
+The Console is especially useful for one-off information searches, such as when you don't know precisely what you want to know. The Console provides detailed information, but may require a few clicks to hone in on precisely what you are looking for. You can perform useful container-related queries in the Console, as the examples on this page show.
 
 If you know specifically what you are looking for or what you want to accomplish, `chainctl` is a powerful way to do so. It can perform some additional tasks that are not yet available in the Console, such as [comparing images with a diff](/platform/chainctl-usage/comparing-images/).
 
-This guide will take the reader through a few use cases to illustrate.
+The following sections walk through a few use cases.
 
 ## Find available images
 
@@ -47,7 +47,7 @@ To find the images available to you in the Console, do this:
 
 ### Find available images with chainctl
 
-To find the images available to you using `chainctl`, use this command. The list of available images is likely to be long and will scroll past you quickly in the terminal, so it may be more useful to you by piping the output into a grep search or redirecting the output into a file.
+To find the images available to you using `chainctl`, use this command. The list of available images is likely to be long and scrolls past quickly in the terminal, so consider piping the output into `grep` or redirecting it into a file.
 
 ```sh
 chainctl images list
@@ -62,7 +62,7 @@ To invite a user using the Console, follow these steps:
 
 1. Open the Console.
 
-1. On the Overview page that opens, click the **Manage pull tokens** tab, just below the search box.
+1. On the Overview page that opens, click the **Manage pull tokens** link, just below the search box.
 
 1. On the Settings page that opens, click **Users** in the sidebar.
 ![Screenshot showing the Settings page in the Console.](console-settings.png)
@@ -91,7 +91,7 @@ chainctl iam invite create ORGANIZATION
 
 To examine the history of an image using the Console:
 
-1. Open the Console and find the image you want to examine more closely. Do this by clicking on an image in the **Recent Changes** list on this page or clicking **View all organization images** to see the full list and find the image you want.
+1. Open the Console and find the image you want to examine more closely. Click it in the **Recent image changes** list on the **Overview** page, or click **View all organization images** to open the full list and find it there.
 
 1. On the image page you start on the **Tags** tab and see a list of tags which correspond to the release version of the image, like this one for `kubectl`.
 ![Screenshot showing the list of image versions for kubectl in the Console.](console-image-version-list.png)
@@ -106,7 +106,7 @@ To examine the history of an image using `chainctl`, enter this:
 chainctl image history kubectl:latest
 ```
 
-This will return a reverse-chronological history of when a specific tag was update to point to a new manifest digest. This list can be long. Here's an excerpt:
+This returns a reverse-chronological history of when a specific tag was updated to point to a new manifest digest. This list can be long. Here's an excerpt:
 
 ```yaml
 - time: 2025-05-29 03:08:31 UTC
