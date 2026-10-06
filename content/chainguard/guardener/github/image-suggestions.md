@@ -17,7 +17,7 @@ toc: true
 
 Guardener reviews pull requests that add or change container image references and recommends the Chainguard container image that replaces each upstream image. Where it can, Guardener includes the replacement as a one-click suggested change.
 
-{{< beta feature="Guardener" access="organizations that have installed and linked the Guardener GitHub App" >}}
+{{< beta feature="Guardener" access="organizations that have installed and linked the Chainguard App" >}}
 
 Guardener reads only the lines a pull request adds or changes, so it catches upstream images as they're introduced but doesn't review the images a repository already uses. To find replacements for every image in a repository, run [`chainctl images discover`](/chainguard/containers/migration/migration-tools/images-discover/).
 
@@ -25,7 +25,7 @@ Guardener reads only the lines a pull request adds or changes, so it catches ups
 
 Before you enable Image Suggestions, make sure that:
 
-- The Guardener GitHub App is installed and your GitHub organization is linked to your Chainguard organization, as described in [Getting started](/chainguard/guardener/github/getting-started/). The link is needed on public repositories too, because Guardener checks each replacement against your Chainguard organization. Without a link, the pull request check reports that container image recommendations are unavailable.
+- The Chainguard App is installed and your GitHub organization is linked to your Chainguard organization, as described in [Getting started](/chainguard/guardener/github/getting-started/). The link is needed on public repositories too, because Guardener checks each replacement against your Chainguard organization. Without a link, the pull request check reports that container image recommendations are unavailable.
 - To get Image Suggestions on private repositories, your organization's [repository visibility scope](/chainguard/guardener/github/app-connections/#repository-visibility-scope) is `ALL`. With the default `PUBLIC` scope, Guardener skips private repositories without leaving a comment or a check run.
 
 ## Enable Image Suggestions

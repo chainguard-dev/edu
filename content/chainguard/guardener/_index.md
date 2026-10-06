@@ -26,8 +26,8 @@ Additional capabilities will be added over time, each with its own opt-in config
 
 ## Where to start
 
-- **[GitHub App](/chainguard/guardener/github/)** — Install the app, link your organization, and configure the GitHub App capabilities (Hardened Actions, Container Image Suggestions, and Commit Verification):
-    - **[Getting started](/chainguard/guardener/github/getting-started/)** — Install the GitHub App and link your Chainguard organization to your GitHub organization.
+- **[GitHub App](/chainguard/guardener/github/)** — Install the app, link your organization, and configure Guardener's GitHub capabilities (Hardened Actions, Container Image Suggestions, and Commit Verification):
+    - **[Getting started](/chainguard/guardener/github/getting-started/)** — Install the Chainguard App and link your Chainguard organization to your GitHub organization.
     - **[Configuration](/chainguard/guardener/github/configuration/)** — Understand the `.chainguard/` configuration model and how features are enabled per repository.
 - **[Dockerfile migration](/chainguard/guardener/dockerfile-migration/)** — Migrate your Dockerfiles to Chainguard Containers using the `chainctl agent dockerfile` commands.
 
