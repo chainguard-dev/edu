@@ -13,7 +13,7 @@ aliases:
 type: "article"
 description: "Learn about Chainguard's unique tags feature for production container images, enabling precise version tracking and automated deployment workflows with timestamped tags"
 date: 2024-02-29T08:49:31+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-05T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -45,13 +45,11 @@ Additionally, the Unique Tags feature is integrated with Chainguard's [Tag Histo
 
 ## How do I find unique tags?
 
-After signing into the Chainguard Console, click **Organization images** in the left-hand navigation. This takes you to your organization's container images directory, which lists all the Chainguard Production container images you can access.
+If your organization has Unique Tags enabled, the Chainguard Console shows them automatically. There's no setting to turn on.
 
-To the right of the search box and **Category** drop-down menu there's a filter button labeled **Visible tags**. Click that button, and you'll see a drop-down menu with two options: **Epoch tags** and **Unique tags**. Toggle **Unique tags** to see the Unique Tags available for your organization's container images.
+After signing in to the Chainguard Console, select **Images** in the left-hand navigation menu, then select the **Organization** tab. This tab lists the Chainguard Containers your organization can access.
 
-With this button toggled on, each container image's details page shows the Unique Tags available for it.
-
-To illustrate, toggle this button on and then click any paid Production container image listed in your organization's directory. The **Version** column now shows the Unique Tags available for that container image. These tags include a timestamp in the format `YYYYMMDDHHMM`, and may include a prefix to help identify and parse the tag name programmatically.
+Select any image to open its **Tags** tab. The **Tag** column lists the Unique Tags available for that image. These tags include a timestamp in the format `YYYYMMDDHHMM`, and may include a prefix to help identify and parse the tag name programmatically.
 
 For example, a container image version might have a tag similar to `:openjdk-17-202412120223`. This means that this particular version of the container image was last updated on December 12, 2024, at 2:23 AM. You can use this version's **Pull URL** (`cgr.dev/$ORGANIZATION/jdk-fips:openjdk-17-202412120223`) to download this container image, and you can be confident that this Pull URL always refers to the same container image.
 
@@ -79,4 +77,8 @@ Additionally, you may find our three-part blog series on Chainguard's image tagg
 - [Part 2](https://www.chainguard.dev/unchained/chainguards-image-tagging-philosophy-enabling-high-velocity-updates-pt-2-of-3)
 - [Part 3](https://www.chainguard.dev/unchained/chainguards-image-tagging-philosophy-enabling-high-velocity-updates-pt-3-of-3)
 
-Many dependency automation tools like [Dependabot](https://docs.github.com/en/code-security/dependabot/ecosystems-supported-by-dependabot/supported-ecosystems-and-repositories#docker) and [Renovatebot](https://docs.renovatebot.com/docker/#digest-pinning) support digest pinning with tag hints. For example if an image is of the form `cgr.dev/example.com/image:1.2@sha256:...`, these tools attempt to update image digests based on the `1.2` tag. **NOTE**: OCI/docker runtimes ignore tags in this format - there is no guarantee that the digest belonged to the tag at any point in time. They are used as version hints, but are not enforced - digest takes priority.
+Many dependency automation tools like [Dependabot](https://docs.github.com/en/code-security/dependabot/ecosystems-supported-by-dependabot/supported-ecosystems-and-repositories#docker) and [Renovatebot](https://docs.renovatebot.com/docker/#digest-pinning) support digest pinning with tag hints. For example, if an image is of the form `cgr.dev/example.com/image:1.2@sha256:...`, these tools attempt to update image digests based on the `1.2` tag.
+
+{{< note >}}
+OCI and Docker runtimes ignore the tag in this format, so there's no guarantee that the digest ever belonged to the tag. Tools use the tag as a version hint, but runtimes don't enforce it: the digest takes priority.
+{{< /note >}}

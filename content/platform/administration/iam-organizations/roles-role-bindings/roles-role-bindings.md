@@ -7,7 +7,7 @@ lead: ""
 description: "An overview of Chainguard's identities, roles, and role-bindings, as well as instructions for how to manage roles and role-bindings with chainctl."
 type: "article"
 date: 2024-04-03T08:48:45+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-05T00:00:00+00:00
 draft: false
 tags: ["chainctl", "Overview"]
 images: []
@@ -24,7 +24,7 @@ This guide includes several examples of how you can manage roles and role-bindin
 
 ## Roles
 
-There are a number of built-in roles in Chainguard's IAM model that customers can assign to identities within their organization. Most users within your organization will likely have one of the following roles with broadly-defined privileges: `owner`, `editor`, `viewer`, or `console_viewer`.
+There are a number of built-in roles in Chainguard's IAM model that customers can assign to identities within their organization. Most users in your organization likely have one of the following roles with broadly-defined privileges: `owner`, `editor`, `viewer`, or `console_viewer`.
 
 `owner` is the role with the most privileges. An owner can create, delete, view (list), and modify (update) organizations, account associations, role-bindings, organization invitations, custom roles, role-bindings, and subscriptions.
 
@@ -46,7 +46,7 @@ Chainguard's built-in default roles serve as building blocks and can be compleme
 
 When assigning a role, do so based on the principle of least privilege; assign only the role needed for the identity's function. For example, CI systems should have a role like `registry.pull`, not `editor`.
 
-You can run `chainctl iam roles list` to retrieve a list of all the roles available to your organization and review each of their specific capabilities. This command will list all the built-in roles as well as any custom roles created for your organization. The next section outlines how to create and manage such custom roles.
+You can run `chainctl iam roles list` to retrieve a list of all the roles available to your organization and review each of their specific capabilities. This command lists all the built-in roles as well as any custom roles created for your organization. The next section outlines how to create and manage such custom roles.
 
 ## Managing custom roles
 
@@ -63,7 +63,7 @@ You can use `chainctl` to create custom roles for teams or individuals in your o
 chainctl iam roles create my-role
 ```
 
-After running this command, an interactive prompt will appear asking you to select what capabilities the new role should have and the organization under which the role should be created.
+After running this command, an interactive prompt asks you to select what capabilities the new role should have and the organization under which the role should be created.
 
 You can avoid the interactive prompt by including the `--capabilities` option in this command.
 
@@ -101,16 +101,16 @@ You can also use `chainctl` to delete custom roles.
 chainctl iam roles delete new-role
 ```
 
-Note that you cannot delete any of the built-in roles. Attempting to do so will result in an error.
+Note that you cannot delete any of the built-in roles. Attempting to do so returns an error.
 
 ### Manage custom roles in the Chainguard Console
 
 In addition to using `chainctl` to manage roles, you can also create, view, and edit custom roles directly in the [Chainguard Console](https://console.chainguard.dev).
 
-#### Create  a custom role
+#### Create a custom role
 
 1. In the Chainguard Console, navigate to **Settings** > **Roles**.
-1. Click **Create Role**.
+1. Click **Create role**.
 1. Enter a name and optional description for the new role.
 1. Select the capabilities you want the role to include.
 1. Click **Create**.
@@ -122,9 +122,11 @@ After creating a role, you can attach it to a user. Learn more under [Managing r
 1. Navigate to **Settings** > **Roles**.
 2. Find the role you want to modify and click **Edit**.
 3. Add or remove capabilities as needed.
-4. Click **Save Changes**.
+4. Click **Update**.
 
-> **Note:** Changes to a custom role take effect immediately for all identities currently bound to that role. Built-in roles cannot be edited.
+{{< note >}}
+Changes to a custom role take effect immediately for all identities currently bound to that role. You can't edit built-in roles.
+{{< /note >}}
 
 Both the Console and `chainctl` operate on the same underlying roles and role-bindings; changes made in either place are immediately reflected everywhere.
 
@@ -140,7 +142,7 @@ You can run a command like the following example to create a role-binding.
 chainctl iam role-bindings create
 ```
 
-This will start an interactive prompt where you can enter the appropriate details for this new role-binding. Specifically, you'll be prompted to specify the identity to bind, the role you want the identity bound to, and the organization that the role-binding should belong to.
+This starts an interactive prompt where you can enter the appropriate details for this new role-binding. Specifically, you'll be prompted to specify the identity to bind, the role you want the identity bound to, and the organization that the role-binding should belong to.
 
 To avoid the interactive prompt, add these details to the command by including the `--identity` and `--role` options.
 
@@ -150,7 +152,7 @@ chainctl iam role-bindings create --identity=example-id --role=viewer
 
 This example creates a role-binding for the identity `example-id` with the built-in `viewer` role in your organization.
 
-Note that in order to use the `--identity` option like this, you will need to know the given identity's UIDP. You can find a list of all your identities' UIDPs by running `chainctl iam identities ls`. The identities' UIDPs will appear in the resulting `ID` column.
+Note that in order to use the `--identity` option like this, you need to know the identity's UIDP. You can find a list of all your identities' UIDPs by running `chainctl iam identities ls`. The UIDPs appear in the `ID` column of the output.
 
 ### Manage role bindings in the Chainguard Console
 
