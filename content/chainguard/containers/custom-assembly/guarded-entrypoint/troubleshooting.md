@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 type: "article"
 description: "How to recover a container that fails to start under Guarded Entrypoint, what the wrapper's exit codes mean, and how a refused entrypoint appears in chainctl."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-06T17:41:00+00:00
+lastmod: 2026-10-06T18:42:26+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Troubleshooting", "Debugging"]
 images: []
@@ -35,7 +35,7 @@ With Docker, pass it to `docker run`:
 docker run -e GUARDED_DISABLE=1 cgr.dev/$ORGANIZATION/$REPO:latest
 ```
 
-Use a non-empty value such as `1`. The wrapper checks `GUARDED_DISABLE` before it reads any other setting. This means that a malformed setting in the image doesn't stop it from working.
+`GUARDED_DISABLE` counts as set unless its value, lowercased and trimmed, is empty, `0`, `false`, `no`, or `off`. A value of `1` or `true` turns the wrapper off. A value of `0` or `false` leaves it on. The wrapper checks `GUARDED_DISABLE` before it reads any other setting. This means that a malformed setting in the image doesn't stop it from working.
 
 When `GUARDED_DISABLE` is set, the wrapper does the following:
 
@@ -108,9 +108,11 @@ The text after the digest is the reason. It is one of the following:
 | `the entrypoint is a shell fragment` | The image's entrypoint is a shell fragment, which runs through `/bin/sh`. The wrapper would not run before it. |
 | `the entrypoint is a service-bundle` | The image's entrypoint is a service bundle. A supervisor runs the services, so the wrapper would not run before the application. |
 | `the environment sets GUARDED_DISABLE` | The image's environment sets `GUARDED_DISABLE`. The detail says where it is set. |
+| `the listed wrapper version does not read every GUARDED_* setting` | The repo's `contents.packages` pins `guarded-entrypoint` or `guarded-entrypoint-fips` to a release that is too old for the repo's settings. The detail names the first release that reads them all. |
 
 The tags named in the message aren't rebuilt until you resolve the refusal. To resolve it, do one of the following:
 
+* For the wrapper version reason, remove the `guarded-entrypoint` or `guarded-entrypoint-fips` pin from the repo's `contents.packages` list.
 * Turn off Guarded Entrypoint for the repo. See [Turn off Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/#turn-off-guarded-entrypoint).
 * With tag-based Custom Assembly, bind the overlay that sets `guarded_entrypoint` only to the tags that the wrapper can wrap.
 

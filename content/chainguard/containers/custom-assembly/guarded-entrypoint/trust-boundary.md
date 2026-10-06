@@ -4,7 +4,7 @@ linktitle: "Trust boundary"
 type: "article"
 description: "What the Guarded Entrypoint wrapper connects to, what it never does, and what is visible in the image configuration."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-06T17:41:00+00:00
+lastmod: 2026-10-06T18:42:26+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Conceptual", "Reference"]
 images: []
@@ -61,7 +61,7 @@ An expanded value is visible in the application's command line while the contain
 
 ## The escape hatch
 
-The wrapper honors `GUARDED_DISABLE` before it resolves a reference, runs a preflight check, or reads any other setting. This holds even when the wrapper's settings in the image are malformed. When `GUARDED_DISABLE` is set, the wrapper makes no network connection.
+The wrapper honors `GUARDED_DISABLE` before it resolves a reference, runs a preflight check, or reads any other setting. This holds even when the wrapper's settings in the image are malformed. `GUARDED_DISABLE` counts as set unless its value, lowercased and trimmed, is empty, `0`, `false`, `no`, or `off`. A value of `1` or `true` turns the wrapper off. A value of `0` or `false` leaves it on. When the wrapper is off, it makes no network connection.
 
 Anyone who can set environment variables on a container can set `GUARDED_DISABLE`. The wrapper then doesn't resolve references or run checks, and your application starts with the literal `cg+...` values. A repo with `fail_mode: closed` doesn't prevent this. Control who can change the environment of your deployments as you would control who can change any other part of the deployment.
 

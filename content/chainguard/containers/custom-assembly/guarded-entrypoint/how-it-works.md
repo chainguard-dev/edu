@@ -4,7 +4,7 @@ linktitle: "How it works"
 type: "article"
 description: "What the Guarded Entrypoint wrapper does at container start: secret references, fail mode, preflight checks, command override, and variable expansion."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-06T17:41:00+00:00
+lastmod: 2026-10-06T18:42:26+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Conceptual", "Reference"]
 images: []
@@ -150,7 +150,7 @@ The checks run in order, after secret resolution. Because a preflight target is 
 
 | Mode | What the wrapper starts |
 | --- | --- |
-| `default` | `command` only when the container passes no arguments. Otherwise, the container's arguments. |
+| `default` | `command`, only when the wrapper receives no arguments at all, which means the image has no ENTRYPOINT or CMD of its own and nothing is passed at run time. Otherwise, the arguments it received. |
 | `prepend` | `command` followed by the container's arguments. |
 | `override` | `command` alone. The image's ENTRYPOINT and CMD, and any arguments passed at run time, are dropped. |
 
