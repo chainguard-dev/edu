@@ -1,5 +1,5 @@
 ---
-date: 2026-10-02T21:08:35Z
+date: 2026-10-06T09:26:34Z
 title: "chainctl libraries"
 slug: chainctl_libraries
 url: /platform/chainctl/chainctl-docs/chainctl_libraries/
@@ -37,6 +37,7 @@ Ecosystem library related commands.
 * [chainctl libraries packages](/platform/chainctl/chainctl-docs/chainctl_libraries_packages/)	 - Inspect Libraries packages.
 * [chainctl libraries policy](/platform/chainctl/chainctl-docs/chainctl_libraries_policy/)	 - Manage Libraries policies.
 * [chainctl libraries remediate](/platform/chainctl/chainctl-docs/chainctl_libraries_remediate/)	 - Discover and apply Chainguard -cgr.N CVE remediations for a JavaScript project
+* [chainctl libraries storage](/platform/chainctl/chainctl-docs/chainctl_libraries_storage/)	 - Show the storage your organization's uploads use in Libraries.
 * [chainctl libraries update-hashes](/platform/chainctl/chainctl-docs/chainctl_libraries_update-hashes/)	 - Update lockfile integrity hashes with Chainguard Libraries checksums
 * [chainctl libraries verify](/platform/chainctl/chainctl-docs/chainctl_libraries_verify/)	 - A tool to analyze the use of Chainguard Libraries in various artifacts
 

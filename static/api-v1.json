@@ -2728,14 +2728,15 @@
       },
       "chainguard.platform.iam.OrgKind": {
         "default": "ORG_KIND_UNSPECIFIED",
-        "description": "OrgKind is the kind of organization the group belongs to.\n\n - ORG_KIND_STARTER: Free catalog starter organizations.\n - ORG_KIND_CUSTOMER: Paid customer organizations.\n - ORG_KIND_DEV: Personal developer organizations.\n - ORG_KIND_INFRA: Organizations that are used for infrastructure or automation.\n - ORG_KIND_AWS_MARKETPLACE: Organizations that are created via AWS Marketplace Subscriptions.\nOrgs can move from this kind to CUSTOMER upon up-sell.",
+        "description": "OrgKind is the kind of organization the group belongs to.\n\n - ORG_KIND_STARTER: Free catalog starter organizations.\n - ORG_KIND_CUSTOMER: Paid customer organizations.\n - ORG_KIND_DEV: Personal developer organizations.\n - ORG_KIND_INFRA: Organizations that are used for infrastructure or automation.\n - ORG_KIND_AWS_MARKETPLACE: Organizations that are created via AWS Marketplace Subscriptions.\nOrgs can move from this kind to CUSTOMER upon up-sell.\n - ORG_KIND_TEAM: Paid self-serve organizations on the Team plan. Orgs become TEAM\nonly by upgrading from STARTER.",
         "enum": [
           "ORG_KIND_UNSPECIFIED",
           "ORG_KIND_STARTER",
           "ORG_KIND_CUSTOMER",
           "ORG_KIND_DEV",
           "ORG_KIND_INFRA",
-          "ORG_KIND_AWS_MARKETPLACE"
+          "ORG_KIND_AWS_MARKETPLACE",
+          "ORG_KIND_TEAM"
         ],
         "type": "string"
       },
@@ -4384,11 +4385,15 @@
       },
       "chainguard.platform.libraries.Source": {
         "default": "SOURCE_UNKNOWN",
-        "description": "Source indicates how an entitlement was created.\n\n - SOURCE_UNKNOWN: default; treat as SOURCE_TRIAL for backwards compatibility\n - SOURCE_TRIAL: self-service trial entitlement\n - SOURCE_SFDC: created or managed via Salesforce",
+        "description": "Source indicates how an entitlement was created.\n\n - SOURCE_UNKNOWN: default; treat as SOURCE_TRIAL for backwards compatibility\n - SOURCE_TRIAL: self-service trial entitlement\n - SOURCE_SFDC: created or managed via Salesforce\n - SOURCE_AWS_MARKETPLACE: managed by an AWS Marketplace subscription\n - SOURCE_CONSOLE_ADMIN: managed by a Chainguard administrator\n - SOURCE_GITHUB_YAML: managed by a GitHub YAML declaration\n - SOURCE_INTERNAL: managed by first-party Chainguard automation",
         "enum": [
           "SOURCE_UNKNOWN",
           "SOURCE_TRIAL",
-          "SOURCE_SFDC"
+          "SOURCE_SFDC",
+          "SOURCE_AWS_MARKETPLACE",
+          "SOURCE_CONSOLE_ADMIN",
+          "SOURCE_GITHUB_YAML",
+          "SOURCE_INTERNAL"
         ],
         "type": "string"
       },
@@ -14071,7 +14076,7 @@
             }
           },
           {
-            "description": "source indicates how this entitlement is being provisioned.\n\n - SOURCE_UNKNOWN: default; treat as SOURCE_TRIAL for backwards compatibility\n - SOURCE_TRIAL: self-service trial entitlement\n - SOURCE_SFDC: created or managed via Salesforce",
+            "description": "source indicates how this entitlement is being provisioned.\n\n - SOURCE_UNKNOWN: default; treat as SOURCE_TRIAL for backwards compatibility\n - SOURCE_TRIAL: self-service trial entitlement\n - SOURCE_SFDC: created or managed via Salesforce\n - SOURCE_AWS_MARKETPLACE: managed by an AWS Marketplace subscription\n - SOURCE_CONSOLE_ADMIN: managed by a Chainguard administrator\n - SOURCE_GITHUB_YAML: managed by a GitHub YAML declaration\n - SOURCE_INTERNAL: managed by first-party Chainguard automation",
             "in": "query",
             "name": "source",
             "schema": {
@@ -14079,7 +14084,11 @@
               "enum": [
                 "SOURCE_UNKNOWN",
                 "SOURCE_TRIAL",
-                "SOURCE_SFDC"
+                "SOURCE_SFDC",
+                "SOURCE_AWS_MARKETPLACE",
+                "SOURCE_CONSOLE_ADMIN",
+                "SOURCE_GITHUB_YAML",
+                "SOURCE_INTERNAL"
               ],
               "type": "string"
             }
@@ -16795,6 +16804,8 @@
     },
     "/registry/v1/entitlements/{parent}/images": {
       "get": {
+        "deprecated": true,
+        "description": "Deprecated: use ListEntitlementCatalogImages.",
         "operationId": "Entitlements_ListEntitlementImages",
         "parameters": [
           {
@@ -20540,6 +20551,29 @@
             "name": "pageToken",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "description": "event_types matches events of any of the given types, ANDed with the\nother event-level filters on the same event. UNSPECIFIED and unknown\nvalues are rejected with InvalidArgument. Servers that predate this field\nignore it and return events of every type.\n\n - EVENT_TYPE_FILTER_UNSPECIFIED: Default/unspecified\n - EVENT_TYPE_FILTER_DETECTION: Detection event\n - EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION: True positive determination\n - EVENT_TYPE_FILTER_FIXED: Fixed event\n - EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION: False positive determination\n - EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED: Analysis not planned\n - EVENT_TYPE_FILTER_FIX_NOT_PLANNED: Fix not planned\n - EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX: Pending upstream fix\n - EVENT_TYPE_FILTER_PATCHED: Patched event\n - EVENT_TYPE_FILTER_COMPONENT_LOCATION_CHANGED: Component location changed event",
+            "in": "query",
+            "name": "eventTypes",
+            "schema": {
+              "items": {
+                "enum": [
+                  "EVENT_TYPE_FILTER_UNSPECIFIED",
+                  "EVENT_TYPE_FILTER_DETECTION",
+                  "EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION",
+                  "EVENT_TYPE_FILTER_FIXED",
+                  "EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION",
+                  "EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED",
+                  "EVENT_TYPE_FILTER_FIX_NOT_PLANNED",
+                  "EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX",
+                  "EVENT_TYPE_FILTER_PATCHED",
+                  "EVENT_TYPE_FILTER_COMPONENT_LOCATION_CHANGED"
+                ],
+                "type": "string"
+              },
+              "type": "array"
             }
           }
         ],

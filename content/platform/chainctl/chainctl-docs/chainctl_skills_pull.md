@@ -1,5 +1,5 @@
 ---
-date: 2026-10-02T21:08:35Z
+date: 2026-10-06T09:26:34Z
 title: "chainctl skills pull"
 slug: chainctl_skills_pull
 url: /platform/chainctl/chainctl-docs/chainctl_skills_pull/
@@ -18,7 +18,9 @@ Download a published skill to a local directory.
 Download a published skill to a local directory.
 
 The reference accepts org/name:tag or org/name@sha256:DIGEST.
-The optional directory sets the download destination.
+The optional directory sets the download destination. The download includes
+.hardened-artifact.json, which records the skill's registry reference and digest;
+packing the directory again leaves that file out.
 
 ```
 chainctl skills pull <ref> [<dir>] [flags]

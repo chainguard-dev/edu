@@ -1,5 +1,5 @@
 ---
-date: 2026-10-02T21:08:35Z
+date: 2026-10-06T09:26:34Z
 title: "chainctl starter request-access"
 slug: chainctl_starter_request-access
 url: /platform/chainctl/chainctl-docs/chainctl_starter_request-access/
