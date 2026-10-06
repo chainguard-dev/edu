@@ -66,12 +66,8 @@ Checking OpenSSL lifecycle assurance.
     ✓ Self-test KAT_Cipher AES_ECB_Decrypt ... passed.
     ✓ Self-test KAT_Signature RSA ... passed.
     ✓ Self-test KAT_Signature ECDSA ... passed.
-    ✓ Self-test KAT_Signature DetECDSA ... passed.
     ✓ Self-test KAT_Signature EDDSA ... passed.
     ✓ Self-test KAT_Signature EDDSA ... passed.
-    ✓ Self-test KAT_Signature ML-DSA ... passed.
-    ✓ Self-test KAT_Signature SLH-DSA ... passed.
-    ✓ Self-test KAT_Signature SLH-DSA ... passed.
     ✓ Self-test KAT_KDF TLS13_KDF_EXTRACT ... passed.
     ✓ Self-test KAT_KDF TLS13_KDF_EXPAND ... passed.
     ✓ Self-test KAT_KDF TLS12_PRF ... passed.
@@ -87,14 +83,8 @@ Checking OpenSSL lifecycle assurance.
     ✓ Self-test DRBG HMAC ... passed.
     ✓ Self-test KAT_KA DH ... passed.
     ✓ Self-test KAT_KA ECDH ... passed.
-    ✓ Self-test KAT_AsymmetricKeyGeneration ML-KEM ... passed.
-    ✓ Self-test KAT_AsymmetricKeyGeneration ML-DSA ... passed.
-    ✓ Self-test KAT_AsymmetricKeyGeneration SLH-DSA ... passed.
-    ✓ Self-test KAT_KEM KEM_Encap ... passed.
-    ✓ Self-test KAT_KEM KEM_Decap ... passed.
-    ✓ Self-test KAT_KEM KEM_Decap_Reject ... passed.
 
-    ✓ 35 out of 35 self-tests passed.
+    ✓ 25 out of 25 self-tests passed.
     ✓ Check FIPS cryptographic module is available... passed.
     ✓ Check FIPS approved only mode (EVP_default_properties_is_fips_enabled)... passed.
     ✓ Check non-approved algorithm blocked (HMAC-MD5)... passed.
@@ -105,31 +95,31 @@ Digests available for non-security use as per FIPS 140-3 I.G. 2.4.A (fips=no):
 
 Available approved algorithms for security purposes (provider=fips,fips=yes):
     ✗ MD5
-    ✗ SHA-1
+    ✓ SHA-1
     ✓ SHA-2
     ✓ SHA-3
     ✗ DSA
     ✓ RSA
     ✓ ECDSA
     ✓ Ed25519
-    ✓ DetECDSA
-    ✓ ML-DSA
-    ✓ SLH-DSA
-    ✓ ML-KEM
-    ✓ X25519MLKEM768
-    ✓ SecP256r1MLKEM768
-    ✓ SecP384r1MLKEM1024
+    ✗ DetECDSA
+    ✗ ML-DSA
+    ✗ SLH-DSA
+    ✗ ML-KEM
+    ✗ X25519MLKEM768
+    ✗ SecP256r1MLKEM768
+    ✗ SecP384r1MLKEM1024
 
 Public OpenSSL API (libssl.so & libcrypto.so):
-    name:       OpenSSL 3.6.4 25 Aug 2026
-    version:    3.6.4
+    name:       OpenSSL 4.0.3 29 Sep 2026
+    version:    4.0.3
 
 FIPS cryptographic module provider details (fips.so):
     name:       Chainguard FIPS Provider for OpenSSL
-    version:    3.6.0
-    build:      3.6.0-r4
+    version:    3.4.0
+    build:      3.4.0-r5
 
-Locate applicable certificate(s) at: CMVP #5523 (with entropy #E191)
+Locate applicable certificate(s) at: CMVP #5132 (with entropy #E191)
 
 Lifecycle assurance satisfied.
 ```
@@ -140,7 +130,7 @@ This output confirms that OpenSSL in the `python-fips` image is properly configu
 
 [NIST SP 800-131A](https://csrc.nist.gov/pubs/sp/800/131/a/r2/final) requires HMAC to use approved digest and keys of at least 112 bits long (14 characters) for security purposes.
 
-Success scenario is HMAC with a 14 characters long key and a SHA256 digest:
+Success scenario is HMAC with a 14-character key and a SHA256 digest:
 
 ```sh
 openssl mac -macopt key:14charslongkey -macopt digest:sha256 -in /dev/null HMAC
@@ -166,15 +156,15 @@ MAC parameter error
 808B8049E17F0000:error:0308010C:digital envelope routines:inner_evp_generic_fetch:unsupported:crypto/evp/evp_fetch.c:355:FIPS internal library context, Algorithm (md5 : 0), Properties (<null>)
 ```
 
-The above checks can also be performed in other programming languages for images that systems that use OpenSSL to power FIPS cryptography, for example python, node, php, perl and similar.
+You can also perform these checks in other programming languages, such as Python, Node.js, PHP, and Perl, in images and systems that use OpenSSL to power FIPS cryptography.
 
-In non-fips images, all of the above commands are successful.
+In non-FIPS images, all of these commands succeed.
 
 ### OpenSSL FIPS 140-3 tamper test
 
 Cryptographic modules are required to perform startup self-tests, and
-must enter error state and stop all cryptoraphic services upon
-failure. One of the startup self-tests is intergity check of the
+must enter error state and stop all cryptographic services upon
+failure. One of the startup self-tests is an integrity check of the
 cryptographic module itself. To observe this one can tamper with the
 fips.so module itself, or tamper with the expected module HMAC value.
 
@@ -206,45 +196,25 @@ mac: Use -help for summary.
 80DB6818FB7F0000:error:0308010C:digital envelope routines:inner_evp_generic_fetch:unsupported:crypto/evp/evp_fetch.c:376:Global default library context, Algorithm (HMAC : 0), Properties (<null>)
 ```
 
-If application continues to operate, even when the fips module has been tampered with or removed, this indicates that the given application and algorithms have stopped using the FIPS module, are not using OpenSSL, or have fallbacks. For example, applications might prefer OpenSSL when it is operation, but have fallbacks to other libraries or have statically compiled alternative implementations of algorithms.
+If an application continues to operate, even when the FIPS module has been tampered with or removed, this indicates that the given application and algorithms have stopped using the FIPS module, are not using OpenSSL, or have fallbacks. For example, applications might prefer OpenSSL when it is operational, but have fallbacks to other libraries or have statically compiled alternative implementations of algorithms.
 
 ### Opt in to different FIPS provider versions
 
-Images that contain `NIST-CMVP-5523-optin` or `NIST-CMVP-5132-optin`
-SBOM indicator packages offer ability to switch between different
-versions of validated CMVP modules at runtime.
-
-- `NIST-CMVP-5523-optin` enables opt-into Chainguard v3.6 module with `OPENSSL_CONF_INCLUDE=/etc/ssl-3.6.0` environment variable
-- `NIST-CMVP-5132-optin` enables opt-into Chainguard v3.4 module with `OPENSSL_CONF_INCLUDE=/etc/ssl-3.4.0` environment variable
+Images that contain the `NIST-CMVP-5523-optin` SBOM indicator package can switch to a different validated CMVP module at runtime. To opt in to the Chainguard v3.6 module, set the `OPENSSL_CONF_INCLUDE` environment variable to `/etc/ssl-3.6.0`.
 
 For example:
 
 ```sh
 export OPENSSL_CONF_INCLUDE=/etc/ssl-3.6.0
+openssl-fips-test
 ```
 
 ```output
-export OPENSSL_CONF_INCLUDE=/etc/ssl-3.6.0
-openssl-fips-test
 ...
 FIPS cryptographic module provider details (fips.so):
     name:       Chainguard FIPS Provider for OpenSSL
     version:    3.6.0
     build:      3.6.0-r4
-```
-
-```sh
-export OPENSSL_CONF_INCLUDE=/etc/ssl-3.4.0
-```
-
-```output
-export OPENSSL_CONF_INCLUDE=/etc/ssl-3.4.0
-openssl-fips-test
-...
-FIPS cryptographic module provider details (fips.so):
-    name:       Chainguard FIPS Provider for OpenSSL
-    version:    3.4.0
-    build:      3.4.0-r5
 ```
 
 ## Bouncy Castle FIPS Java API
