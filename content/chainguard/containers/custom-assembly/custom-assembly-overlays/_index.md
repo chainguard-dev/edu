@@ -23,7 +23,7 @@ toc: true
 Standard [Custom Assembly](/chainguard/containers/custom-assembly/overview/) stores one customization on one repository and applies it to every tag. Custom Assembly Overlays separate the customization from where it applies. This lets you do the following:
 
 * Reuse one customization, such as your organization's internal certificates, across many repositories.
-* Apply a customization to a subset of a repository's tags, such as only the `-dev` tags. This is called [tag-based Custom Assembly](#tag-based-custom-assembly).
+* [Apply a customization to a subset of a repository's tags](#customizing-specific-image-tags), such as only the `-dev` tags.
 * Add a package to every tag, with the package name matched to each tag's language version.
 
 This page explains the concepts. To create and manage overlays, see [Managing Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/custom-assembly-overlays/chainctl/) or [Managing Custom Assembly Overlays with Terraform](/chainguard/containers/custom-assembly/custom-assembly-overlays/terraform/).
@@ -39,13 +39,13 @@ To apply an overlay to several repositories, create one binding for each reposit
 
 When you create, update, or delete a binding, or update an overlay, Chainguard rebuilds the affected tags without waiting for a new upstream release. An overlay update rebuilds the matching tags in every repository the overlay is bound to. As with standard Custom Assembly, a build normally takes less than 20 minutes, and Chainguard rebuilds the customized tags whenever their packages are updated.
 
-## Tag-based Custom Assembly
+## Customizing specific image tags
 
 Standard Custom Assembly applies one customization to every tag in a repository. This fails for images that ship several language or runtime versions side by side, because a package built for one version can't install on the others.
 
 For example, the `python` image publishes tags for Python 3.11, 3.12, 3.13, and 3.14. The `py3.13-typer` package depends on Python 3.13. If you add it with standard Custom Assembly, every tag tries to install it, and the 3.11, 3.12, and 3.14 builds fail.
 
-Tag-based Custom Assembly lets you choose which tags receive a customization, using the binding's tag selector.
+The binding's tag selector lets you choose which tags receive a customization.
 
 ### Tag selectors
 

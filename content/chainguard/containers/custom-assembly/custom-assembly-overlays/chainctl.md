@@ -28,7 +28,7 @@ For an explanation of overlays, bindings, and tag selectors, see [Overview of Cu
 
 Before you start, you need the following:
 
-* Tag-based Custom Assembly enabled for your organization. Contact your Chainguard account team to enable it.
+* Custom Assembly Overlays enabled for your organization. Contact your Chainguard account team to enable it.
 * [`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) version 0.2.367 or later. Run `chainctl update` to update it.
 * A role with the `registry.overlays.edit` capability, such as the built-in `editor` or `owner` role.
 * A repository in your organization with no standard Custom Assembly customization. A repository can't use both. To move a repository from standard Custom Assembly, contact your Chainguard account team.

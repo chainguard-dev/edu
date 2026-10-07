@@ -28,7 +28,7 @@ For an explanation of overlays, bindings, and tag selectors, see [Overview of Cu
 
 Before you start, you need the following:
 
-* Tag-based Custom Assembly enabled for your organization. Contact your Chainguard account team to enable it.
+* Custom Assembly Overlays enabled for your organization. Contact your Chainguard account team to enable it.
 * Terraform and the Chainguard Terraform provider, version 0.5.0 or later. To configure the provider, see [Introduction to the Chainguard Terraform provider](/platform/administration/terraform-provider/).
 * An identity with the `registry.overlays.edit` capability, such as one bound to the built-in `editor` or `owner` role.
 * A repository in your organization with no standard Custom Assembly customization. A repository can't use both.
