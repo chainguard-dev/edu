@@ -6,7 +6,7 @@ description:
   Libraries using the chainctl tool for enhanced supply chain security"
 type: "article"
 date: 2025-07-03T12:00:00+00:00
-lastmod: 2026-09-28T18:48:06+00:00
+lastmod: 2026-10-06T20:19:15+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -263,6 +263,48 @@ chainctl libraries verify ~/.m2/repository/net/logstash/logback/logstash-logback
 
 To integrate this into your build pipeline, add the verification step after
 dependency resolution and before the packaging phase.
+
+#### Download SBOMs and attestations
+
+During verification, `chainctl` fetches the SBOM and SLSA provenance published
+alongside a Chainguard-built Java artifact and discards them after the check.
+Add the `--output-attestations` flag to save these files to disk instead:
+
+```sh
+chainctl libraries verify commons-lang3-3.17.0.jar --output-attestations
+```
+
+Use `--output-dir` to set the base directory, which defaults to the current
+directory. Files are written under each artifact's Maven repository path,
+`group/artifact/version`, matching the layout of a local Maven repository:
+
+```sh
+chainctl libraries verify commons-lang3-3.17.0.jar \
+  --output-attestations --output-dir repo
+```
+
+For the preceding command, the files land under
+`repo/org/apache/commons/commons-lang3/3.17.0/`:
+
+- `commons-lang3-3.17.0.spdx.json` — SPDX SBOM, saved as a trusted Chainguard
+  attestation
+- `commons-lang3-3.17.0.slsa-attestation.json` — SLSA provenance, also saved
+  as trusted
+- `commons-lang3-3.17.0-cyclonedx.json` and `commons-lang3-3.17.0-cyclonedx.xml`
+  — CycloneDX SBOMs, saved when present but marked unverified, since
+  Chainguard does not vouch for their contents
+
+Only an artifact that verifies as a Chainguard build saves anything. Upstream or
+tampered bytes save nothing. Inside a fat JAR, each embedded library is verified
+and saved individually, so only the verified libraries contribute files. The
+saved files are listed in the text, JSON, YAML, and CSV output, with unverified
+files clearly marked.
+
+Downloading SBOMs and attestations is supported for Java artifacts only. The
+`--output-attestations` and `--output-dir` flags are ignored for all other
+ecosystems, and nothing is written for them. For a description of these files
+and the alternative of downloading them directly, refer to [SBOM and attestation
+files](/chainguard/libraries/java/overview/#sbom-and-attestation-files).
 
 ### Analyze JavaScript packages
 

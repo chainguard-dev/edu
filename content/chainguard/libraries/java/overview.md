@@ -4,7 +4,7 @@ linktitle: "Java overview"
 description: "Learn about Chainguard Libraries for Java, providing enhanced security for Maven dependencies through automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-07T18:02:47+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java", "Overview"]
 menu:
@@ -173,37 +173,8 @@ Lang](https://commons.apache.org/proper/commons-lang/) are the following:
 <groupId>org.apache.commons</groupId>
 <artifactId>commons-lang3</artifactId>
 <version>3.13.0</version>
-<version>3.13.0</version>
 ```
 
-**Find available versions**
-
-List the versions that Chainguard has built for a library by requesting its
-`maven-metadata.xml` file at the `groupId`/`artifactId` path. The `groupId`
-`org.apache.commons` becomes the nested directories `org/apache/commons`, and the
-`artifactId` adds the `commons-lang3` directory:
-
-```
-https://libraries.cgr.dev/java/org/apache/commons/commons-lang3/maven-metadata.xml
-```
-
-The repository only includes release artifacts that Chainguard builds from source,
-so the versions listed may differ from those available on Maven Central.
-
-**List the files for a version**
-
-Each version has its own leaf directory, formed by appending the `version` to the
-`groupId`/`artifactId` path. This version directory is browsable and lists all
-files for that specific library version:
-
-```
-https://libraries.cgr.dev/java/org/apache/commons/commons-lang3/3.13.0/
-```
-
-For the `org.apache.commons:commons-lang3:3.13.0` library, this directory includes
-the main Maven metadata file `commons-lang3-3.13.0.pom`, the main JAR file
-`commons-lang3-3.13.0.jar`, related checksum files, and the SBOM and attestation
-files described below. Specific files vary between libraries.
 **Find available versions**
 
 List the versions that Chainguard has built for a library by requesting its
@@ -244,14 +215,12 @@ With [.netrc authentication](/chainguard/libraries/introduction/access/#netrc):
 ```shell
 curl -n -L \
   -O https://libraries.cgr.dev/java/commons-io/commons-io/2.13.0/commons-io-2.13.0.pom
-  -O https://libraries.cgr.dev/java/commons-io/commons-io/2.13.0/commons-io-2.13.0.pom
 ```
 
 With [environment variables](/chainguard/libraries/introduction/access/#env):
 
 ```shell
 curl -L --user "$CHAINGUARD_JAVA_IDENTITY_ID:$CHAINGUARD_JAVA_TOKEN" \
-  -O https://libraries.cgr.dev/java/commons-io/commons-io/2.13.0/commons-io-2.13.0.pom
   -O https://libraries.cgr.dev/java/commons-io/commons-io/2.13.0/commons-io-2.13.0.pom
 ```
 
@@ -275,17 +244,22 @@ following extensions:
 
 * `.slsa-attestation.json` for the SLSA provenance attestation
 * `.spdx.json` for the SBOM information
-* `.spdx.json` for the SBOM information
 
 For example, the files for artifactId `commons-compress` and version
 `1.23.0` are located in the version directory
-[https://libraries.cgr.dev/java/org/apache/commons/commons-compress/1.23.0/](https://libraries.cgr.dev/java/org/apache/commons/commons-compress/1.28.0/).
+[https://libraries.cgr.dev/java/org/apache/commons/commons-compress/1.23.0/](https://libraries.cgr.dev/java/org/apache/commons/commons-compress/1.23.0/).
 It includes the following files:
 
 * `commons-compress-1.23.0.pom`
 * `commons-compress-1.23.0.jar`
 * `commons-compress-1.23.0.slsa-attestation.json`
 * `commons-compress-1.23.0.spdx.json`
+
+Instead of downloading these files individually, you can save them while
+verifying a local artifact by adding the `--output-attestations` flag to
+`chainctl libraries verify`. Refer to [Download SBOMs and
+attestations](/chainguard/libraries/policies-and-security/verification/#download-sboms-and-attestations)
+for details.
 
 ## Upstream fallback policy and controls
 
