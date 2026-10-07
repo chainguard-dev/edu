@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 type: "article"
 description: "How to recover a container that fails to start under Guarded Entrypoint, what the wrapper's exit codes mean, and how a refused build appears in chainctl."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-07T20:45:00+00:00
+lastmod: 2026-10-07T21:37:50+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Troubleshooting", "Debugging"]
 images: []
@@ -44,7 +44,11 @@ When `GUARDED_DISABLE` is set, the wrapper does the following:
 * It doesn't apply `command_override`. The image's original ENTRYPOINT and CMD run.
 * It makes no network connections.
 
-If the container then starts, the wrapper or its settings caused the failure. Remove the variable after you fix the configuration and Chainguard rebuilds the image. If the container still fails, the failure comes from the application or the deployment.
+If the container then starts, the wrapper or its settings might have caused the failure. Remove the variable after you fix the configuration and Chainguard rebuilds the image.
+
+If the container still fails, the cause isn't necessarily the application or the deployment. With `GUARDED_DISABLE` set, your application receives the literal `cg+...` values and skips its preflight checks. An application that needs its secrets can fail for that reason.
+
+With `GUARDED_DISABLE` set, an image whose only command comes from `command_override` exits with code `124` instead of starting.
 
 Anyone who can set environment variables on a container can set `GUARDED_DISABLE`. This is true for a repo with `fail_mode: closed` too. See [Guarded Entrypoint trust boundary](/chainguard/containers/custom-assembly/guarded-entrypoint/trust-boundary/).
 
@@ -62,6 +66,8 @@ Then read the container's logs. The wrapper writes JSON messages to standard err
 kubectl logs $POD
 ```
 
+For a pod in a restart loop, add `--previous` to read the logs of the container that stopped.
+
 To see more detail, set `GUARDED_ENTRYPOINT_LOG` on the container to `debug`. The levels are `debug`, `info`, `warn`, and `quiet`.
 
 ### Exit codes before the application starts
@@ -76,10 +82,10 @@ The wrapper uses the following exit codes when it stops the container before you
 | `123` | There is no command to run. | Check that the image has an entrypoint or CMD, or that `command_override` sets a command. |
 | `124` | `GUARDED_DISABLE` is set and there is no command to run. | Pass a command, or check that the image has an entrypoint or CMD. |
 | `125` | The wrapper itself failed, for example when it couldn't fork a process. | Check the container's resource limits. |
-| `126` | The command exists but can't be run. | Check the execute permission, and that the command is not a directory. |
+| `126` | The command exists but can't be run. | Check the execute permission, that the command is not a directory, and that a script's `#!` interpreter exists. |
 | `127` | The command wasn't found. | Check that the first element of `command` is on the container's `PATH`, or use an absolute path. |
 
-A code of `126` or `127` can also come from your own application. Read the wrapper's log messages to tell the two apart.
+Your own application can also exit with any code from `120` to `127`. To tell the two apart, look in the logs for a wrapper error line just before the container exited.
 
 With `fail_mode: open`, only the configuration errors described in [Fail mode](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#fail-mode) stop the container with exit code `121`.
 
@@ -99,10 +105,10 @@ When Chainguard can't wrap an image, the rebuild of that image fails. Chainguard
 To see the failure, list the repo's builds:
 
 ```shell
-chainctl images repos build list --repo $REPO
+chainctl images repos build list --repo $REPO --parent $ORGANIZATION
 ```
 
-The `Result` column shows the failure, and the `Reason` column shows why. The failed build has no tags in the `Tags` column. For the full text, run `chainctl images repos build logs --repo $REPO` and select the failed build. The output has this form:
+The `Result` column shows the failure, and the `Reason` column shows why. The `Reason` column is filled only for failures that Chainguard records outside a build, such as these refusals and binding conflicts. It is empty for an ordinary build failure. The failed build has no tags in the `Tags` column. For the full text, run `chainctl images repos build logs --repo $REPO --parent $ORGANIZATION` and select the failed build. Without a terminal, for example in a pipeline, pass `--build-id` with the build's ID. The output has this form:
 
 ```output
 guarded entrypoint refused for tags [latest] (digest sha256:...): the environment sets GUARDED_DISABLE; the tags are not rebuilt and are dropped from the repo's active tag list until the refusal is resolved
@@ -118,7 +124,7 @@ The text after the digest is the reason. It is one of the following:
 | `the environment sets GUARDED_DISABLE` | The image's environment sets `GUARDED_DISABLE`. The detail says where it is set. |
 | `the listed wrapper version does not read every GUARDED_* setting` | The repo's `contents.packages` pins `guarded-entrypoint` or `guarded-entrypoint-fips` to a release that is too old for the repo's settings. The detail names the first release that reads them all. |
 
-The tags named in the message aren't rebuilt until you resolve the refusal. To resolve it, do one of the following:
+The tags named in the message aren't rebuilt until you resolve the refusal. A tag that isn't rebuilt doesn't receive package updates, including CVE fixes, until then. To resolve it, do one of the following:
 
 * For the wrapper version reason, remove the `guarded-entrypoint` or `guarded-entrypoint-fips` pin from the repo's `contents.packages` list.
 * Turn off Guarded Entrypoint for the repo. See [Turn off Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/#turn-off-guarded-entrypoint).

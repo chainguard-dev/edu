@@ -4,7 +4,7 @@ linktitle: "Trust boundary"
 type: "article"
 description: "What the Guarded Entrypoint wrapper connects to, what it never does, and what is visible in the image configuration."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-07T19:01:58+00:00
+lastmod: 2026-10-07T21:37:50+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Conceptual", "Reference"]
 images: []
@@ -21,10 +21,15 @@ This page states what the [Guarded Entrypoint](/chainguard/containers/custom-ass
 
 ## What the wrapper connects to
 
-The wrapper connects only to the endpoints that you configure:
+The wrapper connects only to the endpoints that your configuration names:
 
-* The secret backends that your references name: Vault, Consul, or Google Secret Manager.
-* The TCP targets that your `preflight` checks name.
+* **Vault:** the address in `VAULT_ADDR`.
+* **Consul:** the address in `CONSUL_HTTP_ADDR`. When it isn't set, the default is `127.0.0.1:8500`.
+* **Google Secret Manager:** `secretmanager.googleapis.com` and Google's token endpoints. The wrapper authenticates with Application Default Credentials, so it also contacts the GCE or GKE metadata server, which it always reaches directly. Credentials of an external account type add their own source URL.
+* **Preflight targets:** the TCP targets that your `preflight` checks name.
+* **Proxies:** if you set `HTTPS_PROXY`, the wrapper sends Secret Manager requests and requests to an `https://` Vault address through it. The wrapper never uses a proxy for Consul.
+
+If you build an egress allowlist from this list, include the Google endpoints when you use Secret Manager.
 
 The wrapper makes no connection to Chainguard.
 
@@ -33,7 +38,7 @@ The wrapper makes no connection to Chainguard.
 * It doesn't run code that you upload. The wrapper starts your application and, if you set `command_override`, the command you list.
 * It doesn't send telemetry. It sends no data to Chainguard of any kind.
 * It doesn't write a resolved secret value to its logs. It replaces a value that it resolved or expanded with `***` in every log line.
-* It doesn't send a backend credential anywhere except the backend address you configure. It doesn't follow redirects when it reads from Vault or Consul.
+* It doesn't send a Vault or Consul credential anywhere except the address you configure, and it doesn't follow redirects when it reads from either. A Secret Manager credential goes to Google's token endpoints and to Secret Manager.
 
 ## What is visible in the image
 
@@ -45,7 +50,7 @@ Anyone who can pull the image can read its configuration, for example with `dock
 | Resolved secret values | No | The wrapper resolves them when the container starts, in the container's memory. They are never written to the image. |
 | `command_override` text | Yes | See the next section. |
 | Preflight targets and settings | Yes | The targets are stored in the image configuration. |
-| Fail mode | Yes | The setting is stored in the image configuration. |
+| Fail mode | Only when `open` | A repo with `fail_mode: closed` has no setting in its image configuration. |
 
 The settings are stored in image environment variables whose names start with `GUARDED_`. This prefix is reserved for the wrapper. The API rejects an `environment` key that starts with it.
 
@@ -63,7 +68,9 @@ An expanded value is visible in the application's command line while the contain
 
 The wrapper honors `GUARDED_DISABLE` before it resolves a reference, runs a preflight check, or reads any other setting. This holds even when the wrapper's settings in the image are malformed. `GUARDED_DISABLE` counts as set unless its value, lowercased and trimmed, is empty, `0`, `false`, `no`, or `off`. A value of `1` or `true` turns the wrapper off. A value of `0` or `false` leaves it on. When the wrapper is off, it makes no network connection.
 
-Anyone who can set environment variables on a container can set `GUARDED_DISABLE`. The wrapper then doesn't resolve references or run checks, and your application starts with the literal `cg+...` values. A repo with `fail_mode: closed` doesn't prevent this. Control who can change the environment of your deployments as you would control who can change any other part of the deployment.
+Anyone who can set environment variables on a container can set `GUARDED_DISABLE`. The wrapper then doesn't resolve references or run checks, and your application starts with the literal `cg+...` values. A repo with `fail_mode: closed` doesn't prevent this.
+
+The same people can override other settings. Every `GUARDED_` setting that Chainguard stores in the image can be overridden from the deployment's environment. So can `VAULT_ADDR` and `CONSUL_HTTP_ADDR`. Pointing `VAULT_ADDR` at another server sends the service account token to that server. Control who can change the environment of your deployments as you would control who can change any other part of the deployment.
 
 For how to use the escape hatch, see [Troubleshoot a wrapped container](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/).
 

@@ -4,7 +4,7 @@ linktitle: "Examples"
 type: "article"
 description: "Example Custom Assembly manifests that use Guarded Entrypoint to inject secrets, wait for a dependency, override a command, and fail open."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-07T19:01:58+00:00
+lastmod: 2026-10-07T21:37:50+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Procedural", "Configuration"]
 images: []
@@ -25,13 +25,14 @@ The examples use the following variables:
 
 ```shell
 export REPO=my-custom-app
+export ORGANIZATION=example.com
 ```
 
 To try an example, save it as `build.yaml`. Preview the change, then apply it:
 
 ```shell
-chainctl images repos build apply -f build.yaml --repo $REPO --dry-run
-chainctl images repos build apply -f build.yaml --repo $REPO --yes
+chainctl images repos build apply -f build.yaml --repo $REPO --parent $ORGANIZATION --dry-run
+chainctl images repos build apply -f build.yaml --repo $REPO --parent $ORGANIZATION --yes
 ```
 
 The first command prints the diff and exits with a non-zero status when it finds a change. The second command applies the manifest and starts a rebuild.
@@ -56,7 +57,7 @@ When the container starts, the wrapper does the following:
 1. Reads the `apps/orders/api-url` key from Consul into `ORDERS_API_URL`.
 1. Starts the Java application with both variables resolved.
 
-The image stores the references and the addresses. It doesn't store the secrets. To read from Consul with a token, set `CONSUL_HTTP_TOKEN` or `CONSUL_HTTP_TOKEN_FILE` on the deployment, not in the manifest. A token in the manifest would be visible to anyone who can pull the image.
+The image stores the references and the addresses. It doesn't store the secrets. To read from Consul with a token, set `CONSUL_HTTP_TOKEN` or `CONSUL_HTTP_TOKEN_FILE` on the deployment, not in the manifest. A token in the manifest would be visible to anyone who can pull the image. `VAULT_TOKEN`, if you set it, takes precedence over the Kubernetes login, and `CONSUL_HTTP_TOKEN_FILE` wins over `CONSUL_HTTP_TOKEN`. A token can't be a `cg+` reference.
 
 The default `fail_mode` is `closed`. If Vault or Consul can't serve a reference, the container stops with exit code 121 and the application doesn't start.
 
@@ -78,7 +79,7 @@ preflight:
 
 The wrapper runs the checks in order, after it resolves secrets and before it starts the application:
 
-* The first check tries to connect to `db.internal:5432` once a second for up to 60 seconds. If the connection never succeeds, the container stops with exit code 122.
+* The first check tries to connect to `db.internal:5432` for up to 60 seconds, and pauses one second between attempts. Each attempt has its own timeout. If the connection never succeeds, the container stops with exit code 122.
 * The second check waits up to 10 seconds for `/run/secrets/tls-ready` to exist. With `on_failure: continue`, the wrapper logs a warning and starts the application if the file never appears.
 
 A target can read from the environment. The following entry waits for the address in the `CACHE_ADDR` variable, which you set on the deployment:

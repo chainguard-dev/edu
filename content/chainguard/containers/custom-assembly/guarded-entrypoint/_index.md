@@ -4,7 +4,7 @@ linktitle: "Guarded Entrypoint"
 type: "article"
 description: "How Guarded Entrypoint lets a Custom Assembly image resolve secrets, run preflight checks, and override its command at container start, and how to turn it on."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-07T19:01:58+00:00
+lastmod: 2026-10-07T21:37:50+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Configuration", "Procedural"]
 images: []
@@ -47,7 +47,7 @@ Before you start, you need the following:
 
 * A Custom Assembly repo. See the [Custom Assembly overview](/chainguard/containers/custom-assembly/overview/) to create one.
 * A role that lets you edit Custom Assembly repos. See the [Custom Assembly permissions requirements](/chainguard/containers/custom-assembly/overview/#custom-assembly-permissions-requirements).
-* The latest [`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/). Run `chainctl update` to update it.
+* The latest [`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/). Run `chainctl update` to update it. An older `chainctl` drops the Guarded Entrypoint keys when it reads a repo, so a teammate who edits the repo with an older version can turn the feature off without noticing. Update every copy of `chainctl` that edits the repo.
 * Guarded Entrypoint enabled for your organization. It's a beta feature, so contact Chainguard customer support to enable it. Until then, the API rejects `guarded_entrypoint` with the error in [API errors](#api-errors).
 
 The examples on this page use the following environment variables. Set them to match your organization and repo:
@@ -73,7 +73,7 @@ Secret references go in the existing `environment` key. For details on each key,
 To turn it on interactively, open the repo's manifest in your editor:
 
 ```shell
-chainctl images repos build edit --repo $REPO
+chainctl images repos build edit --repo $REPO --parent $ORGANIZATION
 ```
 
 Add the keys you need. The following manifest turns on Guarded Entrypoint and resolves one secret from Vault:
@@ -93,10 +93,10 @@ Save and close the editor. `chainctl` shows a diff and asks you to confirm. Afte
 To apply a manifest without an editor, put it in a file and use `apply`:
 
 ```shell
-chainctl images repos build apply -f build.yaml --repo $REPO --yes
+chainctl images repos build apply -f build.yaml --repo $REPO --parent $ORGANIZATION --yes
 ```
 
-The `--yes` flag skips the confirmation prompt. To preview the change first, use `--dry-run` in place of `--yes`. The command prints the diff and exits with a non-zero status when it finds a change to apply. In a pipeline, pass `--yes` to apply or `--dry-run` to preview. A structured `--output` format on its own doesn't suppress the confirmation prompt.
+The `--yes` flag skips the confirmation prompt. To preview the change first, use `--dry-run` in place of `--yes`. The command prints the diff and exits with a non-zero status when it finds a change to apply. In a pipeline, pass `--yes` to apply or `--dry-run` to preview, and pass `--parent` so `chainctl` doesn't prompt you to choose a group. A structured `--output` format on its own doesn't suppress the confirmation prompt.
 
 `chainctl` checks the manifest before it sends anything to the API. For example, it rejects `preflight` without `guarded_entrypoint`.
 
@@ -104,15 +104,15 @@ For more on `edit` and `apply`, see [Using chainctl to manage Custom Assembly re
 
 ### Check the result
 
-A build normally takes less than 20 minutes. To see the builds, run the following command:
+To see the builds, run the following command:
 
 ```shell
-chainctl images repos build list --repo $REPO
+chainctl images repos build list --repo $REPO --parent $ORGANIZATION
 ```
 
-When a build fails, the `Reason` column shows why. To read the reason in full, run `chainctl images repos build logs --repo $REPO` and select the failed build. For the reasons that relate to Guarded Entrypoint, see [Entrypoints the wrapper refuses](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/#entrypoints-the-wrapper-refuses).
+When Chainguard refuses to wrap an image, or when two bindings conflict, the build is recorded as a failure and the `Reason` column shows why. The column is empty for an ordinary build failure. To read a reason in full, run `chainctl images repos build logs --repo $REPO --parent $ORGANIZATION` and select the failed build. For the reasons that relate to Guarded Entrypoint, see [Entrypoints the wrapper refuses](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/#entrypoints-the-wrapper-refuses).
 
-To confirm that a rebuilt image uses the wrapper, check its entrypoint. The first element is `/usr/bin/guarded-entrypoint`, followed by the image's original entrypoint:
+To confirm that a rebuilt image uses the wrapper, check its entrypoint. The first element is `/usr/bin/guarded-entrypoint`. What follows depends on the image. For an image with a command, it is that command. For a shell fragment, it is `/bin/sh -c` and the fragment. For a service bundle, it is `/bin/s6-svscan /sv`. An image that has only a CMD has the wrapper alone:
 
 ```shell
 crane config cgr.dev/$ORGANIZATION/$REPO:latest | jq '.config.Entrypoint'
@@ -120,7 +120,7 @@ crane config cgr.dev/$ORGANIZATION/$REPO:latest | jq '.config.Entrypoint'
 
 ### Turn off Guarded Entrypoint
 
-To remove the wrapper from the image, edit the manifest and delete `guarded_entrypoint`, `fail_mode`, `preflight`, and `command_override`. The API rejects the other three keys when `guarded_entrypoint` is not set. The next rebuild produces an image with its original entrypoint.
+To remove the wrapper from the image, edit the manifest and delete `guarded_entrypoint`, `fail_mode`, `preflight`, and `command_override`. The API rejects the other three keys when `guarded_entrypoint` is not set. Also remove any `cg+...` values from `environment`. Without the wrapper, they ship as literal strings. The next rebuild produces an image with its original entrypoint.
 
 To bypass the wrapper on a running container without a rebuild, see [Troubleshoot a wrapped container](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/).
 
@@ -160,13 +160,22 @@ curl -s -X PATCH -H "Authorization: Bearer $TOKEN" \
   }'
 ```
 
-Send every customization you want the repo to keep, not only the Guarded Entrypoint fields. The API validates the request with the rules in [API errors](#api-errors).
+The request merges into the repo's stored overlay. The API builds an update mask from the fields in the request body, so only the fields you send change:
+
+* A field you leave out keeps its stored value. You can't turn Guarded Entrypoint off by leaving its fields out.
+* `environment` and `preflight` are replaced as a whole. The example request sets the repo's environment variables to the two it lists and removes the others, so include every variable you want to keep.
+
+To replace the whole overlay with exactly what you send, add `?update_mask=custom_overlay` to the URL. Use this form to turn Guarded Entrypoint off, with a body that leaves out the four fields.
+
+The API validates the request with the rules in [API errors](#api-errors).
 
 ## Use Guarded Entrypoint with tag-based Custom Assembly
 
 An overlay can carry the same four fields. This lets you apply Guarded Entrypoint to some of a repo's tags, or to many repos at once. See the [overview of tag-based Custom Assembly](/chainguard/containers/custom-assembly/tag-based-custom-assembly/) for overlays, bindings, and tag selectors.
 
 Tag-based Custom Assembly is a separate feature with its own enrollment. To use Guarded Entrypoint on overlays and bindings, your organization needs both features enabled. Contact your Chainguard account team to enable tag-based Custom Assembly. Contact Chainguard customer support to enable Guarded Entrypoint. Setting the fields on a repo with `chainctl images repos build edit`, as described earlier on this page, needs only Guarded Entrypoint.
+
+A repo uses its own configuration or overlay bindings, not both. The tag-based examples that follow use a different repo from the one you configured with `build edit`. Attaching an overlay to a repo that has its own configuration fails with the error `repository custom overlay and overlay binding not allowed`. Setting a configuration on a repo that has bindings fails the same way.
 
 Write the overlay as a YAML file in the same shape as a repo manifest, create the overlay from it, and bind it to tags:
 
@@ -182,16 +191,18 @@ EOF
 
 chainctl images overlays create startup --parent $ORGANIZATION -f startup.yaml
 
+export TAG_REPO=my-tagged-python
+
 chainctl images overlays attach \
   --overlay startup \
-  --repo $REPO \
+  --repo $TAG_REPO \
   --parent $ORGANIZATION \
   --all
 ```
 
 For the other selectors, see [Managing tag-based Custom Assembly with chainctl](/chainguard/containers/custom-assembly/tag-based-custom-assembly/chainctl/).
 
-Through the API, create the overlay with `POST /registry/v2beta1/overlays/$ORG_ID` and bind it with `POST /registry/v2beta1/overlayBindings/$REPO_UID`. The overlay's `config` takes the same fields as the repo's `customOverlay`:
+Through the API, create the overlay with `POST /registry/v2beta1/overlays/$ORG_ID` and bind it with `POST /registry/v2beta1/overlayBindings/$TAG_REPO_UID`, where `$TAG_REPO_UID` is the UID of a repo that has no configuration of its own. The overlay's `config` takes the same fields as the repo's `customOverlay`:
 
 ```shell
 export ORG_ID=YOUR_ORG_ID
@@ -212,7 +223,7 @@ curl -s -X POST -H "Authorization: Bearer $TOKEN" \
 
 curl -s -X POST -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
-  "$API/registry/v2beta1/overlayBindings/$REPO_UID" \
+  "$API/registry/v2beta1/overlayBindings/$TAG_REPO_UID" \
   -d '{
     "overlay": "startup",
     "tagSelector": { "kind": "KIND_ALL" }
@@ -221,7 +232,7 @@ curl -s -X POST -H "Authorization: Bearer $TOKEN" \
 
 ### How the fields combine across bindings
 
-A tag can match several bindings. Chainguard layers them from the broadest selector to the most specific: all, then variant, then exact. Each of the four fields combines in its own way:
+A tag can match several bindings. Chainguard layers them from the broadest to the most specific. Bindings that apply to every repo in your organization (all-repos bindings) come first, in the order all, variant, exact. The repo's own bindings come next, in the same order. A repo's own binding always wins over an all-repos binding. Each of the four fields combines in its own way:
 
 | Field | When several bindings match one tag |
 | --- | --- |
@@ -234,11 +245,11 @@ Each overlay that sets `fail_mode`, `command_override`, or `preflight` must also
 
 The limit of 32 preflight entries applies to each overlay. The combined list for a tag can be longer.
 
-Any organization can set `fail_mode: open`.
+Any organization that has Guarded Entrypoint enabled can set `fail_mode: open`. It needs no separate approval.
 
 #### Pin a tag to fail closed
 
-A broader binding can set `fail_mode: open`, and a tag inherits that value. To keep one tag fail-closed, bind an overlay to that tag with a more specific selector, and set `fail_mode: closed` in it.
+A broader binding can set `fail_mode: open`, and a tag inherits that value. To keep one tag fail-closed, bind an overlay to that tag on the repo itself with a more specific selector, and set `fail_mode: closed` in it. An all-repos binding can't override a repo's own binding.
 
 For example, an all binding uses an overlay that sets fail-open:
 
@@ -268,13 +279,13 @@ command_override:
 
 #### Bindings of the same kind
 
-Two bindings of the same kind can match the same tag. Chainguard rejects the second binding when it is created if the two overlays set `fail_mode` or `command_override` to different values. Identical values merge. An update to an overlay gets the same check against every repo the overlay is bound to.
+Two bindings of the same kind can match the same tag. Chainguard rejects the second binding when it is created if the two overlays set `fail_mode` or `command_override` to different values. Identical values merge.
 
-The failed request returns the error described in [API errors](#api-errors). To fix it, make the two overlays agree, or bind them to selectors that don't match the same tags.
+The same check runs when you update an overlay, against every repo the overlay is bound to, and when you update a binding's selector. The error for an overlay update differs from the error for a new binding. See [API errors](#api-errors). To fix a conflict, make the two overlays agree, or bind them to selectors that don't match the same tags.
 
 ## API errors
 
-The API validates the Guarded Entrypoint fields the same way for repos and for overlays. In the messages, `<prefix>` is `custom_overlay` when you set the fields on a repo, and `config` when you set them on an overlay. On the overlay path, the API adds the text `Invalid argument: config:` and a space to the start of each `InvalidArgument` message. In a message, `[i]` is the index of the entry in the list, starting at 0.
+The API validates the Guarded Entrypoint fields the same way for repos and for overlays. In the messages, `<prefix>` is `custom_overlay` when you set the fields on a repo, and `config` when you set them on an overlay. On the overlay path, the API adds the text `Invalid argument: config:` and a space to the start of each `InvalidArgument` message. For `FailedPrecondition` errors on either path, the API adds `Precondition failed:` and a space, except where the table shows the message without it. In a message, `[i]` is the index of the entry in the list, starting at 0.
 
 | Trigger | Code | Message |
 | --- | --- | --- |
@@ -286,23 +297,26 @@ The API validates the Guarded Entrypoint fields the same way for repos and for o
 | Preflight entry with neither or both of `tcp` and `path` | `InvalidArgument` | `<prefix>.preflight[i]: rpc error: code = InvalidArgument desc = exactly one of tcp or path is required` |
 | Preflight `timeout` or `interval` is not a Go duration | `InvalidArgument` | `<prefix>.preflight[i]: rpc error: code = InvalidArgument desc = timeout "abc": time: invalid duration "abc"` |
 | Preflight `timeout` or `interval` is negative | `InvalidArgument` | `<prefix>.preflight[i]: rpc error: code = InvalidArgument desc = timeout "-5s" must be non-negative` |
-| Preflight `on_failure` is not `fail` or `continue` | `InvalidArgument` | `<prefix>.preflight[i]: rpc error: code = InvalidArgument desc = on_failure "ignore" must be "fail" or "continue"` |
 | Preflight value contains `,` or `=` | `InvalidArgument` | `<prefix>.preflight[i]: rpc error: code = InvalidArgument desc = tcp "a:1,b:2" must not contain ',' or '='` (the message names the field that holds the character) |
-| `command_override.mode` is not `default`, `prepend`, or `override` | `InvalidArgument` | `<prefix>.command_override: rpc error: code = InvalidArgument desc = mode "silent" must be "default", "prepend", or "override"` |
+| `command_override.mode` is a number that isn't a declared mode | `InvalidArgument` | `<prefix>.command_override: rpc error: code = InvalidArgument desc = mode "99" must be "default", "prepend", or "override"` |
 | `prepend` or `override` with an empty `command` | `InvalidArgument` | `<prefix>.command_override: rpc error: code = InvalidArgument desc = mode "prepend" requires a non-empty command` |
 | `command` entry contains a NUL byte | `InvalidArgument` | `<prefix>.command_override: rpc error: code = InvalidArgument desc = command[i] contains a NUL byte` |
 | `command` entry has a `${` with no closing `}` | `InvalidArgument` | `<prefix>.command_override: rpc error: code = InvalidArgument desc = command[i] has an unterminated ${ reference` |
 | `command` entry has a `${...}` reference with an invalid variable name | `InvalidArgument` | `<prefix>.command_override: rpc error: code = InvalidArgument desc = command[i] has an invalid variable name in a ${...} reference` |
-| `fail_mode` is not `closed` or `open` | `InvalidArgument` | `<prefix>.fail_mode must be one of "closed" or "open", got "maybe"` |
+| `fail_mode` is a number that isn't a declared mode | `InvalidArgument` | `<prefix>.fail_mode must be one of "closed" or "open", got "99"` |
 | `environment` key starts with `GUARDED_` | `InvalidArgument` | `environment variable "GUARDED_DISABLE" uses reserved prefix 'GUARDED_'` |
 | `environment` key starts with `CHAINGUARD_` | `InvalidArgument` | `environment variable "CHAINGUARD_X" uses reserved prefix 'CHAINGUARD_'` |
 | Version 1 repo API: `sync_config.apko_overlay.environment` key starts with `GUARDED_` | `InvalidArgument` | `sync_config.apko_overlay.environment: variable "..." uses reserved prefix 'GUARDED_'` |
-| Overlay path: organization is not enrolled in tag-based Custom Assembly | `FailedPrecondition` | `Precondition failed: this organization is not enrolled in tag-based Custom Assembly. Contact your Chainguard account team to enroll.` |
+| Overlay or binding path: organization is not enrolled in tag-based Custom Assembly | `FailedPrecondition` | `Precondition failed: this organization is not enrolled in Custom Assembly Overlays. Contact your Chainguard account team to enroll.` |
+| Overlay or binding path: the repo has its own configuration, or a repo with bindings gets one | `FailedPrecondition` | `repository custom overlay and overlay binding not allowed` |
 | Overlay path: `config` sets a field that overlays don't support | `InvalidArgument` | `config may set only contents.packages, contents.runtime_repositories, contents.runtime_keyring, environment, annotations, accounts, certificates.additional, guarded_entrypoint, command_override, preflight, and fail_mode` |
 | Overlay path: `config` sets nothing | `InvalidArgument` | `config must set at least one customization field` |
-| Binding path: two bindings of one kind that match the same tag set different `fail_mode` or `command_override` values | `FailedPrecondition` | `overlay config does not merge commutatively with co-matching binding(s): binding "..." (overlay "...", selector ALL) on fields [fail_mode]` |
+| Binding path: two bindings of one kind that match the same tag set different `fail_mode` or `command_override` values | `FailedPrecondition` | `Precondition failed: overlay config does not merge commutatively with co-matching binding(s): binding "..." (overlay "...", selector ALL) on fields [fail_mode]` |
+| Overlay update: the new config conflicts with a co-matching binding on a repo the overlay is bound to | `FailedPrecondition` | `Precondition failed: overlay config update does not merge commutatively with co-bound overlay(s): binding "..." and binding "..." (overlay "...") on repo "..." conflict on fields [fail_mode]`, or `Precondition failed: overlay config update conflicts with the overlay of a co-matching binding outside your visible scope or beyond the inspected repos` |
 
-On the binding path, the error response also carries the violation type `OVERLAY_BINDING_CONFLICT`. The message names the binding and the fields that conflict. A `command_override` conflict lists `command_override` in the fields.
+The binding and overlay conflict errors also carry the violation type `OVERLAY_BINDING_CONFLICT`. The message names the bindings and the fields that conflict. A `command_override` conflict lists `command_override` in the fields.
+
+The enum fields take enum names in JSON. A request with an enum name that doesn't exist fails when the API parses it, before the checks in the table run. A preflight `onFailure` value that isn't declared is treated as `fail`.
 
 The `custom_overlay` and `config` prefixes show up in the message text only. In JSON requests, the fields are `customOverlay` and `config`.
 

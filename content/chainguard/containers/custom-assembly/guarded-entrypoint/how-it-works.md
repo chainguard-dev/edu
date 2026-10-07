@@ -4,7 +4,7 @@ linktitle: "How it works"
 type: "article"
 description: "What the Guarded Entrypoint wrapper does at container start: secret references, fail mode, preflight checks, command override, and variable expansion."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-07T20:45:00+00:00
+lastmod: 2026-10-07T21:37:50+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Conceptual", "Reference"]
 images: []
@@ -25,7 +25,7 @@ When you turn on Guarded Entrypoint, Chainguard rebuilds the image with `/usr/bi
 
 On every start, the wrapper runs these steps in order:
 
-1. **Check for the escape hatch.** If `GUARDED_DISABLE` is set, the wrapper starts the original entrypoint and does nothing else. See [Troubleshoot a wrapped container](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/).
+1. **Check for the escape hatch.** If `GUARDED_DISABLE` is set, the wrapper starts the original entrypoint and does nothing else. An empty value, `0`, `false`, `no`, and `off` don't count as set. See [Troubleshoot a wrapped container](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/).
 1. **Resolve secret references.** The wrapper replaces every environment value of the form `cg+BACKEND://REF` with the secret it names.
 1. **Resolve the command.** The wrapper applies `command_override`, if you set one, and expands `${VAR}` in it.
 1. **Run preflight checks.** The wrapper waits for the TCP endpoints and paths you listed.
@@ -33,7 +33,11 @@ On every start, the wrapper runs these steps in order:
 
 While the application runs, the wrapper forwards every signal it can catch to the application and reaps orphaned processes. When the application exits, the wrapper exits with the same exit code. If a signal kills the application, the wrapper exits with 128 plus the signal number.
 
-The wrapper writes its own messages as JSON, one object per line, to standard error. Set `GUARDED_ENTRYPOINT_LOG` on the container to `debug`, `info`, `warn`, or `quiet` to change the level. The wrapper never logs a resolved secret value. It replaces any value it resolved or expanded with `***` in its log lines.
+The wrapper writes its own messages as JSON, one object per line, to standard error. Set `GUARDED_ENTRYPOINT_LOG` on the container to `debug`, `info`, `warn`, or `quiet` to change the level. The `quiet` level also hides the fail-open warning. The wrapper never logs a resolved secret value. It replaces any value it resolved or expanded into the command with `***` in its log lines. It doesn't scrub a value that only a preflight target expanded.
+
+### Runtime overrides of the entrypoint
+
+The wrapper runs only when the container starts with the image's entrypoint. A Kubernetes `command:` field or `docker run --entrypoint` replaces the whole ENTRYPOINT, wrapper included. With such an override, no secret references resolve and no checks run. To pass your own arguments, use the Kubernetes `args:` field. If you must set `command:`, make `/usr/bin/guarded-entrypoint` its first element.
 
 ### What the wrapper doesn't do
 
@@ -46,7 +50,7 @@ The wrapper writes its own messages as JSON, one object per line, to standard er
 
 A secret reference is an environment variable whose value has the form `cg+BACKEND://REF`. Put references in the `environment` key of the repo's manifest. The wrapper also resolves references in variables that you set in your pod spec or `docker run` command.
 
-The `cg+` prefix is reserved. A value without it, such as a bare `vault://` or `consul://` URI, passes through to your application as a plain string. A value with the prefix must resolve. A malformed reference, an unknown backend, a failed lookup, or a secret that contains a NUL byte stops the container before the application starts, unless you set [fail mode](#fail-mode) to `open`.
+The `cg+` prefix is reserved. A value without it, such as a bare `vault://` or `consul://` URI, passes through to your application as a plain string. A value with the prefix must resolve. A malformed reference or an unknown backend always stops the container before the application starts. A failed lookup or a secret that contains a NUL byte stops it too, unless you set [fail mode](#fail-mode) to `open`.
 
 | Backend | Reference | Reads |
 | --- | --- | --- |
@@ -54,7 +58,7 @@ The `cg+` prefix is reserved. A value without it, such as a bare `vault://` or `
 | Consul | `cg+consul://KEY` | The whole value of one key in the Consul key-value store |
 | Google Secret Manager | `cg+gsm://projects/P/secrets/S/versions/V` | One version of a secret. `V` is a version number, `latest`, or an alias. |
 
-The wrapper retries HTTP 429 and 5xx responses and connection errors up to three times, with backoff. Resolution has a budget of 30 seconds in total.
+The wrapper makes up to three attempts for each request, with backoff. It retries connection errors and the HTTP statuses 429, 500, 502, 503, and 504. For Vault, it also retries 412. Resolution has a budget of 30 seconds in total.
 
 ### Vault references
 
@@ -80,7 +84,7 @@ The wrapper reads its Vault settings from the container's environment. They must
 | `VAULT_NAMESPACE` | The Vault Enterprise or HCP namespace. |
 | `VAULT_CACERT` | A PEM bundle, at most 1 MiB, that verifies Vault's certificate in place of the system roots. |
 
-With neither `VAULT_TOKEN` nor `VAULT_K8S_ROLE`, resolution fails with `no Vault credentials`. Use Kubernetes authentication where you can. A `VAULT_TOKEN` in the image or the pod spec is a long-lived secret that anything that can read the spec can see. The wrapper doesn't follow redirects, so `VAULT_ADDR` must name the active Vault node or a load balancer in front of it. Auth methods other than tokens and Kubernetes aren't supported.
+With neither `VAULT_TOKEN` nor `VAULT_K8S_ROLE`, resolution fails with `no Vault credentials`. Use Kubernetes authentication where you can. A `VAULT_TOKEN` in the image or the pod spec is a long-lived secret that anything that can read the spec can see. The wrapper doesn't follow redirects, so `VAULT_ADDR` must name the active Vault node or a load balancer in front of it. Auth methods other than tokens and Kubernetes aren't supported. With an `https://` `VAULT_ADDR`, the wrapper honors `HTTPS_PROXY` and `NO_PROXY` from the container's environment. These must be literal values too. It never uses a proxy for an `http://` address.
 
 ### Consul references
 
@@ -144,6 +148,8 @@ Set exactly one of `tcp` and `path` in each entry. The wrapper expands `${VAR}` 
 
 The checks run in order, after secret resolution. Because a preflight target is not scrubbed from logs, don't use a variable that holds a secret in one.
 
+A preflight target expands a variable that `open` left unresolved to its literal `cg+...` value. Don't name such a variable in a target.
+
 ## Command override
 
 `command_override` changes what the wrapper starts. It has two keys: `mode` and `command`. The wrapper receives the image's own arguments, which are its original ENTRYPOINT followed by its CMD, or the arguments that you pass when you run the container. The `mode` sets how `command` combines with them.
@@ -174,7 +180,7 @@ The wrapper expands variables in each `command` entry and in preflight `tcp` and
 * A `${NAME}` whose variable is not set stops the container with exit code 121 in a command, and fails the check in a preflight. It never expands to an empty string. A variable that is set and empty expands to nothing.
 * The wrapper never expands the container's own arguments.
 
-The wrapper doesn't support shell forms such as `${NAME:-default}`. The API rejects a `${...}` reference with an invalid name. To pass a `$` to a shell that runs in the image, write `$$`. For example, the following command override passes `${PORT:-8080}` to `sh` unchanged. It needs an image that includes a shell:
+The wrapper doesn't support shell forms such as `${NAME:-default}`. The API rejects a `${...}` reference with an invalid name in `command_override`. It doesn't check preflight targets. A preflight target such as `${REDIS_HOST:-redis}:6379` passes `chainctl` and the API, and then every container start exits with code 120, whatever `on_failure` says. To pass a `$` to a shell that runs in the image, write `$$`. For example, the following command override passes `${PORT:-8080}` to `sh` unchanged. It needs an image that includes a shell:
 
 ```yaml
 guarded_entrypoint: true
@@ -186,7 +192,7 @@ command_override:
     - exec my-app --port $${PORT:-8080}
 ```
 
-The wrapper never expands a variable that `open` left unresolved. An expanded value is visible in the application's command line to anything that can read the process's `/proc/PID/cmdline`. The wrapper can't hide it there.
+In a command, the wrapper never expands a variable that `open` left unresolved. An expanded value is visible in the application's command line to anything that can read the process's `/proc/PID/cmdline`. The wrapper can't hide it there.
 
 ## Supported and refused entrypoints
 
@@ -201,20 +207,20 @@ The wrapper wraps these entrypoints:
 For a service bundle, `command_override` changes what runs in place of the supervisor:
 
 * `override` runs your command instead of the supervisor, so the image's services don't start.
-* `prepend` runs your command ahead of the supervisor.
+* `prepend` runs your command with the supervisor's command, `/bin/s6-svscan /sv`, as its arguments. Your command must run them itself, for example with `exec`.
 * `GUARDED_DISABLE` starts the supervisor directly, as in the unwrapped image.
 
 ### Shell fragments and exec
 
-A shell fragment that starts your application without `exec` keeps the shell between the wrapper and your application. On shutdown the shell receives SIGTERM and exits, and your application is stopped without a chance to shut down gracefully. The same happens without Guarded Entrypoint. To give your application a graceful shutdown, start it with `exec`, for example `exec my-app --port 8080`.
+A shell fragment that starts your application without `exec` keeps the shell between the wrapper and your application. On shutdown the shell receives SIGTERM and exits, and your application is stopped without a chance to shut down gracefully. Without Guarded Entrypoint, the shell is PID 1 and ignores SIGTERM, so the container runs until the stop timeout and is killed. Neither case shuts down gracefully. To give your application a graceful shutdown, start it with `exec`, for example `exec my-app --port 8080`.
 
 ### Init systems aren't supported
 
-Images whose entrypoint is an init system that must run as PID 1, such as systemd (`/sbin/init`) or s6-overlay (`/init`), aren't supported. Under the wrapper, systemd exits at start and s6-overlay's shutdown is cut short. Don't turn on Guarded Entrypoint for these repos, or set `GUARDED_DISABLE` on the deployment.
+Images whose entrypoint is an init system that must run as PID 1, such as systemd (`/sbin/init`) or s6-overlay's `/init`, aren't supported. An image that uses an s6 service bundle, which the wrapper runs in front of, is a different case and is supported. Under the wrapper, systemd exits at start and s6-overlay's shutdown is cut short. Don't turn on Guarded Entrypoint for these repos, or set `GUARDED_DISABLE` on the deployment.
 
 ### Refused builds
 
-Chainguard refuses to build a wrapped image in two cases. The image's environment sets `GUARDED_DISABLE`, or the repo pins the wrapper package to a release that is too old for the repo's settings. The build then fails with a message that names the reason, instead of producing an image with a broken entrypoint.
+Chainguard refuses to build a wrapped image in two cases. The image's environment sets `GUARDED_DISABLE`, or the repo pins the wrapper package to a release that is too old for the repo's settings. The build then fails with a message that names the reason.
 
 The lists of the supported and refused entrypoints for each image come from a generated report. See the [lists of supported and refused entrypoints](https://PLACEHOLDER.invalid/guarded-entrypoint-supported-and-refused-lists). <!-- PLACEHOLDER: replace this URL when the generated lists are published. -->
 
