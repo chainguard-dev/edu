@@ -11,6 +11,14 @@
 /layouts/                      @chainguard-dev/education-team-write
 /assets/                       @chainguard-dev/education-team-write
 
+# Education also owns the writing skills for AI agents and the agent
+# instruction files that tell agents when to use them (DOCS-247).
+/.agents/skills/               @chainguard-dev/education-team-write
+/.claude/skills/               @chainguard-dev/education-team-write
+/AGENTS.md                     @chainguard-dev/education-team-write
+/CLAUDE.md                     @chainguard-dev/education-team-write
+/GEMINI.md                     @chainguard-dev/education-team-write
+
 # DevRel owns learning labs only.
 # Placed last so last-match-wins overrides the /content/ rule above.
 /content/software-security/learning-labs/   @chainguard-dev/devrel-team-write
