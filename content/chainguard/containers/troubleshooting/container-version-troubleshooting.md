@@ -6,7 +6,7 @@ aliases:
 type: "article"
 description: "When a container or version isn't available to you: how to identify which situation you're in, what to do about each, and when to open a support request."
 date: 2026-09-02T00:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-07T17:11:58+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -159,7 +159,7 @@ chainctl package versions list python --show-active
  3.14    | 2030-10-31 | 2031-05-01
 ```
 
-The [endoflife.date](https://endoflife.date) website lists the release tracks and product lifecycles of many open source projects, and its information generally aligns with the lifecycle of the corresponding Chainguard container image. If the date you see from Chainguard differs from the one on the upstream project's own site, the two are probably using different definitions of a support tier.
+This output shows the EOL date that Chainguard uses for each version stream. For many projects, that date comes from [endoflife.date](https://endoflife.date). For projects that endoflife.date doesn't cover, it comes from the project's published support policy or upstream release data, and a date that Chainguard sets manually takes precedence over all of these. If the date differs from the one on the upstream project's own site, the two are using different sources or define support differently. For details, see [How Chainguard determines EOL dates](/chainguard/containers/concepts/lifecycle-and-eol/versions/#how-chainguard-determines-eol-dates).
 
 Several signals tell you a version is no longer being rebuilt:
 
