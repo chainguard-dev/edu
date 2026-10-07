@@ -10,7 +10,7 @@ aliases:
 type: "article"
 description: "How to use Chainguard's Custom Assembly tool"
 date: 2025-02-19T11:07:52+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-06T18:11:18+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly"]
 images: []
@@ -233,6 +233,8 @@ In any case, you won't know whether a container image build fails until after it
 This article provided a high-level overview of Custom Assembly. As a next step, we encourage you to checkout our guide on [managing Custom Assembly resources through the Chainguard Console](/chainguard/containers/custom-assembly/custom-assembly-console/). You can also interact with Custom Assembly using [`chainctl`](/chainguard/containers/custom-assembly/custom-assembly-chainctl/) as well as [the Chainguard API](/chainguard/containers/custom-assembly/custom-assembly-api-demo/).
 
 You can also add custom certificates to Custom Assembly images. Refer to our guide on [Adding custom certificates with Custom Assembly](/chainguard/containers/custom-assembly/custom-assembly-certs/) for more information.
+
+To run startup logic in a Custom Assembly image without a derived image build, see [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/). It resolves secrets, runs preflight checks, and overrides the command at container start.
 
 We encourage you to check out our resources on our other [Chainguard Containers features](/chainguard/containers/), including the following:
 
