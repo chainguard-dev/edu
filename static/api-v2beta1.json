@@ -2930,7 +2930,7 @@
         "description": "CVERemediation is the remediation state of one requested version, aggregated\nacross the CVEs found against it.",
         "properties": {
           "cveCount": {
-            "description": "How many CVEs were found against this version.",
+            "description": "How many High and Critical CVEs were found against this version.\n\nScoped to match the vocabulary around it: cve_status reports\nNO_HIGH_CRITICAL_CVES, so this counts the findings that claim speaks to.\nMedium and low findings are excluded, as are findings for which no CVSS\nscore was recorded. The per-CVE read\n(ListRequestedLibraryVersionCVEs) is NOT scoped and lists every finding,\nso it can return more CVEs than this counts.",
             "format": "int32",
             "readOnly": true,
             "type": "integer"
@@ -2945,7 +2945,7 @@
             "readOnly": true
           },
           "remediatedCount": {
-            "description": "How many CVEs on this version are remediated. Meaningful regardless of the\naggregate status, since a version can be partly remediated.",
+            "description": "How many High and Critical CVEs on this version are remediated. Meaningful\nregardless of the aggregate status, since a version can be partly\nremediated. Scoped like cve_count below.",
             "format": "int32",
             "readOnly": true,
             "type": "integer"
@@ -3010,7 +3010,7 @@
             "type": "integer"
           },
           "remediatedCount": {
-            "description": "Total CVEs remediated across the group.",
+            "description": "Total High and Critical CVEs remediated across the group. Scoped like\nCVERemediation.cve_count.",
             "format": "int32",
             "readOnly": true,
             "type": "integer"
@@ -3813,7 +3813,7 @@
             "type": "string"
           },
           "remediatedCveCount": {
-            "description": "Total CVEs remediated across the versions in cve_status's scope -- the ones\nwhose request groups opted in, not every requested version.\n\nReported whatever cve_status says, because a library part-way through\nremediation has fixed CVEs worth naming: the status answers whether it is\nfinished and this answers what has been done.",
+            "description": "Total High and Critical CVEs remediated across the versions in cve_status's\nscope -- the ones whose request groups opted in, not every requested\nversion. Severity-scoped like CVERemediation.cve_count: medium and low\nfindings are excluded, as are findings with no recorded CVSS score.\n\nReported whatever cve_status says, because a library part-way through\nremediation has fixed CVEs worth naming: the status answers whether it is\nfinished and this answers what has been done.",
             "format": "int32",
             "readOnly": true,
             "type": "integer"
@@ -10572,6 +10572,14 @@
             }
           },
           {
+            "description": "Return only items for this package. An exact match on the canonical name,\nas RequestGroupItem.package_name reports it, not a substring. Items whose\nrequirement yielded no package name never match. At most 255 characters,\nthe longest name the service stores.",
+            "in": "query",
+            "name": "packageName",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "description": "Maximum items to return. Default 50, maximum 1000.",
             "in": "query",
             "name": "pageSize",
@@ -10970,6 +10978,14 @@
                 "REQUESTED_LIBRARY_CVE_STATUS_WONT_REMEDIATE",
                 "REQUESTED_LIBRARY_CVE_STATUS_FIX_AVAILABLE"
               ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Exact match on the library's canonical name, as RequestedLibrary.name\nreports it. Unlike query, \"requests\" does not also match\n\"requests-oauthlib\". One name can exist in more than one ecosystem, so set\necosystem as well to get at most one library. At most 255 characters, the\nlongest name the service stores.",
+            "in": "query",
+            "name": "name",
+            "schema": {
               "type": "string"
             }
           },

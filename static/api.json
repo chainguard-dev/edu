@@ -11260,7 +11260,7 @@
             "type": "array"
           },
           "scannedDigest": {
-            "description": "Digest of the manifest whose filesystem contents were evaluated. Equal\nto the requested digest when the image itself was scanned; the assembly\norigin digest when serving the report for a custom-assembled rebuild.",
+            "description": "Signed subject digest of the selected report: the addressed manifest,\nresolved architecture child, or assembly origin. Historical index fallback\nreturns the requested index digest with architecture absent; equality with\nthe requested digest does not establish coverage for a requested child.",
             "readOnly": true,
             "type": "string"
           },
@@ -11276,7 +11276,7 @@
             "type": "string"
           },
           "xccdfSha256": {
-            "description": "Lowercase hexadecimal SHA-256 digest of the canonical XCCDF XML returned\nby DownloadStigReport.",
+            "description": "Lowercase hexadecimal SHA-256 digest of this report's canonical XCCDF XML.\nA separate DownloadStigReport call may select a different report if\nregistry publication changes between calls.",
             "readOnly": true,
             "type": "string"
           }
@@ -28330,7 +28330,7 @@
             }
           },
           {
-            "description": "Architecture to descend into when the digest addresses an OCI index\n(e.g., \"amd64\", \"arm64\"). When empty, the report is read from the\nmanifest as addressed by the digest, with no per-architecture descent.",
+            "description": "Architecture to descend into when the digest addresses an OCI index\n(e.g., \"amd64\", \"arm64\"). When empty, the report is read from the\nmanifest as addressed by the digest, with no per-architecture descent.\nIf the child has no report, an index report may be returned with the index\nas scanned_digest and architecture absent. Invalid reports are errors.",
             "in": "query",
             "name": "architecture",
             "schema": {
@@ -28368,7 +28368,7 @@
     },
     "/registry/v2/repos/{repoUid}/digests/{digest}/stig:download": {
       "get": {
-        "description": "DownloadStigReport returns the report's canonical XCCDF XML document.\nIts data is the exact document represented by GetStigReport, identified\nby StigReport.xccdf_sha256.",
+        "description": "DownloadStigReport returns the report's canonical XCCDF XML document.\nGet and Download perform independent reads; publication between calls can\nchange the selected report. An architecture-scoped request selecting an\nindex report with unknown architecture returns FAILED_PRECONDITION. Request\nthe index digest without architecture to download that historical report.",
         "operationId": "StigReportsService_DownloadStigReport",
         "parameters": [
           {
@@ -28391,7 +28391,7 @@
             }
           },
           {
-            "description": "Architecture to descend into when the digest addresses an OCI index\n(e.g., \"amd64\", \"arm64\"). When empty, the document is read from the\nmanifest as addressed by the digest, with no per-architecture descent.",
+            "description": "Architecture to descend into when the digest addresses an OCI index\n(e.g., \"amd64\", \"arm64\"). When empty, the document is read from the\nmanifest as addressed by the digest, with no per-architecture descent.\nIf discovery selects an index report with unknown architecture, an\narchitecture-scoped download returns FAILED_PRECONDITION. Omit architecture\nto explicitly download the historical index report.",
             "in": "query",
             "name": "architecture",
             "schema": {

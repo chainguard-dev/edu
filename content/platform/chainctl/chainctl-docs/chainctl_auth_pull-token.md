@@ -1,5 +1,5 @@
 ---
-date: 2026-10-06T09:26:34Z
+date: 2026-10-06T19:22:44Z
 title: "chainctl auth pull-token"
 slug: chainctl_auth_pull-token
 url: /platform/chainctl/chainctl-docs/chainctl_auth_pull-token/
@@ -23,7 +23,7 @@ chainctl auth pull-token [flags]
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, dotnet_athena, go, ruby, java, python, javascript, javascript_athena, dotnet, go_athena, ruby_athena, java_athena, python_athena. (default "oci")
+      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, go_athena, java, python, java_athena, python_athena, javascript_athena, dotnet_athena, ruby, ruby_athena, javascript, dotnet, go. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
 ```
