@@ -8,8 +8,22 @@ assets/jsconfig.json
 .bash_history
 
 # AI Tools
-.claude/
-.agents/
+# Ignore local agent files, but track the shared writing skills (DOCS-247).
+# Each skill lives once in .agents/skills/; .claude/skills/ holds symlinks to
+# it, because Claude Code doesn't read .agents/. Git can't re-include a path
+# inside an ignored directory, so these rules ignore directory contents.
+.claude/*
+!.claude/skills/
+.claude/skills/*
+!.claude/skills/writing-clearly-and-concisely
+!.claude/skills/written-style-guide
+!.claude/skills/google-style
+.agents/*
+!.agents/skills/
+.agents/skills/*
+!.agents/skills/writing-clearly-and-concisely/
+!.agents/skills/written-style-guide/
+!.agents/skills/google-style/
 
 # Editor / IDE config
 .idea

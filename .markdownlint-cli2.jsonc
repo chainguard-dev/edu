@@ -29,6 +29,10 @@
     // It inherits ~35k style violations from the pages it bundles, and any fix
     // is lost on the next run. pre-commit only lints changed files, so this
     // stayed out of scope until an edit touched it for the first time.
-    "static/downloads/chainguard-complete-docs.md"
+    "static/downloads/chainguard-complete-docs.md",
+    // Agent skills (DOCS-247) are read by AI agents, not rendered by Hugo, and
+    // the Strunk chapters reproduce a 1918 text. The docs conventions above,
+    // such as 4-space list nesting, don't apply to them.
+    ".agents/skills"
   ]
 }

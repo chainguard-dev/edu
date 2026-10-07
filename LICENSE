@@ -1,6 +1,9 @@
-Content license: 
-Copyright (c) 2022-present, Chainguard, Inc.; 
+Content license:
+Copyright (c) 2022-present, Chainguard, Inc.;
 [CC-BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
+Files under `.agents/skills/` are covered by the content license unless a
+LICENSE or NOTICE file in a skill's directory says otherwise.
 
 
 MIT License
