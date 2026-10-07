@@ -2,9 +2,9 @@
 title: "Troubleshoot a wrapped container"
 linktitle: "Troubleshooting"
 type: "article"
-description: "How to recover a container that fails to start under Guarded Entrypoint, what the wrapper's exit codes mean, and how a refused entrypoint appears in chainctl."
+description: "How to recover a container that fails to start under Guarded Entrypoint, what the wrapper's exit codes mean, and how a refused build appears in chainctl."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-07T19:01:58+00:00
+lastmod: 2026-10-07T20:45:00+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Troubleshooting", "Debugging"]
 images: []
@@ -17,7 +17,7 @@ toc: true
 
 > **Note**: Guarded Entrypoint is in beta. To use it, contact Chainguard customer support to enable it for your organization.
 
-This page covers two kinds of problems. A container that is built with [Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/) can fail to start. A build can also fail because the wrapper refuses an image's entrypoint.
+This page covers two kinds of problems. A container that is built with [Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/) can fail to start. A build can also fail because Chainguard refuses to wrap an image.
 
 ## First move: set GUARDED_DISABLE
 
@@ -83,9 +83,18 @@ A code of `126` or `127` can also come from your own application. Read the wrapp
 
 With `fail_mode: open`, only the configuration errors described in [Fail mode](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#fail-mode) stop the container with exit code `121`.
 
+### A container whose entrypoint is an init system
+
+An image whose entrypoint is an init system that must run as PID 1, such as systemd or s6-overlay, doesn't work under the wrapper. The container behaves in one of two ways:
+
+* It exits with code `1` at start, and systemd prints `Explicit --user argument required to run as user manager.`
+* It exits with code `129` when you stop it.
+
+To fix it, set `GUARDED_DISABLE` on the deployment, or turn off Guarded Entrypoint for the repo. See [Init systems aren't supported](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#init-systems-arent-supported).
+
 ## Entrypoints the wrapper refuses
 
-When an image's entrypoint is one that the wrapper can't preserve, the rebuild of that image fails. Chainguard doesn't ship a broken image. Instead, the build records a failure and its reason.
+When Chainguard can't wrap an image, the rebuild of that image fails. Chainguard doesn't ship a broken image. Instead, the build records a failure and its reason.
 
 To see the failure, list the repo's builds:
 
@@ -96,17 +105,16 @@ chainctl images repos build list --repo $REPO
 The `Result` column shows the failure, and the `Reason` column shows why. The failed build has no tags in the `Tags` column. For the full text, run `chainctl images repos build logs --repo $REPO` and select the failed build. The output has this form:
 
 ```output
-guarded entrypoint refused for tags [latest] (digest sha256:...): the entrypoint is a shell fragment; the tags are not rebuilt and are dropped from the repo's active tag list until the refusal is resolved
+guarded entrypoint refused for tags [latest] (digest sha256:...): the environment sets GUARDED_DISABLE; the tags are not rebuilt and are dropped from the repo's active tag list until the refusal is resolved
+detail: set in the base image environment
 ```
 
-An optional second line, `detail: ...`, gives more information. If the repo sets `command_override`, the detail also says that `command_override` is not applied.
+The optional second line, `detail: ...`, gives more information. If the repo sets `command_override`, the detail also says that `command_override` is not applied.
 
 The text after the digest is the reason. It is one of the following:
 
 | Reason | Meaning |
 | --- | --- |
-| `the entrypoint is a shell fragment` | The image's entrypoint is a shell fragment, which runs through `/bin/sh`. The wrapper would not run before it. |
-| `the entrypoint is a service-bundle` | The image's entrypoint is a service bundle. A supervisor runs the services, so the wrapper would not run before the application. |
 | `the environment sets GUARDED_DISABLE` | The image's environment sets `GUARDED_DISABLE`. The detail says where it is set. |
 | `the listed wrapper version does not read every GUARDED_* setting` | The repo's `contents.packages` pins `guarded-entrypoint` or `guarded-entrypoint-fips` to a release that is too old for the repo's settings. The detail names the first release that reads them all. |
 
@@ -114,7 +122,7 @@ The tags named in the message aren't rebuilt until you resolve the refusal. To r
 
 * For the wrapper version reason, remove the `guarded-entrypoint` or `guarded-entrypoint-fips` pin from the repo's `contents.packages` list.
 * Turn off Guarded Entrypoint for the repo. See [Turn off Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/#turn-off-guarded-entrypoint).
-* With tag-based Custom Assembly, bind the overlay that sets `guarded_entrypoint` only to the tags that the wrapper can wrap.
+* With tag-based Custom Assembly, bind the overlay that sets `guarded_entrypoint` only to the tags that Chainguard doesn't refuse.
 
 To check ahead of time whether an image is supported, see the [lists of supported and refused entrypoints](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#supported-and-refused-entrypoints).
 

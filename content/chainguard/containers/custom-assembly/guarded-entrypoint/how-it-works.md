@@ -4,7 +4,7 @@ linktitle: "How it works"
 type: "article"
 description: "What the Guarded Entrypoint wrapper does at container start: secret references, fail mode, preflight checks, command override, and variable expansion."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-07T19:01:58+00:00
+lastmod: 2026-10-07T20:45:00+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Conceptual", "Reference"]
 images: []
@@ -190,12 +190,31 @@ The wrapper never expands a variable that `open` left unresolved. An expanded va
 
 ## Supported and refused entrypoints
 
-The wrapper wraps entrypoints that run one program. It refuses an entrypoint it can't preserve. In that case the build fails with a message that names the reason, instead of producing an image with a broken entrypoint.
+The wrapper wraps these entrypoints:
 
-The wrapper refuses these entrypoints:
+* **A command.**
+* **A shell fragment.** The wrapper runs `/bin/sh -c` with the fragment, so the fragment expands the resolved values.
+* **A service bundle.** The wrapper runs in front of the supervisor and resolves the environment once for every service.
 
-* An entrypoint that is a shell fragment.
-* An entrypoint that is a service bundle, which runs a supervisor over several processes.
+### Service bundles and command override
+
+For a service bundle, `command_override` changes what runs in place of the supervisor:
+
+* `override` runs your command instead of the supervisor, so the image's services don't start.
+* `prepend` runs your command ahead of the supervisor.
+* `GUARDED_DISABLE` starts the supervisor directly, as in the unwrapped image.
+
+### Shell fragments and exec
+
+A shell fragment that starts your application without `exec` keeps the shell between the wrapper and your application. On shutdown the shell receives SIGTERM and exits, and your application is stopped without a chance to shut down gracefully. The same happens without Guarded Entrypoint. To give your application a graceful shutdown, start it with `exec`, for example `exec my-app --port 8080`.
+
+### Init systems aren't supported
+
+Images whose entrypoint is an init system that must run as PID 1, such as systemd (`/sbin/init`) or s6-overlay (`/init`), aren't supported. Under the wrapper, systemd exits at start and s6-overlay's shutdown is cut short. Don't turn on Guarded Entrypoint for these repos, or set `GUARDED_DISABLE` on the deployment.
+
+### Refused builds
+
+Chainguard refuses to build a wrapped image in two cases. The image's environment sets `GUARDED_DISABLE`, or the repo pins the wrapper package to a release that is too old for the repo's settings. The build then fails with a message that names the reason, instead of producing an image with a broken entrypoint.
 
 The lists of the supported and refused entrypoints for each image come from a generated report. See the [lists of supported and refused entrypoints](https://PLACEHOLDER.invalid/guarded-entrypoint-supported-and-refused-lists). <!-- PLACEHOLDER: replace this URL when the generated lists are published. -->
 
