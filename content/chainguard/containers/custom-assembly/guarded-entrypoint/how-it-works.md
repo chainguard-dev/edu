@@ -4,7 +4,7 @@ linktitle: "How it works"
 type: "article"
 description: "What the Guarded Entrypoint wrapper does at container start: secret references, fail mode, preflight checks, command override, and variable expansion."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-06T18:42:26+00:00
+lastmod: 2026-10-07T19:01:58+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Conceptual", "Reference"]
 images: []
@@ -15,7 +15,7 @@ weight: 10
 toc: true
 ---
 
-{{< beta feature="Guarded Entrypoint" access="every organization that has Custom Assembly" feedback="true" >}}
+> **Note**: Guarded Entrypoint is in beta. To use it, contact Chainguard customer support to enable it for your organization.
 
 This page describes what the Guarded Entrypoint binary does when a container starts. The page calls the binary the wrapper. To turn Guarded Entrypoint on, see [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/).
 

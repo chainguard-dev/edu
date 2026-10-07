@@ -4,7 +4,7 @@ linktitle: "Guarded Entrypoint"
 type: "article"
 description: "How Guarded Entrypoint lets a Custom Assembly image resolve secrets, run preflight checks, and override its command at container start, and how to turn it on."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-06T17:41:00+00:00
+lastmod: 2026-10-07T19:01:58+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Configuration", "Procedural"]
 images: []
@@ -16,7 +16,7 @@ weight: 70
 toc: true
 ---
 
-{{< beta feature="Guarded Entrypoint" access="every organization that has Custom Assembly" feedback="true" >}}
+> **Note**: Guarded Entrypoint is in beta. To use it, contact Chainguard customer support to enable it for your organization.
 
 Guarded Entrypoint lets a Custom Assembly image run startup logic without a derived image build. You declare the logic as part of your Custom Assembly configuration. Chainguard builds it into the image and signs the result.
 
@@ -48,8 +48,7 @@ Before you start, you need the following:
 * A Custom Assembly repo. See the [Custom Assembly overview](/chainguard/containers/custom-assembly/overview/) to create one.
 * A role that lets you edit Custom Assembly repos. See the [Custom Assembly permissions requirements](/chainguard/containers/custom-assembly/overview/#custom-assembly-permissions-requirements).
 * The latest [`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/). Run `chainctl update` to update it.
-
-Guarded Entrypoint is available to every organization that has Custom Assembly. You don't enroll in it or request access to it.
+* Guarded Entrypoint enabled for your organization. It's a beta feature, so contact Chainguard customer support to enable it. Until then, the API rejects `guarded_entrypoint` with the error in [API errors](#api-errors).
 
 The examples on this page use the following environment variables. Set them to match your organization and repo:
 
@@ -167,7 +166,7 @@ Send every customization you want the repo to keep, not only the Guarded Entrypo
 
 An overlay can carry the same four fields. This lets you apply Guarded Entrypoint to some of a repo's tags, or to many repos at once. See the [overview of tag-based Custom Assembly](/chainguard/containers/custom-assembly/tag-based-custom-assembly/) for overlays, bindings, and tag selectors.
 
-Tag-based Custom Assembly is a separate feature with its own enrollment. To use Guarded Entrypoint on overlays and bindings, your organization must have tag-based Custom Assembly enabled. Contact your Chainguard account team to enable it. Guarded Entrypoint itself needs no enrollment. Setting the fields on a repo with `chainctl images repos build edit`, as described earlier on this page, needs nothing beyond Custom Assembly.
+Tag-based Custom Assembly is a separate feature with its own enrollment. To use Guarded Entrypoint on overlays and bindings, your organization needs both features enabled. Contact your Chainguard account team to enable tag-based Custom Assembly. Contact Chainguard customer support to enable Guarded Entrypoint. Setting the fields on a repo with `chainctl images repos build edit`, as described earlier on this page, needs only Guarded Entrypoint.
 
 Write the overlay as a YAML file in the same shape as a repo manifest, create the overlay from it, and bind it to tags:
 
@@ -279,6 +278,7 @@ The API validates the Guarded Entrypoint fields the same way for repos and for o
 
 | Trigger | Code | Message |
 | --- | --- | --- |
+| `guarded_entrypoint: true` on an organization that doesn't have Guarded Entrypoint enabled. Contact Chainguard customer support to get access. | `PermissionDenied` | `using <prefix>.guarded_entrypoint is not allowed` |
 | `preflight` set without `guarded_entrypoint` | `InvalidArgument` | `<prefix>.preflight requires guarded_entrypoint` |
 | `command_override` set without `guarded_entrypoint` | `InvalidArgument` | `<prefix>.command_override requires guarded_entrypoint` |
 | `fail_mode` set without `guarded_entrypoint` | `InvalidArgument` | `<prefix>.fail_mode requires guarded_entrypoint` |

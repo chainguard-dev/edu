@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 type: "article"
 description: "How to recover a container that fails to start under Guarded Entrypoint, what the wrapper's exit codes mean, and how a refused entrypoint appears in chainctl."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-06T18:42:26+00:00
+lastmod: 2026-10-07T19:01:58+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Troubleshooting", "Debugging"]
 images: []
@@ -15,7 +15,7 @@ weight: 30
 toc: true
 ---
 
-{{< beta feature="Guarded Entrypoint" access="every organization that has Custom Assembly" feedback="true" >}}
+> **Note**: Guarded Entrypoint is in beta. To use it, contact Chainguard customer support to enable it for your organization.
 
 This page covers two kinds of problems. A container that is built with [Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/) can fail to start. A build can also fail because the wrapper refuses an image's entrypoint.
 

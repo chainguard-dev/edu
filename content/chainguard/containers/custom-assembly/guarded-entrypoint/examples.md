@@ -4,7 +4,7 @@ linktitle: "Examples"
 type: "article"
 description: "Example Custom Assembly manifests that use Guarded Entrypoint to inject secrets, wait for a dependency, override a command, and fail open."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-06T17:41:00+00:00
+lastmod: 2026-10-07T19:01:58+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Procedural", "Configuration"]
 images: []
@@ -15,7 +15,7 @@ weight: 20
 toc: true
 ---
 
-{{< beta feature="Guarded Entrypoint" access="every organization that has Custom Assembly" feedback="true" >}}
+> **Note**: Guarded Entrypoint is in beta. To use it, contact Chainguard customer support to enable it for your organization.
 
 This page has four example manifests for [Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/). Each one is a complete manifest for `chainctl images repos build edit` or `chainctl images repos build apply`. None of them contains a literal secret. Each secret is a reference that the wrapper resolves when the container starts.
 
