@@ -1,39 +1,36 @@
 ---
-title: "Overview of tag-based Custom Assembly"
-linktitle: "Tag-based Custom Assembly"
+title: "Overview of Custom Assembly Overlays"
+linktitle: "Custom Assembly Overlays"
 type: "article"
-description: "How tag-based Custom Assembly uses overlays and bindings to apply customizations to a subset of a repository's tags."
+description: "How Custom Assembly Overlays package customizations into reusable overlays and apply them to repositories with bindings."
 date: 2026-09-28T16:33:22+00:00
-lastmod: 2026-09-28T16:33:22+00:00
+lastmod: 2026-10-05T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers", "Conceptual", "Custom Assembly"]
 images: []
+aliases:
+- /chainguard/containers/custom-assembly/tag-based-custom-assembly/
 menu:
   docs:
     parent: "features"
-    identifier: "tag-based-custom-assembly"
+    identifier: "custom-assembly-overlays"
 weight: 33
 toc: true
 ---
 
-{{< beta feature="Tag-based Custom Assembly" enroll="true" >}}
+{{< beta feature="Custom Assembly Overlays" enroll="true" >}}
 
-Standard [Custom Assembly](/chainguard/containers/custom-assembly/overview/) applies one customization to every tag in a repository. This fails for images that ship several language or runtime versions side by side, because a package built for one version can't install on the others.
+Standard [Custom Assembly](/chainguard/containers/custom-assembly/overview/) stores one customization on one repository and applies it to every tag. Custom Assembly Overlays separate the customization from where it applies. This lets you do the following:
 
-For example, the `python` image publishes tags for Python 3.11, 3.12, 3.13, and 3.14. The `py3.13-typer` package depends on Python 3.13. If you add it with standard Custom Assembly, every tag tries to install it, and the 3.11, 3.12, and 3.14 builds fail.
-
-Tag-based Custom Assembly lets you choose which tags receive a customization. For example, you can do the following:
-
-* Add a package to specific tags, such as `3.13` and `3.13-dev`.
-* Add debugging tools to every `-dev` tag and keep the other tags minimal.
-* Add a package to every tag, with the package name matched to each tag's Python version.
 * Reuse one customization, such as your organization's internal certificates, across many repositories.
+* [Apply a customization to a subset of a repository's tags](#customizing-specific-image-tags), such as only the `-dev` tags.
+* Add a package to every tag, with the package name matched to each tag's language version.
 
-This page explains the concepts. To create and manage customizations, see [Managing tag-based Custom Assembly with chainctl](/chainguard/containers/custom-assembly/tag-based-custom-assembly/chainctl/) or [Managing tag-based Custom Assembly with Terraform](/chainguard/containers/custom-assembly/tag-based-custom-assembly/terraform/).
+This page explains the concepts. To create and manage overlays, see [Managing Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/custom-assembly-overlays/chainctl/) or [Managing Custom Assembly Overlays with Terraform](/chainguard/containers/custom-assembly/custom-assembly-overlays/terraform/).
 
 ## Overlays and bindings
 
-Tag-based Custom Assembly splits a customization into two resources:
+Custom Assembly Overlays split a customization into two resources:
 
 * An **overlay** is a named, reusable set of customizations, such as packages, environment variables, annotations, user accounts, certificates, and runtime repositories. An overlay belongs to your organization, not to a repository, and on its own it changes nothing.
 * A **binding** attaches one overlay to one repository and selects which of that repository's tags the overlay applies to.
@@ -42,7 +39,15 @@ To apply an overlay to several repositories, create one binding for each reposit
 
 When you create, update, or delete a binding, or update an overlay, Chainguard rebuilds the affected tags without waiting for a new upstream release. An overlay update rebuilds the matching tags in every repository the overlay is bound to. As with standard Custom Assembly, a build normally takes less than 20 minutes, and Chainguard rebuilds the customized tags whenever their packages are updated.
 
-## Tag selectors
+## Customizing specific image tags
+
+Standard Custom Assembly applies one customization to every tag in a repository. This fails for images that ship several language or runtime versions side by side, because a package built for one version can't install on the others.
+
+For example, the `python` image publishes tags for Python 3.11, 3.12, 3.13, and 3.14. The `py3.13-typer` package depends on Python 3.13. If you add it with standard Custom Assembly, every tag tries to install it, and the 3.11, 3.12, and 3.14 builds fail.
+
+The binding's tag selector lets you choose which tags receive a customization.
+
+### Tag selectors
 
 Each binding has a tag selector, which chooses the tags the overlay applies to. A selector is one of three kinds:
 
@@ -144,9 +149,9 @@ Overlays don't support Chainguard-managed certificate bundles (`certificates.pro
 
 ## Limitations
 
-Tag-based Custom Assembly has the following limitations:
+Custom Assembly Overlays have the following limitations:
 
-* **One model per repository.** A repository can use standard or tag-based Custom Assembly, but not both. If a repository has one kind of customization, adding the other kind fails with the error `repository custom overlay and overlay binding not allowed`. To move a repository from standard to tag-based Custom Assembly, contact your Chainguard account team.
+* **One model per repository.** A repository can use standard Custom Assembly or overlays, but not both. If a repository has one kind of customization, adding the other kind fails with the error `repository custom overlay and overlay binding not allowed`. To move a repository from standard Custom Assembly to overlays, contact your Chainguard account team.
 * **No Chainguard Console support.** Manage overlays and bindings with `chainctl`, Terraform, or the Chainguard API. The Console's Custom Assembly editor manages standard Custom Assembly only.
 * **A missing package fails the build.** If a package in an overlay can't be installed on a tag, that tag's build fails. Chainguard doesn't skip the package. The build logs name the package that failed.
 * **No removing base packages.** As with standard Custom Assembly, an overlay can add to an image but can't remove packages from the source image.
@@ -162,7 +167,7 @@ To create a custom role with these capabilities, see [Overview of roles and role
 
 ## Learn more
 
-* [Managing tag-based Custom Assembly with chainctl](/chainguard/containers/custom-assembly/tag-based-custom-assembly/chainctl/)
-* [Managing tag-based Custom Assembly with Terraform](/chainguard/containers/custom-assembly/tag-based-custom-assembly/terraform/)
+* [Managing Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/custom-assembly-overlays/chainctl/)
+* [Managing Custom Assembly Overlays with Terraform](/chainguard/containers/custom-assembly/custom-assembly-overlays/terraform/)
 * [Overview of Chainguard Custom Assembly](/chainguard/containers/custom-assembly/overview/)
 * [Custom Assembly FAQs](/chainguard/containers/custom-assembly/faq/)
