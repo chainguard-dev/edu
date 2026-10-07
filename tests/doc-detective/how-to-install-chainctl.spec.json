@@ -1,0 +1,232 @@
+{
+  "specId": "how-to-install-chainctl",
+  "description": "Tests for content/platform/chainctl-usage/how-to-install-chainctl.md. The install tests read the page's code blocks at run time and run them in disposable Docker containers. token-cache-path needs you signed in to chainctl. The Homebrew install takes a few minutes, so raise the per-test cap: DOC_DETECTIVE_MAX_SECONDS=900 DOC_DETECTIVE_RETRIES=0 tests/doc-detective/console-cookie.sh --input tests/doc-detective/how-to-install-chainctl.spec.json",
+  "tests": [
+    {
+      "testId": "curl-install-documented-prerequisites",
+      "description": "The curl install works on a machine with only the prerequisites the page names: curl, plus sudo for the install step",
+      "steps": [
+        {
+          "description": "Start a fresh Ubuntu machine with curl and nothing else the page doesn't ask for",
+          "runShell": {
+            "command": "tests/doc-detective/linux-machine.sh start doc-detective-chainctl-prerequisites --packages \"curl\"",
+            "timeout": 600000
+          }
+        },
+        {
+          "description": "Run code block 1 of the introduction, as the page shows it",
+          "runShell": {
+            "command": "python3 tests/doc-detective/code-blocks.py content/platform/chainctl-usage/how-to-install-chainctl.md '' 1 | tests/doc-detective/linux-machine.sh run doc-detective-chainctl-prerequisites",
+            "timeout": 120000
+          }
+        },
+        {
+          "description": "Run code block 1 of Install with curl, as the page shows it",
+          "runShell": {
+            "command": "python3 tests/doc-detective/code-blocks.py content/platform/chainctl-usage/how-to-install-chainctl.md 'Install with curl' 1 | tests/doc-detective/linux-machine.sh run doc-detective-chainctl-prerequisites tmp",
+            "timeout": 120000
+          }
+        },
+        {
+          "description": "Run code block 2 of Install with curl, as the page shows it",
+          "runShell": {
+            "command": "python3 tests/doc-detective/code-blocks.py content/platform/chainctl-usage/how-to-install-chainctl.md 'Install with curl' 2 | tests/doc-detective/linux-machine.sh run doc-detective-chainctl-prerequisites tmp",
+            "timeout": 120000
+          }
+        },
+        {
+          "description": "chainctl version prints the banner and fields the page shows",
+          "runShell": {
+            "command": "python3 tests/doc-detective/code-blocks.py content/platform/chainctl-usage/how-to-install-chainctl.md 'Verifying installation' 1 | tests/doc-detective/linux-machine.sh run doc-detective-chainctl-prerequisites",
+            "timeout": 120000,
+            "stdio": "/chainctl: Chainguard Control[\\s\\S]*GitVersion: +\\d+\\.\\d+\\.\\d+[\\s\\S]*GitCommit: +[0-9a-f]{40}[\\s\\S]*GitTreeState: +clean[\\s\\S]*BuildDate:[\\s\\S]*GoVersion: +go[\\s\\S]*Compiler: +gc[\\s\\S]*Platform: +linux\\//"
+          }
+        },
+        {
+          "description": "Remove the container",
+          "runShell": {
+            "command": "tests/doc-detective/linux-machine.sh stop doc-detective-chainctl-prerequisites",
+            "timeout": 120000
+          }
+        }
+      ]
+    },
+    {
+      "testId": "curl-install-and-verify",
+      "description": "The curl install, Cosign verification, and version check work on Linux",
+      "steps": [
+        {
+          "description": "Start a fresh Ubuntu machine with curl, jq, and the latest Cosign release, which the page links to",
+          "runShell": {
+            "command": "tests/doc-detective/linux-machine.sh start doc-detective-chainctl-curl --packages \"curl jq\" --cosign",
+            "timeout": 600000
+          }
+        },
+        {
+          "description": "Run code block 1 of the introduction, as the page shows it",
+          "runShell": {
+            "command": "python3 tests/doc-detective/code-blocks.py content/platform/chainctl-usage/how-to-install-chainctl.md '' 1 | tests/doc-detective/linux-machine.sh run doc-detective-chainctl-curl",
+            "timeout": 120000
+          }
+        },
+        {
+          "description": "Run code block 1 of Install with curl, as the page shows it",
+          "runShell": {
+            "command": "python3 tests/doc-detective/code-blocks.py content/platform/chainctl-usage/how-to-install-chainctl.md 'Install with curl' 1 | tests/doc-detective/linux-machine.sh run doc-detective-chainctl-curl tmp",
+            "timeout": 120000
+          }
+        },
+        {
+          "description": "Run code block 2 of Install with curl, as the page shows it",
+          "runShell": {
+            "command": "python3 tests/doc-detective/code-blocks.py content/platform/chainctl-usage/how-to-install-chainctl.md 'Install with curl' 2 | tests/doc-detective/linux-machine.sh run doc-detective-chainctl-curl tmp",
+            "timeout": 120000
+          }
+        },
+        {
+          "description": "Verify the binary in a new shell session. The block resolves PLATFORM and VERSION again, as the page says to",
+          "runShell": {
+            "command": "python3 tests/doc-detective/code-blocks.py content/platform/chainctl-usage/how-to-install-chainctl.md 'Verifying the chainctl binary with Cosign' 1 | tests/doc-detective/linux-machine.sh run doc-detective-chainctl-curl tmp",
+            "timeout": 120000,
+            "stdio": "Verified OK"
+          }
+        },
+        {
+          "description": "chainctl version prints the banner and fields the page shows",
+          "runShell": {
+            "command": "python3 tests/doc-detective/code-blocks.py content/platform/chainctl-usage/how-to-install-chainctl.md 'Verifying installation' 1 | tests/doc-detective/linux-machine.sh run doc-detective-chainctl-curl",
+            "timeout": 120000,
+            "stdio": "/chainctl: Chainguard Control[\\s\\S]*GitVersion: +\\d+\\.\\d+\\.\\d+[\\s\\S]*GitCommit: +[0-9a-f]{40}[\\s\\S]*GitTreeState: +clean[\\s\\S]*BuildDate:[\\s\\S]*GoVersion: +go[\\s\\S]*Compiler: +gc[\\s\\S]*Platform: +linux\\//"
+          }
+        },
+        {
+          "description": "Remove the container",
+          "runShell": {
+            "command": "tests/doc-detective/linux-machine.sh stop doc-detective-chainctl-curl",
+            "timeout": 120000
+          }
+        }
+      ]
+    },
+    {
+      "testId": "homebrew-install",
+      "description": "The Homebrew install works on Linux. The Xcode Command Line Tools block is macOS only, so the test skips it",
+      "steps": [
+        {
+          "description": "Start Homebrew's official Linux image",
+          "runShell": {
+            "command": "tests/doc-detective/linux-machine.sh start doc-detective-chainctl-brew --brew",
+            "timeout": 600000
+          }
+        },
+        {
+          "description": "Tap and trust Chainguard's repository",
+          "runShell": {
+            "command": "python3 tests/doc-detective/code-blocks.py content/platform/chainctl-usage/how-to-install-chainctl.md 'Install chainctl with Homebrew' 2 | tests/doc-detective/linux-machine.sh run doc-detective-chainctl-brew",
+            "timeout": 120000
+          }
+        },
+        {
+          "description": "Install chainctl. Homebrew also installs GCC on Linux, so this takes a few minutes",
+          "runShell": {
+            "command": "python3 tests/doc-detective/code-blocks.py content/platform/chainctl-usage/how-to-install-chainctl.md 'Install chainctl with Homebrew' 3 | tests/doc-detective/linux-machine.sh run doc-detective-chainctl-brew",
+            "timeout": 900000
+          }
+        },
+        {
+          "description": "chainctl version prints the banner and fields the page shows",
+          "runShell": {
+            "command": "python3 tests/doc-detective/code-blocks.py content/platform/chainctl-usage/how-to-install-chainctl.md 'Verifying installation' 1 | tests/doc-detective/linux-machine.sh run doc-detective-chainctl-brew",
+            "timeout": 120000,
+            "stdio": "/chainctl: Chainguard Control[\\s\\S]*GitVersion: +\\d+\\.\\d+\\.\\d+[\\s\\S]*GitCommit: +[0-9a-f]{40}[\\s\\S]*GitTreeState: +clean[\\s\\S]*BuildDate:[\\s\\S]*GoVersion: +go[\\s\\S]*Compiler: +gc[\\s\\S]*Platform: +linux\\//"
+          }
+        },
+        {
+          "description": "Remove the container",
+          "runShell": {
+            "command": "tests/doc-detective/linux-machine.sh stop doc-detective-chainctl-brew",
+            "timeout": 120000
+          }
+        }
+      ]
+    },
+    {
+      "testId": "update-from-older-release",
+      "description": "sudo chainctl update replaces an older release with the latest one",
+      "steps": [
+        {
+          "description": "Start a fresh Ubuntu machine with chainctl 0.2.364 installed",
+          "runShell": {
+            "command": "tests/doc-detective/linux-machine.sh start doc-detective-chainctl-update --packages \"curl jq\" --chainctl 0.2.364",
+            "timeout": 600000
+          }
+        },
+        {
+          "description": "Run the page's update command, answering Y when it asks whether to continue",
+          "runShell": {
+            "command": "python3 tests/doc-detective/code-blocks.py content/platform/chainctl-usage/how-to-install-chainctl.md 'Updating chainctl' 1 | tests/doc-detective/linux-machine.sh run doc-detective-chainctl-update --answer Y",
+            "timeout": 120000
+          }
+        },
+        {
+          "description": "chainctl version reports the latest release",
+          "runShell": {
+            "command": "latest=$(curl -fsS https://dl.enforce.dev/chainctl/latest/metadata.json | jq -r .version) && echo chainctl version | tests/doc-detective/linux-machine.sh run doc-detective-chainctl-update | grep -E \"^GitVersion: +$latest$\"",
+            "timeout": 120000,
+            "stdio": "/^GitVersion: +\\d+\\.\\d+\\.\\d+$/"
+          }
+        },
+        {
+          "description": "Remove the container",
+          "runShell": {
+            "command": "tests/doc-detective/linux-machine.sh stop doc-detective-chainctl-update",
+            "timeout": 120000
+          }
+        }
+      ]
+    },
+    {
+      "testId": "windows-downloads-exist",
+      "description": "The Windows downloads the page names exist. These tests run on Linux, so they can't run the PowerShell or Scoop commands",
+      "steps": [
+        {
+          "description": "The latest release has the .exe the PowerShell block downloads",
+          "runShell": {
+            "command": "version=$(curl -fsS https://dl.enforce.dev/chainctl/latest/metadata.json | jq -r .version) && curl -fsSI \"https://dl.enforce.dev/chainctl/$version/chainctl_windows_x86_64.exe\"",
+            "timeout": 120000,
+            "stdio": "/HTTP\\/\\S+ 200/"
+          }
+        },
+        {
+          "description": "Scoop's main bucket has a chainctl manifest",
+          "runShell": {
+            "command": "curl -fsS https://raw.githubusercontent.com/ScoopInstaller/Main/master/bucket/chainctl.json | jq -r .homepage",
+            "timeout": 120000,
+            "stdio": "chainguard"
+          }
+        }
+      ]
+    },
+    {
+      "testId": "token-cache-path",
+      "description": "chainctl caches its tokens where the page says on Linux. Runs against your own chainctl, so you must be signed in",
+      "steps": [
+        {
+          "description": "chainctl auth token succeeds. The token goes to /dev/null so it isn't saved in the results",
+          "runShell": {
+            "command": "chainctl auth token > /dev/null",
+            "timeout": 120000
+          }
+        },
+        {
+          "description": "The oidc-token and refresh-token files are in the directory the page names",
+          "runShell": {
+            "command": "ls /home/$USER/.cache/chainguard/https:--console-api.enforce.dev/ | grep -cxE 'oidc-token|refresh-token'",
+            "timeout": 120000,
+            "stdio": "2"
+          }
+        }
+      ]
+    }
+  ]
+}
