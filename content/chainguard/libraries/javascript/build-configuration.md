@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for JavaScript on your workstation"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-10-02T16:25:03+00:00
+lastmod: 2026-10-07T14:49:03+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
@@ -201,6 +201,27 @@ registry changes** sections for [npm](#npm-apply), [pnpm](#pnpm-apply),
 
 Re-run `chainctl libraries remediate` after every install or dependency update
 so that newly resolved entries are evaluated.
+
+### Adopt remediated versions manually
+
+You can also adopt a remediation manually, without `chainctl libraries
+remediate`:
+
+1. Identify the exact remediated version.
+1. Pin the exact `-cgr.N` version as an override or resolution in the
+`package.json` or lockfile (the `overrides` field for npm or Bun, `pnpm.overrides` for pnpm, or `resolutions` for Yarn).
+1. Regenerate only the relevant lockfile entries. For example:
+    - `npm install --package-lock-only`
+    - `pnpm install --lockfile-only`
+    - `yarn install`
+    - `bun install`
+
+Review the lockfile diff and run your normal tests afterward. An override may affect multiple occurrences, and some package managers apply the rule tree-wide.
+
+Refreshing the lockfile alone
+doesn't adopt the remediation: because `-cgr.N` is an npm prerelease identifier,
+a semver range such as `^4.17.21` never matches it, so the override is what
+selects the remediated build.
 
 For remediated version naming and how remediation propagates through transitive
 dependencies, see [CVE remediation for Chainguard
