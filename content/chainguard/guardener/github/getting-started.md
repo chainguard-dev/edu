@@ -4,7 +4,7 @@ linktitle: "Getting started"
 description: "Install the Chainguard App and link your Chainguard organization to your GitHub organization to start using Guardener."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T02:59:03+00:00
 draft: false
 tags: ["GitHub", "Getting Started"]
 images: []
@@ -113,4 +113,6 @@ For the complete set of flags and options, refer to the `chainctl` reference:
 - **[App connections](/chainguard/guardener/github/app-connections/)** — Inspect, change, and remove the connections between your Chainguard organization and your GitHub organizations.
 - **[Configuration](/chainguard/guardener/github/configuration/)** — Learn the `.chainguard/` configuration model and how to enable features per repository.
 - **[Hardened Actions](/chainguard/guardener/github/actions-security/)** — Recommend and migrate GitHub Actions to hardened, SHA-pinned equivalents.
+- **[Container Image Suggestions](/chainguard/guardener/github/image-suggestions/)** — Get Chainguard container image suggestions on the images a pull request adds or changes.
+- **[Container Image Migration](/chainguard/guardener/github/image-migration/)** — Replace the images a repository already uses through one migration pull request.
 - **[Commit Verification](/chainguard/guardener/github/commit-verification/)** — Require cryptographically signed commits in pull requests.
