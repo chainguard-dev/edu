@@ -4,7 +4,7 @@ linktitle: "Registry errors"
 description: "Map the errors cgr.dev returns during login and pull to their causes, including why the same HTTP status code means different things at the token endpoint and the registry API."
 type: "article"
 date: 2026-09-09T00:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T12:40:50+00:00
 draft: false
 tags: ["Chainguard Containers", "Registry"]
 images: []
@@ -29,7 +29,7 @@ The two steps reuse the same HTTP status codes for unrelated problems. A `403` f
 | -- | -- | -- |
 | `UNAUTHORIZED`, "Authentication required" | Token endpoint | The repository requires credentials and you presented none that worked. |
 | `FORBIDDEN`, "Forbidden" | Token endpoint | The endpoint won't issue a token for the repository you named, or it couldn't use the credentials you sent. |
-| `BAD_REQUEST`, "InvalidArgument" | Token endpoint | The organization in the image reference didn't resolve. |
+| `BAD_REQUEST`, "InvalidArgument" | Token endpoint | The organization in the image reference didn't resolve, or the pull token you sent has expired. |
 | `FORBIDDEN`, "caller does not have the required capabilities" | Registry API | You're authenticated, but you aren't authorized for this repository. |
 | `NAME_UNKNOWN`, "repository does not exist" | Registry API | The repository name doesn't exist in that organization. |
 
@@ -69,15 +69,29 @@ This response means the token endpoint rejected the request outright. It doesn't
 1. **The credential's age.** Pull tokens expire 30 days after creation by default. Create a replacement with `chainctl auth configure-docker --pull-token`.
 1. **The repository name.** A scope the endpoint won't grant returns this `403` rather than a `404`, whether the repository doesn't exist or isn't in your organization's catalog. Confirm the name against `chainctl images repos list`.
 
-## The organization didn't resolve
+## Bad request from the token endpoint
 
-A `400` means the organization portion of the image reference didn't match any Chainguard organization:
+A `400` from the token endpoint has two causes, and the message text tells them apart.
+
+### The pull token expired
+
+When a pull presents an expired pull token, the token endpoint returns a `400` rather than a `401` or `403`:
+
+```output
+{"errors":[{"code":"BAD_REQUEST","message":"rpc error: code = InvalidArgument desc = this identity's keys have expired"}]}
+```
+
+Create a replacement with `chainctl auth configure-docker --pull-token` and update every place that holds the old one. A login with an expired token, such as `docker login` or `helm registry login`, returns the bare `403` described in [Forbidden from the token endpoint](#forbidden-from-the-token-endpoint) instead.
+
+### The organization didn't resolve
+
+When the message says `unable to resolve`, the organization portion of the image reference didn't match any Chainguard organization:
 
 ```output
 {"errors":[{"code":"BAD_REQUEST","message":"rpc error: code = InvalidArgument desc = unable to resolve ..."}]}
 ```
 
-Unlike the other errors on this page, this one has nothing to do with your credentials. The organization name is wrong. List the organizations you belong to and compare:
+This cause has nothing to do with your credentials. The organization name is wrong. List the organizations you belong to and compare:
 
 ```shell
 chainctl iam organizations list
