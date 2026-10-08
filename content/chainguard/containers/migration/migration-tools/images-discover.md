@@ -4,7 +4,7 @@ linktitle: "chainctl images discover"
 description: "Scan a repository for container image references and see which Chainguard container images replace them, and whether your organization can pull them today."
 type: "article"
 date: 2026-10-02T00:00:00+00:00
-lastmod: 2026-10-02T00:00:00+00:00
+lastmod: 2026-10-08T02:59:03+00:00
 draft: false
 tags: ["Chainguard Containers", "Migration", "chainctl"]
 images: []
@@ -17,7 +17,7 @@ toc: true
 
 `chainctl images discover` reads the image references in a directory, such as a repository checkout, and reports the Chainguard container image that replaces each upstream image. For each replacement, it also tells you whether your organization can pull it today. Use it to size a migration before you start, or to find what's left after one.
 
-The command only reports. It doesn't edit any files. To get replacements suggested on pull requests as images are introduced, enable [Guardener Container Image Suggestions](/chainguard/guardener/github/image-suggestions/). To convert a Dockerfile, use the [Dockerfile Converter](/chainguard/containers/migration/migration-tools/dockerfile-conversion/).
+The command only reports. It doesn't edit any files. To get replacements suggested on pull requests as images are introduced, enable [Guardener Container Image Suggestions](/chainguard/guardener/github/image-suggestions/). To have Guardener open a pull request that replaces the images a repository already uses, enable [Guardener Container Image Migration](/chainguard/guardener/github/image-migration/). To convert a Dockerfile, use the [Dockerfile Converter](/chainguard/containers/migration/migration-tools/dockerfile-conversion/).
 
 ## Prerequisites
 

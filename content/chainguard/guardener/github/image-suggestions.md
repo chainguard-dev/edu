@@ -4,7 +4,7 @@ linktitle: "Container Image Suggestions"
 description: "Configure Guardener to recommend Chainguard container images for the container images a pull request adds or changes."
 type: "article"
 date: 2026-10-02T00:00:00+00:00
-lastmod: 2026-10-02T00:00:00+00:00
+lastmod: 2026-10-08T02:59:03+00:00
 draft: false
 tags: ["GitHub", "Chainguard Containers", "Migration"]
 images: []
@@ -19,7 +19,7 @@ Guardener reviews pull requests that add or change container image references an
 
 {{< beta feature="Guardener" access="organizations that have installed and linked the Chainguard App" >}}
 
-Guardener reads only the lines a pull request adds or changes, so it catches upstream images as they're introduced but doesn't review the images a repository already uses. To find replacements for every image in a repository, run [`chainctl images discover`](/chainguard/containers/migration/migration-tools/images-discover/).
+Guardener reads only the lines a pull request adds or changes, so it catches upstream images as they're introduced but doesn't review the images a repository already uses. To replace those images, turn on [Container Image Migration](/chainguard/guardener/github/image-migration/), which opens a pull request for the whole repository. To list replacements for every image without changing any files, run [`chainctl images discover`](/chainguard/containers/migration/migration-tools/images-discover/).
 
 ## Prerequisites
 
@@ -80,8 +80,10 @@ A comment includes a one-click suggested change when all of the following are tr
 - The file is a Dockerfile, YAML file, or JSON file.
 - The reference is one literal value on its own line. It isn't assembled from a Dockerfile `ARG` or a split Helm `image` mapping, and no other image shares the line.
 - Your Chainguard organization already has the replacement image, with a matching tag.
+- The replacement keeps a version. Guardener doesn't suggest the `latest` tag for a reference with a tag that Chainguard doesn't maintain, or for a reference pinned by digest without a tag.
+- In a Dockerfile, the build stage and any stage built on it don't run commands with `RUN`, a shell-form `CMD` or `ENTRYPOINT`, or an `ONBUILD` instruction, and don't set `CMD` without `ENTRYPOINT`. Chainguard container images without a `-dev` suffix usually have no shell or package manager, and many set `ENTRYPOINT` to their runtime.
 
-Otherwise, the comment names the replacement so you can make the change yourself, or add the image to your organization first. Adding an image isn't always self-service: how you do it depends on your subscription, and the steps are in [The container isn't in your organization's catalog](/chainguard/containers/troubleshooting/container-version-troubleshooting/#the-container-isnt-in-your-organizations-catalog).
+Otherwise, the comment names the replacement and says why it has no suggested change, so you can make the change yourself or add the image to your organization first. Adding an image isn't always self-service: how you do it depends on your subscription, and the steps are in [The container isn't in your organization's catalog](/chainguard/containers/troubleshooting/container-version-troubleshooting/#the-container-isnt-in-your-organizations-catalog).
 
 A suggested change swaps one image reference for another. Guardener doesn't restructure a Dockerfile: it doesn't rename packages, split a build into stages, or change the user or entry point. Review and test the change as you would any other. To convert a whole Dockerfile, use [Dockerfile migration](/chainguard/guardener/dockerfile-migration/).
 
@@ -103,9 +105,11 @@ Guardener also skips any single file larger than 1 MiB, and the check run lists 
 | --- | --- | --- | --- |
 | `enabled` | boolean | `true` when the file exists | Turns Image Suggestions on or off for the repository. |
 | `prefer_fips` | boolean | `true` | Ranks FIPS variants before standard variants. Images your organization already has still rank first. |
+| `migrate` | mapping | None | Settings for [Container Image Migration](/chainguard/guardener/github/image-migration/#configuration-reference). |
 
 ## Next steps
 
+- **[Container Image Migration](/chainguard/guardener/github/image-migration/)** — Replace the images a repository already uses through one migration pull request.
 - **[`chainctl images discover`](/chainguard/containers/migration/migration-tools/images-discover/)** — Find replacements for every image a repository already uses.
 - **[Configuration](/chainguard/guardener/github/configuration/)** — Set Image Suggestions once for your whole organization.
 - **[Dockerfile migration](/chainguard/guardener/dockerfile-migration/)** — Convert a Dockerfile to use Chainguard container images.
