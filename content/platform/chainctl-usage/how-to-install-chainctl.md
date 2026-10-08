@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "Learn how to install chainctl, Chainguard's command-line interface for managing container images, IAM resources, and security configurations across platforms"
 date: 2022-09-22T15:56:52-07:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-07T00:00:00+00:00
 draft: false
 tags: ["chainctl"]
 images: []
@@ -23,10 +23,10 @@ Chainguard's `chainctl` command-line interface provides essential tools for mana
 
 The tool uses the familiar `<context> <noun> <verb>` style of CLI interactions. For example, to retrieve a list of all the private Chainguard Containers available to your organization, you can run `chainctl images list`.
 
-Before we begin, let’s move into a temporary directory that we can work in. Be sure you have curl installed, which you can achieve through visiting the [curl download docs](https://curl.se/download.html) for your relevant operating system.
+Before we begin, let’s move into a temporary directory that we can work in. Be sure you have [curl](https://curl.se/download.html) and [jq](https://jqlang.org/download/) installed. The `curl` installation and the Cosign verification steps use jq to find the latest release version.
 
 ```sh
-mkdir ~/tmp && cd $_
+mkdir -p ~/tmp && cd $_
 ```
 
 There are currently two ways to install `chainctl`, depending on your operating system and preferences.
@@ -121,21 +121,21 @@ scoop install main/chainctl
 
 Before running `chainctl` for the first time, you should verify the integrity of the downloaded binary using Cosign. This ensures the binary has not been tampered with. Ensure that you have the latest version of Cosign installed by following our [How to install Cosign guide](/open-source/sigstore/cosign/how-to-install-cosign/).
 
-If you are continuing in the same terminal session as the installation step above, `PLATFORM` and `VERSION` are already set. Otherwise, resolve them again first. Then verify the binary you just downloaded, pulling the signature and certificate from the same pinned version:
+If you are continuing in the same terminal session as the installation step above, `PLATFORM` and `VERSION` are already set. Otherwise, resolve them again first. Then download the release's Sigstore bundle, which holds the binary's signature and certificate, from the same pinned version, and use it to verify the binary:
 
 ```sh
 PLATFORM="$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/aarch64/arm64/')"
 VERSION=$(curl -sS "https://dl.enforce.dev/chainctl/latest/metadata.json" | jq -r .version)
+curl -sS -o chainctl.sigstore.json "https://dl.enforce.dev/chainctl/${VERSION}/chainctl_${PLATFORM}.sigstore.json"
 cosign verify-blob \
-   --signature "https://dl.enforce.dev/chainctl/${VERSION}/chainctl_${PLATFORM}.sig" \
-   --certificate "https://dl.enforce.dev/chainctl/${VERSION}/chainctl_${PLATFORM}.cert.pem" \
+   --bundle chainctl.sigstore.json \
    --certificate-identity "https://github.com/chainguard-dev/mono/.github/workflows/.release-drop.yaml@refs/tags/v${VERSION}" \
    --certificate-oidc-issuer https://token.actions.githubusercontent.com \
    $(which chainctl)
 ```
 
 {{< note >}}
-Always pin the binary, signature, and certificate downloads to the same explicit `${VERSION}` rather than fetching each from `/latest/` independently. If a new release is published between the individual downloads, you can end up with a binary and a signature from different releases, and verification will fail with an error such as `invalid signature when validating ASN.1 encoded signature`.
+Always pin the binary and bundle downloads to the same explicit `${VERSION}` rather than fetching each from `/latest/` independently. If a new release is published between the individual downloads, you can end up with a binary and a bundle from different releases, and verification will fail with an error such as `invalid signature when validating ASN.1 encoded signature`.
 {{< /note >}}
 
 You should receive the following output:
@@ -264,6 +264,10 @@ When your version of `chainctl` is a few weeks old or older, you may consider up
 sudo chainctl update
 ```
 
+The command shows your current version and the latest version, then asks `Do you want to continue? [Y,n]`. Enter `Y` to update. To skip the prompt, run `sudo chainctl update --yes` instead.
+
 The update command verifies the signature of the downloaded binary in-process before replacing your existing installation, so you don't need a separate `cosign` binary on your `PATH`. Verification needs network access to the download host (`dl.enforce.dev`) and, at least on first use, to the Sigstore trust root at `tuf-repo-cdn.sigstore.dev`. If verification fails or those hosts are unreachable, the update stops, the unverified binary is removed, and your current installation is left in place.
+
+When the update finishes, `chainctl` keeps a backup of your previous binary and prints a command to delete it, such as `rm -f "/root/.cache/chainctl/chainctl.bak"`. Once the new version works, you can run that command to remove the backup.
 
 Keeping `chainctl` up to date will ensure that you are using the most up to date version.
