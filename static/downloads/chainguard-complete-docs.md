@@ -1,6 +1,6 @@
 # Chainguard Documentation Bundle
 
-_Compiled on: 2026-10-07 02:30:37_
+_Compiled on: 2026-10-08 02:29:24_
 
 This document contains Chainguard documentation compiled from multiple sources.
 
@@ -6258,6 +6258,48 @@ chainctl libraries verify ~/.m2/repository/net/logstash/logback/logstash-logback
 To integrate this into your build pipeline, add the verification step after
 dependency resolution and before the packaging phase.
 
+#### Download SBOMs and attestations
+
+During verification, `chainctl` fetches the SBOM and SLSA provenance published
+alongside a Chainguard-built Java artifact and discards them after the check.
+Add the `--output-attestations` flag to save these files to disk instead:
+
+```sh
+chainctl libraries verify commons-lang3-3.17.0.jar --output-attestations
+```
+
+Use `--output-dir` to set the base directory, which defaults to the current
+directory. Files are written under each artifact's Maven repository path,
+`group/artifact/version`, matching the layout of a local Maven repository:
+
+```sh
+chainctl libraries verify commons-lang3-3.17.0.jar \
+  --output-attestations --output-dir repo
+```
+
+For the preceding command, the files land under
+`repo/org/apache/commons/commons-lang3/3.17.0/`:
+
+- `commons-lang3-3.17.0.spdx.json` — SPDX SBOM, saved as a trusted Chainguard
+  attestation
+- `commons-lang3-3.17.0.slsa-attestation.json` — SLSA provenance, also saved
+  as trusted
+- `commons-lang3-3.17.0-cyclonedx.json` and `commons-lang3-3.17.0-cyclonedx.xml`
+  — CycloneDX SBOMs, saved when present but marked unverified, since
+  Chainguard does not vouch for their contents
+
+Only an artifact that verifies as a Chainguard build saves anything. Upstream or
+tampered bytes save nothing. Inside a fat JAR, each embedded library is verified
+and saved individually, so only the verified libraries contribute files. The
+saved files are listed in the text, JSON, YAML, and CSV output, with unverified
+files clearly marked.
+
+Downloading SBOMs and attestations is supported for Java artifacts only. The
+`--output-attestations` and `--output-dir` flags are ignored for all other
+ecosystems, and nothing is written for them. For a description of these files
+and the alternative of downloading them directly, refer to [SBOM and attestation
+files](/chainguard/libraries/java/overview/#sbom-and-attestation-files).
+
 ### Analyze JavaScript packages
 
 `chainctl libraries verify` can scan local package manager caches and stores
@@ -12136,37 +12178,8 @@ Lang](https://commons.apache.org/proper/commons-lang/) are the following:
 <groupId>org.apache.commons</groupId>
 <artifactId>commons-lang3</artifactId>
 <version>3.13.0</version>
-<version>3.13.0</version>
 ```
 
-**Find available versions**
-
-List the versions that Chainguard has built for a library by requesting its
-`maven-metadata.xml` file at the `groupId`/`artifactId` path. The `groupId`
-`org.apache.commons` becomes the nested directories `org/apache/commons`, and the
-`artifactId` adds the `commons-lang3` directory:
-
-```
-https://libraries.cgr.dev/java/org/apache/commons/commons-lang3/maven-metadata.xml
-```
-
-The repository only includes release artifacts that Chainguard builds from source,
-so the versions listed may differ from those available on Maven Central.
-
-**List the files for a version**
-
-Each version has its own leaf directory, formed by appending the `version` to the
-`groupId`/`artifactId` path. This version directory is browsable and lists all
-files for that specific library version:
-
-```
-https://libraries.cgr.dev/java/org/apache/commons/commons-lang3/3.13.0/
-```
-
-For the `org.apache.commons:commons-lang3:3.13.0` library, this directory includes
-the main Maven metadata file `commons-lang3-3.13.0.pom`, the main JAR file
-`commons-lang3-3.13.0.jar`, related checksum files, and the SBOM and attestation
-files described below. Specific files vary between libraries.
 **Find available versions**
 
 List the versions that Chainguard has built for a library by requesting its
@@ -12207,14 +12220,12 @@ With [.netrc authentication](/chainguard/libraries/introduction/access/#netrc):
 ```shell
 curl -n -L \
   -O https://libraries.cgr.dev/java/commons-io/commons-io/2.13.0/commons-io-2.13.0.pom
-  -O https://libraries.cgr.dev/java/commons-io/commons-io/2.13.0/commons-io-2.13.0.pom
 ```
 
 With [environment variables](/chainguard/libraries/introduction/access/#env):
 
 ```shell
 curl -L --user "$CHAINGUARD_JAVA_IDENTITY_ID:$CHAINGUARD_JAVA_TOKEN" \
-  -O https://libraries.cgr.dev/java/commons-io/commons-io/2.13.0/commons-io-2.13.0.pom
   -O https://libraries.cgr.dev/java/commons-io/commons-io/2.13.0/commons-io-2.13.0.pom
 ```
 
@@ -12238,17 +12249,22 @@ following extensions:
 
 * `.slsa-attestation.json` for the SLSA provenance attestation
 * `.spdx.json` for the SBOM information
-* `.spdx.json` for the SBOM information
 
 For example, the files for artifactId `commons-compress` and version
 `1.23.0` are located in the version directory
-[https://libraries.cgr.dev/java/org/apache/commons/commons-compress/1.23.0/](https://libraries.cgr.dev/java/org/apache/commons/commons-compress/1.28.0/).
+[https://libraries.cgr.dev/java/org/apache/commons/commons-compress/1.23.0/](https://libraries.cgr.dev/java/org/apache/commons/commons-compress/1.23.0/).
 It includes the following files:
 
 * `commons-compress-1.23.0.pom`
 * `commons-compress-1.23.0.jar`
 * `commons-compress-1.23.0.slsa-attestation.json`
 * `commons-compress-1.23.0.spdx.json`
+
+Instead of downloading these files individually, you can save them while
+verifying a local artifact by adding the `--output-attestations` flag to
+`chainctl libraries verify`. Refer to [Download SBOMs and
+attestations](/chainguard/libraries/policies-and-security/verification/#download-sboms-and-attestations)
+for details.
 
 ## Upstream fallback policy and controls
 
@@ -26777,9 +26793,9 @@ Below the controls, a summary states how many vulnerabilities the selected image
 
 ### Comparison tab
 
-You can find the same comparison data for a single image under **Images**, on either the **Organization** or **Chainguard catalog** tab. Select or search for an image.
+You can find the same comparison data for a single image under **Images**, on either the **Organization** or **Chainguard catalog** tab.
 
-The image opens on its **Tags** tab. Select the **Comparison** tab, which shows the same sections as the **Compare images** tab on the Reports page, with **Alternative** and **Period** drop-downs at the top.
+Select or search for a container image, which opens on its **Tags** tab by default. Select the **Comparison** tab, which shows the same sections as the **Compare images** tab on the Reports page, with **Alternative** and **Period** drop-downs at the top. An **Export** button appears only for images you open from the **Organization** tab.
 
 ## Accessing CVE visualizations in the Containers Directory
 
@@ -38308,6 +38324,8 @@ This article provided a high-level overview of Custom Assembly. As a next step, 
 
 You can also add custom certificates to Custom Assembly images. Refer to our guide on [Adding custom certificates with Custom Assembly](/chainguard/containers/custom-assembly/custom-assembly-certs/) for more information.
 
+To run startup logic in a Custom Assembly image without a derived image build, see [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/). It resolves secrets, runs preflight checks, and overrides the command at container start.
+
 We encourage you to check out our resources on our other [Chainguard Containers features](/chainguard/containers/), including the following:
 
 * [Unique tags](/chainguard/containers/reference/unique-tags/)
@@ -38526,7 +38544,9 @@ environment:
 
 After saving and confirming these changes, Custom Assembly will add these five custom environment variables to the container image. As with packages and annotations, you can also apply custom environment variables declaratively using the `apply` subcommand, as outlined previously.
 
-Be aware that Custom Assembly blocks any environment variable that begins with `CHAINGUARD_` from being added or changed. This is to prevent conflicts with configuration details managed by Chainguard.
+Be aware that Custom Assembly blocks any environment variable that begins with `CHAINGUARD_` from being added or changed. This is to prevent conflicts with configuration details managed by Chainguard. The `GUARDED_` prefix is reserved too.
+
+To set a variable from a secret store when the container starts, use a secret reference such as `cg+vault://secret/data/app#password` as the value. A reference resolves only when Guarded Entrypoint is turned on for the repo. See [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/).
 
 ## Custom runtime repositories
 
@@ -40139,6 +40159,7 @@ An overlay supports the same customizations as standard Custom Assembly, with th
 * [Environment variables and annotations](/chainguard/containers/custom-assembly/custom-assembly-chainctl/#adding-custom-annotations-and-environment-variables) (`environment` and `annotations`)
 * [User accounts and groups](/platform/chainctl/chainctl-docs/chainctl_images_repos_build_apply/) (`accounts`)
 * [Custom certificates](/chainguard/containers/custom-assembly/custom-assembly-certs/) (`certificates.additional`)
+* [Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/) (`guarded_entrypoint`, `fail_mode`, `preflight`, and `command_override`). To see how these fields combine when several bindings match one tag, see [How the fields combine across bindings](/chainguard/containers/custom-assembly/guarded-entrypoint/#how-the-fields-combine-across-bindings).
 
 Overlays don't support Chainguard-managed certificate bundles (`certificates.providers`). If an overlay contains a field that overlays don't support, Chainguard rejects the whole overlay instead of ignoring the field.
 
@@ -40328,6 +40349,870 @@ To remove a customization, delete the binding resource from your configuration a
 * [Managing tag-based Custom Assembly with chainctl](/chainguard/containers/custom-assembly/tag-based-custom-assembly/chainctl/)
 * [`chainguard_image_overlay` in the Terraform Registry](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/resources/image_overlay)
 * [`chainguard_image_overlay_binding` in the Terraform Registry](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/resources/image_overlay_binding)
+
+---
+
+### Guarded Entrypoint examples
+_Path: chainguard/containers/custom-assembly/guarded-entrypoint/examples.md_
+
+> **Note**: Guarded Entrypoint is in beta. To use it, contact Chainguard customer support to enable it for your organization.
+
+This page has four example manifests for [Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/). Each one is a complete manifest for `chainctl images repos build edit` or `chainctl images repos build apply`. None of them contains a literal secret. Each secret is a reference that the wrapper resolves when the container starts.
+
+Applying a manifest replaces the repo's stored configuration. If your repo already has other customizations, such as packages, add the Guarded Entrypoint keys to your existing manifest instead of replacing it.
+
+The examples use the following variables:
+
+```shell
+export REPO=my-custom-app
+export ORGANIZATION=example.com
+```
+
+To try an example, save it as `build.yaml`. Preview the change, then apply it:
+
+```shell
+chainctl images repos build apply -f build.yaml --repo $REPO --parent $ORGANIZATION --dry-run
+chainctl images repos build apply -f build.yaml --repo $REPO --parent $ORGANIZATION --yes
+```
+
+The first command prints the diff and exits with a non-zero status when it finds a change. The second command applies the manifest and starts a rebuild.
+
+## Inject secrets from Vault or Consul into a Java application
+
+A Java application reads its database password and an API address from its environment. Today the team adds `envconsul` to a derived image to supply them. With Guarded Entrypoint, the references are part of the Custom Assembly repo.
+
+```yaml
+guarded_entrypoint: true
+environment:
+  VAULT_ADDR: https://vault.example.com:8200
+  VAULT_K8S_ROLE: orders-service
+  DB_PASSWORD: cg+vault://secret/data/orders#db_password
+  CONSUL_HTTP_ADDR: https://consul.example.com:8501
+  ORDERS_API_URL: cg+consul://apps/orders/api-url
+```
+
+When the container starts, the wrapper does the following:
+
+1. Logs in to Vault with the Kubernetes auth method as the `orders-service` role. It reads the `db_password` field of the `orders` secret, in the `secret` KV version 2 mount, into `DB_PASSWORD`.
+1. Reads the `apps/orders/api-url` key from Consul into `ORDERS_API_URL`.
+1. Starts the Java application with both variables resolved.
+
+The image stores the references and the addresses. It doesn't store the secrets. To read from Consul with a token, set `CONSUL_HTTP_TOKEN` or `CONSUL_HTTP_TOKEN_FILE` on the deployment, not in the manifest. A token in the manifest would be visible to anyone who can pull the image. `VAULT_TOKEN`, if you set it, takes precedence over the Kubernetes login, and `CONSUL_HTTP_TOKEN_FILE` wins over `CONSUL_HTTP_TOKEN`. A token can't be a `cg+` reference.
+
+The default `fail_mode` is `closed`. If Vault or Consul can't serve a reference, the container stops with exit code 121 and the application doesn't start.
+
+## Wait for a dependency before starting
+
+An application fails when its database isn't ready at start. The following manifest holds the container until the database accepts connections, and then checks that a mounted file exists:
+
+```yaml
+guarded_entrypoint: true
+preflight:
+  - tcp: db.internal:5432
+    timeout: 60s
+    interval: 1s
+    on_failure: fail
+  - path: /run/secrets/tls-ready
+    timeout: 10s
+    on_failure: continue
+```
+
+The wrapper runs the checks in order, after it resolves secrets and before it starts the application:
+
+* The first check tries to connect to `db.internal:5432` for up to 60 seconds, and pauses one second between attempts. Each attempt has its own timeout. If the connection never succeeds, the container stops with exit code 122.
+* The second check waits up to 10 seconds for `/run/secrets/tls-ready` to exist. With `on_failure: continue`, the wrapper logs a warning and starts the application if the file never appears.
+
+A target can read from the environment. The following entry waits for the address in the `CACHE_ADDR` variable, which you set on the deployment:
+
+```yaml
+guarded_entrypoint: true
+preflight:
+  - tcp: ${CACHE_ADDR}
+    timeout: 30s
+```
+
+If `CACHE_ADDR` isn't set, the check fails.
+
+## Override the command on a shell-less Python image
+
+A Python image has no shell and ships with both an ENTRYPOINT and a CMD. The application needs a different command, and both defaults must go. Without Guarded Entrypoint, you build a derived image to do this.
+
+```yaml
+guarded_entrypoint: true
+environment:
+  PORT: "8080"
+command_override:
+  mode: override
+  command:
+    - python
+    - /app/main.py
+    - --port
+    - ${PORT}
+```
+
+In `override` mode, the wrapper starts `command` alone. The image's ENTRYPOINT and CMD, and any arguments you pass at run time, are dropped. The wrapper expands `${PORT}` from the container's environment, so a deployment can change the port by setting `PORT`. The image needs no shell, because the wrapper starts `python` directly.
+
+To keep the image's own command and add arguments in front of it, use `mode: prepend` instead. See [Command override](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#command-override).
+
+Don't pass a secret on the command line. The expanded value is visible in the process's command line. Have the application read a secret from its environment, and use a [secret reference](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#secret-references) to supply it.
+
+## Fail open for a value that isn't a credential
+
+An application reads a feature-flag address from Consul. The application has a built-in default, so it can start when Consul is down. The following manifest sets the repo to fail open:
+
+```yaml
+guarded_entrypoint: true
+fail_mode: open
+environment:
+  CONSUL_HTTP_ADDR: https://consul.example.com:8501
+  FEATURE_FLAGS_URL: cg+consul://apps/web/feature-flags-url
+```
+
+If Consul can't serve the key, the application starts anyway. `FEATURE_FLAGS_URL` keeps the literal value `cg+consul://apps/web/feature-flags-url`, and the wrapper logs a warning for it. The application must handle that value, for example by falling back to its default when the value starts with `cg+`.
+
+Use `open` only for variables that aren't credentials. An unresolved variable holds a value that anyone with access to the image configuration can read. For a password or a token, keep the default of `closed`. See [Fail mode](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#fail-mode).
+
+## Learn more
+
+* [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/)
+* [How Guarded Entrypoint works](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/)
+* [Troubleshoot a wrapped container](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/)
+
+---
+
+### Troubleshoot a wrapped container
+_Path: chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting.md_
+
+> **Note**: Guarded Entrypoint is in beta. To use it, contact Chainguard customer support to enable it for your organization.
+
+This page covers two kinds of problems. A container that is built with [Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/) can fail to start. A build can also fail because Chainguard refuses to wrap an image.
+
+## First move: set GUARDED_DISABLE
+
+When a wrapped container fails to start, set the `GUARDED_DISABLE` environment variable on the container and redeploy. The wrapper then starts the image's original entrypoint and arguments without doing anything else. You don't need to rebuild the image.
+
+With Kubernetes, set the variable on the deployment:
+
+```shell
+kubectl set env deployment/$DEPLOYMENT GUARDED_DISABLE=1
+```
+
+With Docker, pass it to `docker run`:
+
+```shell
+docker run -e GUARDED_DISABLE=1 cgr.dev/$ORGANIZATION/$REPO:latest
+```
+
+`GUARDED_DISABLE` counts as set unless its value, lowercased and trimmed, is empty, `0`, `false`, `no`, or `off`. A value of `1` or `true` turns the wrapper off. A value of `0` or `false` leaves it on. The wrapper checks `GUARDED_DISABLE` before it reads any other setting. This means that a malformed setting in the image doesn't stop it from working.
+
+When `GUARDED_DISABLE` is set, the wrapper does the following:
+
+* It doesn't resolve secret references. Your application sees the literal `cg+...` values.
+* It doesn't run preflight checks.
+* It doesn't apply `command_override`. The image's original ENTRYPOINT and CMD run.
+* It makes no network connections.
+
+If the container then starts, the wrapper or its settings might have caused the failure. Remove the variable after you fix the configuration and Chainguard rebuilds the image.
+
+If the container still fails, the cause isn't necessarily the application or the deployment. With `GUARDED_DISABLE` set, your application receives the literal `cg+...` values and skips its preflight checks. An application that needs its secrets can fail for that reason.
+
+With `GUARDED_DISABLE` set, an image whose only command comes from `command_override` exits with code `124` instead of starting.
+
+Anyone who can set environment variables on a container can set `GUARDED_DISABLE`. This is true for a repo with `fail_mode: closed` too. See [Guarded Entrypoint trust boundary](/chainguard/containers/custom-assembly/guarded-entrypoint/trust-boundary/).
+
+## Find out why the container stopped
+
+Start with the container's exit code. For a Kubernetes pod, `kubectl describe pod` shows it under `Last State`. For Docker, run the following command:
+
+```shell
+docker inspect --format '{{.State.ExitCode}}' $CONTAINER
+```
+
+Then read the container's logs. The wrapper writes JSON messages to standard error, one object per line, and each message names the setting or variable that failed. It never logs a secret value:
+
+```shell
+kubectl logs $POD
+```
+
+For a pod in a restart loop, add `--previous` to read the logs of the container that stopped.
+
+To see more detail, set `GUARDED_ENTRYPOINT_LOG` on the container to `debug`. The levels are `debug`, `info`, `warn`, and `quiet`.
+
+### Exit codes before the application starts
+
+The wrapper uses the following exit codes when it stops the container before your application runs. Once the application starts, the container exits with the application's exit code.
+
+| Code | Meaning | What to check |
+| --- | --- | --- |
+| `120` | A Guarded Entrypoint setting is invalid. | Check the setting that the log message names. |
+| `121` | Secret resolution failed. This includes a `${VAR}` in the command that names a variable that isn't set. | Check the backend address, credentials, and reference. Check that each `${VAR}` has a value. |
+| `122` | A preflight check failed. | Check that the target is reachable from the container, and consider a longer `timeout`. |
+| `123` | There is no command to run. | Check that the image has an entrypoint or CMD, or that `command_override` sets a command. |
+| `124` | `GUARDED_DISABLE` is set and there is no command to run. | Pass a command, or check that the image has an entrypoint or CMD. |
+| `125` | The wrapper itself failed, for example when it couldn't fork a process. | Check the container's resource limits. |
+| `126` | The command exists but can't be run. | Check the execute permission, that the command is not a directory, and that a script's `#!` interpreter exists. |
+| `127` | The command wasn't found. | Check that the first element of `command` is on the container's `PATH`, or use an absolute path. |
+
+Your own application can also exit with any code from `120` to `127`. To tell the two apart, look in the logs for a wrapper error line just before the container exited.
+
+With `fail_mode: open`, only the configuration errors described in [Fail mode](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#fail-mode) stop the container with exit code `121`.
+
+### A container whose entrypoint is an init system
+
+An image whose entrypoint is an init system that must run as PID 1, such as systemd or s6-overlay, doesn't work under the wrapper. The container behaves in one of two ways:
+
+* It exits with code `1` at start, and systemd prints `Explicit --user argument required to run as user manager.`
+* It exits with code `129` when you stop it.
+
+To fix it, set `GUARDED_DISABLE` on the deployment, or turn off Guarded Entrypoint for the repo. See [Init systems aren't supported](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#init-systems-arent-supported).
+
+## Entrypoints the wrapper refuses
+
+When Chainguard can't wrap an image, the rebuild of that image fails. Chainguard doesn't ship a broken image. Instead, the build records a failure and its reason.
+
+To see the failure, list the repo's builds:
+
+```shell
+chainctl images repos build list --repo $REPO --parent $ORGANIZATION
+```
+
+The `Result` column shows the failure, and the `Reason` column shows why. The `Reason` column is filled only for failures that Chainguard records outside a build, such as these refusals and binding conflicts. It is empty for an ordinary build failure. The failed build has no tags in the `Tags` column. For the full text, run `chainctl images repos build logs --repo $REPO --parent $ORGANIZATION` and select the failed build. Without a terminal, for example in a pipeline, pass `--build-id` with the build's ID. The output has this form:
+
+```output
+guarded entrypoint refused for tags [latest] (digest sha256:...): the environment sets GUARDED_DISABLE; the tags are not rebuilt and are dropped from the repo's active tag list until the refusal is resolved
+detail: set in the base image environment
+```
+
+The optional second line, `detail: ...`, gives more information. If the repo sets `command_override`, the detail also says that `command_override` is not applied.
+
+The text after the digest is the reason. It is one of the following:
+
+| Reason | Meaning |
+| --- | --- |
+| `the environment sets GUARDED_DISABLE` | The image's environment sets `GUARDED_DISABLE`. The detail says where it is set. |
+| `the listed wrapper version does not read every GUARDED_* setting` | The repo's `contents.packages` pins `guarded-entrypoint` or `guarded-entrypoint-fips` to a release that is too old for the repo's settings. The detail names the first release that reads them all. |
+
+The tags named in the message aren't rebuilt until you resolve the refusal. A tag that isn't rebuilt doesn't receive package updates, including CVE fixes, until then. To resolve it, do one of the following:
+
+* For the wrapper version reason, remove the `guarded-entrypoint` or `guarded-entrypoint-fips` pin from the repo's `contents.packages` list.
+* Turn off Guarded Entrypoint for the repo. See [Turn off Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/#turn-off-guarded-entrypoint).
+* With tag-based Custom Assembly, bind the overlay that sets `guarded_entrypoint` only to the tags that Chainguard doesn't refuse.
+
+To check ahead of time whether an image is supported, see the [lists of supported and refused entrypoints](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#supported-and-refused-entrypoints).
+
+## Learn more
+
+* [How Guarded Entrypoint works](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/)
+* [Guarded Entrypoint examples](/chainguard/containers/custom-assembly/guarded-entrypoint/examples/)
+* [Guarded Entrypoint trust boundary](/chainguard/containers/custom-assembly/guarded-entrypoint/trust-boundary/)
+
+---
+
+### Guarded Entrypoint trust boundary
+_Path: chainguard/containers/custom-assembly/guarded-entrypoint/trust-boundary.md_
+
+> **Note**: Guarded Entrypoint is in beta. To use it, contact Chainguard customer support to enable it for your organization.
+
+This page states what the [Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/) wrapper connects to, what it never does, and what anyone who can pull your image can read.
+
+## What the wrapper connects to
+
+The wrapper connects only to the endpoints that your configuration names:
+
+* **Vault:** the address in `VAULT_ADDR`.
+* **Consul:** the address in `CONSUL_HTTP_ADDR`. When it isn't set, the default is `127.0.0.1:8500`.
+* **Google Secret Manager:** `secretmanager.googleapis.com` and Google's token endpoints. The wrapper authenticates with Application Default Credentials, so it also contacts the GCE or GKE metadata server, which it always reaches directly. Credentials of an external account type add their own source URL.
+* **Preflight targets:** the TCP targets that your `preflight` checks name.
+* **Proxies:** if you set `HTTPS_PROXY`, the wrapper sends Secret Manager requests and requests to an `https://` Vault address through it. The wrapper never uses a proxy for Consul.
+
+If you build an egress allowlist from this list, include the Google endpoints when you use Secret Manager.
+
+The wrapper makes no connection to Chainguard.
+
+## What the wrapper never does
+
+* It doesn't run code that you upload. The wrapper starts your application and, if you set `command_override`, the command you list.
+* It doesn't send telemetry. It sends no data to Chainguard of any kind.
+* It doesn't write a resolved secret value to its logs. It replaces a value that it resolved or expanded with `***` in every log line.
+* It doesn't send a Vault or Consul credential anywhere except the address you configure, and it doesn't follow redirects when it reads from either. A Secret Manager credential goes to Google's token endpoints and to Secret Manager.
+
+## What is visible in the image
+
+Anyone who can pull the image can read its configuration, for example with `docker inspect`. The configuration includes the following:
+
+| Item | Visible | Notes |
+| --- | --- | --- |
+| Secret references, such as `cg+vault://secret/data/orders#db_password` | Yes | A reference names where a secret lives. It isn't the secret. Treat the paths as metadata that your organization is willing to share with anyone who can pull the image. |
+| Resolved secret values | No | The wrapper resolves them when the container starts, in the container's memory. They are never written to the image. |
+| `command_override` text | Yes | See the next section. |
+| Preflight targets and settings | Yes | The targets are stored in the image configuration. |
+| Fail mode | Only when `open` | A repo with `fail_mode: closed` has no setting in its image configuration. |
+
+The settings are stored in image environment variables whose names start with `GUARDED_`. This prefix is reserved for the wrapper. The API rejects an `environment` key that starts with it.
+
+A running container is a different case. The resolved values are in the application's environment, so anyone who can read the process's environment can read them.
+
+## Keep secrets out of command_override
+
+The text of `command_override` is stored in the image configuration. Anyone who can pull the image can read it. Don't write a secret into `command` as a literal.
+
+Put a `${VAR}` reference in `command` instead, and supply the value in the environment. For example, use `${DB_PASSWORD}`, and set `DB_PASSWORD` to a `cg+vault://` reference. The image then holds the reference and not the secret.
+
+An expanded value is visible in the application's command line while the container runs. Anything that can read `/proc/PID/cmdline` can see it, and the wrapper can't prevent that. Prefer to have your application read a secret from its environment.
+
+## The escape hatch
+
+The wrapper honors `GUARDED_DISABLE` before it resolves a reference, runs a preflight check, or reads any other setting. This holds even when the wrapper's settings in the image are malformed. `GUARDED_DISABLE` counts as set unless its value, lowercased and trimmed, is empty, `0`, `false`, `no`, or `off`. A value of `1` or `true` turns the wrapper off. A value of `0` or `false` leaves it on. When the wrapper is off, it makes no network connection.
+
+Anyone who can set environment variables on a container can set `GUARDED_DISABLE`. The wrapper then doesn't resolve references or run checks, and your application starts with the literal `cg+...` values. A repo with `fail_mode: closed` doesn't prevent this.
+
+The same people can override other settings. Every `GUARDED_` setting that Chainguard stores in the image can be overridden from the deployment's environment. So can `VAULT_ADDR` and `CONSUL_HTTP_ADDR`. Pointing `VAULT_ADDR` at another server sends the service account token to that server. Control who can change the environment of your deployments as you would control who can change any other part of the deployment.
+
+For how to use the escape hatch, see [Troubleshoot a wrapped container](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/).
+
+## Learn more
+
+* [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/)
+* [How Guarded Entrypoint works](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/)
+
+---
+
+### How Guarded Entrypoint works
+_Path: chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works.md_
+
+> **Note**: Guarded Entrypoint is in beta. To use it, contact Chainguard customer support to enable it for your organization.
+
+This page describes what the Guarded Entrypoint binary does when a container starts. The page calls the binary the wrapper. To turn Guarded Entrypoint on, see [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/).
+
+## What the wrapper does
+
+When you turn on Guarded Entrypoint, Chainguard rebuilds the image with `/usr/bin/guarded-entrypoint` as the first element of its entrypoint. The image's original entrypoint follows it. Chainguard stores your settings in environment variables in the image configuration. The names of these variables start with `GUARDED_`. You can see them with `docker inspect`. The `GUARDED_` prefix is reserved, and the API rejects it in your own `environment` keys.
+
+On every start, the wrapper runs these steps in order:
+
+1. **Check for the escape hatch.** If `GUARDED_DISABLE` is set, the wrapper starts the original entrypoint and does nothing else. An empty value, `0`, `false`, `no`, and `off` don't count as set. See [Troubleshoot a wrapped container](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/).
+1. **Resolve secret references.** The wrapper replaces every environment value of the form `cg+BACKEND://REF` with the secret it names.
+1. **Resolve the command.** The wrapper applies `command_override`, if you set one, and expands `${VAR}` in it.
+1. **Run preflight checks.** The wrapper waits for the TCP endpoints and paths you listed.
+1. **Start your application.** The application runs as the wrapper's child process.
+
+While the application runs, the wrapper forwards every signal it can catch to the application and reaps orphaned processes. When the application exits, the wrapper exits with the same exit code. If a signal kills the application, the wrapper exits with 128 plus the signal number.
+
+The wrapper writes its own messages as JSON, one object per line, to standard error. Set `GUARDED_ENTRYPOINT_LOG` on the container to `debug`, `info`, `warn`, or `quiet` to change the level. The `quiet` level also hides the fail-open warning. The wrapper never logs a resolved secret value. It replaces any value it resolved or expanded into the command with `***` in its log lines. It doesn't scrub a value that only a preflight target expanded.
+
+### Runtime overrides of the entrypoint
+
+The wrapper runs only when the container starts with the image's entrypoint. A Kubernetes `command:` field or `docker run --entrypoint` replaces the whole ENTRYPOINT, wrapper included. With such an override, no secret references resolve and no checks run. To pass your own arguments, use the Kubernetes `args:` field. If you must set `command:`, make `/usr/bin/guarded-entrypoint` its first element.
+
+### What the wrapper doesn't do
+
+* It doesn't resolve references in the container's arguments. It resolves only environment values. Kubernetes expands `$(VAR)` in `args` before the wrapper runs, so `--password=$(DB_PASSWORD)` reaches the application as the literal `cg+...` reference. Have the application read secrets from its environment, or pass them through `command_override`, which expands after resolution.
+* It doesn't renew or revoke Vault leases. It reads each secret once, at startup.
+* It doesn't run code that you upload. It runs your application and, if you set `command_override`, the command you list.
+* It doesn't connect to Chainguard. See [Guarded Entrypoint trust boundary](/chainguard/containers/custom-assembly/guarded-entrypoint/trust-boundary/).
+
+## Secret references
+
+A secret reference is an environment variable whose value has the form `cg+BACKEND://REF`. Put references in the `environment` key of the repo's manifest. The wrapper also resolves references in variables that you set in your pod spec or `docker run` command.
+
+The `cg+` prefix is reserved. A value without it, such as a bare `vault://` or `consul://` URI, passes through to your application as a plain string. A value with the prefix must resolve. A malformed reference or an unknown backend always stops the container before the application starts. A failed lookup or a secret that contains a NUL byte stops it too, unless you set [fail mode](#fail-mode) to `open`.
+
+| Backend | Reference | Reads |
+| --- | --- | --- |
+| Vault | `cg+vault://PATH[?version=N]#KEY` | One field, `KEY`, of the secret at the Vault API path `PATH` |
+| Consul | `cg+consul://KEY` | The whole value of one key in the Consul key-value store |
+| Google Secret Manager | `cg+gsm://projects/P/secrets/S/versions/V` | One version of a secret. `V` is a version number, `latest`, or an alias. |
+
+The wrapper makes up to three attempts for each request, with backoff. It retries connection errors and the HTTP statuses 429, 500, 502, 503, and 504. For Vault, it also retries 412. Resolution has a budget of 30 seconds in total.
+
+### Vault references
+
+`PATH` is the path of the Vault API request, as in `envconsul` and Vault Agent templates. For a KV version 2 mount, the path includes `/data/`. The wrapper does not look up mounts or insert it. `#KEY` is required.
+
+| Reference | Reads |
+| --- | --- |
+| `cg+vault://secret/data/app#password` | KV version 2 mount `secret`, secret `app`, latest version |
+| `cg+vault://secret/data/app?version=3#password` | The same secret, version 3 |
+| `cg+vault://kv/app#password` | KV version 1 mount `kv`, secret `app` |
+
+A string value is set as is. A number, boolean, null, object, or array is set as its compact JSON text. A key that the secret lacks is an error.
+
+The wrapper reads its Vault settings from the container's environment. They must be literal values, not references.
+
+| Variable | Meaning |
+| --- | --- |
+| `VAULT_ADDR` | Required. For example, `https://vault.example.com:8200`. An `http://` address sends the token in the clear. |
+| `VAULT_TOKEN` | A token to read with. It takes precedence over Kubernetes authentication. |
+| `VAULT_K8S_ROLE` | Without `VAULT_TOKEN`, log in with the Kubernetes auth method as this role. |
+| `VAULT_K8S_MOUNT` | The Kubernetes auth mount path. The default is `kubernetes`. |
+| `VAULT_K8S_TOKEN_PATH` | The service account token to log in with. The default is `/var/run/secrets/kubernetes.io/serviceaccount/token`. |
+| `VAULT_NAMESPACE` | The Vault Enterprise or HCP namespace. |
+| `VAULT_CACERT` | A PEM bundle, at most 1 MiB, that verifies Vault's certificate in place of the system roots. |
+
+With neither `VAULT_TOKEN` nor `VAULT_K8S_ROLE`, resolution fails with `no Vault credentials`. Use Kubernetes authentication where you can. A `VAULT_TOKEN` in the image or the pod spec is a long-lived secret that anything that can read the spec can see. The wrapper doesn't follow redirects, so `VAULT_ADDR` must name the active Vault node or a load balancer in front of it. Auth methods other than tokens and Kubernetes aren't supported. With an `https://` `VAULT_ADDR`, the wrapper honors `HTTPS_PROXY` and `NO_PROXY` from the container's environment. These must be literal values too. It never uses a proxy for an `http://` address.
+
+### Consul references
+
+`KEY` is one or more segments separated by `/`. A segment can contain letters, digits, and `. _ ~ @ : + = , -`. A key that ends in `/`, an empty segment, a `.` or `..` segment, a query, and a fragment are all invalid. A key stored with no value resolves to an empty string.
+
+The wrapper reads its Consul settings from the container's environment, as the `consul` command does. They must be literal values.
+
+| Variable | Meaning |
+| --- | --- |
+| `CONSUL_HTTP_ADDR` | `HOST:PORT`, `http://HOST:PORT`, or `https://HOST:PORT`. The default is `127.0.0.1:8500`. |
+| `CONSUL_HTTP_SSL` | Set to `true` to use HTTPS with a bare `HOST:PORT`. |
+| `CONSUL_HTTP_TOKEN` | The token to read with. Without a token, the read is anonymous. |
+| `CONSUL_HTTP_TOKEN_FILE` | A file that holds the token. It wins over `CONSUL_HTTP_TOKEN`. |
+| `CONSUL_CACERT` | A PEM file of CAs to trust in place of the system roots. Mount the file in the container. |
+
+The wrapper sends the token only in the `X-Consul-Token` header, doesn't follow redirects, and doesn't use a proxy. It doesn't support `unix://` addresses, `CONSUL_CAPATH`, client certificates, `CONSUL_TLS_SERVER_NAME`, `CONSUL_HTTP_SSL_VERIFY`, `CONSUL_HTTP_AUTH`, or Consul Enterprise namespaces and partitions.
+
+### Google Secret Manager references
+
+The wrapper authenticates with Application Default Credentials. `/versions/latest` is the default version. The wrapper supports only global secrets. A regional secret, `projects/P/locations/L/secrets/S`, is an invalid reference. A service account needs only secret access.
+
+## Fail mode
+
+`fail_mode` sets what happens when a secret reference can't be resolved. It takes one of two values.
+
+| Value | When a reference can't be resolved |
+| --- | --- |
+| `closed` | The container stops with exit code 121 before your application starts. This is the default. |
+| `open` | Your application starts anyway. The variable keeps its literal `cg+...` value, and the wrapper logs one warning for it. |
+
+With `open`, a lookup that fails, missing credentials, a secret that contains a NUL byte, and the 30-second budget running out all leave the reference in place. The warning looks like the following:
+
+```json
+{"time":"...","level":"WARN","msg":"secret unresolved, continuing","src":"guarded-entrypoint","name":"DB_PASSWORD","fail_mode":"open","error":"DB_PASSWORD: secret resolution timed out after 30s (context deadline exceeded)"}
+```
+
+An unresolved variable is not a secret. Your application sees the literal `cg+...` reference, and anyone who can read the image configuration or the pod spec knows that value. Don't choose `open` for a variable that your application uses as a password, token, or other credential. During an outage the application would start with a known value as its credential.
+
+`open` covers a store that can't serve a reference. It doesn't cover a reference that can never resolve. These configuration errors still stop the container with exit code 121:
+
+* A malformed reference
+* An unknown backend, such as a `cg+gms://` typo
+* A reference that the backend rejects by its shape
+* A `${VAR}` in the command that names a variable that is unset or that `open` left unresolved
+
+A repo that sets `fail_mode: open` has `GUARDED_FAIL_MODE=open` in its image environment. A `closed` repo's image carries no setting.
+
+## Preflight checks
+
+A preflight check waits for a dependency before your application starts. Each entry in `preflight` has the following keys:
+
+| Key | Meaning | Default |
+| --- | --- | --- |
+| `tcp` | A `host:port` to wait for a TCP connection to. | None |
+| `path` | A filesystem path to wait for. | None |
+| `timeout` | The total time to wait for this check, as a Go duration such as `30s` or `2m`. A value of `0` means the default, not forever. | `30s` |
+| `interval` | The pause between attempts, as a Go duration. | `500ms` |
+| `on_failure` | `fail` stops the container with exit code 122. `continue` logs a warning and moves on. | `fail` |
+
+Set exactly one of `tcp` and `path` in each entry. The wrapper expands `${VAR}` in both from the resolved environment. A target that expands to nothing, or to an empty host, fails at once. An overlay or repo can hold at most 32 entries. Values can't contain `,` or `=`.
+
+The checks run in order, after secret resolution. Because a preflight target is not scrubbed from logs, don't use a variable that holds a secret in one.
+
+A preflight target expands a variable that `open` left unresolved to its literal `cg+...` value. Don't name such a variable in a target.
+
+## Command override
+
+`command_override` changes what the wrapper starts. It has two keys: `mode` and `command`. The wrapper receives the image's own arguments, which are its original ENTRYPOINT followed by its CMD, or the arguments that you pass when you run the container. The `mode` sets how `command` combines with them.
+
+| Mode | What the wrapper starts |
+| --- | --- |
+| `default` | `command`, only when the wrapper receives no arguments at all, which means the image has no ENTRYPOINT or CMD of its own and nothing is passed at run time. Otherwise, the arguments it received. |
+| `prepend` | `command` followed by the container's arguments. |
+| `override` | `command` alone. The image's ENTRYPOINT and CMD, and any arguments passed at run time, are dropped. |
+
+`default` is the mode when you leave `mode` out. The `prepend` and `override` modes require a non-empty `command`.
+
+The image's ENTRYPOINT and CMD are the same in every mode. The mode only changes what the wrapper starts. To replace both an ENTRYPOINT and a CMD, use `override`.
+
+The wrapper looks up the first element of `command` on the container's `PATH`. Use an absolute path when the lookup matters.
+
+An empty `command` with `command_override` set is a setting. It means "default mode, no command". When you use tag-based Custom Assembly, it cancels the override from a broader binding.
+
+`command` is stored in the image configuration and is visible to anyone who can pull the image. Don't put a secret in it as a literal. Use a `${VAR}` reference, as the next section describes. See also [Guarded Entrypoint trust boundary](/chainguard/containers/custom-assembly/guarded-entrypoint/trust-boundary/).
+
+## Variable expansion
+
+The wrapper expands variables in each `command` entry and in preflight `tcp` and `path` values. It expands from the environment after secret references resolve.
+
+* `${NAME}` expands to the value of `NAME`. A name starts with a letter or `_` and continues with letters, digits, or `_`.
+* `$$` is a literal `$`.
+* Any other `$` stays as it is. `$NAME` is not expanded.
+* A `${NAME}` whose variable is not set stops the container with exit code 121 in a command, and fails the check in a preflight. It never expands to an empty string. A variable that is set and empty expands to nothing.
+* The wrapper never expands the container's own arguments.
+
+The wrapper doesn't support shell forms such as `${NAME:-default}`. The API rejects a `${...}` reference with an invalid name in `command_override`. It doesn't check preflight targets. A preflight target such as `${REDIS_HOST:-redis}:6379` passes `chainctl` and the API, and then every container start exits with code 120, whatever `on_failure` says. To pass a `$` to a shell that runs in the image, write `$$`. For example, the following command override passes `${PORT:-8080}` to `sh` unchanged. It needs an image that includes a shell:
+
+```yaml
+guarded_entrypoint: true
+command_override:
+  mode: override
+  command:
+    - sh
+    - -c
+    - exec my-app --port $${PORT:-8080}
+```
+
+In a command, the wrapper never expands a variable that `open` left unresolved. An expanded value is visible in the application's command line to anything that can read the process's `/proc/PID/cmdline`. The wrapper can't hide it there.
+
+## Supported and refused entrypoints
+
+The wrapper wraps these entrypoints:
+
+* **A command.**
+* **A shell fragment.** The wrapper runs `/bin/sh -c` with the fragment, so the fragment expands the resolved values.
+* **A service bundle.** The wrapper runs in front of the supervisor and resolves the environment once for every service.
+
+### Service bundles and command override
+
+For a service bundle, `command_override` changes what runs in place of the supervisor:
+
+* `override` runs your command instead of the supervisor, so the image's services don't start.
+* `prepend` runs your command with the supervisor's command, `/bin/s6-svscan /sv`, as its arguments. Your command must run them itself, for example with `exec`.
+* `GUARDED_DISABLE` starts the supervisor directly, as in the unwrapped image.
+
+### Shell fragments and exec
+
+A shell fragment that starts your application without `exec` keeps the shell between the wrapper and your application. On shutdown the shell receives SIGTERM and exits, and your application is stopped without a chance to shut down gracefully. Without Guarded Entrypoint, the shell is PID 1 and ignores SIGTERM, so the container runs until the stop timeout and is killed. Neither case shuts down gracefully. To give your application a graceful shutdown, start it with `exec`, for example `exec my-app --port 8080`.
+
+### Init systems aren't supported
+
+Images whose entrypoint is an init system that must run as PID 1, such as systemd (`/sbin/init`) or s6-overlay's `/init`, aren't supported. An image that uses an s6 service bundle, which the wrapper runs in front of, is a different case and is supported. Under the wrapper, systemd exits at start and s6-overlay's shutdown is cut short. Don't turn on Guarded Entrypoint for these repos, or set `GUARDED_DISABLE` on the deployment.
+
+### Refused builds
+
+Chainguard refuses to build a wrapped image in two cases. The image's environment sets `GUARDED_DISABLE`, or the repo pins the wrapper package to a release that is too old for the repo's settings. The build then fails with a message that names the reason.
+
+The lists of the supported and refused entrypoints for each image come from a generated report. See the [lists of supported and refused entrypoints](https://PLACEHOLDER.invalid/guarded-entrypoint-supported-and-refused-lists). 
+
+For how a refusal appears in `chainctl`, see [Entrypoints the wrapper refuses](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/#entrypoints-the-wrapper-refuses).
+
+## Learn more
+
+* [Guarded Entrypoint examples](/chainguard/containers/custom-assembly/guarded-entrypoint/examples/)
+* [Troubleshoot a wrapped container](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/)
+* [Guarded Entrypoint trust boundary](/chainguard/containers/custom-assembly/guarded-entrypoint/trust-boundary/)
+
+---
+
+### Guarded Entrypoint for Custom Assembly
+_Path: chainguard/containers/custom-assembly/guarded-entrypoint/_index.md_
+
+> **Note**: Guarded Entrypoint is in beta. To use it, contact Chainguard customer support to enable it for your organization.
+
+Guarded Entrypoint lets a Custom Assembly image run startup logic without a derived image build. You declare the logic as part of your Custom Assembly configuration. Chainguard builds it into the image and signs the result.
+
+This page explains what Guarded Entrypoint is and how to turn it on. The other pages in this section cover the details:
+
+* [How Guarded Entrypoint works](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/)
+* [Guarded Entrypoint examples](/chainguard/containers/custom-assembly/guarded-entrypoint/examples/)
+* [Troubleshoot a wrapped container](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/)
+* [Guarded Entrypoint trust boundary](/chainguard/containers/custom-assembly/guarded-entrypoint/trust-boundary/)
+
+## What Guarded Entrypoint is
+
+Many applications need to do some work before they start. They read secrets into environment variables, wait for a database to accept connections, or change the command they run.
+
+A Chainguard image gives you one way to change its entrypoint: build a new image on top of it. That derived image is no longer the image Chainguard signs and rebuilds. Scanners report the difference, and the image does not pick up Chainguard's rebuilds unless you rebuild it too.
+
+Guarded Entrypoint removes the need for the derived build. When you turn it on for a Custom Assembly repo, Chainguard sets the image's entrypoint to a small binary that Chainguard builds, `/usr/bin/guarded-entrypoint`. When the container starts, the binary does the following:
+
+1. Resolves secret references in the container's environment.
+2. Runs the preflight checks you configured.
+3. Starts your application as its child process.
+
+The binary forwards signals to your application and exits with your application's exit code. The image you deploy is the image Chainguard built, with your startup settings stored in its configuration.
+
+## Prerequisites
+
+Before you start, you need the following:
+
+* A Custom Assembly repo. See the [Custom Assembly overview](/chainguard/containers/custom-assembly/overview/) to create one.
+* A role that lets you edit Custom Assembly repos. See the [Custom Assembly permissions requirements](/chainguard/containers/custom-assembly/overview/#custom-assembly-permissions-requirements).
+* The latest [`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/). Run `chainctl update` to update it. An older `chainctl` drops the Guarded Entrypoint keys when it reads a repo, so a teammate who edits the repo with an older version can turn the feature off without noticing. Update every copy of `chainctl` that edits the repo.
+* Guarded Entrypoint enabled for your organization. It's a beta feature, so contact Chainguard customer support to enable it. Until then, the API rejects `guarded_entrypoint` with the error in [API errors](#api-errors).
+
+The examples on this page use the following environment variables. Set them to match your organization and repo:
+
+```shell
+export ORGANIZATION=example.com
+export REPO=my-custom-python
+```
+
+## Turn on Guarded Entrypoint with chainctl
+
+A repo's Custom Assembly configuration is a YAML manifest. Guarded Entrypoint adds four keys to it:
+
+| Key | Meaning |
+| --- | --- |
+| `guarded_entrypoint` | Set to `true` to wrap the image's entrypoint. Every other key in this table requires it. |
+| `fail_mode` | `closed` (the default) or `open`. Sets what happens when a secret reference can't be resolved. |
+| `preflight` | A list of checks to run before the application starts. |
+| `command_override` | A command to run in place of, or in front of, the image's own command. |
+
+Secret references go in the existing `environment` key. For details on each key, see [How Guarded Entrypoint works](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/).
+
+To turn it on interactively, open the repo's manifest in your editor:
+
+```shell
+chainctl images repos build edit --repo $REPO --parent $ORGANIZATION
+```
+
+Add the keys you need. The following manifest turns on Guarded Entrypoint and resolves one secret from Vault:
+
+```yaml
+guarded_entrypoint: true
+environment:
+  VAULT_ADDR: https://vault.example.com:8200
+  VAULT_K8S_ROLE: orders-service
+  DB_PASSWORD: cg+vault://secret/data/orders#db_password
+```
+
+Keep the keys that are already in the manifest. Applying a manifest replaces the repo's stored configuration, so a key you remove from the manifest is removed from the repo.
+
+Save and close the editor. `chainctl` shows a diff and asks you to confirm. After you confirm, Chainguard rebuilds the repo's images with the wrapper as their entrypoint.
+
+To apply a manifest without an editor, put it in a file and use `apply`:
+
+```shell
+chainctl images repos build apply -f build.yaml --repo $REPO --parent $ORGANIZATION --yes
+```
+
+The `--yes` flag skips the confirmation prompt. To preview the change first, use `--dry-run` in place of `--yes`. The command prints the diff and exits with a non-zero status when it finds a change to apply. In a pipeline, pass `--yes` to apply or `--dry-run` to preview, and pass `--parent` so `chainctl` doesn't prompt you to choose a group. A structured `--output` format on its own doesn't suppress the confirmation prompt.
+
+`chainctl` checks the manifest before it sends anything to the API. For example, it rejects `preflight` without `guarded_entrypoint`.
+
+For more on `edit` and `apply`, see [Using chainctl to manage Custom Assembly resources](/chainguard/containers/custom-assembly/custom-assembly-chainctl/).
+
+### Check the result
+
+To see the builds, run the following command:
+
+```shell
+chainctl images repos build list --repo $REPO --parent $ORGANIZATION
+```
+
+When Chainguard refuses to wrap an image, or when two bindings conflict, the build is recorded as a failure and the `Reason` column shows why. The column is empty for an ordinary build failure. To read a reason in full, run `chainctl images repos build logs --repo $REPO --parent $ORGANIZATION` and select the failed build. For the reasons that relate to Guarded Entrypoint, see [Entrypoints the wrapper refuses](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/#entrypoints-the-wrapper-refuses).
+
+To confirm that a rebuilt image uses the wrapper, check its entrypoint. The first element is `/usr/bin/guarded-entrypoint`. What follows depends on the image. For an image with a command, it is that command. For a shell fragment, it is `/bin/sh -c` and the fragment. For a service bundle, it is `/bin/s6-svscan /sv`. An image that has only a CMD has the wrapper alone:
+
+```shell
+crane config cgr.dev/$ORGANIZATION/$REPO:latest | jq '.config.Entrypoint'
+```
+
+### Turn off Guarded Entrypoint
+
+To remove the wrapper from the image, edit the manifest and delete `guarded_entrypoint`, `fail_mode`, `preflight`, and `command_override`. The API rejects the other three keys when `guarded_entrypoint` is not set. Also remove any `cg+...` values from `environment`. Without the wrapper, they ship as literal strings. The next rebuild produces an image with its original entrypoint.
+
+To bypass the wrapper on a running container without a rebuild, see [Troubleshoot a wrapped container](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/).
+
+## Turn on Guarded Entrypoint with the API
+
+The Chainguard API accepts the same four fields. They are `guardedEntrypoint`, `failMode`, `preflight`, and `commandOverride` on the repo's `customOverlay`. For general guidance on authenticating and calling the API, see [Using the Chainguard API](/platform/api/api-v2-tutorial/).
+
+The API's enum fields take enum names. `failMode` is `FAIL_MODE_CLOSED` or `FAIL_MODE_OPEN`. A `commandOverride` `mode` is `MODE_DEFAULT`, `MODE_PREPEND`, or `MODE_OVERRIDE`. A preflight `onFailure` is `ON_FAILURE_FAIL` or `ON_FAILURE_CONTINUE`.
+
+The following request turns on Guarded Entrypoint for a repo, with a fail-open setting and one preflight check:
+
+```shell
+export TOKEN=$(chainctl auth token)
+export API=https://console-api.enforce.dev
+export REPO_UID=YOUR_REPO_UID
+
+curl -s -X PATCH -H "Authorization: Bearer $TOKEN" \
+  -H "Content-Type: application/json" \
+  "$API/registry/v2/repos/$REPO_UID" \
+  -d '{
+    "customOverlay": {
+      "guardedEntrypoint": true,
+      "failMode": "FAIL_MODE_OPEN",
+      "preflight": [
+        {
+          "tcp": "db.internal:5432",
+          "timeout": "60s",
+          "interval": "1s",
+          "onFailure": "ON_FAILURE_FAIL"
+        }
+      ],
+      "environment": {
+        "CONSUL_HTTP_ADDR": "https://consul.example.com:8501",
+        "FEATURE_FLAGS_URL": "cg+consul://apps/web/feature-flags-url"
+      }
+    }
+  }'
+```
+
+The request merges into the repo's stored overlay. The API builds an update mask from the fields in the request body, so only the fields you send change:
+
+* A field you leave out keeps its stored value. You can't turn Guarded Entrypoint off by leaving its fields out.
+* `environment` and `preflight` are replaced as a whole. The example request sets the repo's environment variables to the two it lists and removes the others, so include every variable you want to keep.
+
+To replace the whole overlay with exactly what you send, add `?update_mask=custom_overlay` to the URL. Use this form to turn Guarded Entrypoint off, with a body that leaves out the four fields.
+
+The API validates the request with the rules in [API errors](#api-errors).
+
+## Use Guarded Entrypoint with tag-based Custom Assembly
+
+An overlay can carry the same four fields. This lets you apply Guarded Entrypoint to some of a repo's tags, or to many repos at once. See the [overview of tag-based Custom Assembly](/chainguard/containers/custom-assembly/tag-based-custom-assembly/) for overlays, bindings, and tag selectors.
+
+Tag-based Custom Assembly is a separate feature with its own enrollment. To use Guarded Entrypoint on overlays and bindings, your organization needs both features enabled. Contact your Chainguard account team to enable tag-based Custom Assembly. Contact Chainguard customer support to enable Guarded Entrypoint. Setting the fields on a repo with `chainctl images repos build edit`, as described earlier on this page, needs only Guarded Entrypoint.
+
+A repo uses its own configuration or overlay bindings, not both. The tag-based examples that follow use a different repo from the one you configured with `build edit`. Attaching an overlay to a repo that has its own configuration fails with the error `repository custom overlay and overlay binding not allowed`. Setting a configuration on a repo that has bindings fails the same way.
+
+Write the overlay as a YAML file in the same shape as a repo manifest, create the overlay from it, and bind it to tags:
+
+```shell
+cat > startup.yaml <<EOF
+guarded_entrypoint: true
+fail_mode: closed
+preflight:
+  - tcp: db.internal:5432
+    timeout: 60s
+    interval: 1s
+EOF
+
+chainctl images overlays create startup --parent $ORGANIZATION -f startup.yaml
+
+export TAG_REPO=my-tagged-python
+
+chainctl images overlays attach \
+  --overlay startup \
+  --repo $TAG_REPO \
+  --parent $ORGANIZATION \
+  --all
+```
+
+For the other selectors, see [Managing tag-based Custom Assembly with chainctl](/chainguard/containers/custom-assembly/tag-based-custom-assembly/chainctl/).
+
+Through the API, create the overlay with `POST /registry/v2beta1/overlays/$ORG_ID` and bind it with `POST /registry/v2beta1/overlayBindings/$TAG_REPO_UID`, where `$TAG_REPO_UID` is the UID of a repo that has no configuration of its own. The overlay's `config` takes the same fields as the repo's `customOverlay`:
+
+```shell
+export ORG_ID=YOUR_ORG_ID
+
+curl -s -X POST -H "Authorization: Bearer $TOKEN" \
+  -H "Content-Type: application/json" \
+  "$API/registry/v2beta1/overlays/$ORG_ID" \
+  -d '{
+    "name": "startup",
+    "config": {
+      "guardedEntrypoint": true,
+      "failMode": "FAIL_MODE_CLOSED",
+      "preflight": [
+        { "tcp": "db.internal:5432", "timeout": "60s", "interval": "1s" }
+      ]
+    }
+  }'
+
+curl -s -X POST -H "Authorization: Bearer $TOKEN" \
+  -H "Content-Type: application/json" \
+  "$API/registry/v2beta1/overlayBindings/$TAG_REPO_UID" \
+  -d '{
+    "overlay": "startup",
+    "tagSelector": { "kind": "KIND_ALL" }
+  }'
+```
+
+### How the fields combine across bindings
+
+A tag can match several bindings. Chainguard layers them from the broadest to the most specific. Bindings that apply to every repo in your organization (all-repos bindings) come first, in the order all, variant, exact. The repo's own bindings come next, in the same order. A repo's own binding always wins over an all-repos binding. Each of the four fields combines in its own way:
+
+| Field | When several bindings match one tag |
+| --- | --- |
+| `guarded_entrypoint` | The wrapper is on if any matching binding sets it to `true`. A more specific binding can't turn it off. |
+| `fail_mode` | The most specific binding that sets it wins. A binding that leaves it unset uses the value from a broader binding. |
+| `command_override` | The most specific binding that sets it wins. A binding that leaves it unset uses the value from a broader binding. |
+| `preflight` | The checks accumulate. Checks from broader bindings run first, and identical entries are dropped. |
+
+Each overlay that sets `fail_mode`, `command_override`, or `preflight` must also set `guarded_entrypoint: true` itself, even when a broader binding already sets it.
+
+The limit of 32 preflight entries applies to each overlay. The combined list for a tag can be longer.
+
+Any organization that has Guarded Entrypoint enabled can set `fail_mode: open`. It needs no separate approval.
+
+#### Pin a tag to fail closed
+
+A broader binding can set `fail_mode: open`, and a tag inherits that value. To keep one tag fail-closed, bind an overlay to that tag on the repo itself with a more specific selector, and set `fail_mode: closed` in it. An all-repos binding can't override a repo's own binding.
+
+For example, an all binding uses an overlay that sets fail-open:
+
+```yaml
+guarded_entrypoint: true
+fail_mode: open
+```
+
+An exact binding on the `3.13` tag uses an overlay that sets fail-closed:
+
+```yaml
+guarded_entrypoint: true
+fail_mode: closed
+```
+
+The `3.13` tag is fail-closed. Every other tag is fail-open. If the open value comes from the tag's own exact binding, change that binding's overlay instead.
+
+#### Cancel a broader command override
+
+An empty `command` with `command_override` set means "default mode, no command". It counts as set, so it cancels the override from a broader binding. To drop the override on one tag, bind an overlay like the following to that tag with a more specific selector:
+
+```yaml
+guarded_entrypoint: true
+command_override:
+  mode: default
+```
+
+#### Bindings of the same kind
+
+Two bindings of the same kind can match the same tag. Chainguard rejects the second binding when it is created if the two overlays set `fail_mode` or `command_override` to different values. Identical values merge.
+
+The same check runs when you update an overlay, against every repo the overlay is bound to, and when you update a binding's selector. The error for an overlay update differs from the error for a new binding. See [API errors](#api-errors). To fix a conflict, make the two overlays agree, or bind them to selectors that don't match the same tags.
+
+## API errors
+
+The API validates the Guarded Entrypoint fields the same way for repos and for overlays. In the messages, `<prefix>` is `custom_overlay` when you set the fields on a repo, and `config` when you set them on an overlay. On the overlay path, the API adds the text `Invalid argument: config:` and a space to the start of each `InvalidArgument` message. For `FailedPrecondition` errors on either path, the API adds `Precondition failed:` and a space, except where the table shows the message without it. In a message, `[i]` is the index of the entry in the list, starting at 0.
+
+| Trigger | Code | Message |
+| --- | --- | --- |
+| `guarded_entrypoint: true` on an organization that doesn't have Guarded Entrypoint enabled. Contact Chainguard customer support to get access. | `PermissionDenied` | `using <prefix>.guarded_entrypoint is not allowed` |
+| `preflight` set without `guarded_entrypoint` | `InvalidArgument` | `<prefix>.preflight requires guarded_entrypoint` |
+| `command_override` set without `guarded_entrypoint` | `InvalidArgument` | `<prefix>.command_override requires guarded_entrypoint` |
+| `fail_mode` set without `guarded_entrypoint` | `InvalidArgument` | `<prefix>.fail_mode requires guarded_entrypoint` |
+| More than 32 preflight entries | `InvalidArgument` | `<prefix>.preflight: at most 32 entries` |
+| Preflight entry with neither or both of `tcp` and `path` | `InvalidArgument` | `<prefix>.preflight[i]: rpc error: code = InvalidArgument desc = exactly one of tcp or path is required` |
+| Preflight `timeout` or `interval` is not a Go duration | `InvalidArgument` | `<prefix>.preflight[i]: rpc error: code = InvalidArgument desc = timeout "abc": time: invalid duration "abc"` |
+| Preflight `timeout` or `interval` is negative | `InvalidArgument` | `<prefix>.preflight[i]: rpc error: code = InvalidArgument desc = timeout "-5s" must be non-negative` |
+| Preflight value contains `,` or `=` | `InvalidArgument` | `<prefix>.preflight[i]: rpc error: code = InvalidArgument desc = tcp "a:1,b:2" must not contain ',' or '='` (the message names the field that holds the character) |
+| `command_override.mode` is a number that isn't a declared mode | `InvalidArgument` | `<prefix>.command_override: rpc error: code = InvalidArgument desc = mode "99" must be "default", "prepend", or "override"` |
+| `prepend` or `override` with an empty `command` | `InvalidArgument` | `<prefix>.command_override: rpc error: code = InvalidArgument desc = mode "prepend" requires a non-empty command` |
+| `command` entry contains a NUL byte | `InvalidArgument` | `<prefix>.command_override: rpc error: code = InvalidArgument desc = command[i] contains a NUL byte` |
+| `command` entry has a `${` with no closing `}` | `InvalidArgument` | `<prefix>.command_override: rpc error: code = InvalidArgument desc = command[i] has an unterminated ${ reference` |
+| `command` entry has a `${...}` reference with an invalid variable name | `InvalidArgument` | `<prefix>.command_override: rpc error: code = InvalidArgument desc = command[i] has an invalid variable name in a ${...} reference` |
+| `fail_mode` is a number that isn't a declared mode | `InvalidArgument` | `<prefix>.fail_mode must be one of "closed" or "open", got "99"` |
+| `environment` key starts with `GUARDED_` | `InvalidArgument` | `environment variable "GUARDED_DISABLE" uses reserved prefix 'GUARDED_'` |
+| `environment` key starts with `CHAINGUARD_` | `InvalidArgument` | `environment variable "CHAINGUARD_X" uses reserved prefix 'CHAINGUARD_'` |
+| Version 1 repo API: `sync_config.apko_overlay.environment` key starts with `GUARDED_` | `InvalidArgument` | `sync_config.apko_overlay.environment: variable "..." uses reserved prefix 'GUARDED_'` |
+| Overlay or binding path: organization is not enrolled in tag-based Custom Assembly | `FailedPrecondition` | `Precondition failed: this organization is not enrolled in Custom Assembly Overlays. Contact your Chainguard account team to enroll.` |
+| Overlay or binding path: the repo has its own configuration, or a repo with bindings gets one | `FailedPrecondition` | `repository custom overlay and overlay binding not allowed` |
+| Overlay path: `config` sets a field that overlays don't support | `InvalidArgument` | `config may set only contents.packages, contents.runtime_repositories, contents.runtime_keyring, environment, annotations, accounts, certificates.additional, guarded_entrypoint, command_override, preflight, and fail_mode` |
+| Overlay path: `config` sets nothing | `InvalidArgument` | `config must set at least one customization field` |
+| Binding path: two bindings of one kind that match the same tag set different `fail_mode` or `command_override` values | `FailedPrecondition` | `Precondition failed: overlay config does not merge commutatively with co-matching binding(s): binding "..." (overlay "...", selector ALL) on fields [fail_mode]` |
+| Overlay update: the new config conflicts with a co-matching binding on a repo the overlay is bound to | `FailedPrecondition` | `Precondition failed: overlay config update does not merge commutatively with co-bound overlay(s): binding "..." and binding "..." (overlay "...") on repo "..." conflict on fields [fail_mode]`, or `Precondition failed: overlay config update conflicts with the overlay of a co-matching binding outside your visible scope or beyond the inspected repos` |
+
+The binding and overlay conflict errors also carry the violation type `OVERLAY_BINDING_CONFLICT`. The message names the bindings and the fields that conflict. A `command_override` conflict lists `command_override` in the fields.
+
+The enum fields take enum names in JSON. A request with an enum name that doesn't exist fails when the API parses it, before the checks in the table run. A preflight `onFailure` value that isn't declared is treated as `fail`.
+
+The `custom_overlay` and `config` prefixes show up in the message text only. In JSON requests, the fields are `customOverlay` and `config`.
+
+## Learn more
+
+* [How Guarded Entrypoint works](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/)
+* [Guarded Entrypoint examples](/chainguard/containers/custom-assembly/guarded-entrypoint/examples/)
+* [Troubleshoot a wrapped container](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/)
+* [Guarded Entrypoint trust boundary](/chainguard/containers/custom-assembly/guarded-entrypoint/trust-boundary/)
+* [Overview of Chainguard Custom Assembly](/chainguard/containers/custom-assembly/overview/)
 
 ---
 
@@ -55563,7 +56448,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: cgr.dev
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository being pulled from
-Ce-Time: 2026-10-06T09:26:49.126786676Z
+Ce-Time: 2026-10-06T19:22:58.570783336Z
 Ce-Type: dev.chainguard.registry.pull.v1
 Content-Length: 777
 Content-Type: application/json
@@ -55593,7 +56478,7 @@ User-Agent: Chainguard Enforce
     "tag": "The tag of the image being pulled",
     "type": "Type determines whether the object being pulled is a manifest or blob",
     "user_agent": "The user-agent of the client who pulled",
-    "when": "2026-10-06T09:26:49.125424"
+    "when": "2026-10-06T19:22:58.569089"
   }
 }
 
@@ -55616,7 +56501,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: cgr.dev
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository being pushed to
-Ce-Time: 2026-10-06T09:26:49.126169378Z
+Ce-Time: 2026-10-06T19:22:58.569326409Z
 Ce-Type: dev.chainguard.registry.push.v1
 Content-Length: 707
 Content-Type: application/json
@@ -55645,7 +56530,7 @@ User-Agent: Chainguard Enforce
     "tag": "The tag of the image being pushed",
     "type": "Type determines whether the object being pushed is a manifest or blob",
     "user_agent": "The user-agent of the client who pushed",
-    "when": "2026-10-06T09:26:49.125405"
+    "when": "2026-10-06T19:22:58.569070"
   }
 }
 
@@ -55668,7 +56553,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/auth/v1/register
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP
-Ce-Time: 2026-10-06T09:26:49.14307617Z
+Ce-Time: 2026-10-06T19:22:58.58265998Z
 Ce-Type: dev.chainguard.api.auth.registered.v1
 Content-Length: 154
 Content-Type: application/json
@@ -55708,7 +56593,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier of the subscription
-Ce-Time: 2026-10-06T09:26:49.147889411Z
+Ce-Time: 2026-10-06T19:22:58.575848786Z
 Ce-Type: dev.chainguard.api.events.subscription.created.v1
 Content-Length: 152
 Content-Type: application/json
@@ -55746,7 +56631,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier of the subscription to delete
-Ce-Time: 2026-10-06T09:26:49.148092265Z
+Ce-Time: 2026-10-06T19:22:58.575984982Z
 Ce-Type: dev.chainguard.api.events.subscription.deleted.v1
 Content-Length: 119
 Content-Type: application/json
@@ -55785,7 +56670,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-10-06T09:26:49.137996274Z
+Ce-Time: 2026-10-06T19:22:58.583936941Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -55826,7 +56711,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-10-06T09:26:49.13821184Z
+Ce-Time: 2026-10-06T19:22:58.58409137Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -55863,7 +56748,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-06T09:26:49.138377253Z
+Ce-Time: 2026-10-06T19:22:58.584198245Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -55911,7 +56796,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-10-06T09:26:49.14433419Z
+Ce-Time: 2026-10-06T19:22:58.575309641Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -55957,7 +56842,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-10-06T09:26:49.144486178Z
+Ce-Time: 2026-10-06T19:22:58.575492735Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -56003,7 +56888,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-10-06T09:26:49.144587501Z
+Ce-Time: 2026-10-06T19:22:58.575663684Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -56042,7 +56927,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-10-06T09:26:49.134305601Z
+Ce-Time: 2026-10-06T19:22:58.589305489Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -56082,7 +56967,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-06T09:26:49.134524335Z
+Ce-Time: 2026-10-06T19:22:58.589431829Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -56121,7 +57006,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-10-06T09:26:49.134711957Z
+Ce-Time: 2026-10-06T19:22:58.589891443Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -56160,7 +57045,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-10-06T09:26:49.134872193Z
+Ce-Time: 2026-10-06T19:22:58.589995703Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -56199,7 +57084,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-06T09:26:49.134998813Z
+Ce-Time: 2026-10-06T19:22:58.590098506Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -56238,7 +57123,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-10-06T09:26:49.144740529Z
+Ce-Time: 2026-10-06T19:22:58.571787392Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -56281,7 +57166,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-10-06T09:26:49.144896558Z
+Ce-Time: 2026-10-06T19:22:58.572028072Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -56321,7 +57206,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-06T09:26:49.145005905Z
+Ce-Time: 2026-10-06T19:22:58.572202941Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -56360,7 +57245,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-10-06T09:26:49.132290312Z
+Ce-Time: 2026-10-06T19:22:58.58436261Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -56403,7 +57288,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-10-06T09:26:49.132518534Z
+Ce-Time: 2026-10-06T19:22:58.584519647Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -56443,7 +57328,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-10-06T09:26:49.132685819Z
+Ce-Time: 2026-10-06T19:22:58.584670932Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -56480,7 +57365,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-06T09:26:49.132877409Z
+Ce-Time: 2026-10-06T19:22:58.584790512Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -56520,7 +57405,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-06T09:26:49.133086086Z
+Ce-Time: 2026-10-06T19:22:58.584927117Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -56564,7 +57449,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-06T09:26:49.133296788Z
+Ce-Time: 2026-10-06T19:22:58.58508825Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -56603,7 +57488,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-06T09:26:49.133455689Z
+Ce-Time: 2026-10-06T19:22:58.585582682Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -56644,7 +57529,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-10-06T09:26:49.143836696Z
+Ce-Time: 2026-10-06T19:22:58.57239834Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -56686,7 +57571,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings/batch
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-10-06T09:26:49.143953227Z
+Ce-Time: 2026-10-06T19:22:58.572613042Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -56729,7 +57614,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-10-06T09:26:49.144083639Z
+Ce-Time: 2026-10-06T19:22:58.572839042Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -56768,7 +57653,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-10-06T09:26:49.144199522Z
+Ce-Time: 2026-10-06T19:22:58.573187469Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -56807,7 +57692,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-10-06T09:26:49.127887587Z
+Ce-Time: 2026-10-06T19:22:58.582075217Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -56846,7 +57731,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-10-06T09:26:49.128006622Z
+Ce-Time: 2026-10-06T19:22:58.582274608Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -56885,7 +57770,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-10-06T09:26:49.128271622Z
+Ce-Time: 2026-10-06T19:22:58.582420756Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -56924,7 +57809,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-10-06T09:26:49.12771871Z
+Ce-Time: 2026-10-06T19:22:58.585817657Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -56967,7 +57852,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the destination organization
-Ce-Time: 2026-10-06T09:26:49.142835107Z
+Ce-Time: 2026-10-06T19:22:58.590243599Z
 Ce-Type: dev.chainguard.api.platform.registry.chart.added.v1
 Content-Length: 208
 Content-Type: application/json
@@ -57012,7 +57897,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-06T09:26:49.145362611Z
+Ce-Time: 2026-10-06T19:22:58.586716006Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.created.v1
 Content-Length: 243
 Content-Type: application/json
@@ -57054,7 +57939,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-06T09:26:49.145567065Z
+Ce-Time: 2026-10-06T19:22:58.586915972Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -57096,7 +57981,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-06T09:26:49.14574875Z
+Ce-Time: 2026-10-06T19:22:58.58709081Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.deleted.v1
 Content-Length: 116
 Content-Type: application/json
@@ -57133,7 +58018,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-06T09:26:49.145906651Z
+Ce-Time: 2026-10-06T19:22:58.587236022Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.created.v1
 Content-Length: 197
 Content-Type: application/json
@@ -57172,7 +58057,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-06T09:26:49.1461074Z
+Ce-Time: 2026-10-06T19:22:58.587394844Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.updated.v1
 Content-Length: 197
 Content-Type: application/json
@@ -57211,7 +58096,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-06T09:26:49.146265757Z
+Ce-Time: 2026-10-06T19:22:58.587546048Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.deleted.v1
 Content-Length: 109
 Content-Type: application/json
@@ -57250,7 +58135,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-10-06T09:26:49.129205008Z
+Ce-Time: 2026-10-06T19:22:58.58103924Z
 Ce-Type: dev.chainguard.api.policies.bindings.created.v1
 Content-Length: 245
 Content-Type: application/json
@@ -57294,7 +58179,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-10-06T09:26:49.129419038Z
+Ce-Time: 2026-10-06T19:22:58.581245127Z
 Ce-Type: dev.chainguard.api.policies.bindings.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -57338,7 +58223,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-10-06T09:26:49.129595171Z
+Ce-Time: 2026-10-06T19:22:58.581407428Z
 Ce-Type: dev.chainguard.api.policies.bindings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -57377,7 +58262,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/overrides
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the override
-Ce-Time: 2026-10-06T09:26:49.129795569Z
+Ce-Time: 2026-10-06T19:22:58.581639715Z
 Ce-Type: dev.chainguard.api.policies.overrides.created.v1
 Content-Length: 303
 Content-Type: application/json
@@ -57419,7 +58304,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/overrides
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the override
-Ce-Time: 2026-10-06T09:26:49.129986454Z
+Ce-Time: 2026-10-06T19:22:58.581838666Z
 Ce-Type: dev.chainguard.api.policies.overrides.deleted.v1
 Content-Length: 94
 Content-Type: application/json
@@ -57458,7 +58343,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-10-06T09:26:49.128522749Z
+Ce-Time: 2026-10-06T19:22:58.580376203Z
 Ce-Type: dev.chainguard.api.policies.policies.created.v1
 Content-Length: 337
 Content-Type: application/json
@@ -57502,7 +58387,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-10-06T09:26:49.128752235Z
+Ce-Time: 2026-10-06T19:22:58.580707229Z
 Ce-Type: dev.chainguard.api.policies.policies.updated.v1
 Content-Length: 337
 Content-Type: application/json
@@ -57546,7 +58431,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-10-06T09:26:49.128977658Z
+Ce-Time: 2026-10-06T19:22:58.580882347Z
 Ce-Type: dev.chainguard.api.policies.policies.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -57585,7 +58470,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-10-06T09:26:49.146530492Z
+Ce-Time: 2026-10-06T19:22:58.586041648Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -57631,7 +58516,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-10-06T09:26:49.146726674Z
+Ce-Time: 2026-10-06T19:22:58.586219822Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -57668,7 +58553,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-10-06T09:26:49.146894615Z
+Ce-Time: 2026-10-06T19:22:58.58634381Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -57716,7 +58601,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-10-06T09:26:49.130222485Z
+Ce-Time: 2026-10-06T19:22:58.578227062Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -57757,7 +58642,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-10-06T09:26:49.130450188Z
+Ce-Time: 2026-10-06T19:22:58.578444389Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -57794,7 +58679,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-06T09:26:49.130675946Z
+Ce-Time: 2026-10-06T19:22:58.578632819Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -57842,7 +58727,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-10-06T09:26:49.133670615Z
+Ce-Time: 2026-10-06T19:22:58.587901276Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -57882,7 +58767,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-06T09:26:49.133890277Z
+Ce-Time: 2026-10-06T19:22:58.588139483Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -57921,7 +58806,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-06T09:26:49.143307705Z
+Ce-Time: 2026-10-06T19:22:58.576176156Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -57958,7 +58843,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-10-06T09:26:49.143436044Z
+Ce-Time: 2026-10-06T19:22:58.576325273Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -57997,7 +58882,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-10-06T09:26:49.143531687Z
+Ce-Time: 2026-10-06T19:22:58.57646319Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -58038,7 +58923,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-10-06T09:26:49.147115701Z
+Ce-Time: 2026-10-06T19:22:58.583006951Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -58081,7 +58966,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-06T09:26:49.147315323Z
+Ce-Time: 2026-10-06T19:22:58.583166092Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -58118,7 +59003,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-10-06T09:26:49.147473527Z
+Ce-Time: 2026-10-06T19:22:58.583296256Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -58158,7 +59043,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities:updateIdentityMetadata
 Ce-Specversion: 1.0
 Ce-Subject: The caller's identity UID
-Ce-Time: 2026-10-06T09:26:49.147634876Z
+Ce-Time: 2026-10-06T19:22:58.583430989Z
 Ce-Type: dev.chainguard.api.iam.identity.metadata.updated.v1
 Content-Length: 135
 Content-Type: application/json
@@ -58198,7 +59083,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-10-06T09:26:49.138643092Z
+Ce-Time: 2026-10-06T19:22:58.588378867Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -58241,7 +59126,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-10-06T09:26:49.138820945Z
+Ce-Time: 2026-10-06T19:22:58.588592842Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -58281,7 +59166,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-10-06T09:26:49.138964181Z
+Ce-Time: 2026-10-06T19:22:58.588755039Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -58318,7 +59203,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-06T09:26:49.139178011Z
+Ce-Time: 2026-10-06T19:22:58.588856722Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -58358,7 +59243,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-06T09:26:49.139335424Z
+Ce-Time: 2026-10-06T19:22:58.588956902Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -58402,7 +59287,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-06T09:26:49.139483348Z
+Ce-Time: 2026-10-06T19:22:58.589054249Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -58441,7 +59326,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-06T09:26:49.142091086Z
+Ce-Time: 2026-10-06T19:22:58.58915614Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -58482,7 +59367,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay binding
-Ce-Time: 2026-10-06T09:26:49.131585564Z
+Ce-Time: 2026-10-06T19:22:58.577370835Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.created.v1
 Content-Length: 449
 Content-Type: application/json
@@ -58537,7 +59422,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay binding
-Ce-Time: 2026-10-06T09:26:49.131834059Z
+Ce-Time: 2026-10-06T19:22:58.577691173Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.updated.v1
 Content-Length: 449
 Content-Type: application/json
@@ -58592,7 +59477,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the deleted overlay binding
-Ce-Time: 2026-10-06T09:26:49.132056385Z
+Ce-Time: 2026-10-06T19:22:58.577959141Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.deleted.v1
 Content-Length: 120
 Content-Type: application/json
@@ -58631,7 +59516,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay
-Ce-Time: 2026-10-06T09:26:49.130935633Z
+Ce-Time: 2026-10-06T19:22:58.590461014Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.created.v1
 Content-Length: 224
 Content-Type: application/json
@@ -58676,7 +59561,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay
-Ce-Time: 2026-10-06T09:26:49.131188137Z
+Ce-Time: 2026-10-06T19:22:58.590628827Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.updated.v1
 Content-Length: 224
 Content-Type: application/json
@@ -58721,7 +59606,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the deleted overlay
-Ce-Time: 2026-10-06T09:26:49.131359261Z
+Ce-Time: 2026-10-06T19:22:58.590796896Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.deleted.v1
 Content-Length: 112
 Content-Type: application/json
@@ -58760,7 +59645,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-06T09:26:49.142323525Z
+Ce-Time: 2026-10-06T19:22:58.573529608Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.created.v1
 Content-Length: 243
 Content-Type: application/json
@@ -58802,7 +59687,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-06T09:26:49.14251281Z
+Ce-Time: 2026-10-06T19:22:58.574818065Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -58844,7 +59729,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-06T09:26:49.142615837Z
+Ce-Time: 2026-10-06T19:22:58.57496143Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.deleted.v1
 Content-Length: 116
 Content-Type: application/json
@@ -58881,7 +59766,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-06T09:26:49.142708752Z
+Ce-Time: 2026-10-06T19:22:58.575116594Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -58925,7 +59810,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-10-06T09:26:49.135364303Z
+Ce-Time: 2026-10-06T19:22:58.57666026Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -58967,7 +59852,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-10-06T09:26:49.13553302Z
+Ce-Time: 2026-10-06T19:22:58.576856634Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -59004,7 +59889,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings:batchCreate
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-10-06T09:26:49.135659239Z
+Ce-Time: 2026-10-06T19:22:58.577016823Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -59047,7 +59932,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-10-06T09:26:49.135785987Z
+Ce-Time: 2026-10-06T19:22:58.577174708Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -59088,7 +59973,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-10-06T09:26:49.127227872Z
+Ce-Time: 2026-10-06T19:22:58.589564505Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -59127,7 +60012,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-10-06T09:26:49.127436262Z
+Ce-Time: 2026-10-06T19:22:58.589693157Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -59166,7 +60051,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-10-06T09:26:49.127560561Z
+Ce-Time: 2026-10-06T19:22:58.589789288Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -59205,7 +60090,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-06T09:26:49.136515824Z
+Ce-Time: 2026-10-06T19:22:58.571281024Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.created.v1
 Content-Length: 197
 Content-Type: application/json
@@ -59244,7 +60129,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-06T09:26:49.137753739Z
+Ce-Time: 2026-10-06T19:22:58.571469214Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.deleted.v1
 Content-Length: 109
 Content-Type: application/json
@@ -59283,7 +60168,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-10-06T09:26:49.143677363Z
+Ce-Time: 2026-10-06T19:22:58.578833001Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -65264,7 +66149,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_pull-token_create.md_
 Create a pull token.
 
 ```
-chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|dotnet_athena|go|ruby|java|python|javascript|javascript_athena|dotnet|go_athena|ruby_athena|java_athena|python_athena}] [flags]
+chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|go_athena|java|python|java_athena|python_athena|javascript_athena|dotnet_athena|ruby|ruby_athena|javascript|dotnet|go}] [flags]
 ```
 
 ### Examples
@@ -65292,7 +66177,7 @@ chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, dotnet_athena, go, ruby, java, python, javascript, javascript_athena, dotnet, go_athena, ruby_athena, java_athena, python_athena. (default "oci")
+      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, go_athena, java, python, java_athena, python_athena, javascript_athena, dotnet_athena, ruby, ruby_athena, javascript, dotnet, go. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
 ```
@@ -67594,7 +68479,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_pull-token_list.md_
 List all pull-tokens
 
 ```
-chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|dotnet_athena|go|ruby|java|python|javascript|javascript_athena|dotnet|go_athena|ruby_athena|java_athena|python_athena}] [flags]
+chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|go_athena|java|python|java_athena|python_athena|javascript_athena|dotnet_athena|ruby|ruby_athena|javascript|dotnet|go}] [flags]
 ```
 
 ### Examples
@@ -67621,7 +68506,7 @@ chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--reposi
 ```
       --expired             If true return only expired pull tokens.
       --parent string       The IAM organization or folder with which the pull-token identity is associated.
-      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, dotnet_athena, go, ruby, java, python, javascript, javascript_athena, dotnet, go_athena, ruby_athena, java_athena, python_athena
+      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, go_athena, java, python, java_athena, python_athena, javascript_athena, dotnet_athena, ruby, ruby_athena, javascript, dotnet, go
 ```
 
 ### Options inherited from parent commands
@@ -71947,7 +72832,7 @@ chainctl auth pull-token [flags]
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, dotnet_athena, go, ruby, java, python, javascript, javascript_athena, dotnet, go_athena, ruby_athena, java_athena, python_athena. (default "oci")
+      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, go_athena, java, python, java_athena, python_athena, javascript_athena, dotnet_athena, ruby, ruby_athena, javascript, dotnet, go. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
 ```
