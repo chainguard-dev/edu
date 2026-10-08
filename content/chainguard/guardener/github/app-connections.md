@@ -25,7 +25,7 @@ For a first-time walkthrough, refer to [Getting started](/chainguard/guardener/g
 
 A connection has two halves, one on each side:
 
-1. **A GitHub App installation** — the [Chainguard App](https://github.com/apps/chainguard-dev) installed on a GitHub organization (or personal account). The installation is what grants Guardener access to repositories and delivers repository events to it. GitHub assigns each installation a numeric **installation ID**.
+1. **A GitHub App installation** — the [Chainguard App](https://github.com/apps/chainguard) installed on a GitHub organization (or personal account). The installation is what grants Guardener access to repositories and delivers repository events to it. GitHub assigns each installation a numeric **installation ID**.
 2. **A link** — an association, stored on the Chainguard platform, between that installation and a Chainguard organization. The link is what tells Guardener which Chainguard organization the GitHub activity belongs to.
 
 The two halves do different jobs. Installing the app is enough for Guardener to start responding on **public** repositories — each feature still has to be enabled with a configuration file, but no link is needed. The link adds the Chainguard side: it attributes the activity to your Chainguard organization and unlocks the features that need one, such as covering **private** repositories (subject to the [repository visibility scope](#repository-visibility-scope)) and group-scoped operations like triggering an Actions migration with `chainctl`. Linking fails if the app is not installed.
@@ -57,7 +57,7 @@ Commands that prove GitHub organization ownership (`link`, and the fallback path
 
 Install the app on the GitHub organization whose repositories Guardener should manage:
 
-1. Go to the [Chainguard App page](https://github.com/apps/chainguard-dev).
+1. Go to the [Chainguard App page](https://github.com/apps/chainguard).
 2. Select **Install** (or **Configure** if it is already installed on another account).
 3. Choose the GitHub organization (or your personal account) to install it on.
 4. Choose which repositories Guardener can access — **All repositories** or a selected subset. You can change this later (refer to [Changing repository access](#changing-which-repositories-are-connected)).

@@ -139,7 +139,7 @@ The [Chainguard App](/chainguard/guardener/github/getting-started/) is the recom
 
 To set it up:
 
-1. Install the [Chainguard App](https://github.com/apps/chainguard-dev) on your GitHub organization.
+1. Install the [Chainguard App](https://github.com/apps/chainguard) on your GitHub organization.
 2. Link your Chainguard organization to your GitHub organization with `chainctl guardener github link`.
 3. Add a `.chainguard/actions.yaml` file to each repository you want Guardener to work on, or once to your organization's `.github` repository to apply it to every repository.
 

@@ -39,7 +39,7 @@ The `chainctl guardener` commands identify your Chainguard organization by its g
 
 Guardener acts on your repositories through the **Chainguard App**, a single hardened GitHub App that also backs other Chainguard products. Install it on the GitHub organization whose repositories you want Guardener to manage.
 
-1. Go to the [Chainguard App page](https://github.com/apps/chainguard-dev).
+1. Go to the [Chainguard App page](https://github.com/apps/chainguard).
 2. Select **Install** (or **Configure** if it is already installed on another account).
 3. Choose the GitHub organization to install it on.
 4. Choose which repositories Guardener can access. You can grant access to **All repositories** or select specific repositories. You can change this selection later in your GitHub organization settings.
