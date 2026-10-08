@@ -4,7 +4,7 @@ linktitle: "Registry errors"
 description: "Map the errors cgr.dev returns during login and pull to their causes, including why the same HTTP status code means different things at the token endpoint and the registry API."
 type: "article"
 date: 2026-09-09T00:00:00+00:00
-lastmod: 2026-10-08T12:40:50+00:00
+lastmod: 2026-10-08T12:48:27+00:00
 draft: false
 tags: ["Chainguard Containers", "Registry"]
 images: []
@@ -54,6 +54,8 @@ chainctl auth configure-docker
 You don't need to run `chainctl auth login` first. For headless machines, CI systems, and other login flows, refer to [Authenticate to Chainguard's Registry](/chainguard/containers/registry/authenticating/) and [Authentication options for `chainctl`](/platform/chainctl-usage/authentication-options/).
 
 If the failure happens inside `docker build` rather than `docker pull`, check that the builder can see your Docker configuration. A `FROM` line pointing at your organization's namespace needs the same credentials a direct pull does.
+
+If the message appears in a Kubernetes pod's events, the credential helper won't help, because the kubelet can't run it. Refer to [Pods stuck in ImagePullBackOff](#pods-stuck-in-imagepullbackoff) instead.
 
 ## Forbidden from the token endpoint
 
@@ -170,6 +172,92 @@ The `realm: https://cgr.dev/token` fragment tells you the failure happened durin
 
 Pull tokens expire, so a mirror that worked for a month and then stopped is likely holding an expired token. For the tool-specific settings each platform needs, refer to the [pull-through guides](/chainguard/containers/registry/pull-through-guides/).
 
+## Pods stuck in ImagePullBackOff
+
+A Kubernetes pod that can't pull its container reports `ErrImagePull` and then `ImagePullBackOff`. That often happens with credentials that pull the same container without trouble through `docker` or `crane`. When the credentials work everywhere except Kubernetes, the kubelet usually never sent them.
+
+Read the pull failure in the pod's events:
+
+```shell
+kubectl describe pod <pod-name> --namespace <namespace>
+```
+
+The `Failed` event repeats the token endpoint's response:
+
+```output
+Failed to pull image "cgr.dev/$ORGANIZATION/python:latest": ... failed to authorize: failed to fetch anonymous token: unexpected status from GET request to https://cgr.dev/token?scope=repository%3A$ORGANIZATION%2Fpython%3Apull&service=cgr.dev: 401 Unauthorized
+```
+
+The word before `token` tells you where to look:
+
+- **`anonymous token`**: The kubelet found no credentials it could use for `cgr.dev`, so it pulled without any. The credentials themselves may be correct. Work through the checks in this section, in order.
+- **`oauth token`**: The kubelet sent credentials and the token endpoint rejected them. A `400` means the pull token expired, as described in [The pull token expired](#the-pull-token-expired). A `401` or `403` means the username or token is wrong, so refer to [Check your credential format](#check-your-credential-format).
+
+### Check the secret type
+
+The kubelet reads pull credentials only from a secret of type `kubernetes.io/dockerconfigjson`. Print the type of the secret your pod references:
+
+```shell
+kubectl get secret <secret-name> --namespace <namespace> -o jsonpath='{.type}'
+```
+
+If the output is `Opaque`, the kubelet ignores the secret and emits no warning about it. `kubectl create secret generic` creates an `Opaque` secret unless you pass `--type=kubernetes.io/dockerconfigjson`, and so does a manifest that omits `type:`. [Authenticating with Kubernetes](/chainguard/containers/registry/authenticating/#authenticating-with-kubernetes) covers this in more detail.
+
+Replace the secret under the same name:
+
+```shell
+kubectl delete secret <secret-name> --namespace <namespace>
+kubectl create secret docker-registry <secret-name> \
+  --namespace <namespace> \
+  --docker-server=cgr.dev \
+  --docker-username="<identity-id>" \
+  --docker-password="<pull-token>"
+```
+
+The kubelet reads the secret again on its next pull attempt, so the pod recovers without changes. A pod that has been failing for a while can wait many minutes between attempts, though. To retry now, delete the pod and let its controller recreate it, or restart its Deployment as shown in [Check that the pod references the secret](#check-that-the-pod-references-the-secret).
+
+### Check the secret's namespace
+
+A pod can use only pull secrets in its own namespace. When the secret it names isn't there, the pod's events include this warning alongside the `anonymous token` failure:
+
+```output
+Unable to retrieve some image pull secrets (<secret-name>); attempting to pull the image may not succeed.
+```
+
+Create the secret in the namespace where the pod runs. Each namespace that pulls from `cgr.dev` needs its own copy.
+
+### Check that the pod references the secret
+
+A secret in the right namespace has no effect until the pod names it. Print the pull secrets the pod received:
+
+```shell
+kubectl get pod <pod-name> --namespace <namespace> -o jsonpath='{.spec.imagePullSecrets}'
+```
+
+Empty output means the pod has none. Add the secret to the pod template's `imagePullSecrets`, or to the service account the pod runs as. For Helm charts, the [Chainguard Helm charts guide](/chainguard/containers/using-and-deploying/helm-charts/use-chainguard-helm-charts/#use-helm-values-with-globalimagepullsecrets) shows the `global.imagePullSecrets` value.
+
+Kubernetes copies a service account's `imagePullSecrets` into a pod only when the pod is created, and it won't add them to a pod that already exists. After you update a service account, recreate the pods that use it. For a Deployment:
+
+```shell
+kubectl rollout restart deployment <deployment-name> --namespace <namespace>
+```
+
+### Check the registry name in the secret
+
+The kubelet uses a credential only when its key in the secret matches the image's registry. List the keys without printing the credentials:
+
+```shell
+kubectl get secret <secret-name> --namespace <namespace> \
+  -o jsonpath='{.data.\.dockerconfigjson}' | base64 -d | jq '.auths // {} | keys'
+```
+
+The output needs to include `"cgr.dev"`. The kubelet also accepts `"https://cgr.dev"`, and a key that includes your organization's path, such as `"cgr.dev/$ORGANIZATION"`. Two outputs point to a specific mistake:
+
+- **`["https://index.docker.io/v1/"]`**: The secret was created with `kubectl create secret docker-registry` and no `--docker-server` flag, so the credentials are registered for Docker Hub. Re-create it with `--docker-server=cgr.dev`.
+- **`[]`, or a list without `cgr.dev`**: The secret was copied from a Docker configuration that reaches `cgr.dev` through the `chainctl` credential helper. That configuration stores no credentials for `cgr.dev`, only the name of a helper program, and the kubelet can't run it. Create a pull token and build the secret from it, as described in [Authenticating with Kubernetes](/chainguard/containers/registry/authenticating/#authenticating-with-kubernetes).
+
+A key that names a different organization, such as `"cgr.dev/another-org"`, or that adds a port, such as `"cgr.dev:443"`, also fails to match.
+
 ## Isolate the failing step
 
 To find out which of the two requests is failing, ask the token endpoint directly. This returns the HTTP status for a credential exchange with no credentials attached:
@@ -182,6 +270,8 @@ curl -s -o /dev/null -w '%{http_code}\n' \
 A `401` means the reference resolved and the endpoint wants credentials, so your tool's configuration is the problem rather than the name you used. Drop the `-o /dev/null` to read the error code and message in the response body.
 
 To check the second request, compare `chainctl auth status` against the capabilities listed in [Missing capabilities from the registry API](#missing-capabilities-from-the-registry-api).
+
+If the pull fails only in Kubernetes, start from the pod's events instead, as described in [Pods stuck in ImagePullBackOff](#pods-stuck-in-imagepullbackoff).
 
 ## Can't create a pull token
 
