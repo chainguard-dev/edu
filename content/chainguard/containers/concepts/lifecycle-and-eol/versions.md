@@ -11,7 +11,7 @@ aliases:
 type: "article"
 description: "Understanding Chainguard's approach to container image versions."
 date: 2024-01-08T08:49:31+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-07T18:00:50+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -269,6 +269,29 @@ longer updated.
 No EOL notice will be provided for single-release applications where the only
 supported release is the `:latest` or corresponding version tag.
 
+### How Chainguard determines EOL dates
+
+Chainguard sets the EOL status of each version stream from that project's
+lifecycle data:
+
+* For many projects, the data comes from [endoflife.date](https://endoflife.date).
+* For projects that endoflife.date doesn't cover, Chainguard uses the project's
+  published support policy or upstream release data instead.
+* If a source doesn't reflect the project's open source releases, Chainguard
+  sets the date manually. A manual date takes precedence over all other
+  sources.
+
+For example, endoflife.date sometimes tracks a vendor's commercial support
+window, which continues after the project's last open source release. In that
+case, Chainguard sets the EOL date to the date of the last open source release,
+because that's the last release Chainguard can build from source.
+
+The Chainguard Console and `chainctl` show the EOL status or date that
+Chainguard uses for each version stream. That date can differ from the one on
+the upstream project's website when the two use different sources or define
+support differently. If a version stream is eligible for the End-of-Life (EOL)
+Grace Period, the grace period starts on that date.
+
 ### EOL grace period
 
 There are cases where an organization may want to continue using a container
@@ -457,6 +480,9 @@ period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/#usin
 ### Refer to endoflife.date
 
 The [endoflife.date](https://endoflife.date) website lists the release tracks
-and product lifecycles of many Open Source projects. Generally the information
-on this site will align with the lifecycle of the corresponding Chainguard
-image.
+and product lifecycles of many open source projects. Chainguard uses it as the
+source of EOL dates for many projects, so it's a useful reference when you plan
+upgrades. The date that applies to a Chainguard container image is the one the
+Console or `chainctl` shows, which can differ from endoflife.date for the reasons
+outlined in [How Chainguard determines EOL
+dates](#how-chainguard-determines-eol-dates).
