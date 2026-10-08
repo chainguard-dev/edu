@@ -20,7 +20,7 @@ toc: true
 
 This guide walks you through the Chainguard Console. Anyone can use the Console, but you first need to [create an account and log in](https://console.chainguard.dev/auth/login).
 
-If you're not ready to create a Chainguard account, you can follow along with the public [Chainguard Directory](/chainguard/containers/registry/chainguard-directory/). It offers similar information, but it isn't connected to an organization or account. The directory's **Sign In** link opens the Console.
+If you're not ready to create a Chainguard account, you can follow along with the public [Chainguard Directory](/chainguard/containers/registry/chainguard-directory/). It offers similar information, but it isn't connected to an organization or account. The Directory's **Sign in** button opens the Console.
 
 ## Accessing the Chainguard Console
 
@@ -169,7 +169,7 @@ To find these charts in the Console, click **Helm charts** in the sidebar menu. 
 
 To find the packages available to your organization, click **Packages** in the sidebar menu. The **Packages** page lists the APK packages in your organization's private Chainguard APK repository, and you can search the list.
 
-Click a package name for more details. Use the **Architecture** drop-down to choose which architecture to display.
+Use the **Architecture** drop-down above the list to filter packages by architecture. Click a package to open its details in a side panel, and use the panel's **Version** drop-down to switch between versions.
 
 ## Learn more
 
