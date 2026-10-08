@@ -4,7 +4,7 @@ linktitle: "Authenticate"
 type: "article"
 description: "A guide on authenticating to Chainguard's registry to get container images"
 date: 2023-03-21T15:10:16+00:00
-lastmod: 2026-10-08T12:48:27+00:00
+lastmod: 2026-10-08T12:48:36+00:00
 tags: ["Chainguard Containers", "Registry"]
 draft: false
 images: []
@@ -199,7 +199,7 @@ name: Registry Example
 
 on:
   push:
- branches: ['main']
+    branches: ['main']
 
 permissions:
   contents: read
@@ -207,12 +207,12 @@ permissions:
 
 jobs:
   example:
- runs-on: ubuntu-latest
- steps:
-   - uses: chainguard-dev/setup-chainctl@main
-     with:
-       identity: [[ The Chainguard Identity ID you created above ]]
-   - run: docker pull cgr.dev/chainguard/node
+    runs-on: ubuntu-latest
+    steps:
+      - uses: chainguard-dev/setup-chainctl@main
+        with:
+          identity: [[ The Chainguard Identity ID you created above ]]
+      - run: docker pull cgr.dev/chainguard/node
 ```
 
 Pulls authenticated in this way are associated with the Chainguard identity you created, which is associated with the organization selected when the identity was created.
@@ -377,7 +377,7 @@ metadata:
 spec:
   containers:
   - name: nginx
- image: cgr.dev/chainguard/nginx:latest
+    image: cgr.dev/chainguard/nginx:latest
   imagePullSecrets:
   - name: regcred
 ```
