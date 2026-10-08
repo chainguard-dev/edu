@@ -121,7 +121,7 @@ scoop install main/chainctl
 
 Before running `chainctl` for the first time, you should verify the integrity of the downloaded binary using Cosign. This ensures the binary has not been tampered with. Ensure that you have the latest version of Cosign installed by following our [How to install Cosign guide](/open-source/sigstore/cosign/how-to-install-cosign/).
 
-If you are continuing in the same terminal session as the installation step above, `PLATFORM` and `VERSION` are already set. Otherwise, resolve them again first. Then download the release's Sigstore bundle, which holds the binary's signature and certificate, from the same pinned version, and use it to verify the binary:
+If you are continuing in the same terminal session as the previous installation step, `PLATFORM` and `VERSION` are already set. Otherwise, resolve them again first. Then download the release's Sigstore bundle, which holds the binary's signature and certificate, from the same pinned version, and use it to verify the binary:
 
 ```sh
 PLATFORM="$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/aarch64/arm64/')"
