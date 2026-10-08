@@ -6,7 +6,7 @@ aliases:
 type: "article"
 description: "When a container or version isn't available to you: how to identify which situation you're in, what to do about each, and when to open a support request."
 date: 2026-09-02T00:00:00+00:00
-lastmod: 2026-10-07T18:00:50+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -104,7 +104,7 @@ This is the most common case, and often the version you're asking for isn't the 
 
 Chainguard actively maintains the latest patch release of each supported upstream version stream, not every patch that stream has ever released. If Python maintains 3.11, 3.12, and 3.13 upstream, Chainguard maintains all three streams; within each one, only the current patch is rebuilt. So `python:3.13` tracks the newest patch of the 3.13 stream, which was `3.13.9` when this was written.
 
-Chainguard Containers also use *floating tags*. A tag points at the most recent build within its version stream rather than at a fixed image, so a tag's contents change as Chainguard rebuilds it. No tag stays pinned to one specific upstream patch release.
+Chainguard's container images also use *floating tags*. A tag points at the most recent build within its version stream rather than at a fixed image, so a tag's contents change as Chainguard rebuilds it. No tag stays pinned to one specific upstream patch release.
 
 That combination explains most missing-version reports. If you need `7.79.2` and the stream has moved on to `7.80.1`, the supported path is the stream tag, which gives you that stream's latest patch with current security fixes applied. Requesting the older patch tag gets you an image that is no longer rebuilt and will accumulate CVEs.
 

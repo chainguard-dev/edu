@@ -13,7 +13,7 @@ aliases:
 type: "article"
 description: "Learn about Chainguard's unique tags feature for production container images, enabling precise version tracking and automated deployment workflows with timestamped tags"
 date: 2024-02-29T08:49:31+00:00
-lastmod: 2026-10-05T00:00:00+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -33,7 +33,7 @@ This guide provides an overview of what these Unique Tags are, the kinds of prob
 
 Unique Tags are only available for private registries, as Chainguard's public registry only has the `:latest` or, in some cases, the `:latest-dev` tags available. Unique Tags feature an opt-in feature, which allows customers the flexibility to enable it based on their specific operational and security requirements.
 
-Chainguard's Unique Tags end in a timestamp, such as `20240229`, which indicates the date when the Container was built. Because Chainguard Containers are rebuilt whenever there is a change to an included package, the timestamp ensures that the specific tag always represents that specific container image build and not another.
+Chainguard's Unique Tags end in a timestamp, such as `20240229`, which indicates the date when the Container was built. Because Chainguard's container images are rebuilt whenever there is a change to an included package, the timestamp ensures that the specific tag always represents that specific container image build and not another.
 
 One benefit of using this timestamp scheme with Unique Tags is that it can help users to quickly identify when a given version of an container image was built. It also helps to make them human-readable, as opposed to the long, unpronounceable strings that make up container image digests.
 

@@ -2,9 +2,9 @@
 title: "Understanding Chainguard's container image categories"
 linktitle: "Container categories"
 type: "article"
-description: "Reference guide outlining how Chainguard Containers are categorized."
+description: "Reference guide outlining how Chainguard's container images are categorized."
 date: 2025-04-03T11:07:52+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -19,9 +19,9 @@ aliases:
 - /chainguard/containers/about/container-categories/
 ---
 
-Chainguard Containers are a collection of curated, distroless container images designed with a focus on software supply chain security. Chainguard's container images are designed to be slim runtimes for production environments, emphasizing security and efficiency by removing unnecessary elements. Additionally, the images are designed to be easily integrated into existing workflows, helping organizations to build better, more secure software.
+Chainguard Containers is a collection of curated, distroless container images designed with a focus on software supply chain security. Chainguard's container images are designed to be slim runtimes for production environments, emphasizing security and efficiency by removing unnecessary elements. Additionally, the images are designed to be easily integrated into existing workflows, helping organizations to build better, more secure software.
 
-Within the [Chainguard Containers Directory](https://images.chainguard.dev/), Chainguard Containers are organized into five general categories (with some falling into multiple categories):
+Within the [Chainguard Containers Directory](https://images.chainguard.dev/), images are organized into five general categories (with some falling into multiple categories):
 
 * **Free**
 * **Base**

@@ -6,7 +6,7 @@ type: "article"
 description: "Using Policy Controller to verify signed Chainguard Containers"
 lead: "Verify Chainguard Containers with Policy Controller"
 date: 2023-02-22T13:11:29+08:29
-lastmod: 2026-10-02T13:51:55+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["policy-controller", "Procedural", "Policy", "Chainguard Containers"]
 images: []
@@ -64,7 +64,7 @@ Error from server (BadRequest): admission webhook "policy.sigstore.dev" denied t
 cgr.dev/chainguard/nginx@sha256:628a01724b84d7db2dc3866f645708c25fab8cce30b98d3e5b76696291d65c4a
 ```
 
-In the next step, you will define a policy that verifies Chainguard Containers are signed and apply it to your cluster.
+In the next step, you will define a policy that verifies Chainguard's container images are signed and apply it to your cluster.
 
 ## Step 2 — Creating a `ClusterImagePolicy`
 

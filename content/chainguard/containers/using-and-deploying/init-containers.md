@@ -5,7 +5,7 @@ lead: ""
 description: "Example showing how to use an init container to configure Chainguard's minimal nginx container image."
 type: "article"
 date: 2025-08-04T15:21:01+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers", "Overview", "Procedural"]
 images: []
@@ -19,7 +19,7 @@ aliases:
 - /chainguard/containers/how-to-use/init-containers/
 ---
 
-Chainguard Containers are designed with minimalism and security in mind. By including fewer packages and tools, Chainguard Containers have a smaller attack surface than their counterparts. However, there are cases where the external counterparts have certain desirable features, like useful startup scripts or configuration defaults.
+Chainguard's container images are designed with minimalism and security in mind. By including fewer packages and tools, they have a smaller attack surface than their counterparts. However, there are cases where the external counterparts have certain desirable features, like useful startup scripts or configuration defaults.
 
 There are several ways to customize Chainguard Containers. For example, you can use [Custom Assembly](/chainguard/containers/custom-assembly/overview/) to add packages to an otherwise minimal Chainguard container image. Changing a Chainguard container image's configuration — such as updating its entrypoint or adding startup scripts — requires a different strategy. One method for doing so in Kubernetes deployments is to use *init containers*.
 

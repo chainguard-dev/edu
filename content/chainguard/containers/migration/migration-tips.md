@@ -7,7 +7,7 @@ linktitle: "Migration tips"
 type: "article"
 description: "This guide outlines a number of tips and strategies to keep in mind for when your organization begins migrating to Chainguard Containers."
 date: 2025-05-29T12:56:52-00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -204,7 +204,7 @@ Other images, such as our [WordPress container images](https://images.chainguard
 
 ## Containers don't run as root by default
 
-Although there are exceptions, Chainguard Containers typically don’t run as the root user. The reason for this is that distroless containers should have no privileged capabilities, and containers that run as a non-root user and use a minimal seccomp profile are ideal from a security perspective.
+Although there are exceptions, Chainguard's container images typically don’t run as the root user. The reason for this is that distroless containers should have no privileged capabilities, and containers that run as a non-root user and use a minimal seccomp profile are ideal from a security perspective.
 
 Because they don't run as the root user, you may need to include a `USER root` statement in your Dockerfile before installing software on a Chainguard Container.
 
@@ -232,7 +232,7 @@ Here, the `--user` option tells Docker to assume the root user role.
 
 Container images are usually meant to support every possible use case. Because of this, they often contain packages that aren't always necessary, which increases the container image's attack surface and makes it more likely to contain CVEs.
 
-Chainguard Containers are built with minimalism in mind, and thus contain the bare minimum packages needed for an image to function. However, this also means that Chainguard Containers may not contain the packages that you'd expect to find in third-party alternatives.
+Chainguard's container images are built with minimalism in mind, and thus contain the bare minimum packages needed for an image to function. However, this also means that these images may not contain the packages that you'd expect to find in third-party alternatives.
 
 If a Chainguard Container is missing certain packages that are required for your application, we recommend using a base image and installing the required dependencies on top of it, preferably in a multi-stage Docker build. Our guides on [How to use Chainguard Containers](/chainguard/containers/using-and-deploying/using-containers/#extending-chainguard-base-containers) and [Getting started with distroless](/chainguard/containers/migration/migrations-overview/) include guidance on how you can extend Chainguard base images.
 

@@ -4,7 +4,7 @@ linktitle: "VMs overview"
 description: "Chainguard VMs are designed for minimalism, security, and operational clarity."
 type: "article"
 date: 2025-10-21T08:04:00+00:00
-lastmod: 2026-10-02T12:53:50+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard VMs", "Overview"]
 menu:
@@ -30,7 +30,7 @@ For platform engineers and DevOps teams, this means:
 
 ## VMs and containers compared
 
-To understand the applicability of Chainguard VMs to your organization, it might be helpful to compare the features of Chainguard VMs to Chainguard Containers. In a nutshell, the main differences come from the fact that Chainguard VMs boot from and run with their own hardened kernel as part of Chainguard OS, while Chainguard Containers rely on the host system's kernel.
+To understand the applicability of Chainguard VMs to your organization, it might be helpful to compare the features of Chainguard VMs to Chainguard Containers. In a nutshell, the main differences come from the fact that Chainguard VMs boot from and run with their own hardened kernel as part of Chainguard OS, while Chainguard's container images rely on the host system's kernel.
 
 | Feature | Chainguard Container | Chainguard VM |
 | :---- | :------------------------------------------------------- | :-------------------------------------------------------------------------------------------- |

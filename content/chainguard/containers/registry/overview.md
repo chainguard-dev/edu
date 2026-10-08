@@ -3,7 +3,7 @@ title: "Registry overview"
 type: "article"
 description: "Learn about Chainguard's container registry, including public access to free images, authenticated access for production images, and network requirements"
 date: 2023-03-21T16:36:47+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 images: []
 tags: ["Chainguard Containers", "Registry"]
@@ -20,7 +20,7 @@ aliases:
 
 Chainguard Registry hosts more secure container images with two access tiers: public Free images available to everyone, and production images that require authentication for enterprise features like SLAs and version pinning. The registry integrates with standard container tools while providing enhanced security through signed images and comprehensive metadata.
 
-While all public Chainguard Containers are freely available, logging in with a Chainguard account and authenticating when pulling from the registry provides a mechanism for Chainguard to contact you if there are any current or known upcoming issues with images you are pulling.
+While all of Chainguard's public container images are freely available, logging in with a Chainguard account and authenticating when pulling from the registry provides a mechanism for Chainguard to contact you if there are any current or known upcoming issues with images you are pulling.
 
 If you would like to learn more about **Chainguard Containers**, you can review our [documentation](/chainguard/containers/overview/), and you can request further information through our [inquiry form](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
 

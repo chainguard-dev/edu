@@ -4,7 +4,7 @@ linktitle: "Install APKs in distroless"
 description: "Learn how to install APK packages into Chainguard's distroless container images that do not include package managers"
 type: "article"
 date: 2026-04-21T00:00:01+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -25,7 +25,7 @@ The distroless variants of Chainguard Containers do not contain shells or packag
 
 - If packages for the language runtime (such as those installed with Python’s pip or Node’s npm) are required and no additional system-level (APK) dependencies are needed, we recommend following one of our language-specific multi-stage build tutorials ([Python](https://edu.chainguard.dev/chainguard/containers/getting-started/languages-and-runtimes/python/), [Node](https://edu.chainguard.dev/chainguard/containers/migration/migration-guides/node/), [PHP](https://edu.chainguard.dev/chainguard/containers/migration/migration-guides/php/)).
 - Use Chainguard's [Custom Assembly](https://edu.chainguard.dev/chainguard/containers/custom-assembly/) tool to create an image with additional packages added.
-- For some use cases, consider running our variant tagged `:latest-dev` in production. These Chainguard Containers are also low-to-zero CVE and are considered production-ready.
+- For some use cases, consider running our variant tagged `:latest-dev` in production. These images are also low-to-zero CVE and are considered production-ready.
 - Consider requesting a custom image from Chainguard.
 
 However, we understand that there are specific use cases that require installation of system-level APK packages in distroless variants, such as maintaining internal build environments requiring application- or team-based packaging. In these cases, you may wish to implement the approach described in this document.
@@ -429,7 +429,7 @@ If the build was successful, you should see version information from libcurl as 
 [Kaniko](https://github.com/chainguard-forks/kaniko) builds container images from a Dockerfile without a Docker daemon and is common in Kubernetes-based CI systems. Unlike Docker/BuildKit, Kaniko runs each Dockerfile instruction directly on the root filesystem of its executor container rather than in a per-stage snapshot. Because of this, two lines from the examples above fail under Kaniko:
 
 - `COPY --from=base / /base-chroot` fails with `could not save file: copying file: read /proc/1/attr/current: invalid argument`. When a later stage references an earlier stage, Kaniko saves that stage's files by copying them from the executor's live root filesystem, and `/` includes the executor's own `/proc`.
-- `COPY --from=build /base-chroot /` fails with `copying dir: chown /sys: read-only file system`. Chainguard Containers include empty `/dev`, `/proc`, and `/sys` directories, which are carried into the chroot along with the rest of the base image. When Kaniko copies the chroot onto `/`, it attempts to change ownership of the executor's real `/sys`.
+- `COPY --from=build /base-chroot /` fails with `copying dir: chown /sys: read-only file system`. Chainguard's container images include empty `/dev`, `/proc`, and `/sys` directories, which are carried into the chroot along with the rest of the base image. When Kaniko copies the chroot onto `/`, it attempts to change ownership of the executor's real `/sys`.
 
 > **Note**: Kaniko's `--ignore-path` flag does not affect either failure. It applies only when Kaniko snapshots the filesystem into a layer or extracts a base image, and Kaniko already ignores mount points such as `/proc`, `/sys`, and `/dev` in those steps.
 

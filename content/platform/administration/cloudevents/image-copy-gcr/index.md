@@ -6,7 +6,7 @@ linktitle: "Mirror containers to Artifact Registry"
 type: "article"
 description: "Instructional guide outlining how one can set up an application that will listen for push events on a private  registry and mirror any new Chainguard Containers to a GCP Artifact Registry."
 date: 2024-05-24T15:22:20+01:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Console", "CloudEvents", "Procedural"]
 images: []
@@ -167,7 +167,7 @@ You can find the results of the application in your GCP Project's dashboard. Nav
 
 ![Screenshot of a repository in a GCP Artifact Registry named "chainguard-dev-mirrored." This repository shows two images stored within it. The first, `node`, was created and updated 36 minutes ago, while the second, `python`, was created and last updated 33 minutes ago.](gcp-events-1.png)
 
-Be aware that just because the application is listening for `registry.push` events doesn't mean any will occur automatically. Chainguard Containers are generally updated at least once every twenty four hours, so container images may not immediately appear in your mirror repository.
+Be aware that just because the application is listening for `registry.push` events doesn't mean any will occur automatically. Chainguard's container images are generally updated at least once every twenty four hours, so new images may not immediately appear in your mirror repository.
 
 ## Removing sample resources
 

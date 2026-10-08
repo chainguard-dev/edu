@@ -10,7 +10,7 @@ aliases:
 type: "article"
 description: "Learn about Chainguard's development container images and how they differ from our standard images."
 date: 2024-11-01T07:52:00+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -21,7 +21,7 @@ weight: 30
 toc: true
 ---
 
-Chainguard Containers follow a distroless philosophy, meaning that only software absolutely necessary for a specific workload is included in an image. Designed to be as minimal as possible, Chainguard's standard container images do not contain package managers such as apk, shells such as b/a/sh, or development utilities such as Git or text editors. However, this distroless approach isn't suitable for every use case. For this reason, most Chainguard Containers have what's called a *development* variant.
+Chainguard's container images follow a distroless philosophy, meaning that only software absolutely necessary for a specific workload is included in an image. Designed to be as minimal as possible, Chainguard's standard container images do not contain package managers such as apk, shells such as b/a/sh, or development utilities such as Git or text editors. However, this distroless approach isn't suitable for every use case. For this reason, most of these images have what's called a *development* variant.
 
 These variants are designed for development tasks such as building, testing, or debugging. They can be used to build software artifacts that are then copied into standard images as part of a multi-stage build, or to test workflows interactively in an environment similar to a standard image. Development images contain familiar utilities such as package managers and shells. While our standard images have advantages related to security, development images are also secure and production-ready. Development images are tagged `:latest-dev`.
 
@@ -53,7 +53,7 @@ Though using Chainguard's standard container images in your final deployment wil
 
 In addition to standard and development variants, some Chainguard Containers also provide slim variants.
 
-Slim variants, whose tags are appended with `-slim`, are a further-reduced subset of our standard container images. As outlined previously, standard Chainguard Containers are already designed to be minimal, distroless runtimes: they omit general-purpose shells, package managers, and development utilities, while still providing everything you need to run the application in production with a low-to-no CVE profile.
+Slim variants, whose tags are appended with `-slim`, are a further-reduced subset of our standard container images. As outlined previously, Chainguard's standard container images are already designed to be minimal, distroless runtimes: they omit general-purpose shells, package managers, and development utilities, while still providing everything you need to run the application in production with a low-to-no CVE profile.
 
 Slim variants start from that same security posture and then strip away even more. Where a standard image might still include some compatibility or helper tooling, slim variants remove additional components — such as BusyBox, shells, or language-specific tools like `npm` — so that only the essentials for running the workload remain.
 
@@ -74,7 +74,7 @@ We recommend treating full variants as a starting point rather than a destinatio
 It’s likely already clear that switching to our standard images requires a few changes in development and deployment. Here are a few additional considerations:
 
 - Since we don’t include general-purpose shells in most standard container images, the entrypoint to these images will vary by each image’s use case. Check the documentation for each image, and note that Dockerfile commands such as `CMD` will be directed to the image-specific entrypoint. Because we aim to keep our development images as close as possible to our standard images, these changes to entrypoint also affect development container images.
-- Chainguard Containers use a less privileged user by default. When using our development images, you will need to explicitly access the image with the root user — such as by using the `--user root` option — to perform tasks such as installing packages with apk.
+- Chainguard's container images use a less privileged user by default. When using our development images, you will need to explicitly access the image with the root user — such as by using the `--user root` option — to perform tasks such as installing packages with apk.
 
 ## Resources
 

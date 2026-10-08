@@ -3,9 +3,9 @@ title: "Overview of Chainguard Containers"
 linktitle: "Overview"
 type: "article"
 description: "Learn about Chainguard Containers, distroless images, and how they provide enhanced security through minimal attack surface and comprehensive supply chain features."
-lead: "Chainguard Containers are security-hardened container images built with a distroless approach, containing only essential application components and runtime dependencies."
+lead: "Chainguard Containers is a collection of security-hardened container images built with a distroless approach that keeps only essential application components and runtime dependencies."
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -18,13 +18,13 @@ aliases:
 
 [Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) are container images designed for enhanced security through minimalism and supply chain integrity. These images follow a distroless philosophy, containing only the application and its essential runtime dependencies, without shells, package managers, or other common utilities that can increase attack surface.
 
-Many Chainguard Containers implement a [distroless approach](/chainguard/containers/concepts/getting-started-distroless/), which means they exclude shells, package managers, and other utilities typically found in container images. This design significantly reduces potential security vulnerabilities. For development and debugging purposes, Chainguard provides `-dev` variants that include necessary tools while maintaining security best practices. All images are built using Chainguard OS, an operating system specifically designed to meet secure software supply chain requirements.
+Many of Chainguard's container images implement a [distroless approach](/chainguard/containers/concepts/getting-started-distroless/), which means they exclude shells, package managers, and other utilities typically found in container images. This design significantly reduces potential security vulnerabilities. For development and debugging purposes, Chainguard provides `-dev` variants that include necessary tools while maintaining security best practices. All images are built using Chainguard OS, an operating system specifically designed to meet secure software supply chain requirements.
 
-Chainguard Containers are primarily available from [Chainguard's registry](/chainguard/containers/registry/overview/), but a selection of developer images is also available on [Docker Hub](https://hub.docker.com/u/chainguard). You can find the complete list of available Chainguard Containers in our public [Containers Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-overview) or within the [Chainguard Console](https://console.chainguard.dev/).
+Chainguard's container images are primarily available from [the Chainguard registry](/chainguard/containers/registry/overview/), but a selection of developer images is also available on [Docker Hub](https://hub.docker.com/u/chainguard). You can find the complete list of available Chainguard Containers in our public [Containers Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-overview) or within the [Chainguard Console](https://console.chainguard.dev/).
 
 ## Built-in security and supply chain guarantees
 
-All Chainguard Containers are built with a consistent set of security and supply-chain guarantees, without requiring additional configuration:
+All of Chainguard's container images are built with a consistent set of security and supply-chain guarantees, without requiring additional configuration:
 
 - Minimal design, with no unnecessary software bloat
 - Automated nightly builds to ensure container images are completely up-to-date and contain all available security patches
@@ -34,7 +34,7 @@ All Chainguard Containers are built with a consistent set of security and supply
 
 ## Chainguard Container customization and lifecycle features
 
-Chainguard Containers include features that allow you to customize images, manage updates, and meet security and compliance requirements across the container lifecycle:
+Chainguard Containers includes features that allow you to customize images, manage updates, and meet security and compliance requirements across the container lifecycle:
 
 - [Custom Assembly](/chainguard/containers/custom-assembly/overview/): Customize Chainguard images by adding packages, configuration files, and certificates from the Chainguard Console, `chainctl`, or the Chainguard API, without maintaining your own Dockerfiles.
 - Custom certificates: Add trusted certificates [to existing containers via Custom Assembly](/chainguard/containers/custom-assembly/custom-assembly-certs/) (for organization-specific or environment-specific certificates) or by [using incert to build images with certificates embedded at build time](/chainguard/containers/custom-assembly/incert-custom-certs/).
@@ -46,7 +46,7 @@ Chainguard Containers include features that allow you to customize images, manag
 
 ## Why minimal container images
 
-The fewer dependencies a given piece of software uses, the lower likelihood that it will be impacted by CVEs. By minimizing the number of dependencies and thus reducing their potential attack surface, Chainguard Containers inherently contain few to zero CVEs. Chainguard Containers are rebuilt nightly to ensure they are completely up-to-date and contain all available security patches. With this nightly build approach, our engineering team sometimes [fixes vulnerabilities before they’re detected](https://www.chainguard.dev/unchained/how-chainguard-fixes-vulnerabilities?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
+The fewer dependencies a given piece of software uses, the lower likelihood that it will be impacted by CVEs. By minimizing the number of dependencies and thus reducing their potential attack surface, Chainguard's container images inherently contain few to zero CVEs. These images are rebuilt nightly to ensure they are completely up-to-date and contain all available security patches. With this nightly build approach, our engineering team sometimes [fixes vulnerabilities before they’re detected](https://www.chainguard.dev/unchained/how-chainguard-fixes-vulnerabilities?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
 
 Note that there is often a development variant of each Chainguard Container available. These are sometimes called the `-dev` variant, as their tags include the `-dev` suffix (as in `:latest-dev`). For example, the development variant of the `mariadb:latest` container image is `mariadb:latest-dev`. These container images typically contain a shell and tools like a package manager to allow users to more easily debug and modify the image.
 
@@ -94,7 +94,7 @@ By default, all Wolfi-based images are built for x86_64 (also known as AMD64) an
 - x86_64: x86-64-v2 (Sapphire Rapids)
 - AArch64: Armv8-A with CRC and Cryptographic extensions (Neoverse V2)
 
-Being able to provide multi-platform Chainguard Containers enables the support of more than one runtime environment, like those available on all three major clouds, AWS, GCP, and Azure. The macOS M-series (M1, M2, etc.) chips are also based on ARM architecture. Chainguard Containers allow you to take advantage of ARM's power consumption and cost benefits.
+Being able to provide multi-platform Chainguard Containers enables the support of more than one runtime environment, like those available on all three major clouds, AWS, GCP, and Azure. The macOS M-series (M1, M2, etc.) chips are also based on ARM architecture. Chainguard's container images allow you to take advantage of ARM's power consumption and cost benefits.
 
 You can confirm the available architecture of a given Chainguard Container with Crane. In this example, we'll use the latest Ruby image, but you can opt to use an alternate image.
 
@@ -121,9 +121,9 @@ You can read more about our support of ARM64 in our blog on [Building Wolfi from
 
 ## Annotations
 
-All Chainguard Containers include metadata in the form of *annotations* (also commonly referred to as "*labels*"). These annotations provide important information about a container image's origin, contents, and characteristics. The annotations are visible in every container image's **Specifications** tab in both the [Chainguard Console](https://console.chainguard.dev) and [Directory](https://images.chainguard.dev/), and can also be inspected programmatically using container tools.
+All of Chainguard's container images include metadata in the form of *annotations* (also commonly referred to as "*labels*"). These annotations provide important information about a container image's origin, contents, and characteristics. The annotations are visible in every container image's **Specifications** tab in both the [Chainguard Console](https://console.chainguard.dev) and [Directory](https://images.chainguard.dev/), and can also be inspected programmatically using container tools.
 
-Chainguard Containers follow the [Open Container Initiative (OCI) Image Specification](https://github.com/opencontainers/image-spec/blob/main/annotations.md) for annotations. Chainguard sets the following standard OCI annotations on its container images:
+These annotations follow the [Open Container Initiative (OCI) Image Specification](https://github.com/opencontainers/image-spec/blob/main/annotations.md) for annotations. Chainguard sets the following standard OCI annotations on its container images:
 
 - `org.opencontainers.image.authors`: Contact details for the Chainguard Container's author (typically `Chainguard Team https://www.chainguard.dev/`)
 - `org.opencontainers.image.base.digest`: The SHA256 digest of the base image used to build this container image

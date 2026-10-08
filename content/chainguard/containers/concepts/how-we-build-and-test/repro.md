@@ -4,7 +4,7 @@ linktitle: "Reproducibility"
 description: "What makes a build reproducible, and how to rebuild any Chainguard Container from its signed apko configuration and confirm the result matches bit for bit"
 type: "article"
 date: 2024-05-20T12:21:01+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -170,4 +170,4 @@ The following video says that Chainguard keeps older package versions only for a
 - [How to retrieve SBOMs and attestations for Chainguard Containers](/chainguard/containers/security-and-compliance/retrieve-image-sboms/) — the other attestation types published alongside the apko configuration, and how to fetch them.
 - [Inspecting Chainguard Containers](/chainguard/containers/troubleshooting/inspecting-containers/) — identifying a build by digest, and reading the software versions inside it.
 - [Verifying Chainguard Containers and metadata signatures with Cosign](/chainguard/containers/security-and-compliance/verifying-chainguard-images-and-metadata-signatures-with-cosign/) — verifying signatures and provenance more generally.
-- [How Chainguard Containers are tested](/chainguard/containers/concepts/how-we-build-and-test/images-testing/) — what happens to a container before it's published.
+- [How Chainguard tests its container images](/chainguard/containers/concepts/how-we-build-and-test/images-testing/) — what happens to a container before it's published.

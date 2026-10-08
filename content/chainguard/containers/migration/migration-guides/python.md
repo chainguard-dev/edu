@@ -10,7 +10,7 @@ aliases:
 type: "article"
 description: "Learn how to migrate Python applications to Chainguard Containers for enhanced security posture, reduced CVEs, and streamlined dependency management"
 date: 2024-05-02T15:06:00-07:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers", "Migration"]
 images: []
@@ -20,7 +20,7 @@ toc: true
 
 Chainguard's Python containers provide a migration path to significantly reduce vulnerabilities in Python applications while maintaining full compatibility with existing workloads. This guide explains how to migrate your containerized Python applications to benefit from Chainguard's enhanced security posture and daily updates.
 
-Chainguard Containers are built on [Wolfi](/open-source/wolfi/), a distroless Linux distribution designed for security and a reduced attack surface. Chainguard Containers are smaller and have few or no CVEs. Our Chainguard Containers for Python are built nightly for extra freshness, so they're always up-to-date with the latest remediations.
+Chainguard's container images are built on [Wolfi](/open-source/wolfi/), a distroless Linux distribution designed for security and a reduced attack surface. These images are smaller and have few or no CVEs. Our container images for Python are built nightly for extra freshness, so they're always up-to-date with the latest remediations.
 
 {{< details "What is Distroless?" >}}
 {{< blurb/distroless >}}
@@ -34,7 +34,7 @@ Chainguard Containers are built on [Wolfi](/open-source/wolfi/), a distroless Li
 {{< blurb/multistage >}}
 {{< /details >}}
 
-Because Chainguard Containers aim to be minimal, adapting your containerized application requires that you consider some additional factors, which the following sections describe.
+Because Chainguard's container images aim to be minimal, adapting your containerized application requires that you consider some additional factors, which the following sections describe.
 
 ## Chainguard Containers for Python overview
 
