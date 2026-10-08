@@ -4,7 +4,7 @@ linktitle: "Authenticate"
 type: "article"
 description: "A guide on authenticating to Chainguard's registry to get container images"
 date: 2023-03-21T15:10:16+00:00
-lastmod: 2026-10-05T00:00:00+00:00
+lastmod: 2026-10-08T12:48:36+00:00
 tags: ["Chainguard Containers", "Registry"]
 draft: false
 images: []
@@ -199,7 +199,7 @@ name: Registry Example
 
 on:
   push:
- branches: ['main']
+    branches: ['main']
 
 permissions:
   contents: read
@@ -207,12 +207,12 @@ permissions:
 
 jobs:
   example:
- runs-on: ubuntu-latest
- steps:
-   - uses: chainguard-dev/setup-chainctl@main
-     with:
-       identity: [[ The Chainguard Identity ID you created above ]]
-   - run: docker pull cgr.dev/chainguard/node
+    runs-on: ubuntu-latest
+    steps:
+      - uses: chainguard-dev/setup-chainctl@main
+        with:
+          identity: [[ The Chainguard Identity ID you created above ]]
+      - run: docker pull cgr.dev/chainguard/node
 ```
 
 Pulls authenticated in this way are associated with the Chainguard identity you created, which is associated with the organization selected when the identity was created.
@@ -351,6 +351,8 @@ You can also configure a Kubernetes cluster to use a pull token, as described ab
 
 When you create a pull token with `--save`, your Docker config file is updated to include that token and configure it to be used when pulling images from `cgr.dev`.
 
+Create the pull token with `--save` before you build the secret. If you set up `chainctl auth configure-docker` without a pull token, your Docker config has no credentials for `cgr.dev`, only an entry naming the `chainctl` credential helper. The kubelet can't run a credential helper, so a secret built from that file pulls without credentials. `--save` writes the token into the file and turns off the credential helper for `cgr.dev`.
+
 After that, you can create a Kubernetes secret based on those credentials, following [these instructions](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#registry-secret-existing-credentials):
 
 ```sh
@@ -375,7 +377,7 @@ metadata:
 spec:
   containers:
   - name: nginx
- image: cgr.dev/chainguard/nginx:latest
+    image: cgr.dev/chainguard/nginx:latest
   imagePullSecrets:
   - name: regcred
 ```
@@ -386,5 +388,7 @@ For this example, save the file as `cgr-example.yaml`. Then you can create and g
 kubectl apply -f cgr-example.yaml
 kubectl get pod cgr-example
 ```
+
+If the pod stays in `ImagePullBackOff`, refer to [Pods stuck in ImagePullBackOff](/chainguard/containers/troubleshooting/registry-errors/#pods-stuck-in-imagepullbackoff).
 
 Learn more in our [sign in guidance](/platform/administration/iam-organizations/how-to-manage-iam-organizations-in-chainguard/#logging-in).
