@@ -14,7 +14,7 @@ description: "An overview of the formation of false positive and false negative 
 lead: "An overview of the formation of false positive and false negative vulnerability results in container image scanners"
 type: "article"
 date: 2023-09-14T16:59:04+00:00
-lastmod: 2026-10-02T12:53:50+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 contributors: ["Michelle McAveety"]
 draft: false
 tags: ["CVE", "Overview", "Conceptual"]
@@ -130,7 +130,7 @@ One way to leverage VEX documents is through [OpenVEX](https://github.com/openve
 
 A primary cause of large vulnerability counts reported in scanners is the dead weight caused by unnecessary dependencies. Many popular container images contain hundreds of packages, each with their own potential to introduce vulnerabilities, both true and false positives. Having so much noise to sift through draws out the vulnerability management process.
 
-[Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement), built on the [Wolfi un-distro](/open-source/wolfi/), can help you reduce your CVE count dramatically by keeping things minimal. By bundling only what is necessary to run the image, Chainguard Containers are hardened and lightweight in comparison to their counterparts. To learn more about how Chainguard Containers can help you achieve low (or zero!) CVEs in your containers, check out our [documentation](/chainguard/containers/overview/).
+[Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement), built on the [Wolfi un-distro](/open-source/wolfi/), can help you reduce your CVE count dramatically by keeping things minimal. By bundling only what is necessary to run the image, Chainguard's container images are hardened and lightweight in comparison to their counterparts. To learn more about how Chainguard Containers can help you achieve low (or zero!) CVEs in your containers, check out our [documentation](/chainguard/containers/overview/).
 
 ### Updating and rebuilding images
 

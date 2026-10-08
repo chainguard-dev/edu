@@ -6,7 +6,7 @@ type: "article"
 description: "Enforce SBOM attestation with Policy Controller"
 lead: "Enforce SBOM attestation with Policy Controller"
 date: 2023-03-17T13:11:29+08:29
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 images: []
 menu:
@@ -63,7 +63,7 @@ Error from server (BadRequest): admission webhook "policy.sigstore.dev" denied t
 k8s.gcr.io/pause@sha256:7031c1b283388d2c2e09b57badb803c05ebed362dc88d84b480cc47f72a21097
 ```
 
-In the next step, you will define a policy that verifies Chainguard Containers have a SBOM attestation and apply it to your cluster.
+In the next step, you will define a policy that verifies Chainguard's container images have a SBOM attestation and apply it to your cluster.
 
 ## Step 2 — Creating a `ClusterImagePolicy`
 

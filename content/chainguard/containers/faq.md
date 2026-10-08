@@ -4,7 +4,7 @@ linktitle: "FAQ"
 type: "article"
 description: "Chainguard container FAQs: why they have zero CVEs, how they compare to DockerHub, what makes them more secure, pricing, and enterprise deployment best practices"
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2026-09-25T14:39:07+00:00
+lastmod: 2026-10-08T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers", "FAQ"]
 images: []
@@ -22,17 +22,17 @@ Learn answers to your questions about [Chainguard Containers](https://www.chaing
 
 ## Which Linux distribution is used as base for Chainguard Containers?
 
-Chainguard Containers are based on [Wolfi](/open-source/wolfi/), a Linux _undistro_ we built specifically to address software supply chain security issues. We call it an undistro because it doesn't contain certain software you'd normally find in a traditional Linux distribution such as Debian or Alpine. Wolfi is a minimal Linux distribution designed specifically to be used as a base for stripped-down container images.
+Chainguard's container images are based on [Wolfi](/open-source/wolfi/), a Linux _undistro_ we built specifically to address software supply chain security issues. We call it an undistro because it doesn't contain certain software you'd normally find in a traditional Linux distribution such as Debian or Alpine. Wolfi is a minimal Linux distribution designed specifically to be used as a base for stripped-down container images.
 
-## How do Chainguard Containers relate to the Google distroless container images?
+## How do Chainguard's container images relate to the Google distroless container images? {#how-do-chainguard-containers-relate-to-the-google-distroless-container-images}
 
-The [Google distroless](https://github.com/GoogleContainerTools/distroless) images follow a similar philosophy to many of our images: they are minimal images that don't include package managers or shells. The main difference is in the implementation. The Google distroless images are built with [Bazel](https://bazel.build) and based on the Debian distribution, whereas Chainguard Containers are built with [apko](/open-source/build-tools/apko/) and based on [Wolfi](/open-source/wolfi/). We believe our approach is more maintainable and extensible.
+The [Google distroless](https://github.com/GoogleContainerTools/distroless) images follow a similar philosophy to many of our images: they are minimal images that don't include package managers or shells. The main difference is in the implementation. The Google distroless images are built with [Bazel](https://bazel.build) and based on the Debian distribution, whereas our images are built with [apko](/open-source/build-tools/apko/) and based on [Wolfi](/open-source/wolfi/). We believe our approach is more maintainable and extensible.
 
 ## Which images are available?
 
 There are currently over a thousand Chainguard Containers available, which are segmented as **Free** or **Production**. You can read more about this in the [next question](#what-options-do-i-have-to-use-chainguard-containers).
 
-Chainguard Containers are primarily available from [Chainguard's registry](/chainguard/containers/registry/overview/), but a selection of Free images is also available on [Docker Hub](https://hub.docker.com/u/chainguard). You can find the complete list of available Chainguard Containers in our public [Containers Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-faq) or within the [Chainguard Console](https://console.chainguard.dev/).
+Chainguard's container images are primarily available from [the Chainguard registry](/chainguard/containers/registry/overview/), but a selection of Free images is also available on [Docker Hub](https://hub.docker.com/u/chainguard). You can find the complete list of available Chainguard Containers in our public [Containers Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-faq) or within the [Chainguard Console](https://console.chainguard.dev/).
 
 ## What options do I have to use Chainguard Containers?
 
@@ -47,7 +47,7 @@ Community support | Enterprise SLAs
 
 You can read more about the differences between Free and Production Containers in our [Containers overview](/chainguard/containers/overview/#production-and-free-containers).
 
-## Are Chainguard Containers available on Docker Hub?
+## Are Chainguard's container images available on Docker Hub? {#are-chainguard-containers-available-on-docker-hub}
 
 Yes, Chainguard Free Container images are available on [Docker Hub](https://hub.docker.com/u/chainguard?utm_source=academy&utm_medium=referral&utm_campaign=FY25-DockerHub-Orgprofile). As a Docker Verified Publisher, Chainguard has met Docker's stringent standards for security, quality, and transparency. This status signifies that our container images are trusted, reliable, and have undergone rigorous verification processes. To use Production Containers, pull them from [Chainguard's registry](/chainguard/containers/registry/overview/).
 
@@ -59,7 +59,7 @@ SBOMs provide visibility into the software you depend on. They can allow automat
 
 ## Who maintains Chainguard Containers?
 
-[Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) are officially maintained by [Chainguard](https://chainguard.dev) engineers.
+[Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) is officially maintained by [Chainguard](https://chainguard.dev) engineers.
 
 ## Can anybody build Chainguard Containers themselves?
 
@@ -69,17 +69,17 @@ Before Chainguard adds a container, it reviews the upstream source: whether the 
 
 In a do-it-yourself pipeline, the rebuilding falls to a person, usually a project maintainer or a security engineer. Doing it for every image on every upstream release is where most teams run out of hours.
 
-## How often are Chainguard Containers updated?
+## How often are Chainguard's container images updated? {#how-often-are-chainguard-containers-updated}
 
-Chainguard Containers are rebuilt every night to ensure that new package versions and security updates in upstream Wolfi are quickly applied.
+Our container images are rebuilt every night to ensure that new package versions and security updates in upstream Wolfi are quickly applied.
 
 ## Can I replace my current base image with a Chainguard Container and have it work out of the box?
 
-Chainguard Containers are designed to be minimal, and many of them don't come with a package manager. Depending on your stack and specific dependencies, you may need to include additional software by combining `-dev` container images and our [distroless](/chainguard/containers/concepts/getting-started-distroless/) images in a multi-stage Docker build.
+Chainguard's container images are designed to be minimal, and many of them don't come with a package manager. Depending on your stack and specific dependencies, you may need to include additional software by combining `-dev` container images and our [distroless](/chainguard/containers/concepts/getting-started-distroless/) images in a multi-stage Docker build.
 
 ## What packages are available in Chainguard Containers?
 
-Chainguard Containers only contain packages that come from the [Wolfi Project](https://github.com/wolfi-dev) or those that are built and maintained internally by Chainguard.
+Chainguard's container images only contain packages that come from the [Wolfi Project](https://github.com/wolfi-dev) or those that are built and maintained internally by Chainguard.
 
 Since March 2024, Chainguard has maintained one version of each Wolfi package at a time. These track the latest version of the upstream software in the package. Chainguard has ended patch support for previous versions of packages in Wolfi. Existing packages remain in Wolfi and you may continue to use them, but be aware that older packages no longer receive updates and accrue vulnerabilities over time. The tools we use to build packages and images remain freely available and open source in [Wolfi](https://github.com/wolfi-dev).
 

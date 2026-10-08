@@ -5,7 +5,7 @@ lead: "Pull a free Chainguard Container, build an application on top of it, and 
 description: "An end-to-end walkthrough of Chainguard Containers: pull a free container, run a small Node.js application on it, and verify the image's signature and SBOM."
 type: "article"
 date: 2026-08-05T00:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers", "Getting Started"]
 images: []
@@ -93,7 +93,7 @@ CMD ["server.js"]
 EOF
 ```
 
-Chainguard Containers run as a nonroot user by default — `node` in this image — so `COPY --chown=node:node` gives the application access to its own files without switching to root. Because the entrypoint is already `node`, `CMD` only needs to name the script.
+Chainguard's container images run as a nonroot user by default — `node` in this image — so `COPY --chown=node:node` gives the application access to its own files without switching to root. Because the entrypoint is already `node`, `CMD` only needs to name the script.
 
 Build the image:
 

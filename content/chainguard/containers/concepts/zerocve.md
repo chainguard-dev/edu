@@ -5,7 +5,7 @@ description: "The three practices behind the low CVE counts in Chainguard Contai
 type: "article"
 tags: ["Video", "Chainguard Containers"]
 date: 2024-05-31T12:21:01+00:00
-lastmod: 2026-10-01T14:31:17+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 images: []
 weight: 70
@@ -22,7 +22,7 @@ aliases:
 - /chainguard/containers/concepts/beyond_zero_pytorch_2024/
 ---
 
-Chainguard Containers typically report few or no CVEs when scanned, which raises a fair question about whether those findings are being suppressed. They are not. Scanners read Chainguard Containers exactly as they read any other container, and they report whatever they find. The low counts are instead the product of three practices: shipping less software, rebuilding nightly, and publishing security advisories that tell scanners what a given finding means.
+Chainguard's container images typically report few or no CVEs when scanned, which raises a fair question about whether those findings are being suppressed. They are not. Scanners read Chainguard Containers exactly as they read any other container, and they report whatever they find. The low counts are instead the product of three practices: shipping less software, rebuilding nightly, and publishing security advisories that tell scanners what a given finding means.
 
 This article explains each practice, and describes how to verify the results independently.
 
