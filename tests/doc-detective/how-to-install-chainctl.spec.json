@@ -4,12 +4,12 @@
   "tests": [
     {
       "testId": "curl-install-documented-prerequisites",
-      "description": "The curl install works on a machine with only the prerequisites the page names: curl, plus sudo for the install step",
+      "description": "The curl install works on a machine with only the prerequisites the page names: curl and jq, plus sudo for the install step",
       "steps": [
         {
-          "description": "Start a fresh Ubuntu machine with curl and nothing else the page doesn't ask for",
+          "description": "Start a fresh Ubuntu machine with curl, jq, and nothing else the page doesn't ask for",
           "runShell": {
-            "command": "tests/doc-detective/linux-machine.sh start doc-detective-chainctl-prerequisites --packages \"curl\"",
+            "command": "tests/doc-detective/linux-machine.sh start doc-detective-chainctl-prerequisites --packages \"curl jq\"",
             "timeout": 600000
           }
         },

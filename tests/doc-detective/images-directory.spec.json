@@ -1032,7 +1032,7 @@
     },
     {
       "testId": "directory-sign-in",
-      "description": "The Directory's Sign In link opens the Console",
+      "description": "The Directory's Sign in button opens the Console",
       "steps": [
         {
           "description": "Open the Directory. Its DOM never settles, so wait for the cookie banner instead",
@@ -1051,10 +1051,10 @@
           "click": "Reject All"
         },
         {
-          "description": "The Sign In link points to the Console",
+          "description": "The Sign in button points to the Console",
           "find": {
             "selector": "a[href^='https://console.chainguard.dev']",
-            "elementText": "Sign In",
+            "elementText": "Sign in",
             "timeout": 30000
           }
         }
