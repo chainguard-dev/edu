@@ -4,7 +4,7 @@ linktitle: "FAQ"
 type: "article"
 description: "Chainguard container FAQs: why they have zero CVEs, how they compare to DockerHub, what makes them more secure, pricing, and enterprise deployment best practices"
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-10-08T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers", "FAQ"]
 images: []
@@ -59,7 +59,7 @@ SBOMs provide visibility into the software you depend on. They can allow automat
 
 ## Who maintains Chainguard Containers?
 
-[Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) are officially maintained by [Chainguard](https://chainguard.dev) engineers.
+[Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) is officially maintained by [Chainguard](https://chainguard.dev) engineers.
 
 ## Can anybody build Chainguard Containers themselves?
 
@@ -79,7 +79,7 @@ Chainguard's container images are designed to be minimal, and many of them don't
 
 ## What packages are available in Chainguard Containers?
 
-Chainguard Containers only contain packages that come from the [Wolfi Project](https://github.com/wolfi-dev) or those that are built and maintained internally by Chainguard.
+Chainguard's container images only contain packages that come from the [Wolfi Project](https://github.com/wolfi-dev) or those that are built and maintained internally by Chainguard.
 
 Since March 2024, Chainguard has maintained one version of each Wolfi package at a time. These track the latest version of the upstream software in the package. Chainguard has ended patch support for previous versions of packages in Wolfi. Existing packages remain in Wolfi and you may continue to use them, but be aware that older packages no longer receive updates and accrue vulnerabilities over time. The tools we use to build packages and images remain freely available and open source in [Wolfi](https://github.com/wolfi-dev).
 

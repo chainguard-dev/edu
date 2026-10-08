@@ -11,7 +11,7 @@ aliases:
 type: "article"
 description: "Understanding Chainguard's approach to container image versions."
 date: 2024-01-08T08:49:31+00:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-10-08T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -119,7 +119,7 @@ project to release patches. Learn more about this under [Epoch tags](#epoch-tags
 
 ### Maintaining Wolfi packages in Chainguard Containers
 
-Chainguard Containers only contain packages that are either built and maintained
+Chainguard's container images only contain packages that are either built and maintained
 internally by Chainguard or packages from the [Wolfi
 Project](https://github.com/wolfi-dev). These packages follow the same
 conventions of minimalism and rapid updates as Chainguard Containers.

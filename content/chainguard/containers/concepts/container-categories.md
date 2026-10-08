@@ -4,7 +4,7 @@ linktitle: "Container categories"
 type: "article"
 description: "Reference guide outlining how Chainguard's container images are categorized."
 date: 2025-04-03T11:07:52+02:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-10-08T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -53,7 +53,7 @@ For a complete list of Free images that are currently available, check out the [
 
 ### Production containers
 
-The rest of Chainguard Containers, those that **are not** Free images and not included in the free tier of images, are referred to as *Production Containers*. Production images are enterprise-ready images that come with patch SLAs and features such as Federal Information Processing Standard (FIPS) readiness and unique time-stamped tags. Unlike Free images, which are typically paired with only the latest version of an upstream package, Production images offer specific major and minor versions of open source software.
+The rest of Chainguard's container images, those that **are not** Free images and not included in the free tier of images, are referred to as *Production Containers*. Production images are enterprise-ready images that come with patch SLAs and features such as Federal Information Processing Standard (FIPS) readiness and unique time-stamped tags. Unlike Free images, which are typically paired with only the latest version of an upstream package, Production images offer specific major and minor versions of open source software.
 
 As with the Free Container category, any container image considered a Production image will also fall into at least one of the other categories listed in this guide. To view the Production container images that your organization has access to, select the appropriate organization in the drop-down menu above the left-hand navigation and then click the **Organization images** tab.
 

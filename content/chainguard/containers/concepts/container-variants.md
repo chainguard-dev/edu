@@ -10,7 +10,7 @@ aliases:
 type: "article"
 description: "Learn about Chainguard's development container images and how they differ from our standard images."
 date: 2024-11-01T07:52:00+02:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-10-08T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -51,7 +51,7 @@ Though using Chainguard's standard container images in your final deployment wil
 
 ## Slim container variants
 
-In addition to standard and development variants, some Chainguard Containers also provide slim variants.
+In addition to standard and development variants, some of Chainguard's container images also provide slim variants.
 
 Slim variants, whose tags are appended with `-slim`, are a further-reduced subset of our standard container images. As outlined previously, Chainguard's standard container images are already designed to be minimal, distroless runtimes: they omit general-purpose shells, package managers, and development utilities, while still providing everything you need to run the application in production with a low-to-no CVE profile.
 
@@ -63,7 +63,7 @@ Because slim variants remove general-purpose tools, they can require more delibe
 
 ## Full container variants
 
-Some Chainguard Containers also provide *full* variants, whose tags are appended with `-full`. Where standard images strip away everything but the essentials, full variants aim for parity with their upstream equivalent — typically the Debian-based image on Docker Hub. They include the packages, environment variables, and entrypoint scripts that the standard Chainguard image intentionally omits. We currently offer full variants for 10 images.
+Some of Chainguard's container images also provide *full* variants, whose tags are appended with `-full`. Where standard images strip away everything but the essentials, full variants aim for parity with their upstream equivalent — typically the Debian-based image on Docker Hub. They include the packages, environment variables, and entrypoint scripts that the standard Chainguard image intentionally omits. We currently offer full variants for 10 images.
 
 Full variants exist primarily to ease migration. When you move a workload onto Chainguard Containers, your build and test pipelines may depend on components from your previous upstream image, even when the application itself doesn't need them to run. These dependencies can cause runtime crashes or pipeline failures during a switch to a more minimal image. Starting with a full variant lets you adopt Chainguard Containers without first untangling every such dependency.
 

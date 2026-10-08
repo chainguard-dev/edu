@@ -20,7 +20,7 @@ aliases:
 type: "article"
 description: "An overview comparing various Chainguard Containers for compiled programs"
 date: 2024-07-12T17:55:01+00:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-10-08T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers", "Cheatsheet"]
 images: []
@@ -33,7 +33,7 @@ toc: true
 
 When selecting the right base image for your application, there are a variety of factors to take into consideration. For starters, it is critical that your application has all of the dependencies it needs to run. The ideal base image will contain the essential packages you need, while leaving out the ones you don’t. However, in practice, you will need to build upon your container images so they meet your specific needs, making it all the more important that you have a strong foundation.
 
-In this guide, we will explore a variety of Chainguard Containers which are suitable for different compiled applications. We will take a look at their availability and use-case differences so you can move closer to settling on the best base image for your specific needs.
+In this guide, we will explore a variety of Chainguard's container images which are suitable for different compiled applications. We will take a look at their availability and use-case differences so you can move closer to settling on the best base image for your specific needs.
 
 ## Available containers
 

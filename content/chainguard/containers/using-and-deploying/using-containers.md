@@ -11,7 +11,7 @@ type: "article"
 description: "Learn how to use Chainguard Containers in your applications, including pulling images, extending base images, and migrating from traditional container images"
 lead: "Chainguard Containers provides more secure, minimal base images that work with standard container tools like Docker and Kubernetes, making migration straightforward while improving security posture."
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-10-08T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -19,7 +19,7 @@ weight: 10
 toc: true
 ---
 
-[Chainguard Containers](https://images.chainguard.dev) are minimal container images designed to reduce vulnerabilities and attack surface compared to traditional base images. These images use the [apk](https://wiki.alpinelinux.org/wiki/Package_management) package format to achieve smaller sizes while maintaining complete provenance information with cryptographic signatures, ensuring both enhanced security and traceability.
+[Chainguard Containers](https://images.chainguard.dev) is a collection of minimal container images designed to reduce vulnerabilities and attack surface compared to traditional base images. These images use the [apk](https://wiki.alpinelinux.org/wiki/Package_management) package format to achieve smaller sizes while maintaining complete provenance information with cryptographic signatures, ensuring both enhanced security and traceability.
 
 In this guide, you'll find general instructions on how to get started using Chainguard Containers and how to migrate existing container-based workflows to use our images. For specific image usage instructions, please refer to our [Chainguard Containers Directory](https://images.chainguard.dev), which contains the full list of all images available to the public and their respective documentation.
 
@@ -203,7 +203,7 @@ Check also the [Wolfi images with Dockerfiles](/open-source/wolfi/wolfi-with-doc
 
 ## A note regarding package availability in Chainguard Containers
 
-Chainguard Containers only contain packages that come from the [Wolfi Project](https://github.com/wolfi-dev) or those that are built and maintained internally by Chainguard.
+Chainguard's container images only contain packages that come from the [Wolfi Project](https://github.com/wolfi-dev) or those that are built and maintained internally by Chainguard.
 
 Starting in March of 2024, Chainguard will maintain one version of each Wolfi package at a time. These will track the latest version of the upstream software in the package. Chainguard will end patch support for previous versions of packages in Wolfi. Existing packages will not be removed from Wolfi and you may continue to use them, but be aware that older packages will no longer be updated and will accrue vulnerabilities over time. The tools we use to build packages and images remain freely available and open source in [Wolfi](https://github.com/wolfi-dev).
 

@@ -5,7 +5,7 @@ lead: "Overview of Chainguard's package repositories, highlighting the different
 description: "Overview of Chainguard's package repositories, highlighting the different repositories and how to access them."
 type: "article"
 date: 2025-10-09T00:00:00Z
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-10-08T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers", "Overview", "Product"]
 images: []
@@ -107,7 +107,7 @@ You must replace `$ORGANIZATION_ID` with your organization's `ID` value, not its
 
 You can also find this in the [Chainguard Console](https://console.chainguard.dev/). After logging in, open the **Settings** tab. There, you'll find your organization's identifier under **Organization UID**. Be aware that these repository URLs **will not** resolve properly if you include the name of your organization instead of the UID.
 
-For any of your organization's Chainguard Containers that include the APK package manager, these repositories are included by default. You can also add them to the `/etc/apk/repositories` file of any container that uses APK. Our guide on [How to pull packages from Chainguard package repositories through Artifactory](/chainguard/containers/registry/pull-through-guides/artifactory-packages-pull-through/#configuring-pull-through-caches-for-chainguards-public-repositories) includes directions for setting up pull-through caches for these repositories on Artifactory.
+For any of your organization's container images that include the APK package manager, these repositories are included by default. You can also add them to the `/etc/apk/repositories` file of any container that uses APK. Our guide on [How to pull packages from Chainguard package repositories through Artifactory](/chainguard/containers/registry/pull-through-guides/artifactory-packages-pull-through/#configuring-pull-through-caches-for-chainguards-public-repositories) includes directions for setting up pull-through caches for these repositories on Artifactory.
 
 ### Package retention in public repositories
 

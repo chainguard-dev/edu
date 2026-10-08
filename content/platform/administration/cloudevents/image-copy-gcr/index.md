@@ -6,7 +6,7 @@ linktitle: "Mirror containers to Artifact Registry"
 type: "article"
 description: "Instructional guide outlining how one can set up an application that will listen for push events on a private  registry and mirror any new Chainguard Containers to a GCP Artifact Registry."
 date: 2024-05-24T15:22:20+01:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-10-08T14:39:07+00:00
 draft: false
 tags: ["Chainguard Console", "CloudEvents", "Procedural"]
 images: []
@@ -163,7 +163,7 @@ If the `terraform apply` command you ran in the previous section was successful,
 
 As mentioned previously, this application listens for `registry.push` events that occur on your organization's repository; any time a new Container gets added to your organization's Registry the application will mirror it to your GCP project's Artifact Registry and into a repository named with the `name` and `dst_repo` values you set in your `main.tf` file. For example, if these values were `chainguard-dev` and `mirrored`, respectively, (as shown in the previous example) the mirror repository would be found at `<location>-docker.pkg.dev/<project_id>/chainguard-dev-mirrored`.
 
-You can find the results of the application in your GCP Project's dashboard. Navigate to your GCP Project's **Artifact Registry**, then click on the mirror repository you set up with Terraform. There, you will find any Chainguard Containers that have been added to your organization's Registry since you deployed the application. This example shows a repository named `chainguard-dev-mirrored` with two images (`node` and `python`) mirrored into it.
+You can find the results of the application in your GCP Project's dashboard. Navigate to your GCP Project's **Artifact Registry**, then click on the mirror repository you set up with Terraform. There, you will find any container images that have been added to your organization's Registry since you deployed the application. This example shows a repository named `chainguard-dev-mirrored` with two images (`node` and `python`) mirrored into it.
 
 ![Screenshot of a repository in a GCP Artifact Registry named "chainguard-dev-mirrored." This repository shows two images stored within it. The first, `node`, was created and updated 36 minutes ago, while the second, `python`, was created and last updated 33 minutes ago.](gcp-events-1.png)
 
