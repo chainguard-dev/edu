@@ -50,7 +50,7 @@ Chainguard has two public package repositories: the Wolfi and Extra Packages rep
 
 ### Wolfi
 
-The [Wolfi packages repository](https://github.com/wolfi-dev/os) is the public package source for [Wolfi, Chainguard's open-source Linux "undistro."](https://www.chainguard.dev/supply-chain-security-101/wolfi-overview) It contains all the open-source packages used in Chainguard's Free container images. As a public repository, the Wolfi APK repo doesn't require authentication.
+The [Wolfi packages repository](https://github.com/wolfi-dev/os) is the public package source for [Wolfi, Chainguard's open source Linux "undistro."](https://www.chainguard.dev/supply-chain-security-101/wolfi-overview) It contains all the open source packages used in Chainguard's Free container images. As a public repository, the Wolfi APK repo doesn't require authentication.
 
 By default, Chainguard's Free container images use a generic address for this repository (`https://apk.cgr.dev/chainguard`) in their `/etc/apk/repositories` files:
 
@@ -68,11 +68,11 @@ Users that aren't Chainguard customers can use this URL to add packages from the
 https://virtualapk.cgr.dev/$ORGANIZATION_ID/chainguard
 ```
 
-If you need packages outside Wolfi's open-source scope, or under less permissive licenses, Chainguard offers a supplemental Packages repository
+If you need packages outside Wolfi's open source scope, or under less permissive licenses, Chainguard offers a supplemental Packages repository
 
 ### Extra packages
 
-Chainguard's Extra Packages repository is a public-facing APK repository that includes utilities and compatibility packages that aren't fully open-source, but can still be redistributed by Chainguard. The repository’s primary role is to provide supplemental packages needed to support containerized applications, especially when those utilities fall outside the scope of the official base images or are under less permissive licenses than those in the Wolfi repository.
+Chainguard's Extra Packages repository is a public-facing APK repository that includes utilities and compatibility packages that aren't fully open source, but can still be redistributed by Chainguard. The repository’s primary role is to provide supplemental packages needed to support containerized applications, especially when those utilities fall outside the scope of the official base images or are under less permissive licenses than those in the Wolfi repository.
 
 The Extra Packages repository follows similar rules to the Wolfi repo, but explicitly allows packages under more restrictive licenses as long as redistribution is permitted.
 

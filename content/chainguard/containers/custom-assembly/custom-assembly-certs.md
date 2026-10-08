@@ -4,7 +4,7 @@ linktitle: "Custom certificates"
 type: "article"
 description: "How to add custom certificates to customized images with Custom Assembly."
 date: 2026-03-12T11:07:52+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:39:28+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural", "Custom Assembly"]
 images: []
@@ -212,7 +212,7 @@ If applications within your container are not trusting your custom certificates:
 
 ## Alternative: Using `incert` for certificate injection
 
-For scenarios where you need to add certificates to an existing image without using Custom Assembly, you can use [`incert`](/chainguard/containers/custom-assembly/incert-custom-certs/), an open-source tool from Chainguard. However, we recommend using Custom Assembly over `incert` whenever possible, as this approach provides:
+For scenarios where you need to add certificates to an existing image without using Custom Assembly, you can use [`incert`](/chainguard/containers/custom-assembly/incert-custom-certs/), an open source tool from Chainguard. However, we recommend using Custom Assembly over `incert` whenever possible, as this approach provides:
 
 * Automatic rebuilds when the base image is updated
 * Integration with Chainguard's security patching lifecycle
