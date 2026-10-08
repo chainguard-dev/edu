@@ -1,0 +1,50 @@
+{
+  "tests": [
+    {
+      "testId": "console-cookie-session",
+      "description": "Sign in to the Console by injecting a chainguard-session cookie instead of logging in",
+      "steps": [
+        {
+          "description": "Open a static Console URL so the browser is on chainguard.dev before setting the cookie. The favicon avoids the SPA's redirect to /auth/login",
+          "goTo": {
+            "url": "https://console.chainguard.dev/favicon.ico",
+            "waitUntil": { "networkIdleTime": null, "domIdleTime": null }
+          }
+        },
+        {
+          "description": "Set the session cookie the issuer would normally set after login",
+          "loadCookie": {
+            "name": "chainguard-session",
+            "variable": "CHAINGUARD_SESSION_COOKIE"
+          }
+        },
+        {
+          "description": "Open the Console with the session in place",
+          "goTo": {
+            "url": "https://console.chainguard.dev/",
+            "waitUntil": { "networkIdleTime": null, "domIdleTime": 0 }
+          }
+        },
+        {
+          "description": "Give the SPA time to check the session and redirect if it rejects it",
+          "wait": 8000
+        },
+        {
+          "description": "Capture what the Console rendered, for diagnosis",
+          "screenshot": "console-cookie-session.png"
+        },
+        {
+          "description": "Record where the Console landed",
+          "runBrowserScript": "return window.location.href;"
+        },
+        {
+          "description": "Pass only if the Console didn't send the browser back to the login page",
+          "runBrowserScript": {
+            "script": "return window.location.pathname;",
+            "output": "/^(?!\\/auth)/"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://raw.githubusercontent.com/doc-detective/common/refs/heads/main/dist/schemas/config_v3.schema.json",
+  "input": "content",
+  "recursive": true,
+  "output": ".doc-detective",
+  "detectSteps": false,
+  "autoUpdate": false,
+  "exitOnFail": true,
+  "telemetry": {
+    "send": false
+  },
+  "runOn": [
+    {
+      "platforms": ["linux", "mac", "windows"],
+      "browsers": [
+        {
+          "name": "chrome",
+          "headless": true,
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        }
+      ]
+    }
+  ]
+}
