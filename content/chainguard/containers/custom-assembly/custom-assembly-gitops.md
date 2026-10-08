@@ -4,7 +4,7 @@ linktitle: "Manage with GitOps"
 type: "article"
 description: "How to use GitOps to manage Custom Assembly resources."
 date: 2026-01-29T11:07:52+02:00
-lastmod: 2026-10-02T13:51:55+00:00
+lastmod: 2026-10-08T12:47:47+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural", "Custom Assembly"]
 images: []
@@ -71,9 +71,9 @@ accounts:
 
 certificates:
    additional:
-     - name: "certificate name"
+     - name: "certificate-name"
        content: |
-          -----BEGIN CERTIFICATE-----
+         -----BEGIN CERTIFICATE-----
          ...
          -----END CERTIFICATE-----
 ```
