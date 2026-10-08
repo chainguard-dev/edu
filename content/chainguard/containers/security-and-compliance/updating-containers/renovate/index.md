@@ -10,7 +10,7 @@ aliases:
 type: "article"
 description: "How to use Renovate to automatically keep Chainguard Containers, Helm charts and packages updated"
 date: 2023-09-05T11:07:52+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -200,7 +200,7 @@ RUN apk add --no-cache \
 
 ### Default repositories
 
-Chainguard Containers ship with their `/etc/apk/repositories` file already populated with two public, org-scoped mirrors served from `virtualapk.cgr.dev`. Neither requires authentication:
+Chainguard's container images ship with their `/etc/apk/repositories` file already populated with two public, org-scoped mirrors served from `virtualapk.cgr.dev`. Neither requires authentication:
 
 * **`virtualapk.cgr.dev/<org-id>/chainguard`** — open-source packages used in Chainguard's Free container images.
 * **`virtualapk.cgr.dev/<org-id>/extra-packages`** — additional packages that aren't fully open source but can still be redistributed by Chainguard.

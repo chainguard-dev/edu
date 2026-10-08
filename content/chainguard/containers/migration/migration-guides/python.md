@@ -10,7 +10,7 @@ aliases:
 type: "article"
 description: "Learn how to migrate Python applications to Chainguard Containers for enhanced security posture, reduced CVEs, and streamlined dependency management"
 date: 2024-05-02T15:06:00-07:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers", "Migration"]
 images: []
@@ -20,7 +20,7 @@ toc: true
 
 Chainguard's Python containers provide a migration path to significantly reduce vulnerabilities in Python applications while maintaining full compatibility with existing workloads. This guide explains how to migrate your containerized Python applications to benefit from Chainguard's enhanced security posture and daily updates.
 
-Chainguard Containers are built on [Wolfi](/open-source/wolfi/), a distroless Linux distribution designed for security and a reduced attack surface. Chainguard Containers are smaller and have few or no CVEs. Our Chainguard Containers for Python are built nightly for extra freshness, so they're always up-to-date with the latest remediations.
+Chainguard's container images are built on [Wolfi](/open-source/wolfi/), a distroless Linux distribution designed for security and a reduced attack surface. These images are smaller and have few or no CVEs. Our container images for Python are built nightly for extra freshness, so they're always up-to-date with the latest remediations.
 
 {{< details "What is Distroless?" >}}
 {{< blurb/distroless >}}
@@ -34,7 +34,7 @@ Chainguard Containers are built on [Wolfi](/open-source/wolfi/), a distroless Li
 {{< blurb/multistage >}}
 {{< /details >}}
 
-Because Chainguard Containers aim to be minimal, adapting your containerized application requires that you consider some additional factors, which the following sections describe.
+Because Chainguard's container images aim to be minimal, adapting your containerized application requires that you consider some additional factors, which the following sections describe.
 
 ## Chainguard Containers for Python overview
 
@@ -45,11 +45,11 @@ We distribute two versions of our [Python container image](https://images.chaing
 When migrating your Python application, keep in mind these differences between the [Chainguard Container for Python](https://images.chainguard.dev/directory/image/python/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-python) and the [official Docker image](https://hub.docker.com/_/python).
 
 - The entrypoint for the Chainguard Container for Python is `/usr/bin/python`. When running either the `latest` or `latest-dev` versions of the image interactively, you'll be working in the Python interpreter. When using `CMD` in your Dockerfiles, the container passes the provided commands to `python` by default. If you change the path to include binaries from a virtual environment, you should manually set the entrypoint. Otherwise, your Dockerfile continues to use the included system Python as the entrypoint, and you won't have access to installed packages in the virtual environment.
-- Chainguard Containers for Python run as the `nonroot` user by default. If you need elevated permissions, such as to add packages with `apk`, run the image as `--user root`. You should not use the root user in a production scenario.
+- Chainguard's container images for Python run as the `nonroot` user by default. If you need elevated permissions, such as to add packages with `apk`, run the image as `--user root`. You should not use the root user in a production scenario.
 - The `/home` and `/home/nonroot` directories are owned by the nonroot user.
 - The `python:latest` Chainguard Container intended for production does not include a `sh`, `ash`, or `bash`. Refer to the [Debugging distroless](/chainguard/containers/troubleshooting/debugging-distroless-images/) guide for advice on resolving issues without the use of these shells.
 - The `python:latest` Chainguard Container does not contain package managers such as `pip` or `apk`. See the sections below for guidance on multi-stage builds (recommended) or building your own images on Wolfi (advanced usage).
-- Chainguard Containers for Python aim to be lightweight, and you may find that specific packages or dependencies are not included by default. The [image details reference](https://images.chainguard.dev/directory/image/python/specifications?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-python) provides specific information on packages, features, and default environment variables for the image.
+- Chainguard's container images for Python aim to be lightweight, and you may find that specific packages or dependencies are not included by default. The [image details reference](https://images.chainguard.dev/directory/image/python/specifications?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-python) provides specific information on packages, features, and default environment variables for the image.
 
 ## Migrating a Python application
 

@@ -4,7 +4,7 @@ linktitle: "Add a package"
 description: "Choose how to add a package to a Chainguard Container, find the package name, apply the change, and confirm the package reached the finished image."
 type: "article"
 date: 2026-09-09T00:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Procedural"]
 images: []
@@ -12,7 +12,7 @@ weight: 10
 toc: true
 ---
 
-Chainguard Containers ship with only the packages their application needs, so sooner or later you'll want one that isn't there. [Custom Assembly](/chainguard/containers/custom-assembly/overview/) is the supported way to add it. You declare the package you want, Chainguard builds the image on its own infrastructure, and Chainguard rebuilds that image whenever the package is updated. You can drive Custom Assembly from the Chainguard Console, interactively with `chainctl`, or non-interactively with `chainctl` from a pipeline.
+Chainguard's container images ship with only the packages their application needs, so sooner or later you'll want one that isn't there. [Custom Assembly](/chainguard/containers/custom-assembly/overview/) is the supported way to add it. You declare the package you want, Chainguard builds the image on its own infrastructure, and Chainguard rebuilds that image whenever the package is updated. You can drive Custom Assembly from the Chainguard Console, interactively with `chainctl`, or non-interactively with `chainctl` from a pipeline.
 
 This page helps you pick an approach, then covers the three steps that apply whichever one you pick: finding the package name, adding the package, and confirming that it reached the finished image.
 

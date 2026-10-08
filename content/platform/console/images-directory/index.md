@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "A walkthrough of the Chainguard Console."
 date: 2024-02-23T11:07:52+02:00
-lastmod: 2026-10-07T00:00:00+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -100,7 +100,7 @@ The **Comparison** tab compares the CVE count of a Chainguard Container with a n
 
 ### Provenance
 
-All Chainguard Containers contain verifiable signatures and high-quality [software bills of materials](https://www.chainguard.dev/supply-chain-security-101/what-is-an-sbom) (SBOMs). Signatures let you confirm each image's origin, and SBOMs list everything the image contains.
+All of Chainguard's container images contain verifiable signatures and high-quality [software bills of materials](https://www.chainguard.dev/supply-chain-security-101/what-is-an-sbom) (SBOMs). Signatures let you confirm each image's origin, and SBOMs list everything the image contains.
 
 The **Provenance** tab explains how to verify container signatures and how to download and verify image attestations, with examples that use [`cosign`](/open-source/sigstore/cosign/an-introduction-to-cosign/).
 
@@ -133,7 +133,7 @@ Chainguard began generating SBOMs for its images on November 15, 2023, so image 
 
 The **Vulnerabilities** tab lists every CVE found in the image. Like the **SBOM** tab, it has a search box for filtering the list and, to its left, a drop-down menu for selecting an image version.
 
-Most Chainguard Containers show no vulnerabilities for the `latest` version. This isn't an error: Chainguard aims to remove vulnerabilities from images as soon as they arise. To check how the table appears when vulnerabilities are present, select different versions in the drop-down until you find one with a vulnerability.
+Most of Chainguard's container images show no vulnerabilities for the `latest` version. This isn't an error: Chainguard aims to remove vulnerabilities from images as soon as they arise. To check how the table appears when vulnerabilities are present, select different versions in the drop-down until you find one with a vulnerability.
 
 The table has five columns:
 

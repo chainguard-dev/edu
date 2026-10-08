@@ -4,7 +4,7 @@ linktitle: "Ko"
 type: "article"
 description: "In this tutorial, you'll learn how to build minimal Go containers using Ko and Chainguard base images"
 date: 2025-09-11T08:49:31+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -128,7 +128,7 @@ Once you’re able to pull images without being prompted to authenticate, you ca
 
 ## Step 3: Building your first container with Ko
 
-To get started, you'll build your application locally using Ko’s default configuration. Ko supports cross-compilation to other CPU architectures and operating systems via the `--platform` flag, so it can build container images for any platform that is supported by the base image. Chainguard Containers are available for both `amd64` and `arm64` architectures.
+To get started, you'll build your application locally using Ko’s default configuration. Ko supports cross-compilation to other CPU architectures and operating systems via the `--platform` flag, so it can build container images for any platform that is supported by the base image. Chainguard's container images are available for both `amd64` and `arm64` architectures.
 
 To build the image locally using default settings, run:
 

@@ -10,7 +10,7 @@ aliases:
 type: "article"
 description: "A conceptual overview of Security Technical Implementation Guides, which are available for Chainguard Containers."
 date: 2024-06-13T15:56:52-07:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -152,7 +152,7 @@ Together, namespaces and cgroups isolate security functions of the host operatin
 
 ### Minimal container images
 
-Chainguard Containers contain only the minimal software needed for the container to perform its intended function. Nonessential capabilities such as package managers, shell environments, executables, and process launching functions have been removed from many Chainguard Containers and may not be installed once the container is running.
+Chainguard's container images contain only the minimal software needed for the container to perform its intended function. Nonessential capabilities such as package managers, shell environments, executables, and process launching functions have been removed from many of these images and may not be installed once the container is running.
 
 This limited implementation means that only the necessary software to operate can run on the container and restricts the installation of additional software on the image during operation. Be sure to have fixed permissions on libraries and executable files in place so that any software installed can't be modified.
 

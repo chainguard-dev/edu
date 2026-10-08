@@ -7,7 +7,7 @@ lead: "Chainguard's chainctl images commands enable discovery, analysis, and com
 description: "Learn how to use chainctl images commands to discover, examine version history, and compare Chainguard's security-hardened container images in your registry"
 type: "article"
 date: 2025-03-06T08:49:15+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["chainctl"]
 images: []
@@ -20,7 +20,7 @@ For a full reference of all commands with details and switches, refer to [chainc
 
 ## List available Chainguard container images
 
-When you want to know which Chainguard Containers are available to your account, use the following command:
+When you want to know which container images are available to your account, use the following command:
 
 ```shell
 chainctl images list

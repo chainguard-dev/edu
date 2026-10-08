@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "This article works through porting a small but complete application to use Chainguard Containers. As we'll see, this is relatively straightforward, but it is important to be aware of some of the differences to other common images."
 date: 2024-04-10T12:56:52-00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -22,11 +22,11 @@ toc: true
 ## Porting key points
 
 * Chainguard's distroless Containers have no shell or package manager by default. This is great for security, but sometimes you need these things, especially in builder images. For those cases we have `-dev` variants (such as `cgr.dev/chainguard/python:latest-dev`) which do include a shell and package manager.
-* Chainguard Containers typically don't run as root, so a `USER root` statement may be required before installing software. This should be a temporary escalation only; after completing any root-level operations, you should create and switch to a dedicated non-root user (for example, using `addgroup` and `adduser`) or use the image's built-in non-root user. Leaving the container running as root defeats the security purpose of using minimal images.
+* Chainguard's container images typically don't run as root, so a `USER root` statement may be required before installing software. This should be a temporary escalation only; after completing any root-level operations, you should create and switch to a dedicated non-root user (for example, using `addgroup` and `adduser`) or use the image's built-in non-root user. Leaving the container running as root defeats the security purpose of using minimal images.
 * The `-dev` variants and `wolfi-base` / `chainguard-base` use BusyBox by default, so you need to port any `groupadd` or `useradd` commands to `addgroup` and `adduser`.
 * The [Free tier](/chainguard/containers/concepts/container-categories/#free-containers) of Containers provides `:latest` and `:latest-dev` versions. Our paid Production Containers offer tags for major and minor versions.
 * We use apk tooling, so `apt install` commands become `apk add`.
-* Chainguard Containers are based on `glibc` and our packages cannot be mixed with Alpine packages.
+* Chainguard's container images are based on `glibc` and our packages cannot be mixed with Alpine packages.
 * In some cases, the entrypoint in Chainguard Containers can be different from equivalent container images based on other distros, which can lead to unexpected behavior. You should always check the image's specific documentation to understand how the entrypoint works.
 * When needed, Chainguard recommends using a Base Container like `chainguard-base` or a `-dev` variant to install an application's OS-level dependencies.
 * Although `-dev` variants are still more secure than most popular container images based on other distros, for increased security on production environments we recommend combining them with a distroless variant in a multi-stage build.
@@ -161,7 +161,7 @@ RUN apk update && apk add \
     libfontconfig1
 ```
 
-The next change we need to make is to the `RUN groupadd …` line. Chainguard Containers use BusyBox by default, which means `groupadd` needs to become `addgroup`. Rewrite the line so that it looks like this:
+The next change we need to make is to the `RUN groupadd …` line. Chainguard's container images use BusyBox by default, which means `groupadd` needs to become `addgroup`. Rewrite the line so that it looks like this:
 
 ```Dockerfile
 RUN addgroup dnmonster && adduser -D -G dnmonster dnmonster
@@ -425,7 +425,7 @@ Again as a first step, we try switching directly to the Chainguard Container. To
 FROM cgr.dev/chainguard/python:latest-dev
 ```
 
-Before building the image we need to also update `groupadd` syntax to use the `addgroup` format. As Chainguard Containers don't run as root by default for security reasons, we also need to change to the root user for this command to work. Replace the `RUN groupadd` line with the lines:
+Before building the image we need to also update `groupadd` syntax to use the `addgroup` format. As Chainguard's container images don't run as root by default for security reasons, we also need to change to the root user for this command to work. Replace the `RUN groupadd` line with the lines:
 
 ```Dockerfile
 USER root

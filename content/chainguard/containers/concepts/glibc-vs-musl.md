@@ -10,7 +10,7 @@ aliases:
 type: "article"
 description: "An overview of the differences between glibc and musl."
 date: 2024-08-26T18:42:57+00:00
-lastmod: 2026-10-02T13:51:55+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers", "cheatsheet"]
 images: []
@@ -23,7 +23,7 @@ toc: true
 
 Over the years, various implementations of the [C standard library](https://en.wikipedia.org/wiki/C_standard_library) — such as the [GNU C library](https://www.gnu.org/software/libc/), [musl](https://musl.libc.org/about.html), [uClibc-ng](https://www.uclibc-ng.org/), and many others — have emerged with different goals and characteristics. These various implementations exist because the C standard library defines the required functionality for operating system services (such as file input/output and memory management) but does not specify implementation details. Among these implementations, the GNU C Library ([glibc](https://www.gnu.org/software/libc/)) and [musl](https://musl.libc.org/about.html) are among the most popular.
 
-When developing [Wolfi](https://www.chainguard.dev/supply-chain-security-101/wolfi-overview), the "undistro" on which all Chainguard Containers are built, Chainguard elected to have it use glibc instead of another implementation like musl. This conceptual article aims to highlight the differences between these two implementations within the context of Chainguard's choice of using glibc over musl as the default implementation for the Wolfi undistro.
+When developing [Wolfi](https://www.chainguard.dev/supply-chain-security-101/wolfi-overview), the "undistro" on which all of Chainguard's container images are built, Chainguard elected to have it use glibc instead of another implementation like musl. This conceptual article aims to highlight the differences between these two implementations within the context of Chainguard's choice of using glibc over musl as the default implementation for the Wolfi undistro.
 
 > **Note**: Several sections of this guide present data about the differences between glibc and musl across various categories. You can recreate some of these examples used to find this data with the Dockerfiles and C program files hosted in the `glibc-vs-musl` directory of the [Chainguard Academy Containers Demos repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/glibc-vs-musl).
 

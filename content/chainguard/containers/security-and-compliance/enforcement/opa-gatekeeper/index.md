@@ -4,7 +4,7 @@ linktitle: "OPA Gatekeeper"
 type: "article"
 description: "How to enforce best practices and ensure compliance with OPA Gatekeeper."
 date: 2025-09-02T10:00:00-00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers", "Overview", "Policy"]
 images: []
@@ -81,7 +81,7 @@ This example tries to create a pod using a container image downloaded from the D
 
 ## Ensure images are referenced by digest
 
-Chainguard Containers are updated frequently to incorporate CVE fixes and package updates. The tags for Chainguard's container images are highly mutable, meaning that the underlying image changes frequently, even for very specific tags like `v1.2.3-r1`.
+Chainguard updates its container images frequently to incorporate CVE fixes and package updates. The tags for Chainguard's container images are highly mutable, meaning that the underlying image changes frequently, even for very specific tags like `v1.2.3-r1`.
 
 To prevent the risk of updates introducing breaking changes, you can pull by digest to ensure the use of a specific image.
 
@@ -430,6 +430,6 @@ Error from server (Forbidden): error when creating "bad-deployment.yaml": admiss
 
 ## Learn more
 
-By combining OPA Gatekeeper with Chainguard container images, you gain a powerful way to enforce security and compliance across your Kubernetes clusters. Gatekeeper ensures that only container images meeting your defined policies are deployed, while Chainguard Containers provide a minimal, hardened foundation to reduce risk from the start. Together, they help teams ship software more securely and confidently, without slowing down development.
+By combining OPA Gatekeeper with Chainguard container images, you gain a powerful way to enforce security and compliance across your Kubernetes clusters. Gatekeeper ensures that only container images meeting your defined policies are deployed, while Chainguard Containers provides a minimal, hardened foundation to reduce risk from the start. Together, they help teams ship software more securely and confidently, without slowing down development.
 
 If you'd like to learn more about Gatekeeper, we encourage you to refer to the [official documentation](https://open-policy-agent.github.io/gatekeeper/website/docs/).

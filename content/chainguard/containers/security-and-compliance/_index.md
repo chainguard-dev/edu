@@ -6,10 +6,10 @@ aliases:
 - /chainguard/chainguard-images/staying-secure/
 - /chainguard/containers/recommended-practices/
 - /chainguard/containers/staying-secure/
-description: "Scanning, SBOMs, verification, security advisories, policy enforcement, and the compliance evidence Chainguard Containers carry."
+description: "Scanning, SBOMs, verification, security advisories, policy enforcement, and the compliance evidence that Chainguard's container images carry."
 type: "article"
 date: 2024-12-19T08:49:15+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 images: []
 weight: 90

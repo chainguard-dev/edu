@@ -5,7 +5,7 @@ lead: "Overview of Chainguard's package repositories, highlighting the different
 description: "Overview of Chainguard's package repositories, highlighting the different repositories and how to access them."
 type: "article"
 date: 2025-10-09T00:00:00Z
-lastmod: 2026-10-02T13:51:55+00:00
+lastmod: 2026-10-08T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers", "Overview", "Product"]
 images: []
@@ -15,7 +15,7 @@ aliases:
 - /chainguard/containers/features/packages/package-model/
 ---
 
-Chainguard Containers are built using packages from the Wolfi and Chainguard OS Linux distributions. If you need to extend or customize an image, it can be useful to access these packages directly.
+Chainguard's container images are built using packages from the Wolfi and Chainguard OS Linux distributions. If you need to extend or customize an image, it can be useful to access these packages directly.
 
 Chainguard offers curated package repositories to support containerized workloads and simplify dependency management. These repositories ensure you can access trusted packages — whether building custom container images, working with Chainguard OS, or using Chainguard Containers in production.
 
@@ -32,7 +32,7 @@ Additionally, Chainguard customers have access to a Private APK Repository speci
 
 > **Note**: Be aware that SLAs apply to container images, not individual packages.
 
-Chainguard Containers are designed to run apk packages, a package format developed for [Alpine Linux](https://www.alpinelinux.org/). Accordingly, Chainguard's package repositories contain apk packages, and you can interact with them using the standard [`apk` commands](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html). Chainguard maintains the packages within all of these package repositories.
+Chainguard's container images are designed to run apk packages, a package format developed for [Alpine Linux](https://www.alpinelinux.org/). Accordingly, Chainguard's package repositories contain apk packages, and you can interact with them using the standard [`apk` commands](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html). Chainguard maintains the packages within all of these package repositories.
 
 The following table presents a high-level overview of these package repositories:
 
@@ -107,7 +107,7 @@ You must replace `$ORGANIZATION_ID` with your organization's `ID` value, not its
 
 You can also find this in the [Chainguard Console](https://console.chainguard.dev/). After logging in, open the **Settings** tab. There, you'll find your organization's identifier under **Organization UID**. Be aware that these repository URLs **will not** resolve properly if you include the name of your organization instead of the UID.
 
-For any of your organization's Chainguard Containers that include the APK package manager, these repositories are included by default. You can also add them to the `/etc/apk/repositories` file of any container that uses APK. Our guide on [How to pull packages from Chainguard package repositories through Artifactory](/chainguard/containers/registry/pull-through-guides/artifactory-packages-pull-through/#configuring-pull-through-caches-for-chainguards-public-repositories) includes directions for setting up pull-through caches for these repositories on Artifactory.
+For any of your organization's container images that include the APK package manager, these repositories are included by default. You can also add them to the `/etc/apk/repositories` file of any container that uses APK. Our guide on [How to pull packages from Chainguard package repositories through Artifactory](/chainguard/containers/registry/pull-through-guides/artifactory-packages-pull-through/#configuring-pull-through-caches-for-chainguards-public-repositories) includes directions for setting up pull-through caches for these repositories on Artifactory.
 
 ### Package retention in public repositories
 

@@ -7,7 +7,7 @@ lead: "An apk builder tool"
 type: "article"
 description: "melange is a declarative apk builder"
 date: 2022-07-21T15:21:01+02:00
-lastmod: 2026-10-02T13:51:55+00:00
+lastmod: 2026-10-08T14:39:07+00:00
 draft: false
 tags: ["melange", "Procedural"]
 images: []
@@ -20,7 +20,7 @@ toc: true
 
 [melange](https://github.com/chainguard-dev/melange) is an [apk](https://wiki.alpinelinux.org/wiki/Package_management) builder tool that uses declarative pipelines to create apk packages. From a single YAML file, users are able to generate multi-architecture apks that can be injected directly into [apko](https://github.com/chainguard-dev/apko) builds.
 
-Understanding melange can help you better understand the [Wolfi](/open-source/wolfi/) operating system and how [Chainguard Containers](/chainguard/containers/) are made to be minimal and secure, but it is not necessary to have a background in melange in order to use Chainguard Containers.
+Understanding melange can help you better understand the [Wolfi](/open-source/wolfi/) operating system and how [Chainguard's container images](/chainguard/containers/) are made to be minimal and secure, but it is not necessary to have a background in melange in order to use Chainguard Containers.
 
 In this guide, you'll learn how to build a software package with melange. To demonstrate the versatile combination of melange and apko builds, we'll package a small command-line PHP script and build a minimalist container image based on Wolfi with the generated apk. All files used in this demo are open source and available at the [melange-php-demos](https://github.com/chainguard-dev/melange-php-demos/tree/main/hello-minicli) repository.
 

@@ -1,10 +1,10 @@
 ---
 title: "CMMC at Chainguard"
-description: "Chainguard Containers reduce the time and effort for establishing CMMC 2.0 compliance"
-lead: "Chainguard Containers reduce the time and effort for establishing CMMC 2.0 compliance"
+description: "Chainguard Containers reduces the time and effort for establishing CMMC 2.0 compliance"
+lead: "Chainguard Containers reduces the time and effort for establishing CMMC 2.0 compliance"
 type: "article"
 date: 2024-08-09T19:10:09+00:00
-lastmod: 2026-10-02T12:53:50+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 contributors: []
 draft: false
 aliases:

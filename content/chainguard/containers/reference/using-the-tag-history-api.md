@@ -11,7 +11,7 @@ aliases:
 type: "article"
 description: "Learn how to use the Chainguard Containers Tag History API to fetch the tag history of image variants."
 date: 2023-05-26T08:49:31+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -22,7 +22,7 @@ weight: 40
 toc: true
 ---
 
-Chainguard Containers have automated nightly builds, which ensures our container images are always fresh including any recent patches and updated software. Even though it is important to keep your base images always updated, there will be situations where you'll want to keep using an older build to make sure nothing will change in your container environment until you feel it's safe to update.
+Chainguard Containers has automated nightly builds, which ensures our container images are always fresh including any recent patches and updated software. Even though it is important to keep your base images always updated, there will be situations where you'll want to keep using an older build to make sure nothing will change in your container environment until you feel it's safe to update.
 
 For cases like this, it is useful to point your Dockerfile to use a specific **container image digest** as base image.
 
