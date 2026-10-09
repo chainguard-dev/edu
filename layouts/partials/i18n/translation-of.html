@@ -1,0 +1,15 @@
+{{- /*
+  Returns a page's translation in the given language, or the page itself when
+  no translation exists.
+
+  Context: a dict with
+    page - the page to look up
+    lang - a language key, such as "pt-br"
+*/ -}}
+{{- $result := .page -}}
+{{- if ne .page.Language.Lang .lang -}}
+  {{- range where .page.Translations "Language.Lang" .lang -}}
+    {{- $result = . -}}
+  {{- end -}}
+{{- end -}}
+{{- return $result -}}

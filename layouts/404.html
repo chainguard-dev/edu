@@ -10,11 +10,11 @@
         justify-content: center;
       "
     >
-      <h1 class="text-center">Oh no, a missing page!</h1>
+      <h1 class="text-center">{{ T "not_found" }}</h1>
       <div class="docs-navigation docs-navigation-summary">
         <a
           class="docs-navigation-button docs-navigation-button-previous"
-          href="/"
+          href="{{ site.Home.RelPermalink }}"
           style="margin: auto"
         >
           <div class="chevron-rotator">
@@ -31,7 +31,7 @@
               ></path>
             </svg>
           </div>
-          <span>Home&nbsp;&nbsp;</span>
+          <span>{{ T "home" }}&nbsp;&nbsp;</span>
         </a>
       </div>
     </article>
