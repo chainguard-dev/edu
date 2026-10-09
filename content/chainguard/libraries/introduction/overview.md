@@ -6,7 +6,7 @@ description: "Learn about Chainguard Libraries, providing enhanced security for
     comprehensive supply chain protection."
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-10-09T17:17:40+00:00
+lastmod: 2026-10-09T17:42:18+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 menu:
@@ -30,8 +30,6 @@ As frontier coding models advance, attackers are creating more sophisticated
 social engineering campaigns and malware injections to exfiltrate enterprise
 secrets. Chainguard Libraries prevents malware instead of making developers
 pause work, triage incidents, and respond after compromise.
-
-{{% blurb/athena %}}
 
 ## Background
 
@@ -122,6 +120,10 @@ To move an existing project over, follow the migration guide for
 [Java](/chainguard/libraries/java/migration/),
 [JavaScript](/chainguard/libraries/javascript/migration/), or
 [Python](/chainguard/libraries/python/migration/).
+
+## CVE remediation
+
+{{% blurb/athena %}}
 
 ## Chainguard criteria for building a library
 

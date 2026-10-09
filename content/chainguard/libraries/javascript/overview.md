@@ -6,7 +6,7 @@ aliases:
 description: "JavaScript libraries for your application development"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-10-09T17:17:40+00:00
+lastmod: 2026-10-09T17:42:18+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript", "Overview"]
 menu:
@@ -33,8 +33,6 @@ These libraries can also be consumed through the [Chainguard
 Repository](/chainguard/libraries/javascript/overview/), which provides a
 single endpoint for package retrieval and supports configurable security
 policies for both Chainguard-built and upstream packages.
-
-{{% blurb/athena %}}
 
 ## Background
 
@@ -92,6 +90,10 @@ We recommend configuring the Chainguard Repository (or a repository manager that
 You can continue to use additional registries alongside Chainguard for needs outside this scope, such as your own private or scoped packages from npm or another internal registry.
 
 Configure this endpoint [globally through a repository manager](/chainguard/libraries/javascript/global-configuration/) for centralized access control across your organization, or use it for [direct access](/chainguard/libraries/javascript/build-configuration/) from individual build tools. If you prefer to manage your own npm fallback rather than using the built-in upstream fallback, refer to the [global configuration documentation](/chainguard/libraries/javascript/global-configuration/) for setup guides per repository manager.
+
+## CVE remediation
+
+{{% blurb/athena %}}
 
 ## Updating lockfile hashes
 
