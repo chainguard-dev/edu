@@ -128,7 +128,7 @@ The tags named in the message aren't rebuilt until you resolve the refusal. A ta
 
 * For the wrapper version reason, remove the `guarded-entrypoint` or `guarded-entrypoint-fips` pin from the repo's `contents.packages` list.
 * Turn off Guarded Entrypoint for the repo. See [Turn off Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/#turn-off-guarded-entrypoint).
-* With tag-based Custom Assembly, bind the overlay that sets `guarded_entrypoint` only to the tags that Chainguard doesn't refuse.
+* With Custom Assembly Overlays, bind the overlay that sets `guarded_entrypoint` only to the tags that Chainguard doesn't refuse.
 
 To check ahead of time whether an image is supported, see the [lists of supported and refused entrypoints](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#supported-and-refused-entrypoints).
 
