@@ -1,5 +1,5 @@
 ---
-date: 2026-09-29T17:51:01Z
+date: 2026-10-08T18:22:10Z
 title: "chainctl images overlays list"
 slug: chainctl_images_overlays_list
 url: /platform/chainctl/chainctl-docs/chainctl_images_overlays_list/
@@ -38,7 +38,7 @@ chainctl images overlays list [flags]
 
 ```
   -o, --output string   Output format: text or json. (default "text")
-      --parent string   Parent group name or UIDP to list overlays and bindings under.
+      --parent string   Parent group name or UIDP to list overlays and bindings under. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
 ```
 
 ### Options inherited from parent commands

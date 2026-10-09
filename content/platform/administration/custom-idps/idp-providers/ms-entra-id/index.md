@@ -10,7 +10,7 @@ lead: ""
 description: "Procedural tutorial on how to register a Microsoft Entra ID application and integrate it with the Chainguard platform."
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-02T14:38:42+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -59,6 +59,8 @@ By default, any user in your tenant can authenticate through this application. T
 3. Under **Users and groups**, assign the users or groups you want to have access.
 
 Users can't log in to Chainguard unless they have access to the application, so grant access before directing them to log in.
+
+If you plan to [grant Chainguard roles from Entra ID groups](/platform/administration/custom-idps/grant-roles-from-groups/) and limit the groups claim to groups assigned to the application, the groups you assign here also control which groups appear in users' tokens. For details, refer to [Microsoft Entra ID](/platform/administration/custom-idps/grant-roles-from-groups/#microsoft-entra-id) in that guide.
 
 ## Configure Chainguard to use Microsoft Entra ID
 
@@ -119,6 +121,10 @@ Pass `--oidc-additional-scopes` once per scope; comma-separating the scopes does
 The `--default-role` option defines the default role granted to users registering with this identity provider. This example specifies the `viewer` role, but depending on your needs you might choose `editor` or `owner`. If you don't include this option, `chainctl` prompts you to specify the role interactively. For more information, refer to the [IAM and security section](/platform/administration/custom-idps/custom-idps/#iam-and-security) of our Introduction to Custom Identity Providers in Chainguard tutorial.
 
 You can refer to our [Generic integration guide](/platform/administration/custom-idps/custom-idps/#generic-integration-guide) in our Introduction to Custom Identity Providers doc for more information about the `chainctl iam identity-providers create` command and its required options.
+
+### Send a usable email claim
+
+Chainguard reads the standard `email` claim from the token Entra ID issues. Entra populates `email` from the user's `mail` attribute and omits the claim when that attribute is unset — common in tenants where users have no mailbox. Because `email` is one of Microsoft's [restricted claims](https://learn.microsoft.com/en-us/entra/identity-platform/reference-claims-customization#json-web-token-jwt-restricted-claim-set), you can't re-point it to another attribute such as `userPrincipalName` with a claims-mapping policy; the value has to come from `mail`. Set a `mail` attribute on the affected users so Entra includes the claim. Note that `mail` is a shared directory attribute other systems read, so prefer a real mailbox where one exists; a placeholder set only for this is stored by Chainguard as unverified, which is harmless here because the address is used only for display and the support-portal lookup. See [Required token claims](/platform/administration/custom-idps/custom-idps/#required-token-claims) for the full requirement.
 
 ## Log in to Chainguard with the Entra ID identity provider
 

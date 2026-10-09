@@ -1,5 +1,5 @@
 ---
-date: 2026-09-29T17:51:01Z
+date: 2026-10-08T18:22:10Z
 title: "chainctl iam identities delete"
 slug: chainctl_iam_identities_delete
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identities_delete/
@@ -12,6 +12,14 @@ toc: true
 ## chainctl iam identities delete
 
 Delete one or more identities.
+
+### Synopsis
+
+Delete one or more identities.
+
+Deleting a delegate stops every future exchange of its grants. Grants are
+stateless, so ones already minted for it are not revoked; they expire within
+60 minutes.
 
 ```
 chainctl iam identities delete {IDENTITY_NAME | IDENTITY_ID | --expired [--parent=PARENT]} [--yes]

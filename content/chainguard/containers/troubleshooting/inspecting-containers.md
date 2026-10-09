@@ -4,7 +4,7 @@ linktitle: "Inspecting containers"
 description: "How to identify exactly which container build you have with a digest, and how to read the software versions inside it from the container's SBOM"
 type: "article"
 date: 2023-07-07T15:21:01+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -129,7 +129,7 @@ glibc-2.44-2.44-r5.spdx.json
 . . .
 ```
 
-That works because `wolfi-base` includes a shell, and with it `ls`. Most Chainguard Containers are distroless and include neither. For those, run the `-dev` variant, which does have a shell:
+That works because `wolfi-base` includes a shell, and with it `ls`. Most of Chainguard's container images are distroless and include neither. For those, run the `-dev` variant, which does have a shell:
 
 ```sh
 docker run --entrypoint /bin/sh cgr.dev/chainguard/python:latest-dev -c "ls /var/lib/db/sbom"

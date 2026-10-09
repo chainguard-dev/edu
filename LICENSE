@@ -1,6 +1,13 @@
-Content license: 
-Copyright (c) 2022-present, Chainguard, Inc.; 
+Content license:
+Copyright (c) 2022-present, Chainguard, Inc.;
 [CC-BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
+The content license doesn't cover the agent skills in `.agents/skills/`.
+Each skill's directory holds a LICENSE file with its terms and a NOTICE file
+with its sources. The skills Chainguard wrote use the Apache License 2.0,
+matching Chainguard's official skills at
+https://github.com/chainguard-dev/cg-skills. writing-clearly-and-concisely
+keeps the MIT License of the skill it derives from.
 
 
 MIT License

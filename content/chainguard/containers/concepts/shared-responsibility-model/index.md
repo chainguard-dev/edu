@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "Reference guide outlining Chainguard's shared responsibility model: a framework that clarifies security obligations for hardened container images."
 date: 2024-10-17T11:07:52+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:28:09+00:00
 draft: false
 tags: ["Conceptual", "Chainguard Containers"]
 images: []
@@ -74,7 +74,7 @@ Upstream projects are responsible for patching supported releases in a timely ma
 
 Upstream projects are responsible for defining conformance criteria and establishing conformance benchmarks (such as [Java TCK](https://www.chainguard.dev/unchained/chainguards-openjdk-java-images-are-now-jck-conformant), [Kubernetes Conformance](https://github.com/cncf/k8s-conformance/blob/master/instructions.md), [Knative Conformance](https://github.com/knative/specs)) that clearly outline the criteria for a downstream distribution to represent itself as a "conformant" distribution of the software.
 
-Chainguard is responsible for producing conformant distributions of upstream applications; where the upstream project does not define conformance criteria Chainguard is responsible for using its discretion in validating the functionality of the application and (within reason) accepting scenarios from Customers to run as part of the Chainguard qualification process. Refer to our conceptual article on [How Chainguard container images are tested](/chainguard/containers/concepts/how-we-build-and-test/images-testing/) for more information.
+Chainguard is responsible for producing conformant distributions of upstream applications; where the upstream project does not define conformance criteria Chainguard is responsible for using its discretion in validating the functionality of the application and (within reason) accepting scenarios from Customers to run as part of the Chainguard qualification process. Refer to our conceptual article on [How Chainguard tests its container images](/chainguard/containers/concepts/how-we-build-and-test/images-testing/) for more information.
 
 Customers are responsible for ensuring that Chainguard-provided images cover all of their desired functionality, and partnering with Chainguard to ensure the requisite coverage is part of our qualification process if gaps are identified. Customers are responsible for testing all of their modifications to Chainguard container images and for responsibly rolling out Chainguard container images to ensure there are no regressions specific to their environment or usage.
 

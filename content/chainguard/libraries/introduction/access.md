@@ -4,7 +4,7 @@ linktitle: "Access"
 description: "Learn how to access Chainguard Libraries for enhanced security in Java and Python dependencies, including authentication and organization setup"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-05T00:00:00+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -52,9 +52,12 @@ workstation, which creates more overhead as you scale across teams and projects.
 Both approaches require pull tokens for authentication; refer to [Pull token
 characteristics and use](#pull-token-characteristics-and-use) for more information.
 
-> NOTE: For Python users, the [Chainguard keyring
-provider](#python-keyring-provider) uses short-lived credentials and is the
-preferred method where your environment supports it.
+{{< note >}}
+For Python users, the [Chainguard keyring
+provider](/chainguard/libraries/introduction/access/#python-keyring-provider)
+uses short-lived credentials and is the preferred method where your
+environment supports it.
+{{< /note >}}
 
 ### Initial authentication
 
@@ -142,8 +145,8 @@ Chainguard console:
 1. Use your authentication details to access the console at
   [https://console.chainguard.dev/](https://console.chainguard.dev/).
 2. In the left-hand navigation, click **Overview**.
-3. Click the **Manage pull tokens** tab, then click **Create access token**.
-    - Alternatively, select **Access Tokens** from the menu at the top of the
+3. Click the **Manage pull tokens** link, then click **Create token**.
+    - Alternatively, select **Access Tokens** from the menu on the
       **Settings** page.
 4. Configure the access token:
     - **Name**: Provide a name. The name can later be used to locate the token
@@ -153,9 +156,9 @@ Chainguard console:
     - **Expiration**: Set an expiration date for the token. The default is 30
       days.
 5. Click **Create token**.
-6. When the username and password values are displayed, note these values in a
-   secure location, as you will need them for pull token use. These values will
-   not be displayed again.
+6. When the username and password values are displayed, save them in a secure
+   location. You need them to use the pull token, and the console doesn't
+   display them again.
 
 ## Pull token characteristics and use
 
@@ -176,10 +179,12 @@ direct access to Chainguard Libraries.
 To use the pull token in another environment, supply the username and password
 for basic authentication. Note that the actual returned values are much longer.
 
-> **Note**: Chainguard does not offer an SLA for uptime availability of the
-> Chainguard Libraries repositories at `libraries.cgr.dev`. To reduce production
-> risk and ensure reliability, we recommend proxying the repositories through
-> your own artifact repository whenever possible.
+{{< note >}}
+Chainguard does not offer an SLA for uptime availability of the
+Chainguard Libraries repositories at `libraries.cgr.dev`. To reduce production
+risk and ensure reliability, we recommend proxying the repositories through
+your own artifact repository whenever possible.
+{{< /note >}}
 
 For artifact manager setup, see the global configuration guides:
 
@@ -398,20 +403,21 @@ Inspect all pull tokens for your organization in the Chainguard console:
 - Use your authentication details to access the console at
   [https://console.chainguard.dev/](https://console.chainguard.dev/).
 - Select **Overview** in the left-hand navigation.
-- Select the **Manage pull tokens** tab.
+- Select the **Manage pull tokens** link.
     - Alternatively, select **Settings** in the left-hand navigation, and select
-    **Pull Tokens** in the menu on the settings page.
+    **Access Tokens** in the menu on the settings page.
 
 The list includes the following columns:
 
-- **Name** - the name of the pull token, expired pull token are identified by a
-  red **Expired** warning.
-- **Description** - the description of the pull token
-- **Created** - the date when the pull token was created
+- **Name** - the name of the pull token. Expired pull tokens show an
+  **Expired** warning.
+- **Description** - the description of the pull token.
+- **Access** - what the pull token can pull, such as **Java Libraries**.
+- **Created** - the date when the pull token was created.
 - **Expiration** - string description of the expiration status of the token,
   such as *in 8 months* or *4 days ago*.
-- **Actions** - menu button to perform actions on the pull token, only a Delete
-  action is available.
+- **Actions** - menu button to perform actions on the pull token: **Delete**
+  and **Edit**.
 
 Use the action to remove a pull token:
 

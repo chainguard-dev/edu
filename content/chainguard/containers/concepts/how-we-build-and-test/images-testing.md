@@ -1,5 +1,5 @@
 ---
-title: "How Chainguard Containers are tested"
+title: "How Chainguard tests its container images"
 linktitle: "How we test"
 aliases:
 - /chainguard/chainguard-images/images-testing/
@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "A conceptual article outlining testing requirements for Chainguard Containers."
 date: 2024-03-21T11:07:52+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Overview", "Chainguard Containers"]
 images: []
@@ -20,7 +20,7 @@ weight: 20
 toc: true
 ---
 
-Chainguard Containers are minimal, distroless container images that you can use to build and run secure applications. Given the importance of secure, highly performant images, Chainguard performs testing to ensure our container images match the functionality of upstream and other external counterparts.
+Chainguard Containers is a collection of minimal, distroless container images that you can use to build and run secure applications. Given the importance of secure, highly performant images, Chainguard performs testing to ensure our container images match the functionality of upstream and other external counterparts.
 
 This article provides a high-level overview of Chainguard's approach to testing when building new container images to ensure their security and consistency with comparable container images.
 

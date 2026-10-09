@@ -14,7 +14,7 @@ description: "An overview of the formation of false positive and false negative 
 lead: "An overview of the formation of false positive and false negative vulnerability results in container image scanners"
 type: "article"
 date: 2023-09-14T16:59:04+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 contributors: ["Michelle McAveety"]
 draft: false
 tags: ["CVE", "Overview", "Conceptual"]
@@ -26,7 +26,7 @@ weight: 10
 toc: true
 ---
 
-A *vulnerability scanner* is a tool that analyzes your software components and reports any [CVEs](/software-security/cves/cve-intro/) it finds. Using a vulnerability scanner to find CVEs that impact your system is a critical step in [software vulnerability remediation](/software-security/cves/cve-remediation/), but as you begin to triage scanner-reported vulnerabilities, you may find that your scanner's results are not perfectly accurate.
+A *vulnerability scanner* is a tool that analyzes your software components and reports any [CVEs](https://www.chainguard.dev/supply-chain-security-101/what-is-a-cve) it finds. Using a vulnerability scanner to find CVEs that impact your system is a critical step in [software vulnerability remediation](https://www.chainguard.dev/supply-chain-security-101/cve-remediation-explained), but as you begin to triage scanner-reported vulnerabilities, you may find that your scanner's results are not perfectly accurate.
 
 The goal of a vulnerability scanner is to identify the vulnerabilities that impact your container images, which can be considered *true positive vulnerabilities*. Sometimes, a scanner surfaces CVEs which are not actually impacting your images, which are called *false positive vulnerabilities*. Your scanner may even miss some vulnerabilities that are impacting you, termed *false negative vulnerabilities*.
 
@@ -34,7 +34,7 @@ The presence of false positive and negative vulnerabilities can add a tricky lay
 
 This article aims to explain the formation of false positive and false negative vulnerabilities, allowing you to better understand what they mean, how they impact you, and how you can use tools to fine-tune your scanner to improve the accuracy of your scan results.
 
-> To learn more about why scan results may differ between your scanner and the Chainguard Console, refer to [the support article "Understanding Vulnerability Scanner Discrepancies with Chainguard Images."](https://support.chainguard.dev/hc/en-us/articles/49564106705819-Understanding-Vulnerability-Scanner-Discrepancies-with-Chainguard-Images)
+> If a Chainguard advisory or the Chainguard Console says a CVE is fixed but your scanner still reports it, see [Resolve a scanner finding for a CVE Chainguard has fixed](/chainguard/containers/security-and-compliance/vulnerability-management/scanner-flags-fixed-cve/). For more about why scan results can differ between your scanner and the Chainguard Console, refer to [the support article "Understanding Vulnerability Scanner Discrepancies with Chainguard Images."](https://support.chainguard.dev/hc/en-us/articles/49564106705819-Understanding-Vulnerability-Scanner-Discrepancies-with-Chainguard-Images)
 
 ## How false positives and false negatives occur
 
@@ -83,13 +83,17 @@ When a scanner cannot map `(devel)` to a concrete module version, it may be unab
 #### How to investigate a `(devel)` result
 
 1. Confirm the component name, module path, and component type in the scanner or SBOM output.
-2. Confirm that the finding is a Go module or binary component, not an APK package with a similar name.
-3. Inspect the binary’s embedded Go build metadata, or the build configuration that produced it, to determine whether a release or commit version is available.
-4. Compare the scanner’s affected and fixed-version ranges with the source revision or release used to build the binary.
-5. Rebuild with version metadata when possible, then regenerate the SBOM and rescan.
-6. If the scanner still reports the CVEs, provide the image digest, binary or module name, reported `(devel)` version, scanner and database versions, and the relevant scan output when requesting support.
+2. Find the file where the scanner found the binary, and check whether a Chainguard package owns it, as described in [When the finding is a Go module or Java dependency](/chainguard/containers/security-and-compliance/vulnerability-management/cve-status/#when-the-finding-is-a-go-module-or-java-dependency).
 
-Do not use `chainctl images advisories list` to validate this finding; that command checks APK packages only. For a Go-module finding, use the scanner’s language-package evidence and the dependency’s upstream advisory data.
+If a Chainguard package ships the binary, Chainguard records the binary's vulnerabilities against that package. For example, the Go toolchain binaries in the earlier output belong to a Go package such as `go-1.27`. Check that package's advisories with `chainctl images advisories list`, and compare its installed version with the fixed version, as described in [Components that a Chainguard package ships](/chainguard/containers/security-and-compliance/vulnerability-management/cve-status/#components-that-a-chainguard-package-ships).
+
+If your own build added the binary, Chainguard's advisories don't cover it. Investigate its version metadata instead:
+
+1. Inspect the binary’s embedded Go build metadata, or the build configuration that produced it, to determine whether a release or commit version is available.
+2. Compare the scanner’s affected and fixed-version ranges with the source revision or release used to build the binary.
+3. Rebuild with version metadata when possible, then regenerate the SBOM and rescan.
+
+If the scanner still reports the CVEs, provide the image digest, binary or module name, reported `(devel)` version, scanner and database versions, and the relevant scan output when requesting support.
 
 ### SCA vs SAST tools
 
@@ -114,7 +118,7 @@ Unfortunately, there is no single way to stop false positives and false negative
 
 ### SBOMs, purls, and VEX
 
-An SBOM, or [Software bill of materials](/open-source/sbom/what-is-an-sbom/), is a helpful document that catalogs the packages and components of your software in a machine-readable format. Using an SBOM can improve your vulnerability scans as package information is stored in one place, so scanners don't have to hunt down and risk missing component information throughout your software. There are [different ways to generate an SBOM](/open-source/sbom/what-makes-a-good-sbom/) in order to improve their comprehensiveness and utility.
+An SBOM, or [Software bill of materials](https://www.chainguard.dev/supply-chain-security-101/what-is-an-sbom), is a helpful document that catalogs the packages and components of your software in a machine-readable format. Using an SBOM can improve your vulnerability scans as package information is stored in one place, so scanners don't have to hunt down and risk missing component information throughout your software. There are [different ways to generate an SBOM](https://www.chainguard.dev/supply-chain-security-101/what-is-an-sbom) in order to improve their comprehensiveness and utility.
 
 To address the inconsistencies caused by software vendors using proprietary version naming schemes, adopting the [purl specification](https://github.com/package-url/purl-spec) can help. A purl, or package URL, aims to standardize versioning by outlining a convention that incorporates pertinent package information in every identifier. Using purls can [reduce the number of false positives which surface](https://www.chainguard.dev/unchained/a-purl-of-wisdom-on-sboms-and-vulnerabilities?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) by making it easier for scanners to align version information between data sources.
 
@@ -126,7 +130,7 @@ One way to leverage VEX documents is through [OpenVEX](https://github.com/openve
 
 A primary cause of large vulnerability counts reported in scanners is the dead weight caused by unnecessary dependencies. Many popular container images contain hundreds of packages, each with their own potential to introduce vulnerabilities, both true and false positives. Having so much noise to sift through draws out the vulnerability management process.
 
-[Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement), built on the [Wolfi un-distro](/open-source/wolfi/), can help you reduce your CVE count dramatically by keeping things minimal. By bundling only what is necessary to run the image, Chainguard Containers are hardened and lightweight in comparison to their counterparts. To learn more about how Chainguard Containers can help you achieve low (or zero!) CVEs in your containers, check out our [documentation](/chainguard/containers/overview/).
+[Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement), built on the [Wolfi un-distro](/open-source/wolfi/), can help you reduce your CVE count dramatically by keeping things minimal. By bundling only what is necessary to run the image, Chainguard's container images are hardened and lightweight in comparison to their counterparts. To learn more about how Chainguard Containers can help you achieve low (or zero!) CVEs in your containers, check out our [documentation](/chainguard/containers/overview/).
 
 ### Updating and rebuilding images
 
@@ -138,4 +142,4 @@ With false results mixed into your scans, triaging and addressing true positive 
 
 In this article, you learned how false results from your vulnerability scanners can occur, and how they can impact your development workflow. Additionally, you explored various ways you can improve the accuracy of your scanner through the application of tools like VEX, rebuilding your images, and choosing a base image suitable for your applications.
 
-To learn more about reducing false positives and negatives in your images, you can check out our [collection of articles on SBOMs and VEX](/open-source/sbom/), read about [selecting a base image](/software-security/selecting-a-base-image/) for your applications, or discover how Chainguard Containers can help you [reach zero CVEs in your containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
+To learn more about reducing false positives and negatives in your images, you can check out our [collection of articles on SBOMs and VEX](/open-source/sbom/), read about [selecting a base image](https://www.chainguard.dev/supply-chain-security-101/selecting-a-base-container-image) for your applications, or discover how Chainguard Containers can help you [reach zero CVEs in your containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).

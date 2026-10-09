@@ -1,5 +1,5 @@
 ---
-date: 2026-09-29T17:51:01Z
+date: 2026-10-08T18:22:10Z
 title: "chainctl iam identities create"
 slug: chainctl_iam_identities_create
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identities_create/
@@ -72,6 +72,7 @@ chainctl iam identities create NAME {--filename FILE | {--identity-issuer=ISS | 
 
 * [chainctl iam identities](/platform/chainctl/chainctl-docs/chainctl_iam_identities/)	 - Identity management.
 * [chainctl iam identities create aws](/platform/chainctl/chainctl-docs/chainctl_iam_identities_create_aws/)	 - Create a new identity for an AWS IAM resource.
+* [chainctl iam identities create delegate](/platform/chainctl/chainctl-docs/chainctl_iam_identities_create_delegate/)	 - Create a delegate: an identity that acts only on grants you mint for it.
 * [chainctl iam identities create github](/platform/chainctl/chainctl-docs/chainctl_iam_identities_create_github/)	 - 
 * [chainctl iam identities create gitlab](/platform/chainctl/chainctl-docs/chainctl_iam_identities_create_gitlab/)	 - 
 

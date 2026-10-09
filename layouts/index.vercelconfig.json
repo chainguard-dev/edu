@@ -1,0 +1,37 @@
+{{- /*
+Builds the Build Output API configuration for the chainguard-docs-preview
+Vercel project. scripts/build-vercel.sh moves it to .vercel/output/config.json.
+vercel.json cannot carry these routes: Vercel reads it before the build runs.
+
+The routes reproduce production nginx, in the order nginx applies them:
+
+1. Every redirect rule from layouts/partials/redirect-rules.html, as a 301. A
+   route matches the path without the query string, and Vercel carries the
+   query over to the Location, which is what nginx does.
+
+2. The trailing-slash redirect. nginx adds the slash only when the path is a
+   directory, which a route cannot test, so here a missing path is redirected
+   too and then answers 404. Every real directory behaves as in production.
+   This runs before the filesystem, because Vercel otherwise serves a
+   directory's index.html without the slash.
+
+3. The filesystem, then /page.md served from /page/index.md, then the 404 page.
+
+Routes stop at the first match. Response headers come from vercel.json, which
+Vercel applies to every response, redirects included.
+*/ -}}
+{{- $routes := slice -}}
+{{- range partial "redirect-rules.html" . -}}
+{{- $routes = $routes | append (dict
+  "src" .regex
+  "caseSensitive" .caseSensitive
+  "status" 301
+  "headers" (dict "Location" .target)) -}}
+{{- end -}}
+{{- $routes = $routes | append
+  (dict "src" `^([^.]*[^/])$` "status" 301 "headers" (dict "Location" "$1/"))
+  (dict "handle" "filesystem")
+  (dict "src" `^(.+)\.md$` "dest" "$1/index.md" "check" true)
+  (dict "handle" "error")
+  (dict "src" `^/.*$` "status" 404 "dest" "/404.html") -}}
+{{- dict "version" 3 "routes" $routes | jsonify (dict "indent" "  ") -}}

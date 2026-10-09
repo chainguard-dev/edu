@@ -11,7 +11,7 @@ aliases:
 type: "article"
 description: "Tutorial outlining how to set up a remote Artifactory repository to pull images through Chainguard's container registry."
 date: 2024-02-13T15:56:52-07:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -86,7 +86,7 @@ Be sure the `docker pull` command you run includes the name of your project as w
 
 ## Setting up Artifactory as a pull-through cache for production containers
 
-Production Chainguard Containers are enterprise-ready container images that come with patch Service Level Agreements (SLAs) and features such as [Federal Information Processing Standard](/platform/fips/fips-images/) (FIPS) readiness. The process for setting up an Artifactory repository that you can use as a pull-through cache for Chainguard Production Containers is similar to the one outlined previously for Free Containers, but with a few extra steps.
+Chainguard's Production images are enterprise-ready container images that come with patch Service Level Agreements (SLAs) and features such as [Federal Information Processing Standard](/platform/fips/fips-images/) (FIPS) readiness. The process for setting up an Artifactory repository that you can use as a pull-through cache for Chainguard Production Containers is similar to the one outlined previously for Free Containers, but with a few extra steps.
 
 To get started, create [a pull token](/chainguard/containers/registry/authenticating/#authenticating-with-a-pull-token) for your organization's registry. Pull tokens are longer-lived tokens that can be used to pull Chainguard Containers from other environments that don't support OIDC, such as some CI environments, Kubernetes clusters, or registry mirroring tools like Artifactory.
 

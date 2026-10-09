@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-07T19:24:46+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -24,6 +24,31 @@ This guide walks through migrating an existing Python project to Chainguard Libr
 To follow along with a ready-made project instead of your own, use the [Chainguard Libraries for Python demo repository](https://github.com/chainguard-demo/chainguard-libraries-python). It provides example projects for pip, uv, and Poetry, each with a `demo.sh` script that configures access and installs sample packages.
 
 For a reference of the configuration options for each supported build tool, check out [Configure Python build tools](/chainguard/libraries/python/build-configuration/).
+
+## Prepare for migration
+
+A Python migration is more than changing an index URL; the application code usually stays the same, but dependency resolution can change because Python packages are distributed as different artifacts for different operating systems, Python versions, CPU architectures, and C libraries.
+
+Plan for the following possible friction patterns:
+
+* The Chainguard catalog may not have every package, version, or wheel variant in an existing lockfile.
+    * Learn more under [Troubleshooting: Handling coverage gaps](#handling-coverage-gaps).
+* A dependency may be available for Linux but not for macOS, Windows, Alpine, or a particular Python/architecture combination.
+* A lockfile generated against PyPI contains hashes and artifact URLs that do not match Chainguard-built artifacts.
+* CI needs an authentication model that is safe for unattended builds and compatible with the package manager and repository topology.
+
+### Pre-migration readiness check
+
+Before changing the index, record the dependency and environment matrix that the migration must support:
+
+* Python versions used in development, CI, and production
+* Operating systems and CPU architectures used by developers, CI runners, build images, and deployment jobs
+* The package manager and lockfile format used by each job: `pip`, `uv`, Poetry, or another supported tool
+* Direct dependencies and improtant transitive dependencies that include native code, GPU support, platform markers, or compiled extensions
+* Whether the project uses hash-pinned requirements or lockfiles
+* Where package caches exist: local machines, CI caches, repository managers, Docker layers, and base images
+
+Run the existing build successfully before making changes. Keep the baseline dependency versions and record the commands used to install, test, and package the project. This gives your team a comparison point when a migration failure is caused by source selection, an artifact mismatch, or an unrelated dependency change.
 
 ## Prerequisites
 
@@ -532,6 +557,22 @@ pip install -vvv <package> 2>&1 | grep -B2 -A2 "credentials\|40[13]"
 ### A pinned dependency shows "not verified" after running `chainctl libraries verify`
 
 Check your install output for a local wheel build (`Building wheel for <package>`), which indicates Chainguard has only a source distribution for that specific pinned version.
+
+### Handling coverage gaps
+
+Coverage gaps can occur at more than one level. For example, a package name may not be present in the Chainguard catalog, the pinned version may not be available, a wheel may. be available for Linux but not for macOS or Windows, or a transitive dependency introduced by a version change may have different coverage from the direct dependency that caused the change.
+
+Do not use a single successful install as proof that the migration is complete. Test each environment that installs the project.
+
+A direct dependency can resolve successfully while one of its transitive dependencies, optional extras, or platform-specific wheels comes from upstream fallback. The reverse can also happen: the direct package may use fallback while its transitive dependencies are available as Chainguard-built artifacts. Evaluate the resolved artifact set, not only the names in `pyproject.toml` or `requirements.in`.
+
+Choose how to handle coverage gaps:
+
+* Confirm whether the failure is authentication or coverage. A 401/403 is an empty version list, and a genuine 404 has different causes.
+* Check the exact package version and wheel tags required by the failing environment.
+* If the artifact is not available from Chainguard, use the configured protected upstream fallback when policy allows it.
+* If the project cannot use fallback, choose a compatible version or move the install to a supported Linux environment only when that is an acceptable product decision.
+* Do not silently replace a package with a different version during migration; treat it as a separate depdendency change and test it separately.
 
 ## Next steps
 

@@ -13,7 +13,7 @@ aliases:
 type: "article"
 description: "Learn how to verify Chainguard Container signatures and attestations with Cosign for supply chain security, ensuring image authenticity and integrity"
 date: 2024-03-18T08:59:52-07:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -200,4 +200,4 @@ To avoid this problem, you could include either or both of the following `set` o
 
 To get up to speed with Sigstore, you can review the [Sigstore](/open-source/sigstore/) section of Chainguard Academy, visit the upstream [Sigstore Docs](https://docs.sigstore.dev/) site, and check out the [Sigstore organization on GitHub](https://github.com/sigstore). You can learn more about verifying software artifacts with Cosign by reading [How to verify file signatures with Cosign](/open-source/sigstore/cosign/how-to-verify-file-signatures-with-cosign/).
 
-Navigate to our [container images](/chainguard/containers/) landing page or [Getting started guides](https://edu.chainguard.dev/chainguard/containers/getting-started/) to understand more about Chainguard Containers and how they offer low-to-zero CVEs.
+Navigate to our [container images](/chainguard/containers/) landing page or [Getting started guides](https://edu.chainguard.dev/chainguard/containers/getting-started/) to understand more about Chainguard Containers and how its images offer low-to-zero CVEs.

@@ -43,6 +43,30 @@ When you open a pull request, describe how you tested the change so reviewers kn
 
 If you spot a major change, please file an [issue](https://github.com/chainguard-dev/edu/issues/new). For a minor change — a typo, or tooling with a newer package available — you're welcome to open a pull request for the team to review.
 
+### Writing with an AI agent
+
+If you use an AI agent to help write docs, this repository gives it the docs team's writing rules. Three agent skills live in `.agents/skills/`:
+
+- `writing-clearly-and-concisely` applies Strunk's rules for clear, concise prose and flags common AI writing patterns. It covers any text a human will read, including commit messages and pull request descriptions.
+- `written-style-guide` applies Chainguard's voice, tone, and product names. Its product names take precedence over the other guides.
+- `google-style` applies Google's developer documentation style to technical docs.
+
+You don't need to install anything. Claude Code, Codex, Cursor, GitHub Copilot, and Gemini CLI find the skills when you open this repository, and [`AGENTS.md`](AGENTS.md) tells them when to use each one. To confirm, ask your agent to list its skills.
+
+If you installed copies of these skills earlier, such as from a link the docs team shared, delete them from your personal skills directory. In Claude Code, a personal skill hides a repository skill with the same name, so your agent keeps using the old copy.
+
+To use the skills in other repositories too, ask your agent to install them. For example:
+
+```
+Copy the skills in .agents/skills/ from https://github.com/chainguard-dev/edu
+into my personal skills directory, then add the rules in its AGENTS.md to my
+personal agent instructions.
+```
+
+The personal skills directory is `~/.claude/skills/` for Claude Code and `~/.agents/skills/` for Codex, Cursor, GitHub Copilot, and Gemini CLI. Copies don't update themselves, and in Claude Code your copy takes precedence over this repository's, so refresh it when the skills change.
+
+An agent can speed up a draft, but a member of the docs team still reviews every pull request. To suggest a change to a skill, open a pull request.
+
 ### Date Format
 
 In each post's header, the date format should follow year-month-day as `YYYY-MM-DD`.

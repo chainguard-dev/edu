@@ -3,7 +3,7 @@ title: "Building a Wolfi package"
 type: "article"
 description: "A deep-dive into the process of getting a new package into Wolfi OS"
 date: 2023-08-21T08:49:31+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-02T13:51:55+00:00
 draft: false
 tags: ["Wolfi", "Procedural"]
 images: []
@@ -16,7 +16,7 @@ toc: true
 
 Wolfi is a Linux distro created specifically for building stripped-down container images that only include the essential packages needed to run applications in containers. This makes it more secure, as there are fewer potential attack vectors due to the reduced surface area.
 
-Thanks to a fine-tuned maintenance process combining top-notch automation and established best practices from maintainers, Wolfi packages are updated quickly. This ensures that Wolfi users get patches and latest versions of packages at a much faster pace than other distributions. Additionally, Wolfi includes a number of features that help to ensure the provenance and authenticity of packages. For example, all packages are built directly from source and signed with cryptographic signatures. This helps to prevent malicious code from being introduced into the system. Wolfi also provides a high-quality build-time [SBOM](https://edu.chainguard.dev/open-source/sbom/what-is-an-sbom/) as standard for all packages.
+Thanks to a fine-tuned maintenance process combining top-notch automation and established best practices from maintainers, Wolfi packages are updated quickly. This ensures that Wolfi users get patches and latest versions of packages at a much faster pace than other distributions. Additionally, Wolfi includes a number of features that help to ensure the provenance and authenticity of packages. For example, all packages are built directly from source and signed with cryptographic signatures. This helps to prevent malicious code from being introduced into the system. Wolfi also provides a high-quality build-time [SBOM](https://www.chainguard.dev/supply-chain-security-101/what-is-an-sbom) as standard for all packages.
 
 That being said, it's important to note that Wolfi is rather new; it just recently crossed the mark of 1,000 packages in the Wolfi OS repository. That means some packages that you would find in a more established distro won't be available yet in Wolfi. In this article, we'll cover the whole process involved in building a new Wolfi package, or how a Wolfi package comes to be.
 
@@ -473,4 +473,4 @@ The [Wolfi Contributing Guide](https://github.com/wolfi-dev/os/blob/main/CONTRIB
 
 If you haven't yet, check the [Wolfi PHP package source file](https://github.com/wolfi-dev/os/blob/main/php-8.2.yaml) for a more comprehensive view of the melange YAML structure and how that looks in a more complex build.
 
-If you'd like to learn more about Wolfi, check the [documentation](https://edu.chainguard.dev/open-source/wolfi/overview/) and [FAQ](https://edu.chainguard.dev/open-source/wolfi/faq/) for more details about the ecosystem surrounding it.
+To learn more about Wolfi and the ecosystem around it, read [What is Wolfi?](https://www.chainguard.dev/supply-chain-security-101/wolfi-overview) and the rest of the [Wolfi documentation](/open-source/wolfi/).

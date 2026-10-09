@@ -3,7 +3,7 @@
     "schemas": {
       "chainguard.capabilities.Capability": {
         "default": "UNKNOWN",
-        "description": "Capability is an enumeration of the Chainguard IAM capabilities.\n\n - CAP_TENANT_VULN_REPORTS_LIST: TODO(colin): deprecate this cap once the legacy endpoint is removed\n - CAP_REPO_BLOBS_GET: repo.blobs.get is a capability required to pull container images.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with images vs pulling the image itself.\n - CAP_REPO_CREATE: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_CREATE as a transitional grant for write access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_WRITE, drop the dual-accept in cassie.\n - CAP_REPO_LIST: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_LIST as a transitional grant for read access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_READ, drop the dual-accept in cassie.\n - CAP_REPO_INTERNAL_ADMIN: repo.internal.admin allows administering internal-only repository fields\n(catalog tier, bundles, aliases, active tags, README, and sync settings)\nthat are otherwise read-only to customers.\n - CAP_APK_BLOBS_GET: apk.blobs.get is a capability required to pull APKs.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with APKs vs pulling the APK itself.\n - CAP_BUILD_REPORT_LIST: Custom Image Build\n - CAP_LIBRARIES_ENTITLEMENTS_CREATE: Global libraries capabilities\n - CAP_LIBRARIES_PYTHON_LIST: Ecosystems specific capabilities\n - CAP_LIBRARIES_CACHE_INVALIDATE: Cache invalidation capability for the libraries cache (covers all ecosystems).\nGranted to org owners and account admins; not to regular developer members.\n - CAP_LIBRARIES_CACHE_LIST: Read capability for the libraries resolution cache (status and entry\nlisting). Separate from CAP_LIBRARIES_ENTITLEMENTS_LIST on purpose: an\norg's dependency-consumption history is sensitive data.\n - CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE: Rebuilder API capabilities\n - CAP_LIBRARIES_AWS_MARKETPLACE_SUBSCRIPTIONS_CREATE: AWS Marketplace Subscriptions (Chainguard Libraries on AWS Security Hub Extended)\n - CAP_LIBRARIES_REQUEST_GROUPS_CREATE: Library build requests: an organization asks Chainguard to build specific\nlibrary versions and tracks what it already has.\n\nSeparate from the libraries.rebuilder.* capabilities above, which are\ninternal_only and are never grantable to a customer organization.\n - CAP_LIBRARIES_REQUEST_GROUPS_LIST: list covers every read on a request group: the groups themselves, their\nitems, and the per-library view of them.\n - CAP_LIBRARIES_REQUEST_GROUPS_DELETE: delete covers draft groups only; removing a submitted group needs\ndelete_submitted.\n - CAP_LIBRARIES_REQUEST_GROUPS_SUBMIT: submit promotes a draft and carries the CVE-remediation opt-in for the group.\nIt is its own capability because submitting is restricted to owners, which a\nfield mask on update could not express.\n - CAP_LIBRARIES_REQUEST_GROUPS_ITEMS_UPDATE: items.update covers draft item editing: remove, restore and per-item update.\n - CAP_LIBRARIES_REQUEST_GROUPS_REFRESH_COVERAGE: Re-running a group's coverage check is expensive, and submitted groups are\nrefreshed automatically, so it is reserved for Chainguard support.\n - CAP_LIBRARIES_REMOTE_REGISTRIES_CREATE: Remote registries: an org's configured upstream registries for virtual\nrepositories. Creating or deleting one changes where the org's builds\npull dependencies from, so both are owner-only alongside the library\npolicy capabilities; list is ordinary member read.\n - CAP_REGISTRY_ENTITLEMENTS_LIST: Registry Entitlements\n - CAP_REGISTRY_SETTINGS_LIST: Registry Settings\n - CAP_REGISTRY_OVERLAYS_LIST: Registry Overlays (tag-scoped Custom Assembly)\n - CAP_REGISTRY_DEPLOYMENTS_CREATE: Registry Deployments\n - CAP_POLICIES_POLICY_CREATE: Policies\n - CAP_POLICIES_OVERRIDE_CREATE: Policy overrides waive enforcement for a specific artifact. These are\nseparate capabilities from binding management so they can be granted\nindependently. By default create and delete are held by org owners (like\nbinding management) and listing is available to viewers.\n - CAP_TERMS_ACCEPT: Terms\n - CAP_GULFSTREAM: This is orthogonal enough that we should leave\nit somewhat separate, so add new capabilities above.\nTODO(mattmoor): Think about whether we can encode specific\ncontroller capabilities into our access control here?\ne.g. could each logical controller/webhook be its own\ncapability?\n - CAP_GUARDENER_DFC_CONVERT: Guardener\n - CAP_GUARDENER_ASSOCIATION_MANAGE: guardener.association.manage gates self-service linking/unlinking of a\nGitHub org to a Chainguard group (the GroupAccountAssociations record).\n - CAP_GUARDENER_ASSOCIATION_LIST: guardener.association.list gates read-only listing of the GitHub org\ninstallations linked to a Chainguard group (the read counterpart to\nguardener.association.manage).\n - CAP_GUARDENER_ENTITLEMENT_MANAGE: guardener.entitlement.manage gates the support-only surface for configuring a\ngroup's guardener entitlement (e.g. which repo visibility scope guardener\nresponds to). It is internal_only: it can never be granted by a role\navailable to customer organizations.\n - CAP_GUARDENER_ENTITLEMENT_LIST: guardener.entitlement.list gates read-only access to a group's guardener\nentitlement. Unlike guardener.entitlement.manage it is not internal_only, so\nnormal viewers can see the settings that apply to their group.\n - CAP_GUARDENER_ACTIONS_MIGRATE: Guardener actions migrator — on-demand enqueue of a repository's GitHub\nActions migration (opens a pull request), tracked via a long-running\noperation. Mutating, so distinct from the read-only actions catalog cap.\n - CAP_GUARDENER_SCAN_LIST: guardener.scan.list gates listing summaries of the dependency scans\nguardener builds for the group's linked repositories.\n - CAP_GUARDENER_SCAN_GET: guardener.scan.get gates reading one dependency scan by id (its declared\nartifacts and their relationships).\n - CAP_MCP_TOOL_CALL: MCP tool calls\n - CAP_SKILLS_PUBLISH: Skills registry — publishing skill artifacts to skills.cgr.dev\n - CAP_SKILLS_ENTITLEMENTS_CREATE: Skills registry entitlements\n - CAP_SKILLS_LIST: Skills catalog metadata table (description / license / category) backing\nListSkills/GetSkill and search. One org-agnostic set: per-org isolation is\nthe UIDP scope on each RPC, not separate caps. These gate the catalog\ntable's CRUD only; publishing skill artifacts to the registry stays\nCAP_SKILLS_PUBLISH and entitlements stay CAP_SKILLS_ENTITLEMENTS_*.\n\nskills.list is customer-facing (read the catalog for orgs you can access).\nThe writes are internal_only: the catalog is populated by the Chainguard\npublish pipeline, not by customer orgs, so a customer role can never be\ngranted them (a role carrying them must also grant CAP_INTERNAL).\nskills.write is a single create-or-update cap: UpdateSkill is one\nAIP-134 create-or-update RPC, so there is no separate create vs update.\n - CAP_SKILLS_HARDEN_READ: Skills harden — access to the Skills harden API, split per RPC so read,\nsubmit, and cancel can be granted independently. Customer-facing: an org\nmember holds these on the target group named by `chainctl skills harden\n--group`.\n  read   -\u003e GetHardenOperation\n  write  -\u003e HardenSkill (submit)\n  cancel -\u003e CancelHardenOperation\nThese let a customer kick off and track a harden; they do NOT let the caller\nwrite the hardened output. Publishing the hardened artifact and recording the\njob result into the skills registry/catalog is done by internal identities\nvia the internal_only skills.write cap, and the pipeline's record-result RPC\nis gated on CAP_INTERNAL — so a customer can never push into the hardened\narea directly.\n - CAP_ARGOS_DOCUMENTS_CREATE: Argos — client-side encrypted document records.\n - CAP_ARGOS_DOCUMENTATION_READ: Argos — documentation visibility. Grants read access to Argos API\ndocumentation.\n - CAP_ARGOS_OSV_READ: Argos — Private OSV API (customer-facing OSV query surface).\n - CAP_LIBRARIES_POLICY_CREATE: Libraries Policy Gates — customer-facing policies and bindings that\nconfigure the cooldown and malware gates applied to upstream package pulls,\nplus the block events recorded when a pull is withheld.\n - CAP_BUILDAPI_BUILD_CREATE: Build API\n - CAP_CASSIE_CAS_READ: Cassie REAPI cache surface. CAS (blobs + ByteStream) and the ActionCache\nare separately gated: a caller may read or write action results without\nany authority over the underlying content blobs, and vice versa.\n - CAP_LOGGIE_LOGS_READ: Loggie: the live-log service. Readers tailing a stream hold logs.read;\na producer appending to its streams holds logs.write; the orchestrator\nissuing streams holds logs.create. Appending also requires the stream's\nsigned write name, so a logs.write holder can only append to streams it\nwas handed.\n - CAP_REX_EXECUTIONS_CREATE: Rex: the remote-execution service. The edge authorizes submitting an\nexecution; the scheduler authorizes a worker joining the pool; the\nexecutions query surface authorizes cross-run reads at the instance.\n - CAP_REX_CLASS_USE: Gated platform classes. USE authorizes submitting an execution that\ndemands a gated class; SERVE authorizes a worker pool advertising one.\nBoth are evaluated at the class's own UIDP node, never at the instance.\n - CAP_ACTIONS_LIST: Actions catalog — the read-only catalog of Chainguard-published GitHub\nActions and the upstreams they mirror. Writes are internal (importer only).\n - CAP_ACTIONS_DEPENDENCIES_UPDATE: Recording the dependency edges of a composite action's revision, i.e. the\n`uses:` steps of its action.yml. Internal only: the edges are derived by\nthe hardening pipeline that reads the action.yml, and are not something a\ncustomer asserts about the shared graph.\n - CAP_ACTIONS_DEPENDENCIES_LIST: Reading the dependency graph. Internal only: reads are fenced to groups the\ncaller holds a capability in, which no customer does for these actions.\n - CAP_SANDBOX_RUN_CREATE: Sandbox: the ACID sandbox Runs control plane (the WorkflowRuns API,\nai-cicd/sandbox). Customer-grantable — an org's members run, watch, and\ncancel workflow runs in the org's own instance — via the sandbox.user\nrole, and held by Owners. The SANDBOX service principal's internal\nsandbox.service_agent role carries the same capabilities.",
+        "description": "Capability is an enumeration of the Chainguard IAM capabilities.\n\n - CAP_TENANT_VULN_REPORTS_LIST: TODO(colin): deprecate this cap once the legacy endpoint is removed\n - CAP_REPO_BLOBS_GET: repo.blobs.get is a capability required to pull container images.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with images vs pulling the image itself.\n - CAP_REPO_CREATE: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_CREATE as a transitional grant for write access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_WRITE, drop the dual-accept in cassie.\n - CAP_REPO_LIST: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_LIST as a transitional grant for read access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_READ, drop the dual-accept in cassie.\n - CAP_REPO_INTERNAL_ADMIN: repo.internal.admin allows administering internal-only repository fields\n(catalog tier, bundles, aliases, active tags, README, and sync settings)\nthat are otherwise read-only to customers.\n - CAP_APK_BLOBS_GET: apk.blobs.get is a capability required to pull APKs.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with APKs vs pulling the APK itself.\n - CAP_BUILD_REPORT_LIST: Custom Image Build\n - CAP_LIBRARIES_ENTITLEMENTS_CREATE: Global libraries capabilities\n - CAP_LIBRARIES_PYTHON_LIST: Ecosystems specific capabilities\n - CAP_LIBRARIES_CACHE_INVALIDATE: Cache invalidation capability for the libraries cache (covers all ecosystems).\nGranted to org owners and account admins; not to regular developer members.\n - CAP_LIBRARIES_CACHE_LIST: Read capability for the libraries resolution cache (status and entry\nlisting). Separate from CAP_LIBRARIES_ENTITLEMENTS_LIST on purpose: an\norg's dependency-consumption history is sensitive data.\n - CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE: Rebuilder API capabilities\n - CAP_LIBRARIES_AWS_MARKETPLACE_SUBSCRIPTIONS_CREATE: AWS Marketplace Subscriptions (Chainguard Libraries on AWS Security Hub Extended)\n - CAP_LIBRARIES_REQUEST_GROUPS_CREATE: Library build requests: an organization asks Chainguard to build specific\nlibrary versions and tracks what it already has.\n\nSeparate from the libraries.rebuilder.* capabilities above, which are\ninternal_only and are never grantable to a customer organization.\n - CAP_LIBRARIES_REQUEST_GROUPS_LIST: list covers every read on a request group: the groups themselves, their\nitems, and the per-library view of them.\n - CAP_LIBRARIES_REQUEST_GROUPS_DELETE: delete covers draft groups only; removing a submitted group needs\ndelete_submitted.\n - CAP_LIBRARIES_REQUEST_GROUPS_SUBMIT: submit promotes a draft and carries the CVE-remediation opt-in for the group.\nIt is its own capability because submitting is restricted to owners, which a\nfield mask on update could not express.\n - CAP_LIBRARIES_REQUEST_GROUPS_ITEMS_UPDATE: items.update covers draft item editing: remove, restore and per-item update.\n - CAP_LIBRARIES_REQUEST_GROUPS_REFRESH_COVERAGE: Re-running a group's coverage check is expensive, and submitted groups are\nrefreshed automatically, so it is reserved for Chainguard support.\n - CAP_LIBRARIES_REMOTE_REGISTRIES_CREATE: Remote registries: an org's configured upstream registries for virtual\nrepositories. Creating or deleting one changes where the org's builds\npull dependencies from, so both are owner-only alongside the library\npolicy capabilities; list is ordinary member read.\n - CAP_LIBRARIES_STORAGE_USAGE_GET: Storage usage: how much storage an org's own uploads consume in each\nlanguage ecosystem. Owner-only because it is org-wide accounting (and the\nbasis for upcoming quotas), not something every member needs to see.\n - CAP_REGISTRY_ENTITLEMENTS_LIST: Registry Entitlements\n - CAP_REGISTRY_SETTINGS_LIST: Registry Settings\n - CAP_REGISTRY_OVERLAYS_LIST: Registry Overlays (tag-scoped Custom Assembly)\n - CAP_REGISTRY_DEPLOYMENTS_CREATE: Registry Deployments\n - CAP_POLICIES_POLICY_CREATE: Policies\n - CAP_POLICIES_OVERRIDE_CREATE: Policy overrides waive enforcement for a specific artifact. These are\nseparate capabilities from binding management so they can be granted\nindependently. By default create and delete are held by org owners (like\nbinding management) and listing is available to viewers.\n - CAP_TERMS_ACCEPT: Terms\n - CAP_GULFSTREAM: This is orthogonal enough that we should leave\nit somewhat separate, so add new capabilities above.\nTODO(mattmoor): Think about whether we can encode specific\ncontroller capabilities into our access control here?\ne.g. could each logical controller/webhook be its own\ncapability?\n - CAP_GUARDENER_DFC_CONVERT: Guardener\n - CAP_GUARDENER_ASSOCIATION_MANAGE: guardener.association.manage gates self-service linking/unlinking of a\nGitHub org to a Chainguard group (the GroupAccountAssociations record).\n - CAP_GUARDENER_ASSOCIATION_LIST: guardener.association.list gates read-only listing of the GitHub org\ninstallations linked to a Chainguard group (the read counterpart to\nguardener.association.manage).\n - CAP_GUARDENER_ENTITLEMENT_MANAGE: guardener.entitlement.manage gates the support-only surface for configuring a\ngroup's guardener entitlement (e.g. which repo visibility scope guardener\nresponds to). It is internal_only: it can never be granted by a role\navailable to customer organizations.\n - CAP_GUARDENER_ENTITLEMENT_LIST: guardener.entitlement.list gates read-only access to a group's guardener\nentitlement. Unlike guardener.entitlement.manage it is not internal_only, so\nnormal viewers can see the settings that apply to their group.\n - CAP_GUARDENER_ACTIONS_MIGRATE: Guardener actions migrator — on-demand enqueue of a repository's GitHub\nActions migration (opens a pull request), tracked via a long-running\noperation. Mutating, so distinct from the read-only actions catalog cap.\n - CAP_GUARDENER_SCAN_LIST: guardener.scan.list gates listing summaries of the dependency scans\nguardener builds for the group's linked repositories.\n - CAP_GUARDENER_SCAN_GET: guardener.scan.get gates reading one dependency scan by id (its declared\nartifacts and their relationships).\n - CAP_GUARDENER_IMAGES_MIGRATE: Authorizes requesting and reading repository image migrations.\n - CAP_MCP_TOOL_CALL: MCP tool calls\n - CAP_SKILLS_PUBLISH: Skills registry — publishing skill artifacts to skills.cgr.dev\n - CAP_SKILLS_ENTITLEMENTS_CREATE: Skills registry entitlements\n - CAP_SKILLS_LIST: Skills catalog metadata table (description / license / category) backing\nListSkills/GetSkill and search. One org-agnostic set: per-org isolation is\nthe UIDP scope on each RPC, not separate caps. These gate the catalog\ntable's CRUD only; publishing skill artifacts to the registry stays\nCAP_SKILLS_PUBLISH and entitlements stay CAP_SKILLS_ENTITLEMENTS_*.\n\nskills.list is customer-facing (read the catalog for orgs you can access).\nThe writes are internal_only: the catalog is populated by the Chainguard\npublish pipeline, not by customer orgs, so a customer role can never be\ngranted them (a role carrying them must also grant CAP_INTERNAL).\nskills.write is a single create-or-update cap: UpdateSkill is one\nAIP-134 create-or-update RPC, so there is no separate create vs update.\n - CAP_SKILLS_HARDEN_READ: Skills harden — access to the Skills harden API, split per RPC so read,\nsubmit, and cancel can be granted independently. Customer-facing: an org\nmember holds these on the target group named by `chainctl skills harden\n--group`.\n  read   -\u003e GetHardenOperation\n  write  -\u003e HardenSkill (submit)\n  cancel -\u003e CancelHardenOperation\nThese let a customer kick off and track a harden; they do NOT let the caller\nwrite the hardened output. Publishing the hardened artifact and recording the\njob result into the skills registry/catalog is done by internal identities\nvia the internal_only skills.write cap, and the pipeline's record-result RPC\nis gated on CAP_INTERNAL — so a customer can never push into the hardened\narea directly.\n - CAP_ARGOS_DOCUMENTS_CREATE: Argos — client-side encrypted document records.\n - CAP_ARGOS_DOCUMENTATION_READ: Argos — documentation visibility. Grants read access to Argos API\ndocumentation.\n - CAP_ARGOS_OSV_READ: Argos — Private OSV API (customer-facing OSV query surface).\n - CAP_ARGOS_COALITION_MEMBER: Argos — identity types. Mutually exclusive: an identity holding both is\ntreated as a mitigation partner (the more restrictive of the two) for any\nAPI call which varies the return value based on identity type.\n - CAP_ARGOS_PARTNER_CAPABILITY_REQUEST: Argos — mitigation partner capabilities. request lets a partner submit\nits capabilities and interests; approve lets staff review them.\n - CAP_LIBRARIES_POLICY_CREATE: Libraries Policy Gates — customer-facing policies and bindings that\nconfigure the cooldown and malware gates applied to upstream package pulls,\nplus the block events recorded when a pull is withheld.\n - CAP_BUILDAPI_BUILD_CREATE: Build API\n - CAP_CASSIE_CAS_READ: Cassie REAPI cache surface. CAS (blobs + ByteStream) and the ActionCache\nare separately gated: a caller may read or write action results without\nany authority over the underlying content blobs, and vice versa.\n - CAP_LOGGIE_LOGS_READ: Loggie: the live-log service. Readers tailing a stream hold logs.read;\na producer appending to its streams holds logs.write; the orchestrator\nissuing streams holds logs.create. Appending also requires the stream's\nsigned write name, so a logs.write holder can only append to streams it\nwas handed.\n - CAP_REX_EXECUTIONS_CREATE: Rex: the remote-execution service. The edge authorizes submitting an\nexecution; the scheduler authorizes a worker joining the pool; the\nexecutions query surface authorizes cross-run reads at the instance.\n - CAP_REX_CLASS_USE: Gated platform classes. USE authorizes submitting an execution that\ndemands a gated class; SERVE authorizes a worker pool advertising one.\nBoth are evaluated at the class's own UIDP node, never at the instance.\n - CAP_ACTIONS_LIST: Actions catalog — the read-only catalog of Chainguard-published GitHub\nActions and the upstreams they mirror. Writes are internal (importer only).\n - CAP_ACTIONS_DEPENDENCIES_UPDATE: Recording the dependency edges of a composite action's revision, i.e. the\n`uses:` steps of its action.yml. Internal only: the edges are derived by\nthe hardening pipeline that reads the action.yml, and are not something a\ncustomer asserts about the shared graph.\n - CAP_ACTIONS_DEPENDENCIES_LIST: Reading the dependency graph. Internal only: reads are fenced to groups the\ncaller holds a capability in, which no customer does for these actions.\n - CAP_SANDBOX_RUN_CREATE: Sandbox: the ACID sandbox Runs control plane (the WorkflowRuns API,\nai-cicd/sandbox). Customer-grantable — an org's members run, watch, and\ncancel workflow runs in the org's own instance — via the sandbox.user\nrole, and held by Owners. The SANDBOX service principal's internal\nsandbox.service_agent role carries the same capabilities.\n - CAP_SANDBOX_INSTALLATIONS_RESOLVE: Resolving a guardener GitHub App installation to the root group it is\nlinked to. Internal only: the answer names another customer's\norganization, so it is held by the sandbox GitHub reconciler alone and\nchecked at the acid-sandbox group, never at a customer group.\n - CAP_ENTITLEMENTS_FEATURES_LIST: Central Entitlements Service FEATURE entitlements (product features such\nas sandbox_checks). Reading an organization's FEATURE rows. Internal only:\nit is held by the SANDBOX service principal's sandbox.service_agent role,\nwhich reads the org's rows to admit work. It is separate from\nregistry.entitlements.list so the SANDBOX principal cannot read image\nentitlements.\n - CAP_ENTITLEMENTS_FEATURES_MANAGE: Writing and deleting an organization's FEATURE rows as Chainguard\n(the INTERNAL and CONSOLE_ADMIN sources). Internal only: it is the support\nsurface for backfill, trial extension and the kill switch, held through the\nsupport role.\n - CAP_SANDBOX_SESSION_CREATE: Sandbox develop sessions (the Sessions API, ai-cicd/sandbox): resident\ndevelopment sessions opened with `chainctl develop`. session.create opens\nsessions and lets the caller see and manage its own; it is\ncustomer-grantable via the sandbox.user role. session.list sees and\nmanages (renames, deletes) every user's sessions in the instance — an\nadministrative power held by Owners, not by sandbox.user.\n - CAP_SANDBOX_IDENTITY_CREATE: Sandbox develop session identities: the GCP (and later other cloud)\nidentities a session may act as. identity.create defines, updates, and\ndeletes the caller's own personal identities, via the sandbox.user role.\nidentity.use consents a shared identity into one's session; it is checked\nat the shared identity's groups, so it has its own role\n(sandbox.identity.user) that an owner binds at the groups they choose.\nidentity.admin defines shared identities and sees every identity in the\ninstance; Owners hold it.\n - CAP_TELEMETRY_CONTAINERS_LIST: Telemetry: read access to the container images a group's linked\nrepositories declare, as observed by the telemetry reconciler.\nprotolint:disable:next ENUM_FIELD_NAMES_PREFIX MAX_LINE_LENGTH\n - CAP_BILLING_MANAGE: Billing: buying and paying for a self-serve plan for an org. Starting a\ncheckout leads to a charge and, once the first invoice is paid, to the\npurchaser becoming the org's owner, so it is held by owner and\nlimited_owner only.",
         "enum": [
           "UNKNOWN",
           "CAP_INTERNAL",
@@ -134,6 +134,7 @@
           "CAP_LIBRARIES_REMOTE_REGISTRIES_CREATE",
           "CAP_LIBRARIES_REMOTE_REGISTRIES_LIST",
           "CAP_LIBRARIES_REMOTE_REGISTRIES_DELETE",
+          "CAP_LIBRARIES_STORAGE_USAGE_GET",
           "CAP_REGISTRY_ENTITLEMENTS_LIST",
           "CAP_REGISTRY_ENTITLEMENTS_CREATE",
           "CAP_REGISTRY_ENTITLEMENTS_DELETE",
@@ -182,6 +183,7 @@
           "CAP_GUARDENER_ACTIONS_MIGRATE",
           "CAP_GUARDENER_SCAN_LIST",
           "CAP_GUARDENER_SCAN_GET",
+          "CAP_GUARDENER_IMAGES_MIGRATE",
           "CAP_MCP_TOOL_CALL",
           "CAP_SKILLS_PUBLISH",
           "CAP_SKILLS_ENTITLEMENTS_CREATE",
@@ -199,6 +201,10 @@
           "CAP_ARGOS_DOCUMENTATION_READ",
           "CAP_ARGOS_OSV_READ",
           "CAP_ARGOS_OSV_DUMP",
+          "CAP_ARGOS_COALITION_MEMBER",
+          "CAP_ARGOS_MITIGATION_PARTNER",
+          "CAP_ARGOS_PARTNER_CAPABILITY_REQUEST",
+          "CAP_ARGOS_PARTNER_CAPABILITY_APPROVE",
           "CAP_LIBRARIES_POLICY_CREATE",
           "CAP_LIBRARIES_POLICY_UPDATE",
           "CAP_LIBRARIES_POLICY_LIST",
@@ -229,7 +235,17 @@
           "CAP_ACTIONS_DEPENDENCIES_LIST",
           "CAP_SANDBOX_RUN_CREATE",
           "CAP_SANDBOX_RUN_LIST",
-          "CAP_SANDBOX_RUN_CANCEL"
+          "CAP_SANDBOX_RUN_CANCEL",
+          "CAP_SANDBOX_INSTALLATIONS_RESOLVE",
+          "CAP_ENTITLEMENTS_FEATURES_LIST",
+          "CAP_ENTITLEMENTS_FEATURES_MANAGE",
+          "CAP_SANDBOX_SESSION_CREATE",
+          "CAP_SANDBOX_SESSION_LIST",
+          "CAP_SANDBOX_IDENTITY_CREATE",
+          "CAP_SANDBOX_IDENTITY_USE",
+          "CAP_SANDBOX_IDENTITY_ADMIN",
+          "CAP_TELEMETRY_CONTAINERS_LIST",
+          "CAP_BILLING_MANAGE"
         ],
         "type": "string"
       },
@@ -3562,14 +3578,15 @@
       },
       "chainguard.platform.iam.OrgKind": {
         "default": "ORG_KIND_UNSPECIFIED",
-        "description": "OrgKind is the kind of organization the group belongs to.\n\n - ORG_KIND_STARTER: Free catalog starter organizations.\n - ORG_KIND_CUSTOMER: Paid customer organizations.\n - ORG_KIND_DEV: Personal developer organizations.\n - ORG_KIND_INFRA: Organizations that are used for infrastructure or automation.\n - ORG_KIND_AWS_MARKETPLACE: Organizations that are created via AWS Marketplace Subscriptions.\nOrgs can move from this kind to CUSTOMER upon up-sell.",
+        "description": "OrgKind is the kind of organization the group belongs to.\n\n - ORG_KIND_STARTER: Free catalog starter organizations.\n - ORG_KIND_CUSTOMER: Paid customer organizations.\n - ORG_KIND_DEV: Personal developer organizations.\n - ORG_KIND_INFRA: Organizations that are used for infrastructure or automation.\n - ORG_KIND_AWS_MARKETPLACE: Organizations that are created via AWS Marketplace Subscriptions.\nOrgs can move from this kind to CUSTOMER upon up-sell.\n - ORG_KIND_TEAM: Paid self-serve organizations on the Team plan. Orgs become TEAM\nonly by upgrading from STARTER.",
         "enum": [
           "ORG_KIND_UNSPECIFIED",
           "ORG_KIND_STARTER",
           "ORG_KIND_CUSTOMER",
           "ORG_KIND_DEV",
           "ORG_KIND_INFRA",
-          "ORG_KIND_AWS_MARKETPLACE"
+          "ORG_KIND_AWS_MARKETPLACE",
+          "ORG_KIND_TEAM"
         ],
         "type": "string"
       },
@@ -4626,6 +4643,10 @@
             "readOnly": true,
             "type": "string"
           },
+          "delegationOnly": {
+            "description": "When true, the identity may only be assumed through the delegated token\nexchange (ExchangeRequest.delegated), in which its capabilities are a\nrequested subset of the presented delegation grant's and its role\nbindings are never consulted. A plain assume is refused, so the identity\nnever holds standing authority. The delegated exchange is refused for\nevery identity without it. Only valid on a claim_match identity.",
+            "type": "boolean"
+          },
           "description": {
             "description": "Optional description of the identity.",
             "type": "string"
@@ -5395,14 +5416,15 @@
       },
       "chainguard.platform.iam.v2.OrgKind": {
         "default": "ORG_KIND_UNSPECIFIED",
-        "description": "OrgKind is the kind of organization the group belongs to.\n\n - ORG_KIND_UNSPECIFIED: Organization kind is not yet set.\n - ORG_KIND_STARTER: Free catalog starter organizations.\n - ORG_KIND_CUSTOMER: Paid customer organizations.\n - ORG_KIND_DEV: Personal developer organizations.\n - ORG_KIND_INFRA: Organizations that are used for infrastructure or automation.\n - ORG_KIND_AWS_MARKETPLACE: Organizations that are created via AWS Marketplace Subscriptions.\nOrgs can move from this kind to CUSTOMER upon up-sell.",
+        "description": "OrgKind is the kind of organization the group belongs to.\n\n - ORG_KIND_UNSPECIFIED: Organization kind is not yet set.\n - ORG_KIND_STARTER: Free catalog starter organizations.\n - ORG_KIND_CUSTOMER: Paid customer organizations.\n - ORG_KIND_DEV: Personal developer organizations.\n - ORG_KIND_INFRA: Organizations that are used for infrastructure or automation.\n - ORG_KIND_AWS_MARKETPLACE: Organizations that are created via AWS Marketplace Subscriptions.\nOrgs can move from this kind to CUSTOMER upon up-sell.\n - ORG_KIND_TEAM: Paid self-serve organizations on the Team plan. Orgs become TEAM\nonly by upgrading from STARTER.",
         "enum": [
           "ORG_KIND_UNSPECIFIED",
           "ORG_KIND_STARTER",
           "ORG_KIND_CUSTOMER",
           "ORG_KIND_DEV",
           "ORG_KIND_INFRA",
-          "ORG_KIND_AWS_MARKETPLACE"
+          "ORG_KIND_AWS_MARKETPLACE",
+          "ORG_KIND_TEAM"
         ],
         "type": "string"
       },
@@ -6983,11 +7005,15 @@
       },
       "chainguard.platform.libraries.Source": {
         "default": "SOURCE_UNKNOWN",
-        "description": "Source indicates how an entitlement was created.\n\n - SOURCE_UNKNOWN: default; treat as SOURCE_TRIAL for backwards compatibility\n - SOURCE_TRIAL: self-service trial entitlement\n - SOURCE_SFDC: created or managed via Salesforce",
+        "description": "Source indicates how an entitlement was created.\n\n - SOURCE_UNKNOWN: default; treat as SOURCE_TRIAL for backwards compatibility\n - SOURCE_TRIAL: self-service trial entitlement\n - SOURCE_SFDC: created or managed via Salesforce\n - SOURCE_AWS_MARKETPLACE: managed by an AWS Marketplace subscription\n - SOURCE_CONSOLE_ADMIN: managed by a Chainguard administrator\n - SOURCE_GITHUB_YAML: managed by a GitHub YAML declaration\n - SOURCE_INTERNAL: managed by first-party Chainguard automation",
         "enum": [
           "SOURCE_UNKNOWN",
           "SOURCE_TRIAL",
-          "SOURCE_SFDC"
+          "SOURCE_SFDC",
+          "SOURCE_AWS_MARKETPLACE",
+          "SOURCE_CONSOLE_ADMIN",
+          "SOURCE_GITHUB_YAML",
+          "SOURCE_INTERNAL"
         ],
         "type": "string"
       },
@@ -8830,6 +8856,14 @@
           "certificates": {
             "$ref": "#/components/schemas/chainguard.platform.registry.CustomOverlay.Certificates"
           },
+          "commandOverride": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.CustomOverlay.CommandOverride"
+              }
+            ],
+            "description": "Part of Guarded Entrypoint, a Beta feature. To get access, contact\nChainguard customer support.\n\nCommand override for the guarded_entrypoint wrapper. Requires\nguarded_entrypoint."
+          },
           "contents": {
             "allOf": [
               {
@@ -8844,9 +8878,24 @@
             },
             "type": "object"
           },
+          "failMode": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.CustomOverlay.FailMode"
+              }
+            ],
+            "description": "Part of Guarded Entrypoint, a Beta feature. To get access, contact\nChainguard customer support.\n\nHow the wrapper handles secret-resolution failures. Requires\nguarded_entrypoint. Default is FAIL_MODE_CLOSED. Baked into the\nimage by the syncer as GUARDED_FAIL_MODE=closed|open, emitted only\nwhen FAIL_MODE_OPEN; a closed repo's image is unchanged."
+          },
           "guardedEntrypoint": {
-            "description": "Wraps the image entrypoint with /usr/bin/guarded-entrypoint on rebuild.",
+            "description": "Guarded Entrypoint is a Beta feature. To get access, contact Chainguard\ncustomer support.\n\nWraps the image entrypoint with /usr/bin/guarded-entrypoint on rebuild.\nAt container start the wrapper replaces each environment value written\nas a secret reference, cg+BACKEND://REF (for example\ncg+gsm://projects/acme/secrets/db/versions/latest), with the secret,\nruns any preflight checks, and then starts the app.",
             "type": "boolean"
+          },
+          "preflight": {
+            "description": "Part of Guarded Entrypoint, a Beta feature. To get access, contact\nChainguard customer support.\n\nReadiness checks to run before starting the app. Requires\nguarded_entrypoint. Up to 32 entries. The syncer bakes each\nentry into the image as one environment variable using a flat\nencoding, e.g.\nGUARDED_PREFLIGHT_0=tcp=redis:6379,timeout=60s,interval=1s,on_failure=fail\n(n starts at 0; values may not contain \",\" or \"=\").",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.CustomOverlay.Preflight"
+            },
+            "type": "array"
           }
         },
         "type": "object"
@@ -8878,6 +8927,88 @@
           }
         },
         "type": "object"
+      },
+      "chainguard.platform.registry.CustomOverlay.CommandOverride": {
+        "description": "CommandOverride decides what the wrapper execs after preparing\nthe environment: in MODE_DEFAULT the wrapper execs command only\nwhen it receives no arguments at all (the image has no ENTRYPOINT\nor CMD and none are passed at run time), and otherwise execs the\narguments it received; in MODE_PREPEND it execs command followed\nby those arguments; in\nMODE_OVERRIDE it execs command alone. The image's ENTRYPOINT\n(wrapper-prefixed) and CMD are unchanged in every mode. The\nsyncer bakes this into the image as two environment variables:\nGUARDED_COMMAND_MODE=default|prepend|override and\nGUARDED_COMMAND=\u003cJSON array\u003e, e.g.\nGUARDED_COMMAND=[\"redis-server\",\"--requirepass\",\"${REDIS_PASSWORD}\"].",
+        "properties": {
+          "command": {
+            "description": "Argument list that combines with the container's runtime\narguments per mode. When empty, the wrapper execs the arguments\nit received.\n\nEach entry expands ${VAR} from the container's resolved\nenvironment, after secret references are resolved; the runtime\narguments are never expanded. $$ is a literal $, and any other $\nis kept as is. A ${VAR} whose variable is not set stops the\ncontainer (exit 121) instead of expanding to an empty string. An\nexpanded value is visible in the process's command line, so a\nsecret passed this way is readable by anything that can inspect\nthe process.\n\nThe command itself is stored in the image config, which anyone who\ncan pull the image can read, so never write a secret into it as a\nliteral value. Reference an environment variable that holds a\nsecret reference instead, for example ${REDIS_PASSWORD}. That keeps\nthe secret out of the image, but as with any ${VAR}, the expanded\nvalue is still visible in the process's command line.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "mode": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.CustomOverlay.CommandOverride.Mode"
+              }
+            ],
+            "description": "How command combines with the container's runtime arguments.\nDefault is MODE_DEFAULT. Non-empty command is required when mode\nis MODE_PREPEND or MODE_OVERRIDE."
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.CustomOverlay.CommandOverride.Mode": {
+        "default": "MODE_UNSPECIFIED",
+        "description": "Mode decides how command combines with the container's runtime\narguments.",
+        "enum": [
+          "MODE_UNSPECIFIED",
+          "MODE_DEFAULT",
+          "MODE_PREPEND",
+          "MODE_OVERRIDE"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.registry.CustomOverlay.FailMode": {
+        "default": "FAIL_MODE_UNSPECIFIED",
+        "description": "FailMode decides what the wrapper does when secret resolution fails\n(see the wrapper's fail-mode setting): fail-closed (the default)\nrefuses to start the app; fail-open logs and starts anyway.",
+        "enum": [
+          "FAIL_MODE_UNSPECIFIED",
+          "FAIL_MODE_CLOSED",
+          "FAIL_MODE_OPEN"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.registry.CustomOverlay.Preflight": {
+        "description": "Preflight is one readiness check to run before the app starts.",
+        "properties": {
+          "interval": {
+            "description": "Polling interval between attempts, as a Go duration string.\nNon-negative. Default 500ms.",
+            "type": "string"
+          },
+          "onFailure": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.CustomOverlay.Preflight.OnFailure"
+              }
+            ],
+            "description": "What happens when the check fails. Default FAIL."
+          },
+          "path": {
+            "description": "Filesystem path that must exist. Set exactly one of tcp or path.\nSupports ${VAR} expansion from the resolved environment. Must\nnot contain \",\" or \"=\".",
+            "type": "string"
+          },
+          "tcp": {
+            "description": "TCP endpoint to dial (host:port). Set exactly one of tcp or path.\nSupports ${VAR} expansion from the resolved environment. Must\nnot contain \",\" or \"=\".",
+            "type": "string"
+          },
+          "timeout": {
+            "description": "Time budget for the check, as a Go duration string like \"30s\".\nNon-negative. Default 30s.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.CustomOverlay.Preflight.OnFailure": {
+        "default": "ON_FAILURE_UNSPECIFIED",
+        "description": "OnFailure decides what happens when a preflight check fails.",
+        "enum": [
+          "ON_FAILURE_UNSPECIFIED",
+          "ON_FAILURE_FAIL",
+          "ON_FAILURE_CONTINUE"
+        ],
+        "type": "string"
       },
       "chainguard.platform.registry.Deployment": {
         "properties": {
@@ -10603,6 +10734,14 @@
             ],
             "description": "Custom certificates to include in the image."
           },
+          "commandOverride": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.v2.CustomOverlay.CommandOverride"
+              }
+            ],
+            "description": "Part of Guarded Entrypoint, a Beta feature. To get access, contact\nChainguard customer support.\n\nCommand override for the guarded_entrypoint wrapper. Requires\nguarded_entrypoint."
+          },
           "contents": {
             "allOf": [
               {
@@ -10618,9 +10757,24 @@
             "description": "Environment variables to set in the image.\nKeys with the reserved prefix \"CHAINGUARD_\" are rejected.",
             "type": "object"
           },
+          "failMode": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.v2.CustomOverlay.FailMode"
+              }
+            ],
+            "description": "Part of Guarded Entrypoint, a Beta feature. To get access, contact\nChainguard customer support.\n\nHow the wrapper handles secret-resolution failures. Requires\nguarded_entrypoint. Default is FAIL_MODE_CLOSED. Baked into the\nimage by the syncer as GUARDED_FAIL_MODE=closed|open, emitted only\nwhen FAIL_MODE_OPEN; a closed repo's image is unchanged."
+          },
           "guardedEntrypoint": {
-            "description": "Wraps the image entrypoint with /usr/bin/guarded-entrypoint on rebuild.",
+            "description": "Guarded Entrypoint is a Beta feature. To get access, contact Chainguard\ncustomer support.\n\nWraps the image entrypoint with /usr/bin/guarded-entrypoint on rebuild.\nAt container start the wrapper replaces each environment value written\nas a secret reference, cg+BACKEND://REF (for example\ncg+gsm://projects/acme/secrets/db/versions/latest), with the secret,\nruns any preflight checks, and then starts the app.",
             "type": "boolean"
+          },
+          "preflight": {
+            "description": "Part of Guarded Entrypoint, a Beta feature. To get access, contact\nChainguard customer support.\n\nReadiness checks to run before starting the app. Requires\nguarded_entrypoint. Up to 32 entries. The syncer bakes each\nentry into the image as one environment variable using a flat\nencoding, e.g.\nGUARDED_PREFLIGHT_0=tcp=redis:6379,timeout=60s,interval=1s,on_failure=fail\n(n starts at 0; values may not contain \",\" or \"=\").",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.v2.CustomOverlay.Preflight"
+            },
+            "type": "array"
           }
         },
         "type": "object"
@@ -10747,6 +10901,48 @@
         ],
         "type": "object"
       },
+      "chainguard.platform.registry.v2.CustomOverlay.CommandOverride": {
+        "description": "CommandOverride decides what the wrapper execs after preparing\nthe environment: in MODE_DEFAULT the wrapper execs command only\nwhen it receives no arguments at all (the image has no ENTRYPOINT\nor CMD and none are passed at run time), and otherwise execs the\narguments it received; in MODE_PREPEND it execs command followed\nby those arguments; in\nMODE_OVERRIDE it execs command alone. The image's ENTRYPOINT\n(wrapper-prefixed) and CMD are unchanged in every mode. The\nsyncer bakes this into the image as two environment variables:\nGUARDED_COMMAND_MODE=default|prepend|override and\nGUARDED_COMMAND=\u003cJSON array\u003e, e.g.\nGUARDED_COMMAND=[\"redis-server\",\"--requirepass\",\"${REDIS_PASSWORD}\"].",
+        "properties": {
+          "command": {
+            "description": "Argument list that combines with the container's runtime\narguments per mode. When empty, the wrapper execs the arguments\nit received.\n\nEach entry expands ${VAR} from the container's resolved\nenvironment, after secret references are resolved; the runtime\narguments are never expanded. $$ is a literal $, and any other $\nis kept as is. A ${VAR} whose variable is not set stops the\ncontainer (exit 121) instead of expanding to an empty string. An\nexpanded value is visible in the process's command line, so a\nsecret passed this way is readable by anything that can inspect\nthe process.\n\nThe command itself is stored in the image config, which anyone who\ncan pull the image can read, so never write a secret into it as a\nliteral value. Reference an environment variable that holds a\nsecret reference instead, for example ${REDIS_PASSWORD}. That keeps\nthe secret out of the image, but as with any ${VAR}, the expanded\nvalue is still visible in the process's command line.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "mode": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.v2.CustomOverlay.CommandOverride.Mode"
+              }
+            ],
+            "description": "How command combines with the container's runtime arguments.\nDefault is MODE_DEFAULT. Non-empty command is required when mode\nis MODE_PREPEND or MODE_OVERRIDE."
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.v2.CustomOverlay.CommandOverride.Mode": {
+        "default": "MODE_UNSPECIFIED",
+        "description": "Mode decides how command combines with the container's runtime\narguments.\n\n - MODE_UNSPECIFIED: Treated as MODE_DEFAULT.\n - MODE_DEFAULT: Use command only when the wrapper receives no arguments at all.\n - MODE_PREPEND: command first, then the container's arguments.\n - MODE_OVERRIDE: command always; container arguments are dropped.",
+        "enum": [
+          "MODE_UNSPECIFIED",
+          "MODE_DEFAULT",
+          "MODE_PREPEND",
+          "MODE_OVERRIDE"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.registry.v2.CustomOverlay.FailMode": {
+        "default": "FAIL_MODE_UNSPECIFIED",
+        "description": "FailMode decides what the wrapper does when secret resolution fails\n(see the wrapper's fail-mode setting): fail-closed (the default)\nrefuses to start the app; fail-open logs and starts anyway.\n\n - FAIL_MODE_UNSPECIFIED: Treated as FAIL_MODE_CLOSED.\n - FAIL_MODE_CLOSED: Wrapper refuses to start the app when secret resolution fails.\n - FAIL_MODE_OPEN: Wrapper starts the app and logs the failure.",
+        "enum": [
+          "FAIL_MODE_UNSPECIFIED",
+          "FAIL_MODE_CLOSED",
+          "FAIL_MODE_OPEN"
+        ],
+        "type": "string"
+      },
       "chainguard.platform.registry.v2.CustomOverlay.ImageContents": {
         "description": "ImageContents specifies additional image content.",
         "properties": {
@@ -10791,6 +10987,46 @@
           "content"
         ],
         "type": "object"
+      },
+      "chainguard.platform.registry.v2.CustomOverlay.Preflight": {
+        "description": "Preflight is one readiness check to run before the app starts.",
+        "properties": {
+          "interval": {
+            "description": "Polling interval between attempts, as a Go duration string.\nNon-negative. Default 500ms.",
+            "type": "string"
+          },
+          "onFailure": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.v2.CustomOverlay.Preflight.OnFailure"
+              }
+            ],
+            "description": "What happens when the check fails. Default FAIL."
+          },
+          "path": {
+            "description": "Filesystem path that must exist. Set exactly one of tcp or path.\nSupports ${VAR} expansion from the resolved environment. Must\nnot contain \",\" or \"=\".",
+            "type": "string"
+          },
+          "tcp": {
+            "description": "TCP endpoint to dial (host:port). Set exactly one of tcp or path.\nSupports ${VAR} expansion from the resolved environment. Must\nnot contain \",\" or \"=\".",
+            "type": "string"
+          },
+          "timeout": {
+            "description": "Time budget for the check, as a Go duration string like \"30s\".\nNon-negative. Default 30s.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.v2.CustomOverlay.Preflight.OnFailure": {
+        "default": "ON_FAILURE_UNSPECIFIED",
+        "description": "OnFailure decides what happens when a preflight check fails.\n\n - ON_FAILURE_UNSPECIFIED: Treated as FAIL.\n - ON_FAILURE_FAIL: Stops the container from starting.\n - ON_FAILURE_CONTINUE: Startup proceeds; the failure is logged.",
+        "enum": [
+          "ON_FAILURE_UNSPECIFIED",
+          "ON_FAILURE_FAIL",
+          "ON_FAILURE_CONTINUE"
+        ],
+        "type": "string"
       },
       "chainguard.platform.registry.v2.ListReposResponse": {
         "description": "ListReposResponse is the response message for ListRepos.",
@@ -11028,7 +11264,7 @@
             "type": "array"
           },
           "scannedDigest": {
-            "description": "Digest of the manifest whose filesystem contents were evaluated. Equal\nto the requested digest when the image itself was scanned; the assembly\norigin digest when serving the report for a custom-assembled rebuild.",
+            "description": "Signed subject digest of the selected report: the addressed manifest,\nresolved architecture child, or assembly origin. Historical index fallback\nreturns the requested index digest with architecture absent; equality with\nthe requested digest does not establish coverage for a requested child.",
             "readOnly": true,
             "type": "string"
           },
@@ -11044,7 +11280,7 @@
             "type": "string"
           },
           "xccdfSha256": {
-            "description": "Lowercase hexadecimal SHA-256 digest of the canonical XCCDF XML returned\nby DownloadStigReport.",
+            "description": "Lowercase hexadecimal SHA-256 digest of this report's canonical XCCDF XML.\nA separate DownloadStigReport call may select a different report if\nregistry publication changes between calls.",
             "readOnly": true,
             "type": "string"
           }
@@ -12128,6 +12364,33 @@
           },
           "parentId": {
             "description": "UIDP of the group the advisories belong to, parent UIDP of the\nadvisories.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.vulnerabilities.v1.AdvisoryEventMatch": {
+        "properties": {
+          "cgaId": {
+            "description": "cga_id is the CGA ID of the event's advisory, whose UIDP is the parent of\nthe event's UIDP.",
+            "type": "string"
+          },
+          "event": {
+            "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v1.AdvisoryEvent"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.vulnerabilities.v1.AdvisoryEventsList": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v1.AdvisoryEventMatch"
+            },
+            "type": "array"
+          },
+          "nextPageToken": {
+            "description": "next_page_token is empty on the last page.",
             "type": "string"
           }
         },
@@ -19481,6 +19744,10 @@
                     "readOnly": true,
                     "type": "string"
                   },
+                  "delegationOnly": {
+                    "description": "When true, the identity may only be assumed through the delegated token\nexchange (ExchangeRequest.delegated), in which its capabilities are a\nrequested subset of the presented delegation grant's and its role\nbindings are never consulted. A plain assume is refused, so the identity\nnever holds standing authority. The delegated exchange is refused for\nevery identity without it. Only valid on a claim_match identity.",
+                    "type": "boolean"
+                  },
                   "description": {
                     "description": "Optional description of the identity.",
                     "type": "string"
@@ -22077,7 +22344,7 @@
             }
           },
           {
-            "description": "source indicates how this entitlement is being provisioned.\n\n - SOURCE_UNKNOWN: default; treat as SOURCE_TRIAL for backwards compatibility\n - SOURCE_TRIAL: self-service trial entitlement\n - SOURCE_SFDC: created or managed via Salesforce",
+            "description": "source indicates how this entitlement is being provisioned.\n\n - SOURCE_UNKNOWN: default; treat as SOURCE_TRIAL for backwards compatibility\n - SOURCE_TRIAL: self-service trial entitlement\n - SOURCE_SFDC: created or managed via Salesforce\n - SOURCE_AWS_MARKETPLACE: managed by an AWS Marketplace subscription\n - SOURCE_CONSOLE_ADMIN: managed by a Chainguard administrator\n - SOURCE_GITHUB_YAML: managed by a GitHub YAML declaration\n - SOURCE_INTERNAL: managed by first-party Chainguard automation",
             "in": "query",
             "name": "source",
             "schema": {
@@ -22085,7 +22352,11 @@
               "enum": [
                 "SOURCE_UNKNOWN",
                 "SOURCE_TRIAL",
-                "SOURCE_SFDC"
+                "SOURCE_SFDC",
+                "SOURCE_AWS_MARKETPLACE",
+                "SOURCE_CONSOLE_ADMIN",
+                "SOURCE_GITHUB_YAML",
+                "SOURCE_INTERNAL"
               ],
               "type": "string"
             }
@@ -25071,6 +25342,8 @@
     },
     "/registry/v1/entitlements/{parent}/images": {
       "get": {
+        "deprecated": true,
+        "description": "Deprecated: use ListEntitlementCatalogImages.",
         "operationId": "Entitlements_ListEntitlementImages",
         "parameters": [
           {
@@ -28061,7 +28334,7 @@
             }
           },
           {
-            "description": "Architecture to descend into when the digest addresses an OCI index\n(e.g., \"amd64\", \"arm64\"). When empty, the report is read from the\nmanifest as addressed by the digest, with no per-architecture descent.",
+            "description": "Architecture to descend into when the digest addresses an OCI index\n(e.g., \"amd64\", \"arm64\"). When empty, the report is read from the\nmanifest as addressed by the digest, with no per-architecture descent.\nIf the child has no report, an index report may be returned with the index\nas scanned_digest and architecture absent. Invalid reports are errors.",
             "in": "query",
             "name": "architecture",
             "schema": {
@@ -28099,7 +28372,7 @@
     },
     "/registry/v2/repos/{repoUid}/digests/{digest}/stig:download": {
       "get": {
-        "description": "DownloadStigReport returns the report's canonical XCCDF XML document.\nIts data is the exact document represented by GetStigReport, identified\nby StigReport.xccdf_sha256.",
+        "description": "DownloadStigReport returns the report's canonical XCCDF XML document.\nGet and Download perform independent reads; publication between calls can\nchange the selected report. An architecture-scoped request selecting an\nindex report with unknown architecture returns FAILED_PRECONDITION. Request\nthe index digest without architecture to download that historical report.",
         "operationId": "StigReportsService_DownloadStigReport",
         "parameters": [
           {
@@ -28122,7 +28395,7 @@
             }
           },
           {
-            "description": "Architecture to descend into when the digest addresses an OCI index\n(e.g., \"amd64\", \"arm64\"). When empty, the document is read from the\nmanifest as addressed by the digest, with no per-architecture descent.",
+            "description": "Architecture to descend into when the digest addresses an OCI index\n(e.g., \"amd64\", \"arm64\"). When empty, the document is read from the\nmanifest as addressed by the digest, with no per-architecture descent.\nIf discovery selects an index report with unknown architecture, an\narchitecture-scoped download returns FAILED_PRECONDITION. Omit architecture\nto explicitly download the historical index report.",
             "in": "query",
             "name": "architecture",
             "schema": {
@@ -28925,6 +29198,22 @@
               },
               "type": "array"
             }
+          },
+          {
+            "description": "delegated requests the delegated exchange mode when assuming `identity`.\nThe assumed identity's own role bindings are not consulted; instead the\nreturned token's capabilities are a per-scope subset of the presented\ncredential's capabilities, selected by `scopes` and `cap` (both\nrequired), and its expiry never exceeds the presented credential's. A\nrequest for any capability or scope the presented credential does not\nhold is rejected, never trimmed. The presented credential must be a\ndelegation grant: a token minted by this issuer whose only audience is\n\"\u003cissuer\u003e/delegation/\u003cname\u003e\", pinned by the identity's claim_match, and\nthe identity must be marked delegation_only. A token minted by a\ndelegated exchange is never accepted as a grant. No refresh token is\nissued. The returned token's subject is the assumed identity, its `act`\nclaim is the presented credential's verified claims, and its\n`act_chain` records the transfer.",
+            "in": "query",
+            "name": "delegated",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "task is an optional opaque identifier for the work the delegated token\nis minted for (e.g. a session id), recorded as the token's `task` claim\nfor attribution. It is never used for authorization. At most 128 bytes\nof letters, digits, and `. _ : / @ -`. Only honored with `delegated`.",
+            "in": "query",
+            "name": "task",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -29010,6 +29299,22 @@
                 "type": "string"
               },
               "type": "array"
+            }
+          },
+          {
+            "description": "delegated requests the delegated exchange mode when assuming `identity`.\nThe assumed identity's own role bindings are not consulted; instead the\nreturned token's capabilities are a per-scope subset of the presented\ncredential's capabilities, selected by `scopes` and `cap` (both\nrequired), and its expiry never exceeds the presented credential's. A\nrequest for any capability or scope the presented credential does not\nhold is rejected, never trimmed. The presented credential must be a\ndelegation grant: a token minted by this issuer whose only audience is\n\"\u003cissuer\u003e/delegation/\u003cname\u003e\", pinned by the identity's claim_match, and\nthe identity must be marked delegation_only. A token minted by a\ndelegated exchange is never accepted as a grant. No refresh token is\nissued. The returned token's subject is the assumed identity, its `act`\nclaim is the presented credential's verified claims, and its\n`act_chain` records the transfer.",
+            "in": "query",
+            "name": "delegated",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "task is an optional opaque identifier for the work the delegated token\nis minted for (e.g. a session id), recorded as the token's `task` claim\nfor attribution. It is never used for authorization. At most 128 bytes\nof letters, digits, and `. _ : / @ -`. Only honored with `delegated`.",
+            "in": "query",
+            "name": "task",
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -29737,6 +30042,211 @@
           }
         },
         "summary": "Create Advisory Event",
+        "tags": [
+          "Advisories"
+        ]
+      }
+    },
+    "/vulnerabilities/v1/advisory_events": {
+      "get": {
+        "description": "ListEvents lists active advisory events across advisories.",
+        "operationId": "Advisories_ListEvents",
+        "parameters": [
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "ids are a list of exact UIDPs of records.",
+            "in": "query",
+            "name": "uidp.ids",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          {
+            "description": "advisory_ids filters by CGA ID (e.g., CGA-xvgw-cvr7-9g2q).",
+            "in": "query",
+            "name": "advisoryIds",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          {
+            "description": "aliases filters by vulnerability alias (CVE, GHSA, etc.).",
+            "in": "query",
+            "name": "aliases",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          {
+            "description": "origin filters by origin package, including subpackages. It cannot be\ncombined with artifact_names.",
+            "in": "query",
+            "name": "origin",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "artifact_names filters by package name.",
+            "in": "query",
+            "name": "artifactNames",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          {
+            "description": "advisory_created_since_time filters to advisories created after this time.",
+            "in": "query",
+            "name": "advisoryCreatedSinceTime",
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "description": "advisory_created_before_time filters to advisories created before this\ntime.",
+            "in": "query",
+            "name": "advisoryCreatedBeforeTime",
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "description": "authors filters by event author email.",
+            "in": "query",
+            "name": "authors",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          {
+            "description": "created_since_time filters to events created after this time.",
+            "in": "query",
+            "name": "createdSinceTime",
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "description": "created_before_time filters to events created before this time.",
+            "in": "query",
+            "name": "createdBeforeTime",
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "description": "page_size is the maximum number of events to return.",
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int64",
+              "type": "string"
+            }
+          },
+          {
+            "description": "page_token is the next_page_token from a previous response.",
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "event_types matches events of any of the given types, ANDed with the\nother event-level filters on the same event. UNSPECIFIED and unknown\nvalues are rejected with InvalidArgument. Servers that predate this field\nignore it and return events of every type.\n\n - EVENT_TYPE_FILTER_UNSPECIFIED: Default/unspecified\n - EVENT_TYPE_FILTER_DETECTION: Detection event\n - EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION: True positive determination\n - EVENT_TYPE_FILTER_FIXED: Fixed event\n - EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION: False positive determination\n - EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED: Analysis not planned\n - EVENT_TYPE_FILTER_FIX_NOT_PLANNED: Fix not planned\n - EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX: Pending upstream fix\n - EVENT_TYPE_FILTER_PATCHED: Patched event\n - EVENT_TYPE_FILTER_COMPONENT_LOCATION_CHANGED: Component location changed event",
+            "in": "query",
+            "name": "eventTypes",
+            "schema": {
+              "items": {
+                "enum": [
+                  "EVENT_TYPE_FILTER_UNSPECIFIED",
+                  "EVENT_TYPE_FILTER_DETECTION",
+                  "EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION",
+                  "EVENT_TYPE_FILTER_FIXED",
+                  "EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION",
+                  "EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED",
+                  "EVENT_TYPE_FILTER_FIX_NOT_PLANNED",
+                  "EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX",
+                  "EVENT_TYPE_FILTER_PATCHED",
+                  "EVENT_TYPE_FILTER_COMPONENT_LOCATION_CHANGED"
+                ],
+                "type": "string"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.vulnerabilities.v1.AdvisoryEventsList"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Events",
         "tags": [
           "Advisories"
         ]

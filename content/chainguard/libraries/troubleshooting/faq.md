@@ -4,7 +4,7 @@ linktitle: "FAQ"
 description: "Frequently asked questions about Chainguard Libraries, including security benefits, supported ecosystems, and how automated patching protects against supply chain attacks"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-10-02T16:25:03+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 aliases:
@@ -143,7 +143,7 @@ of the software supply chain for libraries across different language ecosystems:
   source code repository was not compromised.
 * Since no source code was compromised, a similar attack on a protected library ecosystem
   would be prevented by Chainguard Libraries
-* XZ Utils is written in C and therefore not available as an ecosystem protected by Chainguard Libraries. However, Chainguard Containers include XZ Utils packages. These are also built
+* XZ Utils is written in C and therefore not available as an ecosystem protected by Chainguard Libraries. However, Chainguard's container images include XZ Utils packages. These are also built
   from source and are not affected.
 * Refer also to [Wikipedia article](https://en.wikipedia.org/wiki/XZ_Utils_backdoor)
   and [official page from the XZ data compression](https://tukaani.org/xz-backdoor/).

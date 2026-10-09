@@ -4,7 +4,7 @@ linktitle: "Overview"
 description: "The four Chainguard MCP servers that expose live product data — images, packages, version history, and platform APIs — to any MCP-compatible client."
 type: "article"
 date: 2026-09-16T00:00:00+00:00
-lastmod: 2026-09-30T14:05:59+00:00
+lastmod: 2026-10-01T17:08:58+00:00
 draft: false
 tags: ["MCP", "Overview"]
 images: []
@@ -71,6 +71,8 @@ chainctl auth login \
   --audience=https://versions.cgr.dev/mcp \
   --audience=https://console-api.enforce.dev/mcp
 ```
+
+`--headless` also makes headless your default login mode, so later `chainctl` logins print a URL instead of opening a browser. To return to browser login, run `chainctl config unset auth.mode`. See [Headless mode persists after you use it](/platform/chainctl-usage/authentication-options/#headless-mode-persists-after-you-use-it).
 
 The Public Skills MCP server accepts the same method. Add `--audience=https://skills.cgr.dev/mcp` to log in to it too.
 

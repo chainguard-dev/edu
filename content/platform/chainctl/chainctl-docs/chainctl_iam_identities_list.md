@@ -1,5 +1,5 @@
 ---
-date: 2026-09-29T17:51:01Z
+date: 2026-10-08T18:22:10Z
 title: "chainctl iam identities list"
 slug: chainctl_iam_identities_list
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identities_list/
@@ -14,7 +14,7 @@ toc: true
 List identities.
 
 ```
-chainctl iam identities list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--name=NAME] [--relationship={aws|claim_match|pull_token|service_principal|static}] [--expired] [--recursive] [--output=id|json|table]
+chainctl iam identities list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--name=NAME] [--relationship={aws|claim_match|delegate|pull_token|service_principal|static}] [--expired] [--recursive] [--output=id|json|table]
 ```
 
 ### Examples
@@ -43,7 +43,7 @@ chainctl iam identities list [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOL
       --name string     Filter identities by name.
       --parent string   The name or id of the parent location to list identities from. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --recursive       List identities from the parent location and all nested locations. Set to false to list only the parent location. (default true)
-      --type string     Filter identities by type (one of aws, claim_match, pull_token, service_principal, static).
+      --type string     Filter identities by type (one of aws, claim_match, delegate, pull_token, service_principal, static).
 ```
 
 ### Options inherited from parent commands

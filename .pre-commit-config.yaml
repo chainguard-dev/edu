@@ -42,17 +42,17 @@ repos:
         args: ['--maxkb=1000']
       - id: detect-private-key
         # These files contain example PEM private-key material as documentation
-        # (redaction examples, allowlist patterns, or a throwaway tutorial key),
-        # not real credentials. Exclude them to avoid false positives.
+        # (redaction examples or a throwaway tutorial key), not real
+        # credentials. Exclude them to avoid false positives.
         # chainguard-complete-docs.md bundles cosign-manual-way.md, so it carries
         # the same tutorial key; .github/gitleaks.toml already allowlists it.
-        exclude: ^(\.github/workflows/compile-docs\.yml|content/ai-docs-security\.md|content/open-source/sigstore/cosign/cosign-manual-way\.md|static/downloads/chainguard-complete-docs\.md)$
+        exclude: ^(content/ai-docs-security\.md|content/open-source/sigstore/cosign/cosign-manual-way\.md|static/downloads/chainguard-complete-docs\.md)$
       - id: check-merge-conflict
       - id: mixed-line-ending
 
   - repo: https://github.com/gitleaks/gitleaks
-    # >= v8.19.0 required: .github/gitleaks.toml uses multiple [[rules.allowlist]]
-    # blocks, which older gitleaks parses as a slice-vs-map schema error.
+    # Local only: the hook scans staged changes at commit time. CI skips it;
+    # .github/workflows/pre-commit.yaml explains why.
     rev: 2ca41cc1372d1e939a6a879f18cdc19fc1cac1ce  # frozen: v8.30.0
     hooks:
       - id: gitleaks
@@ -86,7 +86,7 @@ repos:
         files: ^scripts/.*\.py$
 
   - repo: https://github.com/psf/black
-    rev: 87928e6d6761a4a6d22250e1fee5601b3998086e  # frozen: 26.5.1
+    rev: 4f1883b1f15305a0e83a7c87991f46292bf09f85  # frozen: 26.10.0
     hooks:
       - id: black
         language_version: python3
@@ -147,7 +147,7 @@ repos:
   # `npm run lint` rejects. `pre-commit autoupdate` bumps rev only and never
   # touches additional_dependencies, so nothing keeps these in step for us.
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: 809d037d62978decc620b5a55e8ee5b8b54d8d65  # frozen: v10.11.0
+    rev: 10e29bbf6681d33cb90d555ea2f7ea71e162d259  # frozen: v10.12.0
     hooks:
       - id: eslint
         files: ^(assets/js|config)/.*\.js$

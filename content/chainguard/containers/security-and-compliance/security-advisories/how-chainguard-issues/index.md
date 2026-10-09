@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "The life cycle of Chainguard-issued Security Advisories"
 date: 2024-07-26T18:09:12+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-01T14:31:17+00:00
 draft: false
 tags: ["Chainguard Containers", "CVE"]
 images: []
@@ -38,12 +38,21 @@ Chainguard publishes its security advisories to a dedicated [Security Advisories
 
 ### Programmatic access
 
-For automated vulnerability monitoring and integration with CI/CD pipelines, Chainguard provides [Alpine-style `secdb`](https://deepwiki.com/aquasecurity/trivy-db/4.2.6-alpine-security-database) security advisory feeds in JSON format:
+For automated vulnerability monitoring and integration with CI/CD pipelines, Chainguard publishes its security advisories as a feed in the [OSV format](https://ossf.github.io/osv-schema/). The OSV feed covers packages from both the Wolfi and Chainguard package repositories, and it includes every advisory status, from detections to fixes. Vulnerability scanners, security tools, and your own automation can read it.
 
-- [Wolfi OS](https://github.com/wolfi-dev/os) feed: [packages.wolfi.dev/os/security.json](https://packages.wolfi.dev/os/security.json)
-- Chainguard Enterprise feed: [packages.cgr.dev/chainguard/security.json](https://packages.cgr.dev/chainguard/security.json)
+The feed is available in two current versions, which contain the same data:
 
-These machine-readable feeds can be consumed programmatically by vulnerability scanners, security tools, and custom automation scripts. You can find more information regarding these security feeds at our [foundational concepts overview page](https://github.com/chainguard-dev/vulnerability-scanner-support/blob/main/docs/foundational_concepts.md) in our [vulnerability scanner support](https://github.com/chainguard-dev/vulnerability-scanner-support/tree/main) GitHub repository.
+- **v2:** [advisories.cgr.dev/chainguard/v2/osv/all.json](https://advisories.cgr.dev/chainguard/v2/osv/all.json). Each record collects all of Chainguard's advisories for one upstream vulnerability, such as a CVE.
+- **v3:** [advisories.cgr.dev/chainguard/v3/osv/all.json](https://advisories.cgr.dev/chainguard/v3/osv/all.json). Each record holds a single advisory.
+
+Each `all.json` file is an index. The advisory details, including each affected package's fixed version in `affected[].ranges[].events[].fixed`, are in the individual record files, such as `https://advisories.cgr.dev/chainguard/v2/osv/<advisory-id>.json`. Chainguard publishes updates several times a day. An integration should poll the index at least hourly and re-fetch any record whose `modified` timestamp has changed. For an example lookup, see [Look up the fixed version in the advisory feed](/chainguard/containers/security-and-compliance/vulnerability-management/scanner-flags-fixed-cve/#look-up-the-fixed-version-in-the-advisory-feed).
+
+Older feeds remain available, but they're deprecated for new integrations:
+
+- The original OSV feed at `packages.cgr.dev/chainguard/osv/all.json`, which includes only resolved advisories.
+- The [Alpine-style `secdb`](https://deepwiki.com/aquasecurity/trivy-db/4.2.6-alpine-security-database) feeds at `packages.wolfi.dev/os/security.json` and `packages.cgr.dev/chainguard/security.json`.
+
+For the feed specifications, see [Foundational concepts](https://github.com/chainguard-dev/vulnerability-scanner-support/blob/main/docs/foundational_concepts.md) in Chainguard's [vulnerability scanner support](https://github.com/chainguard-dev/vulnerability-scanner-support/tree/main) GitHub repository.
 
 ## Stages of a security advisory
 

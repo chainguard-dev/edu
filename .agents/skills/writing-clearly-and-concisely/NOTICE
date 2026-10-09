@@ -1,0 +1,22 @@
+writing-clearly-and-concisely
+
+This skill combines material from three sources.
+
+The skill's structure and instructions derive from the
+writing-clearly-and-concisely skill in
+https://github.com/joshuadavidthomas/agent-skills, Copyright (c) 2025
+Josh Thomas, released under the MIT License in the LICENSE file.
+Chainguard, Inc. modified the skill and distributes the modified version
+under the same license.
+
+The files in elements-of-style/ reproduce The Elements of Style by
+William Strunk Jr. (1918), which is in the public domain. They came by way
+of https://github.com/obra/the-elements-of-style, which converted the
+Project Gutenberg edition (eBook #37134) to Markdown.
+
+signs-of-ai-writing.md summarizes "Wikipedia:Signs of AI writing"
+(https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), which
+Wikipedia contributors publish under the Creative Commons
+Attribution-ShareAlike 4.0 license
+(https://creativecommons.org/licenses/by-sa/4.0/). The summary is newly
+written; read the original for its examples.

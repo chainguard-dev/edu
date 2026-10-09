@@ -1,5 +1,5 @@
 ---
-date: 2026-09-29T17:51:01Z
+date: 2026-10-08T18:22:10Z
 title: "chainctl images repos build logs"
 slug: chainctl_images_repos_build_logs
 url: /platform/chainctl/chainctl-docs/chainctl_images_repos_build_logs/
@@ -20,7 +20,7 @@ chainctl images repos build logs [flags]
 ### Options
 
 ```
-      --build-id string   The id of the build to get logs for.
+      --build-id string   The id of the build to get logs for, in full or its last segment, from the repo's 30 most recent builds.
       --parent string     The name or id of the parent location to get build logs. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --repo string       The name or id of the repo to get build logs. A full repo ID identifies the repo on its own, so --parent is not needed.
 ```

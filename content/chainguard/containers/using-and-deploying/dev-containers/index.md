@@ -9,7 +9,7 @@ aliases:
 - /chainguard/containers/how-to-use/dev-containers/
 description: "Guide outlining how you can use Chainguard Containers as Dev Containers for secure development."
 date: 2025-03-10T11:07:52+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -53,7 +53,7 @@ In order to run a dev container, the given project must contain a file named `de
 
 Although there are many reasons why production images should be secure, the reasons for concern about the security of development environments are less clear. Put briefly: the code you've written and tested in your development environment will eventually make it into your production environment. If you've been hacked during development, then perhaps the hackers' code goes into production as well.
 
-Chainguard offers minimal runtime images designed for running production workloads, and development images that contain a shell and some development tooling. With that said, both development and production images are slimmed down and updated regularly to be free of CVEs. Because of their minimal and secure-by-default nature, Chainguard Containers are ideal for use in a secure development process.
+Chainguard offers minimal runtime images designed for running production workloads, and development images that contain a shell and some development tooling. With that said, both development and production images are slimmed down and updated regularly to be free of CVEs. Because of their minimal and secure-by-default nature, Chainguard's container images are ideal for use in a secure development process.
 
 ## Building a Go Dev Container using an example repository
 

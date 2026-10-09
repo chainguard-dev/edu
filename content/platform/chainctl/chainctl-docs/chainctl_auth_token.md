@@ -1,5 +1,5 @@
 ---
-date: 2026-09-29T17:51:01Z
+date: 2026-10-08T18:22:10Z
 title: "chainctl auth token"
 slug: chainctl_auth_token
 url: /platform/chainctl/chainctl-docs/chainctl_auth_token/
@@ -13,16 +13,53 @@ toc: true
 
 Print the local Chainguard Token.
 
+### Synopsis
+
+Print the local Chainguard Token.
+
+With --capabilities and/or --scope, print a token narrowed to that access
+instead of the cached one.
+
+With --delegate, mint a grant for a delegate (see "chainctl iam identities
+create delegate"): a token whose only audience is the delegation audience the
+delegate pins, narrowed to --scope (required) and to the capabilities of
+--role plus any --capabilities. The delegate exchanges the grant for tokens
+carrying a subset of that access and expiring no later than the grant, which
+lives at most 60 minutes. No API accepts the grant itself.
+
+A grant cannot carry more than you hold; chainctl warns before minting one
+that asks for more. Grants are stateless, so there is no per-grant list or
+revoke: deleting the delegate stops every future exchange, and grants already
+minted expire within 60 minutes.
+
+The grant is minted from the cached refresh token when there is one,
+otherwise from ambient credentials or a fresh login, and it is never cached.
+
+The global --audience flag keeps its meaning here: it selects the API
+audience of the cached token, and is unrelated to the grant's audience.
+
 ```
 chainctl auth token [flags]
+```
+
+### Examples
+
+```
+  # Mint a grant for a delegate carrying the viewer role's capabilities in an organization.
+  chainctl auth token --delegate=my-delegate --role=viewer --scope=ORGANIZATION_ID
+  
+  # Inspect what a grant carries.
+  chainctl auth token --delegate=my-delegate --capabilities=repo.list --scope=ORGANIZATION_ID | chainctl auth token capabilities --token -
 ```
 
 ### Options
 
 ```
-      --capabilities strings   Request a token narrowed to the given capabilities.
+      --capabilities strings   Request a token narrowed to the given capabilities. With --delegate, capabilities the grant carries in addition to --role's.
+      --delegate string        Mint a grant for this delegate (name or ID). Requires --scope and --role or --capabilities.
       --interactive            Allow browser or device login when needed, even when stderr is redirected.
-      --scope strings          Request a token with scope reduced to the given groups.
+      --role strings           With a grant (--delegate), the roles whose capabilities the grant carries.
+      --scope strings          Request a token with scope reduced to the given groups (names or IDs).
 ```
 
 ### Options inherited from parent commands

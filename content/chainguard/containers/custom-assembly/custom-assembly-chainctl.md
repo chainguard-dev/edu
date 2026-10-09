@@ -4,7 +4,7 @@ linktitle: "Manage with chainctl"
 type: "article"
 description: "How to use chainctl to manage Custom Assembly resources."
 date: 2025-05-01T11:07:52+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural", "Custom Assembly"]
 images: []
@@ -167,7 +167,7 @@ Custom Assembly lets you extend Chainguard Containers with your own metadata and
 
 ### Custom annotations
 
-Chainguard Containers include metadata in the form of *annotations*. These annotations provide important information about the container image's origin, contents, and characteristics.
+Chainguard's container images include metadata in the form of *annotations*. These annotations provide important information about the container image's origin, contents, and characteristics.
 
 With Custom Assembly, you can add custom annotations to your Chainguard Containers using `chainctl`. The process is the same as the one outlined previously for adding packages. First run a command like the following:
 
@@ -197,7 +197,7 @@ Note that Custom Assembly blocks `org.opencontainers` and `dev.chainguard` annot
 
 ### Custom environment variables
 
-Chainguard Containers often come with a set of predefined environment variables. These are useful for setting certain configuration details that are available to the container at runtime.
+Chainguard's container images often come with a set of predefined environment variables. These are useful for setting certain configuration details that are available to the container at runtime.
 
 You can follow the same procedure for adding custom annotations to add custom environment variables to your Custom Assembly container images. Start by running a `chainctl images repos build edit` command:
 
@@ -224,7 +224,9 @@ environment:
 
 After saving and confirming these changes, Custom Assembly will add these five custom environment variables to the container image. As with packages and annotations, you can also apply custom environment variables declaratively using the `apply` subcommand, as outlined previously.
 
-Be aware that Custom Assembly blocks any environment variable that begins with `CHAINGUARD_` from being added or changed. This is to prevent conflicts with configuration details managed by Chainguard.
+Be aware that Custom Assembly blocks any environment variable that begins with `CHAINGUARD_` from being added or changed. This is to prevent conflicts with configuration details managed by Chainguard. The `GUARDED_` prefix is reserved too.
+
+To set a variable from a secret store when the container starts, use a secret reference such as `cg+vault://secret/data/app#password` as the value. A reference resolves only when Guarded Entrypoint is turned on for the repo. See [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/).
 
 ## Custom runtime repositories
 

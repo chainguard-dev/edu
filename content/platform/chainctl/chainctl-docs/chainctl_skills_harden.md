@@ -1,5 +1,5 @@
 ---
-date: 2026-09-29T17:51:01Z
+date: 2026-10-08T18:22:10Z
 title: "chainctl skills harden"
 slug: chainctl_skills_harden
 url: /platform/chainctl/chainctl-docs/chainctl_skills_harden/
@@ -23,8 +23,15 @@ requires --name. The digest must be sha256:<64-hex>, not a tag or a full referen
 --group is required and accepts an organization name or UIDP.
 
 Prints the job ID and status after submission. With --wait, polls until the
-job finishes, downloads the result to ./hardened/NAME, and prints its reference
-and digest. HARDENING.md in the download contains the report and scanner findings.
+job finishes, reporting the pipeline stage as it runs, then downloads the result
+to ./hardened/NAME and prints its reference and digest. .hardened-artifact.json
+in the download records the published reference and digest. HARDENING.md
+contains the report and scanner findings; its source digest is the digest of the
+submitted skill, not of the hardened result. If the post-hardening scan rejects
+the rewrite, your submitted skill is published unmodified with that report
+instead: it downloads to ./unhardened/NAME and the command exits nonzero, naming
+the scanner and rule that rejected it. Any other failed job exits nonzero and
+names the stage it failed in.
 --timeout bounds the command when waiting. A timeout or interrupt leaves the
 server-side job running.
 

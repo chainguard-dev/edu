@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "Tutorial outlining how to set up a Cloudsmith repository to pull containers through from Chainguard's registry."
 date: 2024-07-16T15:56:52-07:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -79,7 +79,7 @@ If you run into issues pulling images like this, ensure that your `docker pull` 
 
 ## Setting up Cloudsmith as a pull through for production container images
 
-Production Chainguard Containers are enterprise-ready images that come with patch SLAs and features such as [Federal Information Processing Standard](/platform/fips/fips-images/) (FIPS) readiness. The process for setting up a Cloudsmith repository that you can use as a pull through cache for Production containers is similar to the one outlined previously for Free containers, but with a few extra steps.
+Chainguard's Production images are enterprise-ready container images that come with patch SLAs and features such as [Federal Information Processing Standard](/platform/fips/fips-images/) (FIPS) readiness. The process for setting up a Cloudsmith repository that you can use as a pull through cache for Production containers is similar to the one outlined previously for Free containers, but with a few extra steps.
 
 You can create a new Cloudsmith repository or use the same repository you used as a pull through cache for Free containers.
 

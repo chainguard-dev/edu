@@ -5,7 +5,7 @@ lead: ""
 description: "Procedural tutorial on how to set up SCIM provisioning and SSO from Microsoft Entra ID to the Chainguard platform."
 type: "article"
 date: 2026-08-11T00:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-02T14:38:42+00:00
 draft: false
 tags: ["Procedural"]
 images: []
@@ -160,6 +160,8 @@ Then have that user log in at [console.chainguard.dev](https://console.chainguar
 ## Map Entra ID groups to Chainguard roles
 
 Chainguard's SCIM endpoint provisions users only. To grant Chainguard roles based on a user's Entra ID group membership, follow [Grant Chainguard roles from identity provider groups](/platform/administration/custom-idps/grant-roles-from-groups/).
+
+Group membership reaches Chainguard only in tokens issued for the SSO application you registered in [Register the Entra ID application for SSO](#register-the-entra-id-application-for-sso), not the SCIM enterprise application. Assigning a group to the SCIM application provisions its members but doesn't add the group to their login tokens. If you limit the groups claim to groups assigned to the application, assign each mapped group to the SSO application as well. For the full list of Entra ID settings, refer to [Microsoft Entra ID](/platform/administration/custom-idps/grant-roles-from-groups/#microsoft-entra-id) in the group mapping guide.
 
 Entra ID emits group Object IDs (GUIDs) rather than display names in the groups claim. As a result, a group-to-role mapping displays the group as a GUID, such as `aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee`, in both `chainctl` and the console's group-mapping tab. To find which group an Object ID refers to, look it up in the Entra admin center under **Groups**. To display readable names instead, configure the groups claim to emit cloud-group display names.
 

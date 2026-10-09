@@ -4,7 +4,7 @@ linktitle: "Compliance"
 description: "Learn about supported compliance features for Chainguard VMs"
 type: "article"
 date: 2025-11-20T08:04:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:32:50+00:00
 draft: false
 tags: ["Chainguard VMs", "Compliance"]
 menu:
@@ -14,7 +14,7 @@ weight: 20
 toc: true
 ---
 
-Chainguard VMs provide pre-hardened, audit-ready Linux virtual machine images designed for regulated and high-assurance environments (federal, defense, healthcare, financial services, and suppliers to those sectors). These images combine the following features:
+Chainguard VMs provides pre-hardened, audit-ready Linux virtual-machine images designed for regulated and high-assurance environments (federal, defense, healthcare, financial services, and suppliers to those sectors). These images combine the following features:
 
 | Feature                             | Description |
 |:------------------------------------| :---- |
@@ -29,7 +29,7 @@ Chainguard FIPS 140-3 validated and hardened VM images serve as ready-to-use rep
 
 ## FIPS 140-3 validated cryptography
 
-Chainguard VMs include FIPS 140-3 validated software cryptographic modules, backed by a NIST Cryptographic Module Validation Program (CMVP) certificate.
+Chainguard's virtual-machine images include FIPS 140-3 validated software cryptographic modules, backed by a NIST Cryptographic Module Validation Program (CMVP) certificate.
 
 * **Validated modules**
     * Cryptographic modules are validated under FIPS 140-3 and integrated directly into the base image.
@@ -43,7 +43,7 @@ This setup allows teams to consume an OS image that is already FIPS-conformant a
 
 ## STIG hardening
 
-Chainguard VMs provide variants hardened to DISA Security Technical Implementation Guide (STIG) requirements which are used across U.S. federal and defense environments.
+Chainguard VMs provides variants hardened to DISA Security Technical Implementation Guide (STIG) requirements which are used across U.S. federal and defense environments.
 
 * 2000+ relevant system controls are pre-configured and validated in the image, not delivered as a checklist that the customer must implement.
 * Images are designed as ready-to-use replacements for existing Linux OS images, enabling STIG-compliant baselines without re-architecting existing infrastructure.
@@ -52,7 +52,7 @@ Chainguard can also provide SCAP scan outputs aligned with STIG requirements, he
 
 ## CIS Benchmark compliance
 
-For organizations standardizing on CIS controls, Chainguard offers images hardened to **CIS Level 1** benchmarks. Chainguard VMs use a hybrid baseline combining CIS Level 1 benchmarks with STIG requirements and industry-recognized secure defaults to provide defense-in-depth hardening.
+For organizations standardizing on CIS controls, Chainguard offers images hardened to **CIS Level 1** benchmarks. These images use a hybrid baseline combining CIS Level 1 benchmarks with STIG requirements and industry-recognized secure defaults to provide defense-in-depth hardening.
 
 This allows security and Governance, Risk, and Compliance teams to map infrastructure posture to both internal CIS-based policies and external STIG-based requirements without maintaining parallel baselines.
 
@@ -69,7 +69,7 @@ Secure Boot ensures only cryptographically signed and trusted components partici
 
 ## Compliance evidence and reporting
 
-Chainguard VMs are designed to simplify the generation of compliance artifacts often required in audits, ATO processes, and customer security reviews.
+Chainguard VMs is designed to simplify the generation of compliance artifacts often required in audits, ATO processes, and customer security reviews.
 
 Available artifacts include:
 
@@ -81,7 +81,7 @@ By shipping this evidence with the images, Chainguard significantly shortens the
 
 ## Vulnerability management and lifecycle
 
-Chainguard VMs are built and maintained with an explicit [**CVE remediation SLA**](https://www.chainguard.dev/legal/cve-policy):
+Chainguard's virtual-machine images are built and maintained with an explicit [**CVE remediation SLA**](https://www.chainguard.dev/legal/cve-policy):
 
 * **Critical CVEs**: patched within **7 days**
 * **High, medium, and low CVEs**: patched within **14 days**

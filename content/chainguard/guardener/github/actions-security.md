@@ -4,7 +4,7 @@ linktitle: "Hardened Actions"
 description: "Configure Guardener to recommend and migrate your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T02:59:03+00:00
 draft: false
 tags: ["GitHub", "Automation"]
 images: []
@@ -55,8 +55,8 @@ An on-demand run performs exactly the same migration as the scheduled flow: it o
 
 Before you start, make sure that:
 
-- The Guardener GitHub App is installed and your Chainguard organization is linked to your GitHub organization, as described in [Getting started](/chainguard/guardener/github/getting-started/). The migration must be requested through the Chainguard organization that owns the GitHub App installation.
-- You hold the `guardener.actions.migrate` capability on that Chainguard organization. Organization owners have it, and it is included in the built-in `guardener.user` and `guardener.admin` roles. Refer to the [Built-in roles and capabilities reference](/platform/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for more information on roles.
+- The Chainguard App is installed and your Chainguard organization is linked to your GitHub organization, as described in [Getting started](/chainguard/guardener/github/getting-started/). The migration must be requested through the Chainguard organization that owns the Chainguard App installation.
+- You hold the `guardener.actions.migrate` capability on that Chainguard organization. The built-in `viewer`, `editor`, and `owner` roles include it, as do `guardener.user` and `guardener.admin`. Each built-in role that includes either migration capability includes both. Refer to the [Built-in roles and capabilities reference](/platform/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for more information on roles.
 
 Run `chainctl guardener github migrate create` with the repository to migrate:
 
@@ -64,20 +64,25 @@ Run `chainctl guardener github migrate create` with the repository to migrate:
 chainctl guardener github migrate create <owner>/<repo>
 ```
 
-The repository can be given as `owner/repo` shorthand or as a full URL (`https://github.com/owner/repo`); only github.com repositories are supported today. The migration runs under the Chainguard organization that owns the GitHub App installation. `chainctl` selects that organization automatically when only one is available and prompts you when there are several; pass `--parent <group-name>` to name it explicitly.
+The repository can be given as `owner/repo` shorthand or as a full URL (`https://github.com/owner/repo`); only github.com repositories are supported today. The migration runs under the Chainguard organization that owns the Chainguard App installation. `chainctl` selects that organization automatically when only one is available and prompts you when there are several; pass `--parent <group-name>` to name it explicitly.
 
-By default the command waits for the migration to finish (up to 10 minutes, adjustable with `--timeout`) and prints the result:
+With `chainctl` 0.2.375 or later, the command runs every migration that the repository opts in to, so it also opens or updates the [Container Image Migration](/chainguard/guardener/github/image-migration/) pull request when `.chainguard/images.yaml` enables it. Earlier versions of `chainctl` run only the Hardened Actions migration.
+
+Each migration checks its own capability. If you hold `guardener.actions.migrate` but not `guardener.images.migrate`, the `Images:` line reports a permission error and the command exits with an error, even when the repository doesn't use image migration.
+
+By default, the command waits for the migrations to finish (up to 10 minutes, adjustable with `--timeout`) and prints one result for each:
 
 ```
 Repository: https://github.com/<owner>/<repo>
 Triggered by: you@example.com (user)
+Actions: https://github.com/<owner>/<repo>/pull/42
+Images: migration is not enabled here or in repository configuration
 Status: completed
-Pull request: https://github.com/<owner>/<repo>/pull/42
 ```
 
-When there is nothing to migrate — every action is already on a Chainguard equivalent, the ignore rules exclude everything, or the repository has not enabled migration — the run reports `Status: completed (no changes needed)` instead of a pull request.
+In this example, the repository opts in to Hardened Actions migration only. When there's nothing to migrate — every action is already on a Chainguard equivalent, or the ignore rules exclude everything — the `Actions:` line reads `no changes needed` instead of a pull request URL. When the repository hasn't enabled Hardened Actions migration, it reads `migration is not enabled here or in repository configuration`. If a migration fails, its line reads `failed` with the reason, the last line reads `Status: completed with failures`, and the command exits with an error.
 
-If the migration fails because the GitHub App installation does not cover the repository (for example, the app was installed on **selected repositories** and this one isn't included), the error says so; grant the app access to the repository in your GitHub organization settings and trigger the migration again.
+If the migration fails because the Chainguard App installation does not cover the repository (for example, the app was installed on **selected repositories** and this one isn't included), the error says so; grant the app access to the repository in your GitHub organization settings and trigger the migration again.
 
 ## Check a migration operation
 

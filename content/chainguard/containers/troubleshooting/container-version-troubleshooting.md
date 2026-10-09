@@ -6,7 +6,7 @@ aliases:
 type: "article"
 description: "When a container or version isn't available to you: how to identify which situation you're in, what to do about each, and when to open a support request."
 date: 2026-09-02T00:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -104,7 +104,7 @@ This is the most common case, and often the version you're asking for isn't the 
 
 Chainguard actively maintains the latest patch release of each supported upstream version stream, not every patch that stream has ever released. If Python maintains 3.11, 3.12, and 3.13 upstream, Chainguard maintains all three streams; within each one, only the current patch is rebuilt. So `python:3.13` tracks the newest patch of the 3.13 stream, which was `3.13.9` when this was written.
 
-Chainguard Containers also use *floating tags*. A tag points at the most recent build within its version stream rather than at a fixed image, so a tag's contents change as Chainguard rebuilds it. No tag stays pinned to one specific upstream patch release.
+Chainguard's container images also use *floating tags*. A tag points at the most recent build within its version stream rather than at a fixed image, so a tag's contents change as Chainguard rebuilds it. No tag stays pinned to one specific upstream patch release.
 
 That combination explains most missing-version reports. If you need `7.79.2` and the stream has moved on to `7.80.1`, the supported path is the stream tag, which gives you that stream's latest patch with current security fixes applied. Requesting the older patch tag gets you an image that is no longer rebuilt and will accumulate CVEs.
 
@@ -159,7 +159,7 @@ chainctl package versions list python --show-active
  3.14    | 2030-10-31 | 2031-05-01
 ```
 
-The [endoflife.date](https://endoflife.date) website lists the release tracks and product lifecycles of many open source projects, and its information generally aligns with the lifecycle of the corresponding Chainguard container image. If the date you see from Chainguard differs from the one on the upstream project's own site, the two are probably using different definitions of a support tier.
+This output shows the EOL date that Chainguard uses for each version stream. For many projects, that date comes from [endoflife.date](https://endoflife.date). For projects that endoflife.date doesn't cover, it comes from the project's published support policy or upstream release data. If a source doesn't reflect the project's open source releases, such as when endoflife.date tracks a vendor's commercial support window, Chainguard sets the date manually, and that date takes precedence. If the date differs from the one on the upstream project's own site, the two are using different sources or define support differently. For details, see [How Chainguard determines EOL dates](/chainguard/containers/concepts/lifecycle-and-eol/versions/#how-chainguard-determines-eol-dates).
 
 Several signals tell you a version is no longer being rebuilt:
 

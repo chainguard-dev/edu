@@ -6,11 +6,12 @@ aliases:
 - /chainguard/chainguard-enforce/authentication/identity-examples/enforce-github-identity/
 - /chainguard/administration/iam-organizations/identity-examples/github-identity/
 - /chainguard/administration/assumable-ids/identity-examples/github-identity/
+- /chainguard/administration/iam-groups/identity-examples/enforce-github-identity/
 lead: ""
 description: "Tutorial outlining how to create a Chainguard identity that can be assumed by a GitHub Actions workflow."
 type: "article"
 date: 2023-05-04T08:48:45+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-09-30T18:41:26+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []

@@ -40,7 +40,8 @@
   "overrides": {
     "adm-zip": "^0.6.1",
     "@ai-sdk/provider-utils": ">=4.0.33 <4.0.41",
-    "smol-toml": "^1.7.1",
+    "smol-toml": "1.9.0",
+    "katex": "~0.18.2",
     "undici": "~7.29.1"
   },
   "devDependencies": {
@@ -48,8 +49,8 @@
     "@fullhuman/postcss-purgecss": "^8.0",
     "autoprefixer": "^10.6",
     "bootstrap": "^5.3",
-    "eslint": "^10.11.0",
-    "globals": "^17.12.0",
+    "eslint": "^10.12.0",
+    "globals": "^17.13.0",
     "highlight.js": "^11.12",
     "hugo-extended": "^0.166.0",
     "instant.page": "^5.2",
@@ -57,15 +58,15 @@
     "markdownlint-cli2": "^0.23.3",
     "postcss": "^8.5",
     "postcss-cli": "^12.0",
-    "sass-embedded": "^1.105.0",
+    "sass-embedded": "^1.105.1",
     "shx": "^0.4",
-    "stylelint": "^17.15.0",
+    "stylelint": "^17.16.0",
     "stylelint-config-standard-scss": "^17.0.0"
   },
   "dependencies": {
-    "@docsearch/css": "^5.1.1",
-    "@docsearch/js": "^5.1.1",
-    "@scalar/api-reference": "^1.72.1",
+    "@docsearch/css": "^5.1.2",
+    "@docsearch/js": "^5.1.2",
+    "@scalar/api-reference": "^1.73.0",
     "bootstrap-icons": "^1.13.1"
   }
 }

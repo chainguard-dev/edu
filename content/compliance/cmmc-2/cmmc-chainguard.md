@@ -1,10 +1,10 @@
 ---
 title: "CMMC at Chainguard"
-description: "Chainguard Containers reduce the time and effort for establishing CMMC 2.0 compliance"
-lead: "Chainguard Containers reduce the time and effort for establishing CMMC 2.0 compliance"
+description: "Chainguard Containers reduces the time and effort for establishing CMMC 2.0 compliance"
+lead: "Chainguard Containers reduces the time and effort for establishing CMMC 2.0 compliance"
 type: "article"
 date: 2024-08-09T19:10:09+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 contributors: []
 draft: false
 aliases:
@@ -39,11 +39,9 @@ STIG-hardened FIPS images are highly beneficial for achieving CMMC 2.0 complianc
 
 By leveraging Chainguard’s resources, organizations can accelerate their path to CMMC 2.0 certification while effectively managing and reporting on critical security controls. Our integrated approach not only ensures that compliance requirements are met but also enhances overall security posture, allowing organizations to focus on their core operations with confidence.
 
-## Browse all CMMC 2.0 articles
+## Learn more about CMMC 2.0
 
-- [Introduction to CMMC 2.0](/compliance/cmmc-2/intro-cmmc-2/)
-- [CMMC 2.0 maturity levels](/compliance/cmmc-2/cmmc-2-levels/)
-- [Overview of CMMC 2.0 practice/control groups](/compliance/cmmc-2/cmmc-practices/)
-- (Current article) How Chainguard Can Help With CMMC 2.0
+- [What is CMMC 2.0? Maturity levels and who must comply](https://www.chainguard.dev/supply-chain-security-101/what-is-cmmc-2-0)
+- [CMMC 2.0 practices: All 14 domains and naming conventions](https://www.chainguard.dev/supply-chain-security-101/cmmc-2-0-practices)
 
 **[Get started with FIPS Chainguard Containers today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**

@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "Key differences, a recommended rollout strategy, and troubleshooting guidance for moving existing container workloads to Chainguard Containers."
 date: 2024-07-22T12:56:52-00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -20,16 +20,16 @@ weight: 10
 toc: true
 ---
 
-Chainguard Containers are minimal by design — most are [distroless](/chainguard/containers/concepts/getting-started-distroless/), with no shell or package manager. That keeps the attack surface small, but it also means moving an existing workload over usually requires adjusting how your image installs dependencies, which user it runs as, and what its entrypoint expects.
+Chainguard's container images are minimal by design — most are [distroless](/chainguard/containers/concepts/getting-started-distroless/), with no shell or package manager. That keeps the attack surface small, but it also means moving an existing workload over usually requires adjusting how your image installs dependencies, which user it runs as, and what its entrypoint expects.
 
-This guide covers the differences that matter during a migration, a recommended rollout strategy, and what to do when something breaks. For background on what Chainguard Containers are and how they are built, refer to the [Chainguard Containers overview](/chainguard/containers/overview/).
+This guide covers the differences that matter during a migration, a recommended rollout strategy, and what to do when something breaks. For background on what Chainguard Containers is and how its images are built, refer to the [Chainguard Containers overview](/chainguard/containers/overview/).
 
 ## Migration key points
 
-* Most Chainguard Containers have no shell or package manager by default. This is great for security, but sometimes you need these things, especially in builder images. For those cases we have development container images (also known as `-dev` images, as in `cgr.dev/chainguard/python:latest-dev`) which do include a shell and package manager.
+* Most of Chainguard's container images have no shell or package manager by default. This is great for security, but sometimes you need these things, especially in builder images. For those cases we have development container images (also known as `-dev` images, as in `cgr.dev/chainguard/python:latest-dev`) which do include a shell and package manager.
 * The development variants and `wolfi-base` / `chainguard-base` use BusyBox by default, so any `groupadd` or `useradd` commands will need to be ported to `addgroup` and `adduser`.
 * The free tier of Containers provides only the `:latest` and `:latest-dev` versions. Our paid Production Containers offer tags for major and minor versions.
-* Chainguard Containers are [based on `glibc`](/chainguard/containers/concepts/glibc-vs-musl/) and our packages cannot be mixed with Alpine packages (which are instead based on musl).
+* Chainguard's container images are [based on `glibc`](/chainguard/containers/concepts/glibc-vs-musl/) and our packages cannot be mixed with Alpine packages (which are instead based on musl).
 * In some cases, the entrypoint in Chainguard Containers can be different from equivalent images based on other distros, which can lead to unexpected behavior. You should always check the image's specific documentation to understand how the entrypoint works.
 * When needed, Chainguard recommends using a base image like `chainguard-base` or a development variant to install an application's OS-level dependencies.
 
@@ -51,7 +51,7 @@ Refer to our guide on [Chainguard's Container variants](/chainguard/containers/c
 
 ## Before migrating
 
-Before you begin actively migrating to Chainguard Containers, review the images that your organization has access to and determine which teams and applications will be using each image. Notify the teams involved in the migration process so they can begin preparing. For teams that are new to Chainguard Containers, we recommend taking the online self-paced course, [Linky’s Guide to Chainguard Containers](https://courses.chainguard.dev/path/linkys-guide-to-chainguard-images).
+Before you begin actively migrating to Chainguard Containers, review the images that your organization has access to and determine which teams and applications will be using each image. To see what a given repository uses today, which Chainguard container image replaces each upstream image, and which of those your organization can already pull, run [`chainctl images discover`](/chainguard/containers/migration/migration-tools/images-discover/) against a checkout. Notify the teams involved in the migration process so they can begin preparing. For teams that are new to Chainguard Containers, we recommend taking the online self-paced course, [Linky’s Guide to Chainguard Containers](https://courses.chainguard.dev/path/linkys-guide-to-chainguard-images).
 
 Next, determine which users and/or systems are going to need access to your Chainguard registry in order to begin preparing access. Most customers will need to copy images from their Chainguard registry into their organization's registry. An easy way to do this is by configuring the organization's registry as a pull-through mirror of the Chainguard registry. We have a guide on [how to configure Artifactory](/chainguard/containers/registry/pull-through-guides/artifactory-containers-pull-through/) for this use case.
 
@@ -122,7 +122,7 @@ Although not fully comprehensive, it can be helpful to keep the following list o
 * If necessary, install a different shell
 * Use `apk search` to find the utilities needed by your application
 * Beware of entrypoint differences between Chainguard Containers and their upstream counterparts
-* Be aware that Chainguard Containers typically do not run as root by default
+* Be aware that Chainguard's container images typically do not run as root by default
 * If packages you need are missing, install them into a base image, preferably as part of a multi-stage build
 
 Each of these tips and strategies are explained in greater detail in our guide on [Container migration tips](/chainguard/containers/migration/migration-tips/).

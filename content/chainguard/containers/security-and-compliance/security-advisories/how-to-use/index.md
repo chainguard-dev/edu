@@ -15,7 +15,7 @@ aliases:
 type: "article"
 description: "Article outlining how one can explore and use the Security Advisories found on the Chainguard Container Directory."
 date: 2023-12-27T11:07:52+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-01T15:08:56+00:00
 draft: false
 tags: ["Chainguard Containers", "CVE"]
 images: []
@@ -35,11 +35,11 @@ This guide outlines how you can use Chainguard's Security Advisories to learn mo
 
 ## Advisory database scope
 
-Chainguard Security Advisories cover vulnerabilities in APK packages. The advisory lookup does not determine whether a finding affects a Go module, Java dependency, or another non-APK component.
+Chainguard Security Advisories cover vulnerabilities in the APK packages that Chainguard ships, including the Go modules, Java archives, and other language components inside those packages. Chainguard records a vulnerability in one of those components against the APK package that contains it. The advisories don't cover software that your own build adds to an image.
 
 For an APK finding in a Chainguard image, use [Check whether a reported CVE affects your container](/chainguard/containers/security-and-compliance/vulnerability-management/cve-status/) to compare the scanner result with the advisories for the packages in the image. Use the image digest and the platform that the scanner analyzed.
 
-For a Go-module or Java-dependency finding, the absence of an APK advisory does not make it a false positive. Validate these findings against the scanner's language-package evidence and the dependency's upstream advisory data, as described in [When the finding is a Go module or Java dependency](/chainguard/containers/security-and-compliance/vulnerability-management/cve-status/#when-the-finding-is-a-go-module-or-java-dependency).
+For a Go-module or Java-dependency finding, first find out whether a Chainguard package ships the component or your build added it. For a component that a Chainguard package ships, check the advisories for that package. For a dependency that your build added, the absence of a Chainguard advisory doesn't make the finding a false positive; validate it against the scanner's language-package evidence and the dependency's upstream advisory data. Both cases are described in [When the finding is a Go module or Java dependency](/chainguard/containers/security-and-compliance/vulnerability-management/cve-status/#when-the-finding-is-a-go-module-or-java-dependency).
 
 ## Prerequisites
 
@@ -151,4 +151,4 @@ The Security Advisories page serves as a helpful resource for anyone who wants t
 
 Additionally, we encourage you to explore the [Chainguard Containers Directory](https://images.chainguard.dev/), the parent site of the Security Advisories page. The Directory allows users to explore the complete inventory of Chainguard Containers. Finally, we encourage you to learn more about [noisy scan results](/chainguard/containers/security-and-compliance/working-with-scanners/false-results/) when scanning Chainguard Containers.
 
-To learn more about why scan results may differ between your scanner and the Chainguard Console, refer to [the support article "Understanding Vulnerability Scanner Discrepancies with Chainguard Images."](https://support.chainguard.dev/hc/en-us/articles/49564106705819-Understanding-Vulnerability-Scanner-Discrepancies-with-Chainguard-Images)
+If a Chainguard advisory or the Chainguard Console says a CVE is fixed but your scanner still reports it, see [Resolve a scanner finding for a CVE Chainguard has fixed](/chainguard/containers/security-and-compliance/vulnerability-management/scanner-flags-fixed-cve/). For more about why scan results can differ between your scanner and the Chainguard Console, refer to [the support article "Understanding Vulnerability Scanner Discrepancies with Chainguard Images."](https://support.chainguard.dev/hc/en-us/articles/49564106705819-Understanding-Vulnerability-Scanner-Discrepancies-with-Chainguard-Images)

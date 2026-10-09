@@ -5,7 +5,7 @@ lead: ""
 description: "Move existing workloads to Chainguard: container migration guides, library migration guides for Java, Python, and JavaScript, and tooling that automates the conversion."
 type: "article"
 date: 2024-02-26T08:48:45+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 images: []
 weight: 90
@@ -30,7 +30,7 @@ Already using Chainguard and ready to move existing workloads over? Start with t
 
 ## Migrate to Chainguard Containers
 
-Replace the base images in your Dockerfiles with Chainguard Containers. Because Chainguard Containers are minimal — most have no shell or package manager — migration usually means adjusting how your image installs dependencies, which user it runs as, and what its entrypoint expects.
+Replace the base images in your Dockerfiles with Chainguard Containers. Because Chainguard's container images are minimal — most have no shell or package manager — migration usually means adjusting how your image installs dependencies, which user it runs as, and what its entrypoint expects.
 
 - **[Container migration overview](/chainguard/containers/migration/migrations-overview/)** — key differences, rollout strategy, and troubleshooting.
 - **[Porting a sample application](/chainguard/containers/migration/porting-apps-to-chainguard/)** — a full walkthrough converting a three-service application.

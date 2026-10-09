@@ -31,7 +31,7 @@ jobs:
       contents: read
     steps:
     - name: Harden Runner
-      uses: step-security/harden-runner@e14015d583714f6e62063499dc959a02595150a1 # v2.21.1
+      uses: step-security/harden-runner@351661ca32ac09a36dc5ee2d536e3128f2a3c8ed # v2.22.0
       with:
         egress-policy: block
         allowed-endpoints: >
@@ -49,8 +49,10 @@ jobs:
       with:
         python-version: '3.13'
 
+    # pytest-timeout fails test_mcp_transport.py's GET test if it hangs, which
+    # is how a regression of the 405 route shows up (EXP-577).
     - name: Install dependencies
-      run: pip install -r scripts/mcp-requirements.txt pytest pyyaml
+      run: pip install -r scripts/mcp-requirements.txt pytest pytest-timeout pyyaml
 
     - name: Run tests
       run: pytest scripts/test_mcp_server.py scripts/test_mcp_transport.py scripts/test_compile_docs.py -v
@@ -62,7 +64,7 @@ jobs:
       contents: read
     steps:
     - name: Harden Runner
-      uses: step-security/harden-runner@e14015d583714f6e62063499dc959a02595150a1 # v2.21.1
+      uses: step-security/harden-runner@351661ca32ac09a36dc5ee2d536e3128f2a3c8ed # v2.22.0
       with:
         egress-policy: block
         allowed-endpoints: >

@@ -20,7 +20,7 @@ aliases:
 type: "article"
 description: "An overview comparing various Chainguard Containers for compiled programs"
 date: 2024-07-12T17:55:01+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T14:39:07+00:00
 draft: false
 tags: ["Chainguard Containers", "Cheatsheet"]
 images: []
@@ -33,7 +33,7 @@ toc: true
 
 When selecting the right base image for your application, there are a variety of factors to take into consideration. For starters, it is critical that your application has all of the dependencies it needs to run. The ideal base image will contain the essential packages you need, while leaving out the ones you don’t. However, in practice, you will need to build upon your container images so they meet your specific needs, making it all the more important that you have a strong foundation.
 
-In this guide, we will explore a variety of Chainguard Containers which are suitable for different compiled applications. We will take a look at their availability and use-case differences so you can move closer to settling on the best base image for your specific needs.
+In this guide, we will explore a variety of Chainguard's container images which are suitable for different compiled applications. We will take a look at their availability and use-case differences so you can move closer to settling on the best base image for your specific needs.
 
 ## Available containers
 
@@ -145,7 +145,7 @@ You can find the complete inventory of packages for the `glibc-openssl` Chaingua
 
 ## What about `musl`?
 
-At the time of this writing, no Chainguard Containers come packaged with `musl`. Chainguard builds `glibc`-based container images because `glibc` is commonly used, which makes it easier for most developers to start consuming Chainguard Containers in their environments. Additionally, `glibc` is widely tested, making it a dependable choice for a C standard library implementation. As `glibc` is a well-established option, choosing to use `glibc` ensures more applications will be compatible with new images.
+At the time of this writing, none of Chainguard's container images come packaged with `musl`. Chainguard builds `glibc`-based container images because `glibc` is commonly used, which makes it easier for most developers to start consuming Chainguard Containers in their environments. Additionally, `glibc` is widely tested, making it a dependable choice for a C standard library implementation. As `glibc` is a well-established option, choosing to use `glibc` ensures more applications will be compatible with new images.
 
 Though `musl` is sometimes chosen because of its minimal footprint, Chainguard’s distroless approach based on [Wolfi](https://www.chainguard.dev/unchained/introducing-wolfi-the-first-linux-un-distro) often results in a container image of comparable (or smaller) size than official `musl` based images. For more information, please refer to our [glibc vs. musl](/chainguard/containers/concepts/glibc-vs-musl/) article.
 

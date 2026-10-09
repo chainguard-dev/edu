@@ -5,7 +5,7 @@ type: "article"
 description: "Signing software bills of materials with Cosign"
 lead: "Use Cosign to sign software bills of materials (SBOMs)"
 date: 2022-07-13T15:22:20+01:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Cosign", "Procedural", "SBOM"]
 images: []
@@ -24,7 +24,7 @@ _An earlier version of this material was published in the [Cosign chapter](https
 {{< blurb/attestation >}}
 {{< /details >}}
 
-One common use case for attestations is associating a software artifact, such as an OCI container image, with a [software bill of materials (SBOM)](/open-source/sbom/what-is-an-sbom/), an inventory of the components that make up a given software artifact. Increasingly, SBOMs are considered an essential component in maintaining a secure software supply chain.
+One common use case for attestations is associating a software artifact, such as an OCI container image, with a [software bill of materials (SBOM)](https://www.chainguard.dev/supply-chain-security-101/what-is-an-sbom), an inventory of the components that make up a given software artifact. Increasingly, SBOMs are considered an essential component in maintaining a secure software supply chain.
 
 {{< details "What is a Software Bill of Materials (SBOM?" >}}
 {{< blurb/sbom >}}
@@ -36,7 +36,7 @@ In the following, we'll generate an SBOM and associate it with a specific OCI co
 
 ## Creating a demonstration image
 
-Since we'll be attaching an SBOM to a container image, we'll first need to create an example image. We'll base this image on Chainguard's [`wolfi-base`](/open-source/wolfi/overview/), and add a single additional package, the venerable `cowsay` utility that prints a message along with some ASCII art. We then set the entrypoint so that, when the image is run, a message will be displayed.
+Since we'll be attaching an SBOM to a container image, we'll first need to create an example image. We'll base this image on Chainguard's [`wolfi-base`](https://images.chainguard.dev/directory/image/wolfi-base/overview), and add a single additional package, the venerable `cowsay` utility that prints a message along with some ASCII art. We then set the entrypoint so that, when the image is run, a message will be displayed.
 
 Create a new folder for our Dockerfile build and change your working directory to that folder:
 
@@ -148,7 +148,7 @@ Before proceeding, let's push our image to Docker Hub, since the following comma
 docker push $DH_USERNAME/example-image
 ```
 
-Our `example-image` still has attestations derived from our base image, since all Chainguard Containers come with SBOM and SLSA provenance attestations. Let's remove these attestations with the `cosign clean` command:
+Our `example-image` still has attestations derived from our base image, since all of Chainguard's container images come with SBOM and SLSA provenance attestations. Let's remove these attestations with the `cosign clean` command:
 
 ```sh
 cosign clean $DH_USERNAME/example-image

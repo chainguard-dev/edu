@@ -1,10 +1,10 @@
 ---
 title: "Chainguard VMs overview"
 linktitle: "VMs overview"
-description: "Chainguard VMs are designed for minimalism, security, and operational clarity."
+description: "Chainguard's virtual-machine images are designed for minimalism, security, and operational clarity."
 type: "article"
 date: 2025-10-21T08:04:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T14:39:07+00:00
 draft: false
 tags: ["Chainguard VMs", "Overview"]
 menu:
@@ -14,13 +14,13 @@ weight: 10
 toc: true
 ---
 
-Chainguard VMs offer a minimal and verifiable foundation for running ephemeral workloads in cloud and on-prem hypervisor deployments, designed to complement and extend the same secure-by-default philosophy found in [Chainguard Containers](https://edu.chainguard.dev/chainguard/containers/overview/). With a strong focus on rapid CVE remediation and a small attack surface, Chainguard VMs are purpose-built to service the target workload and include only the packages that are essential for its operation.
+Chainguard VMs offers a minimal and verifiable foundation for running ephemeral workloads in cloud and on-prem hypervisor deployments, designed to complement and extend the same secure-by-default philosophy found in [Chainguard Containers](https://edu.chainguard.dev/chainguard/containers/overview/). With a strong focus on rapid CVE remediation and a small attack surface, Chainguard's virtual-machine images are purpose-built to service the target workload and include only the packages that are essential for its operation.
 
-Built in the Chainguard Factory, Chainguard VMs benefit from a highly automated, secure-by-design build pipeline that ensures consistent, reproducible artifacts. This streamlined process enables the delivery of VM images that are continuously updated to eliminate known vulnerabilities.
+Built in the Chainguard Factory, Chainguard's virtual-machine images benefit from a highly automated, secure-by-design build pipeline that ensures consistent, reproducible artifacts. This streamlined process enables the delivery of VM images that are continuously updated to eliminate known vulnerabilities.
 
 ## Why Chainguard VMs
 
-Unlike traditional virtual machines, which are often burdened with legacy components, unnecessary packages, and opaque dependency chains, Chainguard VMs are designed for minimalism, security, and operational clarity. Based on Chainguard OS, Chainguard VMs include a kernel that closely tracks the upstream Linux stable tree, ensuring timely updates and compatibility, along with a minimal `systemd` for service management. Consistent with the principle of minimalism, only the essential systemd units required to support the VM’s intended workload are included. Every component is fully traceable, with SLSA guarantees and SBOMs generated at every step, providing end-to-end transparency and helping prevent CVEs from ever entering your environment.
+Unlike traditional virtual machines, which are often burdened with legacy components, unnecessary packages, and opaque dependency chains, Chainguard's virtual-machine images are designed for minimalism, security, and operational clarity. Based on Chainguard OS, they include a kernel that closely tracks the upstream Linux stable tree, ensuring timely updates and compatibility, along with a minimal `systemd` for service management. Consistent with the principle of minimalism, only the essential systemd units required to support the VM’s intended workload are included. Every component is fully traceable, with SLSA guarantees and SBOMs generated at every step, providing end-to-end transparency and helping prevent CVEs from ever entering your environment.
 
 For platform engineers and DevOps teams, this means:
 
@@ -30,7 +30,7 @@ For platform engineers and DevOps teams, this means:
 
 ## VMs and containers compared
 
-To understand the applicability of Chainguard VMs to your organization, it might be helpful to compare the features of Chainguard VMs to Chainguard Containers. In a nutshell, the main differences come from the fact that Chainguard VMs boot from and run with their own hardened kernel as part of Chainguard OS, while Chainguard Containers rely on the host system's kernel.
+To understand the applicability of Chainguard VMs to your organization, it might be helpful to compare the features of Chainguard VMs to Chainguard Containers. In a nutshell, the main differences come from the fact that Chainguard's virtual-machine images boot from and run with their own hardened kernel as part of Chainguard OS, while Chainguard's container images rely on the host system's kernel.
 
 | Feature | Chainguard Container | Chainguard VM |
 | :---- | :------------------------------------------------------- | :-------------------------------------------------------------------------------------------- |
@@ -50,7 +50,7 @@ We currently offer 3 distinct types of virtual machine images:
 
 ## Availability
 
-Chainguard VMs are currently available for the following platforms / hypervisors:
+Chainguard VMs is currently available for the following platforms / hypervisors:
 
 * Google Cloud Platform (Compute Engine)
 * AWS (EC2, ECS, and EKS)
@@ -59,11 +59,11 @@ Chainguard VMs are currently available for the following platforms / hypervisors
 * VMware vSphere (VMDK)
 * Nutanix (qcow2/raw)
 
-Offering broad compatibility, Chainguard VMs allow for deployment in any environment, from public clouds to self-managed infrastructure. This flexibility facilitates one-click deployment across environments and helps prevent vendor lock-in.
+Offering broad compatibility, Chainguard VMs allows for deployment in any environment, from public clouds to self-managed infrastructure. This flexibility facilitates one-click deployment across environments and helps prevent vendor lock-in.
 
 ## Compliance and SLAs
 
-Chainguard VMs (running Chainguard OS) are intentionally designed to minimize risk, maximize transparency, and satisfy security standards such as [CIS Benchmarks](https://edu.chainguard.dev/compliance/cis-benchmarks/), [FedRAMP](https://edu.chainguard.dev/chainguard/containers/security-and-compliance/fedramp-considerations/), SOC 2, and others.
+Chainguard's virtual-machine images (running Chainguard OS) are intentionally designed to minimize risk, maximize transparency, and satisfy security standards such as [CIS Benchmarks](https://www.chainguard.dev/supply-chain-security-101/what-are-cis-benchmarks), [FedRAMP](https://edu.chainguard.dev/chainguard/containers/security-and-compliance/fedramp-considerations/), SOC 2, and others.
 
 * CVE remediation backed by an [industry-leading SLA](https://www.chainguard.dev/legal/cve-policy): 7 days for critical, 14 days for all others
 * Consistent, reproducible builds

@@ -6,7 +6,7 @@ description:
   Libraries using the chainctl tool for enhanced supply chain security"
 type: "article"
 date: 2025-07-03T12:00:00+00:00
-lastmod: 2026-09-28T18:48:06+00:00
+lastmod: 2026-10-08T23:13:51+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -111,6 +111,13 @@ the following examples as necessary.
 
 ## File analysis
 
+To save available Software Bills of Materials (SBOMs) and attestations while
+verifying Java artifacts, JavaScript packages, or Python wheels, add
+`--output-attestations`. Use `--output-dir` to choose the base directory, which
+defaults to the current directory. Only packages verified as Chainguard builds
+produce companion files. The verification report lists the saved files and their
+trust status in text, JSON, YAML, and CSV output.
+
 > **Note**: Running `chainctl libraries verify` requires one of the `libraries.java.pull`, `libraries.javascript.pull`, or `libraries.python.pull` permissions, or the Owner role.
 
 ### Analyze a Python wheel file
@@ -145,6 +152,38 @@ For CI/CD, use JSON output to save a machine-readable report:
 ```bash
 chainctl libraries verify --detailed -o json .venv/ > provenance-report.json
 ```
+
+#### Download Python SBOMs and attestations
+
+Save the available companions for a verified wheel:
+
+```sh
+chainctl libraries verify flask-3.0.1-py3-none-any.whl \
+  --output-attestations --output-dir attestations
+```
+
+Files are saved under the normalized package name and version. For the preceding
+command, the directory is `attestations/flask/3.0.1/`, with these files when
+available:
+
+- `flask-3.0.1-py3-none-any.whl.signature-bundle.json` — The exact Sigstore bundle
+  used to verify the wheel.
+- `flask-3.0.1-py3-none-any.whl.pep740-attestation.json` — PEP 740 provenance.
+  Before saving it as trusted, `chainctl` independently verifies its signature,
+  the Chainguard Python signer identity and issuer, and the wheel's SHA-256
+  digest as an attested subject.
+- `flask-3.0.1-py3-none-any.whl.sbom.spdx.json` — The SPDX SBOM extracted from the
+  verified wheel's top-level `.dist-info/sboms/` directory.
+
+The full wheel filename distinguishes companions for different platform and
+Python builds of the same package version. Remediated versions with a `+cgr`
+suffix also support downloads. Legacy signature bundles served from the
+provenance endpoint do not produce a PEP 740 file.
+
+Downloads require a wheel file. An installed Python environment or a source
+distribution does not produce companion files. For details about the formats,
+refer to [SBOM and attestation
+files](/chainguard/libraries/python/overview/#sbom-and-attestation-files).
 
 ### Analyze a Java JAR file
 
@@ -264,6 +303,46 @@ chainctl libraries verify ~/.m2/repository/net/logstash/logback/logstash-logback
 To integrate this into your build pipeline, add the verification step after
 dependency resolution and before the packaging phase.
 
+#### Download SBOMs and attestations
+
+During verification, `chainctl` fetches the SBOM and SLSA provenance published
+alongside a Chainguard-built Java artifact and discards them after the check.
+Add the `--output-attestations` flag to save these files to disk instead:
+
+```sh
+chainctl libraries verify commons-lang3-3.17.0.jar --output-attestations
+```
+
+Use `--output-dir` to set the base directory, which defaults to the current
+directory. Files are written under each artifact's Maven repository path,
+`group/artifact/version`, matching the layout of a local Maven repository:
+
+```sh
+chainctl libraries verify commons-lang3-3.17.0.jar \
+  --output-attestations --output-dir repo
+```
+
+For the preceding command, the files land under
+`repo/org/apache/commons/commons-lang3/3.17.0/`:
+
+- `commons-lang3-3.17.0.spdx.json` — SPDX SBOM, saved as a trusted Chainguard
+  attestation
+- `commons-lang3-3.17.0.slsa-attestation.json` — SLSA provenance, also saved
+  as trusted
+- `commons-lang3-3.17.0-cyclonedx.json` and `commons-lang3-3.17.0-cyclonedx.xml`
+  — CycloneDX SBOMs, saved when present but marked unverified, since
+  Chainguard does not vouch for their contents
+
+Only an artifact that verifies as a Chainguard build saves anything. Upstream or
+tampered bytes save nothing. Inside a fat JAR, each embedded library is verified
+and saved individually, so only the verified libraries contribute files. The
+saved files are listed in the text, JSON, YAML, and CSV output, with unverified
+files clearly marked.
+
+For a description of these files and the alternative of downloading them
+directly, refer to [SBOM and attestation
+files](/chainguard/libraries/java/overview/#sbom-and-attestation-files).
+
 ### Analyze JavaScript packages
 
 `chainctl libraries verify` can scan local package manager caches and stores
@@ -364,6 +443,46 @@ chainctl libraries verify package-lock.json
 Supported lockfiles include `package-lock.json`, `npm-shrinkwrap.json`, `pnpm-lock.yaml`, `yarn.lock`, and `bun.lock`.
 
 This command verifies what the lockfile claims will be installed. It does not verify the package bytes present on disk.
+
+#### Download JavaScript SBOMs and attestations
+
+Save the available companions for a verified npm tarball:
+
+```sh
+chainctl libraries verify lodash-4.17.21.tgz \
+  --output-attestations --output-dir attestations
+```
+
+Files are saved under `name/version/`, or `@scope/name/version/` for scoped
+packages. For the preceding command, the directory is
+`attestations/lodash/4.17.21/`, with these files when available:
+
+- `lodash-provenance-4.17.21.sigstore` — The exact signed SLSA provenance bundle
+  verified against the package's integrity digest and Chainguard signer identity.
+- `lodash-sbom-4.17.21.spdx.json` — The SPDX SBOM retrieved from the authenticated
+  Chainguard SBOM endpoint. `chainctl` reports it as trusted based on that
+  endpoint. The npm provenance does not cryptographically bind the SBOM's bytes.
+
+The flags also work for npm caches, pnpm stores, Yarn Classic caches, installed
+`node_modules` directories, and supported JavaScript lockfiles. For example,
+save companions while verifying the dependencies recorded in a lockfile:
+
+```sh
+chainctl libraries verify package-lock.json \
+  --output-attestations --output-dir attestations
+```
+
+For lockfiles, downloads require verified provenance that identifies the package
+the lockfile will install. Ambiguous entries with multiple candidate integrity
+hashes do not produce companion files unless the resolved URL identifies the
+Chainguard build.
+
+Missing SBOMs are skipped. If the verified provenance bundle cannot be read,
+`chainctl` warns and skips downloads for that package. If saving a later
+companion fails, the report still lists successfully saved files with a warning.
+
+For manual retrieval, refer to [Provenance and
+attestations](/chainguard/libraries/javascript/overview/#provenance-and-attestations).
 
 #### Verify a container image
 

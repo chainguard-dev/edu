@@ -1,0 +1,12 @@
+google-style
+Copyright 2026 Chainguard, Inc.
+
+Licensed under the Apache License, Version 2.0, in the LICENSE file. This
+matches the license on Chainguard's official agent skills at
+https://github.com/chainguard-dev/cg-skills. Learn more about Chainguard's
+agent skills at https://skills.chainguard.dev/.
+
+This skill summarizes conventions from the Google developer documentation
+style guide (https://developers.google.com/style), which Google publishes
+under the Creative Commons Attribution 4.0 license
+(https://creativecommons.org/licenses/by/4.0/).

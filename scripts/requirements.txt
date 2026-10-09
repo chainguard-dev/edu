@@ -6,8 +6,8 @@ bandit==1.9.4
 safety==3.8.1
 
 # Development tools
-black==26.5.1
-pylint==4.0.9
+black==26.10.0
+pylint==4.1.2
 
 # Runtime dependencies (if needed in future)
 # Add any required packages here with pinned versions

@@ -5,7 +5,7 @@ lead: ""
 description: "How to map groups from a custom identity provider to Chainguard roles so access follows group membership."
 type: "article"
 date: 2026-07-01T08:48:45+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-02T18:50:45+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -66,7 +66,15 @@ Configure your identity provider to include the user's group memberships in the 
 | Microsoft Entra ID (Group Claim) | [Configure group claims](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-fed-group-claims) | Group Object IDs (GUIDs), by default |
 | Microsoft Entra ID (App Roles) | [Configure app roles](https://learn.microsoft.com/en-us/entra/identity-platform/howto-add-app-roles-in-apps) | App Role Value, by default |
 
-To use group display names in Entra ID instead of GUIDs, configure the claim to emit cloud-group display names. This requires restricting the claim to groups assigned to the application, which is also the recommended way to stay under the group limit.
+### Microsoft Entra ID
+
+Entra ID shows the application you registered for Chainguard in two places: under **App registrations**, and under **Enterprise applications**, where you assign users and groups to it. Chainguard reads groups only from tokens that Entra ID issues for that application. Check the following:
+
+- **Configure the groups claim on the application your users sign in through.** That's the application whose **Application (client) ID** you passed to `--oidc-client-id`. In **App registrations**, open that application, select **Token configuration**, and click **Add groups claim**. If your tenant has more than one Chainguard application, a groups claim configured on any other one doesn't reach Chainguard. To check, compare the client ID on the application you configured with the one in your Chainguard identity provider.
+- **Emit only groups assigned to the application, and assign each mapped group to it.** When you add the groups claim, select **Groups assigned to the application**. Then, in **Enterprise applications**, open the same application, select **Users and groups**, and assign each mapped group. With this option, a group appears in the token only when it's assigned to the application and the user is a direct member of it. Membership in an unassigned group, or through a nested group, doesn't put the group in the token. This option is required to emit cloud-group display names instead of GUIDs, and it's the recommended way to stay under the [group limit](#limits).
+- **If you provision users with SCIM, assign groups to the SSO application as well.** The [Entra ID SCIM guide](/platform/administration/custom-idps/scim-provisioning/ms-entra-id-scim/) creates a separate enterprise application for provisioning. Assigning a group to the SCIM application provisions its members but doesn't add the group to their login tokens.
+
+Verify the claim with a real login to Chainguard, as described in [Step 4](#step-4-verify-the-mapping). The **Test** button in **Token configuration** (under **App registrations**) uses a test flow rather than a real sign-in, so it can show a groups claim that real logins don't carry. The same is true of any token you request outside a Chainguard login, such as a test sign-in through jwt.ms.
 
 ## Step 2: Point Chainguard at the groups claim
 
@@ -110,9 +118,19 @@ Each command creates one mapping. To map many groups at once, see [Automate mapp
 
 ## Step 4: Verify the mapping
 
-1. Have a user who belongs to the mapped group log in to Chainguard through your IdP.
-2. Confirm that the user can perform actions the granted role allows. This access doesn't appear in `chainctl iam role-bindings list`, because it's session-scoped.
+1. Have a user who belongs to the mapped group log in to Chainguard through your IdP. Use a real login; a token from your IdP's test tools doesn't confirm what Chainguard receives. If the user is already logged in, have them log out first. Chainguard applies group-derived roles at login, so refreshing an existing session doesn't pick up a new mapping.
+2. Confirm that the user received the granted role. This access doesn't appear in `chainctl iam role-bindings list`, because it's session-scoped. Instead, have the user log in with `chainctl` and inspect their session:
+
+    ```sh
+    chainctl auth logout
+    chainctl auth login --org-name <organization-name>
+    chainctl auth status
+    ```
+
+    The **Capabilities** row lists each organization and role in the session, such as `example.com: owner`. In the Console, the user can confirm the role by performing an action it allows.
 3. Have a user who doesn't belong to a mapped group log in and confirm that they receive no additional access.
+
+If the user logs in but doesn't receive the mapped role, check that their token carries the group value you mapped in Step 3. For Entra ID, start with the application settings in [Microsoft Entra ID](#microsoft-entra-id).
 
 ## Manage access
 
@@ -279,7 +297,7 @@ Creating a mapping grants a role, so the API enforces an anti-escalation rule. T
 Identity providers cap how many groups a token can carry. Past that limit, the IdP stops sending the inline `groups` claim. This means Chainguard no longer receives the user's groups, and their mappings don't resolve. Keep the emitted set small by sending only the groups you map:
 
 - **Okta:** Filter the groups claim in Step 1 so the token carries only the groups you map rather than every group a user belongs to.
-- **Microsoft Entra ID:** Entra ID omits the `groups` claim once a user belongs to more than 200 groups (the JWT and OIDC limit; the SAML limit is 150). Past the limit, Entra ID emits an overage claim (`_claim_names` and `_claim_sources`) that points to Microsoft Graph instead of the inline list, and Chainguard doesn't follow it. Avoid the overage by emitting only groups assigned to the application, as described in Step 1, or by using fewer, coarser groups for access.
+- **Microsoft Entra ID:** Entra ID omits the `groups` claim once a user belongs to more than 200 groups (the JWT and OIDC limit; the SAML limit is 150). Past the limit, Entra ID emits an overage claim (`_claim_names` and `_claim_sources`) that points to Microsoft Graph instead of the inline list, and Chainguard doesn't follow it. Avoid the overage by emitting only groups assigned to the application, as described in [Microsoft Entra ID](#microsoft-entra-id), or by using fewer, coarser groups for access.
 
 ## Related resources
 

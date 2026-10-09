@@ -5,7 +5,7 @@ type: "article"
 description: "Learn about Chainguard OS, the security-focused operating system that powers Chainguard containers with continuous updates, minimal attack surface, and enterprise-grade security features"
 lead: "Chainguard OS is a purpose-built operating system designed for container security, featuring continuous updates, minimal packages, and hardened configurations that power all Chainguard container images."
 date: 2025-07-03T08:49:31+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard OS"]
 images: []
@@ -42,7 +42,7 @@ With Chainguard OS, users can rely on products that take advantage of an ever-gr
 
 Favoring incremental updates and rebuilds over major release upgrades, Chainguard OS supports smoother transitions that minimize disruptive changes. Our goal is for engineers adopting Chainguard products to never have to think about major OS version upgrades that dominate a roadmap for months at a time every two years. Through continuously introduced daily nano upgrades, paced through staging and testing gates, any offending regression can be readily pinpointed, reported, and addressed in subsequent updates hours or days later.
 
-Both minor “updates” and major “upgrades” are simultaneously delivered through Chainguard OS. Chainguard Containers offer clear, firm, and distinct boundaries for each application, so that updates and upgrades are cleaner.
+Both minor “updates” and major “upgrades” are simultaneously delivered through Chainguard OS. Chainguard's container images offer clear, firm, and distinct boundaries for each application, so that updates and upgrades are cleaner.
 
 Chainguard OS takes advantage of the ephemeral application layer of container images being separate from the persistent storage and unique configuration data; it is able to simultaneously instantiate new containers running the updated and upgraded application and destroy the previous instantiation running the down-level application version. In this way, updates (patches) and upgrades (major changes) are introduced instantly, and rollbacks to previous versions can be done by launching the previous container’s image.
 
@@ -76,7 +76,7 @@ The system architecture and toolchain used in Chainguard OS support the automati
 
 ### Software supply chain security
 
-All software components in Chainguard OS are built from source in the [Chainguard Factory](https://www.youtube.com/watch?v=iU9hmW6hrGs) — a hardened build environment that conforms to [SLSA](https://slsa.dev/) standards. This process mitigates risks of tampering in the build and delivery pipeline. The system also generates cryptographically verifiable artifacts, including signed Software Bills of Materials ([SBOMs](/open-source/sbom/what-is-an-sbom/)) and provenance metadata.
+All software components in Chainguard OS are built from source in the [Chainguard Factory](https://www.youtube.com/watch?v=iU9hmW6hrGs) — a hardened build environment that conforms to [SLSA](https://slsa.dev/) standards. This process mitigates risks of tampering in the build and delivery pipeline. The system also generates cryptographically verifiable artifacts, including signed Software Bills of Materials ([SBOMs](https://www.chainguard.dev/supply-chain-security-101/what-is-an-sbom)) and provenance metadata.
 
 ### Operational efficiency
 

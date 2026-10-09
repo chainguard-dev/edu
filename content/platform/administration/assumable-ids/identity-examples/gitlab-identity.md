@@ -6,11 +6,12 @@ aliases:
 - /chainguard/chainguard-enforce/iam-groups/enforce-gitlab-identity/
 - /chainguard/administration/iam-organizations/identity-examples/gitlab-identity/
 - /chainguard/administration/assumable-ids/identity-examples/gitlab-identity/
+- /chainguard/administration/iam-groups/identity-examples/enforce-gitlab-identity/
 lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by a GitLab CI/CD pipeline."
 type: "article"
 date: 2023-06-28T08:48:45+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:39:28+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -30,7 +31,7 @@ Both methods outlined in this guide require you to have the following:
 * Access to a GitLab project and CI/CD pipeline you can use to test out the identity you'll create. GitLab provides a [quickstart tutorial on creating your first pipeline](https://docs.gitlab.com/ee/ci/quick_start/) which can be useful for getting a testing pipeline up and running.
 * `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) to set this up.
 
-Additionally, the Terraform method requires you to have `terraform` installed on your local machine. Terraform is an open-source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
+Additionally, the Terraform method requires you to have `terraform` installed on your local machine. Terraform is an open source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
 
 ## Create an assumable identity with `chainctl`
 

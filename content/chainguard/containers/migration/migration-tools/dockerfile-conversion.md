@@ -8,7 +8,7 @@ linktitle: "Dockerfile Converter"
 type: "article"
 description: "User guide for Chainguard's Dockerfile Converter (dfc)"
 date: 2025-03-18T15:22:20+01:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers", "Open Source"]
 images: []
@@ -175,7 +175,7 @@ More Examples:
 
 When a Dockerfile uses package managers such as `apt`, `dnf`, or `yum` to install software, `dfc` automatically translates these commands to their `apk` equivalents. This conversion leverages an internal mapping file to resolve package name differences between distributions, ensuring accurate and compatible package installation within the Chainguard Containers environment.
 
-In addition to that, DFC automatically includes a `USER root` directive when it detects package installation commands in the Dockerfile. This is necessary because Chainguard Containers are built with a non-root user by default, and package installation commands typically require root privileges.
+In addition to that, DFC automatically includes a `USER root` directive when it detects package installation commands in the Dockerfile. This is necessary because Chainguard's container images are built with a non-root user by default, and package installation commands typically require root privileges.
 
 For example, consider the following Dockerfile based on Fedora:
 

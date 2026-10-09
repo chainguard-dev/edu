@@ -137,6 +137,22 @@
               },
               "type": "array"
             }
+          },
+          {
+            "description": "delegated requests the delegated exchange mode when assuming `identity`.\nThe assumed identity's own role bindings are not consulted; instead the\nreturned token's capabilities are a per-scope subset of the presented\ncredential's capabilities, selected by `scopes` and `cap` (both\nrequired), and its expiry never exceeds the presented credential's. A\nrequest for any capability or scope the presented credential does not\nhold is rejected, never trimmed. The presented credential must be a\ndelegation grant: a token minted by this issuer whose only audience is\n\"\u003cissuer\u003e/delegation/\u003cname\u003e\", pinned by the identity's claim_match, and\nthe identity must be marked delegation_only. A token minted by a\ndelegated exchange is never accepted as a grant. No refresh token is\nissued. The returned token's subject is the assumed identity, its `act`\nclaim is the presented credential's verified claims, and its\n`act_chain` records the transfer.",
+            "in": "query",
+            "name": "delegated",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "task is an optional opaque identifier for the work the delegated token\nis minted for (e.g. a session id), recorded as the token's `task` claim\nfor attribution. It is never used for authorization. At most 128 bytes\nof letters, digits, and `. _ : / @ -`. Only honored with `delegated`.",
+            "in": "query",
+            "name": "task",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -222,6 +238,22 @@
                 "type": "string"
               },
               "type": "array"
+            }
+          },
+          {
+            "description": "delegated requests the delegated exchange mode when assuming `identity`.\nThe assumed identity's own role bindings are not consulted; instead the\nreturned token's capabilities are a per-scope subset of the presented\ncredential's capabilities, selected by `scopes` and `cap` (both\nrequired), and its expiry never exceeds the presented credential's. A\nrequest for any capability or scope the presented credential does not\nhold is rejected, never trimmed. The presented credential must be a\ndelegation grant: a token minted by this issuer whose only audience is\n\"\u003cissuer\u003e/delegation/\u003cname\u003e\", pinned by the identity's claim_match, and\nthe identity must be marked delegation_only. A token minted by a\ndelegated exchange is never accepted as a grant. No refresh token is\nissued. The returned token's subject is the assumed identity, its `act`\nclaim is the presented credential's verified claims, and its\n`act_chain` records the transfer.",
+            "in": "query",
+            "name": "delegated",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "task is an optional opaque identifier for the work the delegated token\nis minted for (e.g. a session id), recorded as the token's `task` claim\nfor attribution. It is never used for authorization. At most 128 bytes\nof letters, digits, and `. _ : / @ -`. Only honored with `delegated`.",
+            "in": "query",
+            "name": "task",
+            "schema": {
+              "type": "string"
             }
           }
         ],

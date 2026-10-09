@@ -3,7 +3,7 @@
     "schemas": {
       "chainguard.capabilities.Capability": {
         "default": "UNKNOWN",
-        "description": "Capability is an enumeration of the Chainguard IAM capabilities.\n\n - CAP_TENANT_VULN_REPORTS_LIST: TODO(colin): deprecate this cap once the legacy endpoint is removed\n - CAP_REPO_BLOBS_GET: repo.blobs.get is a capability required to pull container images.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with images vs pulling the image itself.\n - CAP_REPO_CREATE: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_CREATE as a transitional grant for write access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_WRITE, drop the dual-accept in cassie.\n - CAP_REPO_LIST: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_LIST as a transitional grant for read access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_READ, drop the dual-accept in cassie.\n - CAP_REPO_INTERNAL_ADMIN: repo.internal.admin allows administering internal-only repository fields\n(catalog tier, bundles, aliases, active tags, README, and sync settings)\nthat are otherwise read-only to customers.\n - CAP_APK_BLOBS_GET: apk.blobs.get is a capability required to pull APKs.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with APKs vs pulling the APK itself.\n - CAP_BUILD_REPORT_LIST: Custom Image Build\n - CAP_LIBRARIES_ENTITLEMENTS_CREATE: Global libraries capabilities\n - CAP_LIBRARIES_PYTHON_LIST: Ecosystems specific capabilities\n - CAP_LIBRARIES_CACHE_INVALIDATE: Cache invalidation capability for the libraries cache (covers all ecosystems).\nGranted to org owners and account admins; not to regular developer members.\n - CAP_LIBRARIES_CACHE_LIST: Read capability for the libraries resolution cache (status and entry\nlisting). Separate from CAP_LIBRARIES_ENTITLEMENTS_LIST on purpose: an\norg's dependency-consumption history is sensitive data.\n - CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE: Rebuilder API capabilities\n - CAP_LIBRARIES_AWS_MARKETPLACE_SUBSCRIPTIONS_CREATE: AWS Marketplace Subscriptions (Chainguard Libraries on AWS Security Hub Extended)\n - CAP_LIBRARIES_REQUEST_GROUPS_CREATE: Library build requests: an organization asks Chainguard to build specific\nlibrary versions and tracks what it already has.\n\nSeparate from the libraries.rebuilder.* capabilities above, which are\ninternal_only and are never grantable to a customer organization.\n - CAP_LIBRARIES_REQUEST_GROUPS_LIST: list covers every read on a request group: the groups themselves, their\nitems, and the per-library view of them.\n - CAP_LIBRARIES_REQUEST_GROUPS_DELETE: delete covers draft groups only; removing a submitted group needs\ndelete_submitted.\n - CAP_LIBRARIES_REQUEST_GROUPS_SUBMIT: submit promotes a draft and carries the CVE-remediation opt-in for the group.\nIt is its own capability because submitting is restricted to owners, which a\nfield mask on update could not express.\n - CAP_LIBRARIES_REQUEST_GROUPS_ITEMS_UPDATE: items.update covers draft item editing: remove, restore and per-item update.\n - CAP_LIBRARIES_REQUEST_GROUPS_REFRESH_COVERAGE: Re-running a group's coverage check is expensive, and submitted groups are\nrefreshed automatically, so it is reserved for Chainguard support.\n - CAP_LIBRARIES_REMOTE_REGISTRIES_CREATE: Remote registries: an org's configured upstream registries for virtual\nrepositories. Creating or deleting one changes where the org's builds\npull dependencies from, so both are owner-only alongside the library\npolicy capabilities; list is ordinary member read.\n - CAP_REGISTRY_ENTITLEMENTS_LIST: Registry Entitlements\n - CAP_REGISTRY_SETTINGS_LIST: Registry Settings\n - CAP_REGISTRY_OVERLAYS_LIST: Registry Overlays (tag-scoped Custom Assembly)\n - CAP_REGISTRY_DEPLOYMENTS_CREATE: Registry Deployments\n - CAP_POLICIES_POLICY_CREATE: Policies\n - CAP_POLICIES_OVERRIDE_CREATE: Policy overrides waive enforcement for a specific artifact. These are\nseparate capabilities from binding management so they can be granted\nindependently. By default create and delete are held by org owners (like\nbinding management) and listing is available to viewers.\n - CAP_TERMS_ACCEPT: Terms\n - CAP_GULFSTREAM: This is orthogonal enough that we should leave\nit somewhat separate, so add new capabilities above.\nTODO(mattmoor): Think about whether we can encode specific\ncontroller capabilities into our access control here?\ne.g. could each logical controller/webhook be its own\ncapability?\n - CAP_GUARDENER_DFC_CONVERT: Guardener\n - CAP_GUARDENER_ASSOCIATION_MANAGE: guardener.association.manage gates self-service linking/unlinking of a\nGitHub org to a Chainguard group (the GroupAccountAssociations record).\n - CAP_GUARDENER_ASSOCIATION_LIST: guardener.association.list gates read-only listing of the GitHub org\ninstallations linked to a Chainguard group (the read counterpart to\nguardener.association.manage).\n - CAP_GUARDENER_ENTITLEMENT_MANAGE: guardener.entitlement.manage gates the support-only surface for configuring a\ngroup's guardener entitlement (e.g. which repo visibility scope guardener\nresponds to). It is internal_only: it can never be granted by a role\navailable to customer organizations.\n - CAP_GUARDENER_ENTITLEMENT_LIST: guardener.entitlement.list gates read-only access to a group's guardener\nentitlement. Unlike guardener.entitlement.manage it is not internal_only, so\nnormal viewers can see the settings that apply to their group.\n - CAP_GUARDENER_ACTIONS_MIGRATE: Guardener actions migrator — on-demand enqueue of a repository's GitHub\nActions migration (opens a pull request), tracked via a long-running\noperation. Mutating, so distinct from the read-only actions catalog cap.\n - CAP_GUARDENER_SCAN_LIST: guardener.scan.list gates listing summaries of the dependency scans\nguardener builds for the group's linked repositories.\n - CAP_GUARDENER_SCAN_GET: guardener.scan.get gates reading one dependency scan by id (its declared\nartifacts and their relationships).\n - CAP_MCP_TOOL_CALL: MCP tool calls\n - CAP_SKILLS_PUBLISH: Skills registry — publishing skill artifacts to skills.cgr.dev\n - CAP_SKILLS_ENTITLEMENTS_CREATE: Skills registry entitlements\n - CAP_SKILLS_LIST: Skills catalog metadata table (description / license / category) backing\nListSkills/GetSkill and search. One org-agnostic set: per-org isolation is\nthe UIDP scope on each RPC, not separate caps. These gate the catalog\ntable's CRUD only; publishing skill artifacts to the registry stays\nCAP_SKILLS_PUBLISH and entitlements stay CAP_SKILLS_ENTITLEMENTS_*.\n\nskills.list is customer-facing (read the catalog for orgs you can access).\nThe writes are internal_only: the catalog is populated by the Chainguard\npublish pipeline, not by customer orgs, so a customer role can never be\ngranted them (a role carrying them must also grant CAP_INTERNAL).\nskills.write is a single create-or-update cap: UpdateSkill is one\nAIP-134 create-or-update RPC, so there is no separate create vs update.\n - CAP_SKILLS_HARDEN_READ: Skills harden — access to the Skills harden API, split per RPC so read,\nsubmit, and cancel can be granted independently. Customer-facing: an org\nmember holds these on the target group named by `chainctl skills harden\n--group`.\n  read   -\u003e GetHardenOperation\n  write  -\u003e HardenSkill (submit)\n  cancel -\u003e CancelHardenOperation\nThese let a customer kick off and track a harden; they do NOT let the caller\nwrite the hardened output. Publishing the hardened artifact and recording the\njob result into the skills registry/catalog is done by internal identities\nvia the internal_only skills.write cap, and the pipeline's record-result RPC\nis gated on CAP_INTERNAL — so a customer can never push into the hardened\narea directly.\n - CAP_ARGOS_DOCUMENTS_CREATE: Argos — client-side encrypted document records.\n - CAP_ARGOS_DOCUMENTATION_READ: Argos — documentation visibility. Grants read access to Argos API\ndocumentation.\n - CAP_ARGOS_OSV_READ: Argos — Private OSV API (customer-facing OSV query surface).\n - CAP_LIBRARIES_POLICY_CREATE: Libraries Policy Gates — customer-facing policies and bindings that\nconfigure the cooldown and malware gates applied to upstream package pulls,\nplus the block events recorded when a pull is withheld.\n - CAP_BUILDAPI_BUILD_CREATE: Build API\n - CAP_CASSIE_CAS_READ: Cassie REAPI cache surface. CAS (blobs + ByteStream) and the ActionCache\nare separately gated: a caller may read or write action results without\nany authority over the underlying content blobs, and vice versa.\n - CAP_LOGGIE_LOGS_READ: Loggie: the live-log service. Readers tailing a stream hold logs.read;\na producer appending to its streams holds logs.write; the orchestrator\nissuing streams holds logs.create. Appending also requires the stream's\nsigned write name, so a logs.write holder can only append to streams it\nwas handed.\n - CAP_REX_EXECUTIONS_CREATE: Rex: the remote-execution service. The edge authorizes submitting an\nexecution; the scheduler authorizes a worker joining the pool; the\nexecutions query surface authorizes cross-run reads at the instance.\n - CAP_REX_CLASS_USE: Gated platform classes. USE authorizes submitting an execution that\ndemands a gated class; SERVE authorizes a worker pool advertising one.\nBoth are evaluated at the class's own UIDP node, never at the instance.\n - CAP_ACTIONS_LIST: Actions catalog — the read-only catalog of Chainguard-published GitHub\nActions and the upstreams they mirror. Writes are internal (importer only).\n - CAP_ACTIONS_DEPENDENCIES_UPDATE: Recording the dependency edges of a composite action's revision, i.e. the\n`uses:` steps of its action.yml. Internal only: the edges are derived by\nthe hardening pipeline that reads the action.yml, and are not something a\ncustomer asserts about the shared graph.\n - CAP_ACTIONS_DEPENDENCIES_LIST: Reading the dependency graph. Internal only: reads are fenced to groups the\ncaller holds a capability in, which no customer does for these actions.\n - CAP_SANDBOX_RUN_CREATE: Sandbox: the ACID sandbox Runs control plane (the WorkflowRuns API,\nai-cicd/sandbox). Customer-grantable — an org's members run, watch, and\ncancel workflow runs in the org's own instance — via the sandbox.user\nrole, and held by Owners. The SANDBOX service principal's internal\nsandbox.service_agent role carries the same capabilities.",
+        "description": "Capability is an enumeration of the Chainguard IAM capabilities.\n\n - CAP_TENANT_VULN_REPORTS_LIST: TODO(colin): deprecate this cap once the legacy endpoint is removed\n - CAP_REPO_BLOBS_GET: repo.blobs.get is a capability required to pull container images.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with images vs pulling the image itself.\n - CAP_REPO_CREATE: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_CREATE as a transitional grant for write access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_WRITE, drop the dual-accept in cassie.\n - CAP_REPO_LIST: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_LIST as a transitional grant for read access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_READ, drop the dual-accept in cassie.\n - CAP_REPO_INTERNAL_ADMIN: repo.internal.admin allows administering internal-only repository fields\n(catalog tier, bundles, aliases, active tags, README, and sync settings)\nthat are otherwise read-only to customers.\n - CAP_APK_BLOBS_GET: apk.blobs.get is a capability required to pull APKs.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with APKs vs pulling the APK itself.\n - CAP_BUILD_REPORT_LIST: Custom Image Build\n - CAP_LIBRARIES_ENTITLEMENTS_CREATE: Global libraries capabilities\n - CAP_LIBRARIES_PYTHON_LIST: Ecosystems specific capabilities\n - CAP_LIBRARIES_CACHE_INVALIDATE: Cache invalidation capability for the libraries cache (covers all ecosystems).\nGranted to org owners and account admins; not to regular developer members.\n - CAP_LIBRARIES_CACHE_LIST: Read capability for the libraries resolution cache (status and entry\nlisting). Separate from CAP_LIBRARIES_ENTITLEMENTS_LIST on purpose: an\norg's dependency-consumption history is sensitive data.\n - CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE: Rebuilder API capabilities\n - CAP_LIBRARIES_AWS_MARKETPLACE_SUBSCRIPTIONS_CREATE: AWS Marketplace Subscriptions (Chainguard Libraries on AWS Security Hub Extended)\n - CAP_LIBRARIES_REQUEST_GROUPS_CREATE: Library build requests: an organization asks Chainguard to build specific\nlibrary versions and tracks what it already has.\n\nSeparate from the libraries.rebuilder.* capabilities above, which are\ninternal_only and are never grantable to a customer organization.\n - CAP_LIBRARIES_REQUEST_GROUPS_LIST: list covers every read on a request group: the groups themselves, their\nitems, and the per-library view of them.\n - CAP_LIBRARIES_REQUEST_GROUPS_DELETE: delete covers draft groups only; removing a submitted group needs\ndelete_submitted.\n - CAP_LIBRARIES_REQUEST_GROUPS_SUBMIT: submit promotes a draft and carries the CVE-remediation opt-in for the group.\nIt is its own capability because submitting is restricted to owners, which a\nfield mask on update could not express.\n - CAP_LIBRARIES_REQUEST_GROUPS_ITEMS_UPDATE: items.update covers draft item editing: remove, restore and per-item update.\n - CAP_LIBRARIES_REQUEST_GROUPS_REFRESH_COVERAGE: Re-running a group's coverage check is expensive, and submitted groups are\nrefreshed automatically, so it is reserved for Chainguard support.\n - CAP_LIBRARIES_REMOTE_REGISTRIES_CREATE: Remote registries: an org's configured upstream registries for virtual\nrepositories. Creating or deleting one changes where the org's builds\npull dependencies from, so both are owner-only alongside the library\npolicy capabilities; list is ordinary member read.\n - CAP_LIBRARIES_STORAGE_USAGE_GET: Storage usage: how much storage an org's own uploads consume in each\nlanguage ecosystem. Owner-only because it is org-wide accounting (and the\nbasis for upcoming quotas), not something every member needs to see.\n - CAP_REGISTRY_ENTITLEMENTS_LIST: Registry Entitlements\n - CAP_REGISTRY_SETTINGS_LIST: Registry Settings\n - CAP_REGISTRY_OVERLAYS_LIST: Registry Overlays (tag-scoped Custom Assembly)\n - CAP_REGISTRY_DEPLOYMENTS_CREATE: Registry Deployments\n - CAP_POLICIES_POLICY_CREATE: Policies\n - CAP_POLICIES_OVERRIDE_CREATE: Policy overrides waive enforcement for a specific artifact. These are\nseparate capabilities from binding management so they can be granted\nindependently. By default create and delete are held by org owners (like\nbinding management) and listing is available to viewers.\n - CAP_TERMS_ACCEPT: Terms\n - CAP_GULFSTREAM: This is orthogonal enough that we should leave\nit somewhat separate, so add new capabilities above.\nTODO(mattmoor): Think about whether we can encode specific\ncontroller capabilities into our access control here?\ne.g. could each logical controller/webhook be its own\ncapability?\n - CAP_GUARDENER_DFC_CONVERT: Guardener\n - CAP_GUARDENER_ASSOCIATION_MANAGE: guardener.association.manage gates self-service linking/unlinking of a\nGitHub org to a Chainguard group (the GroupAccountAssociations record).\n - CAP_GUARDENER_ASSOCIATION_LIST: guardener.association.list gates read-only listing of the GitHub org\ninstallations linked to a Chainguard group (the read counterpart to\nguardener.association.manage).\n - CAP_GUARDENER_ENTITLEMENT_MANAGE: guardener.entitlement.manage gates the support-only surface for configuring a\ngroup's guardener entitlement (e.g. which repo visibility scope guardener\nresponds to). It is internal_only: it can never be granted by a role\navailable to customer organizations.\n - CAP_GUARDENER_ENTITLEMENT_LIST: guardener.entitlement.list gates read-only access to a group's guardener\nentitlement. Unlike guardener.entitlement.manage it is not internal_only, so\nnormal viewers can see the settings that apply to their group.\n - CAP_GUARDENER_ACTIONS_MIGRATE: Guardener actions migrator — on-demand enqueue of a repository's GitHub\nActions migration (opens a pull request), tracked via a long-running\noperation. Mutating, so distinct from the read-only actions catalog cap.\n - CAP_GUARDENER_SCAN_LIST: guardener.scan.list gates listing summaries of the dependency scans\nguardener builds for the group's linked repositories.\n - CAP_GUARDENER_SCAN_GET: guardener.scan.get gates reading one dependency scan by id (its declared\nartifacts and their relationships).\n - CAP_GUARDENER_IMAGES_MIGRATE: Authorizes requesting and reading repository image migrations.\n - CAP_MCP_TOOL_CALL: MCP tool calls\n - CAP_SKILLS_PUBLISH: Skills registry — publishing skill artifacts to skills.cgr.dev\n - CAP_SKILLS_ENTITLEMENTS_CREATE: Skills registry entitlements\n - CAP_SKILLS_LIST: Skills catalog metadata table (description / license / category) backing\nListSkills/GetSkill and search. One org-agnostic set: per-org isolation is\nthe UIDP scope on each RPC, not separate caps. These gate the catalog\ntable's CRUD only; publishing skill artifacts to the registry stays\nCAP_SKILLS_PUBLISH and entitlements stay CAP_SKILLS_ENTITLEMENTS_*.\n\nskills.list is customer-facing (read the catalog for orgs you can access).\nThe writes are internal_only: the catalog is populated by the Chainguard\npublish pipeline, not by customer orgs, so a customer role can never be\ngranted them (a role carrying them must also grant CAP_INTERNAL).\nskills.write is a single create-or-update cap: UpdateSkill is one\nAIP-134 create-or-update RPC, so there is no separate create vs update.\n - CAP_SKILLS_HARDEN_READ: Skills harden — access to the Skills harden API, split per RPC so read,\nsubmit, and cancel can be granted independently. Customer-facing: an org\nmember holds these on the target group named by `chainctl skills harden\n--group`.\n  read   -\u003e GetHardenOperation\n  write  -\u003e HardenSkill (submit)\n  cancel -\u003e CancelHardenOperation\nThese let a customer kick off and track a harden; they do NOT let the caller\nwrite the hardened output. Publishing the hardened artifact and recording the\njob result into the skills registry/catalog is done by internal identities\nvia the internal_only skills.write cap, and the pipeline's record-result RPC\nis gated on CAP_INTERNAL — so a customer can never push into the hardened\narea directly.\n - CAP_ARGOS_DOCUMENTS_CREATE: Argos — client-side encrypted document records.\n - CAP_ARGOS_DOCUMENTATION_READ: Argos — documentation visibility. Grants read access to Argos API\ndocumentation.\n - CAP_ARGOS_OSV_READ: Argos — Private OSV API (customer-facing OSV query surface).\n - CAP_ARGOS_COALITION_MEMBER: Argos — identity types. Mutually exclusive: an identity holding both is\ntreated as a mitigation partner (the more restrictive of the two) for any\nAPI call which varies the return value based on identity type.\n - CAP_ARGOS_PARTNER_CAPABILITY_REQUEST: Argos — mitigation partner capabilities. request lets a partner submit\nits capabilities and interests; approve lets staff review them.\n - CAP_LIBRARIES_POLICY_CREATE: Libraries Policy Gates — customer-facing policies and bindings that\nconfigure the cooldown and malware gates applied to upstream package pulls,\nplus the block events recorded when a pull is withheld.\n - CAP_BUILDAPI_BUILD_CREATE: Build API\n - CAP_CASSIE_CAS_READ: Cassie REAPI cache surface. CAS (blobs + ByteStream) and the ActionCache\nare separately gated: a caller may read or write action results without\nany authority over the underlying content blobs, and vice versa.\n - CAP_LOGGIE_LOGS_READ: Loggie: the live-log service. Readers tailing a stream hold logs.read;\na producer appending to its streams holds logs.write; the orchestrator\nissuing streams holds logs.create. Appending also requires the stream's\nsigned write name, so a logs.write holder can only append to streams it\nwas handed.\n - CAP_REX_EXECUTIONS_CREATE: Rex: the remote-execution service. The edge authorizes submitting an\nexecution; the scheduler authorizes a worker joining the pool; the\nexecutions query surface authorizes cross-run reads at the instance.\n - CAP_REX_CLASS_USE: Gated platform classes. USE authorizes submitting an execution that\ndemands a gated class; SERVE authorizes a worker pool advertising one.\nBoth are evaluated at the class's own UIDP node, never at the instance.\n - CAP_ACTIONS_LIST: Actions catalog — the read-only catalog of Chainguard-published GitHub\nActions and the upstreams they mirror. Writes are internal (importer only).\n - CAP_ACTIONS_DEPENDENCIES_UPDATE: Recording the dependency edges of a composite action's revision, i.e. the\n`uses:` steps of its action.yml. Internal only: the edges are derived by\nthe hardening pipeline that reads the action.yml, and are not something a\ncustomer asserts about the shared graph.\n - CAP_ACTIONS_DEPENDENCIES_LIST: Reading the dependency graph. Internal only: reads are fenced to groups the\ncaller holds a capability in, which no customer does for these actions.\n - CAP_SANDBOX_RUN_CREATE: Sandbox: the ACID sandbox Runs control plane (the WorkflowRuns API,\nai-cicd/sandbox). Customer-grantable — an org's members run, watch, and\ncancel workflow runs in the org's own instance — via the sandbox.user\nrole, and held by Owners. The SANDBOX service principal's internal\nsandbox.service_agent role carries the same capabilities.\n - CAP_SANDBOX_INSTALLATIONS_RESOLVE: Resolving a guardener GitHub App installation to the root group it is\nlinked to. Internal only: the answer names another customer's\norganization, so it is held by the sandbox GitHub reconciler alone and\nchecked at the acid-sandbox group, never at a customer group.\n - CAP_ENTITLEMENTS_FEATURES_LIST: Central Entitlements Service FEATURE entitlements (product features such\nas sandbox_checks). Reading an organization's FEATURE rows. Internal only:\nit is held by the SANDBOX service principal's sandbox.service_agent role,\nwhich reads the org's rows to admit work. It is separate from\nregistry.entitlements.list so the SANDBOX principal cannot read image\nentitlements.\n - CAP_ENTITLEMENTS_FEATURES_MANAGE: Writing and deleting an organization's FEATURE rows as Chainguard\n(the INTERNAL and CONSOLE_ADMIN sources). Internal only: it is the support\nsurface for backfill, trial extension and the kill switch, held through the\nsupport role.\n - CAP_SANDBOX_SESSION_CREATE: Sandbox develop sessions (the Sessions API, ai-cicd/sandbox): resident\ndevelopment sessions opened with `chainctl develop`. session.create opens\nsessions and lets the caller see and manage its own; it is\ncustomer-grantable via the sandbox.user role. session.list sees and\nmanages (renames, deletes) every user's sessions in the instance — an\nadministrative power held by Owners, not by sandbox.user.\n - CAP_SANDBOX_IDENTITY_CREATE: Sandbox develop session identities: the GCP (and later other cloud)\nidentities a session may act as. identity.create defines, updates, and\ndeletes the caller's own personal identities, via the sandbox.user role.\nidentity.use consents a shared identity into one's session; it is checked\nat the shared identity's groups, so it has its own role\n(sandbox.identity.user) that an owner binds at the groups they choose.\nidentity.admin defines shared identities and sees every identity in the\ninstance; Owners hold it.\n - CAP_TELEMETRY_CONTAINERS_LIST: Telemetry: read access to the container images a group's linked\nrepositories declare, as observed by the telemetry reconciler.\nprotolint:disable:next ENUM_FIELD_NAMES_PREFIX MAX_LINE_LENGTH\n - CAP_BILLING_MANAGE: Billing: buying and paying for a self-serve plan for an org. Starting a\ncheckout leads to a charge and, once the first invoice is paid, to the\npurchaser becoming the org's owner, so it is held by owner and\nlimited_owner only.",
         "enum": [
           "UNKNOWN",
           "CAP_INTERNAL",
@@ -134,6 +134,7 @@
           "CAP_LIBRARIES_REMOTE_REGISTRIES_CREATE",
           "CAP_LIBRARIES_REMOTE_REGISTRIES_LIST",
           "CAP_LIBRARIES_REMOTE_REGISTRIES_DELETE",
+          "CAP_LIBRARIES_STORAGE_USAGE_GET",
           "CAP_REGISTRY_ENTITLEMENTS_LIST",
           "CAP_REGISTRY_ENTITLEMENTS_CREATE",
           "CAP_REGISTRY_ENTITLEMENTS_DELETE",
@@ -182,6 +183,7 @@
           "CAP_GUARDENER_ACTIONS_MIGRATE",
           "CAP_GUARDENER_SCAN_LIST",
           "CAP_GUARDENER_SCAN_GET",
+          "CAP_GUARDENER_IMAGES_MIGRATE",
           "CAP_MCP_TOOL_CALL",
           "CAP_SKILLS_PUBLISH",
           "CAP_SKILLS_ENTITLEMENTS_CREATE",
@@ -199,6 +201,10 @@
           "CAP_ARGOS_DOCUMENTATION_READ",
           "CAP_ARGOS_OSV_READ",
           "CAP_ARGOS_OSV_DUMP",
+          "CAP_ARGOS_COALITION_MEMBER",
+          "CAP_ARGOS_MITIGATION_PARTNER",
+          "CAP_ARGOS_PARTNER_CAPABILITY_REQUEST",
+          "CAP_ARGOS_PARTNER_CAPABILITY_APPROVE",
           "CAP_LIBRARIES_POLICY_CREATE",
           "CAP_LIBRARIES_POLICY_UPDATE",
           "CAP_LIBRARIES_POLICY_LIST",
@@ -229,7 +235,17 @@
           "CAP_ACTIONS_DEPENDENCIES_LIST",
           "CAP_SANDBOX_RUN_CREATE",
           "CAP_SANDBOX_RUN_LIST",
-          "CAP_SANDBOX_RUN_CANCEL"
+          "CAP_SANDBOX_RUN_CANCEL",
+          "CAP_SANDBOX_INSTALLATIONS_RESOLVE",
+          "CAP_ENTITLEMENTS_FEATURES_LIST",
+          "CAP_ENTITLEMENTS_FEATURES_MANAGE",
+          "CAP_SANDBOX_SESSION_CREATE",
+          "CAP_SANDBOX_SESSION_LIST",
+          "CAP_SANDBOX_IDENTITY_CREATE",
+          "CAP_SANDBOX_IDENTITY_USE",
+          "CAP_SANDBOX_IDENTITY_ADMIN",
+          "CAP_TELEMETRY_CONTAINERS_LIST",
+          "CAP_BILLING_MANAGE"
         ],
         "type": "string"
       },
@@ -800,6 +816,60 @@
           "encryptedIdtoken": {
             "description": "encrypted_idtoken is the encrypted idtoken.",
             "format": "byte",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.billing.v2beta1.CheckoutSession": {
+        "description": "CheckoutSession is a hosted checkout page.",
+        "properties": {
+          "expireTime": {
+            "description": "When the page stops accepting payment details.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "url": {
+            "description": "The URL of the hosted checkout page. Send the user's browser there.",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.billing.v2beta1.CreateCheckoutSessionRequest": {
+        "description": "CreateCheckoutSessionRequest is the request message for\nCreateCheckoutSession.",
+        "properties": {
+          "parent": {
+            "description": "The organization to upgrade. Must be a Starter organization with no\nsubscription in progress.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "parent"
+        ],
+        "type": "object"
+      },
+      "chainguard.platform.billing.v2beta1.CreatePortalSessionRequest": {
+        "description": "CreatePortalSessionRequest is the request message for CreatePortalSession.",
+        "properties": {
+          "parent": {
+            "description": "The organization whose payment details to manage. Must have a\nsubscription.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "parent"
+        ],
+        "type": "object"
+      },
+      "chainguard.platform.billing.v2beta1.PortalSession": {
+        "description": "PortalSession is a hosted page for managing payment details.",
+        "properties": {
+          "url": {
+            "description": "The URL of the hosted page. Send the user's browser there.",
+            "readOnly": true,
             "type": "string"
           }
         },
@@ -1471,6 +1541,10 @@
             "format": "date-time",
             "readOnly": true,
             "type": "string"
+          },
+          "delegationOnly": {
+            "description": "When true, the identity may only be assumed through the delegated token\nexchange (ExchangeRequest.delegated), in which its capabilities are a\nrequested subset of the presented delegation grant's and its role\nbindings are never consulted. A plain assume is refused, so the identity\nnever holds standing authority. The delegated exchange is refused for\nevery identity without it. Only valid on a claim_match identity.",
+            "type": "boolean"
           },
           "description": {
             "description": "Optional description of the identity.",
@@ -2274,14 +2348,15 @@
       },
       "chainguard.platform.iam.v2beta1.OrgKind": {
         "default": "ORG_KIND_UNSPECIFIED",
-        "description": "OrgKind is the kind of organization the group belongs to.\n\n - ORG_KIND_UNSPECIFIED: Organization kind is not yet set.\n - ORG_KIND_STARTER: Free catalog starter organizations.\n - ORG_KIND_CUSTOMER: Paid customer organizations.\n - ORG_KIND_DEV: Personal developer organizations.\n - ORG_KIND_INFRA: Organizations that are used for infrastructure or automation.\n - ORG_KIND_AWS_MARKETPLACE: Organizations that are created via AWS Marketplace Subscriptions.\nOrgs can move from this kind to CUSTOMER upon up-sell.",
+        "description": "OrgKind is the kind of organization the group belongs to.\n\n - ORG_KIND_UNSPECIFIED: Organization kind is not yet set.\n - ORG_KIND_STARTER: Free catalog starter organizations.\n - ORG_KIND_CUSTOMER: Paid customer organizations.\n - ORG_KIND_DEV: Personal developer organizations.\n - ORG_KIND_INFRA: Organizations that are used for infrastructure or automation.\n - ORG_KIND_AWS_MARKETPLACE: Organizations that are created via AWS Marketplace Subscriptions.\nOrgs can move from this kind to CUSTOMER upon up-sell.\n - ORG_KIND_TEAM: Paid self-serve organizations on the Team plan. Orgs become TEAM\nonly by upgrading from STARTER.",
         "enum": [
           "ORG_KIND_UNSPECIFIED",
           "ORG_KIND_STARTER",
           "ORG_KIND_CUSTOMER",
           "ORG_KIND_DEV",
           "ORG_KIND_INFRA",
-          "ORG_KIND_AWS_MARKETPLACE"
+          "ORG_KIND_AWS_MARKETPLACE",
+          "ORG_KIND_TEAM"
         ],
         "type": "string"
       },
@@ -2825,7 +2900,7 @@
             "type": "integer"
           },
           "blockingSubmit": {
-            "description": "Items the customer must resolve before the group can be submitted: the sum\nof not_found_upstream, wont_build, invalid_requirement and held. Blocked\nitems are deliberately NOT counted here — they stay requestable with the\nbuild held.",
+            "description": "Items the customer must resolve before the group can be submitted: the sum\nof not_found_upstream, invalid_requirement and held.\n\nTwo kinds of item are deliberately NOT counted. A blocked item stays\nrequestable with the build held. A wont_build item is not requestable at\nall, but the group keeps it as the record of a refusal, so it is counted\nonly under wont_build.",
             "format": "int32",
             "readOnly": true,
             "type": "integer"
@@ -2855,7 +2930,7 @@
             "type": "integer"
           },
           "held": {
-            "description": "Versions whose build was declined and is being held. Counted in\nblocking_submit: unlike a blocked item, a held one is not requestable, so\nthe customer has to take it out of the group to submit.",
+            "description": "Versions whose build was declined and is being held. Counted in\nblocking_submit, because a hold is somebody else's decision and asking\nagain must not launder it, so the customer has to take the item out of the\ngroup to submit. Being unrequestable is not the reason: a wont_build item\nis unrequestable too and the group keeps it.",
             "format": "int32",
             "readOnly": true,
             "type": "integer"
@@ -2885,7 +2960,7 @@
             "type": "integer"
           },
           "total": {
-            "description": "Every item in the group, including removed and pending ones.\n\nIt is not the sum of the fields above, and it exists because that sum is\nwrong: blocking_submit deliberately re-counts not_found_upstream,\nwont_build, invalid_requirement and held, so adding the fields together\ncounts every blocking item twice. A field added here later would change\nwhat a summing client computed, as well.\n\nProgress is total - pending, which stays right however the buckets change.",
+            "description": "Every item in the group, including removed and pending ones.\n\nIt is not the sum of the fields above, and it exists because that sum is\nwrong: blocking_submit deliberately re-counts not_found_upstream,\ninvalid_requirement and held, so adding the fields together counts every\nblocking item twice. A field added here later would change what a summing\nclient computed, as well.\n\nProgress is total - pending, which stays right however the buckets change.",
             "format": "int32",
             "readOnly": true,
             "type": "integer"
@@ -2899,11 +2974,21 @@
         },
         "type": "object"
       },
+      "chainguard.platform.libraries.v2beta1.CVEProvenance": {
+        "default": "CVE_PROVENANCE_UNSPECIFIED",
+        "description": "CVEProvenance is what a CVE row asserts, which differs by where it came from.\n\nIt exists because the two are not interchangeable to a reader. An ADVISORY\nrow is a Chainguard determination: we rebuilt the artifact and the rebuild\nremediates this CVE. An UPSTREAM row is an untriaged detection that this\nversion is affected. Presenting an upstream detection as a determination\nreports input we have not stood behind as a finding we have.\n\n - CVE_PROVENANCE_UNSPECIFIED: Unspecified provenance.\n - CVE_PROVENANCE_ADVISORY: Chainguard's rebuild of this artifact remediates this CVE.\n - CVE_PROVENANCE_UPSTREAM: This version is affected by this CVE. An untriaged detection.",
+        "enum": [
+          "CVE_PROVENANCE_UNSPECIFIED",
+          "CVE_PROVENANCE_ADVISORY",
+          "CVE_PROVENANCE_UPSTREAM"
+        ],
+        "type": "string"
+      },
       "chainguard.platform.libraries.v2beta1.CVERemediation": {
         "description": "CVERemediation is the remediation state of one requested version, aggregated\nacross the CVEs found against it.",
         "properties": {
           "cveCount": {
-            "description": "How many CVEs were found against this version.",
+            "description": "How many High and Critical CVEs were found against this version.\n\nScoped to match the vocabulary around it: cve_status reports\nNO_HIGH_CRITICAL_CVES, so this counts the findings that claim speaks to.\nMedium and low findings are excluded, as are findings for which no CVSS\nscore was recorded. The per-CVE read\n(ListRequestedLibraryVersionCVEs) is NOT scoped and lists every finding,\nso it can return more CVEs than this counts.",
             "format": "int32",
             "readOnly": true,
             "type": "integer"
@@ -2918,7 +3003,7 @@
             "readOnly": true
           },
           "remediatedCount": {
-            "description": "How many CVEs on this version are remediated. Meaningful regardless of the\naggregate status, since a version can be partly remediated.",
+            "description": "How many High and Critical CVEs on this version are remediated. Meaningful\nregardless of the aggregate status, since a version can be partly\nremediated. Scoped like cve_count below.",
             "format": "int32",
             "readOnly": true,
             "type": "integer"
@@ -2948,7 +3033,7 @@
       },
       "chainguard.platform.libraries.v2beta1.CVERemediationStatus": {
         "default": "CVE_REMEDIATION_STATUS_UNSPECIFIED",
-        "description": "CVERemediationStatus is the aggregate remediation status of one version.\n\nFully orthogonal to Availability, and populated only for an opted-in group.\n\n - CVE_REMEDIATION_STATUS_UNSPECIFIED: Unspecified remediation status.\n - CVE_REMEDIATION_STATUS_SCAN_QUEUED: Queued for review, or not yet resolvable to a version we hold. Distinct from\nNO_HIGH_CRITICAL_CVES: this means no answer yet, not a clean answer.\n - CVE_REMEDIATION_STATUS_NO_HIGH_CRITICAL_CVES: Cross-referenced against advisory data, and no High or Critical CVEs apply.\n - CVE_REMEDIATION_STATUS_REVIEWING: CVEs identified; remediation not started.\n - CVE_REMEDIATION_STATUS_IN_PROGRESS: Remediation underway on at least one CVE.\n - CVE_REMEDIATION_STATUS_COMPLETE: Remediation finished with at least one CVE remediated.\n - CVE_REMEDIATION_STATUS_WONT_REMEDIATE: Every CVE on this version was ruled out of scope. The decision on\nCVERemediation says which kind of out-of-scope.",
+        "description": "CVERemediationStatus is the aggregate remediation status of one version.\n\nFully orthogonal to Availability, and populated only for an opted-in group.\n\n - CVE_REMEDIATION_STATUS_UNSPECIFIED: Unspecified remediation status.\n - CVE_REMEDIATION_STATUS_SCAN_QUEUED: Queued for review, or not yet resolvable to a version we hold. Distinct from\nNO_HIGH_CRITICAL_CVES: this means no answer yet, not a clean answer.\n - CVE_REMEDIATION_STATUS_NO_HIGH_CRITICAL_CVES: Cross-referenced against advisory data, and no High or Critical CVEs apply.\n - CVE_REMEDIATION_STATUS_REVIEWING: CVEs identified; remediation not started.\n - CVE_REMEDIATION_STATUS_IN_PROGRESS: Remediation underway on at least one CVE.\n - CVE_REMEDIATION_STATUS_COMPLETE: Remediation finished with at least one CVE remediated.\n - CVE_REMEDIATION_STATUS_WONT_REMEDIATE: Every CVE on this version was ruled out of scope. The decision on\nCVERemediation says which kind of out-of-scope.\n - CVE_REMEDIATION_STATUS_FIX_AVAILABLE: A fix exists that the caller can move to now, and Chainguard has not\ndelivered a build of the pinned version. fix_version names the target\nwhere one can be named.\n\nDistinct from REVIEWING, which says remediation has not started and would\nhide an upgrade available today, and from COMPLETE, which claims a build\nChainguard shipped. Reached when an untriaged CVE already records a fix\ntarget, or when an advisory named a fix at or above the pinned version\nthat Chainguard never ingested.\n\nAdded after the other values. proto3 enums are open, so a client generated\nfrom an earlier copy of this file keeps the number as an unrecognized\nvalue and its switches fall through to their default branch -- it does not\nread as UNSPECIFIED. A client parsing the JSON surface strictly errors on\nthe unknown name instead. Treat an unrecognized value as not computed.\n\nA version that reports this today reported REVIEWING before the value\nexisted.",
         "enum": [
           "CVE_REMEDIATION_STATUS_UNSPECIFIED",
           "CVE_REMEDIATION_STATUS_SCAN_QUEUED",
@@ -2956,7 +3041,8 @@
           "CVE_REMEDIATION_STATUS_REVIEWING",
           "CVE_REMEDIATION_STATUS_IN_PROGRESS",
           "CVE_REMEDIATION_STATUS_COMPLETE",
-          "CVE_REMEDIATION_STATUS_WONT_REMEDIATE"
+          "CVE_REMEDIATION_STATUS_WONT_REMEDIATE",
+          "CVE_REMEDIATION_STATUS_FIX_AVAILABLE"
         ],
         "type": "string"
       },
@@ -2982,7 +3068,7 @@
             "type": "integer"
           },
           "remediatedCount": {
-            "description": "Total CVEs remediated across the group.",
+            "description": "Total High and Critical CVEs remediated across the group. Scoped like\nCVERemediation.cve_count.",
             "format": "int32",
             "readOnly": true,
             "type": "integer"
@@ -3008,6 +3094,33 @@
         },
         "type": "object"
       },
+      "chainguard.platform.libraries.v2beta1.CVESeverity": {
+        "default": "CVE_SEVERITY_UNSPECIFIED",
+        "description": "CVESeverity is the severity band from the advisory data.\n\nUNSPECIFIED covers two cases a caller should treat alike: no severity was\nrecorded, and the advisory reported a band this API does not enumerate. The\nsecond is mapped rather than dropped, so the CVE still appears.\n\n - CVE_SEVERITY_UNSPECIFIED: No severity recorded, or a band this API does not enumerate.\n - CVE_SEVERITY_LOW: The advisory reported \"low\".\n - CVE_SEVERITY_MEDIUM: The advisory reported \"medium\".\n - CVE_SEVERITY_HIGH: The advisory reported \"high\".\n - CVE_SEVERITY_CRITICAL: The advisory reported \"critical\".",
+        "enum": [
+          "CVE_SEVERITY_UNSPECIFIED",
+          "CVE_SEVERITY_LOW",
+          "CVE_SEVERITY_MEDIUM",
+          "CVE_SEVERITY_HIGH",
+          "CVE_SEVERITY_CRITICAL"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.libraries.v2beta1.CVEStatus": {
+        "default": "CVE_STATUS_UNSPECIFIED",
+        "description": "CVEStatus is the remediation state of one CVE on one version.\n\nDeliberately not CVERemediationStatus, which is the aggregate ladder over a\nwhole version and has a different vocabulary. The two share only IN_PROGRESS,\nso one enum serving both would report a per-CVE state in words that mean\nsomething else at the version level.\n\n - CVE_STATUS_UNSPECIFIED: Unspecified state.\n - CVE_STATUS_PENDING: Recorded by the cross-reference and not yet triaged.\n - CVE_STATUS_TRIAGED: A reviewer has decided how to remediate; work has not started.\n - CVE_STATUS_IN_PROGRESS: A rebuild or backport is underway.\n - CVE_STATUS_COMPLETED: Chainguard delivered a build carrying the fix, and remediated_version\nnames it.\n\nDelivery, not the existence of a fix somewhere. The stored status alone\ndoes not establish it: a row completes as soon as an advisory names a fix\nat or above the affected version, and that fix may be one Chainguard never\ningested. Such a row reports FIX_AVAILABLE instead, so this value never\nappears without a remediated_version beside it.\n - CVE_STATUS_EXCLUDED: Ruled out of scope. decision says which kind of out-of-scope, and is the\nfield to render: \"not affected\" and \"no fix planned\" mean opposite things\nto the reader.\n - CVE_STATUS_SUPERSEDED: No active request group references this version any more, so the row is no\nlonger maintained. Reported rather than hidden, because a caller that\npinned the version earlier may still be running it.\n - CVE_STATUS_FIX_AVAILABLE: An advisory names a fix, but Chainguard has not delivered a build carrying\nit. remediated_version is empty: there is no Chainguard build to name.\n\nIts own value rather than COMPLETED, which would claim a remediation\nnobody shipped, and rather than IN_PROGRESS or TRIAGED, which say\nremediation has not landed yet while hiding that the CVE is resolved by\nmoving to a later upstream version today.",
+        "enum": [
+          "CVE_STATUS_UNSPECIFIED",
+          "CVE_STATUS_PENDING",
+          "CVE_STATUS_TRIAGED",
+          "CVE_STATUS_IN_PROGRESS",
+          "CVE_STATUS_COMPLETED",
+          "CVE_STATUS_EXCLUDED",
+          "CVE_STATUS_SUPERSEDED",
+          "CVE_STATUS_FIX_AVAILABLE"
+        ],
+        "type": "string"
+      },
       "chainguard.platform.libraries.v2beta1.Ecosystem": {
         "default": "ECOSYSTEM_UNSPECIFIED",
         "description": "Ecosystem represents the language ecosystem an artifact belongs to.\n\n - ECOSYSTEM_UNSPECIFIED: Unspecified ecosystem.\n - ECOSYSTEM_JAVA: Java ecosystem (Maven).\n - ECOSYSTEM_PYTHON: Python ecosystem (PyPI).\n - ECOSYSTEM_JAVASCRIPT: JavaScript ecosystem (npm).",
@@ -3018,6 +3131,30 @@
           "ECOSYSTEM_JAVASCRIPT"
         ],
         "type": "string"
+      },
+      "chainguard.platform.libraries.v2beta1.EcosystemStorageUsage": {
+        "description": "EcosystemStorageUsage is an organization's storage usage in one ecosystem.",
+        "properties": {
+          "ecosystem": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.v2beta1.StorageUsageEcosystem"
+              }
+            ],
+            "description": "The ecosystem."
+          },
+          "storageBytes": {
+            "description": "Total size of the organization's live uploaded artifacts, in bytes. For Go\nthis is the module ZIPs only; the server-generated .mod and .info files,\ndeleted versions, and orphaned storage objects are not counted.",
+            "format": "int64",
+            "type": "string"
+          },
+          "versionCount": {
+            "description": "Number of live uploaded versions.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
       },
       "chainguard.platform.libraries.v2beta1.GetArtifactCountResponse": {
         "description": "GetArtifactCountResponse is the response message for GetArtifactCount.",
@@ -3229,6 +3366,37 @@
         },
         "type": "object"
       },
+      "chainguard.platform.libraries.v2beta1.ListRequestedLibraryVersionCvesResponse": {
+        "description": "ListRequestedLibraryVersionCvesResponse returns a page of CVEs.",
+        "properties": {
+          "crossReferenced": {
+            "description": "Whether Chainguard has cross-referenced this version against advisory data.\n\nFalse with an empty list means \"no answer yet\", not \"no CVEs\" — rows are\ncreated only when the cross-reference returns a decision, so a clean\nversion and an unprocessed one are otherwise indistinguishable. A caller\nmust not render an empty list as \"no CVEs found\" unless this is true.",
+            "type": "boolean"
+          },
+          "cves": {
+            "description": "The CVEs on this page, KEV first.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.v2beta1.RequestedLibraryVersionCVE"
+            },
+            "type": "array"
+          },
+          "nextPageToken": {
+            "description": "Token for the next page; empty when there are no more.",
+            "type": "string"
+          },
+          "skipped": {
+            "description": "Results skipped before this page, accumulated across paginated requests.",
+            "format": "int32",
+            "type": "integer"
+          },
+          "totalCount": {
+            "description": "Total CVEs recorded against this version, across all pages.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.libraries.v2beta1.ListRequestedLibraryVersionsResponse": {
         "description": "ListRequestedLibraryVersionsResponse returns a page of versions.",
         "properties": {
@@ -3416,7 +3584,7 @@
             "readOnly": true
           },
           "availabilityReason": {
-            "description": "Human-readable reason accompanying availability, passed through verbatim from\nthe exclusion or block that produced it. Empty when there is nothing to say.",
+            "description": "Human-readable reason accompanying availability, written by Chainguard: why\nan item will not be built, is held, or could not be read. It is never an\ninternal note. Empty when there is nothing to say.",
             "readOnly": true,
             "type": "string"
           },
@@ -3679,7 +3847,7 @@
                 "$ref": "#/components/schemas/chainguard.platform.libraries.v2beta1.RequestedLibraryCVEStatus"
               }
             ],
-            "description": "CVE-remediation status across the library's requested versions. Populated\nonly where a contributing group is opted in.",
+            "description": "CVE-remediation status for this library, aggregated across the versions\nwhose request groups opted into CVE remediation.\n\nThat scope is narrower than the library's requested versions, and the\ndifference matters. Opt-in is a property of a request group, so an\norganization with one opted-in group and one that is not has versions of\nthe same library inside and outside this answer. A version nobody asked us\nto scan is not reported here, and does not hold the status back: every\nrung below is a claim about the versions in scope, not about every version\nthe organization pins.\n\nUNSPECIFIED where no contributing group opted in, which reads as \"not\ncomputed\" -- there is no scan to report, and any rung would claim one.",
             "readOnly": true
           },
           "ecosystem": {
@@ -3703,7 +3871,7 @@
             "type": "string"
           },
           "remediatedCveCount": {
-            "description": "Total CVEs remediated across the library's versions.",
+            "description": "Total High and Critical CVEs remediated across the versions in cve_status's\nscope -- the ones whose request groups opted in, not every requested\nversion. Severity-scoped like CVERemediation.cve_count: medium and low\nfindings are excluded, as are findings with no recorded CVSS score.\n\nReported whatever cve_status says, because a library part-way through\nremediation has fixed CVEs worth naming: the status answers whether it is\nfinished and this answers what has been done.",
             "format": "int32",
             "readOnly": true,
             "type": "integer"
@@ -3739,14 +3907,15 @@
       },
       "chainguard.platform.libraries.v2beta1.RequestedLibraryCVEStatus": {
         "default": "REQUESTED_LIBRARY_CVE_STATUS_UNSPECIFIED",
-        "description": "RequestedLibraryCVEStatus is the remediation ladder across a library's versions.\n\nOnly meaningful where a contributing group opted in.\n\n - REQUESTED_LIBRARY_CVE_STATUS_UNSPECIFIED: Unspecified remediation status.\n - REQUESTED_LIBRARY_CVE_STATUS_REVIEWING: Opted in, but no version is past being queued, or a cross-referenced version\nstill has untriaged CVEs. A library with even one un-cross-referenced version\nis REVIEWING rather than clean: the alternative would report an unfinished\ncheck as a clean bill of health.\n - REQUESTED_LIBRARY_CVE_STATUS_IN_PROGRESS: Remediation underway on at least one version.\n - REQUESTED_LIBRARY_CVE_STATUS_NO_HIGH_CRITICAL_CVES: Every version came back cross-referenced and clean, and none is still queued.\n - REQUESTED_LIBRARY_CVE_STATUS_COMPLETE: Remediation finished with at least one CVE remediated and nothing in progress.\n - REQUESTED_LIBRARY_CVE_STATUS_WONT_REMEDIATE: Every CVE across the library was ruled out of scope.",
+        "description": "RequestedLibraryCVEStatus is the remediation ladder across a library's versions.\n\nOnly meaningful where a contributing group opted in.\n\n - REQUESTED_LIBRARY_CVE_STATUS_UNSPECIFIED: Unspecified remediation status.\n - REQUESTED_LIBRARY_CVE_STATUS_REVIEWING: No version in scope is past being queued, or a cross-referenced one still\nhas untriaged CVEs. One un-cross-referenced version in scope makes the\nlibrary REVIEWING rather than clean: the alternative would report an\nunfinished check as a clean bill of health.\n - REQUESTED_LIBRARY_CVE_STATUS_IN_PROGRESS: Remediation underway on at least one version in scope.\n - REQUESTED_LIBRARY_CVE_STATUS_NO_HIGH_CRITICAL_CVES: Every version in scope came back cross-referenced and clean, and none is\nstill queued.\n - REQUESTED_LIBRARY_CVE_STATUS_COMPLETE: At least one CVE remediated, with nothing in progress and no version in\nscope still queued.\n\nRead it as \"nothing outstanding on the versions you asked us to scan, as\nfar as the last cross-reference knows\" -- not as a durable property of the\nlibrary, and not as a statement about versions outside the scope.\n\nNew upstream versions appear and new CVEs are disclosed against versions\nalready pinned, so a library has no permanent finished state, and this\nvalue can go back to REVIEWING without anything regressing.\n\nA version nobody has cross-referenced holds this value off, for the reason\nit holds off NO_HIGH_CRITICAL_CVES: both claim full coverage of the scope,\nand an unexamined version in it is where that coverage is missing.\n\nremediated_cve_count is reported whatever the status, so a REVIEWING\nlibrary still says how many CVEs were fixed.\n - REQUESTED_LIBRARY_CVE_STATUS_WONT_REMEDIATE: Every CVE on the versions in scope was ruled out of scope. A version in\nscope with no CVEs does not hold this back -- it has none to leave\nunexcluded -- but one that was never cross-referenced does.\n - REQUESTED_LIBRARY_CVE_STATUS_FIX_AVAILABLE: At least one version in scope has a CVE with a fix the caller can move to,\nand Chainguard has not delivered a build of that pinned version.\n\nThe target is not named here. Different pinned versions upgrade to\ndifferent targets, so one library-level version would be wrong for most of\nthem -- the per-version read is where a target belongs.\n\nAdded after the other values. proto3 enums are open, so a client generated\nfrom an earlier copy of this file keeps the number as an unrecognized\nvalue and its switches fall through to their default branch -- it does not\nread as UNSPECIFIED. A client parsing the JSON surface strictly errors on\nthe unknown name instead. Treat an unrecognized value as not computed.",
         "enum": [
           "REQUESTED_LIBRARY_CVE_STATUS_UNSPECIFIED",
           "REQUESTED_LIBRARY_CVE_STATUS_REVIEWING",
           "REQUESTED_LIBRARY_CVE_STATUS_IN_PROGRESS",
           "REQUESTED_LIBRARY_CVE_STATUS_NO_HIGH_CRITICAL_CVES",
           "REQUESTED_LIBRARY_CVE_STATUS_COMPLETE",
-          "REQUESTED_LIBRARY_CVE_STATUS_WONT_REMEDIATE"
+          "REQUESTED_LIBRARY_CVE_STATUS_WONT_REMEDIATE",
+          "REQUESTED_LIBRARY_CVE_STATUS_FIX_AVAILABLE"
         ],
         "type": "string"
       },
@@ -3763,7 +3932,7 @@
             "readOnly": true
           },
           "availabilityReason": {
-            "description": "Reason accompanying availability, passed through verbatim.",
+            "description": "Reason accompanying availability, written by Chainguard. It is never an\ninternal note.",
             "readOnly": true,
             "type": "string"
           },
@@ -3823,6 +3992,63 @@
         },
         "type": "object"
       },
+      "chainguard.platform.libraries.v2beta1.RequestedLibraryVersionCVE": {
+        "description": "RequestedLibraryVersionCVE is one CVE recorded against one version.\n\nOne row per (version, CVE). Rows are shared across request groups: if\nseveral groups pin the same version, there is one record and a triage\ndecision applies to all of them.",
+        "properties": {
+          "cveId": {
+            "description": "The CVE identifier, e.g. \"CVE-2024-12345\". For a vulnerability with no CVE\nassigned, an internal synthetic identifier.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "decision": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.v2beta1.CVERemediationDecision"
+              }
+            ],
+            "description": "The reviewer's decision, where one was recorded. Per CVE, so unlike the\naggregate on CVERemediation this value is not collapsed across a version.\n\nOver the line limit by two characters, and buf format puts a field and its\noptions on one line. Disabled for this line only; the identical\ndeclaration on CVERemediation above predates the limit.\nprotolint:disable:next MAX_LINE_LENGTH",
+            "readOnly": true
+          },
+          "kev": {
+            "description": "Whether the CVE is in CISA's Known Exploited Vulnerabilities catalog.",
+            "readOnly": true,
+            "type": "boolean"
+          },
+          "provenance": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.v2beta1.CVEProvenance"
+              }
+            ],
+            "description": "What this row asserts. Read it before presenting the row as a finding:\nan UPSTREAM row is a detection, not a Chainguard determination.",
+            "readOnly": true
+          },
+          "remediatedVersion": {
+            "description": "The earliest Chainguard build carrying the fix, e.g. \"0.115.0+cgr.1\". May\nmove to an earlier version as older backports land, never to a later one.\n\nEmpty means no Chainguard build is recorded against this CVE. It does not\nmean no fix exists: an upstream release may carry one, and status\nFIX_AVAILABLE says so where we know. Rendering an empty value as \"no fix\"\nis the one reading that stops a customer investigating.\n\nThis field does not yet carry the upstream upgrade target, and does not yet\nreport a fix target that landed on the malware block list as blocked. Until\nit does, treat it as evidence of a Chainguard build and not as the complete\nanswer about where a fix exists.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "severity": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.v2beta1.CVESeverity"
+              }
+            ],
+            "description": "Severity band, from the advisory data.",
+            "readOnly": true
+          },
+          "status": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.v2beta1.CVEStatus"
+              }
+            ],
+            "description": "Remediation state of this CVE on this version.",
+            "readOnly": true
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.libraries.v2beta1.RestoreItemsResponse": {
         "description": "RestoreItemsResponse reports the outcome of a restore.",
         "properties": {
@@ -3851,6 +4077,28 @@
           }
         },
         "type": "object"
+      },
+      "chainguard.platform.libraries.v2beta1.StorageUsage": {
+        "description": "StorageUsage is an organization's storage usage across ecosystems.",
+        "properties": {
+          "ecosystemUsages": {
+            "description": "Storage usage for each reported ecosystem.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.v2beta1.EcosystemStorageUsage"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.v2beta1.StorageUsageEcosystem": {
+        "default": "STORAGE_USAGE_ECOSYSTEM_UNSPECIFIED",
+        "description": "StorageUsageEcosystem is an ecosystem that reports usage. It is deliberately\nnot the artifacts service's Ecosystem: that enum must be handled by every\nartifacts listing path, and usage starts with Go alone.\n\n - STORAGE_USAGE_ECOSYSTEM_UNSPECIFIED: Unspecified ecosystem.\n - STORAGE_USAGE_ECOSYSTEM_GO: Go modules.",
+        "enum": [
+          "STORAGE_USAGE_ECOSYSTEM_UNSPECIFIED",
+          "STORAGE_USAGE_ECOSYSTEM_GO"
+        ],
+        "type": "string"
       },
       "chainguard.platform.libraries.v2beta1.Upgrade": {
         "description": "Upgrade names newer built versions of the same package.\n\nOrdering is ecosystem-aware — PEP 440 for Python, Maven's own ordering for Java\n— because lexical ordering places 2.10 below 2.9 and would suggest a downgrade.\nNeither ecosystem guarantees semver, so no claim is made that an upgrade is\ncompatible; only that it is newer and built.",
@@ -3959,6 +4207,14 @@
             ],
             "description": "Custom certificates to include in the image."
           },
+          "commandOverride": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay.CommandOverride"
+              }
+            ],
+            "description": "Part of Guarded Entrypoint, a Beta feature. To get access, contact\nChainguard customer support.\n\nCommand override for the guarded_entrypoint wrapper. Requires\nguarded_entrypoint in the same overlay config, even when a broader\nbinding already sets it. When several overlay bindings apply to one\ntag, the most specific one that sets it wins (see TagSelector); one\nthat leaves it unset uses the value from a broader one. An empty\ncommand_override counts as set, so it cancels a broader override."
+          },
           "contents": {
             "allOf": [
               {
@@ -3974,9 +4230,24 @@
             "description": "Environment variables to set in the image.\nKeys with the reserved prefix \"CHAINGUARD_\" are rejected.",
             "type": "object"
           },
+          "failMode": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay.FailMode"
+              }
+            ],
+            "description": "Part of Guarded Entrypoint, a Beta feature. To get access, contact\nChainguard customer support.\n\nHow the wrapper handles secret-resolution failures. Requires\nguarded_entrypoint in the same overlay config, even when a broader\nbinding already sets it. FAIL_MODE_CLOSED when no applicable binding\nsets it. Baked into the\nimage by the syncer as GUARDED_FAIL_MODE=closed|open, emitted only\nwhen FAIL_MODE_OPEN; a closed repo's image is unchanged.\nWhen several overlay bindings apply to one tag, the most specific one\nthat sets it wins (see TagSelector); one that leaves it unset\n(FAIL_MODE_UNSPECIFIED) uses the value from a broader one, which may\nbe FAIL_MODE_OPEN. To keep a tag fail-closed, bind an overlay that\nsets guarded_entrypoint and FAIL_MODE_CLOSED to that tag at a more\nspecific layer than the one setting FAIL_MODE_OPEN. If the open value\ncomes from the tag's own KIND_EXACT binding, change that overlay."
+          },
           "guardedEntrypoint": {
-            "description": "Wraps the image entrypoint with /usr/bin/guarded-entrypoint on rebuild.",
+            "description": "Guarded Entrypoint is a Beta feature. To get access, contact Chainguard\ncustomer support.\n\nWraps the image entrypoint with /usr/bin/guarded-entrypoint on rebuild.\nAt container start the wrapper replaces each environment value written\nas a secret reference, cg+BACKEND://REF (for example\ncg+gsm://projects/acme/secrets/db/versions/latest), with the secret,\nruns any preflight checks, and then starts the app.\nWhen several overlay bindings apply to one tag, the entrypoint is\nwrapped if any of them sets this to true; a more specific binding\ncannot turn it off.",
             "type": "boolean"
+          },
+          "preflight": {
+            "description": "Part of Guarded Entrypoint, a Beta feature. To get access, contact\nChainguard customer support.\n\nReadiness checks to run before starting the app. Requires\nguarded_entrypoint in the same overlay config, even when a broader\nbinding already sets it. Up to 32 entries per overlay. The syncer\nbakes each entry into the image as one environment variable using a\nflat encoding, e.g.\nGUARDED_PREFLIGHT_0=tcp=redis:6379,timeout=60s,interval=1s,on_failure=fail\n(n starts at 0; values may not contain \",\" or \"=\").\nWhen several overlay bindings apply to one tag, their checks are\ncombined, broader bindings first, and identical entries are dropped.\nThe combined list can exceed 32.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay.Preflight"
+            },
+            "type": "array"
           }
         },
         "type": "object"
@@ -4103,6 +4374,48 @@
         ],
         "type": "object"
       },
+      "chainguard.platform.registry.v2beta1.CustomOverlay.CommandOverride": {
+        "description": "CommandOverride decides what the wrapper execs after preparing\nthe environment: in MODE_DEFAULT the wrapper execs command only\nwhen it receives no arguments at all (the image has no ENTRYPOINT\nor CMD and none are passed at run time), and otherwise execs the\narguments it received; in MODE_PREPEND it execs command followed\nby those arguments; in\nMODE_OVERRIDE it execs command alone. The image's ENTRYPOINT\n(wrapper-prefixed) and CMD are unchanged in every mode. The\nsyncer bakes this into the image as two environment variables:\nGUARDED_COMMAND_MODE=default|prepend|override and\nGUARDED_COMMAND=\u003cJSON array\u003e, e.g.\nGUARDED_COMMAND=[\"redis-server\",\"--requirepass\",\"${REDIS_PASSWORD}\"].",
+        "properties": {
+          "command": {
+            "description": "Argument list that combines with the container's runtime\narguments per mode. When empty, the wrapper execs the arguments\nit received, and the override still counts as set, so it cancels\na broader binding's override.\n\nEach entry expands ${VAR} from the container's resolved\nenvironment, after secret references are resolved; the runtime\narguments are never expanded. $$ is a literal $, and any other $\nis kept as is. A ${VAR} whose variable is not set stops the\ncontainer (exit 121) instead of expanding to an empty string. An\nexpanded value is visible in the process's command line, so a\nsecret passed this way is readable by anything that can inspect\nthe process.\n\nThe command itself is stored in the image config, which anyone who\ncan pull the image can read, so never write a secret into it as a\nliteral value. Reference an environment variable that holds a\nsecret reference instead, for example ${REDIS_PASSWORD}. That keeps\nthe secret out of the image, but as with any ${VAR}, the expanded\nvalue is still visible in the process's command line.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "mode": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay.CommandOverride.Mode"
+              }
+            ],
+            "description": "How command combines with the container's runtime arguments.\nDefault is MODE_DEFAULT. Non-empty command is required when mode\nis MODE_PREPEND or MODE_OVERRIDE."
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.v2beta1.CustomOverlay.CommandOverride.Mode": {
+        "default": "MODE_UNSPECIFIED",
+        "description": "Mode decides how command combines with the container's runtime\narguments.\n\n - MODE_UNSPECIFIED: Treated as MODE_DEFAULT.\n - MODE_DEFAULT: Use command only when the wrapper receives no arguments at all.\n - MODE_PREPEND: command first, then the container's arguments.\n - MODE_OVERRIDE: command always; container arguments are dropped.",
+        "enum": [
+          "MODE_UNSPECIFIED",
+          "MODE_DEFAULT",
+          "MODE_PREPEND",
+          "MODE_OVERRIDE"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.registry.v2beta1.CustomOverlay.FailMode": {
+        "default": "FAIL_MODE_UNSPECIFIED",
+        "description": "FailMode decides what the wrapper does when secret resolution fails\n(see the wrapper's fail-mode setting): fail-closed (the default)\nrefuses to start the app; fail-open logs and starts anyway.\n\n - FAIL_MODE_UNSPECIFIED: No value. Uses a broader binding's value when overlays are layered,\nand FAIL_MODE_CLOSED when none sets one.\n - FAIL_MODE_CLOSED: Wrapper refuses to start the app when secret resolution fails.\n - FAIL_MODE_OPEN: Wrapper starts the app and logs the failure.",
+        "enum": [
+          "FAIL_MODE_UNSPECIFIED",
+          "FAIL_MODE_CLOSED",
+          "FAIL_MODE_OPEN"
+        ],
+        "type": "string"
+      },
       "chainguard.platform.registry.v2beta1.CustomOverlay.ImageContents": {
         "description": "ImageContents specifies additional image content.",
         "properties": {
@@ -4147,6 +4460,46 @@
           "content"
         ],
         "type": "object"
+      },
+      "chainguard.platform.registry.v2beta1.CustomOverlay.Preflight": {
+        "description": "Preflight is one readiness check to run before the app starts.",
+        "properties": {
+          "interval": {
+            "description": "Polling interval between attempts, as a Go duration string.\nNon-negative. Default 500ms.",
+            "type": "string"
+          },
+          "onFailure": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay.Preflight.OnFailure"
+              }
+            ],
+            "description": "What happens when the check fails. Default FAIL."
+          },
+          "path": {
+            "description": "Filesystem path that must exist. Set exactly one of tcp or path.\nSupports ${VAR} expansion from the resolved environment. Must\nnot contain \",\" or \"=\".",
+            "type": "string"
+          },
+          "tcp": {
+            "description": "TCP endpoint to dial (host:port). Set exactly one of tcp or path.\nSupports ${VAR} expansion from the resolved environment. Must\nnot contain \",\" or \"=\".",
+            "type": "string"
+          },
+          "timeout": {
+            "description": "Time budget for the check, as a Go duration string like \"30s\".\nNon-negative. Default 30s.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.v2beta1.CustomOverlay.Preflight.OnFailure": {
+        "default": "ON_FAILURE_UNSPECIFIED",
+        "description": "OnFailure decides what happens when a preflight check fails.\n\n - ON_FAILURE_UNSPECIFIED: Treated as FAIL.\n - ON_FAILURE_FAIL: Stops the container from starting.\n - ON_FAILURE_CONTINUE: Startup proceeds; the failure is logged.",
+        "enum": [
+          "ON_FAILURE_UNSPECIFIED",
+          "ON_FAILURE_FAIL",
+          "ON_FAILURE_CONTINUE"
+        ],
+        "type": "string"
       },
       "chainguard.platform.registry.v2beta1.ListOverlayBindingsResponse": {
         "description": "ListOverlayBindingsResponse is the response to ListOverlayBindings,\nwith pagination.",
@@ -4284,8 +4637,13 @@
         "type": "object"
       },
       "chainguard.platform.registry.v2beta1.OverlayBinding": {
-        "description": "OverlayBinding binds one overlay to one repo under a tag selector.\nIts UID is a UIDP under the repo it attaches to. Bindings have no\nname; audit rendering comes from the repo, the selector, and the\nexpanded overlay content.",
+        "description": "OverlayBinding binds one overlay to one repo — or, when all_repos is\nset, to every repo in an organization — under a tag selector. Its UID\nis a UIDP under the resource it attaches to: the repo, or the\norganization (root group) for all-repos bindings. Bindings have no\nname; audit rendering comes from the repo (or the all-repos marker),\nthe selector, and the expanded overlay content.",
         "properties": {
+          "allRepos": {
+            "description": "AllRepos marks a binding that applies to every repo in the\norganization — current and future — instead of a single repo. Such a\nbinding's UID is a UIDP under the organization (root group) and\n`repo` is empty; the tag selector still scopes which tags are\ncustomized on each repo. Immutable, like the repo reference:\nchanging a binding's scope is delete plus create.",
+            "readOnly": true,
+            "type": "boolean"
+          },
           "overlay": {
             "allOf": [
               {
@@ -4296,7 +4654,7 @@
             "readOnly": true
           },
           "repo": {
-            "description": "The UIDP of the repo this binding applies to.",
+            "description": "The UIDP of the repo this binding applies to. Empty when all_repos\nis set.",
             "readOnly": true,
             "type": "string"
           },
@@ -4322,6 +4680,10 @@
       "chainguard.platform.registry.v2beta1.OverlayBindingsService.CreateOverlayBindingBody": {
         "description": "CreateOverlayBindingRequest is the request message for attaching an\noverlay to a repo.\n",
         "properties": {
+          "allRepos": {
+            "description": "AllRepos, when true, attaches the overlay to every repo in the\norganization named by `parent` — including repos created after the\nbinding exists — instead of a single repo. `parent` must then be the\norganization's root group UIDP; a non-root parent fails\nInvalidArgument. The tag selector still scopes which tags are\ncustomized on each repo. At create time an all-repos binding is\nchecked against the organization's other all-repos bindings only —\nat most one all-repos binding per (organization, overlay) pair\n(AlreadyExists), and co-matching selectors must reference overlays\nwhose configs merge commutatively (FailedPrecondition) — never\nagainst individual repos' bindings: the two scopes compose in\nseparate precedence layers at rebuild time (see TagSelector). Repos\nwhose legacy custom_overlay is set keep the legacy behavior and skip\nall-repos bindings at rebuild time.",
+            "type": "boolean"
+          },
           "overlay": {
             "description": "References the overlay to attach: its UIDP, or its name resolved\nwithin the repo's organization.",
             "type": "string"
@@ -4537,7 +4899,7 @@
         "type": "object"
       },
       "chainguard.platform.registry.v2beta1.TagSelector": {
-        "description": "1. The repo's KIND_ALL bindings.\n  2. KIND_VARIANT bindings whose variant_type matches the tag (today\n     only VARIANT_TYPE_DEV, matching the \"-dev\" tag suffix).\n  3. KIND_EXACT bindings whose `tags` include the tag.\n\nLayers merge later-wins for scalar fields; packages accumulate. All\nthree can stack on a single tag (e.g. `latest-dev`). Within one layer,\nco-matching bindings merge commutatively: the bind-time compatibility\ncheck (see CreateOverlayBindingRequest.tag_selector) guarantees their\noverlays' configs never set the same field to different values.",
+        "description": "1. The repo's KIND_ALL bindings.\n  2. KIND_VARIANT bindings whose variant_type matches the tag (today\n     only VARIANT_TYPE_DEV, matching the \"-dev\" tag suffix).\n  3. KIND_EXACT bindings whose `tags` include the tag.\n\nLayers merge later-wins for scalar fields; packages accumulate. A later\nlayer is more specific. The Guarded Entrypoint fields\n(guarded_entrypoint, preflight, command_override, fail_mode) state how\nthey layer on each field of CustomOverlay. All three layers can stack on\na single tag (e.g. `latest-dev`). Within one layer, co-matching bindings\nmerge commutatively: the bind-time compatibility check (see\nCreateOverlayBindingRequest.tag_selector) guarantees their overlays'\nconfigs never set the same field to different values.\n\nWhen the organization has all-repos bindings (see\nCreateOverlayBindingRequest.all_repos), their three kind layers apply\nBELOW the repo's own: all-repos ALL, VARIANT, EXACT compose first, then\nthe repo-scoped layers on top — a repo-scoped binding always wins\nscalar conflicts against an all-repos binding, so all-repos bindings\nact as organization-wide defaults that each repo's own bindings can\noverride. Packages still accumulate across all six layers. Scope\nlayers never co-match each other: the bind-time compatibility check\nruns among all-repos bindings of the organization and among the repo's\nown bindings, never across the two scopes.",
         "properties": {
           "kind": {
             "allOf": [
@@ -5634,6 +5996,94 @@
         "summary": "List Vulnerability Metadata",
         "tags": [
           "SecurityAdvisoryService"
+        ]
+      }
+    },
+    "/billing/v2beta1/checkoutSessions": {
+      "post": {
+        "description": "CreateCheckoutSession opens a hosted checkout page where an owner of a\nStarter organization enters a card to upgrade the organization to the\nTeam plan. The organization is upgraded once the first invoice is paid,\nnot when this call returns.",
+        "operationId": "BillingService_CreateCheckoutSession",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.billing.v2beta1.CreateCheckoutSessionRequest"
+              }
+            }
+          },
+          "description": "CreateCheckoutSessionRequest is the request message for\nCreateCheckoutSession.",
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.billing.v2beta1.CheckoutSession"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create Checkout Session",
+        "tags": [
+          "BillingService"
+        ]
+      }
+    },
+    "/billing/v2beta1/portalSessions": {
+      "post": {
+        "description": "CreatePortalSession opens a hosted page where an owner of a Team\norganization updates the card the organization pays with.",
+        "operationId": "BillingService_CreatePortalSession",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.billing.v2beta1.CreatePortalSessionRequest"
+              }
+            }
+          },
+          "description": "CreatePortalSessionRequest is the request message for CreatePortalSession.",
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.billing.v2beta1.PortalSession"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create Portal Session",
+        "tags": [
+          "BillingService"
         ]
       }
     },
@@ -7637,6 +8087,10 @@
                     "format": "date-time",
                     "readOnly": true,
                     "type": "string"
+                  },
+                  "delegationOnly": {
+                    "description": "When true, the identity may only be assumed through the delegated token\nexchange (ExchangeRequest.delegated), in which its capabilities are a\nrequested subset of the presented delegation grant's and its role\nbindings are never consulted. A plain assume is refused, so the identity\nnever holds standing authority. The delegated exchange is refused for\nevery identity without it. Only valid on a claim_match identity.",
+                    "type": "boolean"
                   },
                   "description": {
                     "description": "Optional description of the identity.",
@@ -10228,7 +10682,7 @@
             }
           },
           {
-            "description": "Filter by CVE-remediation status.\n\n - CVE_REMEDIATION_STATUS_UNSPECIFIED: Unspecified remediation status.\n - CVE_REMEDIATION_STATUS_SCAN_QUEUED: Queued for review, or not yet resolvable to a version we hold. Distinct from\nNO_HIGH_CRITICAL_CVES: this means no answer yet, not a clean answer.\n - CVE_REMEDIATION_STATUS_NO_HIGH_CRITICAL_CVES: Cross-referenced against advisory data, and no High or Critical CVEs apply.\n - CVE_REMEDIATION_STATUS_REVIEWING: CVEs identified; remediation not started.\n - CVE_REMEDIATION_STATUS_IN_PROGRESS: Remediation underway on at least one CVE.\n - CVE_REMEDIATION_STATUS_COMPLETE: Remediation finished with at least one CVE remediated.\n - CVE_REMEDIATION_STATUS_WONT_REMEDIATE: Every CVE on this version was ruled out of scope. The decision on\nCVERemediation says which kind of out-of-scope.",
+            "description": "Filter by CVE-remediation status.\n\n - CVE_REMEDIATION_STATUS_UNSPECIFIED: Unspecified remediation status.\n - CVE_REMEDIATION_STATUS_SCAN_QUEUED: Queued for review, or not yet resolvable to a version we hold. Distinct from\nNO_HIGH_CRITICAL_CVES: this means no answer yet, not a clean answer.\n - CVE_REMEDIATION_STATUS_NO_HIGH_CRITICAL_CVES: Cross-referenced against advisory data, and no High or Critical CVEs apply.\n - CVE_REMEDIATION_STATUS_REVIEWING: CVEs identified; remediation not started.\n - CVE_REMEDIATION_STATUS_IN_PROGRESS: Remediation underway on at least one CVE.\n - CVE_REMEDIATION_STATUS_COMPLETE: Remediation finished with at least one CVE remediated.\n - CVE_REMEDIATION_STATUS_WONT_REMEDIATE: Every CVE on this version was ruled out of scope. The decision on\nCVERemediation says which kind of out-of-scope.\n - CVE_REMEDIATION_STATUS_FIX_AVAILABLE: A fix exists that the caller can move to now, and Chainguard has not\ndelivered a build of the pinned version. fix_version names the target\nwhere one can be named.\n\nDistinct from REVIEWING, which says remediation has not started and would\nhide an upgrade available today, and from COMPLETE, which claims a build\nChainguard shipped. Reached when an untriaged CVE already records a fix\ntarget, or when an advisory named a fix at or above the pinned version\nthat Chainguard never ingested.\n\nAdded after the other values. proto3 enums are open, so a client generated\nfrom an earlier copy of this file keeps the number as an unrecognized\nvalue and its switches fall through to their default branch -- it does not\nread as UNSPECIFIED. A client parsing the JSON surface strictly errors on\nthe unknown name instead. Treat an unrecognized value as not computed.\n\nA version that reports this today reported REVIEWING before the value\nexisted.",
             "in": "query",
             "name": "cveRemediationStatus",
             "schema": {
@@ -10240,7 +10694,8 @@
                 "CVE_REMEDIATION_STATUS_REVIEWING",
                 "CVE_REMEDIATION_STATUS_IN_PROGRESS",
                 "CVE_REMEDIATION_STATUS_COMPLETE",
-                "CVE_REMEDIATION_STATUS_WONT_REMEDIATE"
+                "CVE_REMEDIATION_STATUS_WONT_REMEDIATE",
+                "CVE_REMEDIATION_STATUS_FIX_AVAILABLE"
               ],
               "type": "string"
             }
@@ -10267,6 +10722,14 @@
             "in": "query",
             "name": "parent",
             "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Return only items for this package. An exact match on the canonical name,\nas RequestGroupItem.package_name reports it, not a substring. Items whose\nrequirement yielded no package name never match. At most 255 characters,\nthe longest name the service stores.",
+            "in": "query",
+            "name": "packageName",
             "schema": {
               "type": "string"
             }
@@ -10550,7 +11013,7 @@
     },
     "/libraries/v2beta1/requestGroups/{uid}:submitRequestGroup": {
       "post": {
-        "description": "Its own RPC rather than a field mask on UpdateRequestGroup, because it is the\npoint where a preview becomes committed work and it carries the group-level\nCVE-remediation decision. That lets it hold a distinct, Owner-only\ncapability, which a mask on update could not express.\n\nItems in the cannot-be-requested set must be removed first.",
+        "description": "Its own RPC rather than a field mask on UpdateRequestGroup, because it is the\npoint where a preview becomes committed work and it carries the group-level\nCVE-remediation decision. That lets it hold a distinct, Owner-only\ncapability, which a mask on update could not express.\n\nItems that block a submit must be removed first: not_found_upstream,\ninvalid_requirement and held. A wont_build item does not block one. It\nstays in the group as the record of what Chainguard declined to rebuild,\nand nothing builds it.",
         "operationId": "RequestGroupsService_SubmitRequestGroup",
         "parameters": [
           {
@@ -10656,7 +11119,7 @@
             }
           },
           {
-            "description": "Filter by computed CVE-remediation status.\n\n - REQUESTED_LIBRARY_CVE_STATUS_UNSPECIFIED: Unspecified remediation status.\n - REQUESTED_LIBRARY_CVE_STATUS_REVIEWING: Opted in, but no version is past being queued, or a cross-referenced version\nstill has untriaged CVEs. A library with even one un-cross-referenced version\nis REVIEWING rather than clean: the alternative would report an unfinished\ncheck as a clean bill of health.\n - REQUESTED_LIBRARY_CVE_STATUS_IN_PROGRESS: Remediation underway on at least one version.\n - REQUESTED_LIBRARY_CVE_STATUS_NO_HIGH_CRITICAL_CVES: Every version came back cross-referenced and clean, and none is still queued.\n - REQUESTED_LIBRARY_CVE_STATUS_COMPLETE: Remediation finished with at least one CVE remediated and nothing in progress.\n - REQUESTED_LIBRARY_CVE_STATUS_WONT_REMEDIATE: Every CVE across the library was ruled out of scope.",
+            "description": "Filter by computed CVE-remediation status.\n\n - REQUESTED_LIBRARY_CVE_STATUS_UNSPECIFIED: Unspecified remediation status.\n - REQUESTED_LIBRARY_CVE_STATUS_REVIEWING: No version in scope is past being queued, or a cross-referenced one still\nhas untriaged CVEs. One un-cross-referenced version in scope makes the\nlibrary REVIEWING rather than clean: the alternative would report an\nunfinished check as a clean bill of health.\n - REQUESTED_LIBRARY_CVE_STATUS_IN_PROGRESS: Remediation underway on at least one version in scope.\n - REQUESTED_LIBRARY_CVE_STATUS_NO_HIGH_CRITICAL_CVES: Every version in scope came back cross-referenced and clean, and none is\nstill queued.\n - REQUESTED_LIBRARY_CVE_STATUS_COMPLETE: At least one CVE remediated, with nothing in progress and no version in\nscope still queued.\n\nRead it as \"nothing outstanding on the versions you asked us to scan, as\nfar as the last cross-reference knows\" -- not as a durable property of the\nlibrary, and not as a statement about versions outside the scope.\n\nNew upstream versions appear and new CVEs are disclosed against versions\nalready pinned, so a library has no permanent finished state, and this\nvalue can go back to REVIEWING without anything regressing.\n\nA version nobody has cross-referenced holds this value off, for the reason\nit holds off NO_HIGH_CRITICAL_CVES: both claim full coverage of the scope,\nand an unexamined version in it is where that coverage is missing.\n\nremediated_cve_count is reported whatever the status, so a REVIEWING\nlibrary still says how many CVEs were fixed.\n - REQUESTED_LIBRARY_CVE_STATUS_WONT_REMEDIATE: Every CVE on the versions in scope was ruled out of scope. A version in\nscope with no CVEs does not hold this back -- it has none to leave\nunexcluded -- but one that was never cross-referenced does.\n - REQUESTED_LIBRARY_CVE_STATUS_FIX_AVAILABLE: At least one version in scope has a CVE with a fix the caller can move to,\nand Chainguard has not delivered a build of that pinned version.\n\nThe target is not named here. Different pinned versions upgrade to\ndifferent targets, so one library-level version would be wrong for most of\nthem -- the per-version read is where a target belongs.\n\nAdded after the other values. proto3 enums are open, so a client generated\nfrom an earlier copy of this file keeps the number as an unrecognized\nvalue and its switches fall through to their default branch -- it does not\nread as UNSPECIFIED. A client parsing the JSON surface strictly errors on\nthe unknown name instead. Treat an unrecognized value as not computed.",
             "in": "query",
             "name": "cveStatus",
             "schema": {
@@ -10667,8 +11130,17 @@
                 "REQUESTED_LIBRARY_CVE_STATUS_IN_PROGRESS",
                 "REQUESTED_LIBRARY_CVE_STATUS_NO_HIGH_CRITICAL_CVES",
                 "REQUESTED_LIBRARY_CVE_STATUS_COMPLETE",
-                "REQUESTED_LIBRARY_CVE_STATUS_WONT_REMEDIATE"
+                "REQUESTED_LIBRARY_CVE_STATUS_WONT_REMEDIATE",
+                "REQUESTED_LIBRARY_CVE_STATUS_FIX_AVAILABLE"
               ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Exact match on the library's canonical name, as RequestedLibrary.name\nreports it. Unlike query, \"requests\" does not also match\n\"requests-oauthlib\". One name can exist in more than one ecosystem, so set\necosystem as well to get at most one library. At most 255 characters, the\nlongest name the service stores.",
+            "in": "query",
+            "name": "name",
+            "schema": {
               "type": "string"
             }
           },
@@ -10735,6 +11207,109 @@
         ]
       }
     },
+    "/libraries/v2beta1/requestedLibraries:listRequestedLibraryVersionCves": {
+      "get": {
+        "description": "The aggregate on RequestedLibraryVersion and ListRequestGroupItems\ncollapses this list to a status and two counts, which is lossy by\nconstruction. This is the authoritative answer for any single CVE.\n\nThe signature is over the 80-character limit and cannot be brought under\nit: buf format puts an rpc signature on one line, and the method name plus\nits request and response leave 14 characters for a name that has to say\nwhich resource it lists. Disabled for this line only, rather than for the\nfile or the rule, so every other line still has to fit.\nprotolint:disable:next MAX_LINE_LENGTH",
+        "operationId": "RequestGroupsService_ListRequestedLibraryVersionCves",
+        "parameters": [
+          {
+            "description": "The organization whose requests to read.",
+            "in": "query",
+            "name": "parent",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "The library's canonical name, as returned by ListRequestedLibraries.",
+            "in": "query",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "The library's ecosystem.\n\n - ECOSYSTEM_UNSPECIFIED: Unspecified ecosystem.\n - ECOSYSTEM_JAVA: Java ecosystem (Maven).\n - ECOSYSTEM_PYTHON: Python ecosystem (PyPI).\n - ECOSYSTEM_JAVASCRIPT: JavaScript ecosystem (npm).",
+            "in": "query",
+            "name": "ecosystem",
+            "required": true,
+            "schema": {
+              "default": "ECOSYSTEM_UNSPECIFIED",
+              "enum": [
+                "ECOSYSTEM_UNSPECIFIED",
+                "ECOSYSTEM_JAVA",
+                "ECOSYSTEM_PYTHON",
+                "ECOSYSTEM_JAVASCRIPT"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "The version as requested, as returned by ListRequestedLibraryVersions.",
+            "in": "query",
+            "name": "version",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Maximum CVEs to return. Default 50, maximum 1000.",
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Opaque page token from a previous response.",
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Number of results to skip before returning, for random-access pagination.\nCombines with page_token to skip from the cursor position. Must be\nnon-negative.",
+            "in": "query",
+            "name": "skip",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.v2beta1.ListRequestedLibraryVersionCvesResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Requested Library Version Cves",
+        "tags": [
+          "RequestGroupsService"
+        ]
+      }
+    },
     "/libraries/v2beta1/requestedLibraries:listRequestedLibraryVersions": {
       "get": {
         "description": "A requested library is a computed aggregate identified by name and ecosystem\nrather than a stored resource with a uid, so this reads as a custom method on\nthe collection instead of a sub-resource of an addressable parent.",
@@ -10796,7 +11371,7 @@
             }
           },
           {
-            "description": "Filter by CVE-remediation status.\n\n - CVE_REMEDIATION_STATUS_UNSPECIFIED: Unspecified remediation status.\n - CVE_REMEDIATION_STATUS_SCAN_QUEUED: Queued for review, or not yet resolvable to a version we hold. Distinct from\nNO_HIGH_CRITICAL_CVES: this means no answer yet, not a clean answer.\n - CVE_REMEDIATION_STATUS_NO_HIGH_CRITICAL_CVES: Cross-referenced against advisory data, and no High or Critical CVEs apply.\n - CVE_REMEDIATION_STATUS_REVIEWING: CVEs identified; remediation not started.\n - CVE_REMEDIATION_STATUS_IN_PROGRESS: Remediation underway on at least one CVE.\n - CVE_REMEDIATION_STATUS_COMPLETE: Remediation finished with at least one CVE remediated.\n - CVE_REMEDIATION_STATUS_WONT_REMEDIATE: Every CVE on this version was ruled out of scope. The decision on\nCVERemediation says which kind of out-of-scope.",
+            "description": "Filter by CVE-remediation status.\n\n - CVE_REMEDIATION_STATUS_UNSPECIFIED: Unspecified remediation status.\n - CVE_REMEDIATION_STATUS_SCAN_QUEUED: Queued for review, or not yet resolvable to a version we hold. Distinct from\nNO_HIGH_CRITICAL_CVES: this means no answer yet, not a clean answer.\n - CVE_REMEDIATION_STATUS_NO_HIGH_CRITICAL_CVES: Cross-referenced against advisory data, and no High or Critical CVEs apply.\n - CVE_REMEDIATION_STATUS_REVIEWING: CVEs identified; remediation not started.\n - CVE_REMEDIATION_STATUS_IN_PROGRESS: Remediation underway on at least one CVE.\n - CVE_REMEDIATION_STATUS_COMPLETE: Remediation finished with at least one CVE remediated.\n - CVE_REMEDIATION_STATUS_WONT_REMEDIATE: Every CVE on this version was ruled out of scope. The decision on\nCVERemediation says which kind of out-of-scope.\n - CVE_REMEDIATION_STATUS_FIX_AVAILABLE: A fix exists that the caller can move to now, and Chainguard has not\ndelivered a build of the pinned version. fix_version names the target\nwhere one can be named.\n\nDistinct from REVIEWING, which says remediation has not started and would\nhide an upgrade available today, and from COMPLETE, which claims a build\nChainguard shipped. Reached when an untriaged CVE already records a fix\ntarget, or when an advisory named a fix at or above the pinned version\nthat Chainguard never ingested.\n\nAdded after the other values. proto3 enums are open, so a client generated\nfrom an earlier copy of this file keeps the number as an unrecognized\nvalue and its switches fall through to their default branch -- it does not\nread as UNSPECIFIED. A client parsing the JSON surface strictly errors on\nthe unknown name instead. Treat an unrecognized value as not computed.\n\nA version that reports this today reported REVIEWING before the value\nexisted.",
             "in": "query",
             "name": "cveRemediationStatus",
             "schema": {
@@ -10808,7 +11383,8 @@
                 "CVE_REMEDIATION_STATUS_REVIEWING",
                 "CVE_REMEDIATION_STATUS_IN_PROGRESS",
                 "CVE_REMEDIATION_STATUS_COMPLETE",
-                "CVE_REMEDIATION_STATUS_WONT_REMEDIATE"
+                "CVE_REMEDIATION_STATUS_WONT_REMEDIATE",
+                "CVE_REMEDIATION_STATUS_FIX_AVAILABLE"
               ],
               "type": "string"
             }
@@ -10873,6 +11449,64 @@
         "summary": "List Requested Library Versions",
         "tags": [
           "RequestGroupsService"
+        ]
+      }
+    },
+    "/libraries/v2beta1/storageUsage": {
+      "get": {
+        "description": "GetStorageUsage returns the organization's storage usage, one entry per\necosystem. Only the organization's own uploads count: Chainguard-built and\nmirrored upstream artifacts are not charged to it.",
+        "operationId": "StorageUsageService_GetStorageUsage",
+        "parameters": [
+          {
+            "description": "The organization whose storage usage to report.",
+            "in": "query",
+            "name": "parent",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Limit the report to these ecosystems. Empty means every ecosystem that\nreports usage.\n\n - STORAGE_USAGE_ECOSYSTEM_UNSPECIFIED: Unspecified ecosystem.\n - STORAGE_USAGE_ECOSYSTEM_GO: Go modules.",
+            "in": "query",
+            "name": "ecosystems",
+            "schema": {
+              "items": {
+                "enum": [
+                  "STORAGE_USAGE_ECOSYSTEM_UNSPECIFIED",
+                  "STORAGE_USAGE_ECOSYSTEM_GO"
+                ],
+                "type": "string"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.v2beta1.StorageUsage"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Storage Usage",
+        "tags": [
+          "StorageUsageService"
         ]
       }
     },
@@ -11131,8 +11765,13 @@
           "content": {
             "*/*": {
               "schema": {
-                "description": "The binding to update. The uid identifies the binding; tag_selector\nis its only mutable field. The repo and overlay reference are\nimmutable (OUTPUT_ONLY): moving a binding is delete on the old repo\nplus create on the new one.",
+                "description": "The binding to update. The uid identifies the binding; tag_selector\nis its only mutable field. The repo, the all_repos scope, and the\noverlay reference are immutable (OUTPUT_ONLY): moving or re-scoping\na binding is delete on the old scope plus create on the new one.",
                 "properties": {
+                  "allRepos": {
+                    "description": "AllRepos marks a binding that applies to every repo in the\norganization — current and future — instead of a single repo. Such a\nbinding's UID is a UIDP under the organization (root group) and\n`repo` is empty; the tag selector still scopes which tags are\ncustomized on each repo. Immutable, like the repo reference:\nchanging a binding's scope is delete plus create.",
+                    "readOnly": true,
+                    "type": "boolean"
+                  },
                   "overlay": {
                     "allOf": [
                       {
@@ -11143,7 +11782,7 @@
                     "readOnly": true
                   },
                   "repo": {
-                    "description": "The UIDP of the repo this binding applies to.",
+                    "description": "The UIDP of the repo this binding applies to. Empty when all_repos\nis set.",
                     "readOnly": true,
                     "type": "string"
                   },
@@ -11163,7 +11802,7 @@
               }
             }
           },
-          "description": "The binding to update. The uid identifies the binding; tag_selector\nis its only mutable field. The repo and overlay reference are\nimmutable (OUTPUT_ONLY): moving a binding is delete on the old repo\nplus create on the new one.",
+          "description": "The binding to update. The uid identifies the binding; tag_selector\nis its only mutable field. The repo, the all_repos scope, and the\noverlay reference are immutable (OUTPUT_ONLY): moving or re-scoping\na binding is delete on the old scope plus create on the new one.",
           "required": true,
           "x-originalParamName": "overlayBinding"
         },
@@ -11199,7 +11838,7 @@
         "operationId": "OverlayBindingsService_CreateOverlayBinding",
         "parameters": [
           {
-            "description": "The UIDP of the repo to attach to.",
+            "description": "The UIDP of the repo to attach to — or, when all_repos is set, the\nUIDP of the organization (root group) whose repos the binding\napplies to.",
             "in": "path",
             "name": "uid",
             "required": true,
@@ -12549,6 +13188,22 @@
               },
               "type": "array"
             }
+          },
+          {
+            "description": "delegated requests the delegated exchange mode when assuming `identity`.\nThe assumed identity's own role bindings are not consulted; instead the\nreturned token's capabilities are a per-scope subset of the presented\ncredential's capabilities, selected by `scopes` and `cap` (both\nrequired), and its expiry never exceeds the presented credential's. A\nrequest for any capability or scope the presented credential does not\nhold is rejected, never trimmed. The presented credential must be a\ndelegation grant: a token minted by this issuer whose only audience is\n\"\u003cissuer\u003e/delegation/\u003cname\u003e\", pinned by the identity's claim_match, and\nthe identity must be marked delegation_only. A token minted by a\ndelegated exchange is never accepted as a grant. No refresh token is\nissued. The returned token's subject is the assumed identity, its `act`\nclaim is the presented credential's verified claims, and its\n`act_chain` records the transfer.",
+            "in": "query",
+            "name": "delegated",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "task is an optional opaque identifier for the work the delegated token\nis minted for (e.g. a session id), recorded as the token's `task` claim\nfor attribution. It is never used for authorization. At most 128 bytes\nof letters, digits, and `. _ : / @ -`. Only honored with `delegated`.",
+            "in": "query",
+            "name": "task",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -12634,6 +13289,22 @@
                 "type": "string"
               },
               "type": "array"
+            }
+          },
+          {
+            "description": "delegated requests the delegated exchange mode when assuming `identity`.\nThe assumed identity's own role bindings are not consulted; instead the\nreturned token's capabilities are a per-scope subset of the presented\ncredential's capabilities, selected by `scopes` and `cap` (both\nrequired), and its expiry never exceeds the presented credential's. A\nrequest for any capability or scope the presented credential does not\nhold is rejected, never trimmed. The presented credential must be a\ndelegation grant: a token minted by this issuer whose only audience is\n\"\u003cissuer\u003e/delegation/\u003cname\u003e\", pinned by the identity's claim_match, and\nthe identity must be marked delegation_only. A token minted by a\ndelegated exchange is never accepted as a grant. No refresh token is\nissued. The returned token's subject is the assumed identity, its `act`\nclaim is the presented credential's verified claims, and its\n`act_chain` records the transfer.",
+            "in": "query",
+            "name": "delegated",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "task is an optional opaque identifier for the work the delegated token\nis minted for (e.g. a session id), recorded as the token's `task` claim\nfor attribution. It is never used for authorization. At most 128 bytes\nof letters, digits, and `. _ : / @ -`. Only honored with `delegated`.",
+            "in": "query",
+            "name": "task",
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -13277,6 +13948,10 @@
       "name": "SecurityAdvisoryService"
     },
     {
+      "description": "BillingService starts self-serve plan purchases and card management for an\norganization. Payment pages are hosted by the payment provider; no card data\npasses through this API.",
+      "name": "BillingService"
+    },
+    {
       "description": "SubscriptionsService manages event subscriptions (webhooks).",
       "name": "SubscriptionsService"
     },
@@ -13327,6 +14002,10 @@
     {
       "description": "RequestGroupsService manages an organization's requests for Chainguard-built\nlibrary versions.\n\nA request group starts as a DRAFT: the customer supplies a pinned input — a\nPython lockfile or a Java GAV list — and the service reports, per version, what\nChainguard already has, what can be requested, and what cannot. Nothing is\nbuilt from a draft. SubmitRequestGroup is the commitment point, and it is\nseparately capability-gated for that reason.",
       "name": "RequestGroupsService"
+    },
+    {
+      "description": "StorageUsageService reports how much storage an organization's own uploads\nconsume in Chainguard Libraries, per language ecosystem.",
+      "name": "StorageUsageService"
     },
     {
       "description": "PingService provides a health check endpoint.",

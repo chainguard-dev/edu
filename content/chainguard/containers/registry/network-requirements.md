@@ -10,7 +10,7 @@ lead: "Using Chainguard Containers with firewalls, access control lists, and pro
 type: "article"
 description: "Using Chainguard Containers with firewalls, access control lists, and proxies."
 date: 2023-09-08T08:49:31+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers", "Reference"]
 images: []
@@ -20,7 +20,7 @@ weight: 30
 
 This document provides an overview of network requirements for using [Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). To use Chainguard tools and Containers in environments with firewalls, VPNs, and IDS/IPS systems, you will need to add some rules to allow traffic into and out of your networks.
 
-Chainguard Containers do not call Chainguard services while running, so no network changes would be required to the runtime environment. Review the **Notes** column for more info on each Hostname.
+Chainguard's container images do not call Chainguard services while running, so no network changes would be required to the runtime environment. Review the **Notes** column for more info on each Hostname.
 
 ## Chainguard Containers hosts
 
@@ -40,6 +40,7 @@ This table lists the DNS hostnames, associated ports, and protocols that will ne
 | packages.cgr.dev        | 443  | HTTPS    | v4      | Package repository (Extra packages)   |
 | packages.wolfi.dev      | 443  | HTTPS    | v4 & v6 | Package repository (Free containers)  |
 | tarballs.cgr.dev        | 443  | HTTPS    | v4      | Upstream source archives referenced by SBOM `downloadLocation` fields |
+| auth.chainguard.dev     | 443  | HTTPS    | v4      | Social login, reached by the browser that completes the login |
 
 Most of these hosts are needed to pull containers and packages. `tarballs.cgr.dev` is the
 exception: it is only needed if you resolve the source archives that Chainguard SBOMs point
@@ -47,6 +48,11 @@ at. Where an upstream project has no stable, downloadable source archive, Chaing
 a source tarball and records that URL as the package's SPDX `downloadLocation`. Tooling that
 follows those URLs (source-provenance checks, license and compliance scanners, air-gapped
 source mirroring) needs egress to this host. Container and package pulls do not.
+
+The two social login hosts, `auth.chainguard.dev` and `chainguard.us.auth0.com`, are reached by
+the browser that completes a `chainctl` login. With `--headless`, that browser can run on a
+different device from `chainctl`. If a proxy inspects TLS traffic, exempt the login hosts from
+inspection, as described in [Troubleshoot chainctl login](/platform/chainctl-usage/authentication-options/#troubleshoot-chainctl-login).
 
 > If you experience networking issues while trying to use Chainguard Containers, please ensure that your firewall allows traffic to and from these hosts, and that it doesn't have any rules to block `.dev` domains.
 
@@ -59,6 +65,7 @@ This table lists the third-party DNS hostnames, associated ports, and protocols 
 | 9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com | 443  | HTTPS    | v4 & v6 | Blob storage for *.cgr.dev                               |
 | support.chainguard.dev                                    | 443  | HTTPS    | v4      | Support access for customers                             |
 | tuf-repo-cdn.sigstore.dev                                 | 443  | HTTPS    | v4      | Sigstore trust root for `chainctl` signature verification |
+| chainguard.us.auth0.com                                   | 443  | HTTPS    | v4      | Social login, reached by the browser that completes the login |
 
 > Note that the `9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com` host is used to serve both image data and packages via `*.cgr.dev`.
 

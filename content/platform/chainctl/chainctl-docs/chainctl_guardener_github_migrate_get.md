@@ -1,5 +1,5 @@
 ---
-date: 2026-09-29T17:51:01Z
+date: 2026-10-08T18:22:10Z
 title: "chainctl guardener github migrate get"
 slug: chainctl_guardener_github_migrate_get
 url: /platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate_get/
@@ -21,7 +21,9 @@ OPERATION is the operation name (operations/migrate/{group}/{id}). The owning
 group is derived from the name unless --parent is given. Pass --wait to poll
 until the operation completes.
 
-Requires the guardener.actions.migrate capability on the group.
+Each feature requires its own migration permission on the owning group; denied
+features are reported separately. Actions migration uses guardener.actions.migrate,
+and image migration uses guardener.images.migrate.
 
 ```
 chainctl guardener github migrate get OPERATION [flags]
@@ -52,5 +54,5 @@ chainctl guardener github migrate get OPERATION [flags]
 
 ### SEE ALSO
 
-* [chainctl guardener github migrate](/platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate/)	 - Migrate a repository's GitHub Actions to their Chainguard equivalents.
+* [chainctl guardener github migrate](/platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate/)	 - Migrate the Actions and images enabled by a repository's configuration.
 

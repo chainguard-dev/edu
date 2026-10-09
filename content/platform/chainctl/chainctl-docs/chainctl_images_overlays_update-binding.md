@@ -1,5 +1,5 @@
 ---
-date: 2026-09-29T17:51:01Z
+date: 2026-10-08T18:22:10Z
 title: "chainctl images overlays update-binding"
 slug: chainctl_images_overlays_update-binding
 url: /platform/chainctl/chainctl-docs/chainctl_images_overlays_update-binding/
@@ -35,7 +35,7 @@ chainctl images overlays update-binding <BINDING_UID> [flags]
 
 ```
       --all              Bind to every tag on the repo; multiple --all bindings may coexist when their overlays do not conflict. Mutually exclusive with --tag and --variant.
-      --tag strings      Exact tag names to bind to (repeatable). Mutually exclusive with --all and --variant.
+      --tag strings      Exact tag names to bind to (repeatable). Mutually exclusive with --all and --variant. "all" and "dev" are not tags: use --all or --variant=dev.
       --variant string   Bind to a tag variant: currently only "dev" (matches tags ending in -dev). Mutually exclusive with --tag and --all.
 ```
 
