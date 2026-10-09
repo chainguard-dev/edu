@@ -1,6 +1,6 @@
 # Chainguard Documentation Bundle
 
-_Compiled on: 2026-10-08 02:29:24_
+_Compiled on: 2026-10-09 02:30:42_
 
 This document contains Chainguard documentation compiled from multiple sources.
 
@@ -1071,7 +1071,7 @@ Chainguard built 15 new container images this week, including both standard and 
 ### Chainguard VMs compliance features
 _Path: chainguard/vms/compliance-features.md_
 
-Chainguard VMs provide pre-hardened, audit-ready Linux virtual machine images designed for regulated and high-assurance environments (federal, defense, healthcare, financial services, and suppliers to those sectors). These images combine the following features:
+Chainguard VMs provides pre-hardened, audit-ready Linux virtual-machine images designed for regulated and high-assurance environments (federal, defense, healthcare, financial services, and suppliers to those sectors). These images combine the following features:
 
 | Feature                             | Description |
 |:------------------------------------| :---- |
@@ -1086,7 +1086,7 @@ Chainguard FIPS 140-3 validated and hardened VM images serve as ready-to-use rep
 
 ## FIPS 140-3 validated cryptography
 
-Chainguard VMs include FIPS 140-3 validated software cryptographic modules, backed by a NIST Cryptographic Module Validation Program (CMVP) certificate.
+Chainguard's virtual-machine images include FIPS 140-3 validated software cryptographic modules, backed by a NIST Cryptographic Module Validation Program (CMVP) certificate.
 
 * **Validated modules**
     * Cryptographic modules are validated under FIPS 140-3 and integrated directly into the base image.
@@ -1100,7 +1100,7 @@ This setup allows teams to consume an OS image that is already FIPS-conformant a
 
 ## STIG hardening
 
-Chainguard VMs provide variants hardened to DISA Security Technical Implementation Guide (STIG) requirements which are used across U.S. federal and defense environments.
+Chainguard VMs provides variants hardened to DISA Security Technical Implementation Guide (STIG) requirements which are used across U.S. federal and defense environments.
 
 * 2000+ relevant system controls are pre-configured and validated in the image, not delivered as a checklist that the customer must implement.
 * Images are designed as ready-to-use replacements for existing Linux OS images, enabling STIG-compliant baselines without re-architecting existing infrastructure.
@@ -1109,7 +1109,7 @@ Chainguard can also provide SCAP scan outputs aligned with STIG requirements, he
 
 ## CIS Benchmark compliance
 
-For organizations standardizing on CIS controls, Chainguard offers images hardened to **CIS Level 1** benchmarks. Chainguard VMs use a hybrid baseline combining CIS Level 1 benchmarks with STIG requirements and industry-recognized secure defaults to provide defense-in-depth hardening.
+For organizations standardizing on CIS controls, Chainguard offers images hardened to **CIS Level 1** benchmarks. These images use a hybrid baseline combining CIS Level 1 benchmarks with STIG requirements and industry-recognized secure defaults to provide defense-in-depth hardening.
 
 This allows security and Governance, Risk, and Compliance teams to map infrastructure posture to both internal CIS-based policies and external STIG-based requirements without maintaining parallel baselines.
 
@@ -1126,7 +1126,7 @@ Secure Boot ensures only cryptographically signed and trusted components partici
 
 ## Compliance evidence and reporting
 
-Chainguard VMs are designed to simplify the generation of compliance artifacts often required in audits, ATO processes, and customer security reviews.
+Chainguard VMs is designed to simplify the generation of compliance artifacts often required in audits, ATO processes, and customer security reviews.
 
 Available artifacts include:
 
@@ -1138,7 +1138,7 @@ By shipping this evidence with the images, Chainguard significantly shortens the
 
 ## Vulnerability management and lifecycle
 
-Chainguard VMs are built and maintained with an explicit [**CVE remediation SLA**](https://www.chainguard.dev/legal/cve-policy):
+Chainguard's virtual-machine images are built and maintained with an explicit [**CVE remediation SLA**](https://www.chainguard.dev/legal/cve-policy):
 
 * **Critical CVEs**: patched within **7 days**
 * **High, medium, and low CVEs**: patched within **14 days**
@@ -1152,13 +1152,13 @@ This lifecycle management shifts ongoing compliance from a perpetual engineering
 ### Chainguard VMs overview
 _Path: chainguard/vms/overview.md_
 
-Chainguard VMs offer a minimal and verifiable foundation for running ephemeral workloads in cloud and on-prem hypervisor deployments, designed to complement and extend the same secure-by-default philosophy found in [Chainguard Containers](https://edu.chainguard.dev/chainguard/containers/overview/). With a strong focus on rapid CVE remediation and a small attack surface, Chainguard VMs are purpose-built to service the target workload and include only the packages that are essential for its operation.
+Chainguard VMs offers a minimal and verifiable foundation for running ephemeral workloads in cloud and on-prem hypervisor deployments, designed to complement and extend the same secure-by-default philosophy found in [Chainguard Containers](https://edu.chainguard.dev/chainguard/containers/overview/). With a strong focus on rapid CVE remediation and a small attack surface, Chainguard's virtual-machine images are purpose-built to service the target workload and include only the packages that are essential for its operation.
 
-Built in the Chainguard Factory, Chainguard VMs benefit from a highly automated, secure-by-design build pipeline that ensures consistent, reproducible artifacts. This streamlined process enables the delivery of VM images that are continuously updated to eliminate known vulnerabilities.
+Built in the Chainguard Factory, Chainguard's virtual-machine images benefit from a highly automated, secure-by-design build pipeline that ensures consistent, reproducible artifacts. This streamlined process enables the delivery of VM images that are continuously updated to eliminate known vulnerabilities.
 
 ## Why Chainguard VMs
 
-Unlike traditional virtual machines, which are often burdened with legacy components, unnecessary packages, and opaque dependency chains, Chainguard VMs are designed for minimalism, security, and operational clarity. Based on Chainguard OS, Chainguard VMs include a kernel that closely tracks the upstream Linux stable tree, ensuring timely updates and compatibility, along with a minimal `systemd` for service management. Consistent with the principle of minimalism, only the essential systemd units required to support the VM’s intended workload are included. Every component is fully traceable, with SLSA guarantees and SBOMs generated at every step, providing end-to-end transparency and helping prevent CVEs from ever entering your environment.
+Unlike traditional virtual machines, which are often burdened with legacy components, unnecessary packages, and opaque dependency chains, Chainguard's virtual-machine images are designed for minimalism, security, and operational clarity. Based on Chainguard OS, they include a kernel that closely tracks the upstream Linux stable tree, ensuring timely updates and compatibility, along with a minimal `systemd` for service management. Consistent with the principle of minimalism, only the essential systemd units required to support the VM’s intended workload are included. Every component is fully traceable, with SLSA guarantees and SBOMs generated at every step, providing end-to-end transparency and helping prevent CVEs from ever entering your environment.
 
 For platform engineers and DevOps teams, this means:
 
@@ -1168,7 +1168,7 @@ For platform engineers and DevOps teams, this means:
 
 ## VMs and containers compared
 
-To understand the applicability of Chainguard VMs to your organization, it might be helpful to compare the features of Chainguard VMs to Chainguard Containers. In a nutshell, the main differences come from the fact that Chainguard VMs boot from and run with their own hardened kernel as part of Chainguard OS, while Chainguard Containers rely on the host system's kernel.
+To understand the applicability of Chainguard VMs to your organization, it might be helpful to compare the features of Chainguard VMs to Chainguard Containers. In a nutshell, the main differences come from the fact that Chainguard's virtual-machine images boot from and run with their own hardened kernel as part of Chainguard OS, while Chainguard's container images rely on the host system's kernel.
 
 | Feature | Chainguard Container | Chainguard VM |
 | :---- | :------------------------------------------------------- | :-------------------------------------------------------------------------------------------- |
@@ -1188,7 +1188,7 @@ We currently offer 3 distinct types of virtual machine images:
 
 ## Availability
 
-Chainguard VMs are currently available for the following platforms / hypervisors:
+Chainguard VMs is currently available for the following platforms / hypervisors:
 
 * Google Cloud Platform (Compute Engine)
 * AWS (EC2, ECS, and EKS)
@@ -1197,11 +1197,11 @@ Chainguard VMs are currently available for the following platforms / hypervisors
 * VMware vSphere (VMDK)
 * Nutanix (qcow2/raw)
 
-Offering broad compatibility, Chainguard VMs allow for deployment in any environment, from public clouds to self-managed infrastructure. This flexibility facilitates one-click deployment across environments and helps prevent vendor lock-in.
+Offering broad compatibility, Chainguard VMs allows for deployment in any environment, from public clouds to self-managed infrastructure. This flexibility facilitates one-click deployment across environments and helps prevent vendor lock-in.
 
 ## Compliance and SLAs
 
-Chainguard VMs (running Chainguard OS) are intentionally designed to minimize risk, maximize transparency, and satisfy security standards such as [CIS Benchmarks](https://www.chainguard.dev/supply-chain-security-101/what-are-cis-benchmarks), [FedRAMP](https://edu.chainguard.dev/chainguard/containers/security-and-compliance/fedramp-considerations/), SOC 2, and others.
+Chainguard's virtual-machine images (running Chainguard OS) are intentionally designed to minimize risk, maximize transparency, and satisfy security standards such as [CIS Benchmarks](https://www.chainguard.dev/supply-chain-security-101/what-are-cis-benchmarks), [FedRAMP](https://edu.chainguard.dev/chainguard/containers/security-and-compliance/fedramp-considerations/), SOC 2, and others.
 
 * CVE remediation backed by an [industry-leading SLA](https://www.chainguard.dev/legal/cve-policy): 7 days for critical, 14 days for all others
 * Consistent, reproducible builds
@@ -1219,9 +1219,9 @@ Chainguard VMs (running Chainguard OS) are intentionally designed to minimize ri
 ### Chainguard VMs FAQ
 _Path: chainguard/vms/faq.md_
 
-## Which platforms and hypervisors are Chainguard VMs available for?
+## Which platforms and hypervisors does Chainguard VMs support? {#which-platforms-and-hypervisors-are-chainguard-vms-available-for}
 
-Chainguard VMs are available for AWS ([EC2](https://aws.amazon.com/ec2/) and [ECS](https://aws.amazon.com/ecs/)/[EKS](https://aws.amazon.com/eks/)), [GCP](https://cloud.google.com/?hl=en) (Compute Engine), and [Azure Compute](https://azure.microsoft.com/en-us/products/category/compute) cloud environments, and also for on-prem solutions based on KVM such as [QEMU](https://www.qemu.org/), [VMware](https://www.vmware.com/products/cloud-infrastructure/vsphere), [Nutanix](https://www.nutanix.com/), among others.
+Chainguard VMs is available for AWS ([EC2](https://aws.amazon.com/ec2/) and [ECS](https://aws.amazon.com/ecs/)/[EKS](https://aws.amazon.com/eks/)), [GCP](https://cloud.google.com/?hl=en) (Compute Engine), and [Azure Compute](https://azure.microsoft.com/en-us/products/category/compute) cloud environments, and also for on-prem solutions based on KVM such as [QEMU](https://www.qemu.org/), [VMware](https://www.vmware.com/products/cloud-infrastructure/vsphere), [Nutanix](https://www.nutanix.com/), among others.
 
 ## What kinds of VMs are currently available?
 
@@ -1241,15 +1241,15 @@ Application VMs come pre-packaged with popular backend applications running as s
 
 ## Which operating system is used by Chainguard VMs?
 
-Chainguard VMs are based on [Chainguard OS](https://get.chainguard.dev/chainguard-your-os-whitepaper-0), our minimal Linux distribution initially designed to run on containers and now extended to include a kernel and other components.
+Chainguard's virtual-machine images are based on [Chainguard OS](https://get.chainguard.dev/chainguard-your-os-whitepaper-0), our minimal Linux distribution initially designed to run on containers and now extended to include a kernel and other components.
 
 ## Which Linux kernel is used in Chainguard VMs?
 
 The [Chainguard Factory](/platform/factory/overview/) tracks both the stable upstream and the latest LTS (for FIPS) versions of the kernel, building from source to provide the most up-to-date and patched versions.
 
-## Do Chainguard VMs support in-place upgrades?
+## Does Chainguard VMs support in-place upgrades? {#do-chainguard-vms-support-in-place-upgrades}
 
-No, Chainguard VMs do not support in-place upgrades (e.g. via package upgrade). The upgrade strategy is based on node replacement.
+No, Chainguard VMs does not support in-place upgrades (e.g. via package upgrade). The upgrade strategy is based on node replacement.
 
 ## How does FIPS work on VMs?
 
@@ -1259,9 +1259,9 @@ This design, which requires maintenance of FIPS cryptographic boundaries at the 
 
 Making the cryptographic module user-space or [kernel independent](https://www.chainguard.dev/unchained/kernel-independent-fips-images) breaks that coupling, so the same validated module can serve many VMs and kernels with less toil and fewer surprises.
 
-## Do Chainguard VMs support FIPS?
+## Does Chainguard VMs support FIPS? {#do-chainguard-vms-support-fips}
 
-Yes, Chainguard VMs support **kernel independent FIPS**. This means that application workloads use a FIPS validated entropy source independent of the kernel. The advantage to this approach is that the certification of the entropy source does not need to be performed against a specific kernel, so customers can take advantage of new kernel features while remaining FIPS compliant. It also means that VMs no longer need to be booted in FIPS mode.
+Yes, Chainguard VMs supports **kernel independent FIPS**. This means that application workloads use a FIPS validated entropy source independent of the kernel. The advantage to this approach is that the certification of the entropy source does not need to be performed against a specific kernel, so customers can take advantage of new kernel features while remaining FIPS compliant. It also means that VMs no longer need to be booted in FIPS mode.
 
 Note that with kernel independent FIPS, some low level operating system functions such as disk encryption, IPSEC, KMSV, among others do not use FIPS validated entropy. This is less relevant on cloud platforms, since disk volumes are encrypted with FIPS validated entropy, as is network and filesystem encryption. On the cloud, kernel independent FIPS is a more efficient way of servicing FIPS workloads in VMs.
 
@@ -2655,7 +2655,7 @@ The [Chainguard App](/chainguard/guardener/github/getting-started/) is the recom
 
 To set it up:
 
-1. Install the [Chainguard App](https://github.com/apps/chainguard-dev) on your GitHub organization.
+1. Install the [Chainguard App](https://github.com/apps/chainguard) on your GitHub organization.
 2. Link your Chainguard organization to your GitHub organization with `chainctl guardener github link`.
 3. Add a `.chainguard/actions.yaml` file to each repository you want Guardener to work on, or once to your organization's `.github` repository to apply it to every repository.
 
@@ -5838,7 +5838,7 @@ of the software supply chain for libraries across different language ecosystems:
   source code repository was not compromised.
 * Since no source code was compromised, a similar attack on a protected library ecosystem
   would be prevented by Chainguard Libraries
-* XZ Utils is written in C and therefore not available as an ecosystem protected by Chainguard Libraries. However, Chainguard Containers include XZ Utils packages. These are also built
+* XZ Utils is written in C and therefore not available as an ecosystem protected by Chainguard Libraries. However, Chainguard's container images include XZ Utils packages. These are also built
   from source and are not affected.
 * Refer also to [Wikipedia article](https://en.wikipedia.org/wiki/XZ_Utils_backdoor)
   and [official page from the XZ data compression](https://tukaani.org/xz-backdoor/).
@@ -8947,6 +8947,31 @@ To follow along with a ready-made project instead of your own, use the [Chaingua
 
 For a reference of the configuration options for each supported build tool, check out [Configure Python build tools](/chainguard/libraries/python/build-configuration/).
 
+## Prepare for migration
+
+A Python migration is more than changing an index URL; the application code usually stays the same, but dependency resolution can change because Python packages are distributed as different artifacts for different operating systems, Python versions, CPU architectures, and C libraries.
+
+Plan for the following possible friction patterns:
+
+* The Chainguard catalog may not have every package, version, or wheel variant in an existing lockfile.
+    * Learn more under [Troubleshooting: Handling coverage gaps](#handling-coverage-gaps).
+* A dependency may be available for Linux but not for macOS, Windows, Alpine, or a particular Python/architecture combination.
+* A lockfile generated against PyPI contains hashes and artifact URLs that do not match Chainguard-built artifacts.
+* CI needs an authentication model that is safe for unattended builds and compatible with the package manager and repository topology.
+
+### Pre-migration readiness check
+
+Before changing the index, record the dependency and environment matrix that the migration must support:
+
+* Python versions used in development, CI, and production
+* Operating systems and CPU architectures used by developers, CI runners, build images, and deployment jobs
+* The package manager and lockfile format used by each job: `pip`, `uv`, Poetry, or another supported tool
+* Direct dependencies and improtant transitive dependencies that include native code, GPU support, platform markers, or compiled extensions
+* Whether the project uses hash-pinned requirements or lockfiles
+* Where package caches exist: local machines, CI caches, repository managers, Docker layers, and base images
+
+Run the existing build successfully before making changes. Keep the baseline dependency versions and record the commands used to install, test, and package the project. This gives your team a comparison point when a migration failure is caused by source selection, an artifact mismatch, or an unrelated dependency change.
+
 ## Prerequisites
 
 Before you begin, you need:
@@ -9454,6 +9479,22 @@ pip install -vvv <package> 2>&1 | grep -B2 -A2 "credentials\|40[13]"
 ### A pinned dependency shows "not verified" after running `chainctl libraries verify`
 
 Check your install output for a local wheel build (`Building wheel for <package>`), which indicates Chainguard has only a source distribution for that specific pinned version.
+
+### Handling coverage gaps
+
+Coverage gaps can occur at more than one level. For example, a package name may not be present in the Chainguard catalog, the pinned version may not be available, a wheel may. be available for Linux but not for macOS or Windows, or a transitive dependency introduced by a version change may have different coverage from the direct dependency that caused the change.
+
+Do not use a single successful install as proof that the migration is complete. Test each environment that installs the project.
+
+A direct dependency can resolve successfully while one of its transitive dependencies, optional extras, or platform-specific wheels comes from upstream fallback. The reverse can also happen: the direct package may use fallback while its transitive dependencies are available as Chainguard-built artifacts. Evaluate the resolved artifact set, not only the names in `pyproject.toml` or `requirements.in`.
+
+Choose how to handle coverage gaps:
+
+* Confirm whether the failure is authentication or coverage. A 401/403 is an empty version list, and a genuine 404 has different causes.
+* Check the exact package version and wheel tags required by the failing environment.
+* If the artifact is not available from Chainguard, use the configured protected upstream fallback when policy allows it.
+* If the project cannot use fallback, choose a compatible version or move the install to a supported Linux environment only when that is an acceptable product decision.
+* Do not silently replace a package with a different version during migration; treat it as a separate depdendency change and test it separately.
 
 ## Next steps
 
@@ -13441,7 +13482,7 @@ With Chainguard OS, users can rely on products that take advantage of an ever-gr
 
 Favoring incremental updates and rebuilds over major release upgrades, Chainguard OS supports smoother transitions that minimize disruptive changes. Our goal is for engineers adopting Chainguard products to never have to think about major OS version upgrades that dominate a roadmap for months at a time every two years. Through continuously introduced daily nano upgrades, paced through staging and testing gates, any offending regression can be readily pinpointed, reported, and addressed in subsequent updates hours or days later.
 
-Both minor “updates” and major “upgrades” are simultaneously delivered through Chainguard OS. Chainguard Containers offer clear, firm, and distinct boundaries for each application, so that updates and upgrades are cleaner.
+Both minor “updates” and major “upgrades” are simultaneously delivered through Chainguard OS. Chainguard's container images offer clear, firm, and distinct boundaries for each application, so that updates and upgrades are cleaner.
 
 Chainguard OS takes advantage of the ephemeral application layer of container images being separate from the persistent storage and unique configuration data; it is able to simultaneously instantiate new containers running the updated and upgraded application and destroy the previous instantiation running the down-level application version. In this way, updates (patches) and upgrades (major changes) are introduced instantly, and rollbacks to previous versions can be done by launching the previous container’s image.
 
@@ -14892,7 +14933,7 @@ CMD ["server.js"]
 EOF
 ```
 
-Chainguard Containers run as a nonroot user by default — `node` in this image — so `COPY --chown=node:node` gives the application access to its own files without switching to root. Because the entrypoint is already `node`, `CMD` only needs to name the script.
+Chainguard's container images run as a nonroot user by default — `node` in this image — so `COPY --chown=node:node` gives the application access to its own files without switching to root. Because the entrypoint is already `node`, `CMD` only needs to name the script.
 
 Build the image:
 
@@ -14982,15 +15023,15 @@ For the rest of the available attestations and the commands that verify them, re
 ### Overview of Chainguard Containers
 _Path: chainguard/containers/overview.md_
 
-[Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) are container images designed for enhanced security through minimalism and supply chain integrity. These images follow a distroless philosophy, containing only the application and its essential runtime dependencies, without shells, package managers, or other common utilities that can increase attack surface.
+[Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) is a collection of container images designed for enhanced security through minimalism and supply chain integrity. These images follow a distroless philosophy, containing only the application and its essential runtime dependencies, without shells, package managers, or other common utilities that can increase attack surface.
 
-Many Chainguard Containers implement a [distroless approach](/chainguard/containers/concepts/getting-started-distroless/), which means they exclude shells, package managers, and other utilities typically found in container images. This design significantly reduces potential security vulnerabilities. For development and debugging purposes, Chainguard provides `-dev` variants that include necessary tools while maintaining security best practices. All images are built using Chainguard OS, an operating system specifically designed to meet secure software supply chain requirements.
+Many of Chainguard's container images implement a [distroless approach](/chainguard/containers/concepts/getting-started-distroless/), which means they exclude shells, package managers, and other utilities typically found in container images. This design significantly reduces potential security vulnerabilities. For development and debugging purposes, Chainguard provides `-dev` variants that include necessary tools while maintaining security best practices. All images are built using Chainguard OS, an operating system specifically designed to meet secure software supply chain requirements.
 
-Chainguard Containers are primarily available from [Chainguard's registry](/chainguard/containers/registry/overview/), but a selection of developer images is also available on [Docker Hub](https://hub.docker.com/u/chainguard). You can find the complete list of available Chainguard Containers in our public [Containers Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-overview) or within the [Chainguard Console](https://console.chainguard.dev/).
+Chainguard's container images are primarily available from [the Chainguard registry](/chainguard/containers/registry/overview/), but a selection of developer images is also available on [Docker Hub](https://hub.docker.com/u/chainguard). You can find the complete list of available Chainguard Containers in our public [Containers Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-overview) or within the [Chainguard Console](https://console.chainguard.dev/).
 
 ## Built-in security and supply chain guarantees
 
-All Chainguard Containers are built with a consistent set of security and supply-chain guarantees, without requiring additional configuration:
+All of Chainguard's container images are built with a consistent set of security and supply-chain guarantees, without requiring additional configuration:
 
 - Minimal design, with no unnecessary software bloat
 - Automated nightly builds to ensure container images are completely up-to-date and contain all available security patches
@@ -15000,7 +15041,7 @@ All Chainguard Containers are built with a consistent set of security and supply
 
 ## Chainguard Container customization and lifecycle features
 
-Chainguard Containers include features that allow you to customize images, manage updates, and meet security and compliance requirements across the container lifecycle:
+Chainguard Containers includes features that allow you to customize images, manage updates, and meet security and compliance requirements across the container lifecycle:
 
 - [Custom Assembly](/chainguard/containers/custom-assembly/overview/): Customize Chainguard images by adding packages, configuration files, and certificates from the Chainguard Console, `chainctl`, or the Chainguard API, without maintaining your own Dockerfiles.
 - Custom certificates: Add trusted certificates [to existing containers via Custom Assembly](/chainguard/containers/custom-assembly/custom-assembly-certs/) (for organization-specific or environment-specific certificates) or by [using incert to build images with certificates embedded at build time](/chainguard/containers/custom-assembly/incert-custom-certs/).
@@ -15012,7 +15053,7 @@ Chainguard Containers include features that allow you to customize images, manag
 
 ## Why minimal container images
 
-The fewer dependencies a given piece of software uses, the lower likelihood that it will be impacted by CVEs. By minimizing the number of dependencies and thus reducing their potential attack surface, Chainguard Containers inherently contain few to zero CVEs. Chainguard Containers are rebuilt nightly to ensure they are completely up-to-date and contain all available security patches. With this nightly build approach, our engineering team sometimes [fixes vulnerabilities before they’re detected](https://www.chainguard.dev/unchained/how-chainguard-fixes-vulnerabilities?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
+The fewer dependencies a given piece of software uses, the lower likelihood that it will be impacted by CVEs. By minimizing the number of dependencies and thus reducing their potential attack surface, Chainguard's container images inherently contain few to zero CVEs. These images are rebuilt nightly to ensure they are completely up-to-date and contain all available security patches. With this nightly build approach, our engineering team sometimes [fixes vulnerabilities before they’re detected](https://www.chainguard.dev/unchained/how-chainguard-fixes-vulnerabilities?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
 
 Note that there is often a development variant of each Chainguard Container available. These are sometimes called the `-dev` variant, as their tags include the `-dev` suffix (as in `:latest-dev`). For example, the development variant of the `mariadb:latest` container image is `mariadb:latest-dev`. These container images typically contain a shell and tools like a package manager to allow users to more easily debug and modify the image.
 
@@ -15060,7 +15101,7 @@ By default, all Wolfi-based images are built for x86_64 (also known as AMD64) an
 - x86_64: x86-64-v2 (Sapphire Rapids)
 - AArch64: Armv8-A with CRC and Cryptographic extensions (Neoverse V2)
 
-Being able to provide multi-platform Chainguard Containers enables the support of more than one runtime environment, like those available on all three major clouds, AWS, GCP, and Azure. The macOS M-series (M1, M2, etc.) chips are also based on ARM architecture. Chainguard Containers allow you to take advantage of ARM's power consumption and cost benefits.
+Being able to provide multi-platform Chainguard Containers enables the support of more than one runtime environment, like those available on all three major clouds, AWS, GCP, and Azure. The macOS M-series (M1, M2, etc.) chips are also based on ARM architecture. Chainguard's container images allow you to take advantage of ARM's power consumption and cost benefits.
 
 You can confirm the available architecture of a given Chainguard Container with Crane. In this example, we'll use the latest Ruby image, but you can opt to use an alternate image.
 
@@ -15087,9 +15128,9 @@ You can read more about our support of ARM64 in our blog on [Building Wolfi from
 
 ## Annotations
 
-All Chainguard Containers include metadata in the form of *annotations* (also commonly referred to as "*labels*"). These annotations provide important information about a container image's origin, contents, and characteristics. The annotations are visible in every container image's **Specifications** tab in both the [Chainguard Console](https://console.chainguard.dev) and [Directory](https://images.chainguard.dev/), and can also be inspected programmatically using container tools.
+All of Chainguard's container images include metadata in the form of *annotations* (also commonly referred to as "*labels*"). These annotations provide important information about a container image's origin, contents, and characteristics. The annotations are visible in every container image's **Specifications** tab in both the [Chainguard Console](https://console.chainguard.dev) and [Directory](https://images.chainguard.dev/), and can also be inspected programmatically using container tools.
 
-Chainguard Containers follow the [Open Container Initiative (OCI) Image Specification](https://github.com/opencontainers/image-spec/blob/main/annotations.md) for annotations. Chainguard sets the following standard OCI annotations on its container images:
+These annotations follow the [Open Container Initiative (OCI) Image Specification](https://github.com/opencontainers/image-spec/blob/main/annotations.md) for annotations. Chainguard sets the following standard OCI annotations on its container images:
 
 - `org.opencontainers.image.authors`: Contact details for the Chainguard Container's author (typically `Chainguard Team https://www.chainguard.dev/`)
 - `org.opencontainers.image.base.digest`: The SHA256 digest of the base image used to build this container image
@@ -15217,17 +15258,17 @@ Learn answers to your questions about [Chainguard Containers](https://www.chaing
 
 ## Which Linux distribution is used as base for Chainguard Containers?
 
-Chainguard Containers are based on [Wolfi](/open-source/wolfi/), a Linux _undistro_ we built specifically to address software supply chain security issues. We call it an undistro because it doesn't contain certain software you'd normally find in a traditional Linux distribution such as Debian or Alpine. Wolfi is a minimal Linux distribution designed specifically to be used as a base for stripped-down container images.
+Chainguard's container images are based on [Wolfi](/open-source/wolfi/), a Linux _undistro_ we built specifically to address software supply chain security issues. We call it an undistro because it doesn't contain certain software you'd normally find in a traditional Linux distribution such as Debian or Alpine. Wolfi is a minimal Linux distribution designed specifically to be used as a base for stripped-down container images.
 
-## How do Chainguard Containers relate to the Google distroless container images?
+## How do Chainguard's container images relate to the Google distroless container images? {#how-do-chainguard-containers-relate-to-the-google-distroless-container-images}
 
-The [Google distroless](https://github.com/GoogleContainerTools/distroless) images follow a similar philosophy to many of our images: they are minimal images that don't include package managers or shells. The main difference is in the implementation. The Google distroless images are built with [Bazel](https://bazel.build) and based on the Debian distribution, whereas Chainguard Containers are built with [apko](/open-source/build-tools/apko/) and based on [Wolfi](/open-source/wolfi/). We believe our approach is more maintainable and extensible.
+The [Google distroless](https://github.com/GoogleContainerTools/distroless) images follow a similar philosophy to many of our images: they are minimal images that don't include package managers or shells. The main difference is in the implementation. The Google distroless images are built with [Bazel](https://bazel.build) and based on the Debian distribution, whereas our images are built with [apko](/open-source/build-tools/apko/) and based on [Wolfi](/open-source/wolfi/). We believe our approach is more maintainable and extensible.
 
 ## Which images are available?
 
 There are currently over a thousand Chainguard Containers available, which are segmented as **Free** or **Production**. You can read more about this in the [next question](#what-options-do-i-have-to-use-chainguard-containers).
 
-Chainguard Containers are primarily available from [Chainguard's registry](/chainguard/containers/registry/overview/), but a selection of Free images is also available on [Docker Hub](https://hub.docker.com/u/chainguard). You can find the complete list of available Chainguard Containers in our public [Containers Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-faq) or within the [Chainguard Console](https://console.chainguard.dev/).
+Chainguard's container images are primarily available from [the Chainguard registry](/chainguard/containers/registry/overview/), but a selection of Free images is also available on [Docker Hub](https://hub.docker.com/u/chainguard). You can find the complete list of available Chainguard Containers in our public [Containers Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-faq) or within the [Chainguard Console](https://console.chainguard.dev/).
 
 ## What options do I have to use Chainguard Containers?
 
@@ -15242,7 +15283,7 @@ Community support | Enterprise SLAs
 
 You can read more about the differences between Free and Production Containers in our [Containers overview](/chainguard/containers/overview/#production-and-free-containers).
 
-## Are Chainguard Containers available on Docker Hub?
+## Are Chainguard's container images available on Docker Hub? {#are-chainguard-containers-available-on-docker-hub}
 
 Yes, Chainguard Free Container images are available on [Docker Hub](https://hub.docker.com/u/chainguard?utm_source=academy&utm_medium=referral&utm_campaign=FY25-DockerHub-Orgprofile). As a Docker Verified Publisher, Chainguard has met Docker's stringent standards for security, quality, and transparency. This status signifies that our container images are trusted, reliable, and have undergone rigorous verification processes. To use Production Containers, pull them from [Chainguard's registry](/chainguard/containers/registry/overview/).
 
@@ -15254,7 +15295,7 @@ SBOMs provide visibility into the software you depend on. They can allow automat
 
 ## Who maintains Chainguard Containers?
 
-[Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) are officially maintained by [Chainguard](https://chainguard.dev) engineers.
+[Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) is officially maintained by [Chainguard](https://chainguard.dev) engineers.
 
 ## Can anybody build Chainguard Containers themselves?
 
@@ -15264,17 +15305,17 @@ Before Chainguard adds a container, it reviews the upstream source: whether the 
 
 In a do-it-yourself pipeline, the rebuilding falls to a person, usually a project maintainer or a security engineer. Doing it for every image on every upstream release is where most teams run out of hours.
 
-## How often are Chainguard Containers updated?
+## How often are Chainguard's container images updated? {#how-often-are-chainguard-containers-updated}
 
-Chainguard Containers are rebuilt every night to ensure that new package versions and security updates in upstream Wolfi are quickly applied.
+Our container images are rebuilt every night to ensure that new package versions and security updates in upstream Wolfi are quickly applied.
 
 ## Can I replace my current base image with a Chainguard Container and have it work out of the box?
 
-Chainguard Containers are designed to be minimal, and many of them don't come with a package manager. Depending on your stack and specific dependencies, you may need to include additional software by combining `-dev` container images and our [distroless](/chainguard/containers/concepts/getting-started-distroless/) images in a multi-stage Docker build.
+Chainguard's container images are designed to be minimal, and many of them don't come with a package manager. Depending on your stack and specific dependencies, you may need to include additional software by combining `-dev` container images and our [distroless](/chainguard/containers/concepts/getting-started-distroless/) images in a multi-stage Docker build.
 
 ## What packages are available in Chainguard Containers?
 
-Chainguard Containers only contain packages that come from the [Wolfi Project](https://github.com/wolfi-dev) or those that are built and maintained internally by Chainguard.
+Chainguard's container images only contain packages that come from the [Wolfi Project](https://github.com/wolfi-dev) or those that are built and maintained internally by Chainguard.
 
 Since March 2024, Chainguard has maintained one version of each Wolfi package at a time. These track the latest version of the upstream software in the package. Chainguard has ended patch support for previous versions of packages in Wolfi. Existing packages remain in Wolfi and you may continue to use them, but be aware that older packages no longer receive updates and accrue vulnerabilities over time. The tools we use to build packages and images remain freely available and open source in [Wolfi](https://github.com/wolfi-dev).
 
@@ -15315,7 +15356,7 @@ Chainguard containers are [OCI](https://opencontainers.org/) containers. eBPF op
 ### How Chainguard creates container images with low-to-no CVEs
 _Path: chainguard/containers/concepts/zerocve.md_
 
-Chainguard Containers typically report few or no CVEs when scanned, which raises a fair question about whether those findings are being suppressed. They are not. Scanners read Chainguard Containers exactly as they read any other container, and they report whatever they find. The low counts are instead the product of three practices: shipping less software, rebuilding nightly, and publishing security advisories that tell scanners what a given finding means.
+Chainguard's container images typically report few or no CVEs when scanned, which raises a fair question about whether those findings are being suppressed. They are not. Scanners read Chainguard Containers exactly as they read any other container, and they report whatever they find. The low counts are instead the product of three practices: shipping less software, rebuilding nightly, and publishing security advisories that tell scanners what a given finding means.
 
 This article explains each practice, and describes how to verify the results independently.
 
@@ -15402,9 +15443,9 @@ The following video demonstrates the same three practices, including a scan of a
 ### Understanding Chainguard's container image categories
 _Path: chainguard/containers/concepts/container-categories.md_
 
-Chainguard Containers are a collection of curated, distroless container images designed with a focus on software supply chain security. Chainguard's container images are designed to be slim runtimes for production environments, emphasizing security and efficiency by removing unnecessary elements. Additionally, the images are designed to be easily integrated into existing workflows, helping organizations to build better, more secure software.
+Chainguard Containers is a collection of curated, distroless container images designed with a focus on software supply chain security. Chainguard's container images are designed to be slim runtimes for production environments, emphasizing security and efficiency by removing unnecessary elements. Additionally, the images are designed to be easily integrated into existing workflows, helping organizations to build better, more secure software.
 
-Within the [Chainguard Containers Directory](https://images.chainguard.dev/), Chainguard Containers are organized into five general categories (with some falling into multiple categories):
+Within the [Chainguard Containers Directory](https://images.chainguard.dev/), images are organized into five general categories (with some falling into multiple categories):
 
 * **Free**
 * **Base**
@@ -15436,7 +15477,7 @@ For a complete list of Free images that are currently available, check out the [
 
 ### Production containers
 
-The rest of Chainguard Containers, those that **are not** Free images and not included in the free tier of images, are referred to as *Production Containers*. Production images are enterprise-ready images that come with patch SLAs and features such as Federal Information Processing Standard (FIPS) readiness and unique time-stamped tags. Unlike Free images, which are typically paired with only the latest version of an upstream package, Production images offer specific major and minor versions of open source software.
+The rest of Chainguard's container images, those that **are not** Free images and not included in the free tier of images, are referred to as *Production Containers*. Production images are enterprise-ready images that come with patch SLAs and features such as Federal Information Processing Standard (FIPS) readiness and unique time-stamped tags. Unlike Free images, which are typically paired with only the latest version of an upstream package, Production images offer specific major and minor versions of open source software.
 
 As with the Free Container category, any container image considered a Production image will also fall into at least one of the other categories listed in this guide. To view the Production container images that your organization has access to, select the appropriate organization in the drop-down menu above the left-hand navigation and then click the **Organization images** tab.
 
@@ -15513,7 +15554,7 @@ _Path: chainguard/containers/concepts/glibc-vs-musl.md_
 
 Over the years, various implementations of the [C standard library](https://en.wikipedia.org/wiki/C_standard_library) — such as the [GNU C library](https://www.gnu.org/software/libc/), [musl](https://musl.libc.org/about.html), [uClibc-ng](https://www.uclibc-ng.org/), and many others — have emerged with different goals and characteristics. These various implementations exist because the C standard library defines the required functionality for operating system services (such as file input/output and memory management) but does not specify implementation details. Among these implementations, the GNU C Library ([glibc](https://www.gnu.org/software/libc/)) and [musl](https://musl.libc.org/about.html) are among the most popular.
 
-When developing [Wolfi](https://www.chainguard.dev/supply-chain-security-101/wolfi-overview), the "undistro" on which all Chainguard Containers are built, Chainguard elected to have it use glibc instead of another implementation like musl. This conceptual article aims to highlight the differences between these two implementations within the context of Chainguard's choice of using glibc over musl as the default implementation for the Wolfi undistro.
+When developing [Wolfi](https://www.chainguard.dev/supply-chain-security-101/wolfi-overview), the "undistro" on which all of Chainguard's container images are built, Chainguard elected to have it use glibc instead of another implementation like musl. This conceptual article aims to highlight the differences between these two implementations within the context of Chainguard's choice of using glibc over musl as the default implementation for the Wolfi undistro.
 
 > **Note**: Several sections of this guide present data about the differences between glibc and musl across various categories. You can recreate some of these examples used to find this data with the Dockerfiles and C program files hosted in the `glibc-vs-musl` directory of the [Chainguard Academy Containers Demos repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/glibc-vs-musl).
 
@@ -15669,7 +15710,7 @@ _Path: chainguard/containers/concepts/choosing-a-base-container.md_
 
 When selecting the right base image for your application, there are a variety of factors to take into consideration. For starters, it is critical that your application has all of the dependencies it needs to run. The ideal base image will contain the essential packages you need, while leaving out the ones you don’t. However, in practice, you will need to build upon your container images so they meet your specific needs, making it all the more important that you have a strong foundation.
 
-In this guide, we will explore a variety of Chainguard Containers which are suitable for different compiled applications. We will take a look at their availability and use-case differences so you can move closer to settling on the best base image for your specific needs.
+In this guide, we will explore a variety of Chainguard's container images which are suitable for different compiled applications. We will take a look at their availability and use-case differences so you can move closer to settling on the best base image for your specific needs.
 
 ## Available containers
 
@@ -15781,7 +15822,7 @@ You can find the complete inventory of packages for the `glibc-openssl` Chaingua
 
 ## What about `musl`?
 
-At the time of this writing, no Chainguard Containers come packaged with `musl`. Chainguard builds `glibc`-based container images because `glibc` is commonly used, which makes it easier for most developers to start consuming Chainguard Containers in their environments. Additionally, `glibc` is widely tested, making it a dependable choice for a C standard library implementation. As `glibc` is a well-established option, choosing to use `glibc` ensures more applications will be compatible with new images.
+At the time of this writing, none of Chainguard's container images come packaged with `musl`. Chainguard builds `glibc`-based container images because `glibc` is commonly used, which makes it easier for most developers to start consuming Chainguard Containers in their environments. Additionally, `glibc` is widely tested, making it a dependable choice for a C standard library implementation. As `glibc` is a well-established option, choosing to use `glibc` ensures more applications will be compatible with new images.
 
 Though `musl` is sometimes chosen because of its minimal footprint, Chainguard’s distroless approach based on [Wolfi](https://www.chainguard.dev/unchained/introducing-wolfi-the-first-linux-un-distro) often results in a container image of comparable (or smaller) size than official `musl` based images. For more information, please refer to our [glibc vs. musl](/chainguard/containers/concepts/glibc-vs-musl/) article.
 
@@ -15796,7 +15837,7 @@ Interested in learning more about adopting Chainguard Containers for your organi
 ### Chainguard's container variants
 _Path: chainguard/containers/concepts/container-variants.md_
 
-Chainguard Containers follow a distroless philosophy, meaning that only software absolutely necessary for a specific workload is included in an image. Designed to be as minimal as possible, Chainguard's standard container images do not contain package managers such as apk, shells such as b/a/sh, or development utilities such as Git or text editors. However, this distroless approach isn't suitable for every use case. For this reason, most Chainguard Containers have what's called a *development* variant.
+Chainguard's container images follow a distroless philosophy, meaning that only software absolutely necessary for a specific workload is included in an image. Designed to be as minimal as possible, Chainguard's standard container images do not contain package managers such as apk, shells such as b/a/sh, or development utilities such as Git or text editors. However, this distroless approach isn't suitable for every use case. For this reason, most of these images have what's called a *development* variant.
 
 These variants are designed for development tasks such as building, testing, or debugging. They can be used to build software artifacts that are then copied into standard images as part of a multi-stage build, or to test workflows interactively in an environment similar to a standard image. Development images contain familiar utilities such as package managers and shells. While our standard images have advantages related to security, development images are also secure and production-ready. Development images are tagged `:latest-dev`.
 
@@ -15826,9 +15867,9 @@ Though using Chainguard's standard container images in your final deployment wil
 
 ## Slim container variants
 
-In addition to standard and development variants, some Chainguard Containers also provide slim variants.
+In addition to standard and development variants, some of Chainguard's container images also provide slim variants.
 
-Slim variants, whose tags are appended with `-slim`, are a further-reduced subset of our standard container images. As outlined previously, standard Chainguard Containers are already designed to be minimal, distroless runtimes: they omit general-purpose shells, package managers, and development utilities, while still providing everything you need to run the application in production with a low-to-no CVE profile.
+Slim variants, whose tags are appended with `-slim`, are a further-reduced subset of our standard container images. As outlined previously, Chainguard's standard container images are already designed to be minimal, distroless runtimes: they omit general-purpose shells, package managers, and development utilities, while still providing everything you need to run the application in production with a low-to-no CVE profile.
 
 Slim variants start from that same security posture and then strip away even more. Where a standard image might still include some compatibility or helper tooling, slim variants remove additional components — such as BusyBox, shells, or language-specific tools like `npm` — so that only the essentials for running the workload remain.
 
@@ -15838,7 +15879,7 @@ Because slim variants remove general-purpose tools, they can require more delibe
 
 ## Full container variants
 
-Some Chainguard Containers also provide *full* variants, whose tags are appended with `-full`. Where standard images strip away everything but the essentials, full variants aim for parity with their upstream equivalent — typically the Debian-based image on Docker Hub. They include the packages, environment variables, and entrypoint scripts that the standard Chainguard image intentionally omits. We currently offer full variants for 10 images.
+Some of Chainguard's container images also provide *full* variants, whose tags are appended with `-full`. Where standard images strip away everything but the essentials, full variants aim for parity with their upstream equivalent — typically the Debian-based image on Docker Hub. They include the packages, environment variables, and entrypoint scripts that the standard Chainguard image intentionally omits. We currently offer full variants for 10 images.
 
 Full variants exist primarily to ease migration. When you move a workload onto Chainguard Containers, your build and test pipelines may depend on components from your previous upstream image, even when the application itself doesn't need them to run. These dependencies can cause runtime crashes or pipeline failures during a switch to a more minimal image. Starting with a full variant lets you adopt Chainguard Containers without first untangling every such dependency.
 
@@ -15849,7 +15890,7 @@ We recommend treating full variants as a starting point rather than a destinatio
 It’s likely already clear that switching to our standard images requires a few changes in development and deployment. Here are a few additional considerations:
 
 - Since we don’t include general-purpose shells in most standard container images, the entrypoint to these images will vary by each image’s use case. Check the documentation for each image, and note that Dockerfile commands such as `CMD` will be directed to the image-specific entrypoint. Because we aim to keep our development images as close as possible to our standard images, these changes to entrypoint also affect development container images.
-- Chainguard Containers use a less privileged user by default. When using our development images, you will need to explicitly access the image with the root user — such as by using the `--user root` option — to perform tasks such as installing packages with apk.
+- Chainguard's container images use a less privileged user by default. When using our development images, you will need to explicitly access the image with the root user — such as by using the `--user root` option — to perform tasks such as installing packages with apk.
 
 ## Resources
 
@@ -16133,7 +16174,7 @@ Upstream projects are responsible for patching supported releases in a timely ma
 
 Upstream projects are responsible for defining conformance criteria and establishing conformance benchmarks (such as [Java TCK](https://www.chainguard.dev/unchained/chainguards-openjdk-java-images-are-now-jck-conformant), [Kubernetes Conformance](https://github.com/cncf/k8s-conformance/blob/master/instructions.md), [Knative Conformance](https://github.com/knative/specs)) that clearly outline the criteria for a downstream distribution to represent itself as a "conformant" distribution of the software.
 
-Chainguard is responsible for producing conformant distributions of upstream applications; where the upstream project does not define conformance criteria Chainguard is responsible for using its discretion in validating the functionality of the application and (within reason) accepting scenarios from Customers to run as part of the Chainguard qualification process. Refer to our conceptual article on [How Chainguard container images are tested](/chainguard/containers/concepts/how-we-build-and-test/images-testing/) for more information.
+Chainguard is responsible for producing conformant distributions of upstream applications; where the upstream project does not define conformance criteria Chainguard is responsible for using its discretion in validating the functionality of the application and (within reason) accepting scenarios from Customers to run as part of the Chainguard qualification process. Refer to our conceptual article on [How Chainguard tests its container images](/chainguard/containers/concepts/how-we-build-and-test/images-testing/) for more information.
 
 Customers are responsible for ensuring that Chainguard-provided images cover all of their desired functionality, and partnering with Chainguard to ensure the requisite coverage is part of our qualification process if gaps are identified. Customers are responsible for testing all of their modifications to Chainguard container images and for responsibly rolling out Chainguard container images to ensure there are no regressions specific to their environment or usage.
 
@@ -16326,14 +16367,14 @@ The following video says that Chainguard keeps older package versions only for a
 - [How to retrieve SBOMs and attestations for Chainguard Containers](/chainguard/containers/security-and-compliance/retrieve-image-sboms/) — the other attestation types published alongside the apko configuration, and how to fetch them.
 - [Inspecting Chainguard Containers](/chainguard/containers/troubleshooting/inspecting-containers/) — identifying a build by digest, and reading the software versions inside it.
 - [Verifying Chainguard Containers and metadata signatures with Cosign](/chainguard/containers/security-and-compliance/verifying-chainguard-images-and-metadata-signatures-with-cosign/) — verifying signatures and provenance more generally.
-- [How Chainguard Containers are tested](/chainguard/containers/concepts/how-we-build-and-test/images-testing/) — what happens to a container before it's published.
+- [How Chainguard tests its container images](/chainguard/containers/concepts/how-we-build-and-test/images-testing/) — what happens to a container before it's published.
 
 ---
 
-### How Chainguard Containers are tested
+### How Chainguard tests its container images
 _Path: chainguard/containers/concepts/how-we-build-and-test/images-testing.md_
 
-Chainguard Containers are minimal, distroless container images that you can use to build and run secure applications. Given the importance of secure, highly performant images, Chainguard performs testing to ensure our container images match the functionality of upstream and other external counterparts.
+Chainguard Containers is a collection of minimal, distroless container images that you can use to build and run secure applications. Given the importance of secure, highly performant images, Chainguard performs testing to ensure our container images match the functionality of upstream and other external counterparts.
 
 This article provides a high-level overview of Chainguard's approach to testing when building new container images to ensure their security and consistency with comparable container images.
 
@@ -16435,7 +16476,7 @@ availability](/chainguard/containers/troubleshooting/container-version-troublesh
 
 ## How versions are maintained
 
-Chainguard Containers are built on open source software, so understanding how
+Chainguard's container images are built on open source software, so understanding how
 Chainguard manages releases starts with understanding how open source projects
 version and release software. Generally, projects follow one of two approaches:
 
@@ -16484,7 +16525,7 @@ The table provides some example scenarios to help illustrate our approach.
 
 ### Daily rebuilds and proactive patching
 
-[Actively maintained](#list-active-tags) Chainguard Containers are rebuilt on a daily
+[Actively maintained](#list-active-tags) container images are rebuilt on a daily
 cadence, so you can be sure the container image you are using is up to date.
 
 In some
@@ -16493,7 +16534,7 @@ project to release patches. Learn more about this under [Epoch tags](#epoch-tags
 
 ### Maintaining Wolfi packages in Chainguard Containers
 
-Chainguard Containers only contain packages that are either built and maintained
+Chainguard's container images only contain packages that are either built and maintained
 internally by Chainguard or packages from the [Wolfi
 Project](https://github.com/wolfi-dev). These packages follow the same
 conventions of minimalism and rapid updates as Chainguard Containers.
@@ -16535,7 +16576,7 @@ more versions. The Chainguard approach is as follows:
 
 ## Floating tags and epoch tags
 
-Chainguard Containers use _floating tags_. This means that a container image's
+Chainguard's container images use _floating tags_. This means that a container image's
 tag always points to the most recent build or version within a version stream,
 rather than a fixed, immutable image. For example, `python:3.13` will always
 point to the latest version of that version stream (`3.13.9`, as of this
@@ -16565,12 +16606,12 @@ package or involve security fixes.
 
 Once a newer epoch tag is available, the previous one stops being updated. For
 example, the tag `1.14.5-r3` will no longer be updated once `1.14.5-r4` is
-available. Because Chainguard Containers are rebuilt frequently, this may not
+available. Because Chainguard's container images are rebuilt frequently, this may not
 always be apparent; a container image with these tags may show both as being
 updated on the same day, when in fact `-r3` was updated only to be replaced
 later in the day by `-r4`.
 
-As mentioned previously, Chainguard Containers use floating tags. In the context
+As mentioned previously, Chainguard's container images use floating tags. In the context
 of epoch tags, this means that the minor version and patch will both always
 point to the latest available epoch tag. For example, if the latest epoch tag
 for Chainguard's `python` container image is `python:3.14.0-r6`, then
@@ -16642,6 +16683,29 @@ longer updated.
 
 No EOL notice will be provided for single-release applications where the only
 supported release is the `:latest` or corresponding version tag.
+
+### How Chainguard determines EOL dates
+
+Chainguard sets the EOL status of each version stream from that project's
+lifecycle data:
+
+* For many projects, the data comes from [endoflife.date](https://endoflife.date).
+* For projects that endoflife.date doesn't cover, Chainguard uses the project's
+  published support policy or upstream release data instead.
+* If a source doesn't reflect the project's open source releases, Chainguard
+  sets the date manually. A manual date takes precedence over all other
+  sources.
+
+For example, endoflife.date sometimes tracks a vendor's commercial support
+window, which continues after the project's last open source release. In that
+case, Chainguard sets the EOL date to the date of the last open source release,
+because that's the last release Chainguard can build from source.
+
+The Chainguard Console and `chainctl` show the EOL status or date that
+Chainguard uses for each version stream. That date can differ from the one on
+the upstream project's website when the two use different sources or define
+support differently. If a version stream is eligible for the End-of-Life (EOL)
+Grace Period, the grace period starts on that date.
 
 ### EOL grace period
 
@@ -16831,9 +16895,12 @@ period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/#usin
 ### Refer to endoflife.date
 
 The [endoflife.date](https://endoflife.date) website lists the release tracks
-and product lifecycles of many Open Source projects. Generally the information
-on this site will align with the lifecycle of the corresponding Chainguard
-image.
+and product lifecycles of many open source projects. Chainguard uses it as the
+source of EOL dates for many projects, so it's a useful reference when you plan
+upgrades. The date that applies to a Chainguard container image is the one the
+Console or `chainctl` shows, which can differ from endoflife.date for the reasons
+outlined in [How Chainguard determines EOL
+dates](#how-chainguard-determines-eol-dates).
 
 ---
 
@@ -16872,7 +16939,7 @@ Be aware that the following are not covered by Chainguard's EOL grace period:
 * Updating an image’s EOL primary package.
 * Backporting or cherry-picking individual commits or patches to the EOL primary package.
 * Installing updated versions of packages in instances where the new package version no longer supports the EOL version of the image's main package (refer to the note).
-* Any package labeled end-of-life for more than 6 months by its open-source creators or maintainers.
+* Any package labeled end-of-life for more than 6 months by its open source creators or maintainers.
 
 Additionally, if a container image fails to build because underlying dependencies conflict with the primary package, it will no longer be supported. A failed build signals the end of support for that image.
 
@@ -17111,16 +17178,16 @@ To learn more about keeping container images up to date, we encourage you to che
 ### Overview of migrating to Chainguard Containers
 _Path: chainguard/containers/migration/migrations-overview.md_
 
-Chainguard Containers are minimal by design — most are [distroless](/chainguard/containers/concepts/getting-started-distroless/), with no shell or package manager. That keeps the attack surface small, but it also means moving an existing workload over usually requires adjusting how your image installs dependencies, which user it runs as, and what its entrypoint expects.
+Chainguard's container images are minimal by design — most are [distroless](/chainguard/containers/concepts/getting-started-distroless/), with no shell or package manager. That keeps the attack surface small, but it also means moving an existing workload over usually requires adjusting how your image installs dependencies, which user it runs as, and what its entrypoint expects.
 
-This guide covers the differences that matter during a migration, a recommended rollout strategy, and what to do when something breaks. For background on what Chainguard Containers are and how they are built, refer to the [Chainguard Containers overview](/chainguard/containers/overview/).
+This guide covers the differences that matter during a migration, a recommended rollout strategy, and what to do when something breaks. For background on what Chainguard Containers is and how its images are built, refer to the [Chainguard Containers overview](/chainguard/containers/overview/).
 
 ## Migration key points
 
-* Most Chainguard Containers have no shell or package manager by default. This is great for security, but sometimes you need these things, especially in builder images. For those cases we have development container images (also known as `-dev` images, as in `cgr.dev/chainguard/python:latest-dev`) which do include a shell and package manager.
+* Most of Chainguard's container images have no shell or package manager by default. This is great for security, but sometimes you need these things, especially in builder images. For those cases we have development container images (also known as `-dev` images, as in `cgr.dev/chainguard/python:latest-dev`) which do include a shell and package manager.
 * The development variants and `wolfi-base` / `chainguard-base` use BusyBox by default, so any `groupadd` or `useradd` commands will need to be ported to `addgroup` and `adduser`.
 * The free tier of Containers provides only the `:latest` and `:latest-dev` versions. Our paid Production Containers offer tags for major and minor versions.
-* Chainguard Containers are [based on `glibc`](/chainguard/containers/concepts/glibc-vs-musl/) and our packages cannot be mixed with Alpine packages (which are instead based on musl).
+* Chainguard's container images are [based on `glibc`](/chainguard/containers/concepts/glibc-vs-musl/) and our packages cannot be mixed with Alpine packages (which are instead based on musl).
 * In some cases, the entrypoint in Chainguard Containers can be different from equivalent images based on other distros, which can lead to unexpected behavior. You should always check the image's specific documentation to understand how the entrypoint works.
 * When needed, Chainguard recommends using a base image like `chainguard-base` or a development variant to install an application's OS-level dependencies.
 
@@ -17213,7 +17280,7 @@ Although not fully comprehensive, it can be helpful to keep the following list o
 * If necessary, install a different shell
 * Use `apk search` to find the utilities needed by your application
 * Beware of entrypoint differences between Chainguard Containers and their upstream counterparts
-* Be aware that Chainguard Containers typically do not run as root by default
+* Be aware that Chainguard's container images typically do not run as root by default
 * If packages you need are missing, install them into a base image, preferably as part of a multi-stage build
 
 Each of these tips and strategies are explained in greater detail in our guide on [Container migration tips](/chainguard/containers/migration/migration-tips/).
@@ -17297,11 +17364,11 @@ Chainguard container images are designed to be minimal and to include special fe
 
 ## Important to know
 
-- Most Chainguard Containers don’t have a package manager or a shell by default. These are **distroless** images intended to be used as slim runtimes for production environments.
+- Most of Chainguard's container images don’t have a package manager or a shell by default. These are **distroless** images intended to be used as slim runtimes for production environments.
 - For every version of an image, a complimentary **standard** image is provided with a shell and the apk package manager. These are identified by the `-dev` suffix and can be customized.
 - When possible, we recommend using multistage builds that combine a build stage based on a `-dev` variant and a runtime stage based on a distroless image.
-- Chainguard Containers typically don’t run as root, so a `USER root` statement may be required before installing software.
-- Chainguard Containers are based on **apk**. If you’re coming from Debian or Ubuntu you’ll need to replace `apt` commands with their `apk` equivalents. This also applies for other distros that are not based on **apk**.
+- Chainguard's container images typically don’t run as root, so a `USER root` statement may be required before installing software.
+- Chainguard's container images are based on **apk**. If you’re coming from Debian or Ubuntu you’ll need to replace `apt` commands with their `apk` equivalents. This also applies for other distros that are not based on **apk**.
 - Some images may behave differently than their equivalent in other distros, due to differences in entrypoint and shell availability. Always check the image documentation for usage details.
 - For a number of our most popular Containers, a **full** variant (tagged `-full`) maps to the upstream image to ease initial migration. It's a useful starting point if your pipeline depends on packages from your previous image, though we recommend moving to a slimmer variant once you've migrated. Refer to [Full container variants](/chainguard/containers/concepts/container-variants/#full-container-variants).
 
@@ -17324,12 +17391,12 @@ For detailed migration guidance, please refer to our [Migration docs](https://ed
 ### Migrating Dockerfiles to Chainguard Containers
 _Path: chainguard/containers/migration/migrating-to-chainguard-images.md_
 
-Chainguard Containers provide enhanced security through minimal design and built-in provenance attestation, requiring some adjustments when migrating from traditional base images. Built on the [Wolfi](https://www.chainguard.dev/supply-chain-security-101/wolfi-overview) Linux distribution, these images offer compatibility with most applications while significantly reducing attack surface and vulnerabilities.
+Chainguard's container images provide enhanced security through minimal design and built-in provenance attestation, requiring some adjustments when migrating from traditional base images. Built on the [Wolfi](https://www.chainguard.dev/supply-chain-security-101/wolfi-overview) Linux distribution, these images offer compatibility with most applications while significantly reducing attack surface and vulnerabilities.
 
 A general migration process would involve the following steps:
 
 1. **Identify the base image you need**. Check out the [Chainguard Containers Directory](https://images.chainguard.dev/directory?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-to-chainguard-images) to identify the image that is the closest match to what you currently use. You may also use [wolfi-base](https://images.chainguard.dev/directory/image/wolfi-base/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-to-chainguard-images) as a flexible starting point for your experimentation.
-2. **Try the `-dev` variant of the image first.** Chainguard Containers typically have a **distroless** variant, which is very minimal and doesn't include `apk`, and a **dev** variant that contains tooling necessary to build applications and install new packages. Start with the **dev** variant or the **wolfi-base** image to have more room for customization.
+2. **Try the `-dev` variant of the image first.** Chainguard's container images typically have a **distroless** variant, which is very minimal and doesn't include `apk`, and a **dev** variant that contains tooling necessary to build applications and install new packages. Start with the **dev** variant or the **wolfi-base** image to have more room for customization.
 3. **Identify packages you need to install**. Depending on your current base image, you may need to include additional packages to meet dependencies. Refer to the [Searching for packages](#searching-for-packages) section for more details on how to find packages. Make sure the packages you intend to install will work with the base image you select — for example, if you select an older base image built with an older release of `glibc` and want to install newer packages built with a newer release, you will encounter problems. It's a good rule of thumb to use the newest base image you can with the newest packages that match the build.
 4. **Migrate to a distroless image**. Evaluate the option of using a Docker multi-stage build to create a final distroless image containing only what you need. Check the [Getting started with distroless images](/chainguard/containers/concepts/getting-started-distroless/) for more details of how to work with distroless images. Although not required, this process should give you a smaller image with additional safeguards.
 
@@ -17339,7 +17406,7 @@ The next sections of this page contain distro-specific information that should h
 
 ## Migrating from Debian and Ubuntu Dockerfiles
 
-Chainguard Containers use the [apk](https://wiki.alpinelinux.org/wiki/Package_management) package format, which differs from the Debian-based `apt` in several ways. Some of these features contribute in making packages smaller and more accountable, resulting in smaller images with traceable provenance information based on cryptographic signatures. The page [Why apk](/open-source/wolfi/apk-package-manager/) from the official Wolfi documentation explains in more detail why we use apk.
+Chainguard's container images use the [apk](https://wiki.alpinelinux.org/wiki/Package_management) package format, which differs from the Debian-based `apt` in several ways. Some of these features contribute in making packages smaller and more accountable, resulting in smaller images with traceable provenance information based on cryptographic signatures. The page [Why apk](/open-source/wolfi/apk-package-manager/) from the official Wolfi documentation explains in more detail why we use apk.
 
 If you are coming from a Debian-based Dockerfile, you'll need to adapt some of your commands to be compatible with the apk ecosystem:
 
@@ -17660,7 +17727,7 @@ Other images, such as our [WordPress container images](https://images.chainguard
 
 ## Containers don't run as root by default
 
-Although there are exceptions, Chainguard Containers typically don’t run as the root user. The reason for this is that distroless containers should have no privileged capabilities, and containers that run as a non-root user and use a minimal seccomp profile are ideal from a security perspective.
+Although there are exceptions, Chainguard's container images typically don’t run as the root user. The reason for this is that distroless containers should have no privileged capabilities, and containers that run as a non-root user and use a minimal seccomp profile are ideal from a security perspective.
 
 Because they don't run as the root user, you may need to include a `USER root` statement in your Dockerfile before installing software on a Chainguard Container.
 
@@ -17688,7 +17755,7 @@ Here, the `--user` option tells Docker to assume the root user role.
 
 Container images are usually meant to support every possible use case. Because of this, they often contain packages that aren't always necessary, which increases the container image's attack surface and makes it more likely to contain CVEs.
 
-Chainguard Containers are built with minimalism in mind, and thus contain the bare minimum packages needed for an image to function. However, this also means that Chainguard Containers may not contain the packages that you'd expect to find in third-party alternatives.
+Chainguard's container images are built with minimalism in mind, and thus contain the bare minimum packages needed for an image to function. However, this also means that these images may not contain the packages that you'd expect to find in third-party alternatives.
 
 If a Chainguard Container is missing certain packages that are required for your application, we recommend using a base image and installing the required dependencies on top of it, preferably in a multi-stage Docker build. Our guides on [How to use Chainguard Containers](/chainguard/containers/using-and-deploying/using-containers/#extending-chainguard-base-containers) and [Getting started with distroless](/chainguard/containers/migration/migrations-overview/) include guidance on how you can extend Chainguard base images.
 
@@ -17864,7 +17931,7 @@ More Examples:
 
 When a Dockerfile uses package managers such as `apt`, `dnf`, or `yum` to install software, `dfc` automatically translates these commands to their `apk` equivalents. This conversion leverages an internal mapping file to resolve package name differences between distributions, ensuring accurate and compatible package installation within the Chainguard Containers environment.
 
-In addition to that, DFC automatically includes a `USER root` directive when it detects package installation commands in the Dockerfile. This is necessary because Chainguard Containers are built with a non-root user by default, and package installation commands typically require root privileges.
+In addition to that, DFC automatically includes a `USER root` directive when it detects package installation commands in the Dockerfile. This is necessary because Chainguard's container images are built with a non-root user by default, and package installation commands typically require root privileges.
 
 For example, consider the following Dockerfile based on Fedora:
 
@@ -18196,7 +18263,7 @@ _Path: chainguard/containers/migration/migration-tools/images-discover.md_
 
 `chainctl images discover` reads the image references in a directory, such as a repository checkout, and reports the Chainguard container image that replaces each upstream image. For each replacement, it also tells you whether your organization can pull it today. Use it to size a migration before you start, or to find what's left after one.
 
-The command only reports. It doesn't edit any files. To get replacements suggested on pull requests as images are introduced, enable [Guardener Container Image Suggestions](/chainguard/guardener/github/image-suggestions/). To convert a Dockerfile, use the [Dockerfile Converter](/chainguard/containers/migration/migration-tools/dockerfile-conversion/).
+The command only reports. It doesn't edit any files. To get replacements suggested on pull requests as images are introduced, enable [Guardener Container Image Suggestions](/chainguard/guardener/github/image-suggestions/). To have Guardener open a pull request that replaces the images a repository already uses, enable [Guardener Container Image Migration](/chainguard/guardener/github/image-migration/). To convert a Dockerfile, use the [Dockerfile Converter](/chainguard/containers/migration/migration-tools/dockerfile-conversion/).
 
 ## Prerequisites
 
@@ -19868,11 +19935,11 @@ _Path: chainguard/containers/migration/porting-apps-to-chainguard/index.md_
 ## Porting key points
 
 * Chainguard's distroless Containers have no shell or package manager by default. This is great for security, but sometimes you need these things, especially in builder images. For those cases we have `-dev` variants (such as `cgr.dev/chainguard/python:latest-dev`) which do include a shell and package manager.
-* Chainguard Containers typically don't run as root, so a `USER root` statement may be required before installing software. This should be a temporary escalation only; after completing any root-level operations, you should create and switch to a dedicated non-root user (for example, using `addgroup` and `adduser`) or use the image's built-in non-root user. Leaving the container running as root defeats the security purpose of using minimal images.
+* Chainguard's container images typically don't run as root, so a `USER root` statement may be required before installing software. This should be a temporary escalation only; after completing any root-level operations, you should create and switch to a dedicated non-root user (for example, using `addgroup` and `adduser`) or use the image's built-in non-root user. Leaving the container running as root defeats the security purpose of using minimal images.
 * The `-dev` variants and `wolfi-base` / `chainguard-base` use BusyBox by default, so you need to port any `groupadd` or `useradd` commands to `addgroup` and `adduser`.
 * The [Free tier](/chainguard/containers/concepts/container-categories/#free-containers) of Containers provides `:latest` and `:latest-dev` versions. Our paid Production Containers offer tags for major and minor versions.
 * We use apk tooling, so `apt install` commands become `apk add`.
-* Chainguard Containers are based on `glibc` and our packages cannot be mixed with Alpine packages.
+* Chainguard's container images are based on `glibc` and our packages cannot be mixed with Alpine packages.
 * In some cases, the entrypoint in Chainguard Containers can be different from equivalent container images based on other distros, which can lead to unexpected behavior. You should always check the image's specific documentation to understand how the entrypoint works.
 * When needed, Chainguard recommends using a Base Container like `chainguard-base` or a `-dev` variant to install an application's OS-level dependencies.
 * Although `-dev` variants are still more secure than most popular container images based on other distros, for increased security on production environments we recommend combining them with a distroless variant in a multi-stage build.
@@ -20007,7 +20074,7 @@ RUN apk update && apk add \
     libfontconfig1
 ```
 
-The next change we need to make is to the `RUN groupadd …` line. Chainguard Containers use BusyBox by default, which means `groupadd` needs to become `addgroup`. Rewrite the line so that it looks like this:
+The next change we need to make is to the `RUN groupadd …` line. Chainguard's container images use BusyBox by default, which means `groupadd` needs to become `addgroup`. Rewrite the line so that it looks like this:
 
 ```Dockerfile
 RUN addgroup dnmonster && adduser -D -G dnmonster dnmonster
@@ -20271,7 +20338,7 @@ Again as a first step, we try switching directly to the Chainguard Container. To
 FROM cgr.dev/chainguard/python:latest-dev
 ```
 
-Before building the image we need to also update `groupadd` syntax to use the `addgroup` format. As Chainguard Containers don't run as root by default for security reasons, we also need to change to the root user for this command to work. Replace the `RUN groupadd` line with the lines:
+Before building the image we need to also update `groupadd` syntax to use the `addgroup` format. As Chainguard's container images don't run as root by default for security reasons, we also need to change to the root user for this command to work. Replace the `RUN groupadd` line with the lines:
 
 ```Dockerfile
 USER root
@@ -20757,7 +20824,7 @@ _Path: chainguard/containers/migration/migration-guides/python.md_
 
 Chainguard's Python containers provide a migration path to significantly reduce vulnerabilities in Python applications while maintaining full compatibility with existing workloads. This guide explains how to migrate your containerized Python applications to benefit from Chainguard's enhanced security posture and daily updates.
 
-Chainguard Containers are built on [Wolfi](/open-source/wolfi/), a distroless Linux distribution designed for security and a reduced attack surface. Chainguard Containers are smaller and have few or no CVEs. Our Chainguard Containers for Python are built nightly for extra freshness, so they're always up-to-date with the latest remediations.
+Chainguard's container images are built on [Wolfi](/open-source/wolfi/), a distroless Linux distribution designed for security and a reduced attack surface. These images are smaller and have few or no CVEs. Our container images for Python are built nightly for extra freshness, so they're always up-to-date with the latest remediations.
 
 {{< details "What is Distroless?" >}}
 {{< blurb/distroless >}}
@@ -20771,7 +20838,7 @@ Chainguard Containers are built on [Wolfi](/open-source/wolfi/), a distroless Li
 {{< blurb/multistage >}}
 {{< /details >}}
 
-Because Chainguard Containers aim to be minimal, adapting your containerized application requires that you consider some additional factors, which the following sections describe.
+Because Chainguard's container images aim to be minimal, adapting your containerized application requires that you consider some additional factors, which the following sections describe.
 
 ## Chainguard Containers for Python overview
 
@@ -20782,11 +20849,11 @@ We distribute two versions of our [Python container image](https://images.chaing
 When migrating your Python application, keep in mind these differences between the [Chainguard Container for Python](https://images.chainguard.dev/directory/image/python/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-python) and the [official Docker image](https://hub.docker.com/_/python).
 
 - The entrypoint for the Chainguard Container for Python is `/usr/bin/python`. When running either the `latest` or `latest-dev` versions of the image interactively, you'll be working in the Python interpreter. When using `CMD` in your Dockerfiles, the container passes the provided commands to `python` by default. If you change the path to include binaries from a virtual environment, you should manually set the entrypoint. Otherwise, your Dockerfile continues to use the included system Python as the entrypoint, and you won't have access to installed packages in the virtual environment.
-- Chainguard Containers for Python run as the `nonroot` user by default. If you need elevated permissions, such as to add packages with `apk`, run the image as `--user root`. You should not use the root user in a production scenario.
+- Chainguard's container images for Python run as the `nonroot` user by default. If you need elevated permissions, such as to add packages with `apk`, run the image as `--user root`. You should not use the root user in a production scenario.
 - The `/home` and `/home/nonroot` directories are owned by the nonroot user.
 - The `python:latest` Chainguard Container intended for production does not include a `sh`, `ash`, or `bash`. Refer to the [Debugging distroless](/chainguard/containers/troubleshooting/debugging-distroless-images/) guide for advice on resolving issues without the use of these shells.
 - The `python:latest` Chainguard Container does not contain package managers such as `pip` or `apk`. See the sections below for guidance on multi-stage builds (recommended) or building your own images on Wolfi (advanced usage).
-- Chainguard Containers for Python aim to be lightweight, and you may find that specific packages or dependencies are not included by default. The [image details reference](https://images.chainguard.dev/directory/image/python/specifications?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-python) provides specific information on packages, features, and default environment variables for the image.
+- Chainguard's container images for Python aim to be lightweight, and you may find that specific packages or dependencies are not included by default. The [image details reference](https://images.chainguard.dev/directory/image/python/specifications?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-python) provides specific information on packages, features, and default environment variables for the image.
 
 ## Migrating a Python application
 
@@ -21711,7 +21778,7 @@ _Path: chainguard/containers/registry/overview.md_
 
 Chainguard Registry hosts more secure container images with two access tiers: public Free images available to everyone, and production images that require authentication for enterprise features like SLAs and version pinning. The registry integrates with standard container tools while providing enhanced security through signed images and comprehensive metadata.
 
-While all public Chainguard Containers are freely available, logging in with a Chainguard account and authenticating when pulling from the registry provides a mechanism for Chainguard to contact you if there are any current or known upcoming issues with images you are pulling.
+While all of Chainguard's public container images are freely available, logging in with a Chainguard account and authenticating when pulling from the registry provides a mechanism for Chainguard to contact you if there are any current or known upcoming issues with images you are pulling.
 
 If you would like to learn more about **Chainguard Containers**, you can review our [documentation](/chainguard/containers/overview/), and you can request further information through our [inquiry form](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
 
@@ -21750,7 +21817,7 @@ _Path: chainguard/containers/registry/network-requirements.md_
 
 This document provides an overview of network requirements for using [Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). To use Chainguard tools and Containers in environments with firewalls, VPNs, and IDS/IPS systems, you will need to add some rules to allow traffic into and out of your networks.
 
-Chainguard Containers do not call Chainguard services while running, so no network changes would be required to the runtime environment. Review the **Notes** column for more info on each Hostname.
+Chainguard's container images do not call Chainguard services while running, so no network changes would be required to the runtime environment. Review the **Notes** column for more info on each Hostname.
 
 ## Chainguard Containers hosts
 
@@ -21929,7 +21996,7 @@ If you run into issues pulling images like this, ensure that your `docker pull` 
 
 ## Setting up Cloudsmith as a pull through for production container images
 
-Production Chainguard Containers are enterprise-ready images that come with patch SLAs and features such as [Federal Information Processing Standard](/platform/fips/fips-images/) (FIPS) readiness. The process for setting up a Cloudsmith repository that you can use as a pull through cache for Production containers is similar to the one outlined previously for Free containers, but with a few extra steps.
+Chainguard's Production images are enterprise-ready container images that come with patch SLAs and features such as [Federal Information Processing Standard](/platform/fips/fips-images/) (FIPS) readiness. The process for setting up a Cloudsmith repository that you can use as a pull through cache for Production containers is similar to the one outlined previously for Free containers, but with a few extra steps.
 
 You can create a new Cloudsmith repository or use the same repository you used as a pull through cache for Free containers.
 
@@ -22678,7 +22745,7 @@ Be sure the `docker pull` command contains the correct Nexus URL for your reposi
 
 ## Setting up Nexus as a pull through for production containers
 
-Production Chainguard Containers are enterprise-ready images that come with patch SLAs and features such as [Federal Information Processing Standard](/platform/fips/fips-images/) (FIPS) readiness. The process for setting up an Nexus repository that you can use as a pull through cache for Production images is similar to the one outlined previously for Free containers, but with a few extra steps.
+Chainguard's Production images are enterprise-ready container images that come with patch SLAs and features such as [Federal Information Processing Standard](/platform/fips/fips-images/) (FIPS) readiness. The process for setting up an Nexus repository that you can use as a pull through cache for Production images is similar to the one outlined previously for Free containers, but with a few extra steps.
 
 To get started, you will need to create [a pull token](/chainguard/containers/registry/authenticating/#authenticating-with-a-pull-token) for your organization's registry. Pull tokens are longer-lived tokens that can be used to pull containers from other environments that don't support OIDC, such as some CI environments, Kubernetes clusters, or with registry mirroring tools like Nexus.
 
@@ -23039,7 +23106,7 @@ Be sure the `docker pull` command you run includes the name of your project as w
 
 ## Setting up Artifactory as a pull-through cache for production containers
 
-Production Chainguard Containers are enterprise-ready container images that come with patch Service Level Agreements (SLAs) and features such as [Federal Information Processing Standard](/platform/fips/fips-images/) (FIPS) readiness. The process for setting up an Artifactory repository that you can use as a pull-through cache for Chainguard Production Containers is similar to the one outlined previously for Free Containers, but with a few extra steps.
+Chainguard's Production images are enterprise-ready container images that come with patch Service Level Agreements (SLAs) and features such as [Federal Information Processing Standard](/platform/fips/fips-images/) (FIPS) readiness. The process for setting up an Artifactory repository that you can use as a pull-through cache for Chainguard Production Containers is similar to the one outlined previously for Free Containers, but with a few extra steps.
 
 To get started, create [a pull token](/chainguard/containers/registry/authenticating/#authenticating-with-a-pull-token) for your organization's registry. Pull tokens are longer-lived tokens that can be used to pull Chainguard Containers from other environments that don't support OIDC, such as some CI environments, Kubernetes clusters, or registry mirroring tools like Artifactory.
 
@@ -23355,7 +23422,7 @@ name: Registry Example
 
 on:
   push:
- branches: ['main']
+    branches: ['main']
 
 permissions:
   contents: read
@@ -23363,12 +23430,12 @@ permissions:
 
 jobs:
   example:
- runs-on: ubuntu-latest
- steps:
-   - uses: chainguard-dev/setup-chainctl@main
-     with:
-       identity: [[ The Chainguard Identity ID you created above ]]
-   - run: docker pull cgr.dev/chainguard/node
+    runs-on: ubuntu-latest
+    steps:
+      - uses: chainguard-dev/setup-chainctl@main
+        with:
+          identity: [[ The Chainguard Identity ID you created above ]]
+      - run: docker pull cgr.dev/chainguard/node
 ```
 
 Pulls authenticated in this way are associated with the Chainguard identity you created, which is associated with the organization selected when the identity was created.
@@ -23507,6 +23574,8 @@ You can also configure a Kubernetes cluster to use a pull token, as described ab
 
 When you create a pull token with `--save`, your Docker config file is updated to include that token and configure it to be used when pulling images from `cgr.dev`.
 
+Create the pull token with `--save` before you build the secret. If you set up `chainctl auth configure-docker` without a pull token, your Docker config has no credentials for `cgr.dev`, only an entry naming the `chainctl` credential helper. The kubelet can't run a credential helper, so a secret built from that file pulls without credentials. `--save` writes the token into the file and turns off the credential helper for `cgr.dev`.
+
 After that, you can create a Kubernetes secret based on those credentials, following [these instructions](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#registry-secret-existing-credentials):
 
 ```sh
@@ -23531,7 +23600,7 @@ metadata:
 spec:
   containers:
   - name: nginx
- image: cgr.dev/chainguard/nginx:latest
+    image: cgr.dev/chainguard/nginx:latest
   imagePullSecrets:
   - name: regcred
 ```
@@ -23542,6 +23611,8 @@ For this example, save the file as `cgr-example.yaml`. Then you can create and g
 kubectl apply -f cgr-example.yaml
 kubectl get pod cgr-example
 ```
+
+If the pod stays in `ImagePullBackOff`, refer to [Pods stuck in ImagePullBackOff](/chainguard/containers/troubleshooting/registry-errors/#pods-stuck-in-imagepullbackoff).
 
 Learn more in our [sign in guidance](/platform/administration/iam-organizations/how-to-manage-iam-organizations-in-chainguard/#logging-in).
 
@@ -23588,7 +23659,7 @@ Click any chart name to learn the chart details.
 
 ## Learn more
 
-The Chainguard Containers Directory is a useful tool for understanding what Chainguard Containers are available. To better understand how to work with individual container images, you can see if we have a [getting started guide](/chainguard/containers/getting-started/) available. We also provide a guide on [how to view Security Advisories](/chainguard/containers/security-and-compliance/security-advisories/how-to-use/) through our [self-service public Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory).
+The Chainguard Containers Directory is a useful tool for understanding which container images are available. To better understand how to work with individual container images, you can see if we have a [getting started guide](/chainguard/containers/getting-started/) available. We also provide a guide on [how to view Security Advisories](/chainguard/containers/security-and-compliance/security-advisories/how-to-use/) through our [self-service public Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory).
 
 ---
 
@@ -23612,7 +23683,7 @@ The two steps reuse the same HTTP status codes for unrelated problems. A `403` f
 | -- | -- | -- |
 | `UNAUTHORIZED`, "Authentication required" | Token endpoint | The repository requires credentials and you presented none that worked. |
 | `FORBIDDEN`, "Forbidden" | Token endpoint | The endpoint won't issue a token for the repository you named, or it couldn't use the credentials you sent. |
-| `BAD_REQUEST`, "InvalidArgument" | Token endpoint | The organization in the image reference didn't resolve. |
+| `BAD_REQUEST`, "InvalidArgument" | Token endpoint | The organization in the image reference didn't resolve, or the pull token you sent has expired. |
 | `FORBIDDEN`, "caller does not have the required capabilities" | Registry API | You're authenticated, but you aren't authorized for this repository. |
 | `NAME_UNKNOWN`, "repository does not exist" | Registry API | The repository name doesn't exist in that organization. |
 
@@ -23638,6 +23709,8 @@ You don't need to run `chainctl auth login` first. For headless machines, CI sys
 
 If the failure happens inside `docker build` rather than `docker pull`, check that the builder can see your Docker configuration. A `FROM` line pointing at your organization's namespace needs the same credentials a direct pull does.
 
+If the message appears in a Kubernetes pod's events, the credential helper won't help, because the kubelet can't run it. Refer to [Pods stuck in ImagePullBackOff](#pods-stuck-in-imagepullbackoff) instead.
+
 ## Forbidden from the token endpoint
 
 A `403` from the token endpoint looks like this, often from `helm registry login` or another tool that logs in without naming a repository:
@@ -23652,15 +23725,29 @@ This response means the token endpoint rejected the request outright. It doesn't
 1. **The credential's age.** Pull tokens expire 30 days after creation by default. Create a replacement with `chainctl auth configure-docker --pull-token`.
 1. **The repository name.** A scope the endpoint won't grant returns this `403` rather than a `404`, whether the repository doesn't exist or isn't in your organization's catalog. Confirm the name against `chainctl images repos list`.
 
-## The organization didn't resolve
+## Bad request from the token endpoint
 
-A `400` means the organization portion of the image reference didn't match any Chainguard organization:
+A `400` from the token endpoint has two causes, and the message text tells them apart.
+
+### The pull token expired
+
+When a pull presents an expired pull token, the token endpoint returns a `400` rather than a `401` or `403`:
+
+```output
+{"errors":[{"code":"BAD_REQUEST","message":"rpc error: code = InvalidArgument desc = this identity's keys have expired"}]}
+```
+
+Create a replacement with `chainctl auth configure-docker --pull-token` and update every place that holds the old one. A login with an expired token, such as `docker login` or `helm registry login`, returns the bare `403` described in [Forbidden from the token endpoint](#forbidden-from-the-token-endpoint) instead.
+
+### The organization didn't resolve
+
+When the message says `unable to resolve`, the organization portion of the image reference didn't match any Chainguard organization:
 
 ```output
 {"errors":[{"code":"BAD_REQUEST","message":"rpc error: code = InvalidArgument desc = unable to resolve ..."}]}
 ```
 
-Unlike the other errors on this page, this one has nothing to do with your credentials. The organization name is wrong. List the organizations you belong to and compare:
+This cause has nothing to do with your credentials. The organization name is wrong. List the organizations you belong to and compare:
 
 ```shell
 chainctl iam organizations list
@@ -23739,6 +23826,92 @@ The `realm: https://cgr.dev/token` fragment tells you the failure happened durin
 
 Pull tokens expire, so a mirror that worked for a month and then stopped is likely holding an expired token. For the tool-specific settings each platform needs, refer to the [pull-through guides](/chainguard/containers/registry/pull-through-guides/).
 
+## Pods stuck in ImagePullBackOff
+
+A Kubernetes pod that can't pull its container reports `ErrImagePull` and then `ImagePullBackOff`. That often happens with credentials that pull the same container without trouble through `docker` or `crane`. When the credentials work everywhere except Kubernetes, the kubelet usually never sent them.
+
+Read the pull failure in the pod's events:
+
+```shell
+kubectl describe pod <pod-name> --namespace <namespace>
+```
+
+The `Failed` event repeats the token endpoint's response:
+
+```output
+Failed to pull image "cgr.dev/$ORGANIZATION/python:latest": ... failed to authorize: failed to fetch anonymous token: unexpected status from GET request to https://cgr.dev/token?scope=repository%3A$ORGANIZATION%2Fpython%3Apull&service=cgr.dev: 401 Unauthorized
+```
+
+The word before `token` tells you where to look:
+
+- **`anonymous token`**: The kubelet found no credentials it could use for `cgr.dev`, so it pulled without any. The credentials themselves may be correct. Work through the checks in this section, in order.
+- **`oauth token`**: The kubelet sent credentials and the token endpoint rejected them. A `400` means the pull token expired, as described in [The pull token expired](#the-pull-token-expired). A `401` or `403` means the username or token is wrong, so refer to [Check your credential format](#check-your-credential-format).
+
+### Check the secret type
+
+The kubelet reads pull credentials only from a secret of type `kubernetes.io/dockerconfigjson`. Print the type of the secret your pod references:
+
+```shell
+kubectl get secret <secret-name> --namespace <namespace> -o jsonpath='{.type}'
+```
+
+If the output is `Opaque`, the kubelet ignores the secret and emits no warning about it. `kubectl create secret generic` creates an `Opaque` secret unless you pass `--type=kubernetes.io/dockerconfigjson`, and so does a manifest that omits `type:`. [Authenticating with Kubernetes](/chainguard/containers/registry/authenticating/#authenticating-with-kubernetes) covers this in more detail.
+
+Replace the secret under the same name:
+
+```shell
+kubectl delete secret <secret-name> --namespace <namespace>
+kubectl create secret docker-registry <secret-name> \
+  --namespace <namespace> \
+  --docker-server=cgr.dev \
+  --docker-username="<identity-id>" \
+  --docker-password="<pull-token>"
+```
+
+The kubelet reads the secret again on its next pull attempt, so the pod recovers without changes. A pod that has been failing for a while can wait many minutes between attempts, though. To retry now, delete the pod and let its controller recreate it, or restart its Deployment as shown in [Check that the pod references the secret](#check-that-the-pod-references-the-secret).
+
+### Check the secret's namespace
+
+A pod can use only pull secrets in its own namespace. When the secret it names isn't there, the pod's events include this warning alongside the `anonymous token` failure:
+
+```output
+Unable to retrieve some image pull secrets (<secret-name>); attempting to pull the image may not succeed.
+```
+
+Create the secret in the namespace where the pod runs. Each namespace that pulls from `cgr.dev` needs its own copy.
+
+### Check that the pod references the secret
+
+A secret in the right namespace has no effect until the pod names it. Print the pull secrets the pod received:
+
+```shell
+kubectl get pod <pod-name> --namespace <namespace> -o jsonpath='{.spec.imagePullSecrets}'
+```
+
+Empty output means the pod has none. Add the secret to the pod template's `imagePullSecrets`, or to the service account the pod runs as. For Helm charts, the [Chainguard Helm charts guide](/chainguard/containers/using-and-deploying/helm-charts/use-chainguard-helm-charts/#use-helm-values-with-globalimagepullsecrets) shows the `global.imagePullSecrets` value.
+
+Kubernetes copies a service account's `imagePullSecrets` into a pod only when the pod is created, and it won't add them to a pod that already exists. After you update a service account, recreate the pods that use it. For a Deployment:
+
+```shell
+kubectl rollout restart deployment <deployment-name> --namespace <namespace>
+```
+
+### Check the registry name in the secret
+
+The kubelet uses a credential only when its key in the secret matches the image's registry. List the keys without printing the credentials:
+
+```shell
+kubectl get secret <secret-name> --namespace <namespace> \
+  -o jsonpath='{.data.\.dockerconfigjson}' | base64 -d | jq '.auths // {} | keys'
+```
+
+The output needs to include `"cgr.dev"`. The kubelet also accepts `"https://cgr.dev"`, and a key that includes your organization's path, such as `"cgr.dev/$ORGANIZATION"`. Two outputs point to a specific mistake:
+
+- **`["https://index.docker.io/v1/"]`**: The secret was created with `kubectl create secret docker-registry` and no `--docker-server` flag, so the credentials are registered for Docker Hub. Re-create it with `--docker-server=cgr.dev`.
+- **`[]`, or a list without `cgr.dev`**: The secret was copied from a Docker configuration that reaches `cgr.dev` through the `chainctl` credential helper. That configuration stores no credentials for `cgr.dev`, only the name of a helper program, and the kubelet can't run it. Create a pull token and build the secret from it, as described in [Authenticating with Kubernetes](/chainguard/containers/registry/authenticating/#authenticating-with-kubernetes).
+
+A key that names a different organization, such as `"cgr.dev/another-org"`, or that adds a port, such as `"cgr.dev:443"`, also fails to match.
+
 ## Isolate the failing step
 
 To find out which of the two requests is failing, ask the token endpoint directly. This returns the HTTP status for a credential exchange with no credentials attached:
@@ -23751,6 +23924,8 @@ curl -s -o /dev/null -w '%{http_code}\n' \
 A `401` means the reference resolved and the endpoint wants credentials, so your tool's configuration is the problem rather than the name you used. Drop the `-o /dev/null` to read the error code and message in the response body.
 
 To check the second request, compare `chainctl auth status` against the capabilities listed in [Missing capabilities from the registry API](#missing-capabilities-from-the-registry-api).
+
+If the pull fails only in Kubernetes, start from the pod's events instead, as described in [Pods stuck in ImagePullBackOff](#pods-stuck-in-imagepullbackoff).
 
 ## Can't create a pull token
 
@@ -24109,7 +24284,7 @@ This is the most common case, and often the version you're asking for isn't the 
 
 Chainguard actively maintains the latest patch release of each supported upstream version stream, not every patch that stream has ever released. If Python maintains 3.11, 3.12, and 3.13 upstream, Chainguard maintains all three streams; within each one, only the current patch is rebuilt. So `python:3.13` tracks the newest patch of the 3.13 stream, which was `3.13.9` when this was written.
 
-Chainguard Containers also use *floating tags*. A tag points at the most recent build within its version stream rather than at a fixed image, so a tag's contents change as Chainguard rebuilds it. No tag stays pinned to one specific upstream patch release.
+Chainguard's container images also use *floating tags*. A tag points at the most recent build within its version stream rather than at a fixed image, so a tag's contents change as Chainguard rebuilds it. No tag stays pinned to one specific upstream patch release.
 
 That combination explains most missing-version reports. If you need `7.79.2` and the stream has moved on to `7.80.1`, the supported path is the stream tag, which gives you that stream's latest patch with current security fixes applied. Requesting the older patch tag gets you an image that is no longer rebuilt and will accumulate CVEs.
 
@@ -24164,7 +24339,7 @@ chainctl package versions list python --show-active
  3.14    | 2030-10-31 | 2031-05-01
 ```
 
-The [endoflife.date](https://endoflife.date) website lists the release tracks and product lifecycles of many open source projects, and its information generally aligns with the lifecycle of the corresponding Chainguard container image. If the date you see from Chainguard differs from the one on the upstream project's own site, the two are probably using different definitions of a support tier.
+This output shows the EOL date that Chainguard uses for each version stream. For many projects, that date comes from [endoflife.date](https://endoflife.date). For projects that endoflife.date doesn't cover, it comes from the project's published support policy or upstream release data. If a source doesn't reflect the project's open source releases, such as when endoflife.date tracks a vendor's commercial support window, Chainguard sets the date manually, and that date takes precedence. If the date differs from the one on the upstream project's own site, the two are using different sources or define support differently. For details, see [How Chainguard determines EOL dates](/chainguard/containers/concepts/lifecycle-and-eol/versions/#how-chainguard-determines-eol-dates).
 
 Several signals tell you a version is no longer being rebuilt:
 
@@ -24302,7 +24477,7 @@ glibc-2.44-2.44-r5.spdx.json
 . . .
 ```
 
-That works because `wolfi-base` includes a shell, and with it `ls`. Most Chainguard Containers are distroless and include neither. For those, run the `-dev` variant, which does have a shell:
+That works because `wolfi-base` includes a shell, and with it `ls`. Most of Chainguard's container images are distroless and include neither. For those, run the `-dev` variant, which does have a shell:
 
 ```sh
 docker run --entrypoint /bin/sh cgr.dev/chainguard/python:latest-dev -c "ls /var/lib/db/sbom"
@@ -24333,7 +24508,7 @@ The following video walks through both routes:
 ### Using the Tag History API
 _Path: chainguard/containers/reference/using-the-tag-history-api.md_
 
-Chainguard Containers have automated nightly builds, which ensures our container images are always fresh including any recent patches and updated software. Even though it is important to keep your base images always updated, there will be situations where you'll want to keep using an older build to make sure nothing will change in your container environment until you feel it's safe to update.
+Chainguard Containers has automated nightly builds, which ensures our container images are always fresh including any recent patches and updated software. Even though it is important to keep your base images always updated, there will be situations where you'll want to keep using an older build to make sure nothing will change in your container environment until you feel it's safe to update.
 
 For cases like this, it is useful to point your Dockerfile to use a specific **container image digest** as base image.
 
@@ -24517,9 +24692,9 @@ When migrating to Chainguard Containers, you may notice that some package and im
 
 ## Why Chainguard remaps package names
 
-Different Linux distributions often use different names for the same software. For example, Debian calls its C compiler package `build-essential`, while Alpine calls the equivalent package `build-base` and Fedora uses `gcc` and related packages. Chainguard Containers standardize these names to provide consistency regardless of which distribution you're migrating from.
+Different Linux distributions often use different names for the same software. For example, Debian calls its C compiler package `build-essential`, while Alpine calls the equivalent package `build-base` and Fedora uses `gcc` and related packages. Chainguard Containers standardizes these names to provide consistency regardless of which distribution you're migrating from.
 
-In some cases, upstream package names can be ambiguous or misleading. To create more clarity, Chainguard maps `netcat-traditional` to `netcat-openbsd` to specify the implementation, and `google-chrome-stable` to `chromium` to reflect the open-source base.
+In some cases, upstream package names can be ambiguous or misleading. To create more clarity, Chainguard maps `netcat-traditional` to `netcat-openbsd` to specify the implementation, and `google-chrome-stable` to `chromium` to reflect the open source base.
 
 Some distributions split a single piece of software into many sub-packages, while others bundle functionality together. Chainguard's package naming reflects a more streamlined approach that reduces the number of packages you need to install, minimizing the attack surface by avoiding unnecessary package splits.
 
@@ -24883,7 +25058,7 @@ This guide provides an overview of what these Unique Tags are, the kinds of prob
 
 Unique Tags are only available for private registries, as Chainguard's public registry only has the `:latest` or, in some cases, the `:latest-dev` tags available. Unique Tags feature an opt-in feature, which allows customers the flexibility to enable it based on their specific operational and security requirements.
 
-Chainguard's Unique Tags end in a timestamp, such as `20240229`, which indicates the date when the Container was built. Because Chainguard Containers are rebuilt whenever there is a change to an included package, the timestamp ensures that the specific tag always represents that specific container image build and not another.
+Chainguard's Unique Tags end in a timestamp, such as `20240229`, which indicates the date when the Container was built. Because Chainguard's container images are rebuilt whenever there is a change to an included package, the timestamp ensures that the specific tag always represents that specific container image build and not another.
 
 One benefit of using this timestamp scheme with Unique Tags is that it can help users to quickly identify when a given version of an container image was built. It also helps to make them human-readable, as opposed to the long, unpronounceable strings that make up container image digests.
 
@@ -25144,7 +25319,7 @@ Together, namespaces and cgroups isolate security functions of the host operatin
 
 ### Minimal container images
 
-Chainguard Containers contain only the minimal software needed for the container to perform its intended function. Nonessential capabilities such as package managers, shell environments, executables, and process launching functions have been removed from many Chainguard Containers and may not be installed once the container is running.
+Chainguard's container images contain only the minimal software needed for the container to perform its intended function. Nonessential capabilities such as package managers, shell environments, executables, and process launching functions have been removed from many of these images and may not be installed once the container is running.
 
 This limited implementation means that only the necessary software to operate can run on the container and restricts the installation of additional software on the image during operation. Be sure to have fixed permissions on libraries and executable files in place so that any software installed can't be modified.
 
@@ -25249,7 +25424,7 @@ This example tries to create a pod using a container image downloaded from the D
 
 ## Ensure images are referenced by digest
 
-Chainguard Containers are updated frequently to incorporate CVE fixes and package updates. The tags for Chainguard's container images are highly mutable, meaning that the underlying image changes frequently, even for very specific tags like `v1.2.3-r1`.
+Chainguard updates its container images frequently to incorporate CVE fixes and package updates. The tags for Chainguard's container images are highly mutable, meaning that the underlying image changes frequently, even for very specific tags like `v1.2.3-r1`.
 
 To prevent the risk of updates introducing breaking changes, you can pull by digest to ensure the use of a specific image.
 
@@ -25598,7 +25773,7 @@ Error from server (Forbidden): error when creating "bad-deployment.yaml": admiss
 
 ## Learn more
 
-By combining OPA Gatekeeper with Chainguard container images, you gain a powerful way to enforce security and compliance across your Kubernetes clusters. Gatekeeper ensures that only container images meeting your defined policies are deployed, while Chainguard Containers provide a minimal, hardened foundation to reduce risk from the start. Together, they help teams ship software more securely and confidently, without slowing down development.
+By combining OPA Gatekeeper with Chainguard container images, you gain a powerful way to enforce security and compliance across your Kubernetes clusters. Gatekeeper ensures that only container images meeting your defined policies are deployed, while Chainguard Containers provides a minimal, hardened foundation to reduce risk from the start. Together, they help teams ship software more securely and confidently, without slowing down development.
 
 If you'd like to learn more about Gatekeeper, we encourage you to refer to the [official documentation](https://open-policy-agent.github.io/gatekeeper/website/docs/).
 
@@ -25693,7 +25868,7 @@ kubectl delete -f restrict-image-registries.yaml
 
 ## Ensure images are referenced by digest
 
-Chainguard Containers are updated frequently to incorporate CVE fixes and package updates. The tags for Chainguard's container images are highly mutable, meaning that the underlying image changes frequently, even for very specific tags like `v1.2.3-r1`.
+Chainguard updates its container images frequently to incorporate CVE fixes and package updates. The tags for Chainguard's container images are highly mutable, meaning that the underlying image changes frequently, even for very specific tags like `v1.2.3-r1`.
 
 To prevent the risk of updates introducing breaking changes, you can [pull by digest](/chainguard/containers/troubleshooting/inspecting-containers/) to ensure the use of a specific image. When using Kyverno, you can use a `ClusterPolicy` policy to ensure that images are only referenced by digest.
 
@@ -25911,7 +26086,7 @@ Once all the failures have been addressed, you can switch to `failureAction: Enf
 
 ## Learn more
 
-By combining Kyverno with Chainguard Containers, you gain a powerful way to enforce security and compliance across your Kubernetes clusters. Kyverno ensures that only container images meeting your defined policies are deployed, while Chainguard Containers provide a minimal, hardened foundation to reduce risk from the start. Together, they help teams ship software more securely and confidently, without slowing down development.
+By combining Kyverno with Chainguard Containers, you gain a powerful way to enforce security and compliance across your Kubernetes clusters. Kyverno ensures that only container images meeting your defined policies are deployed, while Chainguard Containers provides a minimal, hardened foundation to reduce risk from the start. Together, they help teams ship software more securely and confidently, without slowing down development.
 
 If you'd like to learn more about Kyverno, we encourage you to refer to the [official documentation](https://kyverno.io/docs/).
 
@@ -26084,7 +26259,7 @@ The same process can be followed for other status updates, whether you wish to m
 
 ## Further reading
 
-In this guide, you learned how to use the `wolfictl` tool to interact with Chainguard’s Security Advisories feed. You used `wolfictl` to explore existing advisories, and also created and updated a new security advisory. The steps shown in this guide allowed you to make local changes to your advisory feed. If you wish to contribute to the open-source Wolfi OS advisory feed, please read through our [How To Patch CVEs](
+In this guide, you learned how to use the `wolfictl` tool to interact with Chainguard’s Security Advisories feed. You used `wolfictl` to explore existing advisories, and also created and updated a new security advisory. The steps shown in this guide allowed you to make local changes to your advisory feed. If you wish to contribute to the open source Wolfi OS advisory feed, please read through our [How To Patch CVEs](
 https://github.com/wolfi-dev/os/blob/main/HOW_TO_PATCH_CVES.md) guide and our [How Chainguard issues Security Advisories](/chainguard/containers/security-and-compliance/security-advisories/how-chainguard-issues/) article first.
 
 Be sure to routinely check [our Security Advisories page](https://images.chainguard.dev/security/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-security-advisories-managing-advisories) when your scanners pick up new CVEs in your images. If you want to learn more about how you can interpret a security advisory and what its status means for your security, read our [article on using advisories](/chainguard/containers/security-and-compliance/security-advisories/how-to-use/).
@@ -26371,7 +26546,7 @@ Another way to prepare yourself for the potential risks associated with CVEs is 
 
 Dependency hygiene is the practice of ensuring that the dependencies you introduce into your project do not contain vulnerabilities. We've found that many popular container images, when not updated, [will accumulate about one known vulnerability per day](https://www.chainguard.dev/unchained/enforce-against-vulnerability-sprawl-with-up-to-date-images). Many of the most widely used container images aren't updated regularly and [past academic software engineering research](https://arxiv.org/pdf/1811.12874.pdf) has found that most images on Docker Hub, the most widely used container registry, have not been updated for over 120 days.
 
-Some teams go so far as to actively avoid using dependencies, working under the belief that taking a "roll-your-own" approach to all their tooling is an effective way to reduce CVEs. Although first-party tools may report fewer CVEs when scanned, they won't be battle-tested like widely used open-source software, meaning there are drawbacks to this approach.
+Some teams go so far as to actively avoid using dependencies, working under the belief that taking a "roll-your-own" approach to all their tooling is an effective way to reduce CVEs. Although first-party tools may report fewer CVEs when scanned, they won't be battle-tested like widely used open source software, meaning there are drawbacks to this approach.
 
 ## Recommended tools
 
@@ -26381,7 +26556,7 @@ This section outlines a few categories of tools that can be useful for minimizin
 
 There are a number of tools available that allow you to scan your third party code for CVEs.
 
-At Chainguard, we use [**Grype**](https://www.chainguard.dev/unchained/why-chainguard-uses-grype-as-its-first-line-of-defense-for-cves) to scan our own Chainguard Containers, as it's open-source and it can scan Software Bills of Materials (or SBOMs). Additionally, Grype biases towards [false positives](/chainguard/containers/security-and-compliance/working-with-scanners/false-results/) over false negatives. Looking into a vulnerability in an image that turns out to be a false positive can be preferable to overlooking a real vulnerability that impacts end users.
+At Chainguard, we use [**Grype**](https://www.chainguard.dev/unchained/why-chainguard-uses-grype-as-its-first-line-of-defense-for-cves) to scan our own Chainguard Containers, as it's open source and it can scan Software Bills of Materials (or SBOMs). Additionally, Grype biases towards [false positives](/chainguard/containers/security-and-compliance/working-with-scanners/false-results/) over false negatives. Looking into a vulnerability in an image that turns out to be a false positive can be preferable to overlooking a real vulnerability that impacts end users.
 
 Another open-source scanning option is [**Falco**](https://falco.org/). Falco works with environments running in individual containers, hosts, Kubernetes, and the cloud. Falco works by collecting data from various sources — including Linux kernel syscalls, Kubernetes audit logs, and events from systems like GitHub or Okta — and compares them with a set of rules. Falco comes with a list of rules by default, but you can also create your own rules to suit the needs of your project. If any of the collected data breaks one of the rules, Falco will identify it as a security issue.
 
@@ -26405,7 +26580,7 @@ There are a number of important considerations one should make when keeping cont
 
 As mentioned previously, the fewer dependencies a given piece of software uses, the lower likelihood that it will be impacted by CVEs. To this end, Chainguard provides a library of minimal container images that can minimize your CVE risk.
 
-[**Chainguard Containers**](https://www.chainguard.dev/chainguard-images) are distroless, meaning they contain only an application and its runtime dependencies. These images do not even contain a shell or package manager. Because Chainguard Containers minimize the number of dependencies in this manner and thus reduce the potential attack surface, they inherently contain few to zero CVEs. Also, Chainguard Containers are rebuilt nightly to ensure images are completely up-to-date and contain all available security patches, and the engineering team [often fixes vulnerabilities before they're detected](https://www.chainguard.dev/unchained/how-chainguard-fixes-vulnerabilities).
+[**Chainguard's container images**](https://www.chainguard.dev/chainguard-images) are distroless, meaning they contain only an application and its runtime dependencies. These images do not even contain a shell or package manager. Because these images minimize the number of dependencies in this manner and thus reduce the potential attack surface, they inherently contain few to zero CVEs. Also, they are rebuilt nightly to ensure images are completely up-to-date and contain all available security patches, and the engineering team [often fixes vulnerabilities before they're detected](https://www.chainguard.dev/unchained/how-chainguard-fixes-vulnerabilities).
 
 If you're looking for a certain image that isn't included in Chainguard's library, you can build your own minimal container images with [**Wolfi**](https://github.com/wolfi-dev), a community Linux distribution designed by Chainguard for the container and cloud-native era. Chainguard started the Wolfi project to enable building Chainguard Containers, which required a Linux distribution with components at the appropriate granularity and with support for [glibc](https://www.gnu.org/software/libc/).
 
@@ -26820,7 +26995,7 @@ For more information on CVEs refer to [What are software vulnerabilities and CVE
 ### How to retrieve SBOMs and attestations for Chainguard Containers
 _Path: chainguard/containers/security-and-compliance/retrieve-image-sboms/index.md_
 
-Chainguard provides a Software Bill of Materials (SBOM) with every container image, enabling complete transparency about package contents and dependencies for security and compliance requirements. These SBOMs are cryptographically signed and attached as attestations, making them retrievable and verifiable. By including only the minimum packages needed, Chainguard Containers reduce attack surface while the SBOM ensures you can verify exactly what's in each image.
+Chainguard provides a Software Bill of Materials (SBOM) with every container image, enabling complete transparency about package contents and dependencies for security and compliance requirements. These SBOMs are cryptographically signed and attached as attestations, making them retrievable and verifiable. By including only the minimum packages needed, Chainguard's container images reduce attack surface while the SBOM ensures you can verify exactly what's in each image.
 
 Even though they contain the minimum number of packages, there may come a time when you want to know exactly what's running inside of a certain Chainguard Container. For this reason, Chainguard includes a signed SBOM with each image in the form of a [software attestation](https://slsa.dev/attestation-model), allowing you to verify the contents and meet compliance requirements. Chainguard publishes several different types of attestations; refer to the options under the [Available attestation types](#available-attestation-types) section on this page.
 
@@ -27331,7 +27506,7 @@ To avoid this problem, you could include either or both of the following `set` o
 
 To get up to speed with Sigstore, you can review the [Sigstore](/open-source/sigstore/) section of Chainguard Academy, visit the upstream [Sigstore Docs](https://docs.sigstore.dev/) site, and check out the [Sigstore organization on GitHub](https://github.com/sigstore). You can learn more about verifying software artifacts with Cosign by reading [How to verify file signatures with Cosign](/open-source/sigstore/cosign/how-to-verify-file-signatures-with-cosign/).
 
-Navigate to our [container images](/chainguard/containers/) landing page or [Getting started guides](https://edu.chainguard.dev/chainguard/containers/getting-started/) to understand more about Chainguard Containers and how they offer low-to-zero CVEs.
+Navigate to our [container images](/chainguard/containers/) landing page or [Getting started guides](https://edu.chainguard.dev/chainguard/containers/getting-started/) to understand more about Chainguard Containers and how its images offer low-to-zero CVEs.
 
 ---
 
@@ -27408,7 +27583,7 @@ As mentioned in the previous section, image digests guarantee full reproducibili
 
 Of course, digests do come with their own drawbacks. Image digests are not human readable; unlike tags, you can't always tell the difference between two image digests with a quick visual scan. Digests also don't make it clear whether a digest represents an older version, or whether one digest is older than another. Combined, these factors mean that digests can make it more difficult to know whether an image is up to date.
 
-[Chainguard Containers](/chainguard/containers/) are rebuilt daily in order to ensure that they're kept up to date and include all the latest available security patches. We recommend adopting a development pattern where digests are used to identify Chainguard Containers and are regularly updated by a bot, ensuring that the project and its downstream users benefit from reduced vulnerability counts, bug fixes, and new features. We do this ourselves with [Digestabot](/chainguard/containers/security-and-compliance/updating-containers/digestabot/), our own GitHub Action for keeping digest-pinned references current.
+[Chainguard's container images](/chainguard/containers/) are rebuilt daily in order to ensure that they're kept up to date and include all the latest available security patches. We recommend adopting a development pattern where digests are used to identify Chainguard Containers and are regularly updated by a bot, ensuring that the project and its downstream users benefit from reduced vulnerability counts, bug fixes, and new features. We do this ourselves with [Digestabot](/chainguard/containers/security-and-compliance/updating-containers/digestabot/), our own GitHub Action for keeping digest-pinned references current.
 
 As with the recommendation stated previously, Chainguard requires a human to approve the digestabot's update before it's deployed. Technically, we could set up an automatic approval for the bot's updates, but requiring a human approval combines the stability and reproducibility of using a digest with the good security hygiene of keeping images regularly updated.
 
@@ -27893,9 +28068,9 @@ RUN apk add --no-cache \
 
 ### Default repositories
 
-Chainguard Containers ship with their `/etc/apk/repositories` file already populated with two public, org-scoped mirrors served from `virtualapk.cgr.dev`. Neither requires authentication:
+Chainguard's container images ship with their `/etc/apk/repositories` file already populated with two public, org-scoped mirrors served from `virtualapk.cgr.dev`. Neither requires authentication:
 
-* **`virtualapk.cgr.dev/<org-id>/chainguard`** — open-source packages used in Chainguard's Free container images.
+* **`virtualapk.cgr.dev/<org-id>/chainguard`** — open source packages used in Chainguard's Free container images.
 * **`virtualapk.cgr.dev/<org-id>/extra-packages`** — additional packages that aren't fully open source but can still be redistributed by Chainguard.
 
 If you aren't modifying `/etc/apk/repositories` in your build then you should add a `packageRules` entry to your `renovate.json` that matches the `apk` datasource and lists both of the default URLs.
@@ -28776,7 +28951,7 @@ One way to leverage VEX documents is through [OpenVEX](https://github.com/openve
 
 A primary cause of large vulnerability counts reported in scanners is the dead weight caused by unnecessary dependencies. Many popular container images contain hundreds of packages, each with their own potential to introduce vulnerabilities, both true and false positives. Having so much noise to sift through draws out the vulnerability management process.
 
-[Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement), built on the [Wolfi un-distro](/open-source/wolfi/), can help you reduce your CVE count dramatically by keeping things minimal. By bundling only what is necessary to run the image, Chainguard Containers are hardened and lightweight in comparison to their counterparts. To learn more about how Chainguard Containers can help you achieve low (or zero!) CVEs in your containers, check out our [documentation](/chainguard/containers/overview/).
+[Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement), built on the [Wolfi un-distro](/open-source/wolfi/), can help you reduce your CVE count dramatically by keeping things minimal. By bundling only what is necessary to run the image, Chainguard's container images are hardened and lightweight in comparison to their counterparts. To learn more about how Chainguard Containers can help you achieve low (or zero!) CVEs in your containers, check out our [documentation](/chainguard/containers/overview/).
 
 ### Updating and rebuilding images
 
@@ -34265,7 +34440,7 @@ Apply the same `-fips` suffix to all component image repositories in the `gitlab
 ### Using init containers with Chainguard Containers
 _Path: chainguard/containers/using-and-deploying/init-containers.md_
 
-Chainguard Containers are designed with minimalism and security in mind. By including fewer packages and tools, Chainguard Containers have a smaller attack surface than their counterparts. However, there are cases where the external counterparts have certain desirable features, like useful startup scripts or configuration defaults.
+Chainguard's container images are designed with minimalism and security in mind. By including fewer packages and tools, they have a smaller attack surface than their counterparts. However, there are cases where the external counterparts have certain desirable features, like useful startup scripts or configuration defaults.
 
 There are several ways to customize Chainguard Containers. For example, you can use [Custom Assembly](/chainguard/containers/custom-assembly/overview/) to add packages to an otherwise minimal Chainguard container image. Changing a Chainguard container image's configuration — such as updating its entrypoint or adding startup scripts — requires a different strategy. One method for doing so in Kubernetes deployments is to use *init containers*.
 
@@ -34510,7 +34685,7 @@ This tutorial is centered around Chainguard's nginx container image, but the con
 ### How to use Chainguard Containers with OpenShift
 _Path: chainguard/containers/using-and-deploying/use-with-openshift.md_
 
-Chainguard Containers are fully compatible with Red Hat OpenShift Container Platform, providing enhanced security while requiring some configuration adjustments for OpenShift's security context constraints. This guide explains how to successfully deploy Chainguard's minimal, security-hardened container images in OpenShift environments.
+Chainguard Containers is fully compatible with Red Hat OpenShift Container Platform, providing enhanced security while requiring some configuration adjustments for OpenShift's security context constraints. This guide explains how to successfully deploy Chainguard's minimal, security-hardened container images in OpenShift environments.
 
 [Red Hat OpenShift](https://www.redhat.com/en/technologies/cloud-computing/openshift) is an application platform that orchestrates and manages your systems and resources. While it is based on open source software like Kubernetes, OpenShift includes a suite of applications with additional functionality that are configured to work together.
 
@@ -34586,7 +34761,7 @@ SCCs in OpenShift will by default prevent a root user from running with the Chai
 ### How to use Chainguard Containers
 _Path: chainguard/containers/using-and-deploying/using-containers.md_
 
-[Chainguard Containers](https://images.chainguard.dev) are minimal container images designed to reduce vulnerabilities and attack surface compared to traditional base images. These images use the [apk](https://wiki.alpinelinux.org/wiki/Package_management) package format to achieve smaller sizes while maintaining complete provenance information with cryptographic signatures, ensuring both enhanced security and traceability.
+[Chainguard Containers](https://images.chainguard.dev) is a collection of minimal container images designed to reduce vulnerabilities and attack surface compared to traditional base images. These images use the [apk](https://wiki.alpinelinux.org/wiki/Package_management) package format to achieve smaller sizes while maintaining complete provenance information with cryptographic signatures, ensuring both enhanced security and traceability.
 
 In this guide, you'll find general instructions on how to get started using Chainguard Containers and how to migrate existing container-based workflows to use our images. For specific image usage instructions, please refer to our [Chainguard Containers Directory](https://images.chainguard.dev), which contains the full list of all images available to the public and their respective documentation.
 
@@ -34636,7 +34811,7 @@ When you pull this image, you'll receive output of the digest which should match
 
 ### Specifying architecture
 
-As Chainguard Containers are [built for both AMD64 and ARM64 architecture](/chainguard/containers/overview/#architecture), you can specify the architecture you would like to use by employing the `--platform` flag with the `docker pull` command. In this example, we'll specify using the `linux/arm64` architecture with the Go image.
+As Chainguard's container images are [built for both AMD64 and ARM64 architecture](/chainguard/containers/overview/#architecture), you can specify the architecture you would like to use by employing the `--platform` flag with the `docker pull` command. In this example, we'll specify using the `linux/arm64` architecture with the Go image.
 
 ```sh
 docker pull --platform=linux/arm64 cgr.dev/chainguard/go
@@ -34658,7 +34833,7 @@ Specifying the platform will ensure that you're using the desired container imag
 
 ### Running a Chainguard Container
 
-You can run a Chainguard Container with the `docker run` command. Note that because Chainguard Containers are minimalist containers, most of them ship without a shell or package manager. If you would like a shell, you can often use the development image, which is tagged as `:latest-dev`. For example, [Python](https://images.chainguard.dev/directory/image/python/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images) has its development variant at `cgr.dev/chainguard/python:latest-dev`. Otherwise, you can work with Chainguard Containers in way similar to other images.
+You can run a Chainguard container image with the `docker run` command. Note that because Chainguard's container images are minimalist, most of them ship without a shell or package manager. If you would like a shell, you can often use the development image, which is tagged as `:latest-dev`. For example, [Python](https://images.chainguard.dev/directory/image/python/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images) has its development variant at `cgr.dev/chainguard/python:latest-dev`. Otherwise, you can work with Chainguard Containers in way similar to other images.
 
 Let's run the [Cosign Chainguard Container](https://images.chainguard.dev/directory/image/cosign/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images) to check its version.
 
@@ -34770,7 +34945,7 @@ Check also the [Wolfi images with Dockerfiles](/open-source/wolfi/wolfi-with-doc
 
 ## A note regarding package availability in Chainguard Containers
 
-Chainguard Containers only contain packages that come from the [Wolfi Project](https://github.com/wolfi-dev) or those that are built and maintained internally by Chainguard.
+Chainguard's container images only contain packages that come from the [Wolfi Project](https://github.com/wolfi-dev) or those that are built and maintained internally by Chainguard.
 
 Starting in March of 2024, Chainguard will maintain one version of each Wolfi package at a time. These will track the latest version of the upstream software in the package. Chainguard will end patch support for previous versions of packages in Wolfi. Existing packages will not be removed from Wolfi and you may continue to use them, but be aware that older packages will no longer be updated and will accrue vulnerabilities over time. The tools we use to build packages and images remain freely available and open source in [Wolfi](https://github.com/wolfi-dev).
 
@@ -34814,7 +34989,7 @@ In order to run a dev container, the given project must contain a file named `de
 
 Although there are many reasons why production images should be secure, the reasons for concern about the security of development environments are less clear. Put briefly: the code you've written and tested in your development environment will eventually make it into your production environment. If you've been hacked during development, then perhaps the hackers' code goes into production as well.
 
-Chainguard offers minimal runtime images designed for running production workloads, and development images that contain a shell and some development tooling. With that said, both development and production images are slimmed down and updated regularly to be free of CVEs. Because of their minimal and secure-by-default nature, Chainguard Containers are ideal for use in a secure development process.
+Chainguard offers minimal runtime images designed for running production workloads, and development images that contain a shell and some development tooling. With that said, both development and production images are slimmed down and updated regularly to be free of CVEs. Because of their minimal and secure-by-default nature, Chainguard's container images are ideal for use in a secure development process.
 
 ## Building a Go Dev Container using an example repository
 
@@ -35258,7 +35433,7 @@ To get the `values.yaml` so you can examine it, run:
 helm show values oci://cgr.dev/chainguard-private/iamguarded-charts/rabbitmq
 ```
 
-If `helm registry login` fails, or if the login succeeds and the install then returns a `403`, refer to [Troubleshoot registry authentication errors](/chainguard/containers/troubleshooting/registry-errors/). Those two failures have different causes, and that page tells them apart.
+If `helm registry login` fails, or if the login succeeds and the install then returns a `403`, refer to [Troubleshoot registry authentication errors](/chainguard/containers/troubleshooting/registry-errors/). Those two failures have different causes, and that page tells them apart. If the install succeeds and the pods then stay in `ImagePullBackOff`, refer to [Pods stuck in ImagePullBackOff](/chainguard/containers/troubleshooting/registry-errors/#pods-stuck-in-imagepullbackoff).
 
 Refer to the [Helm commands documentation](https://helm.sh/docs/helm/) for more information.
 
@@ -35576,7 +35751,7 @@ To get the `values.yaml` so you can examine it, run:
 helm show values oci://cgr.dev/$ORGANIZATION/charts/grafana
 ```
 
-If `helm registry login` fails, or if the login succeeds and the install then returns a `403`, refer to [Troubleshoot registry authentication errors](/chainguard/containers/troubleshooting/registry-errors/). Those two failures have different causes, and that page tells them apart.
+If `helm registry login` fails, or if the login succeeds and the install then returns a `403`, refer to [Troubleshoot registry authentication errors](/chainguard/containers/troubleshooting/registry-errors/). Those two failures have different causes, and that page tells them apart. If the install succeeds and the pods then stay in `ImagePullBackOff`, refer to [Pods stuck in ImagePullBackOff](/chainguard/containers/troubleshooting/registry-errors/#pods-stuck-in-imagepullbackoff).
 
 Refer to the [Helm commands documentation](https://helm.sh/docs/helm/) for more information.
 
@@ -35678,7 +35853,7 @@ The distroless variants of Chainguard Containers do not contain shells or packag
 
 - If packages for the language runtime (such as those installed with Python’s pip or Node’s npm) are required and no additional system-level (APK) dependencies are needed, we recommend following one of our language-specific multi-stage build tutorials ([Python](https://edu.chainguard.dev/chainguard/containers/getting-started/languages-and-runtimes/python/), [Node](https://edu.chainguard.dev/chainguard/containers/migration/migration-guides/node/), [PHP](https://edu.chainguard.dev/chainguard/containers/migration/migration-guides/php/)).
 - Use Chainguard's [Custom Assembly](https://edu.chainguard.dev/chainguard/containers/custom-assembly/) tool to create an image with additional packages added.
-- For some use cases, consider running our variant tagged `:latest-dev` in production. These Chainguard Containers are also low-to-zero CVE and are considered production-ready.
+- For some use cases, consider running our variant tagged `:latest-dev` in production. These images are also low-to-zero CVE and are considered production-ready.
 - Consider requesting a custom image from Chainguard.
 
 However, we understand that there are specific use cases that require installation of system-level APK packages in distroless variants, such as maintaining internal build environments requiring application- or team-based packaging. In these cases, you may wish to implement the approach described in this document.
@@ -36080,7 +36255,7 @@ If the build was successful, you should see version information from libcurl as 
 [Kaniko](https://github.com/chainguard-forks/kaniko) builds container images from a Dockerfile without a Docker daemon and is common in Kubernetes-based CI systems. Unlike Docker/BuildKit, Kaniko runs each Dockerfile instruction directly on the root filesystem of its executor container rather than in a per-stage snapshot. Because of this, two lines from the examples above fail under Kaniko:
 
 - `COPY --from=base / /base-chroot` fails with `could not save file: copying file: read /proc/1/attr/current: invalid argument`. When a later stage references an earlier stage, Kaniko saves that stage's files by copying them from the executor's live root filesystem, and `/` includes the executor's own `/proc`.
-- `COPY --from=build /base-chroot /` fails with `copying dir: chown /sys: read-only file system`. Chainguard Containers include empty `/dev`, `/proc`, and `/sys` directories, which are carried into the chroot along with the rest of the base image. When Kaniko copies the chroot onto `/`, it attempts to change ownership of the executor's real `/sys`.
+- `COPY --from=build /base-chroot /` fails with `copying dir: chown /sys: read-only file system`. Chainguard's container images include empty `/dev`, `/proc`, and `/sys` directories, which are carried into the chroot along with the rest of the base image. When Kaniko copies the chroot onto `/`, it attempts to change ownership of the executor's real `/sys`.
 
 > **Note**: Kaniko's `--ignore-path` flag does not affect either failure. It applies only when Kaniko snapshots the filesystem into a layer or extracts a base image, and Kaniko already ignores mount points such as `/proc`, `/sys`, and `/dev` in those steps.
 
@@ -36225,7 +36400,7 @@ This video works through the Maven and JRE build, then the `wolfi-base` variant:
 ### Adding a package to a Chainguard Container
 _Path: chainguard/containers/building-and-modifying/adding-packages.md_
 
-Chainguard Containers ship with only the packages their application needs, so sooner or later you'll want one that isn't there. [Custom Assembly](/chainguard/containers/custom-assembly/overview/) is the supported way to add it. You declare the package you want, Chainguard builds the image on its own infrastructure, and Chainguard rebuilds that image whenever the package is updated. You can drive Custom Assembly from the Chainguard Console, interactively with `chainctl`, or non-interactively with `chainctl` from a pipeline.
+Chainguard's container images ship with only the packages their application needs, so sooner or later you'll want one that isn't there. [Custom Assembly](/chainguard/containers/custom-assembly/overview/) is the supported way to add it. You declare the package you want, Chainguard builds the image on its own infrastructure, and Chainguard rebuilds that image whenever the package is updated. You can drive Custom Assembly from the Chainguard Console, interactively with `chainctl`, or non-interactively with `chainctl` from a pipeline.
 
 This page helps you pick an approach, then covers the three steps that apply whichever one you pick: finding the package name, adding the package, and confirming that it reached the finished image.
 
@@ -36602,7 +36777,7 @@ Once you’re able to pull images without being prompted to authenticate, you ca
 
 ## Step 3: Building your first container with Ko
 
-To get started, you'll build your application locally using Ko’s default configuration. Ko supports cross-compilation to other CPU architectures and operating systems via the `--platform` flag, so it can build container images for any platform that is supported by the base image. Chainguard Containers are available for both `amd64` and `arm64` architectures.
+To get started, you'll build your application locally using Ko’s default configuration. Ko supports cross-compilation to other CPU architectures and operating systems via the `--platform` flag, so it can build container images for any platform that is supported by the base image. Chainguard's container images are available for both `amd64` and `arm64` architectures.
 
 To build the image locally using default settings, run:
 
@@ -37311,7 +37486,7 @@ container images as part of your Java development workflow.
 ### Overview of Chainguard's package repositories
 _Path: chainguard/containers/building-and-modifying/packages/package-model.md_
 
-Chainguard Containers are built using packages from the Wolfi and Chainguard OS Linux distributions. If you need to extend or customize an image, it can be useful to access these packages directly.
+Chainguard's container images are built using packages from the Wolfi and Chainguard OS Linux distributions. If you need to extend or customize an image, it can be useful to access these packages directly.
 
 Chainguard offers curated package repositories to support containerized workloads and simplify dependency management. These repositories ensure you can access trusted packages — whether building custom container images, working with Chainguard OS, or using Chainguard Containers in production.
 
@@ -37328,7 +37503,7 @@ Additionally, Chainguard customers have access to a Private APK Repository speci
 
 > **Note**: Be aware that SLAs apply to container images, not individual packages.
 
-Chainguard Containers are designed to run apk packages, a package format developed for [Alpine Linux](https://www.alpinelinux.org/). Accordingly, Chainguard's package repositories contain apk packages, and you can interact with them using the standard [`apk` commands](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html). Chainguard maintains the packages within all of these package repositories.
+Chainguard's container images are designed to run apk packages, a package format developed for [Alpine Linux](https://www.alpinelinux.org/). Accordingly, Chainguard's package repositories contain apk packages, and you can interact with them using the standard [`apk` commands](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html). Chainguard maintains the packages within all of these package repositories.
 
 The following table presents a high-level overview of these package repositories:
 
@@ -37346,7 +37521,7 @@ Chainguard has two public package repositories: the Wolfi and Extra Packages rep
 
 ### Wolfi
 
-The [Wolfi packages repository](https://github.com/wolfi-dev/os) is the public package source for [Wolfi, Chainguard's open-source Linux "undistro."](https://www.chainguard.dev/supply-chain-security-101/wolfi-overview) It contains all the open-source packages used in Chainguard's Free container images. As a public repository, the Wolfi APK repo doesn't require authentication.
+The [Wolfi packages repository](https://github.com/wolfi-dev/os) is the public package source for [Wolfi, Chainguard's open source Linux "undistro."](https://www.chainguard.dev/supply-chain-security-101/wolfi-overview) It contains all the open source packages used in Chainguard's Free container images. As a public repository, the Wolfi APK repo doesn't require authentication.
 
 By default, Chainguard's Free container images use a generic address for this repository (`https://apk.cgr.dev/chainguard`) in their `/etc/apk/repositories` files:
 
@@ -37364,11 +37539,11 @@ Users that aren't Chainguard customers can use this URL to add packages from the
 https://virtualapk.cgr.dev/$ORGANIZATION_ID/chainguard
 ```
 
-If you need packages outside Wolfi's open-source scope, or under less permissive licenses, Chainguard offers a supplemental Packages repository
+If you need packages outside Wolfi's open source scope, or under less permissive licenses, Chainguard offers a supplemental Packages repository
 
 ### Extra packages
 
-Chainguard's Extra Packages repository is a public-facing APK repository that includes utilities and compatibility packages that aren't fully open-source, but can still be redistributed by Chainguard. The repository’s primary role is to provide supplemental packages needed to support containerized applications, especially when those utilities fall outside the scope of the official base images or are under less permissive licenses than those in the Wolfi repository.
+Chainguard's Extra Packages repository is a public-facing APK repository that includes utilities and compatibility packages that aren't fully open source, but can still be redistributed by Chainguard. The repository’s primary role is to provide supplemental packages needed to support containerized applications, especially when those utilities fall outside the scope of the official base images or are under less permissive licenses than those in the Wolfi repository.
 
 The Extra Packages repository follows similar rules to the Wolfi repo, but explicitly allows packages under more restrictive licenses as long as redistribution is permitted.
 
@@ -37403,7 +37578,7 @@ You must replace `$ORGANIZATION_ID` with your organization's `ID` value, not its
 
 You can also find this in the [Chainguard Console](https://console.chainguard.dev/). After logging in, open the **Settings** tab. There, you'll find your organization's identifier under **Organization UID**. Be aware that these repository URLs **will not** resolve properly if you include the name of your organization instead of the UID.
 
-For any of your organization's Chainguard Containers that include the APK package manager, these repositories are included by default. You can also add them to the `/etc/apk/repositories` file of any container that uses APK. Our guide on [How to pull packages from Chainguard package repositories through Artifactory](/chainguard/containers/registry/pull-through-guides/artifactory-packages-pull-through/#configuring-pull-through-caches-for-chainguards-public-repositories) includes directions for setting up pull-through caches for these repositories on Artifactory.
+For any of your organization's container images that include the APK package manager, these repositories are included by default. You can also add them to the `/etc/apk/repositories` file of any container that uses APK. Our guide on [How to pull packages from Chainguard package repositories through Artifactory](/chainguard/containers/registry/pull-through-guides/artifactory-packages-pull-through/#configuring-pull-through-caches-for-chainguards-public-repositories) includes directions for setting up pull-through caches for these repositories on Artifactory.
 
 ### Package retention in public repositories
 
@@ -38487,7 +38662,7 @@ Custom Assembly lets you extend Chainguard Containers with your own metadata and
 
 ### Custom annotations
 
-Chainguard Containers include metadata in the form of *annotations*. These annotations provide important information about the container image's origin, contents, and characteristics.
+Chainguard's container images include metadata in the form of *annotations*. These annotations provide important information about the container image's origin, contents, and characteristics.
 
 With Custom Assembly, you can add custom annotations to your Chainguard Containers using `chainctl`. The process is the same as the one outlined previously for adding packages. First run a command like the following:
 
@@ -38517,7 +38692,7 @@ Note that Custom Assembly blocks `org.opencontainers` and `dev.chainguard` annot
 
 ### Custom environment variables
 
-Chainguard Containers often come with a set of predefined environment variables. These are useful for setting certain configuration details that are available to the container at runtime.
+Chainguard's container images often come with a set of predefined environment variables. These are useful for setting certain configuration details that are available to the container at runtime.
 
 You can follow the same procedure for adding custom annotations to add custom environment variables to your Custom Assembly container images. Start by running a `chainctl images repos build edit` command:
 
@@ -38803,9 +38978,9 @@ accounts:
 
 certificates:
    additional:
-     - name: "certificate name"
+     - name: "certificate-name"
        content: |
-          -----BEGIN CERTIFICATE-----
+         -----BEGIN CERTIFICATE-----
          ...
          -----END CERTIFICATE-----
 ```
@@ -39256,7 +39431,7 @@ If applications within your container are not trusting your custom certificates:
 
 ## Alternative: Using `incert` for certificate injection
 
-For scenarios where you need to add certificates to an existing image without using Custom Assembly, you can use [`incert`](/chainguard/containers/custom-assembly/incert-custom-certs/), an open-source tool from Chainguard. However, we recommend using Custom Assembly over `incert` whenever possible, as this approach provides:
+For scenarios where you need to add certificates to an existing image without using Custom Assembly, you can use [`incert`](/chainguard/containers/custom-assembly/incert-custom-certs/), an open source tool from Chainguard. However, we recommend using Custom Assembly over `incert` whenever possible, as this approach provides:
 
 * Automatic rebuilds when the base image is updated
 * Integration with Chainguard's security patching lifecycle
@@ -41228,6 +41403,7 @@ Guardener's capabilities fall into two groups:
 - **[GitHub App](/chainguard/guardener/github/)** — Capabilities that run through the Chainguard App and are enabled per repository with `.chainguard/` configuration files:
     - **[Hardened Actions](/chainguard/guardener/github/actions-security/)** — Recommends and migrates your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents, through non-blocking pull request review comments or migration pull requests that run on a schedule or [on demand](/chainguard/guardener/github/actions-security/#run-an-on-demand-migration).
     - **[Container Image Suggestions](/chainguard/guardener/github/image-suggestions/)** — Recommends Chainguard container images for the container images a pull request adds or changes, through non-blocking review comments with one-click suggested changes where possible.
+    - **[Container Image Migration](/chainguard/guardener/github/image-migration/)** — Replaces the container images a repository already uses with Chainguard container images through a migration pull request that Guardener opens on a schedule or on demand.
     - **[Commit Verification](/chainguard/guardener/github/commit-verification/)** — Enforces cryptographically signed commits against a policy you control, supporting both keyless (Sigstore) signatures and static keys such as GPG.
 - **[Dockerfile migration](/chainguard/guardener/dockerfile-migration/)** — Uses AI to iteratively convert your Dockerfiles to Chainguard Containers. This capability runs locally through `chainctl agent dockerfile` commands.
 
@@ -41235,7 +41411,7 @@ Additional capabilities will be added over time, each with its own opt-in config
 
 ## Where to start
 
-- **[GitHub App](/chainguard/guardener/github/)** — Install the app, link your organization, and configure Guardener's GitHub capabilities (Hardened Actions, Container Image Suggestions, and Commit Verification):
+- **[GitHub App](/chainguard/guardener/github/)** — Install the app, link your organization, and configure Guardener's GitHub capabilities (Hardened Actions, Container Image Suggestions, Container Image Migration, and Commit Verification):
     - **[Getting started](/chainguard/guardener/github/getting-started/)** — Install the Chainguard App and link your Chainguard organization to your GitHub organization.
     - **[Configuration](/chainguard/guardener/github/configuration/)** — Understand the `.chainguard/` configuration model and how features are enabled per repository.
 - **[Dockerfile migration](/chainguard/guardener/dockerfile-migration/)** — Migrate your Dockerfiles to Chainguard Containers using the `chainctl agent dockerfile` commands.
@@ -41253,7 +41429,7 @@ Guardener reviews pull requests that add or change container image references an
 
 {{< beta feature="Guardener" access="organizations that have installed and linked the Chainguard App" >}}
 
-Guardener reads only the lines a pull request adds or changes, so it catches upstream images as they're introduced but doesn't review the images a repository already uses. To find replacements for every image in a repository, run [`chainctl images discover`](/chainguard/containers/migration/migration-tools/images-discover/).
+Guardener reads only the lines a pull request adds or changes, so it catches upstream images as they're introduced but doesn't review the images a repository already uses. To replace those images, turn on [Container Image Migration](/chainguard/guardener/github/image-migration/), which opens a pull request for the whole repository. To list replacements for every image without changing any files, run [`chainctl images discover`](/chainguard/containers/migration/migration-tools/images-discover/).
 
 ## Prerequisites
 
@@ -41314,8 +41490,10 @@ A comment includes a one-click suggested change when all of the following are tr
 - The file is a Dockerfile, YAML file, or JSON file.
 - The reference is one literal value on its own line. It isn't assembled from a Dockerfile `ARG` or a split Helm `image` mapping, and no other image shares the line.
 - Your Chainguard organization already has the replacement image, with a matching tag.
+- The replacement keeps a version. Guardener doesn't suggest the `latest` tag for a reference with a tag that Chainguard doesn't maintain, or for a reference pinned by digest without a tag.
+- In a Dockerfile, the build stage and any stage built on it don't run commands with `RUN`, a shell-form `CMD` or `ENTRYPOINT`, or an `ONBUILD` instruction, and don't set `CMD` without `ENTRYPOINT`. Chainguard container images without a `-dev` suffix usually have no shell or package manager, and many set `ENTRYPOINT` to their runtime.
 
-Otherwise, the comment names the replacement so you can make the change yourself, or add the image to your organization first. Adding an image isn't always self-service: how you do it depends on your subscription, and the steps are in [The container isn't in your organization's catalog](/chainguard/containers/troubleshooting/container-version-troubleshooting/#the-container-isnt-in-your-organizations-catalog).
+Otherwise, the comment names the replacement and says why it has no suggested change, so you can make the change yourself or add the image to your organization first. Adding an image isn't always self-service: how you do it depends on your subscription, and the steps are in [The container isn't in your organization's catalog](/chainguard/containers/troubleshooting/container-version-troubleshooting/#the-container-isnt-in-your-organizations-catalog).
 
 A suggested change swaps one image reference for another. Guardener doesn't restructure a Dockerfile: it doesn't rename packages, split a build into stages, or change the user or entry point. Review and test the change as you would any other. To convert a whole Dockerfile, use [Dockerfile migration](/chainguard/guardener/dockerfile-migration/).
 
@@ -41337,9 +41515,11 @@ Guardener also skips any single file larger than 1 MiB, and the check run lists 
 | --- | --- | --- | --- |
 | `enabled` | boolean | `true` when the file exists | Turns Image Suggestions on or off for the repository. |
 | `prefer_fips` | boolean | `true` | Ranks FIPS variants before standard variants. Images your organization already has still rank first. |
+| `migrate` | mapping | None | Settings for [Container Image Migration](/chainguard/guardener/github/image-migration/#configuration-reference). |
 
 ## Next steps
 
+- **[Container Image Migration](/chainguard/guardener/github/image-migration/)** — Replace the images a repository already uses through one migration pull request.
 - **[`chainctl images discover`](/chainguard/containers/migration/migration-tools/images-discover/)** — Find replacements for every image a repository already uses.
 - **[Configuration](/chainguard/guardener/github/configuration/)** — Set Image Suggestions once for your whole organization.
 - **[Dockerfile migration](/chainguard/guardener/dockerfile-migration/)** — Convert a Dockerfile to use Chainguard container images.
@@ -41442,7 +41622,7 @@ For a first-time walkthrough, refer to [Getting started](/chainguard/guardener/g
 
 A connection has two halves, one on each side:
 
-1. **A GitHub App installation** — the [Chainguard App](https://github.com/apps/chainguard-dev) installed on a GitHub organization (or personal account). The installation is what grants Guardener access to repositories and delivers repository events to it. GitHub assigns each installation a numeric **installation ID**.
+1. **A GitHub App installation** — the [Chainguard App](https://github.com/apps/chainguard) installed on a GitHub organization (or personal account). The installation is what grants Guardener access to repositories and delivers repository events to it. GitHub assigns each installation a numeric **installation ID**.
 2. **A link** — an association, stored on the Chainguard platform, between that installation and a Chainguard organization. The link is what tells Guardener which Chainguard organization the GitHub activity belongs to.
 
 The two halves do different jobs. Installing the app is enough for Guardener to start responding on **public** repositories — each feature still has to be enabled with a configuration file, but no link is needed. The link adds the Chainguard side: it attributes the activity to your Chainguard organization and unlocks the features that need one, such as covering **private** repositories (subject to the [repository visibility scope](#repository-visibility-scope)) and group-scoped operations like triggering an Actions migration with `chainctl`. Linking fails if the app is not installed.
@@ -41474,7 +41654,7 @@ Commands that prove GitHub organization ownership (`link`, and the fallback path
 
 Install the app on the GitHub organization whose repositories Guardener should manage:
 
-1. Go to the [Chainguard App page](https://github.com/apps/chainguard-dev).
+1. Go to the [Chainguard App page](https://github.com/apps/chainguard).
 2. Select **Install** (or **Configure** if it is already installed on another account).
 3. Choose the GitHub organization (or your personal account) to install it on.
 4. Choose which repositories Guardener can access — **All repositories** or a selected subset. You can change this later (refer to [Changing repository access](#changing-which-repositories-are-connected)).
@@ -41640,7 +41820,7 @@ The `chainctl guardener` commands identify your Chainguard organization by its g
 
 Guardener acts on your repositories through the **Chainguard App**, a single hardened GitHub App that also backs other Chainguard products. Install it on the GitHub organization whose repositories you want Guardener to manage.
 
-1. Go to the [Chainguard App page](https://github.com/apps/chainguard-dev).
+1. Go to the [Chainguard App page](https://github.com/apps/chainguard).
 2. Select **Install** (or **Configure** if it is already installed on another account).
 3. Choose the GitHub organization to install it on.
 4. Choose which repositories Guardener can access. You can grant access to **All repositories** or select specific repositories. You can change this selection later in your GitHub organization settings.
@@ -41714,6 +41894,8 @@ For the complete set of flags and options, refer to the `chainctl` reference:
 - **[App connections](/chainguard/guardener/github/app-connections/)** — Inspect, change, and remove the connections between your Chainguard organization and your GitHub organizations.
 - **[Configuration](/chainguard/guardener/github/configuration/)** — Learn the `.chainguard/` configuration model and how to enable features per repository.
 - **[Hardened Actions](/chainguard/guardener/github/actions-security/)** — Recommend and migrate GitHub Actions to hardened, SHA-pinned equivalents.
+- **[Container Image Suggestions](/chainguard/guardener/github/image-suggestions/)** — Get Chainguard container image suggestions on the images a pull request adds or changes.
+- **[Container Image Migration](/chainguard/guardener/github/image-migration/)** — Replace the images a repository already uses through one migration pull request.
 - **[Commit Verification](/chainguard/guardener/github/commit-verification/)** — Require cryptographically signed commits in pull requests.
 
 ---
@@ -41730,7 +41912,7 @@ Guardener reads its configuration from the `.chainguard/` directory at the root 
 ```text
 .chainguard/
 ├── actions.yaml   # Hardened Actions
-├── images.yaml    # Container Image Suggestions
+├── images.yaml    # Container Image Suggestions and Container Image Migration
 └── source.yaml    # Commit Verification
 ```
 
@@ -41752,6 +41934,7 @@ A repository with no `.chainguard/` files is unaffected by Guardener even when t
 | ----------------------------------------------------------------- | -------------------------- | --------------------------------------------------------------------------- |
 | [Hardened Actions](/chainguard/guardener/github/actions-security/)       | `.chainguard/actions.yaml` | Recommends and migrates GitHub Actions to hardened, SHA-pinned equivalents. |
 | [Container Image Suggestions](/chainguard/guardener/github/image-suggestions/) | `.chainguard/images.yaml` | Recommends Chainguard container images for the images a pull request adds or changes. |
+| [Container Image Migration](/chainguard/guardener/github/image-migration/) | `.chainguard/images.yaml` | Opens a pull request that replaces the images a repository already uses with Chainguard container images. |
 | [Commit Verification](/chainguard/guardener/github/commit-verification/) | `.chainguard/source.yaml`  | Verifies that commits in a pull request are signed by an authorized signer. |
 
 Additional features will be added over time, each with its own `.chainguard/` file and opt-in configuration.
@@ -41766,7 +41949,7 @@ The `.github` repository is a special repository that GitHub already uses for or
 .github/                # your organization's .github repository
 └── .chainguard/
     ├── actions.yaml     # org-wide default for Hardened Actions
-    ├── images.yaml      # org-wide default for Container Image Suggestions
+    ├── images.yaml      # org-wide default for Container Image Suggestions and Container Image Migration
     └── source.yaml      # org-wide default for Commit Verification
 ```
 
@@ -41804,6 +41987,7 @@ To add or update the Guardener configuration:
 
 - **[Hardened Actions](/chainguard/guardener/github/actions-security/)** — Configure `.chainguard/actions.yaml`.
 - **[Container Image Suggestions](/chainguard/guardener/github/image-suggestions/)** — Configure `.chainguard/images.yaml`.
+- **[Container Image Migration](/chainguard/guardener/github/image-migration/)** — Add a `migrate` block to `.chainguard/images.yaml`.
 - **[Commit Verification](/chainguard/guardener/github/commit-verification/)** — Configure `.chainguard/source.yaml`.
 
 ---
@@ -41852,7 +42036,7 @@ An on-demand run performs exactly the same migration as the scheduled flow: it o
 Before you start, make sure that:
 
 - The Chainguard App is installed and your Chainguard organization is linked to your GitHub organization, as described in [Getting started](/chainguard/guardener/github/getting-started/). The migration must be requested through the Chainguard organization that owns the Chainguard App installation.
-- You hold the `guardener.actions.migrate` capability on that Chainguard organization. Organization owners have it, and it is included in the built-in `guardener.user` and `guardener.admin` roles. Refer to the [Built-in roles and capabilities reference](/platform/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for more information on roles.
+- You hold the `guardener.actions.migrate` capability on that Chainguard organization. The built-in `viewer`, `editor`, and `owner` roles include it, as do `guardener.user` and `guardener.admin`. Each built-in role that includes either migration capability includes both. Refer to the [Built-in roles and capabilities reference](/platform/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for more information on roles.
 
 Run `chainctl guardener github migrate create` with the repository to migrate:
 
@@ -41862,16 +42046,21 @@ chainctl guardener github migrate create <owner>/<repo>
 
 The repository can be given as `owner/repo` shorthand or as a full URL (`https://github.com/owner/repo`); only github.com repositories are supported today. The migration runs under the Chainguard organization that owns the Chainguard App installation. `chainctl` selects that organization automatically when only one is available and prompts you when there are several; pass `--parent <group-name>` to name it explicitly.
 
-By default the command waits for the migration to finish (up to 10 minutes, adjustable with `--timeout`) and prints the result:
+With `chainctl` 0.2.375 or later, the command runs every migration that the repository opts in to, so it also opens or updates the [Container Image Migration](/chainguard/guardener/github/image-migration/) pull request when `.chainguard/images.yaml` enables it. Earlier versions of `chainctl` run only the Hardened Actions migration.
+
+Each migration checks its own capability. If you hold `guardener.actions.migrate` but not `guardener.images.migrate`, the `Images:` line reports a permission error and the command exits with an error, even when the repository doesn't use image migration.
+
+By default, the command waits for the migrations to finish (up to 10 minutes, adjustable with `--timeout`) and prints one result for each:
 
 ```
 Repository: https://github.com/<owner>/<repo>
 Triggered by: you@example.com (user)
+Actions: https://github.com/<owner>/<repo>/pull/42
+Images: migration is not enabled here or in repository configuration
 Status: completed
-Pull request: https://github.com/<owner>/<repo>/pull/42
 ```
 
-When there is nothing to migrate — every action is already on a Chainguard equivalent, the ignore rules exclude everything, or the repository has not enabled migration — the run reports `Status: completed (no changes needed)` instead of a pull request.
+In this example, the repository opts in to Hardened Actions migration only. When there's nothing to migrate — every action is already on a Chainguard equivalent, or the ignore rules exclude everything — the `Actions:` line reads `no changes needed` instead of a pull request URL. When the repository hasn't enabled Hardened Actions migration, it reads `migration is not enabled here or in repository configuration`. If a migration fails, its line reads `failed` with the reason, the last line reads `Status: completed with failures`, and the command exits with an error.
 
 If the migration fails because the Chainguard App installation does not cover the repository (for example, the app was installed on **selected repositories** and this one isn't included), the error says so; grant the app access to the repository in your GitHub organization settings and trigger the migration again.
 
@@ -41965,11 +42154,214 @@ Guardener's GitHub capabilities run through the **Chainguard App**, a single har
 
 - **[Hardened Actions](/chainguard/guardener/github/actions-security/)** — Recommends and migrates your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents, through non-blocking pull request review comments or automated migration pull requests. Migration pull requests run on a schedule and can also be [triggered on demand](/chainguard/guardener/github/actions-security/#run-an-on-demand-migration) with `chainctl`.
 - **[Container Image Suggestions](/chainguard/guardener/github/image-suggestions/)** — Recommends Chainguard container images for the container images a pull request adds or changes, through non-blocking review comments with one-click suggested changes where possible.
+- **[Container Image Migration](/chainguard/guardener/github/image-migration/)** — Replaces the container images a repository already uses with Chainguard container images through a migration pull request. Migration runs on a schedule and can also be [triggered on demand](/chainguard/guardener/github/image-migration/#run-an-on-demand-migration) with `chainctl`.
 - **[Commit Verification](/chainguard/guardener/github/commit-verification/)** — Enforces cryptographically signed commits against a policy you control, supporting both keyless (Sigstore) signatures and static keys such as GPG.
 
 Each capability is configured with its own file in the `.chainguard/` directory.
 
 > **Note:** For Dockerfile migration, which runs locally through `chainctl agent dockerfile` rather than the Chainguard App, refer to [Dockerfile migration](/chainguard/guardener/dockerfile-migration/).
+
+---
+
+### Guardener Container Image Migration
+_Path: chainguard/guardener/github/image-migration.md_
+
+Guardener scans the default branch of a repository for container image references and opens a pull request that replaces them with Chainguard container images your organization already has. As your repository and your organization's images change, Guardener keeps that pull request up to date.
+
+{{< beta feature="Guardener" access="organizations that have installed and linked the Chainguard App" >}}
+
+Container Image Migration and [Container Image Suggestions](/chainguard/guardener/github/image-suggestions/) work together. Image Suggestions reviews the images that each new pull request adds, and migration replaces the images the repository already uses. Each has its own setting in `.chainguard/images.yaml`, so you can use either one or both.
+
+A migration pull request changes image references only. Guardener doesn't build your images, run your tests, or convert your Dockerfiles, so review and test the pull request as you would any other change.
+
+## Prerequisites
+
+Before you enable Container Image Migration, make sure that:
+
+- The Chainguard App is installed with access to the repository, and your GitHub organization is linked to your Chainguard organization, as described in [Getting started](/chainguard/guardener/github/getting-started/). You don't need to change the [repository visibility scope](/chainguard/guardener/github/app-connections/#repository-visibility-scope): unlike Image Suggestions, migration runs on private repositories even with the default `PUBLIC` scope.
+- Your Chainguard organization has the replacement images. Guardener doesn't add images for you. Adding an image isn't always self-service: how you do it depends on your subscription, and the steps are in [The container isn't in your organization's catalog](/chainguard/containers/troubleshooting/container-version-troubleshooting/#the-container-isnt-in-your-organizations-catalog).
+
+## Enable Container Image Migration
+
+Add a `migrate` block to the repository's `.chainguard/images.yaml` file, and set `enabled` inside it to `true`:
+
+```yaml
+enabled: true
+migrate:
+  enabled: true
+```
+
+The top-level `enabled` key controls Image Suggestions, and the `migrate.enabled` key controls migration. Image Suggestions is on whenever the file exists. To get only migration pull requests, set the top-level `enabled` to `false`:
+
+```yaml
+enabled: false
+migrate:
+  enabled: true
+```
+
+Commit the file to the repository's default branch. Guardener reads `.chainguard/images.yaml` only from the default branch, and the push that adds or changes the file starts the first migration.
+
+To set migration once for every repository in your organization, commit the file to your organization's `.github` repository instead, as described in [Configuration](/chainguard/guardener/github/configuration/#organization-level-configuration-with-the-github-repository). A repository's own `.chainguard/images.yaml` replaces the organization file entirely, so a repository file without a `migrate` block turns migration off for that repository.
+
+## When migration runs
+
+Guardener runs a migration for a repository at the following times:
+
+- After a push to the default branch that adds, changes, or removes `.chainguard/images.yaml` in that repository.
+- On a schedule, about once every `migrate.period`. The default and minimum period is 24 hours.
+- On demand, when you run `chainctl guardener github migrate create`, as described in [Run an on-demand migration](#run-an-on-demand-migration).
+
+Each run scans the whole default branch again. A scheduled run therefore picks up images that your organization added since the last run, as well as new image references in the repository. Changes to the organization-level file in your `.github` repository take effect at each repository's next scheduled run.
+
+## Review the migration pull request
+
+Guardener keeps one image migration pull request per repository, separate from the [Hardened Actions](/chainguard/guardener/github/actions-security/) migration pull request. The pull request is titled **Migrate container images to Chainguard equivalents**, and its description lists the following:
+
+- **Changed files**: every file that the pull request edits.
+- **Not migrated**: each reference that Guardener found and left unchanged, with the reason.
+
+Each run plans its changes against the latest commit on the default branch. If the migration pull request is open, Guardener updates it only when the planned changes differ from the ones it already has. After you merge or close the pull request, the next run opens a new one if there's anything left to change. Guardener never merges the pull request itself.
+
+Closing the pull request doesn't turn migration off. To stop migration for a repository, set `migrate.enabled: false`.
+
+To make your own changes to the pull request, add the `skip:guardener/images` label or assign the pull request to someone first. Guardener then stops updating it. Don't push to the pull request's branch, under `guardener/images/`, without first adding the label or an assignee, because Guardener force-pushes the branch on each update.
+
+When nothing is left to change, Guardener doesn't open a pull request, and it doesn't close one that's already open. If you make the same changes yourself, close the open migration pull request.
+
+## What migration changes
+
+Migration reads Dockerfiles, YAML files, and JSON files across the whole repository. It skips files under `node_modules`, `vendor`, `.terraform`, and `testdata` directories.
+
+| Files | What Guardener changes |
+| --- | --- |
+| Dockerfiles: `Dockerfile`, `Dockerfile.*`, `*.dockerfile`, and `Containerfile` | The image in each `FROM` instruction, in every build stage. |
+| YAML and JSON, such as Kubernetes manifests, Compose files, and Helm values | Each literal `image` value. Guardener doesn't read Helm chart templates. |
+| Terraform (`*.tf`, `*.tfvars`), shell scripts (`*.sh`), and Makefiles | Nothing. Guardener doesn't read these files. To find the images they use, run [`chainctl images discover`](/chainguard/containers/migration/migration-tools/images-discover/). |
+
+Guardener chooses each replacement the same way as Image Suggestions. When Chainguard publishes a Federal Information Processing Standards (FIPS) variant of an image, Guardener prefers it unless you set `prefer_fips: false`. Guardener keeps the reference's tag when Chainguard maintains it. Otherwise, it uses the newest maintained version on the same minor version line or, failing that, in the same major version. If the version changes, check its release notes before you merge. When a reference has both a tag and a digest, the replacement is also pinned by digest.
+
+Guardener leaves a reference unchanged and lists it under **Not migrated** in the following cases:
+
+- Your Chainguard organization doesn't have the replacement image, or doesn't have a matching tag. After you add the image, the next run migrates the reference.
+- Chainguard doesn't publish an equivalent image.
+- The reference isn't one literal value on its own line. For example, it's assembled from a Dockerfile `ARG`, it's split across Helm `registry`, `repository`, and `tag` keys, or another image shares its line.
+- The Dockerfile build stage, or a stage built on it, runs commands with `RUN`, a shell-form `CMD` or `ENTRYPOINT`, or an `ONBUILD` instruction. Chainguard container images without a `-dev` suffix usually have no shell or package manager, so swapping only the image could break the build. To convert the whole Dockerfile, use [Dockerfile migration](/chainguard/guardener/dockerfile-migration/).
+- The Dockerfile build stage sets `CMD` without `ENTRYPOINT`. Many Chainguard container images set `ENTRYPOINT` to their runtime, so the command could change.
+- The reference has a tag that Chainguard doesn't maintain, and no maintained version is close enough to replace it, so the only replacement would be the `latest` tag.
+- The reference is pinned by digest without a tag, so there's no version to carry over.
+
+## Exclude files and images
+
+To keep Guardener from changing specific files or images, add a `migrate.ignore` block:
+
+```yaml
+migrate:
+  enabled: true
+  ignore:
+    files:
+      - "Dockerfile.dev"
+      - "examples/*"
+    images:
+      - "busybox:*"
+```
+
+Both lists take glob patterns. A `*` matches any characters except `/`, and `**` doesn't match across directories.
+
+- `ignore.files` matches a file's path from the repository root, or its file name. In this example, `examples/*` matches `examples/Dockerfile` but not `examples/app/Dockerfile`.
+- `ignore.images` matches the image reference as written in the file, with Dockerfile `ARG` defaults filled in. In this example, `busybox:*` matches `busybox:1.36`, but it doesn't match `docker.io/library/busybox:1.36` or `busybox` with no tag.
+
+Ignored files and images don't appear in the migration pull request.
+
+## Run an on-demand migration
+
+Rather than waiting for the next scheduled run, you can start a migration right away with `chainctl`. For example, you might do this after you add an image to your organization. An on-demand run performs the same migration as a scheduled run and uses the same configuration. It doesn't change the schedule.
+
+Before you start, make sure that:
+
+- You have `chainctl` 0.2.375 or later. Earlier versions migrate only GitHub Actions. To update, run `chainctl update`.
+- The repository has `migrate.enabled: true` in its own `.chainguard/images.yaml` file or in the organization-level file.
+- You hold the `guardener.images.migrate` capability on the Chainguard organization that's linked to the repository's GitHub organization. The built-in `viewer`, `editor`, and `owner` roles include it, as do `guardener.user` and `guardener.admin`. For more information, refer to the [Built-in roles and capabilities reference](/platform/administration/iam-organizations/roles-role-bindings/capabilities-reference/).
+
+Run `chainctl guardener github migrate create` with the repository:
+
+```shell
+chainctl guardener github migrate create <owner>/<repo>
+```
+
+The command runs every migration that the repository opts in to: Container Image Migration through `.chainguard/images.yaml` and Hardened Actions migration through `.chainguard/actions.yaml`. Each opens or updates its own pull request.
+
+By default, the command waits up to 10 minutes for the migrations to finish and then prints one result for each:
+
+```
+Repository: https://github.com/<owner>/<repo>
+Triggered by: you@example.com (user)
+Actions: migration is not enabled here or in repository configuration
+Images: https://github.com/<owner>/<repo>/pull/43
+Status: completed
+```
+
+In this example, the repository opts in to Container Image Migration only. The `Images:` line reports one of the following results:
+
+| Result | Meaning |
+| --- | --- |
+| A pull request URL | Guardener opened or updated the migration pull request. |
+| `no changes needed` | Guardener found nothing it could change. This includes references whose replacement your organization doesn't have yet. To see the replacement for every reference, run [`chainctl images discover`](/chainguard/containers/migration/migration-tools/images-discover/). |
+| `migration is not enabled here or in repository configuration` | The repository doesn't have `migrate.enabled: true`. |
+| `failed` | Guardener couldn't finish the migration. The message in parentheses says why, such as a missing capability or a [scan limit](#limits). |
+
+When any migration fails, the last line reads `Status: completed with failures`, and the command exits with an error. To return without waiting, or to check a migration later, refer to [Check a migration operation](/chainguard/guardener/github/actions-security/#check-a-migration-operation).
+
+## Limits
+
+Because migration reads the whole repository, it has the following limits. When a repository exceeds one, Guardener doesn't open or update the migration pull request, and an on-demand run reports `Images: failed` with the limit it reached. To bring the repository under the limit, exclude directories or files with [`migrate.ignore.files`](#exclude-files-and-images).
+
+| Limit | Value |
+| --- | --- |
+| Image references, counted once per file, line, and image | 100 |
+| Image reference occurrences | 1,000 |
+| Files in Helm chart `templates` directories, which Guardener checks so it can skip them | 300 |
+| Total size of the files read | 128 MiB |
+
+Guardener also skips any file larger than 1 MiB and lists it under **Not migrated**.
+
+## Configuration reference
+
+The following keys in `.chainguard/images.yaml` control migration:
+
+| Key | Type | Default | Description |
+| --- | --- | --- | --- |
+| `migrate.enabled` | boolean | `false` | Turns migration pull requests on for the repository. |
+| `migrate.period` | duration | `24h` | How often Guardener runs a scheduled migration, written as a Go duration such as `168h` for one week. A period shorter than 24 hours, or a value that isn't a duration, uses 24 hours. |
+| `migrate.ignore.files` | list of glob patterns | None | Files that migration doesn't read. |
+| `migrate.ignore.images` | list of glob patterns | None | Image references that migration leaves unchanged. |
+| `prefer_fips` | boolean | `true` | Ranks FIPS variants before standard variants, for both migration and Image Suggestions. |
+
+The top-level `enabled` key controls Image Suggestions only. For more information, refer to the [Image Suggestions configuration reference](/chainguard/guardener/github/image-suggestions/#configuration-reference).
+
+## Full example
+
+The following `.chainguard/images.yaml` file turns on Image Suggestions and weekly migration pull requests. It prefers standard images to FIPS variants, and it leaves a development Dockerfile and every `busybox:<tag>` reference unchanged:
+
+```yaml
+enabled: true
+prefer_fips: false
+migrate:
+  enabled: true
+  period: "168h"
+  ignore:
+    files:
+      - "Dockerfile.dev"
+    images:
+      - "busybox:*"
+```
+
+Commit the file to the repository's default branch. The push that adds or changes it starts a migration.
+
+## Next steps
+
+- **[Container Image Suggestions](/chainguard/guardener/github/image-suggestions/)** — Get suggestions on the images each new pull request adds.
+- **[`chainctl images discover`](/chainguard/containers/migration/migration-tools/images-discover/)** — Find replacements for every image a repository uses, including the ones migration can't change.
+- **[Dockerfile migration](/chainguard/guardener/dockerfile-migration/)** — Convert a whole Dockerfile to use Chainguard container images.
 
 ---
 
@@ -42285,7 +42677,7 @@ _Path: open-source/build-tools/melange/getting-started-with-melange.md_
 
 [melange](https://github.com/chainguard-dev/melange) is an [apk](https://wiki.alpinelinux.org/wiki/Package_management) builder tool that uses declarative pipelines to create apk packages. From a single YAML file, users are able to generate multi-architecture apks that can be injected directly into [apko](https://github.com/chainguard-dev/apko) builds.
 
-Understanding melange can help you better understand the [Wolfi](/open-source/wolfi/) operating system and how [Chainguard Containers](/chainguard/containers/) are made to be minimal and secure, but it is not necessary to have a background in melange in order to use Chainguard Containers.
+Understanding melange can help you better understand the [Wolfi](/open-source/wolfi/) operating system and how [Chainguard's container images](/chainguard/containers/) are made to be minimal and secure, but it is not necessary to have a background in melange in order to use Chainguard Containers.
 
 In this guide, you'll learn how to build a software package with melange. To demonstrate the versatile combination of melange and apko builds, we'll package a small command-line PHP script and build a minimalist container image based on Wolfi with the generated apk. All files used in this demo are open source and available at the [melange-php-demos](https://github.com/chainguard-dev/melange-php-demos/tree/main/hello-minicli) repository.
 
@@ -45370,7 +45762,7 @@ Before proceeding, let's push our image to Docker Hub, since the following comma
 docker push $DH_USERNAME/example-image
 ```
 
-Our `example-image` still has attestations derived from our base image, since all Chainguard Containers come with SBOM and SLSA provenance attestations. Let's remove these attestations with the `cosign clean` command:
+Our `example-image` still has attestations derived from our base image, since all of Chainguard's container images come with SBOM and SLSA provenance attestations. Let's remove these attestations with the `cosign clean` command:
 
 ```sh
 cosign clean $DH_USERNAME/example-image
@@ -46168,7 +46560,7 @@ Error from server (BadRequest): admission webhook "policy.sigstore.dev" denied t
 cgr.dev/chainguard/nginx@sha256:628a01724b84d7db2dc3866f645708c25fab8cce30b98d3e5b76696291d65c4a
 ```
 
-In the next step, you will define a policy that verifies Chainguard Containers are signed and apply it to your cluster.
+In the next step, you will define a policy that verifies Chainguard's container images are signed and apply it to your cluster.
 
 ## Step 2 — Creating a `ClusterImagePolicy`
 
@@ -46475,7 +46867,7 @@ Error from server (BadRequest): admission webhook "policy.sigstore.dev" denied t
 k8s.gcr.io/pause@sha256:7031c1b283388d2c2e09b57badb803c05ebed362dc88d84b480cc47f72a21097
 ```
 
-In the next step, you will define a policy that verifies Chainguard Containers have a SBOM attestation and apply it to your cluster.
+In the next step, you will define a policy that verifies Chainguard's container images have a SBOM attestation and apply it to your cluster.
 
 ## Step 2 — Creating a `ClusterImagePolicy`
 
@@ -48744,7 +49136,7 @@ Because package updates or vulnerability fixes won't be picked up, this is not g
 ### Wolfi
 _Path: open-source/wolfi/_index.md_
 
-Wolfi is a Linux _undistro_ built for containers. It uses the apk package format, builds every package from source, and relies on the container runtime to provide the kernel. Chainguard Containers are built on Wolfi.
+Wolfi is a Linux _undistro_ built for containers. It uses the apk package format, builds every package from source, and relies on the container runtime to provide the kernel. Chainguard's container images are built on Wolfi.
 
 To learn what Wolfi is and why Chainguard built it, read [What is Wolfi?](https://www.chainguard.dev/supply-chain-security-101/wolfi-overview) in Supply Chain Security 101. The pages in this section show you how to work with Wolfi.
 
@@ -49278,7 +49670,7 @@ Chainguard's mission is to be the secure source for open source. Rather than lea
 
 Chainguard rebuilds open source software into products you can adopt directly, depending on how you consume dependencies:
 
-- **[Chainguard Containers](/chainguard/containers/overview/)** are minimal, hardened container images. Following a distroless philosophy, each image includes only your application and its essential runtime dependencies, minimizing the overall attack surface. This minimalism is a large part of why they carry [low-to-no CVEs](/chainguard/containers/concepts/zerocve/).
+- **[Chainguard Containers](/chainguard/containers/overview/)** is a collection of minimal, hardened container images. Following a distroless philosophy, each image includes only your application and its essential runtime dependencies, minimizing the overall attack surface. This minimalism is a large part of why they carry [low-to-no CVEs](/chainguard/containers/concepts/zerocve/).
 - **[Chainguard Libraries](/chainguard/libraries/introduction/overview/)** bring the same approach to language dependencies. They're drop-in replacements for open source packages in the Java, Python, and JavaScript ecosystems, rebuilt from verified sources and continuously monitored.
 
 You pull Chainguard Containers and Libraries from a single, policy-aware endpoint, the [Chainguard Repository](/chainguard/chainguard-repository/overview/).
@@ -49455,7 +49847,7 @@ Learn more at [How to manage chainctl configuration](/platform/chainctl-usage/ma
 
 ## List available images
 
-To see which Chainguard Containers are available to your account, use:
+To see which container images are available to your account, use:
 
 ```shell
 chainctl images list
@@ -49516,7 +49908,7 @@ Swap your existing dependencies for Chainguard Libraries — rebuilt from verifi
 
 ## Evaluate trust
 
-Deciding whether Chainguard is right for your organization? Review how Chainguard Containers are built, what guarantees they carry, and how they compare on CVEs.
+Deciding whether Chainguard is right for your organization? Review how Chainguard's container images are built, what guarantees they carry, and how they compare on CVEs.
 
 ## Onboard your teams
 
@@ -49927,7 +50319,7 @@ Already using Chainguard and ready to move existing workloads over? Start with t
 
 ## Migrate to Chainguard Containers
 
-Replace the base images in your Dockerfiles with Chainguard Containers. Because Chainguard Containers are minimal — most have no shell or package manager — migration usually means adjusting how your image installs dependencies, which user it runs as, and what its entrypoint expects.
+Replace the base images in your Dockerfiles with Chainguard Containers. Because Chainguard's container images are minimal — most have no shell or package manager — migration usually means adjusting how your image installs dependencies, which user it runs as, and what its entrypoint expects.
 
 - **[Container migration overview](/chainguard/containers/migration/migrations-overview/)** — key differences, rollout strategy, and troubleshooting.
 - **[Porting a sample application](/chainguard/containers/migration/porting-apps-to-chainguard/)** — a full walkthrough converting a three-service application.
@@ -50266,7 +50658,7 @@ Compliance with PCI DSS 4.0, or Payment Card Industry Data Security Standard, re
 
 Chainguard doesn't build images specifically for PCI DSS, but our images can help you meet the requirements in many ways, easing your burden in the process of achieving compliance. Securing your software supply chain provides a solid foundation for minimizing vulnerabilities.
 
-All Chainguard Containers save time and costs required to triage, patch, and remediate CVEs. They are created by and officially maintained by Chainguard engineers. Our images are designed to be minimal, removing unnecessary software that is not specifically used. This eliminates a number of potential attack vectors.
+All of Chainguard's container images save time and costs required to triage, patch, and remediate CVEs. They are created by and officially maintained by Chainguard engineers. Our images are designed to be minimal, removing unnecessary software that is not specifically used. This eliminates a number of potential attack vectors.
 
 On top of this, you must authenticate into Chainguard to use Chainguard Containers, giving you reassurance of the provenance of your images. They include digitally signed [build-time SBOMs](/chainguard/containers/security-and-compliance/retrieve-image-sboms/) (software bill of materials) documenting and attesting to the full provenance.
 
@@ -50276,7 +50668,7 @@ Our FIPS-compliant [Federal Information Processing Standard](/platform/fips/fips
 
 STIG-hardened FIPS images are pre-configured container images that have been secured according to the Security Technical Implementation Guide (STIG) standards set by the Defense Information Systems Agency (DISA). These images meet stringent federal security requirements, combining FIPS-compliant encryption with robust security configurations that protect against vulnerabilities and threats. By using STIG-hardened FIPS images, organizations ensure that their systems adhere to federal encryption standards and best practices for cybersecurity, making them particularly valuable in environments that require high levels of security.
 
-## How do Chainguard Containers help?
+## How does Chainguard Containers help? {#how-do-chainguard-containers-help}
 
 One of the main requirements of PCI DSS is to maintain a vulnerability management program. PCI DSS requires you to scan for vulnerabilities once every three months (Requirement 11.3.1) and triage and address all vulnerabilities (Requirement 11.3.11). Chainguard protects you from malicious attacks by supplying you with images where CVEs have already been dealt with, removing vulnerabilities for you.
 
@@ -50284,7 +50676,7 @@ PCI DSS requires that you catalog and classify vulnerabilities in bespoke and th
 
 Vulnerability scanners can be noisy and sifting through false positives while cataloging true vulnerabilities can be tedious work. Providing justifications for vulnerabilities that aren't applicable takes time, and that is after investigating them thoroughly.
 
-Chainguard Containers are carefully engineered to contain low-to-no CVEs. Organizations can use them as their source to build their applications on. The benefits of our solution are:
+Chainguard's container images are carefully engineered to contain low-to-no CVEs. Organizations can use them as their source to build their applications on. The benefits of our solution are:
 
 - **You’re secured by default** : Our images contain low-to-no CVEs. Check out our [Images Directory](https://images.chainguard.dev) yourself. ‍
 - **Extensive scanner partnerships**: We partner with industry-leading scanners such as Snyk, Crowdstrike, Wiz, [and many others](https://www.chainguard.dev/scanners).
@@ -50436,7 +50828,7 @@ _Path: platform/console/images-directory/index.md_
 
 This guide walks you through the Chainguard Console. Anyone can use the Console, but you first need to [create an account and log in](https://console.chainguard.dev/auth/login).
 
-If you're not ready to create a Chainguard account, you can follow along with the public [Chainguard Directory](/chainguard/containers/registry/chainguard-directory/). It offers similar information, but it isn't connected to an organization or account. The directory's **Sign In** link opens the Console.
+If you're not ready to create a Chainguard account, you can follow along with the public [Chainguard Directory](/chainguard/containers/registry/chainguard-directory/). It offers similar information, but it isn't connected to an organization or account. The Directory's **Sign in** button opens the Console.
 
 ## Accessing the Chainguard Console
 
@@ -50516,7 +50908,7 @@ The **Comparison** tab compares the CVE count of a Chainguard Container with a n
 
 ### Provenance
 
-All Chainguard Containers contain verifiable signatures and high-quality [software bills of materials](https://www.chainguard.dev/supply-chain-security-101/what-is-an-sbom) (SBOMs). Signatures let you confirm each image's origin, and SBOMs list everything the image contains.
+All of Chainguard's container images contain verifiable signatures and high-quality [software bills of materials](https://www.chainguard.dev/supply-chain-security-101/what-is-an-sbom) (SBOMs). Signatures let you confirm each image's origin, and SBOMs list everything the image contains.
 
 The **Provenance** tab explains how to verify container signatures and how to download and verify image attestations, with examples that use [`cosign`](/open-source/sigstore/cosign/an-introduction-to-cosign/).
 
@@ -50549,7 +50941,7 @@ Chainguard began generating SBOMs for its images on November 15, 2023, so image 
 
 The **Vulnerabilities** tab lists every CVE found in the image. Like the **SBOM** tab, it has a search box for filtering the list and, to its left, a drop-down menu for selecting an image version.
 
-Most Chainguard Containers show no vulnerabilities for the `latest` version. This isn't an error: Chainguard aims to remove vulnerabilities from images as soon as they arise. To check how the table appears when vulnerabilities are present, select different versions in the drop-down until you find one with a vulnerability.
+Most of Chainguard's container images show no vulnerabilities for the `latest` version. This isn't an error: Chainguard aims to remove vulnerabilities from images as soon as they arise. To check how the table appears when vulnerabilities are present, select different versions in the drop-down until you find one with a vulnerability.
 
 The table has five columns:
 
@@ -50585,7 +50977,7 @@ To find these charts in the Console, click **Helm charts** in the sidebar menu. 
 
 To find the packages available to your organization, click **Packages** in the sidebar menu. The **Packages** page lists the APK packages in your organization's private Chainguard APK repository, and you can search the list.
 
-Click a package name for more details. Use the **Architecture** drop-down to choose which architecture to display.
+Use the **Architecture** drop-down above the list to filter packages by architecture. Click a package to open its details in a side panel, and use the panel's **Version** drop-down to switch between versions.
 
 ## Learn more
 
@@ -51127,7 +51519,7 @@ This guide outlines one method of using Terraform to grant members of a GitHub t
 
 To complete this guide, you will need the following.
 
-* `terraform` installed on your local machine. Terraform is an open-source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
+* `terraform` installed on your local machine. Terraform is an open source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
 * `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) to set this up.
 * Access to a GitHub team. If you'd like, you can create a new GitHub organization and team for testing purposes. Check out [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/creating-a-team) for details on how to do this.
 * A GitHub Personal Access Token, with a minimum of **read.org** access. Follow [GitHub's documentation on the subject](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) to learn how to set one up. Additionally, you will need to [configure SSO for your personal access token](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on) if required by your organization.
@@ -53707,7 +54099,7 @@ Both methods outlined in this guide require you to have the following:
 * Access to a GitLab project and CI/CD pipeline you can use to test out the identity you'll create. GitLab provides a [quickstart tutorial on creating your first pipeline](https://docs.gitlab.com/ee/ci/quick_start/) which can be useful for getting a testing pipeline up and running.
 * `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) to set this up.
 
-Additionally, the Terraform method requires you to have `terraform` installed on your local machine. Terraform is an open-source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
+Additionally, the Terraform method requires you to have `terraform` installed on your local machine. Terraform is an open source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
 
 ## Create an assumable identity with `chainctl`
 
@@ -54251,7 +54643,7 @@ This tutorial outlines how to create an identity using Terraform, and then how t
 
 To complete this guide, you must have the following in place:
 
-* `terraform` installed on your local machine. Terraform is an open-source Infrastructure as Code tool which this guide uses to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
+* `terraform` installed on your local machine. Terraform is an open source Infrastructure as Code tool which this guide uses to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
 * `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) to set this up.
 * A Buildkite agent and pipeline you can use to test out the identity you'll create. We recommend following Buildkite's [Getting Started guide](https://buildkite.com/docs/tutorials/getting-started) to set these up.
 
@@ -54597,7 +54989,7 @@ This procedural tutorial outlines how to create an identity using Terraform, and
 
 To complete this guide, you will need the following.
 
-* `terraform` installed on your local machine. Terraform is an open-source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
+* `terraform` installed on your local machine. Terraform is an open source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
 * `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) to set this up.
 * A Keycloak deployment. [Keycloak](https://www.keycloak.org/) is an Open Source identity provider which Chainguard provides as an [image](https://images.chainguard.dev/directory/image/keycloak/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-administration-iam-organizations-identity-examples-keycloak-identity)
 
@@ -54874,7 +55266,7 @@ This procedural tutorial outlines how to create an identity using Terraform, and
 
 To complete this guide, you will need the following.
 
-* `terraform` installed on your local machine. Terraform is an open-source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
+* `terraform` installed on your local machine. Terraform is an open source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
 * `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) to set this up.
 * A Bitbucket pipeline you can use to test out the identity you'll create. We recommend following Bitbucket's [Getting Started guide](https://support.atlassian.com/bitbucket-cloud/docs/get-started-with-bitbucket-pipelines/) to set this up. If you need to enable pipelines for your repository, visit Bitbucket's [Configure your first pipeline](https://support.atlassian.com/bitbucket-cloud/docs/configure-your-first-pipeline/) page to get started.
 
@@ -55546,7 +55938,7 @@ This procedural tutorial outlines how to create an identity using Terraform, and
 
 To complete this guide, you will need the following.
 
-* `terraform` installed on your local machine. Terraform is an open-source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
+* `terraform` installed on your local machine. Terraform is an open source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
 * `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) to set this up.
 * A [Jenkins](https://www.jenkins.io/) server with the [OpenID Connect Provider plugin](https://plugins.jenkins.io/oidc-provider/) installed and configured, as well as a pipeline you can use to test out the identity you'll create.
 
@@ -56448,7 +56840,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: cgr.dev
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository being pulled from
-Ce-Time: 2026-10-06T19:22:58.570783336Z
+Ce-Time: 2026-10-07T14:01:49.588901566Z
 Ce-Type: dev.chainguard.registry.pull.v1
 Content-Length: 777
 Content-Type: application/json
@@ -56478,7 +56870,7 @@ User-Agent: Chainguard Enforce
     "tag": "The tag of the image being pulled",
     "type": "Type determines whether the object being pulled is a manifest or blob",
     "user_agent": "The user-agent of the client who pulled",
-    "when": "2026-10-06T19:22:58.569089"
+    "when": "2026-10-07T14:01:49.587257"
   }
 }
 
@@ -56501,7 +56893,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: cgr.dev
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository being pushed to
-Ce-Time: 2026-10-06T19:22:58.569326409Z
+Ce-Time: 2026-10-07T14:01:49.587496004Z
 Ce-Type: dev.chainguard.registry.push.v1
 Content-Length: 707
 Content-Type: application/json
@@ -56530,7 +56922,7 @@ User-Agent: Chainguard Enforce
     "tag": "The tag of the image being pushed",
     "type": "Type determines whether the object being pushed is a manifest or blob",
     "user_agent": "The user-agent of the client who pushed",
-    "when": "2026-10-06T19:22:58.569070"
+    "when": "2026-10-07T14:01:49.587234"
   }
 }
 
@@ -56553,7 +56945,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/auth/v1/register
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP
-Ce-Time: 2026-10-06T19:22:58.58265998Z
+Ce-Time: 2026-10-07T14:01:49.606614882Z
 Ce-Type: dev.chainguard.api.auth.registered.v1
 Content-Length: 154
 Content-Type: application/json
@@ -56593,7 +56985,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier of the subscription
-Ce-Time: 2026-10-06T19:22:58.575848786Z
+Ce-Time: 2026-10-07T14:01:49.60776722Z
 Ce-Type: dev.chainguard.api.events.subscription.created.v1
 Content-Length: 152
 Content-Type: application/json
@@ -56631,7 +57023,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier of the subscription to delete
-Ce-Time: 2026-10-06T19:22:58.575984982Z
+Ce-Time: 2026-10-07T14:01:49.607989779Z
 Ce-Type: dev.chainguard.api.events.subscription.deleted.v1
 Content-Length: 119
 Content-Type: application/json
@@ -56670,7 +57062,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-10-06T19:22:58.583936941Z
+Ce-Time: 2026-10-07T14:01:49.589398101Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -56711,7 +57103,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-10-06T19:22:58.58409137Z
+Ce-Time: 2026-10-07T14:01:49.589611451Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -56748,7 +57140,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-06T19:22:58.584198245Z
+Ce-Time: 2026-10-07T14:01:49.589750903Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -56796,7 +57188,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-10-06T19:22:58.575309641Z
+Ce-Time: 2026-10-07T14:01:49.602213376Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -56842,7 +57234,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-10-06T19:22:58.575492735Z
+Ce-Time: 2026-10-07T14:01:49.604387664Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -56888,7 +57280,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-10-06T19:22:58.575663684Z
+Ce-Time: 2026-10-07T14:01:49.604566757Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -56927,7 +57319,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-10-06T19:22:58.589305489Z
+Ce-Time: 2026-10-07T14:01:49.594668024Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -56967,7 +57359,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-06T19:22:58.589431829Z
+Ce-Time: 2026-10-07T14:01:49.594814229Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -57006,7 +57398,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-10-06T19:22:58.589891443Z
+Ce-Time: 2026-10-07T14:01:49.591519259Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -57045,7 +57437,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-10-06T19:22:58.589995703Z
+Ce-Time: 2026-10-07T14:01:49.591743322Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -57084,7 +57476,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-06T19:22:58.590098506Z
+Ce-Time: 2026-10-07T14:01:49.591952632Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -57123,7 +57515,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-10-06T19:22:58.571787392Z
+Ce-Time: 2026-10-07T14:01:49.590084441Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -57166,7 +57558,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-10-06T19:22:58.572028072Z
+Ce-Time: 2026-10-07T14:01:49.590266662Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -57206,7 +57598,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-06T19:22:58.572202941Z
+Ce-Time: 2026-10-07T14:01:49.590494157Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -57245,7 +57637,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-10-06T19:22:58.58436261Z
+Ce-Time: 2026-10-07T14:01:49.592225968Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -57288,7 +57680,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-10-06T19:22:58.584519647Z
+Ce-Time: 2026-10-07T14:01:49.592470567Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -57328,7 +57720,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-10-06T19:22:58.584670932Z
+Ce-Time: 2026-10-07T14:01:49.592705102Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -57365,7 +57757,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-06T19:22:58.584790512Z
+Ce-Time: 2026-10-07T14:01:49.592907684Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -57405,7 +57797,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-06T19:22:58.584927117Z
+Ce-Time: 2026-10-07T14:01:49.593112802Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -57449,7 +57841,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-06T19:22:58.58508825Z
+Ce-Time: 2026-10-07T14:01:49.593333985Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -57488,7 +57880,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-06T19:22:58.585582682Z
+Ce-Time: 2026-10-07T14:01:49.593520599Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -57529,7 +57921,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-10-06T19:22:58.57239834Z
+Ce-Time: 2026-10-07T14:01:49.593677019Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -57571,7 +57963,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings/batch
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-10-06T19:22:58.572613042Z
+Ce-Time: 2026-10-07T14:01:49.593815767Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -57614,7 +58006,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-10-06T19:22:58.572839042Z
+Ce-Time: 2026-10-07T14:01:49.593947155Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -57653,7 +58045,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-10-06T19:22:58.573187469Z
+Ce-Time: 2026-10-07T14:01:49.594052014Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -57692,7 +58084,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-10-06T19:22:58.582075217Z
+Ce-Time: 2026-10-07T14:01:49.590785014Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -57731,7 +58123,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-10-06T19:22:58.582274608Z
+Ce-Time: 2026-10-07T14:01:49.5910069Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -57770,7 +58162,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-10-06T19:22:58.582420756Z
+Ce-Time: 2026-10-07T14:01:49.591183113Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -57809,7 +58201,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-10-06T19:22:58.585817657Z
+Ce-Time: 2026-10-07T14:01:49.606382139Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -57852,7 +58244,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the destination organization
-Ce-Time: 2026-10-06T19:22:58.590243599Z
+Ce-Time: 2026-10-07T14:01:49.606860249Z
 Ce-Type: dev.chainguard.api.platform.registry.chart.added.v1
 Content-Length: 208
 Content-Type: application/json
@@ -57897,7 +58289,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-06T19:22:58.586716006Z
+Ce-Time: 2026-10-07T14:01:49.598934551Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.created.v1
 Content-Length: 243
 Content-Type: application/json
@@ -57939,7 +58331,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-06T19:22:58.586915972Z
+Ce-Time: 2026-10-07T14:01:49.599376068Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -57981,7 +58373,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-06T19:22:58.58709081Z
+Ce-Time: 2026-10-07T14:01:49.599576626Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.deleted.v1
 Content-Length: 116
 Content-Type: application/json
@@ -58018,7 +58410,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-06T19:22:58.587236022Z
+Ce-Time: 2026-10-07T14:01:49.599740431Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.created.v1
 Content-Length: 197
 Content-Type: application/json
@@ -58057,7 +58449,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-06T19:22:58.587394844Z
+Ce-Time: 2026-10-07T14:01:49.599895859Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.updated.v1
 Content-Length: 197
 Content-Type: application/json
@@ -58096,7 +58488,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-06T19:22:58.587546048Z
+Ce-Time: 2026-10-07T14:01:49.600048288Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.deleted.v1
 Content-Length: 109
 Content-Type: application/json
@@ -58135,7 +58527,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-10-06T19:22:58.58103924Z
+Ce-Time: 2026-10-07T14:01:49.59554313Z
 Ce-Type: dev.chainguard.api.policies.bindings.created.v1
 Content-Length: 245
 Content-Type: application/json
@@ -58179,7 +58571,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-10-06T19:22:58.581245127Z
+Ce-Time: 2026-10-07T14:01:49.595773153Z
 Ce-Type: dev.chainguard.api.policies.bindings.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -58223,7 +58615,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-10-06T19:22:58.581407428Z
+Ce-Time: 2026-10-07T14:01:49.595945654Z
 Ce-Type: dev.chainguard.api.policies.bindings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -58262,7 +58654,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/overrides
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the override
-Ce-Time: 2026-10-06T19:22:58.581639715Z
+Ce-Time: 2026-10-07T14:01:49.596150372Z
 Ce-Type: dev.chainguard.api.policies.overrides.created.v1
 Content-Length: 303
 Content-Type: application/json
@@ -58304,7 +58696,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/overrides
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the override
-Ce-Time: 2026-10-06T19:22:58.581838666Z
+Ce-Time: 2026-10-07T14:01:49.596374035Z
 Ce-Type: dev.chainguard.api.policies.overrides.deleted.v1
 Content-Length: 94
 Content-Type: application/json
@@ -58343,7 +58735,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-10-06T19:22:58.580376203Z
+Ce-Time: 2026-10-07T14:01:49.59499077Z
 Ce-Type: dev.chainguard.api.policies.policies.created.v1
 Content-Length: 337
 Content-Type: application/json
@@ -58387,7 +58779,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-10-06T19:22:58.580707229Z
+Ce-Time: 2026-10-07T14:01:49.595171719Z
 Ce-Type: dev.chainguard.api.policies.policies.updated.v1
 Content-Length: 337
 Content-Type: application/json
@@ -58431,7 +58823,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-10-06T19:22:58.580882347Z
+Ce-Time: 2026-10-07T14:01:49.595298315Z
 Ce-Type: dev.chainguard.api.policies.policies.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -58470,7 +58862,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-10-06T19:22:58.586041648Z
+Ce-Time: 2026-10-07T14:01:49.605270602Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -58516,7 +58908,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-10-06T19:22:58.586219822Z
+Ce-Time: 2026-10-07T14:01:49.605431479Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -58553,7 +58945,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-10-06T19:22:58.58634381Z
+Ce-Time: 2026-10-07T14:01:49.605529978Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -58601,7 +58993,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-10-06T19:22:58.578227062Z
+Ce-Time: 2026-10-07T14:01:49.607178379Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -58642,7 +59034,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-10-06T19:22:58.578444389Z
+Ce-Time: 2026-10-07T14:01:49.607381857Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -58679,7 +59071,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-06T19:22:58.578632819Z
+Ce-Time: 2026-10-07T14:01:49.607542077Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -58727,7 +59119,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-10-06T19:22:58.587901276Z
+Ce-Time: 2026-10-07T14:01:49.608346269Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -58767,7 +59159,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-06T19:22:58.588139483Z
+Ce-Time: 2026-10-07T14:01:49.608569756Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -58806,7 +59198,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-06T19:22:58.576176156Z
+Ce-Time: 2026-10-07T14:01:49.605883364Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -58843,7 +59235,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-10-06T19:22:58.576325273Z
+Ce-Time: 2026-10-07T14:01:49.606008984Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -58882,7 +59274,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-10-06T19:22:58.57646319Z
+Ce-Time: 2026-10-07T14:01:49.606103019Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -58923,7 +59315,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-10-06T19:22:58.583006951Z
+Ce-Time: 2026-10-07T14:01:49.601183129Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -58966,7 +59358,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-06T19:22:58.583166092Z
+Ce-Time: 2026-10-07T14:01:49.601421408Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -59003,7 +59395,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-10-06T19:22:58.583296256Z
+Ce-Time: 2026-10-07T14:01:49.601586613Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -59043,7 +59435,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities:updateIdentityMetadata
 Ce-Specversion: 1.0
 Ce-Subject: The caller's identity UID
-Ce-Time: 2026-10-06T19:22:58.583430989Z
+Ce-Time: 2026-10-07T14:01:49.601726953Z
 Ce-Type: dev.chainguard.api.iam.identity.metadata.updated.v1
 Content-Length: 135
 Content-Type: application/json
@@ -59083,7 +59475,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-10-06T19:22:58.588378867Z
+Ce-Time: 2026-10-07T14:01:49.609761215Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -59126,7 +59518,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-10-06T19:22:58.588592842Z
+Ce-Time: 2026-10-07T14:01:49.609887563Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -59166,7 +59558,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-10-06T19:22:58.588755039Z
+Ce-Time: 2026-10-07T14:01:49.609981486Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -59203,7 +59595,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-06T19:22:58.588856722Z
+Ce-Time: 2026-10-07T14:01:49.610073936Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -59243,7 +59635,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-06T19:22:58.588956902Z
+Ce-Time: 2026-10-07T14:01:49.610173339Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -59287,7 +59679,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-06T19:22:58.589054249Z
+Ce-Time: 2026-10-07T14:01:49.610286495Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -59326,7 +59718,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-06T19:22:58.58915614Z
+Ce-Time: 2026-10-07T14:01:49.610510869Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -59367,7 +59759,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay binding
-Ce-Time: 2026-10-06T19:22:58.577370835Z
+Ce-Time: 2026-10-07T14:01:49.604733978Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.created.v1
 Content-Length: 449
 Content-Type: application/json
@@ -59422,7 +59814,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay binding
-Ce-Time: 2026-10-06T19:22:58.577691173Z
+Ce-Time: 2026-10-07T14:01:49.604962577Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.updated.v1
 Content-Length: 449
 Content-Type: application/json
@@ -59477,7 +59869,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the deleted overlay binding
-Ce-Time: 2026-10-06T19:22:58.577959141Z
+Ce-Time: 2026-10-07T14:01:49.605096045Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.deleted.v1
 Content-Length: 120
 Content-Type: application/json
@@ -59516,7 +59908,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay
-Ce-Time: 2026-10-06T19:22:58.590461014Z
+Ce-Time: 2026-10-07T14:01:49.609260304Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.created.v1
 Content-Length: 224
 Content-Type: application/json
@@ -59561,7 +59953,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay
-Ce-Time: 2026-10-06T19:22:58.590628827Z
+Ce-Time: 2026-10-07T14:01:49.609429509Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.updated.v1
 Content-Length: 224
 Content-Type: application/json
@@ -59606,7 +59998,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the deleted overlay
-Ce-Time: 2026-10-06T19:22:58.590796896Z
+Ce-Time: 2026-10-07T14:01:49.609549633Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.deleted.v1
 Content-Length: 112
 Content-Type: application/json
@@ -59645,7 +60037,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-06T19:22:58.573529608Z
+Ce-Time: 2026-10-07T14:01:49.600425987Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.created.v1
 Content-Length: 243
 Content-Type: application/json
@@ -59687,7 +60079,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-06T19:22:58.574818065Z
+Ce-Time: 2026-10-07T14:01:49.600629953Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -59729,7 +60121,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-06T19:22:58.57496143Z
+Ce-Time: 2026-10-07T14:01:49.600777213Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.deleted.v1
 Content-Length: 116
 Content-Type: application/json
@@ -59766,7 +60158,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-06T19:22:58.575116594Z
+Ce-Time: 2026-10-07T14:01:49.600930394Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -59810,7 +60202,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-10-06T19:22:58.57666026Z
+Ce-Time: 2026-10-07T14:01:49.608736305Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -59852,7 +60244,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-10-06T19:22:58.576856634Z
+Ce-Time: 2026-10-07T14:01:49.608861732Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -59889,7 +60281,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings:batchCreate
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-10-06T19:22:58.577016823Z
+Ce-Time: 2026-10-07T14:01:49.608967952Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -59932,7 +60324,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-10-06T19:22:58.577174708Z
+Ce-Time: 2026-10-07T14:01:49.609069395Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -59973,7 +60365,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-10-06T19:22:58.589564505Z
+Ce-Time: 2026-10-07T14:01:49.594258644Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -60012,7 +60404,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-10-06T19:22:58.589693157Z
+Ce-Time: 2026-10-07T14:01:49.594418841Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -60051,7 +60443,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-10-06T19:22:58.589789288Z
+Ce-Time: 2026-10-07T14:01:49.594534244Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -60090,7 +60482,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-06T19:22:58.571281024Z
+Ce-Time: 2026-10-07T14:01:49.596663452Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.created.v1
 Content-Length: 197
 Content-Type: application/json
@@ -60129,7 +60521,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-06T19:22:58.571469214Z
+Ce-Time: 2026-10-07T14:01:49.596882634Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.deleted.v1
 Content-Length: 109
 Content-Type: application/json
@@ -60168,7 +60560,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-10-06T19:22:58.578833001Z
+Ce-Time: 2026-10-07T14:01:49.605676982Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -60483,11 +60875,11 @@ If the `terraform apply` command you ran in the previous section was successful,
 
 As mentioned previously, this application listens for `registry.push` events that occur on your organization's repository; any time a new Container gets added to your organization's Registry the application will mirror it to your GCP project's Artifact Registry and into a repository named with the `name` and `dst_repo` values you set in your `main.tf` file. For example, if these values were `chainguard-dev` and `mirrored`, respectively, (as shown in the previous example) the mirror repository would be found at `<location>-docker.pkg.dev/<project_id>/chainguard-dev-mirrored`.
 
-You can find the results of the application in your GCP Project's dashboard. Navigate to your GCP Project's **Artifact Registry**, then click on the mirror repository you set up with Terraform. There, you will find any Chainguard Containers that have been added to your organization's Registry since you deployed the application. This example shows a repository named `chainguard-dev-mirrored` with two images (`node` and `python`) mirrored into it.
+You can find the results of the application in your GCP Project's dashboard. Navigate to your GCP Project's **Artifact Registry**, then click on the mirror repository you set up with Terraform. There, you will find any container images that have been added to your organization's Registry since you deployed the application. This example shows a repository named `chainguard-dev-mirrored` with two images (`node` and `python`) mirrored into it.
 
 ![Screenshot of a repository in a GCP Artifact Registry named "chainguard-dev-mirrored." This repository shows two images stored within it. The first, `node`, was created and updated 36 minutes ago, while the second, `python`, was created and last updated 33 minutes ago.](gcp-events-1.png)
 
-Be aware that just because the application is listening for `registry.push` events doesn't mean any will occur automatically. Chainguard Containers are generally updated at least once every twenty four hours, so container images may not immediately appear in your mirror repository.
+Be aware that just because the application is listening for `registry.push` events doesn't mean any will occur automatically. Chainguard's container images are generally updated at least once every twenty four hours, so new images may not immediately appear in your mirror repository.
 
 ## Removing sample resources
 
@@ -62136,7 +62528,7 @@ chainctl images repos build logs [flags]
 ### Options
 
 ```
-      --build-id string   The id of the build to get logs for.
+      --build-id string   The id of the build to get logs for, in full or its last segment, from the repo's 30 most recent builds.
       --parent string     The name or id of the parent location to get build logs. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --repo string       The name or id of the repo to get build logs. A full repo ID identifies the repo on its own, so --parent is not needed.
 ```
@@ -66149,7 +66541,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_pull-token_create.md_
 Create a pull token.
 
 ```
-chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|go_athena|java|python|java_athena|python_athena|javascript_athena|dotnet_athena|ruby|ruby_athena|javascript|dotnet|go}] [flags]
+chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|go|ruby|java|python|javascript|java_athena|python_athena|go_athena|ruby_athena|javascript_athena|dotnet|dotnet_athena}] [flags]
 ```
 
 ### Examples
@@ -66177,7 +66569,7 @@ chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, go_athena, java, python, java_athena, python_athena, javascript_athena, dotnet_athena, ruby, ruby_athena, javascript, dotnet, go. (default "oci")
+      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, go, ruby, java, python, javascript, java_athena, python_athena, go_athena, ruby_athena, javascript_athena, dotnet, dotnet_athena. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
 ```
@@ -68479,7 +68871,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_pull-token_list.md_
 List all pull-tokens
 
 ```
-chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|go_athena|java|python|java_athena|python_athena|javascript_athena|dotnet_athena|ruby|ruby_athena|javascript|dotnet|go}] [flags]
+chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|go|ruby|java|python|javascript|java_athena|python_athena|go_athena|ruby_athena|javascript_athena|dotnet|dotnet_athena}] [flags]
 ```
 
 ### Examples
@@ -68506,7 +68898,7 @@ chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--reposi
 ```
       --expired             If true return only expired pull tokens.
       --parent string       The IAM organization or folder with which the pull-token identity is associated.
-      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, go_athena, java, python, java_athena, python_athena, javascript_athena, dotnet_athena, ruby, ruby_athena, javascript, dotnet, go
+      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, go, ruby, java, python, javascript, java_athena, python_athena, go_athena, ruby_athena, javascript_athena, dotnet, dotnet_athena
 ```
 
 ### Options inherited from parent commands
@@ -72832,7 +73224,7 @@ chainctl auth pull-token [flags]
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, go_athena, java, python, java_athena, python_athena, javascript_athena, dotnet_athena, ruby, ruby_athena, javascript, dotnet, go. (default "oci")
+      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, go, ruby, java, python, javascript, java_athena, python_athena, go_athena, ruby_athena, javascript_athena, dotnet, dotnet_athena. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
 ```
@@ -73987,7 +74379,7 @@ _Path: platform/factory/touring-the-factory.md_
 
 **Interviewer**: So Dustin, can you give us a quick tour of the Chainguard Factory?
 
-**Dustin Kirkland**: Yeah, so the Chainguard Factory is the automation that we have inside of Chainguard itself that is able to reproducibly build thousands of open-source projects.
+**Dustin Kirkland**: Yeah, so the Chainguard Factory is the automation that we have inside of Chainguard itself that is able to reproducibly build thousands of open source projects.
 
 We start from a fully bootstrapped-from-source version of the source code. We pull the source code down, we apply our build rules, build that code, test that code, sign that code, and publish that code—first as packages.
 
@@ -74324,7 +74716,7 @@ For a full reference of all commands with details and switches, refer to [chainc
 
 ## List available Chainguard container images
 
-When you want to know which Chainguard Containers are available to your account, use the following command:
+When you want to know which container images are available to your account, use the following command:
 
 ```shell
 chainctl images list
@@ -75215,10 +75607,10 @@ Chainguard's `chainctl` command-line interface provides essential tools for mana
 
 The tool uses the familiar `<context> <noun> <verb>` style of CLI interactions. For example, to retrieve a list of all the private Chainguard Containers available to your organization, you can run `chainctl images list`.
 
-Before we begin, let’s move into a temporary directory that we can work in. Be sure you have curl installed, which you can achieve through visiting the [curl download docs](https://curl.se/download.html) for your relevant operating system.
+Before we begin, let’s move into a temporary directory that we can work in. Be sure you have [curl](https://curl.se/download.html) and [jq](https://jqlang.org/download/) installed. The `curl` installation and the Cosign verification steps use jq to find the latest release version.
 
 ```sh
-mkdir ~/tmp && cd $_
+mkdir -p ~/tmp && cd $_
 ```
 
 There are currently two ways to install `chainctl`, depending on your operating system and preferences.
@@ -75313,21 +75705,21 @@ scoop install main/chainctl
 
 Before running `chainctl` for the first time, you should verify the integrity of the downloaded binary using Cosign. This ensures the binary has not been tampered with. Ensure that you have the latest version of Cosign installed by following our [How to install Cosign guide](/open-source/sigstore/cosign/how-to-install-cosign/).
 
-If you are continuing in the same terminal session as the installation step above, `PLATFORM` and `VERSION` are already set. Otherwise, resolve them again first. Then verify the binary you just downloaded, pulling the signature and certificate from the same pinned version:
+If you are continuing in the same terminal session as the previous installation step, `PLATFORM` and `VERSION` are already set. Otherwise, resolve them again first. Then download the release's Sigstore bundle, which holds the binary's signature and certificate, from the same pinned version, and use it to verify the binary:
 
 ```sh
 PLATFORM="$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/aarch64/arm64/')"
 VERSION=$(curl -sS "https://dl.enforce.dev/chainctl/latest/metadata.json" | jq -r .version)
+curl -sS -o chainctl.sigstore.json "https://dl.enforce.dev/chainctl/${VERSION}/chainctl_${PLATFORM}.sigstore.json"
 cosign verify-blob \
-   --signature "https://dl.enforce.dev/chainctl/${VERSION}/chainctl_${PLATFORM}.sig" \
-   --certificate "https://dl.enforce.dev/chainctl/${VERSION}/chainctl_${PLATFORM}.cert.pem" \
+   --bundle chainctl.sigstore.json \
    --certificate-identity "https://github.com/chainguard-dev/mono/.github/workflows/.release-drop.yaml@refs/tags/v${VERSION}" \
    --certificate-oidc-issuer https://token.actions.githubusercontent.com \
    $(which chainctl)
 ```
 
 {{< note >}}
-Always pin the binary, signature, and certificate downloads to the same explicit `${VERSION}` rather than fetching each from `/latest/` independently. If a new release is published between the individual downloads, you can end up with a binary and a signature from different releases, and verification will fail with an error such as `invalid signature when validating ASN.1 encoded signature`.
+Always pin the binary and bundle downloads to the same explicit `${VERSION}` rather than fetching each from `/latest/` independently. If a new release is published between the individual downloads, you can end up with a binary and a bundle from different releases, and verification will fail with an error such as `invalid signature when validating ASN.1 encoded signature`.
 {{< /note >}}
 
 You should receive the following output:
@@ -75456,7 +75848,11 @@ When your version of `chainctl` is a few weeks old or older, you may consider up
 sudo chainctl update
 ```
 
+The command shows your current version and the latest version, then asks `Do you want to continue? [Y,n]`. Enter `Y` to update. To skip the prompt, run `sudo chainctl update --yes` instead.
+
 The update command verifies the signature of the downloaded binary in-process before replacing your existing installation, so you don't need a separate `cosign` binary on your `PATH`. Verification needs network access to the download host (`dl.enforce.dev`) and, at least on first use, to the Sigstore trust root at `tuf-repo-cdn.sigstore.dev`. If verification fails or those hosts are unreachable, the update stops, the unverified binary is removed, and your current installation is left in place.
+
+When the update finishes, `chainctl` keeps a backup of your previous binary and prints a command to delete it, such as `rm -f "/root/.cache/chainctl/chainctl.bak"`. Once the new version works, you can run that command to remove the backup.
 
 Keeping `chainctl` up to date will ensure that you are using the most up to date version.
 
@@ -80192,7 +80588,7 @@ This is in contrast to OpenSSL, which presents one application facing API-ABI, a
 
 For older OpenSSL-based Go FIPS workflows, the short answer is no. If you want a Chainguard-supported Go-native FIPS path, use the `go-geomys-fips` Chainguard Container. That image is based on the upstream Geomys Go Cryptographic Module, defaults to the validated module, removes the non-validated alternatives, blocks many disallowed algorithms by default, uses a validated entropy source for kernel-independent FIPS, and includes `go-fips-test` to verify that produced binaries are using the validated module.
 
-If you are using older workflows, we strongly recommend using the [go-fips](https://images.chainguard.dev/directory/image/go-fips/versions), [go-msft-fips](https://images.chainguard.dev/directory/image/go-msft-fips/versions), and [go-openssl](https://images.chainguard.dev/directory/image/go-openssl/versions) Chainguard Containers. These Chainguard Containers use system OpenSSL as the cryptographic module in approved mode, are covered by the [Chainguard FIPS commitment](https://www.chainguard.dev/legal/fips-commitment), and are in scope for [Kernel-Independent FIPS Containers](https://www.chainguard.dev/unchained/kernel-independent-fips-images)
+If you are using older workflows, we strongly recommend using the [go-fips](https://images.chainguard.dev/directory/image/go-fips/versions), [go-msft-fips](https://images.chainguard.dev/directory/image/go-msft-fips/versions), and [go-openssl](https://images.chainguard.dev/directory/image/go-openssl/versions) container images. These images use system OpenSSL as the cryptographic module in approved mode, are covered by the [Chainguard FIPS commitment](https://www.chainguard.dev/legal/fips-commitment), and are in scope for [Kernel-Independent FIPS Containers](https://www.chainguard.dev/unchained/kernel-independent-fips-images)
 
 Google and Golang upstream do not provide any support for `GOEXPERIMENT=boringcrypto` compiled binaries. The security policy for those modules contains many unapproved algorithms. The Golang upstream toolchain does not indicate missbuilt binaries that do not use boringcrypto (at all or partially) at runtime, and correctly compiled binaries allow using unapproved algorithms without restriction. Using the Golang upstream `GOEXPERIMENT=boringcrypto` requires strict adherence to the security policy, manual code audits of all source code, and all go.sum vendored copies of code.
 
