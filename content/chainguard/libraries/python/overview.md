@@ -4,7 +4,7 @@ linktitle: "Python overview"
 description: "Learn about Chainguard Libraries for Python, providing enhanced security for PyPI packages through automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-04-09T04:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-09T17:17:40+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python", "Overview"]
 menu:
@@ -32,6 +32,8 @@ automatically triggers a process to provision the artifacts from relevant
 sources if available. In combination with third-party software repository
 managers, you can use Chainguard Libraries for Python as a secure source of
 truth for your development process.
+
+{{% blurb/athena %}}
 
 ## Technical details
 

@@ -6,7 +6,7 @@ aliases:
 description: "JavaScript libraries for your application development"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-09-28T18:48:06+00:00
+lastmod: 2026-10-09T17:17:40+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript", "Overview"]
 menu:
@@ -33,6 +33,8 @@ These libraries can also be consumed through the [Chainguard
 Repository](/chainguard/libraries/javascript/overview/), which provides a
 single endpoint for package retrieval and supports configurable security
 policies for both Chainguard-built and upstream packages.
+
+{{% blurb/athena %}}
 
 ## Background
 

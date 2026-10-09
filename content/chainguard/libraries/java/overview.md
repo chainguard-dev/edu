@@ -4,7 +4,7 @@ linktitle: "Java overview"
 description: "Learn about Chainguard Libraries for Java, providing enhanced security for Maven dependencies through automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-10-07T18:02:47+00:00
+lastmod: 2026-10-09T17:17:40+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java", "Overview"]
 menu:
@@ -46,6 +46,8 @@ Note that coverage is not exhaustive for any single repository; the index
 continues to grow, and any request for a missing library or version
 automatically triggers a process to provision the artifacts from relevant
 sources if available.
+
+{{% blurb/athena %}}
 
 ## Runtime requirements
 
