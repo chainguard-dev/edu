@@ -52,6 +52,8 @@ environment:
 checks:
   vet:
     cmd: go vet ./...
+    network:
+      egress: [proxy.golang.org, sum.golang.org]
   test:
     cmd: go test ./...
     timeout: 15m
@@ -69,6 +71,8 @@ checks:
       - name: package
         cmd: make dist
     needs: [test]
+    network:
+      egress: [proxy.golang.org, sum.golang.org]
   docs:
     cmd: make docs
     when:
@@ -77,10 +81,10 @@ checks:
 
 This file installs four packages in every check's VM and defines five checks:
 
-- `vet` runs `go vet` with no network access.
-- `test` runs `go test`, can reach the Go module proxy and checksum database, and fails if it runs longer than 15 minutes.
+- `vet` runs `go vet`, and can reach the Go module proxy and checksum database to download modules.
+- `test` runs `go test`, can reach the same hosts, and fails if it runs longer than 15 minutes.
 - `lint` runs a shell script. Because it's advisory, it reports its result but never blocks merging.
-- `build` runs two steps in order and runs only after `test` passes.
+- `build` runs two steps in order, can reach the Go module hosts, and runs only after `test` passes.
 - `docs` runs only when a pull request changes a file under `docs/`.
 
 The rest of this page describes each option.

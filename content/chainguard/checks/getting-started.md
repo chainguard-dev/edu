@@ -102,6 +102,8 @@ environment:
 checks:
   vet:
     cmd: go vet ./...
+    network:
+      egress: [proxy.golang.org, sum.golang.org]
   test:
     cmd: go test ./...
     network:
@@ -109,7 +111,7 @@ checks:
 EOF
 ```
 
-This file tells Chainguard Checks to install the `go` package in each check's VM, then run `go vet` in one check and `go test` in another. The `test` check lists the Go module proxy and checksum database under `network.egress`, so it can download modules. The `vet` check has no network access. If your repository isn't a Go repository, replace the package and the commands with your own. Refer to the [configuration reference](/chainguard/checks/configuration/) for every option.
+This file tells Chainguard Checks to install the `go` package in each check's VM, then run `go vet` in one check and `go test` in another. Each check runs in a fresh VM with no network access unless it asks for some, so both checks list the Go module proxy and checksum database under `network.egress` to download the modules your code depends on. If your repository isn't a Go repository, replace the package and the commands with your own. Refer to the [configuration reference](/chainguard/checks/configuration/) for every option.
 
 To find mistakes in the file before you push it, run `chainctl checks validate` with the repository's directory:
 

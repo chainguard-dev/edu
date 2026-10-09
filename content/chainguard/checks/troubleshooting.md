@@ -26,7 +26,7 @@ If a pull request shows no **Chainguard Checks (presubmit)** check at all, Chain
 - The repository has a `.chainguard/ci.yaml` file or a `.chainguard/ci/` directory at its root, on the pull request's branch or its base branch. A file named `ci.yml` doesn't count.
 - The configuration has presubmit checks. Checks with only `trigger: postsubmit` run after merging, not on pull requests.
 - Your organization finished setting up. After a trial starts, Chainguard takes about an hour to finish setting up a new organization, and pull requests opened or updated before then get no checks. After an hour, push a new commit to the pull request to start a run.
-- Your organization isn't at its run limit. During a free trial, your organization can have 10 runs queued or running at a time, including runs after merging. At the limit, Chainguard Checks doesn't start a run for a new commit, and the pull request shows no summary check until a place frees up. Pushing again doesn't free a place.
+- Your organization isn't at its run limit. During a free trial, your organization can have 10 runs queued or running at a time, including runs after merging. At the limit, Chainguard Checks retries a new run for a few minutes, then gives up, and the pull request shows no summary check. The run doesn't start on its own when a place frees up, so once earlier runs finish, push a new commit, reopen the pull request, or use **Re-run**.
 - Your organization still has access. When a trial ends, Chainguard Checks stops starting runs. Contact your Chainguard account team to continue.
 
 ## The summary check says the configuration is invalid

@@ -4,7 +4,7 @@ linktitle: "Migrate from GitHub Actions"
 description: "Convert GitHub Actions pull request workflows to a Chainguard Checks .chainguard/ci.yaml file, with a mapping of common GitHub Actions keys."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-08T00:00:00+00:00
+lastmod: 2026-10-09T00:00:00+00:00
 draft: false
 tags: ["Chainguard Checks", "Migration", "GitHub"]
 images: []
@@ -28,6 +28,8 @@ A GitHub Actions job starts on a general-purpose runner image, checks out your c
 | Actions | Steps can use actions with `uses:`. | There are no actions. List each tool's package and run it directly. You don't need `actions/checkout`, because your code is already in the VM. |
 | Preinstalled tools | The runner image includes many tools. | The VM includes BusyBox, GNU tar, and the packages you list. List every tool a check uses, including `git`, `bash`, and `make`. |
 | Network | Jobs can reach the internet. | A check has no network access unless it lists hosts under `network.egress`, such as your package registry. |
+| Shell | `run` steps use Bash. | A `script` runs with BusyBox `sh -e`, not Bash with `pipefail`. To use Bash, list the `bash` package and set `shell: bash`. |
+| Run length | A job can run for up to 6 hours. | A whole run can take up to 50 minutes, and checks still running at that point fail. Split long jobs into several checks, which run in parallel. |
 | Secrets | Jobs read secrets from the `secrets` context. | There's no `secrets` context. Most checks don't need credentials. A check that must authenticate to Google Cloud or Chainguard can use a workload identity, as described in [Credentials](/chainguard/checks/configuration/#credentials). |
 
 ## Key mapping
@@ -43,8 +45,8 @@ The following table maps common GitHub Actions keys to their Chainguard Checks e
 | `workflow_dispatch`, or a job that a label starts | `when: {requested: true}`, run with a `ci/run:<check>` label |
 | `continue-on-error: true`, or a job that isn't required | `advisory: true` |
 | `jobs.<job_id>` | `checks.<name>` |
-| `runs-on` | `resources` |
-| `steps[*].run` | `steps[*].cmd` or `steps[*].script` |
+| `runs-on` | `resources`. A class without a suffix usually runs on arm64, while `ubuntu-latest` is x86-64, so use an `-amd64` class, such as `medium-amd64`, for a job that needs x86-64. |
+| `steps[*].run` | `steps[*].cmd` or `steps[*].script`. A step takes only `id`, `name`, `cmd`, `script`, and `shell`, so step-level `env`, `if`, and `working-directory` are refused. |
 | `steps[*].uses` | Not supported. List the tool's package and run it. |
 | `env` | `vars` |
 | `needs` | `needs`, for checks in the same file |

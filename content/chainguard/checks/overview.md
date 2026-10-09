@@ -44,13 +44,15 @@ environment:
 checks:
   vet:
     cmd: go vet ./...
+    network:
+      egress: [proxy.golang.org, sum.golang.org]
   test:
     cmd: go test ./...
     network:
       egress: [proxy.golang.org, sum.golang.org]
 ```
 
-This file installs Go in every check's VM and defines two checks. The `vet` check has no network access. The `test` check can reach only the Go module proxy and checksum database, so it can download its dependencies. Refer to the [configuration reference](/chainguard/checks/configuration/) for every option.
+This file installs Go in every check's VM and defines two checks, `vet` and `test`. Each check runs in a fresh VM with no network access unless it asks for some, so both list the Go module proxy and checksum database under `network.egress` to download the modules your code depends on. Refer to the [configuration reference](/chainguard/checks/configuration/) for every option.
 
 ## Isolation by default
 
