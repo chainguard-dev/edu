@@ -169,13 +169,13 @@ To replace the whole overlay with exactly what you send, add `?update_mask=custo
 
 The API validates the request with the rules in [API errors](#api-errors).
 
-## Use Guarded Entrypoint with tag-based Custom Assembly
+## Use Guarded Entrypoint with Custom Assembly Overlays
 
-An overlay can carry the same four fields. This lets you apply Guarded Entrypoint to some of a repo's tags, or to many repos at once. See the [overview of tag-based Custom Assembly](/chainguard/containers/custom-assembly/tag-based-custom-assembly/) for overlays, bindings, and tag selectors.
+An overlay can carry the same four fields. This lets you apply Guarded Entrypoint to some of a repo's tags, or to many repos at once. See the [overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/) for overlays, bindings, and tag selectors.
 
-Tag-based Custom Assembly is a separate feature with its own enrollment. To use Guarded Entrypoint on overlays and bindings, your organization needs both features enabled. Contact your Chainguard account team to enable tag-based Custom Assembly. Contact Chainguard customer support to enable Guarded Entrypoint. Setting the fields on a repo with `chainctl images repos build edit`, as described earlier on this page, needs only Guarded Entrypoint.
+Guarded Entrypoint has its own enrollment, separate from Custom Assembly Overlays. Contact Chainguard customer support to enable Guarded Entrypoint. Setting the fields on a repo with `chainctl images repos build edit`, as described earlier on this page, needs only Guarded Entrypoint.
 
-A repo uses its own configuration or overlay bindings, not both. The tag-based examples that follow use a different repo from the one you configured with `build edit`. Attaching an overlay to a repo that has its own configuration fails with the error `repository custom overlay and overlay binding not allowed`. Setting a configuration on a repo that has bindings fails the same way.
+A repo uses its own configuration or overlay bindings, not both. The overlay examples that follow use a different repo from the one you configured with `build edit`. Attaching an overlay to a repo that has its own configuration fails with the error `repository custom overlay and overlay binding not allowed`. Setting a configuration on a repo that has bindings fails the same way.
 
 Write the overlay as a YAML file in the same shape as a repo manifest, create the overlay from it, and bind it to tags:
 
@@ -200,7 +200,7 @@ chainctl images overlays attach \
   --all
 ```
 
-For the other selectors, see [Managing tag-based Custom Assembly with chainctl](/chainguard/containers/custom-assembly/tag-based-custom-assembly/chainctl/).
+For the other selectors, see [Managing Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/overlays/chainctl/).
 
 Through the API, create the overlay with `POST /registry/v2beta1/overlays/$ORG_ID` and bind it with `POST /registry/v2beta1/overlayBindings/$TAG_REPO_UID`, where `$TAG_REPO_UID` is the UID of a repo that has no configuration of its own. The overlay's `config` takes the same fields as the repo's `customOverlay`:
 
@@ -307,7 +307,7 @@ The API validates the Guarded Entrypoint fields the same way for repos and for o
 | `environment` key starts with `GUARDED_` | `InvalidArgument` | `environment variable "GUARDED_DISABLE" uses reserved prefix 'GUARDED_'` |
 | `environment` key starts with `CHAINGUARD_` | `InvalidArgument` | `environment variable "CHAINGUARD_X" uses reserved prefix 'CHAINGUARD_'` |
 | Version 1 repo API: `sync_config.apko_overlay.environment` key starts with `GUARDED_` | `InvalidArgument` | `sync_config.apko_overlay.environment: variable "..." uses reserved prefix 'GUARDED_'` |
-| Overlay or binding path: organization is not enrolled in tag-based Custom Assembly | `FailedPrecondition` | `Precondition failed: this organization is not enrolled in Custom Assembly Overlays. Contact your Chainguard account team to enroll.` |
+| Overlay or binding path: organization is not enrolled in Custom Assembly Overlays | `FailedPrecondition` | `Precondition failed: this organization is not enrolled in Custom Assembly Overlays. Contact your Chainguard account team to enroll.` |
 | Overlay or binding path: the repo has its own configuration, or a repo with bindings gets one | `FailedPrecondition` | `repository custom overlay and overlay binding not allowed` |
 | Overlay path: `config` sets a field that overlays don't support | `InvalidArgument` | `config may set only contents.packages, contents.runtime_repositories, contents.runtime_keyring, environment, annotations, accounts, certificates.additional, guarded_entrypoint, command_override, preflight, and fail_mode` |
 | Overlay path: `config` sets nothing | `InvalidArgument` | `config must set at least one customization field` |

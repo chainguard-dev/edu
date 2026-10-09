@@ -166,7 +166,7 @@ The image's ENTRYPOINT and CMD are the same in every mode. The mode only changes
 
 The wrapper looks up the first element of `command` on the container's `PATH`. Use an absolute path when the lookup matters.
 
-An empty `command` with `command_override` set is a setting. It means "default mode, no command". When you use tag-based Custom Assembly, it cancels the override from a broader binding.
+An empty `command` with `command_override` set is a setting. It means "default mode, no command". When you use Custom Assembly Overlays, it cancels the override from a broader binding.
 
 `command` is stored in the image configuration and is visible to anyone who can pull the image. Don't put a secret in it as a literal. Use a `${VAR}` reference, as the next section describes. See also [Guarded Entrypoint trust boundary](/chainguard/containers/custom-assembly/guarded-entrypoint/trust-boundary/).
 
