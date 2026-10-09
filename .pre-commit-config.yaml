@@ -42,16 +42,16 @@ repos:
         args: ['--maxkb=1000']
       - id: detect-private-key
         # These files contain example PEM private-key material as documentation
-        # (redaction examples, allowlist patterns, or a throwaway tutorial key),
-        # not real credentials. Exclude them to avoid false positives.
+        # (redaction examples or a throwaway tutorial key), not real
+        # credentials. Exclude them to avoid false positives.
         # chainguard-complete-docs.md bundles cosign-manual-way.md, so it carries
         # the same tutorial key; .github/gitleaks.toml already allowlists it.
-        exclude: ^(\.github/workflows/compile-docs\.yml|content/ai-docs-security\.md|content/open-source/sigstore/cosign/cosign-manual-way\.md|static/downloads/chainguard-complete-docs\.md)$
+        exclude: ^(content/ai-docs-security\.md|content/open-source/sigstore/cosign/cosign-manual-way\.md|static/downloads/chainguard-complete-docs\.md)$
       - id: check-merge-conflict
       - id: mixed-line-ending
 
   - repo: https://github.com/gitleaks/gitleaks
-    # >= v8.19.0 required: .github/gitleaks.toml uses multiple [[rules.allowlist]]
+    # >= v8.19.0 required: .github/gitleaks.toml uses multiple [[rules.allowlists]]
     # blocks, which older gitleaks parses as a slice-vs-map schema error.
     rev: 2ca41cc1372d1e939a6a879f18cdc19fc1cac1ce  # frozen: v8.30.0
     hooks:
