@@ -6,7 +6,7 @@ linktitle: "Getting started"
 type: "article"
 description: "Deploy and verify your first Chainguard FIPS container"
 date: 2025-10-16T08:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-09T00:00:00+00:00
 draft: false
 tags: ["FIPS", "Tutorial", "Getting Started"]
 images: []
@@ -345,4 +345,5 @@ Now that you've deployed your first FIPS container:
 
 - **Kernel-independent architecture**: Understand [how it works](/platform/fips/kernel-independent-architecture/) under the hood
 - **FAQs**: Check [common questions](/platform/fips/faqs/) about FIPS implementation
+- **Compliance evidence**: Review your FIPS container images' certificates and STIG results in the [Compliance Dashboard](/chainguard/containers/security-and-compliance/compliance-dashboard/)
 - **Chainguard support**: [Contact us](https://www.chainguard.dev/contact) for questions or custom requirements
