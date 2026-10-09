@@ -1,10 +1,10 @@
 ---
-title: "Browsing Chainguard Libraries"
-linktitle: "Browsing"
-description: "Searching, browsing, and inspecting Chainguard Libraries in the console"
+title: "Browsing and requesting Chainguard Libraries"
+linktitle: "Browsing and requesting"
+description: "Searching, browsing, inspecting, and requesting Chainguard Libraries in the console"
 type: "article"
 date: 2025-07-03T14:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-09T19:17:29+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -112,7 +112,7 @@ Some signals describe confirmed malicious behavior, while others describe greywa
 * **Compromised or untrusted releases**: The package exhibits signs that a release cannot be trusted.
     * Signals: Signs of maintainer account compromise, No trusted provenance or signed release, Published with a legacy token (not OIDC), Release integrity anomaly, Anomalous release change, Anomalous package contents, Weak build-pipeline security, Untrusted dependency source
 
-## Library page
+## View a library page
 
 To access a library page, click on the row for a specific library in the search
 results or the [initial library list](#initial-display).
@@ -133,9 +133,59 @@ The list of library versions includes the following columns:
 
 Click on the column titles to change the **sort** order of the list.
 
+## Request Chainguard Libraries in the Console
+
+{{< beta feature="Chainguard Libraries Requests in the Console" >}}
+
+Use the **Requests** page in the Console to request builds and CVE remediation for libraries that are not yet built by Chainguard, and track progress of your organization's requests from one place.
+
+The file upload supports up to 10,000 packages per request. You must have a Libraries entitlement and access to the beta for your organization. Only owners and administrators can submit requests. All organization users can view request status.
+
+Before you begin:
+
+* Prepare a dependency file for the ecosystem you want to request, using one of the supported file formats:
+    * Python: `requirements.txt`, `poetry.lock`, `uv.lock`
+    * Java: A `.txt` or `.csv` file containing a list of Maven coordinates in `group:artifact:version` (GAV) format. The CSV must contain one column with each row specifying a package version in the GAV format. For example:
+
+```txt
+org.apache.commons:commons-lang3:3.17.0
+com.fasterxml.jackson.core:jackson-databind:2.18.2
+```
+
+### Submit a library request
+
+1. In the Chainguard Console, click **Requests** on the left.
+1. Select the **Python** or **Java** tab, then click **New Request** and upload a dependency file.
+1. Optionally select the option to request CVE remediation. This queues asynchronous scans for high and critical CVEs and requests remediation for all eligible versions.
+1. Review the availability report. The report shows which package versions are already built or remediated by Chainguard, which can be requested, and which cannot be requested.
+1. Click **Submit request**.
+
+After submitting the request, it appears in your organization's **Requests** view. Chainguard automatically attempts to build any newly requested libraries when possible.
+
+### Tracking requests
+
+After you submit a request, track its progress in the **My requests** view. Each request shows a build status:
+
+| Built status | Meaning |
+|--------------|---------|
+| Reviewing    | The request was submitted, but a build has not started. |
+| In progress  | One or more requested versions have been built. |
+| Complete      | All requested versions have been built. |
+| Won't build   | Chainguard cannot build the requested library or version. The reason is shown in the library details. |
+
+CVE remediation status appears when you opt in to remediation during submission:
+
+| Remediation status | Meaning |
+|--------------|---------|
+| Reviewing    | The request was submitted, but scanning has not started. |
+| In progress  | Scanning is complete and remediation work is underway. |
+| No high/critical CVEs detected      | No High or Critical CVEs were found. |
+| Complete      | All known CVEs have been remediated. |
+| Won't remediate   | Chainguard cannot remediate the request. The reason is shown in the library details. |
+
 ## View repository configuration in the Chainguard Console
 
-The Chainguard Console provides visibility into your repository configuration and the packages being served. When the upstream fallback is configured for your organization, you will see all packages including those built by Chainguard and those that are mirrored from upstream npm.
+The Chainguard Console provides visibility into your repository configuration and the packages being served. When the upstream fallback is configured for your organization, you will see all packages including those built by Chainguard and those that are mirrored from upstream fallback. Upstream browsing only shows versions that have been pulled and cached; it does. not yet show all scanned versions available to pull.
 
 ## Other resources
 
