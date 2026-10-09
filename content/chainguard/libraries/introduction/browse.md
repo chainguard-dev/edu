@@ -4,7 +4,7 @@ linktitle: "Browsing and requesting"
 description: "Searching, browsing, inspecting, and requesting Chainguard Libraries in the console"
 type: "article"
 date: 2025-07-03T14:00:00+00:00
-lastmod: 2026-10-09T16:56:44+00:00
+lastmod: 2026-10-09T19:00:50+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -137,25 +137,30 @@ Click on the column titles to change the **sort** order of the list.
 
 {{< beta feature="Chainguard Libraries Requests in the Console" >}}
 
-Use the **Requests** page in the Console to check library availability, request builds for Python and Java libraries that are not yet available from Chainguard, and track request progress from one place.
+Use the **Requests** page in the Console to request builds and CVE remediation for libraries that are not yet built by Chainguard, and track progress of your organization's requests from one place.
 
-The beta supports up to 10,000 packages per request. You must have a Libraries entitlement and access to the beta for your organization. Only owners and administrators can submit requests. All organization users can view request status.
+The file upload supports up to 10,000 packages per request. You must have a Libraries entitlement and access to the beta for your organization. Only owners and administrators can submit requests. All organization users can view request status.
 
 Before you begin:
 
 * Prepare a dependency file for the ecosystem you want to request, using one of the supported file formats:
     * Python: `requirements.txt`, `poetry.lock`, `uv.lock`
-    * Java: A text file containing a list of Maven coordinates in `group:artifact:version` format.
+    * Java: A `.txt` or `.csv` file containing a list of Maven coordinates in `group:artifact:version` (GAV) format. The CSV must contain one column with each row specifying a package version in the GAV format. For example:
+
+```txt
+org.apache.commons:commons-lang3:3.17.0
+com.fasterxml.jackson.core:jackson-databind:2.18.2
+```
 
 ### Submit a library request
 
 1. In the Chainguard Console, click **Requests** on the left.
 1. Select the **Python** or **Java** tab, then click **New Request** and upload a dependency file.
-1. Review the availability report. The report shows which packages are already built by Chainguard, which can be requested, and which cannot be requested.
-1. Optionally select the option to request CVE remediation. This queues asynchronous scans for high and critical CVEs and may request remediation for eligible versions.
+1. Optionally select the option to request CVE remediation. This queues asynchronous scans for high and critical CVEs and requests remediation for all eligible versions.
+1. Review the availability report. The report shows which package versions are already built or remediated by Chainguard, which can be requested, and which cannot be requested.
 1. Click **Submit request**.
 
-After submitting the request, it appears in your organization's **My requests** view. Chainguard automatically attempts to build any newly requested libraries when possible.
+After submitting the request, it appears in your organization's **Requests** view. Chainguard automatically attempts to build any newly requested libraries when possible.
 
 ### Tracking requests
 
@@ -175,7 +180,7 @@ CVE remediation status appears when you opt in to remediation during submission:
 | Reviewing    | The request was submitted, but scanning has not started. |
 | In progress  | Scanning is complete and remediation work is underway. |
 | No high/critical CVEs detected      | No High or Critical CVEs were found. |
-| Complete      | One or more CVEs were remediated. |
+| Complete      | All known CVEs have been remediated. |
 | Won't remediate   | Chainguard cannot remediate the request. The reason is shown in the library details. |
 
 ## View repository configuration in the Chainguard Console
