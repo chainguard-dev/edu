@@ -4,7 +4,7 @@ linktitle: "Getting started"
 description: "Start a free trial of Chainguard Checks, add a .chainguard/ci.yaml file to a repository, and see your first checks run on a GitHub pull request."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-08T00:00:00+00:00
+lastmod: 2026-10-09T00:00:00+00:00
 draft: false
 tags: ["Chainguard Checks", "Getting Started", "GitHub", "Procedural"]
 images: []
@@ -154,3 +154,4 @@ Require only the summary check, not the per-check results. A check that a condit
 - [Chainguard Checks configuration reference](/chainguard/checks/configuration/) covers packages, network access, conditions, and more.
 - [Use Chainguard Checks on GitHub](/chainguard/checks/github/) explains reruns, checks that run on request, and checks that run after merging.
 - [Run checks before you push](/chainguard/checks/run-checks/) shows how to run the same checks in a Chainguard Workspaces session.
+- Ask questions in the #checks-questions channel in the [Chainguard community Slack](https://join.slack.com/t/chainguardcommunity/shared_invite/zt-3nttdr807-V9BJHayWvsB0KbHsfZO5Rw).

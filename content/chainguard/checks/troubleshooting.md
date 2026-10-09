@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 description: "Fix common problems with Chainguard Checks, including pull requests that get no checks, refused configurations, failed runs, network errors, and missing tools."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-08T00:00:00+00:00
+lastmod: 2026-10-09T00:00:00+00:00
 draft: false
 tags: ["Chainguard Checks", "Troubleshooting"]
 images: []
@@ -16,7 +16,7 @@ toc: true
 weight: 70
 ---
 
-This page describes common problems with Chainguard Checks and how to fix them. If your problem isn't listed here, contact your Chainguard account team or email [support@chainguard.dev](mailto:support@chainguard.dev).
+This page describes common problems with Chainguard Checks and how to fix them. If your problem isn't listed here, ask in the #checks-questions channel in the [Chainguard community Slack](https://join.slack.com/t/chainguardcommunity/shared_invite/zt-3nttdr807-V9BJHayWvsB0KbHsfZO5Rw).
 
 ## A pull request gets no checks
 

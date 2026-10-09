@@ -4,7 +4,7 @@ linktitle: "Overview"
 description: "Learn how Chainguard Checks runs your repository's CI checks in isolated microVMs on every GitHub pull request, with no network access unless a check asks for it."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-08T00:00:00+00:00
+lastmod: 2026-10-09T00:00:00+00:00
 draft: false
 tags: ["Chainguard Checks", "Overview", "GitHub"]
 images: []
@@ -82,6 +82,10 @@ During the beta, Chainguard Checks has the following limits:
     - Your organization can have 10 runs queued or running at a time, including runs after merging.
     - Each run can use up to 4 VMs and 16 vCPUs at once, so up to four of its checks run at the same time.
     - Each check's VM can have up to 4 vCPUs and 16 GB of memory.
+
+## Get help
+
+To ask questions or get support, use the #checks-questions channel in the [Chainguard community Slack](https://join.slack.com/t/chainguardcommunity/shared_invite/zt-3nttdr807-V9BJHayWvsB0KbHsfZO5Rw). If you aren't a member yet, the link invites you to join.
 
 ## Next steps
 
