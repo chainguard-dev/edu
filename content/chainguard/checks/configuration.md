@@ -4,7 +4,7 @@ linktitle: "Configuration reference"
 description: "Reference for the .chainguard/ci.yaml file that defines Chainguard Checks: packages, commands, network access, conditions, triggers, and resources."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-08T00:00:00+00:00
+lastmod: 2026-10-09T00:00:00+00:00
 draft: false
 tags: ["Chainguard Checks", "Configuration", "Reference"]
 images: []
@@ -34,6 +34,7 @@ Chainguard Checks reads only files with the `.yaml` extension. A `.chainguard/ci
 In the directory layout, each `<name>.yaml` file in `.chainguard/ci/` holds a group of checks, and the file's name becomes part of each check's name on GitHub. For example, a `test` check in `.chainguard/ci/go.yaml` appears as `presubmit / go / test`. Checks in the single-file layout appear as `presubmit / ci / <check>`. The directory layout can also hold the following:
 
 - `env/<name>.yaml` files, each defining a named environment that checks can share. A check that names no environment uses `env/default.yaml`.
+- `env/develop.yaml`, an optional environment for [Chainguard Workspaces](/chainguard/workspaces/overview/) sessions that you open from the repository's URL, such as `chainctl develop github.com/acme/app`. Without it, those sessions open on the Workspaces default environment, not `env/default.yaml`. Sessions that you open from a local directory don't read it. A check uses it only if the check names it with `environment: develop`.
 - `resources.yaml`, which replaces the built-in resource classes with your own.
 
 Either layout can declare workload identities in `.chainguard/ci/identities.yaml`. Refer to [Credentials](#credentials).

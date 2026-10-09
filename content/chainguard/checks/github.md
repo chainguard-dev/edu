@@ -4,7 +4,7 @@ linktitle: "Checks on GitHub"
 description: "Learn when Chainguard Checks runs on GitHub, and how to require checks before merging, rerun them, and run a check on request."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-08T00:00:00+00:00
+lastmod: 2026-10-09T00:00:00+00:00
 draft: false
 tags: ["Chainguard Checks", "GitHub", "Configuration"]
 images: []
@@ -42,7 +42,7 @@ For a pull request, the summary check is named **Chainguard Checks (presubmit)**
 
 Each of your checks gets a GitHub check named `presubmit / <file> / <check>`, where `<file>` is `ci` in the single-file layout, or the file's name in the directory layout. For example, a `test` check in `.chainguard/ci.yaml` appears as **presubmit / ci / test**. Each one appears when its check finishes. A check that runs once for each of several variations, with `foreach`, appears as one GitHub check that counts how many variations passed.
 
-To read a check's output, select it on the pull request's **Checks** tab. The output shows each step's outcome, exit code, and duration, then the end of the check's log and any errors and warnings it reported. The **Details** link opens the run's full log on a run page that Chainguard hosts, separate from the Chainguard Console.
+To read a check's output, select it on the pull request's **Checks** tab. The output shows each step's outcome, exit code, and duration, then the end of the check's log and any errors and warnings it reported. JSON log lines, such as the output of `go test -json` or Terraform's `-json` option, appear as readable messages, with errors and warnings marked `ERROR:` and `WARNING:`. If a long log has an error-level line well before its end, the output also keeps the lines leading up to that error under `[Earlier error context]`, then shows the end of the log under `[Log tail]`. The **Details** link opens the run's full log on a run page that Chainguard hosts, separate from the Chainguard Console.
 
 ## Require checks before merging
 
@@ -61,7 +61,17 @@ A pull request can add checks and change what they run. It can't weaken its own 
 
 ## Rerun checks
 
-To rerun checks, for example after a flaky failure, use **Re-run** on the summary check or on one of its per-check results on GitHub. Chainguard Checks reruns the whole run for the same commit, without reusing cached results. Pushing a new commit also starts a new run.
+To rerun a pull request's checks, for example after a flaky failure, use **Re-run** on the summary check or on one of its per-check results on GitHub. Chainguard Checks reruns the whole run for the same commit, without reusing cached results. Pushing a new commit also starts a new run.
+
+You can also rerun a pull request's checks with `chainctl` after its latest run finishes. Replace `$OWNER/$REPO#$NUMBER` with the pull request, such as `acme/app#123`, or with its URL. Replace `$ORGANIZATION` with the name of your Chainguard organization:
+
+```shell
+chainctl checks rerun "$OWNER/$REPO#$NUMBER" --parent $ORGANIZATION
+```
+
+The command reruns the pull request's latest run the same way as **Re-run** on GitHub. Nothing reruns if the pull request is closed, or if it has new commits since that run started. Follow the rerun on the pull request, because the `--watch` flag can't follow a pull request's rerun yet.
+
+During the beta, you can't rerun checks that run after merging. Selecting **Re-run** on **Chainguard Checks (postsubmit)** or on one of its per-check results doesn't start a new run. To run those checks again, push or merge a new commit to your default branch.
 
 ## Run a check on request
 

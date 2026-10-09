@@ -74,7 +74,7 @@ chainctl develop init --name acme-trial --github-org acme
 
 Each organization can start one trial. After the trial starts, Chainguard finishes setting up a new organization within about an hour. Pull requests opened or updated before then get no checks, so wait before you open your first pull request in the next steps.
 
-If your organization already has Chainguard Checks through your Chainguard account team, skip `chainctl develop init`. Instead, have an organization owner accept the terms once for the organization:
+If your organization already has Chainguard Checks through your Chainguard account team, skip `chainctl develop init`. Instead, have an organization owner accept the terms once for the organization. Until an owner accepts them, Chainguard Checks runs no checks for the organization, and the summary check on each pull request fails with **Run creation failed**. An owner accepts the terms with the following command:
 
 ```shell
 chainctl checks accept-terms --parent $ORGANIZATION

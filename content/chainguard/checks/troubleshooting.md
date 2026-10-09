@@ -49,8 +49,9 @@ If **Chainguard Checks (presubmit)** fails with **Run creation failed** or **Run
 
 - The pull request removes a check, or changes a check's conditions or trigger so that it no longer runs for this pull request. A change can't remove itself from its own checks. Refer to [Change checks in a pull request](/chainguard/checks/github/#change-checks-in-a-pull-request).
 - A check `needs` another check that doesn't run under the same trigger. For example, a presubmit check can't need a check with only `trigger: postsubmit`.
-- A check asks for a larger resource class than your organization allows. The output says that a job asks for more CPUs and memory than your organization's largest resource class. During a free trial, the largest class is `medium`, which has 4 vCPUs and 16 GB of memory. Choose a smaller class with `resources`.
+- A check asks for a larger resource class than your organization allows. The output says that a job asks for more CPUs and memory, or more scratch disk, than your organization's largest resource class. During a free trial, the largest class is `medium`, which has 4 vCPUs and 16 GB of memory. Unless your organization's plan sets a different limit, a check's VM can have at most 100 GB of disk. The built-in classes are under this limit, but a class you define in `resources.yaml` can exceed it. Choose a smaller class with `resources`, or lower your class's `disk`.
 - Your organization used up its compute budget. The output says that the compute budget is used up and that work already running finishes. Contact your Chainguard account team to continue.
+- Your organization hasn't accepted the terms that Chainguard Checks is offered under. The output names the terms and the command that accepts them. Have an organization owner run `chainctl checks accept-terms --parent $ORGANIZATION`, replacing `$ORGANIZATION` with the name of your Chainguard organization. After about 30 seconds, use **Re-run** on the summary check, or push a new commit.
 
 ## The summary check reports a merge conflict
 
@@ -93,4 +94,4 @@ If `chainctl checks validate .` reports that validating a directory isn't suppor
 
 ## chainctl checks status reports no platform verdict
 
-During the beta, `chainctl checks status`, `chainctl checks logs`, and the other commands that inspect runs don't show pull request runs. For a pull request, they report that the platform created no run for it, even when its checks ran. Read the results on GitHub instead, as described in [How results appear](/chainguard/checks/github/#how-results-appear).
+During the beta, `chainctl checks status`, `chainctl checks logs`, and the other commands that inspect runs don't show runs for pull requests or for commits on your default branch. For a pull request or a commit, they report that the platform created no run for it, even when its checks ran. Read the results on GitHub instead: on the pull request, as described in [How results appear](/chainguard/checks/github/#how-results-appear), or on the commit, as described in [Run checks after merging](/chainguard/checks/github/#run-checks-after-merging).
