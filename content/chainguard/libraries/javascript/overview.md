@@ -6,7 +6,7 @@ aliases:
 description: "JavaScript libraries for your application development"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-09-28T18:48:06+00:00
+lastmod: 2026-10-08T23:13:51+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript", "Overview"]
 menu:
@@ -174,6 +174,12 @@ The `--certificate-oidc-issuer` and `--certificate-identity-regexp` flags confir
 the attestation was signed by Chainguard.
 
 ### Retrieve SBOMs
+
+To save the available SPDX SBOM and verified SLSA provenance bundle during
+verification, use `chainctl libraries verify --output-attestations` with
+`--output-dir`. Refer to [Download JavaScript SBOMs and
+attestations](/chainguard/libraries/policies-and-security/verification/#download-javascript-sboms-and-attestations)
+for examples, output paths, and the trust status of each file.
 
 Chainguard Libraries for JavaScript also include Software Bills of Materials (SBOMs) in SPDX format.
 
