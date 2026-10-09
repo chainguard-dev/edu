@@ -199,7 +199,7 @@ chainctl images overlays attach \
   --all
 ```
 
-For the other selectors, refer to [Managing Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/overlays/chainctl/).
+For the other selectors, refer to [Manage Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/overlays/chainctl/).
 
 Through the API, create the overlay with `POST /registry/v2beta1/overlays/$ORG_ID` and bind it with `POST /registry/v2beta1/overlayBindings/$TAG_REPO_UID`, where `$TAG_REPO_UID` is the UID of a repo that has no configuration of its own. The overlay's `config` takes the same fields as the repo's `customOverlay`:
 

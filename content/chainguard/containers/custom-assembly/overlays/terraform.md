@@ -1,5 +1,5 @@
 ---
-title: "Managing Custom Assembly Overlays with Terraform"
+title: "Manage Custom Assembly Overlays with Terraform"
 linktitle: "Manage overlays with Terraform"
 type: "article"
 description: "How to use the Chainguard Terraform provider to create overlays and bind them to specific tags of a repository."
@@ -170,6 +170,6 @@ To remove a customization, delete the binding resource from your configuration a
 ## Learn more
 
 * [Overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/overview/)
-* [Managing Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/overlays/chainctl/)
+* [Manage Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/overlays/chainctl/)
 * [`chainguard_image_overlay` in the Terraform Registry](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/resources/image_overlay)
 * [`chainguard_image_overlay_binding` in the Terraform Registry](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/resources/image_overlay_binding)

@@ -1,5 +1,5 @@
 ---
-title: "Managing Custom Assembly Overlays with chainctl"
+title: "Manage Custom Assembly Overlays with chainctl"
 linktitle: "Manage overlays with chainctl"
 type: "article"
 description: "How to use chainctl to create overlays and bind them to specific tags of a repository, or to every repository in an organization or folder."
@@ -334,5 +334,5 @@ If a package can't be installed on a tag, that tag's build fails and the logs na
 ## Learn more
 
 * [Overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/overview/)
-* [Managing Custom Assembly Overlays with Terraform](/chainguard/containers/custom-assembly/overlays/terraform/)
+* [Manage Custom Assembly Overlays with Terraform](/chainguard/containers/custom-assembly/overlays/terraform/)
 * [Using chainctl to manage Custom Assembly resources](/chainguard/containers/custom-assembly/custom-assembly-chainctl/)

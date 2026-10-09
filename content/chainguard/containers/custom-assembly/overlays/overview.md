@@ -30,7 +30,7 @@ Custom Assembly Overlays let you choose which tags, and which repositories, rece
 * Reuse one customization, such as your organization's internal certificates, across many repositories.
 * Apply a customization to every repository in your organization or in a folder, including repositories created later.
 
-This page explains the concepts. To create and manage customizations, refer to [Managing Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/overlays/chainctl/) or [Managing Custom Assembly Overlays with Terraform](/chainguard/containers/custom-assembly/overlays/terraform/).
+This page explains the concepts. To create and manage customizations, refer to [Manage Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/overlays/chainctl/) or [Manage Custom Assembly Overlays with Terraform](/chainguard/containers/custom-assembly/overlays/terraform/).
 
 ## Overlays and bindings
 
@@ -180,7 +180,7 @@ To create a custom role with these capabilities, refer to [Overview of roles and
 
 ## Learn more
 
-* [Managing Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/overlays/chainctl/)
-* [Managing Custom Assembly Overlays with Terraform](/chainguard/containers/custom-assembly/overlays/terraform/)
+* [Manage Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/overlays/chainctl/)
+* [Manage Custom Assembly Overlays with Terraform](/chainguard/containers/custom-assembly/overlays/terraform/)
 * [Overview of Chainguard Custom Assembly](/chainguard/containers/custom-assembly/overview/)
 * [Custom Assembly FAQs](/chainguard/containers/custom-assembly/faq/)
