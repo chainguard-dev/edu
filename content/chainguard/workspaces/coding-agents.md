@@ -4,7 +4,7 @@ linktitle: "Use Claude Code"
 description: "Run Claude Code in a Chainguard Workspaces session with your own Claude login, keep it working while you're away, and run several agents in parallel."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-08T00:00:00+00:00
+lastmod: 2026-10-09T00:00:00+00:00
 draft: false
 tags: ["Chainguard Workspaces", "AI", "Procedural"]
 images: []
@@ -66,7 +66,7 @@ Because the session is a separate VM that holds no long-lived credentials, you m
 claude --dangerously-skip-permissions
 ```
 
-Before you let an agent work unattended, consider what the session can still reach. By default, it can reach the open internet and push to its own repository. To narrow that, give the session an `egress` list, as described in [Network access](/chainguard/workspaces/session-environment/#network-access), and review its credentials, as described in [Manage session credentials](/chainguard/workspaces/credentials/). Requests beyond the session's defaults still need your approval on your terminal.
+Before you let an agent work unattended, consider what the session can still reach. By default, it can reach the open internet and push to its own repository. If you connected your GitHub account before you created the session, the session can also push to any repository you can access where the Chainguard App is installed, and use the `gh` CLI and the GitHub API as you, without asking you first. To narrow that, give the session an `egress` list, as described in [Network access](/chainguard/workspaces/session-environment/#network-access), and review its credentials, as described in [Manage session credentials](/chainguard/workspaces/credentials/). Requests beyond the session's defaults still need your approval on your terminal.
 
 ## Keep Claude Code working while you're away
 

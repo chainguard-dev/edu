@@ -64,6 +64,7 @@ The command does the following:
 3. Asks you to accept the terms that Chainguard Checks and Chainguard Workspaces are offered under.
 4. Asks for the GitHub organization or user to link, and opens your browser so you can authorize the link. Enter the account name only, such as `acme`, not a URL.
 5. Starts the trial and prints what it includes.
+6. Offers to connect your GitHub account, if you haven't already, so that the sessions you create act on GitHub as you. If you agree, it opens your browser again. You can decline and connect later with `chainctl develop github login`, as described in [Let sessions act on GitHub as you](/chainguard/workspaces/credentials/#let-sessions-act-on-github-as-you).
 
 You can answer some of the questions ahead of time with flags. If you don't belong to a Chainguard organization yet, name the new one with `--name`. If you already belong to one or more, choose one with `--parent` instead. To name the GitHub account to link, pass `--github-org`. In this example, `acme-trial` is the new Chainguard organization and `acme` is the GitHub organization:
 
@@ -73,7 +74,7 @@ chainctl develop init --name acme-trial --github-org acme
 
 Each organization can start one trial. After the trial starts, Chainguard finishes setting up a new organization within about an hour. Until then, `chainctl develop` refuses to open sessions in it.
 
-If your organization already has Workspaces through your Chainguard account team, skip `chainctl develop init`. Instead, have an organization owner accept the terms once for the organization:
+If your organization already has Workspaces through your Chainguard account team, skip `chainctl develop init`. Until the organization accepts the terms, `chainctl develop` refuses to open new sessions in it, so have an organization owner accept them once for the organization:
 
 ```shell
 chainctl develop accept-terms --parent $ORGANIZATION

@@ -4,7 +4,7 @@ linktitle: "Session environment"
 description: "Choose the packages, tools, and network access a Chainguard Workspaces session gets, from your repository's .chainguard/ci.yaml file, a file of your own, or the default environment."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-08T00:00:00+00:00
+lastmod: 2026-10-09T00:00:00+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Configuration", "Reference"]
 images: []
@@ -24,7 +24,7 @@ A session's environment is fixed when the session is created. If your repository
 When `chainctl develop` creates a session, it chooses the environment in the following order:
 
 1. The environment you choose with `--env`, if any: a file, `default`, or `generate`.
-2. Your repository's `.chainguard/ci.yaml` file, if it has one.
+2. Your repository's `.chainguard/ci.yaml` file, if it has one. If your repository uses the `.chainguard/ci/` directory layout instead, a session opened from a repository URL uses the repository's `.chainguard/ci/env/develop.yaml` file, if it has one.
 3. The default environment.
 
 If your repository has no `.chainguard/ci.yaml` file and you don't pass `--env`, `chainctl` opens the session on the default environment and tells you so. When you run `chainctl develop` with `--non-interactive`, it refuses instead, so pass `--env default` explicitly in scripts.
@@ -83,7 +83,17 @@ Keep the following in mind when you write the file for sessions:
 - A session uses the environment of a check named `develop` if the file has one. Otherwise, it uses the file's top-level `environment`.
 - To open a session with a specific check's environment, including that check's network access, pass `--check` with the check's name. In the example, `chainctl develop --check test` opens a session that can reach only the Go module proxy and checksum database.
 - The `run-ci` command runs every check in the session's own environment, not in the environment each check declares.
-- If your repository uses the `.chainguard/ci/` directory layout instead of a single file, a session opened from a local directory doesn't read it, and opens on the default environment. The `run-ci` command in that session still finds the checks the directory defines, but runs them without the toolchains they declare, so add those packages with `apk` or pass an `--env` file.
+- If your repository uses the `.chainguard/ci/` directory layout instead of a single file, a session opened from a repository URL, such as with `chainctl develop github.com/acme/app`, uses the environment in `.chainguard/ci/env/develop.yaml`:
+
+  ```yaml {title=".chainguard/ci/env/develop.yaml"}
+  version: 1
+  environment:
+    packages: [go, git, claude]
+  ```
+
+  Chainguard Checks accepts this file even if no check uses it. If the repository doesn't have it, the session opens on the default environment, as it does for a repository with no `.chainguard/ci.yaml` file. Unless you pass `--check`, a session doesn't use `env/default.yaml`, the environment for checks that don't name one.
+
+  A session opened from a local directory doesn't read the `.chainguard/ci/` directory, including `env/develop.yaml`, and opens on the default environment. The `run-ci` command in that session still finds the checks the directory defines, but runs them without the toolchains they declare, so add those packages with `apk` or pass an `--env` file.
 
 ## Use a separate environment file
 

@@ -4,7 +4,7 @@ linktitle: "Session credentials"
 description: "Learn how a Chainguard Workspaces session reaches GitHub, Claude, and Chainguard without holding credentials, and how to approve, review, and revoke what it can reach."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-08T00:00:00+00:00
+lastmod: 2026-10-09T00:00:00+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Security", "Configuration"]
 images: []
@@ -43,7 +43,7 @@ A new session can reach the following services without asking you:
 | `cgr.dev` | `org` | Pulls from `cgr.dev` as the Chainguard platform, not as you, so it can't pull your organization's private images. |
 | `chainguard` | `seat` | `chainctl` and the Chainguard Model Context Protocol (MCP) servers in the session act as you, limited to read and MCP capabilities in the session's organization. The delegation lasts while you're attached, and for up to an hour after you detach. |
 
-The GitHub API isn't covered by default. The `gh` CLI is installed in every session, but it has no credential unless your organization has sessions act on GitHub as their owner, as described in [Let sessions act on GitHub as you](#let-sessions-act-on-github-as-you).
+The GitHub API isn't covered by default. The `gh` CLI is installed in every session, but it has no credential unless you connect your GitHub account before you create the session and your organization's policy allows it, as described in [Let sessions act on GitHub as you](#let-sessions-act-on-github-as-you).
 
 ## Approve requests from a session
 
@@ -74,6 +74,7 @@ The `--with` flag accepts the following entries:
 | `github:*` | Allows fetching any GitHub repository. |
 | `claude`, `chainguard` | Turns a default service back on. |
 | `cgr.dev` | Pulls from `cgr.dev` as you, with your laptop's `cgr.dev` login. |
+| `gcp` | Lets the session call Google Cloud APIs as you, with your laptop's Google Cloud application default credentials. You can add it only when you create a session, `all` doesn't include it, and `chainctl` doesn't remember it for the next session. |
 | `all` | Restores the defaults and allows fetching any GitHub repository. |
 | `none` | Allows only the session's own repository. It can't be combined with other entries. |
 
@@ -84,6 +85,18 @@ chainctl develop --with github:acme/docs+push --parent $ORGANIZATION
 ```
 
 Wildcard entries allow fetching only. To push to a repository, name it with `+push`. Under your organization's default GitHub policy, the Chainguard App doesn't serve wildcard entries, so they give access to public repositories only. To fetch a private repository, name it.
+
+To let `gcloud` and the Google Cloud client libraries in a session act as you, run `gcloud auth application-default login` on your laptop, then create the session with `--with gcp`:
+
+```shell
+chainctl develop --new --with gcp --parent $ORGANIZATION
+```
+
+The session's VM holds only a placeholder credential. Each time you attach, `chainctl` sends your Google Cloud credential to Chainguard, which keeps it outside the VM, adds it to the session's requests to Google APIs, and discards it when the session parks. Usually, `chainctl` sends a short-lived access token and renews it while you're attached, so the session's Google Cloud access ends within an hour after you detach. If the session can keep running without you for more than about 45 minutes, such as a session created with `--keep always`, `chainctl` sends your refresh token instead, and access lasts until the session parks. If your application default credentials have no refresh token, such as a service account's, `chainctl` sends an access token either way. `chainctl` tells you which one it sent.
+
+`chainctl` makes this choice when you attach. If you keep a session running when you detach, including with `--keep` and a duration, the access token `chainctl` already sent still expires within an hour. `chainctl` sends the refresh token only if you attach again while the session is still being kept running.
+
+While the session has your credential, code in it can use your Google Cloud access, and anything it creates with that access, such as a service account key, outlives the session. If the session's environment has an `egress` list, include `sts.googleapis.com` and the Google APIs the session calls.
 
 ## Review and revoke a session's credentials
 
@@ -100,7 +113,7 @@ To change a session's credentials, pass one or more of the following flags to `c
 | Flag | What it does |
 | ---- | ------------ |
 | `--revoke <entry>` | Takes access back from the session and from your laptop's remembered approvals. `<entry>` is `claude`, `cgr.dev`, `chainguard`, `github:<owner>/<repo>`, or `github:<owner>/<repo>+push`, which takes back only the push. |
-| `--source <service>=<source>` | Changes where a credential comes from. `<source>` is `laptop`, `org`, or `off`. The `claude` service takes only `laptop` or `off`, and `chainguard` takes only `off`. To turn `chainguard` back on, use `--with chainguard`. |
+| `--source <service>=<source>` | Changes where a credential comes from. `<source>` is `laptop`, `org`, or `off`. The `claude` service takes only `laptop` or `off`, and `chainguard` and `gcp` take only `off`. To turn `chainguard` back on, use `--with chainguard`. To turn `gcp` back on, create a new session with `--with gcp`. |
 | `--forget` | Removes everything your laptop remembers for the session's repository, without changing the session. |
 
 For example, to let a session pull your organization's private images from `cgr.dev` as you, switch the `cgr.dev` credential to your laptop:
@@ -127,28 +140,32 @@ To change the policy, you need permission to list every user's sessions in the o
 | ---- | ------ | ---------------- |
 | `--org-github` | `bound` (default), `session`, or `off` | With `bound`, the app serves the session's repository and any other repository the session's owner approved, with a token scoped to that repository and operation. With `session`, the app serves only the session's repository, and other repositories go to the session owner's laptop. With `off`, the app serves nothing. |
 | `--org-github-push-beyond-session` | `true` (default) or `false` | Whether the app can push to repositories other than the session's own, when the session's owner approved it. |
-| `--user-github` | `true` or `false` (default) | Whether sessions act on GitHub as their owner. |
+| `--user-github` | `true` (default) or `false` | Whether sessions can act on GitHub as their owner. A session acts as its owner only if the owner connected a GitHub account before creating it. With `false`, new sessions reach GitHub through their `github` source instead, and sessions that already act as their owner have their GitHub requests refused. |
 
 Sessions pick up a policy change at their next request.
 
 ## Let sessions act on GitHub as you
 
-By default, a session reaches GitHub through the Chainguard App with access to specific repositories. If your organization turns on the `user_github` policy, sessions in the organization act on GitHub as their owner instead, through the Chainguard App:
+By default, a session reaches GitHub through the Chainguard App with access to specific repositories. If you connect your GitHub account, the sessions you create afterward act on GitHub as you instead, through the Chainguard App, unless your organization's `user_github` policy bans it:
 
 - `git` fetch and push work for any repository you can access where the app is installed.
 - The `gh` CLI and the GitHub API work, within the app's permissions and your own access.
 - Check runs and commit statuses are read-only, and a person must approve and merge pull requests.
 
-To turn on the policy for an organization, run the following command with the permissions described in the previous section:
-
-```shell
-chainctl develop policy set --user-github=true --parent $ORGANIZATION
-```
-
-Next, connect your GitHub account once. `chainctl` opens your browser so you can authorize the connection:
+Your organization's policy allows this by default, so an organization owner doesn't need to turn anything on. To have the sessions you create act on GitHub as you, connect your GitHub account once. `chainctl` opens your browser so you can authorize the connection:
 
 ```shell
 chainctl develop github login
 ```
 
-The connection serves your sessions in every organization whose policy turns it on, and renews itself until you disconnect it. No GitHub token is written to your laptop. When the policy is on and you haven't connected an account, `chainctl develop` offers to connect it, and refuses to create a session until you do. To check the connection, run `chainctl develop github status`. To disconnect, run `chainctl develop github logout`.
+The connection applies to the sessions you create in every organization that doesn't ban it, and renews itself until you disconnect it. No GitHub token is written to your laptop. If your organization allows it and you haven't connected an account, or your connection expired or was revoked, `chainctl develop` prints a one-line reminder when it creates a session, and creates the session anyway. To check the connection, and whether your organization allows it, run `chainctl develop github status`. To disconnect, run `chainctl develop github logout`.
+
+Each session keeps the GitHub identity it was created with, so connecting your account doesn't change the sessions you already have. After you disconnect, a session that acts as you refuses `git` and `gh` requests until you connect again, and `chainctl` offers to connect your account when you attach to it.
+
+To ban sessions in an organization from acting as their owner, run the following command with the permissions described in the previous section:
+
+```shell
+chainctl develop policy set --user-github=false --parent $ORGANIZATION
+```
+
+New sessions in the organization then reach GitHub through their `github` source, as sessions do by default. Sessions that already act as their owner refuse GitHub requests while the ban is on. To lift the ban, set `--user-github=true`. Sessions created during the ban keep reaching GitHub through their `github` source after you lift it.

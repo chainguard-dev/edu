@@ -28,6 +28,16 @@ If `chainctl` reports that `develop` is an unknown command, or doesn't recognize
 
 After a trial starts, Chainguard takes about an hour to finish setting up a new organization. Until then, `chainctl develop` refuses to create sessions in it. Wait, then try again.
 
+## Your organization hasn't accepted the terms
+
+If `chainctl develop` fails with a `FailedPrecondition` error that says your organization hasn't accepted the terms Chainguard Workspaces is offered under, Chainguard refuses to create sessions in the organization until an organization owner accepts them. The error names the terms. Have an organization owner run the following command, replacing `$ORGANIZATION` with the name of your Chainguard organization:
+
+```shell
+chainctl develop accept-terms --parent $ORGANIZATION
+```
+
+The acceptance can take up to 30 seconds to take effect, so wait briefly before you try again. Sessions that are already running or parked keep working.
+
 ## A session won't open on a directory
 
 If `chainctl develop` refuses to open a directory, the error says why. The following sections describe the most common causes.
